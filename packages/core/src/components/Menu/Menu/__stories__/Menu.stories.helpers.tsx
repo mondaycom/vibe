@@ -26,7 +26,7 @@ export const ComponentRuleSimpleActions = () => (
 
 export const ComponentRuleWithSearch = () => (
   <DialogContentContainer>
-    <Search size={Search.sizes.SMALL} wrapperClassName={styles["component-rule-search"]} />
+    <Search size={Search.sizes.SMALL} className={styles["component-rule-search"]} />
     <Menu>
       <MenuItem title="Item 1" icon={Calendar} />
       <MenuItem title="Item 2" icon={Wand} />

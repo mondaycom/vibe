@@ -3,12 +3,14 @@ import Search from "../Search";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
-import "./Search.stories.scss";
+import Flex from "../../Flex/Flex";
+import { Decorator, StoryObj } from "@storybook/react";
+import IconButton from "../../IconButton/IconButton";
+import FilterIcon from "../../Icon/Icons/components/Filter";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,
-  enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["secondaryIconName", "iconName"]
+  iconPropNamesArray: ["searchIconName", "clearIconName"]
 });
 
 const searchTemplate = createComponentTemplate(Search);
@@ -20,64 +22,85 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const Overview = {
+type Story = StoryObj<typeof Search>;
+
+const withFixedWidth: Decorator = Story => (
+  <div style={{ width: 320 }}>
+    <Story />
+  </div>
+);
+
+export const Overview: Story = {
   render: searchTemplate.bind({}),
   name: "Overview",
 
-  args: {
-    placeholder: "Placeholder text here",
-    wrapperClassName: "monday-storybook-search_size"
-  }
+  args: { placeholder: "Placeholder text here" },
+  decorators: [withFixedWidth]
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
-    <div className="monday-storybook-search_box">
-      <Search placeholder="Small" size={Search.sizes.SMALL} />
-      <Search placeholder="Medium" />
-      <Search placeholder="Large" size={Search.sizes.LARGE} />
-    </div>
+    <>
+      <Search placeholder="Small" size="small" />
+      <Search placeholder="Medium" size="medium" />
+      <Search placeholder="Large" size="large" />
+    </>
   ),
 
-  name: "Sizes"
+  decorators: [
+    Story => (
+      <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
+        <Story />
+      </Flex>
+    ),
+    withFixedWidth
+  ]
 };
 
-export const FilterInCombobox = {
-  render: () => {
-    const option = [
-      {
-        id: "1",
-        label: "Cheese Cake"
-      },
-      {
-        id: "2",
-        label: "Muffin"
-      },
-      {
-        id: "3",
-        label: "Cookie"
-      },
-      {
-        id: "4",
-        label: "Cup cake"
-      },
-      {
-        id: "5",
-        label: "Banana lottie"
-      }
-    ];
+export const WithAdditionalAction: Story = {
+  render: () => (
+    <Search
+      placeholder="Search with icon"
+      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size={IconButton.sizes.SMALL} />}
+    />
+  ),
 
-    return (
-      <DialogContentContainer className="monday-storybook-search_wrapper">
-        <Combobox
-          placeholder="Placeholder text here"
-          options={option}
-          size={Combobox.sizes.SMALL}
-          optionLineHeight={28}
-        />
-      </DialogContentContainer>
-    );
+  decorators: [withFixedWidth]
+};
+
+const options = [
+  {
+    id: "1",
+    label: "Cheese Cake"
   },
+  {
+    id: "2",
+    label: "Muffin"
+  },
+  {
+    id: "3",
+    label: "Cookie"
+  },
+  {
+    id: "4",
+    label: "Cup cake"
+  },
+  {
+    id: "5",
+    label: "Banana lottie"
+  }
+];
 
-  name: "Filter in combobox"
+export const FilterInCombobox: Story = {
+  render: () => (
+    <Combobox placeholder="Placeholder text here" options={options} size={Combobox.sizes.SMALL} optionLineHeight={28} />
+  ),
+  decorators: [
+    Story => (
+      <DialogContentContainer>
+        <Story />
+      </DialogContentContainer>
+    ),
+    withFixedWidth
+  ]
 };

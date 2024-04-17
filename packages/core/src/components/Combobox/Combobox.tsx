@@ -6,7 +6,7 @@ import { isFunction, noop as NOOP } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
-import Search from "../Search/Search";
+import LegacySearch from "../LegacySearch/LegacySearch";
 import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
 import Text from "../Text/Text";
@@ -283,7 +283,7 @@ const Combobox: React.FC<ComboboxProps> & {
         ellipsis={false}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
-          <Search
+          <LegacySearch
             ref={inputRef}
             value={filterValue}
             wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}

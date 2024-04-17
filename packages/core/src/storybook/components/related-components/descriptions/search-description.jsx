@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import Search from "../../../../components/Search/Search";
+import LegacySearch from "../../../../components/LegacySearch/LegacySearch";
 
 export const SearchDescription = () => {
   const component = useMemo(() => {
@@ -9,7 +9,7 @@ export const SearchDescription = () => {
     };
     return (
       <div style={style}>
-        <Search placeholder="Placeholder text here" size={Search.sizes.LARGE} />
+        <LegacySearch placeholder="Placeholder text here" size={LegacySearch.sizes.LARGE} />
       </div>
     );
   }, []);

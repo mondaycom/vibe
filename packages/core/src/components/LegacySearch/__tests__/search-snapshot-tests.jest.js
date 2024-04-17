@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Search from "../Search";
+import Search from "../LegacySearch";
 
 describe("Search renders correctly", () => {
   it("without props", () => {

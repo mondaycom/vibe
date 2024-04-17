@@ -1,34 +1,24 @@
-.searchWrapper input[type="search"] {
-  -webkit-appearance: textfield;
-}
+.searchWrapper {
+  .search {
+    appearance: textfield;
 
-.searchWrapper input[type="search"]::-webkit-search-decoration,
-.searchWrapper input[type="search"]::-webkit-search-cancel-button,
-.searchWrapper input[type="search"]::-webkit-search-results-button,
-.searchWrapper input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-}
-
-.searchWrapper:focus-within .searchFocusElementFirst {
-  animation: dashForward 5s linear forwards;
-}
-
-.searchWrapper:focus-within .searchFocusElementSecond {
-  animation: dashBackwards 5s linear forwards;
-}
-
-.search.round {
-  border-radius: 50px !important;
-}
-
-@keyframes dashForward {
-  to {
-    stroke-dashoffset: 0;
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button {
+      appearance: none;
+    }
   }
-}
 
-@keyframes dashBackwards {
-  to {
-    stroke-dashoffset: 2000;
+  .loader {
+    margin-right: var(--spacing-xs);
+  }
+
+  .icon {
+    opacity: 1;
+    color: inherit;
+    transition: opacity var(--motion-productive-short);
+
+    &.empty {
+      opacity: 0;
+    }
   }
 }

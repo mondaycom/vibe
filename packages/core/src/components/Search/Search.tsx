@@ -1,124 +1,125 @@
 import cx from "classnames";
-import React, { forwardRef } from "react";
-import TextField from "../TextField/TextField";
+import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { SearchDefaultIconNames, SearchType } from "./SearchConstants";
-import CloseIcon from "../Icon/Icons/components/CloseSmall";
+import CloseSmallIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
-import { NOOP } from "../../utils/function-utils";
-import { SubIcon, VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
-import { TextFieldTextType } from "../TextField/TextFieldConstants";
-import { BASE_SIZES } from "../../constants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
+import BaseInput from "../BaseInput/BaseInput";
+import useDebounceEvent from "../../hooks/useDebounceEvent";
+import IconButton from "../IconButton/IconButton";
+import Icon from "../Icon/Icon";
+import { SearchProps } from "./Search.types";
+import Loader from "../Loader/Loader";
 
-export interface SearchProps extends VibeComponentProps {
-  secondaryIconName?: SubIcon;
-  iconName?: SubIcon;
-  onChange?: (value: string) => void;
-  autoFocus?: boolean;
-  value?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  debounceRate?: number;
-  onBlur?: (event: React.FocusEvent) => void;
-  onFocus?: (event: React.FocusEvent) => void;
-  wrapperClassName?: string;
-  setRef?: () => void;
-  autoComplete?: string;
-  /* BASE_SIZES is exposed on the component itself */
-  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
-  /* TYPES is exposed on the component itself */
-  type?: SearchType;
-  validation?:
-    | {
-        status: "error" | "success";
-        text: string;
-      }
-    | { text: string };
-  inputAriaLabel?: string;
-  searchResultsContainerId?: string;
-  activeDescendant?: string;
-  /*  Icon names labels for a11y */
-  iconNames?: {
-    layout: string;
-    primary: string;
-    secondary: string;
-  };
-  /** shows loading animation */
-  loading?: boolean;
-}
-
-const Search: VibeComponent<SearchProps, unknown> & {
-  sizes?: typeof BASE_SIZES;
-  types?: typeof SearchType;
-} = forwardRef<unknown, SearchProps>(
+const Search = forwardRef(
   (
     {
-      secondaryIconName = CloseIcon,
-      iconName = SearchIcon,
-      onChange = NOOP,
-      autoFocus = false,
-      value = "",
-      placeholder = "",
-      disabled = false,
-      debounceRate = 200,
-      onBlur = NOOP,
-      onFocus = NOOP,
-      wrapperClassName = "",
-      setRef = NOOP,
+      searchIconName = SearchIcon,
+      clearIconName = CloseSmallIcon,
+      clearIconLabel = "Clear",
+      renderAction: RenderAction,
+      value,
+      placeholder,
+      size = "medium",
+      disabled,
+      loading,
+      autoFocus,
       autoComplete = "off",
-      size = BASE_SIZES.MEDIUM,
-      type = SearchType.SQUARE,
-      className,
-      id = "search",
-      validation = null,
       inputAriaLabel,
-      searchResultsContainerId = "",
-      activeDescendant = "",
-      iconNames = SearchDefaultIconNames,
-      loading = false,
+      debounceRate = 400,
+      searchResultsContainerId,
+      currentAriaResultId,
+      onChange,
+      onFocus,
+      onBlur,
+      className,
+      id,
       "data-testid": dataTestId
-    },
-    ref
+    }: SearchProps,
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
-    const mergedRef = useMergeRef(ref, setRef);
+    const inputRef = useRef(null);
+    const mergedRef = useMergeRef(ref, inputRef);
+
+    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
+      delay: debounceRate,
+      onChange,
+      initialStateValue: value
+    });
+
+    const onClearButtonClick = useCallback(() => {
+      if (disabled) {
+        return;
+      }
+
+      inputRef.current?.focus?.();
+      clearValue();
+    }, [disabled, clearValue]);
+
+    const SearchIcon = (
+      <Icon
+        icon={searchIconName}
+        className={styles.icon}
+        clickable={false}
+        iconType={Icon.type.ICON_FONT}
+        iconSize={size === "small" ? "16px" : "20px"}
+      />
+    );
+
+    const ClearIcon = (
+      <IconButton
+        className={cx(styles.icon, { [styles.empty]: !inputValue })}
+        icon={clearIconName}
+        ariaLabel={clearIconLabel}
+        onClick={onClearButtonClick}
+        size={size === "small" ? IconButton.sizes.XS : IconButton.sizes.SMALL}
+        data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
+      />
+    );
+
+    const RenderRight = (
+      <>
+        {loading && (
+          <Loader
+            size={size === "small" ? Loader.sizes.XS : 20}
+            color={Loader.colors.SECONDARY}
+            wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
+          />
+        )}
+        {inputValue && !disabled && ClearIcon}
+        {RenderAction}
+      </>
+    );
+
     return (
-      <TextField
+      <BaseInput
+        ref={mergedRef}
         id={id}
+        type={"search"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
-        iconName={iconName}
-        value={value}
-        onChange={onChange}
+        className={cx(styles.searchWrapper, className)}
+        inputClassName={styles.search}
+        value={inputValue}
+        renderLeft={SearchIcon}
+        renderRight={RenderRight}
         autoFocus={autoFocus}
         placeholder={placeholder}
         disabled={disabled}
-        debounceRate={debounceRate}
-        className={cx(className, styles.search, { [styles.round]: type === SearchType.ROUND })}
-        secondaryIconName={secondaryIconName}
-        secondaryDataTestId={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
-        wrapperClassName={cx(wrapperClassName, styles.searchWrapper)}
+        onChange={onEventChanged}
         onBlur={onBlur}
         onFocus={onFocus}
-        ref={mergedRef}
         autoComplete={autoComplete}
         size={size}
-        clearOnIconClick
-        validation={validation}
-        inputAriaLabel={inputAriaLabel}
-        searchResultsContainerId={searchResultsContainerId}
-        activeDescendant={activeDescendant}
-        iconsNames={iconNames}
-        type={TextFieldTextType.SEARCH}
-        role="search"
-        loading={loading}
-        underline={type === SearchType.UNDERLINE}
+        wrapperRole="search"
+        inputRole={searchResultsContainerId ? "combobox" : undefined}
+        aria-label={inputAriaLabel}
+        aria-busy={loading}
+        aria-owns={searchResultsContainerId}
+        aria-activedescendant={currentAriaResultId}
       />
     );
   }
 );
 
-export default withStaticProps(Search, {
-  sizes: BASE_SIZES,
-  types: SearchType
-});
+export default Search;

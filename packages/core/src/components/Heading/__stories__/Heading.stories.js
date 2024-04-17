@@ -6,7 +6,7 @@ import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID } from "../__tes
 import { headingOverflowSuite } from "../__tests__/Heading.interactions";
 import Divider from "../../Divider/Divider";
 import Text from "../../Text/Text";
-import Search from "../../Search/Search";
+import LegacySearch from "../../LegacySearch/LegacySearch";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "../../Icon/Icons";
@@ -156,7 +156,7 @@ export const BuiltInPageHeaderNotEditable = {
       </Heading>
       <Divider className={styles.pageDivider} />
       <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
-        <Search wrapperClassName={styles.pageHeaderSearch} placeholder="Search" />
+        <LegacySearch wrapperClassName={styles.pageHeaderSearch} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
           Customize

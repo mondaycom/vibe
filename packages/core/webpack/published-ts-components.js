@@ -50,8 +50,8 @@ const publishedTSComponents = {
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",
   SplitButtonMenu: "components/SplitButton/SplitButtonMenu/SplitButtonMenu",
-  SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
-  Search: "components/Search/Search",
+  SearchComponent: "components/LegacySearch/LegacySearch", // TODO: remove when bumping to version 1.0.0
+  Search: "components/LegacySearch/LegacySearch",
   Skeleton: "components/Skeleton/Skeleton",
   Steps: "components/Steps/Steps",
   DatePicker: "components/DatePicker/DatePicker",

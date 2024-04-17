@@ -22,9 +22,9 @@ describe("BaseInput", () => {
     });
 
     it("should show left and right elements when provided", () => {
-      const leftRender = <div>Left</div>;
-      const rightRender = <div>Right</div>;
-      const { getByText } = renderBaseInput({ leftRender, rightRender });
+      const renderLeft = <div>Left</div>;
+      const renderRight = <div>Right</div>;
+      const { getByText } = renderBaseInput({ renderLeft, renderRight });
 
       expect(getByText("Left")).toBeInTheDocument();
       expect(getByText("Right")).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe("BaseInput", () => {
     });
 
     it("should apply the className for input and wrapperClassName for wrapper", () => {
-      const { getByLabelText } = renderBaseInput({ className: "inputClass", wrapperClassName: "customWrapper" });
+      const { getByLabelText } = renderBaseInput({ className: "customWrapper", inputClassName: "inputClass" });
       expect(getByLabelText("base-input")).toHaveClass("inputClass");
       expect(getByLabelText("base-input").parentNode).toHaveClass("customWrapper");
     });

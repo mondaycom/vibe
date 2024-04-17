@@ -4,7 +4,7 @@ import Chips from "../Chips";
 import Text from "../../Text/Text";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import Search from "../../Search/Search";
+import LegacySearch from "../../LegacySearch/LegacySearch";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Email } from "../../Icon/Icons";
@@ -187,7 +187,7 @@ export const ColorfulChipsForDifferentContent = {
       <div className={styles.item}>
         <Chips label="January" color={Chips.colors.POSITIVE} />
       </div>
-      <Search />
+      <LegacySearch />
       <div className={styles.item}>
         <Chips label="August" readOnly color={Chips.colors.LIPSTICK} />
       </div>
@@ -206,7 +206,7 @@ export const ColorfulChipsForDifferentContent = {
 export const ChipsInAPersonPickerComboBox = {
   render: () => (
     <DialogContentContainer className={styles.searchBar}>
-      <Search placeholder="Search names, positions, or a team" />
+      <LegacySearch placeholder="Search names, positions, or a team" />
       <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER}>
         <Chips label="Esther Schanler" leftAvatar={person1} />
         <Chips label="Rotem Dekel" leftAvatar={rotem} />
