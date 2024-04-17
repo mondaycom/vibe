@@ -56,7 +56,6 @@ export const SizesAndWeights = {
           This is text1 normal
         </Text>
       </Flex>
-      {/* todo - add spaces and dos and donts */}
       <Flex
         gap={Flex.gaps.SMALL}
         direction={Flex.directions.COLUMN}
