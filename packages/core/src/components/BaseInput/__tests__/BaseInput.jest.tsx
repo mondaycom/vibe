@@ -68,18 +68,20 @@ describe("BaseInput", () => {
 
   describe("interactions", () => {
     it("should capture user input correctly", () => {
+      const expectedValue = "Hello, World!";
       const { getByLabelText } = renderBaseInput();
       const input = getByLabelText("base-input");
-      userEvent.type(input, "Hello, World!");
-      expect(input).toHaveValue("Hello, World!");
+      userEvent.type(input, expectedValue);
+      expect(input).toHaveValue(expectedValue);
     });
 
     it("should call onChange on every input", () => {
+      const expectedValue = "Hello, World!";
       const onChange = jest.fn();
       const { getByLabelText } = renderBaseInput({ onChange });
       const input = getByLabelText("base-input");
-      userEvent.type(input, "Hello, World!");
-      expect(onChange).toHaveBeenCalledTimes("Hello, World!".length);
+      userEvent.type(input, expectedValue);
+      expect(onChange).toHaveBeenCalledTimes(expectedValue.length);
     });
 
     it("should handle focus and blur events", () => {
