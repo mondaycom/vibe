@@ -1,0 +1,169 @@
+@import "../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--spacing-small);
+  padding-block: var(--spacing-xs);
+  padding-inline: var(--spacing-medium) var(--spacing-xs);
+
+  @include vibe-text(text1, normal);
+  @include smoothing-text;
+
+  outline: none;
+  border: 1px solid var(--ui-border-color);
+  border-radius: var(--border-radius-small);
+  color: var(--primary-text-color);
+  background-color: var(--secondary-background-color);
+  transition: border-color var(--motion-productive-medium) ease-in;
+
+  &.small {
+    height: 32px;
+    @include vibe-text(text2, normal);
+  }
+
+  &.medium {
+    height: 40px;
+  }
+
+  &.large {
+    height: 48px;
+    padding-block: var(--spacing-small);
+  }
+
+  &.rightThinnerPadding {
+    padding-inline-end: var(--spacing-medium);
+  }
+
+  &:hover {
+    border-color: var(--primary-text-color);
+  }
+
+  @supports selector(:has(*)) {
+    &:has(.input:active, .input:focus) {
+      border-color: var(--primary-color);
+    }
+
+    &:has(.input:read-only) {
+      background-color: var(--allgrey-background-color);
+      border: none;
+
+      .input {
+        background-color: var(--allgrey-background-color);
+      }
+    }
+
+    &:has(.input:disabled) {
+      cursor: not-allowed;
+      user-select: none;
+      border: none;
+      pointer-events: none;
+      background-color: var(--disabled-background-color);
+
+      .input {
+        background-color: var(--disabled-background-color);
+      }
+    }
+
+    &.success {
+      border-color: var(--positive-color);
+
+      &:hover {
+        border-color: var(--positive-color);
+      }
+
+      &:has(.input:active, .input:focus) {
+        border-color: var(--positive-color);
+      }
+    }
+
+    &:has(.input[aria-invalid="true"]) {
+      border-color: var(--negative-color);
+
+      &:hover {
+        border-color: var(--negative-color);
+      }
+
+      &:has(.input:active, .input:focus) {
+        border-color: var(--negative-color);
+      }
+    }
+  }
+
+  @supports not selector(:has(*)) {
+    &:focus-within {
+      border-color: var(--primary-color);
+    }
+
+    &.readOnly {
+      background-color: var(--allgrey-background-color);
+      border: none;
+
+      .input {
+        background-color: var(--allgrey-background-color);
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      user-select: none;
+      border: none;
+      pointer-events: none;
+      background-color: var(--disabled-background-color);
+
+      .input {
+        background-color: var(--disabled-background-color);
+      }
+    }
+
+    &.success {
+      border-color: var(--positive-color);
+
+      &:hover {
+        border-color: var(--positive-color);
+      }
+
+      &:focus-within {
+        border-color: var(--positive-color);
+      }
+    }
+
+    &.error {
+      border-color: var(--negative-color);
+
+      &:hover {
+        border-color: var(--negative-color);
+      }
+
+      &:focus-within {
+        border-color: var(--negative-color);
+      }
+    }
+  }
+
+  .input {
+    all: unset;
+
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: var(--secondary-text-color);
+      font-weight: 400;
+    }
+
+    &:disabled::placeholder {
+      color: var(--disabled-text-color);
+    }
+  }
+}
