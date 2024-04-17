@@ -3,6 +3,8 @@ import { Tip } from "vibe-storybook-components";
 import Text from "../Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
+import Icon from "../../Icon/Icon";
+import { Link } from "../../Icon/Icons";
 import {
   EDITABLE_HEADING,
   HEADING,
@@ -10,6 +12,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipHeading, TipLink } from "./Text.stories.helpers";
 import * as TextStories from "./Text.stories";
+import styles from "./Text.stories.module.scss";
 
 <Meta of={TextStories} />
 
@@ -38,12 +41,17 @@ The text component serves as a wrapper for applying typography styles to the tex
 ## Usage
 
 <UsageGuidelines guidelines={["Use it to display text formed from a single sentence, or multiple sentences."]} />
+<UsageGuidelines
+  guidelines={[
+    "Use Text3 for short caption text, label or as explanation text in menus. In any other case, use Text1 or Text 2."
+  ]}
+/>
 
 ## Variants
 
 ### Sizes and weights
 
-Text component comes in two sizes: text1 (16px) and text2 (14px), and in three weights: bold (700), medium (600) and normal (400)
+Text component comes in three sizes: text1 (16px), text2 (14px), text3 (12px) , and in three weights: bold (700), medium (600) and normal (400)
 
 <Canvas of={TextStories.SizesAndWeights} />
 
@@ -136,6 +144,70 @@ A Text component with a link skin can be used to create a link within running te
           </Text>
         ),
         description: "Don't use ellipsis without providing a way for the user to read the full text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Flex
+            direction={Flex.directions.COLUMN}
+            align={Flex.align.START}
+            gap={Flex.gaps.XS}
+            className={styles.textBoxContainer}
+          >
+            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+              <Icon icon={Link} />
+              <Text color="secondary" maxLines={3} type={Text.types.TEXT3}>
+                Section title in text3
+              </Text>
+            </Flex>
+            <Text className={styles.textBoxContent} maxLines={3} type={Text.types.TEXT1}>
+              Short info explanation about the feature will come here.
+            </Text>
+          </Flex>
+        ),
+        description: "Use text3 for section titles, short captions, and labels."
+      },
+      negative: {
+        component: (
+          <Text maxLines={5} type={Text.types.TEXT3} style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use text3 as body text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Flex
+            direction={Flex.directions.COLUMN}
+            align={Flex.align.START}
+            gap={Flex.gaps.XS}
+            className={styles.textBoxContainer}
+          >
+            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+              <Icon icon={Link} />
+              <Text color="secondary" maxLines={3} type={Text.types.TEXT3}>
+                Section title in text3
+              </Text>
+            </Flex>
+            <Text className={styles.textBoxContent} maxLines={3} type={Text.types.TEXT1}>
+              Short info explanation about the feature will come here.
+            </Text>
+          </Flex>
+        ),
+        description: "Use only normal and medium weights for text3."
+      },
+      negative: {
+        component: (
+          <Text maxLines={5} weight={Text.weights.BOLD} type={Text.types.TEXT3} style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use bold weight for text3, to ensure optimal readability."
       }
     }
   ]}

@@ -35,29 +35,56 @@ export const Overview = {
 export const SizesAndWeights = {
   render: () => (
     <Flex
-      gap={Flex.gaps.SMALL}
+      gap={Flex.gaps.LARGE}
       direction={Flex.directions.COLUMN}
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
-        This is text1 bold
-      </Text>
-      <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
-        This is text1 medium
-      </Text>
-      <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
-        This is text1 normal
-      </Text>
-      <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
-        This is text2 bold
-      </Text>
-      <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
-        This is text2 medium
-      </Text>
-      <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
-        This is text2 normal
-      </Text>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+          This is text1 bold
+        </Text>
+        <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
+          This is text1 medium
+        </Text>
+        <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+          This is text1 normal
+        </Text>
+      </Flex>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
+          This is text2 bold
+        </Text>
+        <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
+          This is text2 medium
+        </Text>
+        <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
+          This is text2 normal
+        </Text>
+      </Flex>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Text type={Text.types.TEXT3} weight={Text.weights.MEDIUM}>
+          This is text3 medium
+        </Text>
+        <Text type={Text.types.TEXT3} weight={Text.weights.NORMAL}>
+          This is text3 normal
+        </Text>
+      </Flex>
     </Flex>
   ),
 
