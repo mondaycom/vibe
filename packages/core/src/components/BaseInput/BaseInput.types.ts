@@ -11,7 +11,6 @@ export interface BaseInputProps extends BaseInputNativeInputProps, VibeComponent
   size?: InputSize;
   leftRender?: Renderer;
   rightRender?: Renderer;
-  withReadOnlyStyle?: boolean;
   success?: boolean;
   error?: boolean;
   wrapperRole?: AriaRole;

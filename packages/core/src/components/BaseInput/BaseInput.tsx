@@ -10,7 +10,6 @@ const BaseInput: BaseInputComponent = forwardRef(
       size = "medium",
       leftRender,
       rightRender,
-      withReadOnlyStyle,
       success,
       error,
       wrapperRole,
@@ -25,8 +24,10 @@ const BaseInput: BaseInputComponent = forwardRef(
       styles.wrapper,
       {
         [styles.rightThinnerPadding]: !rightRender,
-        [styles.withReadOnlyStyle]: withReadOnlyStyle,
-        [styles.success]: success
+        [styles.error]: error,
+        [styles.success]: success,
+        [styles.readOnly]: props.readOnly,
+        [styles.disabled]: props.disabled
       },
       getStyle(styles, size),
       wrapperClassName

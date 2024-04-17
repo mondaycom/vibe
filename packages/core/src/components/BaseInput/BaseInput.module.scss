@@ -43,49 +43,105 @@
     border-color: var(--primary-text-color);
   }
 
-  &:has(.input:active, .input:focus) {
-    border-color: var(--primary-color);
-  }
+  @supports selector(:has(*)) {
+    &:has(.input:active, .input:focus) {
+      border-color: var(--primary-color);
+    }
 
-  // TODO in next major remove withReadOnlyStyle, should only be determined by read-only existence on input
-  &:has(.input:read-only).withReadOnlyStyle {
-    background-color: var(--allgrey-background-color);
-    border: none;
-
-    .input {
+    &:has(.input:read-only) {
       background-color: var(--allgrey-background-color);
+      border: none;
+
+      .input {
+        background-color: var(--allgrey-background-color);
+      }
     }
-  }
 
-  &:has(.input:disabled) {
-    cursor: not-allowed;
-    user-select: none;
-    border: none;
-    pointer-events: none;
-    background-color: var(--disabled-background-color);
-  }
+    &:has(.input:disabled) {
+      cursor: not-allowed;
+      user-select: none;
+      border: none;
+      pointer-events: none;
+      background-color: var(--disabled-background-color);
 
-  &.success {
-    border-color: var(--positive-color);
+      .input {
+        background-color: var(--disabled-background-color);
+      }
+    }
 
-    &:hover {
+    &.success {
       border-color: var(--positive-color);
+
+      &:hover {
+        border-color: var(--positive-color);
+      }
+
+      &:has(.input:active, .input:focus) {
+        border-color: var(--positive-color);
+      }
     }
 
-    &:has(.input:active, .input:focus) {
-      border-color: var(--positive-color);
+    &:has(.input[aria-invalid="true"]) {
+      border-color: var(--negative-color);
+
+      &:hover {
+        border-color: var(--negative-color);
+      }
+
+      &:has(.input:active, .input:focus) {
+        border-color: var(--negative-color);
+      }
     }
   }
 
-  &:has(.input[aria-invalid="true"]) {
-    border-color: var(--negative-color);
-
-    &:hover {
-      border-color: var(--negative-color);
+  @supports not selector(:has(*)) {
+    &:focus-within {
+      border-color: var(--primary-color);
     }
 
-    &:has(.input:active, .input:focus) {
+    &.readOnly {
+      background-color: var(--allgrey-background-color);
+      border: none;
+
+      .input {
+        background-color: var(--allgrey-background-color);
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      user-select: none;
+      border: none;
+      pointer-events: none;
+      background-color: var(--disabled-background-color);
+
+      .input {
+        background-color: var(--disabled-background-color);
+      }
+    }
+
+    &.success {
+      border-color: var(--positive-color);
+
+      &:hover {
+        border-color: var(--positive-color);
+      }
+
+      &:focus-within {
+        border-color: var(--positive-color);
+      }
+    }
+
+    &.error {
       border-color: var(--negative-color);
+
+      &:hover {
+        border-color: var(--negative-color);
+      }
+
+      &:focus-within {
+        border-color: var(--negative-color);
+      }
     }
   }
 
