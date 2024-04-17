@@ -75,19 +75,13 @@ The search field can contain one more search-related action (like filtering). Th
 
 <Canvas of={SearchStories.WithAdditionalAction} />
 
-### With clear button
-
-Once the user starts typing, include a clear button that lets the user delete their current search quickly.
-
-<Canvas of={SearchStories.WithClearButton} />
-
 ## Do's and Don'ts
 
 <ComponentRules
   rules={[
     {
       positive: {
-        component: <Search value="User typing" wrapperClassName={styles.fixedWidth} />,
+        component: <Search value="User typing" className={styles.fixedWidth} />,
         description: "Keep the search icon on the left side of the input, and the clear button on the right side."
       },
       negative: {
@@ -96,7 +90,7 @@ Once the user starts typing, include a clear button that lets the user delete th
             value="User typing"
             searchIconName={CloseSmall}
             clearIconName={SearchIcon}
-            wrapperClassName={styles.fixedWidth}
+            className={styles.fixedWidth}
           />
         ),
         description: "Don't place the search icon on the right side of the input, or the clear button on the left side."
@@ -104,12 +98,12 @@ Once the user starts typing, include a clear button that lets the user delete th
     },
     {
       positive: {
-        component: <Search value="User typin" wrapperClassName={styles.fixedWidth} />,
+        component: <Search value="User typing" className={styles.fixedWidth} />,
         description:
           "Show clear button when the user starts typing, and keep it visible even after a search is performed."
       },
       negative: {
-        component: <Search value="User typing" clearIconName={null} wrapperClassName={styles.fixedWidth} />,
+        component: <Search value="User typing" clearIconName={null} className={styles.fixedWidth} />,
         description: "Don't remove the clear button after the user has performed the search."
       }
     }

@@ -9,16 +9,16 @@ import BaseInput from "../BaseInput/BaseInput";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
-import { SearchComponent } from "./Search.types";
+import { SearchProps } from "./Search.types";
 import Loader from "../Loader/Loader";
 
-const Search: SearchComponent = forwardRef(
+const Search = forwardRef(
   (
     {
       searchIconName = SearchIcon,
       clearIconName = CloseSmallIcon,
       clearIconLabel = "Clear",
-      additionalActionRender: AdditionalAction,
+      renderAction: RenderAction,
       value,
       placeholder,
       size = "medium",
@@ -29,19 +29,18 @@ const Search: SearchComponent = forwardRef(
       inputAriaLabel,
       debounceRate = 400,
       searchResultsContainerId,
-      activeDescendant,
+      currentAriaResultId,
       onChange,
       onFocus,
       onBlur,
-      wrapperClassName,
       className,
       id,
       "data-testid": dataTestId
-    },
-    ref
+    }: SearchProps,
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const mergedRef = useMergeRef<HTMLInputElement>(ref, inputRef);
+    const inputRef = useRef(null);
+    const mergedRef = useMergeRef(ref, inputRef);
 
     const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
       delay: debounceRate,
@@ -49,7 +48,7 @@ const Search: SearchComponent = forwardRef(
       initialStateValue: value
     });
 
-    const onClearIconClick = useCallback(() => {
+    const onClearButtonClick = useCallback(() => {
       if (disabled) {
         return;
       }
@@ -65,7 +64,6 @@ const Search: SearchComponent = forwardRef(
         clickable={false}
         iconType={Icon.type.ICON_FONT}
         iconSize={size === "small" ? "16px" : "20px"}
-        data-testid={getTestId(ComponentDefaultTestId.SEARCH_ICON, id)}
       />
     );
 
@@ -74,23 +72,23 @@ const Search: SearchComponent = forwardRef(
         className={cx(styles.icon, { [styles.empty]: !inputValue })}
         icon={clearIconName}
         ariaLabel={clearIconLabel}
-        onClick={onClearIconClick}
+        onClick={onClearButtonClick}
         size={size === "small" ? IconButton.sizes.XS : IconButton.sizes.SMALL}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
       />
     );
 
-    const RightRender = (
+    const RenderRight = (
       <>
         {loading && (
           <Loader
             size={size === "small" ? Loader.sizes.XS : 20}
             color={Loader.colors.SECONDARY}
-            wrapperClassName={cx({ [styles.loader]: !inputValue && !AdditionalAction })}
+            wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}
         {inputValue && !disabled && ClearIcon}
-        {AdditionalAction}
+        {RenderAction}
       </>
     );
 
@@ -100,11 +98,11 @@ const Search: SearchComponent = forwardRef(
         id={id}
         type={"search"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
-        className={cx(styles.search, className)}
-        wrapperClassName={cx(styles.searchWrapper, wrapperClassName)}
+        className={cx(styles.searchWrapper, className)}
+        inputClassName={styles.search}
         value={inputValue}
-        leftRender={SearchIcon}
-        rightRender={RightRender}
+        renderLeft={SearchIcon}
+        renderRight={RenderRight}
         autoFocus={autoFocus}
         placeholder={placeholder}
         disabled={disabled}
@@ -118,7 +116,7 @@ const Search: SearchComponent = forwardRef(
         aria-label={inputAriaLabel}
         aria-busy={loading}
         aria-owns={searchResultsContainerId}
-        aria-activedescendant={activeDescendant}
+        aria-activedescendant={currentAriaResultId}
       />
     );
   }

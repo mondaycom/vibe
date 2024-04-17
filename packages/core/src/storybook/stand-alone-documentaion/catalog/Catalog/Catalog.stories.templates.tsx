@@ -18,12 +18,7 @@ export const CatalogTemplate = () => {
 
   return (
     <div className={styles.container}>
-      <Search
-        placeholder="Search by component name..."
-        value={query}
-        onChange={setQuery}
-        wrapperClassName={styles.search}
-      />
+      <Search placeholder="Search by component name..." value={query} onChange={setQuery} className={styles.search} />
       <RelatedComponentsDecorator
         componentsNames={componentsToDisplay}
         linkTarget={RelatedComponents.linkTargets.PARENT}

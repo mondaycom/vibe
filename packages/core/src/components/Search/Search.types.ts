@@ -1,10 +1,8 @@
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import { ReactElement, FocusEvent, AriaAttributes } from "react";
+import React from "react";
+import { SubIcon, VibeComponentProps } from "../../types";
 import { InputSize } from "../BaseInput/BaseInput.types";
 import IconButton from "../IconButton/IconButton";
 import MenuButton from "../MenuButton/MenuButton";
-
-type AdditionalActionRender = ReactElement<typeof IconButton | typeof MenuButton>;
 
 export interface SearchProps extends VibeComponentProps {
   /**
@@ -22,7 +20,7 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * Render additional action within the right section of search component.
    */
-  additionalActionRender?: AdditionalActionRender;
+  renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
   /**
    * The value of the search input.
    */
@@ -54,7 +52,7 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * Aria-label for the search input, important for accessibility.
    */
-  inputAriaLabel?: AriaAttributes["aria-label"];
+  inputAriaLabel?: React.AriaAttributes["aria-label"];
   /**
    * Rate at which search input changes are debounced.
    */
@@ -66,7 +64,7 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * ARIA property that identifies the currently active item within the search results.
    */
-  activeDescendant?: AriaAttributes["aria-activedescendant"];
+  currentAriaResultId?: React.AriaAttributes["aria-activedescendant"];
   /**
    * Callback function that is called whenever the value of the search input changes.
    */
@@ -74,15 +72,9 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * Callback function that is called when the search input loses focus.
    */
-  onBlur?: (event: FocusEvent) => void;
+  onBlur?: (event: React.FocusEvent) => void;
   /**
    * Callback function that is called when the search input gains focus.
    */
-  onFocus?: (event: FocusEvent) => void;
-  /**
-   * Additional className to apply to the search component's wrapper element.
-   */
-  wrapperClassName?: string;
+  onFocus?: (event: React.FocusEvent) => void;
 }
-
-export type SearchComponent = VibeComponent<SearchProps, HTMLInputElement>;

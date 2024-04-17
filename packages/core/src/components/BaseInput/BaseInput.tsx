@@ -1,43 +1,49 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import styles from "./BaseInput.module.scss";
-import { BaseInputComponent } from "./BaseInput.types";
+import { BaseInputProps } from "./BaseInput.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
-const BaseInput: BaseInputComponent = forwardRef(
+const BaseInput = forwardRef(
   (
     {
       size = "medium",
-      leftRender,
-      rightRender,
+      renderLeft,
+      renderRight,
       success,
       error,
       wrapperRole,
       inputRole,
       className,
-      wrapperClassName,
+      inputClassName,
       ...props
-    },
-    ref
+    }: BaseInputProps,
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const wrapperClassNames = cx(
       styles.wrapper,
       {
-        [styles.rightThinnerPadding]: !rightRender,
+        [styles.rightThinnerPadding]: !renderRight,
         [styles.error]: error,
         [styles.success]: success,
         [styles.readOnly]: props.readOnly,
         [styles.disabled]: props.disabled
       },
       getStyle(styles, size),
-      wrapperClassName
+      className
     );
 
     return (
       <div className={wrapperClassNames} role={wrapperRole}>
-        {leftRender}
-        <input {...props} ref={ref} className={cx(styles.input, className)} aria-invalid={error} role={inputRole} />
-        {rightRender}
+        {renderLeft}
+        <input
+          {...props}
+          ref={ref}
+          className={cx(styles.input, inputClassName)}
+          aria-invalid={error}
+          role={inputRole}
+        />
+        {renderRight}
       </div>
     );
   }

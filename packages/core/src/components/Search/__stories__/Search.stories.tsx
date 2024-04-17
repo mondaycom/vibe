@@ -68,12 +68,6 @@ export const WithAdditionalAction: Story = {
   decorators: [withFixedWidth]
 };
 
-export const WithClearButton: Story = {
-  render: () => <Search placeholder="Placeholder text here" value="Typing" />,
-
-  decorators: [withFixedWidth]
-};
-
 const options = [
   {
     id: "1",

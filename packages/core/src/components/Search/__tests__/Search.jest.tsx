@@ -17,7 +17,7 @@ describe("Search", () => {
 
   it("should display the search icon by default", () => {
     const { getByTestId } = renderSearch();
-    expect(getByTestId("search-icon")).toBeInTheDocument();
+    expect(getByTestId("icon")).toBeInTheDocument();
   });
 
   it("should not display the clear icon when the input is empty", () => {
@@ -26,8 +26,8 @@ describe("Search", () => {
   });
 
   it("should display both the search icon and clear icon when input has value", async () => {
-    const { getByTestId } = renderSearch({ value: "Test" });
-    expect(getByTestId("search-icon")).toBeInTheDocument();
+    const { getByTestId, getAllByTestId } = renderSearch({ value: "Test" });
+    expect(getAllByTestId("icon")).toHaveLength(2);
     expect(getByTestId("clean-search-button")).toBeInTheDocument();
   });
 
@@ -46,11 +46,6 @@ describe("Search", () => {
   it("should display a loader when the loading prop is true", () => {
     const { getByTestId } = renderSearch({ loading: true });
     expect(getByTestId("loader")).toBeInTheDocument();
-  });
-
-  it("should apply the wrapperClassName to the wrapper element", () => {
-    const { container } = renderSearch({ wrapperClassName: "customWrapper" });
-    expect(container.firstChild).toHaveClass("customWrapper");
   });
 
   it("should trigger onChange with the correct value when typing without debounce", () => {
@@ -93,7 +88,7 @@ describe("Search", () => {
 
   it("should display additional action render if provided", () => {
     const AdditionalActionButton = <button type="button">Extra Action</button>;
-    const { getByText } = renderSearch({ additionalActionRender: AdditionalActionButton });
+    const { getByText } = renderSearch({ renderAction: AdditionalActionButton });
     expect(getByText("Extra Action")).toBeInTheDocument();
   });
 
@@ -114,7 +109,7 @@ describe("Search", () => {
     });
 
     it("should set aria-activedescendant when activeDescendant is provided", () => {
-      const { getByRole } = renderSearch({ activeDescendant: "option-1" });
+      const { getByRole } = renderSearch({ currentAriaResultId: "option-1" });
       expect(getByRole("searchbox")).toHaveAttribute("aria-activedescendant", "option-1");
     });
 
