@@ -27,7 +27,7 @@ const Search: SearchComponent = forwardRef(
       autoFocus,
       autoComplete = "off",
       inputAriaLabel,
-      debounceRate = 200,
+      debounceRate = 400,
       searchResultsContainerId,
       activeDescendant,
       onChange,
