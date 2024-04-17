@@ -72,6 +72,20 @@ export const Types = {
           className={styles.editableText}
         />
       </div>
+      <div className={styles.typeContainer}>
+        <EditableText
+          type={EditableText.types.TEXT3}
+          weight={EditableText.weights.NORMAL}
+          value="Text3 Normal"
+          className={styles.editableText}
+        />
+        <EditableText
+          type={EditableText.types.TEXT3}
+          weight={EditableText.weights.MEDIUM}
+          value="Text3 Medium"
+          className={styles.editableText}
+        />
+      </div>
     </div>
   ),
   name: "Types"

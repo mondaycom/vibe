@@ -1,5 +1,5 @@
 import { Decorator, Parameters as StorybookParameters } from "@storybook/react";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import * as VibeComponents from "../../../components";
@@ -21,31 +21,34 @@ type Parameters = StorybookParameters & {
   };
 };
 
-function getInitialCodeValue(code: string): string {
+function getInitialCodeValue(code: string, shouldPrintError: boolean): string {
   try {
     return formatCode(code);
   } catch (e) {
-    console.error(e);
+    if (shouldPrintError) {
+      console.error(e);
+    }
     return code;
   }
 }
 
 const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters) => {
   const scope = { ...globalScope, ...parameters.docs?.liveEdit?.scope };
-  const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled;
-
-  if (!shouldAllowLiveEdit) {
-    return <Story />;
-  }
+  const canvasEditorContainer = useMemo(() => document.getElementById(id), [id]);
+  const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled && !!canvasEditorContainer;
 
   const originalCode = useRef<string>(extractCodeFromSource(parameters.docs.source?.originalSource) || "");
-  const [code, setCode] = useState<string>(getInitialCodeValue(originalCode.current));
+  const [code, setCode] = useState<string>(getInitialCodeValue(originalCode.current, shouldAllowLiveEdit));
   const [dirty, setDirty] = useState<boolean>(false);
 
   const handleChange = (newVal: string) => {
     setCode(newVal);
     setDirty(true);
   };
+
+  if (!shouldAllowLiveEdit) {
+    return <Story />;
+  }
 
   return (
     <>
@@ -59,24 +62,23 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
       ) : (
         <Story />
       )}
-      {document.getElementById(id) &&
-        createPortal(
-          <LiveEditor
-            placeholder={"Insert code here"}
-            code={code}
-            theme={vscodeDark}
-            extensions={[langs.tsx()]}
-            style={{ fontSize: 13 }}
-            onChange={handleChange}
-            setup={{
-              lineNumbers: false,
-              foldGutter: false,
-              highlightActiveLine: false,
-              autocompletion: false
-            }}
-          />,
-          document.getElementById(id)
-        )}
+      {createPortal(
+        <LiveEditor
+          placeholder={"Insert code here"}
+          code={code}
+          theme={vscodeDark}
+          extensions={[langs.tsx()]}
+          style={{ fontSize: 13 }}
+          onChange={handleChange}
+          setup={{
+            lineNumbers: false,
+            foldGutter: false,
+            highlightActiveLine: false,
+            autocompletion: false
+          }}
+        />,
+        canvasEditorContainer
+      )}
     </>
   );
 };

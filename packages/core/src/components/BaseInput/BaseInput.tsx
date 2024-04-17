@@ -36,13 +36,7 @@ const BaseInput = forwardRef(
     return (
       <div className={wrapperClassNames} role={wrapperRole}>
         {renderLeft}
-        <input
-          {...props}
-          ref={ref}
-          className={cx(styles.input, inputClassName)}
-          aria-invalid={error}
-          role={inputRole}
-        />
+        <input {...props} ref={ref} className={cx(styles.input, inputClassName)} aria-invalid={error} role={inputRole} />
         {renderRight}
       </div>
     );
