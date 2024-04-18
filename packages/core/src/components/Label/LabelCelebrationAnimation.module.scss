@@ -48,7 +48,7 @@
     }
   }
 
-  [data-celebration-text] {
+  &.celebration [data-celebration-text] {
     background-size: 300% 100%;
     background-repeat: no-repeat;
     background-clip: text;
