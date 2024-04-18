@@ -1,5 +1,8 @@
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import { DialogContentContainer, Menu, MenuItem, Search } from "../../../index";
+import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
+import Menu from "../../../Menu/Menu/Menu";
+import MenuItem from "../../../Menu/MenuItem/MenuItem";
+import Search from "../../../Search/Search";
 import { Calendar, Filter, Wand } from "../../../Icon/Icons";
 import styles from "./Menu.stories.module.scss";
 import React from "react";
@@ -26,7 +29,7 @@ export const ComponentRuleSimpleActions = () => (
 
 export const ComponentRuleWithSearch = () => (
   <DialogContentContainer>
-    <Search size={Search.sizes.SMALL} className={styles["component-rule-search"]} />
+    <Search size="small" className={styles["component-rule-search"]} />
     <Menu>
       <MenuItem title="Item 1" icon={Calendar} />
       <MenuItem title="Item 2" icon={Wand} />

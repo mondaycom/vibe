@@ -6,7 +6,7 @@ import { isFunction, noop as NOOP } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
-import LegacySearch from "../LegacySearch/LegacySearch";
+import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
 import Text from "../Text/Text";
@@ -283,13 +283,12 @@ const Combobox: React.FC<ComboboxProps> & {
         ellipsis={false}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
-          <LegacySearch
+          <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
-            className={styles.comboboxSearch}
+            className={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             inputAriaLabel={searchInputAriaLabel}
-            activeDescendant={visualFocusItemId}
+            currentAriaResultId={visualFocusItemId}
             id="combobox-search"
             placeholder={placeholder}
             size={size}
@@ -297,7 +296,7 @@ const Combobox: React.FC<ComboboxProps> & {
             onChange={onChangeCallback}
             autoFocus={autoFocus}
             loading={loading}
-            iconName={searchIcon}
+            searchIconName={searchIcon}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
