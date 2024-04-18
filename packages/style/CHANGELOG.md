@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.4.2...monday-ui-style@0.5.0) (2024-04-18)
+
+
+### Features
+
+* **Text:** Add new 12px font size (Text3) ([#2072](https://github.com/mondaycom/monday-ui-react-core/issues/2072)) ([cd4af2f](https://github.com/mondaycom/monday-ui-react-core/commit/cd4af2fd3a3443197234a608e9b6460fce80b488))
+
+
+
+
+
 ## [0.4.2](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.4.1...monday-ui-style@0.4.2) (2024-04-15)
 
 **Note:** Version bump only for package monday-ui-style

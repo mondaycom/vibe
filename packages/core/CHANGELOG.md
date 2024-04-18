@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.104.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.103.1...monday-ui-react-core@2.104.0) (2024-04-18)
+
+
+### Bug Fixes
+
+* **ExpandCollapse:** remove no-longer-needed css scale workaround ([#2071](https://github.com/mondaycom/monday-ui-react-core/issues/2071)) ([f3a8144](https://github.com/mondaycom/monday-ui-react-core/commit/f3a8144dbb0ce6b1e836470e1283f92f1c8eb3c4))
+
+
+### Features
+
+* migrate usages of LegacySearch to new Search ([#2067](https://github.com/mondaycom/monday-ui-react-core/issues/2067)) ([3e8ac10](https://github.com/mondaycom/monday-ui-react-core/commit/3e8ac10c8183fc638d1159a986bb115c7f0deeb3))
+* **Search:** new Search component ([#2064](https://github.com/mondaycom/monday-ui-react-core/issues/2064)) ([489a374](https://github.com/mondaycom/monday-ui-react-core/commit/489a374f1ac5afaada75d6d514333c9e5846d52a))
+* **Text:** Add new 12px font size (Text3) ([#2072](https://github.com/mondaycom/monday-ui-react-core/issues/2072)) ([cd4af2f](https://github.com/mondaycom/monday-ui-react-core/commit/cd4af2fd3a3443197234a608e9b6460fce80b488))
+
+
+
+
+
 ## [2.103.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.103.0...monday-ui-react-core@2.103.1) (2024-04-15)
 
 
