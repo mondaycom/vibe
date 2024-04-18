@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
+    "url": "git+https://github.com/mondaycom/vibe.git"
   },
   "keywords": [
     "CSS",
@@ -38,9 +38,9 @@
     "stylelint-config/"
   ],
   "bugs": {
-    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
+    "url": "https://github.com/mondaycom/vibe/issues"
   },
-  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
+  "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "postcss": "8.4.31",
     "postcss-scss": "^4.0.9",

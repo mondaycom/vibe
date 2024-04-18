@@ -86,7 +86,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
+    "url": "git+https://github.com/mondaycom/vibe.git"
   },
   "author": "",
   "license": "MIT",
@@ -97,9 +97,9 @@
     "THEME_README.md"
   ],
   "bugs": {
-    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
+    "url": "https://github.com/mondaycom/vibe/issues"
   },
-  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
+  "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "a11y-dialog": "^7.5.2",

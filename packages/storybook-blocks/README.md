@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
 
-[monday.com](https://www.monday.com) Collection of Storybook components, with which [monday-ui-react-core](https://github.com/mondaycom/monday-ui-react-core) storybook is built - [style.monday.com](https://style.monday.com).
+[monday.com](https://www.monday.com) Collection of Storybook components, with which [Vibe](https://github.com/mondaycom/vibe) storybook is built - [style.monday.com](https://style.monday.com).
 
 ## Installation
 

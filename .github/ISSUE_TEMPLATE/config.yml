@@ -1,11 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Feature Request
-    url: https://github.com/mondaycom/monday-ui-react-core/discussions
+    url: https://github.com/mondaycom/vibe/discussions
     about: Suggest new features
   - name: Questions & Discussions
-    url: https://github.com/mondaycom/monday-ui-react-core/discussions
+    url: https://github.com/mondaycom/vibe/discussions
     about: Use GitHub discussions for questions and suggestions
-  - name: Storybook Docs
-    url: https://style.monday.com/
-    about: Check out our docs and examples in Storybook
