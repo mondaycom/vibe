@@ -14,7 +14,7 @@
 
   .icon {
     opacity: 1;
-    color: inherit;
+    color: var(--icon-color);
     transition: opacity var(--motion-productive-short);
 
     &.empty {
