@@ -20,13 +20,13 @@ async function getComponentElements(canvas) {
 
 async function onTypeFilterComboboxOptionsTest(canvas) {
   const { comboboxElement, searchElement } = await getComponentElements(canvas);
-  await typeText(searchElement, "jjj");
+  await typeText(searchElement, "jjj", 400);
   expect(queryByText(comboboxElement, "Option 1")).toBeNull();
 }
 
 async function onSelectExistFilterClearsFilterTest(canvas) {
   const { comboboxElement, searchElement } = await getComponentElements(canvas);
-  await typeText(searchElement, "jjj");
+  await typeText(searchElement, "jjj", 400);
   const cleanSearchButton = getByTestId(
     comboboxElement,
     getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, "combobox-search")
