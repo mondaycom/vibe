@@ -31,8 +31,16 @@
   background-color: var(--primary-selected-color);
 }
 
+.kindTertiary.colorPrimary.mainActive .mainButton:hover {
+  background-color: var(--primary-selected-hover-color);
+}
+
 .kindTertiary.colorPrimary.mainActive .secondaryButton {
   background-color: var(--primary-selected-color);
+}
+
+.kindTertiary.colorPrimary.mainActive .secondaryButton:hover {
+  background-color: var(--primary-selected-hover-color);
 }
 
 .kindTertiary.colorPrimary.mainActive.splitContentOpen.splitContentOpen .secondaryButton,
@@ -136,16 +144,23 @@
   background-color: var(--primary-selected-color);
 }
 
+.kindSecondary.colorPrimary.mainActive .mainButton:hover {
+  background-color: var(--primary-selected-hover-color);
+}
+
 .kindSecondary.colorPrimary.mainActive .secondaryButton {
   background-color: var(--primary-selected-color);
   border-color: var(--primary-color);
 }
 
-.kindSecondary.colorPrimary.splitContentOpen .secondaryButton,
-.kindSecondary.colorPrimary.splitContentOpen .secondaryButton:hover {
+.kindSecondary.colorPrimary.splitContentOpen .secondaryButton {
   color: var(--primary-color);
   border-color: var(--primary-color);
   background-color: var(--primary-selected-color);
+}
+
+.kindSecondary.colorPrimary.splitContentOpen .secondaryButton:hover {
+  background-color: var(--primary-selected-hover-color);
 }
 
 .kindSecondary.colorBrand.mainActive .mainButton {
