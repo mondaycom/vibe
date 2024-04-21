@@ -40,7 +40,7 @@
     "prettier:fix": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
     "test": "jest --passWithNoTests",
     "test:update": "yarn test -- -u",
-    "test:stories": "testing=storybook TEST_END_FILES=jest-story jest --passWithNoTests",
+    "test:stories": "testing=storybook TEST_END_FILES=test-story jest --passWithNoTests",
     "storybook": "storybook dev -p 7012",
     "build-storybook": "storybook build"
   },
