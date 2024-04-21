@@ -28,8 +28,6 @@ const menuButtonTemplate = createComponentTemplate(MenuButton);
 
 export const Overview: Story = {
   render: menuButtonTemplate.bind({}),
-  name: "Overview",
-
   args: {
     children: (
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -38,6 +36,13 @@ export const Overview: Story = {
         <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
       </Menu>
     )
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -81,8 +86,13 @@ export const Sizes: Story = {
       </MenuButton>
     </>
   ),
-
-  name: "Sizes"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
 export const DifferentIcon: Story = {
@@ -95,8 +105,13 @@ export const DifferentIcon: Story = {
       </Menu>
     </MenuButton>
   ),
-
-  name: "Different Icon"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, MoveArrowDown, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
 export const WithText: Story = {
@@ -115,8 +130,13 @@ export const WithText: Story = {
       </MenuButton>
     </div>
   ),
-
-  name: "With Text"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
 export const WithTextAndIconAtTheEnd: Story = {
@@ -135,8 +155,13 @@ export const WithTextAndIconAtTheEnd: Story = {
       </MenuButton>
     </div>
   ),
-
-  name: "With Text and Icon at the end"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, DropdownChevronDown, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
 export const Disabled: Story = {
@@ -149,8 +174,13 @@ export const Disabled: Story = {
       </Menu>
     </MenuButton>
   ),
-
-  name: "Disabled"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
 export const CustomTriggerElement: Story = {
@@ -173,6 +203,11 @@ export const CustomTriggerElement: Story = {
       </MenuButton>
     );
   },
-
-  name: "Custom Trigger Element"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
