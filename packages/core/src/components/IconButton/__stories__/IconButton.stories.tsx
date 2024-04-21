@@ -32,10 +32,16 @@ export default {
 
 export const Overview: Story = {
   render: iconButtonTemplate.bind({}),
-
   args: {
     ariaLabel: "Add",
     icon: Add
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -53,7 +59,14 @@ export const Kinds: Story = {
       <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton" />
       <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
     </div>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Bolt }
+      }
+    }
+  }
 };
 
 export const Sizes: Story = {
@@ -102,7 +115,14 @@ export const Sizes: Story = {
         ariaLabel="My large IconButton"
       />
     </div>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Robot }
+      }
+    }
+  }
 };
 
 export const Active: Story = {
@@ -119,7 +139,14 @@ export const Active: Story = {
       <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active />
       <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
     </div>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Doc }
+      }
+    }
+  }
 };
 
 export const Disabled: Story = {
@@ -154,7 +181,14 @@ export const Disabled: Story = {
         disabledReason="This function is not available"
       />
     </div>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Doc }
+      }
+    }
+  }
 };
 
 export const IconButtonAsToolbarButton: Story = {
@@ -174,7 +208,14 @@ export const IconButtonAsToolbarButton: Story = {
       </Flex>
       <div className={styles.dashboardContent} />
     </Flex>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, Drag, Filter }
+      }
+    }
+  }
 };
 
 export const IconButtonAsCloseButton: Story = {
@@ -237,5 +278,12 @@ export const IconButtonAsCloseButton: Story = {
       </Flex>
       <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, person1, Item, Time, CloseSmall }
+      }
+    }
+  }
 };
