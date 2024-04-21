@@ -6,6 +6,9 @@ import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 import React, { useRef } from "react";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof MenuButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
@@ -19,11 +22,11 @@ export default {
   component: MenuButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof MenuButton>;
 
 const menuButtonTemplate = createComponentTemplate(MenuButton);
 
-export const Overview = {
+export const Overview: Story = {
   render: menuButtonTemplate.bind({}),
   name: "Overview",
 
@@ -38,7 +41,7 @@ export const Overview = {
   }
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <>
       <MenuButton size={MenuButton.sizes.XXS}>
@@ -82,7 +85,7 @@ export const Sizes = {
   name: "Sizes"
 };
 
-export const DifferentIcon = {
+export const DifferentIcon: Story = {
   render: () => (
     <MenuButton component={MoveArrowDown}>
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -96,7 +99,7 @@ export const DifferentIcon = {
   name: "Different Icon"
 };
 
-export const WithText = {
+export const WithText: Story = {
   render: () => (
     <div
       style={{
@@ -116,7 +119,7 @@ export const WithText = {
   name: "With Text"
 };
 
-export const WithTextAndIconAtTheEnd = {
+export const WithTextAndIconAtTheEnd: Story = {
   render: () => (
     <div
       style={{
@@ -136,7 +139,7 @@ export const WithTextAndIconAtTheEnd = {
   name: "With Text and Icon at the end"
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <MenuButton disabled tooltipContent="This action is not available now">
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -150,7 +153,7 @@ export const Disabled = {
   name: "Disabled"
 };
 
-export const CustomTriggerElement = {
+export const CustomTriggerElement: Story = {
   render: () => {
     const ref = useRef(null);
 
