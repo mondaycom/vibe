@@ -61,5 +61,12 @@ export const SingleCheckbox: Story = {
         </>
       }
     />
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
