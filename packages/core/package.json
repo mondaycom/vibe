@@ -60,6 +60,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:stories": "testing=storybook TEST_END_FILES=jest-story jest",
     "test:update": "yarn test -- -u",
     "test:coverage": "yarn test -- --coverage",
@@ -280,16 +281,5 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
-  ],
-  "changelog": {
-    "labels": {
-      "PR: Bugfix 🐛": "Bug Fixes",
-      "PR: New Feature 🕹": "New Features",
-      "PR: Dependencies 🛠": "Dependency Upgrades",
-      "PR: Documentation 📖": "Documentation",
-      "PR: Internal 🏠": "Internal Changes",
-      "PR: Breaking Changes 💥": "Breaking Changes",
-      "PR: Icon 💎": "New Icons"
-    }
-  }
+  ]
 }
