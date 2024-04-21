@@ -28,6 +28,13 @@ export const Overview: Story = {
   render: buttonTemplate.bind({}),
   args: {
     children: "Button"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -91,7 +98,14 @@ export const Icons: Story = {
       <Button rightIcon={Calendar}>Right icon</Button>
       <Button leftIcon={Calendar}>Left icon</Button>
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Calendar }
+      }
+    }
+  }
 };
 
 export const LoadingState: Story = {
@@ -119,6 +133,13 @@ export const SuccessState: Story = {
         Click here for success
       </Button>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Check }
+      }
+    }
   }
 };
 
@@ -166,5 +187,12 @@ export const AdjacentButtons: Story = {
         <Add />
       </Button>
     </div>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Remove, Add }
+      }
+    }
+  }
 };
