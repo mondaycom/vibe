@@ -26,7 +26,14 @@ export const Overview = {
     value: "This heading is an editable heading",
     type: EditableHeading.types.H1
   },
-  play: overviewPlaySuite
+  play: overviewPlaySuite,
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Types = {
@@ -94,5 +101,11 @@ export const Types = {
       </div>
     </div>
   ),
-  name: "Types"
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
