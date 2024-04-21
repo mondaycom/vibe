@@ -1,4 +1,4 @@
-import { Decorator, Parameters as StorybookParameters } from "@storybook/react";
+import { Decorator, StoryContext } from "@storybook/react";
 import { useMemo, useRef, useState } from "react";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { langs } from "@uiw/codemirror-extensions-langs";
@@ -6,20 +6,11 @@ import * as VibeComponents from "../../../components";
 import * as VibeComponentsNext from "../../../next";
 import * as VibeIcons from "../../../components/Icon/Icons";
 import { createPortal } from "react-dom";
-import { LiveProvider } from "react-live";
-import LivePreview from "../../components/live-preview/LivePreview";
-import styles from "./withLiveEdit.module.scss";
 import LiveEditor from "../../components/live-editor/LiveEditor";
 import { formatCode } from "./prettier-utils";
+import LiveContent from "./LiveContent/LiveContent";
 
 const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
-
-type Parameters = StorybookParameters & {
-  liveEdit?: {
-    scope?: Record<string, unknown>;
-    isEnabled?: boolean;
-  };
-};
 
 function getInitialCodeValue(code: string, shouldPrintError: boolean): string {
   try {
@@ -32,7 +23,8 @@ function getInitialCodeValue(code: string, shouldPrintError: boolean): string {
   }
 }
 
-const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters) => {
+const withLiveEdit: Decorator = (Story, context: StoryContext) => {
+  const { id, parameters, viewMode, moduleExport } = context;
   const scope = { ...globalScope, ...parameters.docs?.liveEdit?.scope };
   const canvasEditorContainer = useMemo(() => document.getElementById(id), [id]);
   const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled && !!canvasEditorContainer;
@@ -53,12 +45,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
   return (
     <>
       {dirty ? (
-        <>
-          <div className={styles.modifiedVersionIndicator}>Modified Version</div>
-          <LiveProvider code={code} scope={scope} enableTypeScript>
-            <LivePreview />
-          </LiveProvider>
-        </>
+        <LiveContent code={code} scope={scope} decorators={moduleExport.decorators || []} context={context} />
       ) : (
         <Story />
       )}
