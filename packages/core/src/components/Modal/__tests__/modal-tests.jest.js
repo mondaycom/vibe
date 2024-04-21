@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { ModalHeader } from "../../../components";
-import "@testing-library/jest-dom";
 import { ModalExampleWrapper } from "../__stories__/modal.stories.helpers";
 import { ComponentDefaultTestId } from "../../../tests/test-ids-utils";
 

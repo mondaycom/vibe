@@ -1,6 +1,5 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import EditableText from "../EditableText";
 import { within } from "@storybook/testing-library";
 

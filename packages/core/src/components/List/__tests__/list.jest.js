@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom";
 import List from "../List";
 import ListItem from "../../ListItem/ListItem";
 

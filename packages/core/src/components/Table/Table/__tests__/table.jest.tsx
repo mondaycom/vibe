@@ -1,6 +1,5 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import TableCell from "../../TableCell/TableCell";
 import Table, { ITableColumn } from "../Table";
 import TableBody from "../../TableBody/TableBody";

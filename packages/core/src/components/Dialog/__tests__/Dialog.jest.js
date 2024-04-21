@@ -1,6 +1,5 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import Dialog from "../Dialog";
 
 function renderVisibleDialogOnMount(dialogProps) {

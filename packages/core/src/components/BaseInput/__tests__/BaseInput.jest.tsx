@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import BaseInput from "../BaseInput";
 import { BaseInputProps } from "../BaseInput.types";

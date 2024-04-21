@@ -1,6 +1,5 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import EditableHeading from "../EditableHeading";
 
 describe("EditableHeading", () => {
