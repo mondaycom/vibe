@@ -2,6 +2,9 @@ import ButtonGroup from "../ButtonGroup";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./buttonGroup.stories.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof ButtonGroup>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ButtonGroup,
@@ -16,11 +19,10 @@ export default {
   component: ButtonGroup,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof ButtonGroup>;
 
-export const Overview = {
+export const Overview: Story = {
   render: buttonGroupTemplate.bind({}),
-  name: "Overview",
 
   args: {
     options: [
@@ -46,7 +48,7 @@ export const Overview = {
   }
 };
 
-export const Default = {
+export const Default: Story = {
   render: () => (
     <ButtonGroup
       groupAriaLabel="button group aria label"
@@ -70,12 +72,10 @@ export const Default = {
         }
       ]}
     />
-  ),
-
-  name: "Default"
+  )
 };
 
-export const Tertiary = {
+export const Tertiary: Story = {
   render: () => (
     <ButtonGroup
       groupAriaLabel="button group aria label"
@@ -100,12 +100,10 @@ export const Tertiary = {
         }
       ]}
     />
-  ),
-
-  name: "Tertiary"
+  )
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <ButtonGroup
       disabled
@@ -129,12 +127,10 @@ export const Disabled = {
         }
       ]}
     />
-  ),
-
-  name: "Disabled"
+  )
 };
 
-export const DisabledSingeButton = {
+export const DisabledSingeButton: Story = {
   render: () => (
     <ButtonGroup
       groupAriaLabel="button group aria label"
@@ -159,12 +155,10 @@ export const DisabledSingeButton = {
         }
       ]}
     />
-  ),
-
-  name: "Disabled - Singe Button"
+  )
 };
 
-export const Size = {
+export const Size: Story = {
   render: () => (
     <>
       <div className="monday-storybook-button-group_column">
@@ -196,12 +190,10 @@ export const Size = {
         />
       </div>
     </>
-  ),
-
-  name: "Size"
+  )
 };
 
-export const ButtonGroupInSettings = {
+export const ButtonGroupInSettings: Story = {
   render: () => (
     <div className="monday-storybook-button-group_column">
       Function
@@ -229,12 +221,10 @@ export const ButtonGroupInSettings = {
         ]}
       />
     </div>
-  ),
-
-  name: "Button group in settings"
+  )
 };
 
-export const ButtonGroupAsToggle = {
+export const ButtonGroupAsToggle: Story = {
   render: () => (
     <ButtonGroup
       groupAriaLabel="button group aria label"
@@ -250,7 +240,5 @@ export const ButtonGroupAsToggle = {
         }
       ]}
     />
-  ),
-
-  name: "Button group as toggle"
+  )
 };
