@@ -40,8 +40,6 @@ const comboboxTemplate = args => {
 
 export const Overview = {
   render: comboboxTemplate.bind({}),
-  name: "Overview",
-
   args: {
     options: [
       {
@@ -61,6 +59,13 @@ export const Overview = {
     onClick: () => alert("clicked"),
     placeholder: "Placeholder text here",
     clearFilterOnSelection: true
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -86,8 +91,6 @@ export const Default = {
 
     return <Combobox placeholder="Placeholder text here" options={options} />;
   },
-
-  name: "Default",
   play: defaultPlaySuite
 };
 
@@ -124,9 +127,7 @@ export const ComboboxInsideADialog = {
         <Combobox options={options} placeholder="Placeholder text here" />
       </DialogContentContainer>
     );
-  },
-
-  name: "Combobox inside a dialog"
+  }
 };
 
 export const Sizes = {
@@ -170,9 +171,7 @@ export const Sizes = {
         </DialogContentContainer>
       </div>
     );
-  },
-
-  name: "Sizes"
+  }
 };
 
 export const WithCategories = {
@@ -273,8 +272,13 @@ export const WithCategories = {
       </Flex>
     );
   },
-
-  name: "With categories"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
 };
 
 export const WithIcons = {
@@ -316,8 +320,13 @@ export const WithIcons = {
       </DialogContentContainer>
     );
   },
-
-  name: "With icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade }
+      }
+    }
+  }
 };
 
 export const WithOptionRenderer = {
@@ -352,8 +361,13 @@ export const WithOptionRenderer = {
       </DialogContentContainer>
     );
   },
-
-  name: "With optionRenderer"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Person }
+      }
+    }
+  }
 };
 
 export const WithButton = {
@@ -398,8 +412,13 @@ export const WithButton = {
       </DialogContentContainer>
     );
   },
-
-  name: "With Button"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade, Edit }
+      }
+    }
+  }
 };
 
 export const WithCreation = {
@@ -424,9 +443,7 @@ export const WithCreation = {
         />
       </DialogContentContainer>
     );
-  },
-
-  name: "With Creation"
+  }
 };
 
 export const WithVirtualizationOptimization = {
@@ -642,8 +659,13 @@ export const WithVirtualizationOptimization = {
       </Flex>
     );
   },
-
-  name: "With virtualization optimization"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
 };
 
 export const LoadingState = {
@@ -655,9 +677,7 @@ export const LoadingState = {
         <Combobox loading options={options} placeholder="Board name" />
       </DialogContentContainer>
     );
-  },
-
-  name: "Loading state"
+  }
 };
 
 export const ComboboxAsPersonPicker = {
@@ -735,5 +755,11 @@ export const ComboboxAsPersonPicker = {
     );
   },
 
-  name: "Combobox as person picker"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3, optionRenderer }
+      }
+    }
+  }
 };
