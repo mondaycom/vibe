@@ -11,8 +11,6 @@ import { formatCode } from "./utils/prettier-utils";
 import LiveContent from "./LiveContent/LiveContent";
 import { extractRenderAttributeFromCsf } from "./utils/parse-csf-utils";
 
-const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
-
 function getInitialCodeValue(source: string, shouldPrintError: boolean): string {
   try {
     // need to wrap with parentheses to avoid syntax errors
@@ -28,7 +26,6 @@ function getInitialCodeValue(source: string, shouldPrintError: boolean): string 
 
 const withLiveEdit: Decorator = (Story, context: StoryContext) => {
   const { id, parameters, viewMode, moduleExport } = context;
-  const scope = { ...globalScope, ...parameters.docs?.liveEdit?.scope };
   const canvasEditorContainer = useMemo(() => document.getElementById(id), [id]);
   const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled && !!canvasEditorContainer;
 
@@ -50,7 +47,12 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
   return (
     <>
       {dirty ? (
-        <LiveContent code={code} scope={scope} decorators={moduleExport.decorators || []} context={context} />
+        <LiveContent
+          code={code}
+          scope={parameters.docs?.liveEdit?.scope}
+          decorators={moduleExport.decorators || []}
+          context={context}
+        />
       ) : (
         <Story />
       )}
