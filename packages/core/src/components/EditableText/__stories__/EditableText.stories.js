@@ -21,7 +21,6 @@ const EditableTextTemplate = createComponentTemplate(EditableText);
 
 export const Overview = {
   render: EditableTextTemplate.bind({}),
-  name: "Overview",
   args: {
     value: "This text is an editable text",
     type: EditableText.types.TEXT2

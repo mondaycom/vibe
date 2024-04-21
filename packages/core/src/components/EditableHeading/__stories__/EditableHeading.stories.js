@@ -21,7 +21,6 @@ const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
 export const Overview = {
   render: editableHeadingTemplate.bind({}),
-  name: "Overview",
   args: {
     value: "This heading is an editable heading",
     type: EditableHeading.types.H1
