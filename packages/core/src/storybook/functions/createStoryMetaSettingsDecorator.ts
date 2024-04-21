@@ -11,7 +11,9 @@ export function createStoryMetaSettingsDecorator({
   enumPropNamesArray,
   iconPropNamesArray,
   actionPropsArray,
-  ignoreControlsPropNamesArray
+  ignoreControlsPropNamesArray,
+  isInternal,
+  shouldCreateAutodocsPage
 }: Omit<CreateStoryMetaSettingsArgs, "allIconsComponents" | "iconsMetaData">) {
   return createStoryMetaSettings({
     component,
@@ -20,7 +22,9 @@ export function createStoryMetaSettingsDecorator({
     actionPropsArray,
     ignoreControlsPropNamesArray,
     iconsMetaData,
-    allIconsComponents: AllIcons
+    allIconsComponents: AllIcons,
+    isInternal,
+    shouldCreateAutodocsPage
   });
 }
 

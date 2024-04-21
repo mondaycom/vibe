@@ -3,7 +3,9 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import BaseInput from "../BaseInput";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: BaseInput
+  component: BaseInput,
+  isInternal: true,
+  shouldCreateAutodocsPage: true
 });
 
 export default {
@@ -11,7 +13,7 @@ export default {
   component: BaseInput,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
-  tags: ["internal"]
+  tags: metaSettings.tags
 };
 
 const baseInputTemplate = createComponentTemplate(BaseInput);

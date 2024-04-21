@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { AllowedIcons, Decorator, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
-import { ArgTypes } from '@storybook/types';
+import { AllowedIcons, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
+import { Decorator } from '@storybook/react';
+import { ArgTypes, Tag } from '@storybook/types';
 
 function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: unknown }) {
   let returnValue;
@@ -54,9 +55,12 @@ export function createStoryMetaSettings({
   iconsMetaData,
   allIconsComponents,
   ignoreControlsPropNamesArray,
+  isInternal,
+  shouldCreateAutodocsPage,
 }: StoryMetaSettingsArgs): StoryMetaSettingsResult {
   const argTypes: ArgTypes = {};
   const decorators: Decorator[] = [];
+  const tags = prepareTags(isInternal, shouldCreateAutodocsPage);
   const allowedIcons = iconsMetaData?.reduce(
     (acc: AllowedIcons, icon: IconMetaData) => {
       const Component = allIconsComponents[icon.file.split('.')[0]];
@@ -137,7 +141,18 @@ export function createStoryMetaSettings({
     }
   });
 
-  return { argTypes, decorators };
+  return { argTypes, decorators, tags };
 }
 
 export default createStoryMetaSettings;
+
+function prepareTags(isInternal: boolean = false, shouldCreateAutodocsPage: boolean = false) {
+  const tags: Tag[] = [];
+  if (isInternal) {
+    tags.push('internal');
+  }
+  if (shouldCreateAutodocsPage) {
+    tags.push('autodocs');
+  }
+  return tags;
+}
