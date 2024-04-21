@@ -21,7 +21,7 @@ const LiveContent = ({ code, scope, decorators, context }: LiveContentProps) => 
   const content: React.JSX.Element = (
     <>
       <div className={styles.modifiedVersionIndicator}>Modified Version</div>
-      <LiveProvider code={code} scope={{ ...scope, ...vibeScope, ...reactCommonHooksScope }} enableTypeScript>
+      <LiveProvider code={code} scope={{ ...vibeScope, ...reactCommonHooksScope, ...scope }} enableTypeScript>
         <LivePreview />
       </LiveProvider>
     </>
