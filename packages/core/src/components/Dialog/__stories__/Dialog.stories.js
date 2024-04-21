@@ -11,6 +11,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
+import { HideShowEvent } from "../../../constants/dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
@@ -19,14 +20,30 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: [] // List the component's actions here
 });
 
+const showHideArgTypes = {
+  options: Object.values(HideShowEvent),
+  control: {
+    type: "multi-select"
+  },
+  table: {
+    type: {
+      summary: Object.values(HideShowEvent).join(" | ")
+    }
+  }
+};
+
 export default {
   title: "Popover/Dialog",
   component: Dialog,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    hideTrigger: showHideArgTypes,
+    showTrigger: showHideArgTypes
+  },
   decorators: metaSettings.decorators
 };
 
-const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
+const dialogTemplate = ({ showTrigger, hideTrigger, shouldShowOnMount = true, position, ...dialogProps }) => {
   // for prevent dialog to move while scrolling
   const modifiers = [
     {
@@ -40,10 +57,10 @@ const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
     <div className="monday-storybook-dialog--story-padding">
       <Dialog
         modifiers={modifiers}
-        shouldShowOnMount={shouldShowOnMount || true}
+        shouldShowOnMount={shouldShowOnMount}
         {...dialogProps}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={showTrigger || [Dialog.hideShowTriggers.CLICK]}
+        hideTrigger={hideTrigger || [Dialog.hideShowTriggers.CLICK]}
         position={position || Dialog.positions.RIGHT}
         content={
           <DialogContentContainer>
@@ -59,14 +76,6 @@ const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
 
 export const Overview = {
   render: dialogTemplate.bind({}),
-
-  parameters: {
-    docs: {
-      source: {
-        type: "code"
-      }
-    }
-  },
 
   name: "Overview"
 };
