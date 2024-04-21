@@ -45,6 +45,13 @@ export const Overview: Story = {
     ],
 
     value: 1
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
