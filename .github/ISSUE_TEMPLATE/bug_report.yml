@@ -10,7 +10,7 @@ body:
 
         Thank you for taking the time to report a bug!
         Please make sure to fill as much details as possible to help us better understand the bug.
-        If you have a question, suggestion, feature request, or need for help, please ask on [GitHub Discussions](https://github.com/mondaycom/monday-ui-react-core/discussions).
+        If you have a question, suggestion, feature request, or need for help, please ask on [GitHub Discussions](https://github.com/mondaycom/vibe/discussions).
         Thanks!
   - type: input
     id: version

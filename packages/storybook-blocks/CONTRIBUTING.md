@@ -1,4 +1,5 @@
 # Contribution guidelines
+
 This is an **official library** of shared UI **storybook components**. It is used both for internal and external storybook pages development.
 
 This library is open-sourced, and we encourage everyone to use and contribute into it.
@@ -21,18 +22,22 @@ This library is open-sourced, and we encourage everyone to use and contribute in
 ## Information about the project
 
 ### Storybook
+
 As the main development environment and documentation playground, we are using [Storybook](https://storybook.js.org/).
 Each component should be developed in isolation in the Storybook environment.
 You can read more about our docs implementation best practices [here](COMPONENTS_DOCUMENTATION_GUIDELINES.md).
 
 ### Linting
+
 We use [Prettier](https://prettier.io/) with the default community guidelines. Please, make sure that you are formatting your code with prettier.
 
 ### Commits
+
 We are using [Semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) convention for creating Pull Requests and commits messages inside the Pull Request.
 
 ### Releasing [only for maintainers]
-To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/monday-ui-react-core/actions/workflows/release.yml).
+
+To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/vibe/actions/workflows/release.yml).
 
 If you want to run it locally, you can do so with [Github's CLI](https://cli.github.com/):
 

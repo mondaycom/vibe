@@ -7,7 +7,7 @@ export const AbilitiesDescription = () => (
     <AbilityDescription
       title="Getting started"
       imageSrc={gettingStarted}
-      linkHref="https://github.com/mondaycom/monday-ui-react-core#readme"
+      linkHref="https://github.com/mondaycom/vibe#readme"
     >
       Instructions and welcome to the monday.com OS design system
     </AbilityDescription>
