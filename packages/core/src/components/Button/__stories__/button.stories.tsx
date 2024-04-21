@@ -4,6 +4,9 @@ import { Add, Calendar, Check, Remove } from "../../Icon/Icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
 import "./button.stories.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof Button>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Button,
@@ -17,31 +20,28 @@ export default {
   component: Button,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof Button>;
 
 const buttonTemplate = createComponentTemplate(Button);
 
-export const Overview = {
+export const Overview: Story = {
   render: buttonTemplate.bind({}),
-  name: "Overview",
   args: {
     children: "Button"
   }
 };
 
-export const ButtonKinds = {
+export const ButtonKinds: Story = {
   render: () => (
     <>
       <Button>Primary</Button>
       <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
       <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
     </>
-  ),
-
-  name: "Button kinds"
+  )
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <>
       <Button size={Button.sizes.LARGE}>Large</Button>
@@ -53,7 +53,7 @@ export const Sizes = {
   name: "Sizes"
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <>
       <Button disabled>Primary</Button>
@@ -64,45 +64,37 @@ export const Disabled = {
         Tertiary
       </Button>
     </>
-  ),
-
-  name: "Disabled"
+  )
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <>
       <Button>Regular</Button>
       <Button active>Active</Button>
     </>
-  ),
-
-  name: "States"
+  )
 };
 
-export const PositiveAndNegative = {
+export const PositiveAndNegative: Story = {
   render: () => (
     <>
       <Button color={Button.colors.POSITIVE}>Positive</Button>
       <Button color={Button.colors.NEGATIVE}>Negative</Button>
     </>
-  ),
-
-  name: "Positive and Negative"
+  )
 };
 
-export const Icons = {
+export const Icons: Story = {
   render: () => (
     <>
       <Button rightIcon={Calendar}>Right icon</Button>
       <Button leftIcon={Calendar}>Left icon</Button>
     </>
-  ),
-
-  name: "Icons"
+  )
 };
 
-export const LoadingState = {
+export const LoadingState: Story = {
   render: () => {
     const [loading, setLoading] = useState(false);
     const onClick = useCallback(() => {
@@ -113,12 +105,10 @@ export const LoadingState = {
         Click here for loading
       </Button>
     );
-  },
-
-  name: "Loading state"
+  }
 };
 
-export const SuccessState = {
+export const SuccessState: Story = {
   render: () => {
     const [success, setSuccess] = useState(false);
     const onClick = useCallback(() => {
@@ -129,12 +119,10 @@ export const SuccessState = {
         Click here for success
       </Button>
     );
-  },
-
-  name: "Success state"
+  }
 };
 
-export const OnColorStates = {
+export const OnColorStates: Story = {
   render: () => (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
@@ -165,12 +153,10 @@ export const OnColorStates = {
         </div>
       </div>
     </>
-  ),
-
-  name: "On color states"
+  )
 };
 
-export const AdjacentButtons = {
+export const AdjacentButtons: Story = {
   render: () => (
     <div>
       <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level" rightFlat>
@@ -180,7 +166,5 @@ export const AdjacentButtons = {
         <Add />
       </Button>
     </div>
-  ),
-
-  name: "Adjacent buttons"
+  )
 };
