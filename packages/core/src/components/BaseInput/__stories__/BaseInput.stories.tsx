@@ -4,8 +4,7 @@ import BaseInput from "../BaseInput";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BaseInput,
-  isInternal: true,
-  shouldCreateAutodocsPage: true
+  isInternal: true
 });
 
 export default {

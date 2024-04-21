@@ -146,13 +146,9 @@ export function createStoryMetaSettings({
 
 export default createStoryMetaSettings;
 
-function prepareTags(isInternal: boolean = false, shouldCreateAutodocsPage: boolean = false) {
-  const tags: Tag[] = [];
-  if (isInternal) {
-    tags.push('internal');
+function prepareTags(isInternal: boolean = false, shouldCreateAutodocsPage: boolean = true): Tag[] {
+  if (!isInternal) {
+    return [];
   }
-  if (shouldCreateAutodocsPage) {
-    tags.push('autodocs');
-  }
-  return tags;
+  return shouldCreateAutodocsPage ? ['internal', 'autodocs'] : ['internal'];
 }
