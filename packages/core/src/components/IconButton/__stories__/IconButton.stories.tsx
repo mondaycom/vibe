@@ -10,6 +10,9 @@ import Icon from "../../Icon/Icon";
 import Heading from "../../LegacyHeading/LegacyHeading";
 import Avatar from "../../Avatar/Avatar";
 import styles from "./iconButton.stories.module.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof IconButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
@@ -25,11 +28,10 @@ export default {
   component: IconButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof IconButton>;
 
-export const Overview = {
+export const Overview: Story = {
   render: iconButtonTemplate.bind({}),
-  name: "Overview",
 
   args: {
     ariaLabel: "Add",
@@ -37,7 +39,7 @@ export const Overview = {
   }
 };
 
-export const Kinds = {
+export const Kinds: Story = {
   render: () => (
     <div
       style={{
@@ -51,12 +53,10 @@ export const Kinds = {
       <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton" />
       <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
     </div>
-  ),
-
-  name: "Kinds"
+  )
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <div
       style={{
@@ -102,12 +102,10 @@ export const Sizes = {
         ariaLabel="My large IconButton"
       />
     </div>
-  ),
-
-  name: "Sizes"
+  )
 };
 
-export const Active = {
+export const Active: Story = {
   render: () => (
     <div
       style={{
@@ -121,12 +119,10 @@ export const Active = {
       <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active />
       <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
     </div>
-  ),
-
-  name: "Active"
+  )
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <div
       style={{
@@ -158,12 +154,10 @@ export const Disabled = {
         disabledReason="This function is not available"
       />
     </div>
-  ),
-
-  name: "Disabled"
+  )
 };
 
-export const IconButtonAsToolbarButton = {
+export const IconButtonAsToolbarButton: Story = {
   render: () => (
     <Flex
       className={styles.dashboard}
@@ -180,12 +174,10 @@ export const IconButtonAsToolbarButton = {
       </Flex>
       <div className={styles.dashboardContent} />
     </Flex>
-  ),
-
-  name: "Icon button as toolbar button"
+  )
 };
 
-export const IconButtonAsCloseButton = {
+export const IconButtonAsCloseButton: Story = {
   render: () => (
     <>
       <Flex
@@ -245,7 +237,5 @@ export const IconButtonAsCloseButton = {
       </Flex>
       <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
     </>
-  ),
-
-  name: "Icon button as close button"
+  )
 };
