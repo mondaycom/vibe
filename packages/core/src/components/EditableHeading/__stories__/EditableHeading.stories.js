@@ -103,7 +103,7 @@ export const Types = {
   parameters: {
     docs: {
       liveEdit: {
-        isEnabled: false
+        scope: { EditableHeading }
       }
     }
   }

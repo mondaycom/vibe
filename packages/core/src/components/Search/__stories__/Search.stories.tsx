@@ -4,7 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
 import Flex from "../../Flex/Flex";
-import { Decorator, StoryObj } from "@storybook/react";
+import { Decorator, Meta, StoryObj } from "@storybook/react";
 import IconButton from "../../IconButton/IconButton";
 import FilterIcon from "../../Icon/Icons/components/Filter";
 
@@ -20,7 +20,7 @@ export default {
   component: Search,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof Search>;
 
 type Story = StoryObj<typeof Search>;
 
@@ -32,10 +32,15 @@ const withFixedWidth: Decorator = Story => (
 
 export const Overview: Story = {
   render: searchTemplate.bind({}),
-  name: "Overview",
-
   args: { placeholder: "Placeholder text here" },
-  decorators: [withFixedWidth]
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Sizes: Story = {
@@ -46,7 +51,6 @@ export const Sizes: Story = {
       <Search placeholder="Large" size="large" />
     </>
   ),
-
   decorators: [
     Story => (
       <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
@@ -54,7 +58,14 @@ export const Sizes: Story = {
       </Flex>
     ),
     withFixedWidth
-  ]
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Search }
+      }
+    }
+  }
 };
 
 export const WithAdditionalAction: Story = {
@@ -64,8 +75,14 @@ export const WithAdditionalAction: Story = {
       renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size={IconButton.sizes.SMALL} />}
     />
   ),
-
-  decorators: [withFixedWidth]
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Search, FilterIcon }
+      }
+    }
+  }
 };
 
 const options = [
@@ -102,5 +119,12 @@ export const FilterInCombobox: Story = {
       </DialogContentContainer>
     ),
     withFixedWidth
-  ]
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { options }
+      }
+    }
+  }
 };
