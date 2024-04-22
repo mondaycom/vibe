@@ -25,8 +25,6 @@ const textFieldTemplate = createComponentTemplate(TextField);
 
 export const Overview: Story = {
   render: textFieldTemplate.bind({}),
-  name: "Overview",
-
   args: {
     title: "Name",
     iconName: Show,
@@ -43,6 +41,11 @@ export const Overview: Story = {
     controls: {
       // TODO: remove exclusion when prop is removed in next major
       exclude: ["withReadOnlyStyle"]
+    },
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -54,9 +57,7 @@ export const Sizes: Story = {
       <TextField placeholder="Medium" size={TextField.sizes.MEDIUM} />
       <TextField placeholder="Large" size={TextField.sizes.LARGE} />
     </div>
-  ),
-
-  name: "Sizes"
+  )
 };
 
 export const States: Story = {
@@ -93,8 +94,13 @@ export const States: Story = {
       </div>
     </div>
   ),
-
-  name: "States"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email, Check, CloseSmall }
+      }
+    }
+  }
 };
 
 export const Validation: Story = {
@@ -110,9 +116,7 @@ export const Validation: Story = {
         }}
       />
     </div>
-  ),
-
-  name: "Validation"
+  )
 };
 
 export const TextFieldInAForm: Story = {
@@ -124,9 +128,7 @@ export const TextFieldInAForm: Story = {
         <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
       </div>
     </div>
-  ),
-
-  name: "Text field in a form"
+  )
 };
 
 export const InputFieldWithPlaceholderText: Story = {
@@ -140,8 +142,13 @@ export const InputFieldWithPlaceholderText: Story = {
       />
     </div>
   ),
-
-  name: "Input field with placeholder text"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email }
+      }
+    }
+  }
 };
 
 export const RequiredInputField: Story = {
@@ -149,27 +156,21 @@ export const RequiredInputField: Story = {
     <div className="monday-storybook-text-field_column-wrapper">
       <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} requiredAsterisk={true} />
     </div>
-  ),
-
-  name: "Required input field"
+  )
 };
 
 export const InputFieldWithDate: Story = {
   render: () => (
     <div className="monday-storybook-text-field_size">
-      <TextField size={TextField.sizes.MEDIUM} type={TextFieldTextType.DATE} />
+      <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE} />
     </div>
-  ),
-
-  name: "Input field with date"
+  )
 };
 
 export const InputFieldWithDateAndTime: Story = {
   render: () => (
     <div className="monday-storybook-text-field_size">
-      <TextField size={TextField.sizes.MEDIUM} type={TextFieldTextType.DATE_TIME} />
+      <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE_TIME} />
     </div>
-  ),
-
-  name: "Input field with date and time"
+  )
 };
