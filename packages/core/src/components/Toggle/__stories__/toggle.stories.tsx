@@ -3,6 +3,7 @@ import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./toggle.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import { Check, CloseSmall, Email } from "../../Icon/Icons";
 
 type Story = StoryObj<typeof Toggle>;
 
@@ -23,7 +24,14 @@ export default {
 const toggleTemplate = createComponentTemplate(Toggle);
 
 export const Overview: Story = {
-  render: toggleTemplate.bind({})
+  render: toggleTemplate.bind({}),
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const States: Story = {
@@ -32,7 +40,14 @@ export const States: Story = {
       <Toggle isDefaultSelected={false} />
       <Toggle />
     </MultipleStoryElementsWrapper>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { MultipleStoryElementsWrapper }
+      }
+    }
+  }
 };
 
 export const Disabled: Story = {
@@ -41,7 +56,14 @@ export const Disabled: Story = {
       <Toggle isDefaultSelected={false} disabled />
       <Toggle disabled />
     </MultipleStoryElementsWrapper>
-  )
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { MultipleStoryElementsWrapper }
+      }
+    }
+  }
 };
 
 export const TurnOnOffAnAutomation: Story = {
