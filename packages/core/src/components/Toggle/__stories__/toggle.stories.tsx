@@ -2,6 +2,9 @@ import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-stor
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./toggle.stories.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof Toggle>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toggle,
@@ -15,43 +18,37 @@ export default {
   component: Toggle,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof Toggle>;
 
 const toggleTemplate = createComponentTemplate(Toggle);
 
-export const Overview = {
-  render: toggleTemplate.bind({}),
-  name: "Overview"
+export const Overview: Story = {
+  render: toggleTemplate.bind({})
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} />
       <Toggle />
     </MultipleStoryElementsWrapper>
-  ),
-
-  name: "States"
+  )
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} disabled />
       <Toggle disabled />
     </MultipleStoryElementsWrapper>
-  ),
-
-  name: "Disabled"
+  )
 };
 
-export const TurnOnOffAnAutomation = {
+export const TurnOnOffAnAutomation: Story = {
   render: () => (
     <>
       <h5>Board automations</h5>
       <Toggle />
     </>
-  ),
-  name: "Turn on/ off an automation"
+  )
 };
