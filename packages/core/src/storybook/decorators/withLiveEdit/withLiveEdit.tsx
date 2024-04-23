@@ -7,19 +7,22 @@ import * as VibeComponentsNext from "../../../next";
 import * as VibeIcons from "../../../components/Icon/Icons";
 import { createPortal } from "react-dom";
 import LiveEditor from "../../components/live-editor/LiveEditor";
-import { formatCode } from "./prettier-utils";
+import { formatCode } from "./utils/prettier-utils";
 import LiveContent from "./LiveContent/LiveContent";
+import { extractRenderAttributeFromCsf } from "./utils/parse-csf-utils";
 
 const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
 
-function getInitialCodeValue(code: string, shouldPrintError: boolean): string {
+function getInitialCodeValue(source: string, shouldPrintError: boolean): string {
   try {
+    // need to wrap with parentheses to avoid syntax errors
+    const code = extractRenderAttributeFromCsf(`(${source})`);
     return formatCode(code);
   } catch (e) {
     if (shouldPrintError) {
       console.error(e);
     }
-    return code;
+    return source;
   }
 }
 
@@ -29,8 +32,10 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
   const canvasEditorContainer = useMemo(() => document.getElementById(id), [id]);
   const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled && !!canvasEditorContainer;
 
-  const originalCode = useRef<string>(extractCodeFromSource(parameters.docs.source?.originalSource) || "");
-  const [code, setCode] = useState<string>(getInitialCodeValue(originalCode.current, shouldAllowLiveEdit));
+  const originalCode = useRef<string>(
+    getInitialCodeValue(parameters.docs.source?.originalSource || "", shouldAllowLiveEdit)
+  );
+  const [code, setCode] = useState<string>(originalCode.current);
   const [dirty, setDirty] = useState<boolean>(false);
 
   const handleChange = (newVal: string) => {
@@ -69,19 +74,5 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
     </>
   );
 };
-
-function extractCodeFromSource(csfSource: string): string {
-  // capture "render:" from the string
-  if (!csfSource) {
-    return "";
-  }
-  const match = csfSource.match(/render:\s*(?:\(\)\s*=>\s*)?([\s\S]*?)(?=\s*,\s*[\w]+:\s*|}$)/);
-
-  if (!match?.[1]) {
-    return "";
-  }
-
-  return match[1].trim();
-}
 
 export default withLiveEdit;
