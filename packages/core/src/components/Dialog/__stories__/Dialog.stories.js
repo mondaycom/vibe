@@ -76,8 +76,12 @@ const dialogTemplate = ({ showTrigger, hideTrigger, shouldShowOnMount = true, po
 
 export const Overview = {
   render: dialogTemplate.bind({}),
-
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: { isEnabled: false }
+    }
+  }
 };
 
 export const Positions = {
