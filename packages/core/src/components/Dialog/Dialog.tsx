@@ -457,6 +457,13 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   onContextMenu(e: React.MouseEvent) {
+    const isShown = this.isShown();
+    if (
+      (this.isShowTrigger(HideShowEvent.CONTEXT_MENU) && !isShown) ||
+      (this.isHideTrigger(HideShowEvent.CONTEXT_MENU) && isShown)
+    ) {
+      e.preventDefault();
+    }
     this.handleEvent(HideShowEvent.CONTEXT_MENU, e.target, e);
   }
 
