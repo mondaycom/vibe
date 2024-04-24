@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.105.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.105.0...monday-ui-react-core@2.105.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* export Search from next ([#2088](https://github.com/mondaycom/vibe/issues/2088)) ([a0d56d3](https://github.com/mondaycom/vibe/commit/a0d56d3704d2eeaa704a6b4e0743111cdd9e4537))
+
+
+
+
+
 # [2.105.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.104.0...monday-ui-react-core@2.105.0) (2024-04-24)
 
 
