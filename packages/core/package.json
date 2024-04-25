@@ -78,7 +78,6 @@
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
     "plop": "plop",
-    "add-ref-to-icons": "node ./scripts/add-forward-ref-icons.js",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
