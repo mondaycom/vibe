@@ -184,7 +184,14 @@ export const Positions = {
       );
     },
 
-  name: "Positions"
+  name: "Positions",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useSwitch, ExampleContent }
+      }
+    }
+  }
 };
 
 export const ShowTriggers = {
@@ -286,6 +293,11 @@ export const ShowTriggers = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: { useSwitch, ExampleContent }
+      }
     }
   }
 };
@@ -494,6 +506,18 @@ export const HideTriggers = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: {
+          useSwitch,
+          ExampleContent,
+          HIDE_TRIGGERS_CONTAINER,
+          CLICK_OUTSIDE_DIALOG,
+          CLICK_OUTSIDE_DIALOG_BUTTON,
+          CONTEXT_MENU_DIALOG
+        }
+      }
     }
   }
 };
@@ -525,7 +549,14 @@ export const ControlledDialog = {
     );
   },
 
-  name: "Controlled Dialog"
+  name: "Controlled Dialog",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useSwitch }
+      }
+    }
+  }
 };
 
 export const DialogWithTooltip = {
@@ -561,7 +592,14 @@ export const DialogWithTooltip = {
     );
   },
 
-  name: "Dialog with tooltip"
+  name: "Dialog with tooltip",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleContent, Info }
+      }
+    }
+  }
 };
 
 export const DisableScrollWhenDialogOpen = {
@@ -609,5 +647,12 @@ export const DisableScrollWhenDialogOpen = {
     );
   },
 
-  name: "Disable scroll when dialog open"
+  name: "Disable scroll when dialog open",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleContent, useSwitch }
+      }
+    }
+  }
 };
