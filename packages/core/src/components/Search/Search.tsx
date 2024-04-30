@@ -88,7 +88,7 @@ const Search = forwardRef(
           />
         )}
         {inputValue && !disabled && ClearIcon}
-        {RenderAction}
+        {!inputValue && RenderAction}
       </>
     );
 
