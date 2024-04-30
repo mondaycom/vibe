@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.105.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.105.0...monday-ui-react-core@2.105.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* export Search from next ([#2088](https://github.com/mondaycom/vibe/issues/2088)) ([a0d56d3](https://github.com/mondaycom/vibe/commit/a0d56d3704d2eeaa704a6b4e0743111cdd9e4537))
+
+
+
+
+
+# [2.105.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.104.0...monday-ui-react-core@2.105.0) (2024-04-24)
+
+
+### Bug Fixes
+
+* **Dialog:** prevent default for contextmenu event ([#2087](https://github.com/mondaycom/vibe/issues/2087)) ([483c47f](https://github.com/mondaycom/vibe/commit/483c47fe26363ba54fa4fd4a1953c7cbcbac00a2))
+* increase specificity ([#2074](https://github.com/mondaycom/vibe/issues/2074)) ([f8e18cc](https://github.com/mondaycom/vibe/commit/f8e18cccbe95cb91c6616363074719ce82b6d5e6))
+
+
+### Features
+
+* **withLiveEdit:** apply decorators from within self CSF module of a story ([#2077](https://github.com/mondaycom/vibe/issues/2077)) ([6b1e520](https://github.com/mondaycom/vibe/commit/6b1e5200bd6e2cf8587aec80be78a2f76d2a3808))
+* **withLiveEdit:** parse render attribute with ast instead of with regex for variety of cases ([#2078](https://github.com/mondaycom/vibe/issues/2078)) ([57ad30d](https://github.com/mondaycom/vibe/commit/57ad30d631f97ca055d2397edb12df21ae981ac0))
+
+
+
+
+
 # [2.104.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.103.1...monday-ui-react-core@2.104.0) (2024-04-18)
 
 

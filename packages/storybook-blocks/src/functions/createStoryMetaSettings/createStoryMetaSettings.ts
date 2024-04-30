@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { AllowedIcons, Decorator, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
+import { AllowedIcons, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
 import { ArgTypes } from '@storybook/types';
+import { Decorator } from '@storybook/react';
 
 function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: unknown }) {
   let returnValue;
