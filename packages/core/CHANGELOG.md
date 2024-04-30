@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.106.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.105.1...monday-ui-react-core@2.106.0) (2024-04-30)
+
+
+### Features
+
+* **Button:** add active-hover state to buttons ([#2076](https://github.com/mondaycom/vibe/issues/2076)) ([9976fa0](https://github.com/mondaycom/vibe/commit/9976fa06621b23770a3b46a801fd12fc0de7a639))
+* **Dialog:** add event args to dialog show methods ([#2092](https://github.com/mondaycom/vibe/issues/2092)) ([352a48a](https://github.com/mondaycom/vibe/commit/352a48a752a889925ca0b4e7de1adf36aa0ce989))
+
+
+
+
+
 ## [2.105.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.105.0...monday-ui-react-core@2.105.1) (2024-04-24)
 
 
