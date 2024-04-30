@@ -1,5 +1,4 @@
 import TextField from "../TextField";
-import { TextFieldTextType } from "../TextFieldConstants";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";

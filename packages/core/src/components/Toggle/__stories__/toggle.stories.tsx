@@ -3,7 +3,6 @@ import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./toggle.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
-import { Check, CloseSmall, Email } from "../../Icon/Icons";
 
 type Story = StoryObj<typeof Toggle>;
 

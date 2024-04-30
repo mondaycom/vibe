@@ -4,7 +4,6 @@ import Slider from "../Slider";
 import Chips from "../../Chips/Chips";
 import { Sound, Video } from "../../Icon/Icons";
 import "./Slider.stories.scss";
-import Search from "../../Search/Search";
 
 const argTypes = createStoryMetaSettingsDecorator({
   component: Slider,
