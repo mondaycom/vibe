@@ -265,9 +265,13 @@ $disabled-on-primary-color-opacity: 0.5;
   line-height: 22px;
 }
 
-.kindSecondary.colorPrimaryActive,
-.kindSecondary.colorPrimaryActive:hover {
+.kindSecondary.colorPrimaryActive {
   background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
+}
+
+.kindSecondary.colorPrimaryActive:hover {
+  background-color: var(--primary-selected-hover-color);
   border-color: var(--primary-color);
 }
 
@@ -396,9 +400,12 @@ $disabled-on-primary-color-opacity: 0.5;
   background-color: transparent;
 }
 
-.kindTertiary.colorPrimaryActive,
-.kindTertiary.colorPrimaryActive:hover {
+.kindTertiary.colorPrimaryActive {
   background-color: var(--primary-selected-color);
+}
+
+.kindTertiary.colorPrimaryActive:hover {
+  background-color: var(--primary-selected-hover-color);
 }
 
 .kindTertiary.colorBrandActive {
