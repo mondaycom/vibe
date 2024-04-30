@@ -215,7 +215,8 @@ export const IconButtonAsToolbarButton: Story = {
         scope: { styles, Drag, Filter }
       }
     }
-  }
+  },
+  name: "Icon button as toolbar button"
 };
 
 export const IconButtonAsCloseButton: Story = {
@@ -285,5 +286,6 @@ export const IconButtonAsCloseButton: Story = {
         scope: { styles, person1, Item, Time, CloseSmall }
       }
     }
-  }
+  },
+  name: "Icon button as close button"
 };

@@ -72,5 +72,6 @@ export const TurnOnOffAnAutomation: Story = {
       <h5>Board automations</h5>
       <Toggle />
     </>
-  )
+  ),
+  name: "Turn on/ off an automation"
 };

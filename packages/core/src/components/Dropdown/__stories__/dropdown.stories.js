@@ -159,7 +159,8 @@ export const Rtl = {
       <Dropdown placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />
       <Dropdown placeholder="מימין לשמאל" className="dropdown-stories-styles_spacing" rtl />
     </>
-  )
+  ),
+  name: "RTL"
 };
 
 export const MultiChoiceWithDifferentStates = {
@@ -271,10 +272,11 @@ export const MultiChoiceWithDifferentStates = {
         scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "Multi-choice with different states"
 };
 
-export const AsyncOptions = {
+export const AsyncDropdown = {
   render: () => {
     const fetchUserOptions = async () => {
       try {
@@ -357,7 +359,8 @@ export const DropdownWithAvatar = {
         scope: { person1, person2, person3, StoryDescription }
       }
     }
-  }
+  },
+  name: "Dropdown with avatar"
 };
 
 export const DropdownWithIcon = {
@@ -409,7 +412,8 @@ export const DropdownWithIcon = {
         scope: { Email, Attach, StoryDescription }
       }
     }
-  }
+  },
+  name: "Dropdown with icon"
 };
 
 export const DropdownWithChipColors = {
@@ -455,7 +459,8 @@ export const DropdownWithChipColors = {
         scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "Dropdown with chip colors"
 };
 
 export const DropdownWithTooltipsOnItems = {
@@ -500,7 +505,8 @@ export const DropdownWithTooltipsOnItems = {
         scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "Dropdown with tooltips on items"
 };
 
 export const DropdownWithChips = {
@@ -555,7 +561,8 @@ export const DropdownWithChips = {
         scope: { person1, person2, person3, OptionRenderer }
       }
     }
-  }
+  },
+  name: "Dropdown with chips"
 };
 
 export const SearchableDropdown = {
@@ -613,7 +620,8 @@ export const SearchableDropdown = {
         onInputChange={onInputChange}
       />
     );
-  }
+  },
+  name: "Searchable dropdown"
 };
 
 export const DropdownWithLabels = {
@@ -652,7 +660,8 @@ export const DropdownWithLabels = {
         valueRenderer={labelRenderer}
       />
     );
-  }
+  },
+  name: "Dropdown with labels"
 };
 
 export const DropdownInsideAForm = {
@@ -686,7 +695,8 @@ export const DropdownInsideAForm = {
         />
       </div>
     );
-  }
+  },
+  name: "Dropdown inside a form"
 };
 
 export const DropdownWithGroups = {
@@ -728,7 +738,8 @@ export const DropdownWithGroups = {
     return (
       <Dropdown placeholder="Placeholder text here" options={options} className="dropdown-stories-styles_big-spacing" />
     );
-  }
+  },
+  name: "Dropdown with groups"
 };
 
 export const DropdownInsidePopover = {
@@ -840,7 +851,8 @@ export const DropdownInsidePopover = {
         scope: { ModalExampleContent }
       }
     }
-  }
+  },
+  name: "Dropdown inside popover"
 };
 
 export const DropdownWithLoading = {
@@ -883,7 +895,8 @@ export const DropdownWithLoading = {
         onInputChange={loadingOnInputChange}
       />
     );
-  }
+  },
+  name: "Dropdown with loading"
 };
 
 export const DropdownWithRef = {
@@ -926,7 +939,8 @@ export const DropdownWithRef = {
         </Button>
       </Flex>
     );
-  }
+  },
+  name: "Dropdown with ref"
 };
 
 export const DropdownValueSelection = {
@@ -960,5 +974,6 @@ export const DropdownValueSelection = {
         />
       </Flex>
     );
-  }
+  },
+  name: "Dropdown value selection"
 };

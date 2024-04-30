@@ -47,7 +47,8 @@ export const RadioButtonInItemsList = {
       <RadioButton text="All updates" name="radio-buttons-group-4" />
     </div>
   ),
-  play: clickRadioButtonPlaySuite
+  play: clickRadioButtonPlaySuite,
+  name: "Radio button in items list"
 };
 
 export const ControlledRadioButtons = {
@@ -70,5 +71,6 @@ export const ControlledRadioButtons = {
       </div>
     );
   },
-  play: controlRadioButtonPlaySuite
+  play: controlRadioButtonPlaySuite,
+  name: "Controlled Radio buttons"
 };

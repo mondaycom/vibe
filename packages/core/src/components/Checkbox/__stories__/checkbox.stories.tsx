@@ -68,5 +68,6 @@ export const SingleCheckbox: Story = {
         isEnabled: false
       }
     }
-  }
+  },
+  name: "Single checkbox"
 };

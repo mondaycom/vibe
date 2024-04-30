@@ -127,7 +127,8 @@ export const ComboboxInsideADialog = {
         <Combobox options={options} placeholder="Placeholder text here" />
       </DialogContentContainer>
     );
-  }
+  },
+  name: "Combobox inside a dialog"
 };
 
 export const Sizes = {
@@ -278,7 +279,8 @@ export const WithCategories = {
         scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "With categories"
 };
 
 export const WithIcons = {
@@ -326,7 +328,8 @@ export const WithIcons = {
         scope: { Wand, ThumbsUp, Time, Update, Upgrade }
       }
     }
-  }
+  },
+  name: "With icons"
 };
 
 export const WithOptionRenderer = {
@@ -367,7 +370,8 @@ export const WithOptionRenderer = {
         scope: { Person }
       }
     }
-  }
+  },
+  name: "With optionRenderer"
 };
 
 export const WithButton = {
@@ -665,7 +669,8 @@ export const WithVirtualizationOptimization = {
         scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "With virtualization optimization"
 };
 
 export const LoadingState = {
@@ -677,7 +682,8 @@ export const LoadingState = {
         <Combobox loading options={options} placeholder="Board name" />
       </DialogContentContainer>
     );
-  }
+  },
+  name: "Loading state"
 };
 
 export const ComboboxAsPersonPicker = {
@@ -754,12 +760,12 @@ export const ComboboxAsPersonPicker = {
       </Flex>
     );
   },
-
   parameters: {
     docs: {
       liveEdit: {
         scope: { person1, person2, person3, optionRenderer }
       }
     }
-  }
+  },
+  name: "Combobox as person picker"
 };

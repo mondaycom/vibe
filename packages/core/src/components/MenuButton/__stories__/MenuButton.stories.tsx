@@ -161,7 +161,8 @@ export const WithTextAndIconAtTheEnd: Story = {
         scope: { NOOP, DropdownChevronDown, Sun, Moon, Favorite }
       }
     }
-  }
+  },
+  name: "With Text and Icon at the end"
 };
 
 export const Disabled: Story = {

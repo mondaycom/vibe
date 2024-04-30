@@ -162,7 +162,8 @@ export const DisabledSingeButton: Story = {
         }
       ]}
     />
-  )
+  ),
+  name: "Disabled - Singe Button"
 };
 
 export const Size: Story = {
@@ -228,7 +229,8 @@ export const ButtonGroupInSettings: Story = {
         ]}
       />
     </div>
-  )
+  ),
+  name: "Button group in settings"
 };
 
 export const ButtonGroupAsToggle: Story = {
@@ -247,5 +249,6 @@ export const ButtonGroupAsToggle: Story = {
         }
       ]}
     />
-  )
+  ),
+  name: "Button group as toggle"
 };

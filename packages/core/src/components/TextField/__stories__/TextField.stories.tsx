@@ -128,7 +128,8 @@ export const TextFieldInAForm: Story = {
         <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
       </div>
     </div>
-  )
+  ),
+  name: "Text field in a form"
 };
 
 export const InputFieldWithPlaceholderText: Story = {
@@ -148,7 +149,8 @@ export const InputFieldWithPlaceholderText: Story = {
         scope: { Email }
       }
     }
-  }
+  },
+  name: "Input field with placeholder text"
 };
 
 export const RequiredInputField: Story = {
@@ -156,7 +158,8 @@ export const RequiredInputField: Story = {
     <div className="monday-storybook-text-field_column-wrapper">
       <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} requiredAsterisk={true} />
     </div>
-  )
+  ),
+  name: "Required input field"
 };
 
 export const InputFieldWithDate: Story = {
@@ -164,7 +167,8 @@ export const InputFieldWithDate: Story = {
     <div className="monday-storybook-text-field_size">
       <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE} />
     </div>
-  )
+  ),
+  name: "Input field with date"
 };
 
 export const InputFieldWithDateAndTime: Story = {
@@ -172,5 +176,6 @@ export const InputFieldWithDateAndTime: Story = {
     <div className="monday-storybook-text-field_size">
       <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE_TIME} />
     </div>
-  )
+  ),
+  name: "Input field with date and time"
 };

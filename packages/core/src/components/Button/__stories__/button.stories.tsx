@@ -45,7 +45,8 @@ export const ButtonKinds: Story = {
       <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
       <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
     </>
-  )
+  ),
+  name: "Button kinds"
 };
 
 export const Sizes: Story = {
@@ -55,9 +56,7 @@ export const Sizes: Story = {
       <Button size={Button.sizes.MEDIUM}>Medium</Button>
       <Button size={Button.sizes.SMALL}>Small</Button>
     </>
-  ),
-
-  name: "Sizes"
+  )
 };
 
 export const Disabled: Story = {
@@ -89,7 +88,8 @@ export const PositiveAndNegative: Story = {
       <Button color={Button.colors.POSITIVE}>Positive</Button>
       <Button color={Button.colors.NEGATIVE}>Negative</Button>
     </>
-  )
+  ),
+  name: "Positive and Negative"
 };
 
 export const Icons: Story = {
@@ -119,7 +119,8 @@ export const LoadingState: Story = {
         Click here for loading
       </Button>
     );
-  }
+  },
+  name: "Loading state"
 };
 
 export const SuccessState: Story = {
@@ -140,7 +141,8 @@ export const SuccessState: Story = {
         scope: { Check }
       }
     }
-  }
+  },
+  name: "Success state"
 };
 
 export const OnColorStates: Story = {
@@ -174,7 +176,8 @@ export const OnColorStates: Story = {
         </div>
       </div>
     </>
-  )
+  ),
+  name: "On color states"
 };
 
 export const AdjacentButtons: Story = {
@@ -194,5 +197,6 @@ export const AdjacentButtons: Story = {
         scope: { Remove, Add }
       }
     }
-  }
+  },
+  name: "Adjacent buttons"
 };
