@@ -45,7 +45,8 @@ const fontLoader = async () => ({
 const preview: Preview = {
   parameters: {
     controls: {
-      sort: "alpha"
+      sort: "alpha",
+      expanded: true
     },
     docs: {
       liveEdit: {
@@ -146,6 +147,7 @@ const preview: Preview = {
       }
     }
   },
+  
   loaders: isChromatic() && document.fonts ? [fontLoader] : []
 };
 
