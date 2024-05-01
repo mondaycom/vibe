@@ -22,6 +22,10 @@ export interface SearchProps extends VibeComponentProps {
    */
   renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
   /**
+   * If true, hides the additional action when the user types in the search input.
+   */
+  hideRenderActionOnInput?: boolean;
+  /**
    * The value of the search input.
    */
   value?: HTMLInputElement["value"];
