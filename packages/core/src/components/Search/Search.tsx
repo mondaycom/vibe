@@ -19,7 +19,7 @@ const Search = forwardRef(
       clearIconName = CloseSmallIcon,
       clearIconLabel = "Clear",
       renderAction: RenderAction,
-      hideRenderActionOnInput = false,
+      hideRenderActionOnInput,
       value,
       placeholder,
       size = "medium",
