@@ -77,7 +77,10 @@ export default {
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
     typescript({
-      tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json")
+      tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json"),
+      tsconfigOverride: {
+        exclude: ["**/__tests__", "**/__stories__"]
+      }
     }),
     babel({
       babelHelpers: "bundled",
