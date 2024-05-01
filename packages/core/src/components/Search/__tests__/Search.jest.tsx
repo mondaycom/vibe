@@ -92,6 +92,22 @@ describe("Search", () => {
     expect(getByText("Extra Action")).toBeInTheDocument();
   });
 
+  it("should display additional action render with hideRenderActionOnInput option true and no input value", () => {
+    const AdditionalActionButton = <button type="button">Extra Action</button>;
+    const { getByText } = renderSearch({ renderAction: AdditionalActionButton, hideRenderActionOnInput: true });
+    expect(getByText("Extra Action")).toBeInTheDocument();
+  });
+
+  it("should not display additional action render with hideRenderActionOnInput option true and input value", () => {
+    const AdditionalActionButton = <button type="button">Extra Action</button>;
+    const { queryByText } = renderSearch({
+      renderAction: AdditionalActionButton,
+      hideRenderActionOnInput: true,
+      value: "Test"
+    });
+    expect(queryByText("Extra Action")).not.toBeInTheDocument();
+  });
+
   describe("a11y", () => {
     it("should have default input role when searchResultsContainerId is not provided", () => {
       const { getByRole } = renderSearch();
