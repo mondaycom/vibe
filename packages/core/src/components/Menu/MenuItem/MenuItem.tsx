@@ -140,7 +140,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     const isActive = activeItemIndex === index;
     const hasChildren = !!children;
     const isSubMenuOpen = hasChildren && isActive && hasOpenSubMenu;
-    const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
+    const shouldShowSubMenu = !disabled && hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
     let menuChild;
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
