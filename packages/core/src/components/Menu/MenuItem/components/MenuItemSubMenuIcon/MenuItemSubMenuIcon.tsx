@@ -27,16 +27,14 @@ const MenuItemSubMenuIcon = forwardRef(
           />
         </>
       ) : (
-        <>
-          <Icon
-            clickable={false}
-            icon={DropdownChevronRight}
-            iconLabel={label}
-            className={styles.subMenuIcon}
-            ignoreFocusStyle
-            iconSize={18}
-          />
-        </>
+        <Icon
+          clickable={false}
+          icon={DropdownChevronRight}
+          iconLabel={label}
+          className={styles.subMenuIcon}
+          ignoreFocusStyle
+          iconSize={18}
+        />
       )}
     </Flex>
   )
