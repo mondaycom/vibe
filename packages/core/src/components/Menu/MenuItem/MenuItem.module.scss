@@ -17,45 +17,11 @@
 
 .iconWrapper {
   margin-right: var(--spacing-small);
-}
-
-.subMenuIconWrapper {
-  margin-left: var(--spacing-xs);
-}
-
-.subMenuIconWrapper,
-.iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.subMenuIconWrapper .subMenuIcon,
-.subMenuIconWrapper .icon,
-.iconWrapper .subMenuIcon,
-.iconWrapper .icon {
-  color: var(--icon-color);
-}
-
-.subMenuIconWrapper .divider {
-  height: 19px;
-}
-
-.subMenuIconWrapper .splitMenuItemIconButton {
-  width: 34px;
-  height: 30px;
-
-  // TODO Temp override for Tal changes - remove once token is changed
-  --primary-background-hover-color: rgba(103, 104, 121, 0.1);
-  // Override for IconButton active color
-  --primary-selected-color: rgba(103, 104, 121, 0.1);
-}
-
-.iconButton {
-  width: 18px;
-  height: 18px;
-
-  &:not(.disabled) {
+  .icon {
     color: var(--icon-color);
   }
 }
@@ -69,7 +35,6 @@
   color: var(--disabled-text-color);
 }
 
-.item.disabled .subMenuIcon,
 .item.disabled .icon {
   cursor: not-allowed;
   color: var(--disabled-text-color);
