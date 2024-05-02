@@ -1,24 +1,27 @@
 import React from "react";
-import { render, cleanup, waitFor, fireEvent, act } from "@testing-library/react";
+import { render, waitFor, fireEvent, act } from "@testing-library/react";
 import MenuItem from "../MenuItem";
+import Menu from "../../Menu/Menu";
 
 const title = "Menu Item";
-const originalRAF = window.requestAnimationFrame;
 
 describe("<MenuItem />", () => {
-  beforeEach(() => {
-    window.requestAnimationFrame = fn => fn();
-  });
-
-  afterEach(() => {
-    window.requestAnimationFrame = originalRAF;
-    cleanup();
-  });
-
   it("should be able to render menu item text", async () => {
     const { getAllByText } = render(<MenuItem title={title} />);
     const menuItemElement = getAllByText(title);
     await waitFor(() => expect(menuItemElement).toBeTruthy());
+  });
+
+  it("should not show subMenu when MenuItem is disabled", () => {
+    const { queryAllByText } = render(
+      <MenuItem disabled index={0} activeItemIndex={0} title="Main Item" isParentMenuVisible hasOpenSubMenu>
+        <Menu>
+          <MenuItem title="Sub Item" />
+        </Menu>
+      </MenuItem>
+    );
+
+    expect(queryAllByText("Sub Item")).toHaveLength(0);
   });
 
   describe.skip("click", () => {
