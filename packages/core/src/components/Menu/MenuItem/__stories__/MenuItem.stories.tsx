@@ -32,6 +32,13 @@ export const Overview = {
 
   args: {
     title: "Menu item"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -53,7 +60,13 @@ export const Icons = {
       <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
     </Menu>
   ),
-  name: "Icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Activity }
+      }
+    }
+  }
 };
 
 export const Label = {
@@ -130,5 +143,12 @@ export const TooltipStory = {
       />
     </Menu>
   ),
-  name: "Tooltip"
+  name: "Tooltip",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Activity }
+      }
+    }
+  }
 };
