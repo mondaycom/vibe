@@ -340,7 +340,7 @@ export const TransitionAnimation = {
       ]);
 
       setNumActions(numActions + 1);
-    }, [steps, setSteps, numActions, setNumActions]);
+    }, [numActions, steps, getStepKeyForTransition, STEP_TRANSITIONS, clearSteps]);
 
     useEffect(() => {
       const interval = setInterval(performIndicatorStateTransition, 2000);
