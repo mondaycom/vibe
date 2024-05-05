@@ -6,7 +6,7 @@ exports[`Renders correctly renders correctly with custom color 1`] = `
   className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
   data-testid="heading"
   style={
-    Object {
+    {
       "color": "blue",
     }
   }

@@ -7,7 +7,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -24,7 +24,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -94,7 +94,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -119,7 +119,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -190,7 +190,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -215,7 +215,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -285,7 +285,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -302,7 +302,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -372,7 +372,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -389,7 +389,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -407,7 +407,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -424,7 +424,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -449,7 +449,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -466,7 +466,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -491,7 +491,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -508,7 +508,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -578,7 +578,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -595,7 +595,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }
@@ -613,7 +613,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
-    style={Object {}}
+    style={{}}
   >
     <div
       className="clickable clickableWrapper disableTextSelection"
@@ -630,7 +630,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
         aria-hidden={false}
         className="circle circleText"
         style={
-          Object {
+          {
             "backgroundColor": "var(--color-chili-blue)",
           }
         }

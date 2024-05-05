@@ -6,7 +6,7 @@ exports[`Loader renders correctly with color variants with DARK color 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -37,7 +37,7 @@ exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] 
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -68,7 +68,7 @@ exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -99,7 +99,7 @@ exports[`Loader renders correctly with color variants with SECONDARY color 1`] =
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -130,7 +130,7 @@ exports[`Loader renders correctly with custom class name 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -160,7 +160,7 @@ exports[`Loader renders correctly with custom class name wrapper 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -190,7 +190,7 @@ exports[`Loader renders correctly with size variants with LARGE size 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 64,
       "width": 64,
     }
@@ -220,7 +220,7 @@ exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }
@@ -250,7 +250,7 @@ exports[`Loader renders correctly with size variants with SMALL size 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 24,
       "width": 24,
     }
@@ -280,7 +280,7 @@ exports[`Loader renders correctly with size variants with XS size 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 16,
       "width": 16,
     }
@@ -310,7 +310,7 @@ exports[`Loader renders correctly with size variants with custom size as number 
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 100,
       "width": 100,
     }
@@ -340,7 +340,7 @@ exports[`Loader renders correctly with visual variants with background 1`] = `
   data-testid="loader"
   role="alert"
   style={
-    Object {
+    {
       "height": 40,
       "width": 40,
     }

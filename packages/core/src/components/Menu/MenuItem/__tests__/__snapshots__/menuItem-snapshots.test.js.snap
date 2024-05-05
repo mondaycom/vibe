@@ -24,7 +24,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -59,7 +59,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -112,7 +112,7 @@ exports[`Snapshots renders correctly with a label 1`] = `
   </span>
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -147,7 +147,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -182,7 +182,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -239,7 +239,7 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -286,7 +286,7 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
   
   <div
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",

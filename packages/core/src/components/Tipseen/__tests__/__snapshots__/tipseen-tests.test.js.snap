@@ -129,7 +129,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without submit 1
 `;
 
 exports[`Snapshot tests Tipseen tests renders correctly with dark close button theme 1`] = `
-Array [
+[
   <div
     className="monday-storybook-tipseen_container"
     onBlur={[Function]}
@@ -147,7 +147,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -178,7 +178,7 @@ Array [
               onMouseDown={[Function]}
               onMouseUp={[Function]}
               style={
-                Object {
+                {
                   "alignItems": "center",
                   "height": "24px",
                   "justifyContent": "center",
@@ -219,7 +219,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -236,7 +236,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
   data-testid="tooltip"
   onClickCapture={[Function]}
   style={
-    Object {
+    {
       "left": "0",
       "position": "absolute",
       "top": "0",
@@ -267,7 +267,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
             onMouseDown={[Function]}
             onMouseUp={[Function]}
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "height": "24px",
                 "justifyContent": "center",
@@ -307,7 +307,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
 `;
 
 exports[`Snapshot tests Tipseen tests renders correctly without close - deprecated version 1`] = `
-Array [
+[
   <div
     className="monday-storybook-tipseen_container"
     onBlur={[Function]}
@@ -325,7 +325,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -356,7 +356,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -367,7 +367,7 @@ Array [
 `;
 
 exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
-Array [
+[
   <div
     className="monday-storybook-tipseen_container"
     onBlur={[Function]}
@@ -385,7 +385,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -416,7 +416,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -427,7 +427,7 @@ Array [
 `;
 
 exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
-Array [
+[
   <div
     className="monday-storybook-tipseen_container"
     onBlur={[Function]}
@@ -445,7 +445,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -476,7 +476,7 @@ Array [
               onMouseDown={[Function]}
               onMouseUp={[Function]}
               style={
-                Object {
+                {
                   "alignItems": "center",
                   "height": "24px",
                   "justifyContent": "center",
@@ -517,7 +517,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }

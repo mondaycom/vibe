@@ -33,7 +33,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -42,7 +42,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -90,7 +90,7 @@ exports[`Toast renders correctly when open is true 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -99,7 +99,7 @@ exports[`Toast renders correctly when open is true 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -121,7 +121,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",
@@ -183,7 +183,7 @@ exports[`Toast renders correctly with button 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -192,7 +192,7 @@ exports[`Toast renders correctly with button 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -228,7 +228,7 @@ exports[`Toast renders correctly with button 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",
@@ -290,7 +290,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -299,7 +299,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -353,7 +353,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",
@@ -415,7 +415,7 @@ exports[`Toast renders correctly with link 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -424,7 +424,7 @@ exports[`Toast renders correctly with link 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -464,7 +464,7 @@ exports[`Toast renders correctly with link 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",
@@ -526,7 +526,7 @@ exports[`Toast renders correctly with loading 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -535,7 +535,7 @@ exports[`Toast renders correctly with loading 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -549,7 +549,7 @@ exports[`Toast renders correctly with loading 1`] = `
       data-testid="loader"
       role="alert"
       style={
-        Object {
+        {
           "height": 16,
           "width": 16,
         }
@@ -584,7 +584,7 @@ exports[`Toast renders correctly with loading 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",
@@ -646,7 +646,7 @@ exports[`Toast renders correctly with negative type 1`] = `
   <div
     className="container directionRow justifyStart alignCenter content"
     style={
-      Object {
+      {
         "gap": "24px",
       }
     }
@@ -655,7 +655,7 @@ exports[`Toast renders correctly with negative type 1`] = `
       className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
       style={
-        Object {
+        {
           "gap": "16px",
         }
       }
@@ -677,7 +677,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "height": "32px",
         "justifyContent": "center",

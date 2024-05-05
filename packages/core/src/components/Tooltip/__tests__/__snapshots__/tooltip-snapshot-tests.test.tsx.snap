@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip renders correctly with data-testid 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -19,7 +19,7 @@ Array [
     data-testid="test"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -42,7 +42,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -53,7 +53,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with end arrowPosition 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -71,7 +71,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -94,7 +94,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -105,7 +105,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -123,7 +123,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -146,7 +146,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -157,7 +157,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with justify 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -175,7 +175,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -198,7 +198,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -209,7 +209,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with position 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -227,7 +227,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -250,7 +250,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -261,7 +261,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with style 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -279,7 +279,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -294,7 +294,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "width": "200px",
           }
         }
@@ -307,7 +307,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -318,7 +318,7 @@ Array [
 `;
 
 exports[`Tooltip renders correctly with theme 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -336,7 +336,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",
@@ -359,7 +359,7 @@ Array [
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
-          Object {
+          {
             "position": "absolute",
           }
         }
@@ -378,7 +378,7 @@ exports[`Tooltip renders correctly with withoutDialog 1`] = `
 `;
 
 exports[`Tooltip renders correctly without arrow 1`] = `
-Array [
+[
   <div
     className=""
     onBlur={[Function]}
@@ -396,7 +396,7 @@ Array [
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
-      Object {
+      {
         "left": "0",
         "position": "absolute",
         "top": "0",

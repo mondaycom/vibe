@@ -8,14 +8,14 @@ exports[`renders correctly with empty props 1`] = `
   data-testid="dialog-content-container"
   role="dialog"
   style={
-    Object {
+    {
       "width": 224,
     }
   }
 >
   <div
     style={
-      Object {
+      {
         "width": 200,
       }
     }
@@ -44,7 +44,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-grass_green)",
             }
           }
@@ -52,7 +52,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -74,7 +74,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-done-green)",
             }
           }
@@ -82,7 +82,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -104,7 +104,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-bright-green)",
             }
           }
@@ -112,7 +112,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -134,7 +134,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-saladish)",
             }
           }
@@ -142,7 +142,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -164,7 +164,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-egg_yolk)",
             }
           }
@@ -172,7 +172,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -194,7 +194,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-working_orange)",
             }
           }
@@ -202,7 +202,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -224,7 +224,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-dark-orange)",
             }
           }
@@ -232,7 +232,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -254,7 +254,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-peach)",
             }
           }
@@ -262,7 +262,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -284,7 +284,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-sunset)",
             }
           }
@@ -292,7 +292,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -314,7 +314,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-stuck-red)",
             }
           }
@@ -322,7 +322,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -344,7 +344,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-dark-red)",
             }
           }
@@ -352,7 +352,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -374,7 +374,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-sofia_pink)",
             }
           }
@@ -382,7 +382,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -404,7 +404,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-lipstick)",
             }
           }
@@ -412,7 +412,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -434,7 +434,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-bubble)",
             }
           }
@@ -442,7 +442,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -464,7 +464,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-purple)",
             }
           }
@@ -472,7 +472,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -494,7 +494,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-dark_purple)",
             }
           }
@@ -502,7 +502,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -524,7 +524,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-berry)",
             }
           }
@@ -532,7 +532,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -554,7 +554,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-dark_indigo)",
             }
           }
@@ -562,7 +562,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -584,7 +584,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-indigo)",
             }
           }
@@ -592,7 +592,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -614,7 +614,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-navy)",
             }
           }
@@ -622,7 +622,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -644,7 +644,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-bright-blue)",
             }
           }
@@ -652,7 +652,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -674,7 +674,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-dark-blue)",
             }
           }
@@ -682,7 +682,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -704,7 +704,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-aquamarine)",
             }
           }
@@ -712,7 +712,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -734,7 +734,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-chili-blue)",
             }
           }
@@ -742,7 +742,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -764,7 +764,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-river)",
             }
           }
@@ -772,7 +772,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -794,7 +794,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-winter)",
             }
           }
@@ -802,7 +802,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -824,7 +824,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-explosive)",
             }
           }
@@ -832,7 +832,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -854,7 +854,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-american_gray)",
             }
           }
@@ -862,7 +862,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -884,7 +884,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-blackish)",
             }
           }
@@ -892,7 +892,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -914,7 +914,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-brown)",
             }
           }
@@ -922,7 +922,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -944,7 +944,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-orchid)",
             }
           }
@@ -952,7 +952,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -974,7 +974,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-tan)",
             }
           }
@@ -982,7 +982,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1004,7 +1004,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-sky)",
             }
           }
@@ -1012,7 +1012,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1034,7 +1034,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-coffee)",
             }
           }
@@ -1042,7 +1042,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1064,7 +1064,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-royal)",
             }
           }
@@ -1072,7 +1072,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1094,7 +1094,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-teal)",
             }
           }
@@ -1102,7 +1102,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1124,7 +1124,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-lavender)",
             }
           }
@@ -1132,7 +1132,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1154,7 +1154,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-steel)",
             }
           }
@@ -1162,7 +1162,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1184,7 +1184,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-lilac)",
             }
           }
@@ -1192,7 +1192,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>
@@ -1214,7 +1214,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseLeave={[Function]}
           role="button"
           style={
-            Object {
+            {
               "background": "var(--color-pecan)",
             }
           }
@@ -1222,7 +1222,7 @@ exports[`renders correctly with empty props 1`] = `
         >
           <div
             className="colorIndicatorWrapper"
-            style={Object {}}
+            style={{}}
           />
         </div>
       </li>

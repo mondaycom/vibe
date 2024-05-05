@@ -48,7 +48,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     
     <div
       style={
-        Object {
+        {
           "left": "0",
           "position": "absolute",
           "top": "0",
@@ -81,7 +81,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     
     <div
       style={
-        Object {
+        {
           "left": "0",
           "position": "absolute",
           "top": "0",

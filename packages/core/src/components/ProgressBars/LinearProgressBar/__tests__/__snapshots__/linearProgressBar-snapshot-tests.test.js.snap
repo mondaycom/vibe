@@ -16,7 +16,7 @@ exports[`LinearProgressBar renders correctly with barStyle 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }
@@ -52,7 +52,7 @@ exports[`LinearProgressBar renders correctly with full width progress bar 1`] = 
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }
@@ -77,7 +77,7 @@ exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }
@@ -108,7 +108,7 @@ exports[`LinearProgressBar renders correctly with min 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "11.11111111111111%",
         }
       }
@@ -134,7 +134,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       id="bar_green_0"
       role="progressbar"
       style={
-        Object {
+        {
           "backgroundColor": "green",
           "width": "100%",
         }
@@ -149,7 +149,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       id="bar_yellow_1"
       role="progressbar"
       style={
-        Object {
+        {
           "backgroundColor": "yellow",
           "width": "75%",
         }
@@ -164,7 +164,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       id="bar_red_2"
       role="progressbar"
       style={
-        Object {
+        {
           "backgroundColor": "red",
           "width": "25%",
         }
@@ -190,7 +190,7 @@ exports[`LinearProgressBar renders correctly with size 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }
@@ -215,7 +215,7 @@ exports[`LinearProgressBar renders correctly with value 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }
@@ -241,7 +241,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       data-testid="bar-secondary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "40%",
         }
       }
@@ -254,7 +254,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       data-testid="bar-primary"
       role="progressbar"
       style={
-        Object {
+        {
           "width": "20%",
         }
       }

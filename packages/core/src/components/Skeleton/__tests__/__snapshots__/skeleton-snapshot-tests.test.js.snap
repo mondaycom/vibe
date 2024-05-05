@@ -8,7 +8,7 @@ exports[`Skeleton renders correctly renders correctly when circle with empty pro
   <div
     className="circle circleCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -25,7 +25,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed hei
   <div
     className="circle circleCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": undefined,
       }
@@ -42,7 +42,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed hei
   <div
     className="circle circleCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": 100,
       }
@@ -59,7 +59,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed wid
   <div
     className="circle circleCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": 100,
       }
@@ -76,7 +76,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with empty 
   <div
     className="rectangle rectangleCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -93,7 +93,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   <div
     className="rectangle rectangleCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": undefined,
       }
@@ -110,7 +110,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   <div
     className="rectangle rectangleCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": 100,
       }
@@ -127,7 +127,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   <div
     className="rectangle rectangleCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": 100,
       }
@@ -144,7 +144,7 @@ exports[`Skeleton renders correctly renders correctly when text with CUSTOM size
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -161,7 +161,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 1`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -178,7 +178,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 2`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -195,7 +195,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 3`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -212,7 +212,7 @@ exports[`Skeleton renders correctly renders correctly when text with H2 size 1`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -229,7 +229,7 @@ exports[`Skeleton renders correctly renders correctly when text with H3 size 1`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -246,7 +246,7 @@ exports[`Skeleton renders correctly renders correctly when text with H4 size 1`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -263,7 +263,7 @@ exports[`Skeleton renders correctly renders correctly when text with H5 size 1`]
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -280,7 +280,7 @@ exports[`Skeleton renders correctly renders correctly when text with empty props
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }
@@ -297,7 +297,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed heigh
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": undefined,
       }
@@ -314,7 +314,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed heigh
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": 100,
         "width": 100,
       }
@@ -331,7 +331,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed width
   <div
     className="text textCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": 100,
       }
@@ -348,7 +348,7 @@ exports[`Skeleton renders correctly renders correctly with empty props 1`] = `
   <div
     className="rectangle rectangleCustom"
     style={
-      Object {
+      {
         "height": undefined,
         "width": undefined,
       }

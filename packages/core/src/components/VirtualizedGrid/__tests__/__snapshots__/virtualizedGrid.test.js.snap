@@ -7,7 +7,7 @@ exports[`renders correctly with class name 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": 0,
         "overflow": "visible",
         "width": 0,
@@ -24,7 +24,7 @@ exports[`renders correctly with empty props 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": 0,
         "overflow": "visible",
         "width": 0,
@@ -41,7 +41,7 @@ exports[`renders correctly with scrollable class name 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": 0,
         "overflow": "visible",
         "width": 0,
