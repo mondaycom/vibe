@@ -118,9 +118,9 @@ describe("Search", () => {
       expect(getByRole("combobox")).toBeInTheDocument();
     });
 
-    it("should set aria-owns when searchResultsContainerId is provided", () => {
-      const { getByRole } = renderSearch({ searchResultsContainerId: "search-results" });
-      expect(getByRole("combobox")).toHaveAttribute("aria-owns", "search-results");
+    it("should set aria-controls when searchResultsContainerId is provided and ariaExpanded is true", () => {
+      const { getByRole } = renderSearch({ searchResultsContainerId: "search-results", ariaExpanded: true });
+      expect(getByRole("combobox")).toHaveAttribute("aria-controls", "search-results");
     });
 
     it("should set aria-activedescendant when activeDescendant is provided", () => {

@@ -8,7 +8,6 @@ exports[`Combobox renders correctly when disabled 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -38,6 +37,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -47,6 +48,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -54,7 +56,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -68,7 +71,6 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -98,6 +100,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -107,6 +111,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -114,7 +119,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -128,7 +134,6 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -158,6 +163,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={true}
@@ -167,6 +174,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -174,7 +182,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -188,7 +197,6 @@ exports[`Combobox renders correctly with className 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -218,6 +226,8 @@ exports[`Combobox renders correctly with className 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -227,6 +237,7 @@ exports[`Combobox renders correctly with className 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -234,7 +245,8 @@ exports[`Combobox renders correctly with className 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -248,7 +260,6 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -278,6 +289,8 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -287,6 +300,7 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -294,7 +308,8 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -308,7 +323,6 @@ exports[`Combobox renders correctly with divider 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -338,6 +352,9 @@ exports[`Combobox renders correctly with divider 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-controls="combobox-listbox"
+        aria-expanded={true}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -347,6 +364,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -354,7 +372,8 @@ exports[`Combobox renders correctly with divider 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     >
       <div
         className="comboboxItemContainer"
@@ -466,7 +485,6 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -496,6 +514,9 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-controls="combobox-listbox"
+        aria-expanded={true}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -505,6 +526,7 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -512,7 +534,8 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     >
       <div
         className="comboboxItemContainer"
@@ -634,7 +657,6 @@ exports[`Combobox renders correctly with empty props 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -664,6 +686,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -673,6 +697,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -680,7 +705,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -694,7 +720,6 @@ exports[`Combobox renders correctly with id 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -724,6 +749,8 @@ exports[`Combobox renders correctly with id 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -733,6 +760,7 @@ exports[`Combobox renders correctly with id 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -740,7 +768,8 @@ exports[`Combobox renders correctly with id 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="test-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -754,7 +783,6 @@ exports[`Combobox renders correctly with loading 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -784,6 +812,8 @@ exports[`Combobox renders correctly with loading 1`] = `
       </svg>
       <input
         aria-busy={true}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -793,6 +823,7 @@ exports[`Combobox renders correctly with loading 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -828,7 +859,8 @@ exports[`Combobox renders correctly with loading 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -842,7 +874,6 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -872,6 +903,8 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -881,6 +914,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -888,7 +922,8 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -902,7 +937,6 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -932,6 +966,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -941,6 +977,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -948,7 +985,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -962,7 +1000,6 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -992,6 +1029,9 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-controls="combobox-listbox"
+        aria-expanded={true}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -1001,6 +1041,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -1008,7 +1049,8 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     >
       <div
         className="comboboxItemContainer"
@@ -1075,7 +1117,6 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": 50,
@@ -1105,6 +1146,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -1114,6 +1157,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -1121,7 +1165,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -1135,7 +1180,6 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -1165,6 +1209,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -1174,6 +1220,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder="placeholder"
+        role="combobox"
         type="search"
         value=""
       />
@@ -1181,7 +1228,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
@@ -1195,7 +1243,6 @@ exports[`Combobox renders correctly with size 1`] = `
 >
   <div
     className="comboboxList"
-    role="listbox"
     style={
       {
         "maxHeight": undefined,
@@ -1225,6 +1272,8 @@ exports[`Combobox renders correctly with size 1`] = `
       </svg>
       <input
         aria-busy={false}
+        aria-expanded={false}
+        aria-haspopup="listbox"
         aria-label="Search for content"
         autoComplete="off"
         autoFocus={false}
@@ -1234,6 +1283,7 @@ exports[`Combobox renders correctly with size 1`] = `
         id="combobox-search"
         onChange={[Function]}
         placeholder=""
+        role="combobox"
         type="search"
         value=""
       />
@@ -1241,7 +1291,8 @@ exports[`Combobox renders correctly with size 1`] = `
     </div>
     <div
       className="scrollableContainer optionsContainer"
-      role="treegrid"
+      id="combobox-listbox"
+      role="listbox"
     />
   </div>
 </div>
