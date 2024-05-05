@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.3](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.2...vibe-storybook-components@0.18.3) (2024-04-30)
+
+
+### Bug Fixes
+
+* **types:** Decorator type should be taken from storybook, not custom ([#2090](https://github.com/mondaycom/vibe/issues/2090)) ([5485d6e](https://github.com/mondaycom/vibe/commit/5485d6e7284fa5a91f994e5a3d221fa3d1566391))
+
+
+
+
+
+## [0.18.2](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.1...vibe-storybook-components@0.18.2) (2024-04-24)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 ## [0.18.1](https://github.com/mondaycom/monday-ui-react-core/compare/vibe-storybook-components@0.18.0...vibe-storybook-components@0.18.1) (2024-04-10)
 
 **Note:** Version bump only for package vibe-storybook-components

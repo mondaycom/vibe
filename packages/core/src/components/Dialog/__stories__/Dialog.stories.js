@@ -11,6 +11,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
+import { HideShowEvent } from "../../../constants/dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
@@ -19,14 +20,30 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: [] // List the component's actions here
 });
 
+const showHideArgTypes = {
+  options: Object.values(HideShowEvent),
+  control: {
+    type: "multi-select"
+  },
+  table: {
+    type: {
+      summary: Object.values(HideShowEvent).join(" | ")
+    }
+  }
+};
+
 export default {
   title: "Popover/Dialog",
   component: Dialog,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    hideTrigger: showHideArgTypes,
+    showTrigger: showHideArgTypes
+  },
   decorators: metaSettings.decorators
 };
 
-const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
+const dialogTemplate = ({ showTrigger, hideTrigger, shouldShowOnMount = true, position, ...dialogProps }) => {
   // for prevent dialog to move while scrolling
   const modifiers = [
     {
@@ -40,10 +57,10 @@ const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
     <div className="monday-storybook-dialog--story-padding">
       <Dialog
         modifiers={modifiers}
-        shouldShowOnMount={shouldShowOnMount || true}
+        shouldShowOnMount={shouldShowOnMount}
         {...dialogProps}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={showTrigger || [Dialog.hideShowTriggers.CLICK]}
+        hideTrigger={hideTrigger || [Dialog.hideShowTriggers.CLICK]}
         position={position || Dialog.positions.RIGHT}
         content={
           <DialogContentContainer>
@@ -59,16 +76,12 @@ const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
 
 export const Overview = {
   render: dialogTemplate.bind({}),
-
+  name: "Overview",
   parameters: {
     docs: {
-      source: {
-        type: "code"
-      }
+      liveEdit: { isEnabled: false }
     }
-  },
-
-  name: "Overview"
+  }
 };
 
 export const Positions = {
@@ -171,7 +184,14 @@ export const Positions = {
       );
     },
 
-  name: "Positions"
+  name: "Positions",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useSwitch, ExampleContent }
+      }
+    }
+  }
 };
 
 export const ShowTriggers = {
@@ -273,6 +293,11 @@ export const ShowTriggers = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: { useSwitch, ExampleContent }
+      }
     }
   }
 };
@@ -481,6 +506,18 @@ export const HideTriggers = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: {
+          useSwitch,
+          ExampleContent,
+          HIDE_TRIGGERS_CONTAINER,
+          CLICK_OUTSIDE_DIALOG,
+          CLICK_OUTSIDE_DIALOG_BUTTON,
+          CONTEXT_MENU_DIALOG
+        }
+      }
     }
   }
 };
@@ -512,7 +549,14 @@ export const ControlledDialog = {
     );
   },
 
-  name: "Controlled Dialog"
+  name: "Controlled Dialog",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useSwitch }
+      }
+    }
+  }
 };
 
 export const DialogWithTooltip = {
@@ -548,7 +592,14 @@ export const DialogWithTooltip = {
     );
   },
 
-  name: "Dialog with tooltip"
+  name: "Dialog with tooltip",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleContent, Info }
+      }
+    }
+  }
 };
 
 export const DisableScrollWhenDialogOpen = {
@@ -596,5 +647,12 @@ export const DisableScrollWhenDialogOpen = {
     );
   },
 
-  name: "Disable scroll when dialog open"
+  name: "Disable scroll when dialog open",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleContent, useSwitch }
+      }
+    }
+  }
 };

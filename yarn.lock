@@ -284,6 +284,11 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.1.tgz#1e416d3627393fab1cb5b0f2f1796a100ae9133a"
   integrity sha512-Zo9c7N3xdOIQrNip7Lc9wvRPzlRtovHVE4lkz8WEDr7uYh/GMQhSiIgFxGIArRHYdJE5kxtZjAf8rT0xhdLCzg==
 
+"@babel/parser@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.4.tgz#234487a110d89ad5a3ed4a8a566c36b9453e8c88"
+  integrity sha512-zTvEBcghmeBma9QIGunWevvBAp4/Qu9Bdq+2k0Ot4fVMD6v3dsC9WOcRSKk7tRRyBM/53yKMJko9xOatGQAwSg==
+
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.24.1":
   version "7.24.1"
   resolved "https://registry.npmjs.org/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/-/plugin-bugfix-safari-id-destructuring-collision-in-function-expression-7.24.1.tgz#b645d9ba8c2bc5b7af50f0fe949f9edbeb07c8cf"
@@ -1101,6 +1106,11 @@
   integrity sha512-+BIznRzyqBf+2wCTxcKE3wDjfGeCoVE61KSHGpkzqrLi8qxqFwBeUFyId2cxkTmm55fzDGnm0+yCxaxygrLUnQ==
   dependencies:
     regenerator-runtime "^0.14.0"
+
+"@babel/standalone@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.npmjs.org/@babel/standalone/-/standalone-7.24.4.tgz#9461220fd641a92fff4be19b34fdb9d18e80d37d"
+  integrity sha512-V4uqWeedadiuiCx5P5OHYJZ1PehdMpcBccNCEptKFGPiZIY3FI5f2ClxUl4r5wZ5U+ohcQ+4KW6jX2K6xXzq4Q==
 
 "@babel/template@^7.22.15", "@babel/template@^7.24.0", "@babel/template@^7.3.3":
   version "7.24.0"
@@ -4501,7 +4511,7 @@
   resolved "https://registry.npmjs.org/@types/autosize/-/autosize-4.0.3.tgz#77548c35bca4cc6281593228cde9a50112e1f94c"
   integrity sha512-o0ZyU3ePp3+KRbhHsY4ogjc+ZQWgVN5h6j8BHW5RII4cFKi6PEKK9QPAcphJVkD0dGpyFnD3VRR0WMvHVjCv9w==
 
-"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14", "@types/babel__core@^7.1.7", "@types/babel__core@^7.18.0":
+"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.14", "@types/babel__core@^7.1.7", "@types/babel__core@^7.18.0":
   version "7.20.5"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
   integrity sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==
@@ -4518,6 +4528,13 @@
   integrity sha512-ASsj+tpEDsEiFr1arWrlN6V3mdfjRMZt6LtK/Vp/kreFLnr5QH5+DhvD5nINYZXzwJvXeGq+05iUXcAzVrqWtw==
   dependencies:
     "@babel/types" "^7.0.0"
+
+"@types/babel__standalone@^7.1.7":
+  version "7.1.7"
+  resolved "https://registry.npmjs.org/@types/babel__standalone/-/babel__standalone-7.1.7.tgz#8ab09548a24f54015e7d84a55486148180bc4ace"
+  integrity sha512-4RUJX9nWrP/emaZDzxo/+RYW8zzLJTXWJyp2k78HufG459HCz754hhmSymt3VFOU6/Wy+IZqfPvToHfLuGOr7w==
+  dependencies:
+    "@types/babel__core" "^7.1.0"
 
 "@types/babel__template@*":
   version "7.4.4"
