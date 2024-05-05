@@ -35,7 +35,12 @@ export const Overview: Story = {
   name: "Overview",
 
   args: { placeholder: "Placeholder text here" },
-  decorators: [withFixedWidth]
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: { isEnabled: false }
+    }
+  }
 };
 
 export const Sizes: Story = {
@@ -65,7 +70,14 @@ export const WithAdditionalAction: Story = {
     />
   ),
 
-  decorators: [withFixedWidth]
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { FilterIcon }
+      }
+    }
+  }
 };
 
 const options = [
@@ -102,5 +114,12 @@ export const FilterInCombobox: Story = {
       </DialogContentContainer>
     ),
     withFixedWidth
-  ]
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { options }
+      }
+    }
+  }
 };

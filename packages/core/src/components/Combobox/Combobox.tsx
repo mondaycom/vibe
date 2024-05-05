@@ -17,7 +17,12 @@ import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCa
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
 import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
-import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
+import {
+  IComboboxCategoryMap,
+  IComboboxItem,
+  IComboboxOption,
+  COMBOBOX_LISTBOX_ID
+} from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 
 export interface ComboboxProps extends VibeComponentProps {
@@ -297,6 +302,9 @@ const Combobox: React.FC<ComboboxProps> & {
             autoFocus={autoFocus}
             loading={loading}
             searchIconName={searchIcon}
+            ariaExpanded={hasFilter || hasResults}
+            ariaHasPopup="listbox"
+            searchResultsContainerId={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
@@ -316,6 +324,7 @@ const Combobox: React.FC<ComboboxProps> & {
             renderOnlyVisibleOptions={renderOnlyVisibleOptions}
             maxOptionsWithoutScroll={maxOptionsWithoutScroll}
             visualFocusItemIndex={visualFocusItemIndex}
+            id={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}

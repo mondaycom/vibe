@@ -54,6 +54,14 @@ export interface SearchProps extends VibeComponentProps {
    */
   inputAriaLabel?: React.AriaAttributes["aria-label"];
   /**
+   * aria to be set if the popup is open.
+   */
+  ariaExpanded?: React.AriaAttributes["aria-expanded"];
+  /**
+   * aria to be set the sarch result popup's type.
+   */
+  ariaHasPopup?: React.AriaAttributes["aria-haspopup"];
+  /**
    * Rate at which search input changes are debounced.
    */
   debounceRate?: number;

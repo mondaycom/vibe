@@ -61,6 +61,11 @@ export const Overview = {
     onClick: () => alert("clicked"),
     placeholder: "Placeholder text here",
     clearFilterOnSelection: true
+  },
+  parameters: {
+    docs: {
+      liveEdit: { isEnabled: false }
+    }
   }
 };
 
@@ -88,6 +93,13 @@ export const Default = {
   },
 
   name: "Default",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo }
+      }
+    }
+  },
   play: defaultPlaySuite
 };
 
@@ -126,7 +138,14 @@ export const ComboboxInsideADialog = {
     );
   },
 
-  name: "Combobox inside a dialog"
+  name: "Combobox inside a dialog",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo }
+      }
+    }
+  }
 };
 
 export const Sizes = {
@@ -172,7 +191,14 @@ export const Sizes = {
     );
   },
 
-  name: "Sizes"
+  name: "Sizes",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo }
+      }
+    }
+  }
 };
 
 export const WithCategories = {
@@ -274,7 +300,14 @@ export const WithCategories = {
     );
   },
 
-  name: "With categories"
+  name: "With categories",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, StoryDescription }
+      }
+    }
+  }
 };
 
 export const WithIcons = {
@@ -317,7 +350,14 @@ export const WithIcons = {
     );
   },
 
-  name: "With icons"
+  name: "With icons",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, Wand, ThumbsUp, Time, Update, Upgrade }
+      }
+    }
+  }
 };
 
 export const WithOptionRenderer = {
@@ -353,7 +393,14 @@ export const WithOptionRenderer = {
     );
   },
 
-  name: "With optionRenderer"
+  name: "With optionRenderer",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, Person }
+      }
+    }
+  }
 };
 
 export const WithButton = {
@@ -399,7 +446,14 @@ export const WithButton = {
     );
   },
 
-  name: "With Button"
+  name: "With Button",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, Wand, ThumbsUp, Time, Update, Upgrade, Edit }
+      }
+    }
+  }
 };
 
 export const WithCreation = {
@@ -426,7 +480,14 @@ export const WithCreation = {
     );
   },
 
-  name: "With Creation"
+  name: "With Creation",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useState }
+      }
+    }
+  }
 };
 
 export const WithVirtualizationOptimization = {
@@ -643,7 +704,14 @@ export const WithVirtualizationOptimization = {
     );
   },
 
-  name: "With virtualization optimization"
+  name: "With virtualization optimization",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, StoryDescription }
+      }
+    }
+  }
 };
 
 export const LoadingState = {
@@ -657,7 +725,14 @@ export const LoadingState = {
     );
   },
 
-  name: "Loading state"
+  name: "Loading state",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo }
+      }
+    }
+  }
 };
 
 export const ComboboxAsPersonPicker = {
@@ -735,5 +810,12 @@ export const ComboboxAsPersonPicker = {
     );
   },
 
-  name: "Combobox as person picker"
+  name: "Combobox as person picker",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useMemo, person1, person2, person3, optionRenderer }
+      }
+    }
+  }
 };
