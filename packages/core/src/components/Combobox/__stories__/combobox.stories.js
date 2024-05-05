@@ -40,8 +40,6 @@ const comboboxTemplate = args => {
 
 export const Overview = {
   render: comboboxTemplate.bind({}),
-  name: "Overview",
-
   args: {
     options: [
       {
@@ -61,6 +59,13 @@ export const Overview = {
     onClick: () => alert("clicked"),
     placeholder: "Placeholder text here",
     clearFilterOnSelection: true
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -86,8 +91,6 @@ export const Default = {
 
     return <Combobox placeholder="Placeholder text here" options={options} />;
   },
-
-  name: "Default",
   play: defaultPlaySuite
 };
 
@@ -125,7 +128,6 @@ export const ComboboxInsideADialog = {
       </DialogContentContainer>
     );
   },
-
   name: "Combobox inside a dialog"
 };
 
@@ -170,9 +172,7 @@ export const Sizes = {
         </DialogContentContainer>
       </div>
     );
-  },
-
-  name: "Sizes"
+  }
 };
 
 export const WithCategories = {
@@ -273,7 +273,13 @@ export const WithCategories = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  },
   name: "With categories"
 };
 
@@ -316,7 +322,13 @@ export const WithIcons = {
       </DialogContentContainer>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade }
+      }
+    }
+  },
   name: "With icons"
 };
 
@@ -352,7 +364,13 @@ export const WithOptionRenderer = {
       </DialogContentContainer>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Person }
+      }
+    }
+  },
   name: "With optionRenderer"
 };
 
@@ -398,8 +416,13 @@ export const WithButton = {
       </DialogContentContainer>
     );
   },
-
-  name: "With Button"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade, Edit }
+      }
+    }
+  }
 };
 
 export const WithCreation = {
@@ -424,9 +447,7 @@ export const WithCreation = {
         />
       </DialogContentContainer>
     );
-  },
-
-  name: "With Creation"
+  }
 };
 
 export const WithVirtualizationOptimization = {
@@ -642,7 +663,13 @@ export const WithVirtualizationOptimization = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  },
   name: "With virtualization optimization"
 };
 
@@ -656,7 +683,6 @@ export const LoadingState = {
       </DialogContentContainer>
     );
   },
-
   name: "Loading state"
 };
 
@@ -734,6 +760,12 @@ export const ComboboxAsPersonPicker = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3, optionRenderer }
+      }
+    }
+  },
   name: "Combobox as person picker"
 };

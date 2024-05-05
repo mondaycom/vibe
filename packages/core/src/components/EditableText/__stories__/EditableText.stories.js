@@ -21,12 +21,18 @@ const EditableTextTemplate = createComponentTemplate(EditableText);
 
 export const Overview = {
   render: EditableTextTemplate.bind({}),
-  name: "Overview",
   args: {
     value: "This text is an editable text",
     type: EditableText.types.TEXT2
   },
-  play: overviewPlaySuite
+  play: overviewPlaySuite,
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Types = {
@@ -88,5 +94,11 @@ export const Types = {
       </div>
     </div>
   ),
-  name: "Types"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
 };

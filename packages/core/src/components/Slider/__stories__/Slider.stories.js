@@ -20,8 +20,13 @@ const sliderTemplate = createComponentTemplate(Slider);
 
 export const Overview = {
   render: sliderTemplate.bind({}),
-  name: "Overview",
-  args: {}
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Sizes = {
@@ -31,8 +36,7 @@ export const Sizes = {
       <Slider size={Slider.sizes.MEDIUM} defaultValue={24} />
       <Slider size={Slider.sizes.LARGE} defaultValue={35} />
     </>
-  ),
-  name: "Sizes"
+  )
 };
 
 export const Ranged = {
@@ -42,9 +46,8 @@ export const Ranged = {
       <Slider data-testid={"monday-ranged-slider-m"} size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
       <Slider size={Slider.sizes.LARGE} ranged={true} defaultValue={[25, 32]} />
     </>
-  ),
+  )
 
-  name: "Ranged"
   // TODO storybook 7 migration: interactive test isn't working correctly
   // play: rangedSliderMouseEventsPlaySuite
 };
@@ -56,9 +59,7 @@ export const Colors = {
       <Slider color={Slider.colors.NEGATIVE} ranged={true} defaultValue={[12, 55]} size={Slider.sizes.MEDIUM} />
       <Slider color={Slider.colors.PRIMARY} defaultValue={12} size={Slider.sizes.MEDIUM} />
     </>
-  ),
-
-  name: "Colors"
+  )
 };
 
 export const Disabled = {
@@ -74,9 +75,7 @@ export const Disabled = {
         size={Slider.sizes.MEDIUM}
       />
     </>
-  ),
-
-  name: "Disabled"
+  )
 };
 
 export const WithLabels = {
@@ -89,8 +88,14 @@ export const WithLabels = {
       <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size={Slider.sizes.LARGE} />
     </>
   ),
-  name: "WithLabels",
-  decorators: [VerticalStories]
+  decorators: [VerticalStories],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Sound, Video }
+      }
+    }
+  }
 };
 
 export const ShowValue = {
@@ -105,9 +110,8 @@ export const ShowValue = {
       />
       <Slider data-testid={"monday-slider-show-value-l"} showValue={true} defaultValue={89} size={Slider.sizes.LARGE} />
     </>
-  ),
+  )
 
-  name: "ShowValue"
   // TODO storybook 7 migration: interactive test isn't working correctly
   // play: nonRangedSliderMouseEventsPlaySuite
 };
@@ -188,7 +192,5 @@ export const Customisation = {
       />
     </>
   ),
-
-  name: "Customisation",
   decorators: [VerticalStories]
 };

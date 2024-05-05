@@ -15,10 +15,15 @@ export default {
 
 export const Overview = {
   render: radioButtonTemplate.bind({}),
-  name: "Overview",
-
   args: {
     text: "Selection"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -30,8 +35,7 @@ export const States = {
       <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
       <RadioButton text="Disabled" checked disabled />
     </>
-  ),
-  name: "States"
+  )
 };
 
 export const RadioButtonInItemsList = {
@@ -43,9 +47,8 @@ export const RadioButtonInItemsList = {
       <RadioButton text="All updates" name="radio-buttons-group-4" />
     </div>
   ),
-
-  name: "Radio button in items list",
-  play: clickRadioButtonPlaySuite
+  play: clickRadioButtonPlaySuite,
+  name: "Radio button in items list"
 };
 
 export const ControlledRadioButtons = {
@@ -68,6 +71,6 @@ export const ControlledRadioButtons = {
       </div>
     );
   },
-  name: "Controlled Radio buttons",
-  play: controlRadioButtonPlaySuite
+  play: controlRadioButtonPlaySuite,
+  name: "Controlled Radio buttons"
 };

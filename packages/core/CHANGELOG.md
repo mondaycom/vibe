@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.107.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.106.1...monday-ui-react-core@2.107.0) (2024-05-01)
+
+
+### Features
+
+* **Search:** adds hideRenderActionOnInput option ([#2098](https://github.com/mondaycom/vibe/issues/2098)) ([fdc8c21](https://github.com/mondaycom/vibe/commit/fdc8c217b19a6917f2112e4124407316b91546f9))
+
+
+
+
+
+## [2.106.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.106.0...monday-ui-react-core@2.106.1) (2024-05-01)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
 # [2.106.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.105.1...monday-ui-react-core@2.106.0) (2024-04-30)
 
 

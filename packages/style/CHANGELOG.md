@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.5.1...monday-ui-style@0.6.0) (2024-05-01)
+
+
+### Features
+
+* **colors-json:** add correct warning colors syntax ([#2095](https://github.com/mondaycom/vibe/issues/2095)) ([0e67814](https://github.com/mondaycom/vibe/commit/0e67814c9c5031d11ca1b1106e34563a6e7f9243))
+
+
+
+
+
 ## [0.5.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.5.0...monday-ui-style@0.5.1) (2024-04-24)
 
 **Note:** Version bump only for package monday-ui-style

@@ -18,13 +18,14 @@ const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
     []
   );
 
-  const liveEditEnabledForStory = story.parameters.docs?.liveEdit?.isEnabled;
+  const sourceState = story.parameters.docs?.sourceState;
+  const liveEditEnabledForStory = sourceState !== "none" && story.parameters.docs?.liveEdit?.isEnabled;
 
   return (
     <>
       <Canvas
         of={of}
-        sourceState={liveEditEnabledForStory ? "none" : "hidden"}
+        sourceState={sourceState || (liveEditEnabledForStory ? "none" : "hidden")}
         additionalActions={liveEditEnabledForStory ? [toggleCodeAction] : []}
         className={styles.canvas}
       />
