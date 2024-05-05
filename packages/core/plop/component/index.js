@@ -53,12 +53,7 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.test.js",
-        templateFile: "plop/general/component-snapshot-tests.txt"
-      },
-      {
-        type: "add",
-        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}.test.js",
+        path: "src/components/{{properCase componentName}}/__tests__/{{properCase componentName}}.test.js",
         templateFile: "plop/general/component-tests.txt"
       },
       {

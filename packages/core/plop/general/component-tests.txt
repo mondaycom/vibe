@@ -1,18 +1,13 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render } from "@testing-library/react";
 import {{properCase componentName}} from "../{{properCase componentName}}";
 
 const renderComponent = props => {
   return render(<{{properCase componentName}} {...props} />);
 };
 
-describe("{{properCase componentName}} tests", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
-  it("calls x when y", () => {});
+describe("{{properCase componentName}}", () => {
+  it("should render", () => {});
 
   it("should do  x when y", () => {});
 });
