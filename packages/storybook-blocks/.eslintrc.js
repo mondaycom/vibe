@@ -39,7 +39,7 @@ const commonExtends = ['plugin:react/recommended', 'plugin:prettier/recommended'
 module.exports = {
   overrides: [
     {
-      files: ['*.test.js', 'jest.init.js'],
+      files: ['jest.init.js'],
       env: {
         jest: true,
         'jest/globals': true,
