@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "2.105.1",
+  "version": "2.107.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -60,8 +60,8 @@
   },
   "scripts": {
     "test": "jest",
-    "test:stories": "testing=storybook TEST_END_FILES=jest-story jest",
-    "test:update": "yarn test -- -u",
+    "test:watch": "jest --watch",
+    "test:update": "yarn test -u",
     "test:coverage": "yarn test -- --coverage",
     "start": "yarn build:react-icons && yarn build:commonjs -- --watch",
     "build": "yarn build:react-icons && yarn build:storybook-exports && yarn build:commonjs && yarn build:esm && yarn build:esm:mock-classnames && yarn build:types",
@@ -108,7 +108,7 @@
     "classnames": "^2.3.2",
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.5.1",
+    "monday-ui-style": "0.6.0",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^3.0.1",
@@ -120,7 +120,7 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "0.18.2"
+    "vibe-storybook-components": "0.18.3"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -138,7 +138,7 @@
     "@babel/standalone": "^7.24.4",
     "@babel/types": "^7.24.0",
     "@hot-loader/react-dom": "^16.13.0",
-    "@jest/transform": "^26.6.2",
+    "@jest/transform": "^29.7.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/mdx": "^2.0.0-rc.2",
     "@rollup/plugin-babel": "^6.0.2",
@@ -152,7 +152,6 @@
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-storyshots": "^7.5.3",
     "@storybook/addon-styling-webpack": "^0.0.5",
     "@storybook/addon-themes": "^7.5.3",
     "@storybook/addon-toolbars": "^7.5.3",
@@ -221,7 +220,8 @@
     "eslint-plugin-storybook": "^0.6.15",
     "execa": "^5.1.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "js-sha256": "^0.9.0",
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
@@ -258,8 +258,9 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "svg2react-icon": "^3.1.178",
     "terser-webpack-plugin": "^5.3.0",
-    "ts-jest": "^27.1.5",
+    "ts-jest": "^29.1.2",
     "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.2",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
     "webpack": "^5.73.0",
@@ -283,16 +284,5 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
-  ],
-  "changelog": {
-    "labels": {
-      "PR: Bugfix 🐛": "Bug Fixes",
-      "PR: New Feature 🕹": "New Features",
-      "PR: Dependencies 🛠": "Dependency Upgrades",
-      "PR: Documentation 📖": "Documentation",
-      "PR: Internal 🏠": "Internal Changes",
-      "PR: Breaking Changes 💥": "Breaking Changes",
-      "PR: Icon 💎": "New Icons"
-    }
-  }
+  ]
 }

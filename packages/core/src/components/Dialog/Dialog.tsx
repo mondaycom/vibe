@@ -57,7 +57,7 @@ export interface DialogProps extends VibeComponentProps {
    */
   hideTrigger?: HideShowEvent | HideShowEvent[];
   /**
-   * If true, prevents open Dialog from closing on mouseEnter and closes Dialog, when  mouse leaves it
+   * If true, prevents opened Dialog from closing on mouseEnter, and closes Dialog when mouse leaves it
    */
   showOnDialogEnter?: boolean;
   /**
@@ -113,7 +113,7 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * callback to be called when the dialog is shown
    */
-  onDialogDidShow?: () => void;
+  onDialogDidShow?: (event?: DialogEvent, eventName?: HideShowEvent | string) => void;
   /**
    * callback to be called when the dialog is hidden
    */
@@ -291,7 +291,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     return containerElement;
   }
 
-  showDialog(options: { preventAnimation?: boolean } = {}) {
+  showDialog(event: DialogEvent, eventName: HideShowEvent | string, options: { preventAnimation?: boolean } = {}) {
     const { showDelay, instantShowAndHide, getDynamicShowDelay } = this.props;
     let finalShowDelay = showDelay;
     let preventAnimation = options.preventAnimation;
@@ -302,25 +302,25 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     }
 
     if (instantShowAndHide) {
-      this.onShowDialog();
+      this.onShowDialog(event, eventName);
       this.setState({ isOpen: true, preventAnimation });
       this.showTimeout = null;
     } else {
       this.showTimeout = setTimeout(() => {
-        this.onShowDialog();
+        this.onShowDialog(event, eventName);
         this.showTimeout = null;
         this.setState({ isOpen: true, preventAnimation });
       }, finalShowDelay);
     }
   }
 
-  onShowDialog() {
+  onShowDialog(event: DialogEvent, eventName: HideShowEvent | string) {
     if (this.isShown()) return;
     const { onDialogDidShow } = this.props;
-    onDialogDidShow();
+    onDialogDidShow(event, eventName);
   }
 
-  showDialogIfNeeded(options = {}) {
+  showDialogIfNeeded(event: DialogEvent, eventName: HideShowEvent | string, options = {}) {
     const { disable } = this.props;
     if (disable) {
       return;
@@ -332,7 +332,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     }
 
     if (!this.showTimeout) {
-      this.showDialog(options);
+      this.showDialog(event, eventName, options);
     }
   }
 
@@ -375,7 +375,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       !this.isShown() &&
       !isInsideClass(target as HTMLElement, showTriggerIgnoreClass)
     ) {
-      return this.showDialogIfNeeded();
+      return this.showDialogIfNeeded(event, eventName);
     }
 
     if (this.isHideTrigger(eventName) && !isInsideClass(target as HTMLElement, hideTriggerIgnoreClass)) {
@@ -473,9 +473,9 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     onClickOutside(event);
   }
 
-  onDialogEnter() {
+  onDialogEnter(event: React.MouseEvent) {
     const { showOnDialogEnter } = this.props;
-    if (showOnDialogEnter) this.showDialogIfNeeded();
+    if (showOnDialogEnter) this.showDialogIfNeeded(event, "DialogEnter");
   }
 
   onDialogLeave(event: React.MouseEvent) {

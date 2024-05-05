@@ -116,6 +116,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
 
     const onDateRangeChange = useCallback(
       (date: RangeDate) => {
+        if (!onPickDate) return;
         if (focusedInput === FocusInput.startDate) {
           onPickDate({ ...date, endDate: null });
         } else {

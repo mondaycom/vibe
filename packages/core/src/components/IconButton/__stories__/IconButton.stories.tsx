@@ -10,6 +10,9 @@ import Icon from "../../Icon/Icon";
 import Heading from "../../LegacyHeading/LegacyHeading";
 import Avatar from "../../Avatar/Avatar";
 import styles from "./iconButton.stories.module.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof IconButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
@@ -25,19 +28,24 @@ export default {
   component: IconButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof IconButton>;
 
-export const Overview = {
+export const Overview: Story = {
   render: iconButtonTemplate.bind({}),
-  name: "Overview",
-
   args: {
     ariaLabel: "Add",
     icon: Add
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
-export const Kinds = {
+export const Kinds: Story = {
   render: () => (
     <div
       style={{
@@ -52,11 +60,16 @@ export const Kinds = {
       <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
     </div>
   ),
-
-  name: "Kinds"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Bolt }
+      }
+    }
+  }
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <div
       style={{
@@ -103,11 +116,16 @@ export const Sizes = {
       />
     </div>
   ),
-
-  name: "Sizes"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Robot }
+      }
+    }
+  }
 };
 
-export const Active = {
+export const Active: Story = {
   render: () => (
     <div
       style={{
@@ -122,11 +140,16 @@ export const Active = {
       <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
     </div>
   ),
-
-  name: "Active"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Doc }
+      }
+    }
+  }
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <div
       style={{
@@ -159,11 +182,16 @@ export const Disabled = {
       />
     </div>
   ),
-
-  name: "Disabled"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Doc }
+      }
+    }
+  }
 };
 
-export const IconButtonAsToolbarButton = {
+export const IconButtonAsToolbarButton: Story = {
   render: () => (
     <Flex
       className={styles.dashboard}
@@ -181,11 +209,17 @@ export const IconButtonAsToolbarButton = {
       <div className={styles.dashboardContent} />
     </Flex>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, Drag, Filter }
+      }
+    }
+  },
   name: "Icon button as toolbar button"
 };
 
-export const IconButtonAsCloseButton = {
+export const IconButtonAsCloseButton: Story = {
   render: () => (
     <>
       <Flex
@@ -246,6 +280,12 @@ export const IconButtonAsCloseButton = {
       <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
     </>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, person1, Item, Time, CloseSmall }
+      }
+    }
+  },
   name: "Icon button as close button"
 };

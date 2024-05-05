@@ -6,6 +6,9 @@ import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 import React, { useRef } from "react";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof MenuButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
@@ -19,14 +22,12 @@ export default {
   component: MenuButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof MenuButton>;
 
 const menuButtonTemplate = createComponentTemplate(MenuButton);
 
-export const Overview = {
+export const Overview: Story = {
   render: menuButtonTemplate.bind({}),
-  name: "Overview",
-
   args: {
     children: (
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -35,10 +36,17 @@ export const Overview = {
         <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
       </Menu>
     )
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <>
       <MenuButton size={MenuButton.sizes.XXS}>
@@ -78,11 +86,16 @@ export const Sizes = {
       </MenuButton>
     </>
   ),
-
-  name: "Sizes"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
-export const DifferentIcon = {
+export const DifferentIcon: Story = {
   render: () => (
     <MenuButton component={MoveArrowDown}>
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -92,11 +105,16 @@ export const DifferentIcon = {
       </Menu>
     </MenuButton>
   ),
-
-  name: "Different Icon"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, MoveArrowDown, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
-export const WithText = {
+export const WithText: Story = {
   render: () => (
     <div
       style={{
@@ -112,11 +130,16 @@ export const WithText = {
       </MenuButton>
     </div>
   ),
-
-  name: "With Text"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
-export const WithTextAndIconAtTheEnd = {
+export const WithTextAndIconAtTheEnd: Story = {
   render: () => (
     <div
       style={{
@@ -132,11 +155,17 @@ export const WithTextAndIconAtTheEnd = {
       </MenuButton>
     </div>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, DropdownChevronDown, Sun, Moon, Favorite }
+      }
+    }
+  },
   name: "With Text and Icon at the end"
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <MenuButton disabled tooltipContent="This action is not available now">
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
@@ -146,11 +175,16 @@ export const Disabled = {
       </Menu>
     </MenuButton>
   ),
-
-  name: "Disabled"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };
 
-export const CustomTriggerElement = {
+export const CustomTriggerElement: Story = {
   render: () => {
     const ref = useRef(null);
 
@@ -170,6 +204,11 @@ export const CustomTriggerElement = {
       </MenuButton>
     );
   },
-
-  name: "Custom Trigger Element"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP, Sun, Moon, Favorite }
+      }
+    }
+  }
 };

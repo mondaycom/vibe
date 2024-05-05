@@ -55,7 +55,6 @@ const dropdownTemplate = props => {
 
 export const Overview = {
   render: dropdownTemplate.bind({}),
-  name: "Overview",
   args: {
     placeholder: "Placeholder text here",
     className: "dropdown-stories-styles_spacing"
@@ -64,6 +63,11 @@ export const Overview = {
     controls: {
       // TODO: remove exclusion when prop is removed in next major
       exclude: ["withReadOnlyStyle"]
+    },
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   },
   play: overviewPlaySuite
@@ -76,9 +80,7 @@ export const Sizes = {
       <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
       <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
     </>
-  ),
-
-  name: "Sizes"
+  )
 };
 
 export const Disabled = {
@@ -113,9 +115,7 @@ export const Disabled = {
         />
       </Flex>
     );
-  },
-
-  name: "Disabled"
+  }
 };
 
 export const Readonly = {
@@ -150,9 +150,7 @@ export const Readonly = {
         />
       </Flex>
     );
-  },
-
-  name: "Readonly"
+  }
 };
 
 export const Rtl = {
@@ -162,7 +160,6 @@ export const Rtl = {
       <Dropdown placeholder="מימין לשמאל" className="dropdown-stories-styles_spacing" rtl />
     </>
   ),
-
   name: "RTL"
 };
 
@@ -268,12 +265,18 @@ export const MultiChoiceWithDifferentStates = {
       </Flex>
     );
   },
-
-  name: "Multi-choice with different states",
-  play: multiInteractionTests
+  play: multiInteractionTests,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  },
+  name: "Multi-choice with different states"
 };
 
-export const AsyncOptions = {
+export const AsyncDropdown = {
   render: () => {
     const fetchUserOptions = async () => {
       try {
@@ -299,9 +302,7 @@ export const AsyncOptions = {
         <Dropdown asyncOptions={fetchUserOptions} placeholder="Async options" cacheOptions defaultOptions />
       </div>
     );
-  },
-
-  name: "Async Dropdown"
+  }
 };
 
 export const DropdownWithAvatar = {
@@ -352,7 +353,13 @@ export const DropdownWithAvatar = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3, StoryDescription }
+      }
+    }
+  },
   name: "Dropdown with avatar"
 };
 
@@ -399,7 +406,13 @@ export const DropdownWithIcon = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email, Attach, StoryDescription }
+      }
+    }
+  },
   name: "Dropdown with icon"
 };
 
@@ -440,7 +453,13 @@ export const DropdownWithChipColors = {
       </StoryDescription>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  },
   name: "Dropdown with chip colors"
 };
 
@@ -480,7 +499,13 @@ export const DropdownWithTooltipsOnItems = {
       </StoryDescription>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  },
   name: "Dropdown with tooltips on items"
 };
 
@@ -530,7 +555,13 @@ export const DropdownWithChips = {
       />
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3, OptionRenderer }
+      }
+    }
+  },
   name: "Dropdown with chips"
 };
 
@@ -590,7 +621,6 @@ export const SearchableDropdown = {
       />
     );
   },
-
   name: "Searchable dropdown"
 };
 
@@ -631,7 +661,6 @@ export const DropdownWithLabels = {
       />
     );
   },
-
   name: "Dropdown with labels"
 };
 
@@ -667,7 +696,6 @@ export const DropdownInsideAForm = {
       </div>
     );
   },
-
   name: "Dropdown inside a form"
 };
 
@@ -711,7 +739,6 @@ export const DropdownWithGroups = {
       <Dropdown placeholder="Placeholder text here" options={options} className="dropdown-stories-styles_big-spacing" />
     );
   },
-
   name: "Dropdown with groups"
 };
 
@@ -818,7 +845,13 @@ export const DropdownInsidePopover = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ModalExampleContent }
+      }
+    }
+  },
   name: "Dropdown inside popover"
 };
 
@@ -863,7 +896,6 @@ export const DropdownWithLoading = {
       />
     );
   },
-
   name: "Dropdown with loading"
 };
 
@@ -908,7 +940,6 @@ export const DropdownWithRef = {
       </Flex>
     );
   },
-
   name: "Dropdown with ref"
 };
 
@@ -944,6 +975,5 @@ export const DropdownValueSelection = {
       </Flex>
     );
   },
-
   name: "Dropdown value selection"
 };

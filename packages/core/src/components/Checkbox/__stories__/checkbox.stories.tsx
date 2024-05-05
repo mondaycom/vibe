@@ -2,6 +2,9 @@ import { createComponentTemplate, Link } from "vibe-storybook-components";
 import Checkbox from "../Checkbox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./checkbox.stories.scss";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof Checkbox>;
 
 const metaSettings = createStoryMetaSettingsDecorator({ component: Checkbox });
 const checkboxTemplate = createComponentTemplate(Checkbox);
@@ -10,19 +13,24 @@ export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof Checkbox>;
 
-export const Overview = {
+export const Overview: Story = {
   render: checkboxTemplate.bind({}),
-  name: "Overview",
-
   args: {
     label: "Option",
     defaultChecked: true
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <>
       <Checkbox label="Regular" />
@@ -32,11 +40,10 @@ export const States = {
       <Checkbox label="Disabled checked" disabled checked />
       <Checkbox label="Disabled indeterminate" disabled indeterminate />
     </>
-  ),
-  name: "States"
+  )
 };
 
-export const SingleCheckbox = {
+export const SingleCheckbox: Story = {
   render: () => (
     <Checkbox
       checked
@@ -55,6 +62,12 @@ export const SingleCheckbox = {
       }
     />
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  },
   name: "Single checkbox"
 };

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-hidden="true"
+  className="listItemAvatar"
+>
+  <div
+    className="avatar small avatar"
+    data-testid="avatar"
+    style={{}}
+  >
+    <div
+      aria-hidden={false}
+      className="circle circleImg"
+      style={
+        {
+          "backgroundColor": "var(--color-chili-blue)",
+        }
+      }
+      tabIndex={-1}
+    >
+      <img
+        className="contentImg contentImgSmall"
+        data-testid="avatar-content"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly with picture 1`] = `
+<div
+  aria-hidden="true"
+  className="listItemAvatar"
+>
+  <div
+    className="avatar small avatar"
+    data-testid="avatar"
+    style={{}}
+  >
+    <div
+      aria-hidden={false}
+      className="circle circleImg"
+      style={{}}
+      tabIndex={-1}
+    >
+      <img
+        className="contentImg contentImgSmall"
+        data-testid="avatar-content"
+        src="person1.png"
+      />
+    </div>
+  </div>
+</div>
+`;

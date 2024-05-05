@@ -40,8 +40,6 @@ const comboboxTemplate = args => {
 
 export const Overview = {
   render: comboboxTemplate.bind({}),
-  name: "Overview",
-
   args: {
     options: [
       {
@@ -64,7 +62,9 @@ export const Overview = {
   },
   parameters: {
     docs: {
-      liveEdit: { isEnabled: false }
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -90,15 +90,6 @@ export const Default = {
     );
 
     return <Combobox placeholder="Placeholder text here" options={options} />;
-  },
-
-  name: "Default",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useMemo }
-      }
-    }
   },
   play: defaultPlaySuite
 };
@@ -137,15 +128,7 @@ export const ComboboxInsideADialog = {
       </DialogContentContainer>
     );
   },
-
-  name: "Combobox inside a dialog",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useMemo }
-      }
-    }
-  }
+  name: "Combobox inside a dialog"
 };
 
 export const Sizes = {
@@ -189,15 +172,6 @@ export const Sizes = {
         </DialogContentContainer>
       </div>
     );
-  },
-
-  name: "Sizes",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useMemo }
-      }
-    }
   }
 };
 
@@ -299,15 +273,14 @@ export const WithCategories = {
       </Flex>
     );
   },
-
-  name: "With categories",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, StoryDescription }
+        scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "With categories"
 };
 
 export const WithIcons = {
@@ -349,15 +322,14 @@ export const WithIcons = {
       </DialogContentContainer>
     );
   },
-
-  name: "With icons",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, Wand, ThumbsUp, Time, Update, Upgrade }
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade }
       }
     }
-  }
+  },
+  name: "With icons"
 };
 
 export const WithOptionRenderer = {
@@ -392,15 +364,14 @@ export const WithOptionRenderer = {
       </DialogContentContainer>
     );
   },
-
-  name: "With optionRenderer",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, Person }
+        scope: { Person }
       }
     }
-  }
+  },
+  name: "With optionRenderer"
 };
 
 export const WithButton = {
@@ -445,12 +416,10 @@ export const WithButton = {
       </DialogContentContainer>
     );
   },
-
-  name: "With Button",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, Wand, ThumbsUp, Time, Update, Upgrade, Edit }
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade, Edit }
       }
     }
   }
@@ -478,15 +447,6 @@ export const WithCreation = {
         />
       </DialogContentContainer>
     );
-  },
-
-  name: "With Creation",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useState }
-      }
-    }
   }
 };
 
@@ -703,15 +663,14 @@ export const WithVirtualizationOptimization = {
       </Flex>
     );
   },
-
-  name: "With virtualization optimization",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, StoryDescription }
+        scope: { StoryDescription }
       }
     }
-  }
+  },
+  name: "With virtualization optimization"
 };
 
 export const LoadingState = {
@@ -724,15 +683,7 @@ export const LoadingState = {
       </DialogContentContainer>
     );
   },
-
-  name: "Loading state",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useMemo }
-      }
-    }
-  }
+  name: "Loading state"
 };
 
 export const ComboboxAsPersonPicker = {
@@ -809,13 +760,12 @@ export const ComboboxAsPersonPicker = {
       </Flex>
     );
   },
-
-  name: "Combobox as person picker",
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useMemo, person1, person2, person3, optionRenderer }
+        scope: { person1, person2, person3, optionRenderer }
       }
     }
-  }
+  },
+  name: "Combobox as person picker"
 };
