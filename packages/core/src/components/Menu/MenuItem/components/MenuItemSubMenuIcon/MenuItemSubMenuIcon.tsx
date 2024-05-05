@@ -8,36 +8,34 @@ import { DropdownChevronRight } from "../../../../Icon/Icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";
 import { MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 
-const MenuItemSubMenuIcon = forwardRef(
-  ({ isSplit, label, active, disabled }: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
-    <Flex justify={Flex.justify.CENTER} className={styles.subMenuIconWrapper}>
-      {isSplit ? (
-        <>
-          <Divider direction={Divider.directions.VERTICAL} className={styles.divider} />
-          <IconButton
-            icon={DropdownChevronRight}
-            className={styles.splitMenuItemIconButton}
-            kind={IconButton.kinds.TERTIARY}
-            size={null} // Customizing size via className
-            iconClassName={cx(styles.splitSubMenuIcon, { [styles.disabled]: disabled })}
-            tabIndex={-1}
-            ref={ref}
-            active={active}
-            disabled={disabled}
-          />
-        </>
-      ) : (
-        <Icon
-          clickable={false}
+const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
+  <Flex justify={Flex.justify.CENTER} className={styles.subMenuIconWrapper}>
+    {props.isSplit === true ? (
+      <>
+        <Divider direction={Divider.directions.VERTICAL} className={styles.divider} />
+        <IconButton
           icon={DropdownChevronRight}
-          iconLabel={label}
-          className={styles.subMenuIcon}
-          ignoreFocusStyle
-          iconSize={18}
+          className={styles.splitMenuItemIconButton}
+          kind={IconButton.kinds.TERTIARY}
+          size={null} // Customizing size via className
+          iconClassName={cx(styles.splitSubMenuIcon, { [styles.disabled]: props.disabled })}
+          tabIndex={-1}
+          ref={ref}
+          active={props.active}
+          disabled={props.disabled}
         />
-      )}
-    </Flex>
-  )
-);
+      </>
+    ) : (
+      <Icon
+        clickable={false}
+        icon={DropdownChevronRight}
+        iconLabel={props.label}
+        className={styles.subMenuIcon}
+        ignoreFocusStyle
+        iconSize={18}
+      />
+    )}
+  </Flex>
+));
 
 export default MenuItemSubMenuIcon;
