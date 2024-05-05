@@ -12,7 +12,7 @@ module.exports = {
   },
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/build'],
   preset: 'ts-jest/presets/default',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
   transformIgnorePatterns: ['/node_modules/(?!monday-ui-react-core)'],
   transform: {
