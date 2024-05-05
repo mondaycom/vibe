@@ -277,7 +277,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
-        {icon && (
+        {!!icon && (
           <MenuItemIcon
             icon={icon}
             type={iconType}

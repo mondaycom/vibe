@@ -24,7 +24,7 @@ const MenuItemIcon = ({
       },
       wrapperClassName
     )}
-    style={{ backgroundColor }}
+    style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
       iconType={type || (typeof icon === "function" ? Icon.type.SVG : Icon.type.ICON_FONT)}
