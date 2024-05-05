@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalFooterButtons should render correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="container directionRow justifyEnd alignCenter"
+    style={
+      {
+        "gap": "8px",
+      }
+    }
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button sizeMedium kindTertiary colorPrimary"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button sizeMedium kindPrimary colorPrimary"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Confirm
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ModalFooterButtons should render correctly with disabled primary 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="container directionRow justifyEnd alignCenter"
+    style={
+      {
+        "gap": "8px",
+      }
+    }
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button sizeMedium kindTertiary colorPrimary"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={true}
+      className="button sizeMedium kindPrimary colorPrimary disabled"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      tabIndex={-1}
+      type="button"
+    >
+      Confirm
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ModalFooterButtons should render correctly with no tertiary 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="container directionRow justifyEnd alignCenter"
+    style={
+      {
+        "gap": "8px",
+      }
+    }
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button sizeMedium kindPrimary colorPrimary"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Confirm
+    </button>
+  </div>
+</div>
+`;

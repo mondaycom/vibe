@@ -180,7 +180,6 @@ export const AvatarWithTooltip = {
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           src={person1}
-          // @ts-ignore
           tooltipProps={{
             content: "Hadas Farhi"
           }}
@@ -192,7 +191,6 @@ export const AvatarWithTooltip = {
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           src={person1}
-          // @ts-ignore
           tooltipProps={{
             content: <b>Hadas Farhi</b>,
             position: Tooltip.positions.BOTTOM

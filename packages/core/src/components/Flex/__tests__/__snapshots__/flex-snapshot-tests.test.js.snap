@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex renders correctly Horizontal display with align 1`] = `
+<div
+  className="container directionRow justifyStart alignEnd"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with align 2`] = `
+<div
+  className="container directionRow justifyStart alignEnd"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with children 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with gap 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  style={
+    {
+      "gap": "24px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with justify 1`] = `
+<div
+  className="container directionRow justifySpaceBetween alignCenter"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with wrap 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter wrap"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with align 1`] = `
+<div
+  className="container directionColumn justifyStart alignEnd"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with children 1`] = `
+<div
+  className="container directionColumn justifyStart alignCenter"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with justify 1`] = `
+<div
+  className="container directionColumn justifySpaceBetween alignCenter"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with wrap 1`] = `
+<div
+  className="container directionColumn justifyStart alignCenter wrap"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly with data-testid 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  data-testid="test"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+/>
+`;
+
+exports[`Flex renders correctly with empty props 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  style={
+    {
+      "gap": "0px",
+    }
+  }
+/>
+`;
