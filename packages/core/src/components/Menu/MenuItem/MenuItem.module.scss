@@ -15,27 +15,11 @@
   outline: none;
 }
 
-.iconWrapper {
-  margin-right: var(--spacing-small);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .icon {
-    color: var(--icon-color);
-  }
-}
-
 .item.splitMenuItem {
   padding: 0 0 0 var(--spacing-small);
 }
 
 .item.disabled {
-  cursor: not-allowed;
-  color: var(--disabled-text-color);
-}
-
-.item.disabled .icon {
   cursor: not-allowed;
   color: var(--disabled-text-color);
 }
@@ -55,10 +39,6 @@
 .item:not(.disabled).selected {
   background-color: var(--primary-selected-color);
   border-radius: var(--border-radius-small);
-}
-
-.item:not(.disabled).selected .iconWrapper .icon {
-  color: var(--primary-color);
 }
 
 .title {

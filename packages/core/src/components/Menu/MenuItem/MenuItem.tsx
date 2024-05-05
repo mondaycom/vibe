@@ -11,7 +11,6 @@ import React, {
   useRef
 } from "react";
 import cx from "classnames";
-import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import Text from "../../Text/Text";
@@ -31,6 +30,7 @@ import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import MenuItemSubMenuIcon from "./components/MenuItemSubMenuIcon/MenuItemSubMenuIcon";
 
 export interface MenuItemProps extends VibeComponentProps {
@@ -237,43 +237,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);
 
-    const [iconWrapperStyle, iconStyle] = useMemo(() => {
-      return iconBackgroundColor
-        ? [
-            {
-              backgroundColor: iconBackgroundColor,
-              borderRadius: "4px",
-              opacity: disabled ? 0.4 : 1
-            },
-            { color: "var(--text-color-on-primary)" }
-          ]
-        : [];
-    }, [iconBackgroundColor, disabled]);
-
-    const renderMenuItemIconIfNeeded = () => {
-      if (!icon) return null;
-
-      let finalIconType = iconType;
-      if (!finalIconType) {
-        finalIconType = isFunction(icon) ? Icon.type.SVG : Icon.type.ICON_FONT;
-      }
-
-      return (
-        <div className={cx(styles.iconWrapper, iconWrapperClassName)} style={iconWrapperStyle}>
-          <Icon
-            iconType={finalIconType}
-            clickable={false}
-            icon={icon}
-            iconLabel={iconLabel}
-            className={styles.icon}
-            ignoreFocusStyle
-            style={iconStyle}
-            iconSize={18}
-          />
-        </div>
-      );
-    };
-
     const a11yProps = useMemo(() => {
       if (!children) return {};
       return {
@@ -314,7 +277,17 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
-        {renderMenuItemIconIfNeeded()}
+        {icon && (
+          <MenuItemIcon
+            icon={icon}
+            type={iconType}
+            label={iconLabel}
+            disabled={disabled}
+            selected={selected}
+            backgroundColor={iconBackgroundColor}
+            wrapperClassName={iconWrapperClassName}
+          />
+        )}
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
