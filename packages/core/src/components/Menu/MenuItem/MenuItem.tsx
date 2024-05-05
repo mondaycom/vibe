@@ -30,11 +30,8 @@ import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstan
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
-import { DropdownChevronRight } from "../../Icon/Icons";
-import IconButton from "../../IconButton/IconButton";
-import Divider from "../../Divider/Divider";
-import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import MenuItemSubMenuIcon from "./components/MenuItemSubMenuIcon/MenuItemSubMenuIcon";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -239,37 +236,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
 
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);
-    const renderSubMenuIconIfNeeded = () => {
-      if (!hasChildren) return null;
-
-      return splitMenuItem ? (
-        <div className={styles.subMenuIconWrapper}>
-          <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
-          <IconButton
-            icon={DropdownChevronRight}
-            className={styles.splitMenuItemIconButton}
-            kind={IconButton.kinds.TERTIARY}
-            size={null} // Customizing size via className
-            iconClassName={cx(styles.iconButton, { [styles.disabled]: disabled })}
-            tabIndex={-1}
-            ref={iconButtonElementRef}
-            active={shouldShowSubMenu}
-            disabled={disabled}
-          />
-        </div>
-      ) : (
-        <div className={styles.subMenuIconWrapper}>
-          <Icon
-            clickable={false}
-            icon={DropdownChevronRight}
-            iconLabel={iconLabel}
-            className={styles.subMenuIcon}
-            ignoreFocusStyle
-            iconSize={18}
-          />
-        </div>
-      );
-    };
 
     const [iconWrapperStyle, iconStyle] = useMemo(() => {
       return iconBackgroundColor
@@ -364,7 +330,15 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
           </div>
         </Tooltip>
         {label && <Label kind={Label.kinds.LINE} text={label} />}
-        {renderSubMenuIconIfNeeded()}
+        {hasChildren && (
+          <MenuItemSubMenuIcon
+            ref={iconButtonElementRef}
+            isSplit={splitMenuItem}
+            label={iconLabel}
+            active={shouldShowSubMenu}
+            disabled={disabled}
+          />
+        )}
         <div
           style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
           // eslint-disable-next-line react/jsx-props-no-spreading
