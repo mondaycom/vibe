@@ -59,7 +59,7 @@ const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommend
 module.exports = {
   overrides: [
     {
-      files: ["*.jest.js", "jest.init.js"],
+      files: ["*.test.js", "jest.init.js"],
       env: {
         jest: true,
         "jest/globals": true

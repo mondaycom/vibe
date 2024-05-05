@@ -61,7 +61,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:stories": "testing=storybook TEST_END_FILES=jest-story jest",
+    "test:stories": "testing=storybook TEST_END_FILES=test-story jest",
     "test:update": "yarn test -- -u",
     "test:coverage": "yarn test -- --coverage",
     "start": "yarn build:react-icons && yarn build:commonjs -- --watch",

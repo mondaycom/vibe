@@ -13,7 +13,7 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/build'],
   preset: 'ts-jest/presets/default',
   testEnvironment: 'jsdom',
-  testMatch: ['**/__tests__/**/*.jest.[jt]s?(x)'],
+  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
   transformIgnorePatterns: ['/node_modules/(?!monday-ui-react-core)'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
