@@ -6,20 +6,17 @@ import React, {
   forwardRef,
   useCallback,
   useEffect,
-  useLayoutEffect,
   useMemo,
   useRef
 } from "react";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { DialogPosition } from "../../../constants/positions";
+import { DialogPosition } from "../../../constants";
 import Text from "../../Text/Text";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
-import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
@@ -32,6 +29,7 @@ import styles from "./MenuItem.module.scss";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import MenuItemSubMenuIcon from "./components/MenuItemSubMenuIcon/MenuItemSubMenuIcon";
+import MenuItemSubMenu from "./components/MenuItemSubMenu/MenuItemSubMenu";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -70,6 +68,8 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
+  // TODO MenuItem can accept only Menu element as first level child, it accepts MenuChild as children even though it is not valid.
+  //  Should be fixed in next major version
   children?: MenuChild | MenuChild[];
   /**
    * Type of menu item with sub menu, which has two click/hover options-
@@ -138,25 +138,12 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     const hasChildren = !!children;
     const isSubMenuOpen = hasChildren && isActive && hasOpenSubMenu;
     const shouldShowSubMenu = !disabled && hasChildren && isParentMenuVisible && isSubMenuOpen;
-    const submenuChild: MenuChild = children && React.Children.only(children);
-    let menuChild;
-    if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
-      menuChild = submenuChild;
-    } else if (submenuChild) {
-      console.error(
-        "menu item can accept only menu element as first level child, this element is not valid: ",
-        submenuChild
-      );
-    }
 
     const titleRef = useRef();
-    const childRef = useRef<HTMLElement>();
     const referenceElementRef = useRef(null);
     const iconButtonElementRef = useRef(null);
-    const popperElementRef = useRef(null);
-    const popperElement = popperElementRef.current;
+
     const referenceElement = referenceElementRef.current;
-    const childElement = childRef.current;
     const mergedRef = useMergeRef(ref, referenceElementRef);
 
     const isMouseEnterMenuItem = useIsMouseEnter({ ref: referenceElementRef });
@@ -164,9 +151,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
-    const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
-      isOpen: isSubMenuOpen
-    });
     useEffect(() => {
       if (isActive && shouldScrollMenu && referenceElement) {
         if (referenceElement.scrollIntoViewIfNeeded) {
@@ -207,16 +191,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       isMouseEnterIconButton
     });
 
-    useLayoutEffect(() => {
-      if (useDocumentEventListeners) return;
-
-      if (shouldShowSubMenu && childElement) {
-        requestAnimationFrame(() => {
-          childElement.focus();
-        });
-      }
-    }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
-
     useEffect(() => {
       if (useDocumentEventListeners) return;
       if (isActive) {
@@ -225,10 +199,10 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     }, [isActive, referenceElement, useDocumentEventListeners]);
 
     const closeSubMenu = useCallback(
-      (options: { propagate?: boolean } = {}) => {
+      (option: CloseMenuOption = {}) => {
         setSubMenuIsOpenByIndex(index, false);
-        if (options.propagate) {
-          closeMenu(options);
+        if (option.propagate) {
+          closeMenu(option);
         }
       },
       [setSubMenuIsOpenByIndex, index, closeMenu]
@@ -312,25 +286,14 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
             disabled={disabled}
           />
         )}
-        <div
-          style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...popoverAttributes.popper}
-          ref={popperElementRef}
+        <MenuItemSubMenu
+          anchorRef={referenceElementRef}
+          open={shouldShowSubMenu}
+          onClose={closeSubMenu}
+          autoFocusOnMount={!useDocumentEventListeners}
         >
-          {menuChild && shouldShowSubMenu && (
-            <DialogContentContainer>
-              {React.cloneElement(menuChild, {
-                ...menuChild?.props,
-                isVisible: shouldShowSubMenu,
-                isSubMenu: true,
-                onClose: closeSubMenu,
-                ref: childRef,
-                useDocumentEventListeners
-              })}
-            </DialogContentContainer>
-          )}
-        </div>
+          {children}
+        </MenuItemSubMenu>
       </Text>
     );
   }
