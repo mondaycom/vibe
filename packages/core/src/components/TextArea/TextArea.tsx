@@ -1,13 +1,12 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./TextArea.module.scss";
-import { TextAreaProps } from "./TextArea.types";
+import { TextAreaProps, TextAreaSize } from "./TextArea.types";
 import Text from "../Text/Text";
 
-const DEFAULT_ROWS = {
+const DEFAULT_ROWS: Record<TextAreaSize, number> = {
   medium: 3,
   large: 4
 };
@@ -28,20 +27,16 @@ const TextArea = forwardRef(
       readOnly,
       value,
       onChange,
-      ariaLabel,
+      "aria-label": ariaLabel,
       required
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRef(ref, componentRef);
-
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
 
     return (
       <div
-        ref={mergedRef}
         className={cx(
           styles.textAreaWrapper,
           {
@@ -55,9 +50,8 @@ const TextArea = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_AREA, id)}
       >
         {label && (
-          <label className={styles.label} htmlFor={id}>
+          <label className={cx(styles.label, { [styles.required]: required })} htmlFor={id}>
             {label}
-            {required && <span className={styles.required}> *</span>}
           </label>
         )}
         <textarea
@@ -70,7 +64,7 @@ const TextArea = forwardRef(
           className={cx(styles.textArea, [styles[size]])}
           value={value}
           onChange={onChange}
-          aria-invalid={Boolean(error)}
+          aria-invalid={error}
           aria-label={ariaLabel}
           aria-describedby={helpTextId ?? undefined}
         />

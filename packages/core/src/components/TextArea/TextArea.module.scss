@@ -7,17 +7,19 @@
   width: 100%;
   gap: var(--spacing-xs);
   @include smoothing-text;
+  @include vibe-text(text2, normal);
 
   .label {
-    @include vibe-text(text2, normal);
+    display: inline-flex;
+    gap: var(--spacing-xs);
 
-    .required {
+    &.required::after {
+      content: "*";
       color: var(--color-error);
     }
   }
 
   .helpText {
-    @include vibe-text(text2, normal);
     color: var(--secondary-text-color);
   }
 

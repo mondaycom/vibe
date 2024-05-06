@@ -50,7 +50,7 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
   /**
    * Accessibility label for the textarea element.
    */
-  ariaLabel?: React.AriaAttributes["aria-label"];
+  "aria-label"?: React.AriaAttributes["aria-label"];
   /**
    * If true, the textarea is required and must be filled out by the user.
    */

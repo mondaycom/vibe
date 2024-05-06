@@ -53,7 +53,7 @@ export const Overview: Story = {
   decorators: [withFixedWidth]
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <>
       <TextArea size="large" label="Large text area" />
@@ -63,7 +63,7 @@ export const Sizes = {
   decorators: [withGrid]
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <>
       <TextArea size="medium" label="Success state" success />
@@ -75,7 +75,7 @@ export const States = {
   decorators: [withGrid]
 };
 
-export const Validation = {
+export const Validation: Story = {
   render: () => <TextArea size="medium" label="Text area label" error required helpText="Validation text" />,
   decorators: [withFixedWidth]
 };

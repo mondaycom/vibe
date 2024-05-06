@@ -48,9 +48,9 @@ describe("TextArea", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute("aria-invalid", "true");
   });
 
-  it("should indicate a required field", () => {
+  it("should add required attribute when provided", () => {
     render(<TextArea required label="Required" id="required-textarea" />);
-    expect(screen.getByText("*")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toHaveAttribute("required");
   });
 
   it("should handle value updates correctly", () => {
@@ -85,10 +85,18 @@ describe("TextArea", () => {
 
     it("should set aria-label attribute correctly", () => {
       const ariaLabel = "Test Aria Label";
-      render(<TextArea ariaLabel={ariaLabel} id="aria-textarea" />);
+      render(<TextArea aria-label={ariaLabel} id="aria-textarea" />);
 
       const textarea = screen.getByRole("textbox");
       expect(textarea).toHaveAttribute("aria-label", ariaLabel);
+    });
+
+    it("should set aria-describedby attribute to reference help text ID when help text is provided", () => {
+      const helpText = "This is some helpful information.";
+      render(<TextArea helpText={helpText} id="help-text-textarea" />);
+      const textarea = screen.getByRole("textbox");
+
+      expect(textarea).toHaveAttribute("aria-describedby", "help-text-textarea-help-text");
     });
   });
 });
