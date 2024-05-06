@@ -203,7 +203,12 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
   tabIndex={-1}
 >
   <div
-    className="iconWrapper"
+    className="container directionRow justifyCenter alignCenter iconWrapper"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -260,7 +265,12 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
   tabIndex={-1}
 >
   <div
-    className="iconWrapper"
+    className="container directionRow justifyCenter alignCenter iconWrapper"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <span
       aria-hidden={true}
