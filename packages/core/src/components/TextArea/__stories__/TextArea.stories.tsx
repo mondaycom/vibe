@@ -43,38 +43,39 @@ export const Overview: Story = {
     label: "Text area label",
     helpText: "Helper text"
   },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  },
   decorators: [withFixedWidth]
 };
 
 export const Sizes = {
-  render: () => {
-    return (
-      <>
-        <TextArea size="large" label="Large text area" />
-        <TextArea size="medium" label="Medium text area" />
-      </>
-    );
-  },
+  render: () => (
+    <>
+      <TextArea size="large" label="Large text area" />
+      <TextArea size="medium" label="Medium text area" />
+    </>
+  ),
   decorators: [withGrid]
 };
 
 export const States = {
-  render: () => {
-    return (
-      <>
-        <TextArea size="medium" label="Success state" success />
-        <TextArea size="medium" label="Error state" error />
-        <TextArea size="medium" label="Disabled state" disabled />
-        <TextArea size="medium" label="Read only state" readOnly />
-      </>
-    );
-  },
+  render: () => (
+    <>
+      <TextArea size="medium" label="Success state" success />
+      <TextArea size="medium" label="Error state" error />
+      <TextArea size="medium" label="Disabled state" disabled />
+      <TextArea size="medium" label="Read only state" readOnly />
+    </>
+  ),
   decorators: [withGrid]
 };
 
 export const Validation = {
-  render: () => {
-    return <TextArea size="medium" label="Text area label" error required helpText="Validation text" />;
-  },
+  render: () => <TextArea size="medium" label="Text area label" error required helpText="Validation text" />,
   decorators: [withFixedWidth]
 };
