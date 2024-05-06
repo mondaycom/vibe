@@ -35,6 +35,8 @@ const Search = forwardRef(
       onFocus,
       onBlur,
       className,
+      ariaExpanded,
+      ariaHasPopup,
       id,
       "data-testid": dataTestId
     }: SearchProps,
@@ -116,8 +118,10 @@ const Search = forwardRef(
         inputRole={searchResultsContainerId ? "combobox" : undefined}
         aria-label={inputAriaLabel}
         aria-busy={loading}
-        aria-owns={searchResultsContainerId}
+        aria-controls={ariaExpanded ? searchResultsContainerId : undefined}
         aria-activedescendant={currentAriaResultId}
+        aria-haspopup={ariaHasPopup}
+        aria-expanded={ariaExpanded}
       />
     );
   }

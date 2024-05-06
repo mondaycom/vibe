@@ -71,8 +71,8 @@ describe("Combobox tests", () => {
       );
       const input = getByTestId("search_combobox-search");
       expect(input.value).toBe(defaultFilter);
-      const treegrid = getByRole("treegrid");
-      expect(treegrid.childElementCount).toBe(1);
+      const listbox = getByRole("listbox");
+      expect(listbox.childElementCount).toBe(1);
       const orangeOption = getByLabelText(mockOptions[0].label);
       expect(orangeOption).toBeTruthy();
     });
