@@ -30,6 +30,10 @@
     padding: var(--spacing-small) var(--spacing-medium);
     outline: none;
 
+    &:hover {
+      border-color: var(--primary-text-color);
+    }
+
     &:active,
     &:focus,
     &:focus-within {
@@ -43,10 +47,6 @@
     &.large {
       @include vibe-text(text1, normal);
     }
-  }
-
-  .textArea:hover:not(.disabled, .readOnly) {
-    border-color: var(--primary-text-color);
   }
 
   &.success {
@@ -74,6 +74,10 @@
       color: var(--disabled-text-color);
       background-color: var(--disabled-background-color);
       border-color: var(--disabled-text-color);
+
+      &:hover {
+        border-color: transparent;
+      }
     }
 
     .helpText {
@@ -86,6 +90,10 @@
       background-color: var(--allgrey-background-color);
       border-color: transparent;
       resize: none;
+
+      &:hover {
+        border-color: transparent;
+      }
     }
   }
 }
