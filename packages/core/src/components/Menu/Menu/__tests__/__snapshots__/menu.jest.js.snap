@@ -46,16 +46,6 @@ exports[`Snapshots renders correctly with children 1`] = `
       item 1
     </div>
     
-    <div
-      style={
-        Object {
-          "left": "0",
-          "position": "absolute",
-          "top": "0",
-          "visibility": "hidden",
-        }
-      }
-    />
   </li>
   <li
     aria-current={false}
@@ -79,16 +69,6 @@ exports[`Snapshots renders correctly with children 1`] = `
       item 2
     </div>
     
-    <div
-      style={
-        Object {
-          "left": "0",
-          "position": "absolute",
-          "top": "0",
-          "visibility": "hidden",
-        }
-      }
-    />
   </li>
 </ul>
 `;
