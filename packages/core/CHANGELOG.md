@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.108.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.107.0...monday-ui-react-core@2.108.0) (2024-05-07)
+
+
+### Bug Fixes
+
+* add null protection for onPickDate callback ([#2045](https://github.com/mondaycom/vibe/issues/2045)) ([#2102](https://github.com/mondaycom/vibe/issues/2102)) ([272ac89](https://github.com/mondaycom/vibe/commit/272ac893832b39a366ed851b98a9e92519d17b2f))
+* **MenuItem:** disabled item should not show its submenu ([#2099](https://github.com/mondaycom/vibe/issues/2099)) ([8513ba9](https://github.com/mondaycom/vibe/commit/8513ba9106a3bf259a956cf35ba85a2a2927013e))
+
+
+### Features
+
+* add a11y props for `search` and `combobox` components ([#2105](https://github.com/mondaycom/vibe/issues/2105)) ([b564e1b](https://github.com/mondaycom/vibe/commit/b564e1ba276cf57c03c448ee5989bc30bcc46b62))
+
+
+
+
+
 # [2.107.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.106.1...monday-ui-react-core@2.107.0) (2024-05-01)
 
 
