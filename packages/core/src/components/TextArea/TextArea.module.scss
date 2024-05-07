@@ -45,7 +45,7 @@
     }
   }
 
-  :not(.disabled, .readOnly) .textArea:hover {
+  .textArea:hover:not(.disabled, .readOnly) {
     border-color: var(--primary-text-color);
   }
 
