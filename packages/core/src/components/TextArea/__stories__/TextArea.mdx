@@ -1,0 +1,82 @@
+import { Meta } from "@storybook/blocks";
+import TextArea from "../TextArea";
+import * as TextAreaStories from "./TextArea.stories";
+import {
+  TEXT_FIELD,
+  DROPDOWN,
+  SEARCH
+} from "../../../storybook/components/related-components/component-description-map";
+import doImage from "./assets/do.svg";
+import dontImage from "./assets/dont.svg";
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do's and don'ts](#dos-and-donts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A field that allows users to write multiple lines of text. Text area includes a label and a field that users can type into. It can also come with helper text.
+
+<Canvas of={TextAreaStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use text area to allow users to write multiple lines of text, usually for comments or descriptions.",
+    "Placeholders should only be used when necessary."
+  ]}
+/>
+
+## Variants
+
+### Sizes
+
+There are two sizes available: small and large.
+
+<Canvas of={TextAreaStories.Sizes} />
+
+### States
+
+Text areas have all the same states as text fields.
+
+<Canvas of={TextAreaStories.States} />
+
+### Validation
+
+If a required text area is left empty, use validation text to give feedback to users. The validation error state should appear after users try to submit a form.
+
+<Canvas of={TextAreaStories.Validation} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <img src={doImage} />,
+        description: "Use text area if you want to ask an open question. Make sure the question is short and clear."
+      },
+      negative: {
+        component: <img src={dontImage} />,
+        description: "Don't use a text area if you want short and specific info - use a text field instead. "
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT_FIELD, DROPDOWN, SEARCH]} />
