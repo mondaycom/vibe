@@ -22,14 +22,14 @@ describe("TextArea", () => {
   });
 
   it("should render TextArea with different sizes and adjust rows accordingly", () => {
-    const { rerender } = render(<TextArea size="medium" id="medium-textarea" />);
+    const { rerender } = render(<TextArea size="small" id="small-textarea" />);
     expect(screen.getByRole("textbox")).toHaveAttribute("rows", "3");
     rerender(<TextArea size="large" id="large-textarea" />);
     expect(screen.getByRole("textbox")).toHaveAttribute("rows", "4");
   });
 
   it("should render TextArea with a custom rows count", () => {
-    render(<TextArea size="medium" id="medium-textarea" rows="10" />);
+    render(<TextArea size="small" id="small-textarea" rows="10" />);
     expect(screen.getByRole("textbox")).toHaveAttribute("rows", "10");
   });
 

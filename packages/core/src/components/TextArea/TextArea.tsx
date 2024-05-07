@@ -7,14 +7,14 @@ import { TextAreaProps, TextAreaSize } from "./TextArea.types";
 import Text from "../Text/Text";
 
 const DEFAULT_ROWS: Record<TextAreaSize, number> = {
-  medium: 3,
+  small: 3,
   large: 4
 };
 
 const TextArea = forwardRef(
   (
     {
-      size = "medium",
+      size = "small",
       rows,
       label,
       helpText,
