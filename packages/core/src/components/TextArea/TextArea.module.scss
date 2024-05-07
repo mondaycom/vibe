@@ -70,14 +70,11 @@
   }
 
   &.disabled {
-    .textArea {
+    .textArea,
+    .textArea:hover {
       color: var(--disabled-text-color);
       background-color: var(--disabled-background-color);
       border-color: var(--disabled-text-color);
-
-      &:hover {
-        border-color: transparent;
-      }
     }
 
     .helpText {
@@ -86,14 +83,11 @@
   }
 
   &.readOnly {
-    .textArea {
+    .textArea,
+    .textArea:hover {
       background-color: var(--allgrey-background-color);
       border-color: transparent;
       resize: none;
-
-      &:hover {
-        border-color: transparent;
-      }
     }
   }
 }
