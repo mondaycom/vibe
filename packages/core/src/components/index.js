@@ -13,6 +13,7 @@ export { default as Link } from "./Link/Link";
 export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon/CustomSvgIcon";
 export { default as Menu } from "./Menu/Menu/Menu";
 export { default as MenuItem } from "./Menu/MenuItem/MenuItem";
+export { default as CustomMenuItem } from "./Menu/MenuItem/components/CustomMenuItem/CustomMenuItem";
 export { default as AlertBanner } from "./AlertBanner/AlertBanner";
 export { default as AlertBannerLink } from "./AlertBanner/AlertBannerLink/AlertBannerLink";
 export { default as AlertBannerButton } from "./AlertBanner/AlertBannerButton/AlertBannerButton";
