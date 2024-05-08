@@ -15,7 +15,11 @@ import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator"
 import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
 import {
   ADD_AUTO_HEIGHT_COMPONENTS,
+  defaultCustomStyles,
   DROPDOWN_CHIP_COLORS,
+  DROPDOWN_ID,
+  DROPDOWN_MENU_ARIA_LABEL,
+  DROPDOWN_MENU_ID,
   DROPDOWN_MENU_PLACEMENT,
   DROPDOWN_MENU_POSITION
 } from "./DropdownConstants";
@@ -31,8 +35,16 @@ import {
   CustomSingleValueProps,
   DropdownComponentProps
 } from "./Dropdown.types";
+import { VibeComponent, withStaticProps } from "../../types";
 
-const Dropdown = forwardRef(
+const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
+  size?: typeof SIZES;
+  sizes?: typeof SIZES;
+  chipColors?: typeof DROPDOWN_CHIP_COLORS;
+  menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
+  menuPositions?: typeof DROPDOWN_MENU_POSITION;
+  createFilter?: typeof createFilter;
+} = forwardRef(
   (
     {
       className,
@@ -43,61 +55,61 @@ const Dropdown = forwardRef(
       disabled,
       readOnly,
       withReadOnlyStyle,
-      onMenuOpen,
-      onMenuClose,
-      onFocus,
-      onBlur,
-      onChange: customOnChange,
-      searchable,
-      options,
+      onMenuOpen = NOOP,
+      onMenuClose = NOOP,
+      onFocus = NOOP,
+      onBlur = NOOP,
+      onChange: customOnChange = NOOP,
+      searchable = true,
+      options = [],
       defaultValue,
       value: customValue,
       noOptionsMessage,
       openMenuOnFocus,
       openMenuOnClick,
-      clearable,
+      clearable = true,
       OptionRenderer,
       optionRenderer,
       ValueRenderer,
       valueRenderer,
       menuRenderer,
-      menuPlacement,
+      menuPlacement = Dropdown.menuPlacements.BOTTOM,
       rtl,
-      size,
+      size = Dropdown.sizes.MEDIUM,
       asyncOptions,
       cacheOptions,
       defaultOptions,
       isVirtualized,
       menuPortalTarget,
-      extraStyles,
+      extraStyles = defaultCustomStyles,
       maxMenuHeight,
       menuIsOpen,
-      tabIndex,
-      id,
-      menuId,
-      menuAriaLabel,
-      autoFocus,
+      tabIndex = "0",
+      id = DROPDOWN_ID,
+      menuId = DROPDOWN_MENU_ID,
+      menuAriaLabel = DROPDOWN_MENU_ARIA_LABEL,
+      autoFocus = false,
       multi = false,
       multiline = false,
       onOptionRemove: customOnOptionRemove,
       onOptionSelect,
       onClear,
-      onInputChange,
+      onInputChange = NOOP,
       closeMenuOnSelect = !multi,
-      closeMenuOnScroll: customCloseMenuOnScroll,
-      withMandatoryDefaultOptions,
+      closeMenuOnScroll: customCloseMenuOnScroll = false,
+      withMandatoryDefaultOptions = false,
       isOptionSelected,
-      insideOverflowContainer,
-      insideOverflowWithTransformContainer,
+      insideOverflowContainer = false,
+      insideOverflowWithTransformContainer = false,
       tooltipContent,
-      onKeyDown,
+      onKeyDown = NOOP,
       isLoading,
       loadingMessage,
       ariaLabel,
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
-      menuPosition,
+      menuPosition = Dropdown.menuPositions.ABSOLUTE,
       "data-testid": dataTestId
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
@@ -153,7 +165,7 @@ const Dropdown = forwardRef(
       const customStyles = extraStyles(baseStyles);
 
       // Lastly, we create a style groups object that makes sure we run each custom group with our basic overrides.
-      const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
+      const mergedStyles: any = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
         return {
           ...accumulator,
           [stylesGroup]: (defaultStyles: BaseStyles, state: DropdownState) => {
@@ -167,7 +179,7 @@ const Dropdown = forwardRef(
 
       if (multi) {
         if (multiline) {
-          Object.values(ADD_AUTO_HEIGHT_COMPONENTS).forEach(component => {
+          ADD_AUTO_HEIGHT_COMPONENTS.forEach((component: string) => {
             const original = mergedStyles[component];
             mergedStyles[component] = (provided: BaseStyles, state: DropdownState) => ({
               ...original(provided, state),
@@ -408,7 +420,7 @@ const Dropdown = forwardRef(
   }
 );
 
-Object.assign(Dropdown, {
+export default withStaticProps(Dropdown, {
   // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
   size: SIZES,
   sizes: SIZES,
@@ -417,5 +429,3 @@ Object.assign(Dropdown, {
   menuPositions: DROPDOWN_MENU_POSITION,
   createFilter: createFilter
 });
-
-export default Dropdown;
