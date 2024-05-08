@@ -1,7 +1,6 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
-  CustomMenuItem: "components/CustomMenuItem/CustomMenuItem",
   EditableText: "components/EditableText/EditableText",
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
@@ -85,6 +84,7 @@ const publishedTSComponents = {
   Flex: "components/Flex/Flex",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle",
   MenuItem: "components/Menu/MenuItem/MenuItem",
+  CustomMenuItem: "components/CustomMenuItem/CustomMenuItem",
   MenuItemButton: "components/Menu/MenuItemButton/MenuItemButton",
   MenuDivider: "components/Menu/MenuDivider/MenuDivider",
   Menu: "components/Menu/Menu/Menu",
