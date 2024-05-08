@@ -11,6 +11,11 @@ export enum ToastType {
   DARK = "dark"
 }
 
+export enum ToastCloseReason {
+  CLOSE_CLICKED = "close-clicked",
+  TIMEOUT = "timeout"
+}
+
 export enum ToastActionType {
   LINK = "link",
   BUTTON = "button"

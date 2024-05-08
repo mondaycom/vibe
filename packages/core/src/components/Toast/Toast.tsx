@@ -11,7 +11,7 @@ import Flex from "../Flex/Flex";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { ToastAction, ToastActionType, ToastType } from "./ToastConstants";
+import { ToastAction, ToastActionType, ToastCloseReason, ToastType } from "./ToastConstants";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -33,7 +33,7 @@ export interface ToastProps extends VibeComponentProps {
   action?: JSX.Element;
   /** If false, won't show the close button */
   closeable?: boolean;
-  onClose?: () => void;
+  onClose?: (closeReason: ToastCloseReason) => void;
   /** The number of milliseconds to wait before
    * automatically closing the Toast
    * (0 or null cancels this behaviour) */
@@ -86,11 +86,14 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
     [type, className]
   );
 
-  const handleClose = useCallback(() => {
-    if (onClose) {
-      onClose();
-    }
-  }, [onClose]);
+  const handleClose = useCallback(
+    (reason: ToastCloseReason) => {
+      if (onClose) {
+        onClose(reason);
+      }
+    },
+    [onClose]
+  );
 
   /* Timer */
   const timerAutoHide = useRef<NodeJS.Timeout>();
@@ -102,7 +105,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 
       clearTimeout(timerAutoHide.current);
       timerAutoHide.current = setTimeout(() => {
-        handleClose();
+        handleClose(ToastCloseReason.TIMEOUT);
       }, duration);
     },
     [handleClose, onClose]
@@ -153,7 +156,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         {closeable && (
           <IconButton
             className={cx(styles.closeButton)}
-            onClick={handleClose}
+            onClick={() => handleClose(ToastCloseReason.CLOSE_CLICKED)}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
             color={Button.colors.FIXED_LIGHT}
