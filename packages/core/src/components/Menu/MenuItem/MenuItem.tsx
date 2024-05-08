@@ -1,35 +1,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, {
-  AriaAttributes,
-  ForwardedRef,
-  ReactElement,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef
-} from "react";
-import cx from "classnames";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
 import { DialogPosition } from "../../../constants";
-import Text from "../../Text/Text";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
-import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
-import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
-import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
+import { TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
-import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import MenuItemSubMenuIcon from "./components/MenuItemSubMenuIcon/MenuItemSubMenuIcon";
-import MenuItemSubMenu from "./components/MenuItemSubMenu/MenuItemSubMenu";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -68,7 +51,7 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
-  // TODO MenuItem can accept only Menu element as first level child, it accepts MenuChild as children even though it is not valid.
+  // TODO MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid.
   //  Should be fixed in next major version
   children?: MenuChild | MenuChild[];
   /**
@@ -100,125 +83,29 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       title = "",
       label = "",
       icon = "",
-      menuRef,
       iconType,
       iconBackgroundColor,
       disabled = false,
       disableReason,
       selected = false,
-      onClick,
-      activeItemIndex = -1,
-      setActiveItemIndex,
-      index,
       key,
-      id,
       children,
-      isParentMenuVisible = false,
-      resetOpenSubMenuIndex,
-      hasOpenSubMenu = false,
-      setSubMenuIsOpenByIndex,
-      closeMenu,
-      useDocumentEventListeners = false,
       tooltipContent,
       tooltipPosition = MenuItem.tooltipPositions.RIGHT,
       tooltipShowDelay = 300,
       tooltipProps,
-      isInitialSelectedState,
-      onMouseEnter,
-      onMouseLeave,
-      shouldScrollMenu,
-      "data-testid": dataTestId,
       "aria-label": ariaLabel,
-      splitMenuItem = false
+      ...baseMenuProps
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-    const isActive = activeItemIndex === index;
-    const hasChildren = !!children;
-    const isSubMenuOpen = hasChildren && isActive && hasOpenSubMenu;
-    const shouldShowSubMenu = !disabled && hasChildren && isParentMenuVisible && isSubMenuOpen;
-
     const titleRef = useRef();
-    const referenceElementRef = useRef(null);
-    const iconButtonElementRef = useRef(null);
-
-    const referenceElement = referenceElementRef.current;
-    const mergedRef = useMergeRef(ref, referenceElementRef);
-
-    const isMouseEnterMenuItem = useIsMouseEnter({ ref: referenceElementRef });
-    const isMouseEnterIconButton = useIsMouseEnter({ ref: iconButtonElementRef });
-
-    const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
-
-    useEffect(() => {
-      if (isActive && shouldScrollMenu && referenceElement) {
-        if (referenceElement.scrollIntoViewIfNeeded) {
-          referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
-        } else {
-          referenceElement.scrollIntoView?.({ behavior: "smooth", block: "center" });
-        }
-      }
-    }, [isActive, referenceElement, shouldScrollMenu]);
-
-    const isMouseEnter = useMenuItemMouseEvents({
-      ref: referenceElementRef,
-      splitMenuItemIconButtonRef: iconButtonElementRef,
-      resetOpenSubMenuIndex,
-      setSubMenuIsOpenByIndex,
-      isActive,
-      setActiveItemIndex,
-      index,
-      hasChildren,
-      splitMenuItem
-    });
-
-    const { onClickCallback } = useMenuItemKeyboardEvents({
-      onClick,
-      disabled,
-      isActive,
-      index,
-      setActiveItemIndex,
-      hasChildren,
-      shouldShowSubMenu,
-      setSubMenuIsOpenByIndex,
-      menuRef,
-      isMouseEnter,
-      closeMenu,
-      useDocumentEventListeners,
-      splitMenuItem,
-      isMouseEnterMenuItem,
-      isMouseEnterIconButton
-    });
-
-    useEffect(() => {
-      if (useDocumentEventListeners) return;
-      if (isActive) {
-        referenceElement?.focus();
-      }
-    }, [isActive, referenceElement, useDocumentEventListeners]);
-
-    const closeSubMenu = useCallback(
-      (option: CloseMenuOption = {}) => {
-        setSubMenuIsOpenByIndex(index, false);
-        if (option.propagate) {
-          closeMenu(option);
-        }
-      },
-      [setSubMenuIsOpenByIndex, index, closeMenu]
-    );
 
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);
 
-    const a11yProps = useMemo(() => {
-      if (!children) return {};
-      return {
-        "aria-haspopup": true,
-        "aria-expanded": hasOpenSubMenu
-      };
-    }, [children, hasOpenSubMenu]);
-
+    const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
 
     const finalTooltipContent = useMemo(() => {
@@ -228,73 +115,44 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     }, [disableReason, disabled, title, tooltipContent]);
 
     return (
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-      <Text
-        element="li"
-        type={Text.types.TEXT2}
-        {...a11yProps}
+      <BaseMenuItem
         key={key}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
-        className={cx(styles.item, overrideClassName, {
-          [styles.disabled]: disabled,
-          [styles.focused]: isActive,
-          [styles.selected]: selected,
-          [styles.initialSelected]: isInitialSelectedState,
-          [styles.splitMenuItem]: splitMenuItem
-        })}
-        ref={mergedRef}
-        onClick={onClickCallback}
-        role="menuitem"
-        aria-current={isActive}
-        onMouseLeave={onMouseLeave}
-        onMouseEnter={onMouseEnter}
-        tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
+        ref={ref}
+        subMenu={children}
+        className={overrideClassName}
+        disabled={disabled}
+        selected={selected}
+        {...baseMenuProps}
       >
-        {Boolean(icon) && (
-          <MenuItemIcon
-            icon={icon}
-            type={iconType}
-            label={iconLabel}
-            disabled={disabled}
-            selected={selected}
-            backgroundColor={iconBackgroundColor}
-            wrapperClassName={iconWrapperClassName}
-          />
-        )}
-        <Tooltip
-          content={shouldShowTooltip ? finalTooltipContent : null}
-          position={tooltipPosition}
-          showDelay={tooltipShowDelay}
-          {...tooltipProps}
-        >
-          <div ref={titleRef} className={styles.title}>
-            {title}
-          </div>
-          {/* Tooltip should be on a whole MenuItem, but it's a breaking change (tooltip adds span) - should be fixed in the next major and then this div be removed */}
-          <div className={styles.hiddenTitle} aria-hidden tabIndex={-1}>
-            {title}
-          </div>
-        </Tooltip>
-        {label && <Label kind={Label.kinds.LINE} text={label} />}
-        {hasChildren && (
-          <MenuItemSubMenuIcon
-            ref={iconButtonElementRef}
-            isSplit={splitMenuItem}
-            label={iconLabel}
-            active={shouldShowSubMenu}
-            disabled={disabled}
-          />
-        )}
-        <MenuItemSubMenu
-          anchorRef={referenceElementRef}
-          open={shouldShowSubMenu}
-          onClose={closeSubMenu}
-          autoFocusOnMount={!useDocumentEventListeners}
-        >
-          {children}
-        </MenuItemSubMenu>
-      </Text>
+        <>
+          {Boolean(icon) && (
+            <MenuItemIcon
+              icon={icon}
+              type={iconType}
+              label={iconLabel}
+              disabled={disabled}
+              selected={selected}
+              backgroundColor={iconBackgroundColor}
+              wrapperClassName={iconWrapperClassName}
+            />
+          )}
+          <Tooltip
+            content={shouldShowTooltip ? finalTooltipContent : null}
+            position={tooltipPosition}
+            showDelay={tooltipShowDelay}
+            {...tooltipProps}
+          >
+            <div ref={titleRef} className={styles.title}>
+              {title}
+            </div>
+            {/* Tooltip should be on a whole MenuItem, but it's a breaking change (tooltip adds span) - should be fixed in the next major and then this div be removed */}
+            <div className={styles.hiddenTitle} aria-hidden tabIndex={-1}>
+              {title}
+            </div>
+          </Tooltip>
+          {label && <Label kind={Label.kinds.LINE} text={label} />}
+        </>
+      </BaseMenuItem>
     );
   }
 );
