@@ -86,8 +86,6 @@ const BaseMenuItem = forwardRef(
       splitMenuItem
     });
 
-    console.log({ isMouseEnter });
-
     const { onClickCallback } = useMenuItemKeyboardEvents({
       onClick,
       disabled,

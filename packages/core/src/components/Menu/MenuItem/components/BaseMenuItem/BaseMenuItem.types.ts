@@ -20,11 +20,12 @@ export type LossMenuItemProps = Omit<
   | "tooltipShowDelay"
   | "tooltipProps"
   | "aria-label"
+  | "children"
 >;
 
 export interface BaseMenuItemProps extends LossMenuItemProps, VibeComponentProps {
   // TODO MenuItem can accept only Menu element as first level, it accepts MenuChild[] as subMenu even though it is not valid.
   //  Should be fixed in next major version
   subMenu?: MenuChild | MenuChild[];
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
