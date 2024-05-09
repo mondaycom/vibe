@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.108.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.0...monday-ui-react-core@2.108.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* **TextWIthHighlight:** escape regex ([#2113](https://github.com/mondaycom/vibe/issues/2113)) ([a980976](https://github.com/mondaycom/vibe/commit/a98097672abd405cccc8b5e07c0b10d7861c700a))
+
+
+
+
+
 # [2.108.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.107.0...monday-ui-react-core@2.108.0) (2024-05-07)
 
 
