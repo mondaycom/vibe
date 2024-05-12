@@ -131,7 +131,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
               icon={CloseSmall}
               className={cx(styles.closeBtn)}
               hideTooltip={true}
-              onClick={() => onClose}
+              onClick={onClose}
               size={Button.sizes.SMALL}
               kind={IconButton.kinds.TERTIARY}
               color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
