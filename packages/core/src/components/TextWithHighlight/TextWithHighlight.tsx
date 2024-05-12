@@ -71,11 +71,12 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
 
     const textWithHighlights = useMemo(() => {
       if (!text || !highlightTerm || limit === 0) return text;
-      let finalTerm = highlightTerm;
+      let finalTerm = escapeRegExp(highlightTerm);
       if (allowTermSplit) {
-        finalTerm = highlightTerm.split(" ").join("|");
+        finalTerm = finalTerm.split(" ").join("|");
       }
-      const tokens = text.split(new RegExp(`(${finalTerm})`, ignoreCase ? "i" : ""));
+      const regex = new RegExp(`(${finalTerm})`, ignoreCase ? "i" : "");
+      const tokens = text.split(regex);
       const parts = [];
       // Tokens include the term search (in odd indices)
       let highlightTermsCount = 0;
@@ -128,3 +129,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
 );
 
 export default TextWithHighlight;
+
+function escapeRegExp(string: string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
