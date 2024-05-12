@@ -20,13 +20,13 @@ export function useEllipsisClass(ref: MutableRefObject<HTMLElement>, ellipsis: b
 }
 
 export function useTooltipProps(
-  ref: MutableRefObject<HTMLElement>,
-  withoutTooltip: boolean,
-  ellipsis: boolean,
-  tooltipProps: TooltipProps,
-  children: ElementContent,
-  ignoreHeightOverflow: boolean,
-  overflowTolerance: number
+    ref: React.MutableRefObject<HTMLElement>,
+    withoutTooltip: boolean,
+    ellipsis: boolean,
+    tooltipProps: Partial<TooltipProps>,
+    children: ElementContent,
+    ignoreHeightOverflow: boolean,
+    overflowTolerance: number
 ) {
   const isOverflowing = useIsOverflowing({
     ref: ellipsis ? ref : null,
