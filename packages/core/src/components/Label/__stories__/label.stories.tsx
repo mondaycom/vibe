@@ -56,6 +56,27 @@ export const Kinds = {
   }
 };
 
+export const Sizes = {
+  render: () => (
+    <>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" />
+      </div>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" size="small" />
+      </div>
+    </>
+  ),
+
+  name: "Sizes",
+
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
+};
+
 export const Colors = {
   render: () => (
     <>

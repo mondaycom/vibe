@@ -12,6 +12,14 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
+import { TextType } from "../Text/TextConstants";
+
+type Sizes = "small" | "medium";
+
+const mapSizesToTextSize: Record<Sizes, TextType> = {
+  small: Text.types.TEXT3,
+  medium: Text.types.TEXT2
+};
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -29,6 +37,7 @@ export interface LabelProps extends VibeComponentProps {
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   celebrationAnimation?: boolean;
+  size?: Sizes;
 }
 
 const Label: VibeComponent<LabelProps> & {
@@ -48,7 +57,8 @@ const Label: VibeComponent<LabelProps> & {
       id,
       "data-testid": dataTestId,
       onClick,
-      celebrationAnimation
+      celebrationAnimation,
+      size = "medium"
     },
     ref
   ) => {
@@ -111,12 +121,12 @@ const Label: VibeComponent<LabelProps> & {
         >
           <Text
             element="span"
-            type={Text.types.TEXT2}
+            type={mapSizesToTextSize[size]}
             className={classNames}
             color={Text.colors.ON_INVERTED}
             data-celebration-text={isCelebrationAnimation}
           >
-            <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+            <Text element="span" type={mapSizesToTextSize[size]} color={Text.colors.INHERIT}>
               {text}
             </Text>
             <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
@@ -133,7 +143,8 @@ const Label: VibeComponent<LabelProps> & {
       classNames,
       isCelebrationAnimation,
       text,
-      isLegIncluded
+      isLegIncluded,
+      size
     ]);
 
     // Celebration animation is applied only for line kind
