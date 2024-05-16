@@ -1,6 +1,6 @@
 import { Decorator, StoryContext } from "@storybook/react";
 import { useMemo } from "react";
-import { vscodeDark } from "@uiw/codemirror-theme-vscode";
+import { githubDark } from "@uiw/codemirror-theme-github";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import { createPortal } from "react-dom";
 import LiveEditor from "../../components/live-editor/LiveEditor";
@@ -40,7 +40,7 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
           <LiveEditor
             placeholder={"Insert code here"}
             code={code}
-            theme={vscodeDark}
+            theme={githubDark}
             extensions={[langs.tsx()]}
             style={{ fontSize: 13 }}
             onChange={onChange}

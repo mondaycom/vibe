@@ -187,7 +187,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "@uiw/codemirror-extensions-langs": "^4.21.25",
-    "@uiw/codemirror-theme-vscode": "^4.21.25",
+    "@uiw/codemirror-theme-github": "^4.21.25",
     "@uiw/react-codemirror": "^4.21.25",
     "acorn": "^8.7.1",
     "autoprefixer": "^10.4.0",
