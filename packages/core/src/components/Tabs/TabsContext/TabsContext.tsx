@@ -6,7 +6,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 
 export interface TabsContextProps extends VibeComponentProps {
   activeTabId?: number;
-  onTabChange?: (tabId: number) => void;
   children?: ReactElement | ReactElement[];
 }
 
@@ -15,7 +14,7 @@ type TabsChild = ReactElement & {
 };
 
 const TabsContext: FC<TabsContextProps> = forwardRef(
-  ({ className, id, activeTabId = 0, onTabChange, children, "data-testid": dataTestId }, ref) => {
+  ({ className, id, activeTabId = 0, children, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -35,9 +34,8 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
       (tabId: number) => {
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(tabId);
-        onTabChange(tabId);
       },
-      [activeTabIdState, onTabChange]
+      [activeTabIdState]
     );
 
     return (
@@ -49,7 +47,12 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
       >
         {React.Children.map(children, (child: TabsChild) => {
           if (child.type.isTabList) {
-            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange: onTabClick });
+            const originalOnTabChange = child.props.onTabChange;
+            const onTabChange = (tabId: number) => {
+              onTabClick(tabId);
+              originalOnTabChange?.(tabId);
+            };
+            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange });
           }
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
