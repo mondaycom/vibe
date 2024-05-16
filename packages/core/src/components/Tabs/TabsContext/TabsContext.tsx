@@ -28,14 +28,14 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(activeTabId);
       }
-    }, [activeTabId, prevActiveTabIdProp, activeTabIdState, setPreviousActiveTabIdState, setActiveTabIdState]);
+    }, [activeTabId, activeTabIdState, prevActiveTabIdProp]);
 
     const onTabClick = useCallback(
       (tabId: number) => {
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(tabId);
       },
-      [setPreviousActiveTabIdState, activeTabIdState, setActiveTabIdState]
+      [activeTabIdState]
     );
 
     return (
