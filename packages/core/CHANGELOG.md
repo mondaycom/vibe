@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.108.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.1...monday-ui-react-core@2.108.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* **AlertBanner:** replace Button & Icon with IconButton ([#2120](https://github.com/mondaycom/vibe/issues/2120)) ([ee2d11c](https://github.com/mondaycom/vibe/commit/ee2d11cbb64d94a837e3b902e9eb1d1724c69cde))
+* **Storybook Docs:** typo ([#2119](https://github.com/mondaycom/vibe/issues/2119)) ([25ff8fb](https://github.com/mondaycom/vibe/commit/25ff8fbbea1d221c45dc69102b5d965b888d09da))
+* **TabsContext:** use onTabChange from child props ([#2125](https://github.com/mondaycom/vibe/issues/2125)) ([11bbddf](https://github.com/mondaycom/vibe/commit/11bbddf748a80bbebd246f5e8d3dd2bd96bd09ab))
+* **Typography:** change tooltipProps type to Partial< TooltipProps > ([#2118](https://github.com/mondaycom/vibe/issues/2118)) ([707c5c3](https://github.com/mondaycom/vibe/commit/707c5c31372c1cbb9e3bd8e8fcfefea91ab0088f))
+* **Typography:** make anchor style apply only to direct child ([#2115](https://github.com/mondaycom/vibe/issues/2115)) ([337975b](https://github.com/mondaycom/vibe/commit/337975b97de2120ed52b70a99ceaddb208015bbe))
+
+
+
+
+
 ## [2.108.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.0...monday-ui-react-core@2.108.1) (2024-05-09)
 
 
