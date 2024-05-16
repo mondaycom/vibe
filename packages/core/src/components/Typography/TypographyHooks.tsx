@@ -23,7 +23,7 @@ export function useTooltipProps(
   ref: MutableRefObject<HTMLElement>,
   withoutTooltip: boolean,
   ellipsis: boolean,
-  tooltipProps: TooltipProps,
+  tooltipProps: Partial<TooltipProps>,
   children: ElementContent,
   ignoreHeightOverflow: boolean,
   overflowTolerance: number
