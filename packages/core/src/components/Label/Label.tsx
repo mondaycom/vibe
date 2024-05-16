@@ -79,11 +79,12 @@ const Label: VibeComponent<LabelProps> & {
             // When celebrationAnimation is active it wins over the default animation
             [styles.withAnimation]: !isAnimationDisabled && !isCelebrationAnimation,
             [styles.withLeg]: isLegIncluded,
-            [styles.clickable]: isClickable
+            [styles.clickable]: isClickable,
+            [styles.small]: size === "small"
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation, isClickable]
+      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation, isClickable, size]
     );
 
     const onClickCallback = useCallback(

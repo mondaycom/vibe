@@ -21,6 +21,11 @@
   position: relative;
 }
 
+.small {
+  padding: 0 var(--spacing-xs);
+  border-radius: 2px;
+}
+
 .withLeg {
   border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
 }
