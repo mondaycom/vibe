@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.108.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.2...monday-ui-react-core@2.108.3) (2024-05-16)
+
+
+### Bug Fixes
+
+* **Dialog.tsx:** getContainer causing react error 200 ([#2124](https://github.com/mondaycom/vibe/issues/2124)) ([b018467](https://github.com/mondaycom/vibe/commit/b018467b43f648372f8cee3d2b7eb4c2c875287b))
+
+
+
+
+
 ## [2.108.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.1...monday-ui-react-core@2.108.2) (2024-05-16)
 
 
