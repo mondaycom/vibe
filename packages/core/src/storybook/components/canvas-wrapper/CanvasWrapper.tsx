@@ -12,7 +12,7 @@ const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
 
   const toggleCodeAction = useMemo(
     () => ({
-      title: "Toggle code editor",
+      title: "Story Editor",
       onClick: () => setOpen(prev => !prev)
     }),
     []
