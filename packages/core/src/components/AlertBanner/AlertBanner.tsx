@@ -130,7 +130,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
               data-testid="alert-banner-close-button"
               icon={CloseSmall}
               className={cx(styles.closeBtn)}
-              hideTooltip={true}
+              hideTooltip
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={IconButton.kinds.TERTIARY}
