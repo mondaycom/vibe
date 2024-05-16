@@ -1,25 +1,40 @@
 import cx from "classnames";
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { useRef, forwardRef, useMemo, ReactNode } from "react";
 import PropTypes from "prop-types";
 import useMergeRef from "../../hooks/useMergeRef";
-import MenuButton from "../MenuButton/MenuButton";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ResponsiveList.module.scss";
+import { VibeComponent, VibeComponentProps } from "../../types";
+import MenuButton, { MenuButtonProps } from "../MenuButton/MenuButton";
+import { MenuButtonSize } from "../MenuButton/MenuButtonConstants";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
-const EMPTY_ARRAY = [];
+const EMPTY_ARRAY: ReactNode[] = [];
 
-const ResponsiveList = forwardRef(
+export interface ResponsiveListProps extends VibeComponentProps {
+  rootClassName?: string;
+  children?: ReactNode;
+  menuButtonSize?: MenuButtonSize;
+  paddingSize?: number;
+  dialogZIndex?: number;
+  dialogClassName?: string;
+  menuButtonClassName?: string;
+  menuWrapperClassName?: string;
+  resizeDebounceTime?: number;
+  menuButtonAriaLabel?: string;
+  menuButtonProps?: MenuButtonProps;
+}
+const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLElement, ResponsiveListProps>(
   (
     {
       id,
       className,
       rootClassName,
       children,
-      menuButtonSize,
-      paddingSize,
-      dialogZIndex,
+      menuButtonSize = MenuButton.sizes.SMALL,
+      paddingSize = DEFAULT_MINIMAL_MARGIN,
+      dialogZIndex = 9999,
       dialogClassName,
       menuButtonClassName,
       menuWrapperClassName,
