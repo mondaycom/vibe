@@ -25,8 +25,9 @@ const withGrid: Decorator = Story => (
   <div
     style={{
       display: "grid",
-      gridTemplateColumns: "repeat(4, 200px)",
+      gridTemplateColumns: "repeat(4, 180px)",
       marginInlineStart: "30px",
+      marginTop: "10px",
       gap: "50px",
       width: "100%"
     }}
