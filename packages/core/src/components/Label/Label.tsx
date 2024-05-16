@@ -101,7 +101,12 @@ const Label: VibeComponent<LabelProps> & {
             color={Text.colors.ON_INVERTED}
             data-celebration-text={isCelebrationAnimation}
           >
-            <Text element="span" type={mapSizesToTextSize[size]} color={Text.colors.INHERIT}>
+            <Text
+              element="span"
+              type={mapSizesToTextSize[size]}
+              color={Text.colors.INHERIT}
+              className={cx({ [styles.smallText]: size === "small" })}
+            >
               {text}
             </Text>
             <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>

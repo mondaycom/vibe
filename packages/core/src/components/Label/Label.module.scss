@@ -147,17 +147,15 @@
       background-color: var(--positive-color-selected);
     }
   }
+
+  .smallText {
+    line-height: 14px;
+  }
 }
 
 .small {
   padding: 0 var(--spacing-xs);
   border-radius: 2px;
-
-  &.kindLine {
-    span {
-      line-height: 14px;
-    }
-  }
 }
 
 @include keyframe(label-spin-in-emphasized) {
