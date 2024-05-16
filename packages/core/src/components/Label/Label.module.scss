@@ -21,11 +21,6 @@
   position: relative;
 }
 
-.small {
-  padding: 0 var(--spacing-xs);
-  border-radius: 2px;
-}
-
 .withLeg {
   border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
 }
@@ -150,6 +145,17 @@
     &.clickable:hover,
     &.clickable:active {
       background-color: var(--positive-color-selected);
+    }
+  }
+}
+
+.small {
+  padding: 0 var(--spacing-xs);
+  border-radius: 2px;
+
+  &.kindLine {
+    span {
+      line-height: 14px;
     }
   }
 }
