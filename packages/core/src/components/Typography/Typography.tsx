@@ -34,7 +34,7 @@ export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTML
   /**
    * All props are passed to the tooltip displayed when hovering over the text. By default, the tooltip will display when text contains an ellipsis and will show the full text
    */
-  tooltipProps?: TooltipProps;
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * Hide tooltip when hovering the text, by default the tooltip swill display when text contains an ellipsis
    */
