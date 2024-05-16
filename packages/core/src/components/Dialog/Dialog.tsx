@@ -171,7 +171,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   static positions = DialogPosition;
   static animationTypes = AnimationType;
   static defaultProps = {
-    // position: "top",
+    position: "top",
     modifiers: [] as Modifier<any>[],
     moveBy: { main: 0, secondary: 0 },
     showDelay: 100,
