@@ -1,52 +1,35 @@
 import cx from "classnames";
-import React, { useRef, forwardRef, useMemo, ReactNode } from "react";
-import PropTypes from "prop-types";
+import React, { useRef, forwardRef, useMemo } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ResponsiveList.module.scss";
-import { VibeComponent, VibeComponentProps } from "../../types";
-import MenuButton, { MenuButtonProps } from "../MenuButton/MenuButton";
-import { MenuButtonSize } from "../MenuButton/MenuButtonConstants";
+import { VibeComponent } from "../../types";
+import MenuButton from "../MenuButton/MenuButton";
+import { DEFAULT_MINIMAL_MARGIN, EMPTY_ARRAY, ResponsiveListProps } from "./ResponsiveList.types";
 
-const DEFAULT_MINIMAL_MARGIN = 32;
-const EMPTY_ARRAY: ReactNode[] = [];
-
-export interface ResponsiveListProps extends VibeComponentProps {
-  rootClassName?: string;
-  children?: ReactNode;
-  menuButtonSize?: MenuButtonSize;
-  paddingSize?: number;
-  dialogZIndex?: number;
-  dialogClassName?: string;
-  menuButtonClassName?: string;
-  menuWrapperClassName?: string;
-  resizeDebounceTime?: number;
-  menuButtonAriaLabel?: string;
-  menuButtonProps?: MenuButtonProps;
-}
-const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLElement, ResponsiveListProps>(
+const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivElement, ResponsiveListProps>(
   (
     {
-      id,
-      className,
-      rootClassName,
+      id = "",
+      className = "",
+      rootClassName = "",
       children,
       menuButtonSize = MenuButton.sizes.SMALL,
       paddingSize = DEFAULT_MINIMAL_MARGIN,
       dialogZIndex = 9999,
-      dialogClassName,
-      menuButtonClassName,
-      menuWrapperClassName,
-      resizeDebounceTime,
-      menuButtonAriaLabel,
-      menuButtonProps,
+      dialogClassName = "",
+      menuButtonClassName = "",
+      menuWrapperClassName = "",
+      resizeDebounceTime = 0,
+      menuButtonAriaLabel = "More Actions",
+      menuButtonProps = {},
       "data-testid": dataTestId
     },
     ref
   ) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRef(ref, componentRef);
+    const componentRef = useRef<HTMLDivElement>(null);
+    const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
     const index = useElementsOverflowingIndex({
       ref: componentRef,
       children,
@@ -73,7 +56,7 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLElemen
     }, [children, index]);
 
     const hiddenChildren = useMemo(() => {
-      const childrenArray = React.Children.toArray(children);
+      const childrenArray = React.Children.toArray(children) as React.ReactElement[];
 
       return childrenArray.map(el => el?.props?.responsiveListPlaceholder || el);
     }, [children]);
@@ -118,44 +101,4 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLElemen
     );
   }
 );
-
-ResponsiveList.menuButtonSizes = MenuButton.sizes;
-ResponsiveList.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  menuButtonClassName: PropTypes.string,
-  menuWrapperClassName: PropTypes.string,
-  /**
-   These attributes will be passed to the MenuButton
-   */
-  menuButtonProps: PropTypes.object,
-  menuButtonAriaLabel: PropTypes.string,
-  rootClassName: PropTypes.string,
-  dialogClassName: PropTypes.string,
-  menuButtonSize: PropTypes.oneOf(Object.values(ResponsiveList.menuButtonSizes)),
-  /**
-  Amount of space to save between the menu button and the content
-   */
-  paddingSize: PropTypes.number,
-  dialogZIndex: PropTypes.number,
-  /**
-   *  we use resize observer behind the scene to update the size, debounce the amount of callbacks (each callback may cause a reflow)
-   */
-  resizeDebounceTime: PropTypes.number
-};
-ResponsiveList.defaultProps = {
-  id: "",
-  className: "",
-  dialogClassName: "",
-  menuButtonClassName: "",
-  menuWrapperClassName: "",
-  rootClassName: "",
-  menuButtonAriaLabel: "More Actions",
-  menuButtonProps: {},
-  menuButtonSize: ResponsiveList.menuButtonSizes.SMALL,
-  paddingSize: DEFAULT_MINIMAL_MARGIN,
-  dialogZIndex: 9999,
-  resizeDebounceTime: 0
-};
-
 export default ResponsiveList;
