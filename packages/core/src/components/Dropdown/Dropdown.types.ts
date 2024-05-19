@@ -231,11 +231,11 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   isOptionSelected?: (option: DropdownOption, options: DropdownOption[]) => boolean;
   /**
-   * For display the drop down menu in overflow hidden/scroll container.
+   * Allows the dropdown menu to overflow its container.
    */
   insideOverflowContainer?: boolean;
   /**
-   * For display the drop down menu in overflow hidden/scroll container which contains transform css function usage.
+   * Allows the dropdown menu to overflow its container, including CSS transformations.
    */
   insideOverflowWithTransformContainer?: boolean;
   /**
