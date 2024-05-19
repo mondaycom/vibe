@@ -11,16 +11,16 @@ import { DEFAULT_MINIMAL_MARGIN, EMPTY_ARRAY, ResponsiveListProps } from "./Resp
 const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivElement, ResponsiveListProps>(
   (
     {
-      id = "",
-      className = "",
-      rootClassName = "",
+      id,
+      className,
+      rootClassName,
       children,
       menuButtonSize = MenuButton.sizes.SMALL,
       paddingSize = DEFAULT_MINIMAL_MARGIN,
       dialogZIndex = 9999,
-      dialogClassName = "",
-      menuButtonClassName = "",
-      menuWrapperClassName = "",
+      dialogClassName,
+      menuButtonClassName,
+      menuWrapperClassName,
       resizeDebounceTime = 0,
       menuButtonAriaLabel = "More Actions",
       menuButtonProps = {},

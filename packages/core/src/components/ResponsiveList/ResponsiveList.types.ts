@@ -7,15 +7,24 @@ export const DEFAULT_MINIMAL_MARGIN = 32;
 export const EMPTY_ARRAY: ReactNode[] = [];
 
 export interface ResponsiveListProps extends VibeComponentProps {
-  rootClassName?: string;
   children?: ReactNode[];
-  menuButtonSize?: MenuButtonSize;
-  paddingSize?: number;
-  dialogZIndex?: number;
-  dialogClassName?: string;
   menuButtonClassName?: string;
   menuWrapperClassName?: string;
-  resizeDebounceTime?: number;
-  menuButtonAriaLabel?: string;
+  /**
+   These attributes will be passed to the MenuButton
+   */
   menuButtonProps?: MenuButtonProps;
+  menuButtonAriaLabel?: string;
+  rootClassName?: string;
+  dialogClassName?: string;
+  menuButtonSize?: MenuButtonSize;
+  /**
+   Amount of space to save between the menu button and the content
+   */
+  paddingSize?: number;
+  dialogZIndex?: number;
+  /**
+   *  we use resize observer behind the scene to update the size, debounce the amount of callbacks (each callback may cause a reflow)
+   */
+  resizeDebounceTime?: number;
 }
