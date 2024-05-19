@@ -72,7 +72,7 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivEle
             {directChildren}
             {!!menuChildren.length && (
               <MenuButton
-                componentClassName={cx(styles.listMenuButton, menuButtonClassName)}
+                className={cx(styles.listMenuButton, menuButtonClassName)}
                 size={menuButtonSize}
                 openDialogComponentClassName={cx(styles.menuButtonDialog, dialogClassName)}
                 zIndex={dialogZIndex}
@@ -87,7 +87,7 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivEle
         <div ref={mergedRef} className={cx(styles.responsiveList, styles.dummy, className)}>
           {hiddenChildren}
           <MenuButton
-            componentClassName={cx(styles.listMenuButton, menuButtonClassName)}
+            className={cx(styles.listMenuButton, menuButtonClassName)}
             size={menuButtonSize}
             openDialogComponentClassName={cx(styles.menuButtonDialog, dialogClassName)}
             zIndex={dialogZIndex}
