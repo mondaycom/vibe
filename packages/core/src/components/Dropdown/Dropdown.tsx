@@ -218,8 +218,13 @@ export interface DropdownComponentProps extends VibeComponentProps {
    */
   id?: typeof DROPDOWN_ID;
   /**
+   * ID for the menu component
+   */
+  menuId?: typeof DROPDOWN_MENU_ID;
+  /**
    * focusAuto when component mount
    */
+  menuAriaLabel?: typeof DROPDOWN_MENU_ARIA_LABEL,
   autoFocus?: boolean;
   /**
    * If set to true, the dropdown will be in multi-select mode.
