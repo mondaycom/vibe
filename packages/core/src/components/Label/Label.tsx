@@ -14,7 +14,6 @@ import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { mapSizesToTextSize, Sizes } from "./Label.types";
 
-// TODO remove in vibe 3
 export interface LabelProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
