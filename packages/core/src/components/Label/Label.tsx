@@ -7,12 +7,32 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
-import { VibeComponent, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { mapSizesToTextSize, LabelProps } from "./Label.types";
+import { mapSizesToTextSize, Sizes } from "./Label.types";
+
+// TODO remove in vibe 3
+export interface LabelProps extends VibeComponentProps {
+  /**
+   * @deprecated - use className instead
+   */
+  wrapperClassName?: string;
+  /**
+   * Class name for an inner text wrapper
+   */
+  labelClassName?: string;
+  kind?: LabelKind;
+  color?: LabelColor;
+  text?: string;
+  isAnimationDisabled?: boolean;
+  isLegIncluded?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  celebrationAnimation?: boolean;
+  size?: Sizes;
+}
 
 const Label: VibeComponent<LabelProps> & {
   colors?: typeof LabelColor;

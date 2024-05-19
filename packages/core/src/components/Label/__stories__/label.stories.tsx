@@ -47,6 +47,11 @@ export const Overview = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
