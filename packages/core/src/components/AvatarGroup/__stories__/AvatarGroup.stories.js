@@ -184,7 +184,7 @@ export const ColorVariants = {
   name: "Color variants"
 };
 
-export const CustomCount = {
+export const MaxAvatarsToDisplay = {
   render: () => {
     const [max, setMax] = useState(4);
 
@@ -312,26 +312,125 @@ export const LastSeenUsers = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM}>
       <div>Last seen</div>
-      <AvatarGroup size={Avatar.sizes.MEDIUM} max={4} counterProps={{ color: "dark" }}>
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+      <AvatarGroup size={Avatar.sizes.MEDIUM} max={4} counterProps={{ color: "dark" }} type={Avatar.types.IMG}>
+        <Avatar src={person1} ariaLabel="Julia Martinez" />
+        <Avatar src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar src={person1} ariaLabel="Julia Martinez" />
+        <Avatar src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar src={person1} ariaLabel="Julia Martinez" />
+        <Avatar src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar src={person1} ariaLabel="Julia Martinez" />
+        <Avatar src={person2} ariaLabel="Sophia Johnson" />
       </AvatarGroup>
     </Flex>
   ),
 
   name: "Last seen users"
+};
+
+export const CustomCounter = {
+  render: () => (
+    <AvatarGroup
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      max={4}
+      counterProps={{
+        count: 100500,
+        color: Counter.colors.DARK,
+        prefix: "",
+        maxDigits: 5
+      }}
+    >
+      <Avatar src={person1} ariaLabel="Julia Martinez" />
+      <Avatar src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar src={person4} ariaLabel="Liam Caldwell" />
+    </AvatarGroup>
+  )
+};
+
+export const GridTooltip = {
+  render: () => (
+    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={4}>
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person4} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person4} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person4} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person4} />
+    </AvatarGroup>
+  ),
+
+  name: "Grid tooltip"
+};
+
+export const CounterCustomTooltipContent = {
+  render: () => (
+    <AvatarGroup
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      max={4}
+      counterTooltipCustomProps={{
+        content: "... and plenty more employees"
+      }}
+    >
+      <Avatar src={person1} ariaLabel="Julia Martinez" />
+      <Avatar src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar src={person1} ariaLabel="Julia Martinez" />
+      <Avatar src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar src={person4} ariaLabel="Liam Caldwell" />
+    </AvatarGroup>
+  ),
+
+  name: "Counter custom tooltip content"
+};
+
+export const VirtualizedList = {
+  render: () => {
+    const avatars = [
+      <Avatar src={person1} ariaLabel="Julia Martinez" />,
+      <Avatar src={person2} ariaLabel="Sophia Johnson" />,
+      <Avatar src={person3} ariaLabel="Marco DiAngelo" />,
+      <Avatar src={person4} ariaLabel="Liam Caldwell" />
+    ];
+
+    const getDummyAvatars = multiplier => {
+      let result = [];
+
+      for (let i = 0; i < multiplier; ++i) {
+        result = result.concat(avatars);
+      }
+
+      return result;
+    };
+
+    return (
+      <AvatarGroup size={Avatar.sizes.LARGE} max={4} counterTooltipIsVirtualizedList type={Avatar.types.IMG}>
+        {getDummyAvatars(334)}
+      </AvatarGroup>
+    );
+  },
+
+  name: "Virtualized list"
 };
 
 export const DisplayingTeams = {
