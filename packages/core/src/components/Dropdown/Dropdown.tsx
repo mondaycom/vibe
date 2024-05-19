@@ -46,6 +46,14 @@ interface CustomSingleValueProps extends SingleValueProps<DropdownOption> {
 
 interface CustomMenuProps extends MenuProps<OptionTypeBase, boolean> {
   dropdownMenuWrapperClassName: string;
+  /**
+   * ID for the menu container
+   */
+  menuId: string;
+  /**
+   * aria-label attribute for the menu container
+   */
+  menuAriaLabel: string;
 }
 
 interface CustomOptionProps extends OptionProps<OptionTypeBase, boolean> {
@@ -217,14 +225,6 @@ export interface DropdownComponentProps extends VibeComponentProps {
    * ID for the select container
    */
   id?: typeof DROPDOWN_ID;
-  /**
-   * ID for the menu component
-   */
-  menuId?: typeof DROPDOWN_MENU_ID;
-  /**
-   * focusAuto when component mount
-   */
-  menuAriaLabel?: typeof DROPDOWN_MENU_ARIA_LABEL,
   autoFocus?: boolean;
   /**
    * If set to true, the dropdown will be in multi-select mode.
