@@ -28,14 +28,14 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(activeTabId);
       }
-    }, [activeTabId, prevActiveTabIdProp, activeTabIdState, setPreviousActiveTabIdState, setActiveTabIdState]);
+    }, [activeTabId, activeTabIdState, prevActiveTabIdProp]);
 
     const onTabClick = useCallback(
       (tabId: number) => {
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(tabId);
       },
-      [setPreviousActiveTabIdState, activeTabIdState, setActiveTabIdState]
+      [activeTabIdState]
     );
 
     return (
@@ -47,7 +47,12 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
       >
         {React.Children.map(children, (child: TabsChild) => {
           if (child.type.isTabList) {
-            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange: onTabClick });
+            const originalOnTabChange = child.props.onTabChange;
+            const onTabChange = (tabId: number) => {
+              onTabClick(tabId);
+              originalOnTabChange?.(tabId);
+            };
+            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange });
           }
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
