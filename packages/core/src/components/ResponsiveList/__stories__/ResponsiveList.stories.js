@@ -47,12 +47,7 @@ const componentTemplate = responseListProps => {
   );
   return (
     <ContainerForDemonstration>
-      <ResponsiveList
-        id="Knobs"
-        className="responsive-story"
-        menuButtonSize={ResponsiveList.menuButtonSizes.MEDIUM}
-        {...responseListProps}
-      >
+      <ResponsiveList id="Knobs" className="responsive-story" menuButtonSize="40" {...responseListProps}>
         <SplitButton size={SplitButton.sizes.MAIN} marginRight secondaryDialogContent={secondaryContent}>
           Add Item
         </SplitButton>
