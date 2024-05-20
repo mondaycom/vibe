@@ -19,7 +19,14 @@ export default {
   title: "Media/Avatar/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, StoryDescription, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 const avatarGroupTemplate = ({ persons, ...args }) => {
@@ -94,14 +101,7 @@ export const Size = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription, person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const ColorVariants = {
@@ -142,14 +142,7 @@ export const ColorVariants = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription, person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const CustomCounter = {
@@ -169,14 +162,7 @@ export const CustomCounter = {
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const GridTooltip = {
@@ -201,14 +187,7 @@ export const GridTooltip = {
       <Avatar src={person2} />
       <Avatar src={person3} />
     </AvatarGroup>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const MaxAmountToDisplay = {
@@ -252,13 +231,6 @@ export const MaxAmountToDisplay = {
         </AvatarGroup>
       </Flex>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { styles, person1, person2, person3 }
-      }
-    }
   }
 };
 
@@ -326,14 +298,7 @@ export const HoverVsClickable = {
       </Flex>
     );
   },
-  name: "Hover vs Clickable",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription, person1, person2, person3, styles }
-      }
-    }
-  }
+  name: "Hover vs Clickable"
 };
 
 export const VirtualizedList = {
@@ -359,13 +324,6 @@ export const VirtualizedList = {
         {getDummyAvatars(334)}
       </AvatarGroup>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
   }
 };
 
@@ -386,14 +344,7 @@ export const CounterCustomTooltipContent = {
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const LastSeenUsers = {
@@ -409,14 +360,7 @@ export const LastSeenUsers = {
         <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
       </AvatarGroup>
     </Flex>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
 
 export const DisplayingTeams = {
@@ -475,12 +419,5 @@ export const DisplayingTeams = {
         </tr>
       </tbody>
     </table>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3 }
-      }
-    }
-  }
+  )
 };
