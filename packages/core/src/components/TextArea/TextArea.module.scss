@@ -12,6 +12,7 @@
   .label {
     display: inline-flex;
     gap: var(--spacing-xs);
+    color: var(--primary-text-color);
 
     &.required::after {
       content: "*";
@@ -29,6 +30,8 @@
     border-radius: var(--border-radius-small);
     padding: var(--spacing-small) var(--spacing-medium);
     outline: none;
+    background-color: var(--secondary-background-color);
+    color: var(--primary-text-color);
 
     &:hover {
       border-color: var(--primary-text-color);
