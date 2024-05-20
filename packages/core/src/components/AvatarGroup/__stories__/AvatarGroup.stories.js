@@ -43,14 +43,19 @@ const avatarGroupTemplate = ({ persons, ...args }) => {
 };
 
 export const Overview = {
-  render: avatarGroupTemplate.bind(),
-  name: "Overview",
-
+  render: avatarGroupTemplate.bind({}),
   args: {
     persons: {
       person1: window.location.origin + "/" + person1,
       person2: window.location.origin + "/" + person2,
       person3: window.location.origin + "/" + person3
+    }
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -90,8 +95,13 @@ export const Size = {
       </StoryDescription>
     </Flex>
   ),
-
-  name: "Size"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const ColorVariants = {
@@ -133,8 +143,13 @@ export const ColorVariants = {
       </StoryDescription>
     </Flex>
   ),
-
-  name: "Color variants"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const CustomCounter = {
@@ -155,8 +170,13 @@ export const CustomCounter = {
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
   ),
-
-  name: "Custom counter"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const GridTooltip = {
@@ -182,8 +202,13 @@ export const GridTooltip = {
       <Avatar src={person3} />
     </AvatarGroup>
   ),
-
-  name: "Grid tooltip"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const MaxAmountToDisplay = {
@@ -228,8 +253,13 @@ export const MaxAmountToDisplay = {
       </Flex>
     );
   },
-
-  name: "Max amount to display"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const HoverVsClickable = {
@@ -296,8 +326,14 @@ export const HoverVsClickable = {
       </Flex>
     );
   },
-
-  name: "Hover vs Clickable"
+  name: "Hover vs Clickable",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, person1, person2, person3, styles }
+      }
+    }
+  }
 };
 
 export const VirtualizedList = {
@@ -324,8 +360,13 @@ export const VirtualizedList = {
       </AvatarGroup>
     );
   },
-
-  name: "Virtualized list"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const CounterCustomTooltipContent = {
@@ -346,8 +387,13 @@ export const CounterCustomTooltipContent = {
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
   ),
-
-  name: "Counter custom tooltip content"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const LastSeenUsers = {
@@ -364,8 +410,13 @@ export const LastSeenUsers = {
       </AvatarGroup>
     </Flex>
   ),
-
-  name: "Last seen users"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const DisplayingTeams = {
@@ -425,6 +476,11 @@ export const DisplayingTeams = {
       </tbody>
     </table>
   ),
-
-  name: "Displaying teams"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
