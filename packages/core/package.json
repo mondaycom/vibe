@@ -137,6 +137,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@babel/standalone": "^7.24.4",
     "@babel/types": "^7.24.0",
+    "@chromatic-com/storybook": "^1.4.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@jest/transform": "^29.7.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
