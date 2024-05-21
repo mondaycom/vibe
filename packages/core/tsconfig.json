@@ -1,24 +1,15 @@
 {
-  "include": ["src/**/*", "types/**/*"],
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "rootDirs": ["./src", "./.storybook"],
-    "lib": ["esnext", "dom"],
-    "allowJs": true,
-    "target": "es6",
-    "module": "CommonJS",
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "declarationDir": "dist/types",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "module": "ESNext",
     "declaration": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "baseUrl": ".",
+    "declarationDir": "dist/types",
+    "sourceMap": true,
+    "allowJs": true,
+    "rootDir": "src",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "esModuleInterop": true
-  }
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["**/__tests__", "**/__stories__"]
 }
