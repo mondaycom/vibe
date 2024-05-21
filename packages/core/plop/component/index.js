@@ -58,7 +58,7 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "src/components/index.js",
+        path: "src/components/index.ts",
         pattern: /(\n$)/gm,
         separator: "",
         template:

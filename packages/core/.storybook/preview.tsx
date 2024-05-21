@@ -1,7 +1,7 @@
 import React from "react";
-import * as VibeComponents from "../src/components/index";
+import * as VibeComponents from "../src/components";
 import * as VibeComponentsNext from "../src/next";
-import * as VibeIcons from "../src/components/Icon/Icons/index";
+import * as VibeIcons from "../src/components/Icon/Icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -25,7 +25,6 @@ import {
   UsageGuidelines,
   withMemoryStats,
   RelatedComponent,
-  MultipleStoryElementsWrapper,
   StorybookLink
 } from "vibe-storybook-components";
 import CanvasWrapper from "../src/storybook/components/canvas-wrapper/CanvasWrapper";
@@ -147,7 +146,7 @@ const preview: Preview = {
       }
     }
   },
-  
+
   loaders: isChromatic() && document.fonts ? [fontLoader] : []
 };
 
