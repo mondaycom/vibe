@@ -114,10 +114,7 @@ module.exports = {
     // TODO This entire block should be removed and fixed, unless we move to React 17+
     {
       files: [
-        "*.stories.@(js|jsx|ts|tsx)",
-        "*.stories.helpers.@(js|jsx|ts|tsx)",
         "**/__stories__/**/*.{js,jsx,ts,tsx}",
-        "*.test.@(js|jsx|ts|tsx)",
         "**/__tests__/**/*.{js,jsx,ts,tsx}",
         "src/storybook/stand-alone-documentaion/**/*.{js,jsx,ts,tsx}",
         "src/storybook/patterns/**/*.{js,jsx,ts,tsx}",
