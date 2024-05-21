@@ -1,3 +1,4 @@
+import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import Label from "../Label";
 import { getTestId } from "../../../tests/test-ids-utils";
