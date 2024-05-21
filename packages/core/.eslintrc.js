@@ -115,7 +115,6 @@ module.exports = {
     {
       files: [
         "**/__stories__/**/*.{js,jsx,ts,tsx}",
-        "**/__tests__/**/*.{js,jsx,ts,tsx}",
         "src/storybook/stand-alone-documentaion/**/*.{js,jsx,ts,tsx}",
         "src/storybook/patterns/**/*.{js,jsx,ts,tsx}",
         "src/storybook/components/**/*.{js,jsx,ts,tsx}",
