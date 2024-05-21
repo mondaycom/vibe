@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { FC } from "react";
+import React from "react";
 import styles from "./TipseenImage.module.scss";
 import TipseenMedia from "./TipseenMedia/TipseenMedia";
 
@@ -12,7 +12,7 @@ export interface TipseenImageProps {
   tipseenMediaClassName?: string;
 }
 
-const TipseenImage: FC<TipseenImageProps> = ({ src, alt, className, tipseenMediaClassName }) => {
+const TipseenImage: React.FC<TipseenImageProps> = ({ src, alt, className, tipseenMediaClassName }) => {
   return (
     // TODO future breaking change where we remove the TipseenMedia component and we remove TipseenImage?
     <TipseenMedia className={tipseenMediaClassName}>

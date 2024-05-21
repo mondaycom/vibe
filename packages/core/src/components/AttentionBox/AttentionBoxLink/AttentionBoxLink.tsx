@@ -1,9 +1,9 @@
-import { FC } from "react";
+import React from "react";
 import styles from "./AttentionBoxLink.module.scss";
 import Link, { LinkProps } from "../../Link/Link";
 import cx from "classnames";
 
-const AttentionBoxLink: FC<LinkProps> = ({
+const AttentionBoxLink: React.FC<LinkProps> = ({
   href,
   text,
   // TODO: use Link's target default in next major
