@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.109.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.3...monday-ui-react-core@2.109.0) (2024-05-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** migrate to TS continue ([#2109](https://github.com/mondaycom/vibe/issues/2109)) ([a7a51ad](https://github.com/mondaycom/vibe/commit/a7a51ada6400b045c831978e3d5d419c35e0a8b1))
+* **TextArea:** add background color and text for dark mode ([#2130](https://github.com/mondaycom/vibe/issues/2130)) ([8d6a84c](https://github.com/mondaycom/vibe/commit/8d6a84ce884b3f3b37309015583bae9533304fc8))
+
+
+### Features
+
+* **label:** add small variant ([#2121](https://github.com/mondaycom/vibe/issues/2121)) ([2ca6562](https://github.com/mondaycom/vibe/commit/2ca65624abb07c88fde5e758a47c7e6c4e62b60f))
+* **withLiveEdit:** add actions for copy, format, and reset at the bottom of the live editor ([#2123](https://github.com/mondaycom/vibe/issues/2123)) ([f384d7c](https://github.com/mondaycom/vibe/commit/f384d7c95fe4e9bf65a5c590b1fbb0082c869eee))
+
+
+
+
+
 ## [2.108.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.2...monday-ui-react-core@2.108.3) (2024-05-16)
 
 
