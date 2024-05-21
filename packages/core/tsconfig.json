@@ -10,6 +10,5 @@
     "allowSyntheticDefaultImports": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src/**/*", "types/**/*"],
-  "exclude": ["**/__tests__", "**/__stories__"]
+  "include": ["src/**/*", "types/**/*"]
 }

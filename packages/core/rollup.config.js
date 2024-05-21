@@ -76,7 +76,11 @@ export default {
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
-    typescript(),
+    typescript({
+      tsconfigOverride: {
+        exclude: ["**/__tests__", "**/__stories__", path.join(SRC_PATH, "storybook")]
+      }
+    }),
     babel({
       babelHelpers: "bundled",
       extensions: EXTENSIONS
