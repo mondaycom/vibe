@@ -281,10 +281,10 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     }
 
     const containerElement = document.querySelector(containerSelector);
-    if (!containerElement) {
+    if (!containerElement || !(containerElement instanceof Element)) {
       // TODO add env check - if not jest env - trashing the logs - https://monday.monday.com/boards/3532714909/pulses/5570955392
       // console.error(
-      //   `Dialog: Container element with selector "${containerSelector}" was not found. Dialog may not be correctly positioned.`
+      //   `Dialog: Container element with selector "${containerSelector}" was not found or is not an HTMLElement. Dialog may not be correctly positioned.`
       // );
       return document.body;
     }

@@ -79,6 +79,7 @@ module.exports = () => {
             {
               loader: "ts-loader",
               options: {
+                configFile: "tsconfig.cjs.json",
                 onlyCompileBundledFiles: true
               }
             }

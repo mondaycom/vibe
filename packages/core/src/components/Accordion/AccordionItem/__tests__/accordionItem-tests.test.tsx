@@ -1,3 +1,4 @@
+import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Accordion from "../../Accordion/Accordion";
 import AccordionItem from "../AccordionItem";

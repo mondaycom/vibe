@@ -1,4 +1,4 @@
-export const defaultCustomStyles = baseStyles => baseStyles;
+export const defaultCustomStyles = (baseStyles: string) => baseStyles;
 
 export const ADD_AUTO_HEIGHT_COMPONENTS = ["container", "control", "valueContainer"];
 

@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.109.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.3...monday-ui-react-core@2.109.0) (2024-05-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** migrate to TS continue ([#2109](https://github.com/mondaycom/vibe/issues/2109)) ([a7a51ad](https://github.com/mondaycom/vibe/commit/a7a51ada6400b045c831978e3d5d419c35e0a8b1))
+* **TextArea:** add background color and text for dark mode ([#2130](https://github.com/mondaycom/vibe/issues/2130)) ([8d6a84c](https://github.com/mondaycom/vibe/commit/8d6a84ce884b3f3b37309015583bae9533304fc8))
+
+
+### Features
+
+* **label:** add small variant ([#2121](https://github.com/mondaycom/vibe/issues/2121)) ([2ca6562](https://github.com/mondaycom/vibe/commit/2ca65624abb07c88fde5e758a47c7e6c4e62b60f))
+* **withLiveEdit:** add actions for copy, format, and reset at the bottom of the live editor ([#2123](https://github.com/mondaycom/vibe/issues/2123)) ([f384d7c](https://github.com/mondaycom/vibe/commit/f384d7c95fe4e9bf65a5c590b1fbb0082c869eee))
+
+
+
+
+
+## [2.108.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.2...monday-ui-react-core@2.108.3) (2024-05-16)
+
+
+### Bug Fixes
+
+* **Dialog.tsx:** getContainer causing react error 200 ([#2124](https://github.com/mondaycom/vibe/issues/2124)) ([b018467](https://github.com/mondaycom/vibe/commit/b018467b43f648372f8cee3d2b7eb4c2c875287b))
+
+
+
+
+
+## [2.108.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.1...monday-ui-react-core@2.108.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* **AlertBanner:** replace Button & Icon with IconButton ([#2120](https://github.com/mondaycom/vibe/issues/2120)) ([ee2d11c](https://github.com/mondaycom/vibe/commit/ee2d11cbb64d94a837e3b902e9eb1d1724c69cde))
+* **Storybook Docs:** typo ([#2119](https://github.com/mondaycom/vibe/issues/2119)) ([25ff8fb](https://github.com/mondaycom/vibe/commit/25ff8fbbea1d221c45dc69102b5d965b888d09da))
+* **TabsContext:** use onTabChange from child props ([#2125](https://github.com/mondaycom/vibe/issues/2125)) ([11bbddf](https://github.com/mondaycom/vibe/commit/11bbddf748a80bbebd246f5e8d3dd2bd96bd09ab))
+* **Typography:** change tooltipProps type to Partial< TooltipProps > ([#2118](https://github.com/mondaycom/vibe/issues/2118)) ([707c5c3](https://github.com/mondaycom/vibe/commit/707c5c31372c1cbb9e3bd8e8fcfefea91ab0088f))
+* **Typography:** make anchor style apply only to direct child ([#2115](https://github.com/mondaycom/vibe/issues/2115)) ([337975b](https://github.com/mondaycom/vibe/commit/337975b97de2120ed52b70a99ceaddb208015bbe))
+
+
+
+
+
 ## [2.108.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.0...monday-ui-react-core@2.108.1) (2024-05-09)
 
 
