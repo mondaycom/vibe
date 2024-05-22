@@ -19,6 +19,7 @@ export const Overview: Story = {
 export const Types: Story = {
   render: () => (
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+      <StatusTag type="alpha" />
       <StatusTag type="beta" />
       <StatusTag type="deprecated" />
     </Flex>
