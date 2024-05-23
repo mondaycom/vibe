@@ -44,7 +44,8 @@ export interface SplitButtonProps extends ButtonProps {
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
-  secondaryDialogPosition?: DialogPosition;
+  // TODO in next major remove type DialogPosition
+  secondaryDialogPosition?: DialogPosition | SplitButtonSecondaryContentPosition;
   /*
     Popover Container padding size
    */
