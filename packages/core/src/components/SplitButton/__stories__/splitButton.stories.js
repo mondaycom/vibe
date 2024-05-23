@@ -9,6 +9,7 @@ import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import MenuTitle from "../../Menu/MenuTitle/MenuTitle";
 import "./splitButton.stories.scss";
+import { DialogPosition } from "../../../constants";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
@@ -187,7 +188,7 @@ export const SplitButtonAsThePrimaryAction = {
   render: () => (
     <SplitButton
       children="Use template"
-      secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
+      secondaryDialogPosition={DialogPosition.BOTTOM_START}
       secondaryDialogContent={
         <SplitButtonMenu id="split-menu">
           <MenuItem icon={Download} title="Import template" />
@@ -211,7 +212,7 @@ export const SecondarySplitButton = {
       <SplitButton
         children="Export to CSV"
         kind={SplitButton.kinds.SECONDARY}
-        secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+        secondaryDialogPosition={DialogPosition.BOTTOM_START}
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem title="Export to PDF" />
