@@ -9,7 +9,6 @@ import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import MenuTitle from "../../Menu/MenuTitle/MenuTitle";
 import "./splitButton.stories.scss";
-import { DialogPosition } from "../../../constants";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
