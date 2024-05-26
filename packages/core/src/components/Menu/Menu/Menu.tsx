@@ -1,15 +1,6 @@
 import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
-import React, {
-  forwardRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { forwardRef, ReactElement, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -66,7 +57,7 @@ const Menu: VibeComponent<MenuProps> & {
       tabIndex = 0,
       ariaLabel = "Menu",
       ariaDescribedBy,
-      children: originalChildren,
+      children,
       isVisible = true,
       onClose,
       focusOnMount = false,
@@ -89,23 +80,11 @@ const Menu: VibeComponent<MenuProps> & {
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
 
-    const children = useMemo(() => {
-      const allChildren = React.Children.toArray(originalChildren) as MenuChild[];
-      return allChildren.filter(child => {
-        if (child.type.isMenuChild) return true;
-        console.error(
-          "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
-          child
-        );
-        return false;
-      });
-    }, [originalChildren]);
-
     const updateActiveItemIndex = useCallback(
       (index: number) => {
         setActiveItemIndex(index);
 
-        const activeChild = children[index];
+        const activeChild = (children as MenuChild[])[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
           ? activeChild?.props?.id || `${overrideId}-item-${index}`
           : undefined;
@@ -159,7 +138,7 @@ const Menu: VibeComponent<MenuProps> & {
     });
     useFocusOnMount({
       focusItemIndexOnMount,
-      focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
+      focusChildOnMount: (children as MenuChild[])[focusItemIndexOnMount] as ReactElement,
       getNextSelectableIndex,
       updateActiveItemIndex,
       setIsInitialFocusSet: setIsInitialSelectedState
