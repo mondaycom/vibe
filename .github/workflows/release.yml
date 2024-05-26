@@ -28,7 +28,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.VIBE_GITHUB_TOKEN }}
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
@@ -43,8 +42,6 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish to npm
         run: yarn lerna publish from-package -y
-        env:
-          GH_TOKEN: ${{ secrets.VIBE_GITHUB_TOKEN }}
       - name: Remove .npmrc
         if: steps.setup-npmrc.outcome == 'success'
         run: rm .npmrc
