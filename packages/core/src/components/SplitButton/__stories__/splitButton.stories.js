@@ -187,7 +187,7 @@ export const SplitButtonAsThePrimaryAction = {
   render: () => (
     <SplitButton
       children="Use template"
-      secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
+      secondaryDialogPosition={SplitButton.secondaryDialogPositions.BOTTOM_START}
       secondaryDialogContent={
         <SplitButtonMenu id="split-menu">
           <MenuItem icon={Download} title="Import template" />
@@ -211,7 +211,7 @@ export const SecondarySplitButton = {
       <SplitButton
         children="Export to CSV"
         kind={SplitButton.kinds.SECONDARY}
-        secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+        secondaryDialogPosition={SplitButton.secondaryDialogPositions.BOTTOM_START}
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem title="Export to PDF" />
