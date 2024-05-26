@@ -138,13 +138,13 @@ export const Positions = {
 };
 
 export const IconTooltip = () => (
-  <Tooltip content="Hidden columns" withMaxWidth modifiers={modifiers}>
+  <Tooltip content="Hidden columns" withMaxWidth>
     <IconButton kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
-  <Tooltip content="Item name: Bottom sheets" withMaxWidth modifiers={modifiers}>
+  <Tooltip content="Item name: Bottom sheets" withMaxWidth>
     <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} leftIcon={Subitems}>
       Subitem
     </Button>
