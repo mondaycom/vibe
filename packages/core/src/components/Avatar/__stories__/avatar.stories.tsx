@@ -32,16 +32,16 @@ export const Overview = {
     size: Avatar.sizes.LARGE,
     src: window.location.origin + "/" + person1,
     type: Avatar.types.IMG,
-    ariaLabel: "Sophia Johnson"
+    ariaLabel: "Julia Martinez"
   }
 };
 
 export const Size = {
   render: () => (
     <>
-      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Sophia Johnson" />
-      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} ariaLabel="Sophia Johnson" />
-      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} ariaLabel="Sophia Johnson" />
+      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
+      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
+      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
     </>
   ),
 
@@ -130,14 +130,14 @@ export const AvatarWithRightBadge = {
         type={Avatar.types.IMG}
         src={person1}
         bottomRightBadgeProps={{ src: guest }}
-        ariaLabel="Sophia Johnson"
+        ariaLabel="Julia Martinez"
       />
       <Avatar
         size={Avatar.sizes.LARGE}
         type={Avatar.types.IMG}
         src={person1}
         bottomRightBadgeProps={{ src: owner }}
-        ariaLabel="Sophia Johnson"
+        ariaLabel="Julia Martinez"
       />
     </>
   ),
@@ -154,14 +154,14 @@ export const AvatarWithLeftBadge = {
         type={Avatar.types.IMG}
         src={person1}
         bottomLeftBadgeProps={{ src: home }}
-        ariaLabel="Sophia Johnson"
+        ariaLabel="Julia Martinez"
       />
       <Avatar
         size={Avatar.sizes.LARGE}
         type={Avatar.types.IMG}
         src={person1}
         bottomLeftBadgeProps={{ src: minus }}
-        ariaLabel="Sophia Johnson"
+        ariaLabel="Julia Martinez"
       />
     </>
   ),
@@ -173,7 +173,7 @@ export const AvatarWithTooltip = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
       <StoryDescription description="Aria label tooltip" vertical align={StoryDescription.align.START}>
-        <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Sophia Johnson"} />
+        <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Julia Martinez"} />
       </StoryDescription>
       <StoryDescription description="Text tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
@@ -181,9 +181,9 @@ export const AvatarWithTooltip = {
           type={Avatar.types.IMG}
           src={person1}
           tooltipProps={{
-            content: "Sophia Johnson"
+            content: "Julia Martinez"
           }}
-          ariaLabel={"Sophia Johnson"}
+          ariaLabel={"Julia Martinez"}
         />
       </StoryDescription>
       <StoryDescription description="JSX tooltip" vertical align={StoryDescription.align.START}>
@@ -192,10 +192,10 @@ export const AvatarWithTooltip = {
           type={Avatar.types.IMG}
           src={person1}
           tooltipProps={{
-            content: <b>Sophia Johnson</b>,
+            content: <b>Julia Martinez</b>,
             position: Tooltip.positions.BOTTOM
           }}
-          ariaLabel={"Sophia Johnson"}
+          ariaLabel={"Julia Martinez"}
         />
       </StoryDescription>
     </Flex>
@@ -218,7 +218,7 @@ export const ClickableAvatar = {
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           src={person1}
-          ariaLabel="Sophia Johnson"
+          ariaLabel="Julia Martinez"
           onClick={incrementCount}
         />
         <Counter count={count} />
@@ -232,7 +232,7 @@ export const ClickableAvatar = {
 export const MultipleAvatars = {
   render: () => (
     <AvatarGroup max={2} size={Avatar.sizes.LARGE}>
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Sophia Johnson" />
+      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
       <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Marco DiAngelo" />
       <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Liam Caldwell" />
     </AvatarGroup>
