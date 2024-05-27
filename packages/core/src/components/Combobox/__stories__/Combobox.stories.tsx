@@ -237,7 +237,12 @@ export const WithCategories = {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <StoryDescription description="Regular" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="Regular"
+          vertical
+          // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -246,7 +251,12 @@ export const WithCategories = {
             <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
         </StoryDescription>
-        <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="Sticky mode"
+          vertical
+          // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -255,7 +265,11 @@ export const WithCategories = {
             <Combobox stickyCategories options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
         </StoryDescription>
-        <StoryDescription description="With divider" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="With divider"
+          vertical // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -584,6 +598,7 @@ export const WithVirtualizationOptimization = {
       >
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
+          // @ts-ignore
           align={Flex.align.START}
           description="Virtualization optimization without categories"
           vertical
@@ -610,7 +625,7 @@ export const WithVirtualizationOptimization = {
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={FlexAlign.START}
+          align={Flex.align.START}
           description="Virtualization optimization with categories"
           vertical
           headerStyle={{
