@@ -1,7 +1,7 @@
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import "./toggle.stories.scss";
+import "./Toggle.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Toggle>;

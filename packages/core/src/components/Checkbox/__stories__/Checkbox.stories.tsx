@@ -1,7 +1,8 @@
+import React from "react";
 import { createComponentTemplate, Link } from "vibe-storybook-components";
 import Checkbox from "../Checkbox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import "./checkbox.stories.scss";
+import "./Checkbox.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Checkbox>;

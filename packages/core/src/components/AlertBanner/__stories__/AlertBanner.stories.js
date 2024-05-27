@@ -3,7 +3,7 @@ import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./alertBanner.stories.scss";
+import "./AlertBanner.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,

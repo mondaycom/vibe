@@ -4,9 +4,9 @@ import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
-import { modifiers } from "./steps.stories.helpers";
+import { modifiers } from "./Steps.stories.helpers";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./steps.stories.scss";
+import "./Steps.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,

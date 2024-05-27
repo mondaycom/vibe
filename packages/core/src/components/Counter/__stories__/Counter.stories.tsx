@@ -1,3 +1,4 @@
+import React from "react";
 import { useCallback, useEffect, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Counter from "../Counter";
@@ -6,7 +7,7 @@ import Divider from "../../Divider/Divider";
 import { AddUpdate, Update, Notifications } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";
-import "./counter.stories.scss";
+import "./Counter.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Counter,

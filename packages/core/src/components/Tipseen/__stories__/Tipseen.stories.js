@@ -5,9 +5,9 @@ import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import TipseenMedia from "../TipseenMedia/TipseenMedia";
 import { picture, video } from "./assets";
-import { modifiers } from "./tipseen.stories.helpers";
+import { modifiers } from "./Tipseen.stories.helpers";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./tipseen.stories.scss";
+import "./Tipseen.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,

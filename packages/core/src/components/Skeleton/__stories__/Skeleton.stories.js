@@ -4,7 +4,7 @@ import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";
 import { Replay, ThumbsUp } from "../../Icon/Icons";
-import "./skeleton.stories.scss";
+import "./Skeleton.stories.scss";
 
 export default {
   title: "Feedback/Skeleton",

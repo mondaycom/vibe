@@ -1,7 +1,8 @@
+import React from "react";
 import ButtonGroup from "../ButtonGroup";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import "./buttonGroup.stories.scss";
+import "./ButtonGroup.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof ButtonGroup>;

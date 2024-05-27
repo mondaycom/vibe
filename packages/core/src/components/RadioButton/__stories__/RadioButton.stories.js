@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
 import { clickRadioButtonPlaySuite, controlRadioButtonPlaySuite } from "./radioButton.stories.interactions";
-import "./radioButton.stories.scss";
+import "./RadioButton.stories.scss";
 import Button from "../../Button/Button";
 
 const radioButtonTemplate = createComponentTemplate(RadioButton);

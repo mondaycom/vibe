@@ -11,7 +11,7 @@ import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
 import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
-import "./attentionBox.stories.scss";
+import "./AttentionBox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,

@@ -14,7 +14,7 @@ import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Icon } from "../../index";
-import "./combobox.stories.scss";
+import "./Combobox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,

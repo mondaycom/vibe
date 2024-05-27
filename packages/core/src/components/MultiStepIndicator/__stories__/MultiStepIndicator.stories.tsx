@@ -4,7 +4,7 @@ import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import { Featured } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
-import "./multiStepIndicator.stories.scss";
+import "./MultiStepIndicator.stories.scss";
 
 export default {
   title: "Navigation/MultiStepIndicator",

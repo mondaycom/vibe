@@ -3,7 +3,7 @@ import Button from "../../Button/Button";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
-import "./label.stories.scss";
+import "./Label.stories.scss";
 import { useEffect, useState } from "react";
 import { Decorator, StoryObj } from "@storybook/react";
 

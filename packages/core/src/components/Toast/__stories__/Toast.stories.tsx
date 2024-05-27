@@ -1,10 +1,11 @@
+import React from "react";
 import { useCallback, useMemo, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
 import { Delete } from "../../Icon/Icons";
-import "./toast.stories.scss";
+import "./Toast.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,

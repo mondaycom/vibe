@@ -3,7 +3,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem";
 import { Workspace } from "../../../Icon/Icons";
-import "./breadcrumbItem.stories.scss";
+import "./BreadcrumbItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbItem,

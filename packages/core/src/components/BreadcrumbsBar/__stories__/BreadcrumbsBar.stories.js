@@ -4,7 +4,7 @@ import Avatar from "../../Avatar/Avatar";
 import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./breadcrumbsBar.stories.scss";
+import "./BreadcrumbsBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar,

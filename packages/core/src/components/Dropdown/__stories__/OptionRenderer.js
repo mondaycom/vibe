@@ -1,6 +1,6 @@
 import React from "react";
 import Avatar from "../../Avatar/Avatar";
-import "./dropdown.stories.scss";
+import "./Dropdown.stories.scss";
 
 export const OptionRenderer = ({ src, type, size, name, position }) => {
   return (

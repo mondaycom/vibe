@@ -8,7 +8,7 @@ import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import MenuTitle from "../../Menu/MenuTitle/MenuTitle";
-import "./splitButton.stories.scss";
+import "./SplitButton.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,

@@ -2,7 +2,7 @@ import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import Checkbox from "../../../Checkbox/Checkbox";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/accordion.interactions";
-import "./accordion.stories.scss";
+import "./Accordion.stories.scss";
 
 const accordionTemplate = args => {
   return (

@@ -1,9 +1,10 @@
+import React from "react";
 import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Add, Calendar, Check, Remove } from "../../Icon/Icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
-import "./button.stories.scss";
+import "./Button.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Button>;

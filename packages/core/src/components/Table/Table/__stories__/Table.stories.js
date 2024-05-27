@@ -22,7 +22,7 @@ import {
   TableErrorState,
   virtualizedScrollTableColumns,
   virtualizedScrollTableData
-} from "./table.stories.helpers";
+} from "./Table.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,

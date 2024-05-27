@@ -1,3 +1,4 @@
+import React from "react";
 import Tab from "../Tab/Tab";
 import TabList from "../TabList/TabList";
 import TabPanel from "../TabPanel/TabPanel";
@@ -5,7 +6,7 @@ import TabPanels from "../TabPanels/TabPanels";
 import TabsContext from "../TabsContext/TabsContext";
 import { Calendar, Chart, Table } from "../../Icon/Icons";
 import TextField from "../../TextField/TextField";
-import "./tabs.stories.scss";
+import "./Tabs.stories.scss";
 
 export default {
   title: "Navigation/Tabs/Tabs",

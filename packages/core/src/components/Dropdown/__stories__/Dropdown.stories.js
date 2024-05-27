@@ -9,8 +9,8 @@ import { OptionRenderer } from "./OptionRenderer.js";
 import { Attach, Email } from "../../Icon/Icons";
 import { Avatar, Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
-import "./dropdown.stories.scss";
-import { fakeFetchUsers } from "./dropdown.stories.helpers";
+import "./Dropdown.stories.scss";
+import { fakeFetchUsers } from "./Dropdown.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
