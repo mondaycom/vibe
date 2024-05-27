@@ -60,7 +60,8 @@ export default {
     strict: false,
     exports: "named",
     preserveModules: true,
-    preserveModulesRoot: "."
+    preserveModulesRoot: ".",
+    sourcemap: true
   },
   input: {
     index: path.join(SRC_PATH, "index.js"),
