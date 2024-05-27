@@ -5,6 +5,9 @@ import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import "./label.stories.scss";
 import { useEffect, useState } from "react";
+import { Decorator, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<typeof Label>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
@@ -18,6 +21,21 @@ export default {
   decorators: metaSettings.decorators
 };
 
+const withGrid: Decorator = Story => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(4, 180px)",
+      marginInlineStart: "30px",
+      marginTop: "10px",
+      gap: "50px",
+      width: "100%"
+    }}
+  >
+    <Story />
+  </div>
+);
+
 const labelTemplate = createComponentTemplate(Label);
 
 export const Overview = {
@@ -29,6 +47,11 @@ export const Overview = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -46,8 +69,24 @@ export const Kinds = {
       </div>
     </>
   ),
-
   name: "Kinds",
+
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <>
+      <Label text="New" />
+      <Label text="New" size="small" />
+    </>
+  ),
+  decorators: [withGrid],
+  name: "Sizes",
 
   parameters: {
     chromatic: {
@@ -59,25 +98,17 @@ export const Kinds = {
 export const Colors = {
   render: () => (
     <>
-      <div className="monday-storybook-label_group">
-        <Label text="New" />
-        <Label text="New" kind={Label.kinds.LINE} />
-      </div>
-      <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.NEGATIVE} />
-        <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
-      </div>
-      <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.POSITIVE} />
-        <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
-      </div>
-      <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.DARK} />
-        <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
-      </div>
+      <Label text="New" />
+      <Label text="New" color={Label.colors.NEGATIVE} />
+      <Label text="New" color={Label.colors.POSITIVE} />
+      <Label text="New" color={Label.colors.DARK} />
+      <Label text="New" kind={Label.kinds.LINE} />
+      <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
+      <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
+      <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
     </>
   ),
-
+  decorators: [withGrid],
   name: "Colors",
 
   parameters: {
@@ -90,15 +121,11 @@ export const Colors = {
 export const Clickable = {
   render: () => (
     <>
-      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-        <Label text="New" onClick={NOOP} />
-      </div>
-      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
-      </div>
+      <Label text="New" onClick={NOOP} />
+      <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
     </>
   ),
-
+  decorators: [withGrid],
   name: "Clickable",
 
   parameters: {

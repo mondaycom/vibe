@@ -1,6 +1,6 @@
+import React, { useCallback } from "react";
 import Avatar from "../../../Avatar/Avatar";
 import Icon from "../../../Icon/Icon";
-import { useCallback } from "react";
 import styles from "./ChildrenContent.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";

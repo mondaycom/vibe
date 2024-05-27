@@ -18,7 +18,8 @@ const getAddons = () => {
       name: "@storybook/addon-styling-webpack",
       options: storybookAddonStylingWebpackOptions
     },
-    "storybook-addon-playground"
+    "storybook-addon-playground",
+    "@chromatic-com/storybook"
   ];
 
   if (process.env.NODE_ENV !== "production") {

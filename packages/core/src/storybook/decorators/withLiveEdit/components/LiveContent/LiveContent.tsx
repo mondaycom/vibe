@@ -1,12 +1,12 @@
 import React from "react";
 import { LiveProvider } from "react-live";
-import LivePreview from "../../../components/live-preview/LivePreview";
-import useApplyDecorators from "../hooks/useApplyDecorators";
+import LivePreview from "../../../../components/live-preview/LivePreview";
+import useApplyDecorators from "../../hooks/useApplyDecorators";
 import { LiveContentProps } from "./LiveContent.types";
 import styles from "./LiveContent.module.scss";
-import * as VibeComponents from "../../../../components";
-import * as VibeIcons from "../../../../components/Icon/Icons";
-import * as VibeComponentsNext from "../../../../next";
+import * as VibeComponents from "../../../../../components";
+import * as VibeIcons from "../../../../../components/Icon/Icons";
+import * as VibeComponentsNext from "../../../../../next";
 
 const vibeScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
 const reactCommonHooksScope = {

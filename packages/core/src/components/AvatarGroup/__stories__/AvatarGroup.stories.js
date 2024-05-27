@@ -25,7 +25,14 @@ export default {
   title: "Media/Avatar/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, StoryDescription, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 const avatarGroupTemplate = ({ persons, ...args }) => {
@@ -49,15 +56,20 @@ const avatarGroupTemplate = ({ persons, ...args }) => {
 };
 
 export const Overview = {
-  render: avatarGroupTemplate.bind(),
-  name: "Overview",
-
+  render: avatarGroupTemplate.bind({}),
   args: {
     persons: {
       person1: window.location.origin + "/" + person1,
       person2: window.location.origin + "/" + person2,
       person3: window.location.origin + "/" + person3,
       person4: window.location.origin + "/" + person4
+    }
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -120,9 +132,7 @@ export const Size = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Size"
+  )
 };
 
 export const ColorVariants = {
@@ -179,9 +189,7 @@ export const ColorVariants = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Color variants"
+  )
 };
 
 export const MaxAvatarsToDisplay = {
@@ -285,9 +293,7 @@ export const HoverVsClickable = {
         </StoryDescription>
       </Flex>
     );
-  },
-
-  name: "Hover vs Clickable"
+  }
 };
 export const Disabled = () => (
   <AvatarGroup size={Avatar.sizes.LARGE} max={4} disabled>
@@ -329,9 +335,7 @@ export const LastSeenUsers = {
         <Avatar src={person2} ariaLabel="Sophia Johnson" />
       </AvatarGroup>
     </Flex>
-  ),
-
-  name: "Last seen users"
+  )
 };
 
 export const CustomCounter = {
@@ -375,9 +379,7 @@ export const GridTooltip = {
       <Avatar src={person3} />
       <Avatar src={person4} />
     </AvatarGroup>
-  ),
-
-  name: "Grid tooltip"
+  )
 };
 
 export const CounterCustomTooltipContent = {
@@ -399,9 +401,7 @@ export const CounterCustomTooltipContent = {
       <Avatar src={person3} ariaLabel="Marco DiAngelo" />
       <Avatar src={person4} ariaLabel="Liam Caldwell" />
     </AvatarGroup>
-  ),
-
-  name: "Counter custom tooltip content"
+  )
 };
 
 export const VirtualizedList = {
@@ -428,9 +428,7 @@ export const VirtualizedList = {
         {getDummyAvatars(334)}
       </AvatarGroup>
     );
-  },
-
-  name: "Virtualized list"
+  }
 };
 
 export const DisplayingTeams = {
