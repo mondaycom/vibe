@@ -54,7 +54,7 @@ module.exports = () => {
       }
     }
   ];
-  const devtool = "source-map";
+  const devtool = IS_DEV ? "source-map" : false;
   const publishedComponents = getPublishedComponents();
 
   const entry = {
