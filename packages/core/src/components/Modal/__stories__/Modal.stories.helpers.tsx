@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import Button from "../../Button/Button";
 import Modal from "../Modal";
-import { Dialog, DialogContentContainer, Heading } from "../../../components";
+import { Dialog, DialogContentContainer, Heading } from "../..";
 import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
