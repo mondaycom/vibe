@@ -1,10 +1,11 @@
-import Accordion from "../Accordion";
+import React from "react";
+import Accordion, { AccordionProps } from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import Checkbox from "../../../Checkbox/Checkbox";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/Accordion.interactions";
 import "./Accordion.stories.scss";
 
-const accordionTemplate = args => {
+const accordionTemplate = (args: AccordionProps) => {
   return (
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]} {...args}>
       <AccordionItem title="Notifications">

@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate, VerticalStories } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Slider from "../Slider";
@@ -186,7 +187,7 @@ export const Customisation = {
         prefix={<Chips label="Custom component" readOnly />}
         postfix={(value, valueText) => {
           // set css: .my-slider-wide { max-width: none }
-          return <span style={{ "white-space": "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
+          return <span style={{ whiteSpace: "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
         }}
         size={Slider.sizes.MEDIUM}
       />

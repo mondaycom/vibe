@@ -1,4 +1,5 @@
-import AlertBanner from "../AlertBanner";
+import React from "react";
+import AlertBanner, { AlertBannerProps } from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
@@ -10,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["backgroundColor"]
 });
 
-const alertBannerTemplate = args => {
+const alertBannerTemplate = (args: AlertBannerProps & { bannerText: string; linkText: string }) => {
   return (
     <AlertBanner {...args}>
       <AlertBannerText text={args.bannerText} />

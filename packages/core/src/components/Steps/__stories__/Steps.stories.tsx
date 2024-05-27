@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import Steps from "../Steps";
+import React, { useCallback, useState } from "react";
+import Steps, { StepsProps } from "../Steps";
 import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
@@ -23,7 +23,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const NavigableStepsTemplate = args => {
+const NavigableStepsTemplate = (args: StepsProps) => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
   const stepPrev = useCallback(() => {
     setActiveStepIndex(prevState => prevState - 1);
@@ -31,7 +31,7 @@ const NavigableStepsTemplate = args => {
   const stepNext = useCallback(() => {
     setActiveStepIndex(prevState => prevState + 1);
   }, []);
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+  const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
     setActiveStepIndex(stepIndex);
   }, []);
 
@@ -102,7 +102,7 @@ export const NavigableSteps = {
       setActiveStepIndex(prevState => prevState + 1);
     }, []);
 
-    const onChangeActiveStep = useCallback((_e, stepIndex) => {
+    const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
       setActiveStepIndex(stepIndex);
     }, []);
 
@@ -148,7 +148,7 @@ export const StepsInsideATipseen = {
       setActiveStepIndex(prevState => prevState + 1);
     }, []);
 
-    const onChangeActiveStep = useCallback((_e, stepIndex) => {
+    const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
       setActiveStepIndex(stepIndex);
     }, []);
 
@@ -157,9 +157,9 @@ export const StepsInsideATipseen = {
         <Tipseen
           position={Tipseen.positions.LEFT}
           modifiers={modifiers}
+          animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
           content={
             <TipseenWizard
-              animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
               title="This is a title"
               steps={steps}
               onChangeActiveStep={onChangeActiveStep}

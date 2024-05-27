@@ -1,4 +1,5 @@
 /* eslint-disable react/no-children-prop */
+import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";

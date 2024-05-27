@@ -1,9 +1,9 @@
-import { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
-import Modal from "../Modal";
+import Modal, { ModalProps } from "../Modal";
 import { useHelperOpenModalButton } from "./Modal.stories.helpers.js";
 import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
@@ -15,8 +15,8 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onClose"] // List the component's actions here
 });
 
-// eslint-disable-next-line no-unused-vars
-const modalTemplate = ({ onClose, ...modalProps }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const modalTemplate = ({ onClose, ...modalProps }: ModalProps) => {
   // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
   // Control if modal is display or hidden
   const [show, setShow] = useState(false);

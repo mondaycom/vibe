@@ -1,8 +1,9 @@
+import React from "react";
 import { useCallback, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3 } from "./assets";
-import AvatarGroup from "../AvatarGroup";
+import AvatarGroup, { AvatarGroupProps } from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
@@ -29,7 +30,7 @@ export default {
   }
 };
 
-const avatarGroupTemplate = ({ persons, ...args }) => {
+const avatarGroupTemplate = ({ persons, ...args }: AvatarGroupProps & { persons: any }) => {
   return (
     <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
       <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
@@ -206,7 +207,7 @@ export const MaxAmountToDisplay = {
           min={1}
           max={16}
           defaultValue={max}
-          onChange={value => setMax(value)}
+          onChange={value => setMax(value as number)}
           prefix="1"
           postfix="16"
           valueText={`${max}`}
@@ -238,11 +239,11 @@ export const HoverVsClickable = {
   render: () => {
     const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
 
-    const avatarOnClick = useCallback((_event, avatarId) => {
+    const avatarOnClick = useCallback((_event: any, avatarId: React.SetStateAction<string>) => {
       setLastClickedAvatarId(avatarId);
     }, []);
 
-    const getDummyAvatarsProps = useCallback(multiplier => {
+    const getDummyAvatarsProps = useCallback((multiplier: number) => {
       const avatarsProps = [
         {
           type: Avatar.types.IMG,
@@ -261,7 +262,7 @@ export const HoverVsClickable = {
         }
       ];
 
-      let result = [];
+      let result: any[] = [];
 
       for (let i = 0; i <= multiplier; ++i) {
         result = result.concat(avatarsProps);
@@ -276,6 +277,7 @@ export const HoverVsClickable = {
           <AvatarGroup
             size={Avatar.sizes.LARGE}
             max={3}
+            // @ts-ignore
             counterTooltipCustomProps={{
               position: Tooltip.positions.BOTTOM
             }}
@@ -309,8 +311,8 @@ export const VirtualizedList = {
       <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
     ];
 
-    const getDummyAvatars = multiplier => {
-      let result = [];
+    const getDummyAvatars = (multiplier: number) => {
+      let result: any[] = [];
 
       for (let i = 0; i < multiplier; ++i) {
         result = result.concat(avatars);
@@ -333,6 +335,7 @@ export const CounterCustomTooltipContent = {
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       max={3}
+      // @ts-ignore
       counterTooltipCustomProps={{
         content: "... and plenty more employees"
       }}
@@ -368,13 +371,13 @@ export const DisplayingTeams = {
     <table>
       <thead>
         <tr>
-          <th width={200} align="left">
+          <th style={{ width: 200 }} align="left">
             Name
           </th>
-          <th width={200} align="left">
+          <th style={{ width: 200 }} align="left">
             Title
           </th>
-          <th width={200} align="left">
+          <th style={{ width: 200 }} align="left">
             Teams
           </th>
         </tr>

@@ -1,8 +1,9 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Dialog, DialogContentContainer, Flex, IconButton } from "../../../components";
 import { ExampleContent } from "./helpers";
 import { Info } from "../../Icon/Icons";
-import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions.ts";
+import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions";
 import {
   CLICK_OUTSIDE_DIALOG,
   CLICK_OUTSIDE_DIALOG_BUTTON,
@@ -12,6 +13,7 @@ import {
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
 import { HideShowEvent } from "../../../constants/dialog";
+import { DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
@@ -43,7 +45,13 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const dialogTemplate = ({ showTrigger, hideTrigger, shouldShowOnMount = true, position, ...dialogProps }) => {
+const dialogTemplate = ({
+  showTrigger,
+  hideTrigger,
+  shouldShowOnMount = true,
+  position,
+  ...dialogProps
+}: DialogProps) => {
   // for prevent dialog to move while scrolling
   const modifiers = [
     {

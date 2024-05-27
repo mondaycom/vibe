@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
-import Combobox from "../Combobox";
+import Combobox, { ComboboxProps } from "../Combobox";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
@@ -30,7 +30,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const comboboxTemplate = args => {
+const comboboxTemplate = (args: ComboboxProps) => {
   return (
     <DialogContentContainer>
       <Combobox {...args} />
@@ -348,7 +348,7 @@ export const WithOptionRenderer = {
       ],
       []
     );
-    const optionRenderer = option => (
+    const optionRenderer = (option: any) => (
       <div>
         <Icon icon={Person} /> I can render anything with {option.label}
       </div>
@@ -609,7 +609,8 @@ export const WithVirtualizationOptimization = {
         </StoryDescription>
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
-          align={Flex.align.START}
+          // @ts-ignore
+          align={FlexAlign.START}
           description="Virtualization optimization with categories"
           vertical
           headerStyle={{

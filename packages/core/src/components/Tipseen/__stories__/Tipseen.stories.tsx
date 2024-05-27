@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
-import Tipseen from "../Tipseen";
-import TipseenContent from "../TipseenContent";
+import React, { useCallback, useState } from "react";
+import Tipseen, { TipseenProps } from "../Tipseen";
+import TipseenContent, { TipseenContentProps } from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import TipseenMedia from "../TipseenMedia/TipseenMedia";
@@ -27,7 +27,13 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tipseenTemplate = ({ isDismissHidden, title, children, position, ...otherArgs }) => {
+const tipseenTemplate = ({
+  hideDismiss,
+  title,
+  children,
+  position,
+  ...otherArgs
+}: TipseenProps & TipseenContentProps) => {
   return (
     <Tipseen
       // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
@@ -35,7 +41,7 @@ const tipseenTemplate = ({ isDismissHidden, title, children, position, ...otherA
       modifiers={modifiers}
       position={position}
       content={
-        <TipseenContent isDismissHidden={isDismissHidden} title={title}>
+        <TipseenContent hideDismiss={hideDismiss} title={title}>
           {children}
         </TipseenContent>
       }
@@ -54,7 +60,7 @@ export const Overview = {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
     position: Tipseen.positions.RIGHT,
-    isDismissHidden: false,
+    hideDismiss: false,
     color: Tipseen.colors.INVERTED
   }
 };
@@ -115,7 +121,7 @@ export const TipseenWithAWizard = {
 
       const [activeStepIndex, setActiveStepIndex] = useState(2);
 
-      const onChangeActiveStep = useCallback((_e, stepIndex) => {
+      const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
         setActiveStepIndex(stepIndex);
       }, []);
 

@@ -1,5 +1,6 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
-import TabPanel from "../../TabPanel/TabPanel";
+import TabPanel, { TabPanelProps } from "../../TabPanel/TabPanel";
 import TabPanels from "../TabPanels";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -14,7 +15,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tabPanelsTemplate = args => (
+const tabPanelsTemplate = (args: TabPanelProps) => (
   <TabPanels {...args}>
     <TabPanel>First tab panel</TabPanel>
     <TabPanel>Second tab panel</TabPanel>

@@ -1,5 +1,6 @@
-import BreadcrumbsBar from "../BreadcrumbsBar";
-import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
+import React from "react";
+import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
+import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem.tsx";
 import Avatar from "../../Avatar/Avatar";
 import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
 import person3 from "./assets/person3.png";
@@ -11,10 +12,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["type"]
 });
 
-const breadcrumbsBarTemplate = args => {
+const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
   return (
     <BreadcrumbsBar {...args}>
-      {args.items && args.items.map(item => <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />)}
+      {args.children &&
+        // @ts-ignore
+        args.children.map((item: BreadcrumbItemProps) => (
+          <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />
+        ))}
     </BreadcrumbsBar>
   );
 };
@@ -31,7 +36,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    items: [
+    children: [
       {
         text: "Workspace",
         icon: Workspace

@@ -1,3 +1,4 @@
+import React from "react";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -37,7 +38,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    onClose: () => null,
+    onClose: () => {},
     title: "Attention box title",
     text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
     className: "monday-storybook-attention-box_box"
