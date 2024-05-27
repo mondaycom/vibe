@@ -1,6 +1,6 @@
 import Clickable from "../Clickable";
 import Flex from "../../Flex/Flex";
-import { statesPlaySuite } from "../__tests__/clickable-interactions-tests";
+import { statesPlaySuite } from "../__tests__/Clickable.interactions";
 import "./Clickable.stories.scss";
 
 export default {

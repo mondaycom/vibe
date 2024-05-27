@@ -1,7 +1,7 @@
 import { createComponentTemplate } from "vibe-storybook-components";
 import EditableText from "../EditableText";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { overviewPlaySuite } from "../__tests__/EditableText-interactions";
+import { overviewPlaySuite } from "../__tests__/EditableText.interactions";
 import styles from "./EditableText.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

@@ -11,7 +11,7 @@ import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
 import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
-import styles from "./chips.stories.module.scss";
+import styles from "./Chips.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,

@@ -4,7 +4,7 @@ import Combobox from "../Combobox";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
-import { defaultPlaySuite } from "../__tests__/combobox-interactions";
+import { defaultPlaySuite } from "../__tests__/Combobox.interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";

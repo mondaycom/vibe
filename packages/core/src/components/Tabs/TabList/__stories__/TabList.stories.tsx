@@ -1,6 +1,7 @@
+import React from "react";
 import TabList, { TabListProps } from "../TabList";
 import Tab from "../../Tab/Tab";
-import styles from "./tab-list.stories.module.scss";
+import styles from "./TabList.stories.module.scss";
 
 export default {
   title: "Navigation/Tabs/TabList",

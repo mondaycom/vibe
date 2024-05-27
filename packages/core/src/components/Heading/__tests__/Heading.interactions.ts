@@ -1,6 +1,6 @@
 import { testHoverTooltipTrigger } from "../../Tooltip/__tests__/Tooltip.interactions";
 import { Screen } from "@testing-library/react";
-import { ONE_LINE_ELLIPSIS_TEST_ID } from "./heading-tests-constants";
+import { ONE_LINE_ELLIPSIS_TEST_ID } from "./headingTestsConstants";
 
 import { interactionSuite } from "../../../tests/interactions-utils";
 
