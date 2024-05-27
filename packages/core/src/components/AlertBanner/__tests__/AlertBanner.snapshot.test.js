@@ -12,7 +12,7 @@ describe("AlertBanner", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("shuold render correctly with props", () => {
+  it("should render correctly with props", () => {
     const tree = renderer
       .create(
         <AlertBanner
