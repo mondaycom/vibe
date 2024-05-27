@@ -4,7 +4,7 @@ import Text from "../Text";
 import { createComponentTemplate, StorybookLink } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
-import { textOverflowSuite } from "../__tests__/text.interactions";
+import { textOverflowSuite } from "../__tests__/Text.interactions";
 import styles from "./Text.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

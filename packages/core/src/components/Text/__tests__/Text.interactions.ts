@@ -1,4 +1,4 @@
-import { testHoverTooltipTrigger } from "../../Tooltip/__tests__/tooltip.interactions";
+import { testHoverTooltipTrigger } from "../../Tooltip/__tests__/Tooltip.interactions";
 import { Screen } from "@testing-library/react";
 import { ONE_LINE_ELLIPSIS_TEST_ID } from "./text-tests-constants";
 

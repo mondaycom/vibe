@@ -2,7 +2,7 @@ import React from "react";
 import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
-import { clickRadioButtonPlaySuite, controlRadioButtonPlaySuite } from "./radioButton.stories.interactions";
+import { clickRadioButtonPlaySuite, controlRadioButtonPlaySuite } from "./RadioButton.stories.interactions";
 import "./RadioButton.stories.scss";
 import Button from "../../Button/Button";
 
