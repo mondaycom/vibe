@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { ModalHeader } from "../../../components";
-import { ModalExampleWrapper } from "../__stories__/modal.stories.helpers";
+import { ModalExampleWrapper } from "../__stories__/Modal.stories.helpers";
 import { ComponentDefaultTestId } from "../../../tests/test-ids-utils";
 
 const MODAL_TITLE_TEXT = "Modal title";
