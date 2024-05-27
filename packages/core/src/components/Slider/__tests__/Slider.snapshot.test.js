@@ -3,7 +3,7 @@ import { cleanup } from "@testing-library/react";
 import { snapshotDiff } from "../../../utils/jest-utils";
 import { Sound } from "../../Icon/Icons";
 import Slider from "../Slider";
-import { renderSliderForSnapshots } from "./slider-tests.utils";
+import { renderSliderForSnapshots } from "./sliderTestUtils";
 
 jest.mock("../../Icon/Icon", () => {
   return ({ icon, ...rest }) => {

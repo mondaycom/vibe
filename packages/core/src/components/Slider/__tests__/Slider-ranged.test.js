@@ -2,7 +2,7 @@ import React from "react";
 import { act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../utils/jest-utils";
-import { renderSliderInNonRangeMode } from "./slider-tests.utils";
+import { renderSliderInRangeMode } from "./sliderTestUtils";
 
 jest.useFakeTimers();
 
@@ -12,45 +12,58 @@ jest.mock("../../TextField/TextField", () => {
   };
 });
 
-it("a. Non-ranged Slider: basic renderer", async () => {
-  const { asFragment } = await renderSliderInNonRangeMode();
+it("a. Ranges Slider: basic renderer", async () => {
+  const { asFragment } = await renderSliderInRangeMode();
   expect(asFragment().firstChild).toMatchSnapshot();
 });
 
-describe("b. Non-ranged Slider Active/Inactive", () => {
-  it("01. show Tooltip when hover Thumb", async () => {
+describe("b. Ranges Slider Active/Inactive", () => {
+  it("01. show Tooltip when hover Start Thumb", async () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode();
+      const { asFragment, elThumbStart } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
-      userEvent.hover(elThumb);
+      userEvent.hover(elThumbStart);
       jest.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
   });
 
-  it("02. hide Tooltip when unhover Thumb", async () => {
+  it("02. show Tooltip when hover End Thumb", async () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode();
-      userEvent.hover(elThumb);
-      jest.advanceTimersByTime(999);
+      const { asFragment, elThumbEnd } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
-      userEvent.unhover(elThumb);
+      userEvent.hover(elThumbEnd);
       jest.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
   });
 
-  it("03. activate Thumb by Tab key press ", async () => {
+  it("03. hide Tooltip when unhover Thumb", async () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment } = await renderSliderInNonRangeMode();
+      const { asFragment, elThumbStart } = await renderSliderInRangeMode();
+      userEvent.hover(elThumbStart);
+      jest.advanceTimersByTime(999);
+      before = asFragment().firstChild;
+      userEvent.unhover(elThumbStart);
+      jest.advanceTimersByTime(999);
+      after = asFragment().firstChild;
+    });
+    expect(snapshotDiff(before, after)).toMatchSnapshot();
+  });
+
+  it("04. activate Start Thumb by Tab key press ", async () => {
+    let before;
+    let after;
+    await act(async () => {
+      const { asFragment } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
       userEvent.tab();
       jest.advanceTimersByTime(999);
@@ -59,12 +72,27 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
     expect(snapshotDiff(before, after)).toMatchSnapshot();
   });
 
-  it("04. de-activate Thumb by Tab key press, when Thumb focused ", async () => {
+  it("05. activate End Thumb by Tab key press ", async () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode();
-      elThumb.focus();
+      const { asFragment } = await renderSliderInRangeMode();
+      userEvent.tab();
+      jest.advanceTimersByTime(999);
+      before = asFragment().firstChild;
+      userEvent.tab();
+      jest.advanceTimersByTime(999);
+      after = asFragment().firstChild;
+    });
+    expect(snapshotDiff(before, after)).toMatchSnapshot();
+  });
+
+  it("06. de-activate Thumb by Tab key press, when End Thumb focused ", async () => {
+    let before;
+    let after;
+    await act(async () => {
+      const { asFragment, elThumbEnd } = await renderSliderInRangeMode();
+      elThumbEnd.focus();
       before = asFragment().firstChild;
       userEvent.tab();
       jest.advanceTimersByTime(999);
@@ -74,13 +102,13 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
   });
 });
 
-describe("c. Non-ranged Slider Key Events", () => {
+describe("c. Ranges Slider Key Events", () => {
   it("01. decrease value by Left/Down keys press", async () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
-      elThumb.focus();
+      const { asFragment, elThumbStart } = await renderSliderInRangeMode({ showValue: true });
+      elThumbStart.focus();
       before = asFragment().firstChild;
       userEvent.keyboard("{arrowleft}");
       userEvent.keyboard("{arrowdown}");
@@ -93,8 +121,8 @@ describe("c. Non-ranged Slider Key Events", () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
-      elThumb.focus();
+      const { asFragment, elThumbEnd } = await renderSliderInRangeMode({ showValue: true });
+      elThumbEnd.focus();
       before = asFragment().firstChild;
       userEvent.keyboard("{arrowright}");
       userEvent.keyboard("{arrowup}");
@@ -107,8 +135,8 @@ describe("c. Non-ranged Slider Key Events", () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
-      elThumb.focus();
+      const { asFragment, elThumbEnd } = await renderSliderInRangeMode({ showValue: true });
+      elThumbEnd.focus();
       before = asFragment().firstChild;
       userEvent.keyboard("{pagedown}");
       after = asFragment().firstChild;
@@ -120,8 +148,8 @@ describe("c. Non-ranged Slider Key Events", () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
-      elThumb.focus();
+      const { asFragment, elThumbStart } = await renderSliderInRangeMode({ showValue: true });
+      elThumbStart.focus();
       before = asFragment().firstChild;
       userEvent.keyboard("{pageup}");
       userEvent.keyboard("{pageup}");
@@ -134,17 +162,15 @@ describe("c. Non-ranged Slider Key Events", () => {
     let before;
     let after;
     await act(async () => {
-      const { asFragment, elThumb } = await renderSliderInNonRangeMode({
+      const { asFragment, elThumbStart } = await renderSliderInRangeMode({
         indicateSelection: true,
         showValue: true,
         step: 10
       });
-      elThumb.focus();
-      // jest.advanceTimersByTime(999);
+      elThumbStart.focus();
       before = asFragment().firstChild;
       await userEvent.keyboard("{arrowright}");
       await userEvent.keyboard("{arrowright}");
-      // jest.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
