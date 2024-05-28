@@ -19,10 +19,9 @@ export default function useClickOutside({
         return;
       }
 
-      if (ignoreClasses && event.target instanceof HTMLElement) {
-        if (event.target.closest(ignoreClasses.join(','))) {
-          return;
-        }
+      const shouldIgnoreClasses = ignoreClasses && event.target instanceof HTMLElement;
+      if (shouldIgnoreClasses && event.target.closest(ignoreClasses.join(','))) {
+        return;
       }
 
       callback(event);
