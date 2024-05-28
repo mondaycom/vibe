@@ -54,7 +54,7 @@ module.exports = () => {
       }
     }
   ];
-  const devtool = "source-map";
+  const devtool = IS_DEV ? "source-map" : false;
   const publishedComponents = getPublishedComponents();
 
   const entry = {
@@ -79,6 +79,7 @@ module.exports = () => {
             {
               loader: "ts-loader",
               options: {
+                configFile: "tsconfig.cjs.json",
                 onlyCompileBundledFiles: true
               }
             }

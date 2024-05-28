@@ -1156,6 +1156,17 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@chromatic-com/storybook@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/@chromatic-com/storybook/-/storybook-1.4.0.tgz#5cb1c68ecf32c55fe4ab8a8e3271022845169c00"
+  integrity sha512-CpskwN1RsgaDMSe7mnwrmst9XeLfvrSbCJOc/eaHIDzhSiKhdbbEF83cYjMYnvODPMW8QNVdw9gWMh+yzBQtSw==
+  dependencies:
+    chromatic "^11.3.2"
+    filesize "^10.0.12"
+    jsonfile "^6.1.0"
+    react-confetti "^6.1.0"
+    strip-ansi "^7.1.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.npmjs.org/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -5391,7 +5402,7 @@
     "@replit/codemirror-lang-svelte" "^6.0.0"
     codemirror-lang-mermaid "^0.5.0"
 
-"@uiw/codemirror-theme-github@^4.21.25":
+"@uiw/codemirror-theme-github@^4.21.21", "@uiw/codemirror-theme-github@^4.21.25":
   version "4.22.1"
   resolved "https://registry.npmjs.org/@uiw/codemirror-theme-github/-/codemirror-theme-github-4.22.1.tgz#7f2288cdbe6c873f2e13029004665a15fd8930f6"
   integrity sha512-trotMuMd8PQjvst4hg9b5Mz5qlD5HQzPVAZQFlQKaaF8mEKMk77nFCPhfD3Rg2WEq02lx6fqmOcErQjY0GRHew==
@@ -7284,6 +7295,11 @@ chownr@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
+
+chromatic@^11.3.2:
+  version "11.4.0"
+  resolved "https://registry.npmjs.org/chromatic/-/chromatic-11.4.0.tgz#411a51e82599472b2131a08895faf000e0f9a0fa"
+  integrity sha512-/O6OwEUckqKTBGbm9KvYsR/eKCXy4s2eelO38yyfimBIJiL8+TS/pVnBqdtzUqO2hVK4GjrFiea9CnZUG9Akzw==
 
 chromatic@^7.5.3:
   version "7.6.0"
@@ -9865,6 +9881,11 @@ filelist@^1.0.4:
   integrity sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==
   dependencies:
     minimatch "^5.0.1"
+
+filesize@^10.0.12:
+  version "10.1.2"
+  resolved "https://registry.npmjs.org/filesize/-/filesize-10.1.2.tgz#33bb71c5c134102499f1bc36e6f2863137f6cb0c"
+  integrity sha512-Dx770ai81ohflojxhU+oG+Z2QGvKdYxgEr9OSA8UVrqhwNHjfH9A8f5NKfg83fEH8ZFA5N5llJo5T3PIoZ4CRA==
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -12993,7 +13014,7 @@ jsonfile@^2.1.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsonfile@^6.0.1:
+jsonfile@^6.0.1, jsonfile@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz#bc55b2634793c679ec6403094eb13698a6ec0aae"
   integrity sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==
@@ -16488,6 +16509,13 @@ react-colorful@^5.1.2:
   resolved "https://registry.npmjs.org/react-colorful/-/react-colorful-5.6.1.tgz#7dc2aed2d7c72fac89694e834d179e32f3da563b"
   integrity sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==
 
+react-confetti@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/react-confetti/-/react-confetti-6.1.0.tgz#03dc4340d955acd10b174dbf301f374a06e29ce6"
+  integrity sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw==
+  dependencies:
+    tween-functions "^1.2.0"
+
 react-dates@21.8.0:
   version "21.8.0"
   resolved "https://registry.npmjs.org/react-dates/-/react-dates-21.8.0.tgz#355c3c7a243a7c29568fe00aca96231e171a5e94"
@@ -18201,13 +18229,14 @@ store2@^2.14.2:
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
-storybook-addon-playground@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.npmjs.org/storybook-addon-playground/-/storybook-addon-playground-1.8.0.tgz#3e2d0f629287720ca2d113b5c1fdfd7a7c8a7a03"
-  integrity sha512-I51gIbMCrrYGT0FAt8alsW9H6XJ8ukz/beBM6D/n/WCIjMG7xkE3s4mohSXEG7r2yO3n4WCmYyacoU3a3OoUXA==
+storybook-addon-playground@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.npmjs.org/storybook-addon-playground/-/storybook-addon-playground-1.9.0.tgz#c708f98b76526d1c17d0a80ca8d424cde0f88d19"
+  integrity sha512-9PbxkowB0c2ESPMR5uJOagFzjWEfAY4e2XbkSm7hFr5NYDUwJwMyRrpa+IMoKzb3F3eVdnzek3S/nkqSxymdkg==
   dependencies:
     "@storybook/addon-links" "^7.6.4"
     "@uiw/codemirror-extensions-langs" "^4.21.21"
+    "@uiw/codemirror-theme-github" "^4.21.21"
     "@uiw/react-codemirror" "^4.21.21"
     classnames "^2.3.2"
     lodash-es "^4.17.21"
@@ -18364,7 +18393,7 @@ strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   dependencies:
     ansi-regex "^5.0.1"
 
-strip-ansi@^7.0.1:
+strip-ansi@^7.0.1, strip-ansi@^7.1.0:
   version "7.1.0"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.0.tgz#d5b6568ca689d8561370b0707685d22434faff45"
   integrity sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==
@@ -19172,6 +19201,11 @@ tuf-js@^2.2.0:
     "@tufjs/models" "2.0.0"
     debug "^4.3.4"
     make-fetch-happen "^13.0.0"
+
+tween-functions@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/tween-functions/-/tween-functions-1.2.0.tgz#1ae3a50e7c60bb3def774eac707acbca73bbc3ff"
+  integrity sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"

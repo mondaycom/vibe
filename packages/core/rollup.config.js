@@ -77,9 +77,8 @@ export default {
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
     typescript({
-      tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json"),
       tsconfigOverride: {
-        exclude: ["**/__tests__", "**/__stories__"]
+        exclude: ["**/__tests__", "**/__stories__", path.join(SRC_PATH, "storybook")]
       }
     }),
     babel({

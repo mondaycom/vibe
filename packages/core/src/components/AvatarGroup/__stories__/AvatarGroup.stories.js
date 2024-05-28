@@ -19,7 +19,14 @@ export default {
   title: "Media/Avatar/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, StoryDescription, person1, person2, person3 }
+      }
+    }
+  }
 };
 
 const avatarGroupTemplate = ({ persons, ...args }) => {
@@ -43,14 +50,19 @@ const avatarGroupTemplate = ({ persons, ...args }) => {
 };
 
 export const Overview = {
-  render: avatarGroupTemplate.bind(),
-  name: "Overview",
-
+  render: avatarGroupTemplate.bind({}),
   args: {
     persons: {
       person1: window.location.origin + "/" + person1,
       person2: window.location.origin + "/" + person2,
       person3: window.location.origin + "/" + person3
+    }
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
     }
   }
 };
@@ -89,9 +101,7 @@ export const Size = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Size"
+  )
 };
 
 export const ColorVariants = {
@@ -132,9 +142,7 @@ export const ColorVariants = {
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Color variants"
+  )
 };
 
 export const CustomCounter = {
@@ -154,9 +162,7 @@ export const CustomCounter = {
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  ),
-
-  name: "Custom counter"
+  )
 };
 
 export const GridTooltip = {
@@ -181,9 +187,7 @@ export const GridTooltip = {
       <Avatar src={person2} />
       <Avatar src={person3} />
     </AvatarGroup>
-  ),
-
-  name: "Grid tooltip"
+  )
 };
 
 export const MaxAmountToDisplay = {
@@ -227,9 +231,7 @@ export const MaxAmountToDisplay = {
         </AvatarGroup>
       </Flex>
     );
-  },
-
-  name: "Max amount to display"
+  }
 };
 
 export const HoverVsClickable = {
@@ -296,7 +298,6 @@ export const HoverVsClickable = {
       </Flex>
     );
   },
-
   name: "Hover vs Clickable"
 };
 
@@ -323,9 +324,7 @@ export const VirtualizedList = {
         {getDummyAvatars(334)}
       </AvatarGroup>
     );
-  },
-
-  name: "Virtualized list"
+  }
 };
 
 export const CounterCustomTooltipContent = {
@@ -345,9 +344,7 @@ export const CounterCustomTooltipContent = {
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  ),
-
-  name: "Counter custom tooltip content"
+  )
 };
 
 export const LastSeenUsers = {
@@ -363,9 +360,7 @@ export const LastSeenUsers = {
         <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
       </AvatarGroup>
     </Flex>
-  ),
-
-  name: "Last seen users"
+  )
 };
 
 export const DisplayingTeams = {
@@ -424,7 +419,5 @@ export const DisplayingTeams = {
         </tr>
       </tbody>
     </table>
-  ),
-
-  name: "Displaying teams"
+  )
 };

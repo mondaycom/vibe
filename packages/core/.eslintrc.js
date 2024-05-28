@@ -17,7 +17,7 @@ const commonRules = {
   "no-underscore-dangle": "off",
   "import/prefer-default-export": "off",
   "no-plusplus": "off",
-  "react/react-in-jsx-scope": 0,
+  "react/react-in-jsx-scope": "error",
   "react/no-danger": "error",
   "react/jsx-one-expression-per-line": "off",
   "react/prop-types": 0,
@@ -109,6 +109,19 @@ module.exports = {
         ...commonRules,
         "react-hooks/rules-of-hooks": "off",
         "react/jsx-key": "off"
+      }
+    },
+    // TODO This entire block should be removed and fixed, unless we move to React 17+
+    {
+      files: [
+        "**/__stories__/**/*.{js,jsx,ts,tsx}",
+        "src/storybook/stand-alone-documentaion/**/*.{js,jsx,ts,tsx}",
+        "src/storybook/patterns/**/*.{js,jsx,ts,tsx}",
+        "src/storybook/components/**/*.{js,jsx,ts,tsx}",
+        "src/storybook/decorators/**/*.{js,jsx,ts,tsx}"
+      ],
+      rules: {
+        "react/react-in-jsx-scope": "off"
       }
     }
   ],
