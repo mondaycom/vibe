@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.109.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.0...monday-ui-react-core@2.109.1) (2024-05-26)
+
+
+### Bug Fixes
+
+* **SplitButton storybook:** - fix stories that use wrong prop ([#2138](https://github.com/mondaycom/vibe/issues/2138)) ([5f9c0a4](https://github.com/mondaycom/vibe/commit/5f9c0a44c3075cf3346ba84f1c29fb542e6bae7f))
+
+
+
+
+
 # [2.109.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.3...monday-ui-react-core@2.109.0) (2024-05-21)
 
 
