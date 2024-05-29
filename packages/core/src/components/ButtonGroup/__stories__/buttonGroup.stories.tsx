@@ -253,11 +253,11 @@ export const ButtonGroupAsToggle: Story = {
   name: "Button group as toggle"
 };
 
-export const StretchedButtonGroup: Story = {
+export const FullWidthButtonGroup: Story = {
   render: () => (
     <div style={{ width: "100%" }}>
       <ButtonGroup
-        groupAriaLabel="Stretched Buttong Gfroup"
+        groupAriaLabel="Full Width Button Group"
         stretch
         value={1}
         options={[

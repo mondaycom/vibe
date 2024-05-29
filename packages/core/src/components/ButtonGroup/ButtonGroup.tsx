@@ -49,7 +49,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
   tooltipContainerSelector?: string;
   tooltipMoveBy?: MoveBy;
   children?: React.ReactNode;
-  stretch: boolean;
+  fellWidth?: boolean;
 }
 
 const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
@@ -76,7 +76,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       tooltipMoveBy,
       id,
       "data-testid": dataTestId,
-      stretch = false
+      fellWidth = false
     },
     ref
   ) => {
@@ -130,7 +130,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
               [styles.buttonDisabled]: option.disabled,
-              [styles.stretch]: stretch
+              [styles.fellWidth]: fellWidth
             })}
             activeButtonClassName={styles.activeButton}
           >
