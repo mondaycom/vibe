@@ -6,9 +6,8 @@ import { LiveContentProps } from "./LiveContent.types";
 import styles from "./LiveContent.module.scss";
 import * as VibeComponents from "../../../../../components";
 import * as VibeIcons from "../../../../../components/Icon/Icons";
-import * as VibeComponentsNext from "../../../../../next";
 
-const vibeScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
+const vibeScope = { ...VibeComponents, VibeIcons };
 const reactCommonHooksScope = {
   useState: React.useState,
   useEffect: React.useEffect,

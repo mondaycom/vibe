@@ -1,6 +1,5 @@
 import React from "react";
 import * as VibeComponents from "../src/components";
-import * as VibeComponentsNext from "../src/next";
 import * as VibeIcons from "../src/components/Icon/Icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
@@ -113,7 +112,7 @@ const preview: Preview = {
     },
     playground: {
       storyId: "playground",
-      components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext },
+      components: { ...VibeComponents, VibeIcons },
       introCode,
       autocompletions: generateAutocompletion(reactDocgenOutput)
     }

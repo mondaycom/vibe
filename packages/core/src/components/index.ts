@@ -1,8 +1,6 @@
 export { default as Loader } from "./Loader/Loader";
 export { default as Icon } from "./Icon/Icon";
-export { default as SearchComponent } from "./LegacySearch/LegacySearch"; // TODO: remove when bumping to version 1.0.0
-export { default as Search } from "./LegacySearch/LegacySearch";
-export { default as InputField } from "./TextField/TextField"; // TODO: remove when bumping to version 1.0.0
+export { default as Search } from "./Search/Search";
 export { default as TextField } from "./TextField/TextField";
 export { default as Dialog } from "./Dialog/Dialog";
 export { default as Tooltip } from "./Tooltip/Tooltip";
@@ -42,9 +40,9 @@ export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
 export { default as ExpandCollapse } from "./ExpandCollapse/ExpandCollapse";
-export { default as Heading } from "./LegacyHeading/LegacyHeading";
+export { default as Heading } from "./Heading/Heading";
 export { default as EditableInput } from "./EditableInput/EditableInput";
-export { default as EditableHeading } from "./LegacyEditableHeading/LegacyEditableHeading";
+export { default as EditableHeading } from "./EditableHeading/EditableHeading";
 export { default as ResponsiveList } from "./ResponsiveList/ResponsiveList";
 export { default as BreadcrumbsBar } from "./BreadcrumbsBar/BreadcrumbsBar";
 export { default as BreadcrumbItem } from "./BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
