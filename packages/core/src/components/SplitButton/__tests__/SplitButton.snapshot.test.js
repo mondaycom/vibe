@@ -53,12 +53,7 @@ describe("SplitButton renders correctly", () => {
 
   it("with secondary position", () => {
     const tree = renderer
-      .create(
-        <SplitButton
-          secondaryDialogContent={secondaryContent}
-          secondaryDialogPosition="bottom-end"
-        />
-      )
+      .create(<SplitButton secondaryDialogContent={secondaryContent} secondaryDialogPosition="bottom-end" />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
