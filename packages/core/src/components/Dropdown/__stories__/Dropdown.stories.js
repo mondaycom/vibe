@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { multiInteractionTests, overviewPlaySuite } from "../__tests__/Dropdown.interactions";

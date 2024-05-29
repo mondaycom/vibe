@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Bolt from "../../../../components/Icon/Icons/components/Bolt";
 import Icon from "../../../../components/Icon/Icon";

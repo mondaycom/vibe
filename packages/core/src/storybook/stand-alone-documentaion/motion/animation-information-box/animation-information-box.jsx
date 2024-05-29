@@ -1,3 +1,4 @@
+import React from "react";
 import { InformationBox } from "vibe-storybook-components";
 import styles from "./animation-information-box.module.scss";
 

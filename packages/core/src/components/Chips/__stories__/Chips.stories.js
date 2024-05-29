@@ -1,3 +1,4 @@
+import React from "react";
 import { chunk as _chunk } from "lodash-es";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";

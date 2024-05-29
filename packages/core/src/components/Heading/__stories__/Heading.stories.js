@@ -1,3 +1,4 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import { createComponentTemplate } from "vibe-storybook-components";

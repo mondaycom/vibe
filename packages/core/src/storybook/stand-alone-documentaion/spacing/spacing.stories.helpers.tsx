@@ -1,3 +1,4 @@
+import React from "react";
 import { Tip } from "vibe-storybook-components";
 
 export const TipApplyingSpacing = () => (

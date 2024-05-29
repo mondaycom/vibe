@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import ColorPicker from "../../../../components/ColorPicker/ColorPicker";

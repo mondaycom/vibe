@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useCallback, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import cx from "classnames";
 import Flex from "../../../components/Flex/Flex";
 import Search from "../../../components/Search/Search";

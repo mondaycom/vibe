@@ -1,3 +1,4 @@
+import React from "react";
 import cx from "classnames";
 import { InformationBox, InformationBoxTitle, Link } from "vibe-storybook-components";
 import { elementColorsNames } from "../../../../utils/colors-vars-map";

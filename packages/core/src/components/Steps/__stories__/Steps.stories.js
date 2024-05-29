@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Steps from "../Steps";
 import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";

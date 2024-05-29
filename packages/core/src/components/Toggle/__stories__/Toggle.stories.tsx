@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

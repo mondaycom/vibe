@@ -1,3 +1,4 @@
+import React from "react";
 import useAfterFirstRender from "..";
 
 export default {

@@ -1,3 +1,4 @@
+import React from "react";
 /* eslint-disable react/button-has-type */
 import useDisableScroll from "..";
 

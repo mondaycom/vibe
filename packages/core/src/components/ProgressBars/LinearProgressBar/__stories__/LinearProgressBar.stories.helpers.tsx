@@ -1,3 +1,4 @@
+import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import LinearProgressBar from "../LinearProgressBar";
