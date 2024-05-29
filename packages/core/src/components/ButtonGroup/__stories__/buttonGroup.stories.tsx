@@ -268,6 +268,14 @@ export const StretchedButtonGroup: Story = {
           {
             value: 2,
             text: "List"
+          },
+          {
+            value: 3,
+            text: "Table"
+          },
+          {
+            value: 4,
+            text: "Masonry"
           }
         ]}
       />
