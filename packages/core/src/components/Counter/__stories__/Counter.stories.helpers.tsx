@@ -1,3 +1,4 @@
+import React from "react";
 import { StorybookLink, Tip, UsageGuidelines } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (

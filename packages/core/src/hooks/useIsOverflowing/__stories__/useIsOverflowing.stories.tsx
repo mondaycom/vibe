@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef, useState } from "react";
 import useIsOverflowing from "../useIsOverflowing";
 import { EditableInput, Flex, Tooltip } from "../../../components";

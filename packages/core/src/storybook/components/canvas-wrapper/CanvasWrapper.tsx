@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas, useOf } from "@storybook/blocks";
 import { ComponentProps, FC, useMemo, useState } from "react";
 import styles from "./CanvasWrapper.module.scss";

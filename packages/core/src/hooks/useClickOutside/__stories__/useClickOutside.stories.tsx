@@ -1,3 +1,4 @@
+import React from "react";
 import { useCallback, useRef, useState } from "react";
 import useClickOutside from "..";
 import "../../__stories__/general-hooks-stories.scss";

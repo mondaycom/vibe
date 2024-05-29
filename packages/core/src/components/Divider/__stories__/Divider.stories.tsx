@@ -1,3 +1,4 @@
+import React from "react";
 import Divider, { DividerProps } from "../Divider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Divider.stories.module.scss";

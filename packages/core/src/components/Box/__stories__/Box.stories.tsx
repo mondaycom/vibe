@@ -1,3 +1,4 @@
+import React from "react";
 import Box, { BoxProps } from "../Box";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Box.stories.module.scss";
