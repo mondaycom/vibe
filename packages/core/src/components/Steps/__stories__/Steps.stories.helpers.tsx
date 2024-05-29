@@ -14,6 +14,7 @@ export const modifiers = [
   {
     name: "flip",
     options: {
+      // @ts-ignore
       fallbackPlacements: [] // true by default
     }
   }
@@ -27,7 +28,7 @@ export const StepsNumbersDoTemplate = () => {
   const stepNext = useCallback(() => {
     setActiveStepIndex(prevState => prevState + 1);
   }, []);
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+  const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
     setActiveStepIndex(stepIndex);
   }, []);
   return (
@@ -55,7 +56,7 @@ export const StepsGalleryDontTemplate = () => {
   const stepNext = useCallback(() => {
     setActiveStepIndex(prevState => prevState + 1);
   }, []);
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+  const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
     setActiveStepIndex(stepIndex);
   }, []);
   return (

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RelatedComponentsDecorator } from "../../../components";
 import { RelatedComponents } from "vibe-storybook-components";
 import { DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP } from "../../../components/related-components/component-description-map";

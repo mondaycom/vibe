@@ -14,15 +14,7 @@ import Flex from "../../Flex/Flex";
 import styles from "./ModalHeader.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
 
-export interface ModalHeaderProps extends VibeComponentProps {
-  /**
-   * Heading of the modal - using string is a recommended standard, as it provides well-defined styles. Using it with JSX content should be according to design guidelines.
-   */
-  title: ElementContent;
-  /**
-   * Slot for the heading of the modal for maximum flexibility. Using it should be according to design and typography guidelines
-   */
-  children?: ElementContent;
+interface BaseModalHeaderProps extends VibeComponentProps {
   /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
@@ -69,6 +61,18 @@ export interface ModalHeaderProps extends VibeComponentProps {
    */
   hideCloseButton?: boolean;
 }
+
+interface ModalHeaderWithOnlyTitle extends BaseModalHeaderProps {
+  title: ElementContent;
+  children?: never;
+}
+
+interface ModalHeaderWithOnlyChildren extends BaseModalHeaderProps {
+  title?: never;
+  children: ElementContent;
+}
+
+export type ModalHeaderProps = ModalHeaderWithOnlyTitle | ModalHeaderWithOnlyChildren;
 
 const ModalHeader: FC<ModalHeaderProps> = ({
   className,

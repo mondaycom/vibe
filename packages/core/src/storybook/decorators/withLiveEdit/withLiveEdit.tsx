@@ -1,6 +1,5 @@
-import React from "react";
 import { Decorator, StoryContext } from "@storybook/react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { githubDark } from "@uiw/codemirror-theme-github";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import { createPortal } from "react-dom";

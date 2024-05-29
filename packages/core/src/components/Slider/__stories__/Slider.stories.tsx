@@ -84,8 +84,21 @@ export const WithLabels = {
     <>
       <Slider indicateSelection={true} defaultValue={12} size={Slider.sizes.SMALL} />
       <Slider indicateSelection={true} ranged={true} defaultValue={[12, 55]} size={Slider.sizes.SMALL} />
-      <Slider prefix={{ icon: Sound }} indicateSelection={true} defaultValue={70} size={Slider.sizes.SMALL} />
-      <Slider prefix={{ icon: Video }} postfix={{ icon: Sound }} defaultValue={45} size={Slider.sizes.MEDIUM} />
+      <Slider
+        // @ts-ignore
+        prefix={{ icon: Sound }}
+        indicateSelection={true}
+        defaultValue={70}
+        size={Slider.sizes.SMALL}
+      />
+      <Slider
+        // @ts-ignore
+        prefix={{ icon: Video }}
+        // @ts-ignore
+        postfix={{ icon: Sound }}
+        defaultValue={45}
+        size={Slider.sizes.MEDIUM}
+      />
       <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size={Slider.sizes.LARGE} />
     </>
   ),
@@ -187,7 +200,7 @@ export const Customisation = {
         prefix={<Chips label="Custom component" readOnly />}
         postfix={(value, valueText) => {
           // set css: .my-slider-wide { max-width: none }
-          return <span style={{ "white-space": "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
+          return <span style={{ whiteSpace: "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
         }}
         size={Slider.sizes.MEDIUM}
       />

@@ -16,7 +16,7 @@ export const useHelperOpenModalButton = ({
   openModalButtonRef,
   color = undefined,
   testId = undefined
-}) => {
+}: any) => {
   return (
     <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} data-testid={testId}>
       {title}
@@ -34,7 +34,7 @@ export const ModalExampleWrapper = ({
   show: defaultShow = false,
   openModalTestId,
   ...otherModalProps
-}) => {
+}: any) => {
   // Control if modal is display or hidden
   const [show, setShow] = useState(defaultShow);
   const openModalButtonRef = useRef(null);
