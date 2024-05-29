@@ -159,7 +159,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     theme: TooltipTheme.Dark,
     position: Tooltip.positions.TOP,
     justify: Tooltip.justifyTypes.CENTER,
-    hideDelay: 0,
+    hideDelay: 100,
     showDelay: 300,
     disableDialogSlide: true,
     animationType: AnimationType.EXPAND,
@@ -170,7 +170,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     modifiers: new Array<Modifier<unknown>>(),
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
-    showOnDialogEnter: false,
+    showOnDialogEnter: true,
     referenceWrapperClassName: "",
     addKeyboardHideShowTriggersByDefault: false,
     open: false

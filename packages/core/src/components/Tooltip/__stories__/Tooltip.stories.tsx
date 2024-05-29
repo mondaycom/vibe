@@ -30,6 +30,7 @@ const tooltipTemplate = (args: TooltipProps) => {
         modifiers={modifiers}
         withMaxWidth
         {...args}
+        open
       >
         <div />
       </Tooltip>
@@ -60,6 +61,7 @@ export const TooltipWithTitle = () => (
       shouldShowOnMount
       position={Tooltip.positions.RIGHT}
       modifiers={modifiers}
+      open
     >
       <div />
     </Tooltip>
@@ -77,6 +79,7 @@ export const TooltipWithImage = () => (
       position={Tooltip.positions.RIGHT}
       modifiers={modifiers}
       className="monday-storybook-tooltip_image__tooltip"
+      open
     >
       <div />
     </Tooltip>
@@ -96,12 +99,13 @@ export const Positions = {
             shouldShowOnMount
             position={Tooltip.positions.BOTTOM}
             withMaxWidth
+            open
           >
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth>
+          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
@@ -112,6 +116,7 @@ export const Positions = {
             position={Tooltip.positions.RIGHT}
             shouldShowOnMount
             withMaxWidth
+            open
           >
             <div />
           </Tooltip>
@@ -123,6 +128,7 @@ export const Positions = {
             position={Tooltip.positions.LEFT}
             shouldShowOnMount
             withMaxWidth
+            open
           >
             <div />
           </Tooltip>
