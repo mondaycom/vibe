@@ -257,9 +257,6 @@ export const ButtonGroupAsToggle: Story = {
 export const FullWidthButtonGroup: Story = {
   render: () => (
     <div className="monday-storybook-button-group-full-width">
-      <div style={{ marginBlockEnd: "var(--spacing-small)" }}>
-        <Text>Select layout</Text>
-      </div>
       <ButtonGroup
         groupAriaLabel="Full Width Button Group"
         fullWidth

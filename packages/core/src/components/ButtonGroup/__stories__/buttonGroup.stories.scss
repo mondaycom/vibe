@@ -8,8 +8,5 @@
 }
 
 .monday-storybook-button-group-full-width {
-  width: clamp(250px, 100%, 750px);
-  border: 1px solid var(--ui-border-color);
-  padding: var(--spacing-medium);
-  border-radius: var(--border-radius-small);
+  width: 100%;
 }
