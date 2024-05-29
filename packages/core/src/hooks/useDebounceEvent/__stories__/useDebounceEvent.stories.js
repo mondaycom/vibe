@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useDebounceEvent from "..";
 import "../../__stories__/general-hooks-stories.scss";
 

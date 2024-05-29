@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Skeleton from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";

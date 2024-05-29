@@ -1,3 +1,4 @@
+import React from "react";
 import { clarity, delight, speed, path } from "../assets";
 import { Principle } from "../principle/principle";
 import "./principles.scss";

@@ -1,3 +1,4 @@
+import React from "react";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
 import { DurationExpressiveShort, DurationExpressiveLong } from "../assets";
 import styles from "./duaration-expressive-tokens.module.scss";

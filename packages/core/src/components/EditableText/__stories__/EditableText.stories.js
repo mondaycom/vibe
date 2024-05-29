@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import EditableText from "../EditableText";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

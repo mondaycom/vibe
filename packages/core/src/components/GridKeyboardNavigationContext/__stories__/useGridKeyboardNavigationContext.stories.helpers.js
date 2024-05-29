@@ -1,5 +1,5 @@
 import { range } from "lodash-es";
-import { forwardRef, useMemo, useCallback, useRef } from "react";
+import React, { forwardRef, useMemo, useCallback, useRef } from "react";
 import cx from "classnames";
 import { action } from "@storybook/addon-actions";
 import { Button, Flex } from "../..";
@@ -19,8 +19,8 @@ export const DummyNavigableGrid = forwardRef(
     const getItemByIndex = useCallback(index => items[index], [items]);
     const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
       ref,
-      numberOfItemsInLine,
       itemsCount,
+      numberOfItemsInLine,
       getItemByIndex,
       onItemClicked: ON_CLICK,
       disabledIndexes

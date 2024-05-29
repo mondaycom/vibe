@@ -1,3 +1,4 @@
+import React from "react";
 import { principleClarity, principleSpeed, principleIntuative, principleDelight } from "../assets";
 import { Principle } from "../../welcome/principle/principle";
 import "../../welcome/principles/principles.scss";

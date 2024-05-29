@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentNameDecorator } from "../../../components";
 import "./welcome-header.scss";
 
