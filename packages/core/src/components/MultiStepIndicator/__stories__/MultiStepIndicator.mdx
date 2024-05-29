@@ -1,0 +1,141 @@
+import MultiStepIndicator from "../MultiStepIndicator";
+import { Canvas, Meta } from "@storybook/blocks";
+import { BREADCRUBMS, STEPS, TABS } from "../../../storybook/components/related-components/component-description-map";
+import { firstSteps, secondSteps, thirdSteps, TipNotWhatYouAreLookingFor } from "./MultiStepIndicator.stories.helpers";
+import * as MultiStepIndicatorStories from "./MultiStepIndicator.stories";
+
+<Meta of={MultiStepIndicatorStories} />
+
+# MultiStepIndicator
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Tabular navigation component that helps users visualize and interact with a multi-step process.
+
+<Canvas of={MultiStepIndicatorStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use wizard to break a larger goal into manageable steps.",
+    "If a workflow needs more than 6 steps, consider how you might simplify it or break it up into multiple tasks.",
+    "Always position the wizard at the top of the multi-step process so that the user has a common reference point as they move between steps."
+  ]}
+/>
+
+<TipNotWhatYouAreLookingFor />
+
+## Variants
+
+### Placements
+
+Placements
+
+<Canvas of={MultiStepIndicatorStories.Placements} />
+
+### Types
+
+There are 4 types: Primary, success, danger, dark.
+
+<Canvas of={MultiStepIndicatorStories.Types} />
+
+### Sizes
+
+Compact is a smaller version of the Regular Wizard Stepper, and is suitable for smaller containers. In case you need to display more content, use the Regular size. As of now, vertical placement is not supported.
+
+<Canvas of={MultiStepIndicatorStories.Sizes} />
+
+### Fulfilled Icons
+
+<Canvas of={MultiStepIndicatorStories.FulfilledIcons} />
+
+### Transition Animation
+
+State transition automatic example
+
+<Canvas of={MultiStepIndicatorStories.TransitionAnimation} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <MultiStepIndicator
+            steps={firstSteps}
+            textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+            className="monday-storybook-multiStepIndicator_big-size"
+          />
+        ),
+        description:
+          "Be consistent with the information you include under each step. If you’re using a subtitle on one step, use for all steps."
+      },
+      negative: {
+        component: (
+          <MultiStepIndicator
+            steps={secondSteps}
+            textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+            className="monday-storybook-multiStepIndicator_big-size"
+          />
+        ),
+        description: "Don’t place subheader on one step only."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
+            <MultiStepIndicator
+              steps={thirdSteps}
+              textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+              className="monday-storybook-multiStepIndicator_small-size"
+            />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>
+        ),
+        description:
+          "While using the wizard component, keep the default spacing between the wizard steps, even if the wizard width is smaller than the page width."
+      },
+      className: "monday-storybook-multiStepIndicator_overflow",
+      negative: {
+        component: (
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
+            <MultiStepIndicator
+              steps={thirdSteps}
+              textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+              className="monday-storybook-multiStepIndicator_line"
+              dividerComponentClassName="monday-storybook-multiStepIndicator_line_divider"
+            />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>
+        ),
+        description: "Do not override the spacing between the wizard steps according to the page width."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Multi step wizard
+
+<Canvas of={MultiStepIndicatorStories.MultiStepWizard} />
+
+## Related components
+
+<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPS]} />

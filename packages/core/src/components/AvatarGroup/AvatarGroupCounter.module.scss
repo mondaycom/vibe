@@ -51,6 +51,12 @@
     color: var(--primary-text-color);
     background-color: var(--ui-background-color);
   }
+
+  .disabled,
+  &.disabled {
+    background-color: var(--disabled-background-color);
+    color: var(--disabled-text-color);
+  }
 }
 
 .menu {

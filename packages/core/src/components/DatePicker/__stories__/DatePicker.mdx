@@ -1,0 +1,48 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import {
+  DIALOG_CONTENT_CONTAINER,
+  DROPDOWN,
+  TEXT_FIELD
+} from "../../../storybook/components/related-components/component-description-map";
+import * as DatepickerStories from "./DatePicker.stories";
+
+<Meta of={DatepickerStories} />
+
+# DatePicker
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+A simple and reusable Datepicker component
+
+<Canvas of={DatepickerStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### Single day
+
+Allows users to select a single date
+
+<Canvas of={DatepickerStories.SingleDay} />
+
+### Date range
+
+Allows users to select a date range
+
+<Canvas of={DatepickerStories.DateRange} />
+
+### Number of months
+
+<Canvas of={DatepickerStories.NumberOfMonths} />
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT_FIELD, DROPDOWN, DIALOG_CONTENT_CONTAINER]} />

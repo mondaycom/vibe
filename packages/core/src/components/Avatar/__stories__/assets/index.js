@@ -4,8 +4,9 @@ import minus from "./minus.svg";
 import person1 from "./person1.png";
 import person2 from "./person2.png";
 import person3 from "./person3.png";
+import person4 from "./person4.png";
 import maleIcon from "./maleIcon.png";
 import femaleIcon from "./femaleIcon.png";
 import owner from "./owner.svg";
 
-export { home, guest, minus, person1, person2, person3, maleIcon, femaleIcon, owner };
+export { home, guest, minus, person1, person2, person3, person4, maleIcon, femaleIcon, owner };

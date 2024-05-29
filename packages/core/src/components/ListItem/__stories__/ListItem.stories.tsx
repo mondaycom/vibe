@@ -71,7 +71,7 @@ export const WithAvatar = {
   render: () => (
     <ListItem>
       <ListItemAvatar src={person1} />
-      Hadas Farhi
+      Sophia Johnson
     </ListItem>
   ),
 

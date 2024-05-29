@@ -3,7 +3,7 @@ import React from "react";
 import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "../../../Icon/Icons";
 import { DialogContentContainer, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "../../..";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
-import { menuWithTwoDepthsSuite } from "../__tests__/menu-interactions";
+import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
 import styles from "./Menu.stories.module.scss";
 
 export default {

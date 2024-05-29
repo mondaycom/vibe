@@ -1,0 +1,114 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import Chips from "../Chips";
+import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import { TipLabel } from "./Chips.stories.helpers";
+import * as ChipsStories from "./Chips.stories";
+
+<Meta of={ChipsStories} />
+
+# Chip
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Chips are compact elements that represent an input, attribute, or action. They may display text, icons, or both.
+
+<Canvas of={ChipsStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Chips represent a complex piece of information in compact form, such as an entity (person, place, or thing) or text. They enable user input and verify that input by converting text into chips.",
+    "Use 8px spacing between chips.",
+    "Use chips when content is mapped to multiple categories, and the user needs a way to differentiate between them."
+  ]}
+/>
+
+<TipLabel />
+
+## Variants
+
+### With read only state
+
+<Canvas of={ChipsStories.ChipsWithReadOnlyState} />
+
+### With icons
+
+<Canvas of={ChipsStories.ChipsWithIcons} />
+
+### With avatars
+
+<Canvas of={ChipsStories.ChipsWithAvatars} />
+
+### Themes
+
+<Canvas of={ChipsStories.Themes} />
+
+### Clickable chips
+
+<Canvas of={ChipsStories.Clickable} />
+
+### Color coded chips
+
+Use chips with colors to indicate different categories.
+e.g.
+
+```jsx
+<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />
+```
+
+<Canvas of={ChipsStories.ChipsPalette} />
+
+### Chips on colored backgrounds
+
+When a chip appears on a background color identical to its color, use `showBorder` prop in order to add a distinctive white border.
+
+<Canvas of={ChipsStories.OnColor} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Chips label="Jason Tal" readOnly />,
+        description: "When using a chip, the width will automatically size itself to fit the content."
+      },
+      negative: {
+        component: <Chips label="This is a chip" className="monday-storybook-chips_chip-padding" readOnly />,
+        description: "Don’t change the chip width."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Colorful chips for different content
+
+Sometimes when needed, chips can change fill color.
+
+<Canvas of={ChipsStories.ColorfulChipsForDifferentContent} />
+
+### Chips in a person picker combo box
+
+Chips can be removable, and can be used in a multiple options selection use cases.
+
+<Canvas of={ChipsStories.ChipsInAPersonPickerComboBox} />
+
+## Related components
+
+<RelatedComponents componentsNames={[LABEL, TOOLTIP, COUNTER]} />
