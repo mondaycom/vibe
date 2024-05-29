@@ -3,6 +3,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./buttonGroup.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof ButtonGroup>;
 
@@ -255,7 +256,10 @@ export const ButtonGroupAsToggle: Story = {
 
 export const FullWidthButtonGroup: Story = {
   render: () => (
-    <div style={{ width: "100%" }}>
+    <div className="monday-storybook-button-group-full-width">
+      <div style={{ marginBlockEnd: "var(--spacing-small)" }}>
+        <Text>Select layout</Text>
+      </div>
       <ButtonGroup
         groupAriaLabel="Full Width Button Group"
         fullWidth
@@ -281,5 +285,5 @@ export const FullWidthButtonGroup: Story = {
       />
     </div>
   ),
-  name: "Stretched Button Group"
+  name: "Full width button group"
 };
