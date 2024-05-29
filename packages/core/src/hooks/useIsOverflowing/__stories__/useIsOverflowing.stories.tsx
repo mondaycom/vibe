@@ -1,6 +1,7 @@
+import React from "react";
 import { useRef, useState } from "react";
 import useIsOverflowing from "../useIsOverflowing";
-import { EditableInput, Flex, Tooltip } from "../../../components";
+import { Flex, TextField, Tooltip } from "../../../components";
 import styles from "./useIsOverflowing.stories.module.scss";
 
 export default {
@@ -32,7 +33,7 @@ export const Overview = {
 
     return (
       <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} align={Flex.align.START}>
-        <EditableInput onChange={setText} placeholder="Type text here" className={styles.input} />
+        <TextField onChange={setText} placeholder="Type text here" className={styles.input} />
         <ComponentWithOverflow text={text} />
       </Flex>
     );
