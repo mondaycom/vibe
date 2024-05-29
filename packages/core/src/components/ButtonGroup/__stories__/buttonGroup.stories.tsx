@@ -258,7 +258,7 @@ export const FullWidthButtonGroup: Story = {
     <div style={{ width: "100%" }}>
       <ButtonGroup
         groupAriaLabel="Full Width Button Group"
-        stretch
+        fullWidth
         value={1}
         options={[
           {
