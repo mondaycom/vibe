@@ -110,19 +110,6 @@ module.exports = {
         "react-hooks/rules-of-hooks": "off",
         "react/jsx-key": "off"
       }
-    },
-    // TODO This entire block should be removed and fixed, unless we move to React 17+
-    {
-      files: [
-        "**/__stories__/**/*.{js,jsx,ts,tsx}",
-        "src/storybook/stand-alone-documentaion/**/*.{js,jsx,ts,tsx}",
-        "src/storybook/patterns/**/*.{js,jsx,ts,tsx}",
-        "src/storybook/components/**/*.{js,jsx,ts,tsx}",
-        "src/storybook/decorators/**/*.{js,jsx,ts,tsx}"
-      ],
-      rules: {
-        "react/react-in-jsx-scope": "off"
-      }
     }
   ],
   env: {
