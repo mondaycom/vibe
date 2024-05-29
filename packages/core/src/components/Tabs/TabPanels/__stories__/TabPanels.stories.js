@@ -1,3 +1,4 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import TabPanel from "../../TabPanel/TabPanel";
 import TabPanels from "../TabPanels";

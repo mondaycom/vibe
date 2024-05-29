@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { RelatedComponents } from "vibe-storybook-components";
 import { DESCRIPTION_COMPONENTS_MAP } from "./component-description-map";

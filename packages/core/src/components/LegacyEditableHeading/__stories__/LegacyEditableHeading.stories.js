@@ -1,3 +1,4 @@
+import React from "react";
 import EditableHeading from "../LegacyEditableHeading";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { overviewPlaySuite } from "../__tests__/LegacyEditableHeading-interactions";

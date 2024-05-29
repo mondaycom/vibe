@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate, VerticalStories } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Slider from "../Slider";

@@ -1,3 +1,4 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Dialog, DialogContentContainer, Flex, IconButton } from "../../../components";
 import { ExampleContent } from "./helpers";

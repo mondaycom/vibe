@@ -1,3 +1,4 @@
+import React from "react";
 import { TokenTable } from "vibe-storybook-components";
 
 export const TableMediaQuery = () => {

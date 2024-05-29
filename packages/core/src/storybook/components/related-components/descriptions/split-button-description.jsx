@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import SplitButton from "../../../../components/SplitButton/SplitButton";
 import SplitButtonMenu from "../../../../components/SplitButton/SplitButtonMenu/SplitButtonMenu";

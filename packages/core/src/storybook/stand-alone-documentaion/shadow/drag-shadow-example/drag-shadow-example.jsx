@@ -1,3 +1,4 @@
+import React from "react";
 import { Frame } from "vibe-storybook-components";
 import Icon from "../../../../components/Icon/Icon";
 import Drag from "../../../../components/Icon/Icons/components/Drag";

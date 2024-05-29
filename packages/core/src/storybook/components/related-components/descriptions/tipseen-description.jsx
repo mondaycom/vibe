@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Tipseen from "../../../../components/Tipseen/Tipseen";
 import TipseenWizard from "../../../../components/Tipseen/TipseenWizard";

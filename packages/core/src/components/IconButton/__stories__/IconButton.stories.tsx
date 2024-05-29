@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate, Link } from "vibe-storybook-components";
 import IconButton from "../IconButton";
 import Text from "../../Text/Text";

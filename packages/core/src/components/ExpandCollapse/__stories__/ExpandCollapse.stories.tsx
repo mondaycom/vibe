@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import ExpandCollapse from "../ExpandCollapse";

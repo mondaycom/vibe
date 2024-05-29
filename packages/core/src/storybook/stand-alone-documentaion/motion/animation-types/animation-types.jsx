@@ -1,3 +1,4 @@
+import React from "react";
 import { AnimationInformationBox } from "../animation-information-box/animation-information-box";
 import { TypeCss, TypeEmpty, TypeLike, TypeStatus } from "../assets";
 import styles from "./animation-types.module.scss";

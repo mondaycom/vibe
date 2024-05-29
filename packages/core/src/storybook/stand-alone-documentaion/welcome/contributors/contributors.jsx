@@ -1,3 +1,4 @@
+import React from "react";
 import { Contributor } from "../contributor/contributor";
 import { Orr, Hadas, Meirav, Sergey, Yael } from "../assets";
 import "./contributors.scss";

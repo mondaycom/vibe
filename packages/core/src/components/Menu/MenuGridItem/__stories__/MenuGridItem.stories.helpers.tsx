@@ -1,3 +1,4 @@
+import React from "react";
 import { Tip } from "vibe-storybook-components";
 
 // TODO add links to the components mentioned in the tip
