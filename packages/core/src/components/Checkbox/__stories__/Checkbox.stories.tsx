@@ -1,5 +1,6 @@
 import React from "react";
-import { createComponentTemplate, Link } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
+import Link from "../../Link/Link";
 import Checkbox from "../Checkbox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./Checkbox.stories.scss";
@@ -50,25 +51,11 @@ export const SingleCheckbox: Story = {
       checked
       label={
         <>
-          I agree to the
-          <Link size={Link.sizes.SMALL} href={"#"}>
-            Terms of Service
-          </Link>
-          and{" "}
-          <Link size={Link.sizes.SMALL} href={"#"} withoutSpacing>
-            Privacy Policy
-          </Link>
-          .
+          I agree to the <Link href={"#"} text="Terms of Service" inlineText></Link> and{" "}
+          <Link href={"#"} text="Privacy Policy" inlineText></Link>.
         </>
       }
     />
   ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        isEnabled: false
-      }
-    }
-  },
   name: "Single checkbox"
 };

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.110.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.1...monday-ui-react-core@2.110.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **Checkbox storybook:** story is using Link from storybook-blocks ([#2137](https://github.com/mondaycom/vibe/issues/2137)) ([70fc17d](https://github.com/mondaycom/vibe/commit/70fc17d62973d7ccc55a0ec64ad68680471a3b1a))
+
+
+### Features
+
+* Ignore classes in useClickOutside hook ([#2135](https://github.com/mondaycom/vibe/issues/2135)) ([ea42d2b](https://github.com/mondaycom/vibe/commit/ea42d2b0d964166d74b990be0fdd82266539155e))
+
+
+
+
+
 ## [2.109.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.0...monday-ui-react-core@2.109.1) (2024-05-26)
 
 
