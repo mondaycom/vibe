@@ -1,0 +1,159 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { UsageGuidelines } from "vibe-storybook-components";
+import Toast from "../Toast";
+import Flex from "../../Flex/Flex";
+import {
+  ALERT_BANNER,
+  ATTENTION_BOX,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import * as ToastStories from "./Toast.stories";
+import { TipAlertBanner } from "./Toast.stories.helpers";
+
+<Meta of={ToastStories} />
+
+# Toast
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A toast notification is a message object that presents timely information, including confirmation of actions, alerts, and errors.
+
+<Canvas of={ToastStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use toast notifications immediately after a specific event such as a user action that does not relate to an object on the page. Toast used as a feedback loop to a user’s action.",
+    "Toasts should appear one at a time, and only disappear when no longer required.",
+    "Always be clear, concise and, where possible, give follow up actions to allow the user to become more informed or resolve the issue.",
+    "Always provide an action button or option to undo.",
+    "Toast should overlay permanent UI elements without blocking important actions."
+  ]}
+/>
+
+<TipAlertBanner />
+
+## Variants
+
+### Default with button
+
+<Canvas of={ToastStories.DefaultWithButton} />
+
+### Toast with link
+
+<Canvas of={ToastStories.ToastWithLink} />
+
+### Toast with loading
+
+<Canvas of={ToastStories.ToastWithLoading} />
+
+### Success message
+
+Use to providing a feedback loop. For example: Item copied.
+
+<Canvas of={ToastStories.SuccessMessage} />
+
+### Error message
+
+Use when something was deleted, a problem has occurred, etc.
+
+<Canvas of={ToastStories.ErrorMessage} />
+
+### Warning message
+
+<Canvas of={ToastStories.WarningMessage} />
+
+### Dark message
+
+<Canvas of={ToastStories.DarkMessage} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Toast open className="monday-storybook-toast_wrapper" hideIcon type={Toast.types.POSITIVE}>
+            Duplicating Board
+          </Toast>
+        ),
+        description: "Use only one toast on a screen at a time."
+      },
+      negative: {
+        component: (
+          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+            <Toast
+              type={Toast.types.NEGATIVE}
+              open
+              hideIcon
+              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
+              actions={[{ type: Toast.actionTypes.LINK, text: "Try again", href: "https://monday.com" }]}
+            >
+              Couldn’t load board items
+            </Toast>
+            <Toast
+              type={Toast.types.POSITIVE}
+              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
+              hideIcon
+              text="Duplicating Board"
+              open
+            >
+              Duplicating Board
+            </Toast>
+          </Flex>
+        ),
+        description: <>Don’t place more than one toast on a screen at a time.</>
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Toast
+            open
+            className="monday-storybook-toast_wrapper"
+            type={Toast.types.POSITIVE}
+            actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo" }]}
+          >
+            We successfully archived 1 item
+          </Toast>
+        ),
+        description: "Always offer an option to undo the action. Keep the toast for 60 seconds before auto-removing it."
+      },
+      negative: {
+        component: (
+          <Toast open className="monday-storybook-toast_wrapper" type={Toast.types.POSITIVE}>
+            We successfully archived 1 item
+          </Toast>
+        ),
+        description: "Don’t offer an action without letting the user undo it."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Feedback loop
+
+After a user has done an action, provide feedback to close the loop. For example, when an item has been deleted, duplicated, etc.
+
+<Canvas of={ToastStories.FeedbackLoop} />
+
+## Related components
+
+<RelatedComponents componentsNames={[ALERT_BANNER, TOOLTIP, ATTENTION_BOX]} />

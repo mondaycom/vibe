@@ -1,0 +1,151 @@
+import { Meta } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import Label from "../Label";
+import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import * as LabelStories from "./Label.stories";
+import { TipCheckYourself } from "./Label.stories.helpers";
+
+<Meta of={LabelStories} />
+
+# Label
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A label indicates the status of an item.
+
+<Canvas of={LabelStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Label will always appear in context next to the item it classifies.",
+    "Displays a short message like new, beta, coming soon.,etc.",
+    "Use only UI colors, not content colors (like status colors)."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### Kinds
+
+<Canvas of={LabelStories.Kinds} />
+
+### Size
+
+Label can appear in 2 sizes: small and medium.
+
+<Canvas of={LabelStories.Sizes} />
+
+### Colors
+
+<Canvas of={LabelStories.Colors} />
+
+### Clickable
+
+<Canvas of={LabelStories.Clickable} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Label text="New" />,
+        description: "Use label to indicate the status of an item, for example: “New”."
+      },
+      negative: {
+        component: <Label text="123" />,
+        description: (
+          <>
+            Don’t use the label component in order to indicate numbers, instead use the{" "}
+            <StorybookLink page="Feedback/Counter">Counter.</StorybookLink>
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-label_inline-block">
+            <h5 className="monday-storybook-label_title">Categories</h5>
+            <Label text="new" />
+          </div>
+        ),
+        description: "Use label only once per item."
+      },
+      negative: {
+        component: [
+          <div className="monday-storybook-label_block">
+            <h5>Categories</h5>
+            <div className="monday-storybook-label_inline-block">
+              <Label text="Featured" />
+              <Label text="CRM" />
+              <Label text="Export" />
+            </div>
+          </div>
+        ],
+        description: (
+          <>
+            Don’t use multiple labels for one item. Instead, use{" "}
+            <StorybookLink page="Data display/Chips">Chips.</StorybookLink>
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: [<Label text="New" kind={Label.kinds.LINE} />, <Label text="Beta" />],
+        description: "Use only the UI colors above."
+      },
+      negative: {
+        component: [
+          <Label
+            className="monday-storybook-label_bad-lable monday-storybook-label_purple"
+            kind={Label.kinds.LINE}
+            text="Beta"
+          />,
+          <Label
+            className="monday-storybook-label_bad-lable monday-storybook-label_pink"
+            kind={Label.kinds.LINE}
+            text="Beta"
+          />
+        ],
+        description: "Don’t use any content colors for labels. If the page is full of CTAs, use the outline state."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Secondary label
+
+In case of visual overload, use the secondary label in order to create hirarchy.
+
+<Canvas of={LabelStories.SecondaryLabel} />
+
+### Celebration
+
+To celebrate new feature, outline label can be highlighted by adding celebrate animation.
+
+<Canvas of={LabelStories.Celebration} />
+
+## Related components
+
+<RelatedComponents componentsNames={[TOOLTIP, COUNTER, CHIP]} />

@@ -1,0 +1,147 @@
+import Button from "../Button";
+import { Meta } from "@storybook/blocks";
+import {
+  BUTTON_GROUP,
+  BADGE,
+  SPLIT_BUTTON
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipIconButton } from "./Button.stories.helpers";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Buttons allow users to trigger an action or event with a single click.
+For example, you can use a button for allowing the functionality of submitting a form, opening a dialog, canceling an action,
+or performing a delete operation.
+
+<Canvas of={ButtonStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Buttons may contain icon, on the left or the right side",
+    "Use 8 px spacing between buttons",
+    "Replace text with a loader if action is submitted, but still processing",
+    "Button width is set by it’s content, avoid changing it width",
+    "Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons"
+  ]}
+/>
+
+<TipIconButton />
+
+## Variants
+
+### Button kinds
+
+There can be more than one button in a screen, but to create the hierarchy of actions we need to use button kinds.
+
+<Canvas of={ButtonStories.ButtonKinds} />
+
+### Sizes
+
+<Canvas of={ButtonStories.Sizes} />
+
+### Disabled
+
+Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
+
+<Canvas of={ButtonStories.Disabled} />
+
+### States
+
+<Canvas of={ButtonStories.States} />
+
+### Positive and Negative
+
+<Canvas of={ButtonStories.PositiveAndNegative} />
+
+### Icons
+
+<Canvas of={ButtonStories.Icons} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Button>Get started</Button>,
+        description: "Use 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces."
+      },
+      negative: {
+        component: <Button>Get started and enjoy discount!</Button>,
+        description: "Don’t use punctuation marks such as periods or exclamation points."
+      }
+    },
+    {
+      positive: {
+        component: <Button>Get started</Button>,
+        description: "Use sentence-case capitalization."
+      },
+      negative: {
+        component: [<Button>Get Started</Button>, <Button>GET STARTED</Button>],
+        description: "Don’t use title case captalization or all caps."
+      }
+    },
+    {
+      positive: {
+        component: [<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
+        description: "Use primary button as the main action , put the tertiary as the second option."
+      },
+      negative: {
+        component: [<Button>Get started</Button>, <Button kind={Button.kinds.SECONDARY}>Cancel</Button>],
+        description: "Use primary button next to secondary."
+      }
+    },
+    {
+      positive: {
+        component: [<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
+        description: "Use active verbs or phrases that clearly indicate action."
+      },
+      negative: {
+        component: [<Button kind={Button.kinds.TERTIARY}>Yes</Button>, <Button>No</Button>],
+        description: "Use vague and generic labels that make the user read the dialog before taking action."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Loading state
+
+<Canvas of={ButtonStories.LoadingState} />
+
+### Success state
+
+<Canvas of={ButtonStories.SuccessState} />
+
+### On color state
+
+<Canvas of={ButtonStories.OnColorStates} />
+
+### Adjacent buttons
+
+<Canvas of={ButtonStories.AdjacentButtons} />
+
+## Related components
+
+<RelatedComponents componentsNames={[SPLIT_BUTTON, BUTTON_GROUP, BADGE]} />

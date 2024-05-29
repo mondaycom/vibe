@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import Toast from "../Toast";
-import "./toast.stories.scss";
+import "./Toast.stories.scss";
 
 const ToastLineWrapper = ({ text, actions, className, type, hideIcon, closeable }) => {
   return (

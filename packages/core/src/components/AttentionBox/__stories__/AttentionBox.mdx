@@ -1,0 +1,142 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import AttentionBox from "../AttentionBox";
+import { Link } from "vibe-storybook-components";
+import { Info } from "../../Icon/Icons";
+import {
+  ALERT_BANNER,
+  TOAST,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import Flex from "../../Flex/Flex";
+import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
+import { TipCheckYourself } from "./AttentionBox.stories.helpers";
+import * as AttentionBoxStories from "./AttentionBox.stories";
+
+<Meta of={AttentionBoxStories} />
+
+# Attention Box
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Attention box lets users know important information within content areas, as close as possible to the content it’s about.
+
+<Canvas of={AttentionBoxStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
+    "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
+    "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### States
+
+There are five types of attention boxes: Primary, success, danger, warning and dark (natural).
+
+<Canvas of={AttentionBoxStories.States} />
+
+### Attention box with link
+
+<Canvas of={AttentionBoxStories.AttentionBoxWithLink} />
+
+### Dismissable
+
+<Canvas of={AttentionBoxStories.Dismissable} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <AttentionBox
+            title="Attention box title"
+            text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+            className="monday-storybook-attention-box_box"
+          />
+        ),
+        description: "Provide a short and brief title, and explanation related to the title."
+      },
+      negative: {
+        component: <AttentionBox title="Attention box title" />,
+        description: "Don’t use only a title to explain something."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div>
+            <span className="monday-storybook-attention-box_title">Inbox</span>
+            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
+            <AttentionBox className="monday-storybook-attention-box_att-box" compact icon={Info}>
+              <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_BETWEEN}>
+                Get your monday.com notifications <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
+          </div>
+        ),
+        description:
+          "Use when you are speaking directly to a piece of content and the notification can be positioned close to the content."
+      },
+      negative: {
+        component: (
+          <div>
+            <span className="monday-storybook-attention-box_title">Inbox</span>
+            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
+            <AttentionBox compact className="monday-storybook-attention-box_att-box" icon={Info}>
+              <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_BETWEEN}>
+                7 days left on your free trial <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
+          </div>
+        ),
+        description: (
+          <>
+            Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs
+            to alert all users. On those cases, use{" "}
+            <StorybookLink page="Feedback/AlertBanner">Alert banner.</StorybookLink>
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Natural Attention box
+
+Provides additional information about an action or section.
+
+<Canvas of={AttentionBoxStories.NaturalAttentionBox} />
+
+### Attention box inside a dialog/combobox
+
+Provides cotextual and related information.
+
+<Canvas of={AttentionBoxStories.AttentionBoxInsideADialogCombobox} />
+
+## Related components
+
+<RelatedComponents componentsNames={[ALERT_BANNER, TOAST, TOOLTIP]} />

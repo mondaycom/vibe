@@ -1,0 +1,146 @@
+import Tab from "../Tab/Tab";
+import TabList from "../TabList/TabList";
+import { Canvas, Meta } from "@storybook/blocks";
+import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "../../Icon/Icons";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { UsageGuidelines } from "vibe-storybook-components";
+import {
+  BREADCRUBMS,
+  BUTTON_GROUP,
+  STEPS
+} from "../../../storybook/components/related-components/component-description-map";
+import * as TabsStories from "./Tabs.stories";
+import { TipButtonGroup } from "./Tabs.stories.helpers";
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Tabs allow users to navigate between related views of content while remaining in the context of the page.
+
+<Canvas of={TabsStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.",
+    "Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.",
+    "The first tab is selected by default. The default tab is most important use case of the page.",
+    "Stick to only one row of tabs."
+  ]}
+/>
+
+<TipButtonGroup />
+
+## Variants
+
+### Default - compact tabs
+
+<Canvas of={TabsStories.Default} />
+
+### Stretched
+
+The width of the list is responsive to the screen's width.
+
+<Canvas of={TabsStories.Stretched} />
+
+### Motion
+
+Tabs animation direction
+
+<Canvas of={TabsStories.Motion} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
+            <TabList>
+              <Tab icon={Table}>Main Table</Tab>
+              <Tab icon={Chart}>Chart</Tab>
+              <Tab icon={Calendar}>Calendar</Tab>
+            </TabList>
+          </DialogContentContainer>
+        ),
+        description: "Use either all text labels, all icon labels, or both, across all labels."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
+            <TabList>
+              <Tab>Main Table</Tab>
+              <Tab icon={Gantt}> </Tab>
+            </TabList>
+          </DialogContentContainer>
+        ),
+        description: "Don’t mix tabs that contain only text, with tabs that contain only icons. "
+      }
+    },
+    {
+      positive: {
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
+            <TabList>
+              <Tab icon={NewTab}>Main Table</Tab>
+              <Tab icon={Table}>Table</Tab>
+              <Tab icon={NavigationChevronDown} iconSide="right">
+                More
+              </Tab>
+            </TabList>
+          </DialogContentContainer>
+        ),
+        description: "When there are too many tabs to fit horizontally across the viewport, use a “More” dropdown."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
+            <TabList>
+              <Tab>Main...</Tab>
+              <Tab>Table</Tab>
+              <Tab>Time...</Tab>
+              <Tab>Fir...</Tab>
+            </TabList>
+          </DialogContentContainer>
+        ),
+        description: "Do not cut the tabs name just to make them fit horizontally."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Board views tabs
+
+The tabs are presenting the same content, in a different view.
+
+<Canvas of={TabsStories.BoardViewsTabs} />
+
+### Admin section tabs
+
+In the admin section tabs used to navigate between the different preferences
+
+<Canvas of={TabsStories.AdminSectionTabs} />
+
+## Related components
+
+<RelatedComponents componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPS]} />

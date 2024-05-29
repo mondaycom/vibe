@@ -1,0 +1,224 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import Tipseen from "../Tipseen";
+import TipseenContent from "../TipseenContent";
+import TipseenWizard from "../TipseenWizard";
+import Icon from "../../Icon/Icon";
+import { Board, BoardPrivate } from "../../Icon/Icons";
+import { modifiers, TipCheckYourself, wizardContent } from "./Tipseen.stories.helpers";
+import {
+  ATTENTION_BOX,
+  CHIP,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import * as TipseenStories from "./Tipseen.stories";
+import { tipseenTemplate } from "./Tipseen.stories";
+
+<Meta of={TipseenStories} />
+
+# Tipseen
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Tipseen is a virtual unboxing experience that helps users get started with the system and discover new features.
+
+<Canvas of={TipseenStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use for onboarding screens, new features discovery, or any guidance a user needs.",
+    "Use when the user is not yet familiar with the system’s UI or ready to learn about it.",
+    "The tip will appear until closed by an X button or call to action button."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### Colors
+
+Tipseens come in 2 colors: inverted and primary. \
+The inverted type is the default. \
+Use the inverted color for feature discovery, or to give the user general guidance. \
+Use the primary color to bring attention to updates about your product offering.
+
+<Canvas of={TipseenStories.Colors} />
+
+### Tipseen with a wizard
+
+Use Tipseen with a wizard when you want to teach something in steps.
+
+<Canvas of={TipseenStories.TipseenWithAWizard} />
+
+### Tipseen with image
+
+<Canvas of={TipseenStories.TipseenWithImage} />
+
+### Tipseen with custom media
+
+Wrap your custom media with `TipseenMedia` component. This use case is good for when using Lottie animations or other media that is not necessarily an image.
+
+<Canvas of={TipseenStories.TipseenWithCustomMedia} />
+
+### Floating Tipseen
+
+Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
+In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+
+<Canvas of={TipseenStories.FloatingTipseen} story={{ height: "500px" }} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  className="monday-storybook-tipseen_rules"
+  rules={[
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-tipseen_column-wrapper right">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={
+                <TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />
+              }
+            >
+              <div className="monday-storybook-tipseen_inline-container right" />{" "}
+            </Tipseen>
+          </div>
+        ),
+        description:
+          "When using a Tipseen wizard, allow the user to complete the process and close the Tipseen by leaving the last CTA enabled."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-tipseen_column-wrapper right">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} />}
+            >
+              <div className="monday-storybook-tipseen_inline-container right" />{" "}
+            </Tipseen>
+          </div>
+        ),
+        description: "Don’t finish the Tipseen wizard process with a disabled CTA."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <div className="monday-storybook-tipseen_column-item">
+              <Icon icon={Board} iconSize="24" />
+              <span>💫 Research tasks</span>
+            </div>
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
+            >
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+            <div className="monday-storybook-tipseen_column-item">
+              <Icon icon={BoardPrivate} iconSize="24" />
+              <span>Marketing</span>
+            </div>
+          </div>
+        ),
+        description:
+          "Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-tipseen_column-wrapper">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.TOP}
+              color={Tipseen.colors.INVERTED}
+              content={
+                <TipseenContent>
+                  You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.
+                </TipseenContent>
+              }
+            >
+              <div className="monday-storybook-tipseen_inline-container" />
+            </Tipseen>
+          </div>
+        ),
+        description: (
+          <>
+            Don’t use tipseen to provide additional information on a familiar UI. Use a{" "}
+            <StorybookLink page="Popover/Tooltip">Tooltip</StorybookLink> or{" "}
+            <StorybookLink page="Feedback/AttentionBox">Attention box</StorybookLink> instead.
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
+            >
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+          </div>
+        ),
+        description: "Add a pointer to indicate the specific component that the tipseen comes from."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              tip={false}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
+            >
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+          </div>
+        ),
+        description: "Don’t use a tipseen without a pointer, unless it’s a general tipseen for an entire screen."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[TOOLTIP, ATTENTION_BOX, CHIP]} />

@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertBanner should render correctly with background color 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner positive"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  />
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render correctly with hidden close button 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  />
+  <div
+    className="closeButtonWrapper"
+  />
+</div>
+`;
+
+exports[`AlertBanner should render correctly with props 1`] = `
+<div
+  aria-label="lorem-banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="contentItem contentItemText"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div
+          className="bannerText"
+          data-testid="alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render correctly without props 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  />
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with multiple elements 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="contentItem contentItemText"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div
+          className="bannerText"
+          data-testid="alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="contentItem"
+    >
+      <div
+        className="marginLeft"
+        data-testid="alert-banner-link"
+      >
+        <a
+          aria-describedby=""
+          aria-label=""
+          aria-labelledby=""
+          className="link"
+          data-testid="link"
+          href="https://monday.com"
+          id=""
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span
+            className="text bannerLink bannerLinkTextColorOnPrimary"
+          >
+            Lorem ipsum
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      className="contentItem contentItemText"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div
+          className="bannerText marginLeft"
+          data-testid="alert-banner-text"
+        >
+          <span>
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="contentItem"
+    >
+      <div
+        className="marginLeft"
+        data-testid="alert-banner-button"
+      >
+        <button
+          aria-busy={false}
+          aria-disabled={false}
+          className="bannerButton button sizeSmall kindPrimary colorOnPrimaryColor"
+          data-testid="button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          type="button"
+        >
+          Lorem Ipsum Bailar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with text and button 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="contentItem contentItemText"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div
+          className="bannerText"
+          data-testid="alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="contentItem"
+    >
+      <div
+        className="marginLeft"
+        data-testid="alert-banner-button"
+      >
+        <button
+          aria-busy={false}
+          aria-disabled={false}
+          className="bannerButton button sizeSmall kindPrimary colorOnPrimaryColor"
+          data-testid="button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          type="button"
+        >
+          Lorem Ipsum Salura
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with text and link 1`] = `
+<div
+  aria-label="banner"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  data-testid="alert-banner"
+  role="banner"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="contentItem contentItemText"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div
+          className="bannerText"
+          data-testid="alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="contentItem"
+    >
+      <div
+        className="marginLeft"
+        data-testid="alert-banner-link"
+      >
+        <a
+          aria-describedby=""
+          aria-label=""
+          aria-labelledby=""
+          className="link"
+          data-testid="link"
+          href="https://monday.com"
+          id=""
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span
+            className="text bannerLink bannerLinkTextColorOnPrimary"
+          >
+            Lorem ipsum
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="closeButtonWrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="alert-banner-close-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

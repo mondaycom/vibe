@@ -9,7 +9,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
 import Heading from "../../LegacyHeading/LegacyHeading";
 import Avatar from "../../Avatar/Avatar";
-import styles from "./iconButton.stories.module.scss";
+import styles from "./IconButton.stories.module.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof IconButton>;

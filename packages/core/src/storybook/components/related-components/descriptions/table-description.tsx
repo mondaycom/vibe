@@ -6,7 +6,7 @@ import {
   statusColumnToLabelColor,
   TableEmptyState,
   TableErrorState
-} from "../../../../components/Table/Table/__stories__/table.stories.helpers";
+} from "../../../../components/Table/Table/__stories__/Table.stories.helpers";
 
 const tableColumns = [
   {
