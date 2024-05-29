@@ -56,7 +56,7 @@ describe("SplitButton renders correctly", () => {
       .create(
         <SplitButton
           secondaryDialogContent={secondaryContent}
-          secondaryDialogPosition={SplitButton.secondaryPositions.BOTTOM_END}
+          secondaryDialogPosition="bottom-end"
         />
       )
       .toJSON();
