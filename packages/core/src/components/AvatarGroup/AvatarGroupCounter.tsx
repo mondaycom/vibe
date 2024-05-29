@@ -29,6 +29,7 @@ export interface AvatarGroupCounterProps extends VibeComponentProps {
   size?: AvatarSize;
   type?: AvatarType;
   counterAriaLabel?: string;
+  disabled?: boolean;
 }
 
 const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
@@ -38,7 +39,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterTooltipIsVirtualizedList = false,
   size = Avatar.sizes.MEDIUM,
   type,
-  counterAriaLabel
+  counterAriaLabel,
+  disabled
 }) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
@@ -64,6 +66,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         maxDigits={counterMaxDigits}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
         noAnimation={noAnimation}
+        counterClassName={cx({ [styles.disabled]: disabled })}
       />
     );
   }, [
@@ -73,11 +76,23 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     counterMaxDigits,
     counterPrefix,
     counterValue,
+    disabled,
     noAnimation
   ]);
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
+  }
+
+  if (disabled) {
+    return (
+      <div
+        ref={counterContainerRef}
+        className={cx(styles.counterContainer, styles.disabled, counterSizeStyle, counterColorStyle)}
+      >
+        {counterComponent()}
+      </div>
+    );
   }
 
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);

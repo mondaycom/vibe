@@ -44,6 +44,10 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   // TODO remove this prop in the next major release, should be no padding by default
   removePadding?: boolean;
+  /**
+   * If true, the component will be disabled and non interactive
+   */
+  disabled?: boolean;
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -57,7 +61,8 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  removePadding = false
+  removePadding = false,
+  disabled
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     if (!children) {
@@ -72,12 +77,13 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
           className: cx(styles.avatarContainer, avatarClassName),
-          onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
+          onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props),
+          disabled
         });
       }),
       counterTooltipAvatars: childrenArray.slice(max)
     };
-  }, [avatarClassName, children, max, size, type]);
+  }, [avatarClassName, children, disabled, max, size, type]);
 
   if (!children) {
     return null;
@@ -93,6 +99,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
         counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         size={size}
         type={type}
+        disabled={disabled}
       />
     </div>
   );
