@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import VirtualizedList from "../VirtualizedList";
-import { generateItems } from "./virtualizedList.stories.helpers";
+import { generateItems } from "./VirtualizedList.stories.helpers";
 import { Flex } from "../../";
-import styles from "./virtualizedList.module.scss";
+import styles from "./VirtualizedList.module.scss";
 
 export default {
   title: "Navigation/VirtualizedList",

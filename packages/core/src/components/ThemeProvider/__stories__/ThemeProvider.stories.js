@@ -13,7 +13,7 @@ import {
 } from "./ThemeProvider.stories.helpers";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
-import { themeProviderSystemThemeSuite } from "../__tests__/themeProvider.interactions";
+import { themeProviderSystemThemeSuite } from "../__tests__/ThemeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,

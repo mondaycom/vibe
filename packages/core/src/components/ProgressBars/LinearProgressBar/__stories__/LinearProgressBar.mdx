@@ -1,0 +1,90 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import {
+  SKELETON,
+  SPINNER,
+  STEPS
+} from "../../../../storybook/components/related-components/component-description-map";
+import {
+  ComponentRuleNegative,
+  ComponentRulePositive,
+  TipMultiStepIndicator
+} from "./LinearProgressBar.stories.helpers";
+import * as LinearProgressBarStories from "./LinearProgressBar.stories";
+
+<Meta of={LinearProgressBarStories} />
+
+# LinearProgressBar
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains.
+
+<Canvas of={LinearProgressBarStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["Give users an indication of how much of the task has been completed and how much is left."]}
+/>
+
+<TipMultiStepIndicator />
+
+## Variants
+
+### Regular
+
+<Canvas of={LinearProgressBarStories.Regular} />
+
+### With secondary value
+
+<Canvas of={LinearProgressBarStories.WithSecondaryValue} />
+
+### Multi progress bar
+
+<Canvas of={LinearProgressBarStories.MultiProgressBar} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <ComponentRulePositive />,
+        description: "Use a progress bar only process has start and finish point."
+      },
+      negative: {
+        component: <ComponentRuleNegative />,
+        description: "Don’t use an infinite scalable indicator."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Progress bar as a counter
+
+The user can see in a clear way the number of items used in the account.
+
+<Canvas of={LinearProgressBarStories.ProgressBarAsACounter} />
+
+### Progress bar as loading indicator
+
+<Canvas of={LinearProgressBarStories.ProgressBarAsLoadingIndicator} />
+
+## Related components
+
+<RelatedComponents componentsNames={[SPINNER, STEPS, SKELETON]} />
