@@ -11,6 +11,7 @@ export const modifiers = [
   {
     name: "flip",
     options: {
+      // @ts-ignore
       fallbackPlacements: []
     }
   }

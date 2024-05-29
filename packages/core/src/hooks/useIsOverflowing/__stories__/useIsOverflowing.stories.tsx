@@ -1,5 +1,4 @@
-import React from "react";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import useIsOverflowing from "../useIsOverflowing";
 import { EditableInput, Flex, Tooltip } from "../../../components";
 import styles from "./useIsOverflowing.stories.module.scss";
