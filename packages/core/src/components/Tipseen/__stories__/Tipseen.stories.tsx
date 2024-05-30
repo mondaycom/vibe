@@ -40,6 +40,7 @@ const tipseenTemplate = ({
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
       position={position}
+      showDelay={100}
       content={
         <TipseenContent hideDismiss={hideDismiss} title={title}>
           {children}
@@ -77,6 +78,7 @@ export const Colors = {
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT}
               color={Tipseen.colors.INVERTED}
+              showDelay={100}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -90,6 +92,7 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT}
+              showDelay={100}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -130,6 +133,7 @@ export const TipseenWithAWizard = {
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
           color={Tipseen.colors.INVERTED}
+          showDelay={100}
           content={
             <TipseenWizard
               title="This is a title"
@@ -167,6 +171,7 @@ export const TipseenWithImage = {
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
           color={Tipseen.colors.INVERTED}
+          showDelay={100}
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -193,6 +198,7 @@ export const TipseenWithCustomMedia = {
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
           color={Tipseen.colors.INVERTED}
+          showDelay={100}
           content={
             <>
               <TipseenMedia>
@@ -228,6 +234,7 @@ export const FloatingTipseen = {
         closeButtonTheme={Tipseen.closeButtonThemes.DARK}
         floating
         color={Tipseen.colors.INVERTED}
+        showDelay={100}
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
