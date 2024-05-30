@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, Tip } from "vibe-storybook-components";
 
 export const TipHowToUseFonts = () => (

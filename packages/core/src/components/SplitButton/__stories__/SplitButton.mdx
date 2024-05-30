@@ -1,0 +1,183 @@
+import { Meta } from "@storybook/blocks";
+import { Link, UsageGuidelines } from "vibe-storybook-components";
+import SplitButton from "../SplitButton";
+import Button from "../../Button/Button";
+import { Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
+import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
+import { SplitButtonExampleDialog, TipMenu } from "./SplitButton.stories.helpers";
+import * as SplitButtonStories from "./SplitButton.stories";
+
+<Meta of={SplitButtonStories} />
+
+# SplitButton
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A split button is a dual-function menu button that offers a default action as well as the possibility of choosing a secondary action, by selecting from a set of alternatives.
+
+<Canvas of={SplitButtonStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Try limiting the overall number of choices within the menu to less than four.",
+    "Order the items within the menu by popularity for a small number of items, or alphabetically for a larger number of items.",
+    "Avoid submenus within split button menu.",
+    "Split button contains two actions: One primary action and a list of secondary actions."
+  ]}
+/>
+
+<TipMenu />
+
+## Variants
+
+### Types
+
+The split button has three variants: primary, secondary, and tertiary.
+
+<Canvas of={SplitButtonStories.Types} />
+
+### Sizes
+
+The split button has supports multiple sizes: small, medium and large.
+
+<Canvas of={SplitButtonStories.Sizes} />
+
+### Icon usage
+
+<Canvas of={SplitButtonStories.SplitButtonWithIcons} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [
+          <SplitButton children="New item" secondaryDialogContent={<SplitButtonExampleDialog />} />,
+          <SplitButton
+            success
+            kind={SplitButton.kinds.TERTIARY}
+            leftIcon={Search}
+            secondaryDialogContent={<SplitButtonExampleDialog />}
+          >
+            Search
+          </SplitButton>,
+          <Button kind={Button.kinds.TERTIARY} leftIcon={Filter}>
+            Filter
+          </Button>
+        ],
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        component: [
+          <SplitButton children="New item" secondaryDialogContent={<SplitButtonExampleDialog />} />,
+          <Button>Search</Button>
+        ],
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <SplitButton
+            children="New item"
+            secondaryDialogContent={() =>
+              SplitButtonExampleDialog({ options: [{ text: "New group" }, { text: "New board" }] })
+            }
+          />
+        ),
+        description: "Use split button if there are more than one action within the menu."
+      },
+      negative: {
+        component: (
+          <SplitButton
+            children="New item"
+            secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{ text: "New group" }] })}
+          />
+        ),
+        description: (
+          <>
+            Don’t use split button if there’s only one option within the menu. Use{" "}
+            <StorybookLink page="Buttons/Button">Button</StorybookLink> instead (see example in the secondary dialog).
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: (
+          <SplitButton
+            children="New item"
+            secondaryDialogContent={() =>
+              SplitButtonExampleDialog({
+                options: [
+                  { icon: Group, text: "New group" },
+                  { icon: Upload, text: "New board" }
+                ]
+              })
+            }
+          />
+        ),
+        description:
+          "Use a split button to display an action with related actions. The main action should be the most common."
+      },
+      negative: {
+        component: (
+          <SplitButton
+            children="New item"
+            secondaryDialogContent={() =>
+              SplitButtonExampleDialog({
+                options: [
+                  { icon: Print, text: "Print board" },
+                  { icon: Sort, text: "Sort items" }
+                ]
+              })
+            }
+          />
+        ),
+        description: "Don’t use a split button to group not related actions (see example in the secondary dialog)."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Split button as the primary action
+
+Use template is the main action.
+
+<Canvas of={SplitButtonStories.SplitButtonAsThePrimaryAction} />
+
+### Secondary split button
+
+When there’s already a primary button in the view, use a secondary split button.
+
+<Canvas of={SplitButtonStories.SecondarySplitButton} />
+
+### Custom menu
+
+The split button can accept a custom Menu in case there's a need to override the default behavior.
+
+Notice to always include `focusItemIndexOnMount` prop for accessibility reasons when using custom menus.
+
+<Canvas of={SplitButtonStories.CustomMenu} />
+
+## Related components
+
+<RelatedComponents componentsNames={[BUTTON, BUTTON_GROUP, MENU]} />

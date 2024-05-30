@@ -1,3 +1,4 @@
+import React from "react";
 import Badge from "../Badge";
 import person from "./assets/person.png";
 import { ExternalPage, WhatsNew } from "../../Icon/Icons";

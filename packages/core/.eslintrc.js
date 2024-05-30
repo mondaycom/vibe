@@ -17,7 +17,7 @@ const commonRules = {
   "no-underscore-dangle": "off",
   "import/prefer-default-export": "off",
   "no-plusplus": "off",
-  "react/react-in-jsx-scope": 0,
+  "react/react-in-jsx-scope": "error",
   "react/no-danger": "error",
   "react/jsx-one-expression-per-line": "off",
   "react/prop-types": 0,

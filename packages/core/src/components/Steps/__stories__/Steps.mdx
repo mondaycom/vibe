@@ -1,0 +1,89 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { StepsGalleryDontTemplate, StepsNumbersDoTemplate } from "./Steps.stories.helpers";
+import {
+  BREADCRUBMS,
+  MULTI_STEP_INDICATOR,
+  TABS
+} from "../../../storybook/components/related-components/component-description-map";
+import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import * as StepsStories from "./Steps.stories";
+
+<Meta of={StepsStories} />
+
+# Steps
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation.
+
+<Canvas of={StepsStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Stepper must have three or more steps.",
+    "The stepper shows users where they are in the process, and can be used to navigate through the process by selecting steps.",
+    "If a task needs more than six steps, consider simplifying the process or breaking it up into multiple tasks."
+  ]}
+/>
+
+## Variants
+
+### Types
+
+Steps with a number view or gallery view.
+
+<Canvas of={StepsStories.Types} />
+
+### On primary
+
+<Canvas of={StepsStories.OnPrimary} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <StepsNumbersDoTemplate />,
+        description: "Use steps with numbers type for use cases of steps with more than 5 steps."
+      },
+      negative: {
+        component: <StepsGalleryDontTemplate />,
+        description: "Don't use the gallery type steps component for more than 5 steps."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Navigable Steps
+
+Navigable steps with proper code example.
+
+<Canvas of={StepsStories.NavigableSteps} />
+
+### Steps inside a tipseen
+
+Our Tipseen component includes support for steps as content.
+
+<Canvas of={StepsStories.StepsInsideATipseen} />
+
+## Related components
+
+<RelatedComponents componentsNames={[MULTI_STEP_INDICATOR, BREADCRUBMS, TABS]} />

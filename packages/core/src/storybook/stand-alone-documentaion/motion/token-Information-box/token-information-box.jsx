@@ -1,3 +1,4 @@
+import React from "react";
 import { InformationBox } from "vibe-storybook-components";
 
 export const TokenInformationBox = ({ className, videoSrc, title, description, tokenInfo, tokenDescription }) => {

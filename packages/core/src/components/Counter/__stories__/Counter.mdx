@@ -1,0 +1,111 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import Counter from "../Counter";
+import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import { TipCheckYourself, Usage } from "./Counter.stories.helpers";
+import * as CounterStories from "./Counter.stories";
+
+<Meta of={CounterStories} />
+
+# Counter
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Counters show the count of some adjacent data.
+
+<Canvas of={CounterStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<Usage />
+
+<TipCheckYourself />
+
+## Variants
+
+### Sizes
+
+There are two sizes of counters
+
+<Canvas of={CounterStories.Sizes} />
+
+### Colors
+
+<Canvas of={CounterStories.Colors} />
+
+### Outline
+
+<Canvas of={CounterStories.Outline} />
+
+### Limits
+
+<Canvas of={CounterStories.Limits} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Counter count={15} />,
+        description: "Use counter to notify the number of items, such as notifications, updates, or inbox alerts."
+      },
+      negative: {
+        component: <Counter count="New" />,
+        description: (
+          <>
+            Don’t include any text. If you need a text label, use a{" "}
+            <StorybookLink page="Data display/Label">Label.</StorybookLink>
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: <Counter count={1000} />,
+        description: "Only use a maximum of 3 digits in a counter."
+      },
+      negative: {
+        component: <Counter count={1050} maxDigits={4} />,
+        description: "Don’t use more than 3 digits in a counter."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Notification counter
+
+Used on the notification icon to indicate the number of new notifications.
+
+<Canvas of={CounterStories.NotificationCounter} />
+
+### Counter on inbox filters
+
+The counter represents the number of items on each topic.
+
+<Canvas of={CounterStories.CounterOnInboxFilters} />
+
+### Count the number of updates
+
+The counter represents the number of items on each topic.
+
+<Canvas of={CounterStories.CountTheNumberOfUpdates} />
+
+## Related components
+
+<RelatedComponents componentsNames={[LABEL, TOOLTIP, CHIP]} />

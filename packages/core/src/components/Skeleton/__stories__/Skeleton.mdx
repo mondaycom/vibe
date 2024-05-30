@@ -1,0 +1,126 @@
+import Skeleton from "../Skeleton";
+import { Canvas, Meta } from "@storybook/blocks";
+import {
+  COUNTER,
+  LINEAR_PROGRESS_BAR,
+  SPINNER
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipLoader } from "./Skeleton.stories.helpers";
+import * as SkeletonStories from "./Skeleton.stories";
+import "./Skeleton.stories.scss";
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Skeleton loading componet used to indicate content and ui loading that will appear after its loaded. It helps to decrease perceived duration time
+
+<Canvas of={SkeletonStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Mimic the user interface that is going to be loaded as much as possible",
+    "Animation on the skeleton is a repeating color pulse should move from left to right to indicate the lading state"
+  ]}
+/>
+
+<TipLoader />
+
+## Variants
+
+### Shapes
+
+Use shaes to mimic Avatars, images, buttons etc...
+
+<Canvas of={SkeletonStories.Shapes} />
+
+### Text
+
+Presents a classic menu or equivalent picker
+
+<Canvas of={SkeletonStories.Text} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+          </div>
+        ),
+        description: "Show only representation of ui."
+      },
+      negative: {
+        component: (
+          <div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+            <div className="monday-storybook-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+          </div>
+        ),
+        description: "Show all the user interface exactly."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Update in the system
+
+Use this menu to allow a user to either select one or more items from the list.
+
+<Canvas of={SkeletonStories.UpdateInTheSystem} />
+
+## Related components
+
+<RelatedComponents componentsNames={[LINEAR_PROGRESS_BAR, COUNTER, SPINNER]} />

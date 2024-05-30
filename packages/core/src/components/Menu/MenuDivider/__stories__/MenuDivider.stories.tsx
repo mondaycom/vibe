@@ -1,3 +1,4 @@
+import React from "react";
 import MenuDivider from "../MenuDivider";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Menu from "../../Menu/Menu";

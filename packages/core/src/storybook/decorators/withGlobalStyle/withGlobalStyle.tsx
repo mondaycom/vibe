@@ -1,3 +1,4 @@
+import React from "react";
 import { MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import cx from "classnames";
 import styles from "./withGlobalStyle.module.scss";

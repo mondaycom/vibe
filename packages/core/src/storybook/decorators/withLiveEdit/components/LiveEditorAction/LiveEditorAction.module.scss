@@ -1,0 +1,20 @@
+.action {
+  opacity: 0.6;
+  border: 0;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.action:hover:not([disabled]) {
+  opacity: 0.8;
+  transition: opacity 0.1s ease;
+}
+
+.action[disabled] {
+  cursor: not-allowed;
+  color: #000;
+  opacity: 0.3;
+}

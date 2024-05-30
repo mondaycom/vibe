@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Link from "../../../../components/Link/Link";
 import { ExternalPage } from "../../../../components/Icon/Icons";

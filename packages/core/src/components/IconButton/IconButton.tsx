@@ -37,13 +37,26 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   icon?: SubIcon;
   /**
+   * element id to describe the button accordingly
+   * */
+  ariaLabeledBy?: string;
+  /**
    * a11y property to be added, used for screen reader to know what kind of button it is
    */
   ariaLabel?: string;
   /**
+   * aria for a button popup
+   */
+  ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
+  /**
    * a11y property to be added, used for screen reader to know if the button is expanded
    */
   ariaExpanded?: boolean;
+  /**
+   * aria controls - receives id for the controlled region
+   */
+  ariaControls?: string;
+  "aria-describedby"?: AriaAttributes["aria-describedby"];
   /**
    * a11y property to be added, used for screen reader to know if the button is hidden
    */
@@ -106,8 +119,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
       size = IconButton.sizes.MEDIUM,
       tooltipProps = {} as TooltipProps,
       tooltipContent,
+      ariaLabeledBy,
       ariaLabel,
+      ariaHasPopup,
       ariaExpanded,
+      ariaControls,
+      "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       hideTooltip = false,
       kind = IconButton.kinds.TERTIARY,
@@ -190,8 +207,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
             disabled={disabled}
             color={color}
             kind={kind}
+            ariaLabeledBy={ariaLabeledBy}
             ariaLabel={buttonAriaLabel}
+            ariaHasPopup={ariaHasPopup}
             ariaExpanded={ariaExpanded}
+            ariaControls={ariaControls}
+            aria-describedby={ariaDescribedBy}
             aria-hidden={ariaHidden}
             ref={mergedRef}
             id={id}

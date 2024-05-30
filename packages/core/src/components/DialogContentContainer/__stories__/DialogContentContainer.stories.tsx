@@ -1,3 +1,4 @@
+import React from "react";
 import DialogContentContainer from "../DialogContentContainer";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";

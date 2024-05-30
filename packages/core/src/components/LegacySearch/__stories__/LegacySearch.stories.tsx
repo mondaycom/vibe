@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Search from "../LegacySearch";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

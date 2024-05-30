@@ -1,9 +1,11 @@
+import React from "react";
 import TextField from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import { Heading } from "../../../next/next";
 
 type Story = StoryObj<typeof TextField>;
 
@@ -121,7 +123,9 @@ export const Validation: Story = {
 export const TextFieldInAForm: Story = {
   render: () => (
     <div className="monday-storybook-text-field_box">
-      <h1>Dark Mode Feedback From</h1>
+      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD} maxLines={2}>
+        Dark Mode Feedback From
+      </Heading>
       <div className="monday-storybook-text-field_box_wrapper">
         <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
         <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />

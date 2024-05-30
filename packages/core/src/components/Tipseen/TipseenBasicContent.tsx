@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import cx from "classnames";
 import TipseenTitle from "./TipseenTitle";
 import { VibeComponentProps } from "../../types";
@@ -13,7 +13,7 @@ export interface TipseenBasicContentProps extends VibeComponentProps {
   children?: ElementContent | ElementContent[];
 }
 
-const TipseenBasicContent: FC<TipseenBasicContentProps> = ({
+const TipseenBasicContent: React.FC<TipseenBasicContentProps> = ({
   title,
   children = null,
   titleClassName,

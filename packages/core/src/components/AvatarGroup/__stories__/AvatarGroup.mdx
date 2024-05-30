@@ -1,4 +1,4 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import { AVATAR, COUNTER, BADGE } from "../../../storybook/components/related-components/component-description-map";
 import * as AvatarGroupStories from "./AvatarGroup.stories";
@@ -43,7 +43,7 @@ Use this component if you need to stack avatars as a group.
 
 ### Size
 
-As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
+Avatar Group appears in 3 sizes: Small, Medium, and Large.
 
 <Canvas of={AvatarGroupStories.Size} />
 
@@ -52,6 +52,25 @@ As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
 You can use Light or Dark counter color to maintain visual hierarchy.
 
 <Canvas of={AvatarGroupStories.ColorVariants} />
+
+### Clickable vs. Hover
+
+If avatars are clickable, they will be displayed via <StorybookLink page="Navigation/Menu/Menu">Menu</StorybookLink> and user will be able to navigate each additional item.
+Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
+
+<Canvas of={AvatarGroupStories.HoverVsClickable} />
+
+### Disabled
+
+Use when the avatar group is inactive in the specific context.
+
+<Canvas of={AvatarGroupStories.Disabled} />
+
+### Max avatars shown
+
+Choose the ammount of avatars you want to show
+
+<Canvas of={AvatarGroupStories.MaxAvatarsToDisplay} />
 
 ### Custom counter
 
@@ -64,19 +83,6 @@ You can pass `counterProps` to specify counter params.
 When tooltip text for additional avatars is not passed, extra avatars will be displayed in a grid mode.
 
 <Canvas of={AvatarGroupStories.GridTooltip} />
-
-### Max amount to display
-
-Choose the maximum amount of avatars you want to display.
-
-<Canvas of={AvatarGroupStories.MaxAmountToDisplay} />
-
-### Hover vs Clickable
-
-If avatars are clickable, they will be displayed via <StorybookLink page="Navigation/Menu/Menu">Menu</StorybookLink> and user will be able to navigate each additional item.
-Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
-
-<Canvas of={AvatarGroupStories.HoverVsClickable} />
 
 ### Virtualized list
 

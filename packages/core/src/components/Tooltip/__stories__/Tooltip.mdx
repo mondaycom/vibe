@@ -1,0 +1,213 @@
+import Tooltip from "../Tooltip";
+import { Canvas, Meta } from "@storybook/blocks";
+import { Bolt } from "../../Icon/Icons";
+import Icon from "../../Icon/Icon";
+import Button from "../../Button/Button";
+import TabList from "../../Tabs/TabList/TabList";
+import Tab from "../../Tabs/Tab/Tab";
+import Link from "../../Link/Link.tsx";
+import IconButton from "../../IconButton/IconButton";
+import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
+import "./Tooltip.stories.scss";
+import * as TooltipStories from "./Tooltip.stories";
+import { TipOtherComponents, modifiers } from "./Tooltip.stories.helpers";
+import image from "./assets/tooltip-image.png";
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Themes](#themes)
+- [Do's and don'ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Tooltips provide helpful information and can include detailed context about a specific component when a user hovers on it.
+
+<Canvas of={TooltipStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Should never contain critical information that a user would definitely need to proceed.",
+    "Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times.",
+    "Only show 1 tooltip at a time.",
+    "Whenever text is shortened and an ellipsis (...) appears, add a tooltip that contains the full version of the text."
+  ]}
+/>
+
+<TipOtherComponents />
+
+## Variants
+
+### Tooltip with title
+
+Use tooltip with title when you want to present more complex content and you need to add a heading to emphasize the main idea. Titles can also come with an icon.
+
+<Canvas of={TooltipStories.TooltipWithTitle} />
+
+### Tooltip with image
+
+Use tooltip with image to provide a preview for an image or when giving a closer look at a feature.
+
+<Canvas of={TooltipStories.TooltipWithImage} />
+
+### Positions
+
+Tooltip's arrow can appear from top, bottom, left or right.
+
+<Canvas of={TooltipStories.Positions} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Tooltip shouldShowOnMount content="Quick search + B" modifiers={modifiers}>
+            <IconButton kind={IconButton.kinds.SECONDARY} icon={Bolt} iconSize="32" />
+          </Tooltip>
+        ),
+        description: "Use tooltips for interactive imagery."
+      },
+      negative: {
+        component: (
+          <Tooltip shouldShowOnMount content="Quick search + B" modifiers={modifiers}>
+            <Button>Quick search</Button>
+          </Tooltip>
+        ),
+        description: "Don't use tooltips to restate visible UI text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <TabList className="monday-storybook-tooltip_tabs">
+            <Tab>Boards</Tab>
+            <Tab>Items</Tab>
+          </TabList>
+        ),
+        description: "If an element doesn't need additional clarification, don't use a tooltip."
+      },
+      negative: {
+        component: (
+          <TabList className="monday-storybook-tooltip_tabs">
+            <Tooltip shouldShowOnMount content="Boards" position={Tooltip.positions.BOTTOM} modifiers={modifiers}>
+              <Tab>Boards</Tab>
+            </Tooltip>
+            <Tab>Items</Tab>
+          </TabList>
+        ),
+        description: "Don't use tooltips to restate text that is already displayed within the element."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Tooltip
+            shouldShowOnMount
+            withMaxWidth
+            title="I'm a rich tooltip"
+            modifiers={modifiers}
+            content={
+              <div>
+                I have a title, text, image and I can come{" "}
+                <Link text="with a link" inlineText className="monday-storybook-tooltip_link" />.
+              </div>
+            }
+          >
+            <div className="monday-storybook-tooltip_position-bottom" />
+          </Tooltip>
+        ),
+        description: "Add links inline and in the same color of the text."
+      },
+      negative: {
+        component: (
+          <Tooltip
+            shouldShowOnMount
+            withMaxWidth
+            title="I'm a rich tooltip"
+            modifiers={modifiers}
+            content={
+              <div>
+                I have a title, text, image and I can come with a link. <Link text="Read more" />
+              </div>
+            }
+          >
+            <div className="monday-storybook-tooltip_position-bottom" />
+          </Tooltip>
+        ),
+        description: "Don't add links on a separate line or in a different color from the text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Tooltip
+            content="Empower users to visualize data."
+            withMaxWidth
+            shouldShowOnMount
+            image={image}
+            position={Tooltip.positions.RIGHT}
+            modifiers={modifiers}
+          >
+            <div className="monday-storybook-tooltip_position-left" />
+          </Tooltip>
+        ),
+        description: "Use this app to visualize data."
+      },
+      negative: {
+        component: (
+          <Tooltip
+            content="View our automation center."
+            withMaxWidth
+            shouldShowOnMount
+            image={image}
+            position={Tooltip.positions.RIGHT}
+            modifiers={modifiers}
+          >
+            <div className="monday-storybook-tooltip_position-left" />
+          </Tooltip>
+        ),
+        description: "Don't add an image just for aesthetic reasons, or if it doesn't help the user."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Icon tooltip
+
+An icon tooltip is used to clarify the action or name of an interactive icon button. Provide tooltips for all unlabelled icons.
+
+<Canvas of={TooltipStories.IconTooltip} />
+
+### Definition tooltip
+
+The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
+
+<Canvas of={TooltipStories.DefinitionTooltip} />
+
+### Immediate tooltips
+
+Immediately show when another is shown. The two left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
+
+<Canvas of={TooltipStories.ImmediateTooltips} />
+
+## Related components
+
+<RelatedComponents componentsNames={[CHIP, LABEL, TIPSEEN]} />

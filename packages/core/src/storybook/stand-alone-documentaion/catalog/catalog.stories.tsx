@@ -1,3 +1,4 @@
+import React from "react";
 import { CatalogTemplate } from "./Catalog/Catalog.stories.templates";
 import { Meta, StoryObj } from "@storybook/react";
 

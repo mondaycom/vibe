@@ -1,3 +1,4 @@
+import React from "react";
 import Heading from "../LegacyHeading";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";

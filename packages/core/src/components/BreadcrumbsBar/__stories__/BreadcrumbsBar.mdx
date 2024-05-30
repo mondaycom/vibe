@@ -1,0 +1,135 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import BreadcrumbsBar from "../BreadcrumbsBar";
+import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
+import Avatar from "../../Avatar/Avatar";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
+import person3 from "./assets/person3.png";
+import {
+  BUTTON_GROUP,
+  MULTI_STEP_INDICATOR,
+  TABS
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipCheckYourself } from "./BreadcrumbsBar.stories.helpers";
+import * as BreadcrumbsBarStories from "./BreadcrumbsBar.stories";
+
+<Meta of={BreadcrumbsBarStories} />
+
+# BreadcrumbsBar
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Breadcrumbs allow users to keep track and maintain awareness of their location as they navigate through pages, folders, files, etc.
+
+<Canvas of={BreadcrumbsBarStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Breadcrumbs show users their current location relative to the information architecture and enable them to quickly move up to a parent level or previous step",
+    "Effective in a hierarchy of more than two levels.",
+    "Start with the highest level parent page and move deeper into the information architecture as the breadcrumb trail progresses.",
+    "Use breadcrumbs when the user is most likely to have landed on the page from an external source.",
+    "Place breadcrumbs at the top left corner of the screen, above the page title."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### Text only
+
+<Canvas of={BreadcrumbsBarStories.TextOnly} />
+
+### With icons
+
+<Canvas of={BreadcrumbsBarStories.WithIcons} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+            <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
+            <BreadcrumbItem text="Folder" icon={Folder} />
+            <BreadcrumbItem text="Board" icon={Board} />
+            <BreadcrumbItem text="Group" icon={Group} />
+          </BreadcrumbsBar>
+        ),
+        description: "If there’s a need to insert an icon, use for all items."
+      },
+      negative: {
+        component: (
+          <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+            <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
+            <BreadcrumbItem text="Folder" />
+            <BreadcrumbItem text="Board" />
+            <BreadcrumbItem text="Group" />
+          </BreadcrumbsBar>
+        ),
+        description: "Don’t use icons if not applied to all steps."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+                <BreadcrumbItem text="User research" icon={Board} />
+                <BreadcrumbItem text="Video sessions" icon={Group} />
+              </BreadcrumbsBar>
+            </div>
+          </DialogContentContainer>
+        ),
+        description: "Use breadcrumbs when there is more than two levels of hierarchy."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+                <BreadcrumbItem text="User research" icon={Board} />
+              </BreadcrumbsBar>
+            </div>
+          </DialogContentContainer>
+        ),
+        description: "Don’t use breadcrumbs when there is only one level of navigation or hierachy."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Navigatable breadcrumbs
+
+Use when breadcrumbs are clickable and are used for information and navigation
+
+<Canvas of={BreadcrumbsBarStories.NavigatableBreadcrumbs} />
+
+## Related components
+
+<RelatedComponents componentsNames={[BUTTON_GROUP, MULTI_STEP_INDICATOR, TABS]} />

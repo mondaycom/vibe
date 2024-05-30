@@ -1,0 +1,197 @@
+import { Meta } from "@storybook/blocks";
+import Combobox from "../Combobox";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { DROPDOWN, MENU, SEARCH } from "../../../storybook/components/related-components/component-description-map";
+import { TipOtherComponents } from "./Combobox.stories.helpers";
+import * as ComboboxStories from "./Combobox.stories";
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Combobox allowing users to filter longer lists to only the selections matching a query.
+
+<Canvas of={ComboboxStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
+    "The menu opens by clicking anywhere in the field.",
+    "The option that best matches the typed characters is highlighted.",
+    "Limit the text content of Combobox items to a single line.",
+    "Could be used inside a dialog or as a standalone component."
+  ]}
+/>
+
+<TipOtherComponents />
+
+## Variants
+
+### Default
+
+Default Combobox can be used without dialog or as part of the layout.
+
+<Canvas of={ComboboxStories.Default} />
+
+### Combobox inside a dialog
+
+Use this for Combobox that triggered by button.
+
+<Canvas of={ComboboxStories.ComboboxInsideADialog} />
+
+### Sizes
+
+We have three pre-defined sizes for Combobox width size: Small 200px, Medium 240px, Large 260px.
+
+<Canvas of={ComboboxStories.Sizes} />
+
+### With categories
+
+When having a lot of options, you may use headings to categorize them.
+
+<Canvas of={ComboboxStories.WithCategories} />
+
+### With icons
+
+<Canvas of={ComboboxStories.WithIcons} />
+
+### With optionRenderer
+
+<Canvas of={ComboboxStories.WithOptionRenderer} />
+
+### With Button
+
+If Combobox requires action, use button component at the end of the list.
+
+<Canvas of={ComboboxStories.WithButton} />
+
+### With creation when no items are available
+
+<Canvas of={ComboboxStories.WithCreation} />
+
+### With virtualization optimization
+
+When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
+better user experience.
+
+<Canvas of={ComboboxStories.WithVirtualizationOptimization} />
+
+### Loading state
+
+If importing the Combobox options may take time, you reflect this to the user by using our Combobox loading mode.
+
+<Canvas of={ComboboxStories.LoadingState} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      className: "combobox-stories-styles_big-figure",
+      positive: {
+        component: (
+          <DialogContentContainer>
+            <Combobox
+              placeholder="Day"
+              options={[
+                { id: "1", label: "1 Days" },
+                { id: "2", label: "2 Days" },
+                { id: "3", label: "3 Days" },
+                { id: "4", label: "4 Days" },
+                { id: "5", label: "5 Days" }
+              ]}
+            />
+          </DialogContentContainer>
+        ),
+        description: "Use Combobox to make large lists easier to search."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer>
+            <Combobox
+              placeholder="Day"
+              options={[
+                { id: "1", label: "1 Days" },
+                { id: "2", label: "2 Days" },
+                { id: "3", label: "3 Days" }
+              ]}
+            />
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don’t use Combobox if you have less than 5 list items. If it's not complex enough for a Combobox, use a{" "}
+            <StorybookLink page="Inputs/RadioButton">Radio button</StorybookLink> or{" "}
+            <StorybookLink page="Inputs/Dropdown">Dropdown.</StorybookLink>
+          </>
+        )
+      }
+    },
+    {
+      className: "combobox-stories-styles_big-figure",
+      positive: {
+        component: (
+          <DialogContentContainer>
+            <Combobox
+              placeholder="Search names"
+              options={[
+                { id: "1", label: "Hadas" },
+                { id: "2", label: "Orr" },
+                { id: "3", label: "Evgeniy" },
+                { id: "4", label: "Moshe" },
+                { id: "5", label: "Sahar" }
+              ]}
+            />
+          </DialogContentContainer>
+        ),
+        description: "Use the Combobox input to filter results from the list."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer>
+            <Combobox
+              placeholder="Search everything"
+              options={[
+                { id: "1", label: "Hadas" },
+                { id: "2", label: "Orr" },
+                { id: "3", label: "Evgeniy" },
+                { id: "4", label: "Moshe" },
+                { id: "5", label: "Sahar" }
+              ]}
+            />
+          </DialogContentContainer>
+        ),
+        description: "Don’t use the Combobox as a search input to search results that are not within the list."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Combobox as person picker
+
+We are using Combobox component for our board person picker.
+
+<Canvas of={ComboboxStories.ComboboxAsPersonPicker} />
+
+## Related components
+
+<RelatedComponents componentsNames={[DROPDOWN, MENU, SEARCH]} />
