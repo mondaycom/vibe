@@ -36,8 +36,8 @@ export const Overview = {
 
   args: {
     label: "This is a chip",
-    onMouseDown: undefined,
-    onClick: undefined
+    onMouseDown: () => {},
+    onClick: () => {}
   }
 };
 
@@ -96,6 +96,7 @@ export const ChipsPalette = {
   render: () => {
     const excludedColors = [Chips.colors.DARK_INDIGO, Chips.colors.BLACKISH];
     const allowedColorsChunks = _chunk(
+      // @ts-ignore
       Object.keys(Chips.colors).filter(k => !excludedColors.includes(Chips.colors[k])),
       7
     );
@@ -107,7 +108,7 @@ export const ChipsPalette = {
         }}
         align={Flex.align.STRETCH}
       >
-        {allowedColorsChunks.map(colorChunk => {
+        {allowedColorsChunks.map((colorChunk: any) => {
           return (
             <Flex
               direction={Flex.directions.COLUMN}
@@ -115,7 +116,8 @@ export const ChipsPalette = {
               justify={Flex.justify.SPACE_BETWEEN}
               align={Flex.align.STRETCH}
             >
-              {colorChunk.map(colorName => (
+              {colorChunk.map((colorName: any) => (
+                // @ts-ignore
                 <Chips label={colorName} key={colorName} color={Chips.colors[colorName]} readOnly allowTextSelection />
               ))}
             </Flex>

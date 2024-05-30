@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
-import Combobox from "../Combobox";
+import Combobox, { ComboboxProps } from "../Combobox";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
@@ -30,7 +30,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const comboboxTemplate = args => {
+const comboboxTemplate = (args: ComboboxProps) => {
   return (
     <DialogContentContainer>
       <Combobox {...args} />
@@ -237,7 +237,12 @@ export const WithCategories = {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <StoryDescription description="Regular" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="Regular"
+          vertical
+          // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -246,7 +251,12 @@ export const WithCategories = {
             <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
         </StoryDescription>
-        <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="Sticky mode"
+          vertical
+          // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -255,7 +265,11 @@ export const WithCategories = {
             <Combobox stickyCategories options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
         </StoryDescription>
-        <StoryDescription description="With divider" vertical align={Flex.align.START}>
+        <StoryDescription
+          description="With divider"
+          vertical // @ts-ignore
+          align={Flex.align.START}
+        >
           <DialogContentContainer
             style={{
               height: "200px"
@@ -348,7 +362,7 @@ export const WithOptionRenderer = {
       ],
       []
     );
-    const optionRenderer = option => (
+    const optionRenderer = (option: any) => (
       <div>
         <Icon icon={Person} /> I can render anything with {option.label}
       </div>
@@ -584,6 +598,7 @@ export const WithVirtualizationOptimization = {
       >
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
+          // @ts-ignore
           align={Flex.align.START}
           description="Virtualization optimization without categories"
           vertical
@@ -609,6 +624,7 @@ export const WithVirtualizationOptimization = {
         </StoryDescription>
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
+          // @ts-ignore
           align={Flex.align.START}
           description="Virtualization optimization with categories"
           vertical
@@ -635,6 +651,7 @@ export const WithVirtualizationOptimization = {
         </StoryDescription>
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
+          // @ts-ignore
           align={Flex.align.START}
           description="Virtualization optimization with sticky categories"
           vertical
