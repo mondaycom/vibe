@@ -36,7 +36,6 @@ exports[`exports should export all components 1`] = `
   "DropdownOption",
   "DropdownSingleValue",
   "EditableHeading",
-  "EditableInput",
   "EditableText",
   "ExpandCollapse",
   "Flex",
@@ -72,7 +71,6 @@ exports[`exports should export all components 1`] = `
   "RadioButton",
   "ResponsiveList",
   "Search",
-  "SearchComponent",
   "Skeleton",
   "Slider",
   "SplitButton",
@@ -108,13 +106,5 @@ exports[`exports should export all components 1`] = `
   "VirtualizedGrid",
   "VirtualizedList",
   "useGridKeyboardNavigationContext",
-]
-`;
-
-exports[`exports should export next all components 1`] = `
-[
-  "EditableHeading",
-  "Heading",
-  "Search",
 ]
 `;
