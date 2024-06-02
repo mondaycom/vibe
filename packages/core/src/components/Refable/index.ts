@@ -1,1 +1,1 @@
-export { default as Refable, RefableProps } from "./Refable";
+export { Refable } from "./Refable";
