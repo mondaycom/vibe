@@ -97,11 +97,9 @@ export const DialogAsModalBadExample = () => {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <Heading
-          className={cx(styles.modalDialogBadExample, styles.heading)}
-          type={Heading.types.h2}
-          value="Dialog title"
-        />
+        <Heading className={cx(styles.modalDialogBadExample, styles.heading)} type={Heading.types.H2}>
+          Dialog title
+        </Heading>
         Dialog content
         <ModalFooterButtons
           primaryButtonText="Confirm"
