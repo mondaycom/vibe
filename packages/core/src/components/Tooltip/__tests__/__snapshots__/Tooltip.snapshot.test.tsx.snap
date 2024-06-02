@@ -347,14 +347,14 @@ exports[`Tooltip renders correctly with theme 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip error paddingSizeUndefined"
+        className="tooltip primary paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow error paddingSizeUndefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

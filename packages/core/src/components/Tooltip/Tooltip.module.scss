@@ -60,45 +60,8 @@ $tooltip-z-index: 9999999999999999;
   color: var(--text-color-on-inverted);
 }
 
-.white,
-.arrow.white {
-  background-color: var(--color-snow_white);
-  color: var(--color-blackish);
-  box-shadow: var(--box-shadow-medium);
-}
-
 .primary,
 .arrow.primary {
   background-color: var(--primary-color);
-  color: var(--text-color-on-primary);
-}
-
-.success,
-.arrow.success {
-  background-color: var(--positive-color);
-  color: var(--text-color-on-primary);
-}
-
-.surface,
-.arrow.surface {
-  background-color: #5b607a;
-  color: var(--color-snow_white);
-}
-
-.private,
-.arrow.private {
-  background-color: var(--private-color);
-  color: var(--text-color-on-primary);
-}
-
-.share,
-.arrow.share {
-  background-color: var(--shareable-color);
-  color: var(--text-color-on-primary);
-}
-
-.error,
-.arrow.error {
-  background-color: var(--negative-color);
   color: var(--text-color-on-primary);
 }
