@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.111.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.110.0...monday-ui-react-core@2.111.0) (2024-06-02)
+
+
+### Bug Fixes
+
+* **colors:** align dark orange to a11y requirments ([#2155](https://github.com/mondaycom/vibe/issues/2155)) ([68901cc](https://github.com/mondaycom/vibe/commit/68901cc3bfc881822fc57ca95cc94fe50d55b844))
+* export next components types ([#2158](https://github.com/mondaycom/vibe/issues/2158)) ([25505f7](https://github.com/mondaycom/vibe/commit/25505f73be0d25cfc961e66bd127f7efb1c17ee8))
+
+
+### Features
+
+* **AvatarGroup:** add disabled state ([#2126](https://github.com/mondaycom/vibe/issues/2126)) ([cf65f6b](https://github.com/mondaycom/vibe/commit/cf65f6ba005107247cc2cf45d618d95ae6103c68))
+* **Box:** add style prop ([#2149](https://github.com/mondaycom/vibe/issues/2149)) ([87c987d](https://github.com/mondaycom/vibe/commit/87c987d16767396583972b59392c75a25fb90fa5))
+* export component types ([#2153](https://github.com/mondaycom/vibe/issues/2153)) ([18b9f51](https://github.com/mondaycom/vibe/commit/18b9f5100a73d8cda4cb60b11188544c608f7e64))
+
+
+
+
+
 # [2.110.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.1...monday-ui-react-core@2.110.0) (2024-05-28)
 
 
