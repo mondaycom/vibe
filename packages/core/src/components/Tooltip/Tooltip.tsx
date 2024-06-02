@@ -5,7 +5,6 @@ import React, { CSSProperties, isValidElement, PureComponent, ReactElement } fro
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
-import { DialogPosition } from "../../constants/positions";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
@@ -16,6 +15,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
+import { TooltipPositionsType } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -89,7 +89,7 @@ interface TooltipBaseProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: DialogPosition;
+  position?: TooltipPositionsType;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
@@ -147,7 +147,6 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static positions = DialogPosition;
   static hideShowTriggers = HideShowEvent;
   static themes = TooltipTheme;
   static animationTypes = AnimationType;
@@ -157,7 +156,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
     theme: TooltipTheme.Dark,
-    position: Tooltip.positions.TOP,
+    position: "top",
     justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 0,
     showDelay: 300,
