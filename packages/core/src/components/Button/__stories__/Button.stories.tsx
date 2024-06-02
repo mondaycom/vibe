@@ -42,7 +42,7 @@ export const Overview: Story = {
 export const ButtonKinds: Story = {
   render: () => (
     <>
-      <Button dataTestId="ssssss">Primary</Button>
+      <Button>Primary</Button>
       <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
       <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
     </>
