@@ -261,6 +261,12 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     if (overrideShouldCallbackOnMount && isOpen) {
       onDialogDidShow && onDialogDidShow();
     }
+
+    if (this.props.shoudlCallbackOnMount) {
+      console.warn(
+        "Dialog: `shoudlCallbackOnMount` is deprecated and will be removed in the next major version, please use `shouldCallbackOnMount` instead. [monday-ui-react-core]"
+      );
+    }
   }
 
   componentWillUnmount() {

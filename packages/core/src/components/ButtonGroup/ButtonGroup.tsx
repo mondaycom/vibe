@@ -15,6 +15,7 @@ import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -80,6 +81,8 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ componentClassName }, { componentClassName: "className" }, "ButtonGroup");
+
     const inputRef = useRef();
     const mergedRef = useMergeRef(ref, inputRef);
 

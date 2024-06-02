@@ -9,6 +9,7 @@ import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
@@ -80,6 +81,8 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
     },
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
+    useWarnDeprecatedProps({ componentClassName }, { componentClassName: "className" }, "RadioButton");
+
     const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRef(ref, inputRef);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);

@@ -7,6 +7,7 @@ import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface ClickableProps extends VibeComponentProps {
   /**
@@ -66,6 +67,7 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
     },
     ref: React.ForwardedRef<HTMLElement>
   ) => {
+    useWarnDeprecatedProps({ dataTestId: backwardCompatabilityDataTestId }, { dataTestId: "data-testid" }, "Clickable");
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const clickableProps = useClickableProps(
       {

@@ -15,6 +15,7 @@ import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "..
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
@@ -61,6 +62,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close"
 }) => {
+  useWarnDeprecatedProps({ componentClassName }, { componentClassName: "className" }, "AttentionBox");
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
       return "alert";

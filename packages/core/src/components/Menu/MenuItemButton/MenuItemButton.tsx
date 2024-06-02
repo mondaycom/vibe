@@ -13,6 +13,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   /**
@@ -67,6 +68,8 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   id,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ classname }, { classname: "className" }, "MenuItemButton");
+
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const mergedRef = useMergeRef(ref, referenceElementRef);

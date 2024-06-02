@@ -8,6 +8,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 export interface MenuTitleProps extends VibeComponentProps {
   /**
@@ -31,6 +32,8 @@ const MenuTitle: FC<MenuTitleProps> & {
   id,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ classname }, { classname: "className" }, "MenuTitle");
+
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const renderCaptionIfNeeded = () => {
     if (caption) {

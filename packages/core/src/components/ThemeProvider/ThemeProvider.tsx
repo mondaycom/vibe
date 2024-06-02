@@ -11,6 +11,7 @@ import {
 } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface ThemeProviderProps {
   /**
@@ -43,6 +44,8 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
 } = ({ themeConfig, theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
+  useWarnDeprecatedProps({ theme }, { theme: "themeConfig" }, "ThemeProvider");
+
   const overrideThemeConfig = backwardCompatibilityForProperties([themeConfig, theme]);
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(

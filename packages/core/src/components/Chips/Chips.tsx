@@ -16,6 +16,8 @@ import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Chips.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
+import { is } from "@babel/types";
 
 const CHIPS_AVATAR_SIZE = 20;
 
@@ -132,10 +134,18 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       showBorder = false,
       leftRenderer,
       rightRenderer,
-      closeButtonAriaLabel = "Remove"
+      closeButtonAriaLabel = "Remove",
+      clickable,
+      isClickable
     },
     ref
   ) => {
+    useWarnDeprecatedProps(
+      { dataTestId: backwardCompatabilityDataTestId, clickable, isClickable },
+      { dataTestId: "data-testid", clickable: "onClick", isClickable: "onClick" },
+      "Chips"
+    );
+
     const overrideDataTestId = backwardCompatibilityForProperties(
       [dataTestId, backwardCompatabilityDataTestId],
       getTestId(ComponentDefaultTestId.CHIP, id)

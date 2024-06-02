@@ -6,6 +6,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { VibeComponentProps } from "../../../types";
 import { FC } from "react";
 import styles from "./MenuDivider.module.scss";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 export interface MenuDividerProps extends VibeComponentProps {
   /**
@@ -21,6 +22,8 @@ const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
   id,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ classname }, { classname: "className" }, "MenuDivider");
+
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
     <Divider

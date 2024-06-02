@@ -12,6 +12,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
 import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface CounterProps extends VibeComponentProps {
   /** id to pass to the element */
@@ -67,6 +68,8 @@ const Counter: React.FC<CounterProps> & {
   noAnimation = false,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ wrapperClassName }, { wrapperClassName: "className" }, "Counter");
+
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
 

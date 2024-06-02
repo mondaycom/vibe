@@ -8,6 +8,7 @@ import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbItem.module.scss";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
 const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
@@ -47,6 +48,8 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   id,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ isDisabled }, { isDisabled: "disabled" }, "BreadcrumbItem");
+
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
   const componentRef = useRef<HTMLSpanElement>(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });

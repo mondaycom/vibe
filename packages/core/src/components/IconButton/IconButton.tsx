@@ -14,6 +14,7 @@ import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
@@ -141,6 +142,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps(
+      { dataTestId: backwardCompatabilityDataTestId },
+      { dataTestId: "data-testid" },
+      "IconButton"
+    );
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 

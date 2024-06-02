@@ -9,6 +9,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface StepsProps extends VibeComponentProps {
   /**
@@ -58,6 +59,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ isOnPrimary }, { isOnPrimary: "color" }, "Steps");
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const overrideColor = backwardCompatibilityForProperties([

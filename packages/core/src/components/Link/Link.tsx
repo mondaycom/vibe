@@ -7,6 +7,7 @@ import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface LinkProps extends VibeComponentProps {
   /**
@@ -74,6 +75,8 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
     },
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
+    useWarnDeprecatedProps({ componentClassName }, { componentClassName: "className" }, "Link");
+
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const isStart = iconPosition === IconPosition.START;
 

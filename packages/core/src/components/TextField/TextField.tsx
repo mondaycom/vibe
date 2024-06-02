@@ -23,6 +23,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -142,6 +143,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ dataTestId: backwardCompatibilityDataTestId }, { dataTestId: "data-testid" }, "TextField");
+
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
     const overrideDataTestId = backwardCompatibilityForProperties(

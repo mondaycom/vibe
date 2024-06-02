@@ -20,6 +20,7 @@ import { TooltipTheme } from "../Tooltip/TooltipConstants";
 import { ButtonColor } from "../Button/ButtonConstants";
 import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
@@ -112,6 +113,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ isCloseButtonHidden }, { isCloseButtonHidden: "hideCloseButton" }, "Tipseen");
+
     const defaultDelayOpen =
       Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
 

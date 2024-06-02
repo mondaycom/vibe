@@ -17,6 +17,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
@@ -65,6 +66,12 @@ const TipseenContent: FC<TipseenContentProps> = ({
   // Backward compatibility for props naming
   submitButtonProps = EMPTY_OBJECT
 }) => {
+  useWarnDeprecatedProps(
+    { isDismissHidden, isSubmitHidden },
+    { isDismissHidden: "hideDismiss", isSubmitHidden: "hideSubmit" },
+    "TipseenContent"
+  );
+
   const overrideHideDismiss = backwardCompatibilityForProperties([hideDismiss, isDismissHidden], true);
   const overrideHideSubmit = backwardCompatibilityForProperties([hideSubmit, isSubmitHidden], false);
   const dismissContent = dismissButtonProps.content || dismissButtonProps.children;

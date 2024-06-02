@@ -13,6 +13,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { mapSizesToTextSize, Sizes } from "./Label.types";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -55,6 +56,8 @@ const Label: VibeComponent<LabelProps> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ wrapperClassName }, { wrapperClassName: "className" }, "Label");
+
     const labelRef = useRef<HTMLSpanElement>(null);
     const mergedRef = useMergeRef(ref, labelRef);
     const [isCelebrationAnimation, setIsCelebrationAnimation] = useState(celebrationAnimation);

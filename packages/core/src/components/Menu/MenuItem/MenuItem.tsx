@@ -35,6 +35,7 @@ import IconButton from "../../IconButton/IconButton";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -136,6 +137,8 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
+    useWarnDeprecatedProps({ classname }, { classname: "className" }, "MenuItem");
+
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const hasChildren = !!children;

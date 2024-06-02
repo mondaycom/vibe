@@ -13,6 +13,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Avatar.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface AvatarProps extends VibeComponentProps {
   src?: string;
@@ -89,6 +90,8 @@ const Avatar: React.FC<AvatarProps> & {
   onClick,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ isSquare, isDisabled }, { isSquare: "square", isDisabled: "disabled" }, "Avatar");
+
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {

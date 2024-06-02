@@ -30,6 +30,7 @@ import { useFocusOnMount } from "./hooks/useFocusOnMount";
 import { useMenuId } from "./hooks/useMenuId";
 import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
+import { useWarnDeprecatedProps } from "../../../helpers/warnDeprecatedProps";
 
 export interface MenuProps extends VibeComponentProps {
   /**
@@ -79,6 +80,8 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
+    useWarnDeprecatedProps({ classname }, { classname: "className" }, "Menu");
+
     const ref = useRef(null);
     const mergedRef = useMergeRef(ref, forwardedRef);
 

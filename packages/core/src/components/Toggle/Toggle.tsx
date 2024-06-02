@@ -7,6 +7,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface ToggleProps extends VibeComponentProps {
   /**
@@ -59,6 +60,12 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
     },
     ref
   ) => {
+    useWarnDeprecatedProps(
+      { componentClassName, isDisabled },
+      { componentClassName: "className", isDisabled: "disabled" },
+      "Toggle"
+    );
+
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
     const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
     const wrapperClassName = cx(styles.wrapper);

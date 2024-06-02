@@ -6,6 +6,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface LoaderProps extends VibeComponentProps {
   /**
@@ -28,6 +29,8 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
     { svgClassName, className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
+    useWarnDeprecatedProps({ svgClassName }, { svgClassName: "className" }, "Loader");
+
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
     const sizeStyle = useMemo(() => {

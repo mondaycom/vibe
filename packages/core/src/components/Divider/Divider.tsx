@@ -6,6 +6,7 @@ import { DirectionType } from "./DividerConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface DividerProps extends VibeComponentProps {
   direction?: DirectionType;
@@ -27,6 +28,8 @@ const Divider: React.FC<DividerProps> & {
   id,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecatedProps({ classname }, { classname: "className" }, "Divider");
+
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
     <div

@@ -16,6 +16,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -152,6 +153,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ dataTestId: backwardCompatabilityDataTestId }, { dataTestId: "data-testid" }, "Button");
+
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, buttonRef);
 

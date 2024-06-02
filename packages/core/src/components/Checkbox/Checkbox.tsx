@@ -12,6 +12,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Text from "../Text/Text";
 import styles from "./Checkbox.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 export interface CheckBoxProps extends VibeComponentProps {
   /** A classname to be added to the wrapping element */
@@ -77,6 +78,8 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
     },
     ref
   ) => {
+    useWarnDeprecatedProps({ componentClassName }, { componentClassName: "className" }, "Checkbox");
+
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
     const iconContainerRef = useRef<HTMLDivElement>(null);

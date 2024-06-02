@@ -19,6 +19,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
+import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
@@ -185,6 +186,16 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     },
     ref
   ) => {
+    useWarnDeprecatedProps(
+      { componentClassName, closeDialogOnContentClick, disabledReason },
+      {
+        componentClassName: "className",
+        closeDialogOnContentClick: "closeMenuOnItemClick",
+        disabledReason: "tooltipContent"
+      },
+      "MenuButton"
+    );
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
