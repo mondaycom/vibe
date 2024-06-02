@@ -272,3 +272,5 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   popupsContainerSelector?: string;
   selectProps?: Record<string, string>;
 }
+
+export type DropdownProps = DropdownComponentProps;
