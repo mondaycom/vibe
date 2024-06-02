@@ -17,7 +17,6 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Chips.module.scss";
 import { useWarnDeprecatedProps } from "../../helpers/warnDeprecatedProps";
-import { is } from "@babel/types";
 
 const CHIPS_AVATAR_SIZE = 20;
 
