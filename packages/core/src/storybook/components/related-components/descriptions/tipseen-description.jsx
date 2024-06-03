@@ -44,7 +44,6 @@ export const TipseenDescription = () => {
           modifiers={modifiers}
           width={280}
           position={Tipseen.positions.RIGHT}
-          showDelay={100}
           content={
             <TipseenWizard
               title="This is a title"

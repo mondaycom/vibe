@@ -85,7 +85,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       position = DialogPosition.BOTTOM,
       animationType = AnimationType.EXPAND,
       hideDelay = 0,
-      showDelay = 0,
+      showDelay = 100,
       title,
       titleClassName,
       hideCloseButton,
