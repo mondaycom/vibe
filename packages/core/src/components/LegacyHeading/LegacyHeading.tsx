@@ -1,7 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { DialogPosition, Sizes } from "../../constants";
+import { Sizes } from "../../constants";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
@@ -12,6 +12,7 @@ import { HeadingSizes, HeadingTypes } from "./LegacyHeadingConstants";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./LegacyHeading.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -26,7 +27,7 @@ export interface HeadingProps extends VibeComponentProps {
   highlightTerm?: string;
   customColor?: string;
   style?: CSSProperties;
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
 }
 
 const LegacyHeading: React.FC<HeadingProps> & {

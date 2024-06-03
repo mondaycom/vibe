@@ -93,14 +93,7 @@ export const Positions = {
         <div>
           {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
          Therefore, there is no need to move this prop in your implementations. */}
-          <Tooltip
-            modifiers={modifiers}
-            content="Top"
-            shouldShowOnMount
-            position="bottom"
-            withMaxWidth
-            open
-          >
+          <Tooltip modifiers={modifiers} content="Top" shouldShowOnMount position="bottom" withMaxWidth open>
             <div />
           </Tooltip>
         </div>
@@ -110,26 +103,12 @@ export const Positions = {
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Left"
-            position="right"
-            shouldShowOnMount
-            withMaxWidth
-            open
-          >
+          <Tooltip modifiers={modifiers} content="Left" position="right" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Right"
-            position="left"
-            shouldShowOnMount
-            withMaxWidth
-            open
-          >
+          <Tooltip modifiers={modifiers} content="Right" position="left" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>

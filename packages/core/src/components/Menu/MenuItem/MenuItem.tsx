@@ -13,7 +13,6 @@ import React, {
 import cx from "classnames";
 import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { DialogPosition } from "../../../constants/positions";
 import Text from "../../Text/Text";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
@@ -26,7 +25,7 @@ import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
-import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
+import { TAB_INDEX_FOCUS_WITH_JS_ONLY } from "./MenuItemConstants";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
@@ -35,6 +34,7 @@ import IconButton from "../../IconButton/IconButton";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import { TooltipPositionsType } from "../../Tooltip/Tooltip.types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -56,7 +56,7 @@ export interface MenuItemProps extends VibeComponentProps {
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
   useDocumentEventListeners?: boolean;
   tooltipContent?: string;
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPositionsType;
   tooltipShowDelay?: number;
   tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
@@ -90,7 +90,7 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
 
 const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
-  tooltipPositions?: typeof DialogPosition;
+  tooltipPositions?: TooltipPositionsType;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = forwardRef(
@@ -123,7 +123,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       closeMenu,
       useDocumentEventListeners = false,
       tooltipContent,
-      tooltipPosition = MenuItem.tooltipPositions.RIGHT,
+      tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
       isInitialSelectedState,
@@ -351,7 +351,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         {renderMenuItemIconIfNeeded()}
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
-          position={tooltipPosition}
+          position={tooltipPosition as TooltipPositionsType}
           showDelay={tooltipShowDelay}
           {...tooltipProps}
         >
@@ -395,6 +395,5 @@ Object.assign(MenuItem, {
 });
 
 export default withStaticProps(MenuItem, {
-  iconType: Icon.type,
-  tooltipPositions: DialogPosition
+  iconType: Icon.type
 });

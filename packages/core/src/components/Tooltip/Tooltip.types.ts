@@ -1,5 +1,3 @@
-// import { DialogPosition } from "../../constants";
-
 //TODO Remove once change dialogPosition to const
 export const DialogPosition = {
   TOP: "top",

@@ -5,8 +5,8 @@ import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { DialogPosition } from "../../constants";
 import styles from "./TextWithHighlight.module.scss";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 const getTextPart = (
   text: string,
@@ -43,7 +43,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   /** HTML tag to wrap the selected text */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
   wrappingElementClassName?: string;
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(

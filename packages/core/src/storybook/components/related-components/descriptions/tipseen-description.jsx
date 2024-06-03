@@ -43,7 +43,7 @@ export const TipseenDescription = () => {
         <Tipseen
           modifiers={modifiers}
           width={280}
-          position={Tipseen.positions.RIGHT}
+          position="right"
           showDelay={100}
           content={
             <TipseenWizard

@@ -4,14 +4,14 @@ import Button, { ButtonProps } from "../Button/Button";
 import { HideShowEvent } from "../../constants";
 import Tooltip from "../Tooltip/Tooltip";
 import { MoveBy } from "../../types/MoveBy";
-import { DialogPosition } from "../../constants/positions";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 export interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;

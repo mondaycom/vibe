@@ -194,7 +194,7 @@ export const AvatarWithTooltip = {
           src={person1}
           tooltipProps={{
             content: <b>Julia Martinez</b>,
-            position: Tooltip.positions.BOTTOM
+            position: "bottom"
           }}
           ariaLabel={"Julia Martinez"}
         />
