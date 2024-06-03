@@ -30,14 +30,14 @@ exports[`Tooltip renders correctly with data-testid 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -82,14 +82,14 @@ exports[`Tooltip renders correctly with end arrowPosition 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -134,14 +134,14 @@ exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -186,14 +186,14 @@ exports[`Tooltip renders correctly with justify 1`] = `
       className="contentComponent top edgeEnd hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -238,14 +238,14 @@ exports[`Tooltip renders correctly with position 1`] = `
       className="contentComponent left edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="left"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -290,7 +290,7 @@ exports[`Tooltip renders correctly with style 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
@@ -302,7 +302,7 @@ exports[`Tooltip renders correctly with style 1`] = `
         test
       </div>
       <div
-        className="arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -347,14 +347,14 @@ exports[`Tooltip renders correctly with theme 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip error paddingSizeUndefined"
+        className="tooltip error"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow error paddingSizeUndefined"
+        className="arrow arrow error"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -371,7 +371,7 @@ exports[`Tooltip renders correctly with theme 1`] = `
 
 exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
-  className="tooltip dark paddingSizeUndefined"
+  className="tooltip dark"
 >
   test
 </div>
@@ -407,7 +407,7 @@ exports[`Tooltip renders correctly without arrow 1`] = `
       className="contentComponent top edgeCenter"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
