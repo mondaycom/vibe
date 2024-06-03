@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.111.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.0...monday-ui-react-core@2.111.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* **ResponsiveList:** add static props for backwards ([#2161](https://github.com/mondaycom/vibe/issues/2161)) ([209d6d4](https://github.com/mondaycom/vibe/commit/209d6d492cd7d96b7bbf6cd2fb9d45ebb6ebdf0d))
+
+
+
+
+
 # [2.111.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.110.0...monday-ui-react-core@2.111.0) (2024-06-02)
 
 
