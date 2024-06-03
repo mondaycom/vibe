@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, HideShowEvent, JustifyType } from "../../constants";
 import { DialogPosition } from "../../constants/positions";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
@@ -40,7 +40,6 @@ interface TooltipBaseProps extends VibeComponentProps {
   arrowPosition?: TooltipArrowPosition;
   /** Class name for a tooltip's arrow */
   arrowClassName?: string;
-  paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
    * How much to move the dialog in relative to children
    * main is the axis in which the position is aligned to
@@ -189,7 +188,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style, withMaxWidth, title, image, icon } = this.props;
+    const { theme, content, className, style, withMaxWidth, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -220,7 +219,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           )}
         >
           {image && <img className={styles.image} src={image} alt="" />}
-          <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
+          <div className={cx(styles.content)}>
             {title && (
               <Flex gap={Flex.gaps.XS}>
                 {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
@@ -240,7 +239,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
-          getStyle(styles, camelCase("padding-size-" + paddingSize)),
           { [styles.withMaxWidth]: withMaxWidth },
           className
         )}
@@ -300,7 +298,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       forceRenderWithoutChildren,
       getContainer,
       theme,
-      paddingSize,
       tip,
       arrowClassName,
       id,
@@ -323,12 +320,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
-      tooltipClassName: cx(
-        styles.arrow,
-        getStyle(styles, theme),
-        getStyle(styles, camelCase("padding-size-" + paddingSize)),
-        arrowClassName
-      ),
+      tooltipClassName: cx(styles.arrow, getStyle(styles, theme), arrowClassName),
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,

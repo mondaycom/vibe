@@ -57,12 +57,12 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -92,12 +92,12 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -127,12 +127,12 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -162,12 +162,12 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
