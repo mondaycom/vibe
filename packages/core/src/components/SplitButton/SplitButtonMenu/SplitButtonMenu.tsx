@@ -3,7 +3,7 @@ import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponent from "../../../types/VibeComponent";
 import Menu, { MenuProps } from "../../Menu/Menu/Menu";
 
-type SplitButtonMenuProps = Omit<MenuProps, "focusItemIndexOnMount"> & { children: React.ReactNode };
+export type SplitButtonMenuProps = Omit<MenuProps, "focusItemIndexOnMount"> & { children: React.ReactNode };
 
 const SplitButtonMenu: VibeComponent<SplitButtonMenuProps> = forwardRef(
   ({ children, ...splitButtonMenuProps }: SplitButtonMenuProps, ref) => {

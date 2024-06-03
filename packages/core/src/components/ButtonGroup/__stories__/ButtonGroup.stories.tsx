@@ -253,3 +253,34 @@ export const ButtonGroupAsToggle: Story = {
   ),
   name: "Button group as toggle"
 };
+
+export const FullWidthButtonGroup: Story = {
+  render: () => (
+    <div className="monday-storybook-button-group-full-width">
+      <ButtonGroup
+        groupAriaLabel="Full Width Button Group"
+        fullWidth
+        value={1}
+        options={[
+          {
+            value: 1,
+            text: "Grid"
+          },
+          {
+            value: 2,
+            text: "List"
+          },
+          {
+            value: 3,
+            text: "Table"
+          },
+          {
+            value: 4,
+            text: "Masonry"
+          }
+        ]}
+      />
+    </div>
+  ),
+  name: "Full width button group"
+};
