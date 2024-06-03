@@ -30,6 +30,7 @@ const tooltipTemplate = (args: TooltipProps) => {
         modifiers={modifiers}
         withMaxWidth
         {...args}
+        open
       >
         <div />
       </Tooltip>
@@ -60,6 +61,7 @@ export const TooltipWithTitle = () => (
       shouldShowOnMount
       position="right"
       modifiers={modifiers}
+      open
     >
       <div />
     </Tooltip>
@@ -77,6 +79,7 @@ export const TooltipWithImage = () => (
       position="right"
       modifiers={modifiers}
       className="monday-storybook-tooltip_image__tooltip"
+      open
     >
       <div />
     </Tooltip>
@@ -90,40 +93,22 @@ export const Positions = {
         <div>
           {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
          Therefore, there is no need to move this prop in your implementations. */}
-          <Tooltip
-            modifiers={modifiers}
-            content="Top"
-            shouldShowOnMount
-            position="bottom"
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Top" shouldShowOnMount position="bottom" withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth>
+          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Left"
-            position="right"
-            shouldShowOnMount
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Left" position="right" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Right"
-            position="left"
-            shouldShowOnMount
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Right" position="left" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>

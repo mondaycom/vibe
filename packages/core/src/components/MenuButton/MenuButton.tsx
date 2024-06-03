@@ -19,6 +19,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
@@ -100,7 +101,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
   /**
    * Tooltip Element Wrapper ClassName
    */
@@ -373,7 +374,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
         content={overrideTooltipContent}
-        position={tooltipPosition}
+        position={tooltipPosition as TooltipPositionsType}
         showTrigger={TOOLTIP_SHOW_TRIGGER}
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}

@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
@@ -304,7 +304,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tip,
       arrowClassName,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      position
     } = this.props;
 
     if (!children && !forceRenderWithoutChildren) {
@@ -318,6 +319,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      position: position as DialogPosition,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       startingEdge: justify,
       tooltip: tip,
