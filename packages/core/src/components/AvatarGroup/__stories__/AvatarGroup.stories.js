@@ -8,7 +8,6 @@ import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
-import Tooltip from "../../Tooltip/Tooltip";
 import Table from "../../Table/Table/Table";
 import TableHeader from "../../Table/TableHeader/TableHeader";
 import TableHeaderCell from "../../Table/TableHeaderCell/TableHeaderCell";
@@ -275,7 +274,7 @@ export const HoverVsClickable = {
             size={Avatar.sizes.LARGE}
             max={4}
             counterTooltipCustomProps={{
-              position: Tooltip.positions.BOTTOM
+              position: "bottom"
             }}
           >
             {getDummyAvatarsProps(14).map(avatarProps => (
