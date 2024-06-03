@@ -16,7 +16,6 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
-import { TooltipTheme } from "../Tooltip/TooltipConstants";
 import { ButtonColor } from "../Button/ButtonConstants";
 import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
@@ -191,7 +190,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           content={tooltipContent}
-          theme={color === TipseenColor.INVERTED ? TooltipTheme.Dark : TooltipTheme.Primary}
+          theme={color === TipseenColor.INVERTED ? "dark" : "primary"}
           justify={justify}
           containerSelector={containerSelector}
           disableDialogSlide={false}

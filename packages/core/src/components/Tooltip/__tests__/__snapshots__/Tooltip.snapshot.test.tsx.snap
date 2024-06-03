@@ -347,14 +347,14 @@ exports[`Tooltip renders correctly with theme 1`] = `
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip error"
+        className="tooltip primary"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="arrow arrow error"
+        className="arrow arrow primary"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

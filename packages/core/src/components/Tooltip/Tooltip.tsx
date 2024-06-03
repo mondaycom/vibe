@@ -147,14 +147,13 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static hideShowTriggers = HideShowEvent;
-  static themes = TooltipTheme;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
   static arrowPositions = TooltipArrowPosition;
   static defaultProps = {
     arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
-    theme: TooltipTheme.Dark,
+    theme: "dark",
     position: "top",
     justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 0,
