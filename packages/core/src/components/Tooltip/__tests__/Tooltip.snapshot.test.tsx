@@ -30,7 +30,7 @@ describe("Tooltip renders correctly", () => {
   it("with theme", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" theme={Tooltip.themes.Error}>
+        <Tooltip shouldShowOnMount content="test" theme="primary">
           <div />
         </Tooltip>
       )

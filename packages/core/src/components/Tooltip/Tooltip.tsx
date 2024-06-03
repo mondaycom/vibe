@@ -148,14 +148,13 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static positions = DialogPosition;
   static hideShowTriggers = HideShowEvent;
-  static themes = TooltipTheme;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
   static arrowPositions = TooltipArrowPosition;
   static defaultProps = {
     arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
-    theme: TooltipTheme.Dark,
+    theme: "dark",
     position: Tooltip.positions.TOP,
     justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 0,
