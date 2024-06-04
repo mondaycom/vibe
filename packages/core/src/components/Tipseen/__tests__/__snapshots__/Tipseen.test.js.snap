@@ -158,7 +158,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -214,7 +214,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
         </div>
       </div>
       <div
-        className="arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -247,7 +247,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
     className="contentComponent bottom edgeCenter"
   >
     <div
-      className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth floating"
+      className="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth floating"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
@@ -336,7 +336,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close - deprecat
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -351,7 +351,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close - deprecat
         </div>
       </div>
       <div
-        className="arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -396,7 +396,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -411,7 +411,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
         </div>
       </div>
       <div
-        className="arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -456,7 +456,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -512,7 +512,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
         </div>
       </div>
       <div
-        className="arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
