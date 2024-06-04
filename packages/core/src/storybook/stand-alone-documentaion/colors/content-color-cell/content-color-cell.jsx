@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "./content-color-cell.module.scss";
 
 export const ContentColorCell = ({ children, style }) => {

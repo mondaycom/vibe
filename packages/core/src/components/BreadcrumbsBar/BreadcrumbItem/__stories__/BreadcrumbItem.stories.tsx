@@ -1,3 +1,4 @@
+import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../BreadcrumbsBar";

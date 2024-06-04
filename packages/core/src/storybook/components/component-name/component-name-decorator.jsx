@@ -1,3 +1,4 @@
+import React from "react";
 import cx from "classnames";
 import { ComponentName } from "vibe-storybook-components";
 import "./component-name-decorator.scss";

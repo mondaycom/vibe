@@ -1,3 +1,4 @@
+import React from "react";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
 import { DurationProductiveShort, DurationProductiveMedium, DurationProductiveLong } from "../assets";
 import styles from "./duaration-productive-tokens.module.scss";

@@ -1,5 +1,5 @@
 // eslint-disable-next-line default-param-last
-
+import React from "react";
 import { Tip } from "vibe-storybook-components";
 
 export const generateItems = (defaultItemSize = 30, itemsCount, layout) => {

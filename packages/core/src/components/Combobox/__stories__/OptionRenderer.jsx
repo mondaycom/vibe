@@ -1,3 +1,4 @@
+import React from "react";
 import Avatar from "../../Avatar/Avatar";
 
 export const optionRenderer = ({ src, id, label, position }) => {

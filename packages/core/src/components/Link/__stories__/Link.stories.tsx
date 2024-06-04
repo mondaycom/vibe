@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ExternalPage, Info, Link as IconLink } from "../../Icon/Icons";

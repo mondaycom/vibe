@@ -29,11 +29,11 @@ export interface CustomMenuBaseProps {
   /**
    * ID for the menu container
    */
-  menuId: string;
+  menuId?: string;
   /**
    * aria-label attribute for the menu container
    */
-  menuAriaLabel: string;
+  menuAriaLabel?: string;
 }
 
 export type CustomMenuProps = CustomMenuBaseProps & MenuProps<OptionTypeBase, boolean>;
@@ -272,3 +272,5 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   popupsContainerSelector?: string;
   selectProps?: Record<string, string>;
 }
+
+export type DropdownProps = DropdownComponentProps;

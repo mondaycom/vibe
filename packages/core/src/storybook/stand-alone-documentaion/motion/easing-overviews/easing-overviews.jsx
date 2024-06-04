@@ -1,3 +1,4 @@
+import React from "react";
 import { EasingOverview } from "../easing-overview/easing-overview";
 import {
   EmphesizeElasticEasing,

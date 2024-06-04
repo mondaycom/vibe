@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import VirtualizedList from "../../../../../components/VirtualizedList/VirtualizedList";
 import { generateItems } from "../../../../../components/VirtualizedList/__stories__/VirtualizedList.stories.helpers";

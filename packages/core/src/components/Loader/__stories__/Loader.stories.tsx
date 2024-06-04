@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import Loader from "../Loader";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

@@ -1,3 +1,4 @@
+import React from "react";
 import { Frame } from "vibe-storybook-components";
 import { Button, Heading } from "../../../../components";
 import { peopleColumn } from "../assets";

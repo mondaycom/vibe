@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../../../components/BreadcrumbsBar/BreadcrumbsBar";
 import BreadcrumbItem from "../../../../components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";

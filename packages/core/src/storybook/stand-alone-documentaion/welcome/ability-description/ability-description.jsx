@@ -1,3 +1,4 @@
+import React from "react";
 import { BEMClass } from "../../../../helpers/bem-helper";
 import Link from "../../../../components/Link/Link";
 import "./ability-description.scss";

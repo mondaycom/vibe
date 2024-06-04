@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { person1, person2, person3, person4 } from "../../../../components/Avatar/__stories__/assets";
 import { AvatarGroup, Avatar } from "../../../../components";

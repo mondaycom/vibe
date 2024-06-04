@@ -1,3 +1,4 @@
+import React from "react";
 import { ResizableBox } from "react-resizable";
 import { Activity, Alert, API, Bolt, Broom, Group, Moon, Sun, Open } from "../../Icon/Icons";
 import ResponsiveList from "../ResponsiveList";
