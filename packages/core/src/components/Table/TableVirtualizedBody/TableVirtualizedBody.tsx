@@ -7,19 +7,19 @@ import { useTable } from "../context/TableContext/TableContext";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer from "react-virtualized-auto-sizer";
 
-type Rows = Array<Record<string, unknown> & { id: string }>;
-type Row = Rows[number];
+export type TableVirtualizedRows = Array<Record<string, unknown> & { id: string }>;
+export type TableVirtualizedRow = TableVirtualizedRows[number];
 
 export interface ITableVirtualizedBodyProps extends VibeComponentProps {
-  items: Rows;
-  rowRenderer: (item: Row) => JSX.Element;
+  items: TableVirtualizedRows;
+  rowRenderer: (item: TableVirtualizedRow) => JSX.Element;
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
 const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRenderer, onScroll }) => {
   const { size, rowWidth } = useTable();
 
-  const itemRenderer = useCallback<ComponentType<ListChildComponentProps<Row>>>(
+  const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
     ({ index, style }) => {
       const currentItem = items[index];
       const element = rowRenderer(currentItem);
