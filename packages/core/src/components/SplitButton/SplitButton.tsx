@@ -14,7 +14,7 @@ import {
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
-  SplitButtonSecondaryContentPosition
+  SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticProps } from "../../types";
 import { AnimationType, DialogPosition } from "../../constants";
@@ -44,8 +44,7 @@ export interface SplitButtonProps extends ButtonProps {
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
-  // TODO in next major remove type DialogPosition
-  secondaryDialogPosition?: DialogPosition | SplitButtonSecondaryContentPosition;
+  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
   /*
     Popover Container padding size
    */
@@ -59,8 +58,6 @@ export interface SplitButtonProps extends ButtonProps {
 }
 
 const SplitButton: FC<SplitButtonProps> & {
-  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
-  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
   sizes?: typeof Button.sizes;
   colors?: typeof Button.colors;
   kinds?: typeof Button.kinds;
@@ -73,7 +70,7 @@ const SplitButton: FC<SplitButtonProps> & {
   shouldCloseOnClickInsideDialog,
   zIndex = null,
   secondaryDialogClassName,
-  secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
+  secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   disabled,
@@ -94,7 +91,7 @@ const SplitButton: FC<SplitButtonProps> & {
   id,
   "data-testid": dataTestId,
   ...buttonProps
-}) => {
+}: SplitButtonProps) => {
   // State //
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isHovered, setIsHover] = useState(false);
@@ -201,10 +198,10 @@ const SplitButton: FC<SplitButtonProps> & {
   }, [secondaryDialogContent, dialogPaddingSize]);
 
   const animationEdgePosition = useMemo(() => {
-    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_MIDDLE) {
+    if (secondaryDialogPosition === "bottom") {
       return "";
     }
-    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_START) {
+    if (secondaryDialogPosition === "bottom-start") {
       return "bottom";
     }
 
@@ -290,14 +287,11 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: DialogPosition.BOTTOM_START,
+  secondaryDialogPosition: "bottom-start",
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
 export default withStaticProps(SplitButton, {
-  // Backward compatibility for enum naming
-  secondaryPositions: SplitButtonSecondaryContentPosition,
-  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,
   colors: Button.colors,
   kinds: Button.kinds,
