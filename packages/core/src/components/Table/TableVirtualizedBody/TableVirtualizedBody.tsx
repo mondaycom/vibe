@@ -3,6 +3,9 @@ import { VibeComponentProps } from "../../../types";
 import VirtualizedList, { VirtualizedListItem } from "../../VirtualizedList/VirtualizedList";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
+import cx from "classnames";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 import { ScrollDirection } from "react-window";
 import { TableContext } from "../Table/Table";
 import { RowHeights } from "../Table/TableConsts";
@@ -13,7 +16,14 @@ export interface ITableVirtualizedBodyProps extends VibeComponentProps {
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
-const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRenderer, onScroll }) => {
+const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({
+  items,
+  rowRenderer,
+  onScroll,
+  id,
+  className,
+  "data-testid": dataTestId
+}) => {
   const itemRenderer: ComponentProps<typeof VirtualizedList>["itemRenderer"] = useCallback(
     (value, index: number, style: CSSProperties) => {
       const element = rowRenderer(value);
@@ -24,7 +34,11 @@ const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRender
   const { size } = useContext(TableContext);
 
   return (
-    <TableBody className={styles.tableBody}>
+    <TableBody
+      className={cx(styles.tableBody, className)}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_VIRTUALIZED_BODY, id)}
+    >
       {items?.length && (
         <VirtualizedList
           items={items}
