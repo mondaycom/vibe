@@ -67,7 +67,13 @@ export default {
 
 export const Overview = {
   render: modalTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    controls: {
+      // TODO: remove exclusion when prop is removed in next major
+      exclude: ["unmountOnClose"]
+    }
+  }
 };
 
 export const WidthVariantsNormal = {
