@@ -7,6 +7,22 @@ import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
+import * as TableContextModule from "../../context/TableContext/TableContext";
+import { RowSizes } from "../TableConsts";
+
+function mockUseTable() {
+  jest.spyOn(TableContextModule, "useTable").mockImplementation(() => ({
+    columns: [],
+    emptyState: <div />,
+    errorState: <div />,
+    size: RowSizes.MEDIUM
+  }));
+}
+
+jest.mock("../../context/TableContext/TableContext", () => ({
+  __esModule: true,
+  ...jest.requireActual("../../context/TableContext/TableContext")
+}));
 
 interface TableNode {
   role: string;
@@ -69,6 +85,14 @@ describe("Table", () => {
   });
 
   describe("TableRow", () => {
+    beforeEach(() => {
+      mockUseTable();
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
     it("should render without a highlight state", () => {
       const { getByRole } = render(<TableRow />);
       expect(getByRole("row")).toHaveAttribute("aria-selected", "false");
