@@ -76,6 +76,9 @@ export interface ModalProps {
    * z-index attribute of the container
    */
   zIndex?: number;
+  /**
+   * If true, the modal will unmount when it's not shown
+   */
   unmountOnClose?: boolean;
 }
 
