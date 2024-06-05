@@ -54,6 +54,9 @@ export default function useShowHideModal({
           setIsAnimating(false);
           instance?.hide();
         });
+      } else {
+        setIsAnimating(false);
+        instance?.hide();
       }
     }
   }, [show, instance, getAnimationProps]);
