@@ -111,6 +111,7 @@ export enum ComponentDefaultTestId {
   DIALOG = "dialog",
   TABLE = "table",
   TABLE_BODY = "table-body",
+  TABLE_VIRTUALIZED_BODY = "table-virtualized-body",
   TABLE_CELL = "table-cell",
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",

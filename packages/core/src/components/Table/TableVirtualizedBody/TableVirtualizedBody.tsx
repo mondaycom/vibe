@@ -4,6 +4,9 @@ import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
 import { FixedSizeList as List, ListChildComponentProps, ScrollDirection } from "react-window";
 import { useTable } from "../context/TableContext/TableContext";
+import cx from "classnames";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer from "react-virtualized-auto-sizer";
 
@@ -16,7 +19,14 @@ export interface ITableVirtualizedBodyProps extends VibeComponentProps {
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
-const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRenderer, onScroll }) => {
+const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({
+  items,
+  rowRenderer,
+  onScroll,
+  id,
+  className,
+  "data-testid": dataTestId
+}) => {
   const { size, rowWidth } = useTable();
 
   const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
@@ -44,7 +54,11 @@ const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRender
   );
 
   return (
-    <TableBody className={styles.tableBody}>
+    <TableBody
+      className={cx(styles.tableBody, className)}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_VIRTUALIZED_BODY, id)}
+    >
       {items?.length && (
         <AutoSizer disableWidth>
           {({ height }: { height: number }) => {
