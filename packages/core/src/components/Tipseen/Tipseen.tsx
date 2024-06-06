@@ -72,7 +72,6 @@ export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRI
 
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
-  positions?: TooltipPositionsType;
   animationTypes?: typeof AnimationType;
   justifyTypes?: typeof JustifyType;
   hideShowTriggers?: typeof HideShowEvent;

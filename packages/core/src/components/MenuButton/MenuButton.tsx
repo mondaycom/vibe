@@ -173,7 +173,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       // Backward compatibility for props naming
       disabledReason,
       tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
-      tooltipPosition = MenuButton.dialogPositions.RIGHT,
+      tooltipPosition = "right",
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
       tooltipReferenceClassName,
@@ -374,7 +374,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
         content={overrideTooltipContent}
-        position={tooltipPosition as TooltipPositionsType}
+        position={tooltipPosition}
         showTrigger={TOOLTIP_SHOW_TRIGGER}
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}

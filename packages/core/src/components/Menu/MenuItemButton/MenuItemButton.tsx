@@ -40,7 +40,6 @@ export interface MenuItemButtonProps extends VibeComponentProps {
 
 const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
-  tooltipPositions?: TooltipPositionsType;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = ({

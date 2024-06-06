@@ -90,7 +90,6 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
 
 const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
-  tooltipPositions?: TooltipPositionsType;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = forwardRef(
@@ -351,7 +350,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         {renderMenuItemIconIfNeeded()}
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
-          position={tooltipPosition as TooltipPositionsType}
+          position={tooltipPosition}
           showDelay={tooltipShowDelay}
           {...tooltipProps}
         >
