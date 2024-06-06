@@ -37,8 +37,8 @@ describe("Snapshot tests", () => {
 
   describe("Tipseen content tests", () => {
     it("renders correctly without props", () => {
-      const tree = renderer.create(<TipseenContent />).toJSON();
-      expect(tree).toMatchSnapshot();
+      const { asFragment } = render(<TipseenContent />);
+      expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with dismiss", () => {
       const tree = renderer.create(<TipseenContent hideDismiss={false} />).toJSON();
@@ -64,22 +64,41 @@ describe("Snapshot tests", () => {
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without close", () => {
-      const tree = renderer.create(<Tipseen hideCloseButton>{tipseenMockChildren}</Tipseen>).toJSON();
-      expect(tree).toMatchSnapshot();
+      const { asFragment } = render(
+        <Tipseen showDelay={0} hideCloseButton>
+          {tipseenMockChildren}
+        </Tipseen>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
-    it("renders correctly without close - deprecated version", () => {
-      const tree = renderer.create(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>).toJSON();
-      expect(tree).toMatchSnapshot();
+    it("renders correctly without close - deprecated version", async () => {
+      const { asFragment } = render(
+        <Tipseen showDelay={0} isCloseButtonHidden>
+          {tipseenMockChildren}
+        </Tipseen>
+      );
+      await waitFor(() => {
+        expect(asFragment()).toBeTruthy();
+      });
+      expect(asFragment()).toMatchSnapshot();
     });
-    it("renders correctly with dark close button theme", () => {
-      const tree = renderer
-        .create(<Tipseen closeButtonTheme={Tipseen.closeButtonThemes.DARK}>{tipseenMockChildren}</Tipseen>)
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+    it("renders correctly with dark close button theme", async () => {
+      const { asFragment } = render(
+        <Tipseen showDelay={0} closeButtonTheme={Tipseen.closeButtonThemes.DARK}>
+          {tipseenMockChildren}
+        </Tipseen>
+      );
+      await waitFor(() => {
+        expect(asFragment()).toBeTruthy();
+      });
+      expect(asFragment()).toMatchSnapshot();
     });
-    it("renders correctly with floating variation", () => {
-      const tree = renderer.create(<Tipseen floating />).toJSON();
-      expect(tree).toMatchSnapshot();
+    it("renders correctly with floating variation", async () => {
+      const { container } = render(<Tipseen floating />);
+      await waitFor(() => {
+        expect(container.firstChild).toBeTruthy();
+      });
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 });
@@ -93,9 +112,9 @@ describe("Integration Tests", () => {
           <div />
         </Tipseen>
       );
-      fireEvent.click(getByLabelText("Close"));
 
       waitFor(() => {
+        fireEvent.click(getByLabelText("Close"));
         expect(onClickMock.mock.calls.length).toBe(1);
       });
     });

@@ -74,8 +74,6 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   }
   return (
     <Tooltip
-      // for disable close tooltip when hovering content
-      showOnDialogEnter
       open={isKeyboardTooltipVisible}
       hideDelay={AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY}
       showTrigger={SHOW_TRIGGER}

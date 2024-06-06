@@ -9,7 +9,7 @@ export const TooltipDescription = () => {
     };
     return (
       <div style={style}>
-        <Tooltip shouldShowOnMount content="Text">
+        <Tooltip shouldShowOnMount content="Text" open>
           <div />
         </Tooltip>
       </div>
