@@ -11,7 +11,8 @@ module.exports = plop => {
       {
         type: "input",
         name: "fileName",
-        message: "FileName including the suffix (including '.svg') suffix"
+        message: "FileName including the suffix (including '.svg') suffix",
+        validate: input => input.endsWith(".svg") || "FileName must end with .svg"
       },
       {
         type: "input",
@@ -21,7 +22,12 @@ module.exports = plop => {
       {
         type: "input",
         name: "tags",
-        message: "Enter tags for the icon (separate with ',')"
+        message: "Enter tags for the icon (separate with ',')",
+        filter: input =>
+          input.split(",").map(tag => {
+            const trimmedTag = tag.trim();
+            return `'${trimmedTag.charAt(0).toUpperCase()}${trimmedTag.slice(1)}'`;
+          })
       }
     ],
     actions: () => {
