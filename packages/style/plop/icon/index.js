@@ -22,12 +22,7 @@ module.exports = plop => {
       {
         type: "input",
         name: "tags",
-        message: "Enter tags for the icon (separate with ',')",
-        filter: input =>
-          input.split(",").map(tag => {
-            const trimmedTag = tag.trim();
-            return `'${trimmedTag.charAt(0).toUpperCase()}${trimmedTag.slice(1)}'`;
-          })
+        message: "Enter tags for the icon (separate with ',')"
       }
     ],
     actions: () => {
