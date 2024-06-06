@@ -36,7 +36,7 @@ describe("Snapshot tests", () => {
   });
 
   describe("Tipseen content tests", () => {
-    it("renders correctly without props", async () => {
+    it("renders correctly without props", () => {
       const { asFragment } = render(<TipseenContent />);
       expect(asFragment()).toMatchSnapshot();
     });
@@ -63,7 +63,7 @@ describe("Snapshot tests", () => {
       const tree = renderer.create(<Tipseen>{tipseenMockChildren}</Tipseen>).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly without close", async () => {
+    it("renders correctly without close", () => {
       const { asFragment } = render(
         <Tipseen showDelay={0} hideCloseButton>
           {tipseenMockChildren}
