@@ -37,11 +37,11 @@ describe("Snapshot tests", () => {
 
   describe("Tipseen content tests", () => {
     it("renders correctly without props", async () => {
-      const { container } = render(<TipseenContent />);
+      const { asFragment } = render(<TipseenContent />);
       await waitFor(() => {
-        expect(container.firstChild).toBeTruthy();
+        expect(asFragment()).toBeTruthy();
       });
-      expect(container.firstChild).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with dismiss", () => {
       const tree = renderer.create(<TipseenContent hideDismiss={false} />).toJSON();
@@ -67,27 +67,37 @@ describe("Snapshot tests", () => {
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without close", async () => {
-      const { container } = render(<Tipseen hideCloseButton>{tipseenMockChildren}</Tipseen>);
-      await waitFor(() => {
-        expect(container.firstChild).toBeTruthy();
-      });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-    it("renders correctly without close - deprecated version", async () => {
-      const { container } = render(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>);
-      await waitFor(() => {
-        expect(container.firstChild).toBeTruthy();
-      });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-    it("renders correctly with dark close button theme", async () => {
-      const { container } = render(
-        <Tipseen closeButtonTheme={Tipseen.closeButtonThemes.DARK}>{tipseenMockChildren}</Tipseen>
+      const { asFragment } = render(
+        <Tipseen showDelay={0} hideCloseButton>
+          {tipseenMockChildren}
+        </Tipseen>
       );
       await waitFor(() => {
-        expect(container.firstChild).toBeTruthy();
+        expect(asFragment()).toBeTruthy();
       });
-      expect(container.firstChild).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
+    });
+    it("renders correctly without close - deprecated version", async () => {
+      const { asFragment } = render(
+        <Tipseen showDelay={0} isCloseButtonHidden>
+          {tipseenMockChildren}
+        </Tipseen>
+      );
+      await waitFor(() => {
+        expect(asFragment()).toBeTruthy();
+      });
+      expect(asFragment()).toMatchSnapshot();
+    });
+    it("renders correctly with dark close button theme", async () => {
+      const { asFragment } = render(
+        <Tipseen showDelay={0} closeButtonTheme={Tipseen.closeButtonThemes.DARK}>
+          {tipseenMockChildren}
+        </Tipseen>
+      );
+      await waitFor(() => {
+        expect(asFragment()).toBeTruthy();
+      });
+      expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with floating variation", async () => {
       const { container } = render(<Tipseen floating />);
