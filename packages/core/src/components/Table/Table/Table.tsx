@@ -8,6 +8,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights, RowSizes } from "./TableConsts";
 import styles from "./Table.module.scss";
+import { TableProvider } from "../context/TableContext/TableContext";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -38,16 +39,6 @@ export interface ITableProps extends VibeComponentProps {
   size?: RowSizes;
   withoutBorder?: boolean;
 }
-
-export interface ITableContext {
-  columns: ITableProps["columns"];
-  dataState?: ITableProps["dataState"];
-  emptyState: ITableProps["emptyState"];
-  errorState: ITableProps["errorState"];
-  size: ITableProps["size"];
-}
-
-export const TableContext = React.createContext<ITableContext>(null);
 
 const Table: VibeComponent<ITableProps, HTMLDivElement> & {
   sizes?: typeof RowSizes;
@@ -84,11 +75,11 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
     const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
 
     return (
-      <TableContext.Provider value={{ columns, emptyState, errorState, dataState, size }}>
+      <TableProvider value={{ columns, dataState, emptyState, errorState, size }}>
         <div ref={ref} id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
           {children}
         </div>
-      </TableContext.Provider>
+      </TableProvider>
     );
   }
 );
