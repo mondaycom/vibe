@@ -1,7 +1,7 @@
 import React from "react";
 import * as VibeComponents from "../src/components";
-import * as VibeIcons from "../src/components/Icon/Icons";
 import * as VibeComponentsNext from "../src/components/next";
+import * as VibeIcons from "../src/components/Icon/Icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
