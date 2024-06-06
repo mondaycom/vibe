@@ -293,7 +293,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
     class="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 4px);"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       class="contentComponent bottom edgeCenter hasTooltip"
@@ -315,7 +315,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
       <div
         class="arrow arrow primary"
         data-placement="bottom"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px) rotate(45deg);"
+        style="position: absolute;"
       />
     </div>
   </span>

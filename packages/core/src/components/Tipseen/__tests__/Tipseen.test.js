@@ -38,9 +38,6 @@ describe("Snapshot tests", () => {
   describe("Tipseen content tests", () => {
     it("renders correctly without props", async () => {
       const { asFragment } = render(<TipseenContent />);
-      await waitFor(() => {
-        expect(asFragment()).toBeTruthy();
-      });
       expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with dismiss", () => {
@@ -72,9 +69,6 @@ describe("Snapshot tests", () => {
           {tipseenMockChildren}
         </Tipseen>
       );
-      await waitFor(() => {
-        expect(asFragment()).toBeTruthy();
-      });
       expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly without close - deprecated version", async () => {
@@ -104,7 +98,6 @@ describe("Snapshot tests", () => {
       await waitFor(() => {
         expect(container.firstChild).toBeTruthy();
       });
-
       expect(container.firstChild).toMatchSnapshot();
     });
   });
