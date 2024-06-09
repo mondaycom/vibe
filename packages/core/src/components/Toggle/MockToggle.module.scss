@@ -39,4 +39,20 @@
     opacity: var(--disabled-component-opacity);
     cursor: not-allowed;
   }
+
+  &.small {
+    height: 16px;
+    width: 28px;
+    &::after {
+      width: 12px;
+      height: 12px;
+      top: calc(50% - 6px);
+      left: 14px;
+    }
+    &.notSelected {
+      &::after {
+        left: 2px;
+      }
+    }
+  }
 }

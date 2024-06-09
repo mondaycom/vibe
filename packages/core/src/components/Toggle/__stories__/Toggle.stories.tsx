@@ -50,6 +50,22 @@ export const States: Story = {
   }
 };
 
+export const Size: Story = {
+  render: () => (
+    <MultipleStoryElementsWrapper className="monday-storybook-toggle_row">
+      <Toggle />
+      <Toggle size="small" />
+    </MultipleStoryElementsWrapper>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { MultipleStoryElementsWrapper }
+      }
+    }
+  }
+};
+
 export const Disabled: Story = {
   render: () => (
     <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
