@@ -69,8 +69,8 @@ describe("Label renders correctly", () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it("with wrapperClassName", () => {
-      const tree = renderer.create(<Label wrapperClassName="test" />).toJSON();
+    it("with className", () => {
+      const tree = renderer.create(<Label className="test" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

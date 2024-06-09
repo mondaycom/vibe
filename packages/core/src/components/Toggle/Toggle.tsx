@@ -3,16 +3,11 @@ import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { Switch } from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface ToggleProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /**
    * ClassName to override styles of selected toggle
    */
@@ -22,10 +17,6 @@ export interface ToggleProps extends VibeComponentProps {
   onChange?: (value: boolean) => void;
   value?: string;
   name?: string;
-  /**
-   * @deprecated - use disabled instead
-   */
-  isDisabled?: boolean;
   disabled?: boolean;
   areLabelsHidden?: boolean;
   onOverrideText?: string;
@@ -38,8 +29,6 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
   (
     {
       id,
-      // Backward compatibility for props naming
-      componentClassName,
       className,
       toggleSelectedClassName,
       isDefaultSelected = true,
@@ -48,8 +37,6 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       value,
       name,
       disabled,
-      // Backward compatibility for props naming
-      isDisabled,
       ariaLabel,
       ariaControls,
       areLabelsHidden = false,
@@ -59,8 +46,6 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
     },
     ref
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
-    const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
     const wrapperClassName = cx(styles.wrapper);
     const inputClassName = cx(styles.toggleInput);
 
@@ -73,7 +58,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         onChange={onChange}
         value={value}
         name={name}
-        disabled={overrideDisabled}
+        disabled={disabled}
         ariaLabel={ariaLabel}
         ariaControls={ariaControls}
         inputClassName={inputClassName}
@@ -84,8 +69,8 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
           areLabelsHidden={areLabelsHidden}
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
-          disabled={overrideDisabled}
-          className={overrideClassName}
+          disabled={disabled}
+          className={className}
           selectedClassName={toggleSelectedClassName}
         />
       </Switch>

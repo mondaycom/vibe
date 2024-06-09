@@ -1,45 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - deprecated version 1`] = `
-<div
-  className="tipseenBasicContent"
-  data-testid="tipseen-content"
->
-  <div
-    className="buttons"
-  >
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
-      data-testid="tipseen-content-dismiss"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Dismiss
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button sizeSmall kindPrimary colorOnPrimaryColor"
-      data-testid="tipseen-content-submit"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Submit
-    </button>
-  </div>
-</div>
-`;
-
 exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`] = `
 <div
   className="tipseenBasicContent"
@@ -103,17 +63,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
       Submit
     </button>
   </div>
-</div>
-`;
-
-exports[`Snapshot tests Tipseen content tests renders correctly without submit - deprecated version 1`] = `
-<div
-  className="tipseenBasicContent"
-  data-testid="tipseen-content"
->
-  <div
-    className="buttons"
-  />
 </div>
 `;
 
@@ -304,66 +253,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
     </div>
   </div>
 </span>
-`;
-
-exports[`Snapshot tests Tipseen tests renders correctly without close - deprecated version 1`] = `
-[
-  <div
-    className="monday-storybook-tipseen_container"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
-  <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
-    data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
-  >
-    <div
-      className="contentComponent bottom edgeCenter hasTooltip"
-    >
-      <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <div>
-          <div
-            className="tipseenHeader"
-          />
-          <p
-            className="typography onPrimary start text text2Normal tipseenContent"
-            data-testid="text"
-          />
-        </div>
-      </div>
-      <div
-        className="arrow arrow primary paddingSizeUndefined"
-        data-placement="bottom"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
-      />
-    </div>
-  </span>,
-]
 `;
 
 exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `

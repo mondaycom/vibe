@@ -8,7 +8,6 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
 import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
@@ -18,10 +17,6 @@ export interface CounterProps extends VibeComponentProps {
   id?: string;
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
-  /** Use className instead
-   * @deprecated
-   */
-  wrapperClassName?: string;
   /** Custom class names to pass to the component wrapper */
   className?: string;
   /** Custom class names to pass to the component */
@@ -51,8 +46,6 @@ const Counter: React.FC<CounterProps> & {
   kinds?: typeof CounterType;
 } = ({
   className,
-  // Backward compatibility for props naming
-  wrapperClassName,
   counterClassName,
   count = 0,
   size = Counter.sizes.LARGE,
@@ -67,16 +60,10 @@ const Counter: React.FC<CounterProps> & {
   noAnimation = false,
   "data-testid": dataTestId
 }) => {
-  // Variables
-  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
-
-  // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
-  // Refs
   const ref = useRef<HTMLDivElement>(null);
 
-  // Callbacks
   const setCountChangedAnimationActive = useCallback(() => {
     setCountChangeAnimationState(true);
   }, [setCountChangeAnimationState]);
@@ -85,17 +72,14 @@ const Counter: React.FC<CounterProps> & {
     setCountChangeAnimationState(false);
   }, [setCountChangeAnimationState]);
 
-  // Listeners
   useEventListener({
     eventName: "animationend",
     callback: setCountChangedAnimationNotActive,
     ref
   });
 
-  // Custom hooks
   const isAfterFirstRender = useAfterFirstRender();
 
-  // Effects
   useEffect(() => {
     if (!isAfterFirstRender.current) {
       setCountChangedAnimationActive();
@@ -108,7 +92,6 @@ const Counter: React.FC<CounterProps> & {
     }
   }, [maxDigits]);
 
-  // Memos
   const classNames = useMemo(() => {
     return cx(
       styles.counter,
@@ -132,7 +115,7 @@ const Counter: React.FC<CounterProps> & {
 
   return (
     <span
-      className={overrideClassName}
+      className={className}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}

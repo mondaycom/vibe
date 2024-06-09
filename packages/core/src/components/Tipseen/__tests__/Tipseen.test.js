@@ -48,14 +48,6 @@ describe("Snapshot tests", () => {
       const tree = renderer.create(<TipseenContent hideSubmit />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly with dismiss - deprecated version", () => {
-      const tree = renderer.create(<TipseenContent isDismissHidden={false} />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-    it("renders correctly without submit - deprecated version", () => {
-      const tree = renderer.create(<TipseenContent isSubmitHidden />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
   });
 
   describe("Tipseen tests", () => {
@@ -65,10 +57,6 @@ describe("Snapshot tests", () => {
     });
     it("renders correctly without close", () => {
       const tree = renderer.create(<Tipseen hideCloseButton>{tipseenMockChildren}</Tipseen>).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-    it("renders correctly without close - deprecated version", () => {
-      const tree = renderer.create(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly with dark close button theme", () => {

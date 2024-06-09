@@ -176,6 +176,28 @@ exports[`Label renders correctly line primary 1`] = `
 </span>
 `;
 
+exports[`Label renders correctly line with className 1`] = `
+<span
+  className="test"
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
 exports[`Label renders correctly line with leg 1`] = `
 <span
   className=""
@@ -207,28 +229,6 @@ exports[`Label renders correctly line with leg 1`] = `
         />
       </svg>
     </span>
-  </span>
-</span>
-`;
-
-exports[`Label renders correctly line with wrapperClassName 1`] = `
-<span
-  className="test"
-  data-testid="label"
->
-  <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
-    data-testid="text"
-  >
-    <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    >
-      
-    </span>
-    <span
-      className="legWrapper"
-    />
   </span>
 </span>
 `;

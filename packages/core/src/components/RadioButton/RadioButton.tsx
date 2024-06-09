@@ -3,7 +3,6 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../Clickable/Clickable";
 import Text from "../Text/Text";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
@@ -13,10 +12,6 @@ import styles from "./RadioButton.module.scss";
 export interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
   className?: string;
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /** class to add to the  text/label */
   labelClassName?: string;
   /** class to be added to the radiobutton */
@@ -52,8 +47,6 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
   (
     {
       className,
-      // Backward compatibility for props naming
-      componentClassName,
       text = "",
       value = "",
       name = "",
@@ -82,7 +75,6 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
   ) => {
     const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRef(ref, inputRef);
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     const onChildClick = useCallback(() => {
       if (disabled || !retainChildClick) return;
@@ -107,7 +99,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
       <Tooltip content={tooltipContent}>
         <label
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
-          className={cx(styles.radioButton, overrideClassName, {
+          className={cx(styles.radioButton, className, {
             [styles.disabled]: disabled,
             disabled: disabled
           })}

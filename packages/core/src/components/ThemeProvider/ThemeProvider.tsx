@@ -10,13 +10,8 @@ import {
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 export interface ThemeProviderProps {
-  /**
-   * @deprecated use themeConfig instead
-   */
-  theme?: Theme;
   /**
    * The theme config to apply, consists of a "name" - the name of css class that will be added to the children, which should be unique, and the object of colors overrides for each system theme.
    */
@@ -42,22 +37,12 @@ export interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ themeConfig, theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
-  const overrideThemeConfig = backwardCompatibilityForProperties([themeConfig, theme]);
+} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
     [customThemeClassSpecifier]
   );
-
-  useEffect(() => {
-    if (theme) {
-      console.warn(
-        "vibe ThemeProvider: theme prop is deprecated and will be removed soon, please use themeConfig prop instead - ",
-        theme
-      );
-    }
-  }, [theme]);
 
   // Add the systemTheme class name to the body on mount
   useLayoutEffect(() => {
@@ -79,18 +64,18 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   }, [systemTheme]);
 
   useEffect(() => {
-    if (!shouldGenerateTheme(overrideThemeConfig)) {
+    if (!shouldGenerateTheme(themeConfig)) {
       return;
     }
-    if (document.getElementById(overrideThemeConfig.name)) {
+    if (document.getElementById(themeConfig.name)) {
       setStylesLoaded(true);
       return;
     }
 
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
-    styleElement.id = overrideThemeConfig.name;
-    const themeCssOverride = generateThemeCssOverride(overrideThemeConfig, themeClassSpecifier);
+    styleElement.id = themeConfig.name;
+    const themeCssOverride = generateThemeCssOverride(themeConfig, themeClassSpecifier);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -103,15 +88,15 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [themeClassSpecifier, overrideThemeConfig]);
+  }, [themeClassSpecifier, themeConfig]);
 
-  if (!stylesLoaded && shouldGenerateTheme(overrideThemeConfig)) {
+  if (!stylesLoaded && shouldGenerateTheme(themeConfig)) {
     // Waiting for styles to load before children render
     return null;
   }
 
   // Pass the theme name as a class to the div wrapping children - to scope the effect of the theme
-  return <div className={cx(overrideThemeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
+  return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
 export default withStaticProps(ThemeProvider, {

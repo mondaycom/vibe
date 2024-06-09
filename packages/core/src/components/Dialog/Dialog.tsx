@@ -5,7 +5,6 @@ import { createPortal } from "react-dom";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import { DialogPosition } from "../../constants/positions";
 import { isFunction } from "lodash-es";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -135,10 +134,6 @@ export interface DialogProps extends VibeComponentProps {
    * Make the dialog disappear when the element it is attached to becomes hidden
    */
   hideWhenReferenceHidden?: boolean;
-  /**
-   * @deprecated - use shouldCallbackOnMount instead
-   */
-  shoudlCallbackOnMount?: boolean;
   shouldCallbackOnMount?: boolean;
   instantShowAndHide?: boolean;
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
@@ -192,7 +187,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     onContentClick: NOOP,
     useDerivedStateFromProps: false,
     hideWhenReferenceHidden: false,
-    shoudlCallbackOnMount: false,
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false
@@ -251,14 +245,10 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   componentDidMount() {
-    const { shoudlCallbackOnMount, shouldCallbackOnMount, onDialogDidShow } = this.props;
-    const overrideShouldCallbackOnMount = backwardCompatibilityForProperties(
-      [shouldCallbackOnMount, shoudlCallbackOnMount],
-      false
-    );
+    const { shouldCallbackOnMount, onDialogDidShow } = this.props;
     const { isOpen } = this.state;
     document.addEventListener("keyup", this.closeDialogOnEscape);
-    if (overrideShouldCallbackOnMount && isOpen) {
+    if (shouldCallbackOnMount && isOpen) {
       onDialogDidShow && onDialogDidShow();
     }
   }

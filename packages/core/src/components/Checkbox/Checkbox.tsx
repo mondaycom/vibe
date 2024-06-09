@@ -4,7 +4,6 @@ import { isNil, noop as NOOP } from "lodash-es";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
 import { VibeComponent, VibeComponentProps } from "../../types";
@@ -16,10 +15,6 @@ import styles from "./Checkbox.module.scss";
 export interface CheckBoxProps extends VibeComponentProps {
   /** A classname to be added to the wrapping element */
   className?: string;
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /** A classname to be added to the checkbox element label */
   checkboxClassName?: string;
   /** A classname to be added to the label element */
@@ -56,8 +51,6 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
   (
     {
       className,
-      // Backward compatibility for props naming
-      componentClassName,
       checkboxClassName,
       labelClassName,
       ariaLabel,
@@ -80,7 +73,6 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
     const iconContainerRef = useRef<HTMLDivElement>(null);
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;
@@ -117,7 +109,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
-        className={cx(styles.wrapper, overrideClassName)}
+        className={cx(styles.wrapper, className)}
         onMouseUp={onMouseUpCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}

@@ -56,10 +56,6 @@ interface BaseModalHeaderProps extends VibeComponentProps {
    * Aria label for the close button
    */
   closeButtonAriaLabel?: string;
-  /**
-   * @deprecated
-   */
-  hideCloseButton?: boolean;
 }
 
 interface ModalHeaderWithOnlyTitle extends BaseModalHeaderProps {
@@ -85,9 +81,6 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   closeModal = NOOP,
   iconSize = 24,
   iconClassName,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton,
   closeButtonAriaLabel = "close",
   id,
   "data-testid": dataTestId

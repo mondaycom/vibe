@@ -1,9 +1,148 @@
 # Vibe 3 Changelog
 
+## Components
+
+### AttentionBox
+
+- `componentClassName` -> `className` [codemod]
+
+### Avatar
+
+- `isSquare` -> `square` [codemod]
+- `isDisabled` -> `disabled` [codemod]
+
+### BreadcrumbsItem
+
+- `isDisabled` -> `disabled` [codemod]
+
+### Button
+
+- `dataTestId` -> `data-testid` [codemod]
+
+### ButtonGroup
+
+- `componentClassName` -> `className` [codemod]
+
+### Checkbox
+
+- `componentClassName` -> `className` [codemod]
+
+### Chips
+
+- `dataTestId` -> `data-testid` [codemod]
+- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style
+
+### Clickable
+
+- `dataTestId` -> `data-testid` [codemod]
+
+### Counter
+
+- `wrapperClassName` -> `className` [codemod]
+
+### Dialog
+
+- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
+
+### Divider
+
+- `classname` -> `className` [codemod]
+
+### IconButton
+
+- `dataTestId` -> `data-testid` [codemod]
+
+### Label
+
+- `wrapperClassName` -> `className` [codemod]
+
+### EditableHeading
+
+- Complete API Change (TBD)
+
+### Link
+
+- `componentClassName` -> `className` [codemod]
+
+### Loader
+
+- `svgClassName` -> `className` [codemod]
+
+### Menu
+
+- `classname` -> `className` [codemod]
+
+### MenuDivider
+
+- `classname` -> `className` [codemod]
+
+### MenuItem
+
+- `classname` -> `className` [codemod]
+
+### MenuItemButton
+
+- `classname` -> `className` [codemod]
+
+### MenuTitle
+
+- `classname` -> `className` [codemod]
+
+### MenuButton
+
+- `componentClassName` -> `className` [codemod]
+- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod]
+- Removed `disabledReason`, use `tooltipContent` instead
+
+### ModalHeader
+
+- `hideCloseButton` removed due to UX decision, Modals should always have a close button [codemod]
+
+### Modal
+
+- `hideCloseButton` removed due to UX decision, Modals should always have a close button [codemod]
+
+### RadioButton
+
+- `componentClassName` -> `className` [codemod]
+
 ## SplitButton
-- We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably)
 
-- Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}.
+- We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
 
-- Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration
+- Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
 
+- Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
+-
+
+### Steps
+
+- `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
+
+## TextField
+
+- `dataTestId` -> `data-testid` [codemod]
+
+### ThemeProvider
+
+- `theme` -> `themeConfig` [codemod]
+
+### Tipseen
+
+- `isCloseButtonHidden` -> `hideCloseButton` [codemod]
+
+### TipseenContent
+
+- `isDismissHidden` -> `hideDismiss` [codemod]
+- `isSubmitHidden` -> `hideSubmit` [codemod]
+
+### Toggle
+
+- `componentClassName` -> `className` [codemod]
+- `isDisabled` -> `disabled` [codemod]
+
+## Hooks
+
+### useClickableProps
+
+- `dataTestId` -> `data-testid` [codemod]

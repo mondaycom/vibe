@@ -11,7 +11,6 @@ import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme, TipseenColor 
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
@@ -31,10 +30,6 @@ export interface TipseenProps extends VibeComponentProps {
   hideDelay?: number;
   showDelay?: number;
   title?: string;
-  /**
-   * @deprecated - use hideCloseButton instead
-   */
-  isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
   children?: ReactElement;
   containerSelector?: string;
@@ -89,8 +84,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
       title,
       titleClassName,
       hideCloseButton,
-      // Backward compatability for hideCloseButton
-      isCloseButtonHidden,
       closeButtonTheme = TipseenCloseButtonTheme.LIGHT,
       onClose,
       closeAriaLabel,
@@ -119,7 +112,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const mergedRef = useMergeRef(ref, componentRef);
     const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
-    const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
 
     useEffect(() => {
       let timeout: NodeJS.Timeout;
@@ -148,7 +140,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const tooltipContent = (
       <div>
         <div className={cx(styles.tipseenHeader)}>
-          {overrideHideCloseButton ? null : (
+          {hideCloseButton ? null : (
             <IconButton
               hideTooltip
               className={cx(styles.tipseenCloseButton, {
