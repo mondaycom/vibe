@@ -105,6 +105,7 @@ export {default as Graph} from './components/Graph';
 export {default as Group} from './components/Group';
 export {default as Guest} from './components/Guest';
 export {default as Health} from './components/Health';
+export {default as Heart} from './components/Heart';
 export {default as Help} from './components/Help';
 export {default as Hide} from './components/Hide';
 export {default as Highlight} from './components/Highlight';
