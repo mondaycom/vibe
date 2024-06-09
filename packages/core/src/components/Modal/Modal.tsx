@@ -76,6 +76,10 @@ export interface ModalProps {
    * z-index attribute of the container
    */
   zIndex?: number;
+  /**
+   * If true, the modal will unmount when it's not shown
+   */
+  unmountOnClose?: boolean;
 }
 
 const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
@@ -95,6 +99,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,
+  unmountOnClose,
   "data-testid": dataTestId
 }) => {
   const childrenArray: ReactElement[] = useMemo(
@@ -118,7 +123,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   useBodyScrollLock({ instance });
 
   // show/hide and animate the modal
-  useShowHideModal({
+  const { shouldShow } = useShowHideModal({
     instance,
     show,
     triggerElement,
@@ -187,6 +192,9 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     document.body
   );
 
+  if (unmountOnClose && !shouldShow) {
+    return null;
+  }
   return ReactDOM.createPortal(dialog, document.body);
 };
 
