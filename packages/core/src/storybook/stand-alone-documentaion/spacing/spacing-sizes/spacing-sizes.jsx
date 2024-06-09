@@ -1,3 +1,4 @@
+import React from "react";
 import SpacingComponent from "./spacing-component/spacing-component";
 import "./spacing-sizes.scss";
 

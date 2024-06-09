@@ -17,7 +17,7 @@ import styles from "./Avatar.module.scss";
 export interface AvatarProps extends VibeComponentProps {
   src?: string;
   text?: string;
-  tooltipProps?: TooltipProps;
+  tooltipProps?: Partial<TooltipProps>;
   ariaLabel?: string;
   withoutTooltip?: boolean;
   icon?: SubIcon;

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Divider from "../../../../components/Divider/Divider";
 import Menu from "../../../../components/Menu/Menu/Menu";

@@ -1,3 +1,4 @@
+import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipHeading = () => (

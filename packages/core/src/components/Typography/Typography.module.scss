@@ -3,7 +3,7 @@
 
 .typography {
   // TODO: remove anchor styles
-  a {
+  > a {
     text-decoration: none;
     color: var(--link-color);
     @include focus-style();

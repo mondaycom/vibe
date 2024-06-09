@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { Update, Locked, Lines } from "../../../../components/Icon/Icons";
 import Icon from "../../../../components/Icon/Icon";

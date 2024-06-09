@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipDialogContentContainer = () => (

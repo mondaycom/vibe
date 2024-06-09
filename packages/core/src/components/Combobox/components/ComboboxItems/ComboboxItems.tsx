@@ -27,6 +27,7 @@ export interface ComboboxItemsProps extends IComboboxOptionEvents {
   maxOptionsWithoutScroll?: number;
   itemsMap?: Map<string, IComboboxItem>;
   stickyCategories?: boolean;
+  id?: string;
 }
 
 export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
@@ -48,7 +49,8 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
       itemsMap,
-      stickyCategories
+      stickyCategories,
+      id
     },
     ref: RefObject<HTMLDivElement>
   ) => {
@@ -128,17 +130,19 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
           className={cx(styles.optionsContainer, className)}
           items={options}
           itemRenderer={createItemElementRenderer}
-          role="treegrid"
+          role="listbox"
           scrollableClassName={styles.scrollableContainer}
           onItemsRendered={onItemsRender}
           style={style}
+          id={id}
         />
       );
     } else {
       itemsElements = (
         <div
           className={cx(styles.scrollableContainer, styles.optionsContainer, className)}
-          role="treegrid"
+          role="listbox"
+          id={id}
           style={style}
           ref={ref}
         >

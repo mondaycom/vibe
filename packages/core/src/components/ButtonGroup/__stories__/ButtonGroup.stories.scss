@@ -1,0 +1,12 @@
+.monday-storybook-button-group {
+  &_column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-right: 60px;
+  }
+}
+
+.monday-storybook-button-group-full-width {
+  width: 100%;
+}

@@ -1,0 +1,96 @@
+@import "../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
+
+.textAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--spacing-xs);
+  @include smoothing-text;
+  @include vibe-text(text2, normal);
+
+  .label {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    color: var(--primary-text-color);
+
+    &.required::after {
+      content: "*";
+      color: var(--color-error);
+    }
+  }
+
+  .helpText {
+    color: var(--secondary-text-color);
+  }
+
+  .textArea {
+    resize: vertical;
+    border: 1px solid var(--ui-border-color);
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-small) var(--spacing-medium);
+    outline: none;
+    background-color: var(--secondary-background-color);
+    color: var(--primary-text-color);
+
+    &:hover {
+      border-color: var(--primary-text-color);
+    }
+
+    &:active,
+    &:focus,
+    &:focus-within {
+      border-color: var(--primary-color);
+    }
+
+    &.small {
+      @include vibe-text(text2, normal);
+    }
+
+    &.large {
+      @include vibe-text(text1, normal);
+    }
+  }
+
+  &.success {
+    .textArea {
+      border-color: var(--color-success);
+    }
+
+    .helpText {
+      color: var(--color-success);
+    }
+  }
+
+  &.error {
+    .textArea {
+      border-color: var(--color-error);
+    }
+
+    .helpText {
+      color: var(--color-error);
+    }
+  }
+
+  &.disabled {
+    .textArea,
+    .textArea:hover {
+      color: var(--disabled-text-color);
+      background-color: var(--disabled-background-color);
+      border-color: var(--disabled-text-color);
+    }
+
+    .helpText {
+      color: var(--disabled-text-color);
+    }
+  }
+
+  &.readOnly {
+    .textArea,
+    .textArea:hover {
+      background-color: var(--allgrey-background-color);
+      border-color: transparent;
+      resize: none;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import React from "react";
 import { GithubContributorsList, ContributorsList, Paragraph } from "vibe-storybook-components";
 import styles from "./other-contributors-list.module.scss";
 

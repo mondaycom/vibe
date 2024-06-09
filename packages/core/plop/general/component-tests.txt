@@ -1,0 +1,13 @@
+import React from "react";
+import { fireEvent, render } from "@testing-library/react";
+import {{properCase componentName}} from "../{{properCase componentName}}";
+
+const renderComponent = props => {
+  return render(<{{properCase componentName}} {...props} />);
+};
+
+describe("{{properCase componentName}}", () => {
+  it("should render", () => {});
+
+  it("should do  x when y", () => {});
+});

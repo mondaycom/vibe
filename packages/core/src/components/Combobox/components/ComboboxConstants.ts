@@ -5,6 +5,7 @@ import { MutableRef } from "preact/hooks";
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
 export const COMBOBOX_OPTION_ITEM = "combobox-option";
+export const COMBOBOX_LISTBOX_ID = "combobox-listbox";
 
 export enum ComboboxOptionIconType {
   DEFAULT = "default",

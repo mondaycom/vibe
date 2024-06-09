@@ -17,7 +17,7 @@ const commonRules = {
   "no-underscore-dangle": "off",
   "import/prefer-default-export": "off",
   "no-plusplus": "off",
-  "react/react-in-jsx-scope": 0,
+  "react/react-in-jsx-scope": "error",
   "react/no-danger": "error",
   "react/jsx-one-expression-per-line": "off",
   "react/prop-types": 0,
@@ -59,7 +59,7 @@ const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommend
 module.exports = {
   overrides: [
     {
-      files: ["*.jest.js", "jest.setup.js", "jest.init.js"],
+      files: ["*.test.js", "jest.init.js"],
       env: {
         jest: true,
         "jest/globals": true
@@ -118,7 +118,7 @@ module.exports = {
   },
   settings: {
     jest: {
-      version: 27
+      version: 29
     },
     react: {
       version: "detect"

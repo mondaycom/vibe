@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo } from "react";
 import { ContentColorRow } from "../content-color-row/content-color-row";
 import { ContentColorByName } from "../../../../utils/colors-vars-map";

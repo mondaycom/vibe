@@ -1,3 +1,4 @@
+import React from "react";
 import { ResizableBox } from "react-resizable";
 import { Activity, Alert, API, Bolt, Broom, Group, Moon, Sun, Open } from "../../Icon/Icons";
 import ResponsiveList from "../ResponsiveList";
@@ -47,12 +48,7 @@ const componentTemplate = responseListProps => {
   );
   return (
     <ContainerForDemonstration>
-      <ResponsiveList
-        id="Knobs"
-        className="responsive-story"
-        menuButtonSize={ResponsiveList.menuButtonSizes.MEDIUM}
-        {...responseListProps}
-      >
+      <ResponsiveList id="Knobs" className="responsive-story" menuButtonSize="40" {...responseListProps}>
         <SplitButton size={SplitButton.sizes.MAIN} marginRight secondaryDialogContent={secondaryContent}>
           Add Item
         </SplitButton>

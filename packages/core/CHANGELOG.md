@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.111.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.0...monday-ui-react-core@2.111.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* **ResponsiveList:** add static props for backwards ([#2161](https://github.com/mondaycom/vibe/issues/2161)) ([209d6d4](https://github.com/mondaycom/vibe/commit/209d6d492cd7d96b7bbf6cd2fb9d45ebb6ebdf0d))
+
+
+
+
+
+# [2.111.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.110.0...monday-ui-react-core@2.111.0) (2024-06-02)
+
+
+### Bug Fixes
+
+* **colors:** align dark orange to a11y requirments ([#2155](https://github.com/mondaycom/vibe/issues/2155)) ([68901cc](https://github.com/mondaycom/vibe/commit/68901cc3bfc881822fc57ca95cc94fe50d55b844))
+* export next components types ([#2158](https://github.com/mondaycom/vibe/issues/2158)) ([25505f7](https://github.com/mondaycom/vibe/commit/25505f73be0d25cfc961e66bd127f7efb1c17ee8))
+
+
+### Features
+
+* **AvatarGroup:** add disabled state ([#2126](https://github.com/mondaycom/vibe/issues/2126)) ([cf65f6b](https://github.com/mondaycom/vibe/commit/cf65f6ba005107247cc2cf45d618d95ae6103c68))
+* **Box:** add style prop ([#2149](https://github.com/mondaycom/vibe/issues/2149)) ([87c987d](https://github.com/mondaycom/vibe/commit/87c987d16767396583972b59392c75a25fb90fa5))
+* export component types ([#2153](https://github.com/mondaycom/vibe/issues/2153)) ([18b9f51](https://github.com/mondaycom/vibe/commit/18b9f5100a73d8cda4cb60b11188544c608f7e64))
+
+
+
+
+
+# [2.110.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.1...monday-ui-react-core@2.110.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **Checkbox storybook:** story is using Link from storybook-blocks ([#2137](https://github.com/mondaycom/vibe/issues/2137)) ([70fc17d](https://github.com/mondaycom/vibe/commit/70fc17d62973d7ccc55a0ec64ad68680471a3b1a))
+
+
+### Features
+
+* Ignore classes in useClickOutside hook ([#2135](https://github.com/mondaycom/vibe/issues/2135)) ([ea42d2b](https://github.com/mondaycom/vibe/commit/ea42d2b0d964166d74b990be0fdd82266539155e))
+
+
+
+
+
+## [2.109.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.0...monday-ui-react-core@2.109.1) (2024-05-26)
+
+
+### Bug Fixes
+
+* **SplitButton storybook:** - fix stories that use wrong prop ([#2138](https://github.com/mondaycom/vibe/issues/2138)) ([5f9c0a4](https://github.com/mondaycom/vibe/commit/5f9c0a44c3075cf3346ba84f1c29fb542e6bae7f))
+
+
+
+
+
+# [2.109.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.3...monday-ui-react-core@2.109.0) (2024-05-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** migrate to TS continue ([#2109](https://github.com/mondaycom/vibe/issues/2109)) ([a7a51ad](https://github.com/mondaycom/vibe/commit/a7a51ada6400b045c831978e3d5d419c35e0a8b1))
+* **TextArea:** add background color and text for dark mode ([#2130](https://github.com/mondaycom/vibe/issues/2130)) ([8d6a84c](https://github.com/mondaycom/vibe/commit/8d6a84ce884b3f3b37309015583bae9533304fc8))
+
+
+### Features
+
+* **label:** add small variant ([#2121](https://github.com/mondaycom/vibe/issues/2121)) ([2ca6562](https://github.com/mondaycom/vibe/commit/2ca65624abb07c88fde5e758a47c7e6c4e62b60f))
+* **withLiveEdit:** add actions for copy, format, and reset at the bottom of the live editor ([#2123](https://github.com/mondaycom/vibe/issues/2123)) ([f384d7c](https://github.com/mondaycom/vibe/commit/f384d7c95fe4e9bf65a5c590b1fbb0082c869eee))
+
+
+
+
+
+## [2.108.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.2...monday-ui-react-core@2.108.3) (2024-05-16)
+
+
+### Bug Fixes
+
+* **Dialog.tsx:** getContainer causing react error 200 ([#2124](https://github.com/mondaycom/vibe/issues/2124)) ([b018467](https://github.com/mondaycom/vibe/commit/b018467b43f648372f8cee3d2b7eb4c2c875287b))
+
+
+
+
+
+## [2.108.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.1...monday-ui-react-core@2.108.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* **AlertBanner:** replace Button & Icon with IconButton ([#2120](https://github.com/mondaycom/vibe/issues/2120)) ([ee2d11c](https://github.com/mondaycom/vibe/commit/ee2d11cbb64d94a837e3b902e9eb1d1724c69cde))
+* **Storybook Docs:** typo ([#2119](https://github.com/mondaycom/vibe/issues/2119)) ([25ff8fb](https://github.com/mondaycom/vibe/commit/25ff8fbbea1d221c45dc69102b5d965b888d09da))
+* **TabsContext:** use onTabChange from child props ([#2125](https://github.com/mondaycom/vibe/issues/2125)) ([11bbddf](https://github.com/mondaycom/vibe/commit/11bbddf748a80bbebd246f5e8d3dd2bd96bd09ab))
+* **Typography:** change tooltipProps type to Partial< TooltipProps > ([#2118](https://github.com/mondaycom/vibe/issues/2118)) ([707c5c3](https://github.com/mondaycom/vibe/commit/707c5c31372c1cbb9e3bd8e8fcfefea91ab0088f))
+* **Typography:** make anchor style apply only to direct child ([#2115](https://github.com/mondaycom/vibe/issues/2115)) ([337975b](https://github.com/mondaycom/vibe/commit/337975b97de2120ed52b70a99ceaddb208015bbe))
+
+
+
+
+
+## [2.108.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.108.0...monday-ui-react-core@2.108.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* **TextWIthHighlight:** escape regex ([#2113](https://github.com/mondaycom/vibe/issues/2113)) ([a980976](https://github.com/mondaycom/vibe/commit/a98097672abd405cccc8b5e07c0b10d7861c700a))
+
+
+
+
+
+# [2.108.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.107.0...monday-ui-react-core@2.108.0) (2024-05-07)
+
+
+### Bug Fixes
+
+* add null protection for onPickDate callback ([#2045](https://github.com/mondaycom/vibe/issues/2045)) ([#2102](https://github.com/mondaycom/vibe/issues/2102)) ([272ac89](https://github.com/mondaycom/vibe/commit/272ac893832b39a366ed851b98a9e92519d17b2f))
+* **MenuItem:** disabled item should not show its submenu ([#2099](https://github.com/mondaycom/vibe/issues/2099)) ([8513ba9](https://github.com/mondaycom/vibe/commit/8513ba9106a3bf259a956cf35ba85a2a2927013e))
+
+
+### Features
+
+* add a11y props for `search` and `combobox` components ([#2105](https://github.com/mondaycom/vibe/issues/2105)) ([b564e1b](https://github.com/mondaycom/vibe/commit/b564e1ba276cf57c03c448ee5989bc30bcc46b62))
+
+
+
+
+
 # [2.107.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.106.1...monday-ui-react-core@2.107.0) (2024-05-01)
 
 

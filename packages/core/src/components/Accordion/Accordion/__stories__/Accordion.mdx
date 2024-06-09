@@ -1,0 +1,99 @@
+import Accordion from "../Accordion";
+import AccordionItem from "../../AccordionItem/AccordionItem";
+import { Canvas, Meta } from "@storybook/blocks";
+import {
+  BREADCRUBMS,
+  EXPAND_COLLAPSE,
+  TABLE
+} from "../../../../storybook/components/related-components/component-description-map";
+import { UsageGuidelines } from "vibe-storybook-components";
+import * as AccordionStories from "./Accordion.stories";
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
+
+<Canvas of={AccordionStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use accordion reduce clutter and chunk the information one by one",
+    "Accordion Label must be short, clear, and understandable to indicate what's inside",
+    "Default state of accordion is closed unless used for navigation",
+    "Accordion content can include icons, radio buttons, and checkboxes"
+  ]}
+/>
+
+## Variants
+
+### Multi active
+
+Each section can be expanded without closing the others
+
+<Canvas of={AccordionStories.MultiActive} />
+
+### Single active
+
+Only one section can be open at the time
+
+<Canvas of={AccordionStories.SingleActive} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      className: "monday-storybook-accordion_big-figure",
+      positive: {
+        component: (
+          <Accordion className="monday-storybook-accordion_box-small">
+            <AccordionItem title="Notifications" />
+            <AccordionItem title="Security" />
+            <AccordionItem title="InfoAssets" />
+          </Accordion>
+        ),
+        description: "Use informative short labels."
+      },
+      negative: {
+        className: "monday-storybook-accordion_big-figure",
+        component: (
+          <Accordion className="monday-storybook-accordion_box-small">
+            <AccordionItem title="Closed" />
+            <AccordionItem title="Closed" />
+            <AccordionItem title="Closed" />
+          </Accordion>
+        ),
+        description: "Indicate the accordion state with labels."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Preferences Accordion
+
+<Canvas of={AccordionStories.PreferencesAccordion} />
+
+## Related components
+
+<RelatedComponents componentsNames={[EXPAND_COLLAPSE, TABLE, BREADCRUBMS]} />

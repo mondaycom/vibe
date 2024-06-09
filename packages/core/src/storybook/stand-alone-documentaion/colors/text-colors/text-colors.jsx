@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo } from "react";
 import { ColorsDescription } from "../colors-description/colors-description";
 

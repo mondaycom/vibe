@@ -1,0 +1,222 @@
+import { Meta } from "@storybook/blocks";
+import ButtonGroup from "../ButtonGroup";
+import { Mobile } from "../../Icon/Icons";
+import { BREADCRUBMS, BUTTON, TABS } from "../../../storybook/components/related-components/component-description-map";
+import Desktop from "./assets/Desktop.js";
+import { TipCheckYourself } from "./ButtonGroup.stories.helpers";
+import * as ButtonGroupStories from "./ButtonGroup.stories";
+
+<Meta of={ButtonGroupStories} />
+
+# ButtonGroup
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+ButtonGroup can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container.
+
+<Canvas of={ButtonGroupStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Group together calls to action that are related to each other.",
+    "Use when all the actions in the group take place immediately in one click. If one or more actions does not immediately happen in one click, either use a different component, or remove those actions from the group.",
+    "Only should be used in groups of up to six buttons if the buttons contain an icon with no text.",
+    "The main action of a button group will be in selected mode.",
+    <>
+      Keep the content short and actionable. For longer actions, use the{" "}
+      <StorybookLink page="Inputs/Dropdown">Dropdown</StorybookLink> component.
+    </>,
+    <>
+      Button group is used to display the same content in different view, if you need to present different content, use{" "}
+      <StorybookLink page="Navigation/Tabs/Tabs">Tabs.</StorybookLink>
+    </>
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### Default
+
+<Canvas of={ButtonGroupStories.Default} />
+
+### Tertiary
+
+<Canvas of={ButtonGroupStories.Tertiary} />
+
+### Disabled - all buttons
+
+<Canvas of={ButtonGroupStories.Disabled} />
+
+### Disabled - single button
+
+<Canvas of={ButtonGroupStories.DisabledSingeButton} />
+
+### Size
+
+<Canvas of={ButtonGroupStories.Size} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <ButtonGroup
+            groupAriaLabel="button group aria label"
+            value={1}
+            options={[
+              { value: 1, text: "Month" },
+              { value: 2, text: "Week" },
+              { value: 3, text: "Year" }
+            ]}
+          />
+        ),
+        description: "Use when all the actions in the group take place immediately in one click."
+      },
+      negative: {
+        component: (
+          <ButtonGroup
+            groupAriaLabel="button group aria label"
+            value={1}
+            options={[
+              { value: 1, text: "Main table" },
+              { value: 2, text: "Hadas view" },
+              { value: 3, text: "Chart view" }
+            ]}
+          />
+        ),
+        description: (
+          <>
+            Don’t use a button group when switching between content or object pages. Use{" "}
+            <StorybookLink page="Navigation/Tabs/Tabs">Tabs</StorybookLink> instead.
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-button-group_column">
+            <ButtonGroup
+              groupAriaLabel="button group aria label"
+              size={ButtonGroup.sizes.MEDIUM}
+              value={1}
+              options={[
+                { value: 1, leftIcon: Desktop },
+                { value: 2, leftIcon: Mobile }
+              ]}
+            />
+            <ButtonGroup
+              groupAriaLabel="button group aria label"
+              size={ButtonGroup.sizes.MEDIUM}
+              value={1}
+              options={[
+                { value: 1, text: "Desktop" },
+                { value: 2, text: "Mobile" }
+              ]}
+            />
+            <ButtonGroup
+              groupAriaLabel="button group aria label"
+              size={ButtonGroup.sizes.MEDIUM}
+              value={1}
+              options={[
+                { value: 1, text: "Desktop", leftIcon: Desktop },
+                { value: 2, text: "Mobile", leftIcon: Mobile }
+              ]}
+            />
+          </div>
+        ),
+        description: "Always use buttons with a consistent style: Icons, text or icon with text."
+      },
+      negative: {
+        component: (
+          <ButtonGroup
+            groupAriaLabel="button group aria label"
+            size={ButtonGroup.sizes.MEDIUM}
+            value={1}
+            options={[
+              { value: 1, text: "Desktop" },
+              { value: 2, icon: Mobile }
+            ]}
+          />
+        ),
+        description: "Avoid combining text buttons with icon buttons within the same button group."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <ButtonGroup
+            groupAriaLabel="button group aria label"
+            value={1}
+            options={[
+              { value: 1, text: "Yearly plan" },
+              { value: 2, text: "Monthly plan" },
+              { value: 3, text: "Annual Plan" }
+            ]}
+          />
+        ),
+        description: "Keep button copy width as simillar as possible."
+      },
+      negative: {
+        component: (
+          <ButtonGroup
+            groupAriaLabel="button group aria label"
+            value={1}
+            options={[
+              { value: 1, text: "Yearly" },
+              { value: 2, text: "Monthly" },
+              { value: 3, text: "Annual-half year plan" }
+            ]}
+          />
+        ),
+        description: "Avoid mixing long button copy and short copy."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Button group in settings
+
+For example: on the views settings you can choose only one option.
+
+<Canvas of={ButtonGroupStories.ButtonGroupInSettings} />
+
+### Button group as toggle
+
+Use button group as toggle for change the view between two states.
+For on and off actions, use the <StorybookLink page="Inputs/Toggle">Toggle</StorybookLink> component.
+
+<Canvas of={ButtonGroupStories.ButtonGroupAsToggle} />
+
+### Full width button group
+
+Use this option in order for the ButtonGroup to fill the entire width of its container
+
+This feature is intended to be used within small containers like a side panel, menu or similar small floating elements
+
+<Canvas of={ButtonGroupStories.FullWidthButtonGroup} />
+
+## Related components
+
+<RelatedComponents componentsNames={[TABS, BUTTON, BREADCRUBMS]} />

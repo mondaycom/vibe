@@ -2,7 +2,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
 import Button from "../../components/Button/Button";
-import Icon from "../../components/Icon/Icon";
+import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { AlertBannerBackgroundColor } from "./AlertBannerConstants";
 import { NOOP } from "../../utils/function-utils";
@@ -126,17 +126,17 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
         </AlertBannerContext.Provider>
         <div className={cx(styles.closeButtonWrapper)}>
           {isCloseHidden ? null : (
-            <Button
+            <IconButton
               data-testid="alert-banner-close-button"
+              icon={CloseSmall}
               className={cx(styles.closeBtn)}
+              hideTooltip
               onClick={onClose}
               size={Button.sizes.SMALL}
-              kind={Button.kinds.TERTIARY}
+              kind={IconButton.kinds.TERTIARY}
               color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
               ariaLabel={closeButtonAriaLabel}
-            >
-              <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-            </Button>
+            />
           )}
         </div>
       </Text>

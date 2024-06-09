@@ -1,3 +1,4 @@
+import React from "react";
 import { Frame } from "vibe-storybook-components";
 import { ShadowExample } from "./shadow-example/shadow-example";
 import "./shadow-levels.scss";

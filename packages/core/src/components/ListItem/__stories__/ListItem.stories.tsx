@@ -1,3 +1,4 @@
+import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
@@ -71,7 +72,7 @@ export const WithAvatar = {
   render: () => (
     <ListItem>
       <ListItemAvatar src={person1} />
-      Hadas Farhi
+      Sophia Johnson
     </ListItem>
   ),
 

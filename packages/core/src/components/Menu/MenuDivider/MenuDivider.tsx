@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import Divider from "../../Divider/Divider";

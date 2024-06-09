@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly renders correctly with custom color 1`] = `
+<h1
+  aria-label=""
+  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  data-testid="heading"
+  style={
+    {
+      "color": "blue",
+    }
+  }
+>
+  Hello
+</h1>
+`;
+
+exports[`Renders correctly renders correctly with different sizes 1`] = `
+<div>
+  <h1
+    aria-label=""
+    className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H1
+  </h1>
+  <h1
+    aria-label=""
+    className="headingComponent elementTypeH1 sizeMedium singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H1 medium
+  </h1>
+  <h2
+    aria-label=""
+    className="headingComponent elementTypeH2 sizeLarge singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H2
+  </h2>
+  <h2
+    aria-label=""
+    className="headingComponent elementTypeH2 sizeSmall singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H2 small
+  </h2>
+  <h3
+    aria-label=""
+    className="headingComponent elementTypeH3 sizeLarge singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H3
+  </h3>
+  <h4
+    aria-label=""
+    className="headingComponent elementTypeH4 sizeLarge singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H4
+  </h4>
+  <h5
+    aria-label=""
+    className="headingComponent elementTypeH5 sizeLarge singleLineEllipsis"
+    data-testid="heading"
+  >
+    Hello H5
+  </h5>
+</div>
+`;
+
+exports[`Renders correctly renders correctly with empty props 1`] = `
+<h1
+  aria-label=""
+  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  data-testid="heading"
+>
+  
+</h1>
+`;
+
+exports[`Renders correctly renders correctly with text highlight 1`] = `
+<h2
+  aria-label=""
+  className="headingComponent elementTypeH2 sizeLarge"
+  data-testid="heading"
+>
+  <div
+    className="textWithHighlightWrapper"
+    data-testid="text-with-highlight"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <em
+      className="highlightText"
+    >
+      Heading
+    </em>
+    <span>
+       with 
+    </span>
+    <em
+      className="highlightText"
+    >
+      highlight
+    </em>
+    <span>
+       text 
+    </span>
+    <em
+      className="highlightText"
+    >
+      heading
+    </em>
+    <span>
+       with 
+    </span>
+    <em
+      className="highlightText"
+    >
+      highlight
+    </em>
+    <span>
+       text without overflow
+    </span>
+  </div>
+</h2>
+`;

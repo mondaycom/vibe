@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.4...vibe-storybook-components@0.19.0) (2024-05-26)
+
+
+### Features
+
+* **StatusTag:** Add Alpha style ([#2136](https://github.com/mondaycom/vibe/issues/2136)) ([118d83d](https://github.com/mondaycom/vibe/commit/118d83d8581e983c2daccefaa23d4fef3c1732d6))
+
+
+
+
+
+## [0.18.4](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.3...vibe-storybook-components@0.18.4) (2024-05-07)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 ## [0.18.3](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.2...vibe-storybook-components@0.18.3) (2024-04-30)
 
 

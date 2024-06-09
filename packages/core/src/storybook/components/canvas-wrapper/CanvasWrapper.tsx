@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas, useOf } from "@storybook/blocks";
 import { ComponentProps, FC, useMemo, useState } from "react";
 import styles from "./CanvasWrapper.module.scss";
@@ -12,7 +13,7 @@ const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
 
   const toggleCodeAction = useMemo(
     () => ({
-      title: "Toggle code editor",
+      title: "Story Editor",
       onClick: () => setOpen(prev => !prev)
     }),
     []

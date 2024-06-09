@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { ColorDescription } from "vibe-storybook-components";
 import { colorsHashMap } from "../../../../utils/colors-vars-map";
 

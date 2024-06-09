@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with class name 1`] = `
+<div
+  className="virtualizedGridWrapper class-name"
+  data-testid="virtualized-grid"
+>
+  <div
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="virtualizedGridWrapper"
+  data-testid="virtualized-grid"
+>
+  <div
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`renders correctly with scrollable class name 1`] = `
+<div
+  className="virtualizedGridWrapper"
+  data-testid="virtualized-grid"
+>
+  <div
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;

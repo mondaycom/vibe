@@ -1,0 +1,486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttentionBox renders correctly renders correctly 1`] = `
+<aside
+  className="attentionBox typePrimary dummy-class-name"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      className="icon icon noFocusStyle"
+      data-testid="icon"
+      fill="currentColor"
+      height="20"
+      onClick={[Function]}
+      viewBox="0 0 20 20"
+      width="20"
+    >
+      <path
+        clipRule="evenodd"
+        d="M4.5559 4.55593C5.99976 3.11206 7.95806 2.3009 10 2.3009C12.0419 2.3009 14.0002 3.11206 15.4441 4.55593C16.888 5.99979 17.6991 7.9581 17.6991 10C17.6991 12.042 16.888 14.0003 15.4441 15.4441C14.0002 16.888 12.0419 17.6992 10 17.6992C7.95806 17.6992 5.99976 16.888 4.5559 15.4441C3.11203 14.0003 2.30087 12.042 2.30087 10C2.30087 7.9581 3.11203 5.99979 4.5559 4.55593ZM10 3.8009C8.35589 3.8009 6.77912 4.45402 5.61656 5.61659C4.45399 6.77915 3.80087 8.35592 3.80087 10C3.80087 11.6441 4.45399 13.2209 5.61656 14.3835C6.77912 15.546 8.35589 16.1992 10 16.1992C11.6441 16.1992 13.2209 15.546 14.3834 14.3835C15.546 13.2209 16.1991 11.6441 16.1991 10C16.1991 8.35592 15.546 6.77915 14.3834 5.61659C13.2209 4.45402 11.6441 3.8009 10 3.8009ZM10 9.25006C10.4142 9.25006 10.75 9.58585 10.75 10.0001V13.4746C10.75 13.8888 10.4142 14.2246 10 14.2246C9.58579 14.2246 9.25 13.8888 9.25 13.4746V10.0001C9.25 9.58585 9.58579 9.25006 10 9.25006ZM9.54135 6.21669C9.7058 6.10681 9.89914 6.04816 10.0969 6.04816C10.3621 6.04816 10.6165 6.15351 10.804 6.34105C10.9916 6.52859 11.0969 6.78294 11.0969 7.04816C11.0969 7.24593 11.0383 7.43927 10.9284 7.60373C10.8185 7.76818 10.6623 7.89635 10.4796 7.97204C10.2969 8.04772 10.0958 8.06753 9.90183 8.02894C9.70786 7.99036 9.52967 7.89512 9.38982 7.75526C9.24996 7.61541 9.15472 7.43722 9.11614 7.24325C9.07755 7.04927 9.09736 6.8482 9.17304 6.66547C9.24873 6.48275 9.3769 6.32657 9.54135 6.21669Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly className 1`] = `
+<aside
+  className="attentionBox typePrimary test-classNmae"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      className="icon icon noFocusStyle"
+      data-testid="icon"
+      fill="currentColor"
+      height="20"
+      onClick={[Function]}
+      viewBox="0 0 20 20"
+      width="20"
+    >
+      <path
+        clipRule="evenodd"
+        d="M4.5559 4.55593C5.99976 3.11206 7.95806 2.3009 10 2.3009C12.0419 2.3009 14.0002 3.11206 15.4441 4.55593C16.888 5.99979 17.6991 7.9581 17.6991 10C17.6991 12.042 16.888 14.0003 15.4441 15.4441C14.0002 16.888 12.0419 17.6992 10 17.6992C7.95806 17.6992 5.99976 16.888 4.5559 15.4441C3.11203 14.0003 2.30087 12.042 2.30087 10C2.30087 7.9581 3.11203 5.99979 4.5559 4.55593ZM10 3.8009C8.35589 3.8009 6.77912 4.45402 5.61656 5.61659C4.45399 6.77915 3.80087 8.35592 3.80087 10C3.80087 11.6441 4.45399 13.2209 5.61656 14.3835C6.77912 15.546 8.35589 16.1992 10 16.1992C11.6441 16.1992 13.2209 15.546 14.3834 14.3835C15.546 13.2209 16.1991 11.6441 16.1991 10C16.1991 8.35592 15.546 6.77915 14.3834 5.61659C13.2209 4.45402 11.6441 3.8009 10 3.8009ZM10 9.25006C10.4142 9.25006 10.75 9.58585 10.75 10.0001V13.4746C10.75 13.8888 10.4142 14.2246 10 14.2246C9.58579 14.2246 9.25 13.8888 9.25 13.4746V10.0001C9.25 9.58585 9.58579 9.25006 10 9.25006ZM9.54135 6.21669C9.7058 6.10681 9.89914 6.04816 10.0969 6.04816C10.3621 6.04816 10.6165 6.15351 10.804 6.34105C10.9916 6.52859 11.0969 6.78294 11.0969 7.04816C11.0969 7.24593 11.0383 7.43927 10.9284 7.60373C10.8185 7.76818 10.6623 7.89635 10.4796 7.97204C10.2969 8.04772 10.0958 8.06753 9.90183 8.02894C9.70786 7.99036 9.52967 7.89512 9.38982 7.75526C9.24996 7.61541 9.15472 7.43722 9.11614 7.24325C9.07755 7.04927 9.09736 6.8482 9.17304 6.66547C9.24873 6.48275 9.3769 6.32657 9.54135 6.21669Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
+<aside
+  className="attentionBox typeDark"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      className="icon icon noFocusStyle"
+      data-testid="icon"
+      fill="currentColor"
+      height="20"
+      onClick={[Function]}
+      viewBox="0 0 20 20"
+      width="20"
+    >
+      <path
+        clipRule="evenodd"
+        d="M10 2.10596C9.661 2.10596 9.32868 2.20028 9.04023 2.37836C8.75177 2.55645 8.51855 2.81128 8.36665 3.11435L8.36633 3.11498L2.44277 14.9621L2.44269 14.9623C2.30353 15.2407 2.23784 15.5502 2.25185 15.8612C2.26586 16.1721 2.3591 16.4744 2.52272 16.7392C2.68635 17.0041 2.91493 17.2227 3.18678 17.3744C3.45863 17.5261 3.76473 17.6058 4.07604 17.606H4.07644H15.9236H15.924C16.2353 17.6058 16.5414 17.5261 16.8132 17.3744C17.0851 17.2227 17.3137 17.0041 17.4773 16.7392C17.6409 16.4744 17.7341 16.1721 17.7481 15.8612C17.7622 15.5502 17.6965 15.2407 17.5573 14.9623L17.5572 14.9621L11.6337 3.11498L11.6333 3.11435C11.4815 2.81128 11.2482 2.55645 10.9598 2.37836C10.6713 2.20028 10.339 2.10596 10 2.10596ZM9.82821 3.65471C9.87984 3.62284 9.93932 3.60596 10 3.60596C10.0607 3.60596 10.1202 3.62284 10.1718 3.65471C10.2233 3.68654 10.265 3.73207 10.2922 3.78622L10.2923 3.78645L16.2155 15.6328L16.2156 15.6329C16.2404 15.6827 16.2522 15.7381 16.2497 15.7937C16.2472 15.8493 16.2305 15.9034 16.2012 15.9508C16.1719 15.9982 16.131 16.0374 16.0823 16.0645C16.0337 16.0917 15.9789 16.1059 15.9232 16.106H4.07684C4.02112 16.1059 3.96633 16.0917 3.91767 16.0645C3.86901 16.0374 3.8281 15.9982 3.79881 15.9508C3.76953 15.9034 3.75284 15.8493 3.75033 15.7937C3.74783 15.7381 3.75956 15.6827 3.78441 15.6329L3.78449 15.6328L9.70765 3.78645L9.70777 3.7862C9.73496 3.73206 9.77666 3.68654 9.82821 3.65471ZM10 6.95135C10.4142 6.95135 10.75 7.28714 10.75 7.70135V10.9324C10.75 11.3466 10.4142 11.6824 10 11.6824C9.58579 11.6824 9.25 11.3466 9.25 10.9324V7.70135C9.25 7.28714 9.58579 6.95135 10 6.95135ZM9.2303 13.3937C9.43444 13.1896 9.7113 13.0749 9.99999 13.0749C10.2887 13.0749 10.5655 13.1896 10.7697 13.3937C10.9738 13.5979 11.0885 13.8747 11.0885 14.1634C11.0885 14.4521 10.9738 14.729 10.7697 14.9331C10.5655 15.1372 10.2887 15.2519 9.99999 15.2519C9.7113 15.2519 9.43444 15.1372 9.2303 14.9331C9.02617 14.729 8.91149 14.4521 8.91149 14.1634C8.91149 13.8747 9.02617 13.5979 9.2303 13.3937ZM9.99999 14.1749C10.003 14.1749 10.006 14.1737 10.0081 14.1715C10.0103 14.1694 10.0115 14.1665 10.0115 14.1634C10.0115 14.1604 10.0103 14.1574 10.0081 14.1553C10.006 14.1531 10.003 14.1519 9.99999 14.1519C9.99695 14.1519 9.99402 14.1531 9.99187 14.1553C9.98971 14.1574 9.9885 14.1604 9.9885 14.1634C9.9885 14.1665 9.98971 14.1694 9.99187 14.1715C9.99402 14.1737 9.99695 14.1749 9.99999 14.1749Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      className="icon icon noFocusStyle"
+      data-testid="icon"
+      fill="currentColor"
+      height="20"
+      onClick={[Function]}
+      viewBox="0 0 20 20"
+      width="20"
+    >
+      <path
+        clipRule="evenodd"
+        d="M4.5559 4.55593C5.99976 3.11206 7.95806 2.3009 10 2.3009C12.0419 2.3009 14.0002 3.11206 15.4441 4.55593C16.888 5.99979 17.6991 7.9581 17.6991 10C17.6991 12.042 16.888 14.0003 15.4441 15.4441C14.0002 16.888 12.0419 17.6992 10 17.6992C7.95806 17.6992 5.99976 16.888 4.5559 15.4441C3.11203 14.0003 2.30087 12.042 2.30087 10C2.30087 7.9581 3.11203 5.99979 4.5559 4.55593ZM10 3.8009C8.35589 3.8009 6.77912 4.45402 5.61656 5.61659C4.45399 6.77915 3.80087 8.35592 3.80087 10C3.80087 11.6441 4.45399 13.2209 5.61656 14.3835C6.77912 15.546 8.35589 16.1992 10 16.1992C11.6441 16.1992 13.2209 15.546 14.3834 14.3835C15.546 13.2209 16.1991 11.6441 16.1991 10C16.1991 8.35592 15.546 6.77915 14.3834 5.61659C13.2209 4.45402 11.6441 3.8009 10 3.8009ZM10 9.25006C10.4142 9.25006 10.75 9.58585 10.75 10.0001V13.4746C10.75 13.8888 10.4142 14.2246 10 14.2246C9.58579 14.2246 9.25 13.8888 9.25 13.4746V10.0001C9.25 9.58585 9.58579 9.25006 10 9.25006ZM9.54135 6.21669C9.7058 6.10681 9.89914 6.04816 10.0969 6.04816C10.3621 6.04816 10.6165 6.15351 10.804 6.34105C10.9916 6.52859 11.0969 6.78294 11.0969 7.04816C11.0969 7.24593 11.0383 7.43927 10.9284 7.60373C10.8185 7.76818 10.6623 7.89635 10.4796 7.97204C10.2969 8.04772 10.0958 8.06753 9.90183 8.02894C9.70786 7.99036 9.52967 7.89512 9.38982 7.75526C9.24996 7.61541 9.15472 7.43722 9.11614 7.24325C9.07755 7.04927 9.09736 6.8482 9.17304 6.66547C9.24873 6.48275 9.3769 6.32657 9.54135 6.21669Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <div
+      className="typography primary start singleLineEllipsis text text2Normal text compact"
+      data-testid="text"
+    >
+      Text
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly with empty props 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    />
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly with empty title prop 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      className="icon icon noFocusStyle"
+      data-testid="icon"
+      fill="currentColor"
+      height="20"
+      onClick={[Function]}
+      viewBox="0 0 20 20"
+      width="20"
+    >
+      <path
+        clipRule="evenodd"
+        d="M4.5559 4.55593C5.99976 3.11206 7.95806 2.3009 10 2.3009C12.0419 2.3009 14.0002 3.11206 15.4441 4.55593C16.888 5.99979 17.6991 7.9581 17.6991 10C17.6991 12.042 16.888 14.0003 15.4441 15.4441C14.0002 16.888 12.0419 17.6992 10 17.6992C7.95806 17.6992 5.99976 16.888 4.5559 15.4441C3.11203 14.0003 2.30087 12.042 2.30087 10C2.30087 7.9581 3.11203 5.99979 4.5559 4.55593ZM10 3.8009C8.35589 3.8009 6.77912 4.45402 5.61656 5.61659C4.45399 6.77915 3.80087 8.35592 3.80087 10C3.80087 11.6441 4.45399 13.2209 5.61656 14.3835C6.77912 15.546 8.35589 16.1992 10 16.1992C11.6441 16.1992 13.2209 15.546 14.3834 14.3835C15.546 13.2209 16.1991 11.6441 16.1991 10C16.1991 8.35592 15.546 6.77915 14.3834 5.61659C13.2209 4.45402 11.6441 3.8009 10 3.8009ZM10 9.25006C10.4142 9.25006 10.75 9.58585 10.75 10.0001V13.4746C10.75 13.8888 10.4142 14.2246 10 14.2246C9.58579 14.2246 9.25 13.8888 9.25 13.4746V10.0001C9.25 9.58585 9.58579 9.25006 10 9.25006ZM9.54135 6.21669C9.7058 6.10681 9.89914 6.04816 10.0969 6.04816C10.3621 6.04816 10.6165 6.15351 10.804 6.34105C10.9916 6.52859 11.0969 6.78294 11.0969 7.04816C11.0969 7.24593 11.0383 7.43927 10.9284 7.60373C10.8185 7.76818 10.6623 7.89635 10.4796 7.97204C10.2969 8.04772 10.0958 8.06753 9.90183 8.02894C9.70786 7.99036 9.52967 7.89512 9.38982 7.75526C9.24996 7.61541 9.15472 7.43722 9.11614 7.24325C9.07755 7.04927 9.09736 6.8482 9.17304 6.66547C9.24873 6.48275 9.3769 6.32657 9.54135 6.21669Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text dismissible paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+  <div
+    className="closeIconWrapper wrapper"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      aria-label="Close"
+      className="closeIcon button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+      data-testid="icon-button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "height": "32px",
+          "justifyContent": "center",
+          "padding": 0,
+          "width": "32px",
+        }
+      }
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="icon noFocusStyle"
+        data-testid="icon"
+        fill="currentColor"
+        height="20"
+        onClick={[Function]}
+        viewBox="0 0 20 20"
+        width="20"
+      >
+        <path
+          clipRule="evenodd"
+          d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      <span>
+        renderer with components 
+        <div>
+          and sub components
+        </div>
+      </span>
+    </p>
+  </div>
+</aside>
+`;
+
+exports[`AttentionBox renders correctly renders with icon font type 1`] = `
+<aside
+  className="attentionBox typePrimary"
+  data-testid="attention-box"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter titleContainer"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <span
+      aria-hidden={true}
+      className="icon icon noFocusStyle fa fa fa-star"
+      data-testid="icon"
+      onClick={[Function]}
+      role="img"
+    />
+    <h5
+      className="typography primary start singleLineEllipsis text text1Medium title"
+      data-testid="text"
+    >
+      Title
+    </h5>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "4px",
+      }
+    }
+  >
+    <p
+      className="typography primary start text text2Normal text paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
+</aside>
+`;

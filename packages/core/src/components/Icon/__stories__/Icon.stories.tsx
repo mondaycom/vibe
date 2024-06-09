@@ -1,3 +1,4 @@
+import React from "react";
 import Icon from "../Icon";
 import Bolt from "../Icons/components/Bolt";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

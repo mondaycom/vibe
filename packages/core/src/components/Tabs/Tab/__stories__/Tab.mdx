@@ -1,0 +1,30 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as TabStories from "./Tab.stories";
+import { Controls } from "@storybook/blocks";
+
+<Meta of={TabStories} />
+
+# Tab
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+<Canvas of={TabStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### States
+
+<Canvas of={TabStories.States} />
+
+### Icons
+
+<Canvas of={TabStories.Icons} />

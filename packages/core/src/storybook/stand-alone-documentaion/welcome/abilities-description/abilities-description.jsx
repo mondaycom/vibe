@@ -1,3 +1,4 @@
+import React from "react";
 import { AbilityDescription } from "../ability-description/ability-description";
 import { components, foundations, gettingStarted } from "../assets";
 import "./abilities-description.scss";

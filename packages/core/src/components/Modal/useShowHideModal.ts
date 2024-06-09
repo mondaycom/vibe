@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
 import { A11yDialogType } from "./ModalHelper";
@@ -19,6 +19,7 @@ export default function useShowHideModal({
   onClose: () => void;
   alertDialog: boolean;
 }) {
+  const [isAnimating, setIsAnimating] = useState(false);
   const getAnimationProps = useAnimationProps(triggerElement, instance);
 
   const closeOnEsc = useCallback(
@@ -37,22 +38,28 @@ export default function useShowHideModal({
     keys: KEYS
   });
 
-  // show/hide and animate the modal
   useEffect(() => {
-    if (!instance) {
-      return;
-    }
-    const animate = instance?.$el.childNodes[1].animate;
     if (show) {
+      setIsAnimating(true);
       instance?.show();
-      if (animate) instance?.$el.childNodes[1].animate?.(...getAnimationProps());
+      const animate = instance?.$el.childNodes[1].animate;
+      if (animate) {
+        instance?.$el.childNodes[1].animate?.(...getAnimationProps());
+      }
     } else {
+      const animate = instance?.$el.childNodes[1].animate;
       if (animate) {
         const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
-        animation?.finished.then(() => instance?.hide());
+        animation?.finished.then(() => {
+          setIsAnimating(false);
+          instance?.hide();
+        });
       } else {
+        setIsAnimating(false);
         instance?.hide();
       }
     }
   }, [show, instance, getAnimationProps]);
+
+  return { shouldShow: isAnimating };
 }

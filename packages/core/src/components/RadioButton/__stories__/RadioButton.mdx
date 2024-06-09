@@ -1,0 +1,125 @@
+import { Meta } from "@storybook/blocks";
+import RadioButton from "../RadioButton";
+import { CHECKBOX, DROPDOWN, TOGGLE } from "../../../storybook/components/related-components/component-description-map";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { TipDropdown } from "./RadioButton.stories.helpers";
+import * as RadioButtonStories from "./RadioButton.stories";
+
+<Meta of={RadioButtonStories} />
+
+# RadioButton
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A radio represents an item in a single selection list.
+
+<Canvas of={RadioButtonStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "A radio lets a user make exactly one selection from a set, which is all visible at the same time.",
+    "Set one radio group option as default. Select the most likely or convenient option.",
+    "Ensure both label and input are clickable to select the option.",
+    "Place radio buttons  can be placed vertically or horizontaly, using 16px spacing."
+  ]}
+/>
+
+<TipDropdown />
+
+## Variants
+
+### States
+
+Radio buttons have 3 states: regular, selected, and disabled.
+
+<Canvas of={RadioButtonStories.States} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
+            <RadioButton text="Item 1" name="radio-buttons-group-1" />
+            <RadioButton text="Item 2" name="radio-buttons-group-1" defaultChecked />
+          </DialogContentContainer>
+        ),
+        description: "Use radio buttons when only one item can be selected from a list."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
+            <RadioButton text="Item 1" checked />
+            <RadioButton text="Item 2" checked />
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use{" "}
+            <StorybookLink page="Inputs/Checkbox">checkboxes</StorybookLink> instead.
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: (
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
+            <RadioButton text="Item 1" name="radio-buttons-group-2" defaultChecked />
+            <RadioButton text="Item 2" name="radio-buttons-group-2" />
+            <RadioButton text="Item 3" name="radio-buttons-group-2" />
+          </DialogContentContainer>
+        ),
+        description: "Mark the first item as selected, and make sure it’s the most common or popular action."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
+            <RadioButton text="Item 1" name="radio-buttons-group-3" />
+            <RadioButton text="Item 2" name="radio-buttons-group-3" />
+            <RadioButton text="Item 3" name="radio-buttons-group-3" />
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don’t leave all radio buttons unselcted. If you can’t offer a smart default, consider using the{" "}
+            <StorybookLink page="Inputs/Dropdown">dropdown component.</StorybookLink>
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Radio button in items list
+
+The user needs to select only one option.
+
+<Canvas of={RadioButtonStories.RadioButtonInItemsList} />
+
+Controlled externally.
+
+<Canvas of={RadioButtonStories.ControlledRadioButtons} />
+
+## Related components
+
+<RelatedComponents componentsNames={[CHECKBOX, TOGGLE, DROPDOWN]} />

@@ -1,6 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  TEXT_AREA = "text-area",
   EDITABLE_TEXT = "editable-text",
   TIPSEEN_MEDIA = "tipseen-media",
   INDICATOR = "indicator",
@@ -110,6 +111,7 @@ export enum ComponentDefaultTestId {
   DIALOG = "dialog",
   TABLE = "table",
   TABLE_BODY = "table-body",
+  TABLE_VIRTUALIZED_BODY = "table-virtualized-body",
   TABLE_CELL = "table-cell",
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
