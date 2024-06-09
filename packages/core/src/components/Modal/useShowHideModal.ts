@@ -50,7 +50,7 @@ export default function useShowHideModal({
       const animate = instance?.$el.childNodes[1].animate;
       if (animate) {
         const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
-        animation.finished.then(() => {
+        animation?.finished.then(() => {
           setIsAnimating(false);
           instance?.hide();
         });
