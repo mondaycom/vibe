@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.112.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.1...monday-ui-react-core@2.112.0) (2024-06-09)
+
+
+### Bug Fixes
+
+* **Table:** sync between body scroll and header scroll in virtualized state ([#2162](https://github.com/mondaycom/vibe/issues/2162)) ([d47f8f9](https://github.com/mondaycom/vibe/commit/d47f8f9c9b1930bae258d94641d0dcc9e07842b6))
+
+
+### Features
+
+* **icons:** Add Heart icon ([#2166](https://github.com/mondaycom/vibe/issues/2166)) ([896871b](https://github.com/mondaycom/vibe/commit/896871b9ab4c0f1340987f3379a767652fb41420))
+* **Modal:** unmount when hidden ([#2165](https://github.com/mondaycom/vibe/issues/2165)) ([d5ba05c](https://github.com/mondaycom/vibe/commit/d5ba05c9d8f88ed94d849090b90d874c4a7f8253))
+* **Table:** apply vibe component props in TableVirtualizedBody ([#2163](https://github.com/mondaycom/vibe/issues/2163)) ([2a4238e](https://github.com/mondaycom/vibe/commit/2a4238e605f2a19257b7afe3af44ffc9418b4441))
+
+
+
+
+
 ## [2.111.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.0...monday-ui-react-core@2.111.1) (2024-06-03)
 
 

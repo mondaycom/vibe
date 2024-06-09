@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.6.1...monday-ui-style@0.7.0) (2024-06-09)
+
+
+### Features
+
+* **icons:** Add Heart icon ([#2166](https://github.com/mondaycom/vibe/issues/2166)) ([896871b](https://github.com/mondaycom/vibe/commit/896871b9ab4c0f1340987f3379a767652fb41420))
+
+
+
+
+
 ## [0.6.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.6.0...monday-ui-style@0.6.1) (2024-05-07)
 
 **Note:** Version bump only for package monday-ui-style
