@@ -41,7 +41,7 @@ describe("Tooltip renders correctly", () => {
   it("with position", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" position={Tooltip.positions.LEFT}>
+        <Tooltip shouldShowOnMount content="test" position="left">
           <div />
         </Tooltip>
       )

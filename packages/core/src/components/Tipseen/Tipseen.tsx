@@ -1,6 +1,6 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType, DialogPosition, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
@@ -19,13 +19,14 @@ import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
 import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  position?: DialogPosition;
+  position?: TooltipPositionsType;
   animationType?: AnimationType;
   hideDelay?: number;
   showDelay?: number;
@@ -71,7 +72,6 @@ export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRI
 
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
-  positions?: typeof DialogPosition;
   animationTypes?: typeof AnimationType;
   justifyTypes?: typeof JustifyType;
   hideShowTriggers?: typeof HideShowEvent;
@@ -81,7 +81,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
     {
       className,
       id,
-      position = DialogPosition.BOTTOM,
+      position = "bottom",
       animationType = AnimationType.EXPAND,
       hideDelay = 0,
       showDelay = 100,
@@ -209,7 +209,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
 
 export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonTheme,
-  positions: DialogPosition,
   animationTypes: AnimationType,
   justifyTypes: JustifyType,
   hideShowTriggers: HideShowEvent,

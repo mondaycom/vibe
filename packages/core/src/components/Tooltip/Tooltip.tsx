@@ -4,8 +4,7 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, HideShowEvent, JustifyType } from "../../constants";
-import { DialogPosition } from "../../constants/positions";
+import { AnimationType, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
@@ -16,6 +15,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
+import { TooltipPositionsType } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -88,7 +88,7 @@ interface TooltipBaseProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: DialogPosition;
+  position?: TooltipPositionsType;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
@@ -146,7 +146,6 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static positions = DialogPosition;
   static hideShowTriggers = HideShowEvent;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
@@ -155,7 +154,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
-    position: Tooltip.positions.TOP,
+    position: "top",
     justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 100,
     showDelay: 300,
@@ -301,7 +300,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tip,
       arrowClassName,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      position
     } = this.props;
 
     if (!children && !forceRenderWithoutChildren) {
@@ -315,6 +315,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      position: position as DialogPosition,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       startingEdge: justify,
       tooltip: tip,
