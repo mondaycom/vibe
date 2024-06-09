@@ -53,7 +53,7 @@ export const States: Story = {
 export const Size: Story = {
   render: () => (
     <MultipleStoryElementsWrapper className="monday-storybook-toggle_row">
-      <Toggle />
+      <Toggle size="medium" />
       <Toggle size="small" />
     </MultipleStoryElementsWrapper>
   ),

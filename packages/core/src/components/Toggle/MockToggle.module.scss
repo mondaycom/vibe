@@ -5,8 +5,8 @@
   transition: background-color var(--motion-productive-medium) var(--motion-timing-transition);
   margin: 0 var(--spacing-small);
   position: relative;
-  height: 24px;
-  width: 41px;
+  height: var(--toggle-height);
+  width: var(--toggle-width);
   cursor: pointer;
   border-radius: 100px !important;
 
@@ -14,8 +14,8 @@
     background-color: var(--primary-background-color);
     content: " ";
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: var(--circle-size);
+    height: var(--circle-size);
     border-radius: 50%;
     top: calc(50% - 18px / 2);
     transition: left var(--motion-productive-medium) var(--motion-timing-transition);
@@ -40,12 +40,19 @@
     cursor: not-allowed;
   }
 
-  &.small {
-    height: 16px;
-    width: 28px;
+  &.medium {
+    --toggle-width: 41px;
+    --toggle-height: 24px;
     &::after {
-      width: 12px;
-      height: 12px;
+      --circle-size: 18px;
+    }
+  }
+
+  &.small {
+    --toggle-width: 28px;
+    --toggle-height: 16px;
+    &::after {
+      --circle-size: 12px;
       top: calc(50% - 6px);
       left: 14px;
     }
