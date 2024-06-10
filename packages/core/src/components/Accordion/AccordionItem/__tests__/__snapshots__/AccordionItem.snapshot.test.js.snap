@@ -233,13 +233,12 @@ exports[`AccordionItem renders correctly with title 1`] = `
           onClickCapture={[Function]}
           type="button"
         >
-          <h5
-            aria-label=""
-            className="headingComponent headerContent elementTypeH5 sizeLarge singleLineEllipsis"
-            data-testid="heading"
+          <div
+            className="typography primary start singleLineEllipsis text text1Normal headerContent"
+            data-testid="text"
           >
             Test title
-          </h5>
+          </div>
           <svg
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"

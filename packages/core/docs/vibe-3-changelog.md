@@ -1,5 +1,15 @@
 # Vibe 3 Changelog
 
+## General
+
+- `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
+- `SearchComponent` and `Input` components removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs) and [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs) respectively.
+- `EditableInput` removed, use [`TextField`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+
+## Typography
+
+- `Text` and `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
+
 ## Components
 
 ### AttentionBox
@@ -105,6 +115,10 @@
 ### RadioButton
 
 - `componentClassName` -> `className` [codemod]
+
+## Search
+
+- `Search` has changed - follow the [`Search` docs](https://style.monday.com/?path=/docs/inputs-search--docs) for the new API.
 
 ## SplitButton
 

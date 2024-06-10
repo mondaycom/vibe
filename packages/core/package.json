@@ -29,9 +29,9 @@
     },
     "./storybookComponents": "./dist/storybook/index.js",
     "./next": {
-      "types": "./dist/esm/next/next.d.ts",
-      "import": "./dist/esm/src/next/next.js",
-      "default": "./dist/esm/src/next/next.js"
+      "types": "./dist/esm/components/next/next.d.ts",
+      "import": "./dist/esm/src/components/next/next.js",
+      "default": "./dist/esm/src/components/next/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
@@ -51,7 +51,7 @@
         "./dist/esm/tests/test-ids-utils.d.ts"
       ],
       "next": [
-        "./dist/esm/next/next.d.ts"
+        "./dist/esm/components/next/next.d.ts"
       ],
       "types": [
         "./dist/esm/types/index.d.ts"
