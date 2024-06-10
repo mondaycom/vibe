@@ -1,6 +1,6 @@
 import React from "react";
 import emptyStateExample from "../../../stories-common-assets/emptyStateExample.svg";
-import { Heading } from "../../../../next/next";
+import Heading from "../../../../components/Heading/Heading";
 import { Text } from "../../../../components";
 import styles from "./Catalog.stories.EmptyState.module.scss";
 

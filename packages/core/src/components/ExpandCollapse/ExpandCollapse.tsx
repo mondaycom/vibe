@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useCallback, useRef, useState } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import Icon from "../Icon/Icon";
-import Heading from "../LegacyHeading/LegacyHeading";
+import Text from "../Text/Text";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -77,7 +77,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
     };
     const renderHeader = useCallback(() => {
       return typeof title === "string" ? (
-        <Heading type={Heading.types.h5} value={title} className={cx(styles.headerContent)} />
+        <Text type={Text.types.TEXT1} className={cx(styles.headerContent)}>
+          {title}
+        </Text>
       ) : (
         title
       );

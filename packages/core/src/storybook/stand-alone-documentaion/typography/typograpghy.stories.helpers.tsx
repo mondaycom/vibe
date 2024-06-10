@@ -15,13 +15,6 @@ export const TipHowToUseFonts = () => (
   </Tip>
 );
 
-export const TipNextEndpoint = () => (
-  <Tip emoji="⚠️" title="Notice">
-    Heading is imported from <code>/next</code> since {"there's"} a legacy component with the same name. This component
-    will replace the legacy component in the next major version.
-  </Tip>
-);
-
 export const TipUseComponent = () => (
   <Tip title="Notice">
     No need to define classes for text element and use typography CSS variables anymore, these components cover all the

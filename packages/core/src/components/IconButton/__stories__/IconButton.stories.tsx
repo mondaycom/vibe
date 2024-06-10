@@ -8,7 +8,6 @@ import person1 from "./assets/person1.png";
 import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "../../Icon/Icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
-import Heading from "../../LegacyHeading/LegacyHeading";
 import Avatar from "../../Avatar/Avatar";
 import styles from "./IconButton.stories.module.scss";
 import { Meta, StoryObj } from "@storybook/react";
@@ -204,7 +203,7 @@ export const IconButtonAsToolbarButton: Story = {
     >
       <Flex className={styles.dashboardHeader} gap={Flex.gaps.SMALL}>
         <Icon icon={Drag} />
-        <Heading type={Heading.types.h5} value="Widget name" />
+        <Text type={Text.types.TEXT1}>Widget name</Text>
         <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
       </Flex>
       <div className={styles.dashboardContent} />
@@ -242,12 +241,9 @@ export const IconButtonAsCloseButton: Story = {
             justify={Flex.justify.CENTER}
           >
             <Icon icon={Item} iconSize={40} />
-            <Heading
-              className={styles.recycleBinTitle}
-              type={Heading.types.h5}
-              value="Item"
-              id="monday-recycle-bin-title"
-            />
+            <Text type={Text.types.TEXT1} className={styles.recycleBinTitle} id="monday-recycle-bin-title">
+              Item
+            </Text>
           </Flex>
           <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
           <Flex
