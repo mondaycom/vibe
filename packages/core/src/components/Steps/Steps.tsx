@@ -30,7 +30,7 @@ export interface StepsProps extends VibeComponentProps {
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
+const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: typeof StepsColor } = forwardRef(
   (
     {
       className,
@@ -86,5 +86,6 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
 );
 
 export default withStaticProps(Steps, {
-  types: StepsType
+  types: StepsType,
+  colors: StepsColor
 });
