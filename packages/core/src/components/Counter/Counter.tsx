@@ -97,7 +97,7 @@ const Counter: React.FC<CounterProps> & {
 
   // Effects
   useEffect(() => {
-    if (!isAfterFirstRender.current) {
+    if (isAfterFirstRender.current) {
       setCountChangedAnimationActive();
     }
   }, [count, isAfterFirstRender, setCountChangedAnimationActive]);
