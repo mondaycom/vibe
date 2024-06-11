@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.113.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.112.0...monday-ui-react-core@2.113.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **useAfterFirstRender:** hook is currently behaving the opposite than its purpose ([#2168](https://github.com/mondaycom/vibe/issues/2168)) ([483bf9b](https://github.com/mondaycom/vibe/commit/483bf9b6f071a04a366bfaf8aaaddd2cf5d0b893))
+
+
+### Features
+
+* **toggle:** add small variant ([#2167](https://github.com/mondaycom/vibe/issues/2167)) ([6491d27](https://github.com/mondaycom/vibe/commit/6491d274f8d7d7617937dc8c9e87f899b68f4978))
+
+
+
+
+
 # [2.112.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.1...monday-ui-react-core@2.112.0) (2024-06-09)
 
 
