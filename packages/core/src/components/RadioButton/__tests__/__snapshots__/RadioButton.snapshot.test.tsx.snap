@@ -126,7 +126,7 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
 </label>
 `;
 
-exports[`RadioButton renders correctly with componentClassName 1`] = `
+exports[`RadioButton renders correctly with className 1`] = `
 <label
   className="radioButton test-classname"
   data-testid="radio-button"

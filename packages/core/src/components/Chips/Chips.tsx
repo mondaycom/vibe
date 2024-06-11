@@ -14,7 +14,6 @@ import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticP
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Chips.module.scss";
 
 const CHIPS_AVATAR_SIZE = 20;
@@ -23,10 +22,6 @@ export interface ChipsProps extends VibeComponentProps {
   label?: ElementContent;
   disabled?: boolean;
   readOnly?: boolean;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   "data-testid"?: string;
   /**
    * A React element that is positioned to the right of the text
@@ -78,16 +73,6 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
-   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
-   * @deprecated
-   */
-  clickable?: boolean;
-  /**
-   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
-   * @deprecated
-   */
-  isClickable?: boolean;
-  /**
    * Disable click behaviors
    */
   disableClickableBehavior?: boolean;
@@ -124,7 +109,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       onClick,
       noAnimation = true,
       ariaLabel,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       disableClickableBehavior = false,
       leftAvatarType = AvatarType.IMG,
@@ -136,10 +120,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
     },
     ref
   ) => {
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, backwardCompatabilityDataTestId],
-      getTestId(ComponentDefaultTestId.CHIP, id)
-    );
+    const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
@@ -202,7 +183,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         onMouseDown,
         disabled,
         id,
-        "data-testid": overrideDataTestId,
+        "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
@@ -225,7 +206,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": overrideDataTestId
+          "data-testid": componentDataTestId
         };
 
     const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
@@ -287,7 +268,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
-            data-testid={`${overrideDataTestId}-close`}
+            data-testid={`${componentDataTestId}-close`}
             ref={iconButtonRef}
           />
         )}

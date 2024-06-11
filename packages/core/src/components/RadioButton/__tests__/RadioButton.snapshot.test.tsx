@@ -48,8 +48,8 @@ describe("RadioButton renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with componentClassName", () => {
-    const tree = renderer.create(<RadioButton componentClassName="test-classname" />).toJSON();
+  it("with className", () => {
+    const tree = renderer.create(<RadioButton className="test-classname" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

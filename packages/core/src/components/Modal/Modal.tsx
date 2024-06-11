@@ -49,10 +49,6 @@ export interface ModalProps {
    */
   width?: typeof ModalWidth | string;
   /**
-   * @deprecated
-   */
-  hideCloseButton?: boolean;
-  /**
    *  Aria label for the close button
    */
   closeButtonAriaLabel?: string;
@@ -89,9 +85,6 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   children,
   triggerElement,
   width = ModalWidth.DEFAULT,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton = false,
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,

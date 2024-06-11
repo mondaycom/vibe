@@ -73,7 +73,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
             />
             {index !== steps.length - 1 && (
               <Divider
-                classname={cx(styles.divider, dividerComponentClassName, {
+                className={cx(styles.divider, dividerComponentClassName, {
                   [styles.compact]: finalSize === Size.COMPACT
                 })}
               />

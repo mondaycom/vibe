@@ -2,7 +2,6 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Loader from "../Loader/Loader";
 import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
@@ -73,10 +72,6 @@ export interface TextFieldProps extends VibeComponentProps {
   requiredErrorText?: string;
   /** shows loading animation */
   loading?: boolean;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
@@ -132,7 +127,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       requiredErrorText = "",
       loading = false,
       requiredAsterisk = false,
-      dataTestId: backwardCompatibilityDataTestId,
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
@@ -144,10 +138,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, backwardCompatibilityDataTestId],
-      getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
-    );
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef, setRef);
 
@@ -262,7 +252,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               ref={mergedRef}
               type={type}
               id={id}
-              data-testid={overrideDataTestId}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}
@@ -285,7 +275,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 })}
               >
                 <div className={cx(styles.loader)}>
-                  <Loader svgClassName={cx(styles.loaderSvg)} />
+                  <Loader className={cx(styles.loaderSvg)} />
                 </div>
               </div>
             )}

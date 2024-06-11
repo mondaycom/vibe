@@ -12,7 +12,6 @@ import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./hel
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
@@ -87,10 +86,6 @@ export interface ButtonProps extends VibeComponentProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
@@ -145,7 +140,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       blurOnMouseUp,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus,
       tabIndex
@@ -156,7 +150,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const mergedRef = useMergeRef(ref, buttonRef);
 
     const { loading } = useButtonLoading({ isLoading });
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
 
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
@@ -233,7 +226,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       className,
       size,
       kind,
-      loading,
       active,
       activeButtonClassName,
       marginRight,
@@ -259,7 +251,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onFocus,
         onBlur,
         tabIndex: disabled || ariaHidden ? -1 : tabIndex,
-        "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -284,7 +276,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       onFocus,
       onBlur,
       tabIndex,
-      overrideDataTestId,
+      dataTestId,
       onMouseDownClicked,
       disabled,
       loading,
@@ -396,7 +388,6 @@ Button.defaultProps = {
   name: undefined,
   style: undefined,
   id: undefined,
-  dataTestId: undefined,
   kind: ButtonType.PRIMARY,
   onClick: NOOP,
   size: SIZES.MEDIUM,
