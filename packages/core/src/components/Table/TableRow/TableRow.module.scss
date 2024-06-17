@@ -11,6 +11,10 @@
     background-color: var(--primary-selected-color);
   }
 
+  > * {
+    background-color: var(--primary-background-color);
+  }
+
   &:hover {
     > * {
       background-color: var(--primary-background-hover-color);

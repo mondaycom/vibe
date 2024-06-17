@@ -8,7 +8,6 @@ export { default as TableBody, ITableBodyProps as TableBodyProps } from "./Table
 export {
   default as TableVirtualizedBody,
   ITableVirtualizedBodyProps as TableVirtualizedBodyProps,
-  TableVirtualizedRows,
   TableVirtualizedRow
 } from "./TableVirtualizedBody/TableVirtualizedBody";
 export { default as TableRow, ITableRowProps as TableRowProps } from "./TableRow/TableRow";
