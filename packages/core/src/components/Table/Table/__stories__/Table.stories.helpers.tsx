@@ -2,6 +2,8 @@ import React from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Calendar, Doc, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
+import { TableVirtualizedRow } from "../../TableVirtualizedBody/TableVirtualizedBody";
+import { ITableColumn } from "../Table";
 
 export const doAndDontIconsRuleColumns = [
   {
@@ -305,13 +307,13 @@ export const scrollTableColumns = [
   }
 ];
 
-export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) => ({
-  id: index,
+export const virtualizedScrollTableData: TableVirtualizedRow[] = [...new Array(5000)].map((_, index) => ({
+  id: `${index}`,
   num: index,
   text: `This is line number ${index}`
 }));
 
-export const virtualizedScrollTableColumns = [
+export const virtualizedScrollTableColumns: ITableColumn[] = [
   {
     id: "num",
     title: "#",
