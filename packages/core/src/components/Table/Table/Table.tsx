@@ -9,6 +9,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights, RowSizes } from "./TableConsts";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
+import TableRoot from "./TableRoot";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -76,9 +77,9 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
 
     return (
       <TableProvider value={{ columns, dataState, emptyState, errorState, size }}>
-        <div ref={ref} id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
+        <TableRoot ref={ref} id={id} className={classNames} style={calculatedStyle} data-testid={testId}>
           {children}
-        </div>
+        </TableRoot>
       </TableProvider>
     );
   }
