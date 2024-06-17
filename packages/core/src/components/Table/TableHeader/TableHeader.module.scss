@@ -11,4 +11,14 @@
   > * {
     background-color: inherit;
   }
+
+  &.virtualized {
+    overflow: auto;
+    width: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
