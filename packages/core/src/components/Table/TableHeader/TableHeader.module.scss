@@ -5,6 +5,8 @@
   top: 0;
   z-index: 2;
   background-color: inherit;
+  min-width: 100%;
+  width: fit-content;
 
   > * {
     background-color: inherit;

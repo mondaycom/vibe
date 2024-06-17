@@ -4,6 +4,8 @@
   height: var(--table-row-size);
   display: grid;
   grid-template-columns: var(--table-grid-template-columns);
+  min-width: 100%;
+  width: fit-content;
 
   &[aria-selected="true"] > * {
     background-color: var(--primary-selected-color);
