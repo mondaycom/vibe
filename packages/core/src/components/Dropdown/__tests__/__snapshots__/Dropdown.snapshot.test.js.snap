@@ -1638,7 +1638,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           >
             <div
               aria-label="Primary"
-              className="chips chips multiselect-chip-multi-line withClose noAnimation"
+              className="chips chips multiselect-chip-multi-line-medium withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
               onClick={[Function]}
@@ -1698,7 +1698,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             </div>
             <div
               aria-label="Positive"
-              className="chips chips multiselect-chip-multi-line withClose noAnimation"
+              className="chips chips multiselect-chip-multi-line-medium withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
               onClick={[Function]}
@@ -1761,7 +1761,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             >
               <div
                 aria-label="Negative"
-                className="chips chips multiselect-chip-multi-line withClose noAnimation"
+                className="chips chips multiselect-chip-multi-line-medium withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
                 onClick={[Function]}
@@ -2478,7 +2478,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line withClose noAnimation"
+                className="chips chips multiselect-chip-multi-line-medium withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
                 onClick={[Function]}
@@ -2714,7 +2714,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line withClose noAnimation"
+                className="chips chips multiselect-chip-multi-line-medium withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
                 onClick={[Function]}
@@ -3077,7 +3077,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3100,7 +3100,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3243,7 +3243,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3266,7 +3266,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
