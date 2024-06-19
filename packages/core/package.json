@@ -114,11 +114,11 @@
     "react-inlinesvg": "^3.0.1",
     "react-is": "^16.9.0",
     "react-popper": "^2.3.0",
-    "react-select": "^3.2.0",
+    "react-select": "3.1.0",
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
-    "react-windowed-select": "^2.0.4",
+    "react-windowed-select": "2.0.5",
     "style-inject": "^0.3.0",
     "vibe-storybook-components": "0.19.0"
   },
