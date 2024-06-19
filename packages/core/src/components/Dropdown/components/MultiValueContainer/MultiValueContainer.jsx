@@ -28,7 +28,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
-    isMultiline ? classes[`multiselect-chip-multi-line-${size}`] : classes[`multiselect-chip-single-line-${size}`],
+    isMultiline ? classes["multiselect-chip-multi-line"] : classes[`multiselect-chip-single-line-${size}`],
     { [classes["multiselect-chip-disabled"]]: isDisabled }
   );
 
