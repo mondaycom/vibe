@@ -1,6 +1,6 @@
 import { API, FileInfo } from "jscodeshift";
-import { getCoreImportsForFile, setup } from "@/utils";
-import { updateComponentPropName } from "@/utils";
+import { findComponentElements, getCoreImportsForFile, setup } from "@/utils";
+import { updatePropName } from "@/utils";
 
 /**
  * Transforms all instances of the AttentionBox component by renaming the 'componentClassName' prop to 'className'.
@@ -9,11 +9,9 @@ import { updateComponentPropName } from "@/utils";
  * 'componentClassName' to 'className'.
  *
  * The function executes the following steps:
- * 1. Make sure there's an import for monday-ui-react-core in the file root
- * 2. Utilize a utility function to traverse through the AST and identify any instances of AttentionBox.
- * 3. For each instance found, check if the 'componentClassName' prop exists.
- *    - If it exists, rename it to 'className'.
- * 4. If multiple AttentionBox instances are found, each is processed in isolation to ensure that all relevant props are updated.
+ * 1. Make sure there's an import for monday-ui-react-core in the file root.
+ * 2. Traverse through the AST and identify all instances of AttentionBox.
+ * 3. For each instance found, rename 'componentClassName' to 'className'.
  *
  * Notes:
  * - This function is designed to handle only JSX elements named 'AttentionBox'. If the component is imported under
@@ -24,9 +22,12 @@ import { updateComponentPropName } from "@/utils";
  *   manual review of the transformed code is recommended to resolve any conflicts.
  */
 export default function attentionBoxPropComponentClassNameToClassName(fileInfo: FileInfo, api: API): string {
-  const [j, root] = setup(api, fileInfo);
+  const [_j, root] = setup(api, fileInfo);
   if (getCoreImportsForFile(root).length) {
-    updateComponentPropName(j, root, "AttentionBox", "componentClassName", "className");
+    const attentionBoxElements = findComponentElements(root, "AttentionBox");
+    attentionBoxElements.forEach(path => {
+      updatePropName(path, "componentClassName", "className");
+    });
   }
 
   return root.toSource();
