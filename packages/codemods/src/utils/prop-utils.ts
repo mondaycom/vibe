@@ -1,27 +1,15 @@
-import { ASTPath, Collection, JSCodeshift, JSXAttribute, JSXOpeningElement } from "jscodeshift";
-import { findAllOccurrencesOfJsxOpeningTagInFile } from "./jsx-utils";
+import { ASTPath, JSXOpeningElement } from "jscodeshift";
 
-export function findAllOccurrencesOfPropInJsxOpeningPath(
-  j: JSCodeshift,
-  path: ASTPath<JSXOpeningElement>,
-  propName: string
-): Collection<JSXAttribute> {
-  return j(path).find(JSXAttribute, {
-    name: { type: "JSXIdentifier", name: propName }
-  });
-}
-
-export function updateComponentPropName(
-  j: JSCodeshift,
-  root: Collection<JSXOpeningElement>,
-  componentName: string,
+export function updatePropName(
+  elementPath: ASTPath<JSXOpeningElement>,
   oldPropName: string,
   newPropName: string
 ): void {
-  const replaceName = (path: ASTPath<JSXOpeningElement>) => {
-    findAllOccurrencesOfPropInJsxOpeningPath(j, path, oldPropName).forEach(attrPath => {
-      attrPath.node.name = j.jsxIdentifier(newPropName);
-    });
-  };
-  findAllOccurrencesOfJsxOpeningTagInFile(root, componentName).forEach(replaceName);
+  const attributes = elementPath.node?.attributes;
+  if (!attributes) return;
+  attributes.forEach(attr => {
+    if (attr.type === "JSXAttribute" && attr.name.type === "JSXIdentifier" && attr.name.name === oldPropName) {
+      attr.name.name = newPropName;
+    }
+  });
 }
