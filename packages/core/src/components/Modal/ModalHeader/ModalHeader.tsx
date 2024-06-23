@@ -101,7 +101,6 @@ const ModalHeader: FC<ModalHeaderProps> = ({
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle
-              clickable={false}
             />
           )}
           <Heading id={id} maxLines={2}>

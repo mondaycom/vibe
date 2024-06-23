@@ -34,7 +34,7 @@ export const Overview = {
       <Text type={Text.types.TEXT2} maxLines={2}>
         Insert here any component that you want, here is a robot for you
       </Text>,
-      <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} clickable={false} />
+      <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} />
     ],
     className: styles.storybookExpandCollapse
   }

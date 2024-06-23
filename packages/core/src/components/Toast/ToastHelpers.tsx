@@ -10,7 +10,6 @@ export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponen
   return icon || defaultIconMap[type] ? (
     <Icon
       iconType={icon ? Icon.type.ICON_FONT : Icon.type.SVG}
-      clickable={false}
       icon={icon || defaultIconMap[type]}
       iconSize={20}
       ignoreFocusStyle

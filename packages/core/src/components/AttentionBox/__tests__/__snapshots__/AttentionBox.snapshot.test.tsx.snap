@@ -20,7 +20,6 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="20"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -76,7 +75,6 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="20"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -132,7 +130,6 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="20"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -188,7 +185,6 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="20"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -330,7 +326,6 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="20"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -394,7 +389,6 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -457,7 +451,6 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
-      onClick={[Function]}
       role="img"
     />
     <h5

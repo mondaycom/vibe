@@ -31,13 +31,13 @@ export const Overview = {
 };
 
 export const VibeIcon = {
-  render: () => <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
+  render: () => <Icon iconType={Icon.type.SVG} icon={Bolt} iconSize={16} />,
 
   name: "Vibe Icon"
 };
 
 export const FontIcon = {
-  render: () => <Icon iconType={Icon.type.ICON_FONT} iconLabel="my font awesome start icon" icon="fa fa-star" />,
+  render: () => <Icon iconType={Icon.type.ICON_FONT} icon="fa fa-star" />,
 
   name: "Font Icon"
 };
@@ -47,7 +47,6 @@ export const CustomSvg = {
     <Icon
       iconType={Icon.type.SRC}
       icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
-      iconLabel="my src awesome icon"
       className="icon-story-custom-icon"
       useCurrentColor
     />
@@ -63,7 +62,7 @@ export const Color = {
         color: "var(--sb-color-sofia_pink)"
       }}
     >
-      <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
+      <Icon iconType={Icon.type.SVG} icon={Bolt} iconSize={16} />
     </div>
   ),
 

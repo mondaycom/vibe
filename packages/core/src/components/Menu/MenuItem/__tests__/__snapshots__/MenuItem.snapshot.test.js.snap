@@ -207,12 +207,10 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
   >
     <svg
       aria-hidden={true}
-      aria-label="my item"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="18"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="18"
     >
@@ -264,10 +262,8 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
   >
     <span
       aria-hidden={true}
-      aria-label="my item"
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
-      onClick={[Function]}
       role="img"
     />
   </div>

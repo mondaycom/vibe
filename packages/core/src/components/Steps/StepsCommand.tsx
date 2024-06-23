@@ -61,7 +61,6 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       {isIconHidden ? null : (
         <Icon
           icon={icon}
-          clickable={false}
           className={cx(styles.icon, getStyle(styles, camelCase("color-" + color)), {
             [styles.disabled]: isDisabled
           })}

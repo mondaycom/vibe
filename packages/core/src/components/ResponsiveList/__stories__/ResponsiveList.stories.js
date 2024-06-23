@@ -24,7 +24,7 @@ const ContainerForDemonstration = ({ children }) => {
           width={700}
           handle={
             <span className="custom-handle custom-handle-se">
-              <Icon icon={Open} iconSize={20} clickable={false} className="icon-resizer" />
+              <Icon icon={Open} iconSize={20} className="icon-resizer" />
             </span>
           }
           handleSize={[12, 12]}

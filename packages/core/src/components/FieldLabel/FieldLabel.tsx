@@ -37,8 +37,6 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
           icon={icon}
           className={cx(styles.labelComponentIcon, iconClassName)}
           id={labelFor}
-          clickable={false}
-          iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
         <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>

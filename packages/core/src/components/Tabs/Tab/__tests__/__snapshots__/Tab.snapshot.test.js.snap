@@ -110,7 +110,6 @@ exports[`Tab renders correctly with icon on left 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="18"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="18"
     >
@@ -145,7 +144,6 @@ exports[`Tab renders correctly with icon on right 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="18"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="18"
     >

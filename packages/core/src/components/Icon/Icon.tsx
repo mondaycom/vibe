@@ -6,16 +6,12 @@ import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon, withStaticProps } from "../../types";
-
-// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-const CLICK_NOOP = (_event: React.MouseEvent) => {};
+import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 
 export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
-  onClick?: MouseEventCallBack;
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;
@@ -27,20 +23,10 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
 }
 
 export interface IconProps extends VibeComponentProps {
-  // eslint-disable-next-line no-unused-vars
-  onClick?: (event: React.MouseEvent) => void;
   /**
    * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
    */
   icon: SubIcon;
-  /**
-   * Is icon is a button
-   */
-  clickable?: boolean;
-  /**
-mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
-   */
-  iconLabel?: string;
   /**
    *  The type of the component - svg, font or custom svg (using [`react-inlinesvg`](https://github.com/gilbarbara/react-inlinesvg#readme))
    */
@@ -76,16 +62,13 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
        * component id
        */
       id,
-      onClick = CLICK_NOOP,
       className,
       icon = "",
-      clickable = true,
-      iconLabel,
       iconType = IconType.SVG,
       iconSize = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
-      ariaHidden,
+      ariaHidden = true,
       style,
       useCurrentColor = false,
       customColor,
@@ -94,16 +77,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     ref
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
-    const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
-      onClick,
-      iconLabel,
-      clickable,
+    const { screenReaderAccessProps, computedClassName, iconRef } = useIconProps({
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
       externalTabIndex: overrideExternalTabIndex
     });
-
     const mergedRef = useMergeRef(ref, iconRef);
 
     if (!icon) {
@@ -122,7 +101,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         ...screenReaderAccessProps,
         ref: isFunctionType ? undefined : mergedRef,
         size: iconSize.toString(),
-        onClick,
         className: computedClassName,
         style,
         "data-testid": overrideDataTestId
@@ -135,7 +113,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           src={icon}
           {...screenReaderAccessProps}
           className={cx(computedClassName)}
-          onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={overrideDataTestId}
@@ -147,7 +124,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         id={id}
         {...screenReaderAccessProps}
         className={cx(computedClassName)}
-        onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
         data-testid={overrideDataTestId}

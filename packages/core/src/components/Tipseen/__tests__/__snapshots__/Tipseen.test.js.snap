@@ -143,7 +143,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
                 data-testid="icon"
                 fill="currentColor"
                 height="16"
-                onClick={[Function]}
                 viewBox="0 0 20 20"
                 width="16"
               >
@@ -232,7 +231,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
               data-testid="icon"
               fill="currentColor"
               height="16"
-              onClick={[Function]}
               viewBox="0 0 20 20"
               width="16"
             >
@@ -381,7 +379,6 @@ exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
                 data-testid="icon"
                 fill="currentColor"
                 height="16"
-                onClick={[Function]}
                 viewBox="0 0 20 20"
                 width="16"
               >

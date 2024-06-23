@@ -39,16 +39,7 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
 
   if (icon) {
-    return (
-      <Icon
-        icon={icon}
-        iconLabel={ariaLabel}
-        className={classNames}
-        clickable={tabIndex === -1}
-        {...otherProps}
-        data-testid={testId}
-      />
-    );
+    return <Icon icon={icon} className={classNames} {...otherProps} data-testid={testId} />;
   }
 
   return src ? (

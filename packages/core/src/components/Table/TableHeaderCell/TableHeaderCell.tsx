@@ -63,7 +63,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           className={styles.tableHeaderCellContent}
           gap={Flex.gaps.XS}
         >
-          {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
+          {icon && <Icon icon={icon} className={styles.icon} />}
           {
             <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
               {title}
@@ -71,7 +71,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           }
           {infoContent && (
             <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
-              <Icon icon={Info} iconLabel={infoContent} clickable={false} />
+              <Icon icon={Info} />
             </Tooltip>
           )}
         </Flex>

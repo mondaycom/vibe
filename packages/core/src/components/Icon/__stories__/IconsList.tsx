@@ -38,7 +38,7 @@ export default function IconsList() {
 function IconDescription({ name, component: Component }: { name: SubIcon; component: SubIcon }) {
   return (
     <Flex className={styles.icon} gap={Flex.gaps.SMALL}>
-      <Icon icon={Component} iconSize={26} clickable={false} />
+      <Icon icon={Component} iconSize={26} />
       <span>{name as string}</span>
     </Flex>
   );

@@ -38,7 +38,7 @@ const ListItemIcon: VibeComponent<ListItemIconProps> & {
         id={id}
         aria-hidden="true"
       >
-        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
+        <Icon icon={icon} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
       </Component>
     );
   }

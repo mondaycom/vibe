@@ -42,7 +42,6 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
               iconType={Icon?.type?.SVG}
               icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown}
               iconSize={24}
-              clickable={false}
             />
           </div>
         </button>

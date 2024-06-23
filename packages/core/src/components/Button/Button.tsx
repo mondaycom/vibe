@@ -310,7 +310,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {leftIcon ? (
             <Icon
               iconType={Icon?.type.ICON_FONT}
-              clickable={false}
               icon={leftIcon}
               iconSize={leftIconSize}
               className={cx({
@@ -323,7 +322,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {rightIcon ? (
             <Icon
               iconType={Icon?.type.ICON_FONT}
-              clickable={false}
               icon={rightIcon}
               iconSize={rightIconSize}
               className={cx({
@@ -357,7 +355,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             {successIcon ? (
               <Icon
                 iconType={Icon?.type.ICON_FONT}
-                clickable={false}
                 icon={successIcon}
                 iconSize={successIconSize}
                 className={cx({

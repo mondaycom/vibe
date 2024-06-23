@@ -57,7 +57,6 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           icon={icon}
           aria-label={ariaLabel}
           // role={role}
-          clickable={false}
           className={className}
           ariaHidden={false}
           id={id}
