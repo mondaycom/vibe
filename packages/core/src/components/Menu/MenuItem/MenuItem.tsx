@@ -124,7 +124,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
-      "aria-label": ariaLabel,
       splitMenuItem = false
     },
     ref: ForwardedRef<HTMLElement>
@@ -229,8 +228,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
-    // if "title" is a component ariaLabel is mandatory
-    const iconLabel = ariaLabel ?? (title as string);
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
@@ -251,14 +248,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         </div>
       ) : (
         <div className={styles.subMenuIconWrapper}>
-          <Icon
-            clickable={false}
-            icon={DropdownChevronRight}
-            iconLabel={iconLabel}
-            className={styles.subMenuIcon}
-            ignoreFocusStyle
-            iconSize={18}
-          />
+          <Icon icon={DropdownChevronRight} className={styles.subMenuIcon} ignoreFocusStyle iconSize={18} />
         </div>
       );
     };
@@ -288,9 +278,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         <div className={cx(styles.iconWrapper, iconWrapperClassName)} style={iconWrapperStyle}>
           <Icon
             iconType={finalIconType}
-            clickable={false}
             icon={icon}
-            iconLabel={iconLabel}
             className={styles.icon}
             ignoreFocusStyle
             style={iconStyle}
