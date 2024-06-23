@@ -33,6 +33,21 @@ export function updateImportSpecifiers(
   importNode.specifiers.push(...specifiers);
 }
 
+export function updateComponentImportName(
+  j: JSCodeshift,
+  importDeclarationPath: ASTPath<ImportDeclaration>,
+  oldName: string,
+  newName: string
+) {
+  j(importDeclarationPath)
+    .find(ImportSpecifier)
+    .forEach(specifierPath => {
+      if (specifierPath.node.imported.name === oldName) {
+        specifierPath.node.imported = j.identifier(newName);
+      }
+    });
+}
+
 export function extractSpecifiersFromImport(
   j: JSCodeshift,
   importDeclarationPath: ASTPath<ImportDeclaration>
