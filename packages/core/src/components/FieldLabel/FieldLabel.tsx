@@ -6,7 +6,6 @@ import styles from "./FieldLabel.module.scss";
 
 export interface FieldLabelProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent | null;
-  iconLabel?: string;
   labelText?: string;
   labelFor?: string;
   iconClassName?: string;
@@ -16,15 +15,7 @@ export interface FieldLabelProps extends VibeComponentProps {
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
-    {
-      icon = "",
-      iconLabel = "",
-      labelText = "",
-      labelFor = "",
-      iconClassName = "",
-      labelClassName = "",
-      requiredAsterisk = false
-    },
+    { icon = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "", requiredAsterisk = false },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
     if (!labelText) {

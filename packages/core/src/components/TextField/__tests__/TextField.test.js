@@ -2,7 +2,6 @@ import React from "react";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import TextField from "../TextField";
 import { TextFieldAriaLabel } from "../TextFieldConstants";
-import renderer from "react-test-renderer";
 
 describe("TextField Tests", () => {
   let inputComponent;

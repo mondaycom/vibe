@@ -54,18 +54,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close"
 }) => {
-  const iconLabel = useMemo(() => {
-    if (type === AttentionBoxType.DANGER) {
-      return "alert";
-    }
-
-    if (type === AttentionBoxType.SUCCESS) {
-      return "success";
-    }
-
-    return "attention";
-  }, [type]);
-
   const defaultIcon = useMemo(() => {
     return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
   }, [type]);

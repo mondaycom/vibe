@@ -23,8 +23,6 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 
-const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
-
 export interface TextFieldProps extends VibeComponentProps {
   placeholder?: string;
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
@@ -118,7 +116,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
-      iconsNames = EMPTY_OBJECT,
       type = TextFieldTextType.TEXT,
       maxLength = null,
       trim = false,
@@ -226,13 +223,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className={cx(styles.labelWrapper)}>
-          <FieldLabel
-            labelText={title}
-            icon={labelIconName}
-            iconLabel={iconsNames.layout}
-            labelFor={id}
-            requiredAsterisk={requiredAsterisk}
-          />
+          <FieldLabel labelText={title} icon={labelIconName} labelFor={id} requiredAsterisk={requiredAsterisk} />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
