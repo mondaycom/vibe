@@ -13,3 +13,13 @@ export function updatePropName(
     }
   });
 }
+
+export function removeProp(elementPath: ASTPath<JSXOpeningElement>, propName: string): void {
+  const attributes = elementPath.node?.attributes;
+  if (!attributes) return;
+  const propIndex = attributes.findIndex(
+    attr => attr.type === "JSXAttribute" && attr.name.type === "JSXIdentifier" && attr.name.name === propName
+  );
+  if (propIndex < 0) return;
+  attributes.splice(propIndex, 1);
+}
