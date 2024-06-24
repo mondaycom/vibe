@@ -8,7 +8,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
   >
     <span
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
         id="aria-selection-event"
@@ -194,7 +194,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
   >
     <span
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
         id="aria-selection-event"
@@ -762,7 +762,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
   >
     <span
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
         id="aria-selection-event"
@@ -820,13 +820,13 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class=" css-1xh8qep-loadingIndicator"
           >
             <span
-              class="css-imwzes-Component"
+              class="css-1yvy2vo-LoadingDot"
             />
             <span
-              class="css-1ue98e-Component"
+              class="css-zoievk-LoadingDot"
             />
             <span
-              class="css-fwsb3e-Component"
+              class="css-x748d8-LoadingDot"
             />
           </div>
           <span
@@ -870,7 +870,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
   >
     <span
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
         id="aria-selection-event"
@@ -1329,7 +1329,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         <input
           aria-autocomplete="list"
           aria-label="Readonly   Selected: "
-          className="css-62g3xt-dummyInput"
+          className="css-wmatm6-dummyInput-DummyInput"
           disabled={false}
           id="react-select-6-input"
           onBlur={[Function]}
@@ -3287,7 +3287,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               <input
                 aria-autocomplete="list"
                 aria-label="Readonly   Selected: Ocean, Blue"
-                className="css-62g3xt-dummyInput"
+                className="css-wmatm6-dummyInput-DummyInput"
                 disabled={false}
                 id="react-select-14-input"
                 onBlur={[Function]}
