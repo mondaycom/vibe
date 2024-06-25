@@ -275,7 +275,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector
+        popupsContainerSelector,
+        size
       }),
       [
         selectedOptions,
@@ -284,7 +285,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
-        popupsContainerSelector
+        popupsContainerSelector,
+        size
       ]
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {

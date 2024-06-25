@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.113.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.0...monday-ui-react-core@2.113.1) (2024-06-25)
+
+
+### Bug Fixes
+
+* **Button:** fix text placeholder dimensions in loading state ([#2187](https://github.com/mondaycom/vibe/issues/2187)) ([3a9c983](https://github.com/mondaycom/vibe/commit/3a9c983d1f35c9a49159ee1f93b1ccd41ecfbe00))
+* **link:** hover color should inherit from link color ([#2183](https://github.com/mondaycom/vibe/issues/2183)) ([60d6166](https://github.com/mondaycom/vibe/commit/60d61661ff3d520b15a40a95641adab092f2afb9))
+
+
+
+
+
 # [2.113.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.112.0...monday-ui-react-core@2.113.0) (2024-06-11)
 
 
