@@ -19,7 +19,7 @@ describe("Tooltip renders correctly", () => {
   it("with end arrowPosition", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" arrowPosition={Tooltip.arrowPositions.END}>
+        <Tooltip shouldShowOnMount content="test">
           <div />
         </Tooltip>
       )
