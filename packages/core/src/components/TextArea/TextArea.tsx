@@ -28,7 +28,8 @@ const TextArea = forwardRef(
       value,
       onChange,
       "aria-label": ariaLabel,
-      required
+      required,
+      resize = true
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
@@ -61,7 +62,7 @@ const TextArea = forwardRef(
           readOnly={readOnly}
           required={required}
           rows={numRows}
-          className={cx(styles.textArea, [styles[size]])}
+          className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
           value={value}
           onChange={onChange}
           aria-invalid={error}
