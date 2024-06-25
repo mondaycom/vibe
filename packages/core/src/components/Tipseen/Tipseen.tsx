@@ -1,6 +1,6 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, EMPTY_ARR, HideShowEvent } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
@@ -40,7 +40,6 @@ export interface TipseenProps extends VibeComponentProps {
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showTrigger?: HideShowEvent | Array<HideShowEvent>;
-  justify?: JustifyType;
   width?: number;
   moveBy?: MoveBy;
   hideWhenReferenceHidden?: boolean;
@@ -73,7 +72,6 @@ export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRI
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
   animationTypes?: typeof AnimationType;
-  justifyTypes?: typeof JustifyType;
   hideShowTriggers?: typeof HideShowEvent;
   colors?: typeof TipseenColor;
 } = forwardRef(
@@ -95,7 +93,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
       closeAriaLabel,
       children = null,
       content,
-      justify = JustifyType.CENTER,
       containerSelector,
       hideTrigger = EMPTY_ARR,
       showTrigger = EMPTY_ARR,
@@ -190,7 +187,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
           showTrigger={showTrigger}
           content={tooltipContent}
           theme={color === TipseenColor.INVERTED ? "dark" : "primary"}
-          justify={justify}
           containerSelector={containerSelector}
           disableDialogSlide={false}
           moveBy={moveBy}
@@ -210,7 +206,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
 export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonTheme,
   animationTypes: AnimationType,
-  justifyTypes: JustifyType,
   hideShowTriggers: HideShowEvent,
   colors: TipseenColor
 });

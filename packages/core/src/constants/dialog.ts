@@ -1,9 +1,3 @@
-export enum JustifyType {
-  START = "start",
-  CENTER = "center",
-  END = "end"
-}
-
 export enum HideShowEvent {
   CLICK = "click",
   CLICK_OUTSIDE = "clickoutside",

@@ -52,7 +52,7 @@ describe("Tooltip renders correctly", () => {
   it("with justify", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" justify={Tooltip.justifyTypes.END}>
+        <Tooltip shouldShowOnMount content="test">
           <div />
         </Tooltip>
       )

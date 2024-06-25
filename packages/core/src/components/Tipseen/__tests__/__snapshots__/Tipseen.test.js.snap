@@ -138,7 +138,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
     style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 4px);"
   >
     <div
-      class="contentComponent bottom edgeCenter hasTooltip"
+      class="contentComponent bottom hasTooltip"
     >
       <div
         class="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
@@ -199,7 +199,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
   style="position: absolute; left: 0px; top: 0px;"
 >
   <div
-    class="contentComponent bottom edgeCenter"
+    class="contentComponent bottom"
   >
     <div
       class="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth floating"
@@ -258,7 +258,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close - deprecat
     style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 4px);"
   >
     <div
-      class="contentComponent bottom edgeCenter hasTooltip"
+      class="contentComponent bottom hasTooltip"
     >
       <div
         class="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"
@@ -296,7 +296,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
     style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      class="contentComponent bottom edgeCenter hasTooltip"
+      class="contentComponent bottom hasTooltip"
     >
       <div
         class="tooltip primary tipseenWrapper tipseenWrapperWithoutCustomWidth"

@@ -27,7 +27,7 @@ exports[`Tooltip renders correctly with data-testid 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -79,7 +79,7 @@ exports[`Tooltip renders correctly with end arrowPosition 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -131,7 +131,7 @@ exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -183,7 +183,7 @@ exports[`Tooltip renders correctly with justify 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeEnd hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -235,7 +235,7 @@ exports[`Tooltip renders correctly with position 1`] = `
     }
   >
     <div
-      className="contentComponent left edgeCenter hasTooltip"
+      className="contentComponent left hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -287,7 +287,7 @@ exports[`Tooltip renders correctly with style 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip dark"
@@ -344,7 +344,7 @@ exports[`Tooltip renders correctly with theme 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter hasTooltip"
+      className="contentComponent top hasTooltip"
     >
       <div
         className="tooltip primary"
@@ -404,7 +404,7 @@ exports[`Tooltip renders correctly without arrow 1`] = `
     }
   >
     <div
-      className="contentComponent top edgeCenter"
+      className="contentComponent top"
     >
       <div
         className="tooltip dark"
