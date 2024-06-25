@@ -55,4 +55,8 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    * If true, the textarea is required and must be filled out by the user.
    */
   required?: boolean;
+  /**
+   * If true, the textarea can be resized vertically by the user.
+   */
+  resize?: boolean;
 }
