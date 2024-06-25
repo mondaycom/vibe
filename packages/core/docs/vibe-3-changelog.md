@@ -7,6 +7,7 @@
 - Change hideDelay default to be 100
 - Change position prop to accept string instead of static prop
 - Change position prop to only accept "top, right, bottom, left"
+- Remove arrowPosition prop
 
 ## Tipseen
 - Change showDelay default to 100
