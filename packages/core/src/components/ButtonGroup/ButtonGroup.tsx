@@ -5,7 +5,6 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, SIZES } from "../../constants";
@@ -29,10 +28,6 @@ type ButtonGroupOption = {
 };
 
 export interface ButtonGroupProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   options: Array<ButtonGroupOption>;
   value?: ButtonValue;
   onSelect?: (value: ButtonValue, name: string) => void;
@@ -60,8 +55,6 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
   (
     {
       className,
-      // Backward compatibility for props naming
-      componentClassName,
       options,
       name = "",
       disabled = false,
@@ -84,7 +77,6 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
     const inputRef = useRef();
     const mergedRef = useMergeRef(ref, inputRef);
 
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
 
@@ -141,15 +133,16 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       });
     }, [
       options,
-      disabled,
-      onClick,
-      size,
       valueState,
+      size,
       tooltipPosition,
       tooltipHideDelay,
       tooltipShowDelay,
       tooltipContainerSelector,
-      tooltipMoveBy
+      tooltipMoveBy,
+      disabled,
+      fullWidth,
+      onClick
     ]);
 
     // Effects
@@ -162,7 +155,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
 
     return (
       <div
-        className={cx(styles.buttonGroup, overrideClassName, getStyle(styles, camelCase("kind-" + kind)), {
+        className={cx(styles.buttonGroup, className, getStyle(styles, camelCase("kind-" + kind)), {
           [styles.disabled]: disabled
         })}
         id={id}

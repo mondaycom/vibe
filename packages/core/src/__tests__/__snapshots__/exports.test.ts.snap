@@ -36,7 +36,6 @@ exports[`exports should export all components 1`] = `
   "DropdownOption",
   "DropdownSingleValue",
   "EditableHeading",
-  "EditableInput",
   "EditableText",
   "ExpandCollapse",
   "Flex",
@@ -46,7 +45,6 @@ exports[`exports should export all components 1`] = `
   "HiddenText",
   "Icon",
   "IconButton",
-  "InputField",
   "Label",
   "LinearProgressBar",
   "Link",
@@ -72,7 +70,6 @@ exports[`exports should export all components 1`] = `
   "RadioButton",
   "ResponsiveList",
   "Search",
-  "SearchComponent",
   "Skeleton",
   "Slider",
   "SplitButton",
@@ -111,10 +108,4 @@ exports[`exports should export all components 1`] = `
 ]
 `;
 
-exports[`exports should export next all components 1`] = `
-[
-  "EditableHeading",
-  "Heading",
-  "Search",
-]
-`;
+exports[`exports should export next all components 1`] = `[]`;

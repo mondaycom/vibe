@@ -37,7 +37,7 @@ describe("Avatar renders correctly", () => {
   });
 
   it("renders correctly square avatar", () => {
-    const tree = renderer.create(<Avatar isSquare />).toJSON();
+    const tree = renderer.create(<Avatar square />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -6,7 +6,6 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 export interface ClickableProps extends VibeComponentProps {
   /**
@@ -34,10 +33,6 @@ export interface ClickableProps extends VibeComponentProps {
   tabIndex?: string | number;
   disabled?: boolean;
   style?: React.CSSProperties;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   "data-testid"?: string;
 }
 
@@ -61,12 +56,10 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       tabIndex = "0",
       disabled = false,
       style,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId
     },
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const clickableProps = useClickableProps(
       {
         onClick,
@@ -75,7 +68,7 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
         onMouseLeave,
         disabled,
         id,
-        "data-testid": overrideDataTestId,
+        "data-testid": dataTestId,
         role,
         tabIndex,
         ariaLabel,

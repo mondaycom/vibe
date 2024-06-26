@@ -26,16 +26,8 @@ export interface TipseenContentProps extends VibeComponentProps {
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  /**
-   * @deprecated - use hideDismiss instead
-   */
-  isDismissHidden?: boolean;
   hideDismiss?: boolean;
   children?: ElementContent;
-  /**
-   * @deprecated - use hideSubmit instead
-   */
-  isSubmitHidden?: boolean;
   hideSubmit?: boolean;
   submitButtonText?: string;
   submitButtonProps?: ButtonPropsBackwardCompatible;
@@ -50,11 +42,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   title,
   titleClassName,
   children = null,
-  // Backward compatability
-  isDismissHidden,
-  hideDismiss,
-  // Backward compatability
-  isSubmitHidden,
+  hideDismiss = true,
   hideSubmit,
   submitButtonText,
   onSubmit,
@@ -65,8 +53,6 @@ const TipseenContent: FC<TipseenContentProps> = ({
   // Backward compatibility for props naming
   submitButtonProps = EMPTY_OBJECT
 }) => {
-  const overrideHideDismiss = backwardCompatibilityForProperties([hideDismiss, isDismissHidden], true);
-  const overrideHideSubmit = backwardCompatibilityForProperties([hideSubmit, isSubmitHidden], false);
   const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
   const {
     className: dismissClassName,
@@ -95,7 +81,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
     <TipseenBasicContent title={title} titleClassName={titleClassName} id={id}>
       {children ? <span>{children}</span> : null}
       <div className={cx(styles.buttons)}>
-        {overrideHideDismiss ? null : (
+        {hideDismiss ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
             color={buttonColor}
@@ -108,7 +94,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
             {overrideDismissContent}
           </Button>
         )}
-        {overrideHideSubmit ? null : (
+        {hideSubmit ? null : (
           <Button
             kind={Button.kinds.PRIMARY}
             color={buttonColor}

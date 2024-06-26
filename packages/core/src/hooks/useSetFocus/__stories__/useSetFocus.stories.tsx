@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, Flex, InputField } from "../../../components";
+import { Button, Flex, TextField } from "../../../components";
 import useSetFocus from "../../useSetFocus/index";
 import styles from "./useSetFocus.stories.module.scss";
 
@@ -21,7 +21,7 @@ export const Overview = {
 
     return (
       <Flex direction={Flex.directions.COLUMN}>
-        <InputField ref={ref} placeholder="Input..." />
+        <TextField ref={ref} placeholder="Input..." />
         <Button onClick={focus} className={styles.controlButton}>
           Focus
         </Button>

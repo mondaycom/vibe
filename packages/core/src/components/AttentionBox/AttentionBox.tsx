@@ -9,7 +9,6 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType } from "../Icon/IconConstants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Text from "../Text/Text";
@@ -18,10 +17,6 @@ import styles from "./AttentionBox.module.scss";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
   /** we support 5 types of attention boxes */
@@ -43,8 +38,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   iconTypes?: typeof IconType;
 } = ({
   className,
-  // Backward compatibility for props naming
-  componentClassName,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
@@ -73,8 +66,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
     return "attention";
   }, [type]);
 
-  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-
   const defaultIcon = useMemo(() => {
     return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
   }, [type]);
@@ -83,7 +74,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   return (
     <aside
-      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName)}
+      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), className)}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >

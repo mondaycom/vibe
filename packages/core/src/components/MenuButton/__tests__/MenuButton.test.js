@@ -1,11 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import MenuButton from "../MenuButton";
 import Bolt from "../../Icon/Icons/components/Bolt";
-import { Button } from "../../index";
-
-jest.useFakeTimers();
+import Button from "../../Button/Button";
+import MenuItem from "../../Menu/MenuItem/MenuItem";
+import Menu from "../../Menu/Menu/Menu";
+import { userEvent } from "@storybook/testing-library";
 
 describe("MenuButton", () => {
   it("renders correctly with empty props", () => {
@@ -131,42 +132,40 @@ describe("MenuButton", () => {
         </MenuButton>
       );
       const button = getByLabelText("Menu Button");
-      act(() => {
+      await waitFor(() => {
         fireEvent.click(button);
-        jest.advanceTimersByTime(1000);
       });
       const menu = await screen.findByText("Menu");
       expect(menu).toBeTruthy();
     });
   });
 
-  describe("Enter", () => {
+  describe("Item Click", () => {
     it.each`
-      closeDialogOnContentClick | expected
-      ${true}                   | ${"close"}
-      ${false}                  | ${"not close"}
+      closeMenuOnItemClick | expected
+      ${true}              | ${"close"}
+      ${false}             | ${"not close"}
     `(
-      "should $expected menu after clicking enter when closeDialogOnContentClick is $closeDialogOnContentClick",
-      async ({ closeDialogOnContentClick }) => {
+      "should $expected menu after clicking enter when closeMenuOnItemClick is $closeMenuOnItemClick",
+      async ({ closeMenuOnItemClick }) => {
         const { getByLabelText } = render(
-          <MenuButton ariaLabel="Menu Button" closeDialogOnContentClick={closeDialogOnContentClick}>
-            <div>Menu</div>
+          <MenuButton ariaLabel="Menu Button" closeMenuOnItemClick={closeMenuOnItemClick}>
+            <Menu>
+              <MenuItem title="Menu Item" />
+            </Menu>
           </MenuButton>
         );
         const button = getByLabelText("Menu Button");
-        act(() => {
+        await waitFor(async () => {
           fireEvent.click(button);
-          jest.advanceTimersByTime(1000);
+          expect(await screen.findAllByText("Menu Item", { hidden: false })).toBeTruthy();
+          userEvent.type(button, "{enter}");
         });
-        expect(await screen.findByText("Menu")).toBeTruthy();
-        act(() => {
-          fireEvent.keyDown(button, { key: "Enter", code: "Enter", charCode: 13 });
-          jest.advanceTimersByTime(1000);
-        });
-        if (closeDialogOnContentClick) {
-          expect(await screen.queryByText("Menu")).toBeFalsy();
+        if (closeMenuOnItemClick) {
+          await waitForElementToBeRemoved(() => screen.queryAllByText("Menu Item", { hidden: false }));
+          expect(screen.queryByText("Menu Item", { hidden: true })).toBeFalsy();
         } else {
-          expect(await screen.queryByText("Menu")).toBeTruthy();
+          expect(screen.queryAllByText("Menu Item", { hidden: true })).toBeTruthy();
         }
       }
     );

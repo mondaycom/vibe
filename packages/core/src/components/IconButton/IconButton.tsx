@@ -9,7 +9,6 @@ import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -92,10 +91,6 @@ export interface IconButtonProps extends VibeComponentProps {
    * if disabled - this will be shown in the tooltip
    */
   disabledReason?: string;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
@@ -133,7 +128,6 @@ const IconButton: VibeComponent<IconButtonProps> & {
       disabledReason,
       onClick = NOOP,
       color,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus = false,
       tabIndex,
@@ -144,7 +138,6 @@ const IconButton: VibeComponent<IconButtonProps> & {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const overrideTooltipContent = useMemo(
       () => tooltipProps?.content || tooltipContent,
       [tooltipProps?.content, tooltipContent]
@@ -216,7 +209,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             aria-hidden={ariaHidden}
             ref={mergedRef}
             id={id}
-            data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}

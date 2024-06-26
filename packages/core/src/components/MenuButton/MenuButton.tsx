@@ -5,7 +5,6 @@ import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -28,10 +27,6 @@ const MOVE_BY = { main: 8, secondary: 0 };
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
-  /**
    * Control the button's selected state
    */
   active?: boolean;
@@ -48,11 +43,6 @@ export interface MenuButtonProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   zIndex?: number;
   ariaLabel?: string;
-  // TODO: remove in next major version
-  /**
-   * @deprecated use closeMenuOnItemClick instead
-   */
-  closeDialogOnContentClick?: boolean;
   /*
     Class name to provide the element which wraps the popover/modal/dialog
    */
@@ -111,10 +101,6 @@ export interface MenuButtonProps extends VibeComponentProps {
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
   hideWhenReferenceHidden?: boolean;
-  /**
-   * @deprecated - use tooltipContent instead
-   */
-  disabledReason?: string;
   children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
@@ -145,8 +131,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     {
       id,
       className,
-      // Backward compatibility for props naming
-      componentClassName,
       openDialogComponentClassName,
       children,
       component = Menu,
@@ -156,7 +140,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       onClick = NOOP,
       zIndex = null,
       ariaLabel = "Menu",
-      closeDialogOnContentClick = false,
       closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
@@ -170,8 +153,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       text,
       tooltipContent,
       tooltipProps,
-      // Backward compatibility for props naming
-      disabledReason,
       tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
       tooltipPosition = "right",
       startingEdge = "bottom",
@@ -236,11 +217,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         Dialog.hideShowTriggers.ESCAPE_KEY
       ]);
 
-      if (closeDialogOnContentClick) {
-        triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
-        triggers.add(Dialog.hideShowTriggers.ENTER);
-      }
-
       if (removeTabCloseTrigger) {
         triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
       }
@@ -261,7 +237,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         return React.cloneElement(child, newProps);
       });
       return [cloned, Array.from(triggers)];
-    }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
+    }, [children, onMenuDidClose, removeTabCloseTrigger]);
 
     const content = useMemo(() => {
       if (clonedChildren.length === 0) return null;
@@ -308,9 +284,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-
     // Trigger element props, which are only relevant for "button" element, but might be needed for other elements e.g. Button
     const triggerElementProps =
       TriggerElement === "button"
@@ -328,7 +301,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
         type="button"
-        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
+        className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,
           [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
           [styles.disabled]: disabled,
@@ -373,7 +346,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
-        content={overrideTooltipContent}
+        content={tooltipContent}
         position={tooltipPosition}
         showTrigger={TOOLTIP_SHOW_TRIGGER}
         hideTrigger={tooltipTriggers}

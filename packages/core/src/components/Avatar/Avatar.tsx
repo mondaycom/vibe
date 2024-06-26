@@ -4,7 +4,6 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
@@ -34,14 +33,6 @@ export interface AvatarProps extends VibeComponentProps {
   tabIndex?: number;
   ariaHidden?: boolean;
   disabled?: boolean;
-  /**
-   * @deprecated - use square instead
-   */
-  isSquare?: boolean;
-  /**
-   * @deprecated - use disabled instead
-   */
-  isDisabled?: boolean;
   square?: boolean;
   topLeftBadgeProps?: AvatarBadgeProps;
   topRightBadgeProps?: AvatarBadgeProps;
@@ -73,10 +64,6 @@ const Avatar: React.FC<AvatarProps> & {
   backgroundColor = Avatar.colors.CHILI_BLUE,
   square,
   disabled,
-  // Backward compatibility for props naming
-  isSquare,
-  // Backward compatibility for props naming
-  isDisabled,
   tabIndex,
   ariaHidden = false,
   topLeftBadgeProps,
@@ -89,8 +76,6 @@ const Avatar: React.FC<AvatarProps> & {
   onClick,
   "data-testid": dataTestId
 }) => {
-  const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {
     if (customBackgroundColor) return { backgroundColor: customBackgroundColor };
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
@@ -187,8 +172,8 @@ const Avatar: React.FC<AvatarProps> & {
               styles.circle,
               getStyle(styles, camelCase("circle--" + type)),
               {
-                [styles.disabled]: overrideDisabled,
-                [styles.square]: overrideSquare,
+                [styles.disabled]: disabled,
+                [styles.square]: square,
                 [styles.withoutBorder]: withoutBorder
               },
               avatarContentWrapperClassName

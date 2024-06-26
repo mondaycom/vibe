@@ -10,10 +10,20 @@ export const EMPTY_ARR: string[] = [];
 
 export const ENTER_KEYS = [keyCodes.ENTER];
 
-export enum SplitButtonSecondaryContentPosition {
-  BOTTOM_START = "bottom-start",
-  BOTTOM_MIDDLE = "bottom",
-  BOTTOM_END = "bottom-end"
-}
+//TODO Remove once change dialogPosition to const
+export const DialogPosition = {
+  BOTTOM: "bottom",
+  BOTTOM_START: "bottom-start",
+  BOTTOM_END: "bottom-end"
+} as const;
+
+export const SplitButtonSecondaryContentPosition = {
+  BOTTOM_START: DialogPosition.BOTTOM_START,
+  BOTTOM_MIDDLE: DialogPosition.BOTTOM,
+  BOTTOM_END: DialogPosition.BOTTOM_END
+} as const;
+
+export type SplitButtonSecondaryContentPositionType =
+  (typeof SplitButtonSecondaryContentPosition)[keyof typeof SplitButtonSecondaryContentPosition];
 
 export const SECONDARY_BUTTON_ARIA_LABEL = "additional actions";

@@ -5,7 +5,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
-import { Heading } from "../../../next/next";
+import Heading from "../../Heading/Heading";
 
 type Story = StoryObj<typeof TextField>;
 

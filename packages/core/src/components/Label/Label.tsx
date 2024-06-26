@@ -3,7 +3,6 @@ import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
@@ -15,10 +14,6 @@ import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { mapSizesToTextSize, Sizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  wrapperClassName?: string;
   /**
    * Class name for an inner text wrapper
    */
@@ -40,7 +35,6 @@ const Label: VibeComponent<LabelProps> & {
   (
     {
       className,
-      wrapperClassName,
       labelClassName,
       kind = LabelKind.FILL,
       color = LabelColor.PRIMARY,
@@ -59,7 +53,6 @@ const Label: VibeComponent<LabelProps> & {
     const mergedRef = useMergeRef(ref, labelRef);
     const [isCelebrationAnimation, setIsCelebrationAnimation] = useState(celebrationAnimation);
 
-    const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
     const isClickable = Boolean(onClick);
 
     const classNames = useMemo(
@@ -109,7 +102,7 @@ const Label: VibeComponent<LabelProps> & {
       return (
         <span
           {...(isClickable && clickableProps)}
-          className={cx({ [styles.clickableWrapper]: isClickable }, overrideClassName)}
+          className={cx({ [styles.clickableWrapper]: isClickable }, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
           ref={mergedRef}
         >
@@ -135,7 +128,7 @@ const Label: VibeComponent<LabelProps> & {
     }, [
       isClickable,
       clickableProps,
-      overrideClassName,
+      className,
       dataTestId,
       id,
       mergedRef,

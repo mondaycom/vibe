@@ -8,17 +8,12 @@ import { ButtonType } from "../../Button/ButtonConstants";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 import { TooltipPositionsType } from "../../Tooltip/Tooltip.types";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
   kind?: ButtonType;
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
@@ -44,8 +39,6 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   isMenuChild?: boolean;
 } = ({
   className,
-  // Backward compatibility for props naming
-  classname,
   kind = MenuItemButton.kinds.PRIMARY,
   leftIcon = null,
   rightIcon = null,
@@ -69,7 +62,6 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const mergedRef = useMergeRef(ref, referenceElementRef);
-  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
 
   const shouldShowTooltip = disabled && disableReason;
   const tooltipContent = disableReason;
@@ -112,7 +104,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
         element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
         id={id}
-        className={cx(styles.itemButton, overrideClassName)}
+        className={cx(styles.itemButton, className)}
         ref={mergedRef}
         role="menuitem"
         aria-current={isActive}

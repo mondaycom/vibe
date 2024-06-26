@@ -20,7 +20,6 @@ import DialogContentContainer from "../../../components/DialogContentContainer/D
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
@@ -62,10 +61,6 @@ export interface MenuItemProps extends VibeComponentProps {
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
   /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
-  /**
    * Class name which is added to div which wraps an Icon
    */
   iconWrapperClassName?: string;
@@ -96,8 +91,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   (
     {
       className,
-      // Backward compatibility for props naming
-      classname,
       iconWrapperClassName,
       title = "",
       label = "",
@@ -135,7 +128,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const hasChildren = !!children;
     const isSubMenuOpen = hasChildren && isActive && hasOpenSubMenu;
@@ -332,7 +324,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         key={key}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
-        className={cx(styles.item, overrideClassName, {
+        className={cx(styles.item, className, {
           [styles.disabled]: disabled,
           [styles.focused]: isActive,
           [styles.selected]: selected,

@@ -137,6 +137,11 @@ export const LoaderInTextField = {
       <Search loading placeholder="Board name" />
     </DialogContentContainer>
   ),
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  },
 
   name: "Loader in text field"
 };

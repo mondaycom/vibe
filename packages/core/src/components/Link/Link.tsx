@@ -1,7 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
@@ -9,10 +8,6 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /**
    * Class name for overriding link text styles
    */
@@ -54,7 +49,6 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
   (
     {
       className,
-      componentClassName,
       textClassName,
       href = "",
       text = "",
@@ -74,7 +68,6 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
     },
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const isStart = iconPosition === IconPosition.START;
 
     const onClickWrapper = useCallback(
@@ -96,7 +89,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx(styles.link, overrideClassName, {
+        className={cx(styles.link, className, {
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
         })}
