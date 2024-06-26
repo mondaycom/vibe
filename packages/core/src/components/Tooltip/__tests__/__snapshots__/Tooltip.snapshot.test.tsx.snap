@@ -52,6 +52,7 @@ exports[`Tooltip renders correctly with data-testid 1`] = `
 ]
 `;
 
+<<<<<<< Breaking-Tooltip---remove-justify-prop-6890236950
 exports[`Tooltip renders correctly with end arrowPosition 1`] = `
 [
   <div
@@ -104,6 +105,8 @@ exports[`Tooltip renders correctly with end arrowPosition 1`] = `
 ]
 `;
 
+=======
+>>>>>>> tooltip
 exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
 [
   <div
