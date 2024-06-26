@@ -38,17 +38,6 @@ describe("Tooltip renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with justify", () => {
-    const tree = renderer
-      .create(
-        <Tooltip shouldShowOnMount content="test" justify={Tooltip.justifyTypes.END}>
-          <div />
-        </Tooltip>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with withoutDialog", () => {
     const tree = renderer
       .create(

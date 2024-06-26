@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, DialogPosition, HideShowEvent } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
@@ -46,7 +46,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   moveBy?: MoveBy;
   theme?: TooltipTheme;
-  justify?: JustifyType;
   getContainer?: () => HTMLElement;
   /**
    * how much delay should the Dialog wait until it should trigger the hide in MS
@@ -147,12 +146,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static hideShowTriggers = HideShowEvent;
   static animationTypes = AnimationType;
-  static justifyTypes = JustifyType;
   static defaultProps = {
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
     position: "top",
-    justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 100,
     showDelay: 300,
     disableDialogSlide: true,
@@ -289,7 +286,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   render() {
     const {
       withoutDialog,
-      justify,
       children,
       forceRenderWithoutChildren,
       getContainer,
@@ -314,7 +310,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       ...this.props,
       position: position as DialogPosition,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
-      startingEdge: justify,
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
