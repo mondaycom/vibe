@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.114.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.1...monday-ui-react-core@2.114.0) (2024-06-26)
+
+
+### Features
+
+* **react-select:** use react-select version 4.3.1 ([#2184](https://github.com/mondaycom/vibe/issues/2184)) ([c90b6dd](https://github.com/mondaycom/vibe/commit/c90b6dd7aa8fe1612d7feefb1dce224a9cb04222))
+* **TextArea:** be able to disable resize ([#2189](https://github.com/mondaycom/vibe/issues/2189)) ([9223c0a](https://github.com/mondaycom/vibe/commit/9223c0abd8828f8da34c70c7df7ec3c8204cebba))
+
+
+
+
+
 ## [2.113.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.0...monday-ui-react-core@2.113.1) (2024-06-25)
 
 

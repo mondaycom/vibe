@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.0...vibe-storybook-components@0.19.1) (2024-06-26)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 # [0.19.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.18.4...vibe-storybook-components@0.19.0) (2024-05-26)
 
 
