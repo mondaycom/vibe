@@ -158,7 +158,7 @@
 - `isDisabled` -> `disabled` [codemod]
 
 ### Tooltip
-- `paddingSize` prop [codemod]
+- `paddingSize` removed [codemod]
 - `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
 - `showOnDialogEnter` changed default to be true
 - `hideDelay` changed default to be 100
