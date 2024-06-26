@@ -260,7 +260,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
           : selectedOptions;
 
         if (customOnChange) {
-          customOnChange(newSelectedOptions.length > 0 ? newSelectedOptions : null, e);
+          customOnChange(newSelectedOptions, e);
         }
         setSelected(newSelectedOptions);
       };
