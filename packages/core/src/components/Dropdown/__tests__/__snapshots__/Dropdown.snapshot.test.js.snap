@@ -7,18 +7,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
-        id="aria-selection-event"
-      >
-         
-      </span>
+        id="aria-selection"
+      />
       <span
         id="aria-context"
       >
-          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -193,18 +193,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
-        id="aria-selection-event"
-      >
-         
-      </span>
+        id="aria-selection"
+      />
       <span
         id="aria-context"
       >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
+            Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div>
@@ -286,6 +286,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-118upmw-control"
@@ -365,6 +371,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-118upmw-control"
@@ -444,6 +456,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-118upmw-control"
@@ -523,6 +541,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-13ywfe7-control"
@@ -602,6 +626,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-cmnsoe-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-1qrvste-control"
@@ -681,6 +711,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
     <div>
       <div
         class=" css-13ywfe7-control"
@@ -761,18 +797,18 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
-        id="aria-selection-event"
-      >
-         
-      </span>
+        id="aria-selection"
+      />
       <span
         id="aria-context"
       >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
+            Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div>
@@ -820,13 +856,13 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class=" css-1xh8qep-loadingIndicator"
           >
             <span
-              class="css-imwzes-Component"
+              class="css-1yvy2vo-LoadingDot"
             />
             <span
-              class="css-1ue98e-Component"
+              class="css-zoievk-LoadingDot"
             />
             <span
-              class="css-fwsb3e-Component"
+              class="css-x748d8-LoadingDot"
             />
           </div>
           <span
@@ -869,18 +905,18 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
     >
       <span
-        id="aria-selection-event"
-      >
-         
-      </span>
+        id="aria-selection"
+      />
       <span
         id="aria-context"
       >
-          option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -957,7 +993,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     >
       <div
         class=""
-        style="position: relative; height: 300px; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
+        style="position: relative; height: 300px; width: 100%; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
       >
         <div
           style="height: 350008px; width: 100%;"
@@ -1195,6 +1231,12 @@ exports[`Dropdown renders correctly when disabled 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-1i7lmxf-control"
@@ -1210,7 +1252,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className="css-oab24c-Component"
         >
           <div
             className=""
@@ -1312,6 +1354,12 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-xe3jfm-control"
@@ -1329,7 +1377,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         <input
           aria-autocomplete="list"
           aria-label="Readonly   Selected: "
-          className="css-62g3xt-dummyInput"
+          className="css-wmatm6-dummyInput-DummyInput"
           disabled={false}
           id="react-select-6-input"
           onBlur={[Function]}
@@ -1384,6 +1432,12 @@ exports[`Dropdown renders correctly when rtl 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -1502,6 +1556,12 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -1620,6 +1680,12 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -1953,6 +2019,12 @@ exports[`Dropdown renders correctly with className 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2071,6 +2143,12 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2221,6 +2299,12 @@ exports[`Dropdown renders correctly with empty props 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2339,6 +2423,12 @@ exports[`Dropdown renders correctly with id 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2457,6 +2547,12 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -2693,6 +2789,12 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -2923,6 +3025,12 @@ exports[`Dropdown renders correctly with multi 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3059,6 +3167,12 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-1i7lmxf-control"
@@ -3119,7 +3233,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 </div>
               </div>
               <div
-                className="css-lkl2xd-Component"
+                className="css-oab24c-Component"
               >
                 <div
                   className=""
@@ -3225,6 +3339,12 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-xe3jfm-control"
@@ -3287,7 +3407,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               <input
                 aria-autocomplete="list"
                 aria-label="Readonly   Selected: Ocean, Blue"
-                className="css-62g3xt-dummyInput"
+                className="css-wmatm6-dummyInput-DummyInput"
                 disabled={false}
                 id="react-select-14-input"
                 onBlur={[Function]}
@@ -3346,6 +3466,12 @@ exports[`Dropdown renders correctly with multiline 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3464,6 +3590,12 @@ exports[`Dropdown renders correctly with options 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3582,6 +3714,12 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3700,6 +3838,12 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3818,6 +3962,12 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div
     className=""
     onBlur={[Function]}
@@ -3946,6 +4096,12 @@ exports[`Dropdown renders correctly with value 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -4096,6 +4252,12 @@ exports[`Dropdown renders correctly without clear button 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+  />
   <div>
     <div
       className=" css-13ywfe7-control"

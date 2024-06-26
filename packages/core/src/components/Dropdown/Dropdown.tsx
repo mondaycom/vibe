@@ -291,7 +291,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
       if (customOnChange) {
-        customOnChange(option, meta);
+        const newValue = multi ? (option.length > 0 ? option : null) : option;
+        customOnChange(newValue, meta);
       }
 
       switch (meta.action) {
