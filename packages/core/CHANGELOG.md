@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.115.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.114.0...monday-ui-react-core@2.115.0) (2024-06-26)
+
+
+### Features
+
+* **TextField:** add a controlled variant ([#2180](https://github.com/mondaycom/vibe/issues/2180)) ([67489b3](https://github.com/mondaycom/vibe/commit/67489b38de56ba44ed86deafc0ca49b7f72e050e))
+
+
+
+
+
 # [2.114.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.1...monday-ui-react-core@2.114.0) (2024-06-26)
 
 

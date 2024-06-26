@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.1...vibe-storybook-components@0.19.2) (2024-06-26)
+
+
+### Bug Fixes
+
+* Revert "chore: add build step postinstall for vibe-storybook-components" ([#2192](https://github.com/mondaycom/vibe/issues/2192)) ([cdb45d5](https://github.com/mondaycom/vibe/commit/cdb45d5fb467bae9af935212c714268e0eda4f2a))
+
+
+
+
+
 ## [0.19.1](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.0...vibe-storybook-components@0.19.1) (2024-06-26)
 
 **Note:** Version bump only for package vibe-storybook-components
