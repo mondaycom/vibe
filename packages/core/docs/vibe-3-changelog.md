@@ -7,12 +7,9 @@
 - Change hideDelay default to be 100
 - Change position prop to accept string instead of static prop
 - Change position prop to only accept "top, right, bottom, left"
-<<<<<<< Breaking-Tooltip---remove-justify-prop-6890236950
 - Remove justify prop
-=======
 - Remove arrowPosition prop
 - Remove TooltipArrowPosition enum
->>>>>>> tooltip
 
 ## Tipseen
 - Change showDelay default to 100
