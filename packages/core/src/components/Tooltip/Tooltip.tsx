@@ -6,7 +6,7 @@ import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
+import { TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -37,7 +37,6 @@ interface TooltipWithChildrenProps {
 interface TooltipBaseProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
-  arrowPosition?: TooltipArrowPosition;
   /** Class name for a tooltip's arrow */
   arrowClassName?: string;
   /**
@@ -149,9 +148,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   static hideShowTriggers = HideShowEvent;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
-  static arrowPositions = TooltipArrowPosition;
   static defaultProps = {
-    arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
     position: "top",
