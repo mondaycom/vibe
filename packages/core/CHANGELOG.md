@@ -10,6 +10,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Button:** fix text placeholder dimensions in loading state ([#2187](https://github.com/mondaycom/vibe/issues/2187)) ([3a9c983](https://github.com/mondaycom/vibe/commit/3a9c983d1f35c9a49159ee1f93b1ccd41ecfbe00))
 * **link:** hover color should inherit from link color ([#2183](https://github.com/mondaycom/vibe/issues/2183)) ([60d6166](https://github.com/mondaycom/vibe/commit/60d61661ff3d520b15a40a95641adab092f2afb9))
+* **Dropdown:** Dropdown multi size "small" style and behavior is broken ([#2174](https://github.com/mondaycom/vibe/issues/2174)) ([91f02fb](https://github.com/mondaycom/vibe/commit/91f02fb04e70efe89b8a68b5c29723ab2f844254))
 
 
 
