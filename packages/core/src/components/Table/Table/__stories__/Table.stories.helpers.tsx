@@ -308,7 +308,7 @@ export const scrollTableColumns = [
 ];
 
 export const virtualizedScrollTableData: TableVirtualizedRow[] = [...new Array(5000)].map((_, index) => ({
-  id: `${index}`,
+  id: index.toString(),
   num: index,
   text: `This is line number ${index}`
 }));
