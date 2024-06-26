@@ -9,14 +9,26 @@ import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
 import * as TableContextModule from "../../context/TableContext/TableContext";
 import { RowSizes } from "../TableConsts";
+import { ITableContext } from "../../context/TableContext/TableContext.types";
 
 function mockUseTable() {
-  jest.spyOn(TableContextModule, "useTable").mockImplementation(() => ({
-    columns: [],
-    emptyState: <div />,
-    errorState: <div />,
-    size: RowSizes.MEDIUM
-  }));
+  jest.spyOn(TableContextModule, "useTable").mockImplementation(
+    () =>
+      ({
+        columns: [],
+        emptyState: <div />,
+        errorState: <div />,
+        size: RowSizes.MEDIUM,
+        scrollLeft: 0,
+        onTableRootScroll: jest.fn(),
+        headRef: { current: null },
+        onHeadScroll: jest.fn(),
+        virtualizedListRef: { current: null },
+        onVirtualizedListScroll: jest.fn(),
+        isVirtualized: false,
+        markTableAsVirtualized: jest.fn()
+      } satisfies ITableContext)
+  );
 }
 
 jest.mock("../../context/TableContext/TableContext", () => ({
