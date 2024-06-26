@@ -3191,7 +3191,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3214,7 +3214,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3363,7 +3363,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3386,7 +3386,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
