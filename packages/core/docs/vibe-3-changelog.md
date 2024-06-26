@@ -124,11 +124,9 @@
 ## SplitButton
 
 - We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
-
 - Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
-
 - Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
--
+
 
 ### Steps
 
@@ -145,9 +143,9 @@
 ### Tipseen
 
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
-- Change showDelay default to 100
-- Remove justify prop
-- Remove static prop justifyTypes
+- `showDelay` changed default to 100
+- `justify` removed [codemod]
+- `justifyTypes` removed [codemod]
 
 ### TipseenContent
 
@@ -159,19 +157,19 @@
 - `componentClassName` -> `className` [codemod]
 - `isDisabled` -> `disabled` [codemod]
 
+### Tooltip
+- `paddingSize` prop [codemod]
+- `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
+- `showOnDialogEnter` changed default to be true
+- `hideDelay` changed default to be 100
+- `position`  changed to accept string instead of static prop [codemod]
+- `position` changed to only accept "top, right, bottom, left" [codemod]
+- `justify` removed [codemod]
+- `arrowPosition` removed [codemod]
+- `TooltipArrowPosition` removed [codemod]
+
 ## Hooks
 
 ### useClickableProps
 
 - `dataTestId` -> `data-testid` [codemod]
-
-### Tooltip
-- Remove paddingSize prop
-- Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary}
-- Change showOnDialogEnter default to be true
-- Change hideDelay default to be 100
-- Change position prop to accept string instead of static prop
-- Change position prop to only accept "top, right, bottom, left"
-- Remove justify prop
-- Remove arrowPosition prop
-- Remove TooltipArrowPosition enum
