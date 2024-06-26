@@ -41,8 +41,7 @@
     "test": "jest --passWithNoTests",
     "test:update": "yarn test -u",
     "storybook": "storybook dev -p 7012",
-    "build-storybook": "storybook build",
-    "postinstall": "yarn build"
+    "build-storybook": "storybook build"
   },
   "browserslist": [
     "extends browserslist-config-monday"
