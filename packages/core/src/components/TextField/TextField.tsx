@@ -1,5 +1,14 @@
 import cx from "classnames";
-import React, { ChangeEvent, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  ChangeEventHandler,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -191,9 +200,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       return controlled ? value : uncontrolledInput;
     }, [controlled, value, uncontrolledInput]);
 
-    function handleChange(event: ChangeEvent<Partial<HTMLInputElement>>) {
-      controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
-    }
+    const handleChange = useCallback<ChangeEventHandler>(
+      (event: ChangeEvent<Partial<HTMLInputElement>>) => {
+        controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
+      },
+      [controlled, onChangeCallback, onEventChanged]
+    );
 
     const currentStateIconName = useMemo(() => {
       if (secondaryIconName) {
