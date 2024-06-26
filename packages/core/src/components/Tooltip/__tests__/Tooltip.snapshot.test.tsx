@@ -16,17 +16,6 @@ jest.mock("react-transition-group", () => {
 jest.useFakeTimers();
 
 describe("Tooltip renders correctly", () => {
-  it("with end arrowPosition", () => {
-    const tree = renderer
-      .create(
-        <Tooltip shouldShowOnMount content="test">
-          <div />
-        </Tooltip>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with theme", () => {
     const tree = renderer
       .create(

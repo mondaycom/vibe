@@ -8,6 +8,7 @@
 - Change position prop to accept string instead of static prop
 - Change position prop to only accept "top, right, bottom, left"
 - Remove arrowPosition prop
+- Remove TooltipArrowPosition enum
 
 ## Tipseen
 - Change showDelay default to 100
