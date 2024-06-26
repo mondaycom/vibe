@@ -146,11 +146,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static hideShowTriggers = HideShowEvent;
   static animationTypes = AnimationType;
-<<<<<<< Breaking-Tooltip---remove-justify-prop-6890236950
-  static arrowPositions = TooltipArrowPosition;
-=======
-  static justifyTypes = JustifyType;
->>>>>>> tooltip
   static defaultProps = {
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
