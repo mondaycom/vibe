@@ -11,4 +11,9 @@
 
 ## Tipseen
 - Change showDelay default to 100
+- Remove justify prop
+
+## Dialog
+- Remove JustifyType 
+
 
