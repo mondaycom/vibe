@@ -53,7 +53,7 @@
 ### Dialog
 
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
-- Remove JustifyType
+- `JustifyType` removed [codemod]
 
 ### Divider
 
