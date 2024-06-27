@@ -63,7 +63,7 @@
 - `dataTestId` -> `data-testid` [codemod]
 
 ### Icon
-- `clickable, onClick, iconLabel` removed, should use iconButton in case of a clickable icon [codemod]
+- `clickable`, `onClick`, `iconLabel` removed, use `<IconButton>` in case of a clickable icon [codemod]
 
 
 ### Label
