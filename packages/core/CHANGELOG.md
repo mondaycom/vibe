@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.116.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.115.0...monday-ui-react-core@2.116.0) (2024-06-27)
+
+
+### Bug Fixes
+
+* **ToastLink:** hover color should inherit from link color ([#2193](https://github.com/mondaycom/vibe/issues/2193)) ([7ab5710](https://github.com/mondaycom/vibe/commit/7ab5710cc2ffc82376dd0a6df592d5c849ab17f6))
+
+
+### Features
+
+* **Table:** add sticky column capabilities ([#2172](https://github.com/mondaycom/vibe/issues/2172)) ([a79a28e](https://github.com/mondaycom/vibe/commit/a79a28ec0ed2ed8953ecc4ffce372fec3fa3b70b))
+
+
+
+
+
 # [2.115.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.114.0...monday-ui-react-core@2.115.0) (2024-06-26)
 
 
