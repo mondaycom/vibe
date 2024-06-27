@@ -1,5 +1,5 @@
 import { ITableProps } from "../../Table/Table";
-import React from "react";
+import React, { UIEventHandler } from "react";
 
 export interface ITableContext {
   columns: ITableProps["columns"];
@@ -7,11 +7,17 @@ export interface ITableContext {
   emptyState: ITableProps["emptyState"];
   errorState: ITableProps["errorState"];
   size: ITableProps["size"];
-  rowWidth?: number;
-  setRowWidth?: (width: number) => void;
+  scrollLeft: number;
+  onTableRootScroll: UIEventHandler<HTMLDivElement>;
+  headRef: React.MutableRefObject<HTMLDivElement>;
+  onHeadScroll: UIEventHandler<HTMLDivElement>;
+  virtualizedListRef: React.MutableRefObject<HTMLDivElement>;
+  onVirtualizedListScroll: UIEventHandler<HTMLDivElement>;
+  isVirtualized: boolean;
+  markTableAsVirtualized: () => void;
 }
 
 export type ITableProviderProps = {
-  value: ITableContext;
+  value: Pick<ITableContext, "columns" | "dataState" | "emptyState" | "errorState" | "size">;
   children: React.ReactNode;
 };

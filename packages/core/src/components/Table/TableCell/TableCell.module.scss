@@ -3,4 +3,11 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+
+  &.sticky {
+    z-index: 1;
+    position: sticky;
+    left: 0;
+    box-shadow: var(--sticky-cell-box-shadow);
+  }
 }
