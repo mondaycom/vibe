@@ -71,9 +71,6 @@ export interface BoxProps extends VibeComponentProps {
   paddingStart?: ValueOf<PaddingStart>;
   backgroundColor?: ValueOf<BackgroundColor>;
   textColor?: ValueOf<Color>;
-  /**
-   * TODO: make default in next major version
-   */
   scrollable?: boolean;
   style?: React.CSSProperties;
 }
@@ -127,7 +124,7 @@ const Box: VibeComponent<BoxProps> & {
       paddingStart,
       textColor,
       backgroundColor,
-      scrollable,
+      scrollable = true,
       style
     },
     ref
