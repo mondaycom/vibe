@@ -8,7 +8,7 @@
   min-width: 100%;
   width: fit-content;
 
-  > * {
+  > [role="columnheader"] {
     background-color: inherit;
   }
 

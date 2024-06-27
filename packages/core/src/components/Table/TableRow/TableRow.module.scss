@@ -7,20 +7,20 @@
   min-width: 100%;
   width: fit-content;
 
-  &[aria-selected="true"] > * {
+  &[aria-selected="true"] > [role="cell"] {
     background-color: var(--primary-selected-color);
   }
 
-  > * {
+  > [role="cell"] {
     background-color: var(--primary-background-color);
   }
 
   &:hover {
-    > * {
+    > [role="cell"] {
       background-color: var(--primary-background-hover-color);
     }
 
-    &[aria-selected="true"] > * {
+    &[aria-selected="true"] > [role="cell"] {
       background-color: var(--primary-selected-hover-color);
     }
   }
