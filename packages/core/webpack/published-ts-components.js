@@ -98,7 +98,7 @@ const publishedTSComponents = {
   TableHeader: "components/Table/TableHeader/TableHeader",
   TableHeaderCell: "components/Table/TableHeaderCell/TableHeaderCell",
   TableRow: "components/Table/TableRow/TableRow",
-  TableMenu: "components/Table/TableMenu/TableMenu",
+  TableRowMenu: "components/Table/TableRowMenu/TableRowMenu",
   TableVirtualizedBody: "components/Table/TableVirtualizedBody/TableVirtualizedBody",
   ThemeProvider: "components/ThemeProvider/ThemeProvider",
   // Don't remove next line

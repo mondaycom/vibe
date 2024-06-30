@@ -1,10 +1,9 @@
 import React, { forwardRef, useCallback, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import styles from "./TableMenu.module.scss";
+import styles from "./TableRowMenu.module.scss";
 import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
 import { createPortal } from "react-dom";
@@ -12,13 +11,9 @@ import { useTable } from "../context/TableContext/TableContext";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 import { useTableContainer } from "../context/TableContainerContext/TableContainerContext";
+import { TableMenuProps } from "./TableRowMenu.types";
 
-export interface TableMenuProps extends VibeComponentProps {
-  rowId: string;
-  children?: React.ReactNode;
-}
-
-const TableMenu = forwardRef(
+const TableRowMenu = forwardRef(
   (
     { rowId, className, id, "data-testid": dataTestId, children }: TableMenuProps,
     ref: React.ForwardedRef<HTMLDivElement>
@@ -73,4 +68,4 @@ const TableMenu = forwardRef(
   }
 );
 
-export default TableMenu;
+export default TableRowMenu;

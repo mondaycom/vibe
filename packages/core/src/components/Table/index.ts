@@ -1,4 +1,6 @@
 export { default as Table, ITableProps as TableProps } from "./Table/Table";
+export { default as TableContainer } from "./TableContainer/TableContainer";
+export * from "./TableContainer/TableContainer.types";
 export { default as TableHeader, ITableHeaderProps as TableHeaderProps } from "./TableHeader/TableHeader";
 export {
   default as TableHeaderCell,
@@ -11,4 +13,6 @@ export {
   TableVirtualizedRow
 } from "./TableVirtualizedBody/TableVirtualizedBody";
 export { default as TableRow, ITableRowProps as TableRowProps } from "./TableRow/TableRow";
+export { default as TableRowMenu } from "./TableRowMenu/TableRowMenu";
+export * from "./TableRowMenu/TableRowMenu.types";
 export { default as TableCell, ITableCellProps as TableCellProps } from "./TableCell/TableCell";
