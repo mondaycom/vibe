@@ -44,26 +44,30 @@ const TableRowMenu = forwardRef(
     const shouldShowMenu = menuContainerRef.current && hoveredRowId && hoveredRowId === rowId;
     if (!shouldShowMenu) return null;
 
-    return createPortal(
-      <div
-        className={cx(styles.rowMenuContainer, getStyle(styles, size))}
-        style={{ top: menuButtonPosition }}
-        onMouseOver={onMouseOverRowMenu}
-        onMouseLeave={onMouseLeaveRowMenu}
-      >
-        <MenuButton
-          id={id}
-          ref={mergedRef}
-          className={cx(styles.tableMenu, className)}
-          size={MenuButton.sizes.XS}
-          onMenuHide={onMenuHide}
-          onMenuShow={onMenuShow}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_MENU, id)}
-        >
-          <Menu>{children}</Menu>
-        </MenuButton>
-      </div>,
-      menuContainerRef.current
+    return (
+      <>
+        {createPortal(
+          <div
+            className={cx(styles.rowMenuContainer, getStyle(styles, size))}
+            style={{ top: menuButtonPosition }}
+            onMouseOver={onMouseOverRowMenu}
+            onMouseLeave={onMouseLeaveRowMenu}
+          >
+            <MenuButton
+              id={id}
+              ref={mergedRef}
+              className={cx(styles.tableMenu, className)}
+              size={MenuButton.sizes.XS}
+              onMenuHide={onMenuHide}
+              onMenuShow={onMenuShow}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_MENU, id)}
+            >
+              <Menu>{children}</Menu>
+            </MenuButton>
+          </div>,
+          menuContainerRef.current
+        )}
+      </>
     );
   }
 );
