@@ -28,6 +28,10 @@
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
+- 
+- ### Box
+
+- `scrollable` -> change default to true [codemod]
 
 ### ButtonGroup
 
