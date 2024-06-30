@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/utils": ["src/utils"],
+      "@/consts": ["src/consts"],
+      "@/types": ["src/types"],
+      "@/transformations": ["src/transformations/*"]
+    },
+    "baseUrl": ".",
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": ["ES6"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "types": ["node", "jscodeshift"],
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "vitest.config.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}
