@@ -4,7 +4,7 @@
   display: flex;
 }
 .placeholder-container {
-  margin-left: 6px;
+  grid-area: 1 / 1 / 2 / 3;
 }
 
 .multiselect-chip-multi-line {
@@ -24,6 +24,8 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  grid-area: 1 / 1 / 2 / 3;
+  margin-left: 6px;
 }
 
 .value-container-chips {
@@ -33,10 +35,6 @@
   flex-grow: 1;
   height: 100%;
   overflow: hidden;
-
-  &.without-placeholder {
-    margin-left: 6px;
-  }
 }
 
 .valueDialogContent {

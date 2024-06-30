@@ -86,14 +86,10 @@ export default function Container({ children, selectProps, ...otherProps }) {
 
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
+      {showPlaceholder && <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>}
       <div className={classes["value-container"]}>
-        {showPlaceholder && (
-          <div className={classes["placeholder-container"]}>
-            <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
-          </div>
-        )}
         <div
-          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder })}
+          className={cx(classes["value-container-chips"])}
           ref={newRef => setRef(newRef)}
           data-testid="value-container-chips"
         >

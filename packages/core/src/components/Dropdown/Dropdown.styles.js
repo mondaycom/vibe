@@ -181,7 +181,8 @@ const placeholder =
     ...provided,
     ...getFont(),
     color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
-    fontWeight: getCSSVar("font-weight-normal")
+    fontWeight: getCSSVar("font-weight-normal"),
+    marginLeft: 8
   });
 
 const indicatorsContainer =
@@ -285,17 +286,18 @@ const input = () => provided => ({
   ...provided,
   ...getFont(),
   ...getColor(),
-  display: "flex",
-  alignItems: "center",
+  backgroundColor: "transparent",
+  // display: "flex",
+  // alignItems: "center",
   textIndent: "-2px"
 });
 
 // 12px - because we have inner 4px
 const getCenterContentStyle = rtl => {
   return {
-    display: "flex",
-    alignItems: "center",
-    [`padding${rtl ? "Right" : "Left"}`]: "12px"
+    // display: "flex",
+    // alignItems: "center",
+    [`padding${rtl ? "Right" : "Left"}`]: "16px"
   };
 };
 
@@ -303,12 +305,12 @@ const valueContainer =
   ({ size, rtl }) =>
   (provided, { isDisabled, selectProps: { withReadOnlyStyle, readOnly } }) => ({
     ...provided,
-    ...getCenterContentStyle(rtl),
     ...getFont(),
     ...getColor(),
     ...getInnerSize(size),
     ...disabledContainerStyle(isDisabled),
     ...readOnlyStyle(withReadOnlyStyle && readOnly),
+    [`padding${rtl ? "Right" : "Left"}`]: "16px",
     borderRadius: getCSSVar("border-radius-small")
   });
 
@@ -323,10 +325,10 @@ const menu =
       boxShadow: getCSSVar("box-shadow-small")
     };
 
-    if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
-    const parentPositionData = controlRef?.current?.getBoundingClientRect();
-    // If no location found do not add anything to hard coded style
-    if (!parentPositionData) return baseStyle;
+    // if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
+    // const parentPositionData = controlRef?.current?.getBoundingClientRect();
+    // // If no location found do not add anything to hard coded style
+    // if (!parentPositionData) return baseStyle;
 
     /** If the dropdown is inside a scroll in a regular container,position: fixed content (like our dropdown menu) will be attached to the start of the viewport.
      * For this case we will override the top menu position value to be the according the the drop down location for correct dispaly.
@@ -335,17 +337,17 @@ const menu =
      * we also need in this case to translate the menu y position to fit inside a scrollable parent.
      */
 
-    if (insideOverflowContainer) {
-      return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width };
-    } else if (insideOverflowWithTransformContainer) {
-      const translateY = `-${getScrollableParent(controlRef?.current)?.scrollTop}px`;
-      return {
-        ...baseStyle,
-        top: "auto",
-        translate: `0 ${translateY}`,
-        width: parentPositionData.width
-      };
-    }
+    // if (insideOverflowContainer) {
+    //   return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width };
+    // } else if (insideOverflowWithTransformContainer) {
+    //   const translateY = `-${getScrollableParent(controlRef?.current)?.scrollTop}px`;
+    //   return {
+    //     ...baseStyle,
+    //     top: "auto",
+    //     translate: `0 ${translateY}`,
+    //     width: parentPositionData.width
+    //   };
+    // }
     return baseStyle;
   };
 

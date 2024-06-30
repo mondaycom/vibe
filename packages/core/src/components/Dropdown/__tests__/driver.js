@@ -92,7 +92,7 @@ export default class DropdownDriver {
 
   focusSelect(ref) {
     act(() => {
-      ref.current.select.focus();
+      ref.current.focus();
     });
   }
 

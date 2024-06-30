@@ -3,59 +3,72 @@
 exports[`Dropdown renders correctly snapshot driver should open menu on click if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
     <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-32-live-region"
+    />
+    <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
     >
       <span
-        id="aria-selection-event"
+        id="aria-selection"
+      />
+      <span
+        id="aria-focused"
+      />
+      <span
+        id="aria-results"
       >
-         
+        6 results available.
       </span>
       <span
-        id="aria-context"
+        id="aria-guidance"
       >
-          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
       <div
-        class=" css-11nd28h-control"
+        class=" css-8ygpia-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-32-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant="react-select-32-option-0"
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-32-placeholder"
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-32-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-32-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -66,7 +79,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1pxbrck-indicatorContainer"
+            class="dropdown-indicator css-1lk8fb9-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -91,14 +104,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       </div>
     </div>
     <div
-      class="dropdownMenuWrapper withoutAnimation css-1ysewv0-menu"
+      class="dropdownMenuWrapper withoutAnimation css-95z97m-menu"
     >
       <div
-        class=" css-bknh9q-Component"
+        aria-multiselectable="false"
+        class=" css-1tsymof-Component"
+        id="react-select-32-listbox"
+        role="listbox"
       >
         <div
+          aria-disabled="false"
           aria-selected="false"
-          class="optionReset css-1iwu591-option"
+          class="optionReset css-fvm3ex-option"
           id="react-select-32-option-0"
           role="option"
           tabindex="-1"
@@ -111,8 +128,9 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
+          aria-disabled="true"
           aria-selected="false"
-          class="optionReset css-qj04r2-option"
+          class="optionReset css-my78v6-option"
           id="react-select-32-option-1"
           role="option"
           tabindex="-1"
@@ -125,8 +143,9 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
+          aria-disabled="false"
           aria-selected="false"
-          class="optionReset css-6ztf41-option"
+          class="optionReset css-1b39ykl-option"
           id="react-select-32-option-2"
           role="option"
           tabindex="-1"
@@ -139,8 +158,9 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
+          aria-disabled="false"
           aria-selected="false"
-          class="optionReset css-6ztf41-option"
+          class="optionReset css-1b39ykl-option"
           id="react-select-32-option-3"
           role="option"
           tabindex="-1"
@@ -153,8 +173,9 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
+          aria-disabled="false"
           aria-selected="false"
-          class="optionReset css-6ztf41-option"
+          class="optionReset css-1b39ykl-option"
           id="react-select-32-option-4"
           role="option"
           tabindex="-1"
@@ -167,8 +188,9 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
+          aria-disabled="false"
           aria-selected="false"
-          class="optionReset css-6ztf41-option"
+          class="optionReset css-1b39ykl-option"
           id="react-select-32-option-5"
           role="option"
           tabindex="-1"
@@ -189,59 +211,72 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
 exports[`Dropdown renders correctly snapshot driver should open menu on focus if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
     <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-31-live-region"
     >
       <span
-        id="aria-selection-event"
+        id="aria-selection"
       >
-         
+        option , selected.
       </span>
       <span
-        id="aria-context"
+        id="aria-focused"
+      />
+      <span
+        id="aria-results"
+      />
+      <span
+        id="aria-guidance"
       >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
+          Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-11nd28h-control"
+        class=" css-8ygpia-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-31-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-31-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-31-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-31-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -252,7 +287,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-slqvkp-indicatorContainer"
+            class="dropdown-indicator css-3mgjv8-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -283,44 +318,55 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-18g4cox-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-24-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-118upmw-control"
+        class=" css-1a5vafz-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-1jr1l5m-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-24-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-24-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-24-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-24-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -331,7 +377,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
+            class="dropdown-indicator css-19m02h7-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -362,44 +408,55 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-18g4cox-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-25-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-118upmw-control"
+        class=" css-1a5vafz-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-1jr1l5m-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-25-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-25-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-25-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-25-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -410,7 +467,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
+            class="dropdown-indicator css-19m02h7-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -441,44 +498,55 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-18g4cox-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-26-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-118upmw-control"
+        class=" css-1a5vafz-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-1jr1l5m-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-26-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-26-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-26-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-26-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -489,7 +557,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
+            class="dropdown-indicator css-19m02h7-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -520,44 +588,55 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-27-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-13ywfe7-control"
+        class=" css-58bxz7-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-27-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-27-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-27-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-27-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -568,7 +647,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1ycu3uq-indicatorContainer"
+            class="dropdown-indicator css-1fratdq-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -599,44 +678,55 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-cmnsoe-container"
+    class="dropdown dropdown-story css-1q0hkiv-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-28-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-1qrvste-control"
+        class=" css-1ocyq7e-control"
       >
         <div
-          class=" css-rxqqti-Component"
+          class=" css-61x89y-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-28-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-28-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-28-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-28-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -647,7 +737,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1uglcx3-indicatorContainer"
+            class="dropdown-indicator css-iw6zn4-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -678,44 +768,55 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly with empty props 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-23-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-13ywfe7-control"
+        class=" css-58bxz7-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-23-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-23-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-23-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-23-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -726,7 +827,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1ycu3uq-indicatorContainer"
+            class="dropdown-indicator css-1fratdq-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -757,59 +858,72 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
 exports[`Dropdown renders correctly snapshot driver should use async if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
     <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-30-live-region"
     >
       <span
-        id="aria-selection-event"
+        id="aria-selection"
       >
-         
+        option , selected.
       </span>
       <span
-        id="aria-context"
+        id="aria-focused"
+      />
+      <span
+        id="aria-results"
+      />
+      <span
+        id="aria-guidance"
       >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
+          Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
+    />
     <div>
       <div
-        class=" css-11nd28h-control"
+        class=" css-8ygpia-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-30-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant=""
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-30-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-30-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-30-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -817,16 +931,16 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
         >
           <div
             aria-hidden="true"
-            class=" css-1xh8qep-loadingIndicator"
+            class=" css-o9ehiq-loadingIndicator"
           >
             <span
-              class="css-imwzes-Component"
+              class="css-1xtdfmb-LoadingDot"
             />
             <span
-              class="css-1ue98e-Component"
+              class="css-zoievk-LoadingDot"
             />
             <span
-              class="css-fwsb3e-Component"
+              class="css-x748d8-LoadingDot"
             />
           </div>
           <span
@@ -834,7 +948,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-slqvkp-indicatorContainer"
+            class="dropdown-indicator css-3mgjv8-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -865,59 +979,72 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
 exports[`Dropdown renders correctly snapshot driver should use virtualization if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-1u4o5my-container"
     id="dropdown-menu-id"
   >
     <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-29-live-region"
+    />
+    <span
+      aria-atomic="false"
       aria-live="polite"
-      class="css-1laao21-a11yText"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+      role="log"
     >
       <span
-        id="aria-selection-event"
+        id="aria-selection"
+      />
+      <span
+        id="aria-focused"
+      />
+      <span
+        id="aria-results"
       >
-         
+        10000 results available.
       </span>
       <span
-        id="aria-context"
+        id="aria-guidance"
       >
-          option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
       <div
-        class=" css-11nd28h-control"
+        class=" css-8ygpia-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-147cp6f-Component"
         >
           <div
-            class=" css-1usuuna-placeholder"
+            class=" css-1ku8deh-placeholder"
+            id="react-select-29-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class=" css-1cftqbt-Component"
+            data-value=""
           >
-            <div
+            <input
+              aria-activedescendant="react-select-29-option-0"
+              aria-autocomplete="list"
+              aria-controls="dropdown-menu-list-id"
+              aria-describedby="react-select-29-placeholder"
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-29-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
+              id="react-select-29-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
           </div>
         </div>
         <div
@@ -928,7 +1055,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1pxbrck-indicatorContainer"
+            class="dropdown-indicator css-1lk8fb9-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -953,7 +1080,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
       </div>
     </div>
     <div
-      class="dropdownMenuWrapper withoutAnimation css-1ysewv0-menu"
+      class="dropdownMenuWrapper withoutAnimation css-95z97m-menu"
     >
       <div
         class=""
@@ -967,8 +1094,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-1iwu591-option"
+                class="optionReset css-fvm3ex-option"
                 id="react-select-29-option-0"
                 role="option"
                 tabindex="-1"
@@ -987,8 +1115,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-1"
                 role="option"
                 tabindex="-1"
@@ -1007,8 +1136,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-2"
                 role="option"
                 tabindex="-1"
@@ -1027,8 +1157,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-3"
                 role="option"
                 tabindex="-1"
@@ -1047,8 +1178,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-4"
                 role="option"
                 tabindex="-1"
@@ -1067,8 +1199,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-5"
                 role="option"
                 tabindex="-1"
@@ -1087,8 +1220,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-6"
                 role="option"
                 tabindex="-1"
@@ -1107,8 +1241,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-7"
                 role="option"
                 tabindex="-1"
@@ -1127,8 +1262,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-8"
                 role="option"
                 tabindex="-1"
@@ -1147,8 +1283,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-9"
                 role="option"
                 tabindex="-1"
@@ -1167,8 +1304,9 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
-                class="optionReset css-6ztf41-option"
+                class="optionReset css-1b39ykl-option"
                 id="react-select-29-option-10"
                 role="option"
                 tabindex="-1"
@@ -1191,82 +1329,80 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
 
 exports[`Dropdown renders correctly when disabled 1`] = `
 <div
-  className="dropdown css-1gsgnpy-container"
+  className="dropdown css-1p0hnb0-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-5-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-1i7lmxf-control"
+      aria-disabled={true}
+      className=" css-1wr9aue-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-fkye4g-Component"
+        className=" css-1q3khyt-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-5-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-c07ygg-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-5-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={true}
+            id="react-select-5-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={true}
-              id="react-select-5-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -1277,7 +1413,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1308,34 +1444,52 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when readOnly 1`] = `
 <div
-  className="dropdown css-eh7fjc-container"
+  className="dropdown css-gicxw-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-6-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-xe3jfm-control"
+      className=" css-uvlyvq-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-6-placeholder"
         >
           
         </div>
         <input
+          aria-activedescendant=""
           aria-autocomplete="list"
+          aria-describedby="react-select-6-placeholder"
+          aria-expanded={false}
+          aria-haspopup={true}
           aria-label="Readonly   Selected: "
-          className="css-62g3xt-dummyInput"
+          aria-readonly={true}
+          className="css-mohuvp-dummyInput-DummyInput"
           disabled={false}
           id="react-select-6-input"
+          inputMode="none"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          readOnly={true}
+          role="combobox"
           tabIndex="0"
           value=""
         />
@@ -1348,7 +1502,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1omzgld-indicatorContainer"
+          className="dropdown-indicator css-1magwkv-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1384,78 +1538,75 @@ exports[`Dropdown renders correctly when rtl 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-8-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-xu0d8l-Component"
+        className=" css-12si141-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-8-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-8-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-8-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-8-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -1466,7 +1617,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1498,82 +1649,79 @@ exports[`Dropdown renders correctly when rtl 1`] = `
 
 exports[`Dropdown renders correctly with autoFocus 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-11-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-11-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-11-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-11-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-11-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -1584,7 +1732,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1616,18 +1764,29 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
 
 exports[`Dropdown renders correctly with chip colors 1`] = `
 <div
-  className="dropdown css-3iiiai-container"
+  className="dropdown css-1df4w36-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-17-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-1jhcivv-control"
+      className=" css-1jigcfr-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-11miohr-Component"
+        className=" css-u2kwbn-Component"
       >
         <div
           className="value-container"
@@ -1820,63 +1979,47 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 </button>
               </div>
               <div
-                className="css-lkl2xd-Component"
+                className=" css-1cftqbt-Component"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="dropdown-menu-list-id"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="Dropdown input"
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
                   className=""
+                  disabled={false}
+                  id="react-select-17-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
                   style={
                     {
-                      "display": "inline-block",
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
                     }
                   }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="dropdown-menu-list-id"
-                    aria-label="Dropdown input"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={false}
-                    id="react-select-17-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
+                  tabIndex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -1917,7 +2060,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1949,82 +2092,79 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
 
 exports[`Dropdown renders correctly with className 1`] = `
 <div
-  className="dropdown test css-bbwnb8-container"
+  className="dropdown test css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-3-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-3-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-3-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-3-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-3-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -2035,7 +2175,7 @@ exports[`Dropdown renders correctly with className 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2067,21 +2207,32 @@ exports[`Dropdown renders correctly with className 1`] = `
 
 exports[`Dropdown renders correctly with defaultValue 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-21-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
+          className="singleValue dropdown-wrapper__single-value--reset css-1vnifd3-singleValue"
         >
           <div
             className="valueContainer"
@@ -2092,63 +2243,47 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           </div>
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-21-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-21-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -2185,7 +2320,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2217,82 +2352,79 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
 
 exports[`Dropdown renders correctly with empty props 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-2-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-2-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-2-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-2-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-2-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -2303,7 +2435,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2335,82 +2467,79 @@ exports[`Dropdown renders correctly with empty props 1`] = `
 
 exports[`Dropdown renders correctly with id 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-10-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-10-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-10-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-10-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-10-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -2421,7 +2550,7 @@ exports[`Dropdown renders correctly with id 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2453,18 +2582,29 @@ exports[`Dropdown renders correctly with id 1`] = `
 
 exports[`Dropdown renders correctly with leftAvatar 1`] = `
 <div
-  className="dropdown css-3iiiai-container"
+  className="dropdown css-1df4w36-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-16-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-1jhcivv-control"
+      className=" css-1jigcfr-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-11miohr-Component"
+        className=" css-u2kwbn-Component"
       >
         <div
           className="value-container"
@@ -2560,63 +2700,47 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 </button>
               </div>
               <div
-                className="css-lkl2xd-Component"
+                className=" css-1cftqbt-Component"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="dropdown-menu-list-id"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="Dropdown input"
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
                   className=""
+                  disabled={false}
+                  id="react-select-16-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
                   style={
                     {
-                      "display": "inline-block",
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
                     }
                   }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="dropdown-menu-list-id"
-                    aria-label="Dropdown input"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={false}
-                    id="react-select-16-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
+                  tabIndex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -2657,7 +2781,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2689,18 +2813,29 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
 
 exports[`Dropdown renders correctly with leftIcon 1`] = `
 <div
-  className="dropdown css-3iiiai-container"
+  className="dropdown css-1df4w36-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-18-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-1jhcivv-control"
+      className=" css-1jigcfr-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-11miohr-Component"
+        className=" css-u2kwbn-Component"
       >
         <div
           className="value-container"
@@ -2790,63 +2925,47 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 </button>
               </div>
               <div
-                className="css-lkl2xd-Component"
+                className=" css-1cftqbt-Component"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="dropdown-menu-list-id"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="Dropdown input"
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
                   className=""
+                  disabled={false}
+                  id="react-select-18-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
                   style={
                     {
-                      "display": "inline-block",
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
                     }
                   }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="dropdown-menu-list-id"
-                    aria-label="Dropdown input"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={false}
-                    id="react-select-18-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
+                  tabIndex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -2887,7 +3006,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2919,31 +3038,38 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
 
 exports[`Dropdown renders correctly with multi 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-12-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-yilbcx-Component"
+        className=" css-ee4sla-Component"
       >
+        <div
+          className=" css-1ku8deh-placeholder"
+        >
+          
+        </div>
         <div
           className="value-container"
         >
-          <div
-            className="placeholder-container"
-          >
-            <div
-              className=" css-1usuuna-placeholder"
-            >
-              
-            </div>
-          </div>
           <div
             className="value-container-chips"
             data-testid="value-container-chips"
@@ -2952,63 +3078,48 @@ exports[`Dropdown renders correctly with multi 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
-                className="css-lkl2xd-Component"
+                className=" css-1cftqbt-Component"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="dropdown-menu-list-id"
+                  aria-describedby="react-select-12-placeholder"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="Dropdown input"
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
                   className=""
+                  disabled={false}
+                  id="react-select-12-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
                   style={
                     {
-                      "display": "inline-block",
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
                     }
                   }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="dropdown-menu-list-id"
-                    aria-label="Dropdown input"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={false}
-                    id="react-select-12-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
+                  tabIndex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -3023,7 +3134,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3055,18 +3166,30 @@ exports[`Dropdown renders correctly with multi 1`] = `
 
 exports[`Dropdown renders correctly with multi and disabled 1`] = `
 <div
-  className="dropdown css-1gsgnpy-container"
+  className="dropdown css-1p0hnb0-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-13-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-1i7lmxf-control"
+      aria-disabled={true}
+      className=" css-1wr9aue-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-126qe5a-Component"
+        className=" css-fq8agz-Component"
       >
         <div
           className="value-container"
@@ -3119,63 +3242,47 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 </div>
               </div>
               <div
-                className="css-lkl2xd-Component"
+                className=" css-c07ygg-Component"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="dropdown-menu-list-id"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="Dropdown input"
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
                   className=""
+                  disabled={true}
+                  id="react-select-13-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
                   style={
                     {
-                      "display": "inline-block",
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
                     }
                   }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="dropdown-menu-list-id"
-                    aria-label="Dropdown input"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={true}
-                    id="react-select-13-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
+                  tabIndex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -3190,7 +3297,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3221,18 +3328,29 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 
 exports[`Dropdown renders correctly with multi and readonly 1`] = `
 <div
-  className="dropdown css-eh7fjc-container"
+  className="dropdown css-gicxw-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-14-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-xe3jfm-control"
+      className=" css-uvlyvq-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-yilbcx-Component"
+        className=" css-o8kcvb-Component"
       >
         <div
           className="value-container"
@@ -3285,15 +3403,20 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
                 </div>
               </div>
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
+                aria-expanded={false}
+                aria-haspopup={true}
                 aria-label="Readonly   Selected: Ocean, Blue"
-                className="css-62g3xt-dummyInput"
+                aria-readonly={true}
+                className="css-mohuvp-dummyInput-DummyInput"
                 disabled={false}
                 id="react-select-14-input"
+                inputMode="none"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                readOnly={true}
+                role="combobox"
                 tabIndex="0"
                 value=""
               />
@@ -3310,7 +3433,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1omzgld-indicatorContainer"
+          className="dropdown-indicator css-1magwkv-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3342,82 +3465,79 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
 
 exports[`Dropdown renders correctly with multiline 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-15-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-15-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-15-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-15-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-15-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -3428,7 +3548,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3460,82 +3580,79 @@ exports[`Dropdown renders correctly with multiline 1`] = `
 
 exports[`Dropdown renders correctly with options 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-9-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-9-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-9-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-9-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-9-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -3546,7 +3663,7 @@ exports[`Dropdown renders correctly with options 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3578,82 +3695,79 @@ exports[`Dropdown renders correctly with options 1`] = `
 
 exports[`Dropdown renders correctly with placeholder 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-4-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-4-placeholder"
         >
           text
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-4-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-4-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-4-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -3664,7 +3778,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3696,82 +3810,79 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
 
 exports[`Dropdown renders correctly with tabIndex 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-19-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-19-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-19-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-19-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-19-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex={9999}
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={9999}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -3782,7 +3893,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3814,10 +3925,21 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 
 exports[`Dropdown renders correctly with tooltipContent 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-22-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div
     className=""
     onBlur={[Function]}
@@ -3830,76 +3952,62 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-22-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-22-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-22-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-22-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -3910,7 +4018,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3942,21 +4050,32 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
 
 exports[`Dropdown renders correctly with value 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-20-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
+          className="singleValue dropdown-wrapper__single-value--reset css-1vnifd3-singleValue"
         >
           <div
             className="valueContainer"
@@ -3967,63 +4086,47 @@ exports[`Dropdown renders correctly with value 1`] = `
           </div>
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-20-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-20-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -4060,7 +4163,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -4092,82 +4195,79 @@ exports[`Dropdown renders correctly with value 1`] = `
 
 exports[`Dropdown renders correctly without clear button 1`] = `
 <div
-  className="dropdown css-bbwnb8-container"
+  className="dropdown css-1u4o5my-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
+  <span
+    className="css-1f43avz-a11yText-A11yText"
+    id="react-select-7-live-region"
+  />
+  <span
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions text"
+    className="css-1f43avz-a11yText-A11yText"
+    role="log"
+  />
   <div>
     <div
-      className=" css-13ywfe7-control"
+      className=" css-58bxz7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1ht1nal-Component"
+        className=" css-147cp6f-Component"
       >
         <div
-          className=" css-1usuuna-placeholder"
+          className=" css-1ku8deh-placeholder"
+          id="react-select-7-placeholder"
         >
           
         </div>
         <div
-          className="css-lkl2xd-Component"
+          className=" css-1cftqbt-Component"
+          data-value=""
         >
-          <div
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="dropdown-menu-list-id"
+            aria-describedby="react-select-7-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className=""
+            disabled={false}
+            id="react-select-7-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="dropdown-menu-list-id"
-              aria-label="Dropdown input"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-7-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex="0"
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -4178,7 +4278,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         />
         <div
           aria-hidden="true"
-          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          className="dropdown-indicator css-1fratdq-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >

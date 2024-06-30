@@ -149,8 +149,9 @@ describe("Dropdown", () => {
       component.render();
 
       expect(onChange).toBeCalledTimes(2);
-      expect(onChange).toHaveBeenLastCalledWith(null, {
-        action: "clear"
+      expect(onChange).toHaveBeenLastCalledWith([], {
+        action: "clear",
+        removedValues: [mockOptions[0]]
       });
       expect(onClear).toBeCalled();
       expect(component.chips.values).toEqual([]);

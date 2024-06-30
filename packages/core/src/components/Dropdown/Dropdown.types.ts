@@ -1,13 +1,4 @@
-import {
-  ActionMeta,
-  FocusEventHandler,
-  InputActionMeta,
-  KeyboardEventHandler,
-  MenuProps,
-  OptionProps,
-  OptionTypeBase,
-  SingleValueProps
-} from "react-select";
+import { ActionMeta, InputActionMeta, MenuProps, OptionProps, SingleValueProps } from "react-select";
 import React from "react";
 import { VibeComponentProps } from "../../types";
 import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
@@ -36,7 +27,7 @@ export interface CustomMenuBaseProps {
   menuAriaLabel?: string;
 }
 
-export type CustomMenuProps = CustomMenuBaseProps & MenuProps<OptionTypeBase, boolean>;
+export type CustomMenuProps = CustomMenuBaseProps & MenuProps<any>;
 
 export interface CustomOptionBaseProps {
   /*
@@ -45,7 +36,7 @@ export interface CustomOptionBaseProps {
   optionWrapperClassName?: string;
 }
 
-export type CustomOptionProps = CustomOptionBaseProps & OptionProps<OptionTypeBase, boolean>;
+export type CustomOptionProps = CustomOptionBaseProps & OptionProps<any>;
 
 export type DropdownState = {
   isDisabled: boolean;
@@ -78,15 +69,15 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Called when key is pressed in the dropdown
    */
-  onKeyDown?: KeyboardEventHandler;
+  onKeyDown?: any;
   /**
    * Called when focused
    */
-  onFocus?: FocusEventHandler;
+  onFocus?: any;
   /**
    * Called when blurred
    */
-  onBlur?: FocusEventHandler;
+  onBlur?: any;
   /**
    * Called when selected value has changed
    */

@@ -923,7 +923,7 @@ export const DropdownWithRef = {
 
     const focusDropdownInput = useCallback(() => {
       console.log("Dropdown ref.current = ", ref.current);
-      ref.current.select.focus();
+      ref.current.focus();
     }, []);
 
     return (

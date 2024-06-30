@@ -402,6 +402,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         menuPosition={menuPosition}
         menuIsOpen={!readOnly && menuIsOpen}
         tabIndex={tabIndex}
+        menuShouldScrollIntoView={false}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         autoFocus={autoFocus}
