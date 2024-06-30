@@ -60,7 +60,7 @@ describe("Label renders correctly", () => {
     });
 
     it("without animation", () => {
-      const tree = renderer.create(<Label text="Test" isAnimationDisabled />).toJSON();
+      const tree = renderer.create(<Label text="Test" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 

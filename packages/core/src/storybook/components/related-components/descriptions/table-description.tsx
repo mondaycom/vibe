@@ -71,7 +71,6 @@ export const TableDescription = () => {
                   <Label
                     text={rowItem.status}
                     color={statusColumnToLabelColor[rowItem.status as keyof typeof statusColumnToLabelColor]}
-                    isAnimationDisabled
                   />
                 </TableCell>
               </TableRow>

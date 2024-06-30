@@ -21,7 +21,6 @@ export interface LabelProps extends VibeComponentProps {
   kind?: LabelKind;
   color?: LabelColor;
   text?: string;
-  isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   celebrationAnimation?: boolean;
@@ -39,7 +38,6 @@ const Label: VibeComponent<LabelProps> & {
       kind = LabelKind.FILL,
       color = LabelColor.PRIMARY,
       text = "",
-      isAnimationDisabled = false,
       isLegIncluded = false,
       id,
       "data-testid": dataTestId,
@@ -62,15 +60,13 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("kind" + "-" + kind)),
           getStyle(styles, camelCase("color" + "-" + color)),
           {
-            // When celebrationAnimation is active it wins over the default animation
-            [styles.withAnimation]: !isAnimationDisabled && !isCelebrationAnimation,
             [styles.withLeg]: isLegIncluded,
             [styles.clickable]: isClickable,
             [styles.small]: size === "small"
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation, isClickable, size]
+      [kind, color, isLegIncluded, labelClassName, isClickable, size]
     );
 
     const onClickCallback = useCallback(
