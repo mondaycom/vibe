@@ -627,7 +627,7 @@ export const SearchableDropdown = {
 export const DropdownWithLabels = {
   render: () => {
     const labelRenderer = useCallback(({ label, color }) => {
-      return <Label text={label} color={color} isAnimationDisabled />;
+      return <Label text={label} color={color} />;
     }, []);
 
     const options = useMemo(

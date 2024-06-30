@@ -70,6 +70,7 @@
 ### Label
 
 - `wrapperClassName` -> `className` [codemod]
+- Removed old animation
 
 ### EditableHeading
 
