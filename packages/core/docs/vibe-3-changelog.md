@@ -130,7 +130,7 @@
 - We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
 - Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
 - Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
-
+- Remove data-testId prop from nested elements
 
 ### Steps
 

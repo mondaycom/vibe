@@ -233,7 +233,7 @@ const SplitButton: FC<SplitButtonProps> & {
         onBlur={setNotHovered}
         disabled={disabled}
         loading={loading}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON, id)}
+        data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON, id)}
       >
         {children}
       </Button>
@@ -269,7 +269,7 @@ const SplitButton: FC<SplitButtonProps> & {
             ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
             ariaHasPopup
             ariaExpanded={isDialogOpen}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
+            data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
           >
             <div className={styles.secondaryButtonIconWrapper}>
               <DropdownChevronDown aria-hidden="true" />
