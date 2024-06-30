@@ -11,8 +11,16 @@
   --chips-margin: 2px;
 }
 
-.multiselect-chip-single-line {
+.multiselect-chip-single-line-medium {
   --chips-margin: 5px 2px;
+}
+
+.multiselect-chip-single-line-large {
+  --chips-margin: 9px 2px;
+}
+
+.multiselect-chip-single-line-small {
+  --chips-margin: 1px 2px;
 }
 
 .multiselect-chip-disabled {

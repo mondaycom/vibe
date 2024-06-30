@@ -275,7 +275,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector
+        popupsContainerSelector,
+        size
       }),
       [
         selectedOptions,
@@ -284,12 +285,14 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
-        popupsContainerSelector
+        popupsContainerSelector,
+        size
       ]
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
       if (customOnChange) {
-        customOnChange(option, meta);
+        const newValue = multi ? (option.length > 0 ? option : null) : option;
+        customOnChange(newValue, meta);
       }
 
       switch (meta.action) {

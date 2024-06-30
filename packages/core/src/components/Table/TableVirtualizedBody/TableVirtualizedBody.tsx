@@ -1,41 +1,90 @@
-import React, { ComponentProps, CSSProperties, FC, useCallback, useContext } from "react";
+import React, { ComponentType, forwardRef, useCallback, useEffect } from "react";
 import { VibeComponentProps } from "../../../types";
-import VirtualizedList, { VirtualizedListItem } from "../../VirtualizedList/VirtualizedList";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
-import { ScrollDirection } from "react-window";
-import { TableContext } from "../Table/Table";
+import { FixedSizeList as List, ListChildComponentProps, ScrollDirection } from "react-window";
+import { useTable } from "../context/TableContext/TableContext";
+import cx from "classnames";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
+import AutoSizer, { Size as AutoSizerSize } from "react-virtualized-auto-sizer";
+
+export type TableVirtualizedRows = Array<Record<string, unknown> & { id: string }>;
+export type TableVirtualizedRow = TableVirtualizedRows[number];
 
 export interface ITableVirtualizedBodyProps extends VibeComponentProps {
-  items: ComponentProps<typeof VirtualizedList>["items"];
-  rowRenderer: (item: VirtualizedListItem["value"]) => JSX.Element;
+  items: TableVirtualizedRows;
+  rowRenderer: (item: TableVirtualizedRow) => JSX.Element;
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
-const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRenderer, onScroll }) => {
-  const itemRenderer: ComponentProps<typeof VirtualizedList>["itemRenderer"] = useCallback(
-    (value, index: number, style: CSSProperties) => {
-      const element = rowRenderer(value);
-      return React.cloneElement(element, { style, key: index });
-    },
-    [rowRenderer]
-  );
-  const { size } = useContext(TableContext);
+const TableVirtualizedBody = forwardRef(
+  (
+    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: ITableVirtualizedBodyProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
+    const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
 
-  return (
-    <TableBody className={styles.tableBody}>
-      {items?.length && (
-        <VirtualizedList
-          items={items}
-          itemRenderer={itemRenderer}
-          getItemHeight={() => RowHeights[size]}
-          layout="vertical"
-          onScroll={onScroll}
-        />
-      )}
-    </TableBody>
-  );
-};
+    useEffect(() => {
+      markTableAsVirtualized();
+    }, [markTableAsVirtualized]);
+
+    const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
+      ({ index, style: { width: _width, ...style } }) => {
+        const currentItem = items[index];
+        const element = rowRenderer(currentItem);
+        return React.cloneElement(element, {
+          style: { ...style, ...element.props?.style },
+          key: index
+        });
+      },
+      [items, rowRenderer]
+    );
+
+    const handleOnScroll = useCallback(
+      ({
+        scrollDirection,
+        scrollOffset,
+        scrollUpdateWasRequested
+      }: {
+        scrollDirection: ScrollDirection;
+        scrollOffset: number;
+        scrollUpdateWasRequested: boolean;
+      }) => {
+        onScroll?.(scrollDirection, scrollOffset, scrollUpdateWasRequested);
+      },
+      [onScroll]
+    );
+
+    return (
+      <TableBody
+        className={cx(styles.tableBody, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_VIRTUALIZED_BODY, id)}
+        ref={ref}
+      >
+        {items?.length && (
+          <AutoSizer onScroll={onVirtualizedListScroll}>
+            {({ height, width }: AutoSizerSize) => (
+              <List
+                itemSize={RowHeights[size]}
+                height={height}
+                itemCount={items.length}
+                width={width}
+                onScroll={handleOnScroll}
+                outerRef={element => {
+                  virtualizedListRef.current = element;
+                }}
+              >
+                {itemRenderer}
+              </List>
+            )}
+          </AutoSizer>
+        )}
+      </TableBody>
+    );
+  }
+);
 
 export default TableVirtualizedBody;

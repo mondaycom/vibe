@@ -3,6 +3,122 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.116.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.115.0...monday-ui-react-core@2.116.0) (2024-06-27)
+
+
+### Bug Fixes
+
+* **ToastLink:** hover color should inherit from link color ([#2193](https://github.com/mondaycom/vibe/issues/2193)) ([7ab5710](https://github.com/mondaycom/vibe/commit/7ab5710cc2ffc82376dd0a6df592d5c849ab17f6))
+
+
+### Features
+
+* **Table:** add sticky column capabilities ([#2172](https://github.com/mondaycom/vibe/issues/2172)) ([a79a28e](https://github.com/mondaycom/vibe/commit/a79a28ec0ed2ed8953ecc4ffce372fec3fa3b70b))
+
+
+
+
+
+# [2.115.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.114.0...monday-ui-react-core@2.115.0) (2024-06-26)
+
+
+### Features
+
+* **TextField:** add a controlled variant ([#2180](https://github.com/mondaycom/vibe/issues/2180)) ([67489b3](https://github.com/mondaycom/vibe/commit/67489b38de56ba44ed86deafc0ca49b7f72e050e))
+
+
+
+
+
+# [2.114.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.1...monday-ui-react-core@2.114.0) (2024-06-26)
+
+
+### Features
+
+* **react-select:** use react-select version 4.3.1 ([#2184](https://github.com/mondaycom/vibe/issues/2184)) ([c90b6dd](https://github.com/mondaycom/vibe/commit/c90b6dd7aa8fe1612d7feefb1dce224a9cb04222))
+* **TextArea:** be able to disable resize ([#2189](https://github.com/mondaycom/vibe/issues/2189)) ([9223c0a](https://github.com/mondaycom/vibe/commit/9223c0abd8828f8da34c70c7df7ec3c8204cebba))
+
+
+
+
+
+## [2.113.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.113.0...monday-ui-react-core@2.113.1) (2024-06-25)
+
+
+### Bug Fixes
+
+* **Button:** fix text placeholder dimensions in loading state ([#2187](https://github.com/mondaycom/vibe/issues/2187)) ([3a9c983](https://github.com/mondaycom/vibe/commit/3a9c983d1f35c9a49159ee1f93b1ccd41ecfbe00))
+* **link:** hover color should inherit from link color ([#2183](https://github.com/mondaycom/vibe/issues/2183)) ([60d6166](https://github.com/mondaycom/vibe/commit/60d61661ff3d520b15a40a95641adab092f2afb9))
+* **Dropdown:** Dropdown multi size "small" style and behavior is broken ([#2174](https://github.com/mondaycom/vibe/issues/2174)) ([91f02fb](https://github.com/mondaycom/vibe/commit/91f02fb04e70efe89b8a68b5c29723ab2f844254))
+
+
+
+
+
+# [2.113.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.112.0...monday-ui-react-core@2.113.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **useAfterFirstRender:** hook is currently behaving the opposite than its purpose ([#2168](https://github.com/mondaycom/vibe/issues/2168)) ([483bf9b](https://github.com/mondaycom/vibe/commit/483bf9b6f071a04a366bfaf8aaaddd2cf5d0b893))
+
+
+### Features
+
+* **toggle:** add small variant ([#2167](https://github.com/mondaycom/vibe/issues/2167)) ([6491d27](https://github.com/mondaycom/vibe/commit/6491d274f8d7d7617937dc8c9e87f899b68f4978))
+
+
+
+
+
+# [2.112.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.1...monday-ui-react-core@2.112.0) (2024-06-09)
+
+
+### Bug Fixes
+
+* **Table:** sync between body scroll and header scroll in virtualized state ([#2162](https://github.com/mondaycom/vibe/issues/2162)) ([d47f8f9](https://github.com/mondaycom/vibe/commit/d47f8f9c9b1930bae258d94641d0dcc9e07842b6))
+
+
+### Features
+
+* **icons:** Add Heart icon ([#2166](https://github.com/mondaycom/vibe/issues/2166)) ([896871b](https://github.com/mondaycom/vibe/commit/896871b9ab4c0f1340987f3379a767652fb41420))
+* **Modal:** unmount when hidden ([#2165](https://github.com/mondaycom/vibe/issues/2165)) ([d5ba05c](https://github.com/mondaycom/vibe/commit/d5ba05c9d8f88ed94d849090b90d874c4a7f8253))
+* **Table:** apply vibe component props in TableVirtualizedBody ([#2163](https://github.com/mondaycom/vibe/issues/2163)) ([2a4238e](https://github.com/mondaycom/vibe/commit/2a4238e605f2a19257b7afe3af44ffc9418b4441))
+
+
+
+
+
+## [2.111.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.111.0...monday-ui-react-core@2.111.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* **ResponsiveList:** add static props for backwards ([#2161](https://github.com/mondaycom/vibe/issues/2161)) ([209d6d4](https://github.com/mondaycom/vibe/commit/209d6d492cd7d96b7bbf6cd2fb9d45ebb6ebdf0d))
+
+
+
+
+
+# [2.111.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.110.0...monday-ui-react-core@2.111.0) (2024-06-02)
+
+
+### Bug Fixes
+
+* **colors:** align dark orange to a11y requirments ([#2155](https://github.com/mondaycom/vibe/issues/2155)) ([68901cc](https://github.com/mondaycom/vibe/commit/68901cc3bfc881822fc57ca95cc94fe50d55b844))
+* export next components types ([#2158](https://github.com/mondaycom/vibe/issues/2158)) ([25505f7](https://github.com/mondaycom/vibe/commit/25505f73be0d25cfc961e66bd127f7efb1c17ee8))
+
+
+### Features
+
+* **AvatarGroup:** add disabled state ([#2126](https://github.com/mondaycom/vibe/issues/2126)) ([cf65f6b](https://github.com/mondaycom/vibe/commit/cf65f6ba005107247cc2cf45d618d95ae6103c68))
+* **Box:** add style prop ([#2149](https://github.com/mondaycom/vibe/issues/2149)) ([87c987d](https://github.com/mondaycom/vibe/commit/87c987d16767396583972b59392c75a25fb90fa5))
+* export component types ([#2153](https://github.com/mondaycom/vibe/issues/2153)) ([18b9f51](https://github.com/mondaycom/vibe/commit/18b9f5100a73d8cda4cb60b11188544c608f7e64))
+
+
+
+
+
 # [2.110.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.109.1...monday-ui-react-core@2.110.0) (2024-05-28)
 
 

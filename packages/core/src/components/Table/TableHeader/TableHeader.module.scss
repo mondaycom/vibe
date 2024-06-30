@@ -3,10 +3,22 @@
   grid-template-columns: var(--table-grid-template-columns);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: inherit;
+  min-width: 100%;
+  width: fit-content;
 
-  > * {
+  > [role="columnheader"] {
     background-color: inherit;
+  }
+
+  &.virtualized {
+    overflow: auto;
+    width: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

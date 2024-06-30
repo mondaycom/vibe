@@ -5,10 +5,11 @@ import useApplyDecorators from "../../hooks/useApplyDecorators";
 import { LiveContentProps } from "./LiveContent.types";
 import styles from "./LiveContent.module.scss";
 import * as VibeComponents from "../../../../../components";
+import * as VibeHooks from "../../../../../hooks";
 import * as VibeIcons from "../../../../../components/Icon/Icons";
 import * as VibeComponentsNext from "../../../../../components/next";
 
-const vibeScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
+const vibeScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext, ...VibeHooks };
 const reactCommonHooksScope = {
   useState: React.useState,
   useEffect: React.useEffect,

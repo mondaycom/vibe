@@ -7,31 +7,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-32-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     >
       <span
         id="aria-selection"
       />
       <span
-        id="aria-focused"
-      />
-      <span
-        id="aria-results"
-      >
-        6 results available.
-      </span>
-      <span
         id="aria-guidance"
       >
-        Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -215,14 +202,14 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      id="react-select-31-live-region"
     >
       <span
         id="aria-selection"
-      >
-        option , selected.
-      </span>
+      />
       <span
         id="aria-focused"
       />
@@ -232,7 +219,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
       <span
         id="aria-guidance"
       >
-          Selected:  is focused ,type to refine list, press Down to open the menu, 
+            Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <span
@@ -322,15 +309,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-24-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -412,15 +394,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-25-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -502,15 +479,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-26-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -592,15 +564,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-27-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -682,15 +649,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-28-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -772,15 +734,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-23-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     />
     <div>
       <div
@@ -862,14 +819,14 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
     id="dropdown-menu-id"
   >
     <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      id="react-select-30-live-region"
     >
       <span
         id="aria-selection"
-      >
-        option , selected.
-      </span>
+      />
       <span
         id="aria-focused"
       />
@@ -879,7 +836,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
       <span
         id="aria-guidance"
       >
-          Selected:  is focused ,type to refine list, press Down to open the menu, 
+            Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <span
@@ -934,7 +891,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class=" css-o9ehiq-loadingIndicator"
           >
             <span
-              class="css-1xtdfmb-LoadingDot"
+              class="css-1yvy2vo-LoadingDot"
             />
             <span
               class="css-zoievk-LoadingDot"
@@ -983,31 +940,18 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     id="dropdown-menu-id"
   >
     <span
-      class="css-1f43avz-a11yText-A11yText"
-      id="react-select-29-live-region"
-    />
-    <span
       aria-atomic="false"
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
-      role="log"
     >
       <span
         id="aria-selection"
       />
       <span
-        id="aria-focused"
-      />
-      <span
-        id="aria-results"
-      >
-        10000 results available.
-      </span>
-      <span
         id="aria-guidance"
       >
-        Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+        option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -1084,7 +1028,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     >
       <div
         class=""
-        style="position: relative; height: 300px; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
+        style="position: relative; height: 300px; width: 100%; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
       >
         <div
           style="height: 350008px; width: 100%;"
@@ -1334,15 +1278,10 @@ exports[`Dropdown renders correctly when disabled 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-5-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -1361,8 +1300,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
           
         </div>
         <div
-          className=" css-c07ygg-Component"
-          data-value=""
+          className="css-oab24c-Component"
         >
           <input
             aria-activedescendant=""
@@ -1449,15 +1387,10 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-6-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -1481,8 +1414,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Readonly   Selected: "
-          aria-readonly={true}
-          className="css-mohuvp-dummyInput-DummyInput"
+          className="css-wmatm6-dummyInput-DummyInput"
           disabled={false}
           id="react-select-6-input"
           inputMode="none"
@@ -1539,15 +1471,10 @@ exports[`Dropdown renders correctly when rtl 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-8-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -1654,15 +1581,10 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-11-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -1769,15 +1691,10 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-17-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2097,15 +2014,10 @@ exports[`Dropdown renders correctly with className 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-3-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2212,15 +2124,10 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-21-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2357,15 +2264,10 @@ exports[`Dropdown renders correctly with empty props 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-2-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2472,15 +2374,10 @@ exports[`Dropdown renders correctly with id 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-10-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2587,15 +2484,10 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-16-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -2818,15 +2710,10 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-18-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3043,15 +2930,10 @@ exports[`Dropdown renders correctly with multi 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-12-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3171,15 +3053,10 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-13-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3200,7 +3077,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3223,7 +3100,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3242,8 +3119,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 </div>
               </div>
               <div
-                className=" css-c07ygg-Component"
-                data-value=""
+                className="css-oab24c-Component"
               >
                 <input
                   aria-activedescendant=""
@@ -3333,15 +3209,10 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-14-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3361,7 +3232,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3384,7 +3255,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line noAnimation withUserSelect"
+                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3408,8 +3279,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
                 aria-expanded={false}
                 aria-haspopup={true}
                 aria-label="Readonly   Selected: Ocean, Blue"
-                aria-readonly={true}
-                className="css-mohuvp-dummyInput-DummyInput"
+                className="css-wmatm6-dummyInput-DummyInput"
                 disabled={false}
                 id="react-select-14-input"
                 inputMode="none"
@@ -3470,15 +3340,10 @@ exports[`Dropdown renders correctly with multiline 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-15-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3585,15 +3450,10 @@ exports[`Dropdown renders correctly with options 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-9-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3700,15 +3560,10 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-4-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3815,15 +3670,10 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-19-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -3930,15 +3780,10 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-22-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div
     className=""
@@ -4055,15 +3900,10 @@ exports[`Dropdown renders correctly with value 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-20-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div
@@ -4200,15 +4040,10 @@ exports[`Dropdown renders correctly without clear button 1`] = `
   onKeyDown={[Function]}
 >
   <span
-    className="css-1f43avz-a11yText-A11yText"
-    id="react-select-7-live-region"
-  />
-  <span
     aria-atomic="false"
     aria-live="polite"
     aria-relevant="additions text"
     className="css-1f43avz-a11yText-A11yText"
-    role="log"
   />
   <div>
     <div

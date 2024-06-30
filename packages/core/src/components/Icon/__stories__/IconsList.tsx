@@ -13,14 +13,18 @@ interface IconMeta {
   file: string;
 }
 
+const FILTERED_ICONS = ["Upgrade"];
+
 export default function IconsList() {
   const [query, setQuery] = useState("");
+
+  const icons = iconsMetaData.filter((icon: IconMeta) => !FILTERED_ICONS.includes(icon.name));
 
   return (
     <section className={styles.wrapper}>
       <Search value={query} onChange={setQuery} placeholder="Search for icons" className={styles.search} />
       <div className={styles.grid}>
-        {iconsMetaData
+        {icons
           .filter((icon: IconMeta) => {
             return icon.tags.toLowerCase().includes(query.toLowerCase());
           })

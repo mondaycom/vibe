@@ -1,5 +1,14 @@
 import cx from "classnames";
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  ChangeEventHandler,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
@@ -81,6 +90,10 @@ export interface TextFieldProps extends VibeComponentProps {
    * Apply new style for read only, use along with `readonly` prop
    */
   withReadOnlyStyle?: boolean;
+  /**
+   * When true, component is controlled by an external state
+   */
+  controlled?: boolean;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -132,7 +145,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       tabIndex,
       underline = false,
       name,
-      withReadOnlyStyle
+      withReadOnlyStyle,
+      controlled = false
     },
     ref
   ) => {
@@ -161,12 +175,27 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       [onChange, isRequiredAndEmpty]
     );
 
-    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
+    const {
+      inputValue: uncontrolledInput,
+      onEventChanged,
+      clearValue
+    } = useDebounceEvent({
       delay: debounceRate,
       onChange: onChangeCallback,
       initialStateValue: value,
       trim
     });
+
+    const inputValue = useMemo(() => {
+      return controlled ? value : uncontrolledInput;
+    }, [controlled, value, uncontrolledInput]);
+
+    const handleChange = useCallback<ChangeEventHandler>(
+      (event: ChangeEvent<Partial<HTMLInputElement>>) => {
+        controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
+      },
+      [controlled, onChangeCallback, onEventChanged]
+    );
 
     const currentStateIconName = useMemo(() => {
       if (secondaryIconName) {
@@ -186,10 +215,10 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         }
         // Do it cause otherwise the value is not cleared in target object
         inputRef.current.value = "";
-        clearValue();
+        controlled ? onChangeCallback("") : clearValue();
       }
       onIconClick(currentStateIconName);
-    }, [inputRef, disabled, clearOnIconClick, onIconClick, currentStateIconName, clearValue]);
+    }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
     const validationClass = useMemo(() => {
       if ((!validation || !validation.status) && !isRequiredAndEmpty) {
@@ -246,7 +275,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               placeholder={placeholder}
               autoComplete={autoComplete}
               value={inputValue}
-              onChange={onEventChanged}
+              onChange={handleChange}
               disabled={disabled}
               readOnly={readonly}
               ref={mergedRef}
