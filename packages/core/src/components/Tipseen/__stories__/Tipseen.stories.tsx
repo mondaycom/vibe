@@ -59,7 +59,7 @@ export const Overview = {
   args: {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
-    position: Tipseen.positions.RIGHT,
+    position: "right",
     hideDismiss: false,
     color: Tipseen.colors.INVERTED
   }
@@ -75,7 +75,7 @@ export const Colors = {
           <div className="monday-storybook-tipseen_small-box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
+              position="right"
               color={Tipseen.colors.INVERTED}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
@@ -89,7 +89,7 @@ export const Colors = {
           <div className="monday-storybook-tipseen_small-box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
+              position="right"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -128,7 +128,7 @@ export const TipseenWithAWizard = {
       return (
         <Tipseen
           modifiers={modifiers}
-          position={Tipseen.positions.RIGHT}
+          position="right"
           color={Tipseen.colors.INVERTED}
           content={
             <TipseenWizard
@@ -163,7 +163,7 @@ export const TipseenWithImage = {
 
       return (
         <Tipseen
-          position={Tipseen.positions.RIGHT}
+          position="right"
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
           color={Tipseen.colors.INVERTED}
@@ -189,7 +189,7 @@ export const TipseenWithCustomMedia = {
     () => {
       return (
         <Tipseen
-          position={Tipseen.positions.RIGHT}
+          position="right"
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
           color={Tipseen.colors.INVERTED}

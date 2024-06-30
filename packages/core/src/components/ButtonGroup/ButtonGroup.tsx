@@ -7,13 +7,14 @@ import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
+import { BASE_SIZES, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -38,7 +39,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;

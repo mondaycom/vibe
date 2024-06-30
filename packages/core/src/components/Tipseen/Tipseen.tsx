@@ -1,6 +1,6 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType, DialogPosition, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, EMPTY_ARR, HideShowEvent } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
@@ -15,17 +15,17 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
-import { TooltipTheme } from "../Tooltip/TooltipConstants";
 import { ButtonColor } from "../Button/ButtonConstants";
 import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
+import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  position?: DialogPosition;
+  position?: TooltipPositionsType;
   animationType?: AnimationType;
   hideDelay?: number;
   showDelay?: number;
@@ -35,7 +35,6 @@ export interface TipseenProps extends VibeComponentProps {
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showTrigger?: HideShowEvent | Array<HideShowEvent>;
-  justify?: JustifyType;
   width?: number;
   moveBy?: MoveBy;
   hideWhenReferenceHidden?: boolean;
@@ -67,9 +66,7 @@ export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRI
 
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
-  positions?: typeof DialogPosition;
   animationTypes?: typeof AnimationType;
-  justifyTypes?: typeof JustifyType;
   hideShowTriggers?: typeof HideShowEvent;
   colors?: typeof TipseenColor;
 } = forwardRef(
@@ -77,10 +74,10 @@ const Tipseen: VibeComponent<TipseenProps> & {
     {
       className,
       id,
-      position = DialogPosition.BOTTOM,
+      position = "bottom",
       animationType = AnimationType.EXPAND,
       hideDelay = 0,
-      showDelay = 0,
+      showDelay = 100,
       title,
       titleClassName,
       hideCloseButton,
@@ -89,7 +86,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
       closeAriaLabel,
       children = null,
       content,
-      justify = JustifyType.CENTER,
       containerSelector,
       hideTrigger = EMPTY_ARR,
       showTrigger = EMPTY_ARR,
@@ -182,8 +178,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           content={tooltipContent}
-          theme={color === TipseenColor.INVERTED ? TooltipTheme.Dark : TooltipTheme.Primary}
-          justify={justify}
+          theme={color === TipseenColor.INVERTED ? "dark" : "primary"}
           containerSelector={containerSelector}
           disableDialogSlide={false}
           moveBy={moveBy}
@@ -202,9 +197,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
 
 export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonTheme,
-  positions: DialogPosition,
   animationTypes: AnimationType,
-  justifyTypes: JustifyType,
   hideShowTriggers: HideShowEvent,
   colors: TipseenColor
 });

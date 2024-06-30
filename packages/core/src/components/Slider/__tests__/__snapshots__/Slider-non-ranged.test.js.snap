@@ -54,15 +54,15 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent top edgeCenter hasTooltip"
++           class="contentComponent top hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -89,15 +89,15 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent top edgeCenter hasTooltip"
+-           class="contentComponent top hasTooltip"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -124,15 +124,15 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent top edgeCenter hasTooltip"
++           class="contentComponent top hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -159,15 +159,15 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
+-           class="contentComponent top hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />

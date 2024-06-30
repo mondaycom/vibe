@@ -3,7 +3,6 @@ import Avatar from "../Avatar";
 import AvatarGroup from "../../AvatarGroup/AvatarGroup";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
 import { guest, home, minus, owner, person1, person2, person3 } from "./assets";
 import { WhatsNew } from "../../Icon/Icons";
@@ -194,7 +193,7 @@ export const AvatarWithTooltip = {
           src={person1}
           tooltipProps={{
             content: <b>Julia Martinez</b>,
-            position: Tooltip.positions.BOTTOM
+            position: "bottom"
           }}
           ariaLabel={"Julia Martinez"}
         />

@@ -155,7 +155,7 @@ export const StepsInsideATipseen = {
     return (
       <div className="monday-storybook-steps_block">
         <Tipseen
-          position={Tipseen.positions.LEFT}
+          position="left"
           modifiers={modifiers}
           animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
           content={

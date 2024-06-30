@@ -4,7 +4,6 @@ import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
-import Tooltip from "../../../Tooltip/Tooltip";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -116,15 +115,11 @@ export const TooltipStory = {
       <MenuItem title="Menu item with tooltip" tooltipContent="I am tooltip" />
       <MenuItem title="Disabled menu item with tooltip" disabled={true} disableReason="I am a disabled tooltip" />
       <MenuItem title="I am a very very very very long text please hover me to get a tooltip" />
-      <MenuItem
-        title="Menu item with bottom tooltip"
-        tooltipContent="I am tooltip"
-        tooltipPosition={MenuItem.tooltipPositions.BOTTOM}
-      />
+      <MenuItem title="Menu item with bottom tooltip" tooltipContent="I am tooltip" tooltipPosition="bottom" />
       <MenuItem
         title="Menu item with icon and tooltip"
         tooltipContent="Menu item with icon and tooltip"
-        tooltipPosition={Tooltip.positions.LEFT}
+        tooltipPosition="left"
         icon={Activity}
         iconType={Icon.type.SVG}
       />

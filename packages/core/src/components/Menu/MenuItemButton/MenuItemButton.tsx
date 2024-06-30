@@ -8,10 +8,10 @@ import { ButtonType } from "../../Button/ButtonConstants";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPosition } from "../../../constants/positions";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
+import { TooltipPositionsType } from "../../Tooltip/Tooltip.types";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   kind?: ButtonType;
@@ -22,7 +22,7 @@ export interface MenuItemButtonProps extends VibeComponentProps {
   disabled?: boolean;
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositionsType;
   tooltipShowDelay?: number;
   resetOpenSubMenuIndex?: () => void;
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
@@ -35,7 +35,6 @@ export interface MenuItemButtonProps extends VibeComponentProps {
 
 const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
-  tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = ({
@@ -48,7 +47,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   index,
   activeItemIndex = -1,
   onClick,
-  tooltipPosition = MenuItemButton.tooltipPositions.RIGHT,
+  tooltipPosition = "right",
   tooltipShowDelay = 300,
   children,
   resetOpenSubMenuIndex,
@@ -59,7 +58,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   useDocumentEventListeners,
   id,
   "data-testid": dataTestId
-}) => {
+}: MenuItemButtonProps) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const mergedRef = useMergeRef(ref, referenceElementRef);
@@ -134,6 +133,5 @@ Object.assign(MenuItemButton, {
 });
 
 export default withStaticProps(MenuItemButton, {
-  kinds: Button.kinds,
-  tooltipPositions: DialogPosition
+  kinds: Button.kinds
 });

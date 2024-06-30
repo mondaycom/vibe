@@ -21,7 +21,6 @@ import image from "./assets/tooltip-image.png";
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
-- [Themes](#themes)
 - [Do's and don'ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
@@ -105,7 +104,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
       negative: {
         component: (
           <TabList className="monday-storybook-tooltip_tabs">
-            <Tooltip shouldShowOnMount content="Boards" position={Tooltip.positions.BOTTOM} modifiers={modifiers}>
+            <Tooltip shouldShowOnMount content="Boards" position="bottom" modifiers={modifiers}>
               <Tab>Boards</Tab>
             </Tooltip>
             <Tab>Items</Tab>
@@ -122,6 +121,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
             withMaxWidth
             title="I'm a rich tooltip"
             modifiers={modifiers}
+            open
             content={
               <div>
                 I have a title, text, image and I can come{" "}
@@ -141,6 +141,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
             withMaxWidth
             title="I'm a rich tooltip"
             modifiers={modifiers}
+            open
             content={
               <div>
                 I have a title, text, image and I can come with a link. <Link text="Read more" />
@@ -161,8 +162,9 @@ Tooltip's arrow can appear from top, bottom, left or right.
             withMaxWidth
             shouldShowOnMount
             image={image}
-            position={Tooltip.positions.RIGHT}
+            position="right"
             modifiers={modifiers}
+            open
           >
             <div className="monday-storybook-tooltip_position-left" />
           </Tooltip>
@@ -176,8 +178,9 @@ Tooltip's arrow can appear from top, bottom, left or right.
             withMaxWidth
             shouldShowOnMount
             image={image}
-            position={Tooltip.positions.RIGHT}
+            position="right"
             modifiers={modifiers}
+            open
           >
             <div className="monday-storybook-tooltip_position-left" />
           </Tooltip>

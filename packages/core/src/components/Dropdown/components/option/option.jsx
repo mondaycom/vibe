@@ -19,7 +19,7 @@ const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) 
   };
 
   return (
-    <Tooltip {...tooltipProps} position={Tooltip.positions.RIGHT}>
+    <Tooltip {...tooltipProps} position="right">
       {Renderer ? (
         <components.Option {...rendererProps} className={cx(styles.optionReset, optionWrapperClassName)}>
           <Renderer {...rendererProps} {...data} /> {/* Spreading data here for a backward compatability */}
