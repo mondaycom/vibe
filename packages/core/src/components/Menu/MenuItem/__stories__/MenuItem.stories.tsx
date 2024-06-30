@@ -5,6 +5,9 @@ import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
+import { Meta, StoryObj } from "@storybook/react";
+
+type Story = StoryObj<MenuItemProps>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItem,
@@ -17,7 +20,7 @@ export default {
   component: MenuItem,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof MenuItem>;
 
 const menuItemTemplate = (args: MenuItemProps) => (
   <Menu>
@@ -25,44 +28,52 @@ const menuItemTemplate = (args: MenuItemProps) => (
   </Menu>
 );
 
-export const Overview = {
+export const Overview: Story = {
   render: menuItemTemplate.bind({}),
-  name: "Overview",
-
   args: {
     title: "Menu item"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <Menu>
       <MenuItem title="Regular menu item" />
       <MenuItem title="Selected menu item" selected />
       <MenuItem title="Disabled menu item" disabled />
     </Menu>
-  ),
-  name: "States"
+  )
 };
 
-export const Icons = {
+export const Icons: Story = {
   render: () => (
     <Menu>
       <MenuItem title="SVG icon" icon={Activity} />
       <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
     </Menu>
   ),
-  name: "Icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Activity }
+      }
+    }
+  }
 };
 
-export const Label = {
+export const Label: Story = {
   render: () => (
     <Menu>
       <MenuItem title="Menu item" label="New" />
     </Menu>
   ),
-  name: "Label",
-
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
@@ -70,7 +81,7 @@ export const Label = {
   }
 };
 
-export const SubMenu = {
+export const SubMenu: Story = {
   render: () => (
     <Menu>
       <MenuItem title="Opens on item hover">
@@ -80,7 +91,7 @@ export const SubMenu = {
           <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on sub menu item 3")} />
         </Menu>
       </MenuItem>
-      <MenuItem title="Opens on icon hover" splitMenuItem={true} onClick={() => alert("clicked on menu item")}>
+      <MenuItem title="Opens on icon hover" splitMenuItem onClick={() => alert("clicked on menu item")}>
         <Menu tabIndex={0} id="sub-menu">
           <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on sub menu item 1")} />
           <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on sub menu item 2")} />
@@ -92,7 +103,7 @@ export const SubMenu = {
   name: "Sub menu"
 };
 
-export const Overflow = {
+export const Overflow: Story = {
   render: () => (
     <Menu>
       <MenuItem title="short text" />
@@ -105,11 +116,10 @@ export const Overflow = {
         </Menu>
       </MenuItem>
     </Menu>
-  ),
-  name: "Overflow"
+  )
 };
 
-export const TooltipStory = {
+export const TooltipStory: Story = {
   render: () => (
     <Menu>
       <MenuItem title="Menu item with tooltip" tooltipContent="I am tooltip" />
@@ -125,5 +135,12 @@ export const TooltipStory = {
       />
     </Menu>
   ),
-  name: "Tooltip"
+  name: "Tooltip",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Activity }
+      }
+    }
+  }
 };

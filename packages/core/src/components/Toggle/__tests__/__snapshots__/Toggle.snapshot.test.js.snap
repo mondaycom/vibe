@@ -22,7 +22,7 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle selected disabled"
+    className="toggle medium selected disabled"
     data-testid="toggle"
   />
   <span
@@ -49,7 +49,7 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
   />
   <div
     aria-hidden="true"
-    className="toggle selected"
+    className="toggle medium selected"
     data-testid="toggle"
   />
 </label>
@@ -76,7 +76,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   </span>
   <div
     aria-hidden="true"
-    className="toggle dummy-class-name notSelected"
+    className="toggle medium dummy-class-name notSelected"
     data-testid="toggle"
   />
   <span
@@ -109,7 +109,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   </span>
   <div
     aria-hidden="true"
-    className="toggle dummy-class-name selected"
+    className="toggle medium dummy-class-name selected"
     data-testid="toggle"
   />
   <span
@@ -142,7 +142,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   </span>
   <div
     aria-hidden="true"
-    className="toggle dummy-class-name notSelected"
+    className="toggle medium dummy-class-name notSelected"
     data-testid="toggle"
   />
   <span
@@ -175,7 +175,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   </span>
   <div
     aria-hidden="true"
-    className="toggle dummy-class-name selected"
+    className="toggle medium dummy-class-name selected"
     data-testid="toggle"
   />
   <span
@@ -209,7 +209,7 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle selected"
+    className="toggle medium selected"
     data-testid="toggle"
   />
   <span
@@ -242,7 +242,7 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle selected"
+    className="toggle medium selected"
     data-testid="toggle"
   />
   <span
@@ -275,7 +275,7 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
   </span>
   <div
     aria-hidden="true"
-    className="toggle selected"
+    className="toggle medium selected"
     data-testid="toggle"
   />
   <span
@@ -308,7 +308,7 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
   </span>
   <div
     aria-hidden="true"
-    className="toggle selected"
+    className="toggle medium selected"
     data-testid="toggle"
   />
   <span

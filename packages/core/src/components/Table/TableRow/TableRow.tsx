@@ -22,7 +22,6 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
     const mergedRef = useMergeRef(componentRef, ref);
 
     return (
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <div
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW, id)}

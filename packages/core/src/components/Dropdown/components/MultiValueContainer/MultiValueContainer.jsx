@@ -21,14 +21,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector } = customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
-    isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"],
+    isMultiline ? classes["multiselect-chip-multi-line"] : classes[`multiselect-chip-single-line-${size}`],
     { [classes["multiselect-chip-disabled"]]: isDisabled }
   );
 
@@ -81,7 +81,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           />
         ) : null;
       }),
-    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete]
+    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete, size]
   );
 
   return (

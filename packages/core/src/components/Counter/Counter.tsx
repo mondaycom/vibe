@@ -81,7 +81,7 @@ const Counter: React.FC<CounterProps> & {
   const isAfterFirstRender = useAfterFirstRender();
 
   useEffect(() => {
-    if (!isAfterFirstRender.current) {
+    if (isAfterFirstRender.current) {
       setCountChangedAnimationActive();
     }
   }, [count, isAfterFirstRender, setCountChangedAnimationActive]);

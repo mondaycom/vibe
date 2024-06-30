@@ -21,6 +21,7 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   sortState?: "asc" | "desc" | "none";
   onSortClicked?: (direction: "asc" | "desc" | "none") => void;
   sortButtonAriaLabel?: string;
+  sticky?: boolean;
 }
 
 const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
@@ -34,7 +35,8 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
       infoContent,
       icon,
       sortState = "none",
-      sortButtonAriaLabel = "Sort"
+      sortButtonAriaLabel = "Sort",
+      sticky
     },
     ref
   ) => {
@@ -47,7 +49,11 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
       <div
         ref={ref}
         id={id}
-        className={cx(styles.tableHeaderCell, { [styles.sortActive]: isSortActive }, className)}
+        className={cx(
+          styles.tableHeaderCell,
+          { [styles.sortActive]: isSortActive, [styles.sticky]: sticky },
+          className
+        )}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_HEADER_CELL, id)}
         role="columnheader"
         onMouseOver={() => setIsHovered(true)}
