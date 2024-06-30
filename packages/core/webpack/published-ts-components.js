@@ -92,11 +92,13 @@ const publishedTSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
   AttentionBoxLink: "components/AttentionBox/AttentionBoxLink/AttentionBoxLink",
   Table: "components/Table/Table/Table",
+  TableContainer: "components/Table/TableContainer/TableContainer",
   TableBody: "components/Table/TableBody/TableBody",
   TableCell: "components/Table/TableCell/TableCell",
   TableHeader: "components/Table/TableHeader/TableHeader",
   TableHeaderCell: "components/Table/TableHeaderCell/TableHeaderCell",
   TableRow: "components/Table/TableRow/TableRow",
+  TableMenu: "components/Table/TableMenu/TableMenu",
   TableVirtualizedBody: "components/Table/TableVirtualizedBody/TableVirtualizedBody",
   ThemeProvider: "components/ThemeProvider/ThemeProvider",
   // Don't remove next line
