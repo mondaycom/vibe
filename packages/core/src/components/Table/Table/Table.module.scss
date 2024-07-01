@@ -1,3 +1,12 @@
+:root {
+  --sticky-cell-hover-background: linear-gradient(
+      to right,
+      var(--primary-background-hover-color),
+      var(--primary-background-hover-color)
+    ),
+    linear-gradient(to right, var(--primary-background-color), var(--primary-background-color));
+}
+
 .table {
   background-color: var(--primary-background-color);
   overflow: auto;
