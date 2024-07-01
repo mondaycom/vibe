@@ -7,6 +7,7 @@ export interface ITableContext {
   emptyState: ITableProps["emptyState"];
   errorState: ITableProps["errorState"];
   size: ITableProps["size"];
+  tableRootRef: React.MutableRefObject<HTMLDivElement>;
   scrollLeft: number;
   onTableRootScroll: UIEventHandler<HTMLDivElement>;
   headRef: React.MutableRefObject<HTMLDivElement>;

@@ -4,6 +4,8 @@ import { ITableContext, ITableProviderProps } from "./TableContext.types";
 const TableContext = createContext<ITableContext | undefined>(undefined);
 
 export const TableProvider = ({ value, children }: ITableProviderProps) => {
+  const tableRootRef = useRef<HTMLDivElement>(null);
+
   const [isVirtualized, setIsVirtualized] = useState<boolean>(false);
   const markTableAsVirtualized = useCallback(() => {
     setIsVirtualized(true);
@@ -48,6 +50,7 @@ export const TableProvider = ({ value, children }: ITableProviderProps) => {
   const contextValue = useMemo<ITableContext>(
     () => ({
       ...value,
+      tableRootRef,
       headRef,
       scrollLeft,
       onTableRootScroll,
@@ -57,7 +60,16 @@ export const TableProvider = ({ value, children }: ITableProviderProps) => {
       isVirtualized,
       markTableAsVirtualized
     }),
-    [value, scrollLeft, onTableRootScroll, onHeadScroll, onVirtualizedListScroll, isVirtualized, markTableAsVirtualized]
+    [
+      value,
+      tableRootRef,
+      scrollLeft,
+      onTableRootScroll,
+      onHeadScroll,
+      onVirtualizedListScroll,
+      isVirtualized,
+      markTableAsVirtualized
+    ]
   );
   return <TableContext.Provider value={contextValue}>{children}</TableContext.Provider>;
 };
