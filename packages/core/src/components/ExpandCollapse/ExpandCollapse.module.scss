@@ -24,6 +24,10 @@
   background-color: var(--primary-background-hover-color);
 }
 
+.header:active {
+  transform: scale(1);
+}
+
 .header .headerContent {
   margin: 0;
 }
