@@ -7,7 +7,8 @@
     "build:package": "sh scripts/build-dependencies.sh",
     "lint": "lerna run lint",
     "test": "lerna run test",
-    "storybook": "lerna run storybook --parallel --stream"
+    "storybook": "lerna run storybook --parallel --stream",
+    "postinstall": "lerna run build --scope=vibe-storybook-components"
   },
   "devDependencies": {
     "lerna": "^8.1.2",
