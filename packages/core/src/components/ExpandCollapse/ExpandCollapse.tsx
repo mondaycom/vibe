@@ -44,6 +44,7 @@ export interface ExpandCollapseProps extends VibeComponentProps {
   open?: boolean;
   onClick?: (event: React.MouseEvent) => void;
   hideBorder?: boolean;
+  captureOnClick?: boolean;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
@@ -62,7 +63,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       headerClassName,
       contentClassName,
       componentClassName,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      captureOnClick = true
     },
     ref
   ) => {
@@ -106,7 +108,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
               [styles.headerOpen]: isExpanded,
               [styles.hideBorderBottom]: hideBorder
             })}
-            onClickCapture={onClick || toggleExpand}
+            onClickCapture={captureOnClick ? onClick || toggleExpand : undefined}
+            onClick={!captureOnClick ? onClick || toggleExpand : undefined}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
