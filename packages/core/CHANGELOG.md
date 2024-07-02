@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.117.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.116.0...monday-ui-react-core@2.117.0) (2024-07-02)
+
+
+### Bug Fixes
+
+* **ExpandCollapse:** component gets to 95% scale when active ([#2201](https://github.com/mondaycom/vibe/issues/2201)) ([58b14a6](https://github.com/mondaycom/vibe/commit/58b14a6908b2bdb72533e30518a0ce843ed20d10))
+* **Table:** sticky cell is seen-through when hovered ([#2198](https://github.com/mondaycom/vibe/issues/2198)) ([6ec1d61](https://github.com/mondaycom/vibe/commit/6ec1d6177a4d906bc1d28b92309c7363fd7c1134))
+
+
+### Features
+
+* **AccordionItem:** add option for onClick instead of onClickCapture ([#2203](https://github.com/mondaycom/vibe/issues/2203)) ([983b012](https://github.com/mondaycom/vibe/commit/983b01290a9fede5a39244a22e32e08e7043dec2))
+
+
+
+
+
 # [2.116.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.115.0...monday-ui-react-core@2.116.0) (2024-06-27)
 
 
