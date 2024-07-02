@@ -1,6 +1,5 @@
-import React, { forwardRef, useCallback, useRef } from "react";
+import React, { forwardRef, useCallback } from "react";
 import cx from "classnames";
-import useMergeRef from "../../../hooks/useMergeRef";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TableRowMenu.module.scss";
@@ -18,9 +17,6 @@ const TableRowMenu = forwardRef(
     { rowId, className, id, "data-testid": dataTestId, children }: TableMenuProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRef(componentRef, ref);
-
     const { menuContainerRef } = useTableContainer();
     const { size } = useTable();
     const {
@@ -34,7 +30,6 @@ const TableRowMenu = forwardRef(
 
     const onMenuHide = useCallback(() => {
       setTableMenuHidden();
-      componentRef.current.blur();
     }, [setTableMenuHidden]);
 
     const onMenuShow = useCallback(() => {
@@ -55,12 +50,12 @@ const TableRowMenu = forwardRef(
           >
             <MenuButton
               id={id}
-              ref={mergedRef}
+              ref={ref}
               className={cx(styles.tableMenu, className)}
               size={MenuButton.sizes.XS}
               onMenuHide={onMenuHide}
               onMenuShow={onMenuShow}
-              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_MENU, id)}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW_MENU, id)}
             >
               <Menu>{children}</Menu>
             </MenuButton>
