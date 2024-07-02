@@ -64,7 +64,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       contentClassName,
       componentClassName,
       "data-testid": dataTestId,
-      captureOnClick
+      captureOnClick = true
     },
     ref
   ) => {

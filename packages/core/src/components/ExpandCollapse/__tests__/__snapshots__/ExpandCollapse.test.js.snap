@@ -12,7 +12,7 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
       aria-controls="-controls"
       aria-expanded={false}
       className="header section"
-      onClick={[Function]}
+      onClickCapture={[Function]}
       type="button"
     >
       <svg
