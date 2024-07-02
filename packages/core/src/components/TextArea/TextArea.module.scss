@@ -50,6 +50,10 @@
     &.large {
       @include vibe-text(text1, normal);
     }
+
+    &:not(.resize) {
+      resize: none;
+    }
   }
 
   &.success {

@@ -8,10 +8,11 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface ITableCellProps extends VibeComponentProps {
   children?: React.ReactNode;
+  sticky?: boolean;
 }
 
 const TableCell: VibeComponent<ITableCellProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }, ref) => {
+  ({ sticky, id, className, "data-testid": dataTestId, children }, ref) => {
     const isSingleChild = React.Children.count(children) === 1;
     const typeOfFirstChild = typeof React.Children.toArray(children)[0];
     const isFirstChildString = typeOfFirstChild === "string" || typeOfFirstChild === "number";
@@ -20,7 +21,7 @@ const TableCell: VibeComponent<ITableCellProps, HTMLDivElement> = forwardRef(
       <div
         ref={ref}
         id={id}
-        className={cx(styles.tableCell, className)}
+        className={cx(styles.tableCell, { [styles.sticky]: sticky }, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_CELL, id)}
         role="cell"
       >

@@ -290,4 +290,19 @@ describe("TextField Tests", () => {
     });
     expect(input.value).toBe(value.trim());
   });
+
+  describe("controlled", () => {
+    it("should call onChange with the new value when controlled is true", () => {
+      const handleChange = jest.fn();
+      render(<TextField placeholder="Enter text" onChange={handleChange} value="value" controlled />);
+
+      const input = screen.getByPlaceholderText("Enter text");
+      expect(input.value).toBe("value");
+
+      fireEvent.change(input, { target: { value: "new value" } });
+
+      expect(handleChange).toHaveBeenCalledTimes(1);
+      expect(handleChange).toHaveBeenCalledWith("new value", expect.anything());
+    });
+  });
 });

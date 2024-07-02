@@ -35,6 +35,7 @@ $disabled-on-primary-color-opacity: 0.5;
   }
 
   .textPlaceholder {
+    display: inline-block;
     opacity: 0;
     height: 0;
     visibility: hidden;

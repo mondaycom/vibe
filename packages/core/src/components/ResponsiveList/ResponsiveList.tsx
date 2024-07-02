@@ -4,11 +4,13 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ResponsiveList.module.scss";
-import { VibeComponent } from "../../types";
+import { VibeComponent, withStaticProps } from "../../types";
 import MenuButton from "../MenuButton/MenuButton";
 import { DEFAULT_MINIMAL_MARGIN, EMPTY_ARRAY, ResponsiveListProps } from "./ResponsiveList.types";
 
-const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivElement, ResponsiveListProps>(
+const ResponsiveList: VibeComponent<ResponsiveListProps> & {
+  menuButtonSizes?: typeof MenuButton.sizes;
+} = forwardRef<HTMLDivElement, ResponsiveListProps>(
   (
     {
       id,
@@ -101,4 +103,5 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> = forwardRef<HTMLDivEle
     );
   }
 );
-export default ResponsiveList;
+
+export default withStaticProps(ResponsiveList, { menuButtonSizes: MenuButton.sizes });

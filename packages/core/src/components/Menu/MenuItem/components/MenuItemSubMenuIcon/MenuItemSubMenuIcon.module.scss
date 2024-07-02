@@ -1,0 +1,30 @@
+.subMenuIconWrapper {
+  margin-left: var(--spacing-xs);
+
+  .divider {
+    height: 19px;
+  }
+
+  .splitSubMenuIcon {
+    width: 18px;
+    height: 18px;
+
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--disabled-text-color);
+    }
+  }
+
+  .subMenuIcon,
+  .splitSubMenuIcon {
+    color: var(--icon-color);
+  }
+
+  .splitMenuItemIconButton {
+    width: 34px;
+    height: 30px;
+
+    // Override for IconButton active color
+    --primary-selected-color: rgba(103, 104, 121, 0.1);
+  }
+}

@@ -37,7 +37,7 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "src/hooks/index.js",
+        path: "src/hooks/index.ts",
         pattern: /(\n$)/gm,
         separator: "",
         template: `export { default as {{camelCase hookName}} } from "./{{camelCase hookName}}";\n`

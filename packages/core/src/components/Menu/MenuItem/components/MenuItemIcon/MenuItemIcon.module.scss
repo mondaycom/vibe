@@ -1,0 +1,28 @@
+.iconWrapper {
+  margin-right: var(--spacing-small);
+
+  &.withBackgroundColor {
+    border-radius: var(--spacing-xs);
+
+    &.disabled {
+      opacity: 0.4;
+    }
+
+    .icon {
+      color: var(--text-color-on-primary);
+    }
+  }
+
+  &.disabled .icon {
+    cursor: not-allowed;
+    color: var(--disabled-text-color);
+  }
+
+  .icon {
+    color: var(--icon-color);
+
+    &.selected {
+      color: var(--primary-color);
+    }
+  }
+}

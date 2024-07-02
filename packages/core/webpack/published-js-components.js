@@ -1,5 +1,4 @@
 const publishedJSComponents = {
-  ResponsiveList: "components/ResponsiveList/ResponsiveList",
   MultiStepIndicator: "components/MultiStepIndicator/MultiStepIndicator",
   Dropdown: "components/Dropdown/Dropdown",
   DropdownMenu: "components/Dropdown/components/menu/menu",

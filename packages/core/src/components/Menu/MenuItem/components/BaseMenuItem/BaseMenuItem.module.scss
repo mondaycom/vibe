@@ -1,0 +1,41 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../../../styles/typography";
+@import "../../../../../styles/states";
+
+.item {
+  @include smoothing-text;
+  margin: unset;
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-xs) var(--spacing-small);
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  border: 1px solid transparent;
+  outline: none;
+
+  &.splitMenuItem {
+    padding: 0 0 0 var(--spacing-small);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--disabled-text-color);
+  }
+
+  &.focused {
+    &:not(.disabled) {
+      background-color: var(--primary-background-hover-color);
+      border-radius: var(--border-radius-small);
+
+      &:not(:hover):not(.initialSelected) {
+        @include focus-style-css();
+      }
+    }
+  }
+
+  &.selected:not(.disabled) {
+    background-color: var(--primary-selected-color);
+    border-radius: var(--border-radius-small);
+  }
+}

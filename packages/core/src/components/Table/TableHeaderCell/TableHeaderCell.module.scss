@@ -13,6 +13,13 @@
   background-color: inherit;
   @include focus-style();
 
+  &.sticky {
+    z-index: 1;
+    position: sticky;
+    left: 0;
+    box-shadow: var(--sticky-cell-box-shadow);
+  }
+
   &:hover,
   &.sortActive {
     background-color: var(--primary-background-hover-color);
