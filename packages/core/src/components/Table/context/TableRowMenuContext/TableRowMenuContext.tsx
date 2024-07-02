@@ -21,7 +21,7 @@ export const TableRowMenuProvider = ({ children }: ITableRowMenuProviderProps) =
   const startTimeout = useCallback((callback: () => void) => {
     rowMouseLeaveTimeoutId.current = setTimeout(() => {
       callback();
-    }, 200);
+    }, 400);
   }, []);
 
   const menuButtonPosition = useMemo<number>(() => {
