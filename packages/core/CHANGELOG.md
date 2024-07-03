@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.118.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.117.0...monday-ui-react-core@2.118.0) (2024-07-03)
+
+
+### Features
+
+* **Table:** add Table menu capability for each row ([#2197](https://github.com/mondaycom/vibe/issues/2197)) ([dfd551c](https://github.com/mondaycom/vibe/commit/dfd551ca3ccc57cceeb56686f9103f2e90b223ff))
+
+
+
+
+
 # [2.117.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.116.0...monday-ui-react-core@2.117.0) (2024-07-02)
 
 
