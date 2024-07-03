@@ -9,7 +9,7 @@ function prependImport(source: string): string {
   `;
 }
 
-describe("AttentionBox component prop migration", () => {
+describe("AttentionBox component migration", () => {
   defineInlineTest(
     transform,
     {},

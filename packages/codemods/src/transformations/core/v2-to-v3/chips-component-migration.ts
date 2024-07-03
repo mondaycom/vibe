@@ -14,7 +14,7 @@ function transform({ root, j }: TransformationContext) {
     if (isPropExists(j, path, "onClick")) {
       removeProp(j, path, "clickable", "isClickable");
     }
-    updatePropName(path, "dataTestId", "data-testid");
+    updatePropName(path, { dataTestId: "data-testid" });
   });
 }
 

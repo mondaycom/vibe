@@ -2,14 +2,17 @@ import { ASTPath, JSXOpeningElement, JSCodeshift, JSXAttribute, JSXIdentifier } 
 
 export function updatePropName(
   elementPath: ASTPath<JSXOpeningElement>,
-  oldPropName: string,
-  newPropName: string
+  propsNamesMappingOldToNew: Record<string, string>
 ): void {
   const attributes = elementPath.node?.attributes;
   if (!attributes) return;
   attributes.forEach(attr => {
-    if (attr.type === "JSXAttribute" && attr.name.type === "JSXIdentifier" && attr.name.name === oldPropName) {
-      attr.name.name = newPropName;
+    if (
+      attr.type === "JSXAttribute" &&
+      attr.name.type === "JSXIdentifier" &&
+      propsNamesMappingOldToNew.hasOwnProperty(attr.name.name)
+    ) {
+      attr.name.name = propsNamesMappingOldToNew[attr.name.name];
     }
   });
 }

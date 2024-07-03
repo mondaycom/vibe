@@ -20,8 +20,10 @@ codemod: `attention-box-component-migration`
 
 ### Avatar
 
-- `isSquare` -> `square` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `avatar-component-migration`
+
+- `isSquare` -> `square` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### BreadcrumbsItem
 
