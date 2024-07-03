@@ -14,7 +14,9 @@
 
 ### AttentionBox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `attention-box-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Avatar
 
