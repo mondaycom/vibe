@@ -96,7 +96,7 @@ exports[`Snapshots renders correctly with a label 1`] = `
     data-testid="label"
   >
     <span
-      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary withAnimation"
+      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
       data-testid="text"
     >
       <span

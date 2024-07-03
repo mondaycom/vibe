@@ -70,7 +70,7 @@
 ### Label
 
 - `wrapperClassName` -> `className` [codemod]
-- Removed old animation
+- Spin in animation removed due to UX decision, including `isAnimationDisabled` prop which is not needed anymore
 
 ### EditableHeading
 
