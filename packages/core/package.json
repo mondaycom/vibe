@@ -202,7 +202,7 @@
     "babel-preset-react": "^6.24.1",
     "boxt": "^1.1.1",
     "chalk": "^4.1.2",
-    "chromatic": "^7.5.3",
+    "chromatic": "^11.5.4",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^6.5.1",
     "csstype": "^3.1.0",
