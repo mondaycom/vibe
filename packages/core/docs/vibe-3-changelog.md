@@ -43,8 +43,10 @@
 
 ### Chips
 
-- `dataTestId` -> `data-testid` [codemod]
-- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style
+codemod: `chips-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
+- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style [codemod ✅]
 
 ### Clickable
 
