@@ -31,7 +31,9 @@ export const Overview = {
 };
 
 export const VibeIcon = {
-  render: () => <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
+  render: () => (
+    <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} clickable={false} />
+  ),
 
   name: "Vibe Icon"
 };

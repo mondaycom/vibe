@@ -16,11 +16,14 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
+      role="img"
+      tabIndex={0}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -72,11 +75,14 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
+      role="img"
+      tabIndex={0}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -128,11 +134,14 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
+      role="img"
+      tabIndex={0}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -184,11 +193,14 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
+      role="img"
+      tabIndex={0}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -326,11 +338,14 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
+      role="img"
+      tabIndex={0}
       viewBox="0 0 20 20"
       width="20"
     >
@@ -455,10 +470,12 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   >
     <span
       aria-hidden={true}
+      aria-label="attention"
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
       onClick={[Function]}
       role="img"
+      tabIndex={0}
     />
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
