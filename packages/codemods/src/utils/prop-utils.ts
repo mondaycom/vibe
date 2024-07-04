@@ -10,7 +10,7 @@ export function updatePropName(
     if (
       attr.type === "JSXAttribute" &&
       attr.name.type === "JSXIdentifier" &&
-      propsNamesMappingOldToNew.hasOwnProperty(attr.name.name)
+      propsNamesMappingOldToNew[attr.name.name]
     ) {
       attr.name.name = propsNamesMappingOldToNew[attr.name.name];
     }
