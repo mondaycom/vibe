@@ -1,6 +1,6 @@
 import { ASTPath, Collection, ImportDeclaration, ImportSpecifier, JSCodeshift } from "jscodeshift";
-import { CORE_IMPORT_PATH, CORE_NEXT_IMPORT_PATH } from "@/consts";
-import { VibeCorePath } from "@/types";
+import { CORE_IMPORT_PATH, CORE_NEXT_IMPORT_PATH } from "../consts";
+import { VibeCorePath } from "../types";
 
 function getImports(root: Collection, path: VibeCorePath): Collection<ImportDeclaration> {
   return root.find(ImportDeclaration, {

@@ -5,7 +5,7 @@ import {
   renameComponentIdentifierName,
   setup,
   updateComponentImportName
-} from "@/utils";
+} from "../../../../utils";
 
 /**
  * Renames 'SearchComponent' to 'Search' in both import declarations and JSX usages throughout the entire file.

@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@/utils": ["src/utils"],
-      "@/consts": ["src/consts"],
-      "@/types": ["src/types"],
-      "@/transformations": ["src/transformations/*"]
-    },
     "baseUrl": ".",
     "target": "ES6",
     "module": "commonjs",

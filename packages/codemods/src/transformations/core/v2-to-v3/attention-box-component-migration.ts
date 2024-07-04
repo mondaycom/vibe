@@ -1,5 +1,5 @@
-import { findComponentElements, getCoreImportsForFile, updatePropName, wrap } from "@/utils";
-import { TransformationContext } from "@/types";
+import { findComponentElements, getCoreImportsForFile, updatePropName, wrap } from "../../../utils";
+import { TransformationContext } from "../../../types";
 
 /**
  * 1. Update the 'componentClassName' prop to 'className'

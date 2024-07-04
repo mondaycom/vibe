@@ -7,8 +7,8 @@ import {
   extractSpecifiersFromImport,
   updateImportSpecifiers,
   renameImportPath
-} from "@/utils";
-import { CORE_IMPORT_PATH } from "@/consts";
+} from "../../../utils";
+import { CORE_IMPORT_PATH } from "../../../consts";
 
 /**
  * Transforms "next" import declarations into "regular" import declarations.

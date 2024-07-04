@@ -1,5 +1,12 @@
-import { findComponentElements, getCoreImportsForFile, removeProp, isPropExists, updatePropName, wrap } from "@/utils";
-import { TransformationContext } from "@/types";
+import {
+  findComponentElements,
+  getCoreImportsForFile,
+  removeProp,
+  isPropExists,
+  updatePropName,
+  wrap
+} from "../../../utils";
+import { TransformationContext } from "../../../types";
 
 /**
  * 1. Remove the 'clickable' prop when 'onClick' prop exists
