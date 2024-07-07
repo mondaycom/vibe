@@ -67,4 +67,46 @@ describe("AttentionBox component migration", () => {
     prependImport(`<OtherComponent componentClassName="old-class" />`),
     "should not affect other components with 'componentClassName'"
   );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+      import { OtherComponent } from "monday-ui-react-core";
+      <AttentionBox componentClassName="old-class" />
+    `,
+    `
+      import { OtherComponent } from "monday-ui-react-core";
+      <AttentionBox componentClassName="old-class" />
+    `,
+    "should not change when 'AttentionBox' is not imported from vibe"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+      import { OtherComponent as AttentionBox } from "monday-ui-react-core";
+      <AttentionBox componentClassName="old-class" />
+    `,
+    `
+      import { OtherComponent as AttentionBox } from "monday-ui-react-core";
+      <AttentionBox componentClassName="old-class" />
+    `,
+    "should not change when 'AttentionBox' is an alias for another component from vibe"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+      import { AttentionBox as VibeComponent } from "monday-ui-react-core";
+      <VibeComponent componentClassName="old-class" />
+    `,
+    `
+      import { AttentionBox as VibeComponent } from "monday-ui-react-core";
+      <VibeComponent className="old-class" />
+    `,
+    "should change when 'AttentionBox' is imported with alias from vibe"
+  );
 });

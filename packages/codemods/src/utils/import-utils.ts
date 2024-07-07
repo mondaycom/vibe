@@ -48,17 +48,31 @@ export function updateComponentImportName(
     });
 }
 
-export function extractSpecifiersFromImport(
-  j: JSCodeshift,
-  importDeclarationPath: ASTPath<ImportDeclaration>
-): ImportSpecifier[] {
+export function extractSpecifiersFromImport(j: JSCodeshift, path: ASTPath<ImportDeclaration>): ImportSpecifier[] {
   const specifiers: ImportSpecifier[] = [];
-  j(importDeclarationPath)
+  j(path)
     .find(ImportSpecifier)
     .forEach(namedImport => {
       specifiers.push(namedImport.node);
     });
   return specifiers;
+}
+
+export function getComponentNameOrAliasFromImports(
+  j: JSCodeshift,
+  paths: Collection<ImportDeclaration>,
+  componentName: string
+): string | null {
+  let actualName = null;
+  paths.forEach(path => {
+    const componentImportSpecifier = j(extractSpecifiersFromImport(j, path))
+      .filter(spec => spec.node.imported.name === componentName)
+      .at(0);
+    if (componentImportSpecifier.length) {
+      actualName = componentImportSpecifier.get().node.local.name;
+    }
+  });
+  return actualName;
 }
 
 export function removeImport(j: JSCodeshift, path: ASTPath<ImportDeclaration>) {
