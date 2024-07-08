@@ -29,14 +29,11 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -223,14 +220,11 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -424,14 +418,11 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -793,14 +784,11 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -972,14 +960,11 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1166,14 +1151,11 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1360,14 +1342,11 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1554,14 +1533,11 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         >
           <svg
             aria-hidden={true}
-            aria-label="fulfilled"
             className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
-            role="img"
-            tabIndex={0}
             viewBox="0 0 20 20"
             width="16"
           >
