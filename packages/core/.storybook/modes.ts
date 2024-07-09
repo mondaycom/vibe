@@ -1,11 +1,8 @@
 export default {
-  light: {
-    theme: "light-app-theme"
+  Light: {
+    theme: "Light"
   },
-  dark: {
-    theme: "dark-app-theme"
-  },
-  black: {
-    theme: "black-app-theme"
+  Dark: {
+    theme: "Dark"
   }
 };
