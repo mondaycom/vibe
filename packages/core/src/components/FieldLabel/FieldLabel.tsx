@@ -19,6 +19,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
     {
       icon = "",
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       iconLabel = "",
       labelText = "",
       labelFor = "",
