@@ -32,6 +32,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
+import { Tooltip } from "../Tooltip";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -100,6 +101,7 @@ export interface TextFieldProps extends VibeComponentProps {
    * When true, component is controlled by an external state
    */
   controlled?: boolean;
+  iconTooltipContent?: string;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -153,7 +155,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       underline = false,
       name,
       withReadOnlyStyle,
-      controlled = false
+      controlled = false,
+      iconTooltipContent = ""
     },
     ref
   ) => {
@@ -256,6 +259,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
+    const primaryIconLabel = iconsNames.primary || iconTooltipContent;
+
     return (
       <div
         className={cx(styles.textField, wrapperClassName, {
@@ -313,27 +318,34 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 </div>
               </div>
             )}
-            <Clickable
-              className={cx(styles.iconContainer, {
-                [styles.iconContainerHasIcon]: hasIcon,
-                [styles.iconContainerActive]: isPrimary,
-                [styles.iconContainerClickable]: isIconContainerClickable
-              })}
-              onClick={onIconClickCallback}
-              tabIndex={
-                (onIconClick !== NOOP || iconsNames.primary) && inputValue && iconName.length && isPrimary ? "0" : "-1"
-              }
+
+            <Tooltip
+              content={iconTooltipContent}
+              addKeyboardHideShowTriggersByDefault
+              referenceWrapperClassName={styles.tooltipContainer}
             >
-              <Icon
-                icon={iconName}
-                className={cx(styles.icon)}
-                clickable={false}
-                iconLabel={iconsNames.primary}
-                iconType={Icon.type.ICON_FONT}
-                ignoreFocusStyle
-                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-              />
-            </Clickable>
+              <Clickable
+                className={cx(styles.iconContainer, {
+                  [styles.iconContainerHasIcon]: hasIcon,
+                  [styles.iconContainerActive]: isPrimary,
+                  [styles.iconContainerClickable]: isIconContainerClickable
+                })}
+                onClick={onIconClickCallback}
+                tabIndex={
+                  (onIconClick !== NOOP || primaryIconLabel) && inputValue && iconName.length && isPrimary ? "0" : "-1"
+                }
+              >
+                <Icon
+                  icon={iconName}
+                  className={cx(styles.icon)}
+                  clickable={false}
+                  iconLabel={primaryIconLabel}
+                  iconType={Icon.type.ICON_FONT}
+                  ignoreFocusStyle
+                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                />
+              </Clickable>
+            </Tooltip>
             <Clickable
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,

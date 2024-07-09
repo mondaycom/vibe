@@ -126,6 +126,15 @@
   pointer-events: none;
 }
 
+.textField .inputWrapper .tooltipContainer {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 32px;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
 .textField .inputWrapper .iconContainer {
   -webkit-appearance: none;
 }
