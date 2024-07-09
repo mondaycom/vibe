@@ -1,5 +1,5 @@
 export default {
-  Light: {
+  "1200px": {
     theme: "Light"
   },
   Dark: {
