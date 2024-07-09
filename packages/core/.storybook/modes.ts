@@ -1,8 +1,9 @@
 export default {
-  "1200px": {
-    theme: "Light"
+  "1200px": { 
+    viewport: 1200 
   },
   Dark: {
-    theme: "Dark"
+    theme: "Dark",
+    viewport: 1200
   }
 };
