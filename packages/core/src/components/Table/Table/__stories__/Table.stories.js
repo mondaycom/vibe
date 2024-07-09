@@ -167,7 +167,7 @@ export const Overview = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color="positive" isAnimationDisabled />
+              <Label text={rowItem.status} color="positive" />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -357,7 +357,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color="positive" isAnimationDisabled />
+                  <Label text={rowItem.status} color="positive" />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -379,7 +379,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color="positive" isAnimationDisabled />
+                  <Label text={rowItem.status} color="positive" />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -435,7 +435,7 @@ export const TableHeaderFunctionality = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                <Label text={rowItem.status} color="positive" />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -472,7 +472,7 @@ export const Loading = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color="positive" isAnimationDisabled />
+              <Label text={rowItem.status} color="positive" />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -503,18 +503,14 @@ export const Scroll = {
             <TableRow key={rowItem.id}>
               <TableCell>{rowItem.sentOn}</TableCell>
               <TableCell>
-                <Label
-                  text={rowItem.priority}
-                  color={priorityColumnToLabelColor[rowItem.priority]}
-                  isAnimationDisabled
-                />
+                <Label text={rowItem.priority} color={priorityColumnToLabelColor[rowItem.priority]} />
               </TableCell>
               <TableCell>{rowItem.subject}</TableCell>
               <TableCell>
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -582,7 +578,7 @@ export const HighlightedRow = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                <Label text={rowItem.status} color="positive" />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
