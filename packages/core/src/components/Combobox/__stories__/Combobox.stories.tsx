@@ -786,3 +786,51 @@ export const ComboboxAsPersonPicker = {
   },
   name: "Combobox as person picker"
 };
+
+export const ComboboxOnDarkTheme = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        {
+          id: "1",
+          label: "Option 1",
+          leftIcon: Wand
+        },
+        {
+          id: "2",
+          label: "Option 2",
+          leftIcon: ThumbsUp
+        },
+        {
+          id: "3",
+          label: "Option 3",
+          leftIcon: Time
+        },
+        {
+          id: "4",
+          label: "Option 4",
+          leftIcon: Update
+        },
+        {
+          id: "5",
+          label: "Option 5",
+          leftIcon: Upgrade
+        }
+      ],
+      []
+    );
+
+    return (
+      <DialogContentContainer>
+        <Combobox options={options} placeholder="Placeholder text here" />
+      </DialogContentContainer>
+    );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Wand, ThumbsUp, Time, Update, Upgrade }
+      }
+    }
+  }
+};

@@ -1,3 +1,10 @@
 .storyWrapper {
   padding: var(--spacing-xl) var(--spacing-large);
 }
+
+:global(.dark-app-theme),
+:global(.black-app-theme),
+:global(.hacker_theme-app-theme) {
+  --experimental-dialog-border-in-dark-themes: 0 0 0 1px var(--layout-border-color);
+  --experimental-dropdown-border-in-dark-themes: 0 0 0 1px var(--layout-border-color);
+}

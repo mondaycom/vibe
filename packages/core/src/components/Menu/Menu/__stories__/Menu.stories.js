@@ -75,6 +75,18 @@ export const MenuWithIcons = {
   name: "Menu with icons"
 };
 
+export const MenuOnDarkTheme = {
+  render: () => (
+    <DialogContentContainer>
+      <Menu>
+        <MenuItem icon={Email} title="Send" />
+        <MenuItem icon={Delete} title="Delete" disabled />
+        <MenuItem icon={Info} title="More info" />
+      </Menu>
+    </DialogContentContainer>
+  )
+};
+
 export const MenuWithSubMenu = {
   render: () => (
     <DialogContentContainer>

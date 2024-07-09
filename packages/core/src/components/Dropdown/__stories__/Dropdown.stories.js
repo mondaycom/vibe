@@ -977,3 +977,24 @@ export const DropdownValueSelection = {
   },
   name: "Dropdown value selection"
 };
+
+export const DropdownOnDarkTheme = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" }
+      ],
+      []
+    );
+
+    return (
+      <Dropdown
+        placeholder="Dropdown on dark theme"
+        options={options}
+        className="dropdown-stories-styles_big-spacing"
+      />
+    );
+  }
+};
