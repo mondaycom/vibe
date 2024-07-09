@@ -2,6 +2,7 @@ import {
   findComponentElements,
   getComponentNameOrAliasFromImports,
   getCoreImportsForFile,
+  isPropExists,
   updatePropName,
   wrap
 } from "../../../src/utils";
@@ -12,14 +13,16 @@ import { TransformationContext } from "../../../types";
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const actualComponentName = getComponentNameOrAliasFromImports(j, imports, "AttentionBox");
-  if (!actualComponentName) return;
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "AttentionBox");
+  if (!componentName) return;
 
-  const elements = findComponentElements(root, actualComponentName);
+  const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(path => {
-    updatePropName(path, { componentClassName: "className" });
+    if (!isPropExists(j, path, "className")) {
+      updatePropName(path, { componentClassName: "className" });
+    }
   });
 }
 
