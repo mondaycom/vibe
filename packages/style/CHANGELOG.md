@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.7.1...monday-ui-style@0.8.0) (2024-07-04)
+
+
+### Features
+
+* **colors:** remove overrides of content colors in black and dark themes ([#2195](https://github.com/mondaycom/vibe/issues/2195)) ([bba292c](https://github.com/mondaycom/vibe/commit/bba292c6351856d0eea4f9e99a9baf0fe6cc79b2))
+
+
+
+
+
 ## [0.7.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.7.0...monday-ui-style@0.7.1) (2024-06-25)
 
 **Note:** Version bump only for package monday-ui-style
