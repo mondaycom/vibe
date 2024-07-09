@@ -48,15 +48,13 @@ exports[`Search renders correctly when disabled 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -80,15 +78,13 @@ exports[`Search renders correctly when disabled 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -153,15 +149,13 @@ exports[`Search renders correctly when underline 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -185,15 +179,13 @@ exports[`Search renders correctly when underline 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -258,15 +250,13 @@ exports[`Search renders correctly with className 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -290,15 +280,13 @@ exports[`Search renders correctly with className 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -363,13 +351,12 @@ exports[`Search renders correctly with icon 1`] = `
         tabIndex={-1}
       >
         <span
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"
-          tabIndex={0}
         />
       </div>
       <div
@@ -384,15 +371,13 @@ exports[`Search renders correctly with icon 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -457,15 +442,13 @@ exports[`Search renders correctly with id 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -489,15 +472,13 @@ exports[`Search renders correctly with id 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -591,15 +572,13 @@ exports[`Search renders correctly with loading 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -623,15 +602,13 @@ exports[`Search renders correctly with loading 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -696,15 +673,13 @@ exports[`Search renders correctly with placeholder 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -728,15 +703,13 @@ exports[`Search renders correctly with placeholder 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -801,15 +774,13 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -833,13 +804,12 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         tabIndex={-1}
       >
         <span
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"
-          tabIndex={0}
         />
       </div>
     </div>
@@ -895,15 +865,13 @@ exports[`Search renders correctly with underline type 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -927,15 +895,13 @@ exports[`Search renders correctly with underline type 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1000,15 +966,13 @@ exports[`Search renders correctly with validation 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1032,15 +996,13 @@ exports[`Search renders correctly with validation 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1105,15 +1067,13 @@ exports[`Search renders correctly with value 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1137,15 +1097,13 @@ exports[`Search renders correctly with value 1`] = `
         tabIndex={0}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1210,15 +1168,13 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1242,15 +1198,13 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1315,15 +1269,13 @@ exports[`Search renders correctly without props 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1347,15 +1299,13 @@ exports[`Search renders correctly without props 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
+          aria-hidden={true}
+          aria-label=""
           className="icon icon noFocusStyle"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
