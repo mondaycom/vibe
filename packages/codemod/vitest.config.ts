@@ -9,6 +9,9 @@ export default defineConfig({
     clearMocks: true,
     typecheck: {
       enabled: true
+    },
+    onConsoleLog(log) {
+      if (log.includes("@vibe/codemod")) return false;
     }
   }
 });

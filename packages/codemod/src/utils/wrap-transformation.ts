@@ -5,8 +5,9 @@ export default function wrapTransformation(transform: (context: TransformationCo
   return (file, api) => {
     const j = api.jscodeshift;
     const root = j(file.source);
+    const filePath = file.path;
 
-    transform({ j, root });
+    transform({ j, root, filePath });
 
     return root.toSource();
   };
