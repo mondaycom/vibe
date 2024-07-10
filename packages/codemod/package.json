@@ -6,10 +6,12 @@
   "author": "monday.com",
   "license": "MIT",
   "scripts": {
+    "test": "vitest",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "yarn lint -- --fix"
   },
   "dependencies": {
+    "chalk": "^5.3.0",
     "jscodeshift": "^0.16.0"
   },
   "devDependencies": {
