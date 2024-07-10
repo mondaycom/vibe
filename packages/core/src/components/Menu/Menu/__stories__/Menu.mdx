@@ -1,10 +1,9 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 import {
   COMBOBOX,
   DROPDOWN,
   SPLIT_BUTTON
 } from "../../../../storybook/components/related-components/component-description-map";
-import { Link } from "vibe-storybook-components";
 import {
   ComponentRuleDefaultWidth,
   ComponentRuleLargeWidth,
@@ -112,9 +111,9 @@ Grid menu items are navigable with a keyboard as well
 
 ### Menu on dark theme
 
-On dark theme, our menus have a stroke instead of the drop shadow. This design created to enhance better visibility and differentiation between the menu layers. The stroke is added automatically while developing the feature.
+On dark theme, our menus have a stroke instead of the drop shadow. This design created to enhance better visibility and differentiation between the menu layers.
 
-<Canvas className={"dark-app-theme"} of={MenuStories.MenuOnDarkTheme} />
+<Canvas theme="dark" of={MenuStories.MenuOnDarkTheme} />
 
 ## Related components
 

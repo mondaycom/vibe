@@ -15,6 +15,7 @@ import { optionRenderer } from "./OptionRenderer";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Icon } from "../../index";
 import "./Combobox.stories.scss";
+import withDarkTheme from "../../../storybook/decorators/withDarkTheme/withDarkTheme";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,
@@ -826,6 +827,7 @@ export const ComboboxOnDarkTheme = {
       </DialogContentContainer>
     );
   },
+  decorators: [withDarkTheme],
   parameters: {
     docs: {
       liveEdit: {

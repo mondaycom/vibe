@@ -5,6 +5,7 @@ import { DialogContentContainer, Menu, MenuDivider, MenuGridItem, MenuItem, Menu
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
 import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
 import styles from "./Menu.stories.module.scss";
+import withDarkTheme from "../../../../storybook/decorators/withDarkTheme/withDarkTheme";
 
 export default {
   title: "Navigation/Menu/Menu",
@@ -84,7 +85,8 @@ export const MenuOnDarkTheme = {
         <MenuItem icon={Info} title="More info" />
       </Menu>
     </DialogContentContainer>
-  )
+  ),
+  decorators: [withDarkTheme]
 };
 
 export const MenuWithSubMenu = {
