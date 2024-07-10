@@ -1,4 +1,4 @@
-import { ASTPath, JSCodeshift, JSXIdentifier, JSXOpeningElement } from "jscodeshift";
+import { ASTPath, JSCodeshift, JSXAttribute, JSXIdentifier, JSXOpeningElement } from "jscodeshift";
 
 /**
  * Updates a prop name in a JSX element
@@ -28,4 +28,19 @@ export function isPropExists(j: JSCodeshift, elementPath: ASTPath<JSXOpeningElem
   const attributes = elementPath.node?.attributes;
   if (!attributes) return false;
   return j(elementPath).find(JSXIdentifier, { name: propName }).size() > 0;
+}
+
+/**
+ * Removes a prop from a JSX element
+ */
+export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXOpeningElement>, ...propsNames: string[]): void {
+  const attributes = elementPath.node?.attributes;
+  if (!attributes) return;
+  j(elementPath)
+    .find(JSXAttribute)
+    .forEach(attrPath => {
+      if (attrPath.node.name.type === "JSXIdentifier" && propsNames.includes(attrPath.node.name.name)) {
+        j(attrPath).remove();
+      }
+    });
 }
