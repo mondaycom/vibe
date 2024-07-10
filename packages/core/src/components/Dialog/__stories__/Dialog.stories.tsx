@@ -14,7 +14,6 @@ import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
 import { HideShowEvent } from "../../../constants/dialog";
 import { DialogProps } from "../Dialog";
-import withDarkTheme from "../../../storybook/decorators/withDarkTheme/withDarkTheme";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
@@ -652,13 +651,4 @@ export const DisableScrollWhenDialogOpen = {
   },
 
   name: "Disable scroll when dialog open"
-};
-
-export const DialogOnDarkTheme = {
-  render: () => (
-    <DialogContentContainer>
-      <ExampleContent />
-    </DialogContentContainer>
-  ),
-  decorators: [withDarkTheme]
 };

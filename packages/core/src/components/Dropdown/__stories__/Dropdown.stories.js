@@ -11,13 +11,6 @@ import { Avatar, Box, Button, DialogContentContainer, Dropdown, Flex, Label, Mod
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./Dropdown.stories.scss";
 import { fakeFetchUsers } from "./Dropdown.stories.helpers";
-import withDarkTheme from "../../../storybook/decorators/withDarkTheme/withDarkTheme";
-
-const withBottomMargin = Story => (
-  <div style={{ marginBottom: 130 }}>
-    <Story />
-  </div>
-);
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
@@ -983,20 +976,4 @@ export const DropdownValueSelection = {
     );
   },
   name: "Dropdown value selection"
-};
-
-export const DropdownOnDarkTheme = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: 1, label: "Option 1" },
-        { value: 2, label: "Option 2" },
-        { value: 3, label: "Option 3" }
-      ],
-      []
-    );
-
-    return <Dropdown placeholder="Dropdown on dark theme" options={options} className="dropdown-min-width" />;
-  },
-  decorators: [withDarkTheme, withBottomMargin]
 };
