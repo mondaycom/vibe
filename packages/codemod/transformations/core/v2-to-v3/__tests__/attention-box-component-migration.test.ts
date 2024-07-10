@@ -54,7 +54,15 @@ describe("AttentionBox component migration", () => {
   defineInlineTest(
     transform,
     {},
-    `<AttentionBox componentClassName="old-class" />`, // No import for AttentionBox
+    prependImport(`<AttentionBox componentClassName="class-one" className="class-two" />`),
+    prependImport(`<AttentionBox componentClassName="class-one" className="class-two" />`),
+    "should not change when when both 'componentClassName' and 'className' props exist"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `<AttentionBox componentClassName="old-class" />`,
     `<AttentionBox componentClassName="old-class" />`,
     "should not change when no import even if 'componentClassName' prop exists"
   );
