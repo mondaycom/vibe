@@ -6,7 +6,7 @@ exports[`Label renders correctly fill dark 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorDark withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorDark"
     data-testid="text"
   >
     <span
@@ -28,7 +28,7 @@ exports[`Label renders correctly fill negative 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorNegative withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorNegative"
     data-testid="text"
   >
     <span
@@ -50,7 +50,7 @@ exports[`Label renders correctly fill positive 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPositive withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPositive"
     data-testid="text"
   >
     <span
@@ -72,7 +72,7 @@ exports[`Label renders correctly fill primary 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
     data-testid="text"
   >
     <span
@@ -94,7 +94,7 @@ exports[`Label renders correctly line dark 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorDark withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorDark"
     data-testid="text"
   >
     <span
@@ -116,7 +116,7 @@ exports[`Label renders correctly line negative 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorNegative withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorNegative"
     data-testid="text"
   >
     <span
@@ -138,7 +138,7 @@ exports[`Label renders correctly line positive 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPositive withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPositive"
     data-testid="text"
   >
     <span
@@ -160,7 +160,7 @@ exports[`Label renders correctly line primary 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
     data-testid="text"
   >
     <span
@@ -182,7 +182,7 @@ exports[`Label renders correctly line with className 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
     data-testid="text"
   >
     <span
@@ -204,7 +204,7 @@ exports[`Label renders correctly line with leg 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation withLeg"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withLeg"
     data-testid="text"
   >
     <span
@@ -261,7 +261,7 @@ exports[`Label renders correctly with empty props 1`] = `
   data-testid="label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
     data-testid="text"
   >
     <span
