@@ -109,6 +109,7 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   searchIcon?: SubIcon;
   searchInputAriaLabel?: string;
+  debounceRate?: number;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -151,7 +152,8 @@ const Combobox: React.FC<ComboboxProps> & {
       maxOptionsWithoutScroll,
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      debounceRate = 400
     },
     ref
   ) => {
@@ -305,6 +307,7 @@ const Combobox: React.FC<ComboboxProps> & {
             ariaExpanded={hasFilter || hasResults}
             ariaHasPopup="listbox"
             searchResultsContainerId={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
+            debounceRate={debounceRate}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
