@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.119.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.1...monday-ui-react-core@2.119.0) (2024-07-10)
+
+
+### Bug Fixes
+
+* **Table:** hover cell background var should be declared inside the table selector and not on :root ([#2219](https://github.com/mondaycom/vibe/issues/2219)) ([33b47ab](https://github.com/mondaycom/vibe/commit/33b47abe3b7707846f758c6bdf0efff42b9dfda8))
+
+
+### Features
+
+* **Combobox:** add debounceRate prop ([#2220](https://github.com/mondaycom/vibe/issues/2220)) ([a6053dd](https://github.com/mondaycom/vibe/commit/a6053dd36e80d1894f3bb42cad89c6d64beb780b))
+
+
+
+
+
 ## [2.118.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.0...monday-ui-react-core@2.118.1) (2024-07-04)
 
 **Note:** Version bump only for package monday-ui-react-core
