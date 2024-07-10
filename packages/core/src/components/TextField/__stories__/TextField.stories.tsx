@@ -69,6 +69,7 @@ export const States: Story = {
         <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
         <TextField
           placeholder="With clickable icon"
+          iconTooltipContent="Copy"
           iconName={Duplicate}
           onIconClick={() => {}}
           size={TextField.sizes.MEDIUM}

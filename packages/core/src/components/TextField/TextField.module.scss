@@ -111,6 +111,10 @@
   border-radius: 0 !important;
 }
 
+.textField .inputWrapper .tooltipContainer {
+  display: flex;
+}
+
 .textField .inputWrapper .iconContainer {
   position: absolute;
   top: 50%;
@@ -125,24 +129,6 @@
   opacity: 0;
   pointer-events: none;
 }
-
-.textField .inputWrapper .tooltipContainer {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 32px;
-  height: 20px;
-  transform: translateY(-50%);
-}
-
-.textField .inputWrapper.wrapperSizeMedium .tooltipContainer {
-  width: 40px;
-}
-
-.textField .inputWrapper.wrapperSizeLarge .tooltipContainer {
-  width: 46px;
-}
-
 
 .textField .inputWrapper .iconContainer {
   -webkit-appearance: none;

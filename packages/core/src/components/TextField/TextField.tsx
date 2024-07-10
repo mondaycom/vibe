@@ -102,6 +102,7 @@ export interface TextFieldProps extends VibeComponentProps {
    */
   controlled?: boolean;
   iconTooltipContent?: string;
+  secondaryTooltipContent?: string;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -156,7 +157,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       name,
       withReadOnlyStyle,
       controlled = false,
-      iconTooltipContent = ""
+      iconTooltipContent = "",
+      secondaryTooltipContent = ""
     },
     ref
   ) => {
@@ -246,7 +248,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
-    const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
+    const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -260,6 +262,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
     const primaryIconLabel = iconsNames.primary || iconTooltipContent;
+    const secondaryIconLabel = iconsNames.secondary || secondaryTooltipContent;
 
     return (
       <div
@@ -319,33 +322,41 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               </div>
             )}
 
-            <Tooltip
-              content={iconTooltipContent}
-              addKeyboardHideShowTriggersByDefault
-              referenceWrapperClassName={styles.tooltipContainer}
+            <Clickable
+              className={cx(styles.iconContainer, {
+                [styles.iconContainerHasIcon]: hasIcon,
+                [styles.iconContainerActive]: isPrimary,
+                [styles.iconContainerClickable]: isIconContainerClickable
+              })}
+              onClick={onIconClickCallback}
+              tabIndex={
+                (onIconClick !== NOOP || iconsNames.primary) &&
+                !iconTooltipContent &&
+                inputValue &&
+                iconName.length &&
+                isPrimary
+                  ? "0"
+                  : "-1"
+              }
             >
-              <Clickable
-                className={cx(styles.iconContainer, {
-                  [styles.iconContainerHasIcon]: hasIcon,
-                  [styles.iconContainerActive]: isPrimary,
-                  [styles.iconContainerClickable]: isIconContainerClickable
-                })}
-                onClick={onIconClickCallback}
-                tabIndex={
-                  (onIconClick !== NOOP || primaryIconLabel) && inputValue && iconName.length && isPrimary ? "0" : "-1"
-                }
-              >
-                <Icon
-                  icon={iconName}
-                  className={cx(styles.icon)}
-                  clickable={false}
-                  iconLabel={primaryIconLabel}
-                  iconType={Icon.type.ICON_FONT}
-                  ignoreFocusStyle
-                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-                />
-              </Clickable>
-            </Tooltip>
+              {isPrimary && (
+                <Tooltip
+                  content={iconTooltipContent}
+                  addKeyboardHideShowTriggersByDefault
+                  referenceWrapperClassName={styles.tooltipContainer}
+                >
+                  <Icon
+                    icon={iconName}
+                    className={cx(styles.icon)}
+                    clickable={false}
+                    iconLabel={primaryIconLabel}
+                    iconType={Icon.type.ICON_FONT}
+                    ignoreFocusStyle={!iconTooltipContent}
+                    iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  />
+                </Tooltip>
+              )}
+            </Clickable>
             <Clickable
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
@@ -356,15 +367,23 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
               data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
-              <Icon
-                icon={secondaryIconName}
-                className={cx(styles.icon)}
-                clickable={false}
-                iconLabel={iconsNames.secondary}
-                iconType={Icon.type.ICON_FONT}
-                ignoreFocusStyle
-                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-              />
+              {isSecondary && (
+                <Tooltip
+                  content={secondaryTooltipContent}
+                  addKeyboardHideShowTriggersByDefault
+                  referenceWrapperClassName={styles.tooltipContainer}
+                >
+                  <Icon
+                    icon={secondaryIconName}
+                    className={cx(styles.icon)}
+                    clickable={false}
+                    iconLabel={secondaryIconLabel}
+                    iconType={Icon.type.ICON_FONT}
+                    ignoreFocusStyle={!secondaryTooltipContent}
+                    iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  />
+                </Tooltip>
+              )}
             </Clickable>
           </div>
           {shouldShowExtraText && (
