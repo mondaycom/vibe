@@ -152,7 +152,8 @@ const Combobox: React.FC<ComboboxProps> & {
       maxOptionsWithoutScroll,
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      debounceRate
     },
     ref
   ) => {
