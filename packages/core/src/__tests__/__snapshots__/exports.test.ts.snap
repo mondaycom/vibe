@@ -115,8 +115,6 @@ exports[`exports should export all components 1`] = `
 
 exports[`exports should export next all components 1`] = `
 [
-  "ColorPickerContentExperimental",
-  "ColorPickerExperimental",
   "EditableHeading",
   "Heading",
   "Search",
