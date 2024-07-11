@@ -1166,7 +1166,16 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
-      />
+      >
+        <span
+          aria-hidden={true}
+          aria-label=""
+          className="icon icon noFocusStyle fa fa-star"
+          data-testid="icon"
+          onClick={[Function]}
+          role="img"
+        />
+      </div>
     </div>
   </div>
 </div>

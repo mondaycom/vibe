@@ -339,23 +339,21 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   : "-1"
               }
             >
-              {isPrimary && (
-                <Tooltip
-                  content={iconTooltipContent}
-                  addKeyboardHideShowTriggersByDefault
-                  referenceWrapperClassName={styles.tooltipContainer}
-                >
-                  <Icon
-                    icon={iconName}
-                    className={cx(styles.icon)}
-                    clickable={false}
-                    iconLabel={primaryIconLabel}
-                    iconType={Icon.type.ICON_FONT}
-                    ignoreFocusStyle={!iconTooltipContent}
-                    iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-                  />
-                </Tooltip>
-              )}
+              <Tooltip
+                content={isPrimary ? iconTooltipContent : undefined}
+                addKeyboardHideShowTriggersByDefault
+                referenceWrapperClassName={styles.tooltipContainer}
+              >
+                <Icon
+                  icon={iconName}
+                  className={cx(styles.icon)}
+                  clickable={false}
+                  iconLabel={primaryIconLabel}
+                  iconType={Icon.type.ICON_FONT}
+                  ignoreFocusStyle={!iconTooltipContent}
+                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                />
+              </Tooltip>
             </Clickable>
             <Clickable
               className={cx(styles.iconContainer, {
@@ -367,23 +365,21 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
               data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
-              {isSecondary && (
-                <Tooltip
-                  content={secondaryTooltipContent}
-                  addKeyboardHideShowTriggersByDefault
-                  referenceWrapperClassName={styles.tooltipContainer}
-                >
-                  <Icon
-                    icon={secondaryIconName}
-                    className={cx(styles.icon)}
-                    clickable={false}
-                    iconLabel={secondaryIconLabel}
-                    iconType={Icon.type.ICON_FONT}
-                    ignoreFocusStyle={!secondaryTooltipContent}
-                    iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-                  />
-                </Tooltip>
-              )}
+              <Tooltip
+                content={isSecondary ? secondaryTooltipContent : undefined}
+                addKeyboardHideShowTriggersByDefault
+                referenceWrapperClassName={styles.tooltipContainer}
+              >
+                <Icon
+                  icon={secondaryIconName}
+                  className={cx(styles.icon)}
+                  clickable={false}
+                  iconLabel={secondaryIconLabel}
+                  iconType={Icon.type.ICON_FONT}
+                  ignoreFocusStyle={!secondaryTooltipContent}
+                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                />
+              </Tooltip>
             </Clickable>
           </div>
           {shouldShowExtraText && (
