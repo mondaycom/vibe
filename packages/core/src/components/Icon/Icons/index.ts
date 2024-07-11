@@ -176,6 +176,7 @@ export {default as Pin} from './components/Pin';
 export {default as Placeholder} from './components/Placeholder';
 export {default as Play} from './components/Play';
 export {default as Print} from './components/Print';
+export {default as Prompt} from './components/Prompt';
 export {default as PushNotification} from './components/PushNotification';
 export {default as Quote} from './components/Quote';
 export {default as Radio} from './components/Radio';
