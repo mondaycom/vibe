@@ -38,11 +38,6 @@
   display: inline-flex;
 }
 
-.withAnimation {
-  animation: label-spin-in-emphasized var(--motion-expressive-short) var(--motion-timing-emphasize);
-  transform-origin: bottom left;
-}
-
 .kindFill {
   &.colorPrimary {
     background-color: var(--primary-color);
@@ -156,8 +151,4 @@
   .smallText {
     line-height: 14px;
   }
-}
-
-@include keyframe(label-spin-in-emphasized) {
-  @include spin-in-emphasized();
 }
