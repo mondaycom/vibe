@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "ItemHeightSingle",
+      file: "ItemHeightSingle.svg",
+      description: "Item height single spacing",
+      tags: "Height, Item, Line, Single"
+  },
+
+  {
     name: "ItemHeightDouble",
     file: "ItemHeightDouble.svg",
     description: "Item height double spacing",
