@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.120.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.119.0...monday-ui-react-core@2.120.0) (2024-07-14)
+
+
+### Bug Fixes
+
+* **Combobox:** spacings in categories ([#2223](https://github.com/mondaycom/vibe/issues/2223)) ([1ffe75d](https://github.com/mondaycom/vibe/commit/1ffe75d6fee9bdeb240734f6c7a89664346f5797))
+
+
+### Features
+
+* **icons:** Add Item Height Double Icon ([#2227](https://github.com/mondaycom/vibe/issues/2227)) ([42b3f1f](https://github.com/mondaycom/vibe/commit/42b3f1f899528fbaa89d328eabcc4c6e13604c1f))
+* **icons:** Add Item Height Single Icon ([#2228](https://github.com/mondaycom/vibe/issues/2228)) ([32dc7c2](https://github.com/mondaycom/vibe/commit/32dc7c2c49715670d2e87d8095ee3830154cea20))
+* **icons:** Add Prompt icon ([#2222](https://github.com/mondaycom/vibe/issues/2222)) ([eeff132](https://github.com/mondaycom/vibe/commit/eeff13295730eef13f92c5d7d7f6ea95c361af9b))
+
+
+
+
+
 # [2.119.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.1...monday-ui-react-core@2.119.0) (2024-07-10)
 
 
