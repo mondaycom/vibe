@@ -28,6 +28,7 @@
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
+- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop
 
 ### Box
 
