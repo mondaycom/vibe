@@ -28,6 +28,7 @@
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
+- `children` prop is mandatory
 
 ### Box
 
