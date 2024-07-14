@@ -112,7 +112,20 @@
 }
 
 .textField .inputWrapper .tooltipContainer {
-  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 32px;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.textField .inputWrapper.wrapperSizeMedium .tooltipContainer {
+  width: 40px;
+}
+
+.textField .inputWrapper.wrapperSizeLarge .tooltipContainer {
+  width: 46px;
 }
 
 .textField .inputWrapper .iconContainer {

@@ -113,7 +113,7 @@ const LegacySearch: VibeComponent<SearchProps, unknown> & {
         role="search"
         loading={loading}
         underline={type === SearchType.UNDERLINE}
-        iconsNames={{ layout: "", primary: "search", secondary: "Clear Search" }}
+        iconsNames={iconNames}
       />
     );
   }
