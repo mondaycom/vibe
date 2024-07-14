@@ -28,3 +28,42 @@ export const DEFAULT_COLOR = "#000000";
 export type ColorPickerValueOnly = CONTENT_COLORS_VALUES | string;
 export type ColorPickerArrayValueOnly = CONTENT_COLORS_VALUES[] | string[];
 export type ColorPickerValue = ColorPickerValueOnly | ColorPickerArrayValueOnly;
+
+export const DEFAULT_COLORS = [
+  "grass_green",
+  "done-green",
+  "bright-green",
+  "saladish",
+  "egg_yolk",
+  "working_orange",
+  "teal",
+  "aquamarine",
+  "tan",
+  "coffee",
+  "dark-orange",
+  "sunset",
+  "navy",
+  "chili-blue",
+  "river",
+  "dark-red",
+  "stuck-red",
+  "sofia_pink",
+  "dark-blue",
+  "bright-blue",
+  "berry",
+  "purple",
+  "orchid",
+  "lipstick",
+  "royal",
+  "dark_indigo",
+  "indigo",
+  "lavender",
+  "bubble",
+  "peach",
+  "blackish",
+  "pecan",
+  "american_gray",
+  "explosive",
+  "winter",
+  "lilac"
+];

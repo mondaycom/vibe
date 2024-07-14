@@ -1,0 +1,75 @@
+.hexColorPicker {
+  :global(.react-colorful) {
+    width: auto;
+    height: 150px;
+  }
+
+  :global(.react-colorful__saturation) {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-bottom: none;
+  }
+
+  :global(.react-colorful__hue) {
+    height: 15px;
+    border-radius: 8px;
+  }
+
+  :global(.react-colorful__hue-pointer) {
+    width: 15px;
+    height: 15px;
+  }
+
+  :global(.react-colorful__saturation-pointer) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.materialPicker {
+  .material-picker {
+    box-shadow: none;
+  }
+}
+
+.materialPicker * {
+  box-shadow: inherit !important;
+  background: inherit !important;
+}
+
+.defaultColorsBar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-bottom: 4px;
+}
+
+.customColorsBar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.optionsBar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: end;
+}
+
+.optionsBarEdit {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+

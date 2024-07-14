@@ -27,16 +27,18 @@ export const Overview = {
   name: "Overview"
 };
 
-const handleSave = (value: ColorPickerArrayValueOnly) => console.log(value);
+const handleSave = (value: string[]) => console.log(value);
 
 export const CustomColorPicker = {
   render: colorPickerTemplate.bind({}),
   args: {
-    extendCustomHexColors: true,
-    numberOfColorsInLine: 6,
-    colorsList: ["#ce7e00", "#8fce00", "#2986cc"],
+    value: "done-green",
     SelectedIndicatorIcon: Check,
-    value: "done-green"
+    showColorNameTooltip: true,
+    numberOfColorsInLine: 6,
+    allowCustomColors: true,
+    customColorsLimit: 5,
+    onCustomColorsSave: handleSave
   },
   name: "Custom color Picker"
 };

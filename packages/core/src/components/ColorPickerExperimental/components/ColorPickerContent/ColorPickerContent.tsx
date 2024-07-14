@@ -1,4 +1,4 @@
-import { difference as _difference, intersection as _intersection } from "lodash-es";
+import { difference as _difference, intersection as _intersection, isEmpty } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import { BaseSizes } from "../../../../constants";
 import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
@@ -9,7 +9,8 @@ import {
   ColorPickerValue,
   ColorPickerArrayValueOnly,
   Actions,
-  DEFAULT_COLOR
+  DEFAULT_COLOR,
+  DEFAULT_COLORS
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
@@ -46,6 +47,9 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   numberOfColorsInLine?: number;
   focusOnMount?: boolean;
   isMultiselect?: boolean;
+  customColorsList?: string[];
+  customColorsLimit?: number;
+  onCustomColorsChange?: (value: string[]) => void;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
@@ -56,7 +60,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
    * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
    */
   showColorNameTooltip?: boolean;
-  extendCustomHexColors?: boolean;
+  allowCustomColors?: boolean;
 }
 
 const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
@@ -90,7 +94,10 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       showColorNameTooltip,
       id,
       "data-testid": dataTestId,
-      extendCustomHexColors = false
+      allowCustomColors = false,
+      customColorsList,
+      customColorsLimit,
+      onCustomColorsChange
     },
     ref
   ) => {
@@ -106,6 +113,9 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     const colorsToRender = useMemo(() => {
       if (forceUseRawColorList) {
         return colorsList;
+      }
+      if (allowCustomColors && isEmpty(colorsList)) {
+        return [...DEFAULT_COLORS];
       }
       return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
     }, [forceUseRawColorList, isBlackListMode, colorsList]);
@@ -137,7 +147,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     const [selectedColor, setSelectedColor] = useState<string>(DEFAULT_COLOR);
     const [editedColor, setEditedColor] = useState<string>(DEFAULT_COLOR);
     const [isEditing, setIsEditing] = useState(false);
-    const [customColors, setCustomColors] = useState<string[]>(colorsList);
+    const [customColors, setCustomColors] = useState<string[]>(customColorsList);
 
     const toggleEditingMode = () => {
       setIsEditing(prevState => !prevState);
@@ -150,22 +160,28 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       setShouldShowGeneralPicker(true);
     }, []);
 
-    const handleColorChange = (color: { hex: React.SetStateAction<string> }) => {
-      setSelectedColor(color.hex);
+    const handleColorChange = (color: string) => {
+      setSelectedColor(color);
     };
 
     const closeGeneralColorPicker = (action?: Actions) => {
       setCustomColors(currentColors => {
+        let updatedColors;
         switch (action) {
           case Actions.ADD:
-            return currentColors.includes(selectedColor) ? currentColors : [...currentColors, selectedColor];
+            updatedColors = currentColors.includes(selectedColor) ? currentColors : [...currentColors, selectedColor];
+            break;
           case Actions.EDIT:
-            return currentColors.map(color => (color === editedColor ? selectedColor : color));
+            updatedColors = currentColors.map(color => (color === editedColor ? selectedColor : color));
+            break;
           case Actions.DELETE:
-            return currentColors.filter(color => color !== editedColor);
+            updatedColors = currentColors.filter(color => color !== editedColor);
+            break;
           default:
-            return currentColors;
+            updatedColors = currentColors;
         }
+        onCustomColorsChange(updatedColors);
+        return updatedColors;
       });
       setIsEditing(false);
       setShouldShowGeneralPicker(false);
@@ -185,7 +201,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 
     const DefaultColorsBar = () => (
       <div className={cx(styles.defaultColorsBar)}>
-        <Text type={TextType.TEXT1} color={Text.colors.SECONDARY}>
+        <Text type={TextType.TEXT2} color={Text.colors.SECONDARY}>
           {"Default colors"}
         </Text>
       </div>
@@ -211,7 +227,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       );
       return (
         <div className={cx(styles.customColorsBar)}>
-          <Text type={TextType.TEXT1} color={Text.colors.SECONDARY}>
+          <Text type={TextType.TEXT2} color={Text.colors.SECONDARY}>
             {isEditing ? "Edit custom colors" : "Custom colors"}
           </Text>
           {isEditing ? doneButton : editButton}
@@ -221,7 +237,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 
     const colorPickerGrid = (
       <>
-        {extendCustomHexColors && <DefaultColorsBar />}
+        {allowCustomColors && <DefaultColorsBar />}
         <ColorPickerColorsGrid
           ref={colorsRef}
           onColorClicked={onColorClicked}
@@ -240,11 +256,12 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
           data-testid={dataTestId}
           isDisabled={isEditing}
           isEditing={isEditing}
-          extendCustomHexColors={false}
+          allowCustomColors={false}
           customColors={customColors}
+          isDefaultGrid={allowCustomColors}
         />
-        {extendCustomHexColors && <CustomColorsBar />}
-        {extendCustomHexColors && (
+        {allowCustomColors && <CustomColorsBar />}
+        {allowCustomColors && (
           <ColorPickerColorsGrid
             ref={colorsRef}
             onColorClicked={onColorClicked}
@@ -263,8 +280,10 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
             data-testid={dataTestId}
             openGeneralPicker={openGeneralPickerWithColor}
             isEditing={isEditing}
-            extendCustomHexColors={true}
+            allowCustomColors={true}
             customColors={customColors}
+            isDefaultGrid={allowCustomColors}
+            customColorsLimit={customColorsLimit}
           />
         )}
         {noColorText && (

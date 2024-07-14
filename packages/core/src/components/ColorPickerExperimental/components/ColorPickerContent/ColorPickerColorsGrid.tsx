@@ -45,8 +45,10 @@ export interface ColorPickerColorsGridProps extends VibeComponentProps {
   isEditing?: boolean;
   isDisabled?: boolean;
   openGeneralPicker?: () => void;
-  extendCustomHexColors?: boolean;
+  allowCustomColors?: boolean;
   customColors?: string[];
+  isDefaultGrid?: boolean;
+  customColorsLimit?: number;
 }
 
 export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HTMLUListElement> = React.forwardRef(
@@ -70,8 +72,10 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       openGeneralPicker,
       isEditing,
       isDisabled,
-      extendCustomHexColors,
-      customColors
+      allowCustomColors,
+      customColors,
+      isDefaultGrid,
+      customColorsLimit
     },
     ref
   ) => {
@@ -88,7 +92,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
 
     return (
       <ul
-        className={cx(styles.colorsGrid, { [styles.extendCustomHexColors]: extendCustomHexColors })}
+        className={cx(styles.colorsGrid, { [styles.allowCustomColors]: isDefaultGrid })}
         ref={ref}
         tabIndex={-1}
         id={id}
@@ -99,13 +103,13 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
             <ColorPickerItemComponent
               key={color}
               color={color}
-              onColorClicked={extendCustomHexColors && isEditing ? openGeneralPicker : () => onSelectionAction(index)}
+              onColorClicked={allowCustomColors && isEditing ? openGeneralPicker : () => onSelectionAction(index)}
               shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
               colorStyle={colorStyle}
               ColorIndicatorIcon={ColorIndicatorIcon}
               SelectedIndicatorIcon={SelectedIndicatorIcon}
               isSelected={Array.isArray(value) ? value.includes(color) : value === color}
-              isActive={!extendCustomHexColors && index === activeIndex}
+              isActive={!allowCustomColors && index === activeIndex}
               colorSize={colorSize}
               tooltipContent={showColorNameTooltip ? calculateColorTooltip(color, tooltipContentByColor) : undefined}
               colorShape={colorShape}
@@ -114,13 +118,20 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
             />
           );
         })}
-        {extendCustomHexColors && !isEditing && (
+        {allowCustomColors && !isEditing && (
           <Tooltip
             content={
-              customColors && customColors.length >= 11 ? "You've hit the custom colors limit" : "Add custom color"
+              customColors && customColorsLimit && customColors.length >= customColorsLimit
+                ? "You've hit the custom colors limit"
+                : "Add custom color"
             }
           >
-            <IconButton icon={Add} onClick={openGeneralPicker} disabled={customColors.length >= 11} />
+            <IconButton
+              icon={Add}
+              size={colorSize}
+              onClick={openGeneralPicker}
+              disabled={customColorsLimit && customColors.length >= customColorsLimit}
+            />
           </Tooltip>
         )}
       </ul>

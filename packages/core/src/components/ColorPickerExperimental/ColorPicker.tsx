@@ -37,7 +37,10 @@ export interface ColorPickerProps extends VibeComponentProps {
   numberOfColorsInLine?: number;
   focusOnMount?: boolean;
   colorShape?: ColorShapes;
-  extendCustomHexColors?: boolean;
+  allowCustomColors?: boolean;
+  customColorsList?: string[];
+  customColorsLimit?: number;
+  onCustomColorsSave?: (value: string[]) => void;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
@@ -81,7 +84,10 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       showColorNameTooltip,
       id,
       "data-testid": dataTestId,
-      extendCustomHexColors = false
+      allowCustomColors = false,
+      customColorsList = [],
+      customColorsLimit,
+      onCustomColorsSave = NOOP
     },
     ref
   ) => {
@@ -89,6 +95,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
     const mergedRef = useMergeRef(ref, componentRef);
 
     const onChange = useCallback(onSave, [onSave]);
+    const onCustomColorsChange = useCallback(onCustomColorsSave, [onCustomColorsSave]);
 
     const width = calculateColorPickerDialogWidth(colorSize, numberOfColorsInLine);
 
@@ -120,7 +127,10 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
           showColorNameTooltip={showColorNameTooltip}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
-          extendCustomHexColors={extendCustomHexColors}
+          allowCustomColors={allowCustomColors}
+          customColorsList={customColorsList}
+          customColorsLimit={customColorsLimit}
+          onCustomColorsChange={onCustomColorsChange}
         />
       </DialogContentContainer>
     );
