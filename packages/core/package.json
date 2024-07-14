@@ -6,28 +6,34 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/src/index.js"
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
     },
     "./icons": {
       "types": "./dist/components/Icon/Icons/index.d.ts",
-      "import": "./dist/src/components/Icon/Icons/icons.js"
+      "import": "./dist/src/components/Icon/Icons/icons.js",
+      "default": "./dist/src/components/Icon/Icons/icons.js"
     },
     "./interactionsTests": {
       "types": "./dist/tests/interactions-utils.d.ts",
-      "import": "./dist/src/tests/interactionsTests.js"
+      "import": "./dist/src/tests/interactionsTests.js",
+      "default": "./dist/src/tests/interactionsTests.js"
     },
     "./testIds": {
       "types": "./dist/tests/test-ids-utils.d.ts",
-      "import": "./dist/src/tests/testIds.js"
+      "import": "./dist/src/tests/testIds.js",
+      "default": "./dist/src/tests/testIds.js"
     },
     "./next": {
       "types": "./dist/components/next/next.d.ts",
-      "import": "./dist/src/components/next/next.js"
+      "import": "./dist/src/components/next/next.js",
+      "default": "./dist/src/components/next/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./colors": "./dist/assets/colors.json",
     "./mockedClassNames": {
-      "import": "./dist/mocked_classnames/src/index.js"
+      "import": "./dist/mocked_classnames/src/index.js",
+      "default": "./dist/mocked_classnames/src/index.js"
     }
   },
   "typesVersions": {
