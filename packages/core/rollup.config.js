@@ -62,7 +62,8 @@ export default {
     exports: "named",
     preserveModules: true,
     preserveModulesRoot: ".",
-    sourcemap: true
+    sourcemap: true,
+    format: "esm"
   },
   input: {
     index: path.join(SRC_PATH, "index.ts"),
