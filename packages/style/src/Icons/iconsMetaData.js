@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Prompt",
+      file: "Prompt.svg",
+      description: "Indicates a type of AI action - Custom prompt and for general prompt",
+      tags: "AI, custom, prompt, text"
+  },
+
+  {
     name: "Heart",
     file: "Heart.svg",
     description: "Heart",
