@@ -1,6 +1,6 @@
 import chalk from "chalk";
 /**
- * Logs a warning message about the usage of both deprecated and new props in same component.
+ * Logs an error message about the usage of both deprecated and new props in same component with different values.
  */
 export function logPropMigrationError(
   filePath: string,
@@ -10,8 +10,8 @@ export function logPropMigrationError(
 ): void {
   const message =
     `${packageName()} ${error()} ${componentNameStyle(componentName)} in ${filePathStyle(filePath || "path/to/file")} uses both ` +
-    `${deprecatedPropNameStyle(deprecatedPropName)} and ${newPropNameStyle(newPropName)}. ` +
-    `Skipping update. Please review this usage and refer to the migration guide for further instructions.`;
+    `${deprecatedPropNameStyle(deprecatedPropName)} and ${newPropNameStyle(newPropName)}, with different values. ` +
+    `\n\t\tSkipping migration. Please review this usage and refer to the migration guide for further instructions.`;
 
   console.error(message);
 }
