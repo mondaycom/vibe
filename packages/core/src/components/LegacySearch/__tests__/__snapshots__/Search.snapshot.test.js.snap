@@ -37,6 +37,7 @@ exports[`Search renders correctly when disabled 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -48,15 +49,12 @@ exports[`Search renders correctly when disabled 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -69,6 +67,7 @@ exports[`Search renders correctly when disabled 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -80,15 +79,12 @@ exports[`Search renders correctly when disabled 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -99,6 +95,7 @@ exports[`Search renders correctly when disabled 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -142,6 +139,7 @@ exports[`Search renders correctly when underline 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -153,15 +151,12 @@ exports[`Search renders correctly when underline 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -174,6 +169,7 @@ exports[`Search renders correctly when underline 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -185,15 +181,12 @@ exports[`Search renders correctly when underline 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -204,6 +197,7 @@ exports[`Search renders correctly when underline 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -247,6 +241,7 @@ exports[`Search renders correctly with className 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -258,15 +253,12 @@ exports[`Search renders correctly with className 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -279,6 +271,7 @@ exports[`Search renders correctly with className 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -290,15 +283,12 @@ exports[`Search renders correctly with className 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -309,6 +299,7 @@ exports[`Search renders correctly with className 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -352,6 +343,7 @@ exports[`Search renders correctly with icon 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -363,16 +355,15 @@ exports[`Search renders correctly with icon 1`] = `
         tabIndex={-1}
       >
         <span
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle fa fa-star"
+          aria-hidden={true}
+          className="icon icon fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"
-          tabIndex={0}
         />
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -384,15 +375,12 @@ exports[`Search renders correctly with icon 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -403,6 +391,7 @@ exports[`Search renders correctly with icon 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -446,6 +435,7 @@ exports[`Search renders correctly with id 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -457,15 +447,12 @@ exports[`Search renders correctly with id 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -478,6 +465,7 @@ exports[`Search renders correctly with id 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_testId"
         onClick={[Function]}
@@ -489,15 +477,12 @@ exports[`Search renders correctly with id 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -508,6 +493,7 @@ exports[`Search renders correctly with id 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -580,6 +566,7 @@ exports[`Search renders correctly with loading 1`] = `
         </div>
       </div>
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -591,15 +578,12 @@ exports[`Search renders correctly with loading 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -612,6 +596,7 @@ exports[`Search renders correctly with loading 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -623,15 +608,12 @@ exports[`Search renders correctly with loading 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -642,6 +624,7 @@ exports[`Search renders correctly with loading 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -685,6 +668,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -696,15 +680,12 @@ exports[`Search renders correctly with placeholder 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -717,6 +698,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -728,15 +710,12 @@ exports[`Search renders correctly with placeholder 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -747,6 +726,7 @@ exports[`Search renders correctly with placeholder 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -790,6 +770,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -801,15 +782,12 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -822,6 +800,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -833,14 +812,13 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         tabIndex={-1}
       >
         <span
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle fa fa-star"
+          aria-hidden={true}
+          className="icon icon fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"
-          tabIndex={0}
         />
+         
       </div>
     </div>
   </div>
@@ -884,6 +862,7 @@ exports[`Search renders correctly with underline type 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -895,15 +874,12 @@ exports[`Search renders correctly with underline type 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -916,6 +892,7 @@ exports[`Search renders correctly with underline type 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -927,15 +904,12 @@ exports[`Search renders correctly with underline type 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -946,6 +920,7 @@ exports[`Search renders correctly with underline type 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -989,6 +964,7 @@ exports[`Search renders correctly with validation 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1000,15 +976,12 @@ exports[`Search renders correctly with validation 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1021,6 +994,7 @@ exports[`Search renders correctly with validation 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -1032,15 +1006,12 @@ exports[`Search renders correctly with validation 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1051,6 +1022,7 @@ exports[`Search renders correctly with validation 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -1094,6 +1066,7 @@ exports[`Search renders correctly with value 1`] = `
         value="value"
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1105,15 +1078,12 @@ exports[`Search renders correctly with value 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1126,6 +1096,7 @@ exports[`Search renders correctly with value 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -1137,15 +1108,12 @@ exports[`Search renders correctly with value 1`] = `
         tabIndex={0}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1156,6 +1124,7 @@ exports[`Search renders correctly with value 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -1199,6 +1168,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1210,15 +1180,12 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1231,6 +1198,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -1242,15 +1210,12 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1261,6 +1226,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
@@ -1304,6 +1270,7 @@ exports[`Search renders correctly without props 1`] = `
         value=""
       />
       <div
+        aria-label="Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1315,15 +1282,12 @@ exports[`Search renders correctly without props 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1336,6 +1300,7 @@ exports[`Search renders correctly without props 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Clear Search"
         className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
@@ -1347,15 +1312,12 @@ exports[`Search renders correctly without props 1`] = `
         tabIndex={-1}
       >
         <svg
-          aria-hidden={false}
-          aria-label="Clear Search"
-          className="icon icon noFocusStyle"
+          aria-hidden={true}
+          className="icon icon"
           data-testid="icon"
           fill="currentColor"
           height="18px"
           onClick={[Function]}
-          role="img"
-          tabIndex={0}
           viewBox="0 0 20 20"
           width="18px"
         >
@@ -1366,6 +1328,7 @@ exports[`Search renders correctly without props 1`] = `
             fillRule="evenodd"
           />
         </svg>
+         
       </div>
     </div>
   </div>
