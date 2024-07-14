@@ -5,10 +5,17 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Prompt",
-      file: "Prompt.svg",
-      description: "Indicates a type of AI action - Custom prompt and for general prompt",
-      tags: "AI, custom, prompt, text"
+    name: "ItemHeightDouble",
+    file: "ItemHeightDouble.svg",
+    description: "Item height double spacing",
+    tags: "Height, Item, Line, Double"
+  },
+
+  {
+    name: "Prompt",
+    file: "Prompt.svg",
+    description: "Indicates a type of AI action - Custom prompt and for general prompt",
+    tags: "AI, custom, prompt, text"
   },
 
   {
