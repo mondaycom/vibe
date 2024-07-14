@@ -11,7 +11,6 @@ import React, {
 } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Loader from "../Loader/Loader";
 import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
@@ -40,7 +39,10 @@ export interface TextFieldProps extends VibeComponentProps {
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete?: string;
   value?: string;
-  onChange?: (value: string, event: Pick<React.ChangeEvent, "target">) => void;
+  onChange?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement> | Pick<React.ChangeEvent<HTMLInputElement>, "target">
+  ) => void;
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
@@ -82,10 +84,6 @@ export interface TextFieldProps extends VibeComponentProps {
   requiredErrorText?: string;
   /** shows loading animation */
   loading?: boolean;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
@@ -145,7 +143,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       requiredErrorText = "",
       loading = false,
       requiredAsterisk = false,
-      dataTestId: backwardCompatibilityDataTestId,
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
@@ -158,10 +155,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, backwardCompatibilityDataTestId],
-      getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
-    );
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef, setRef);
 
@@ -176,11 +169,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     );
 
     const onChangeCallback = useCallback(
-      (value: string) => {
+      (value: string, e?: React.ChangeEvent<HTMLInputElement>) => {
         if (isRequiredAndEmpty && value) {
           setIsRequiredAndEmpty(false);
         }
-        onChange(value, { target: inputRef.current });
+        const event = e || { target: inputRef.current };
+        onChange(value, event);
       },
       [onChange, isRequiredAndEmpty]
     );
@@ -200,9 +194,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       return controlled ? value : uncontrolledInput;
     }, [controlled, value, uncontrolledInput]);
 
-    const handleChange = useCallback<ChangeEventHandler>(
-      (event: ChangeEvent<Partial<HTMLInputElement>>) => {
-        controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
+    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+      event => {
+        controlled ? onChangeCallback(event.target.value, event) : onEventChanged(event);
       },
       [controlled, onChangeCallback, onEventChanged]
     );
@@ -291,7 +285,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               ref={mergedRef}
               type={type}
               id={id}
-              data-testid={overrideDataTestId}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}
@@ -314,7 +308,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 })}
               >
                 <div className={cx(styles.loader)}>
-                  <Loader svgClassName={cx(styles.loaderSvg)} />
+                  <Loader className={cx(styles.loaderSvg)} />
                 </div>
               </div>
             )}
