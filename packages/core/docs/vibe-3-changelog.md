@@ -14,14 +14,18 @@
 
 ### AttentionBox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `attention-box-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Avatar
 
-- `isSquare` -> `square` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `avatar-component-migration`
 
-### BreadcrumbsItem
+- `isSquare` -> `square` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
+
+### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
 
