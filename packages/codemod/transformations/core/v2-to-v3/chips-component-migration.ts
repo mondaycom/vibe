@@ -3,10 +3,9 @@ import {
   getCoreImportsForFile,
   removeProp,
   isPropExists,
-  updatePropName,
   wrap,
   getComponentNameOrAliasFromImports,
-  logPropMigrationError
+  migratePropsNames
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
@@ -23,19 +22,12 @@ function transform({ j, root, filePath }: TransformationContext) {
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
-  elements.forEach(path => {
-    if (isPropExists(j, path, "onClick")) {
-      removeProp(j, path, "clickable", "isClickable");
+  elements.forEach(elementPath => {
+    if (isPropExists(j, elementPath, "onClick")) {
+      removeProp(j, elementPath, "clickable", "isClickable");
     }
 
-    const hasOldDataTestId = isPropExists(j, path, "dataTestId");
-    const hasNewDatatestid = isPropExists(j, path, "data-testid");
-
-    if (hasOldDataTestId && hasNewDatatestid) {
-      logPropMigrationError(filePath, componentName, "dataTestId", "data-testid");
-    } else if (hasOldDataTestId) {
-      updatePropName(path, { dataTestId: "data-testid" });
-    }
+    migratePropsNames(j, elementPath, filePath, componentName, { dataTestId: "data-testid" });
   });
 }
 

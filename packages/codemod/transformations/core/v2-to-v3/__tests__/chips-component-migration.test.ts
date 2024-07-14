@@ -117,8 +117,16 @@ describe("Chips component migration", () => {
       transform,
       {},
       prependImport(`<Chips dataTestId="test-id" data-testid="test-id" />`),
-      prependImport(`<Chips dataTestId="test-id" data-testid="test-id" />`),
-      "should not change when when both 'dataTestId' and 'data-testid' props exist and have same values"
+      prependImport(`<Chips data-testid="test-id" />`),
+      "should remove 'dataTestId' when both 'dataTestId' and 'data-testid' props exist and have same values"
+    );
+
+    defineInlineTest(
+      transform,
+      {},
+      prependImport(`<Chips dataTestId="testId" data-testid={testId} />`),
+      prependImport(`<Chips dataTestId="testId" data-testid={testId} />`),
+      "should not change when when both 'dataTestId' and 'data-testid' props exist and have different complex values"
     );
 
     defineInlineTest(
