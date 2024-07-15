@@ -18,6 +18,10 @@
     position: sticky;
     left: 0;
     box-shadow: var(--sticky-cell-box-shadow);
+
+    &:hover {
+      background: var(--sticky-cell-hover-background);
+    }
   }
 
   &:hover,
