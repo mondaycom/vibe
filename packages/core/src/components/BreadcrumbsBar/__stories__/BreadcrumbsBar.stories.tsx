@@ -86,7 +86,7 @@ export const WithIcons = {
 export const NavigatableBreadcrumbs = {
   render: () => (
     <div className="monday-storybook-breadcrumbs-bar_inline-wrapper">
-      <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+      <Avatar size="medium" src={person3} type="img" />
       <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
         <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
         <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>

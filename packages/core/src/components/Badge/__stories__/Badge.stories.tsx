@@ -74,7 +74,7 @@ export const ButtonStory = {
 export const AvatarStory = {
   render: () => (
     <Badge alignment={Badge.alignments.CIRCULAR}>
-      <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
+      <Avatar size="large" src={person} type="img" />
     </Badge>
   ),
 

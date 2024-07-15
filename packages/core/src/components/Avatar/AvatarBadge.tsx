@@ -4,7 +4,8 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
-import { AvatarSize } from "./AvatarConstants";
+import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
+import { AvatarSize } from "./Avatar.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./AvatarBadge.module.scss";
 import Icon from "../Icon/Icon";
@@ -19,22 +20,22 @@ export interface AvatarBadgeProps extends VibeComponentProps {
   ariaLabel?: string;
   tabIndex?: string | number;
   className?: string;
-  size?: string;
+  size?: AvatarSize;
 }
 
 export const AvatarBadge: React.FC<AvatarBadgeProps> & {
-  sizes?: typeof AvatarSize;
+  sizes?: typeof AvatarSizeEnum;
 } = ({
   src,
   icon,
   ariaLabel,
   tabIndex = 0,
   className,
-  size = AvatarSize.LARGE,
+  size = "large",
   id,
   "data-testid": dataTestId,
   ...otherProps
-}) => {
+}: AvatarBadgeProps) => {
   const classNames = cx(getStyle(styles, camelCase("badge--" + size)), className);
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
 
@@ -64,5 +65,5 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 };
 
 Object.assign(AvatarBadge, {
-  sizes: AvatarSize
+  sizes: AvatarSizeEnum
 });

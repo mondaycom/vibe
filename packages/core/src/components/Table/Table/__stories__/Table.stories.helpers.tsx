@@ -350,7 +350,7 @@ export const TableAvatar = ({ text }: { text: string }) => (
       .map(s => s[0])
       .join("")}
     customSize={24}
-    size={Avatar.sizes.SMALL}
+    size="small"
     ariaLabel={text}
     backgroundColor={Avatar.colors.DARK_PURPLE}
   />
