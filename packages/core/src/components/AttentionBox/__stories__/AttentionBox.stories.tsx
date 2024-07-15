@@ -16,7 +16,7 @@ import "./AttentionBox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
-  enumPropNamesArray: ["type", "iconType"],
+  enumPropNamesArray: ["iconType"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClose"]
 });
@@ -60,7 +60,7 @@ export const States = {
         <AttentionBox
           title="You're doing great"
           text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          type={AttentionBox.types.SUCCESS}
+          type="success"
           className="monday-storybook-attention-box_box"
           icon={ThumbsUp}
         />
@@ -69,7 +69,7 @@ export const States = {
         <AttentionBox
           title="Account low on free space"
           text="Your account is out of free space, free some space to prevent data loss."
-          type={AttentionBox.types.DANGER}
+          type="danger"
           className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
@@ -77,7 +77,7 @@ export const States = {
         <AttentionBox
           title="Account low on free space"
           text="Your account is out of free space, free some space to prevent data loss."
-          type={AttentionBox.types.WARNING}
+          type="warning"
           className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
@@ -85,7 +85,7 @@ export const States = {
         <AttentionBox
           title="What a great idea!"
           text="You can also make this list sortable by tagging the items with tags column"
-          type={AttentionBox.types.DARK}
+          type="dark"
           className="monday-storybook-attention-box_box"
           icon={Favorite}
         />
@@ -146,7 +146,7 @@ export const NaturalAttentionBox = {
         withIconWithoutHeader
         icon={Info}
         text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
-        type={AttentionBox.types.DARK}
+        type="dark"
       />
     </div>
   ),
