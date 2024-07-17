@@ -159,7 +159,7 @@ export const InputFieldWithPlaceholderText: Story = {
 export const RequiredInputField: Story = {
   render: () => (
     <div className="monday-storybook-text-field_column-wrapper">
-      <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} requiredAsterisk={true} />
+      <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} required />
     </div>
   ),
   name: "Required input field"
