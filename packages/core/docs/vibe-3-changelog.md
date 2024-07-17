@@ -59,6 +59,10 @@
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
 - `JustifyType` removed [codemod]
 
+### DialogContentContainer
+
+- Fix medium size spacings
+
 ### Divider
 
 - `classname` -> `className` [codemod]
