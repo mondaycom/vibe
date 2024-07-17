@@ -16,7 +16,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
-import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
 import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 

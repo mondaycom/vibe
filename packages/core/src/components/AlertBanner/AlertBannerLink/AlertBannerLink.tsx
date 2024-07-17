@@ -4,7 +4,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import React, { FC, useContext } from "react";
 import Link, { LinkProps } from "../../Link/Link";
 import styles from "./AlertBannerLink.module.scss";
-import { TypographyColor } from "../../Typography/TypographyConstants";
 import { AlertBannerContext } from "../AlertBannerContext";
 
 export interface AlertBannerLinkProps extends LinkProps {
