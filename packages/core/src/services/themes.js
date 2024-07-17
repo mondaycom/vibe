@@ -8,9 +8,10 @@ function isThemesSupported() {
   }
 }
 
-export function getCSSVar(varName) {
+export function getCSSVar(varName, fallback) {
+  const fb = fallback ? `, ${fallback}` : "";
   if (isThemesSupported()) {
-    return `var(--${varName})`;
+    return `var(--${varName}${fb})`;
   }
 }
 
