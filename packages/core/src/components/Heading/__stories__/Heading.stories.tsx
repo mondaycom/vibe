@@ -41,38 +41,68 @@ export const Overview = {
 export const TypesAndWeights = {
   render: () => (
     <Flex
-      gap={Flex.gaps.SMALL}
+      gap={Flex.gaps.LARGE}
       direction={Flex.directions.COLUMN}
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
-        Bold H1 title
-      </Heading>
-      <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
-        Normal H1 title
-      </Heading>
-      <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
-        Light H1 title
-      </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
-        Bold H2 title
-      </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
-        Normal H2 title
-      </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
-        Light H2 title
-      </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
-        Bold H3 title
-      </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
-        Normal H3 title
-      </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
-        Light H3 title
-      </Heading>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
+          Bold H1 title
+        </Heading>
+        <Heading type={Heading.types.H1} weight={Heading.weights.MEDIUM}>
+          Medium H1 title
+        </Heading>
+        <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
+          Normal H1 title
+        </Heading>
+        <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
+          Light H1 title
+        </Heading>
+      </Flex>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
+          Bold H2 title
+        </Heading>
+        <Heading type={Heading.types.H2} weight={Heading.weights.MEDIUM}>
+          Medium H2 title
+        </Heading>
+        <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+          Normal H2 title
+        </Heading>
+        <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
+          Light H2 title
+        </Heading>
+      </Flex>
+      <Flex
+        gap={Flex.gaps.SMALL}
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
+          Bold H3 title
+        </Heading>
+        <Heading type={Heading.types.H3} weight={Heading.weights.MEDIUM}>
+          Medium H3 title
+        </Heading>
+        <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
+          Normal H3 title
+        </Heading>
+        <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
+          Light H3 title
+        </Heading>
+      </Flex>
     </Flex>
   ),
 
