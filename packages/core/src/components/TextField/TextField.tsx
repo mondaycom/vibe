@@ -81,7 +81,6 @@ export interface TextFieldProps extends VibeComponentProps {
   requiredErrorText?: string;
   /** shows loading animation */
   loading?: boolean;
-  requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
   name?: string;
@@ -139,7 +138,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       required = false,
       requiredErrorText = "",
       loading = false,
-      requiredAsterisk = false,
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
@@ -260,7 +258,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             icon={labelIconName}
             iconLabel={iconsNames.layout}
             labelFor={id}
-            requiredAsterisk={requiredAsterisk}
+            required={required}
           />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}

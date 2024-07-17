@@ -26,6 +26,7 @@ export interface AccordionItemProps extends VibeComponentProps {
   headerClassName?: string;
   contentClassName?: string;
   expandCollapseComponentClassName?: string;
+  captureOnClick?: boolean;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
@@ -42,7 +43,8 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       hideBorder = false,
       headerClassName,
       contentClassName,
-      expandCollapseComponentClassName
+      expandCollapseComponentClassName,
+      captureOnClick = true
     },
     ref
   ) => {
@@ -67,6 +69,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
           componentClassName={expandCollapseComponentClassName}
           headerClassName={headerClassName}
           contentClassName={contentClassName}
+          captureOnClick={captureOnClick}
         >
           {children}
         </ExpandCollapse>
