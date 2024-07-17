@@ -113,12 +113,12 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       return (
         <YearPicker
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_YEAR_SELECTION, id)}
-          selectedDate={overrideDateForView}
+          selectedDate={focusedDate}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
       );
-    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, overrideDateForView, id]);
+    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, focusedDate, id]);
 
     const onDateRangeChange = useCallback(
       (date: RangeDate) => {
