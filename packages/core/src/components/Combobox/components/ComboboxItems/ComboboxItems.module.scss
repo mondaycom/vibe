@@ -10,8 +10,11 @@
   margin-top: var(--spacing-small);
 }
 
-.firstCategory {
-  padding-top: 0;
+.categoryWithOptions,
+.categoryWithoutOptions {
+  &.firstCategory {
+    padding-top: 0;
+  }
 }
 
 .categoryWithOptions {

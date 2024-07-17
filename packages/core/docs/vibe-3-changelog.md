@@ -154,6 +154,7 @@
 - `showDelay` changed default to 100
 - `justify` removed [codemod]
 - `justifyTypes` removed [codemod]
+- `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 
 ### TipseenContent
 

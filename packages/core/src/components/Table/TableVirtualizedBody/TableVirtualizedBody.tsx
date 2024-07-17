@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useCallback, useEffect } from "react";
+import React, { ComponentType, forwardRef, UIEventHandler, useCallback, useEffect } from "react";
 import { VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
@@ -9,6 +9,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer, { Size as AutoSizerSize } from "react-virtualized-auto-sizer";
+import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 
 export type TableVirtualizedRows = Array<Record<string, unknown> & { id: string }>;
 export type TableVirtualizedRow = TableVirtualizedRows[number];
@@ -25,6 +26,15 @@ const TableVirtualizedBody = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
+    const { resetHoveredRow } = useTableRowMenu();
+
+    const onAutoSizerScroll = useCallback<UIEventHandler<HTMLDivElement>>(
+      e => {
+        resetHoveredRow();
+        onVirtualizedListScroll(e);
+      },
+      [resetHoveredRow, onVirtualizedListScroll]
+    );
 
     useEffect(() => {
       markTableAsVirtualized();
@@ -42,7 +52,7 @@ const TableVirtualizedBody = forwardRef(
       [items, rowRenderer]
     );
 
-    const handleOnScroll = useCallback(
+    const handleVirtualizedVerticalScroll = useCallback(
       ({
         scrollDirection,
         scrollOffset,
@@ -65,14 +75,14 @@ const TableVirtualizedBody = forwardRef(
         ref={ref}
       >
         {items?.length && (
-          <AutoSizer onScroll={onVirtualizedListScroll}>
+          <AutoSizer onScroll={onAutoSizerScroll}>
             {({ height, width }: AutoSizerSize) => (
               <List
                 itemSize={RowHeights[size]}
                 height={height}
                 itemCount={items.length}
                 width={width}
-                onScroll={handleOnScroll}
+                onScroll={handleVirtualizedVerticalScroll}
                 outerRef={element => {
                   virtualizedListRef.current = element;
                 }}
