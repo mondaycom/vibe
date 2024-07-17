@@ -35,6 +35,7 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
           data-testid={`${dateTestId}-year-toggle`}
           type="button"
           className={styles.button}
+          aria-label="Toggle select year"
           onClick={onToggleMonthYearPicker}
         >
           <div className={styles.buttonContent}>
