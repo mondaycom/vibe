@@ -31,8 +31,8 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
       <Link
         {...linkProps}
         textClassName={cx(styles.bannerLink, {
-          [styles.bannerLinkTextColorOnPrimary]: textColor === TypographyColor.ON_PRIMARY,
-          [styles.bannerLinkTextColorOnInverted]: textColor === TypographyColor.ON_INVERTED
+          [styles.bannerLinkTextColorOnPrimary]: textColor === "onPrimary",
+          [styles.bannerLinkTextColorOnInverted]: textColor === "onInverted"
         })}
       />
     </div>

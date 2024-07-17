@@ -6,7 +6,7 @@ export const HeadingDescription = () => {
   const component = useMemo(() => {
     return (
       <div>
-        <Heading type={Heading.types.H2}>Hello world</Heading>
+        <Heading type="h2">Hello world</Heading>
       </div>
     );
   }, []);

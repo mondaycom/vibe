@@ -71,7 +71,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         >
           {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
           {
-            <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
+            <Text type="text2" weight="medium" color="secondary">
               {title}
             </Text>
           }

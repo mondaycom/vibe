@@ -1,9 +1,8 @@
-import { TextType } from "../Text/TextConstants";
-import Text from "../Text/Text";
+import { TextType } from "../Text/Text.types";
 
 export type Sizes = "small" | "medium";
 
 export const mapSizesToTextSize: Record<Sizes, TextType> = {
-  small: Text.types.TEXT3,
-  medium: Text.types.TEXT2
+  small: "text3",
+  medium: "text2"
 };

@@ -47,13 +47,13 @@ export const SizesAndWeights = {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+        <Text type="text1" weight="bold">
           This is text1 bold
         </Text>
-        <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
+        <Text type="text1" weight="medium">
           This is text1 medium
         </Text>
-        <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+        <Text type="text1" weight="normal">
           This is text1 normal
         </Text>
       </Flex>
@@ -63,13 +63,13 @@ export const SizesAndWeights = {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
+        <Text type="text2" weight="bold">
           This is text2 bold
         </Text>
-        <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
+        <Text type="text2" weight="medium">
           This is text2 medium
         </Text>
-        <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
+        <Text type="text2" weight="normal">
           This is text2 normal
         </Text>
       </Flex>
@@ -79,10 +79,10 @@ export const SizesAndWeights = {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <Text type={Text.types.TEXT3} weight={Text.weights.MEDIUM}>
+        <Text type="text3" weight="medium">
           This is text3 medium
         </Text>
-        <Text type={Text.types.TEXT3} weight={Text.weights.NORMAL}>
+        <Text type="text3" weight="normal">
           This is text3 normal
         </Text>
       </Flex>
@@ -95,20 +95,12 @@ export const SizesAndWeights = {
 export const Colors = {
   render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text color={Text.colors.PRIMARY}>Primary text</Text>
-      <Text color={Text.colors.SECONDARY}>Secondary text</Text>
-      <Text
-        className={cx(styles.primaryBackground, styles.smallRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_PRIMARY}
-      >
+      <Text color="primary">Primary text</Text>
+      <Text color="secondary">Secondary text</Text>
+      <Text className={cx(styles.primaryBackground, styles.smallRectangle)} align="center" color="onPrimary">
         On primary text
       </Text>
-      <Text
-        className={cx(styles.invertedBackground, styles.smallRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
-      >
+      <Text className={cx(styles.invertedBackground, styles.smallRectangle)} align="center" color="onInverted">
         On inverted text
       </Text>
       <Text
@@ -117,8 +109,8 @@ export const Colors = {
         style={{
           backgroundColor: "black"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_LIGHT}
+        align="center"
+        color="fixedLight"
       >
         Fixed light
       </Text>
@@ -128,8 +120,8 @@ export const Colors = {
         style={{
           backgroundColor: "whitesmoke"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_DARK}
+        align="center"
+        color="fixedDark"
       >
         Fixed dark
       </Text>
@@ -196,29 +188,21 @@ export const Paragraph = {
 export const LinksInsideRunningText = {
   render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text align={Text.align.CENTER}>
+      <Text align="center">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>{" "}
         inside running text.
       </Text>
-      <Text
-        className={cx(styles.primaryBackground, styles.mediumRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_PRIMARY}
-      >
+      <Text className={cx(styles.primaryBackground, styles.mediumRectangle)} align="center" color="onPrimary">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>{" "}
         inside running text on a primary color
       </Text>
-      <Text
-        className={cx(styles.invertedBackground, styles.mediumRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
-      >
+      <Text className={cx(styles.invertedBackground, styles.mediumRectangle)} align="center" color="onInverted">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
@@ -232,8 +216,8 @@ export const LinksInsideRunningText = {
         style={{
           backgroundColor: "black"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_LIGHT}
+        align="center"
+        color="fixedLight"
       >
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
@@ -248,8 +232,8 @@ export const LinksInsideRunningText = {
         style={{
           backgroundColor: "whitesmoke"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_DARK}
+        align="center"
+        color="fixedDark"
       >
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>

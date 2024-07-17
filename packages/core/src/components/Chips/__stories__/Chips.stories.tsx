@@ -214,13 +214,13 @@ export const ChipsInAPersonPickerComboBox = {
         <Chips label="Esther Schanler" leftAvatar={person1} />
         <Chips label="Rotem Dekel" leftAvatar={rotem} />
       </Flex>
-      <Text type={Text.types.TEXT2} className={styles.lable}>
+      <Text type="text2" className={styles.lable}>
         Suggested people
       </Text>
       <div className={styles.search}>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
           <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
         </Flex>
@@ -231,19 +231,19 @@ export const ChipsInAPersonPickerComboBox = {
             text="LC"
             type={Avatar.types.TEXT}
           />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
         </Flex>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-3">
           <Avatar size={Avatar.sizes.SMALL} text="AL" type={Avatar.types.TEXT} />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Amanda Lawrence <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-4">
           <Avatar size={Avatar.sizes.SMALL} text="DY" type={Avatar.types.TEXT} backgroundColor={Avatar.colors.PEACH} />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>

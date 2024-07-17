@@ -22,7 +22,7 @@ export const Overview: Story = {
 
     return (
       <>
-        <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
+        <Heading type="h3" weight="normal">
           {isAfterFirstRender.current ? "It is after the first render!" : "This is the first render!"}
         </Heading>
         <p>Rerender count: {renderCount}</p>

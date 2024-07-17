@@ -106,13 +106,13 @@ const Label: VibeComponent<LabelProps> & {
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color={Text.colors.ON_INVERTED}
+            color="onInverted"
             data-celebration-text={isCelebrationAnimation}
           >
             <Text
               element="span"
               type={mapSizesToTextSize[size]}
-              color={Text.colors.INHERIT}
+              color="inherit"
               className={cx({ [styles.smallText]: size === "small" })}
             >
               {text}

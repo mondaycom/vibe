@@ -46,31 +46,31 @@ export const TypesAndWeights = {
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
+      <Heading type="h1" weight="bold">
         Bold H1 title
       </Heading>
-      <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
+      <Heading type="h1" weight="normal">
         Normal H1 title
       </Heading>
-      <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
+      <Heading type="h1" weight="light">
         Light H1 title
       </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
+      <Heading type="h2" weight="bold">
         Bold H2 title
       </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+      <Heading type="h2" weight="normal">
         Normal H2 title
       </Heading>
-      <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
+      <Heading type="h2" weight="light">
         Light H2 title
       </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
+      <Heading type="h3" weight="bold">
         Bold H3 title
       </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
+      <Heading type="h3" weight="normal">
         Normal H3 title
       </Heading>
-      <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
+      <Heading type="h3" weight="light">
         Light H3 title
       </Heading>
     </Flex>
@@ -82,28 +82,16 @@ export const TypesAndWeights = {
 export const Colors = {
   render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Heading type={Heading.types.H2} color={Heading.colors.PRIMARY}>
+      <Heading type="h2" color="primary">
         Primary title
       </Heading>
-      <Heading type={Heading.types.H2} color={Heading.colors.SECONDARY}>
+      <Heading type="h2" color="secondary">
         Secondary title
       </Heading>
-      <Heading
-        element="div"
-        type={Heading.types.H2}
-        className={styles.primaryBackground}
-        align={Heading.align.CENTER}
-        color={Heading.colors.ON_PRIMARY}
-      >
+      <Heading element="div" type="h2" className={styles.primaryBackground} align="center" color="onPrimary">
         On primary title
       </Heading>
-      <Heading
-        element="div"
-        type={Heading.types.H2}
-        className={styles.invertedBackground}
-        align={Heading.align.CENTER}
-        color={Heading.colors.ON_INVERTED}
-      >
+      <Heading element="div" type="h2" className={styles.invertedBackground} align="center" color="onInverted">
         On inverted title
       </Heading>
     </Flex>
@@ -121,9 +109,9 @@ export const Overflow = {
       align={Flex.align.STRETCH}
       style={{ width: "480px" }}
     >
-      <Heading type={Heading.types.H2}>Heading without overflow</Heading>
+      <Heading type="h2">Heading without overflow</Heading>
       <Heading
-        type={Heading.types.H2}
+        type="h2"
         /**for testing purposes**/
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         tooltipProps={{
@@ -133,7 +121,7 @@ export const Overflow = {
         Heading with ellipsis and tooltip when hovering
       </Heading>
       <div>
-        <Heading type={Heading.types.H2} maxLines={2}>
+        <Heading type="h2" maxLines={2}>
           Heading with two lines overflow and a tooltip. Heading with two lines overflow and a tooltip. Heading with two
           lines overflow and a tooltip.
         </Heading>
@@ -152,7 +140,7 @@ export const BuiltInPageHeaderNotEditable = {
         width: "100%"
       }}
     >
-      <Heading type={Heading.types.H1} id="my-work-id">
+      <Heading type="h1" id="my-work-id">
         My work
       </Heading>
       <Divider className={styles.pageDivider} />
@@ -179,12 +167,12 @@ export const EmptyStateHeading = {
         src={emptyStateExample}
         alt=""
       />
-      <Heading type={Heading.types.H2} id="empty-state-id" className={styles.emptyStateHeading}>
+      <Heading type="h2" id="empty-state-id" className={styles.emptyStateHeading}>
         No updates yet for this item
       </Heading>
       <Text
         element="span"
-        type={Text.types.TEXT1}
+        type="text1"
         style={{
           width: "50%",
           textAlign: "center"

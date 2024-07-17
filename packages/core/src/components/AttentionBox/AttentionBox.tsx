@@ -97,7 +97,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconLabel={iconLabel}
             />
           )}
-          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.MEDIUM} className={styles.title}>
+          <Text type="text1" element="h5" weight="medium" className={styles.title}>
             {title}
           </Text>
         </Flex>
@@ -115,7 +115,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         <Text
-          type={Text.types.TEXT2}
+          type="text2"
           element={compact ? undefined : "p"}
           className={cx(styles.text, {
             [styles.compact]: compact,

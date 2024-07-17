@@ -97,7 +97,7 @@ export const DialogAsModalBadExample = () => {
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
-        <Heading className={cx(styles.modalDialogBadExample, styles.heading)} type={Heading.types.H2}>
+        <Heading className={cx(styles.modalDialogBadExample, styles.heading)} type="h2">
           Dialog title
         </Heading>
         Dialog content

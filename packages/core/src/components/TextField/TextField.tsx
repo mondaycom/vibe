@@ -349,7 +349,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             </Clickable>
           </div>
           {shouldShowExtraText && (
-            <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
+            <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)}>
                   {isRequiredAndEmpty ? requiredErrorText : validation.text}

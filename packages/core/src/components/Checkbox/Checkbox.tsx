@@ -149,7 +149,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
         {label === false ? null : (
           <Text
             element="span"
-            type={Text.types.TEXT2}
+            type="text2"
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
           >

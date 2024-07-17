@@ -70,7 +70,7 @@ const TextArea = forwardRef(
           aria-describedby={helpTextId ?? undefined}
         />
         {helpText && (
-          <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
+          <Text className={cx(styles.helpText)} color="inherit" id={helpTextId}>
             {helpText}
           </Text>
         )}

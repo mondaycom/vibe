@@ -31,7 +31,7 @@ export const Overview = {
   args: {
     title: "Expand collapse",
     children: [
-      <Text type={Text.types.TEXT2} maxLines={2}>
+      <Text type="text2" maxLines={2}>
         Insert here any component that you want, here is a robot for you
       </Text>,
       <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} clickable={false} />
@@ -43,7 +43,7 @@ export const Overview = {
 export const OpenByDefault = {
   render: () => (
     <ExpandCollapse title="Open by default" defaultOpenState className={styles.storybookExpandCollapse}>
-      <Text type={Text.types.TEXT2} maxLines={2}>
+      <Text type="text2" maxLines={2}>
         Insert here any component that you want
       </Text>
     </ExpandCollapse>
@@ -64,7 +64,7 @@ export const ControlledOpenState = {
           onClick={() => setOpen(prevState => !prevState)}
           className={styles.storybookExpandCollapse}
         >
-          <Text type={Text.types.TEXT2} maxLines={2}>
+          <Text type="text2" maxLines={2}>
             Insert here any component that you want
           </Text>
         </ExpandCollapse>
@@ -78,7 +78,7 @@ export const ControlledOpenState = {
 export const CustomHeaderRenderer = {
   render: () => {
     const ExpandCollapseCustomHeadingComponent = () => {
-      return <Heading type={Heading.types.H3}>Any component you want</Heading>;
+      return <Heading type="h3">Any component you want</Heading>;
     };
 
     return (
@@ -86,7 +86,7 @@ export const CustomHeaderRenderer = {
         headerComponentRenderer={ExpandCollapseCustomHeadingComponent}
         className={styles.storybookExpandCollapse}
       >
-        <Text type={Text.types.TEXT2} maxLines={2}>
+        <Text type="text2" maxLines={2}>
           Insert here any component that you want
         </Text>
       </ExpandCollapse>
@@ -99,7 +99,7 @@ export const CustomHeaderRenderer = {
 export const WithoutBorders = {
   render: () => (
     <ExpandCollapse hideBorder title="Without borders" className={styles.storybookExpandCollapse}>
-      <Text type={Text.types.TEXT2} maxLines={2}>
+      <Text type="text2" maxLines={2}>
         Insert here any component that you want
       </Text>
     </ExpandCollapse>
