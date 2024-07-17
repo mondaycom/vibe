@@ -36,6 +36,14 @@ describe("Avatar component migration", () => {
   defineInlineTest(
     transform,
     {},
+    prependImport(`<Avatar square isDisabled />`),
+    prependImport(`<Avatar square disabled />`),
+    "should update 'isDisabled' even if encountered another new prop from same migration before that"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
     prependImport(`<Avatar isSquare square />`),
     prependImport(`<Avatar square />`),
     "should remove 'isSquare' if both 'isSquare' and 'square' are present"

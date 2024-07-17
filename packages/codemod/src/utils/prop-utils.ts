@@ -49,17 +49,10 @@ export function findProps(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...p
 }
 
 /**
- * Removes a prop from a JSX element
+ * Removes props from a JSX element
  */
 export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...propsNames: string[]): void {
-  j(elementPath)
-    .find(JSXOpeningElement)
-    .find(JSXAttribute)
-    .forEach(attrPath => {
-      if (attrPath.node.name.type === "JSXIdentifier" && propsNames.includes(attrPath.node.name.name)) {
-        j(attrPath).remove();
-      }
-    });
+  findProps(j, elementPath, ...propsNames).remove();
 }
 
 /**
