@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { Switch } from "../Switch/Switch";
@@ -20,7 +20,7 @@ export interface ToggleProps extends VibeComponentProps {
   toggleSelectedClassName?: string;
   isDefaultSelected?: boolean;
   isSelected?: boolean;
-  onChange?: (value: boolean) => void;
+  onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   name?: string;
   /**
