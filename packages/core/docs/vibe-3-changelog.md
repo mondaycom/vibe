@@ -21,7 +21,7 @@
 - `isSquare` -> `square` [codemod]
 - `isDisabled` -> `disabled` [codemod]
 
-### BreadcrumbsItem
+### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
 
