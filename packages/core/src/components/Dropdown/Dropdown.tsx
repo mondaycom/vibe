@@ -110,7 +110,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       popupsContainerSelector,
       filterOption,
       menuPosition = Dropdown.menuPositions.ABSOLUTE,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      classNamePrefix = "select"
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -418,6 +419,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         filterOption={filterOption}
         {...asyncAdditions}
         {...additions}
+        classNamePrefix={classNamePrefix}
       />
     );
   }
