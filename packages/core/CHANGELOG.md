@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.122.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.121.0...monday-ui-react-core@2.122.0) (2024-07-18)
+
+
+### Features
+
+* **Baseline:** add new icon ([#2245](https://github.com/mondaycom/vibe/issues/2245)) ([0bd7424](https://github.com/mondaycom/vibe/commit/0bd7424498362f5f0c9a00eed7c4fb2ca4d86fc4))
+
+
+
+
+
 # [2.121.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.120.0...monday-ui-react-core@2.121.0) (2024-07-18)
 
 
