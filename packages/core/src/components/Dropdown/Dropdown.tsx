@@ -111,7 +111,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       filterOption,
       menuPosition = Dropdown.menuPositions.ABSOLUTE,
       "data-testid": dataTestId,
-      classNamePrefix = "select"
+      classNamePrefix = "Select"
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
