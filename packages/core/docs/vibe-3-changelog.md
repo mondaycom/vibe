@@ -80,6 +80,7 @@
 ### Link
 
 - `componentClassName` -> `className` [codemod]
+- `Link.target` removed, use `Link.targets` instead
 
 ### Loader
 
