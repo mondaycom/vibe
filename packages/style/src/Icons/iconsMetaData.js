@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Baseline",
+      file: "Baseline.svg",
+      description: "Baseline",
+      tags: "Baseline, Platform, Gantt, Base, Widget"
+  },
+
+  {
       name: "ItemHeightSingle",
       file: "ItemHeightSingle.svg",
       description: "Item height single spacing",
