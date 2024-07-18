@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.121.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.120.0...monday-ui-react-core@2.121.0) (2024-07-18)
+
+
+### Features
+
+* add experimental stroke instead of box-shadow for dark themes ([#2218](https://github.com/mondaycom/vibe/issues/2218)) ([3469767](https://github.com/mondaycom/vibe/commit/34697676a549f3a7ec43b948def3d12cc2c94c49))
+* **TextField:** send native event if applicable in onChange ([#2231](https://github.com/mondaycom/vibe/issues/2231)) ([35b1ea6](https://github.com/mondaycom/vibe/commit/35b1ea64d20aa037133b395c6963416057bf1dae))
+
+
+
+
+
 # [2.120.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.119.0...monday-ui-react-core@2.120.0) (2024-07-14)
 
 
