@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/initialize";
@@ -68,12 +68,21 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
-    const [focusedDate, setFocusedDate] = useState(date);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
+    const [yearFunc, setYearFunc] = useState(null);
 
     const renderMonth = useCallback(
-      ({ month }: { month: Moment }) => {
+      ({
+        month,
+        onYearSelect
+      }: {
+        month: moment.Moment;
+        onYearSelect: (currentMonth: moment.Moment, newMonthVal: string) => void;
+      }) => {
+        if (!yearFunc && onYearSelect) {
+          setYearFunc(() => onYearSelect);
+        }
         return (
           <DatePickerHeaderComponent
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_HEADER, id)}
@@ -84,12 +93,8 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         );
       },
-      [dataTestId, isMonthYearSelection, hideNavigationKeys, id]
+      [isMonthYearSelection, dataTestId, id, hideNavigationKeys, yearFunc]
     );
-
-    useEffect(() => {
-      setFocusedDate(date);
-    }, [date]);
 
     const renderDay = useCallback(
       (day: Moment) => {
@@ -103,22 +108,26 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       [firstDayOfWeek]
     );
 
-    const changeCurrentDateFromMonthYearView = useCallback((date: Moment | null) => {
-      setOverrideDateForView(date);
-      setFocusedDate(date);
-      setIsMonthYearSelection(false);
-    }, []);
+    const changeCurrentDateFromMonthYearView = useCallback(
+      (newDate: Moment | null) => {
+        const oldDate = overrideDateForView || date;
+        setOverrideDateForView(newDate);
+        setIsMonthYearSelection(false);
+        yearFunc(oldDate, moment(newDate).year());
+      },
+      [overrideDateForView, date, yearFunc]
+    );
 
     const renderMonthYearSelection = useCallback(() => {
       return (
         <YearPicker
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_YEAR_SELECTION, id)}
-          selectedDate={focusedDate}
+          selectedDate={overrideDateForView || date}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
       );
-    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, focusedDate, id]);
+    }, [dataTestId, id, overrideDateForView, date, shouldBlockYear, changeCurrentDateFromMonthYearView]);
 
     const onDateRangeChange = useCallback(
       (date: RangeDate) => {
@@ -150,11 +159,10 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       >
         {range ? (
           <DayPickerRangeController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
-            startDate={focusedDate}
+            startDate={date}
             endDate={endDate}
             onDatesChange={onDateRangeChange}
             focusedInput={focusedInput}
@@ -172,13 +180,12 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         ) : (
           <DayPickerSingleDateController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
             onFocusChange={NOOP}
             numberOfMonths={numberOfMonths}
-            date={focusedDate}
+            date={date}
             onDateChange={(date: Moment) => onPickDate(date)}
             navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
             navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
