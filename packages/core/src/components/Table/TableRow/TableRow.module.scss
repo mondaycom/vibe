@@ -17,11 +17,11 @@
 
   &:hover {
     > [role="cell"] {
-      background-color: var(--primary-background-hover-color);
+      background: var(--sticky-cell-hover-background);
     }
 
     &[aria-selected="true"] > [role="cell"] {
-      background-color: var(--primary-selected-hover-color);
+      background: var(--primary-selected-hover-color);
     }
   }
 }

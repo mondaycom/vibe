@@ -7,34 +7,7 @@ import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
-import * as TableContextModule from "../../context/TableContext/TableContext";
-import { RowSizes } from "../TableConsts";
-import { ITableContext } from "../../context/TableContext/TableContext.types";
-
-function mockUseTable() {
-  jest.spyOn(TableContextModule, "useTable").mockImplementation(
-    () =>
-      ({
-        columns: [],
-        emptyState: <div />,
-        errorState: <div />,
-        size: RowSizes.MEDIUM,
-        scrollLeft: 0,
-        onTableRootScroll: jest.fn(),
-        headRef: { current: null },
-        onHeadScroll: jest.fn(),
-        virtualizedListRef: { current: null },
-        onVirtualizedListScroll: jest.fn(),
-        isVirtualized: false,
-        markTableAsVirtualized: jest.fn()
-      } satisfies ITableContext)
-  );
-}
-
-jest.mock("../../context/TableContext/TableContext", () => ({
-  __esModule: true,
-  ...jest.requireActual("../../context/TableContext/TableContext")
-}));
+import { mockUseTable, mockUseTableRowMenu } from "./tableTestUtils";
 
 interface TableNode {
   role: string;
@@ -99,6 +72,7 @@ describe("Table", () => {
   describe("TableRow", () => {
     beforeEach(() => {
       mockUseTable();
+      mockUseTableRowMenu();
     });
 
     afterEach(() => {

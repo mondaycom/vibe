@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.120.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.119.0...monday-ui-react-core@2.120.0) (2024-07-14)
+
+
+### Bug Fixes
+
+* **Combobox:** spacings in categories ([#2223](https://github.com/mondaycom/vibe/issues/2223)) ([1ffe75d](https://github.com/mondaycom/vibe/commit/1ffe75d6fee9bdeb240734f6c7a89664346f5797))
+
+
+### Features
+
+* **icons:** Add Item Height Double Icon ([#2227](https://github.com/mondaycom/vibe/issues/2227)) ([42b3f1f](https://github.com/mondaycom/vibe/commit/42b3f1f899528fbaa89d328eabcc4c6e13604c1f))
+* **icons:** Add Item Height Single Icon ([#2228](https://github.com/mondaycom/vibe/issues/2228)) ([32dc7c2](https://github.com/mondaycom/vibe/commit/32dc7c2c49715670d2e87d8095ee3830154cea20))
+* **icons:** Add Prompt icon ([#2222](https://github.com/mondaycom/vibe/issues/2222)) ([eeff132](https://github.com/mondaycom/vibe/commit/eeff13295730eef13f92c5d7d7f6ea95c361af9b))
+
+
+
+
+
+# [2.119.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.1...monday-ui-react-core@2.119.0) (2024-07-10)
+
+
+### Bug Fixes
+
+* **Table:** hover cell background var should be declared inside the table selector and not on :root ([#2219](https://github.com/mondaycom/vibe/issues/2219)) ([33b47ab](https://github.com/mondaycom/vibe/commit/33b47abe3b7707846f758c6bdf0efff42b9dfda8))
+
+
+### Features
+
+* **Combobox:** add debounceRate prop ([#2220](https://github.com/mondaycom/vibe/issues/2220)) ([a6053dd](https://github.com/mondaycom/vibe/commit/a6053dd36e80d1894f3bb42cad89c6d64beb780b))
+
+
+
+
+
+## [2.118.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.0...monday-ui-react-core@2.118.1) (2024-07-04)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.118.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.117.0...monday-ui-react-core@2.118.0) (2024-07-03)
+
+
+### Features
+
+* **Table:** add Table menu capability for each row ([#2197](https://github.com/mondaycom/vibe/issues/2197)) ([dfd551c](https://github.com/mondaycom/vibe/commit/dfd551ca3ccc57cceeb56686f9103f2e90b223ff))
+
+
+
+
+
+# [2.117.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.116.0...monday-ui-react-core@2.117.0) (2024-07-02)
+
+
+### Bug Fixes
+
+* **ExpandCollapse:** component gets to 95% scale when active ([#2201](https://github.com/mondaycom/vibe/issues/2201)) ([58b14a6](https://github.com/mondaycom/vibe/commit/58b14a6908b2bdb72533e30518a0ce843ed20d10))
+* **Table:** sticky cell is seen-through when hovered ([#2198](https://github.com/mondaycom/vibe/issues/2198)) ([6ec1d61](https://github.com/mondaycom/vibe/commit/6ec1d6177a4d906bc1d28b92309c7363fd7c1134))
+
+
+### Features
+
+* **AccordionItem:** add option for onClick instead of onClickCapture ([#2203](https://github.com/mondaycom/vibe/issues/2203)) ([983b012](https://github.com/mondaycom/vibe/commit/983b01290a9fede5a39244a22e32e08e7043dec2))
+
+
+
+
+
 # [2.116.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.115.0...monday-ui-react-core@2.116.0) (2024-06-27)
 
 

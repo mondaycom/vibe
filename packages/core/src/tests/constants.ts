@@ -110,12 +110,14 @@ export enum ComponentDefaultTestId {
   TOOLTIP = "tooltip",
   DIALOG = "dialog",
   TABLE = "table",
+  TABLE_CONTAINER = "table-container",
   TABLE_BODY = "table-body",
   TABLE_VIRTUALIZED_BODY = "table-virtualized-body",
   TABLE_CELL = "table-cell",
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
-  TABLE_ROW = "table-row"
+  TABLE_ROW = "table-row",
+  TABLE_ROW_MENU = "table-row-menu"
 }
 
 export enum NavigationCommand {
