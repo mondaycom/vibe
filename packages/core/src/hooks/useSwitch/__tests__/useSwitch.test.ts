@@ -1,5 +1,6 @@
 import { act, cleanup, renderHook, RenderResult } from "@testing-library/react-hooks";
 import useSwitch, { UseSwitchProps } from "../index";
+import { ChangeEvent } from "react";
 
 describe("useSwitch", () => {
   afterEach(() => {
@@ -70,7 +71,7 @@ describe("useSwitch", () => {
       const { result } = renderHookForTest({ defaultChecked: true, onChange });
       callOnChange(result);
       expect(onChange).toBeCalledTimes(1);
-      expect(onChange).toBeCalledWith(false);
+      expect(onChange).toBeCalledWith(false, expect.anything());
     });
   });
 
@@ -79,8 +80,9 @@ describe("useSwitch", () => {
   }
 
   function callOnChange(result: RenderResult<ReturnType<typeof useSwitch>>) {
+    const mockEvent = {} as ChangeEvent<HTMLInputElement>;
     act(() => {
-      result.current.onChange();
+      result.current.onChange(mockEvent);
     });
   }
 });

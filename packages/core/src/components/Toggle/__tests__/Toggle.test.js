@@ -57,7 +57,7 @@ describe("Toggle tests", () => {
 
       const toggle = getByRole(toggleRole);
       userEvent.click(toggle);
-      expect(onClickMock).toHaveBeenCalledWith(false);
+      expect(onClickMock).toHaveBeenCalledWith(false, expect.anything());
     });
   });
 
@@ -71,7 +71,7 @@ describe("Toggle tests", () => {
 
     const toggle = getByRole(toggleRole);
     userEvent.click(toggle);
-    expect(onClickMock).toHaveBeenCalledWith(false);
+    expect(onClickMock).toHaveBeenCalledWith(false, expect.anything());
   });
 
   describe("a11y", () => {
