@@ -1,0 +1,15 @@
+.rowMenuContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--spacing-small);
+
+  &.medium {
+    padding-block: var(--spacing-small);
+  }
+
+  &.large {
+    padding-block: 12px;
+  }
+}
