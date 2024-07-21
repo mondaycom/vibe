@@ -21,13 +21,14 @@
 - `isSquare` -> `square` [codemod]
 - `isDisabled` -> `disabled` [codemod]
 
-### BreadcrumbsItem
+### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
 
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
+- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
 
 ### Box
 
@@ -153,6 +154,7 @@
 - `showDelay` changed default to 100
 - `justify` removed [codemod]
 - `justifyTypes` removed [codemod]
+- `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 
 ### TipseenContent
 
