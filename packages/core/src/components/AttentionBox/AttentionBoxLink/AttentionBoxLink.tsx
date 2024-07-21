@@ -10,7 +10,7 @@ const AttentionBoxLink: React.FC<AttentionBoxLinkProps> = ({
   text,
   // TODO: use Link's target default in next major
   // For backward compatibility - using _self as default
-  target = Link.target.SELF,
+  target = Link.targets.SELF,
   className,
   ...linkProps
 }) => {
