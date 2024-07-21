@@ -39,7 +39,10 @@ export interface TextFieldProps extends VibeComponentProps {
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete?: string;
   value?: string;
-  onChange?: (value: string, event: Pick<React.ChangeEvent, "target">) => void;
+  onChange?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement> | Pick<React.ChangeEvent<HTMLInputElement>, "target">
+  ) => void;
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
@@ -164,11 +167,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     );
 
     const onChangeCallback = useCallback(
-      (value: string) => {
+      (value: string, e?: React.ChangeEvent<HTMLInputElement>) => {
         if (isRequiredAndEmpty && value) {
           setIsRequiredAndEmpty(false);
         }
-        onChange(value, { target: inputRef.current });
+        const event = e || { target: inputRef.current };
+        onChange(value, event);
       },
       [onChange, isRequiredAndEmpty]
     );
@@ -188,9 +192,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       return controlled ? value : uncontrolledInput;
     }, [controlled, value, uncontrolledInput]);
 
-    const handleChange = useCallback<ChangeEventHandler>(
-      (event: ChangeEvent<Partial<HTMLInputElement>>) => {
-        controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
+    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+      event => {
+        controlled ? onChangeCallback(event.target.value, event) : onEventChanged(event);
       },
       [controlled, onChangeCallback, onEventChanged]
     );
