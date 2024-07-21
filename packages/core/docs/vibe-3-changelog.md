@@ -61,7 +61,8 @@
 
 ### DialogContentContainer
 
-- Fix medium size spacings
+- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
+- Fixed "medium" size spacings
 
 ### Divider
 
