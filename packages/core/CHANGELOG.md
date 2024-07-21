@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.123.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.0...monday-ui-react-core@2.123.1) (2024-07-21)
+
+
+### Bug Fixes
+
+* **textWithHighlight:** Fix linesToClamp not working properly ([#2250](https://github.com/mondaycom/vibe/issues/2250)) ([17ac1ee](https://github.com/mondaycom/vibe/commit/17ac1eec4b2b6ad1aa15221d6411e207799c32f7))
+
+
+
+
+
 # [2.123.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.122.0...monday-ui-react-core@2.123.0) (2024-07-21)
 
 
