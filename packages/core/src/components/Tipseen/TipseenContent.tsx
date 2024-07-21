@@ -1,14 +1,7 @@
 import React, { FC, useContext, useMemo } from "react";
 import cx from "classnames";
-import { NOOP } from "../../utils/function-utils";
 import Button from "../../components/Button/Button";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import {
-  ButtonPropsBackwardCompatible,
-  DISMISS_BUTTON_TEXT,
-  SUBMIT_BUTTON_TEXT,
-  TipseenColor
-} from "./TipseenConstants";
+import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
@@ -17,8 +10,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
-
-const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
 export interface TipseenContentProps extends VibeComponentProps {
   title?: string;
@@ -30,10 +21,8 @@ export interface TipseenContentProps extends VibeComponentProps {
   children?: ElementContent;
   hideSubmit?: boolean;
   submitButtonText?: string;
-  submitButtonProps?: ButtonPropsBackwardCompatible;
   onSubmit?: (event: React.MouseEvent) => void;
   dismissButtonText?: string;
-  dismissButtonProps?: ButtonPropsBackwardCompatible;
   onDismiss?: (event: React.MouseEvent) => void;
 }
 
@@ -44,34 +33,11 @@ const TipseenContent: FC<TipseenContentProps> = ({
   children = null,
   hideDismiss = true,
   hideSubmit,
-  submitButtonText,
+  submitButtonText = SUBMIT_BUTTON_TEXT,
   onSubmit,
-  dismissButtonText,
-  onDismiss,
-  // Backward compatibility for props naming
-  dismissButtonProps = EMPTY_OBJECT,
-  // Backward compatibility for props naming
-  submitButtonProps = EMPTY_OBJECT
+  dismissButtonText = DISMISS_BUTTON_TEXT,
+  onDismiss
 }) => {
-  const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
-  const {
-    className: dismissClassName,
-    onClick: dismissDeprecatedOnClick,
-    ...otherDismissButtonProps
-  } = dismissButtonProps;
-  const overrideDismissContent = backwardCompatibilityForProperties(
-    [dismissButtonText, dismissContent],
-    DISMISS_BUTTON_TEXT
-  );
-  const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
-
-  const submitContent = submitButtonProps.content || submitButtonProps.children;
-  const { className: submitClassName, onClick: submitDeprecatedOnClick, ...otherSubmitButtonProps } = submitButtonProps;
-  const overrideSubmitContent = backwardCompatibilityForProperties(
-    [submitButtonText, submitContent],
-    SUBMIT_BUTTON_TEXT
-  );
-  const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
   const color = useContext(TipseenContext);
   const buttonColor = useMemo(() => {
     return color === TipseenColor.INVERTED ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
@@ -85,13 +51,12 @@ const TipseenContent: FC<TipseenContentProps> = ({
           <Button
             kind={Button.kinds.TERTIARY}
             color={buttonColor}
-            className={cx(styles.dismiss, dismissClassName)}
+            className={styles.dismiss}
             size={Button.sizes.SMALL}
-            onClick={overrideDismissOnClick}
+            onClick={onDismiss}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_DISMISS)}
-            {...otherDismissButtonProps}
           >
-            {overrideDismissContent}
+            {dismissButtonText}
           </Button>
         )}
         {hideSubmit ? null : (
@@ -99,12 +64,10 @@ const TipseenContent: FC<TipseenContentProps> = ({
             kind={Button.kinds.PRIMARY}
             color={buttonColor}
             size={Button.sizes.SMALL}
-            className={submitClassName}
-            onClick={overrideSubmitOnClick}
+            onClick={onSubmit}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
-            {...otherSubmitButtonProps}
           >
-            {overrideSubmitContent}
+            {submitButtonText}
           </Button>
         )}
       </div>
