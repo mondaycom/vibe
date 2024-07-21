@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.123.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.122.0...monday-ui-react-core@2.123.0) (2024-07-21)
+
+
+### Bug Fixes
+
+* **textWithHighlight:** Fix ellipsis when no breaks in string ([#2248](https://github.com/mondaycom/vibe/issues/2248)) ([e3f6bfb](https://github.com/mondaycom/vibe/commit/e3f6bfb8049d080375b319cd7744c2e307d6b900))
+
+
+### Features
+
+* **Menu:** add on focus to menu ([#2246](https://github.com/mondaycom/vibe/issues/2246)) ([2e5820e](https://github.com/mondaycom/vibe/commit/2e5820e6e0a6ea90be6fe16fb4c52f3b83757bd7))
+* **Toggle:** pass event as 2nd argument to allow working with react-hook-form ([#2243](https://github.com/mondaycom/vibe/issues/2243)) ([c4f09e1](https://github.com/mondaycom/vibe/commit/c4f09e1805830fd4824162351933cb046b40762d))
+
+
+
+
+
 # [2.122.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.121.0...monday-ui-react-core@2.122.0) (2024-07-18)
 
 
