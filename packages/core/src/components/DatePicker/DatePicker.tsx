@@ -14,7 +14,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
-import "./external_datepicker.css";
+import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
   /** set the first day of the week to display */
