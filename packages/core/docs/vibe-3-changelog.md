@@ -64,6 +64,10 @@
 
 - `classname` -> `className` [codemod]
 
+### Dropdown
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+
 ### IconButton
 
 - `dataTestId` -> `data-testid` [codemod]

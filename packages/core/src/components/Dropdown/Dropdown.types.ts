@@ -159,7 +159,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   value?: DropdownOption | DropdownOption[];
   /**
-   * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
+   * Select menu size from `Dropdown.sizes` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
   size?: SIZES_VALUES;
   /**
