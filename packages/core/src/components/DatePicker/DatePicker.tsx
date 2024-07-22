@@ -14,6 +14,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
+// Make sure to update when upgrading react-dates
 import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
