@@ -64,6 +64,11 @@ codemod: `avatar-component-migration`
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
 - `JustifyType` removed [codemod]
 
+### DialogContentContainer
+
+- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
+- Fixed "medium" size spacings
+
 ### Divider
 
 - `classname` -> `className` [codemod]
