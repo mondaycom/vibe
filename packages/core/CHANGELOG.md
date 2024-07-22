@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.123.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.1...monday-ui-react-core@2.123.2) (2024-07-22)
+
+
+### Bug Fixes
+
+* fix style linter ([#2254](https://github.com/mondaycom/vibe/issues/2254)) ([a15e32a](https://github.com/mondaycom/vibe/commit/a15e32a3f70e0c0c7176258fe8f109457bab971a))
+
+
+
+
+
 ## [2.123.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.0...monday-ui-react-core@2.123.1) (2024-07-21)
 
 
