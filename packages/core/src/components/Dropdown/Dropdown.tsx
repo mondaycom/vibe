@@ -6,7 +6,7 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import Select, { InputProps, components, createFilter, ActionMeta, NonceProvider } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
-import { nanoid } from "nanoid";
+import { customAlphabet as nanoidCustomAlphabet } from "nanoid";
 import { WindowedMenuList } from "react-windowed-select";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
@@ -37,6 +37,12 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
+
+function generateEmotionCacheKey(): Lowercase<string> {
+  // emotion cache key must only contain alphabetic lowercase characters
+  const idGenerator = nanoidCustomAlphabet("abcdefghijklmnopqrstuvwxyz");
+  return idGenerator() as Lowercase<string>;
+}
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   size?: typeof SIZES;
@@ -115,7 +121,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const cacheKey = useRef(nanoid(5));
+    const cacheKey = useRef<Lowercase<string>>(generateEmotionCacheKey());
     const controlRef = useRef();
     const overrideMenuPortalTarget =
       menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
