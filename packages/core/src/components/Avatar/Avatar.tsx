@@ -5,7 +5,8 @@ import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
 import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
-import { AvatarSize, AvatarType } from "./AvatarConstants";
+import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./Avatar.types";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
@@ -43,17 +44,17 @@ export interface AvatarProps extends VibeComponentProps {
 }
 
 const Avatar: React.FC<AvatarProps> & {
-  types?: typeof AvatarType;
-  sizes?: typeof AvatarSize;
+  types?: typeof AvatarTypeEnum;
+  sizes?: typeof AvatarSizeEnum;
   colors?: typeof ElementAllowedColor;
   backgroundColors?: typeof ElementAllowedColor;
 } = ({
   id,
-  type = AvatarType.TEXT,
+  type = "text",
   className,
   avatarContentWrapperClassName,
   textClassName = "",
-  size = AvatarSize.LARGE,
+  size = "large",
   src,
   icon,
   text,
@@ -75,7 +76,7 @@ const Avatar: React.FC<AvatarProps> & {
   customBackgroundColor = null,
   onClick,
   "data-testid": dataTestId
-}) => {
+}: AvatarProps) => {
   const backgroundColorStyle = useMemo(() => {
     if (customBackgroundColor) return { backgroundColor: customBackgroundColor };
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
@@ -201,8 +202,8 @@ const Avatar: React.FC<AvatarProps> & {
 };
 
 export default withStaticProps(Avatar, {
-  types: AvatarType,
-  sizes: AvatarSize,
+  types: AvatarTypeEnum,
+  sizes: AvatarSizeEnum,
   colors: ElementAllowedColor,
   backgroundColors: ElementAllowedColor
 });

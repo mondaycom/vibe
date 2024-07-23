@@ -4,7 +4,8 @@ import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { AlertBannerBackgroundColor } from "./AlertBannerConstants";
+import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
+import { AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
@@ -35,28 +36,28 @@ export interface AlertBannerProps extends VibeComponentProps {
 }
 
 const AlertBanner: VibeComponent<AlertBannerProps> & {
-  backgroundColors?: typeof AlertBannerBackgroundColor;
+  backgroundColors?: typeof AlertBannerBackgroundColorEnum;
 } = forwardRef(
   (
     {
       children: originalChildren,
       className,
-      backgroundColor = AlertBanner.backgroundColors.PRIMARY,
+      backgroundColor = "primary",
       onClose = NOOP,
       ariaLabel = "",
       closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
       "data-testid": dataTestId
-    },
+    }: AlertBannerProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const classNames = useMemo(() => {
       return cx(className, styles.alertBanner, getStyle(styles, backgroundColor));
     }, [className, backgroundColor]);
 
-    const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
-    const isFixedColor = backgroundColor === AlertBanner.backgroundColors.WARNING;
+    const isDarkBackground = backgroundColor === "dark";
+    const isFixedColor = backgroundColor === "warning";
     const textColor = useMemo(() => {
       if (isFixedColor) {
         return "fixedDark";
@@ -144,4 +145,4 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
   }
 );
 
-export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColor });
+export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColorEnum });

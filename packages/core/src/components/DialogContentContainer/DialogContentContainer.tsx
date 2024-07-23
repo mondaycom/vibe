@@ -28,7 +28,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       ariaLabelledby = "",
       ariaDescribedby = "",
       type = DialogType.POPOVER,
-      size = DialogSize.MEDIUM,
+      size = DialogSize.SMALL,
       children,
       style,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.9.0...monday-ui-style@0.10.0) (2024-07-18)
+
+
+### Features
+
+* **Baseline:** add new icon ([#2245](https://github.com/mondaycom/vibe/issues/2245)) ([0bd7424](https://github.com/mondaycom/vibe/commit/0bd7424498362f5f0c9a00eed7c4fb2ca4d86fc4))
+
+
+
+
+
 # [0.9.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.8.0...monday-ui-style@0.9.0) (2024-07-14)
 
 

@@ -115,7 +115,7 @@ export const UpdateInTheSystem = {
           <div className="monday-storybook-skeleton_box">
             <div className="monday-storybook-skeleton_main">
               <div className="monday-storybook-skeleton_header">
-                <Avatar src={person} type={Avatar.types.IMG} />
+                <Avatar src={person} type="img" />
                 <h5>Hadas Farhi</h5>
               </div>
               <p className="monday-storybook-skeleton_text">

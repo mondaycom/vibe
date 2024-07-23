@@ -22,12 +22,7 @@ const ListItemAvatar: VibeComponent<ListItemAvatarProps> & { components?: typeof
 
     return (
       <Component ref={mergedRef} className={cx(styles.listItemAvatar, className)} id={id} aria-hidden="true">
-        <Avatar
-          src={src}
-          type={Avatar.types.IMG}
-          size={Avatar.sizes.SMALL}
-          className={cx(styles.avatar, avatarClassName)}
-        />
+        <Avatar src={src} type="img" size="small" className={cx(styles.avatar, avatarClassName)} />
       </Component>
     );
   }
