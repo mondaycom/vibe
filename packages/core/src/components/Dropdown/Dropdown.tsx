@@ -424,8 +424,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 );
 
 export default withStaticProps(Dropdown, {
-  // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
-  size: SIZES,
   sizes: SIZES,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,

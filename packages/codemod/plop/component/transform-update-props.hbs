@@ -1,25 +1,25 @@
 import {
-  findComponentElements,
-  getComponentNameOrAliasFromImports,
+  wrap,
   getCoreImportsForFile,
-  migratePropsNames,
-  wrap
+  getComponentNameOrAliasFromImports,
+  findComponentElements,
+  migratePropsNames
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Update the 'componentClassName' prop to 'className'
+ * 1. TODO: What this codemod does?
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "AttentionBox");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, { componentClassName: "className" });
+    migratePropsNames(j, elementPath, filePath, componentName, { {{#each propsMapping}}{{@key}}: "{{this}}", {{/each}} });
   });
 }
 

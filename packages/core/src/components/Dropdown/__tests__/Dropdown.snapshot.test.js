@@ -164,7 +164,7 @@ describe("Dropdown renders correctly", () => {
     });
 
     it("should render correctly for the different sizes", () => {
-      Object.values(Dropdown.size).forEach(size => {
+      Object.values(Dropdown.sizes).forEach(size => {
         const component = new DropdownDriver().withSize(size).withPlaceholder();
 
         expect(component.snapshot).toMatchSnapshot();

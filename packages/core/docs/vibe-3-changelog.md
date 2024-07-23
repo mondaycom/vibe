@@ -14,14 +14,18 @@
 
 ### AttentionBox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `attention-box-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Avatar
 
-- `isSquare` -> `square` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `avatar-component-migration`
 
-### BreadcrumbsItem
+- `isSquare` -> `square` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
+
+### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
 
@@ -60,9 +64,18 @@
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
 - `JustifyType` removed [codemod]
 
+### DialogContentContainer
+
+- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
+- Fixed "medium" size spacings
+
 ### Divider
 
 - `classname` -> `className` [codemod]
+
+### Dropdown
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 
 ### IconButton
 

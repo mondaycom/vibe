@@ -56,7 +56,47 @@ describe("AttentionBox component migration", () => {
     {},
     prependImport(`<AttentionBox componentClassName="class-one" className="class-two" />`),
     prependImport(`<AttentionBox componentClassName="class-one" className="class-two" />`),
-    "should not change when when both 'componentClassName' and 'className' props exist"
+    "should not change when when both 'componentClassName' and 'className' props exist with different literal values"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName={styles.something} className="class-two" />`),
+    prependImport(`<AttentionBox componentClassName={styles.something} className="class-two" />`),
+    "should not change when when both 'componentClassName' and 'className' props exist with different complex and literal values"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName={styles.classOne} className={styles.classTwo} />`),
+    prependImport(`<AttentionBox componentClassName={styles.classOne} className={styles.classTwo} />`),
+    "should not change when when both 'componentClassName' and 'className' props exist with different complex values"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName={styles.classOne} className={styles.classOne} />`),
+    prependImport(`<AttentionBox className={styles.classOne} />`),
+    "should remove 'componentClassName' when when both 'componentClassName' and 'className' props exist with same complex values"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName="class-one" className="class-one" />`),
+    prependImport(`<AttentionBox className="class-one" />`),
+    "should remove 'componentClassName' when when both 'componentClassName' and 'className' props exist with same literal values"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName={"class-one"} className="class-one" />`),
+    prependImport(`<AttentionBox className="class-one" />`),
+    "should remove 'componentClassName' when when both 'componentClassName' and 'className' props exist with same literal values while one is inside an expression"
   );
 
   defineInlineTest(

@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, useMemo } from "react";
+import React, { ChangeEvent, forwardRef, ReactElement, useMemo } from "react";
 import cx from "classnames";
 import useSwitch from "../../hooks/useSwitch";
 import { VibeComponent, VibeComponentProps } from "../../types";
@@ -14,7 +14,7 @@ export interface SwitchProps extends VibeComponentProps {
   ariaLabelledBy?: string;
   checked?: boolean;
   inputClassName?: string;
-  onChange?: (value: boolean) => void;
+  onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
   ariaControls?: string;
   defaultChecked?: boolean;
   children?: ReactElement<MockToggleProps>;

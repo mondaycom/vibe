@@ -36,6 +36,7 @@ export interface MenuProps extends VibeComponentProps {
   ariaLabel?: string;
   ariaDescribedBy?: string;
   focusOnMount?: boolean;
+  onItemFocus?: (index: number) => void;
   isVisible?: boolean;
   onClose?: (option: CloseMenuOption) => void;
   focusItemIndex?: number;
@@ -62,6 +63,7 @@ const Menu: VibeComponent<MenuProps> & {
       children: originalChildren,
       isVisible = true,
       onClose,
+      onItemFocus,
       focusOnMount = false,
       focusItemIndex = -1,
       focusItemIndexOnMount = -1,
@@ -112,10 +114,11 @@ const Menu: VibeComponent<MenuProps> & {
 
     const onSetActiveItemIndexCallback = useCallback(
       (index: number) => {
+        onItemFocus && onItemFocus(index);
         updateActiveItemIndex(index);
         setIsInitialSelectedState(false);
       },
-      [updateActiveItemIndex]
+      [updateActiveItemIndex, onItemFocus]
     );
 
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
