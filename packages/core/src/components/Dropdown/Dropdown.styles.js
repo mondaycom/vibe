@@ -142,7 +142,7 @@ const container =
         borderRadius: getCSSVar("border-radius-small")
       },
       ":active, :focus-within": {
-        borderColor: getCSSVar("color-basic_blue")
+        borderColor: getCSSVar("primary-color")
       },
       ...disabledContainerStyle(isDisabled),
       ...readOnlyContainerStyle(readOnly)
