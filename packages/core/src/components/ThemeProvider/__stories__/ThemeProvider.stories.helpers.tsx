@@ -93,7 +93,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 
   return (
     <ThemeProvider themeConfig={selectedTheme?.value}>
-      <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
+      <Flex gap="large" align="start" wrap className={styles.productThemingContainer}>
         <Dropdown
           // @ts-ignore
           placeholder={"No theme selected"}
@@ -129,7 +129,7 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
         }
       }}
     >
-      <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.ROW}>
+      <Flex gap="large" direction="row">
         <Button>Themed</Button>
         <div className={"custom-class"}>
           <Button>Themed by custom class</Button>

@@ -64,6 +64,10 @@
 
 - `classname` -> `className` [codemod]
 
+### Flex
+
+- Removed `Flex.gaps.NONE`
+
 ### IconButton
 
 - `dataTestId` -> `data-testid` [codemod]

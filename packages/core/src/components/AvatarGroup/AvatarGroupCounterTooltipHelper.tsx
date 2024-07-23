@@ -132,7 +132,7 @@ export const avatarRenderer = (
       clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
+        <Flex direction="row" gap="xs" ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}

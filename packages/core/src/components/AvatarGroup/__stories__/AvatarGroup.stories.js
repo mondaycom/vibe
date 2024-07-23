@@ -76,7 +76,7 @@ export const Overview = {
 
 export const Size = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+    <Flex direction="column" gap="large" align="start">
       <StoryDescription description="Large" vertical align={Flex.align.START}>
         <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={4}>
           <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
@@ -137,7 +137,7 @@ export const Size = {
 
 export const ColorVariants = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+    <Flex direction="column" gap="large" align="start">
       <StoryDescription description="Light" vertical align={Flex.align.START}>
         <AvatarGroup
           size={Avatar.sizes.LARGE}
@@ -197,12 +197,7 @@ export const MaxAvatarsToDisplay = {
     const [max, setMax] = useState(4);
 
     return (
-      <Flex
-        direction={Flex.directions.COLUMN}
-        gap={Flex.gaps.MEDIUM}
-        align={Flex.align.START}
-        className={styles.sliderCountContainer}
-      >
+      <Flex direction="column" gap="medium" align="start" className={styles.sliderCountContainer}>
         <Slider
           size={Slider.sizes.SMALL}
           min={1}
@@ -268,7 +263,7 @@ export const HoverVsClickable = {
     }, []);
 
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+      <Flex direction="row" gap="large">
         <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
           <AvatarGroup
             size={Avatar.sizes.LARGE}
@@ -316,7 +311,7 @@ export const Disabled = () => (
 
 export const LastSeenUsers = {
   render: () => (
-    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM}>
+    <Flex direction="row" gap="medium">
       <div>Last seen</div>
       <AvatarGroup size={Avatar.sizes.MEDIUM} max={4} counterProps={{ color: "dark" }} type={Avatar.types.IMG}>
         <Avatar src={person1} ariaLabel="Julia Martinez" />
@@ -462,7 +457,7 @@ export const DisplayingTeams = {
       <TableBody>
         <TableRow>
           <TableCell>
-            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+            <Flex direction="row" gap="small">
               <Avatar type={Avatar.types.IMG} src={person1} size={Avatar.sizes.MEDIUM} ariaLabel="Julia Martinez" />
               Julia Martinez
             </Flex>

@@ -79,12 +79,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       {title && (
-        <Flex
-          justify={Flex.justify.START}
-          align={Flex.align.CENTER}
-          className={styles.titleContainer}
-          gap={Flex.gaps.XS}
-        >
+        <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">
           {!withoutIcon && (
             <Icon
               className={styles.icon}
@@ -102,7 +97,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           </Text>
         </Flex>
       )}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
+      <Flex justify="start" align="center" gap="xs">
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon
             iconType={iconType}

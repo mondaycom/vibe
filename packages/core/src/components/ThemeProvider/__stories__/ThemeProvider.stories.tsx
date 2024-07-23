@@ -97,7 +97,7 @@ export const WithSystemTheme = {
     };
 
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+      <Flex direction="row" gap="large">
         <ThemeProvider
           themeConfig={{
             name: "with-system-theme",

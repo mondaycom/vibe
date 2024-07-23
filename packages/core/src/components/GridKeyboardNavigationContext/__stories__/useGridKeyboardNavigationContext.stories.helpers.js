@@ -67,8 +67,8 @@ export const LayoutWithInnerKeyboardNavigation = forwardRef(({ id, itemPrefix },
       <Flex
         ref={ref}
         id={id}
-        direction={Flex.directions.COLUMN}
-        align={Flex.align.START}
+        direction="column"
+        align="start"
         className="use-grid-keyboard-dummy-grid-wrapper"
         tabIndex={-1}
       >

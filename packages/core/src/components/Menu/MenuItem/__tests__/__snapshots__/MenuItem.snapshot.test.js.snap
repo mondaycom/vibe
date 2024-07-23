@@ -154,11 +154,7 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
 >
   <div
     className="container directionRow justifyCenter alignCenter iconWrapper"
-    style={
-      {
-        "gap": "0px",
-      }
-    }
+    style={{}}
   >
     <svg
       aria-hidden={true}
@@ -206,11 +202,7 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
 >
   <div
     className="container directionRow justifyCenter alignCenter iconWrapper"
-    style={
-      {
-        "gap": "0px",
-      }
-    }
+    style={{}}
   >
     <span
       aria-hidden={true}

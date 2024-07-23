@@ -63,12 +63,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         aria-sort={onSortClicked ? ariaSort : undefined}
         tabIndex={onSortClicked ? 0 : undefined}
       >
-        <Flex
-          direction={Flex.directions.ROW}
-          align={Flex.align.CENTER}
-          className={styles.tableHeaderCellContent}
-          gap={Flex.gaps.XS}
-        >
+        <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
           {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
           {
             <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
@@ -82,7 +77,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           )}
         </Flex>
         {onSortClicked && (
-          <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
+          <Flex direction="row" align="center" className={styles.tableHeaderCellSort}>
             <IconButton
               icon={getSortIcon(sortState)}
               kind={ButtonType.TERTIARY}

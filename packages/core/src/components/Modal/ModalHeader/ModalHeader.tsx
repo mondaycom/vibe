@@ -93,7 +93,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       {children ? (
         children
       ) : (
-        <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
+        <Flex align="start" gap="small" className={titleClassName}>
           {icon && (
             <Icon
               className={cx(styles.icon, iconClassName)}

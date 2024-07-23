@@ -171,7 +171,7 @@ export const AvatarWithLeftBadge = {
 
 export const AvatarWithTooltip = {
   render: () => (
-    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+    <Flex direction="row" gap="large" align="start">
       <StoryDescription description="Aria label tooltip" vertical align={StoryDescription.align.START}>
         <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Julia Martinez"} />
       </StoryDescription>
@@ -213,7 +213,7 @@ export const ClickableAvatar = {
     }, []);
 
     return (
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+      <Flex direction="column" gap="medium">
         <Avatar
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}

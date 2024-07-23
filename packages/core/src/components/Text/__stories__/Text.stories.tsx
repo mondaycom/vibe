@@ -35,18 +35,8 @@ export const Overview = {
 
 export const SizesAndWeights = {
   render: () => (
-    <Flex
-      gap={Flex.gaps.LARGE}
-      direction={Flex.directions.COLUMN}
-      justify={Flex.justify.START}
-      align={Flex.align.START}
-    >
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
+    <Flex gap="large" direction="column" justify="start" align="start">
+      <Flex gap="small" direction="column" justify="start" align="start">
         <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
           This is text1 bold
         </Text>
@@ -57,12 +47,7 @@ export const SizesAndWeights = {
           This is text1 normal
         </Text>
       </Flex>
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
+      <Flex gap="small" direction="column" justify="start" align="start">
         <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
           This is text2 bold
         </Text>
@@ -73,12 +58,7 @@ export const SizesAndWeights = {
           This is text2 normal
         </Text>
       </Flex>
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
+      <Flex gap="small" direction="column" justify="start" align="start">
         <Text type={Text.types.TEXT3} weight={Text.weights.MEDIUM}>
           This is text3 medium
         </Text>
@@ -94,7 +74,7 @@ export const SizesAndWeights = {
 
 export const Colors = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+    <Flex direction="column" align="start" gap="small">
       <Text color={Text.colors.PRIMARY}>Primary text</Text>
       <Text color={Text.colors.SECONDARY}>Secondary text</Text>
       <Text
@@ -142,11 +122,11 @@ export const Colors = {
 export const Overflow = {
   render: () => (
     <Flex
-      direction={Flex.directions.COLUMN}
+      direction="column"
       id={OVERFLOW_TEXT_CONTAINER_ID}
-      justify={Flex.justify.START}
-      align={Flex.align.INITIAL}
-      gap={Flex.gaps.SMALL}
+      justify="start"
+      align="initial"
+      gap="small"
       style={{ width: "480px" }}
     >
       <Text
@@ -172,7 +152,7 @@ export const Overflow = {
 
 export const Paragraph = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN}>
+    <Flex direction="column">
       <Text element="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -195,7 +175,7 @@ export const Paragraph = {
 
 export const LinksInsideRunningText = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+    <Flex direction="column" align="start" gap="small">
       <Text align={Text.align.CENTER}>
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>

@@ -15,7 +15,7 @@ const MenuItemIcon = ({
   wrapperClassName
 }: MenuItemIconProps) => (
   <Flex
-    justify={Flex.justify.CENTER}
+    justify="center"
     className={cx(
       styles.iconWrapper,
       {

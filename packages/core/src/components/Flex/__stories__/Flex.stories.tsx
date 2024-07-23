@@ -47,7 +47,7 @@ export const Directions = {
         </Flex>
       </StoryDescription>
       <StoryDescription description="Vertical">
-        <Flex direction={Flex.directions.COLUMN}>
+        <Flex direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -63,35 +63,35 @@ export const HorizontalSpacingBetweenItems = {
   render: () => (
     <div className={styles["story-container"]}>
       <StoryDescription description="No spacing between items">
-        <Flex gap={Flex.gaps.NONE}>
+        <Flex>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items">
-        <Flex gap={Flex.gaps.XS}>
+        <Flex gap="xs">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items">
-        <Flex gap={Flex.gaps.SMALL}>
+        <Flex gap="small">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items">
-        <Flex gap={Flex.gaps.MEDIUM}>
+        <Flex gap="medium">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items">
-        <Flex gap={Flex.gaps.LARGE}>
+        <Flex gap="large">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -116,45 +116,45 @@ export const VerticalSpacingBetweenItems = {
       style={{
         width: "100%"
       }}
-      justify={Flex.justify.SPACE_AROUND}
+      justify="space-around"
     >
       <StoryDescription description="No spacing between items" vertical>
-        <Flex gap={Flex.gaps.NONE} direction={Flex.directions.COLUMN}>
+        <Flex direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items" vertical>
-        <Flex gap={Flex.gaps.XS} direction={Flex.directions.COLUMN}>
+        <Flex gap="xs" direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items" vertical>
-        <Flex gap={Flex.gaps.SMALL} direction={Flex.directions.COLUMN}>
+        <Flex gap="small" direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items" vertical>
-        <Flex gap={Flex.gaps.MEDIUM} direction={Flex.directions.COLUMN}>
+        <Flex gap="medium" direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items" vertical>
-        <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.COLUMN}>
+        <Flex gap="large" direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Custom spacing between items" vertical>
-        <Flex gap={32} direction={Flex.directions.COLUMN}>
+        <Flex gap={32} direction="column">
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -176,7 +176,7 @@ export const HorizontalPositions = {
     >
       <StoryDescription description="Start position">
         <Flex
-          justify={Flex.justify.START}
+          justify="start"
           style={{
             width: "100%"
           }}
@@ -188,7 +188,7 @@ export const HorizontalPositions = {
       </StoryDescription>
       <StoryDescription description="Center position">
         <Flex
-          justify={Flex.justify.CENTER}
+          justify="center"
           style={{
             width: "100%"
           }}
@@ -200,7 +200,7 @@ export const HorizontalPositions = {
       </StoryDescription>
       <StoryDescription description="End position">
         <Flex
-          justify={Flex.justify.END}
+          justify="end"
           style={{
             width: "100%"
           }}
@@ -212,7 +212,7 @@ export const HorizontalPositions = {
       </StoryDescription>
       <StoryDescription description="Space between position">
         <Flex
-          justify={Flex.justify.SPACE_BETWEEN}
+          justify="space-between"
           style={{
             width: "100%"
           }}
@@ -224,7 +224,7 @@ export const HorizontalPositions = {
       </StoryDescription>
       <StoryDescription description="Space around position">
         <Flex
-          justify={Flex.justify.SPACE_AROUND}
+          justify="space-around"
           style={{
             width: "100%"
           }}
@@ -246,15 +246,15 @@ export const VerticalPositions = {
       style={{
         width: "100%"
       }}
-      justify={Flex.justify.SPACE_AROUND}
+      justify="space-around"
     >
       <StoryDescription description="Start position" vertical>
         <Flex
-          justify={Flex.justify.START}
+          justify="start"
           style={{
             height: "300px"
           }}
-          direction={Flex.directions.COLUMN}
+          direction="column"
         >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -263,11 +263,11 @@ export const VerticalPositions = {
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
         <Flex
-          justify={Flex.justify.CENTER}
+          justify="center"
           style={{
             height: "300px"
           }}
-          direction={Flex.directions.COLUMN}
+          direction="column"
         >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -276,11 +276,11 @@ export const VerticalPositions = {
       </StoryDescription>
       <StoryDescription description="End position" vertical>
         <Flex
-          justify={Flex.justify.END}
+          justify="end"
           style={{
             height: "300px"
           }}
-          direction={Flex.directions.COLUMN}
+          direction="column"
         >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -289,11 +289,11 @@ export const VerticalPositions = {
       </StoryDescription>
       <StoryDescription description="Space between position" vertical>
         <Flex
-          justify={Flex.justify.SPACE_BETWEEN}
+          justify="space-between"
           style={{
             height: "300px"
           }}
-          direction={Flex.directions.COLUMN}
+          direction="column"
         >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -302,11 +302,11 @@ export const VerticalPositions = {
       </StoryDescription>
       <StoryDescription description="Space around position" vertical>
         <Flex
-          justify={Flex.justify.SPACE_AROUND}
+          justify="space-around"
           style={{
             height: "300px"
           }}
-          direction={Flex.directions.COLUMN}
+          direction="column"
         >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -326,7 +326,7 @@ export const SupportMultiLinesLayout = {
       style={{
         width: "300px"
       }}
-      gap={Flex.gaps.SMALL}
+      gap="small"
     >
       <Chips className={styles["flex-chip"]} label="Chip 1" />
       <Chips className={styles["flex-chip"]} label="Chip 2" />
@@ -343,7 +343,7 @@ export const SupportMultiLinesLayout = {
 
 export const FlexAsToolbarContainer = {
   render: () => (
-    <Flex>
+    <Flex gap="small">
       <Button leftIcon={Add}>Add</Button>
       <Button kind={Button.kinds.TERTIARY} leftIcon={Search}>
         Search
