@@ -7,7 +7,7 @@ import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { OptionRenderer } from "./OptionRenderer.js";
 import { Attach, Email } from "../../Icon/Icons";
-import { Avatar, Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
+import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./Dropdown.stories.scss";
 import { fakeFetchUsers } from "./Dropdown.stories.helpers";
@@ -517,8 +517,8 @@ export const DropdownWithChips = {
           value: "Dor Yehuda",
           label: "Hadas Farhi",
           src: person1,
-          type: Avatar.types.IMG,
-          size: Avatar.sizes.SMALL,
+          type: "img",
+          size: "small",
           name: "Dor Yehuda",
           position: "(Full Stack Developer)"
         },
@@ -526,8 +526,8 @@ export const DropdownWithChips = {
           value: "No",
           label: "Rotem Dekel",
           src: person3,
-          type: Avatar.types.IMG,
-          size: Avatar.sizes.SMALL,
+          type: "img",
+          size: "small",
           name: "Rotem Dekel",
           position: "(Product Designer)"
         },
@@ -535,8 +535,8 @@ export const DropdownWithChips = {
           value: "Yes",
           label: "Netta Muller",
           src: person2,
-          type: Avatar.types.IMG,
-          size: Avatar.sizes.SMALL,
+          type: "img",
+          size: "small",
           name: "Netta Muller",
           position: "(Brand Designer)"
         }

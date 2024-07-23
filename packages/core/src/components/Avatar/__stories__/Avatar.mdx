@@ -83,9 +83,9 @@ Use for non-person avatars, such as a workspace or team.
       positive: {
         component: (
           <div className="monday-storybook-avatar_multiple">
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
+            <Avatar className="multiple-avatar" size="large" src={person1} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person2} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person3} type="img" />
           </div>
         ),
         description: "Use consistent avatar sizes for common use cases to convey their purpose."
@@ -93,24 +93,9 @@ Use for non-person avatars, such as a workspace or team.
       negative: {
         component: (
           <div className="monday-storybook-avatar_multiple-reverse">
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.SMALL}
-              src={person1}
-              type={Avatar.types.IMG}
-            />
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.MEDIUM}
-              src={person2}
-              type={Avatar.types.IMG}
-            />
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.LARGE}
-              src={person3}
-              type={Avatar.types.IMG}
-            />
+            <Avatar className="multiple-reverse-avatar" size="small" src={person1} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="medium" src={person2} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="large" src={person3} type="img" />
           </div>
         ),
         description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
@@ -118,11 +103,11 @@ Use for non-person avatars, such as a workspace or team.
     },
     {
       positive: {
-        component: <Avatar src={maleIcon} type={Avatar.types.IMG} />,
+        component: <Avatar src={maleIcon} type="img" />,
         description: "Use branded generic avatars when a user has not set their avatar image."
       },
       negative: {
-        component: <Avatar src={femaleIcon} type={Avatar.types.IMG} />,
+        component: <Avatar src={femaleIcon} type="img" />,
         description: "Don’t make assumptions and use gendered placeholder avatars."
       }
     }
