@@ -40,7 +40,7 @@ import { VibeComponent, withStaticProps } from "../../types";
 
 function generateEmotionCacheKey(): Lowercase<string> {
   // emotion cache key must only contain alphabetic lowercase characters
-  const idGenerator = nanoidCustomAlphabet("abcdefghijklmnopqrstuvwxyz");
+  const idGenerator = nanoidCustomAlphabet("abcdefghijklmnopqrstuvwxyz", 5);
   return idGenerator() as Lowercase<string>;
 }
 
