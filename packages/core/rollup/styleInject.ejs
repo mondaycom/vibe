@@ -3,7 +3,7 @@ function styleInject(css) {
     const head = document.head || document.getElementsByTagName('head')[0];
     const id = "<%= hashValue %>_<%= version %>";
     const styleExists = head.querySelector("#" + id);
-    deubgger;
+    debugger;
     if(styleExists) return;
 
     const style = document.createElement('style');
