@@ -241,7 +241,7 @@ export const IconButtonAsCloseButton: Story = {
               Item
             </Text>
           </Flex>
-          <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+          <Avatar size="large" src={person1} type="img" />
           <Flex
             direction="column"
             className={styles.recycleBinContent}

@@ -42,7 +42,6 @@ export interface LinkProps extends VibeComponentProps {
 
 const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
   targets?: typeof LinkTarget;
-  target?: typeof LinkTarget;
   iconPositions?: typeof IconPosition;
   position?: typeof IconPosition;
 } = forwardRef(
@@ -112,7 +111,6 @@ function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | n
 
 export default withStaticProps(Link, {
   position: IconPosition,
-  target: LinkTarget,
   iconPositions: IconPosition,
   targets: LinkTarget
 });

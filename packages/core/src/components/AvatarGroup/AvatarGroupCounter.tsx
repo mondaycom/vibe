@@ -1,13 +1,13 @@
 import React, { ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import Avatar, { AvatarProps } from "../Avatar/Avatar";
+import { AvatarProps } from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
 import { TooltipProps } from "../Tooltip/Tooltip";
@@ -37,11 +37,11 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  size = Avatar.sizes.MEDIUM,
+  size = "medium",
   type,
   counterAriaLabel,
   disabled
-}) => {
+}: AvatarGroupCounterProps) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
     count: counterValue = counterTooltipAvatars.length,

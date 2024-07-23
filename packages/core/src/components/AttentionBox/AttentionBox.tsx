@@ -9,7 +9,8 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType } from "../Icon/IconConstants";
-import { AttentionBoxType } from "./AttentionBoxConstants";
+import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
+import { AttentionBoxType } from "./AttentionBox.types";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
@@ -34,13 +35,13 @@ export interface AttentionBoxProps extends VibeComponentProps {
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxType;
+  types?: typeof AttentionBoxTypeEnum;
   iconTypes?: typeof IconType;
 } = ({
   className,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
-  type = AttentionBox.types.PRIMARY,
+  type = "primary",
   icon,
   iconType = Icon.type.SVG,
   title,
@@ -53,13 +54,13 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   id,
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close"
-}) => {
+}: AttentionBoxProps) => {
   const iconLabel = useMemo(() => {
-    if (type === AttentionBoxType.DANGER) {
+    if (type === "danger") {
       return "alert";
     }
 
-    if (type === AttentionBoxType.SUCCESS) {
+    if (type === "success") {
       return "success";
     }
 
@@ -67,7 +68,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   }, [type]);
 
   const defaultIcon = useMemo(() => {
-    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+    return type === "primary" ? InfoIcon : AlertIcon;
   }, [type]);
 
   const overrideIcon = icon === undefined ? defaultIcon : icon;
@@ -140,6 +141,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 };
 
 export default withStaticProps(AttentionBox, {
-  types: AttentionBoxType,
+  types: AttentionBoxTypeEnum,
   iconTypes: IconType
 });

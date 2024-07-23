@@ -29,9 +29,9 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    size: Avatar.sizes.LARGE,
+    size: "large",
     src: window.location.origin + "/" + person1,
-    type: Avatar.types.IMG,
+    type: "img",
     ariaLabel: "Julia Martinez"
   }
 };
@@ -39,9 +39,9 @@ export const Overview = {
 export const Size = {
   render: () => (
     <>
-      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
-      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
-      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} ariaLabel="Julia Martinez" />
+      <Avatar size="small" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
     </>
   ),
 
@@ -51,9 +51,9 @@ export const Size = {
 export const Disable = {
   render: () => (
     <>
-      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} disabled />
-      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} disabled />
-      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} disabled />
+      <Avatar size="small" src={person1} type="img" disabled />
+      <Avatar size="medium" src={person1} type="img" disabled />
+      <Avatar size="large" src={person1} type="img" disabled />
     </>
   ),
   name: "Disable"
@@ -62,27 +62,9 @@ export const Disable = {
 export const AvatarWithText = {
   render: () => (
     <>
-      <Avatar
-        size={Avatar.sizes.SMALL}
-        type={Avatar.types.TEXT}
-        text="RM"
-        backgroundColor={Avatar.colors.LIPSTICK}
-        ariaLabel="Ron Meir"
-      />
-      <Avatar
-        size={Avatar.sizes.MEDIUM}
-        type={Avatar.types.TEXT}
-        text="RM"
-        backgroundColor={Avatar.colors.LIPSTICK}
-        ariaLabel="Ron Meir"
-      />
-      <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.TEXT}
-        text="RM"
-        backgroundColor={Avatar.colors.DONE_GREEN}
-        ariaLabel="Ron Meir"
-      />
+      <Avatar size="small" type="text" text="RM" backgroundColor={Avatar.colors.LIPSTICK} ariaLabel="Ron Meir" />
+      <Avatar size="medium" type="text" text="RM" backgroundColor={Avatar.colors.LIPSTICK} ariaLabel="Ron Meir" />
+      <Avatar size="large" type="text" text="RM" backgroundColor={Avatar.colors.DONE_GREEN} ariaLabel="Ron Meir" />
     </>
   ),
 
@@ -92,25 +74,18 @@ export const AvatarWithText = {
 export const SquareAvatar = {
   render: () => (
     <>
+      <Avatar size="small" type="text" text="R" backgroundColor={Avatar.colors.BRIGHT_BLUE} square ariaLabel="Ron" />
       <Avatar
-        size={Avatar.sizes.SMALL}
-        type={Avatar.types.TEXT}
-        text="R"
-        backgroundColor={Avatar.colors.BRIGHT_BLUE}
-        square
-        ariaLabel="Ron"
-      />
-      <Avatar
-        size={Avatar.sizes.MEDIUM}
-        type={Avatar.types.ICON}
+        size="medium"
+        type="icon"
         icon={WhatsNew}
         backgroundColor={Avatar.colors.AQUAMARINE}
         square
         ariaLabel="Present"
       />
       <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.TEXT}
+        size="large"
+        type="text"
         text="RM"
         backgroundColor={Avatar.colors.WORKING_ORANGE}
         square
@@ -125,20 +100,8 @@ export const SquareAvatar = {
 export const AvatarWithRightBadge = {
   render: () => (
     <>
-      <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.IMG}
-        src={person1}
-        bottomRightBadgeProps={{ src: guest }}
-        ariaLabel="Julia Martinez"
-      />
-      <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.IMG}
-        src={person1}
-        bottomRightBadgeProps={{ src: owner }}
-        ariaLabel="Julia Martinez"
-      />
+      <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: guest }} ariaLabel="Julia Martinez" />
+      <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: owner }} ariaLabel="Julia Martinez" />
     </>
   ),
 
@@ -149,20 +112,8 @@ export const AvatarWithLeftBadge = {
   render: () => (
     <>
       {" "}
-      <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.IMG}
-        src={person1}
-        bottomLeftBadgeProps={{ src: home }}
-        ariaLabel="Julia Martinez"
-      />
-      <Avatar
-        size={Avatar.sizes.LARGE}
-        type={Avatar.types.IMG}
-        src={person1}
-        bottomLeftBadgeProps={{ src: minus }}
-        ariaLabel="Julia Martinez"
-      />
+      <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: home }} ariaLabel="Julia Martinez" />
+      <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: minus }} ariaLabel="Julia Martinez" />
     </>
   ),
 
@@ -173,12 +124,12 @@ export const AvatarWithTooltip = {
   render: () => (
     <Flex direction="row" gap="large" align="start">
       <StoryDescription description="Aria label tooltip" vertical align={StoryDescription.align.START}>
-        <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Julia Martinez"} />
+        <Avatar size="large" type="img" src={person1} ariaLabel={"Julia Martinez"} />
       </StoryDescription>
       <StoryDescription description="Text tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
-          size={Avatar.sizes.LARGE}
-          type={Avatar.types.IMG}
+          size="large"
+          type="img"
           src={person1}
           tooltipProps={{
             content: "Julia Martinez"
@@ -188,8 +139,8 @@ export const AvatarWithTooltip = {
       </StoryDescription>
       <StoryDescription description="JSX tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
-          size={Avatar.sizes.LARGE}
-          type={Avatar.types.IMG}
+          size="large"
+          type="img"
           src={person1}
           tooltipProps={{
             content: <b>Julia Martinez</b>,
@@ -214,13 +165,7 @@ export const ClickableAvatar = {
 
     return (
       <Flex direction="column" gap="medium">
-        <Avatar
-          size={Avatar.sizes.LARGE}
-          type={Avatar.types.IMG}
-          src={person1}
-          ariaLabel="Julia Martinez"
-          onClick={incrementCount}
-        />
+        <Avatar size="large" type="img" src={person1} ariaLabel="Julia Martinez" onClick={incrementCount} />
         <Counter count={count} />
       </Flex>
     );
@@ -231,10 +176,10 @@ export const ClickableAvatar = {
 
 export const MultipleAvatars = {
   render: () => (
-    <AvatarGroup max={2} size={Avatar.sizes.LARGE}>
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Marco DiAngelo" />
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Liam Caldwell" />
+    <AvatarGroup max={2} size="large">
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person3} ariaLabel="Liam Caldwell" />
     </AvatarGroup>
   ),
 

@@ -711,7 +711,7 @@ export const ComboboxAsPersonPicker = {
           id: "Hadas Farhi",
           label: "Hadas Farhi",
           src: person1,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Frontend Developer)",
           categoryId: "suggestedPeople"
         },
@@ -719,7 +719,7 @@ export const ComboboxAsPersonPicker = {
           id: "Rotem Dekel",
           label: "Rotem Dekel",
           src: person2,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Product Designer)",
           categoryId: "suggestedPeople"
         },
@@ -727,7 +727,7 @@ export const ComboboxAsPersonPicker = {
           id: "Netta Muller",
           label: "Netta Muller",
           src: person3,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Brand Designer)",
           categoryId: "suggestedPeople"
         }
@@ -771,7 +771,7 @@ export const ComboboxAsPersonPicker = {
           open={true}
         >
           <div className="person-picker-mock">
-            <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
+            <Avatar size="small" src={person1} type="img" />
           </div>
         </Dialog>
       </Flex>

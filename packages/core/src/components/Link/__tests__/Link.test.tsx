@@ -17,7 +17,7 @@ describe("Link", () => {
   describe("default props", () => {
     it("should open link in a new window", () => {
       const element = screen.getByText(text).closest("a");
-      expect(element.target).toBe(Link.target.NEW_WINDOW);
+      expect(element.target).toBe(Link.targets.NEW_WINDOW);
     });
 
     it("should open link to have noreferrer attribute", () => {
@@ -39,9 +39,9 @@ describe("Link", () => {
 
   it("should have the correct target", () => {
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    const { getByText } = render(<Link href="#" text="test text" target={Link.target.SELF} />);
+    const { getByText } = render(<Link href="#" text="test text" target={Link.targets.SELF} />);
     const element = getByText("test text").closest("a");
-    expect(element.target).toBe(Link.target.SELF);
+    expect(element.target).toBe(Link.targets.SELF);
   });
 
   it("should apply aria label correctly", () => {

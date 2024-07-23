@@ -97,6 +97,7 @@ codemod: `avatar-component-migration`
 ### Link
 
 - `componentClassName` -> `className` [codemod]
+- `Link.target` removed, use `Link.targets` instead [codemod]
 
 ### Loader
 

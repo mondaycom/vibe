@@ -194,7 +194,7 @@ export const ListAsLeftpane = {
       <span className={classes["leftpane-workspaces-title"]}>Workspace</span>
       <span className={classes["leftpane-workspaces-options"]}>
         <div className={classes["leftpane-workspaces-description"]}>
-          <Avatar size={Avatar.sizes.SMALL} text="W" backgroundColor={Avatar.colors.INDIGO} square />
+          <Avatar size="small" text="W" backgroundColor={Avatar.colors.INDIGO} square />
           Workspace name
         </div>
         <Icon className={classes["leftpane-workspaces-options-icon"]} icon={DropdownChevronDown} />

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
 import { CounterColor } from "../Counter/CounterConstants";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { TooltipProps } from "../Tooltip/Tooltip";
