@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.123.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.2...monday-ui-react-core@2.123.3) (2024-07-23)
+
+
+### Bug Fixes
+
+* use NonceProvider for react-select to fix disappearing emotion stylesheet ([#2253](https://github.com/mondaycom/vibe/issues/2253)) ([6bb52c8](https://github.com/mondaycom/vibe/commit/6bb52c8c0e0c03dd34236aace0114417f9d221a9))
+
+
+
+
+
 ## [2.123.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.1...monday-ui-react-core@2.123.2) (2024-07-22)
 
 
