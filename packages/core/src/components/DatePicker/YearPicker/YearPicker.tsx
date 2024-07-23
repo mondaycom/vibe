@@ -25,9 +25,8 @@ export interface YearPickerProps {
 
 const YearPicker = ({ selectedDate, isYearBlocked, changeCurrentDate, "data-testid": dateTestId }: YearPickerProps) => {
   const selectedYear = selectedDate ? selectedDate.format(YEAR_FORMAT) : moment().format(YEAR_FORMAT);
-  const currentYear = moment().format(YEAR_FORMAT);
   const [yearsToDisplay, setYearsToDisplay] = useState(
-    calcNewYearsPage(parseInt(currentYear) - BUFFER_FROM_CURRENT_YEAR, PAGE_SIZE)
+    calcNewYearsPage(parseInt(selectedYear) - BUFFER_FROM_CURRENT_YEAR, PAGE_SIZE)
   );
 
   const onYearNavigationClick = (direction: Direction) => {
