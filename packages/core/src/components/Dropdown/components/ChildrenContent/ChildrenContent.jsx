@@ -37,7 +37,9 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
           {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
         </>
       )}
-      <Text type="text2">{children}</Text>
+      <Text type="text2" color="inherit">
+        {children}
+      </Text>
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
       {data?.rightAvatar && (
         <Avatar withoutBorder square={data.square} src={data.rightAvatar} type={Avatar.types.IMG} customSize={20} />
