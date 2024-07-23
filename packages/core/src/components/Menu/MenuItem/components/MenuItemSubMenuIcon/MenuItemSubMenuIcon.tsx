@@ -12,7 +12,7 @@ const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: Re
   <Flex justify={Flex.justify.CENTER} className={styles.subMenuIconWrapper}>
     {props.isSplit === true ? (
       <>
-        <Divider direction={Divider.directions.VERTICAL} className={styles.divider} />
+        <Divider direction="vertical" className={styles.divider} />
         <IconButton
           icon={DropdownChevronRight}
           className={styles.splitMenuItemIconButton}
