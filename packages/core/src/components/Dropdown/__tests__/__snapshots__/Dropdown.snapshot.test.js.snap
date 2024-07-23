@@ -108,7 +108,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -128,7 +128,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -148,7 +148,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -168,7 +168,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -188,7 +188,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -208,7 +208,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             data-testid="dropdown-option-content"
           >
             <div
-              class="typography primary start singleLineEllipsis text text2Normal"
+              class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
               style="--text-clamp-lines: 1;"
             >
@@ -1050,7 +1050,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1076,7 +1076,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1102,7 +1102,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1128,7 +1128,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1154,7 +1154,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1180,7 +1180,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1206,7 +1206,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1232,7 +1232,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1258,7 +1258,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1284,7 +1284,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -1310,7 +1310,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   data-testid="dropdown-option-content"
                 >
                   <div
-                    class="typography primary start singleLineEllipsis text text2Normal"
+                    class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
                     style="--text-clamp-lines: 1;"
                   >
@@ -2269,7 +2269,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             onMouseDown={[Function]}
           >
             <div
-              className="typography primary start singleLineEllipsis text text2Normal"
+              className="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
             >
               Ocean
@@ -4227,7 +4227,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             onMouseDown={[Function]}
           >
             <div
-              className="typography primary start singleLineEllipsis text text2Normal"
+              className="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
             >
               Ocean
