@@ -13,6 +13,7 @@ export {default as API} from './components/API';
 export {default as Apps} from './components/Apps';
 export {default as Archive} from './components/Archive';
 export {default as Attach} from './components/Attach';
+export {default as Baseline} from './components/Baseline';
 export {default as Basic} from './components/Basic';
 export {default as Battery} from './components/Battery';
 export {default as BlockQuote} from './components/BlockQuote';

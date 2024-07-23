@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 enum SwitchRole {
   CHECKBOX = "checkbox",
@@ -8,7 +8,7 @@ enum SwitchRole {
 export interface UseSwitchProps {
   isChecked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (value: boolean) => void;
+  onChange?: (value: boolean, event?: ChangeEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
 }
 
@@ -17,16 +17,19 @@ export default function useSwitch({ isChecked, defaultChecked, onChange, isDisab
   const overrideCheckedInitial = isChecked ?? !!defaultChecked;
   const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);
 
-  const overrideOnChange = useCallback(() => {
-    if (isDisabled) {
-      return;
-    }
-    const newChecked = !overrideChecked;
-    if (isChecked === undefined) {
-      setOverrideChecked(newChecked);
-    }
-    onChange && onChange(newChecked);
-  }, [isChecked, isDisabled, onChange, overrideChecked]);
+  const overrideOnChange = useCallback(
+    (event?: ChangeEvent<HTMLInputElement>) => {
+      if (isDisabled) {
+        return;
+      }
+      const newChecked = !overrideChecked;
+      if (isChecked === undefined) {
+        setOverrideChecked(newChecked);
+      }
+      onChange && onChange(newChecked, event);
+    },
+    [isChecked, isDisabled, onChange, overrideChecked]
+  );
 
   useEffect(() => {
     if (isChecked !== undefined) {
