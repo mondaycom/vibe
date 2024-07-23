@@ -220,7 +220,6 @@ export const ChipsInAPersonPickerComboBox = {
       <div className={styles.search}>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
           <Text type="text2" className={styles.name}>
-          <Text type={Text.types.TEXT2} className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
         </Flex>
