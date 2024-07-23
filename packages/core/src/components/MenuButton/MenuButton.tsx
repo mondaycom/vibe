@@ -210,7 +210,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       (event: React.KeyboardEvent) => {
         const isEscapeKey = event?.key === "Escape";
         if (isEscapeKey || closeMenuOnItemClick) {
-          handleMenuClose(isEscapeKey);
+          // @ts-ignore
+          if (event.propagate) {
+            handleMenuClose(isEscapeKey);
+          }
         }
       },
       [closeMenuOnItemClick, handleMenuClose]
