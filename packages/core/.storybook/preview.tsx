@@ -37,6 +37,7 @@ import { generateAutocompletion } from "storybook-addon-playground";
 import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
 import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
+import modes from "./modes";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -44,6 +45,9 @@ const fontLoader = async () => ({
 
 const preview: Preview = {
   parameters: {
+    chromatic: {
+      modes
+    },
     controls: {
       sort: "alpha",
       expanded: true

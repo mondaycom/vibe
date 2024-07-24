@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.123.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.2...monday-ui-react-core@2.123.3) (2024-07-23)
+
+
+### Bug Fixes
+
+* use NonceProvider for react-select to fix disappearing emotion stylesheet ([#2253](https://github.com/mondaycom/vibe/issues/2253)) ([6bb52c8](https://github.com/mondaycom/vibe/commit/6bb52c8c0e0c03dd34236aace0114417f9d221a9))
+
+
+
+
+
+## [2.123.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.1...monday-ui-react-core@2.123.2) (2024-07-22)
+
+
+### Bug Fixes
+
+* fix style linter ([#2254](https://github.com/mondaycom/vibe/issues/2254)) ([a15e32a](https://github.com/mondaycom/vibe/commit/a15e32a3f70e0c0c7176258fe8f109457bab971a))
+
+
+
+
+
+## [2.123.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.0...monday-ui-react-core@2.123.1) (2024-07-21)
+
+
+### Bug Fixes
+
+* **textWithHighlight:** Fix linesToClamp not working properly ([#2250](https://github.com/mondaycom/vibe/issues/2250)) ([17ac1ee](https://github.com/mondaycom/vibe/commit/17ac1eec4b2b6ad1aa15221d6411e207799c32f7))
+
+
+
+
+
+# [2.123.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.122.0...monday-ui-react-core@2.123.0) (2024-07-21)
+
+
+### Bug Fixes
+
+* **textWithHighlight:** Fix ellipsis when no breaks in string ([#2248](https://github.com/mondaycom/vibe/issues/2248)) ([e3f6bfb](https://github.com/mondaycom/vibe/commit/e3f6bfb8049d080375b319cd7744c2e307d6b900))
+
+
+### Features
+
+* **Menu:** add on focus to menu ([#2246](https://github.com/mondaycom/vibe/issues/2246)) ([2e5820e](https://github.com/mondaycom/vibe/commit/2e5820e6e0a6ea90be6fe16fb4c52f3b83757bd7))
+* **Toggle:** pass event as 2nd argument to allow working with react-hook-form ([#2243](https://github.com/mondaycom/vibe/issues/2243)) ([c4f09e1](https://github.com/mondaycom/vibe/commit/c4f09e1805830fd4824162351933cb046b40762d))
+
+
+
+
+
+# [2.122.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.121.0...monday-ui-react-core@2.122.0) (2024-07-18)
+
+
+### Features
+
+* **Baseline:** add new icon ([#2245](https://github.com/mondaycom/vibe/issues/2245)) ([0bd7424](https://github.com/mondaycom/vibe/commit/0bd7424498362f5f0c9a00eed7c4fb2ca4d86fc4))
+
+
+
+
+
+# [2.121.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.120.0...monday-ui-react-core@2.121.0) (2024-07-18)
+
+
+### Features
+
+* add experimental stroke instead of box-shadow for dark themes ([#2218](https://github.com/mondaycom/vibe/issues/2218)) ([3469767](https://github.com/mondaycom/vibe/commit/34697676a549f3a7ec43b948def3d12cc2c94c49))
+* **TextField:** send native event if applicable in onChange ([#2231](https://github.com/mondaycom/vibe/issues/2231)) ([35b1ea6](https://github.com/mondaycom/vibe/commit/35b1ea64d20aa037133b395c6963416057bf1dae))
+
+
+
+
+
+# [2.120.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.119.0...monday-ui-react-core@2.120.0) (2024-07-14)
+
+
+### Bug Fixes
+
+* **Combobox:** spacings in categories ([#2223](https://github.com/mondaycom/vibe/issues/2223)) ([1ffe75d](https://github.com/mondaycom/vibe/commit/1ffe75d6fee9bdeb240734f6c7a89664346f5797))
+
+
+### Features
+
+* **icons:** Add Item Height Double Icon ([#2227](https://github.com/mondaycom/vibe/issues/2227)) ([42b3f1f](https://github.com/mondaycom/vibe/commit/42b3f1f899528fbaa89d328eabcc4c6e13604c1f))
+* **icons:** Add Item Height Single Icon ([#2228](https://github.com/mondaycom/vibe/issues/2228)) ([32dc7c2](https://github.com/mondaycom/vibe/commit/32dc7c2c49715670d2e87d8095ee3830154cea20))
+* **icons:** Add Prompt icon ([#2222](https://github.com/mondaycom/vibe/issues/2222)) ([eeff132](https://github.com/mondaycom/vibe/commit/eeff13295730eef13f92c5d7d7f6ea95c361af9b))
+
+
+
+
+
+# [2.119.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.1...monday-ui-react-core@2.119.0) (2024-07-10)
+
+
+### Bug Fixes
+
+* **Table:** hover cell background var should be declared inside the table selector and not on :root ([#2219](https://github.com/mondaycom/vibe/issues/2219)) ([33b47ab](https://github.com/mondaycom/vibe/commit/33b47abe3b7707846f758c6bdf0efff42b9dfda8))
+
+
+### Features
+
+* **Combobox:** add debounceRate prop ([#2220](https://github.com/mondaycom/vibe/issues/2220)) ([a6053dd](https://github.com/mondaycom/vibe/commit/a6053dd36e80d1894f3bb42cad89c6d64beb780b))
+
+
+
+
+
 ## [2.118.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.118.0...monday-ui-react-core@2.118.1) (2024-07-04)
 
 **Note:** Version bump only for package monday-ui-react-core

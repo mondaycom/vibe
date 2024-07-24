@@ -42,7 +42,14 @@ export default {
     hideTrigger: showHideArgTypes,
     showTrigger: showHideArgTypes
   },
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { useSwitch, ExampleContent }
+      }
+    }
+  }
 };
 
 const dialogTemplate = ({
@@ -192,14 +199,7 @@ export const Positions = {
       );
     },
 
-  name: "Positions",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useSwitch, ExampleContent }
-      }
-    }
-  }
+  name: "Positions"
 };
 
 export const ShowTriggers = {
@@ -301,11 +301,6 @@ export const ShowTriggers = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
-    },
-    docs: {
-      liveEdit: {
-        scope: { useSwitch, ExampleContent }
-      }
     }
   }
 };
@@ -518,8 +513,6 @@ export const HideTriggers = {
     docs: {
       liveEdit: {
         scope: {
-          useSwitch,
-          ExampleContent,
           HIDE_TRIGGERS_CONTAINER,
           CLICK_OUTSIDE_DIALOG,
           CLICK_OUTSIDE_DIALOG_BUTTON,
@@ -566,14 +559,7 @@ export const ControlledDialog = {
     );
   },
 
-  name: "Controlled Dialog",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { useSwitch }
-      }
-    }
-  }
+  name: "Controlled Dialog"
 };
 
 export const DialogWithTooltip = {
@@ -613,7 +599,7 @@ export const DialogWithTooltip = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { ExampleContent, Info }
+        scope: { Info }
       }
     }
   }
@@ -664,12 +650,5 @@ export const DisableScrollWhenDialogOpen = {
     );
   },
 
-  name: "Disable scroll when dialog open",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { ExampleContent, useSwitch }
-      }
-    }
-  }
+  name: "Disable scroll when dialog open"
 };

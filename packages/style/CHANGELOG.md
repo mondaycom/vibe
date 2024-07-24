@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.9.0...monday-ui-style@0.10.0) (2024-07-18)
+
+
+### Features
+
+* **Baseline:** add new icon ([#2245](https://github.com/mondaycom/vibe/issues/2245)) ([0bd7424](https://github.com/mondaycom/vibe/commit/0bd7424498362f5f0c9a00eed7c4fb2ca4d86fc4))
+
+
+
+
+
+# [0.9.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.8.0...monday-ui-style@0.9.0) (2024-07-14)
+
+
+### Features
+
+* **icons:** Add Item Height Double Icon ([#2227](https://github.com/mondaycom/vibe/issues/2227)) ([42b3f1f](https://github.com/mondaycom/vibe/commit/42b3f1f899528fbaa89d328eabcc4c6e13604c1f))
+* **icons:** Add Item Height Single Icon ([#2228](https://github.com/mondaycom/vibe/issues/2228)) ([32dc7c2](https://github.com/mondaycom/vibe/commit/32dc7c2c49715670d2e87d8095ee3830154cea20))
+* **icons:** Add Prompt icon ([#2222](https://github.com/mondaycom/vibe/issues/2222)) ([eeff132](https://github.com/mondaycom/vibe/commit/eeff13295730eef13f92c5d7d7f6ea95c361af9b))
+
+
+
+
+
 # [0.8.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.7.1...monday-ui-style@0.8.0) (2024-07-04)
 
 
