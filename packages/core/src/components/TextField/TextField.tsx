@@ -69,6 +69,7 @@ export interface TextFieldProps extends VibeComponentProps {
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /**  Icon names labels for a11y */
+  /// TODO Remove layout in next major
   iconsNames?: {
     layout: string;
     primary: string;
@@ -269,13 +270,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className={cx(styles.labelWrapper)}>
-          <FieldLabel
-            labelText={title}
-            icon={labelIconName}
-            iconLabel={iconsNames.layout}
-            labelFor={id}
-            requiredAsterisk={requiredAsterisk}
-          />
+          <FieldLabel labelText={title} icon={labelIconName} labelFor={id} requiredAsterisk={requiredAsterisk} />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
@@ -329,7 +324,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 [styles.iconContainerClickable]: isIconContainerClickable
               })}
               onClick={onIconClickCallback}
-              tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
+              tabIndex={
+                (onIconClick !== NOOP || iconsNames.primary) && inputValue && iconName.length && isPrimary ? "0" : "-1"
+              }
             >
               <Icon
                 icon={iconName}
