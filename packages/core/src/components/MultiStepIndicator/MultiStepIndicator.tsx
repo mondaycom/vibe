@@ -8,7 +8,6 @@ import { MultiStepType, Size, StepStatus, TextPlacement } from "./MultiStepConst
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { IconType } from "../Icon";
 import styles from "./MultiStepIndicator.module.scss";
 
 export type Step = {

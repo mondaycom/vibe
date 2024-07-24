@@ -3,7 +3,6 @@ import { RelatedComponent } from "vibe-storybook-components";
 import Divider from "../../../../components/Divider/Divider";
 import Menu from "../../../../components/Menu/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem/MenuItem";
-import Icon from "../../../../components/Icon/Icon";
 import { Settings, Bolt } from "../../../../components/Icon/Icons";
 
 export const DividerDescription = () => {

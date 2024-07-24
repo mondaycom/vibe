@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Tab from "../Tab";
 import Email from "../../../Icon/Icons/components/Email";
-import Icon from "../../../Icon/Icon";
 
 describe("Tab renders correctly", () => {
   it("with empty props", () => {

@@ -3,7 +3,6 @@ import React from "react";
 import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
-import Icon from "../../../Icon/Icon";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Meta, StoryObj } from "@storybook/react";
 
