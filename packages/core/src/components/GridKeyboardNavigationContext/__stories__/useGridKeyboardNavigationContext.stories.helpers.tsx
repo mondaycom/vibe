@@ -6,7 +6,7 @@ import { Button, Flex } from "../..";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import "./useGridKeyboardNavigationContext.stories.scss";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
-
+import { VibeComponent } from "src/types";
 const ELEMENT_WIDTH_PX = 72;
 const PADDING_PX = 24;
 
@@ -20,10 +20,9 @@ interface DummyNavigableGridProps {
   disabledIndexes?: number[];
   withoutBorder?: boolean;
 }
-
-export const DummyNavigableGrid = forwardRef<HTMLDivElement, DummyNavigableGridProps>(
+export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwardRef(
   (
-    { itemsCount, numberOfItemsInLine, itemPrefix, disabled, disabledIndexes, withoutBorder },
+    { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = true, disabledIndexes = [], withoutBorder = false },
     ref: RefObject<HTMLDivElement>
   ) => {
     const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
@@ -61,13 +60,6 @@ export const DummyNavigableGrid = forwardRef<HTMLDivElement, DummyNavigableGridP
     );
   }
 );
-
-DummyNavigableGrid.defaultProps = {
-  itemPrefix: "",
-  disabled: false,
-  disabledIndexes: [],
-  withoutBorder: false
-};
 
 interface LayoutWithInnerKeyboardNavigationProps {
   id: string;
