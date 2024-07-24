@@ -37,7 +37,6 @@ exports[`TextField renders correctly when disabled 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -49,7 +48,6 @@ exports[`TextField renders correctly when disabled 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -133,7 +131,6 @@ exports[`TextField renders correctly when loading 1`] = `
         </div>
       </div>
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -145,7 +142,6 @@ exports[`TextField renders correctly when loading 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -200,7 +196,6 @@ exports[`TextField renders correctly when readonly 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -212,7 +207,6 @@ exports[`TextField renders correctly when readonly 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -267,7 +261,6 @@ exports[`TextField renders correctly when required 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -279,7 +272,6 @@ exports[`TextField renders correctly when required 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -334,7 +326,6 @@ exports[`TextField renders correctly with another type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -346,7 +337,6 @@ exports[`TextField renders correctly with another type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -401,7 +391,6 @@ exports[`TextField renders correctly with className 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -413,7 +402,6 @@ exports[`TextField renders correctly with className 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -468,7 +456,6 @@ exports[`TextField renders correctly with className 2`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -480,7 +467,6 @@ exports[`TextField renders correctly with className 2`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -535,7 +521,6 @@ exports[`TextField renders correctly with date type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -547,7 +532,6 @@ exports[`TextField renders correctly with date type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -602,7 +586,6 @@ exports[`TextField renders correctly with date-time type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -614,7 +597,6 @@ exports[`TextField renders correctly with date-time type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -669,7 +651,6 @@ exports[`TextField renders correctly with email type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -681,7 +662,6 @@ exports[`TextField renders correctly with email type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -736,7 +716,6 @@ exports[`TextField renders correctly with icon 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -756,7 +735,6 @@ exports[`TextField renders correctly with icon 1`] = `
         />
       </div>
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -878,7 +856,6 @@ exports[`TextField renders correctly with id 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -890,7 +867,6 @@ exports[`TextField renders correctly with id 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_testId"
         onClick={[Function]}
@@ -945,7 +921,6 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -957,7 +932,6 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1012,7 +986,6 @@ exports[`TextField renders correctly with large size 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1024,7 +997,6 @@ exports[`TextField renders correctly with large size 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1079,7 +1051,6 @@ exports[`TextField renders correctly with placeholder 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1091,7 +1062,6 @@ exports[`TextField renders correctly with placeholder 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1146,7 +1116,6 @@ exports[`TextField renders correctly with role 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1158,7 +1127,6 @@ exports[`TextField renders correctly with role 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1213,7 +1181,6 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1225,7 +1192,6 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1287,7 +1253,6 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1299,7 +1264,6 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1365,7 +1329,6 @@ exports[`TextField renders correctly with tel type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1377,7 +1340,6 @@ exports[`TextField renders correctly with tel type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1432,7 +1394,6 @@ exports[`TextField renders correctly with url type 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1444,7 +1405,6 @@ exports[`TextField renders correctly with url type 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1499,7 +1459,6 @@ exports[`TextField renders correctly with validation 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1511,7 +1470,6 @@ exports[`TextField renders correctly with validation 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1576,7 +1534,6 @@ exports[`TextField renders correctly with value 1`] = `
         value="value"
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1588,7 +1545,6 @@ exports[`TextField renders correctly with value 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1643,7 +1599,6 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         value=""
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -1655,7 +1610,6 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         tabIndex={-1}
       />
       <div
-        aria-label=""
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}

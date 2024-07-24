@@ -157,8 +157,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       name,
       withReadOnlyStyle,
       controlled = false,
-      iconTooltipContent = "",
-      secondaryTooltipContent = ""
+      iconTooltipContent,
+      secondaryTooltipContent
     },
     ref
   ) => {

@@ -108,11 +108,11 @@ const LegacySearch: VibeComponent<SearchProps, unknown> & {
         inputAriaLabel={inputAriaLabel}
         searchResultsContainerId={searchResultsContainerId}
         activeDescendant={activeDescendant}
+        iconsNames={iconNames}
         type={TextFieldTextType.SEARCH}
         role="search"
         loading={loading}
         underline={type === SearchType.UNDERLINE}
-        iconsNames={iconNames}
       />
     );
   }
