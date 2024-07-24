@@ -7,8 +7,6 @@ import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
 import styles from "./Menu.stories.module.scss";
 import { MenuProps } from "../../..";
 
-import { VibeComponent } from "src/types";
-
 export default {
   title: "Navigation/Menu/Menu",
   component: Menu
