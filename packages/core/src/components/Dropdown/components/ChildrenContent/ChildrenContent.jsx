@@ -37,7 +37,7 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
           {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
         </>
       )}
-      <Text type="text2" color="inherit">
+      <Text type={Text.types.TEXT2} color={Text.colors.INHERIT}>
         {children}
       </Text>
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
