@@ -4,7 +4,7 @@ import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
-import { IconType } from "../../Icon/IconConstants";
+import { IconType } from "../../Icon";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";

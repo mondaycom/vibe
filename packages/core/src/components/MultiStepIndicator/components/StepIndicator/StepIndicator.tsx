@@ -18,7 +18,6 @@ import { Size, MultiStepType, StepStatus } from "../../MultiStepConstants";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
 import { SubIcon, VibeComponentProps } from "../../../../types";
-import { IconType } from "../../../Icon/IconConstants";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -26,7 +25,7 @@ export interface StepCircleDisplayProps {
   status: StepStatus;
   isFulfilledStepDisplayNumber: boolean;
   fulfilledStepIcon: SubIcon;
-  fulfilledStepIconType: IconType.SVG | IconType.ICON_FONT;
+  fulfilledStepIconType: "svg" | "font";
   stepNumber: number;
 }
 
@@ -60,7 +59,7 @@ export interface StepIndicatorProps extends VibeComponentProps {
   stepComponentClassName?: string;
   type?: MultiStepType;
   fulfilledStepIcon?: SubIcon;
-  fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
+  fulfilledStepIconType?: "svg" | "font";
   isFulfilledStepDisplayNumber?: boolean;
   onClick?: (stepNumber: number) => void;
   isFollowedByDivider?: boolean;
@@ -77,7 +76,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   subtitleText = "Subtitle text",
   type = MultiStepType.PRIMARY,
   fulfilledStepIcon = Check,
-  fulfilledStepIconType = IconType.SVG,
+  fulfilledStepIconType = "svg",
   isFulfilledStepDisplayNumber = false,
   onClick = NOOP,
   isFollowedByDivider = false,

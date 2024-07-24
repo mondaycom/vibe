@@ -324,7 +324,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 className={cx(styles.icon)}
                 clickable={false}
                 iconLabel={iconsNames.primary}
-                iconType={Icon.type.ICON_FONT}
+                iconType="font"
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
@@ -344,7 +344,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 className={cx(styles.icon)}
                 clickable={false}
                 iconLabel={iconsNames.secondary}
-                iconType={Icon.type.ICON_FONT}
+                iconType="font"
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />

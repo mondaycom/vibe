@@ -35,9 +35,7 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders with icon font type", () => {
-    const tree = renderer
-      .create(<AttentionBox title="Title" text="Text" iconType={Icon.type.ICON_FONT} icon="fa fa-star" />)
-      .toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" iconType="font" icon="fa fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

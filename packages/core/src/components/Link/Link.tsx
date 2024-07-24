@@ -106,7 +106,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
+  return <Icon className={className} clickable={false} icon={icon} iconType="font" />;
 }
 
 export default withStaticProps(Link, {

@@ -3,7 +3,7 @@ import Icon from "../../components/Icon/Icon";
 import { InfixKind } from "./SliderConstants";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 
 const defaultIconProps = {
   clickable: false,

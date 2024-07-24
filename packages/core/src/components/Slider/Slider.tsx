@@ -6,7 +6,7 @@ import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 import { SliderColor, SliderSize } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";

@@ -56,7 +56,7 @@ export const Icons: Story = {
   render: () => (
     <Menu>
       <MenuItem title="SVG icon" icon={Activity} />
-      <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
+      <MenuItem title="Font icon" icon="fa fa-star" iconType="font" />
     </Menu>
   ),
   parameters: {
@@ -131,7 +131,7 @@ export const TooltipStory: Story = {
         tooltipContent="Menu item with icon and tooltip"
         tooltipPosition="left"
         icon={Activity}
-        iconType={Icon.type.SVG}
+        iconType="svg"
       />
     </Menu>
   ),

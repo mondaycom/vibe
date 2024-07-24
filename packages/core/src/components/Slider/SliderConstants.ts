@@ -1,5 +1,5 @@
 import { Slider } from "../index";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 import { ReactElement } from "react";
 
 export const BEM_PREFIX = "monday";

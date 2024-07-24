@@ -8,7 +8,7 @@ import { MultiStepType, Size, StepStatus, TextPlacement } from "./MultiStepConst
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 import styles from "./MultiStepIndicator.module.scss";
 
 export type Step = {
@@ -23,7 +23,7 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
   stepComponentClassName?: string;
   dividerComponentClassName?: string;
   fulfilledStepIcon?: SubIcon;
-  fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
+  fulfilledStepIconType?: "svg" | "font";
   isFulfilledStepDisplayNumber?: boolean;
   onClick?: (stepNumber: number) => void;
   textPlacement?: TextPlacement;
@@ -44,14 +44,14 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon = Check,
-      fulfilledStepIconType = IconType.SVG,
+      fulfilledStepIconType = "svg",
       isFulfilledStepDisplayNumber = false,
       onClick = NOOP,
       textPlacement = TextPlacement.HORIZONTAL,
       id,
       size,
       "data-testid": dataTestId
-    },
+    }: MultiStepIndicatorProps,
     ref
   ) => {
     const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;

@@ -8,7 +8,7 @@ import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
-import { IconType } from "../Icon/IconConstants";
+import { IconType as IconTypeEnum } from "../Icon/IconConstants";
 import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
 import { AttentionBoxType } from "./AttentionBox.types";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
@@ -24,7 +24,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: SubIcon;
-  iconType?: IconType.SVG | IconType.ICON_FONT;
+  iconType?: "svg" | "font";
   title?: string;
   text?: string;
   children?: ElementContent;
@@ -36,14 +36,14 @@ export interface AttentionBoxProps extends VibeComponentProps {
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
   types?: typeof AttentionBoxTypeEnum;
-  iconTypes?: typeof IconType;
+  iconTypes?: typeof IconTypeEnum;
 } = ({
   className,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = "primary",
   icon,
-  iconType = Icon.type.SVG,
+  iconType = "svg",
   title,
   text,
   children,
@@ -147,5 +147,5 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
 export default withStaticProps(AttentionBox, {
   types: AttentionBoxTypeEnum,
-  iconTypes: IconType
+  iconTypes: IconTypeEnum
 });
