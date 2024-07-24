@@ -208,9 +208,13 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
+        // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
         const isEscapeKey = event?.key === "Escape";
         if (isEscapeKey || closeMenuOnItemClick) {
-          handleMenuClose(isEscapeKey);
+          // @ts-ignore
+          if (event.propagate) {
+            handleMenuClose(isEscapeKey);
+          }
         }
       },
       [closeMenuOnItemClick, handleMenuClose]
