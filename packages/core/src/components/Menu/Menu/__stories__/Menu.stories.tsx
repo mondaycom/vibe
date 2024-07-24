@@ -6,7 +6,6 @@ import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__sto
 import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
 import styles from "./Menu.stories.module.scss";
 import { MenuProps } from "../../..";
-import { SIZES } from "../../../../constants/sizes";
 
 import { VibeComponent } from "src/types";
 
@@ -15,13 +14,7 @@ export default {
   component: Menu
 };
 
-const menuTemplate = (
-  args: VibeComponent<MenuProps> & {
-    isMenu?: boolean;
-    supportFocusOnMount?: boolean;
-    sizes?: typeof SIZES;
-  }
-) => (
+const menuTemplate = (args: VibeComponent<MenuProps>) => (
   <Menu {...args}>
     <MenuItem title="Menu item 1" />
     <MenuItem title="Menu item 2" disabled />
