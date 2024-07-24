@@ -3,7 +3,11 @@ import cx from "classnames";
 import { SIZES } from "../../../constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
-import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
+import {
+  ProgressBarStyle as ProgressBarStyleEnum,
+  ProgressBarType as ProgressBarTypeEnum
+} from "./LinearProgressBarConstants";
+import { LinearProgressBarSize, LinearProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames, Size } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
@@ -13,9 +17,9 @@ import styles from "./LinearProgressBar.module.scss";
 
 export interface LinearProgressBarProps extends VibeComponentProps {
   /**
-   * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
+   * Determine the progress bar style.
    */
-  barStyle?: ProgressBarStyle;
+  barStyle?: LinearProgressBarStyle;
   /**
    * The progress bar starting value.
    */
@@ -41,9 +45,9 @@ export interface LinearProgressBarProps extends VibeComponentProps {
    */
   className?: string;
   /**
-   * Determine the progress bar height (Supported options exposed through `LinearProgressBar.sizes`)
+   * Determine the progress bar height (Supported options exposed through
    */
-  size?: Size;
+  size?: LinearProgressBarSize;
   /**
    * Show progress bar progression in percentages
    */
@@ -76,10 +80,10 @@ export interface LinearProgressBarProps extends VibeComponentProps {
 }
 
 const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
-  styles?: typeof ProgressBarStyle;
-  barStyles?: typeof ProgressBarStyle;
-  types?: typeof ProgressBarType;
-  barTypes?: typeof ProgressBarType;
+  styles?: typeof ProgressBarStyleEnum;
+  barStyles?: typeof ProgressBarStyleEnum;
+  types?: typeof ProgressBarTypeEnum;
+  barTypes?: typeof ProgressBarTypeEnum;
   sizes?: typeof SIZES;
 } = forwardRef(
   (
@@ -89,9 +93,9 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       value = 0,
       valueSecondary = 0,
       animated = true,
-      barStyle = ProgressBarStyle.PRIMARY,
+      barStyle = "primary",
       className,
-      size = SIZES.SMALL,
+      size = "small",
       indicateProgress = false,
       multi = false,
       multiValues = [],
@@ -99,7 +103,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       id,
       fullWidth = false,
       "data-testid": dataTestId
-    },
+    }: LinearProgressBarProps,
     ref
   ) => {
     const wrapperClassName = useMemo(() => {
@@ -130,10 +134,10 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
             <Bar
               className={getProgressBarClassNames(baseValue)}
-              barStyle={ProgressBarStyle.NONE}
+              barStyle="none"
               value={baseValue}
               animated={animated}
-              type={ProgressBarType.PRIMARY}
+              type="primary"
               color={color}
               min={min}
               max={max}
@@ -158,7 +162,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           barStyle={barStyle}
           value={valueSecondary}
           animated={animated}
-          type={ProgressBarType.SECONDARY}
+          type="secondary"
           min={min}
           max={max}
           data-testid={ComponentDefaultTestId.BAR_SECONDARY}
@@ -168,7 +172,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           barStyle={barStyle}
           value={value}
           animated={animated}
-          type={ProgressBarType.PRIMARY}
+          type="primary"
           min={min}
           max={max}
           data-testid={ComponentDefaultTestId.BAR_PRIMARY}
@@ -194,9 +198,9 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
 );
 
 export default withStaticProps(LinearProgressBar, {
-  styles: ProgressBarStyle,
-  barStyles: ProgressBarStyle,
-  types: ProgressBarType,
-  barTypes: ProgressBarType,
+  styles: ProgressBarStyleEnum,
+  barStyles: ProgressBarStyleEnum,
+  types: ProgressBarTypeEnum,
+  barTypes: ProgressBarTypeEnum,
   sizes: SIZES
 });
