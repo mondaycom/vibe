@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import Avatar from "../../../Avatar/Avatar";
 import Icon from "../../../Icon/Icon";
+import Text from "../../../Text/Text";
 import styles from "./ChildrenContent.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
@@ -36,7 +37,9 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
           {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
         </>
       )}
-      {children}
+      <Text type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+        {children}
+      </Text>
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
       {data?.rightAvatar && (
         <Avatar withoutBorder square={data.square} src={data.rightAvatar} type={Avatar.types.IMG} customSize={20} />
