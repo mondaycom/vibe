@@ -219,6 +219,7 @@ export const ChipsInAPersonPickerComboBox = {
       </Text>
       <div className={styles.search}>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
+          <Avatar size="small" src={person1} type="img" />
           <Text type="text2" className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
