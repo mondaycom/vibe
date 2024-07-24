@@ -5,6 +5,34 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Baseline",
+      file: "Baseline.svg",
+      description: "Baseline",
+      tags: "Baseline, Platform, Gantt, Base, Widget"
+  },
+
+  {
+      name: "ItemHeightSingle",
+      file: "ItemHeightSingle.svg",
+      description: "Item height single spacing",
+      tags: "Height, Item, Line, Single"
+  },
+
+  {
+    name: "ItemHeightDouble",
+    file: "ItemHeightDouble.svg",
+    description: "Item height double spacing",
+    tags: "Height, Item, Line, Double"
+  },
+
+  {
+    name: "Prompt",
+    file: "Prompt.svg",
+    description: "Indicates a type of AI action - Custom prompt and for general prompt",
+    tags: "AI, custom, prompt, text"
+  },
+
+  {
     name: "Heart",
     file: "Heart.svg",
     description: "Heart",
