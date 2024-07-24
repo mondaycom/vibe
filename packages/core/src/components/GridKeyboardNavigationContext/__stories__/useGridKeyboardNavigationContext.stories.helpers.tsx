@@ -20,9 +20,10 @@ interface DummyNavigableGridProps {
   disabledIndexes?: number[];
   withoutBorder?: boolean;
 }
+
 export const DummyNavigableGrid = forwardRef<HTMLDivElement, DummyNavigableGridProps>(
   (
-    { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled, disabledIndexes, withoutBorder = false },
+    { itemsCount, numberOfItemsInLine, itemPrefix, disabled, disabledIndexes, withoutBorder },
     ref: RefObject<HTMLDivElement>
   ) => {
     const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
@@ -61,9 +62,16 @@ export const DummyNavigableGrid = forwardRef<HTMLDivElement, DummyNavigableGridP
   }
 );
 
+DummyNavigableGrid.defaultProps = {
+  itemPrefix: "",
+  disabled: false,
+  disabledIndexes: [],
+  withoutBorder: false
+};
+
 interface LayoutWithInnerKeyboardNavigationProps {
   id: string;
-  itemPrefix?: string;
+  itemPrefix: string;
 }
 
 export const LayoutWithInnerKeyboardNavigation = forwardRef<HTMLDivElement, LayoutWithInnerKeyboardNavigationProps>(
