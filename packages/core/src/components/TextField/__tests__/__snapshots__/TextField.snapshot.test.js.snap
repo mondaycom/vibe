@@ -1510,7 +1510,7 @@ exports[`TextField renders correctly with value 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         role="button"
-        tabIndex={0}
+        tabIndex={-1}
       />
     </div>
   </div>

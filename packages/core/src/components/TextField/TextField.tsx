@@ -254,8 +254,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
       (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
-    const shouldFocusOnSecondaryIcon =
-      (onIconClickCallback !== NOOP || secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
+    const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
