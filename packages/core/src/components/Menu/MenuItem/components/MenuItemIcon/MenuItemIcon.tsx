@@ -8,7 +8,6 @@ import { MenuItemIconProps } from "./MenuItemIcon.types";
 const MenuItemIcon = ({
   icon,
   type,
-  // TODO remove in next major
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   label,
   disabled,
