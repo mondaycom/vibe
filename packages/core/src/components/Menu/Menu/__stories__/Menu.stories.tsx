@@ -14,7 +14,7 @@ export default {
   component: Menu
 };
 
-const menuTemplate = (args: VibeComponent<MenuProps>) => (
+const menuTemplate = (args: MenuProps) => (
   <Menu {...args}>
     <MenuItem title="Menu item 1" />
     <MenuItem title="Menu item 2" disabled />
