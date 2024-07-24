@@ -76,7 +76,6 @@ const LegacySearch: VibeComponent<SearchProps, unknown> & {
       inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       iconNames = SearchDefaultIconNames,
       loading = false,
       "data-testid": dataTestId
