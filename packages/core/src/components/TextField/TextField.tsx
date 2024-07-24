@@ -370,7 +370,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   clickable={false}
                   iconType={Icon.type.ICON_FONT}
                   iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-                />{" "}
+                />
               </Clickable>
             </Tooltip>
           </div>
