@@ -48,7 +48,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
+  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -67,6 +67,10 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   defaultFilter?: string;
   disableFilter?: boolean;
+  /**
+   * For controlled search input. If provided, `defaultFilter` will be ignored
+   */
+  filterValue?: string;
   onFilterChanged?: (value: string) => void;
   /**
    * Display the combo box with loading state
@@ -139,6 +143,7 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick = (_optionData: IComboboxOption) => {},
       filter = defaultFilter,
       disableFilter = false,
+      filterValue: filterValueProp,
       onFilterChanged,
       loading = false,
       onOptionHover = NOOP,
@@ -161,7 +166,12 @@ const Combobox: React.FC<ComboboxProps> & {
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const [filterValue, setFilterValue] = useState(defaultFilterValue);
+    const [filterValue, setFilterValue] = useState(filterValueProp || defaultFilterValue);
+
+    if (filterValueProp !== undefined && filterValueProp !== filterValue) {
+      setFilterValue(filterValueProp);
+    }
+
     const onChangeCallback = useCallback(
       (value: string) => {
         setActiveOptionIndex(-1);
