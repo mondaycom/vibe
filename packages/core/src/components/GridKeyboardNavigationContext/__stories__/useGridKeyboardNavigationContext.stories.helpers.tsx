@@ -22,7 +22,7 @@ interface DummyNavigableGridProps {
 }
 export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwardRef(
   (
-    { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = true, disabledIndexes = [], withoutBorder = false },
+    { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = false, disabledIndexes = [], withoutBorder = false },
     ref: RefObject<HTMLDivElement>
   ) => {
     const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
