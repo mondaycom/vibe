@@ -6,7 +6,6 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import Select, { InputProps, components, createFilter, ActionMeta, NonceProvider } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
-import { customAlphabet as nanoidCustomAlphabet } from "nanoid";
 import { WindowedMenuList } from "react-windowed-select";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
@@ -37,12 +36,7 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
-
-function generateEmotionCacheKey(): Lowercase<string> {
-  // emotion cache key must only contain alphabetic lowercase characters
-  const idGenerator = nanoidCustomAlphabet("abcdefghijklmnopqrstuvwxyz", 5);
-  return idGenerator() as Lowercase<string>;
-}
+import { generateEmotionCacheKey } from "./dropdownUtils";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   size?: typeof SIZES;

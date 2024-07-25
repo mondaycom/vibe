@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.124.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.124.0...monday-ui-react-core@2.124.1) (2024-07-25)
+
+
+### Bug Fixes
+
+* replace nanoid ([#2268](https://github.com/mondaycom/vibe/issues/2268)) ([03f7b9a](https://github.com/mondaycom/vibe/commit/03f7b9a9742c70ad2422be93d251925fb23ad37f))
+
+
+
+
+
+# [2.124.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.3...monday-ui-react-core@2.124.0) (2024-07-24)
+
+
+### Bug Fixes
+
+* **dropdown:** fix blur border color ([#2257](https://github.com/mondaycom/vibe/issues/2257)) ([6e3d2de](https://github.com/mondaycom/vibe/commit/6e3d2deff17834279b1a59fa0c99c2e77b0a61d4))
+* **dropdown:** Fix ellipsis not to working for simple text dropdown ([#2255](https://github.com/mondaycom/vibe/issues/2255)) ([4094d73](https://github.com/mondaycom/vibe/commit/4094d73b33c2a9ae6be3a208c285f16c363ba073))
+* **Dropdown:** nanoid 4+ supports only ESM, we should still support CJS ([#2265](https://github.com/mondaycom/vibe/issues/2265)) ([e86625c](https://github.com/mondaycom/vibe/commit/e86625c82dfc4e4c03c499a86121ad00d432aecc))
+* **icon:** Allow icon to be focusable when not clickable ([#2217](https://github.com/mondaycom/vibe/issues/2217)) ([9788fac](https://github.com/mondaycom/vibe/commit/9788fac84064aede6d7f2855b4544cfbedacc51f))
+* **MenuButton:** show hide menu bug ([#2259](https://github.com/mondaycom/vibe/issues/2259)) ([6e7027c](https://github.com/mondaycom/vibe/commit/6e7027cf776a214dc8cb4a2ea418562b5433ba03))
+
+
+### Features
+
+* **textField:** Add option for tooltip on icon ([#2221](https://github.com/mondaycom/vibe/issues/2221)) ([cb27f3e](https://github.com/mondaycom/vibe/commit/cb27f3e7c4e89f95c701273cb0018825af0c68a3))
+
+
+
+
+
 ## [2.123.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.2...monday-ui-react-core@2.123.3) (2024-07-23)
 
 
