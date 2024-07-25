@@ -15,7 +15,6 @@ import Loader from "../Loader/Loader";
 const Search = forwardRef(
   (
     {
-      onClear,
       searchIconName = SearchIcon,
       clearIconName = CloseSmallIcon,
       clearIconLabel = "Clear",
