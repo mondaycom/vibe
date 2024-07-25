@@ -48,7 +48,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
