@@ -5,7 +5,6 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
-import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
 import Table from "../../Table/Table/Table";
