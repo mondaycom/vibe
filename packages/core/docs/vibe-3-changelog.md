@@ -2,13 +2,7 @@
 
 ## General
 
-- `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
-- `SearchComponent` and `Input` components removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs) and [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs) respectively.
-- `EditableInput` removed, use [`TextField`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
-
-## Typography
-
-- `Text` and `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
+- `monday-ui-react-core/next` removed - import same components from `monday-ui-react-core` instead.
 
 ## Components
 
@@ -34,9 +28,9 @@ codemod: `avatar-component-migration`
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
 
-### Box
+### Box 🚩
 
-- `scrollable` -> change default to true [codemod]
+- `scrollable` -> change default to true [codemod (?)]
 
 ### ButtonGroup
 
@@ -48,8 +42,10 @@ codemod: `avatar-component-migration`
 
 ### Chips
 
-- `dataTestId` -> `data-testid` [codemod]
-- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style
+codemod: `chips-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
+- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style. Pay attention that this codemod removes `clickable` and `isClickable` only if `onClick` is present [codemod ✅]
 
 ### Clickable
 
@@ -62,35 +58,48 @@ codemod: `avatar-component-migration`
 ### Dialog
 
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
-- `JustifyType` removed [codemod]
+- [!!!] `JustifyType` removed
 
-### DialogContentContainer
+### DialogContentContainer 🚩
 
-- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
 - Fixed "medium" size spacings
+- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
 
 ### Divider
 
 - `classname` -> `className` [codemod]
 
-### Dropdown
+### Dropdown 🚩
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+
+### EditableInput
+
+- `EditableInput` removed, use [`EditableText`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+
+### Heading
+
+- `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
 
 ### IconButton
 
 - `dataTestId` -> `data-testid` [codemod]
 
+## Input
+
+- `Input` component removed - use [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs). [codemod]
+
 ### Label
 
 - `wrapperClassName` -> `className` [codemod]
-- Spin in animation removed due to UX decision, including `isAnimationDisabled` prop which is not needed anymore
+- Spin in animation removed due to UX decision
+  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod]
 
 ### EditableHeading
 
 - Complete API Change (TBD)
 
-### Link
+### Link 🚩
 
 - `componentClassName` -> `className` [codemod]
 - `Link.target` removed, use `Link.targets` instead [codemod]
@@ -123,17 +132,19 @@ codemod: `avatar-component-migration`
 
 - `componentClassName` -> `className` [codemod]
 - `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod]
-- Removed `disabledReason`, use `tooltipContent` instead
-
-### ModalHeader
-
-- `hideCloseButton` removed due to UX decision, Modals should always have a close button [codemod]
+- Removed `disabledReason`, use `tooltipContent` instead [codemod]
 
 ### Modal
 
-- `hideCloseButton` removed due to UX decision, Modals should always have a close button [codemod]
+- Modal no longer have the ability to have a close button due to UX decision
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
 - Modal will not render if `show` is false
-- `unmountOnClose` removed, modal will always unmount on close [codemod]
+  - `unmountOnClose` removed, modal will always unmount on close [codemod]
+
+### ModalHeader
+
+- Modal no longer have the ability to have a close button due to UX decision
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
 
 ### RadioButton
 
@@ -143,32 +154,40 @@ codemod: `avatar-component-migration`
 
 - `Search` has changed - follow the [`Search` docs](https://style.monday.com/?path=/docs/inputs-search--docs) for the new API.
 
+- ## SearchComponent
+
+codemod: `search-component-import-migration`
+
+- `SearchComponent` component removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs). [codemod ✅]
+
 ## SplitButton
 
-- We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
-- Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
-- Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
-- Remove `data-testId` prop from nested elements
+- [!!!] We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
+  - Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
+  - Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
+- Remove `data-testId` prop from nested elements (data-testId used to be applied also to each of the internal elements)
 
-### Steps
+### Steps 🚩
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
-## TextField
+### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
-- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
+- Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
+  - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
 
 ### ThemeProvider
 
 - `theme` -> `themeConfig` [codemod]
+- Should it be out of beta ?
 
 ### Tipseen
 
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
-- `justify` removed [codemod]
-- `justifyTypes` removed [codemod]
+- `justify` removed
+- `justifyTypes` removed
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 
 ### TipseenContent
@@ -183,15 +202,15 @@ codemod: `avatar-component-migration`
 
 ### Tooltip
 
-- `paddingSize` removed [codemod]
-- `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
-- `showOnDialogEnter` changed default to be true
+- `paddingSize` removed
+- [!!!] `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
+- [!!!] `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
-- `position` changed to accept string instead of static prop [codemod]
-- `position` changed to only accept "top, right, bottom, left" [codemod]
-- `justify` removed [codemod]
-- `arrowPosition` removed [codemod]
-- `TooltipArrowPosition` removed [codemod]
+- [!!!] `position` changed to accept string instead of static prop
+- `position` changed to only accept "top, right, bottom, left"
+- `justify` removed
+- `arrowPosition` removed
+- `TooltipArrowPosition` removed
 
 ## Hooks
 
