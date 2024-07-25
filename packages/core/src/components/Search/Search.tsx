@@ -57,12 +57,9 @@ const Search = forwardRef(
         return;
       }
 
-      if (onClear) {
-        onClear();
-      }
-
       inputRef.current?.focus?.();
       clearValue();
+      onClear?.();
     }, [disabled, clearValue]);
 
     const SearchIcon = (
