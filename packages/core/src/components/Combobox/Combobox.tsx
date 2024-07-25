@@ -110,6 +110,7 @@ export interface ComboboxProps extends VibeComponentProps {
   searchIcon?: SubIcon;
   searchInputAriaLabel?: string;
   debounceRate?: number;
+  searchInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -153,13 +154,15 @@ const Combobox: React.FC<ComboboxProps> & {
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
       "data-testid": dataTestId,
-      debounceRate
+      debounceRate,
+      searchInputRef
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const mergedInputRef = useMergeRef(inputRef, searchInputRef);
 
     const [filterValue, setFilterValue] = useState(defaultFilterValue);
     const onChangeCallback = useCallback(
@@ -274,7 +277,7 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick: overrideOnClick,
       isChildSelectable,
       options: selectableItems,
-      inputRef
+      inputRef: mergedInputRef
     });
 
     return (
@@ -291,7 +294,7 @@ const Combobox: React.FC<ComboboxProps> & {
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search
-            ref={inputRef}
+            ref={mergedInputRef}
             value={filterValue}
             className={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             inputAriaLabel={searchInputAriaLabel}
