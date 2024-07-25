@@ -58,10 +58,6 @@ const Search = forwardRef(
         return;
       }
 
-      if (onClear) {
-        onClear();
-      }
-
       inputRef.current?.focus?.();
       clearValue();
       onClear?.();

@@ -6,10 +6,6 @@ import MenuButton from "../MenuButton/MenuButton";
 
 export interface SearchProps extends VibeComponentProps {
   /**
-   * Callback function that is called when the clear button is clicked.
-   */
-  onClear?: () => void;
-  /**
    * Name of the icon used for the search button.
    */
   searchIconName?: SubIcon;
