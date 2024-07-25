@@ -56,8 +56,7 @@ const Badge: VibeComponent<BadgeProps> & {
       getStyle(styles, alignment)
     );
 
-    const color =
-      badgeProps.color || type === BadgeType.INDICATOR ? Indicator.colors.NOTIFICATION : Counter.colors.NEGATIVE;
+    const color = badgeProps.color || type === BadgeType.INDICATOR ? Indicator.colors.NOTIFICATION : "negative";
 
     return (
       <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id}>
