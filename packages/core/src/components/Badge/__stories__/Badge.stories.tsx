@@ -88,10 +88,10 @@ export const InlineElements = {
         <Link text="Read more" />
       </Badge>
       <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
+        <Link text="What's new" iconPosition="start" icon={WhatsNew} />
       </Badge>
       <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+        <Link text="Learn more" iconPosition="end" icon={ExternalPage} />
       </Badge>
     </Flex>
   ),

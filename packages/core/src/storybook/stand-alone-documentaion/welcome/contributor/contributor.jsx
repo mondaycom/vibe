@@ -13,7 +13,7 @@ export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
     <Flex justify={Flex.justify.SPACE_BETWEEN}>
       <InformationBoxTitle>{fullName}</InformationBoxTitle>
       {email && (
-        <Link tabIndex="-1" href={`mailto:${email}`} target={Link.targets.PARENT}>
+        <Link tabIndex="-1" href={`mailto:${email}`} target="parent">
           <IconButton icon={Email} kind={IconButton.kinds.TERTIARY} ariaLabel={`Contact ${fullName}`} />
         </Link>
       )}

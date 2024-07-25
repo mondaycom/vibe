@@ -39,7 +39,7 @@ export const RightToLeft = {
   render: () => (
     <>
       <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
-      <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={Info} />
+      <Link text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
     </>
   ),
   name: "Right to left"
@@ -49,7 +49,7 @@ export const WithIcons = {
   render: () => (
     <>
       <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
-      <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+      <Link text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
     </>
   ),
   name: "With icons"
