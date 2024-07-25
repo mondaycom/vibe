@@ -143,7 +143,7 @@ export const ColorVariants = {
           type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.LIGHT
+            color: "light"
           }}
         >
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
@@ -168,7 +168,7 @@ export const ColorVariants = {
           type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.DARK
+            color: "dark"
           }}
         >
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
@@ -345,7 +345,7 @@ export const CustomCounter = {
       max={4}
       counterProps={{
         count: 100500,
-        color: Counter.colors.DARK,
+        color: "dark",
         prefix: "",
         maxDigits: 5
       }}
