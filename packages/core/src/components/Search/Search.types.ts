@@ -93,4 +93,8 @@ export interface SearchProps extends VibeComponentProps {
    * Callback function that is called when the search input gains focus.
    */
   onFocus?: (event: React.FocusEvent) => void;
+  /**
+   * Callback function that is called when the clear button is clicked.
+   */
+  onClear?: () => void;
 }
