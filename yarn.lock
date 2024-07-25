@@ -13791,7 +13791,7 @@ jscodeshift@^0.15.1:
     temp "^0.8.4"
     write-file-atomic "^2.3.0"
 
-jscodeshift@^0.16.0:
+jscodeshift@^0.16.1:
   version "0.16.1"
   resolved "https://registry.npmjs.org/jscodeshift/-/jscodeshift-0.16.1.tgz#f80207f0a99b58de400a6f174ceecefe277dd5da"
   integrity sha512-oMQXySazy63awNBzMpXbbVv73u3irdxTeX2L5ueRyFRxi32qb9uzdZdOY5fTBYADBG19l5M/wnGknZSV1dzCdA==
