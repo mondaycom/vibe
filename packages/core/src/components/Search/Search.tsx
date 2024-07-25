@@ -35,6 +35,7 @@ const Search = forwardRef(
       onChange,
       onFocus,
       onBlur,
+      onClear,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -55,6 +56,10 @@ const Search = forwardRef(
     const onClearButtonClick = useCallback(() => {
       if (disabled) {
         return;
+      }
+
+      if (onClear) {
+        onClear();
       }
 
       inputRef.current?.focus?.();
