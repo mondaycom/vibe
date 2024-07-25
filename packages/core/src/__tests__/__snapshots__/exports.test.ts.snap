@@ -106,6 +106,7 @@ exports[`exports should export all components 1`] = `
   "Tooltip",
   "VirtualizedGrid",
   "VirtualizedList",
+  "mapSizesToTextSize",
   "useGridKeyboardNavigationContext",
 ]
 `;
