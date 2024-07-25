@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.125.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.124.1...monday-ui-react-core@2.125.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* **Dropdown:** use same id to avoid breaking snapshots ([#2274](https://github.com/mondaycom/vibe/issues/2274)) ([d8f40af](https://github.com/mondaycom/vibe/commit/d8f40af18d585758ddcb2ffcd20b954d33246328))
+
+
+### Features
+
+* add `filterValue` prop to Combobox ([#2267](https://github.com/mondaycom/vibe/issues/2267)) ([fbaf5a3](https://github.com/mondaycom/vibe/commit/fbaf5a3c54b89f3482de68cf323593bdbfb84ad1))
+* add `searchInputRef` prop to Combobox ([#2266](https://github.com/mondaycom/vibe/issues/2266)) ([defc65c](https://github.com/mondaycom/vibe/commit/defc65c554968b9c4143f93a2731eefae4ac36a5))
+
+
+
+
+
 ## [2.124.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.124.0...monday-ui-react-core@2.124.1) (2024-07-25)
 
 
