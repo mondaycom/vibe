@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.124.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.124.0...monday-ui-react-core@2.124.1) (2024-07-25)
+
+
+### Bug Fixes
+
+* replace nanoid ([#2268](https://github.com/mondaycom/vibe/issues/2268)) ([03f7b9a](https://github.com/mondaycom/vibe/commit/03f7b9a9742c70ad2422be93d251925fb23ad37f))
+
+
+
+
+
 # [2.124.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.123.3...monday-ui-react-core@2.124.0) (2024-07-24)
 
 
