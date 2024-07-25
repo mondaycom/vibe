@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Search from "../Search";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -125,24 +125,6 @@ export const FilterInCombobox: Story = {
     docs: {
       liveEdit: {
         scope: { options }
-      }
-    }
-  }
-};
-
-export const WithOnClearAction: Story = {
-  render: () => {
-    const [clearAmount, setClearAmount] = useState(1);
-    const handleClear = () => {
-      setClearAmount(prevState => prevState + 1);
-    };
-    return <Search placeholder={`Let's start fresh, this is attempt #${clearAmount}`} onClear={handleClear} />;
-  },
-  decorators: [withFixedWidth],
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Search, FilterIcon }
       }
     }
   }

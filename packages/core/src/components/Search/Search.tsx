@@ -11,12 +11,11 @@ import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 import { SearchProps } from "./Search.types";
 import Loader from "../Loader/Loader";
-import { NOOP } from "../../utils/function-utils";
 
 const Search = forwardRef(
   (
     {
-      onClear = NOOP,
+      onClear,
       searchIconName = SearchIcon,
       clearIconName = CloseSmallIcon,
       clearIconLabel = "Clear",
