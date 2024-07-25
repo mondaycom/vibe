@@ -14,10 +14,6 @@ const mockOptions = [
   { value: "yellow", label: "Yellow" }
 ];
 
-jest.mock("../dropdownUtils", () => ({
-  generateEmotionCacheKey: jest.fn(() => "css")
-}));
-
 describe("Dropdown renders correctly", () => {
   it("with empty props", () => {
     const tree = renderer.create(<Dropdown />).toJSON();
