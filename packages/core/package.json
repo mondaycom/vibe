@@ -109,7 +109,6 @@
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
     "monday-ui-style": "0.10.0",
-    "nanoid": "^3.3.7",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^3.0.1",

@@ -14,11 +14,9 @@ const mockOptions = [
   { value: "yellow", label: "Yellow" }
 ];
 
-jest.mock("nanoid", () => {
-  return {
-    customAlphabet: (_alphabet, _defaultSize) => _size => "css"
-  };
-});
+jest.mock("../dropdownUtils", () => ({
+  generateEmotionCacheKey: jest.fn(() => "css")
+}));
 
 describe("Dropdown renders correctly", () => {
   it("with empty props", () => {
