@@ -36,7 +36,6 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
-import { generateEmotionCacheKey } from "./dropdownUtils";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   size?: typeof SIZES;
@@ -115,7 +114,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const cacheKey = useRef<Lowercase<string>>(generateEmotionCacheKey());
     const controlRef = useRef();
     const overrideMenuPortalTarget =
       menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
@@ -353,7 +351,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     );
 
     return (
-      <NonceProvider nonce="vibe-dropdown" cacheKey={cacheKey.current}>
+      <NonceProvider nonce="vibe-dropdown" cacheKey="cssselect">
         <DropDownComponent
           className={cx(styles.dropdown, className)}
           selectProps={customProps}
