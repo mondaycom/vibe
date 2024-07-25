@@ -5,7 +5,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Text from "../Text/Text";
 import Leg from "./Leg";
-import { LabelColor, LabelKind } from "./LabelConstants";
+import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum } from "./LabelConstants";
+import { LabelColor, LabelKind } from "./Label.types";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -28,15 +29,15 @@ export interface LabelProps extends VibeComponentProps {
 }
 
 const Label: VibeComponent<LabelProps> & {
-  colors?: typeof LabelColor;
-  kinds?: typeof LabelKind;
+  colors?: typeof LabelColorEnum;
+  kinds?: typeof LabelKindEnum;
 } = forwardRef<HTMLElement, LabelProps>(
   (
     {
       className,
       labelClassName,
-      kind = LabelKind.FILL,
-      color = LabelColor.PRIMARY,
+      kind = "fill",
+      color = "primary",
       text = "",
       isLegIncluded = false,
       id,
@@ -44,7 +45,7 @@ const Label: VibeComponent<LabelProps> & {
       onClick,
       celebrationAnimation,
       size = "medium"
-    },
+    }: LabelProps,
     ref
   ) => {
     const labelRef = useRef<HTMLSpanElement>(null);
@@ -149,6 +150,6 @@ const Label: VibeComponent<LabelProps> & {
 );
 
 export default withStaticProps(Label, {
-  colors: LabelColor,
-  kinds: LabelKind
+  colors: LabelColorEnum,
+  kinds: LabelKindEnum
 });
