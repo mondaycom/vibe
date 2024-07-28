@@ -156,6 +156,7 @@ export interface DialogProps extends VibeComponentProps {
    * If string use it as selector to prevent scroll.
    */
   disableContainerScroll?: boolean | string;
+  onClickOutsideMouseDown?: boolean;
 }
 
 export interface DialogState {
@@ -195,7 +196,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shoudlCallbackOnMount: false,
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
-    addKeyboardHideShowTriggersByDefault: false
+    addKeyboardHideShowTriggersByDefault: false,
+    onClickOutsideMouseDown: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -509,6 +511,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       disableContainerScroll,
       containerSelector,
       id,
+      onClickOutsideMouseDown,
       "data-testid": dataTestId
     } = this.props;
     const { preventAnimation } = this.state;
@@ -620,6 +623,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   hasTooltip={!!tooltip}
                   containerSelector={containerSelector}
                   disableContainerScroll={disableContainerScroll}
+                  onClickOutsideMouseDown={onClickOutsideMouseDown}
                 >
                   {contentRendered}
                   {tooltip && (

@@ -358,7 +358,8 @@ export const HideTriggers = {
           containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onClickOutside={switchClickOutsideActive}
           position={Dialog.positions.RIGHT}
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
+          onClickOutsideMouseDown
+          showTrigger={[Dialog.hideShowTriggers.MOUSE_DOWN]}
           hideTrigger={[Dialog.hideShowTriggers.CLICK_OUTSIDE]}
           content={
             <DialogContentContainer data-testid={CLICK_OUTSIDE_DIALOG}>
