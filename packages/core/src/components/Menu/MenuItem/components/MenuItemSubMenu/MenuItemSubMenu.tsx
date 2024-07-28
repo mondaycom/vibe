@@ -3,8 +3,16 @@ import DialogContentContainer from "../../../../DialogContentContainer/DialogCon
 import usePopover from "../../../../../hooks/usePopover";
 import { MenuChild } from "../../../Menu/MenuConstants";
 import { MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
+import { Placement } from "../../../../../hooks/popoverConstants";
 
-const MenuItemSubMenu = ({ anchorRef, open, autoFocusOnMount, onClose, children }: MenuItemSubMenuProps) => {
+const MenuItemSubMenu = ({
+  anchorRef,
+  open,
+  autoFocusOnMount,
+  onClose,
+  children,
+  submenuPosition
+}: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
   const popperElementRef = useRef<HTMLDivElement>(null);
 
@@ -21,7 +29,8 @@ const MenuItemSubMenu = ({ anchorRef, open, autoFocusOnMount, onClose, children 
     anchorRef?.current,
     popperElementRef?.current,
     {
-      isOpen: open
+      isOpen: open,
+      placement: submenuPosition as Placement
     }
   );
 
