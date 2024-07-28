@@ -15,19 +15,19 @@ const skeletonTemplate = args => {
   return (
     <div className="monday-storybook-skeleton_rules-column">
       <div className="monday-storybook-skeleton_rules-row">
-        <Skeleton type="circle" />
-        <Skeleton type="text" width={110} size="small" />
+        <Skeleton type={args.typeCircle} />
+        <Skeleton type={args.typeText} width={110} size={args.smallSize} />
       </div>
       <div className="monday-storybook-skeleton_article">
         <div>
           <Skeleton />
         </div>
         <div className="monday-storybook-skeleton_aside">
-          <Skeleton type="text" size="h1" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" width={82} />
+          <Skeleton type={args.typeText} size={args.sizeH1} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} width={82} />
         </div>
       </div>
     </div>
@@ -36,7 +36,15 @@ const skeletonTemplate = args => {
 
 export const Overview = {
   render: skeletonTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+
+  args: {
+    typeText: "text",
+    typeCircle: "circle",
+    smallSize: "small",
+    sizeH4: "h4",
+    sizeH1: "h1"
+  }
 };
 
 export const Shapes = {
