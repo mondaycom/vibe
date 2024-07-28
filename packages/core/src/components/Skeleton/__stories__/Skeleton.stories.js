@@ -15,19 +15,19 @@ const skeletonTemplate = args => {
   return (
     <div className="monday-storybook-skeleton_rules-column">
       <div className="monday-storybook-skeleton_rules-row">
-        <Skeleton type={args.typeCircle} />
-        <Skeleton type={args.typeText} width={110} size={args.smallSize} />
+        <Skeleton type="circle" />
+        <Skeleton type="text" width={110} size="small" />
       </div>
       <div className="monday-storybook-skeleton_article">
         <div>
           <Skeleton />
         </div>
         <div className="monday-storybook-skeleton_aside">
-          <Skeleton type={args.typeText} size={args.sizeH1} />
-          <Skeleton type={args.typeText} size={args.sizeH4} />
-          <Skeleton type={args.typeText} size={args.sizeH4} />
-          <Skeleton type={args.typeText} size={args.sizeH4} />
-          <Skeleton type={args.typeText} size={args.sizeH4} width={82} />
+          <Skeleton type="text" size="h1" />
+          <Skeleton type="text" size="h4" />
+          <Skeleton type="text" size="h4" />
+          <Skeleton type="text" size="h4" />
+          <Skeleton type="text" size="h4" width={82} />
         </div>
       </div>
     </div>
@@ -36,22 +36,14 @@ const skeletonTemplate = args => {
 
 export const Overview = {
   render: skeletonTemplate.bind({}),
-  name: "Overview",
-
-  args: {
-    typeText: Skeleton.types.TEXT,
-    typeCircle: Skeleton.types.CIRCLE,
-    smallSize: Skeleton.sizes.TEXT.SMALL,
-    sizeH4: Skeleton.sizes.TEXT.H4,
-    sizeH1: Skeleton.sizes.TEXT.H1
-  }
+  name: "Overview"
 };
 
 export const Shapes = {
   render: () => (
     <div className="monday-storybook-skeleton_row-box">
       <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type={Skeleton.types.CIRCLE} />
+        <Skeleton type="circle" />
         <>Circle</>
       </div>
       <div className="monday-storybook-skeleton_column-box">
@@ -72,15 +64,15 @@ export const Text = {
   render: () => (
     <div className="monday-storybook-skeleton_row-box">
       <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H1} />
+        <Skeleton type="text" size="h1" />
         <>H1</>
       </div>
       <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H2} />
+        <Skeleton type="text" size="h2" />
         <>H2</>
       </div>
       <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+        <Skeleton type="text" size="small" />
         <>Paragraph</>
       </div>
     </div>
@@ -140,20 +132,20 @@ export const UpdateInTheSystem = {
           <div className="monday-storybook-skeleton_box">
             <div className="monday-storybook-skeleton_main">
               <div className="monday-storybook-skeleton_header">
-                <Skeleton type={Skeleton.types.CIRCLE} width={50} height={50} />
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H5} width={110} />
+                <Skeleton type="circle" width={50} height={50} />
+                <Skeleton type="text" size="h5" width={110} />
               </div>
               <p className="monday-storybook-skeleton_text-wrapper">
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} width={655} />
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} width={680} />
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} width={670} />
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} width={675} />
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} width={400} />
+                <Skeleton type="text" size="small" width={655} />
+                <Skeleton type="text" size="small" width={680} />
+                <Skeleton type="text" size="small" width={670} />
+                <Skeleton type="text" size="small" width={675} />
+                <Skeleton type="text" size="small" width={400} />
               </p>
             </div>
             <div className="monday-storybook-skeleton_btn-group-skeleton">
-              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.h2} width={60} />
-              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.h2} width={60} />
+              <Skeleton type="text" size="h2" width={60} />
+              <Skeleton type="text" size="h2" width={60} />
             </div>
           </div>
         )}
