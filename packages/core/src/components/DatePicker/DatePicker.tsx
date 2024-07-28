@@ -2,7 +2,6 @@ import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
 import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
@@ -15,6 +14,8 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
+// Make sure to update when upgrading react-dates
+import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
   /** set the first day of the week to display */

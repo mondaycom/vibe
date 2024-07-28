@@ -6,6 +6,7 @@ import styles from "./FieldLabel.module.scss";
 
 export interface FieldLabelProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent | null;
+  /// TODO Remove in next major as breaking change
   iconLabel?: string;
   labelText?: string;
   labelFor?: string;
@@ -18,6 +19,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
     {
       icon = "",
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       iconLabel = "",
       labelText = "",
       labelFor = "",
@@ -38,7 +40,6 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
           className={cx(styles.labelComponentIcon, iconClassName)}
           id={labelFor}
           clickable={false}
-          iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
         <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>

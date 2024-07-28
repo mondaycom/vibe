@@ -55,6 +55,14 @@ describe("Search", () => {
     expect(onChange).toHaveBeenLastCalledWith("Hello, World!");
   });
 
+  it("should trigger onClear when the user press the clear button", () => {
+    const onClear = jest.fn();
+    const { getByRole, getByLabelText } = renderSearch({ value: "Test" });
+    userEvent.type(getByRole("searchbox"), "Hello, World!");
+    userEvent.click(getByLabelText("Clear"));
+    expect(onClear).toHaveBeenCalled;
+  });
+
   it("should debounce the onChange call", async () => {
     jest.useFakeTimers();
     const onChange = jest.fn();

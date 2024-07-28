@@ -5,13 +5,14 @@ import { DialogContentContainer, Menu, MenuDivider, MenuGridItem, MenuItem, Menu
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
 import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
 import styles from "./Menu.stories.module.scss";
+import { MenuProps } from "../../..";
 
 export default {
   title: "Navigation/Menu/Menu",
   component: Menu
 };
 
-const menuTemplate = args => (
+const menuTemplate = (args: MenuProps) => (
   <Menu {...args}>
     <MenuItem title="Menu item 1" />
     <MenuItem title="Menu item 2" disabled />
