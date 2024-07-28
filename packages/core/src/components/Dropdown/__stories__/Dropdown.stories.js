@@ -5,7 +5,7 @@ import { multiInteractionTests, overviewPlaySuite } from "../__tests__/Dropdown.
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import { OptionRenderer } from "./OptionRenderer.js";
+import { OptionRenderer } from "./OptionRenderer";
 import { Attach, Email } from "../../Icon/Icons";
 import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
