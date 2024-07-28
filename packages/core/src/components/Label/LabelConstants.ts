@@ -1,3 +1,7 @@
+import { TextType } from "../Text/TextConstants";
+import Text from "../Text/Text";
+import { LabelSizes } from "./Label.types";
+
 /**
  * @deprecated
  */
@@ -15,3 +19,8 @@ export enum LabelColor {
   NEGATIVE = "negative",
   POSITIVE = "positive"
 }
+
+export const mapSizesToTextSize: Record<LabelSizes, TextType> = {
+  small: Text.types.TEXT3,
+  medium: Text.types.TEXT2
+};

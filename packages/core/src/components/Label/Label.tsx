@@ -5,14 +5,14 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Text from "../Text/Text";
 import Leg from "./Leg";
-import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum } from "./LabelConstants";
+import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { LabelColor, LabelKind } from "./Label.types";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { mapSizesToTextSize, Sizes } from "./Label.types";
+import { LabelSizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -25,7 +25,7 @@ export interface LabelProps extends VibeComponentProps {
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   celebrationAnimation?: boolean;
-  size?: Sizes;
+  size?: LabelSizes;
 }
 
 const Label: VibeComponent<LabelProps> & {
