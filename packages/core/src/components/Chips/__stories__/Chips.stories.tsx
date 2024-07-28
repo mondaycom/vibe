@@ -219,30 +219,25 @@ export const ChipsInAPersonPickerComboBox = {
       </Text>
       <div className={styles.search}>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
-          <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
+          <Avatar size="small" src={person1} type="img" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
         </Flex>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-2">
-          <Avatar
-            size={Avatar.sizes.SMALL}
-            backgroundColor={Avatar.colors.DARK_PURPLE}
-            text="LC"
-            type={Avatar.types.TEXT}
-          />
+          <Avatar size="small" backgroundColor={Avatar.colors.DARK_PURPLE} text="LC" type="text" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
         </Flex>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-3">
-          <Avatar size={Avatar.sizes.SMALL} text="AL" type={Avatar.types.TEXT} />
+          <Avatar size="small" text="AL" type="text" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Amanda Lawrence <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>
         <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-4">
-          <Avatar size={Avatar.sizes.SMALL} text="DY" type={Avatar.types.TEXT} backgroundColor={Avatar.colors.PEACH} />
+          <Avatar size="small" text="DY" type="text" backgroundColor={Avatar.colors.PEACH} />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </Text>

@@ -6,24 +6,26 @@ import styles from "./FieldLabel.module.scss";
 
 export interface FieldLabelProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent | null;
+  /// TODO Remove in next major as breaking change
   iconLabel?: string;
   labelText?: string;
   labelFor?: string;
   iconClassName?: string;
   labelClassName?: string;
-  requiredAsterisk?: boolean;
+  required?: boolean;
 }
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
     {
       icon = "",
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       iconLabel = "",
       labelText = "",
       labelFor = "",
       iconClassName = "",
       labelClassName = "",
-      requiredAsterisk = false
+      required = false
     },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
@@ -38,13 +40,11 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
           className={cx(styles.labelComponentIcon, iconClassName)}
           id={labelFor}
           clickable={false}
-          iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
         <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>
           {labelText}
-          {requiredAsterisk && <span className={styles.requiredAsterisk}> *</span>}{" "}
-          {/* Render asterisk based on the prop */}
+          {required && <span className={styles.required}> *</span>}
         </label>
       </section>
     );

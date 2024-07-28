@@ -2,9 +2,7 @@ import {
   findComponentElements,
   getComponentNameOrAliasFromImports,
   getCoreImportsForFile,
-  isPropExists,
-  logPropMigrationError,
-  updatePropName,
+  migratePropsNames,
   wrap
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
@@ -20,14 +18,8 @@ function transform({ j, root, filePath }: TransformationContext) {
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
-  elements.forEach(path => {
-    const hasClassName = isPropExists(j, path, "className");
-    const hasComponentClassName = isPropExists(j, path, "componentClassName");
-    if (hasClassName && hasComponentClassName) {
-      logPropMigrationError(filePath, componentName, "componentClassName", "className");
-    } else if (hasComponentClassName) {
-      updatePropName(path, { componentClassName: "className" });
-    }
+  elements.forEach(elementPath => {
+    migratePropsNames(j, elementPath, filePath, componentName, { componentClassName: "className" });
   });
 }
 

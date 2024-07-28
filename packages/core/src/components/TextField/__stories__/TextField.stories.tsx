@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
+import { Check, CloseSmall, Email, Show, Duplicate } from "../../Icon/Icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Heading from "../../Heading/Heading";
@@ -69,7 +69,8 @@ export const States: Story = {
         <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
         <TextField
           placeholder="With clickable icon"
-          iconName={Email}
+          iconTooltipContent="Copy"
+          iconName={Duplicate}
           onIconClick={() => {}}
           size={TextField.sizes.MEDIUM}
         />
@@ -159,7 +160,7 @@ export const InputFieldWithPlaceholderText: Story = {
 export const RequiredInputField: Story = {
   render: () => (
     <div className="monday-storybook-text-field_column-wrapper">
-      <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} requiredAsterisk={true} />
+      <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} required />
     </div>
   ),
   name: "Required input field"

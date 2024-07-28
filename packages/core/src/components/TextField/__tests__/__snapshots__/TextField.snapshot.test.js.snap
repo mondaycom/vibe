@@ -708,8 +708,7 @@ exports[`TextField renders correctly with icon 1`] = `
       >
         <span
           aria-hidden={true}
-          aria-label=""
-          className="icon icon noFocusStyle fa fa-star"
+          className="icon icon fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"
@@ -768,6 +767,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         value=""
       />
       <div
+        aria-label="primary-label"
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
@@ -779,6 +779,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         tabIndex={-1}
       />
       <div
+        aria-label="secondary-label"
         className="clickable iconContainer iconContainerActive disableTextSelection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
@@ -1169,8 +1170,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
       >
         <span
           aria-hidden={true}
-          aria-label=""
-          className="icon icon noFocusStyle fa fa-star"
+          className="icon icon fa fa-star"
           data-testid="icon"
           onClick={[Function]}
           role="img"

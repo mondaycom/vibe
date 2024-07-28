@@ -1,0 +1,14 @@
+.tableContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .menuContainer {
+    --cell-width: 40px;
+    position: absolute;
+    overflow: hidden;
+    left: calc(var(--cell-width) * -1);
+    width: var(--cell-width);
+    height: 100%;
+  }
+}

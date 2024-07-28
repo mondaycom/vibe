@@ -13,6 +13,7 @@ export interface MenuItemIconProps {
   /**
    * Label for the icon, used for accessibility.
    */
+  // TODO remove in next major
   label?: string;
   /**
    * Indicates whether the icon is disabled. Disabled icons appear faded and do not respond to user interactions.

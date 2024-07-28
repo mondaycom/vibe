@@ -67,6 +67,10 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   defaultFilter?: string;
   disableFilter?: boolean;
+  /**
+   * For controlled search input. If provided, `defaultFilter` will be ignored
+   */
+  filterValue?: string;
   onFilterChanged?: (value: string) => void;
   /**
    * Display the combo box with loading state
@@ -109,6 +113,8 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   searchIcon?: SubIcon;
   searchInputAriaLabel?: string;
+  debounceRate?: number;
+  searchInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -138,6 +144,7 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick = (_optionData: IComboboxOption) => {},
       filter = defaultFilter,
       disableFilter = false,
+      filterValue: filterValueProp,
       onFilterChanged,
       loading = false,
       onOptionHover = NOOP,
@@ -151,15 +158,23 @@ const Combobox: React.FC<ComboboxProps> & {
       maxOptionsWithoutScroll,
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      debounceRate,
+      searchInputRef
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const mergedInputRef = useMergeRef(inputRef, searchInputRef);
 
-    const [filterValue, setFilterValue] = useState(defaultFilterValue);
+    const [filterValue, setFilterValue] = useState(filterValueProp || defaultFilterValue);
+
+    if (filterValueProp !== undefined && filterValueProp !== filterValue) {
+      setFilterValue(filterValueProp);
+    }
+
     const onChangeCallback = useCallback(
       (value: string) => {
         setActiveOptionIndex(-1);
@@ -272,7 +287,7 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick: overrideOnClick,
       isChildSelectable,
       options: selectableItems,
-      inputRef
+      inputRef: mergedInputRef
     });
 
     return (
@@ -289,7 +304,7 @@ const Combobox: React.FC<ComboboxProps> & {
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search
-            ref={inputRef}
+            ref={mergedInputRef}
             value={filterValue}
             className={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             inputAriaLabel={searchInputAriaLabel}
@@ -305,6 +320,7 @@ const Combobox: React.FC<ComboboxProps> & {
             ariaExpanded={hasFilter || hasResults}
             ariaHasPopup="listbox"
             searchResultsContainerId={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
+            debounceRate={debounceRate}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems

@@ -142,7 +142,7 @@ const container =
         borderRadius: getCSSVar("border-radius-small")
       },
       ":active, :focus-within": {
-        borderColor: getCSSVar("color-basic_blue")
+        borderColor: getCSSVar("primary-color")
       },
       ...disabledContainerStyle(isDisabled),
       ...readOnlyContainerStyle(readOnly)
@@ -320,7 +320,7 @@ const menu =
       ...getFont(),
       color: getCSSVar("primary-text-color"),
       backgroundColor: getCSSVar("dialog-background-color"),
-      boxShadow: getCSSVar("box-shadow-small")
+      boxShadow: getCSSVar("experimental-dropdown-border-in-dark-themes", getCSSVar("box-shadow-small"))
     };
 
     if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;

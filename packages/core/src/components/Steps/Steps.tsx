@@ -44,9 +44,9 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: ty
       color,
       areNavigationButtonsHidden = false,
       isContentOnTop = false,
-      backButtonProps = {},
-      nextButtonProps = {},
-      finishButtonProps = {},
+      backButtonProps = { children: "" },
+      nextButtonProps = { children: "" },
+      finishButtonProps = { children: "" },
       areButtonsIconsHidden = false
     },
     ref

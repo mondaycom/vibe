@@ -17,7 +17,7 @@ import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
 export interface ButtonProps extends VibeComponentProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
   activeButtonClassName?: string;

@@ -34,6 +34,7 @@ const Search = forwardRef(
       onChange,
       onFocus,
       onBlur,
+      onClear,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -58,6 +59,7 @@ const Search = forwardRef(
 
       inputRef.current?.focus?.();
       clearValue();
+      onClear?.();
     }, [disabled, clearValue]);
 
     const SearchIcon = (

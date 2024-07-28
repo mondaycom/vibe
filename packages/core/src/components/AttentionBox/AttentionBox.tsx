@@ -9,7 +9,8 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType } from "../Icon/IconConstants";
-import { AttentionBoxType } from "./AttentionBoxConstants";
+import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
+import { AttentionBoxType } from "./AttentionBox.types";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
@@ -34,13 +35,13 @@ export interface AttentionBoxProps extends VibeComponentProps {
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxType;
+  types?: typeof AttentionBoxTypeEnum;
   iconTypes?: typeof IconType;
 } = ({
   className,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
-  type = AttentionBox.types.PRIMARY,
+  type = "primary",
   icon,
   iconType = Icon.type.SVG,
   title,
@@ -53,21 +54,9 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   id,
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close"
-}) => {
-  const iconLabel = useMemo(() => {
-    if (type === AttentionBoxType.DANGER) {
-      return "alert";
-    }
-
-    if (type === AttentionBoxType.SUCCESS) {
-      return "success";
-    }
-
-    return "attention";
-  }, [type]);
-
+}: AttentionBoxProps) => {
   const defaultIcon = useMemo(() => {
-    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+    return type === "primary" ? InfoIcon : AlertIcon;
   }, [type]);
 
   const overrideIcon = icon === undefined ? defaultIcon : icon;
@@ -94,7 +83,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               icon={overrideIcon}
               ignoreFocusStyle
               iconSize="20"
-              iconLabel={iconLabel}
             />
           )}
           <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.MEDIUM} className={styles.title}>
@@ -104,15 +92,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       )}
       <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
-          <Icon
-            iconType={iconType}
-            iconSize={18}
-            ariaHidden
-            clickable={false}
-            icon={overrideIcon}
-            ignoreFocusStyle
-            iconLabel={iconLabel}
-          />
+          <Icon iconType={iconType} iconSize={18} ariaHidden clickable={false} icon={overrideIcon} ignoreFocusStyle />
         )}
         <Text
           type={Text.types.TEXT2}
@@ -145,6 +125,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 };
 
 export default withStaticProps(AttentionBox, {
-  types: AttentionBoxType,
+  types: AttentionBoxTypeEnum,
   iconTypes: IconType
 });

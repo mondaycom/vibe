@@ -31,6 +31,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
+import { Tooltip } from "../Tooltip";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -39,7 +40,10 @@ export interface TextFieldProps extends VibeComponentProps {
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete?: string;
   value?: string;
-  onChange?: (value: string, event: Pick<React.ChangeEvent, "target">) => void;
+  onChange?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement> | Pick<React.ChangeEvent<HTMLInputElement>, "target">
+  ) => void;
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
@@ -65,6 +69,7 @@ export interface TextFieldProps extends VibeComponentProps {
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /**  Icon names labels for a11y */
+  /// TODO Remove layout in next major
   iconsNames?: {
     layout: string;
     primary: string;
@@ -81,7 +86,6 @@ export interface TextFieldProps extends VibeComponentProps {
   requiredErrorText?: string;
   /** shows loading animation */
   loading?: boolean;
-  requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
   name?: string;
@@ -94,6 +98,8 @@ export interface TextFieldProps extends VibeComponentProps {
    * When true, component is controlled by an external state
    */
   controlled?: boolean;
+  iconTooltipContent?: string;
+  secondaryTooltipContent?: string;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -139,14 +145,15 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       required = false,
       requiredErrorText = "",
       loading = false,
-      requiredAsterisk = false,
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
       underline = false,
       name,
       withReadOnlyStyle,
-      controlled = false
+      controlled = false,
+      iconTooltipContent,
+      secondaryTooltipContent
     },
     ref
   ) => {
@@ -166,11 +173,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     );
 
     const onChangeCallback = useCallback(
-      (value: string) => {
+      (value: string, e?: React.ChangeEvent<HTMLInputElement>) => {
         if (isRequiredAndEmpty && value) {
           setIsRequiredAndEmpty(false);
         }
-        onChange(value, { target: inputRef.current });
+        const event = e || { target: inputRef.current };
+        onChange(value, event);
       },
       [onChange, isRequiredAndEmpty]
     );
@@ -190,9 +198,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       return controlled ? value : uncontrolledInput;
     }, [controlled, value, uncontrolledInput]);
 
-    const handleChange = useCallback<ChangeEventHandler>(
-      (event: ChangeEvent<Partial<HTMLInputElement>>) => {
-        controlled ? onChangeCallback(event.target.value) : onEventChanged(event);
+    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+      event => {
+        controlled ? onChangeCallback(event.target.value, event) : onEventChanged(event);
       },
       [controlled, onChangeCallback, onEventChanged]
     );
@@ -232,7 +240,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
-    const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
+    const shouldFocusOnPrimaryIcon =
+      (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
+    const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -245,6 +255,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
+    const primaryIconLabel = iconsNames.primary || iconTooltipContent;
+    const secondaryIconLabel = iconsNames.secondary || secondaryTooltipContent;
+
     return (
       <div
         className={cx(styles.textField, wrapperClassName, {
@@ -255,13 +268,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className={cx(styles.labelWrapper)}>
-          <FieldLabel
-            labelText={title}
-            icon={labelIconName}
-            iconLabel={iconsNames.layout}
-            labelFor={id}
-            requiredAsterisk={requiredAsterisk}
-          />
+          <FieldLabel labelText={title} icon={labelIconName} labelFor={id} required={required} />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
@@ -308,45 +315,55 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 </div>
               </div>
             )}
-            <Clickable
-              className={cx(styles.iconContainer, {
-                [styles.iconContainerHasIcon]: hasIcon,
-                [styles.iconContainerActive]: isPrimary,
-                [styles.iconContainerClickable]: isIconContainerClickable
-              })}
-              onClick={onIconClickCallback}
-              tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
+            <Tooltip
+              content={isPrimary ? iconTooltipContent : undefined}
+              addKeyboardHideShowTriggersByDefault
+              referenceWrapperClassName={styles.tooltipContainer}
             >
-              <Icon
-                icon={iconName}
-                className={cx(styles.icon)}
-                clickable={false}
-                iconLabel={iconsNames.primary}
-                iconType={Icon.type.ICON_FONT}
-                ignoreFocusStyle
-                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-              />
-            </Clickable>
-            <Clickable
-              className={cx(styles.iconContainer, {
-                [styles.iconContainerHasIcon]: hasIcon,
-                [styles.iconContainerActive]: isSecondary,
-                [styles.iconContainerClickable]: isIconContainerClickable
-              })}
-              onClick={onIconClickCallback}
-              tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
-              data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
+              <Clickable
+                className={cx(styles.iconContainer, {
+                  [styles.iconContainerHasIcon]: hasIcon,
+                  [styles.iconContainerActive]: isPrimary,
+                  [styles.iconContainerClickable]: isIconContainerClickable
+                })}
+                onClick={onIconClickCallback}
+                tabIndex={shouldFocusOnPrimaryIcon ? "0" : "-1"}
+                ariaLabel={primaryIconLabel}
+              >
+                <Icon
+                  icon={iconName}
+                  className={cx(styles.icon)}
+                  clickable={false}
+                  iconType={Icon.type.ICON_FONT}
+                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                />
+              </Clickable>
+            </Tooltip>
+            <Tooltip
+              content={isSecondary ? secondaryTooltipContent : undefined}
+              addKeyboardHideShowTriggersByDefault
+              referenceWrapperClassName={styles.tooltipContainer}
             >
-              <Icon
-                icon={secondaryIconName}
-                className={cx(styles.icon)}
-                clickable={false}
-                iconLabel={iconsNames.secondary}
-                iconType={Icon.type.ICON_FONT}
-                ignoreFocusStyle
-                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
-              />
-            </Clickable>
+              <Clickable
+                className={cx(styles.iconContainer, {
+                  [styles.iconContainerHasIcon]: hasIcon,
+                  [styles.iconContainerActive]: isSecondary,
+                  [styles.iconContainerClickable]: isIconContainerClickable
+                })}
+                onClick={onIconClickCallback}
+                tabIndex={shouldFocusOnSecondaryIcon ? "0" : "-1"}
+                data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
+                ariaLabel={secondaryIconLabel}
+              >
+                <Icon
+                  icon={secondaryIconName}
+                  className={cx(styles.icon)}
+                  clickable={false}
+                  iconType={Icon.type.ICON_FONT}
+                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                />
+              </Clickable>
+            </Tooltip>
           </div>
           {shouldShowExtraText && (
             <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>

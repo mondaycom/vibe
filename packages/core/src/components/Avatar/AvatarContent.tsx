@@ -3,7 +3,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
-import { AvatarSize, AvatarType } from "./AvatarConstants";
+import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./Avatar.types";
 import Icon from "../Icon/Icon";
 import { SubIcon, VibeComponentProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
@@ -21,26 +22,26 @@ export interface AvatarContentProps extends VibeComponentProps {
 }
 
 export const AvatarContent: React.FC<AvatarContentProps> & {
-  sizes?: typeof AvatarSize;
-  types?: typeof AvatarType;
+  sizes?: typeof AvatarSizeEnum;
+  types?: typeof AvatarTypeEnum;
 } = ({
-  type = AvatarType.TEXT,
+  type = "text",
   src,
   icon,
   text,
   ariaLabel,
   role,
-  size = AvatarSize.LARGE,
+  size = "large",
   textClassName = "",
   id,
   "data-testid": dataTestId
-}) => {
+}: AvatarContentProps) => {
   const className = cx(
     getStyle(styles, camelCase("content_" + type)),
     getStyle(styles, camelCase("content_" + type + "--" + size))
   );
   switch (type) {
-    case AvatarType.IMG:
+    case "img":
       return (
         <img
           role={role}
@@ -51,7 +52,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />
       );
-    case AvatarType.ICON:
+    case "icon":
       return (
         <Icon
           icon={icon}
@@ -64,7 +65,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />
       );
-    case AvatarType.TEXT:
+    case "text":
       return (
         <span
           aria-label={ariaLabel}
@@ -82,6 +83,6 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
 };
 
 Object.assign(AvatarContent, {
-  types: AvatarType,
-  sizes: AvatarSize
+  types: AvatarTypeEnum,
+  sizes: AvatarSizeEnum
 });

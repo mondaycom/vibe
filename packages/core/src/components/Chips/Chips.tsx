@@ -9,7 +9,8 @@ import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/Avatar.types";
 import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
@@ -86,7 +87,7 @@ export interface ChipsProps extends VibeComponentProps {
 
 const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
   colors?: typeof ElementAllowedColor;
-  avatarTypes?: typeof AvatarType;
+  avatarTypes?: typeof AvatarTypeEnum;
 } = forwardRef<HTMLDivElement, ChipsProps>(
   (
     {
@@ -111,13 +112,13 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       ariaLabel,
       "data-testid": dataTestId,
       disableClickableBehavior = false,
-      leftAvatarType = AvatarType.IMG,
-      rightAvatarType = AvatarType.IMG,
+      leftAvatarType = "img",
+      rightAvatarType = "img",
       showBorder = false,
       leftRenderer,
       rightRenderer,
       closeButtonAriaLabel = "Remove"
-    },
+    }: ChipsProps,
     ref
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
@@ -209,8 +210,8 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           "data-testid": componentDataTestId
         };
 
-    const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
-    const rightAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: rightAvatar } : { src: rightAvatar };
+    const leftAvatarProps = leftAvatarType === "text" ? { text: leftAvatar } : { src: leftAvatar };
+    const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
       <div {...wrapperProps}>
@@ -279,5 +280,5 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
 
 export default withStaticProps(Chips, {
   colors: ElementAllowedColor,
-  avatarTypes: AvatarType
+  avatarTypes: AvatarTypeEnum
 });

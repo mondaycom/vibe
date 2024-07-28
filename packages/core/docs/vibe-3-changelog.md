@@ -19,20 +19,25 @@
 
 ### AttentionBox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `attention-box-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Avatar
 
-- `isSquare` -> `square` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `avatar-component-migration`
 
-### BreadcrumbsItem
+- `isSquare` -> `square` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
+
+### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
 
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
+- `children` prop is now mandatory
 
 ### Box
 
@@ -64,9 +69,18 @@
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
 - `JustifyType` removed [codemod]
 
+### DialogContentContainer
+
+- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same]
+- Fixed "medium" size spacings
+
 ### Divider
 
 - `classname` -> `className` [codemod]
+
+### Dropdown
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 
 ### IconButton
 
@@ -84,6 +98,7 @@
 ### Link
 
 - `componentClassName` -> `className` [codemod]
+- `Link.target` removed, use `Link.targets` instead [codemod]
 
 ### Loader
 
@@ -147,6 +162,7 @@
 ## TextField
 
 - `dataTestId` -> `data-testid` [codemod]
+- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
 
 ### ThemeProvider
 
@@ -158,6 +174,7 @@
 - `showDelay` changed default to 100
 - `justify` removed [codemod]
 - `justifyTypes` removed [codemod]
+- `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 
 ### TipseenContent
 
