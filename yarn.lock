@@ -3765,6 +3765,15 @@
     "@storybook/global" "^5.0.0"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-storysource@^7.5.3":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/addon-storysource/-/addon-storysource-7.6.20.tgz#1050136171a442765ac36b768c4c2ddb46bf2e2a"
+  integrity sha512-1/wLo/5q3efso6PaOYcAD/JJOWOX5YSN+dzidjHMMeyhdrRWcb9+yUZtZOtvOBa2FSITK+utrwY+VZRq9gfp6g==
+  dependencies:
+    "@storybook/source-loader" "7.6.20"
+    estraverse "^5.2.0"
+    tiny-invariant "^1.3.1"
+
 "@storybook/addon-styling-webpack@^0.0.5":
   version "0.0.5"
   resolved "https://registry.npmjs.org/@storybook/addon-styling-webpack/-/addon-styling-webpack-0.0.5.tgz#714c713cf8c57ed1f674ebc80bc16cb41b9bdf1b"
@@ -3907,6 +3916,18 @@
     telejson "^7.2.0"
     tiny-invariant "^1.3.1"
 
+"@storybook/channels@7.6.20":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/channels/-/channels-7.6.20.tgz#33d8292b1b16d7f504bf751c57a792477d1c3a9e"
+  integrity sha512-4hkgPSH6bJclB2OvLnkZOGZW1WptJs09mhQ6j6qLjgBZzL/ZdD6priWSd7iXrmPiN5TzUobkG4P4Dp7FjkiO7A==
+  dependencies:
+    "@storybook/client-logger" "7.6.20"
+    "@storybook/core-events" "7.6.20"
+    "@storybook/global" "^5.0.0"
+    qs "^6.10.0"
+    telejson "^7.2.0"
+    tiny-invariant "^1.3.1"
+
 "@storybook/cli@7.6.17":
   version "7.6.17"
   resolved "https://registry.npmjs.org/@storybook/cli/-/cli-7.6.17.tgz#04462c97a926e3dfcc18f3df02519effe29740e2"
@@ -3957,6 +3978,13 @@
   version "7.6.17"
   resolved "https://registry.npmjs.org/@storybook/client-logger/-/client-logger-7.6.17.tgz#5031c47b7df8d8792fe9dfed5828222f515e5803"
   integrity sha512-6WBYqixAXNAXlSaBWwgljWpAu10tPRBJrcFvx2gPUne58EeMM20Gi/iHYBz2kMCY+JLAgeIH7ZxInqwO8vDwiQ==
+  dependencies:
+    "@storybook/global" "^5.0.0"
+
+"@storybook/client-logger@7.6.20":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/client-logger/-/client-logger-7.6.20.tgz#1d6e93443091cccd50e269371aa786172d0c4659"
+  integrity sha512-NwG0VIJQCmKrSaN5GBDFyQgTAHLNishUPLW1NrzqTDNAhfZUoef64rPQlinbopa0H4OXmlB+QxbQIb3ubeXmSQ==
   dependencies:
     "@storybook/global" "^5.0.0"
 
@@ -4037,6 +4065,13 @@
   version "7.6.17"
   resolved "https://registry.npmjs.org/@storybook/core-events/-/core-events-7.6.17.tgz#9e1a795558193089fb227cfe2cf768c99418a640"
   integrity sha512-AriWMCm/k1cxlv10f+jZ1wavThTRpLaN3kY019kHWbYT9XgaSuLU67G7GPr3cGnJ6HuA6uhbzu8qtqVCd6OfXA==
+  dependencies:
+    ts-dedent "^2.0.0"
+
+"@storybook/core-events@7.6.20":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/core-events/-/core-events-7.6.20.tgz#6648d661d1c96841a4c2a710a35759b01b6a06a1"
+  integrity sha512-tlVDuVbDiNkvPDFAu+0ou3xBBYbx9zUURQz4G9fAq0ScgBOs/bpzcRrFb4mLpemUViBAd47tfZKdH4MAX45KVQ==
   dependencies:
     ts-dedent "^2.0.0"
 
@@ -4332,6 +4367,17 @@
     memoizerific "^1.11.3"
     qs "^6.10.0"
 
+"@storybook/source-loader@7.6.20":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/source-loader/-/source-loader-7.6.20.tgz#ce559aad34093a361bc8266d9c8d30079761083c"
+  integrity sha512-AlOX5w95tajmZEsEcbYCtwtpKYW0xLV2hRzk2MZfc6XUXC9/n2jwhz1X4EKilwKGCWFUj/HAYbNc2XChS9juvg==
+  dependencies:
+    "@storybook/csf" "^0.1.2"
+    "@storybook/types" "7.6.20"
+    estraverse "^5.2.0"
+    lodash "^4.17.21"
+    prettier "^2.8.0"
+
 "@storybook/source-loader@^7.5.3":
   version "7.6.17"
   resolved "https://registry.npmjs.org/@storybook/source-loader/-/source-loader-7.6.17.tgz#a9ebc2ed6e6fa3041f80cd1df1775505b5bc8513"
@@ -4393,6 +4439,16 @@
   integrity sha512-GRY0xEJQ0PrL7DY2qCNUdIfUOE0Gsue6N+GBJw9ku1IUDFLJRDOF+4Dx2BvYcVCPI5XPqdWKlEyZdMdKjiQN7Q==
   dependencies:
     "@storybook/channels" "7.6.17"
+    "@types/babel__core" "^7.0.0"
+    "@types/express" "^4.7.0"
+    file-system-cache "2.3.0"
+
+"@storybook/types@7.6.20":
+  version "7.6.20"
+  resolved "https://registry.npmjs.org/@storybook/types/-/types-7.6.20.tgz#b8d62b30914b35e6750b1f4937da532432f02890"
+  integrity sha512-GncdY3x0LpbhmUAAJwXYtJDUQEwfF175gsjH0/fxPkxPoV7Sef9TM41jQLJW/5+6TnZoCZP/+aJZTJtq3ni23Q==
+  dependencies:
+    "@storybook/channels" "7.6.20"
     "@types/babel__core" "^7.0.0"
     "@types/express" "^4.7.0"
     file-system-cache "2.3.0"
