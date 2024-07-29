@@ -10,33 +10,33 @@ function renderMenuItemIcon(props: Partial<MenuItemIconProps> = {}) {
 
 describe("MenuItemIcon", () => {
   it("should render the icon correctly", () => {
-    const { getByLabelText } = renderMenuItemIcon();
-    expect(getByLabelText("Test Icon")).toBeInTheDocument();
+    const { queryByTestId } = renderMenuItemIcon();
+    expect(queryByTestId("icon")).toBeInTheDocument();
   });
 
   it("should apply the disabled style if the disabled prop is true", () => {
-    const { getByLabelText } = renderMenuItemIcon({ disabled: true });
-    const iconWrapper = getByLabelText("Test Icon").parentNode;
+    const { queryByTestId } = renderMenuItemIcon({ disabled: true });
+    const iconWrapper = queryByTestId("icon").parentNode;
     expect(iconWrapper).toHaveClass("disabled");
   });
 
   it("should apply the selected style if the selected prop is true and not disabled", () => {
-    const { getByLabelText } = renderMenuItemIcon({ selected: true });
+    const { queryByTestId } = renderMenuItemIcon({ selected: true });
     screen.logTestingPlaygroundURL();
-    expect(getByLabelText("Test Icon")).toHaveClass("selected");
+    expect(queryByTestId("icon")).toHaveClass("selected");
   });
 
   it("should not apply the selected style if the icon is disabled", () => {
-    const { getByLabelText } = renderMenuItemIcon({
+    const { queryByTestId } = renderMenuItemIcon({
       selected: true,
       disabled: true
     });
-    expect(getByLabelText("Test Icon")).not.toHaveClass("selected");
+    expect(queryByTestId("icon")).not.toHaveClass("selected");
   });
 
   it("should set the background color if backgroundColor prop is provided", () => {
-    const { getByLabelText } = renderMenuItemIcon({ backgroundColor: "red" });
-    const iconWrapper = getByLabelText("Test Icon").parentNode;
+    const { queryByTestId } = renderMenuItemIcon({ backgroundColor: "red" });
+    const iconWrapper = queryByTestId("icon").parentNode;
     expect(iconWrapper).toHaveClass("withBackgroundColor");
     expect(iconWrapper).toHaveStyle("background-color: red");
   });

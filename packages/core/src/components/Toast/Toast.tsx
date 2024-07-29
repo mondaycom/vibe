@@ -11,7 +11,8 @@ import Flex from "../Flex/Flex";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { ToastAction, ToastActionType, ToastType } from "./ToastConstants";
+import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";
+import { ToastType, ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -42,11 +43,11 @@ export interface ToastProps extends VibeComponentProps {
   closeButtonAriaLabel?: string;
 }
 
-const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof ToastActionType } = ({
+const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: typeof ToastActionTypeEnum } = ({
   open = false,
   loading = false,
   autoHideDuration = null,
-  type = ToastType.NORMAL,
+  type = "normal",
   icon,
   hideIcon = false,
   action: deprecatedAction,
@@ -58,11 +59,11 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   id,
   closeButtonAriaLabel = "Close",
   "data-testid": dataTestId
-}) => {
+}: ToastProps) => {
   const toastLinks = useMemo(() => {
     return actions
       ? actions
-          .filter(action => action.type === ToastActionType.LINK)
+          .filter(action => action.type === "link")
           .map(({ type: _type, ...otherProps }) => (
             <ToastLink key={otherProps.href} className={styles.actionLink} {...otherProps} />
           ))
@@ -72,7 +73,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   const toastButtons: JSX.Element[] | null = useMemo(() => {
     return actions
       ? actions
-          .filter(action => action.type === ToastActionType.BUTTON)
+          .filter(action => action.type === "button")
           .map(({ type: _type, content, ...otherProps }, index) => (
             <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
               {content}
@@ -169,6 +170,6 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 };
 
 export default withStaticProps(Toast, {
-  types: ToastType,
-  actionTypes: ToastActionType
+  types: ToastTypeEnum,
+  actionTypes: ToastActionTypeEnum
 });

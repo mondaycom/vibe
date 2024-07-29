@@ -29,13 +29,15 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, onFinish, titleClass
   const nextButtonProps = useMemo(
     () => ({
       kind: Button.kinds.PRIMARY,
-      size: Button.sizes.SMALL
+      size: Button.sizes.SMALL,
+      children: ""
     }),
     []
   );
   const backButtonProps = useMemo(
     () => ({
-      size: Button.sizes.SMALL
+      size: Button.sizes.SMALL,
+      children: ""
     }),
     []
   );

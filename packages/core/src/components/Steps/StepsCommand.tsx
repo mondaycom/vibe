@@ -28,7 +28,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   activeStepIndex,
   stepsCount,
   isIconHidden = false,
-  buttonProps = {},
+  buttonProps = { children: "" },
   color = StepsColor.PRIMARY
 }) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;

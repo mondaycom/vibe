@@ -5,7 +5,6 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
-import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
 import Table from "../../Table/Table/Table";
@@ -143,7 +142,7 @@ export const ColorVariants = {
           type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.LIGHT
+            color: "light"
           }}
         >
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
@@ -168,7 +167,7 @@ export const ColorVariants = {
           type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.DARK
+            color: "dark"
           }}
         >
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
@@ -340,7 +339,7 @@ export const CustomCounter = {
       max={4}
       counterProps={{
         count: 100500,
-        color: Counter.colors.DARK,
+        color: "dark",
         prefix: "",
         maxDigits: 5
       }}

@@ -64,14 +64,18 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         tabIndex={onSortClicked ? 0 : undefined}
       >
         <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
-          {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
+          {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
           {
             <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
               {title}
             </Text>
           }
           {infoContent && (
-            <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
+            <Tooltip
+              content={infoContent}
+              referenceWrapperClassName={styles.infoTooltip}
+              addKeyboardHideShowTriggersByDefault
+            >
               <Icon icon={Info} iconLabel={infoContent} clickable={false} />
             </Tooltip>
           )}

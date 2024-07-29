@@ -88,7 +88,7 @@ Use when something was deleted, a problem has occurred, etc.
     {
       positive: {
         component: (
-          <Toast open className="monday-storybook-toast_wrapper" hideIcon type={Toast.types.POSITIVE}>
+          <Toast open className="monday-storybook-toast_wrapper" hideIcon type="positive">
             Duplicating Board
           </Toast>
         ),
@@ -98,16 +98,16 @@ Use when something was deleted, a problem has occurred, etc.
         component: (
           <Flex direction="column" gap="small">
             <Toast
-              type={Toast.types.NEGATIVE}
+              type="negative"
               open
               hideIcon
               className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
-              actions={[{ type: Toast.actionTypes.LINK, text: "Try again", href: "https://monday.com" }]}
+              actions={[{ type: "link", text: "Try again", href: "https://monday.com" }]}
             >
               Couldn’t load board items
             </Toast>
             <Toast
-              type={Toast.types.POSITIVE}
+              type="positive"
               className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
               hideIcon
               text="Duplicating Board"
@@ -126,8 +126,8 @@ Use when something was deleted, a problem has occurred, etc.
           <Toast
             open
             className="monday-storybook-toast_wrapper"
-            type={Toast.types.POSITIVE}
-            actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo" }]}
+            type="positive"
+            actions={[{ type: "button", content: "Undo" }]}
           >
             We successfully archived 1 item
           </Toast>
@@ -136,7 +136,7 @@ Use when something was deleted, a problem has occurred, etc.
       },
       negative: {
         component: (
-          <Toast open className="monday-storybook-toast_wrapper" type={Toast.types.POSITIVE}>
+          <Toast open className="monday-storybook-toast_wrapper" type="positive">
             We successfully archived 1 item
           </Toast>
         ),

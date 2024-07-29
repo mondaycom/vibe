@@ -1,7 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
-import { DirectionType } from "./DividerConstants";
+import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
+import { DirectionType } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
@@ -12,14 +13,14 @@ export interface DividerProps extends VibeComponentProps {
 }
 
 const Divider: React.FC<DividerProps> & {
-  directions?: typeof DirectionType;
+  directions?: typeof DirectionTypeEnum;
 } = ({
   className = undefined,
   withoutMargin = false,
-  direction = DirectionType.HORIZONTAL,
+  direction = "horizontal",
   id,
   "data-testid": dataTestId
-}) => {
+}: DividerProps) => {
   return (
     <div
       id={id}
@@ -32,5 +33,5 @@ const Divider: React.FC<DividerProps> & {
 };
 
 export default withStaticProps(Divider, {
-  directions: DirectionType
+  directions: DirectionTypeEnum
 });

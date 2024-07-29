@@ -8,6 +8,7 @@ import { MenuItemIconProps } from "./MenuItemIcon.types";
 const MenuItemIcon = ({
   icon,
   type,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   label,
   disabled,
   selected,
@@ -30,7 +31,6 @@ const MenuItemIcon = ({
       iconType={type || (typeof icon === "function" ? Icon.type.SVG : Icon.type.ICON_FONT)}
       clickable={false}
       icon={icon}
-      iconLabel={label}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
       iconSize={18}

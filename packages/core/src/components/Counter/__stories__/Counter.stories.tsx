@@ -52,7 +52,7 @@ export const Sizes = {
         Big
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} size={Counter.sizes.SMALL} />
+        <Counter count={5} size="small" />
         Small
       </div>
     </>
@@ -69,15 +69,15 @@ export const Colors = {
         Primary
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.NEGATIVE} />
+        <Counter count={5} color="negative" />
         Negative or notification
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.DARK} />
+        <Counter count={5} color="dark" />
         Dark
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.LIGHT} />
+        <Counter count={5} color="light" />
         Light
       </div>
     </>
@@ -90,19 +90,19 @@ export const Outline = {
   render: () => (
     <>
       <div className="storybook-counter_column">
-        <Counter count={5} kind={Counter.kinds.LINE} />
+        <Counter count={5} kind="line" />
         Primary
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
+        <Counter count={5} color="negative" kind="line" />
         Negative or notification
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
+        <Counter count={5} color="dark" kind="line" />
         Dark
       </div>
       <div className="storybook-counter_column">
-        <Counter count={5} color={Counter.colors.LIGHT} kind={Counter.kinds.LINE} />
+        <Counter count={5} color="light" kind="line" />
         Light
       </div>
     </>
@@ -158,12 +158,7 @@ export const NotificationCounter = {
     return (
       <div className="storybook-counter_position">
         <Avatar type="icon" icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
-        <Counter
-          count={count}
-          maxDigits={1}
-          color={Counter.colors.NEGATIVE}
-          className="storybook-counter_counter-position-top"
-        />
+        <Counter count={count} maxDigits={1} color="negative" className="storybook-counter_counter-position-top" />
       </div>
     );
   },
@@ -180,9 +175,9 @@ export const CounterOnInboxFilters = {
         <span className="a">Q Plans.</span>
       </div>
       <div className="storybook-counter_wrapper">
-        <Counter count={195} color={Counter.colors.DARK} />
-        <Counter count={141} color={Counter.colors.DARK} />
-        <Counter count={99} color={Counter.colors.DARK} />
+        <Counter count={195} color="dark" />
+        <Counter count={141} color="dark" />
+        <Counter count={99} color="dark" />
       </div>
     </>
   ),
@@ -197,17 +192,12 @@ export const CountTheNumberOfUpdates = {
       <Divider />
       <div className="storybook-counter_position">
         <Icon icon={Update} iconSize="36" />
-        <Counter count={5} size={Counter.sizes.SMALL} className="storybook-counter_counter-position-bot" />
+        <Counter count={5} size="small" className="storybook-counter_counter-position-bot" />
       </div>
       <Divider />
       <div className="storybook-counter_position">
         <Icon icon={Update} iconSize="36" />
-        <Counter
-          count={5}
-          color={Counter.colors.DARK}
-          size={Counter.sizes.SMALL}
-          className="storybook-counter_counter-position-bot"
-        />
+        <Counter count={5} color="dark" size="small" className="storybook-counter_counter-position-bot" />
       </div>
     </div>
   ),
