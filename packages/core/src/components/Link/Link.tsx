@@ -3,7 +3,8 @@ import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
-import { IconPosition, LinkTarget } from "./LinkConsts";
+import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
+import { IconPosition, LinkTarget } from "./Link.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 
@@ -41,9 +42,9 @@ export interface LinkProps extends VibeComponentProps {
 }
 
 const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
-  targets?: typeof LinkTarget;
-  iconPositions?: typeof IconPosition;
-  position?: typeof IconPosition;
+  targets?: typeof LinkTargetEnum;
+  iconPositions?: typeof IconPositionEnum;
+  position?: typeof IconPositionEnum;
 } = forwardRef(
   (
     {
@@ -53,21 +54,21 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       text = "",
       rel = "noreferrer",
       onClick = NOOP,
-      target = Link.targets.NEW_WINDOW,
+      target = "_blank",
       ariaLabelDescription = "",
       ariaDescribedby = "",
       icon = "",
-      iconPosition = Link.position.START,
+      iconPosition = "start",
       id = "",
       ariaLabeledBy = "",
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
       "data-testid": dataTestId
-    },
+    }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
-    const isStart = iconPosition === IconPosition.START;
+    const isStart = iconPosition === "start";
 
     const onClickWrapper = useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
@@ -110,7 +111,7 @@ function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | n
 }
 
 export default withStaticProps(Link, {
-  position: IconPosition,
-  iconPositions: IconPosition,
-  targets: LinkTarget
+  position: IconPositionEnum,
+  iconPositions: IconPositionEnum,
+  targets: LinkTargetEnum
 });

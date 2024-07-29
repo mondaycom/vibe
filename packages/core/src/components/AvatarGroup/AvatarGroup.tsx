@@ -4,13 +4,13 @@ import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
-import { CounterColor } from "../Counter/CounterConstants";
+import { CounterColor } from "../Counter/Counter.types";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./AvatarGroup.module.scss";
 
 export type AvatarGroupCounterVisualProps = {
-  color?: CounterColor.LIGHT | CounterColor.DARK;
+  color?: Extract<CounterColor, "light" | "dark">;
   count?: number;
   prefix?: string;
   maxDigits?: number;

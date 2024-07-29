@@ -8,7 +8,13 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
-import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
+import {
+  CounterColor as CounterColorEnum,
+  CounterSize as CounterSizeEnum,
+  CounterType as CounterTypeEnum,
+  getActualSize
+} from "./CounterConstants";
+import { CounterColor, CounterSize, CounterType } from "./Counter.types";
 import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
 
@@ -41,16 +47,16 @@ export interface CounterProps extends VibeComponentProps {
 }
 
 const Counter: React.FC<CounterProps> & {
-  sizes?: typeof CounterSize;
-  colors?: typeof CounterColor;
-  kinds?: typeof CounterType;
+  sizes?: typeof CounterSizeEnum;
+  colors?: typeof CounterColorEnum;
+  kinds?: typeof CounterTypeEnum;
 } = ({
   className,
   counterClassName,
   count = 0,
-  size = Counter.sizes.LARGE,
-  kind = Counter.kinds.FILL,
-  color = Counter.colors.PRIMARY,
+  size = "large",
+  kind = "fill",
+  color = "primary",
   maxDigits = 3,
   ariaLabeledBy = "",
   ariaLabel = "",
@@ -59,7 +65,7 @@ const Counter: React.FC<CounterProps> & {
   onMouseDown = NOOP,
   noAnimation = false,
   "data-testid": dataTestId
-}) => {
+}: CounterProps) => {
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -151,7 +157,7 @@ const Counter: React.FC<CounterProps> & {
 };
 
 export default withStaticProps(Counter, {
-  sizes: CounterSize,
-  colors: CounterColor,
-  kinds: CounterType
+  sizes: CounterSizeEnum,
+  colors: CounterColorEnum,
+  kinds: CounterTypeEnum
 });
