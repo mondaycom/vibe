@@ -39,7 +39,7 @@ const BaseMenuItem = forwardRef(
       "data-testid": dataTestId,
       splitMenuItem = false,
       children,
-      submenuPosition
+      forceSubmenuOpenLeft = false
     }: BaseMenuItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -152,7 +152,7 @@ const BaseMenuItem = forwardRef(
               open={shouldShowSubMenu}
               onClose={closeSubMenu}
               autoFocusOnMount={!useDocumentEventListeners}
-              submenuPosition={submenuPosition}
+              forceSubmenuOpenLeft={forceSubmenuOpenLeft}
             >
               {subMenu}
             </MenuItemSubMenu>

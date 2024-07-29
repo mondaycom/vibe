@@ -26,17 +26,17 @@ describe("<MenuItem />", () => {
 
   const submenuPositions = [
     {
-      submenuPosition: "left-start",
+      forceSubmenuOpenLeft: true,
       expectedPosition: "left-start"
     },
     {
-      submenuPosition: undefined,
+      forceSubmenuOpenLeft: undefined,
       expectedPosition: "right-start"
     }
   ];
   it.each(submenuPositions)(
-    "should open the submenu on the left with correct data attributes and transform on mouse enter",
-    async ({ submenuPosition, expectedPosition }) => {
+    "should open the submenu on correct position",
+    async ({ forceSubmenuOpenLeft, expectedPosition }) => {
       const title = "Main Item";
       const submenuTitle = "Sub Item";
 
@@ -46,7 +46,7 @@ describe("<MenuItem />", () => {
           activeItemIndex={0}
           title={title}
           isParentMenuVisible
-          submenuPosition={submenuPosition}
+          forceSubmenuOpenLeft={forceSubmenuOpenLeft}
           hasOpenSubMenu
         >
           <Menu>

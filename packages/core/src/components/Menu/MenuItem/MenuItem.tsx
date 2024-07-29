@@ -13,7 +13,6 @@ import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { SubmenuPlacement } from "./MenuItem.Types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -62,7 +61,7 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   splitMenuItem?: boolean;
   "aria-label"?: AriaAttributes["aria-label"];
-  submenuPosition?: SubmenuPlacement;
+  forceSubmenuOpenLeft?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {

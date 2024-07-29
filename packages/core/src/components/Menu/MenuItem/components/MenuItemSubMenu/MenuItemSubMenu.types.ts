@@ -1,6 +1,5 @@
 import React from "react";
 import { CloseMenuOption, MenuChild } from "../../../Menu/MenuConstants";
-import { SubmenuPlacement } from "../../MenuItem.Types";
 
 export interface MenuItemSubMenuProps {
   /**
@@ -27,5 +26,5 @@ export interface MenuItemSubMenuProps {
    * The children elements of the submenu, should be a Menu component.
    */
   children: MenuChild | MenuChild[];
-  submenuPosition?: SubmenuPlacement;
+  forceSubmenuOpenLeft?: boolean;
 }
