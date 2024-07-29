@@ -8,7 +8,7 @@ import {
   ProgressBarType as ProgressBarTypeEnum
 } from "./LinearProgressBarConstants";
 import { LinearProgressBarSize, LinearProgressBarStyle } from "./LinearProgressBar.types";
-import { calculatePercentage, getProgressBarClassNames, Size } from "./LinearProgressBarHelpers";
+import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
