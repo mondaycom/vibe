@@ -61,7 +61,7 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   splitMenuItem?: boolean;
   "aria-label"?: AriaAttributes["aria-label"];
-  forceSubmenuOpenLeft?: boolean;
+  submenuOpenLeft?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {

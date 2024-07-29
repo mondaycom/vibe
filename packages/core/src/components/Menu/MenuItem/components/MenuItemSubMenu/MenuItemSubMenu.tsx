@@ -11,7 +11,7 @@ const MenuItemSubMenu = ({
   autoFocusOnMount,
   onClose,
   children,
-  forceSubmenuOpenLeft
+  submenuOpenLeft
 }: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
   const popperElementRef = useRef<HTMLDivElement>(null);
@@ -26,8 +26,8 @@ const MenuItemSubMenu = ({
   }, [autoFocusOnMount, open]);
 
   const submenuPlacement = useMemo(
-    () => (forceSubmenuOpenLeft ? Placement.LEFT_START : Placement.RIGHT_START),
-    [forceSubmenuOpenLeft]
+    () => (submenuOpenLeft ? Placement.LEFT_START : Placement.RIGHT_START),
+    [submenuOpenLeft]
   );
 
   const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
