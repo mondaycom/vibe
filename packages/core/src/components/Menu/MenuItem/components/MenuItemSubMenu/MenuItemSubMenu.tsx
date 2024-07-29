@@ -25,10 +25,7 @@ const MenuItemSubMenu = ({
     });
   }, [autoFocusOnMount, open]);
 
-  const submenuPlacement = useMemo(
-    () => (submenuOpenLeft ? Placement.LEFT_START : Placement.RIGHT_START),
-    [submenuOpenLeft]
-  );
+  const submenuPlacement = useMemo(() => (submenuOpenLeft ? Placement.LEFT_START : undefined), [submenuOpenLeft]);
 
   const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
     anchorRef?.current,
