@@ -3,7 +3,8 @@ import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
-import { StepsColor, StepsType } from "./StepsConstants";
+import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
+import { StepsColor, StepsType } from "./Steps.types";
 import { ButtonProps } from "../Button/Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
@@ -30,7 +31,7 @@ export interface StepsProps extends VibeComponentProps {
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: typeof StepsColor } = forwardRef(
+const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?: typeof StepsColorEnum } = forwardRef(
   (
     {
       className,
@@ -38,7 +39,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: ty
       "data-testid": dataTestId,
       steps = [],
       activeStepIndex = 0,
-      type = StepsType.GALLERY,
+      type = "gallery",
       onChangeActiveStep = NOOP,
       onFinish,
       color,
@@ -48,7 +49,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: ty
       nextButtonProps = { children: "" },
       finishButtonProps = { children: "" },
       areButtonsIconsHidden = false
-    },
+    }: StepsProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -86,6 +87,6 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType; colors?: ty
 );
 
 export default withStaticProps(Steps, {
-  types: StepsType,
-  colors: StepsColor
+  types: StepsTypeEnum,
+  colors: StepsColorEnum
 });
