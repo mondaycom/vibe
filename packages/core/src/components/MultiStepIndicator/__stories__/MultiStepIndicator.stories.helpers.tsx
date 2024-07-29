@@ -4,17 +4,17 @@ import MultiStepIndicator, { Step } from "../MultiStepIndicator";
 
 export const firstSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan options",
     subtitleText: "Choose plan"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: "Number of users"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Paying method",
     subtitleText: "How to pay"
   }
@@ -22,17 +22,17 @@ export const firstSteps: Step[] = [
 
 export const secondSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan options",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: "Number of users"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Paying method",
     subtitleText: "How to pay"
   }
@@ -40,17 +40,17 @@ export const secondSteps: Step[] = [
 
 export const thirdSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Method",
     subtitleText: ""
   }
