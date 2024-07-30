@@ -1,8 +1,5 @@
-import { TextType } from "../Text/Text.types";
+export type LabelSizes = "small" | "medium";
 
-export type Sizes = "small" | "medium";
+export type LabelKind = "fill" | "line";
 
-export const mapSizesToTextSize: Record<Sizes, TextType> = {
-  small: "text3",
-  medium: "text2"
-};
+export type LabelColor = "primary" | "dark" | "negative" | "positive";

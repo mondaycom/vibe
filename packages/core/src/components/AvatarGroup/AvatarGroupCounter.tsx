@@ -43,7 +43,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   disabled
 }: AvatarGroupCounterProps) => {
   const {
-    color: counterColor = Counter.colors.LIGHT,
+    color: counterColor = "light",
     count: counterValue = counterTooltipAvatars.length,
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,

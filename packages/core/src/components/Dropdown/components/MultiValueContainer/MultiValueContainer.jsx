@@ -132,7 +132,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               moveBy={{ main: DIALOG_OFFSET_Y }}
             >
               <Counter
-                kind={Counter.kinds.LINE}
+                kind="line"
                 prefix="+"
                 count={hiddenOptionsCount}
                 onMouseDown={e => {

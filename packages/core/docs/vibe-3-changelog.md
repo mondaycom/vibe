@@ -32,7 +32,7 @@ codemod: `avatar-component-migration`
 ### Button
 
 - `dataTestId` -> `data-testid` [codemod]
-- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
+- `children` prop is now mandatory
 
 ### Box
 
@@ -157,6 +157,7 @@ codemod: `avatar-component-migration`
 ## TextField
 
 - `dataTestId` -> `data-testid` [codemod]
+- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
 
 ### ThemeProvider
 

@@ -22,8 +22,7 @@ import { Flex } from "../../";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: List,
-  enumPropNamesArray: ["component"]
+  component: List
 });
 
 export default {
