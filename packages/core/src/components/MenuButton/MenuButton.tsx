@@ -139,7 +139,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       children,
       component = Menu,
       componentPosition = MenuButton.componentPositions.START,
-      size = "32",
+      size = "small",
       open = false,
       onClick = NOOP,
       zIndex = null,
