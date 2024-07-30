@@ -12,7 +12,7 @@ import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
 } from "./MenuButtonConstants";
-import { MenuButtonSize } from "./MenuButton.types";
+import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
@@ -109,7 +109,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * Specifies whether to render the component before or after the text
    */
-  componentPosition?: (typeof MenuButtonComponentPositionEnum)[keyof typeof MenuButtonComponentPositionEnum];
+  componentPosition?: MenuButtonComponentPosition;
   /**
    * Element to be used as the trigger element for the Menu - default is button
    */
