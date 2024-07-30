@@ -49,35 +49,35 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <MenuButton size={MenuButton.sizes.XXS}>
+      <MenuButton size="xxs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.XS}>
+      <MenuButton size="xs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.SMALL}>
+      <MenuButton size="small">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.MEDIUM}>
+      <MenuButton size="medium">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.LARGE}>
+      <MenuButton size="large">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
