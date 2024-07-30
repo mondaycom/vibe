@@ -31,7 +31,7 @@ export const Overview = {
 
   args: {
     value: 20,
-    size: LinearProgressBar.sizes.LARGE
+    size: "large"
   }
 };
 
@@ -39,20 +39,11 @@ export const Regular = {
   render: () => (
     <div className="linear-progress-bar_column">
       <div className="linear-progress-bar_block">
-        <LinearProgressBar
-          className="linear-progress-bar_small-wrapper"
-          indicateProgress
-          value={30}
-          size={LinearProgressBar.sizes.LARGE}
-        />
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" indicateProgress value={30} size="large" />
         With label
       </div>
       <div className="linear-progress-bar_block">
-        <LinearProgressBar
-          className="linear-progress-bar_small-wrapper"
-          value={30}
-          size={LinearProgressBar.sizes.LARGE}
-        />
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" value={30} size="large" />
         Without label
       </div>
     </div>
@@ -68,7 +59,7 @@ export const WithSecondaryValue = {
       value={50}
       indicateProgress
       valueSecondary={65}
-      size={LinearProgressBar.sizes.LARGE}
+      size="large"
     />
   ),
 
@@ -99,7 +90,7 @@ export const MultiProgressBar = {
       <LinearProgressBar
         className="linear-progress-bar_big-wrapper"
         value={25}
-        size={LinearProgressBar.sizes.LARGE}
+        size="large"
         indicateProgress
         multi
         multiValues={multiValues}
@@ -121,7 +112,7 @@ export const ProgressBarAsACounter = {
         </div>
         <span>142/200</span>
       </div>
-      <LinearProgressBar value={71} size={LinearProgressBar.sizes.LARGE} barStyle={LinearProgressBar.styles.POSITIVE} />
+      <LinearProgressBar value={71} size="large" barStyle="positive" />
     </div>
   ),
 
