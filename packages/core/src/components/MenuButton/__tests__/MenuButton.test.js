@@ -23,7 +23,7 @@ describe("MenuButton", () => {
   it("renders correctly with size Large", () => {
     const tree = renderer
       .create(
-        <MenuButton size={MenuButton.sizes.LARGE}>
+        <MenuButton size="large">
           <div>Menu</div>
         </MenuButton>
       )

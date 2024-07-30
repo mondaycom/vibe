@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { VibeComponentProps } from "../../types";
-import { MenuButtonSize } from "../MenuButton/MenuButtonConstants";
+import { MenuButtonSize } from "../MenuButton/MenuButton.types";
 import { MenuButtonProps } from "../MenuButton/MenuButton";
 
 export const DEFAULT_MINIMAL_MARGIN = 32;
