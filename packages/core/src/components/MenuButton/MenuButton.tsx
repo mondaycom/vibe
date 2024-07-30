@@ -138,7 +138,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       openDialogComponentClassName,
       children,
       component = Menu,
-      componentPosition = MenuButton.componentPositions.START,
+      componentPosition = "start",
       size = "small",
       open = false,
       onClick = NOOP,

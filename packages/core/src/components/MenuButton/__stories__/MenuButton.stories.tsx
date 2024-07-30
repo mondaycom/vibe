@@ -146,7 +146,7 @@ export const WithTextAndIconAtTheEnd: Story = {
         width: 200
       }}
     >
-      <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
+      <MenuButton text="Open" component={DropdownChevronDown} componentPosition="end">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
