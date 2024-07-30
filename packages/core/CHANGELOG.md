@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.126.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.125.0...monday-ui-react-core@2.126.0) (2024-07-30)
+
+
+### Bug Fixes
+
+* Revert "use react-select version 4.3.1" ([#2288](https://github.com/mondaycom/vibe/issues/2288)) ([b189494](https://github.com/mondaycom/vibe/commit/b18949456662c8f95ef9735af56cddd155178f43))
+
+
+### Features
+
+* add onClear prop to Search component ([#2272](https://github.com/mondaycom/vibe/issues/2272)) ([8a5ca3c](https://github.com/mondaycom/vibe/commit/8a5ca3c7e3878f259192f8b01e390af775590ba7))
+* **Search:** Add `onClear` prop+testing+story for `Search` ([#2276](https://github.com/mondaycom/vibe/issues/2276)) ([4366676](https://github.com/mondaycom/vibe/commit/436667663b69fa9ff11a17bd92e90e75d74711e9))
+
+
+
+
+
 # [2.125.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.124.1...monday-ui-react-core@2.125.0) (2024-07-25)
 
 
