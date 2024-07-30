@@ -14,7 +14,7 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { Size, MultiStepType, StepStatus } from "../../MultiStepConstants";
+import { MultiStepSize, MultiStepType, StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
 import { SubIcon, VibeComponentProps } from "../../../../types";
@@ -37,7 +37,7 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   fulfilledStepIconType,
   stepNumber
 }) => {
-  return status === StepStatus.FULFILLED && !isFulfilledStepDisplayNumber ? (
+  return status === "fulfilled" && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
       className={classNames(styles.numberContainerTextCheckIcon)}
@@ -65,16 +65,16 @@ export interface StepIndicatorProps extends VibeComponentProps {
   isFollowedByDivider?: boolean;
   stepDividerClassName?: string;
   isVertical?: boolean;
-  size?: Size;
+  size?: MultiStepSize;
 }
 
 const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepComponentClassName,
   stepNumber = 1,
-  status = StepStatus.PENDING,
+  status = "pending",
   titleText = "Heading text",
   subtitleText = "Subtitle text",
-  type = MultiStepType.PRIMARY,
+  type = "primary",
   fulfilledStepIcon = Check,
   fulfilledStepIconType = IconType.SVG,
   isFulfilledStepDisplayNumber = false,
@@ -83,9 +83,9 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepDividerClassName,
   isVertical = false,
   id,
-  size = Size.REGULAR,
+  size = "regular",
   "data-testid": dataTestId
-}) => {
+}: StepIndicatorProps) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
 
@@ -200,7 +200,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           <HiddenText text={status} /> {/* for accessibility */}
           <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
-        {size !== Size.COMPACT ? (
+        {size !== "compact" ? (
           <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
         ) : null}
       </div>

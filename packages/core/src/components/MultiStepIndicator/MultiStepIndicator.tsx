@@ -4,7 +4,13 @@ import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import { MultiStepType, Size, StepStatus, TextPlacement } from "./MultiStepConstants";
+import {
+  MultiStepType as MultiStepTypeEnum,
+  Size as SizeEnum,
+  StepStatus as StepStatusEnum,
+  TextPlacement as TextPlacementEnum
+} from "./MultiStepConstants";
+import { MultiStepType, MultiStepSize, StepStatus, TextPlacement } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -27,34 +33,34 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
   isFulfilledStepDisplayNumber?: boolean;
   onClick?: (stepNumber: number) => void;
   textPlacement?: TextPlacement;
-  size?: Size;
+  size?: MultiStepSize;
 }
 
 const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElement> & {
-  types?: typeof MultiStepType;
-  stepStatuses?: typeof StepStatus;
-  textPlacements?: typeof TextPlacement;
-  sizes?: typeof Size;
+  types?: typeof MultiStepTypeEnum;
+  stepStatuses?: typeof StepStatusEnum;
+  textPlacements?: typeof TextPlacementEnum;
+  sizes?: typeof SizeEnum;
 } = forwardRef(
   (
     {
       className,
       steps = [],
-      type = MultiStepType.PRIMARY,
+      type = "primary",
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon = Check,
       fulfilledStepIconType = IconType.SVG,
       isFulfilledStepDisplayNumber = false,
       onClick = NOOP,
-      textPlacement = TextPlacement.HORIZONTAL,
+      textPlacement = "horizontal",
       id,
       size,
       "data-testid": dataTestId
-    },
+    }: MultiStepIndicatorProps,
     ref
   ) => {
-    const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;
+    const finalSize = textPlacement === "vertical" ? "regular" : size;
 
     const renderHorizontalStepIndicator = useCallback(
       (step: Step, index: number) => {
@@ -74,7 +80,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
             {index !== steps.length - 1 && (
               <Divider
                 className={cx(styles.divider, dividerComponentClassName, {
-                  [styles.compact]: finalSize === Size.COMPACT
+                  [styles.compact]: finalSize === "compact"
                 })}
               />
             )}
@@ -126,7 +132,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
     );
 
     const stepRenderer = useMemo(
-      () => (textPlacement === TextPlacement.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
+      () => (textPlacement === "vertical" ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
       [textPlacement, renderVerticalStepIndicator, renderHorizontalStepIndicator]
     );
 
@@ -144,8 +150,8 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
 );
 
 export default withStaticProps(MultiStepIndicator, {
-  types: MultiStepType,
-  stepStatuses: StepStatus,
-  textPlacements: TextPlacement,
-  sizes: Size
+  types: MultiStepTypeEnum,
+  stepStatuses: StepStatusEnum,
+  textPlacements: TextPlacementEnum,
+  sizes: SizeEnum
 });
