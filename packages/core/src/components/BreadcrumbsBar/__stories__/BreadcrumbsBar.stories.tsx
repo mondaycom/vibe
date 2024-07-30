@@ -59,7 +59,7 @@ export const Overview = {
 
 export const TextOnly = {
   render: () => (
-    <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+    <BreadcrumbsBar type="indication">
       <BreadcrumbItem text="Workspace" isCurrent />
       <BreadcrumbItem text="Folder" />
       <BreadcrumbItem text="Board" />
@@ -72,7 +72,7 @@ export const TextOnly = {
 
 export const WithIcons = {
   render: () => (
-    <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+    <BreadcrumbsBar type="navigation">
       <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
       <BreadcrumbItem text="Folder" icon={Folder} />
       <BreadcrumbItem text="Board" icon={Board} />
@@ -89,7 +89,7 @@ export const NavigatableBreadcrumbs = {
       <Avatar size="medium" src={person3} type="img" />
       <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
         <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+        <BreadcrumbsBar type="navigation">
           <BreadcrumbItem text="User research" icon={Board} />
           <BreadcrumbItem text="Video sessions" icon={Group} />
         </BreadcrumbsBar>

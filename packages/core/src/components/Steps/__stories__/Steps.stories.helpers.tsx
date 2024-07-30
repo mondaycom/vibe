@@ -33,7 +33,7 @@ export const StepsNumbersDoTemplate = () => {
   }, []);
   return (
     <Steps
-      type={Steps.types.NUMBERS}
+      type="numbers"
       steps={steps6}
       activeStepIndex={activeStepIndex}
       onChangeActiveStep={onChangeActiveStep}

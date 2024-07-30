@@ -2,11 +2,17 @@ export const NEXT_TEXT = "Next";
 export const BACK_TEXT = "Back";
 export const FINISH_TEXT = "Finish";
 
+/**
+ * @deprecated
+ */
 export enum StepsType {
   NUMBERS = "numbers",
   GALLERY = "gallery"
 }
 
+/**
+ * @deprecated
+ */
 export enum StepsDotAriaCurrent {
   PAGE = "page",
   STEP = "step",
@@ -15,6 +21,9 @@ export enum StepsDotAriaCurrent {
   TIME = "time"
 }
 
+/**
+ * @deprecated
+ */
 export enum StepsColor {
   PRIMARY = "primary",
   ON_PRIMARY_COLOR = "on-primary-color",
