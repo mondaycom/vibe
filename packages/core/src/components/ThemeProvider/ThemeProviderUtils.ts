@@ -1,4 +1,5 @@
-import { Theme, ThemeColorTokenValueMap, SystemTheme, SystemThemeClassMap } from "./ThemeProviderConstants";
+import { Theme, ThemeColorTokenValueMap, SystemThemeClassMap } from "./ThemeProviderConstants";
+import { SystemTheme } from "./ThemeProvider.types";
 
 const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelector: string) => {
   for (const key of Object.keys(object)) {

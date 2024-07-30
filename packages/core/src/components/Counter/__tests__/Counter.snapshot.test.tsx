@@ -19,12 +19,12 @@ describe("Counter renders correctly", () => {
   });
 
   it("with negative color", () => {
-    const tree = renderer.create(<Counter color={Counter.colors.NEGATIVE} />).toJSON();
+    const tree = renderer.create(<Counter color="negative" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with line kind", () => {
-    const tree = renderer.create(<Counter kind={Counter.kinds.LINE} />).toJSON();
+    const tree = renderer.create(<Counter kind="line" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -34,7 +34,7 @@ describe("Counter renders correctly", () => {
   });
 
   it("with small size", () => {
-    const tree = renderer.create(<Counter size={Counter.sizes.SMALL} />).toJSON();
+    const tree = renderer.create(<Counter size="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
