@@ -9,7 +9,7 @@ import styles from "./MenuItemSubMenuIcon.module.scss";
 import { MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 
 const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Flex justify={Flex.justify.CENTER} className={styles.subMenuIconWrapper}>
+  <Flex justify="center" className={styles.subMenuIconWrapper}>
     {props.isSplit === true ? (
       <>
         <Divider direction="vertical" className={styles.divider} />

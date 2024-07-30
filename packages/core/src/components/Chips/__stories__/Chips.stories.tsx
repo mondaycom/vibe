@@ -82,7 +82,7 @@ export const Themes = {
 export const Clickable = {
   render: () => {
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+      <Flex direction="row" gap="medium" align="start">
         <Chips label="Clickable default chip" readOnly onClick={NOOP} />
         <Chips label="Clickable removable chip" onClick={NOOP} />
       </Flex>
@@ -106,16 +106,11 @@ export const ChipsPalette = {
           width: "100%",
           height: 300
         }}
-        align={Flex.align.STRETCH}
+        align="stretch"
       >
         {allowedColorsChunks.map((colorChunk: any) => {
           return (
-            <Flex
-              direction={Flex.directions.COLUMN}
-              key={colorChunk}
-              justify={Flex.justify.SPACE_BETWEEN}
-              align={Flex.align.STRETCH}
-            >
+            <Flex direction="column" key={colorChunk} justify="space-between" align="stretch">
               {colorChunk.map((colorName: any) => (
                 // @ts-ignore
                 <Chips label={colorName} key={colorName} color={Chips.colors[colorName]} readOnly allowTextSelection />
@@ -136,12 +131,12 @@ export const OnColor = {
       style={{
         width: "100%"
       }}
-      align={Flex.align.STRETCH}
-      justify={Flex.justify.START}
+      align="stretch"
+      justify="start"
     >
       <Flex
-        align={Flex.align.CENTER}
-        justify={Flex.justify.CENTER}
+        align="center"
+        justify="center"
         style={{
           background: "var(--sb-primary-selected-color)",
           width: "124px",
@@ -153,8 +148,8 @@ export const OnColor = {
         <Chips label="On selected" showBorder readOnly />
       </Flex>
       <Flex
-        align={Flex.align.CENTER}
-        justify={Flex.justify.CENTER}
+        align="center"
+        justify="center"
         style={{
           background: "var(--positive-color-selected)",
           width: "124px",
@@ -166,8 +161,8 @@ export const OnColor = {
         <Chips label="On positive" showBorder color={Chips.colors.POSITIVE} readOnly />
       </Flex>
       <Flex
-        align={Flex.align.CENTER}
-        justify={Flex.justify.CENTER}
+        align="center"
+        justify="center"
         style={{
           background: "var(--sb-negative-color-selected)",
           width: "124px",
@@ -210,7 +205,7 @@ export const ChipsInAPersonPickerComboBox = {
   render: () => (
     <DialogContentContainer className={styles.searchBar}>
       <Search placeholder="Search names, positions, or a team" />
-      <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER}>
+      <Flex align="center" justify="center">
         <Chips label="Esther Schanler" leftAvatar={person1} />
         <Chips label="Rotem Dekel" leftAvatar={rotem} />
       </Flex>
@@ -218,25 +213,25 @@ export const ChipsInAPersonPickerComboBox = {
         Suggested people
       </Text>
       <div className={styles.search}>
-        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
+        <Flex align="center" justify="center" key="cont-1">
           <Avatar size="small" src={person1} type="img" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
         </Flex>
-        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-2">
+        <Flex align="center" justify="center" key="cont-2">
           <Avatar size="small" backgroundColor={Avatar.colors.DARK_PURPLE} text="LC" type="text" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
         </Flex>
-        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-3">
+        <Flex align="center" justify="center" key="cont-3">
           <Avatar size="small" text="AL" type="text" />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Amanda Lawrence <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>
-        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-4">
+        <Flex align="center" justify="center" key="cont-4">
           <Avatar size="small" text="DY" type="text" backgroundColor={Avatar.colors.PEACH} />
           <Text type={Text.types.TEXT2} className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>

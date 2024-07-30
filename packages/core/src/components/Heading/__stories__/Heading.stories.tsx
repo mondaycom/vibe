@@ -40,12 +40,7 @@ export const Overview = {
 
 export const TypesAndWeights = {
   render: () => (
-    <Flex
-      gap={Flex.gaps.SMALL}
-      direction={Flex.directions.COLUMN}
-      justify={Flex.justify.START}
-      align={Flex.align.START}
-    >
+    <Flex gap="small" direction="column" justify="start" align="start">
       <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
         Bold H1 title
       </Heading>
@@ -81,7 +76,7 @@ export const TypesAndWeights = {
 
 export const Colors = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+    <Flex direction="column" align="start" gap="small">
       <Heading type={Heading.types.H2} color={Heading.colors.PRIMARY}>
         Primary title
       </Heading>
@@ -114,13 +109,7 @@ export const Colors = {
 
 export const Overflow = {
   render: () => (
-    <Flex
-      id={OVERFLOW_TITLE_CONTAINER_ID}
-      direction={Flex.directions.COLUMN}
-      gap={Flex.gaps.MEDIUM}
-      align={Flex.align.STRETCH}
-      style={{ width: "480px" }}
-    >
+    <Flex id={OVERFLOW_TITLE_CONTAINER_ID} direction="column" gap="medium" align="stretch" style={{ width: "480px" }}>
       <Heading type={Heading.types.H2}>Heading without overflow</Heading>
       <Heading
         type={Heading.types.H2}
@@ -156,7 +145,7 @@ export const BuiltInPageHeaderNotEditable = {
         My work
       </Heading>
       <Divider className={styles.pageDivider} />
-      <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
+      <Flex align="center" gap="small" aria-labelledby="my-work-id">
         <Search className={styles.pageHeaderSearch} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>

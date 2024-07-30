@@ -57,7 +57,7 @@ export const ControlledOpenState = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+      <Flex direction="row" gap="large" align="start">
         <ExpandCollapse
           title="Controlled open state"
           open={open}

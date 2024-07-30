@@ -138,7 +138,7 @@ export const DefinitionTooltip = () => (
 );
 
 export const ImmediateTooltips = () => (
-  <Flex gap={Flex.gaps.SMALL}>
+  <Flex gap="small">
     <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
       <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
     </Tooltip>

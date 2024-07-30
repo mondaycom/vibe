@@ -73,6 +73,10 @@ codemod: `avatar-component-migration`
 
 - `classname` -> `className` [codemod]
 
+### Flex
+
+- Removed `Flex.gaps.NONE`
+
 ### Dropdown
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]

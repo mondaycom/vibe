@@ -265,7 +265,7 @@ export const Sizes = {
   },
   decorators: [
     Story => (
-      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_BETWEEN} style={{ flex: 1 }}>
+      <Flex align="start" justify="space-between" style={{ flex: 1 }}>
         <Story />
       </Flex>
     )
@@ -391,7 +391,7 @@ export const Borders = {
   },
   decorators: [
     Story => (
-      <Flex direction={Flex.directions.COLUMN} gap={40}>
+      <Flex direction="column" gap={40}>
         <Story />
       </Flex>
     )

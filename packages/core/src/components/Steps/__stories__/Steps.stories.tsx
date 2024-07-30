@@ -62,7 +62,7 @@ export const Overview = {
 
 export const Types = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+    <Flex direction="column" gap="medium">
       <Steps type="numbers" steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
@@ -74,7 +74,7 @@ export const Types = {
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} className="monday-storybook-steps_color">
+    <Flex direction="column" gap="medium" className="monday-storybook-steps_color">
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
       <Steps

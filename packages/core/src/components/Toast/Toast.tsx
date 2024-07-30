@@ -139,9 +139,9 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
         aria-live="polite"
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <Flex align={Flex.align.CENTER} gap={Flex.gaps.LARGE} className={styles.content}>
+        <Flex align="center" gap="large" className={styles.content}>
           <Flex
-            gap={Flex.gaps.MEDIUM}
+            gap="medium"
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
             className={styles.textContent}
           >

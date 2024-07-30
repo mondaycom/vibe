@@ -167,7 +167,7 @@ export const Sizes = {
     );
 
     return (
-      <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+      <Flex direction="column" align="start" gap="small">
         <StoryDescription description="Regular">
           <MultiStepIndicator steps={steps} size={MultiStepIndicator.sizes.REGULAR} />
         </StoryDescription>
