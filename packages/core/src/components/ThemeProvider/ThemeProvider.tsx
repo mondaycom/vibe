@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
+import { SystemTheme as SystemThemeEnum, Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
+import { SystemTheme } from "./ThemeProvider.types";
 import {
   addSystemThemeClassNameToBody,
   generateRandomAlphaString,
@@ -35,8 +36,8 @@ export interface ThemeProviderProps {
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
-  systemThemes?: typeof SystemTheme;
-  colors?: typeof ThemeColor;
+  systemThemes?: typeof SystemThemeEnum;
+  colors?: typeof ThemeColorEnum;
 } = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
@@ -100,6 +101,6 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 };
 
 export default withStaticProps(ThemeProvider, {
-  systemThemes: SystemTheme,
-  colors: ThemeColor
+  systemThemes: SystemThemeEnum,
+  colors: ThemeColorEnum
 });
