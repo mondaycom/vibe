@@ -1,31 +1,42 @@
+/**
+ * @deprecated
+ */
 export enum FlexAlign {
-  START = "Start",
-  CENTER = "Center",
-  END = "End",
-  STRETCH = "Stretch",
-  BASELINE = "Baseline",
-  INITIAL = "Initial"
+  START = "start",
+  CENTER = "center",
+  END = "end",
+  STRETCH = "stretch",
+  BASELINE = "baseline",
+  INITIAL = "initial"
 }
 
+/**
+ * @deprecated
+ */
 export enum FlexJustify {
-  START = "Start",
-  CENTER = "Center",
-  END = "End",
-  STRETCH = "Stretch",
-  SPACE_AROUND = "SpaceAround",
-  SPACE_BETWEEN = "SpaceBetween",
-  INITIAL = "Initial"
+  START = "start",
+  CENTER = "center",
+  END = "end",
+  STRETCH = "stretch",
+  SPACE_AROUND = "space-around",
+  SPACE_BETWEEN = "space-between",
+  INITIAL = "initial"
 }
 
+/**
+ * @deprecated
+ */
 export enum FlexGap {
-  XS = 4,
-  SMALL = 8,
-  MEDIUM = 16,
-  LARGE = 24,
-  NONE = 0
+  XS = "xs",
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large"
 }
 
+/**
+ * @deprecated
+ */
 export enum FlexDirection {
-  ROW = "Row",
-  COLUMN = "Column"
+  ROW = "row",
+  COLUMN = "column"
 }

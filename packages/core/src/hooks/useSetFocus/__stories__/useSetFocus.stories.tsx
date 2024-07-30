@@ -20,7 +20,7 @@ export const Overview = {
     });
 
     return (
-      <Flex direction={Flex.directions.COLUMN}>
+      <Flex direction="column">
         <TextField ref={ref} placeholder="Input..." />
         <Button onClick={focus} className={styles.controlButton}>
           Focus

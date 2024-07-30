@@ -130,7 +130,7 @@ export const Positions = {
       ];
 
       return (
-        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+        <Flex className="monday-storybook-dialog--story-padding" gap="medium">
           <Dialog
             modifiers={modifiers}
             open={checkedTop}
@@ -226,7 +226,7 @@ export const ShowTriggers = {
     ];
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
         <Dialog
           modifiers={modifiers}
           showTrigger={[Dialog.hideShowTriggers.CLICK]}
@@ -348,9 +348,9 @@ export const HideTriggers = {
         id={HIDE_TRIGGERS_CONTAINER}
         className="monday-storybook-dialog_hide-triggers-story"
         wrap
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
+        direction="column"
+        justify="start"
+        align="start"
       >
         <Dialog
           modifiers={modifiers}
@@ -613,7 +613,7 @@ export const DisableScrollWhenDialogOpen = {
     });
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
         <div
           className={"scrollable"}
           style={{

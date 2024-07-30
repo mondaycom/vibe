@@ -104,7 +104,7 @@ export const Disabled = {
     );
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown defaultValue={[options[0]]} options={options} disabled className="dropdown-stories-styles_spacing" />
         <Dropdown
           multi
@@ -139,7 +139,7 @@ export const Readonly = {
     );
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown defaultValue={[options[0]]} options={options} readOnly className="dropdown-stories-styles_spacing" />
         <Dropdown
           multi
@@ -188,7 +188,7 @@ export const MultiChoiceWithDifferentStates = {
     );
 
     return (
-      <Flex wrap gap={Flex.gaps.MEDIUM}>
+      <Flex wrap gap="medium">
         <StoryDescription description="Single line" vertical>
           <div
             style={{
@@ -329,7 +329,7 @@ export const DropdownWithAvatar = {
     );
 
     return (
-      <Flex gap={Flex.gaps.SMALL}>
+      <Flex gap="small">
         <StoryDescription vertical description="Single value">
           <div>
             <Dropdown
@@ -382,7 +382,7 @@ export const DropdownWithIcon = {
     );
 
     return (
-      <Flex gap={Flex.gaps.SMALL}>
+      <Flex gap="small">
         <StoryDescription vertical description="Single value">
           <div>
             <Dropdown
@@ -823,7 +823,7 @@ export const DropdownInsidePopover = {
     };
 
     return (
-      <Flex gap={Flex.gaps.LARGE}>
+      <Flex gap="large">
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
           <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
@@ -927,7 +927,7 @@ export const DropdownWithRef = {
     }, []);
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown
           placeholder="Dropdown with ref"
           options={options}
@@ -964,7 +964,7 @@ export const DropdownValueSelection = {
     );
 
     return (
-      <Flex gap={Flex.gaps.LARGE}>
+      <Flex gap="large">
         <Dropdown placeholder="Tab selects value" options={options} className="dropdown-stories-styles_big-spacing" />
         <Dropdown
           placeholder="Tab does not select value"

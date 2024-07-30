@@ -32,7 +32,7 @@ export const Overview: Story = {
   },
   decorators: [
     Story => (
-      <Flex direction={Flex.directions.COLUMN} align={Flex.align.START}>
+      <Flex direction="column" align="start">
         <Story />
       </Flex>
     )

@@ -120,13 +120,7 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            style={{ width: "70%" }}
-            direction={Flex.directions.COLUMN}
-            justify={Flex.justify.CENTER}
-            align={Flex.align.CENTER}
-            gap={Flex.gaps.SMALL}
-          >
+          <Flex style={{ width: "70%" }} direction="column" justify="center" align="center" gap="small">
             <Text maxLines={3}>
               monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
               and streamline sales activities from start to finish. Explore monday sales CRM templates
@@ -149,13 +143,8 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            direction={Flex.directions.COLUMN}
-            align={Flex.align.START}
-            gap={Flex.gaps.XS}
-            className={styles.textBoxContainer}
-          >
-            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
+            <Flex style={{ width: "90%" }} gap="small">
               <Icon icon={Link} />
               <Text color="secondary" maxLines={3} type="text3">
                 Section title in text3
@@ -181,13 +170,8 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            direction={Flex.directions.COLUMN}
-            align={Flex.align.START}
-            gap={Flex.gaps.XS}
-            className={styles.textBoxContainer}
-          >
-            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
+            <Flex style={{ width: "90%" }} gap="small">
               <Icon icon={Link} />
               <Text color="secondary" maxLines={3} type="text3">
                 Section title in text3

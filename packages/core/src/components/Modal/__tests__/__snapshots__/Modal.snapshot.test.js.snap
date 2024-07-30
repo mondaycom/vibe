@@ -36,7 +36,7 @@ Snapshot Diff:
 +       >
 +         <div
 +           class="container directionRow justifyStart alignStart"
-+           style="gap: 8px;"
++           style="gap: var(--spacing-small);"
 +         >
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
@@ -106,7 +106,7 @@ Snapshot Diff:
 +       >
 +         <div
 +           class="container directionRow justifyStart alignStart"
-+           style="gap: 8px;"
++           style="gap: var(--spacing-small);"
 +         >
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
@@ -197,7 +197,7 @@ exports[`Modal with base props 1`] = `
     >
       <div
         class="container directionRow justifyStart alignStart"
-        style="gap: 8px;"
+        style="gap: var(--spacing-small);"
       >
         <h1
           class="typography primary start multiLineEllipsis heading h1Normal"

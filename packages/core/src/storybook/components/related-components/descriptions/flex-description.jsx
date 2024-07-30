@@ -5,7 +5,7 @@ import { Flex, Button } from "../../../../components";
 export const FlexDescription = () => {
   const component = useMemo(() => {
     return (
-      <Flex gap={Flex.gaps.SMALL}>
+      <Flex gap="small">
         <Button>Primary</Button>
         <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>

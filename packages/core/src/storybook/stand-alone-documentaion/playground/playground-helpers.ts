@@ -9,7 +9,7 @@ export const jsx = `() => {
   }
 
   return (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
+    <Flex direction="column" align="start" gap="medium">
       <div>
         <Heading>Online Playground</Heading>
         <Heading type='h3' color='secondary'>
