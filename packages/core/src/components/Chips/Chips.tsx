@@ -228,7 +228,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={leftIcon}
             iconSize={iconSize}
@@ -242,7 +242,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={rightIcon}
             iconSize={iconSize}

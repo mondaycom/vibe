@@ -16,7 +16,6 @@ import "./AttentionBox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
-  enumPropNamesArray: ["iconType"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClose"]
 });

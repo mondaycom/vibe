@@ -221,7 +221,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
           >
             <Icon
               icon={icon}
-              iconType={Icon.type.SVG}
+              iconType="svg"
               iconSize={iconSize}
               ignoreFocusStyle
               className={iconClassName}

@@ -28,7 +28,7 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? Icon.type.SVG : Icon.type.ICON_FONT)}
+      iconType={type || (typeof icon === "function" ? "svg" : "font")}
       clickable={false}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}

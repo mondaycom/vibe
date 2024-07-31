@@ -98,7 +98,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
             <Icon
               className={cx(styles.icon, iconClassName)}
               icon={icon}
-              iconType={Icon.type.SVG}
+              iconType="svg"
               iconSize={iconSize}
               ignoreFocusStyle
               clickable={false}

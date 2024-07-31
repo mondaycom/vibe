@@ -334,7 +334,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={iconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
+                  iconType="font"
                   iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
                 />
               </Clickable>
@@ -359,7 +359,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={secondaryIconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
+                  iconType="font"
                   iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
                 />
               </Clickable>
