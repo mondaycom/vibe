@@ -2,7 +2,6 @@ import React from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Calendar, Doc, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
-import { TableVirtualizedRow } from "../../TableVirtualizedBody/TableVirtualizedBody";
 import { ITableColumn } from "../Table";
 
 export const doAndDontIconsRuleColumns = [

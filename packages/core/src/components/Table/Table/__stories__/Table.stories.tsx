@@ -403,14 +403,14 @@ export const Borders = {
 export const TableHeaderFunctionality = {
   render: () => {
     const [tableData, setTableData] = useState(emailTableData);
-    const [sorting, setSorting] = useState<{[key: string]: "asc" | "desc" | "none"}>({});
+    const [sorting, setSorting] = useState<{ [key: string]: "asc" | "desc" | "none" }>({});
 
     const onSort = (columnId: string, sortState: "asc" | "desc" | "none") => {
       setSorting({
         [columnId]: sortState
       });
 
-      setTableData(sort(columnId as keyof typeof tableData[number], sortState, tableData));
+      setTableData(sort(columnId as keyof (typeof tableData)[number], sortState, tableData));
     };
 
     return (
@@ -530,7 +530,7 @@ export const Scroll = {
 
 export const VirtualizedScroll = {
   render: () => {
-    const Row = ({ num, text }: typeof virtualizedScrollTableData[number]) => {
+    const Row = ({ num, text }: (typeof virtualizedScrollTableData)[number]) => {
       return (
         <TableRow>
           <TableCell>{num}</TableCell>
@@ -563,7 +563,7 @@ export const VirtualizedScroll = {
 
 export const HighlightedRow = {
   render: () => {
-    const shouldRowBeHighlighted = (rowItem: typeof emailTableData[number]) => {
+    const shouldRowBeHighlighted = (rowItem: (typeof emailTableData)[number]) => {
       return rowItem.id === "2";
     };
 
