@@ -23,7 +23,6 @@ import {
   virtualizedScrollTableColumns,
   virtualizedScrollTableData
 } from "./Table.stories.helpers";
-import { LabelColor } from "../../../Label/LabelConstants";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
@@ -168,7 +167,7 @@ export const Overview = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color={LabelColor.POSITIVE} isAnimationDisabled />
+              <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -358,7 +357,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color={LabelColor.POSITIVE} isAnimationDisabled />
+                  <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -380,7 +379,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color={LabelColor.POSITIVE} isAnimationDisabled />
+                  <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -436,7 +435,7 @@ export const TableHeaderFunctionality = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color={LabelColor.POSITIVE} />
+                <Label text={rowItem.status} isAnimationDisabled color={Label.colors.POSITIVE} />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -473,7 +472,7 @@ export const Loading = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color={LabelColor.POSITIVE} isAnimationDisabled />
+              <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -583,7 +582,7 @@ export const HighlightedRow = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color={LabelColor.POSITIVE} />
+                <Label text={rowItem.status} isAnimationDisabled color={Label.colors.POSITIVE} />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>

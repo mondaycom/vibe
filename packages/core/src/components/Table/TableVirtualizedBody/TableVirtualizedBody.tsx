@@ -13,14 +13,15 @@ import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuCont
 
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
-export interface ITableVirtualizedBodyProps<T extends TableVirtualizedRow> extends VibeComponentProps {
+export interface ITableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
+  extends VibeComponentProps {
   items: T[];
   rowRenderer: (item: T) => JSX.Element;
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
 const TableVirtualizedBody = forwardRef(
-  <T extends TableVirtualizedRow>(
+  <T extends TableVirtualizedRow = TableVirtualizedRow>(
     { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: ITableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
