@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.127.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.126.0...monday-ui-react-core@2.127.0) (2024-07-31)
+
+
+### Features
+
+* added placeholder to textarea ([#2293](https://github.com/mondaycom/vibe/issues/2293)) ([a6d6b6b](https://github.com/mondaycom/vibe/commit/a6d6b6b5d7ee45263de01e681c5df09b083dfd5b))
+
+
+
+
+
 # [2.126.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.125.0...monday-ui-react-core@2.126.0) (2024-07-30)
 
 
