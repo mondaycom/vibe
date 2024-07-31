@@ -59,4 +59,8 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    * If true, the textarea can be resized vertically by the user.
    */
   resize?: boolean;
+  /**
+   * Placeholder text to display when the textarea is empty.
+   */
+  placeholder?: string;
 }
