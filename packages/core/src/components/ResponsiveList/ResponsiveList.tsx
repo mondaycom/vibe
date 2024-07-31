@@ -17,7 +17,7 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> & {
       className,
       rootClassName,
       children,
-      menuButtonSize = MenuButton.sizes.SMALL,
+      menuButtonSize = "small",
       paddingSize = DEFAULT_MINIMAL_MARGIN,
       dialogZIndex = 9999,
       dialogClassName,
@@ -27,7 +27,7 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> & {
       menuButtonAriaLabel = "More Actions",
       menuButtonProps = {},
       "data-testid": dataTestId
-    },
+    }: ResponsiveListProps,
     ref
   ) => {
     const componentRef = useRef<HTMLDivElement>(null);

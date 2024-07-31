@@ -23,7 +23,7 @@ describe("MenuButton", () => {
   it("renders correctly with size Large", () => {
     const tree = renderer
       .create(
-        <MenuButton size={MenuButton.sizes.LARGE}>
+        <MenuButton size="large">
           <div>Menu</div>
         </MenuButton>
       )
@@ -89,7 +89,7 @@ describe("MenuButton", () => {
   it("renders correctly with a default Menu icon at the end", () => {
     const tree = renderer
       .create(
-        <MenuButton text="Hello" componentPosition={MenuButton.componentPositions.START}>
+        <MenuButton text="Hello" componentPosition="start">
           <div>Menu</div>
         </MenuButton>
       )

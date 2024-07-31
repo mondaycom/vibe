@@ -49,35 +49,35 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <MenuButton size={MenuButton.sizes.XXS}>
+      <MenuButton size="xxs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.XS}>
+      <MenuButton size="xs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.SMALL}>
+      <MenuButton size="small">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.MEDIUM}>
+      <MenuButton size="medium">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
           <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.LARGE}>
+      <MenuButton size="large">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
@@ -146,7 +146,7 @@ export const WithTextAndIconAtTheEnd: Story = {
         width: 200
       }}
     >
-      <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
+      <MenuButton text="Open" component={DropdownChevronDown} componentPosition="end">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
           <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
