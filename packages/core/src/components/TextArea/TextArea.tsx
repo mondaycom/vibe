@@ -30,7 +30,7 @@ const TextArea = forwardRef(
       "aria-label": ariaLabel,
       required,
       resize = true,
-      placeholder = ""
+      placeholder
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
