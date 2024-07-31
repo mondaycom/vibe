@@ -16,13 +16,12 @@ export const StepsNumbersHeader: FC<StepsNumbersHeaderProps> = ({ activeStepInde
     if (color === "primary") {
       return color;
     } else {
-      return color === "on-inverted-background" ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
+      return color === "on-inverted-background" ? "onInverted" : "onPrimary";
     }
   }, [color]);
 
   return (
-    // @ts-ignore
-    <Text type={Text.types.TEXT2} color={textColor} className={cx(styles.numbers)}>{`${
+    <Text type="text2" color={textColor} className={cx(styles.numbers)}>{`${
       activeStepIndex + 1
     } \\ ${stepsCount}`}</Text>
   );

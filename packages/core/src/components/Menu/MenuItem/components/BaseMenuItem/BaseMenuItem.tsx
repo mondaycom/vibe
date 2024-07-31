@@ -118,7 +118,7 @@ const BaseMenuItem = forwardRef(
       <Text
         id={id}
         element="li"
-        type={Text.types.TEXT2}
+        type="text2"
         aria-haspopup={subMenu ? true : undefined}
         aria-expanded={subMenu ? shouldShowSubMenu : undefined}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}

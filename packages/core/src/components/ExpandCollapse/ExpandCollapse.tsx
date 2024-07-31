@@ -79,7 +79,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
     };
     const renderHeader = useCallback(() => {
       return typeof title === "string" ? (
-        <Text type={Text.types.TEXT1} className={cx(styles.headerContent)}>
+        <Text type="text1" className={cx(styles.headerContent)}>
           {title}
         </Text>
       ) : (

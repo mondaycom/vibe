@@ -236,7 +236,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type={Text.types.TEXT2} className={styles.label}>
+        <Text type="text2" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (

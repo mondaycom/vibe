@@ -7,9 +7,9 @@ export const TypographyDescription = () => {
     const style = { display: "flex", justifyContent: "center", alignItems: "center" };
     return (
       <div style={style}>
-        <Heading type={Heading.types.h1} ellipsis={false} value="H1" size="small" />
-        <Heading type={Heading.types.h2} ellipsis={false} value="H2" />
-        <Heading type={Heading.types.h3} ellipsis={false} value="H3" />
+        <Heading type="h1" ellipsis={false} value="H1" size="small" />
+        <Heading type="h2" ellipsis={false} value="H2" />
+        <Heading type="h3" ellipsis={false} value="H3" />
       </div>
     );
   }, []);

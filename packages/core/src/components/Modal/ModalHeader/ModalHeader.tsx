@@ -110,7 +110,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         </Flex>
       )}
       {description && (
-        <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
+        <Text type="text2" maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}
         </Text>
       )}

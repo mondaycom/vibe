@@ -209,31 +209,31 @@ export const ChipsInAPersonPickerComboBox = {
         <Chips label="Esther Schanler" leftAvatar={person1} />
         <Chips label="Rotem Dekel" leftAvatar={rotem} />
       </Flex>
-      <Text type={Text.types.TEXT2} className={styles.lable}>
+      <Text type="text2" className={styles.lable}>
         Suggested people
       </Text>
       <div className={styles.search}>
         <Flex align="center" justify="center" key="cont-1">
           <Avatar size="small" src={person1} type="img" />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-2">
           <Avatar size="small" backgroundColor={Avatar.colors.DARK_PURPLE} text="LC" type="text" />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-3">
           <Avatar size="small" text="AL" type="text" />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Amanda Lawrence <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-4">
           <Avatar size="small" text="DY" type="text" backgroundColor={Avatar.colors.PEACH} />
-          <Text type={Text.types.TEXT2} className={styles.name}>
+          <Text type="text2" className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </Text>
         </Flex>

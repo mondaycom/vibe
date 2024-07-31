@@ -3,9 +3,13 @@ import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponent from "../../types/VibeComponent";
-import { TextType, TextWeight } from "./TextConstants";
+import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
-import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
+import {
+  TypographyAlign as TypographyAlignEnum,
+  TypographyColor as TypographyColorEnum
+} from "../Typography/TypographyConstants";
+import { TextType, TextWeight } from "./Text.types";
 import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
@@ -16,21 +20,21 @@ export interface TextProps extends TypographyProps {
 }
 
 const Text: VibeComponent<TextProps, HTMLElement> & {
-  types?: typeof TextType;
-  weights?: typeof TextWeight;
-  colors?: typeof TypographyColor;
-  align?: typeof TypographyAlign;
+  types?: typeof TextTypeEnum;
+  weights?: typeof TextWeightEnum;
+  colors?: typeof TypographyColorEnum;
+  align?: typeof TypographyAlignEnum;
 } = forwardRef(
   (
     {
       className,
-      type = TextType.TEXT2,
-      weight = TextWeight.NORMAL,
+      type = "text2",
+      weight = "normal",
       ellipsis,
       element = "div",
       children,
       ...typographyProps
-    },
+    }: TextProps,
     ref
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
@@ -49,8 +53,8 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
 );
 
 export default withStaticProps(Text, {
-  types: TextType,
-  weights: TextWeight,
-  colors: TypographyColor,
-  align: TypographyAlign
+  types: TextTypeEnum,
+  weights: TextWeightEnum,
+  colors: TypographyColorEnum,
+  align: TypographyAlignEnum
 });

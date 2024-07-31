@@ -66,7 +66,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
           {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
           {
-            <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
+            <Text type="text2" weight="medium" color="secondary">
               {title}
             </Text>
           }

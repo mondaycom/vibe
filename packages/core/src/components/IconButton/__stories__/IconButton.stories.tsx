@@ -203,7 +203,7 @@ export const IconButtonAsToolbarButton: Story = {
     >
       <Flex className={styles.dashboardHeader} gap="small">
         <Icon icon={Drag} />
-        <Text type={Text.types.TEXT1}>Widget name</Text>
+        <Text type="text1">Widget name</Text>
         <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
       </Flex>
       <div className={styles.dashboardContent} />
@@ -237,7 +237,7 @@ export const IconButtonAsCloseButton: Story = {
         >
           <Flex direction="column" className={styles.recycleBinTitleContainer} justify="center">
             <Icon icon={Item} iconSize={40} />
-            <Text type={Text.types.TEXT1} className={styles.recycleBinTitle} id="monday-recycle-bin-title">
+            <Text type="text1" className={styles.recycleBinTitle} id="monday-recycle-bin-title">
               Item
             </Text>
           </Flex>
@@ -253,12 +253,12 @@ export const IconButtonAsCloseButton: Story = {
                 Hadas Farhi
               </Link>
               <span>deleted the item</span>
-              <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+              <Text type="text1" element="span" weight="medium">
                 Hello World
               </Text>
               <span>from the board</span>
             </Flex>
-            <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+            <Text type="text1" element="span" weight="medium">
               Tasks
             </Text>
             <Flex gap="xs" className={styles.recycleBinSubNote}>

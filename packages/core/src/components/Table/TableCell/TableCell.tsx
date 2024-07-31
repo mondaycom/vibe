@@ -26,7 +26,7 @@ const TableCell: VibeComponent<ITableCellProps, HTMLDivElement> = forwardRef(
         role="cell"
       >
         {isSingleChild && isFirstChildString ? (
-          <Text type={Text.types.TEXT2} color={Text.colors.PRIMARY}>
+          <Text type="text2" color="primary">
             {children}
           </Text>
         ) : (

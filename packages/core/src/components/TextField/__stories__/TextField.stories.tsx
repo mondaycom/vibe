@@ -124,7 +124,7 @@ export const Validation: Story = {
 export const TextFieldInAForm: Story = {
   render: () => (
     <div className="monday-storybook-text-field_box">
-      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD} maxLines={2}>
+      <Heading type="h1" weight="bold" maxLines={2}>
         Dark Mode Feedback From
       </Heading>
       <div className="monday-storybook-text-field_box_wrapper">
