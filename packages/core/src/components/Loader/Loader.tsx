@@ -1,11 +1,25 @@
 import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
-import { LoaderColors, LoaderSize, mapLoaderColorsToColors, mapSizesToLoaderSize } from "./Loader.types";
+import { LoaderColors, LoaderSize, LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
+
+const mapSizesToLoaderSize: Record<LoaderSizes, number> = {
+  xs: 16,
+  small: 24,
+  medium: 40,
+  large: 64
+};
+
+const mapLoaderColorsToColors: Record<LoaderColors, string> = {
+  primary: "primary-color",
+  secondary: "secondary-text-color",
+  onPrimary: "text-color-on-inverted",
+  dark: "primary-text-color"
+};
 
 export interface LoaderProps extends VibeComponentProps {
   className?: string;
