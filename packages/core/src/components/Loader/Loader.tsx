@@ -32,6 +32,11 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
       return undefined;
     }, [size]);
 
+    const colorStyle = useMemo(() => {
+      if (!mapLoaderColorsToColors[color]) return;
+      return `var(--${mapLoaderColorsToColors[color]})`;
+    }, [color]);
+
     return (
       <div
         className={cx(styles.loaderContainer, wrapperClassName)}
@@ -42,12 +47,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LOADER, id)}
       >
-        <svg
-          className={cx(styles.circleLoaderSpinner, className)}
-          viewBox="0 0 50 50"
-          color={`var(--${mapLoaderColorsToColors[color]})`}
-          aria-hidden
-        >
+        <svg className={cx(styles.circleLoaderSpinner, className)} viewBox="0 0 50 50" color={colorStyle} aria-hidden>
           {hasBackground && (
             <circle
               className={styles.circleLoaderSpinnerBackground}
