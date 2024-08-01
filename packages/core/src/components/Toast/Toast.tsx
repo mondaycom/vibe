@@ -149,7 +149,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
             {toastLinks}
           </Flex>
           {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size={Loader.sizes.XS} />}
+          {loading && <Loader size="xs" />}
         </Flex>
         {closeable && (
           <IconButton
