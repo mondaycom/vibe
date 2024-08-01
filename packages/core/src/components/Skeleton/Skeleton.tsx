@@ -6,11 +6,10 @@ import {
   SKELETON_SIZES,
   SkeletonType as SkeletonTypeEnum,
   SKELETON_CUSTOM_SIZE,
-  SkeletonSizeType,
   TextSkeletonSize as TextSkeletonSizeEnum
 } from "./SkeletonConstants";
 
-import { SkeletonType } from "./Skelton.types";
+import { SkeletonType, SkeletonSizeType } from "./Skelton.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
