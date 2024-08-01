@@ -24,6 +24,8 @@ import {
   COMBOBOX_LISTBOX_ID
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
+import IconButton from "../IconButton/IconButton";
+import MenuButton from "../MenuButton/MenuButton";
 
 export interface ComboboxProps extends VibeComponentProps {
   className?: string;
@@ -115,6 +117,14 @@ export interface ComboboxProps extends VibeComponentProps {
   searchInputAriaLabel?: string;
   debounceRate?: number;
   searchInputRef?: React.RefObject<HTMLInputElement>;
+  /**
+   * Render additional action within the right section of search component.
+   */
+  renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
+  /**
+   * If true, hides the additional action when the user types in the search input.
+   */
+  hideRenderActionOnInput?: boolean;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -160,7 +170,9 @@ const Combobox: React.FC<ComboboxProps> & {
       searchInputAriaLabel = "Search for content",
       "data-testid": dataTestId,
       debounceRate,
-      searchInputRef
+      searchInputRef,
+      renderAction: RenderAction,
+      hideRenderActionOnInput
     },
     ref
   ) => {
@@ -321,6 +333,8 @@ const Combobox: React.FC<ComboboxProps> & {
             ariaHasPopup="listbox"
             searchResultsContainerId={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
             debounceRate={debounceRate}
+            renderAction={RenderAction}
+            hideRenderActionOnInput={hideRenderActionOnInput}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
