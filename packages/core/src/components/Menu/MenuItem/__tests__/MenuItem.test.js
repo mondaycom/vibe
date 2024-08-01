@@ -26,7 +26,7 @@ describe("<MenuItem />", () => {
 
   const submenuPositions = [
     {
-      submenuPosition: true,
+      submenuPosition: "left",
       expectedPosition: "left-start"
     },
     {
