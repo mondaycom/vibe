@@ -24,6 +24,49 @@ describe("<MenuItem />", () => {
     expect(queryAllByText("Sub Item")).toHaveLength(0);
   });
 
+  const submenuPositions = [
+    {
+      submenuPosition: "left",
+      expectedPosition: "left-start"
+    },
+    {
+      submenuPosition: undefined,
+      expectedPosition: "right-start"
+    }
+  ];
+  it.each(submenuPositions)(
+    "should open the submenu on correct position",
+    async ({ submenuPosition, expectedPosition }) => {
+      const title = "Main Item";
+      const submenuTitle = "Sub Item";
+
+      const { queryAllByText, container } = render(
+        <MenuItem
+          index={0}
+          activeItemIndex={0}
+          title={title}
+          isParentMenuVisible
+          submenuPosition={submenuPosition}
+          hasOpenSubMenu
+        >
+          <Menu>
+            <MenuItem title={submenuTitle} />
+          </Menu>
+        </MenuItem>
+      );
+      const menuItemElement = queryAllByText(title)[0];
+      await act(async () => {
+        fireEvent.mouseEnter(menuItemElement);
+      });
+
+      await waitFor(() => {
+        const subMenuElement = container.querySelector("[data-popper-placement]");
+        expect(subMenuElement).toBeVisible();
+        expect(subMenuElement).toHaveAttribute("data-popper-placement", expectedPosition);
+      });
+    }
+  );
+
   describe.skip("click", () => {
     it("should call the callback on click", async () => {
       const onClick = jest.fn();
