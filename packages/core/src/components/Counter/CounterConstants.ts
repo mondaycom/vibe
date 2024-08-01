@@ -1,10 +1,16 @@
 import { SIZES } from "../../constants/sizes";
 
+/**
+ * @deprecated
+ */
 export enum CounterType {
   FILL = "fill",
   LINE = "line"
 }
 
+/**
+ * @deprecated
+ */
 export enum CounterColor {
   PRIMARY = "primary",
   DARK = "dark",
@@ -12,6 +18,9 @@ export enum CounterColor {
   LIGHT = "light"
 }
 
+/**
+ * @deprecated
+ */
 export enum CounterSize {
   SMALL = "small",
   LARGE = "large"

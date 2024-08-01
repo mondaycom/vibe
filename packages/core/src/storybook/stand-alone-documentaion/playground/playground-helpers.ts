@@ -9,10 +9,10 @@ export const jsx = `() => {
   }
 
   return (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
+    <Flex direction="column" align="start" gap="medium">
       <div>
         <Heading>Online Playground</Heading>
-        <Heading type={Heading.types.H3} color={Heading.colors.SECONDARY}>
+        <Heading type='h3' color='secondary'>
           Prototype with actual components
         </Heading>
       </div>
@@ -22,7 +22,7 @@ export const jsx = `() => {
           Click on the <VibeIcons.Settings /> button on the left panel and
           select the{" "}
         </Text>
-        <Text element="span" weight={Text.weights.BOLD}>
+        <Text element="span" weight='bold'>
           "Change Addons Orientation"
         </Text>
       </div>

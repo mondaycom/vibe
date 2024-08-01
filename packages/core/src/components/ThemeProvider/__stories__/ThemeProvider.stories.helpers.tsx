@@ -28,17 +28,17 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
         themeConfig={{
           name: "theming-scope-theme",
           colors: {
-            [ThemeProvider.systemThemes.LIGHT]: {
-              [ThemeProvider.colors.primaryColor]: "green",
-              [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+            light: {
+              "primary-color": "green",
+              "primary-hover-color": "darkgreen"
             },
-            [ThemeProvider.systemThemes.DARK]: {
-              [ThemeProvider.colors.primaryColor]: "slateblue",
-              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
+            dark: {
+              "primary-color": "slateblue",
+              "primary-hover-color": "darkslateblue"
             },
-            [ThemeProvider.systemThemes.BLACK]: {
-              [ThemeProvider.colors.primaryColor]: "salmon",
-              [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
+            black: {
+              "primary-color": "salmon",
+              "primary-hover-color": "darksalmon"
             }
           }
         }}
@@ -56,9 +56,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
       themeConfig={{
         name: "outer-theme",
         colors: {
-          [ThemeProvider.systemThemes.LIGHT]: {
-            [ThemeProvider.colors.primaryColor]: "red",
-            [ThemeProvider.colors.primaryHoverColor]: "darkred"
+          light: {
+            "primary-color": "red",
+            "primary-hover-color": "darkred"
           }
         }
       }}
@@ -68,9 +68,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
           themeConfig={{
             name: "inner-theme",
             colors: {
-              [ThemeProvider.systemThemes.LIGHT]: {
-                [ThemeProvider.colors.primaryColor]: "green",
-                [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+              light: {
+                "primary-color": "green",
+                "primary-hover-color": "darkgreen"
               }
             }
           }}
@@ -93,7 +93,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 
   return (
     <ThemeProvider themeConfig={selectedTheme?.value}>
-      <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
+      <Flex gap="large" align="start" wrap className={styles.productThemingContainer}>
         <Dropdown
           // @ts-ignore
           placeholder={"No theme selected"}
@@ -118,18 +118,18 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
       themeConfig={{
         name: "theme-with-custom-class-selector",
         colors: {
-          [ThemeProvider.systemThemes.LIGHT]: {
-            [ThemeProvider.colors.primaryColor]: "green",
-            [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
+          light: {
+            "primary-color": "green",
+            "primary-hover-color": "darkgreen",
             "custom-class": {
-              [ThemeProvider.colors.primaryColor]: "slateblue",
-              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
+              "primary-color": "slateblue",
+              "primary-hover-color": "darkslateblue"
             }
           }
         }
       }}
     >
-      <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.ROW}>
+      <Flex gap="large" direction="row">
         <Button>Themed</Button>
         <div className={"custom-class"}>
           <Button>Themed by custom class</Button>
@@ -145,9 +145,9 @@ export const ThemeProviderPositiveExampleTemplate = () => {
       themeConfig={{
         name: "positive-example-theme",
         colors: {
-          [ThemeProvider.systemThemes.LIGHT]: {
-            [ThemeProvider.colors.primaryColor]: "green",
-            [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+          light: {
+            "primary-color": "green",
+            "primary-hover-color": "darkgreen"
           }
         }
       }}
@@ -163,8 +163,8 @@ export const ThemeProviderNegativeExampleTemplate = () => {
       themeConfig={{
         name: "negative-example-theme",
         colors: {
-          [ThemeProvider.systemThemes.LIGHT]: {
-            [ThemeProvider.colors.primaryColor]: "green"
+          light: {
+            "primary-color": "green"
           }
         }
       }}

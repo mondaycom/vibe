@@ -63,26 +63,25 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         aria-sort={onSortClicked ? ariaSort : undefined}
         tabIndex={onSortClicked ? 0 : undefined}
       >
-        <Flex
-          direction={Flex.directions.ROW}
-          align={Flex.align.CENTER}
-          className={styles.tableHeaderCellContent}
-          gap={Flex.gaps.XS}
-        >
-          {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
+        <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
+          {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
           {
-            <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
+            <Text type="text2" weight="medium" color="secondary">
               {title}
             </Text>
           }
           {infoContent && (
-            <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
+            <Tooltip
+              content={infoContent}
+              referenceWrapperClassName={styles.infoTooltip}
+              addKeyboardHideShowTriggersByDefault
+            >
               <Icon icon={Info} iconLabel={infoContent} clickable={false} />
             </Tooltip>
           )}
         </Flex>
         {onSortClicked && (
-          <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
+          <Flex direction="row" align="center" className={styles.tableHeaderCellSort}>
             <IconButton
               icon={getSortIcon(sortState)}
               kind={ButtonType.TERTIARY}

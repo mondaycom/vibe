@@ -16,7 +16,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
-import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
 import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
 
@@ -122,7 +121,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
     }, [showDelay, setDelayOpen]);
 
     const textColor = useMemo(() => {
-      return color === TipseenColor.INVERTED ? TypographyColor.ON_INVERTED : TypographyColor.ON_PRIMARY;
+      return color === TipseenColor.INVERTED ? "onInverted" : "onPrimary";
     }, [color]);
     const closeButtonColor = useMemo(() => {
       if (closeButtonTheme === TipseenCloseButtonTheme.LIGHT) {
@@ -155,7 +154,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={textColor} type={Text.types.TEXT2} element="p" className={cx(styles.tipseenContent)}>
+        <Text color={textColor} type="text2" element="p" className={cx(styles.tipseenContent)}>
           <TipseenContext.Provider value={color}>{content}</TipseenContext.Provider>
         </Text>
       </div>

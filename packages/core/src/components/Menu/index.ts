@@ -4,3 +4,5 @@ export { default as MenuItemButton, MenuItemButtonProps } from "./MenuItemButton
 export { default as MenuDivider, MenuDividerProps } from "./MenuDivider/MenuDivider";
 export { default as MenuTitle, MenuTitleProps } from "./MenuTitle/MenuTitle";
 export { default as MenuGridItem, MenuGridItemProps } from "./MenuGridItem/MenuGridItem";
+
+export * from "./MenuTitle/MenuTitle.type";

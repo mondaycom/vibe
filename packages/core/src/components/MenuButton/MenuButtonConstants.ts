@@ -1,11 +1,17 @@
+/**
+ * @deprecated
+ */
 export enum MenuButtonSize {
-  XXS = "16",
-  XS = "24",
-  SMALL = "32",
-  MEDIUM = "40",
-  LARGE = "48"
+  XXS = "xxs",
+  XS = "xs",
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large"
 }
 
+/**
+ * @deprecated
+ */
 export enum MenuButtonComponentPosition {
   START = "start",
   END = "end"

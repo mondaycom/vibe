@@ -17,12 +17,12 @@ export const Overview = {
     };
 
     return (
-      <Flex direction={Flex.directions.COLUMN}>
-        <Flex className={styles.counterContainer} direction={Flex.directions.COLUMN}>
+      <Flex direction="column">
+        <Flex className={styles.counterContainer} direction="column">
           <div className={styles.counterLabel}>Current</div>
           <Counter count={count} />
         </Flex>
-        <Flex className={styles.counterContainer} direction={Flex.directions.COLUMN}>
+        <Flex className={styles.counterContainer} direction="column">
           <div className={styles.counterLabel}>Previous</div>
           <Counter count={prevCount} />
         </Flex>

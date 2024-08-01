@@ -93,11 +93,11 @@ export const DialogAsModalBadExample = () => {
     <DialogContentContainer style={{ width: "500px", margin: "auto" }}>
       <Flex
         className={cx(styles.modalDialogBadExample, styles.content)}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
+        direction="column"
+        justify="start"
+        align="start"
       >
-        <Heading className={cx(styles.modalDialogBadExample, styles.heading)} type={Heading.types.H2}>
+        <Heading className={cx(styles.modalDialogBadExample, styles.heading)} type="h2">
           Dialog title
         </Heading>
         Dialog content

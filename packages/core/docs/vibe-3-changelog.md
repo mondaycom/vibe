@@ -73,6 +73,10 @@ codemod: `chips-component-migration`
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 
+### Flex
+
+- Removed `Flex.gaps.NONE`
+
 ### EditableInput
 
 - `EditableInput` removed, use [`EditableText`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead

@@ -16,7 +16,6 @@ import "./AttentionBox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
-  enumPropNamesArray: ["iconType"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClose"]
 });
@@ -47,7 +46,7 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+    <Flex direction="column" gap="small">
       <StoryDescription description="Primary">
         <AttentionBox
           title="Enabling SSO Login"
@@ -101,7 +100,7 @@ export const AttentionBoxWithLink = {
     return (
       /** Classname for setting a constant width to the attention box */
       <AttentionBox compact className="monday-storybook-attention-box--fixed-width">
-        <Flex justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.XS}>
+        <Flex justify="space-between" gap="xs">
           Get your monday.com notifications
           <AttentionBoxLink href="" text="Learn more" />
         </Flex>

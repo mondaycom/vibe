@@ -195,15 +195,15 @@ export const IconButtonAsToolbarButton: Story = {
   render: () => (
     <Flex
       className={styles.dashboard}
-      direction={Flex.directions.COLUMN}
-      align={Flex.align.START}
+      direction="column"
+      align="start"
       style={{
         width: "50%"
       }}
     >
-      <Flex className={styles.dashboardHeader} gap={Flex.gaps.SMALL}>
+      <Flex className={styles.dashboardHeader} gap="small">
         <Icon icon={Drag} />
-        <Text type={Text.types.TEXT1}>Widget name</Text>
+        <Text type="text1">Widget name</Text>
         <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
       </Flex>
       <div className={styles.dashboardContent} />
@@ -232,40 +232,36 @@ export const IconButtonAsCloseButton: Story = {
           style={{
             width: "100%"
           }}
-          justify={Flex.justify.START}
-          gap={Flex.gaps.LARGE}
+          justify="start"
+          gap="large"
         >
-          <Flex
-            direction={Flex.directions.COLUMN}
-            className={styles.recycleBinTitleContainer}
-            justify={Flex.justify.CENTER}
-          >
+          <Flex direction="column" className={styles.recycleBinTitleContainer} justify="center">
             <Icon icon={Item} iconSize={40} />
-            <Text type={Text.types.TEXT1} className={styles.recycleBinTitle} id="monday-recycle-bin-title">
+            <Text type="text1" className={styles.recycleBinTitle} id="monday-recycle-bin-title">
               Item
             </Text>
           </Flex>
           <Avatar size="large" src={person1} type="img" />
           <Flex
-            direction={Flex.directions.COLUMN}
+            direction="column"
             className={styles.recycleBinContent}
-            align={Flex.align.START}
+            align="start"
             ariaLabelledby="monday-recycle-bin-title"
           >
-            <Flex gap={Flex.gaps.XS}>
+            <Flex gap="xs">
               <Link withoutSpacing href="">
                 Hadas Farhi
               </Link>
               <span>deleted the item</span>
-              <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+              <Text type="text1" element="span" weight="medium">
                 Hello World
               </Text>
               <span>from the board</span>
             </Flex>
-            <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+            <Text type="text1" element="span" weight="medium">
               Tasks
             </Text>
-            <Flex gap={Flex.gaps.XS} className={styles.recycleBinSubNote}>
+            <Flex gap="xs" className={styles.recycleBinSubNote}>
               <Icon icon={Time} />
               <span className={styles.recycleBinTimeStamp}>13m</span>
               <span>(Available for restore in the next 1M)</span>

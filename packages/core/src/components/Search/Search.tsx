@@ -34,6 +34,7 @@ const Search = forwardRef(
       onChange,
       onFocus,
       onBlur,
+      onClear,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -58,6 +59,7 @@ const Search = forwardRef(
 
       inputRef.current?.focus?.();
       clearValue();
+      onClear?.();
     }, [disabled, clearValue]);
 
     const SearchIcon = (
@@ -65,7 +67,7 @@ const Search = forwardRef(
         icon={searchIconName}
         className={styles.icon}
         clickable={false}
-        iconType={Icon.type.ICON_FONT}
+        iconType="font"
         iconSize={size === "small" ? "16px" : "20px"}
       />
     );

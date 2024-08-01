@@ -3,7 +3,7 @@ import { range } from "lodash-es";
 import { StepsDot } from "./StepsDot";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./StepsGalleryHeader.module.scss";
-import { StepsColor } from "./StepsConstants";
+import { StepsColor } from "./Steps.types";
 
 export interface StepsGalleryHeaderProps extends VibeComponentProps {
   activeStepIndex: number;

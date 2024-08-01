@@ -186,7 +186,7 @@ export const MenuPosition = () => {
   ];
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
         <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
@@ -316,7 +316,7 @@ export const InsideOverflowContainer = () => {
   };
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
         <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>

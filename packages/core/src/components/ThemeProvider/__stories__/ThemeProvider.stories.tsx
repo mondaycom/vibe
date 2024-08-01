@@ -37,17 +37,17 @@ export const Overview = {
     themeConfig: {
       name: "overview-theme",
       colors: {
-        [ThemeProvider.systemThemes.LIGHT]: {
-          [ThemeProvider.colors.primaryColor]: "green",
-          [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+        light: {
+          "primary-color": "green",
+          "primary-hover-color": "darkgreen"
         },
-        [ThemeProvider.systemThemes.DARK]: {
-          [ThemeProvider.colors.primaryColor]: "salmon",
-          [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
+        dark: {
+          "primary-color": "salmon",
+          "primary-hover-color": "darksalmon"
         },
-        [ThemeProvider.systemThemes.BLACK]: {
-          [ThemeProvider.colors.primaryColor]: "slateblue",
-          [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
+        black: {
+          "primary-color": "slateblue",
+          "primary-hover-color": "darkslateblue"
         }
       }
     }
@@ -85,26 +85,26 @@ export const WithSystemTheme = {
 
     const onToggleButtonClick = () => {
       switch (systemTheme) {
-        case ThemeProvider.systemThemes.LIGHT:
-          setSystemTheme(ThemeProvider.systemThemes.DARK);
+        case "light":
+          setSystemTheme("dark");
           break;
-        case ThemeProvider.systemThemes.DARK:
-          setSystemTheme(ThemeProvider.systemThemes.LIGHT);
+        case "dark":
+          setSystemTheme("light");
           break;
         default:
-          setSystemTheme(ThemeProvider.systemThemes.DARK);
+          setSystemTheme("dark");
       }
     };
 
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+      <Flex direction="row" gap="large">
         <ThemeProvider
           themeConfig={{
             name: "with-system-theme",
             colors: {
-              [ThemeProvider.systemThemes.DARK]: {
-                [ThemeProvider.colors.primaryColor]: "var(--positive-color)",
-                [ThemeProvider.colors.primaryHoverColor]: "var(--positive-color-hover)"
+              dark: {
+                "primary-color": "var(--positive-color)",
+                "primary-hover-color": "var(--positive-color-hover)"
               }
             }
           }}

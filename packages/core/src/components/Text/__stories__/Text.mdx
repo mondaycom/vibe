@@ -96,9 +96,9 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Text type={Text.types.TEXT1} element="span">
+          <Text type="text1" element="span">
             The quick brown fox jumps over the{" "}
-            <Text type={Text.types.TEXT1} weight={Text.weights.BOLD} element="span">
+            <Text type="text1" weight="bold" element="span">
               lazy dog
             </Text>
           </Text>
@@ -107,9 +107,9 @@ A Text component with a link skin can be used to create a link within running te
       },
       negative: {
         component: (
-          <Text type={Text.types.TEXT2} element="span">
+          <Text type="text2" element="span">
             The quick brown fox jumps over the{" "}
-            <Text type={Text.types.TEXT1} element="span">
+            <Text type="text1" element="span">
               lazy dog
             </Text>
           </Text>
@@ -120,13 +120,7 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            style={{ width: "70%" }}
-            direction={Flex.directions.COLUMN}
-            justify={Flex.justify.CENTER}
-            align={Flex.align.CENTER}
-            gap={Flex.gaps.SMALL}
-          >
+          <Flex style={{ width: "70%" }} direction="column" justify="center" align="center" gap="small">
             <Text maxLines={3}>
               monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
               and streamline sales activities from start to finish. Explore monday sales CRM templates
@@ -149,19 +143,14 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            direction={Flex.directions.COLUMN}
-            align={Flex.align.START}
-            gap={Flex.gaps.XS}
-            className={styles.textBoxContainer}
-          >
-            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
+            <Flex style={{ width: "90%" }} gap="small">
               <Icon icon={Link} />
-              <Text color="secondary" maxLines={3} type={Text.types.TEXT3}>
+              <Text color="secondary" maxLines={3} type="text3">
                 Section title in text3
               </Text>
             </Flex>
-            <Text className={styles.textBoxContent} maxLines={3} type={Text.types.TEXT1}>
+            <Text className={styles.textBoxContent} maxLines={3} type="text1">
               Short info explanation about the feature will come here.
             </Text>
           </Flex>
@@ -170,7 +159,7 @@ A Text component with a link skin can be used to create a link within running te
       },
       negative: {
         component: (
-          <Text maxLines={5} type={Text.types.TEXT3} style={{ width: "70%" }}>
+          <Text maxLines={5} type="text3" style={{ width: "70%" }}>
             monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
             streamline sales activities from start to finish. Explore monday sales CRM templates
           </Text>
@@ -181,19 +170,14 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex
-            direction={Flex.directions.COLUMN}
-            align={Flex.align.START}
-            gap={Flex.gaps.XS}
-            className={styles.textBoxContainer}
-          >
-            <Flex style={{ width: "90%" }} gap={Flex.gaps.SMALL}>
+          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
+            <Flex style={{ width: "90%" }} gap="small">
               <Icon icon={Link} />
-              <Text color="secondary" maxLines={3} type={Text.types.TEXT3}>
+              <Text color="secondary" maxLines={3} type="text3">
                 Section title in text3
               </Text>
             </Flex>
-            <Text className={styles.textBoxContent} maxLines={3} type={Text.types.TEXT1}>
+            <Text className={styles.textBoxContent} maxLines={3} type="text1">
               Short info explanation about the feature will come here.
             </Text>
           </Flex>
@@ -202,7 +186,7 @@ A Text component with a link skin can be used to create a link within running te
       },
       negative: {
         component: (
-          <Text maxLines={5} weight={Text.weights.BOLD} type={Text.types.TEXT3} style={{ width: "70%" }}>
+          <Text maxLines={5} weight="bold" type="text3" style={{ width: "70%" }}>
             monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
             streamline sales activities from start to finish. Explore monday sales CRM templates
           </Text>

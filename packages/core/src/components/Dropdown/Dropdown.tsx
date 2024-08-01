@@ -3,7 +3,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { SIZES, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
+import Select, { InputProps, components, createFilter, ActionMeta, NonceProvider } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
@@ -351,74 +351,76 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     );
 
     return (
-      <DropDownComponent
-        className={cx(styles.dropdown, className)}
-        selectProps={customProps}
-        components={{
-          DropdownIndicator,
-          Menu,
-          ClearIndicator,
-          Input,
-          Option,
-          Control,
-          SingleValue,
-          ...(multi && {
-            MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-            ValueContainer: MultiValueContainer
-          }),
-          ...(isVirtualized && { MenuList: WindowedMenuList })
-        }}
-        // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
-        closeMenuOnScroll={closeMenuOnScroll}
-        size={size}
-        noOptionsMessage={noOptionsMessage}
-        placeholder={placeholder}
-        isDisabled={disabled}
-        isClearable={!readOnly && clearable}
-        isSearchable={!readOnly && searchable}
-        readOnly={readOnly}
-        withReadOnlyStyle={withReadOnlyStyle}
-        aria-readonly={readOnly}
-        aria-label={overrideAriaLabel}
-        aria-details={tooltipContent}
-        aria-expanded={!readOnly && menuIsOpen}
-        aria-haspopup="listbox"
-        aria-activedescendant
-        role="combobox"
-        defaultValue={defaultValue}
-        value={value}
-        onMenuOpen={onMenuOpen}
-        onMenuClose={onMenuClose}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        onInputChange={onInputChange}
-        openMenuOnFocus={openMenuOnFocus}
-        openMenuOnClick={openMenuOnClick}
-        isRtl={rtl}
-        styles={inlineStyles}
-        theme={customTheme}
-        maxMenuHeight={maxMenuHeight}
-        menuPortalTarget={overrideMenuPortalTarget}
-        menuPlacement={menuPlacement}
-        menuPosition={menuPosition}
-        menuIsOpen={!readOnly && menuIsOpen}
-        tabIndex={tabIndex}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-        autoFocus={autoFocus}
-        closeMenuOnSelect={closeMenuOnSelect}
-        ref={ref as React.Ref<any>}
-        withMandatoryDefaultOptions={withMandatoryDefaultOptions}
-        isOptionSelected={isOptionSelected}
-        isLoading={isLoading}
-        loadingMessage={loadingMessage}
-        tabSelectsValue={tabSelectsValue}
-        filterOption={filterOption}
-        {...asyncAdditions}
-        {...additions}
-      />
+      <NonceProvider nonce="vibe-dropdown" cacheKey="cssselect">
+        <DropDownComponent
+          className={cx(styles.dropdown, className)}
+          selectProps={customProps}
+          components={{
+            DropdownIndicator,
+            Menu,
+            ClearIndicator,
+            Input,
+            Option,
+            Control,
+            SingleValue,
+            ...(multi && {
+              MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
+              ValueContainer: MultiValueContainer
+            }),
+            ...(isVirtualized && { MenuList: WindowedMenuList })
+          }}
+          // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
+          closeMenuOnScroll={closeMenuOnScroll}
+          size={size}
+          noOptionsMessage={noOptionsMessage}
+          placeholder={placeholder}
+          isDisabled={disabled}
+          isClearable={!readOnly && clearable}
+          isSearchable={!readOnly && searchable}
+          readOnly={readOnly}
+          withReadOnlyStyle={withReadOnlyStyle}
+          aria-readonly={readOnly}
+          aria-label={overrideAriaLabel}
+          aria-details={tooltipContent}
+          aria-expanded={!readOnly && menuIsOpen}
+          aria-haspopup="listbox"
+          aria-activedescendant
+          role="combobox"
+          defaultValue={defaultValue}
+          value={value}
+          onMenuOpen={onMenuOpen}
+          onMenuClose={onMenuClose}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          onInputChange={onInputChange}
+          openMenuOnFocus={openMenuOnFocus}
+          openMenuOnClick={openMenuOnClick}
+          isRtl={rtl}
+          styles={inlineStyles}
+          theme={customTheme}
+          maxMenuHeight={maxMenuHeight}
+          menuPortalTarget={overrideMenuPortalTarget}
+          menuPlacement={menuPlacement}
+          menuPosition={menuPosition}
+          menuIsOpen={!readOnly && menuIsOpen}
+          tabIndex={tabIndex}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+          autoFocus={autoFocus}
+          closeMenuOnSelect={closeMenuOnSelect}
+          ref={ref as React.Ref<any>}
+          withMandatoryDefaultOptions={withMandatoryDefaultOptions}
+          isOptionSelected={isOptionSelected}
+          isLoading={isLoading}
+          loadingMessage={loadingMessage}
+          tabSelectsValue={tabSelectsValue}
+          filterOption={filterOption}
+          {...asyncAdditions}
+          {...additions}
+        />
+      </NonceProvider>
     );
   }
 );

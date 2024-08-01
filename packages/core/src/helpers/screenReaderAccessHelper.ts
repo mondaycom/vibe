@@ -11,12 +11,13 @@ export function getIconScreenReaderAccessProps({
   isKeyboardAccessible?: boolean;
   label: string;
 }) {
-  const overrideIsDecorationOnly = isNil(isDecorationOnly) ? !isClickable : isDecorationOnly;
-  if (isClickable) {
+  const overrideIsDecorationOnly = isNil(isDecorationOnly) ? !isClickable && !label : isDecorationOnly;
+  if (isClickable || label) {
     return getClickableIconScreenReaderAccessProps({
       label,
       isDecorationOnly: overrideIsDecorationOnly,
-      isKeyboardAccessible
+      isKeyboardAccessible,
+      isHoverOnly: !isClickable && !!label
     });
   }
   return {
@@ -29,13 +30,15 @@ export function getIconScreenReaderAccessProps({
 
 export function getClickableScreenReaderAccessProps({
   isKeyboardAccessible = true,
-  isDecorationOnly = false
+  isDecorationOnly = false,
+  isHoverOnly = false
 }: {
   isKeyboardAccessible?: boolean;
   isDecorationOnly?: boolean;
+  isHoverOnly: boolean;
 }) {
   return {
-    role: "button",
+    role: isHoverOnly ? "img" : "button",
     tabIndex: isKeyboardAccessible ? 0 : -1,
     "aria-hidden": isDecorationOnly
   };
@@ -44,14 +47,16 @@ export function getClickableScreenReaderAccessProps({
 export function getClickableIconScreenReaderAccessProps({
   label,
   isDecorationOnly = false,
-  isKeyboardAccessible = true
+  isKeyboardAccessible = true,
+  isHoverOnly = false
 }: {
   label: string;
   isDecorationOnly?: boolean;
   isKeyboardAccessible?: boolean;
+  isHoverOnly?: boolean;
 }) {
   return {
-    ...getClickableScreenReaderAccessProps({ isDecorationOnly, isKeyboardAccessible }),
+    ...getClickableScreenReaderAccessProps({ isDecorationOnly, isKeyboardAccessible, isHoverOnly }),
     "aria-label": label
   };
 }

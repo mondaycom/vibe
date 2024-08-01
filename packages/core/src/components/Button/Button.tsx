@@ -309,7 +309,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         <>
           {leftIcon ? (
             <Icon
-              iconType={Icon?.type.ICON_FONT}
+              iconType="font"
               clickable={false}
               icon={leftIcon}
               iconSize={leftIconSize}
@@ -322,7 +322,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {children}
           {rightIcon ? (
             <Icon
-              iconType={Icon?.type.ICON_FONT}
+              iconType="font"
               clickable={false}
               icon={rightIcon}
               iconSize={rightIconSize}
@@ -356,7 +356,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           <span className={styles.successContent}>
             {successIcon ? (
               <Icon
-                iconType={Icon?.type.ICON_FONT}
+                iconType="font"
                 clickable={false}
                 icon={successIcon}
                 iconSize={successIconSize}

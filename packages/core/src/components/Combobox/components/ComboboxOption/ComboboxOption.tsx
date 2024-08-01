@@ -82,7 +82,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     return (
       <Icon
         className={cx(styles.optionIcon, className)}
-        iconType={Icon.type.ICON_FONT}
+        iconType="font"
         clickable={false}
         icon={icon as SubIcon}
         iconSize={iconSize}

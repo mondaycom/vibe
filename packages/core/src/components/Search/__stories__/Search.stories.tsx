@@ -54,7 +54,7 @@ export const Sizes: Story = {
   ),
   decorators: [
     Story => (
-      <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
+      <Flex direction="column" justify="start" gap="medium">
         <Story />
       </Flex>
     ),

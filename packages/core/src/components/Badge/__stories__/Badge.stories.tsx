@@ -38,12 +38,12 @@ export const Overview = {
 export const States = {
   render: () => (
     <Flex
-      gap={Flex.gaps.LARGE}
+      gap="large"
       style={{
         flex: 1
       }}
-      justify={Flex.justify.START}
-      align={Flex.align.START}
+      justify="start"
+      align="start"
     >
       <StoryDescription description="Indicator" vertical align={StoryDescription.align.START}>
         <Badge>
@@ -83,15 +83,15 @@ export const AvatarStory = {
 
 export const InlineElements = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+    <Flex direction="column" gap="medium" align="start">
       <Badge alignment={Badge.alignments.OUTSIDE}>
         <Link text="Read more" />
       </Badge>
       <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
+        <Link text="What's new" iconPosition="start" icon={WhatsNew} />
       </Badge>
       <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+        <Link text="Learn more" iconPosition="end" icon={ExternalPage} />
       </Badge>
     </Flex>
   ),

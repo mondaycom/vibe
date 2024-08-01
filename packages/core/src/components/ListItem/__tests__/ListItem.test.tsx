@@ -19,7 +19,7 @@ it("renders correctly with disabled", () => {
 });
 
 it("renders correctly with size", () => {
-  const tree = renderer.create(<ListItem data-testid="list-item" size={ListItem.sizes.LARGE} />).toJSON();
+  const tree = renderer.create(<ListItem data-testid="list-item" size="large" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -29,7 +29,7 @@ it("renders correctly with selected and disabled", () => {
 });
 
 describe("BDD List Item", () => {
-  let onClick;
+  let onClick: jest.Mock<any, any>;
   const itemText = "My item";
   beforeEach(() => {
     onClick = jest.fn();

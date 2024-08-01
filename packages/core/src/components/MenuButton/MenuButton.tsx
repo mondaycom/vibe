@@ -8,7 +8,11 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
+import {
+  MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
+  MenuButtonSize as MenuButtonSizeEnum
+} from "./MenuButtonConstants";
+import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
@@ -105,7 +109,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * Specifies whether to render the component before or after the text
    */
-  componentPosition?: (typeof MenuButtonComponentPosition)[keyof typeof MenuButtonComponentPosition];
+  componentPosition?: MenuButtonComponentPosition;
   /**
    * Element to be used as the trigger element for the Menu - default is button
    */
@@ -121,11 +125,11 @@ export interface MenuButtonProps extends VibeComponentProps {
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
-  sizes?: typeof MenuButtonSize;
+  sizes?: typeof MenuButtonSizeEnum;
   paddingSizes?: typeof DialogContentContainer.sizes;
   dialogPositions?: typeof DialogPosition;
   hideTriggers?: typeof Dialog.hideShowTriggers;
-  componentPositions?: typeof MenuButtonComponentPosition;
+  componentPositions?: typeof MenuButtonComponentPositionEnum;
 } = forwardRef(
   (
     {
@@ -134,8 +138,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       openDialogComponentClassName,
       children,
       component = Menu,
-      componentPosition = MenuButton.componentPositions.START,
-      size = MenuButtonSize.SMALL,
+      componentPosition = "start",
+      size = "small",
       open = false,
       onClick = NOOP,
       zIndex = null,
@@ -164,7 +168,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId
-    },
+    }: MenuButtonProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -190,9 +194,13 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
+        // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
         const isEscapeKey = event?.key === "Escape";
         if (isEscapeKey || closeMenuOnItemClick) {
-          handleMenuClose(isEscapeKey);
+          // @ts-ignore
+          if (event.propagate) {
+            handleMenuClose(isEscapeKey);
+          }
         }
       },
       [closeMenuOnItemClick, handleMenuClose]
@@ -267,12 +275,12 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const Icon = component;
     const iconSize = useMemo(() => {
       switch (size) {
-        case MenuButtonSize.XXS:
-        case MenuButtonSize.XS:
+        case "xxs":
+        case "xs":
           return 16;
-        case MenuButtonSize.SMALL:
-        case MenuButtonSize.MEDIUM:
-        case MenuButtonSize.LARGE:
+        case "small":
+        case "medium":
+        case "large":
           return BUTTON_ICON_SIZE;
         default:
           return 24;
@@ -314,9 +322,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         aria-disabled={disabled}
         {...triggerElementProps}
       >
-        {componentPosition === MenuButton.componentPositions.START && icon}
+        {componentPosition === "start" && icon}
         {text && <span className={styles.innerText}>{text}</span>}
-        {componentPosition === MenuButton.componentPositions.END && icon}
+        {componentPosition === "end" && icon}
       </TriggerElement>
     );
 
@@ -366,9 +374,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 );
 
 export default withStaticProps(MenuButton, {
-  sizes: MenuButtonSize,
+  sizes: MenuButtonSizeEnum,
   paddingSizes: DialogContentContainer.sizes,
   dialogPositions: Dialog.positions,
   hideTriggers: Dialog.hideShowTriggers,
-  componentPositions: MenuButtonComponentPosition
+  componentPositions: MenuButtonComponentPositionEnum
 });

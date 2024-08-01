@@ -234,8 +234,8 @@ export const WithCategories = {
         style={{
           width: "100%"
         }}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
+        justify="start"
+        align="start"
       >
         <StoryDescription
           description="Regular"
@@ -589,17 +589,17 @@ export const WithVirtualizationOptimization = {
 
     return (
       <Flex
-        gap={Flex.gaps.SMALL}
+        gap="small"
         style={{
           width: "100%"
         }}
-        justify={Flex.justify.CENTER}
-        align={Flex.align.START}
+        justify="center"
+        align="start"
       >
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization without categories"
           vertical
           headerStyle={{
@@ -625,7 +625,7 @@ export const WithVirtualizationOptimization = {
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization with categories"
           vertical
           headerStyle={{
@@ -652,7 +652,7 @@ export const WithVirtualizationOptimization = {
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization with sticky categories"
           vertical
           headerStyle={{
@@ -751,8 +751,8 @@ export const ComboboxAsPersonPicker = {
           width: "100%",
           height: "270px"
         }}
-        justify={Flex.justify.CENTER}
-        align={Flex.align.START}
+        justify="center"
+        align="start"
       >
         <Dialog
           content={() => (

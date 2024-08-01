@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
+import { Check, CloseSmall, Email, Show, Duplicate } from "../../Icon/Icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Heading from "../../Heading/Heading";
@@ -69,7 +69,8 @@ export const States: Story = {
         <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
         <TextField
           placeholder="With clickable icon"
-          iconName={Email}
+          iconTooltipContent="Copy"
+          iconName={Duplicate}
           onIconClick={() => {}}
           size={TextField.sizes.MEDIUM}
         />
@@ -123,7 +124,7 @@ export const Validation: Story = {
 export const TextFieldInAForm: Story = {
   render: () => (
     <div className="monday-storybook-text-field_box">
-      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD} maxLines={2}>
+      <Heading type="h1" weight="bold" maxLines={2}>
         Dark Mode Feedback From
       </Heading>
       <div className="monday-storybook-text-field_box_wrapper">

@@ -1,10 +1,10 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Toast from "../Toast";
+import Toast, { ToastProps } from "../Toast";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
-const renderComponent = props => {
+const renderComponent = (props: ToastProps) => {
   return render(<Toast {...props} />);
 };
 
@@ -39,7 +39,7 @@ describe("Toast tests", () => {
     const onClickMock = jest.fn();
     renderComponent({
       open: true,
-      actions: [{ type: Toast.actionTypes.BUTTON, key: 1, content: "Button", onClick: onClickMock }]
+      actions: [{ type: "button", key: 1, content: "Button", onClick: onClickMock }]
     });
     expect(onClickMock.mock.calls.length).toHaveBeenCalledTimes;
   });

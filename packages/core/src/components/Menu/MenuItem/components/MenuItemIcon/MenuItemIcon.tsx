@@ -8,6 +8,7 @@ import { MenuItemIconProps } from "./MenuItemIcon.types";
 const MenuItemIcon = ({
   icon,
   type,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   label,
   disabled,
   selected,
@@ -15,7 +16,7 @@ const MenuItemIcon = ({
   wrapperClassName
 }: MenuItemIconProps) => (
   <Flex
-    justify={Flex.justify.CENTER}
+    justify="center"
     className={cx(
       styles.iconWrapper,
       {
@@ -27,10 +28,9 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? Icon.type.SVG : Icon.type.ICON_FONT)}
+      iconType={type || (typeof icon === "function" ? "svg" : "font")}
       clickable={false}
       icon={icon}
-      iconLabel={label}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
       iconSize={18}
