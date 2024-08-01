@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import DatePicker from "../DatePicker";
 import moment, { Moment } from "moment";
 import { RangeDate } from "../types";
@@ -99,5 +99,20 @@ describe("DatePicker", () => {
 
     const yearSelectionElement = container.querySelector("div[data-testid='date-picker-year-picker']");
     expect(yearSelectionElement).not.toBe(null);
+  });
+
+  it("Should display new dates according to year selection", async () => {
+    const dateSelected = moment("2023-05-01");
+    const { container } = render(<DatePicker date={dateSelected} data-testid="date-picker" />);
+    const toggleButtonElement = container.querySelector("button[data-testid='date-picker-year-toggle']");
+
+    fireEvent.click(toggleButtonElement);
+
+    const newYear = await waitFor(() => container.querySelector(".pickerOption"));
+    fireEvent.click(newYear);
+
+    const newDay = await waitFor(() => container.querySelector(".CalendarDay_1"));
+    expect(newDay).toBeInTheDocument();
+    expect(newDay.getAttribute("aria-label")).toContain(newYear.innerHTML);
   });
 });
