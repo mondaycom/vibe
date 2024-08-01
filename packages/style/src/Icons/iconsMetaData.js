@@ -5,13 +5,6 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Items Count",
-      file: "ItemsCount.svg",
-      description: "Use when there is a need to describe items count",
-      tags: "Items count, Numbers, Items, Count items"
-  },
-
-  {
       name: "Baseline",
       file: "Baseline.svg",
       description: "Baseline",
