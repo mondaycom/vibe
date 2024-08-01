@@ -57,7 +57,7 @@ describe("Loader renders correctly", () => {
     });
 
     it("with DARK color", () => {
-      const tree = renderer.create(<Loader size="medium" color="secondary" />).toJSON();
+      const tree = renderer.create(<Loader size="medium" color="dark" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
