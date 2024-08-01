@@ -17,5 +17,3 @@ export enum LoaderSizes {
   MEDIUM = "medium",
   LARGE = "large"
 }
-
-export type LoaderSize = typeof LoaderSizes | number;
