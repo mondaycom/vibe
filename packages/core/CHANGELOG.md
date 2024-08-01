@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.128.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.127.0...monday-ui-react-core@2.128.0) (2024-08-01)
+
+
+### Bug Fixes
+
+* Add support for generic types in the TableVirtualizedBody component ([#2292](https://github.com/mondaycom/vibe/issues/2292)) ([203ab3c](https://github.com/mondaycom/vibe/commit/203ab3c544c4d0f989523293ab529f5e15cde8d5))
+* **DatePicker:** Keyboard Navigation ([#2241](https://github.com/mondaycom/vibe/issues/2241)) ([8108b06](https://github.com/mondaycom/vibe/commit/8108b06a1e331615a86da7df3e32cc85d46d8725))
+
+
+### Features
+
+* **icons:** add Items Count icon ([#2294](https://github.com/mondaycom/vibe/issues/2294)) ([da16f1e](https://github.com/mondaycom/vibe/commit/da16f1e56be9f6233b0c5fe7514ff1fb72ef19d5))
+* **Menu:** allow setting submenu position to left ([#2281](https://github.com/mondaycom/vibe/issues/2281)) ([3fc94c2](https://github.com/mondaycom/vibe/commit/3fc94c2c3559e6cb99d55975f802d36f09d7b6de))
+
+
+
+
+
 # [2.127.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.126.0...monday-ui-react-core@2.127.0) (2024-07-31)
 
 
