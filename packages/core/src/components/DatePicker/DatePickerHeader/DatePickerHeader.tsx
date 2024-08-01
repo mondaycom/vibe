@@ -12,7 +12,7 @@ export interface DatePickerHeaderProps {
   onToggleMonthYearPicker: () => void;
   hideNavigationKeys: boolean;
   "data-testid"?: string;
-  ariaLabel: string;
+  ariaLabel?: string;
 }
 
 const DatePickerHeader = (props: DatePickerHeaderProps) => {
