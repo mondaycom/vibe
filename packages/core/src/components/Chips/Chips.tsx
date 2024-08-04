@@ -155,7 +155,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       } else {
         cssVar = getElementColor(color, true);
       }
-      console.log("color---", color, " cssVar--", cssVar);
       return { backgroundColor: cssVar };
     }, [disabled, hasClickableWrapper, isHovered, isFocused, color]);
 

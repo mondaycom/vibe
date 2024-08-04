@@ -30,11 +30,9 @@ export function getElementColor(
     Object.keys(MapStateSelectedHoverColor).includes(colorValue as StateSelectedHoverColorKeys) &&
     isSelectedHoverPalette
   ) {
-    console.log("MapStateSelectedHoverColor");
     return `var(${MapStateSelectedHoverColor[colorValue as StateSelectedHoverColorKeys]})`;
   }
   if (Object.keys(MapStateSelectedColor).includes(colorValue as StateSelectedColorKeys) && isSelectedPalette) {
-    console.log("MapStateSelectedColor");
     return `var(${MapStateSelectedColor[colorValue as StateSelectedColorKeys]})`;
   }
   return colorValue;
