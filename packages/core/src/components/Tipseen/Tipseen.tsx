@@ -95,7 +95,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
       floating = false,
-      color = TipseenColor.PRIMARY,
+      color = TipseenColor.INVERTED,
       "data-testid": dataTestId
     },
     ref
