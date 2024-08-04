@@ -70,7 +70,6 @@ export const ModalExampleWrapper = ({
         // set show state to close
         onClose={closeModal}
         closeButtonAriaLabel={"close"}
-        width={Modal.width.DEFAULT}
         {...otherModalProps}
         contentSpacing
       >
