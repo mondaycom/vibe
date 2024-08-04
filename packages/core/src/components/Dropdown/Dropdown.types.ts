@@ -10,7 +10,6 @@ import {
 } from "react-select";
 import React from "react";
 import { VibeComponentProps } from "../../types";
-import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
 
 export type DropdownOption = any;
 
