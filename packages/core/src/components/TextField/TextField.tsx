@@ -22,7 +22,7 @@ import {
   TextFieldFeedbackState as TextFieldFeedbackStateEnum,
   TextFieldTextType as TextFieldTextTypeEnum
 } from "./TextFieldConstants";
-import { TextFieldTextType, TextFieldSize } from "./TextField.types";
+import { TextFieldType, TextFieldSize } from "./TextField.types";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
@@ -76,7 +76,7 @@ export interface TextFieldProps extends VibeComponentProps {
     secondary: string;
   };
   /** TEXT_TYPES is exposed on the component itself */
-  type?: TextFieldTextType;
+  type?: TextFieldType;
   maxLength?: number;
   trim?: boolean;
   /** ARIA role for container landmark */

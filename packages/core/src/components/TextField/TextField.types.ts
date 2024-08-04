@@ -1,4 +1,4 @@
-export type TextFieldTextType =
+export type TextFieldType =
   | "text"
   | "password"
   | "search"
