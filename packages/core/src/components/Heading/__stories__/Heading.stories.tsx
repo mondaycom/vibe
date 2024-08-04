@@ -6,12 +6,10 @@ import Heading from "../Heading";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID } from "../__tests__/headingTestsConstants";
 import { headingOverflowSuite } from "../__tests__/Heading.interactions";
 import Divider from "../../Divider/Divider";
-import Text from "../../Text/Text";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "../../Icon/Icons";
-import emptyStateExample from "../../../storybook/stories-common-assets/emptyStateExample.svg";
 import styles from "./Heading.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -197,34 +195,4 @@ export const BuiltInPageHeaderNotEditable = {
   ),
 
   name: "Built-in page header (not editable)"
-};
-
-export const EmptyStateHeading = {
-  render: () => (
-    <div className={styles.emptyStateContainer} aria-labelledby="empty-state-id">
-      <img
-        style={{
-          width: "290px"
-        }}
-        src={emptyStateExample}
-        alt=""
-      />
-      <Heading type={Heading.types.H2} id="empty-state-id" className={styles.emptyStateHeading}>
-        No updates yet for this item
-      </Heading>
-      <Text
-        element="span"
-        type={Text.types.TEXT1}
-        style={{
-          width: "50%",
-          textAlign: "center"
-        }}
-        ellipsis={false}
-      >
-        Be the first one to update about progress, mention someone or upload files to share with your team members
-      </Text>
-    </div>
-  ),
-
-  name: "Empty state heading"
 };
