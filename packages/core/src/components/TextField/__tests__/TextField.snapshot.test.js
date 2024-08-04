@@ -49,12 +49,12 @@ describe("TextField renders correctly", () => {
   });
 
   it("with another type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.PASSWORD} />).toJSON();
+    const tree = renderer.create(<TextField type="password" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with large size", () => {
-    const tree = renderer.create(<TextField size={TextField.sizes.LARGE} />).toJSON();
+    const tree = renderer.create(<TextField size="large" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -101,27 +101,27 @@ describe("TextField renders correctly", () => {
   });
 
   it("with date type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.DATE} />).toJSON();
+    const tree = renderer.create(<TextField type="date" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with date-time type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.DATE_TIME} />).toJSON();
+    const tree = renderer.create(<TextField type="datetime-local" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with tel type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.TEL} />).toJSON();
+    const tree = renderer.create(<TextField type="tel" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with url type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.URL} />).toJSON();
+    const tree = renderer.create(<TextField type="url" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with email type", () => {
-    const tree = renderer.create(<TextField type={TextField.types.EMAIL} />).toJSON();
+    const tree = renderer.create(<TextField type="email" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
