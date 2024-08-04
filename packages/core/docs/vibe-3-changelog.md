@@ -154,6 +154,10 @@ codemod: `avatar-component-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
+### TabList
+
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom
+
 ## TextField
 
 - `dataTestId` -> `data-testid` [codemod]
