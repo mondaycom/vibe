@@ -4,6 +4,9 @@ import ModalContent from "./ModalContent/ModalContent";
 import ModalFooter from "./ModalFooter/ModalFooter";
 import ModalFooterButtons from "./ModalFooter/ModalFooterButtons/ModalFooterButtons";
 
+/**
+ * @deprecated
+ */
 export enum ModalWidth {
   DEFAULT = "default",
   FULL_WIDTH = "full-width"
