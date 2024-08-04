@@ -51,7 +51,7 @@ export const States = {
         </Badge>
       </StoryDescription>
       <StoryDescription description="Counter" vertical align={StoryDescription.align.START}>
-        <Badge type={Badge.types.COUNTER} count={100} maxDigits={2}>
+        <Badge type="counter" count={100} maxDigits={2}>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>
       </StoryDescription>
@@ -63,7 +63,7 @@ export const States = {
 
 export const ButtonStory = {
   render: () => (
-    <Badge alignment={Badge.alignments.RECTANGULAR}>
+    <Badge alignment="rectangular">
       <Button leftIcon={ExternalPage}>Button</Button>
     </Badge>
   ),
@@ -73,7 +73,7 @@ export const ButtonStory = {
 
 export const AvatarStory = {
   render: () => (
-    <Badge alignment={Badge.alignments.CIRCULAR}>
+    <Badge alignment="circular">
       <Avatar size="large" src={person} type="img" />
     </Badge>
   ),
@@ -84,13 +84,13 @@ export const AvatarStory = {
 export const InlineElements = {
   render: () => (
     <Flex direction="column" gap="medium" align="start">
-      <Badge alignment={Badge.alignments.OUTSIDE}>
+      <Badge alignment="outside">
         <Link text="Read more" />
       </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
+      <Badge alignment="outside">
         <Link text="What's new" iconPosition="start" icon={WhatsNew} />
       </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
+      <Badge alignment="outside">
         <Link text="Learn more" iconPosition="end" icon={ExternalPage} />
       </Badge>
     </Flex>
