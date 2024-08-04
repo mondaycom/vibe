@@ -62,7 +62,7 @@ export const ControlledRadioButtons = {
     return (
       <div className="monday-storybook-radio-buttons_wrapper-column">
         <div>Controlled radio buttons</div>
-        <Button kind={Button.kinds.SECONDARY} onClick={onClickCB}>{`Select next radio button (Radio ${
+        <Button kind="secondary" onClick={onClickCB}>{`Select next radio button (Radio ${
           ((selectedIndex + 1) % 3) + 1
         }) `}</Button>
         <RadioButton text="Radio 1" name="radio-buttons-group-5" checked={selectedIndex === 0} onSelect={onChange} />

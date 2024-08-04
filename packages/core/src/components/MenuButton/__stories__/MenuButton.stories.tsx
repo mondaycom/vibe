@@ -191,7 +191,7 @@ export const CustomTriggerElement: Story = {
     return (
       <MenuButton
         triggerElement={props => (
-          <Button kind={Button.kinds.SECONDARY} {...props} className={""} ref={ref}>
+          <Button kind="secondary" {...props} className={""} ref={ref}>
             Button
           </Button>
         )}

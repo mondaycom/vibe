@@ -218,7 +218,7 @@ export const MenuPosition = () => {
           </DialogContentContainer>
         }
       >
-        <Button kind={Button.kinds.PRIMARY} color={Button.colors.NEGATIVE}>
+        <Button kind="primary" color="negative">
           Popup Dialog
         </Button>
       </Dialog>
@@ -344,7 +344,7 @@ export const InsideOverflowContainer = () => {
           </DialogContentContainer>
         }
       >
-        <Button color={Button.colors.NEGATIVE}>Popup Dialog</Button>
+        <Button color="negative">Popup Dialog</Button>
       </Dialog>
     </Flex>
   );

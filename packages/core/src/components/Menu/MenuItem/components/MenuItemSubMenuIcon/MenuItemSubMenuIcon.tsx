@@ -16,7 +16,7 @@ const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: Re
         <IconButton
           icon={DropdownChevronRight}
           className={styles.splitMenuItemIconButton}
-          kind={IconButton.kinds.TERTIARY}
+          kind="tertiary"
           size={null} // Customizing size via className
           iconClassName={cx(styles.splitSubMenuIcon, { [styles.disabled]: props.disabled })}
           tabIndex={-1}

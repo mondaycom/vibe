@@ -3,7 +3,6 @@ import cx from "classnames";
 import { AnimationType, EMPTY_ARR, HideShowEvent } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import TipseenTitle from "./TipseenTitle";
@@ -144,8 +143,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
                   closeButtonTheme === TipseenCloseButtonTheme.FIXED_DARK
               })}
               onClick={onClose}
-              size={Button.sizes.XS}
-              kind={Button.kinds.TERTIARY}
+              size="xs"
+              kind="tertiary"
               // @ts-ignore
               color={closeButtonColor}
               ariaLabel={overrideCloseAriaLabel}

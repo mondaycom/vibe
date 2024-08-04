@@ -78,7 +78,7 @@ const Search = forwardRef(
         icon={clearIconName}
         ariaLabel={clearIconLabel}
         onClick={onClearButtonClick}
-        size={size === "small" ? IconButton.sizes.XS : IconButton.sizes.SMALL}
+        size={size === "small" ? "xs" : "small"}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
       />
     );

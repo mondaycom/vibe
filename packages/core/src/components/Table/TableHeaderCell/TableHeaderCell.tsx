@@ -5,7 +5,6 @@ import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
 import Info from "../../Icon/Icons/components/Info";
-import { ButtonType } from "../../Button/ButtonConstants";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
@@ -84,8 +83,8 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           <Flex direction="row" align="center" className={styles.tableHeaderCellSort}>
             <IconButton
               icon={getSortIcon(sortState)}
-              kind={ButtonType.TERTIARY}
-              size={IconButton.sizes.XS}
+              kind="tertiary"
+              size="xs"
               ariaLabel={sortButtonAriaLabel}
               aria-hidden={!shouldShowSortIcon}
               className={cx(styles.sort, getStyle(styles, sortState), {
