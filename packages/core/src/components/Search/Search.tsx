@@ -87,8 +87,8 @@ const Search = forwardRef(
       <>
         {loading && (
           <Loader
-            size={size === "small" ? Loader.sizes.XS : 20}
-            color={Loader.colors.SECONDARY}
+            size={size === "small" ? "xs" : 20}
+            color="secondary"
             wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}
