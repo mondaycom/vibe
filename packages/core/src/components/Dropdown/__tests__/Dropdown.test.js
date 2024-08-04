@@ -150,8 +150,7 @@ describe("Dropdown", () => {
 
       expect(onChange).toBeCalledTimes(2);
       expect(onChange).toHaveBeenLastCalledWith(null, {
-        action: "clear",
-        removedValues: [mockOptions[0]]
+        action: "clear"
       });
       expect(onClear).toBeCalled();
       expect(component.chips.values).toEqual([]);

@@ -71,9 +71,19 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
+    const [yearFunc, setYearFunc] = useState(null);
 
     const renderMonth = useCallback(
-      ({ month }: { month: Moment }) => {
+      ({
+        month,
+        onYearSelect
+      }: {
+        month: moment.Moment;
+        onYearSelect: (currentMonth: moment.Moment, newMonthVal: string) => void;
+      }) => {
+        if (!yearFunc && onYearSelect) {
+          setYearFunc(() => onYearSelect);
+        }
         return (
           <DatePickerHeaderComponent
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_HEADER, id)}
@@ -84,7 +94,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         );
       },
-      [dataTestId, isMonthYearSelection, hideNavigationKeys, id]
+      [isMonthYearSelection, dataTestId, id, hideNavigationKeys, yearFunc]
     );
 
     const renderDay = useCallback(
@@ -99,10 +109,15 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       [firstDayOfWeek]
     );
 
-    const changeCurrentDateFromMonthYearView = useCallback((date: Moment | null) => {
-      setOverrideDateForView(date);
-      setIsMonthYearSelection(false);
-    }, []);
+    const changeCurrentDateFromMonthYearView = useCallback(
+      (newDate: Moment | null) => {
+        const oldDate = overrideDateForView || date;
+        setOverrideDateForView(newDate);
+        setIsMonthYearSelection(false);
+        yearFunc(oldDate, moment(newDate).year());
+      },
+      [overrideDateForView, date, yearFunc]
+    );
 
     const renderMonthYearSelection = useCallback(() => {
       return (
@@ -113,7 +128,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
       );
-    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, date, id]);
+    }, [dataTestId, id, overrideDateForView, date, shouldBlockYear, changeCurrentDateFromMonthYearView]);
 
     const onDateRangeChange = useCallback(
       (date: RangeDate) => {
@@ -145,7 +160,6 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       >
         {range ? (
           <DayPickerRangeController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
@@ -167,7 +181,6 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         ) : (
           <DayPickerSingleDateController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel

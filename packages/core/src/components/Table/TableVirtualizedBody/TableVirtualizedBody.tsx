@@ -11,18 +11,18 @@ import { RowHeights } from "../Table/TableConsts";
 import AutoSizer, { Size as AutoSizerSize } from "react-virtualized-auto-sizer";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 
-export type TableVirtualizedRows = Array<Record<string, unknown> & { id: string }>;
-export type TableVirtualizedRow = TableVirtualizedRows[number];
+export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
-export interface ITableVirtualizedBodyProps extends VibeComponentProps {
-  items: TableVirtualizedRows;
-  rowRenderer: (item: TableVirtualizedRow) => JSX.Element;
+export interface ITableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
+  extends VibeComponentProps {
+  items: T[];
+  rowRenderer: (item: T) => JSX.Element;
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
 const TableVirtualizedBody = forwardRef(
-  (
-    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: ITableVirtualizedBodyProps,
+  <T extends TableVirtualizedRow = TableVirtualizedRow>(
+    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: ITableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();

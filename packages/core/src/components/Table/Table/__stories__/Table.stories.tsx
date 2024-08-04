@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "../Table";
+import Table, { ITableColumn, ITableProps } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -44,7 +44,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tableTemplate = args => <Table {...args}></Table>;
+const tableTemplate = (args: ITableProps) => <Table {...args}></Table>;
 
 export const Overview = {
   render: tableTemplate.bind({}),
@@ -180,7 +180,7 @@ export const Overview = {
 
 export const Sizes = {
   render: () => {
-    const columns = [
+    const columns: ITableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -264,7 +264,7 @@ export const Sizes = {
     );
   },
   decorators: [
-    Story => (
+    (Story: typeof React.Component) => (
       <Flex align="start" justify="space-between" style={{ flex: 1 }}>
         <Story />
       </Flex>
@@ -275,7 +275,7 @@ export const Sizes = {
 
 export const Borders = {
   render: () => {
-    const columns = [
+    const columns: ITableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -390,7 +390,7 @@ export const Borders = {
     );
   },
   decorators: [
-    Story => (
+    (Story: typeof React.Component) => (
       <Flex direction="column" gap={40}>
         <Story />
       </Flex>
@@ -402,14 +402,14 @@ export const Borders = {
 export const TableHeaderFunctionality = {
   render: () => {
     const [tableData, setTableData] = useState(emailTableData);
-    const [sorting, setSorting] = useState({});
+    const [sorting, setSorting] = useState<{ [key: string]: "asc" | "desc" | "none" }>({});
 
-    const onSort = (columnId, sortState) => {
+    const onSort = (columnId: string, sortState: "asc" | "desc" | "none") => {
       setSorting({
         [columnId]: sortState
       });
 
-      setTableData(sort(columnId, sortState, tableData));
+      setTableData(sort(columnId as keyof (typeof tableData)[number], sortState, tableData));
     };
 
     return (
@@ -525,7 +525,7 @@ export const Scroll = {
 
 export const VirtualizedScroll = {
   render: () => {
-    const Row = ({ _id, num, text }) => {
+    const Row = ({ num, text }: (typeof virtualizedScrollTableData)[number]) => {
       return (
         <TableRow>
           <TableCell>{num}</TableCell>
@@ -558,7 +558,7 @@ export const VirtualizedScroll = {
 
 export const HighlightedRow = {
   render: () => {
-    const shouldRowBeHighlighted = rowItem => {
+    const shouldRowBeHighlighted = (rowItem: (typeof emailTableData)[number]) => {
       return rowItem.id === "2";
     };
 
