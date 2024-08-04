@@ -34,10 +34,6 @@ codemod: `avatar-component-migration`
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
 
-### Box
-
-- `scrollable` -> change default to true [codemod]
-
 ### ButtonGroup
 
 - `componentClassName` -> `className` [codemod]
@@ -62,7 +58,6 @@ codemod: `avatar-component-migration`
 ### Dialog
 
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
-- `JustifyType` removed [codemod]
 
 ### DialogContentContainer
 
@@ -80,6 +75,7 @@ codemod: `avatar-component-migration`
 ### Dropdown
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+- Remove size 'xxs' and 'xs'
 
 ### IconButton
 
