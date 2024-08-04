@@ -73,9 +73,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       ValueRenderer,
       valueRenderer,
       menuRenderer,
-      menuPlacement = Dropdown.menuPlacements.BOTTOM,
+      menuPlacement = "bottom",
       rtl,
-      size = Dropdown.sizes.MEDIUM,
+      size = "medium",
       asyncOptions,
       cacheOptions,
       defaultOptions,
@@ -109,7 +109,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
-      menuPosition = Dropdown.menuPositions.ABSOLUTE,
+      menuPosition = "absolute",
       "data-testid": dataTestId
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>

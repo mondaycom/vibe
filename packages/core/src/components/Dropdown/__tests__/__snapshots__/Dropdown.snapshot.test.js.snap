@@ -1807,7 +1807,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               onMouseDown={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--positive-color-selected)",
+                  "backgroundColor": "var(--primary-selected-color)",
                 }
               }
             >
@@ -1870,7 +1870,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 onMouseDown={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--negative-color-selected)",
+                    "backgroundColor": "var(--primary-selected-color)",
                   }
                 }
               >
