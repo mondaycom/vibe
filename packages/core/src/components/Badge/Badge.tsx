@@ -18,7 +18,6 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { IndicatorColor } from "./Indicator/IndicatorConstants";
 import { CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
-import { DialogPosition } from "../../constants";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   anchor?: BadgeAnchor;

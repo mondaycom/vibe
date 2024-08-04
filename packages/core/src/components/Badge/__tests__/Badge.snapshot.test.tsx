@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Badge from "../Badge";
-import Indicator from "../Indicator/Indicator";
 
 describe("Badge", () => {
   it("renders with no props with default badge Indicator", () => {
