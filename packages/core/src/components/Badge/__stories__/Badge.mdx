@@ -64,7 +64,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
     {
       positive: {
         component: (
-          <Badge alignment={Badge.alignments.OUTSIDE}>
+          <Badge alignment="outside">
             <Link text="Read more" />
           </Badge>
         ),
@@ -90,7 +90,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
       },
       negative: {
         component: (
-          <Badge color={Indicator.colors.PRIMARY}>
+          <Badge color="primary">
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
@@ -100,7 +100,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
     {
       positive: {
         component: (
-          <Badge alignment={Badge.alignments.CIRCULAR}>
+          <Badge alignment="circular">
             <Avatar size="medium" src={person} type="img" />
           </Badge>
         ),
@@ -108,7 +108,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
       },
       negative: {
         component: (
-          <Badge alignment={Badge.alignments.CIRCULAR} anchor={Badge.anchors.TOP_START}>
+          <Badge alignment="circular" anchor="top-start">
             <Avatar size="medium" src={person} type="img" />
           </Badge>
         ),
