@@ -28,8 +28,7 @@ const TabPanels: FC<TabPanelsProps> & {
       activeTabId = 0,
       animationDirection = "rtl",
       children,
-      // TODO Vibe 2.0 BREAKING change to true - breaking change
-      renderOnlyActiveTab = false,
+      renderOnlyActiveTab = true,
       "data-testid": dataTestId
     }: TabPanelsProps,
     ref

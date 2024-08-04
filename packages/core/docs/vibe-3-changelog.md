@@ -154,6 +154,10 @@ codemod: `avatar-component-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
+### TabPanels
+
+- `renderOnlyActiveTab` - default changed to `true` [codemod?]
+
 ## TextField
 
 - `dataTestId` -> `data-testid` [codemod]
