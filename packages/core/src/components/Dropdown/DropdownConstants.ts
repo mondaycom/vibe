@@ -10,9 +10,9 @@ export const DROPDOWN_MENU_ARIA_LABEL = "Dropdown menu";
  * @deprecated
  */
 export const DROPDOWN_CHIP_COLORS = {
-  PRIMARY: "primary",
-  NEGATIVE: "negative",
-  POSITIVE: "positive"
+  PRIMARY: "PRIMARY",
+  NEGATIVE: "NEGATIVE",
+  POSITIVE: "POSITIVE"
 };
 
 /**
