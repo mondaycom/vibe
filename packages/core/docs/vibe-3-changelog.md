@@ -58,7 +58,6 @@ codemod: `avatar-component-migration`
 ### Dialog
 
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
-- `JustifyType` removed [codemod]
 
 ### DialogContentContainer
 
