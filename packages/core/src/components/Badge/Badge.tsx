@@ -44,7 +44,7 @@ const Badge: VibeComponent<BadgeProps> & {
   (
     {
       type = "indicator",
-      anchor = DialogPosition.TOP_END,
+      anchor = "top-end",
       alignment = "rectangular",
       className,
       id,
