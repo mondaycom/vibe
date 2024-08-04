@@ -11,7 +11,7 @@ import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEven
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
-import { TooltipPositionsType } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../../Tooltip/Tooltip.types";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   kind?: ButtonType;
@@ -22,7 +22,7 @@ export interface MenuItemButtonProps extends VibeComponentProps {
   disabled?: boolean;
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   tooltipShowDelay?: number;
   resetOpenSubMenuIndex?: () => void;
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;

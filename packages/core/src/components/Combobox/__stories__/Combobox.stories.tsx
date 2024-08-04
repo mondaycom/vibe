@@ -767,7 +767,7 @@ export const ComboboxAsPersonPicker = {
             </DialogContentContainer>
           )}
           tooltip
-          position={Dialog.positions.BOTTOM}
+          position="bottom"
           open={true}
         >
           <div className="person-picker-mock">

@@ -61,7 +61,7 @@ export const Overview = {
     children: "Message for the user will appear here, to give more information about the feature.",
     position: "right",
     hideDismiss: false,
-    color: Tipseen.colors.INVERTED
+    color: "inverted"
   }
 };
 
@@ -76,7 +76,7 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
-              color={Tipseen.colors.INVERTED}
+              color="inverted"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -129,7 +129,7 @@ export const TipseenWithAWizard = {
         <Tipseen
           modifiers={modifiers}
           position="right"
-          color={Tipseen.colors.INVERTED}
+          color="inverted"
           content={
             <TipseenWizard
               title="This is a title"
@@ -165,8 +165,8 @@ export const TipseenWithImage = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
+          color="inverted"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -191,8 +191,8 @@ export const TipseenWithCustomMedia = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
+          color="inverted"
           content={
             <>
               <TipseenMedia>
@@ -225,9 +225,9 @@ export const FloatingTipseen = {
   render: () => {
     return (
       <Tipseen
-        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+        closeButtonTheme="dark"
         floating
-        color={Tipseen.colors.INVERTED}
+        color="inverted"
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />

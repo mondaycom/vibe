@@ -157,7 +157,7 @@ export const StepsInsideATipseen = {
         <Tipseen
           position="left"
           modifiers={modifiers}
-          animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
+          animationType="opacity-and-slide"
           content={
             <TipseenWizard
               title="This is a title"

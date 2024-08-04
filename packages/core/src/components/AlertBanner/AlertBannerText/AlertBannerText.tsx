@@ -4,11 +4,8 @@ import React, { FC, useRef } from "react";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { HideShowEvent } from "../../../constants";
-import styles from "./AlertBannerText.module.scss";
 
-const TOOLTIP_SHOW_TRIGGERS: Array<HideShowEvent> = [HideShowEvent.MOUSE_ENTER];
-const TOOLTIP_HIDE_TRIGGERS: Array<HideShowEvent> = [HideShowEvent.MOUSE_LEAVE];
+import styles from "./AlertBannerText.module.scss";
 
 export interface AlertBannerTextProps extends VibeComponentProps {
   text: string;
@@ -23,12 +20,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
   return (
-    <Tooltip
-      position="bottom"
-      content={isOverflowing && text}
-      showTrigger={TOOLTIP_SHOW_TRIGGERS}
-      hideTrigger={TOOLTIP_HIDE_TRIGGERS}
-    >
+    <Tooltip position="bottom" content={isOverflowing && text} showTrigger="mouseenter" hideTrigger="mouseleave">
       <div
         ref={componentRef}
         className={classNames}

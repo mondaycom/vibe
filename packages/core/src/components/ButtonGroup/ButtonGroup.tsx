@@ -14,7 +14,7 @@ import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -39,7 +39,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
