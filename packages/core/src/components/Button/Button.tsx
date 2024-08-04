@@ -7,7 +7,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -203,7 +203,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return cx(
         className,
         styles.button,
-        getStyle(styles, camelCase("size-" + getActualSize(size))),
+        getStyle(styles, camelCase("size-" + size)),
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
