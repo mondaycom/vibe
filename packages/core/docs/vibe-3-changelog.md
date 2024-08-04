@@ -34,10 +34,6 @@ codemod: `avatar-component-migration`
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
 
-### Box
-
-- `scrollable` -> change default to true [codemod]
-
 ### ButtonGroup
 
 - `componentClassName` -> `className` [codemod]

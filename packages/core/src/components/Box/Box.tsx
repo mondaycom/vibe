@@ -124,7 +124,7 @@ const Box: VibeComponent<BoxProps> & {
       paddingStart,
       textColor,
       backgroundColor,
-      scrollable = true,
+      scrollable,
       style
     },
     ref
