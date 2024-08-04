@@ -10,7 +10,7 @@ exports[`Badge renders at different position 1`] = `
     data-testid="badge"
   >
     <div
-      className="indicator notification "
+      className="indicator notification"
       data-testid="indicator"
     />
   </div>
@@ -27,7 +27,7 @@ exports[`Badge renders out of horizontal bounds 1`] = `
     data-testid="badge"
   >
     <div
-      className="indicator notification "
+      className="indicator notification"
       data-testid="indicator"
     />
   </div>
@@ -91,7 +91,7 @@ exports[`Badge renders with margins from component's bounds 1`] = `
     data-testid="badge"
   >
     <div
-      className="indicator notification "
+      className="indicator notification"
       data-testid="indicator"
     />
   </div>
@@ -108,7 +108,7 @@ exports[`Badge renders with no props with default badge Indicator 1`] = `
     data-testid="badge"
   >
     <div
-      className="indicator notification "
+      className="indicator notification"
       data-testid="indicator"
     />
   </div>
