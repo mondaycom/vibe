@@ -75,6 +75,7 @@ codemod: `avatar-component-migration`
 ### Dropdown
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+- Remove size 'xxs' and 'xs'
 
 ### IconButton
 

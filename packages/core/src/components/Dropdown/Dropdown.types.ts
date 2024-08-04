@@ -279,4 +279,4 @@ export type DropdownMenuPosition = "absolute" | "fixed";
 
 export type DropdownMenuPlacement = "top" | "bottom" | "auto";
 
-export type DropdownSize = "xxs" | "xs" | "small" | "medium" | "large";
+export type DropdownSize = "small" | "medium" | "large";
