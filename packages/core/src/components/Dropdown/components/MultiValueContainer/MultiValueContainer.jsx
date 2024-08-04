@@ -7,7 +7,6 @@ import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
-import { DROPDOWN_CHIP_COLORS } from "../../DropdownConstants";
 import classes from "./MultiValueContainer.module.scss";
 
 const DIALOG_OFFSET_Y = 5;
@@ -52,12 +51,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
     [onSelectedDelete]
   );
 
+  const DropdownChipColors = ["primary", "negative", "positive"];
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) => {
-        const overrideChipColor = Object.keys(DROPDOWN_CHIP_COLORS).includes(option.chipColor)
-          ? Chips.colors[option.chipColor]
-          : Chips.colors.PRIMARY;
+        const overrideChipColor = DropdownChipColors.includes(option.chipColor) ? option.chipColor : "primary";
         return index >= from && index < to ? (
           <Chips
             data-testid="value-container-chip"
