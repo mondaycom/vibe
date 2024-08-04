@@ -154,7 +154,11 @@ codemod: `avatar-component-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
-## TextField
+### Tabs
+
+- Fixed spacings (removed default browser's margin/padding for ul,li elements)
+
+### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
 - `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]

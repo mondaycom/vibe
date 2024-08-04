@@ -1,7 +1,8 @@
 import React from "react";
 import TabList, { TabListProps } from "../TabList";
 import Tab from "../../Tab/Tab";
-import styles from "./TabList.stories.module.scss";
+import { Flex } from "../../../Flex";
+import { Heading } from "../../../Heading";
 
 export default {
   title: "Navigation/Tabs/TabList",
@@ -56,9 +57,9 @@ export const Stretched = {
 
 export const Sizes = {
   render: () => (
-    <div className={styles.tabsSizesContainer}>
+    <Flex direction="column" align="start" gap="small">
       <>
-        Small
+        <Heading type="h3">Small</Heading>
         <TabList size="sm">
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -67,7 +68,7 @@ export const Sizes = {
         </TabList>
       </>
       <>
-        Medium
+        <Heading type="h3">Medium</Heading>
         <TabList size="md">
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -76,7 +77,7 @@ export const Sizes = {
         </TabList>
       </>
       <>
-        Large
+        <Heading type="h3">Large</Heading>
         <TabList size="lg">
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -84,7 +85,7 @@ export const Sizes = {
           <Tab disabled>Disabled</Tab>
         </TabList>
       </>
-    </div>
+    </Flex>
   ),
 
   name: "Sizes"
