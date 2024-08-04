@@ -156,7 +156,8 @@ codemod: `avatar-component-migration`
 
 ### TabPanels
 
-- `renderOnlyActiveTab` - default changed to `true` [codemod?]
+- Fix: TabPanels will render only the active tab
+- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod]
 
 ## TextField
 
