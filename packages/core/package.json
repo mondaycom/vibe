@@ -31,7 +31,6 @@
       "default": "./dist/src/components/next/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
-    "./colors": "./dist/assets/colors.json",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames/src/index.js",
       "default": "./dist/mocked_classnames/src/index.js"

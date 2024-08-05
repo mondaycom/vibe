@@ -72,15 +72,15 @@ export const MultiProgressBar = {
       () => [
         {
           value: 25,
-          color: colors.primary
+          color: "var(--primary-color)"
         },
         {
           value: 75,
-          color: colors.yellow
+          color: "var(--warning-color)"
         },
         {
           value: 100,
-          color: colors.grass_green
+          color: "var(--positive-color)"
         }
       ],
       []
