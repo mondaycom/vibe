@@ -110,9 +110,7 @@ const options = [
 ];
 
 export const FilterInCombobox: Story = {
-  render: () => (
-    <Combobox placeholder="Placeholder text here" options={options} size={Combobox.sizes.SMALL} optionLineHeight={28} />
-  ),
+  render: () => <Combobox placeholder="Placeholder text here" options={options} size="small" optionLineHeight={28} />,
   decorators: [
     Story => (
       <DialogContentContainer>

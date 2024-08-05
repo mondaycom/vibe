@@ -162,13 +162,13 @@ export const Sizes = {
     return (
       <div className="combobox-stories-styles_row">
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.SMALL} placeholder="Placeholder text here" />
+          <Combobox options={options} size="small" placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
+          <Combobox options={options} size="large" placeholder="Placeholder text here" />
         </DialogContentContainer>
       </div>
     );
@@ -761,7 +761,7 @@ export const ComboboxAsPersonPicker = {
                 options={options}
                 categories={categories}
                 optionRenderer={optionRenderer}
-                size={Combobox.sizes.SMALL}
+                size="small"
                 placeholder="Search"
               />
             </DialogContentContainer>

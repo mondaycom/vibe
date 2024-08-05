@@ -6,7 +6,12 @@ import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowin
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import { SubIcon, withStaticProps } from "../../../../types";
-import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
+import {
+  ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
+  IComboboxOption,
+  IComboboxOptionEvents
+} from "../ComboboxConstants";
+import { ComboboxOptionIconType } from "../../Combobox.types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 
@@ -23,7 +28,7 @@ export interface ComboboxOptionProps extends IComboboxOptionEvents {
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
 }
 
-const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconType } = ({
+const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconTypeEnum } = ({
   index,
   option,
   className,
@@ -75,7 +80,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     iconType: ComboboxOptionIconType,
     className: string
   ) => {
-    if (iconType === ComboboxOptionIconType.RENDERER) {
+    if (iconType === "renderer") {
       return (icon as (className: string) => JSX.Element)(cx(styles.optionIcon, className));
     }
 
@@ -166,4 +171,4 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-export default withStaticProps(ComboboxOption, { iconTypes: ComboboxOptionIconType });
+export default withStaticProps(ComboboxOption, { iconTypes: ComboboxOptionIconTypeEnum });
