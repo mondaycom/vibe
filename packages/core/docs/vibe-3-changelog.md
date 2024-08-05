@@ -193,6 +193,16 @@ codemod: `avatar-component-migration`
 - `arrowPosition` removed [codemod]
 - `TooltipArrowPosition` removed [codemod]
 
+### ColorPicker
+
+- `ColorPicker.COLOR_STYLES` removed [codemod]
+
+
+### ColorPickerContent
+
+- `ColorPickerContent.COLOR_STYLES` removed [codemod]
+
+
 ## Hooks
 
 ### useClickableProps

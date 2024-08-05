@@ -1,12 +1,11 @@
-import { ColorStyle, contentColors } from "./colors-vars-map";
+import { ColorStyle as ColorStyleEnum, contentColors } from "./colors-vars-map";
+import { ColorStyle } from "../types/Colors";
 
 const ColorUtils = {
-  modes: ColorStyle,
+  modes: ColorStyleEnum,
   contentColors,
-  getMondayColorAsStyle: (color: string, mode: ColorStyle = ColorStyle.REGULAR, withVar = true) => {
-    return `${withVar ? "var(" : ""}--color-${color}${mode !== ColorStyle.REGULAR ? `-${mode}` : ""}${
-      withVar ? ")" : ""
-    }`;
+  getMondayColorAsStyle: (color: string, mode: ColorStyle = "regular", withVar = true) => {
+    return `${withVar ? "var(" : ""}--color-${color}${mode !== "regular" ? `-${mode}` : ""}${withVar ? ")" : ""}`;
   }
 };
 

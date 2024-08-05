@@ -175,6 +175,9 @@ export const contentColors = [
 
 export type CONTENT_COLORS_VALUES = (typeof contentColors)[number];
 
+/**
+ * @deprecated
+ */
 export enum ColorStyle {
   REGULAR = "regular",
   HOVER = "hover",
