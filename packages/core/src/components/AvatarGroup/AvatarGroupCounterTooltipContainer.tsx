@@ -25,9 +25,6 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
   counterContainerRef?: RefObject<HTMLDivElement>;
 }
 
-const SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
-const HIDE_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_LEAVE];
-
 const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
@@ -76,8 +73,8 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
     <Tooltip
       open={isKeyboardTooltipVisible}
       hideDelay={AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY}
-      showTrigger={SHOW_TRIGGER}
-      hideTrigger={HIDE_TRIGGER}
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
       onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}

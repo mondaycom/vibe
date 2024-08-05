@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import Steps, { StepsProps } from "../Steps";
-import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
@@ -157,7 +156,7 @@ export const StepsInsideATipseen = {
         <Tipseen
           position="left"
           modifiers={modifiers}
-          animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
+          animationType="opacity-and-slide"
           content={
             <TipseenWizard
               title="This is a title"
@@ -165,12 +164,12 @@ export const StepsInsideATipseen = {
               onChangeActiveStep={onChangeActiveStep}
               activeStepIndex={activeStepIndex}
               backButtonProps={{
-                size: Button.sizes.SMALL,
+                size: "small",
                 onClick: stepPrev
               }}
               nextButtonProps={{
-                kind: Button.kinds.PRIMARY,
-                size: Button.sizes.SMALL,
+                kind: "primary",
+                size: "small",
                 onClick: stepNext
               }}
               onFinish={() => {}}

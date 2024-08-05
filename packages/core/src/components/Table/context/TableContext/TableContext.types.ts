@@ -1,12 +1,12 @@
-import { ITableProps } from "../../Table/Table";
+import { TableProps } from "../../Table/Table";
 import React, { UIEventHandler } from "react";
 
-export interface ITableContext {
-  columns: ITableProps["columns"];
-  dataState?: ITableProps["dataState"];
-  emptyState: ITableProps["emptyState"];
-  errorState: ITableProps["errorState"];
-  size: ITableProps["size"];
+export interface TableContext {
+  columns: TableProps["columns"];
+  dataState?: TableProps["dataState"];
+  emptyState: TableProps["emptyState"];
+  errorState: TableProps["errorState"];
+  size: TableProps["size"];
   tableRootRef: React.MutableRefObject<HTMLDivElement>;
   scrollLeft: number;
   onTableRootScroll: UIEventHandler<HTMLDivElement>;
@@ -18,7 +18,7 @@ export interface ITableContext {
   markTableAsVirtualized: () => void;
 }
 
-export type ITableProviderProps = {
-  value: Pick<ITableContext, "columns" | "dataState" | "emptyState" | "errorState" | "size">;
+export type TableProviderProps = {
+  value: Pick<TableContext, "columns" | "dataState" | "emptyState" | "errorState" | "size">;
   children: React.ReactNode;
 };

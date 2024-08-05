@@ -14,7 +14,7 @@ export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
       <InformationBoxTitle>{fullName}</InformationBoxTitle>
       {email && (
         <Link tabIndex="-1" href={`mailto:${email}`} target="_parent">
-          <IconButton icon={Email} kind={IconButton.kinds.TERTIARY} ariaLabel={`Contact ${fullName}`} />
+          <IconButton icon={Email} kind="tertiary" ariaLabel={`Contact ${fullName}`} />
         </Link>
       )}
     </Flex>

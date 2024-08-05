@@ -3,7 +3,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { DialogSize, DialogType } from "./DialogContentContainerConstants";
+import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
+import { DialogSize, DialogType } from "../Dialog/Dialog.types";
 import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
@@ -18,8 +19,8 @@ export interface DialogContentContainerProps extends VibeComponentProps {
 }
 
 const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
-  types?: typeof DialogType;
-  sizes?: typeof DialogSize;
+  types?: typeof DialogTypeEnum;
+  sizes?: typeof DialogSizeEnum;
 } = forwardRef(
   (
     {
@@ -27,12 +28,12 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       className = "",
       ariaLabelledby = "",
       ariaDescribedby = "",
-      type = DialogType.POPOVER,
-      size = DialogSize.SMALL,
+      type = "popover",
+      size = "small",
       children,
       style,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
-    },
+    }: DialogContentContainerProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -60,6 +61,6 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
 );
 
 export default withStaticProps(DialogContentContainer, {
-  types: DialogType,
-  sizes: DialogSize
+  types: DialogTypeEnum,
+  sizes: DialogSizeEnum
 });
