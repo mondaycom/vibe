@@ -195,12 +195,12 @@ codemod: `avatar-component-migration`
 
 ### ColorPicker
 
-- `COLOR_STYLES` removed [codemod]
+- `ColorPicker.COLOR_STYLES` removed [codemod]
 
 
 ### ColorPickerContent
 
-- `COLOR_STYLES` removed [codemod]
+- `ColorPicker.COLOR_STYLES` removed [codemod]
 
 
 ## Hooks
