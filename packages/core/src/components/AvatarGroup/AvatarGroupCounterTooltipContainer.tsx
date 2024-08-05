@@ -73,8 +73,8 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
     <Tooltip
       open={isKeyboardTooltipVisible}
       hideDelay={AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY}
-      showTrigger="mouseenter"
-      hideTrigger="mouseleave"
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
       onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}

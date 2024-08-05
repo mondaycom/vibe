@@ -20,7 +20,12 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
   return (
-    <Tooltip position="bottom" content={isOverflowing && text} showTrigger="mouseenter" hideTrigger="mouseleave">
+    <Tooltip
+      position="bottom"
+      content={isOverflowing && text}
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
+    >
       <div
         ref={componentRef}
         className={classNames}
