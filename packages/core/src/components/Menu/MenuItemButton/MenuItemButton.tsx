@@ -4,7 +4,7 @@ import React, { FC, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { ButtonType } from "../../Button/ButtonConstants";
+import { ButtonType } from "../../Button/Button.types";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
@@ -39,7 +39,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   isMenuChild?: boolean;
 } = ({
   className,
-  kind = MenuItemButton.kinds.PRIMARY,
+  kind = "primary",
   leftIcon = null,
   rightIcon = null,
   disabled = false,
@@ -117,7 +117,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
           rightIcon={rightIcon}
           onClick={onClickCallback}
           kind={kind}
-          size={Button.sizes.SMALL}
+          size="small"
           blurOnMouseUp={false}
         >
           <div className={styles.content}>{children}</div>

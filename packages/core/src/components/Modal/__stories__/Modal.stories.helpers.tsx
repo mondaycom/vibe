@@ -41,7 +41,7 @@ export const ModalExampleWrapper = ({
   const closeModal = useCallback(() => {
     setShow(false);
   }, []);
-  const openModalColor = bestPractice ? Button.colors.POSITIVE : Button.colors.NEGATIVE;
+  const openModalColor = bestPractice ? "positive" : "negative";
   const openModalButton = useHelperOpenModalButton({
     testId: openModalTestId,
     title: buttonTitle || modalTitle,
@@ -118,7 +118,7 @@ export const DialogAsModalBadExample = () => {
       content={dialogContent}
       showTrigger={DEFAULT_DIALOG_SHOW_TRIGGER}
     >
-      <Button onClick={onShow} color={Button.colors.NEGATIVE}>
+      <Button onClick={onShow} color="negative">
         Click here
       </Button>
     </Dialog>

@@ -83,7 +83,7 @@ const dialogTemplate = ({
           </DialogContentContainer>
         }
       >
-        <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+        <IconButton icon={Info} active kind="secondary" />
       </Dialog>
     </div>
   );
@@ -143,7 +143,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+            <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
               Top
             </Button>
           </Dialog>
@@ -159,7 +159,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottom} active={checkedBottom}>
+            <Button kind="secondary" onClick={onChangeBottom} active={checkedBottom}>
               Bottom
             </Button>
           </Dialog>
@@ -175,7 +175,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeRight} active={checkedRight}>
+            <Button kind="secondary" onClick={onChangeRight} active={checkedRight}>
               Right
             </Button>
           </Dialog>
@@ -191,7 +191,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeLeft} active={checkedLeft}>
+            <Button kind="secondary" onClick={onChangeLeft} active={checkedLeft}>
               Left
             </Button>
           </Dialog>
@@ -237,7 +237,7 @@ export const ShowTriggers = {
             </DialogContentContainer>
           }
         >
-          <Button kind={Button.kinds.SECONDARY} active={clickButtonActive} onClick={onClickClickButton}>
+          <Button kind="secondary" active={clickButtonActive} onClick={onClickClickButton}>
             On click
           </Button>
         </Dialog>
@@ -252,7 +252,7 @@ export const ShowTriggers = {
           }
         >
           <div onMouseEnter={onHoverButton} onMouseLeave={onHoverButton}>
-            <Button kind={Button.kinds.SECONDARY} active={hoverButtonActive}>
+            <Button kind="secondary" active={hoverButtonActive}>
               On mouse enter
             </Button>
           </div>
@@ -267,12 +267,7 @@ export const ShowTriggers = {
             </DialogContentContainer>
           }
         >
-          <Button
-            onFocus={onFocusButton}
-            onBlur={onFocusButton}
-            kind={Button.kinds.SECONDARY}
-            active={focusButtonActive}
-          >
+          <Button onFocus={onFocusButton} onBlur={onFocusButton} kind="secondary" active={focusButtonActive}>
             On focus
           </Button>
         </Dialog>
@@ -288,7 +283,7 @@ export const ShowTriggers = {
             </DialogContentContainer>
           }
         >
-          <Button kind={Button.kinds.SECONDARY} active>
+          <Button kind="secondary" active>
             On mount
           </Button>
         </Dialog>
@@ -368,7 +363,7 @@ export const HideTriggers = {
         >
           <Button
             data-testid={CLICK_OUTSIDE_DIALOG_BUTTON}
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={clickOutsideButtonActive}
             onClick={switchClickOutsideActive}
             style={{
@@ -391,7 +386,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={clickButtonActive}
             onClick={switchClickButtonActive}
             style={{
@@ -414,7 +409,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={blurButtonActive}
             onClick={switchBlurButtonActive}
             style={{
@@ -438,7 +433,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={contentClickButtonActive}
             onClick={switchContentClickActive}
             style={{
@@ -463,7 +458,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={mouseLeaveButtonActive}
             onClick={switchMouseLeaveActive}
             style={{
@@ -489,7 +484,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={contextMenuButtonActive}
             style={{
               marginBlock: "54px"
@@ -539,7 +534,7 @@ export const ControlledDialog = {
           <DialogContentContainer>
             <DialogContentContainer>
               <Button
-                kind={Button.kinds.SECONDARY}
+                kind="secondary"
                 // @ts-ignore
                 onClick={() => setIsOpen(false)}
               >
@@ -589,7 +584,7 @@ export const DialogWithTooltip = {
             </DialogContentContainer>
           }
         >
-          <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          <IconButton icon={Info} active kind="secondary" />
         </Dialog>
       </div>
     );
@@ -640,7 +635,7 @@ export const DisableScrollWhenDialogOpen = {
                 </DialogContentContainer>
               }
             >
-              <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+              <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
                 Click
               </Button>
             </Dialog>

@@ -34,7 +34,7 @@ export const DialogDescription = () => {
             </DialogContentContainer>
           }
         >
-          <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          <IconButton icon={Info} active kind="secondary" />
         </Dialog>
       </div>
     );

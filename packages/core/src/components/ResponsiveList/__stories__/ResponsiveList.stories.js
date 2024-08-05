@@ -59,23 +59,23 @@ const componentTemplate = responseListProps => {
         >
           <Search size="medium" placeholder="search for content" />
         </div>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={Broom} ignoreFocusStyle className="responsive-icon-margin" />
           Clean
         </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={Group} ignoreFocusStyle />
         </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={Moon} ignoreFocusStyle />
         </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={API} ignoreFocusStyle />
         </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={Sun} ignoreFocusStyle />
         </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
+        <Button kind="tertiary" marginLeft>
           <Icon icon={Bolt} ignoreFocusStyle />
         </Button>
       </ResponsiveList>
