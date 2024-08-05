@@ -2,12 +2,13 @@ import React, { FC, useEffect, useRef } from "react";
 import { DialogPosition } from "../../../constants/positions";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
-import { SliderColor, SliderSize, TOOLTIP_SHOW_DELAY } from "../SliderConstants";
+import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { SliderColor, SliderSize } from "../Slider.types";
 
 const tooltipPosition = DialogPosition.TOP;
 
