@@ -220,7 +220,7 @@ export const ChipsInAPersonPickerComboBox = {
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-2">
-          <Avatar size="small" backgroundColor={Avatar.colors.DARK_PURPLE} text="LC" type="text" />
+          <Avatar size="small" backgroundColor="dark_purple" text="LC" type="text" />
           <Text type="text2" className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
@@ -232,7 +232,7 @@ export const ChipsInAPersonPickerComboBox = {
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-4">
-          <Avatar size="small" text="DY" type="text" backgroundColor={Avatar.colors.PEACH} />
+          <Avatar size="small" text="DY" type="text" backgroundColor="peach" />
           <Text type="text2" className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </Text>
