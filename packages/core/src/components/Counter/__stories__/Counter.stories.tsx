@@ -157,7 +157,7 @@ export const NotificationCounter = {
 
     return (
       <div className="storybook-counter_position">
-        <Avatar type="icon" icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
+        <Avatar type="icon" icon={Notifications} backgroundColor="royal" />
         <Counter count={count} maxDigits={1} color="negative" className="storybook-counter_counter-position-top" />
       </div>
     );

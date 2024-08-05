@@ -2,7 +2,7 @@ import ColorPicker from "../ColorPicker";
 import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
 import Check from "../../Icon/Icons/components/Check";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions.js";
+import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions";
 import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
