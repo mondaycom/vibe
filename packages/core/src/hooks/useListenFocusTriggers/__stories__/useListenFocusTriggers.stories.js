@@ -27,7 +27,7 @@ export const Overview = {
     });
 
     return (
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+      <Flex direction="column" gap="medium" align="start">
         <Button ref={ref}>Focus target</Button>
         <div>Received focus by: {text}</div>
       </Flex>

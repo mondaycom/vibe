@@ -17,6 +17,7 @@ export interface AvatarBadgeProps extends VibeComponentProps {
    * Use to provide SVG Components
    */
   icon?: SubIcon;
+  // TODO Remove in next major as breaking change
   ariaLabel?: string;
   tabIndex?: string | number;
   className?: string;
@@ -28,6 +29,7 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 } = ({
   src,
   icon,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ariaLabel,
   tabIndex = 0,
   className,
@@ -40,27 +42,11 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
 
   if (icon) {
-    return (
-      <Icon
-        icon={icon}
-        iconLabel={ariaLabel}
-        className={classNames}
-        clickable={tabIndex === -1}
-        {...otherProps}
-        data-testid={testId}
-      />
-    );
+    return <Icon icon={icon} className={classNames} clickable={false} {...otherProps} data-testid={testId} />;
   }
 
   return src ? (
-    <CustomSvgIcon
-      src={src}
-      ariaLabel={ariaLabel}
-      className={classNames}
-      clickable={tabIndex === -1}
-      {...otherProps}
-      data-testid={testId}
-    />
+    <CustomSvgIcon src={src} className={classNames} clickable={tabIndex === -1} {...otherProps} data-testid={testId} />
   ) : null;
 };
 

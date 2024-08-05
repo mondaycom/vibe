@@ -126,13 +126,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
               )}
               containerSelector={popupsContainerSelector}
               tooltip
-              showTrigger={Dialog.hideShowTriggers.CLICK}
-              hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+              showTrigger="click"
+              hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
             >
               <Counter
-                kind={Counter.kinds.LINE}
+                kind="line"
                 prefix="+"
                 count={hiddenOptionsCount}
                 onMouseDown={e => {

@@ -95,7 +95,7 @@ export const Motion = {
           <Tab>Third</Tab>
           <Tab disabled>Disabled</Tab>
         </TabList>
-        <TabPanels animationDirection={TabPanels.animationDirections.LTR}>
+        <TabPanels animationDirection="ltr">
           <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
           <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
           <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
@@ -109,7 +109,7 @@ export const Motion = {
           <Tab>Third</Tab>
           <Tab disabled>Disabled</Tab>
         </TabList>
-        <TabPanels animationDirection={TabPanels.animationDirections.RTL}>
+        <TabPanels animationDirection="rtl">
           <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
           <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
           <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
@@ -144,11 +144,11 @@ export const AdminSectionTabs = {
       <TabPanels>
         <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Login Details</h2>
-          <TextField title="Profile Name" size={TextField.sizes.MEDIUM} placeholder="Profile Name" />
+          <TextField title="Profile Name" size="medium" placeholder="Profile Name" />
         </TabPanel>
         <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Account Details</h2>
-          <TextField title="Account Name" size={TextField.sizes.MEDIUM} placeholder="Account Name" />
+          <TextField title="Account Name" size="medium" placeholder="Account Name" />
         </TabPanel>
       </TabPanels>
     </TabsContext>

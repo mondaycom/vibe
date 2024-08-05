@@ -49,10 +49,10 @@ const TipseenContent: FC<TipseenContentProps> = ({
       <div className={cx(styles.buttons)}>
         {hideDismiss ? null : (
           <Button
-            kind={Button.kinds.TERTIARY}
+            kind="tertiary"
             color={buttonColor}
             className={styles.dismiss}
-            size={Button.sizes.SMALL}
+            size="small"
             onClick={onDismiss}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_DISMISS)}
           >
@@ -61,9 +61,9 @@ const TipseenContent: FC<TipseenContentProps> = ({
         )}
         {hideSubmit ? null : (
           <Button
-            kind={Button.kinds.PRIMARY}
+            kind="primary"
             color={buttonColor}
-            size={Button.sizes.SMALL}
+            size="small"
             onClick={onSubmit}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
           >

@@ -38,7 +38,8 @@ const BaseMenuItem = forwardRef(
       shouldScrollMenu,
       "data-testid": dataTestId,
       splitMenuItem = false,
-      children
+      children,
+      submenuPosition = "right"
     }: BaseMenuItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -118,7 +119,7 @@ const BaseMenuItem = forwardRef(
       <Text
         id={id}
         element="li"
-        type={Text.types.TEXT2}
+        type="text2"
         aria-haspopup={subMenu ? true : undefined}
         aria-expanded={subMenu ? shouldShowSubMenu : undefined}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
@@ -151,6 +152,7 @@ const BaseMenuItem = forwardRef(
               open={shouldShowSubMenu}
               onClose={closeSubMenu}
               autoFocusOnMount={!useDocumentEventListeners}
+              submenuPosition={submenuPosition}
             >
               {subMenu}
             </MenuItemSubMenu>

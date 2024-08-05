@@ -24,6 +24,7 @@ import {
   COMBOBOX_LISTBOX_ID
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
+import { ComboboxSizes } from "./Combobox.types";
 
 export interface ComboboxProps extends VibeComponentProps {
   className?: string;
@@ -48,7 +49,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
+  size?: ComboboxSizes;
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -67,6 +68,10 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   defaultFilter?: string;
   disableFilter?: boolean;
+  /**
+   * For controlled search input. If provided, `defaultFilter` will be ignored
+   */
+  filterValue?: string;
   onFilterChanged?: (value: string) => void;
   /**
    * Display the combo box with loading state
@@ -110,6 +115,7 @@ export interface ComboboxProps extends VibeComponentProps {
   searchIcon?: SubIcon;
   searchInputAriaLabel?: string;
   debounceRate?: number;
+  searchInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -124,7 +130,7 @@ const Combobox: React.FC<ComboboxProps> & {
       searchIcon,
       id = "",
       placeholder = "",
-      size = Combobox.sizes.MEDIUM,
+      size = "medium",
       defaultVisualFocusFirstIndex,
       optionLineHeight = 32,
       optionsListHeight,
@@ -139,6 +145,7 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick = (_optionData: IComboboxOption) => {},
       filter = defaultFilter,
       disableFilter = false,
+      filterValue: filterValueProp,
       onFilterChanged,
       loading = false,
       onOptionHover = NOOP,
@@ -153,15 +160,22 @@ const Combobox: React.FC<ComboboxProps> & {
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
       "data-testid": dataTestId,
-      debounceRate
-    },
+      debounceRate,
+      searchInputRef
+    }: ComboboxProps,
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const mergedInputRef = useMergeRef(inputRef, searchInputRef);
 
-    const [filterValue, setFilterValue] = useState(defaultFilterValue);
+    const [filterValue, setFilterValue] = useState(filterValueProp || defaultFilterValue);
+
+    if (filterValueProp !== undefined && filterValueProp !== filterValue) {
+      setFilterValue(filterValueProp);
+    }
+
     const onChangeCallback = useCallback(
       (value: string) => {
         setActiveOptionIndex(-1);
@@ -223,7 +237,7 @@ const Combobox: React.FC<ComboboxProps> & {
             <span className={styles.comboboxMessage}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
-            <Button className={styles.addNewButton} size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
+            <Button className={styles.addNewButton} size={size} kind="tertiary" onClick={onAddNewCallback}>
               <span className={styles.buttonLabel}>{getAddNewLabel()}</span>
             </Button>
           )}
@@ -274,12 +288,12 @@ const Combobox: React.FC<ComboboxProps> & {
       onClick: overrideOnClick,
       isChildSelectable,
       options: selectableItems,
-      inputRef
+      inputRef: mergedInputRef
     });
 
     return (
       <Text
-        type={Text.types.TEXT2}
+        type="text2"
         ref={mergedRef}
         className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,
@@ -291,7 +305,7 @@ const Combobox: React.FC<ComboboxProps> & {
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search
-            ref={inputRef}
+            ref={mergedInputRef}
             value={filterValue}
             className={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             inputAriaLabel={searchInputAriaLabel}

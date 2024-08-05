@@ -127,10 +127,10 @@ export const UpdateInTheSystem = {
               </p>
             </div>
             <div className="monday-storybook-skeleton_btn-group">
-              <Button className="monday-storybook-skeleton_btn" leftIcon={ThumbsUp} kind={Button.kinds.SECONDARY}>
+              <Button className="monday-storybook-skeleton_btn" leftIcon={ThumbsUp} kind="secondary">
                 Like
               </Button>
-              <Button className="monday-storybook-skeleton_btn" leftIcon={Replay} kind={Button.kinds.SECONDARY}>
+              <Button className="monday-storybook-skeleton_btn" leftIcon={Replay} kind="secondary">
                 Reply
               </Button>
             </div>
@@ -157,7 +157,7 @@ export const UpdateInTheSystem = {
             </div>
           </div>
         )}
-        <Button kind={Button.kinds.SECONDARY} onClick={onClickCallback}>
+        <Button kind="secondary" onClick={onClickCallback}>
           {showReload ? "Load update" : "Reload update"}
         </Button>
       </div>

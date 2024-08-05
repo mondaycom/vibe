@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
+import { Check, CloseSmall, Email, Show, Duplicate } from "../../Icon/Icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Heading from "../../Heading/Heading";
@@ -55,8 +55,8 @@ export const Sizes: Story = {
   render: () => (
     <div className="monday-storybook-text-field_column-wrapper">
       <TextField placeholder="Small" />
-      <TextField placeholder="Medium" size={TextField.sizes.MEDIUM} />
-      <TextField placeholder="Large" size={TextField.sizes.LARGE} />
+      <TextField placeholder="Medium" size="medium" />
+      <TextField placeholder="Large" size="large" />
     </div>
   )
 };
@@ -65,24 +65,25 @@ export const States: Story = {
   render: () => (
     <div className="monday-storybook-text-field_wrapper">
       <div className="monday-storybook-text-field_column-wrapper monday-storybook-text-field_spacing">
-        <TextField placeholder="Disabled" size={TextField.sizes.MEDIUM} disabled />
-        <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
+        <TextField placeholder="Disabled" size="medium" disabled />
+        <TextField placeholder="With icon" iconName={Email} size="medium" />
         <TextField
           placeholder="With clickable icon"
-          iconName={Email}
+          iconTooltipContent="Copy"
+          iconName={Duplicate}
           onIconClick={() => {}}
-          size={TextField.sizes.MEDIUM}
+          size="medium"
         />
       </div>
       <div className="monday-storybook-text-field_column-wrapper">
-        <TextField placeholder="With field label" title="Name" size={TextField.sizes.MEDIUM} />
+        <TextField placeholder="With field label" title="Name" size="medium" />
         <TextField
           placeholder="Success"
           validation={{
             status: "success"
           }}
           iconName={Check}
-          size={TextField.sizes.MEDIUM}
+          size="medium"
         />
         <TextField
           placeholder="Error"
@@ -90,7 +91,7 @@ export const States: Story = {
             status: "error"
           }}
           iconName={CloseSmall}
-          size={TextField.sizes.MEDIUM}
+          size="medium"
         />
       </div>
     </div>
@@ -110,7 +111,7 @@ export const Validation: Story = {
       <TextField
         placeholder="Validate me"
         title="Name"
-        size={TextField.sizes.MEDIUM}
+        size="medium"
         validation={{
           status: "error",
           text: "Validation text"
@@ -123,12 +124,12 @@ export const Validation: Story = {
 export const TextFieldInAForm: Story = {
   render: () => (
     <div className="monday-storybook-text-field_box">
-      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD} maxLines={2}>
+      <Heading type="h1" weight="bold" maxLines={2}>
         Dark Mode Feedback From
       </Heading>
       <div className="monday-storybook-text-field_box_wrapper">
-        <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-        <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+        <TextField title="Your Name" size="medium" placeholder="John Doe" />
+        <TextField title="Email" size="medium" placeholder="email@monday.com" />
       </div>
     </div>
   ),
@@ -138,12 +139,7 @@ export const TextFieldInAForm: Story = {
 export const InputFieldWithPlaceholderText: Story = {
   render: () => (
     <div className="monday-storybook-text-field_size">
-      <TextField
-        title="Invite with email"
-        labelIconName={Email}
-        placeholder="Enter one or more email"
-        size={TextField.sizes.MEDIUM}
-      />
+      <TextField title="Invite with email" labelIconName={Email} placeholder="Enter one or more email" size="medium" />
     </div>
   ),
   parameters: {
@@ -159,7 +155,7 @@ export const InputFieldWithPlaceholderText: Story = {
 export const RequiredInputField: Story = {
   render: () => (
     <div className="monday-storybook-text-field_column-wrapper">
-      <TextField placeholder="Your email" title="Email Address" size={TextField.sizes.MEDIUM} required />
+      <TextField placeholder="Your email" title="Email Address" size="medium" required />
     </div>
   ),
   name: "Required input field"
@@ -168,7 +164,7 @@ export const RequiredInputField: Story = {
 export const InputFieldWithDate: Story = {
   render: () => (
     <div className="monday-storybook-text-field_size">
-      <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE} />
+      <TextField size="medium" type="date" />
     </div>
   ),
   name: "Input field with date"
@@ -177,7 +173,7 @@ export const InputFieldWithDate: Story = {
 export const InputFieldWithDateAndTime: Story = {
   render: () => (
     <div className="monday-storybook-text-field_size">
-      <TextField size={TextField.sizes.MEDIUM} type={TextField.types.DATE_TIME} />
+      <TextField size="medium" type="datetime-local" />
     </div>
   ),
   name: "Input field with date and time"

@@ -35,13 +35,13 @@ export const States = {
     <div className="monday-storybook-breadcrumb-item_column-wrapper">
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Link</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+        <BreadcrumbsBar type="navigation">
           <BreadcrumbItem text="Workspace" icon={Workspace} link="https://www.google.com" />
         </BreadcrumbsBar>
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Function</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+        <BreadcrumbsBar type="navigation">
           <BreadcrumbItem
             text="Workspace"
             icon={Workspace}
@@ -53,13 +53,13 @@ export const States = {
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Disabled</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+        <BreadcrumbsBar type="indication">
           <BreadcrumbItem text="Workspace" icon={Workspace} disabled />
         </BreadcrumbsBar>
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Current</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+        <BreadcrumbsBar type="indication">
           <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
         </BreadcrumbsBar>
       </div>
@@ -74,13 +74,13 @@ export const WithIcon = {
     <div className="monday-storybook-breadcrumb-item_column-wrapper">
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>With Icon</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+        <BreadcrumbsBar type="indication">
           <BreadcrumbItem text="Workspace" icon={Workspace} />
         </BreadcrumbsBar>
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Without Icon</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+        <BreadcrumbsBar type="indication">
           <BreadcrumbItem text="Workspace" />
         </BreadcrumbsBar>
       </div>

@@ -6,7 +6,12 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { BadgeAlignments, BadgeAnchor, BadgeType } from "./BadgeConstants";
+import {
+  BadgeAlignments as BadgeAlignmentsEnum,
+  BadgeAnchor as BadgeAnchorEnum,
+  BadgeType as BadgeTypeEnum
+} from "./BadgeConstants";
+import { BadgeAlignments, BadgeAnchor, BadgeType } from "./Badge.types";
 import Indicator, { IndicatorProps } from "./Indicator/Indicator";
 import Counter, { CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -21,31 +26,31 @@ export interface BadgeBaseProps extends VibeComponentProps {
 }
 
 interface CounterBadgeProps extends CounterProps {
-  type: BadgeType.COUNTER;
+  type: Extract<BadgeType, "counter">;
 }
 
 interface IndicatorBadgeProps extends IndicatorProps {
-  type?: BadgeType.INDICATOR;
+  type?: Extract<BadgeType, "indicator">;
 }
 
 export type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
 
 const Badge: VibeComponent<BadgeProps> & {
-  types?: typeof BadgeType;
-  alignments?: typeof BadgeAlignments;
-  anchors?: typeof BadgeAnchor;
+  types?: typeof BadgeTypeEnum;
+  alignments?: typeof BadgeAlignmentsEnum;
+  anchors?: typeof BadgeAnchorEnum;
 } = forwardRef(
   (
     {
-      type = Badge.types.INDICATOR,
-      anchor = Badge.anchors.TOP_END,
-      alignment = Badge.alignments.RECTANGULAR,
+      type = "indicator",
+      anchor = "top-end",
+      alignment = "rectangular",
       className,
       id,
       "data-testid": dataTestId,
       children,
       ...badgeProps
-    },
+    }: BadgeProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -56,19 +61,16 @@ const Badge: VibeComponent<BadgeProps> & {
       getStyle(styles, alignment)
     );
 
-    const color =
-      badgeProps.color || type === BadgeType.INDICATOR ? Indicator.colors.NOTIFICATION : Counter.colors.NEGATIVE;
+    const color = badgeProps.color || type === "indicator" ? "notification" : "negative";
 
     return (
       <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id}>
         {children}
         <div className={badgeClassNames} data-testid={dataTestId || getTestId(ComponentDefaultTestId.BADGE, id)}>
-          {type === BadgeType.INDICATOR ? (
+          {type === "indicator" ? (
             <Indicator color={color as IndicatorColor} {...(badgeProps as IndicatorBadgeProps)} />
           ) : (
-            type === BadgeType.COUNTER && (
-              <Counter color={color as CounterColor} {...(badgeProps as CounterBadgeProps)} />
-            )
+            type === "counter" && <Counter color={color as CounterColor} {...(badgeProps as CounterBadgeProps)} />
           )}
         </div>
       </div>
@@ -76,8 +78,8 @@ const Badge: VibeComponent<BadgeProps> & {
   }
 );
 
-Badge.types = BadgeType;
-Badge.alignments = BadgeAlignments;
-Badge.anchors = BadgeAnchor;
+Badge.types = BadgeTypeEnum;
+Badge.alignments = BadgeAlignmentsEnum;
+Badge.anchors = BadgeAnchorEnum;
 
 export default Badge;

@@ -34,6 +34,7 @@ const Search = forwardRef(
       onChange,
       onFocus,
       onBlur,
+      onClear,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -58,6 +59,7 @@ const Search = forwardRef(
 
       inputRef.current?.focus?.();
       clearValue();
+      onClear?.();
     }, [disabled, clearValue]);
 
     const SearchIcon = (
@@ -65,7 +67,7 @@ const Search = forwardRef(
         icon={searchIconName}
         className={styles.icon}
         clickable={false}
-        iconType={Icon.type.ICON_FONT}
+        iconType="font"
         iconSize={size === "small" ? "16px" : "20px"}
       />
     );
@@ -76,7 +78,7 @@ const Search = forwardRef(
         icon={clearIconName}
         ariaLabel={clearIconLabel}
         onClick={onClearButtonClick}
-        size={size === "small" ? IconButton.sizes.XS : IconButton.sizes.SMALL}
+        size={size === "small" ? "xs" : "small"}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
       />
     );
@@ -85,8 +87,8 @@ const Search = forwardRef(
       <>
         {loading && (
           <Loader
-            size={size === "small" ? Loader.sizes.XS : 20}
-            color={Loader.colors.SECONDARY}
+            size={size === "small" ? "xs" : 20}
+            color="secondary"
             wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}

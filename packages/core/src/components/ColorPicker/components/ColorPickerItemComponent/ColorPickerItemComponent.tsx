@@ -2,16 +2,16 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
-import { ColorStyle, contentColors } from "../../../../utils/colors-vars-map";
+import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { ColorShapes, ColorPickerValueOnly } from "../../ColorPickerConstants";
+import { ColorPickerValueOnly } from "../../ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
-import { BaseSizes } from "../../../../constants";
+import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, ColorStyle } from "../../../../types";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
@@ -22,7 +22,7 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
   ColorIndicatorIcon: SubIcon;
   SelectedIndicatorIcon: SubIcon;
   isSelected: boolean;
-  colorSize: BaseSizes;
+  colorSize: ColorPickerSizes;
   tooltipContent: ElementContent;
   isActive: boolean;
   colorShape: ColorShapes;
@@ -34,7 +34,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     {
       color,
       onColorClicked,
-      colorStyle = ColorStyle.REGULAR,
+      colorStyle = "regular",
       shouldRenderIndicatorWithoutBackground,
       ColorIndicatorIcon,
       SelectedIndicatorIcon = ColorIndicatorIcon,
@@ -57,10 +57,10 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       if (!itemRef?.current || shouldRenderIndicatorWithoutBackground || !isMondayColor) return;
       const item = itemRef.current;
       const setHoverColor = (e: MouseEvent) => {
-        if (colorStyle === ColorStyle.SELECTED) {
-          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.REGULAR);
+        if (colorStyle === "selected") {
+          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, "regular");
         } else {
-          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.HOVER);
+          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, "hover");
         }
       };
       const restoreToOriginalColor = (e: MouseEvent) => {
@@ -83,7 +83,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
           className={cx(styles.itemWrapper, {
             [styles.selectedColor]: isSelected,
             [styles.active]: isActive,
-            [styles.circle]: colorShape === ColorShapes.CIRCLE
+            [styles.circle]: colorShape === "circle"
           })}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
         >

@@ -22,6 +22,9 @@ export const getActualSize = (size: TextFieldSize): keyof typeof SIZE_MAPPER => 
   return size as keyof typeof SIZE_MAPPER;
 };
 
+/**
+ * @deprecated
+ */
 export enum TextFieldTextType {
   TEXT = "text",
   PASSWORD = "password",
@@ -34,6 +37,9 @@ export enum TextFieldTextType {
   EMAIL = "email"
 }
 
+/**
+ * @deprecated
+ */
 export enum TextFieldFeedbackState {
   ERROR = "error",
   SUCCESS = "success"

@@ -19,7 +19,8 @@ const getAddons = () => {
       options: storybookAddonStylingWebpackOptions
     },
     "storybook-addon-playground",
-    "@chromatic-com/storybook"
+    "@chromatic-com/storybook",
+    "@storybook/addon-storysource"
   ];
 
   if (process.env.NODE_ENV !== "production") {

@@ -1,6 +1,7 @@
 import React from "react";
 import Icon, { IconSubComponentProps } from "../Icon/Icon";
-import { defaultIconMap, ToastType } from "./ToastConstants";
+import { defaultIconMap } from "./ToastConstants";
+import { ToastType } from "./Toast.types";
 
 export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponentProps> | null) => {
   /* icon may be node a may be a string */
@@ -9,7 +10,7 @@ export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponen
   }
   return icon || defaultIconMap[type] ? (
     <Icon
-      iconType={icon ? Icon.type.ICON_FONT : Icon.type.SVG}
+      iconType={icon ? "font" : "svg"}
       clickable={false}
       icon={icon || defaultIconMap[type]}
       iconSize={20}

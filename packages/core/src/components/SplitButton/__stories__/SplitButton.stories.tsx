@@ -74,7 +74,7 @@ export const Types = {
       />
       <SplitButton
         children="Secondary"
-        kind={SplitButton.kinds.SECONDARY}
+        kind="secondary"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -84,7 +84,7 @@ export const Types = {
       />
       <SplitButton
         children="Tertiary"
-        kind={SplitButton.kinds.TERTIARY}
+        kind="tertiary"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -109,7 +109,7 @@ export const Sizes = {
     <>
       <SplitButton
         children="Small"
-        size={SplitButton.sizes.SMALL}
+        size="small"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -119,7 +119,7 @@ export const Sizes = {
       />
       <SplitButton
         children="Medium"
-        size={SplitButton.sizes.MEDIUM}
+        size="medium"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -129,7 +129,7 @@ export const Sizes = {
       />
       <SplitButton
         children="Large"
-        size={SplitButton.sizes.LARGE}
+        size="large"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -211,7 +211,7 @@ export const SecondarySplitButton = {
     <>
       <SplitButton
         children="Export to CSV"
-        kind={SplitButton.kinds.SECONDARY}
+        kind="secondary"
         secondaryDialogPosition="bottom-start"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
@@ -232,11 +232,11 @@ export const CustomMenu = {
   render: () => (
     <SplitButton
       secondaryDialogContent={
-        <Menu focusItemIndexOnMount={2} id="menu" size={Menu.sizes.MEDIUM}>
+        <Menu focusItemIndexOnMount={2} id="menu" size="medium">
           <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} iconType="svg" title="And the stars" />
         </Menu>
       }
     >

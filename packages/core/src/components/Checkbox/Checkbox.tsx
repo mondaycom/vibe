@@ -138,7 +138,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
         >
           <Icon
             className={styles.icon}
-            iconType={Icon.type.SVG}
+            iconType="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
             clickable={false}
@@ -149,7 +149,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
         {label === false ? null : (
           <Text
             element="span"
-            type={Text.types.TEXT2}
+            type="text2"
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
           >

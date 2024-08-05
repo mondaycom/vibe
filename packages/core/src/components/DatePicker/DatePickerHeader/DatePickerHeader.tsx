@@ -12,6 +12,7 @@ export interface DatePickerHeaderProps {
   onToggleMonthYearPicker: () => void;
   hideNavigationKeys: boolean;
   "data-testid"?: string;
+  ariaLabel?: string;
 }
 
 const DatePickerHeader = (props: DatePickerHeaderProps) => {
@@ -20,7 +21,8 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
     isMonthYearSelection,
     onToggleMonthYearPicker,
     hideNavigationKeys,
-    "data-testid": dateTestId
+    "data-testid": dateTestId,
+    ariaLabel = "Toggle select year"
   } = props;
 
   const localedDated = moment(currentDate.valueOf());
@@ -35,11 +37,12 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
           data-testid={`${dateTestId}-year-toggle`}
           type="button"
           className={styles.button}
+          aria-label={ariaLabel}
           onClick={onToggleMonthYearPicker}
         >
           <div className={styles.buttonContent}>
             <Icon
-              iconType={Icon?.type?.SVG}
+              iconType="svg"
               icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown}
               iconSize={24}
               clickable={false}

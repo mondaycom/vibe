@@ -11,9 +11,11 @@ export const CardShadowExample = () => {
     <Frame>
       <div className={classes[CSS_BASE_CLASS]}>
         <img src={peopleColumn} alt="" />
-        <Heading value="People Column" className={classes[`${CSS_BASE_CLASS}-title`]} type={Heading.types.h4} />
+        <Heading className={classes[`${CSS_BASE_CLASS}-title`]} type="h3">
+          People Column
+        </Heading>
         <span className={`${CSS_BASE_CLASS}-description`}>Get an instant overview of where things stand</span>
-        <Button kind={Button.kinds.SECONDARY} className={classes[`${CSS_BASE_CLASS}-button`]}>
+        <Button kind="secondary" className={classes[`${CSS_BASE_CLASS}-button`]}>
           Add to board
         </Button>
       </div>

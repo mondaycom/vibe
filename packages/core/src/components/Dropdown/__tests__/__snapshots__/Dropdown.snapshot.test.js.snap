@@ -7,18 +7,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     id="dropdown-menu-id"
   >
     <span
-      aria-atomic="false"
       aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
+      class="css-1laao21-a11yText"
     >
       <span
-        id="aria-selection"
-      />
+        id="aria-selection-event"
+      >
+         
+      </span>
       <span
         id="aria-context"
       >
-        option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -45,7 +45,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-32-input"
+                id="react-select-30-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -99,7 +99,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-1iwu591-option"
-          id="react-select-32-option-0"
+          id="react-select-30-option-0"
           role="option"
           tabindex="-1"
         >
@@ -107,13 +107,19 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Ocean
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Ocean
+            </div>
           </div>
         </div>
         <div
           aria-selected="false"
           class="optionReset css-qj04r2-option"
-          id="react-select-32-option-1"
+          id="react-select-30-option-1"
           role="option"
           tabindex="-1"
         >
@@ -121,13 +127,19 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Blue
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Blue
+            </div>
           </div>
         </div>
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-2"
+          id="react-select-30-option-2"
           role="option"
           tabindex="-1"
         >
@@ -135,13 +147,19 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Purple
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Purple
+            </div>
           </div>
         </div>
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-3"
+          id="react-select-30-option-3"
           role="option"
           tabindex="-1"
         >
@@ -149,13 +167,19 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Red
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Red
+            </div>
           </div>
         </div>
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-4"
+          id="react-select-30-option-4"
           role="option"
           tabindex="-1"
         >
@@ -163,13 +187,19 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Orange
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Orange
+            </div>
           </div>
         </div>
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-5"
+          id="react-select-30-option-5"
           role="option"
           tabindex="-1"
         >
@@ -177,7 +207,13 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="valueContainer"
             data-testid="dropdown-option-content"
           >
-            Yellow
+            <div
+              class="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+              style="--text-clamp-lines: 1;"
+            >
+              Yellow
+            </div>
           </div>
         </div>
       </div>
@@ -193,18 +229,18 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     id="dropdown-menu-id"
   >
     <span
-      aria-atomic="false"
       aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
+      class="css-1laao21-a11yText"
     >
       <span
-        id="aria-selection"
-      />
+        id="aria-selection-event"
+      >
+         
+      </span>
       <span
         id="aria-context"
       >
-            Selected:  is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div>
@@ -231,7 +267,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-31-input"
+                id="react-select-29-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -286,12 +322,6 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
     class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
     <div>
       <div
         class=" css-118upmw-control"
@@ -368,185 +398,9 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
-    id="dropdown-menu-id"
-  >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
-    <div>
-      <div
-        class=" css-118upmw-control"
-      >
-        <div
-          class=" css-18qqyiw-Component"
-        >
-          <div
-            class=" css-1usuuna-placeholder"
-          />
-          <div
-            class="css-lkl2xd-Component"
-          >
-            <div
-              class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-25-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class=" css-col3eb-Component"
-        >
-          <span
-            class=" css-ds71as-Component"
-          />
-          <div
-            aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
-          >
-            <svg
-              aria-hidden="false"
-              class="icon clickable"
-              data-testid="icon"
-              fill="currentColor"
-              height="16px"
-              role="button"
-              tabindex="-1"
-              viewBox="0 0 20 20"
-              width="16px"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
-<DocumentFragment>
-  <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
-    id="dropdown-menu-id"
-  >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
-    <div>
-      <div
-        class=" css-118upmw-control"
-      >
-        <div
-          class=" css-18qqyiw-Component"
-        >
-          <div
-            class=" css-1usuuna-placeholder"
-          />
-          <div
-            class="css-lkl2xd-Component"
-          >
-            <div
-              class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-26-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class=" css-col3eb-Component"
-        >
-          <span
-            class=" css-ds71as-Component"
-          />
-          <div
-            aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
-          >
-            <svg
-              aria-hidden="false"
-              class="icon clickable"
-              data-testid="icon"
-              fill="currentColor"
-              height="16px"
-              role="button"
-              tabindex="-1"
-              viewBox="0 0 20 20"
-              width="16px"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
-<DocumentFragment>
-  <div
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
     <div>
       <div
         class=" css-13ywfe7-control"
@@ -571,7 +425,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-27-input"
+                id="react-select-25-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -620,18 +474,12 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 </DocumentFragment>
 `;
 
-exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
+exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
     class="dropdown dropdown-story css-cmnsoe-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
     <div>
       <div
         class=" css-1qrvste-control"
@@ -656,7 +504,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-28-input"
+                id="react-select-26-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -711,12 +559,6 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-atomic="false"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
-    />
     <div>
       <div
         class=" css-13ywfe7-control"
@@ -797,18 +639,18 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
     id="dropdown-menu-id"
   >
     <span
-      aria-atomic="false"
       aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
+      class="css-1laao21-a11yText"
     >
       <span
-        id="aria-selection"
-      />
+        id="aria-selection-event"
+      >
+         
+      </span>
       <span
         id="aria-context"
       >
-            Selected:  is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div>
@@ -835,7 +677,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-30-input"
+                id="react-select-28-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -856,13 +698,13 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class=" css-1xh8qep-loadingIndicator"
           >
             <span
-              class="css-1yvy2vo-LoadingDot"
+              class="css-imwzes-Component"
             />
             <span
-              class="css-zoievk-LoadingDot"
+              class="css-1ue98e-Component"
             />
             <span
-              class="css-x748d8-LoadingDot"
+              class="css-fwsb3e-Component"
             />
           </div>
           <span
@@ -905,18 +747,18 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     id="dropdown-menu-id"
   >
     <span
-      aria-atomic="false"
       aria-live="polite"
-      aria-relevant="additions text"
-      class="css-1f43avz-a11yText-A11yText"
+      class="css-1laao21-a11yText"
     >
       <span
-        id="aria-selection"
-      />
+        id="aria-selection-event"
+      >
+         
+      </span>
       <span
         id="aria-context"
       >
-        option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+          option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
     <div>
@@ -943,7 +785,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-29-input"
+                id="react-select-27-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -993,7 +835,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     >
       <div
         class=""
-        style="position: relative; height: 300px; width: 100%; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
+        style="position: relative; height: 300px; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
       >
         <div
           style="height: 350008px; width: 100%;"
@@ -1005,7 +847,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-1iwu591-option"
-                id="react-select-29-option-0"
+                id="react-select-27-option-0"
                 role="option"
                 tabindex="-1"
               >
@@ -1013,7 +855,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  1
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    1
+                  </div>
                 </div>
               </div>
             </div>
@@ -1025,7 +873,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-1"
+                id="react-select-27-option-1"
                 role="option"
                 tabindex="-1"
               >
@@ -1033,7 +881,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  2
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    2
+                  </div>
                 </div>
               </div>
             </div>
@@ -1045,7 +899,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-2"
+                id="react-select-27-option-2"
                 role="option"
                 tabindex="-1"
               >
@@ -1053,7 +907,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  3
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    3
+                  </div>
                 </div>
               </div>
             </div>
@@ -1065,7 +925,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-3"
+                id="react-select-27-option-3"
                 role="option"
                 tabindex="-1"
               >
@@ -1073,7 +933,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  4
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    4
+                  </div>
                 </div>
               </div>
             </div>
@@ -1085,7 +951,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-4"
+                id="react-select-27-option-4"
                 role="option"
                 tabindex="-1"
               >
@@ -1093,7 +959,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  5
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    5
+                  </div>
                 </div>
               </div>
             </div>
@@ -1105,7 +977,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-5"
+                id="react-select-27-option-5"
                 role="option"
                 tabindex="-1"
               >
@@ -1113,7 +985,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  6
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    6
+                  </div>
                 </div>
               </div>
             </div>
@@ -1125,7 +1003,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-6"
+                id="react-select-27-option-6"
                 role="option"
                 tabindex="-1"
               >
@@ -1133,7 +1011,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  7
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    7
+                  </div>
                 </div>
               </div>
             </div>
@@ -1145,7 +1029,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-7"
+                id="react-select-27-option-7"
                 role="option"
                 tabindex="-1"
               >
@@ -1153,7 +1037,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  8
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    8
+                  </div>
                 </div>
               </div>
             </div>
@@ -1165,7 +1055,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-8"
+                id="react-select-27-option-8"
                 role="option"
                 tabindex="-1"
               >
@@ -1173,7 +1063,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  9
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    9
+                  </div>
                 </div>
               </div>
             </div>
@@ -1185,7 +1081,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-9"
+                id="react-select-27-option-9"
                 role="option"
                 tabindex="-1"
               >
@@ -1193,7 +1089,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  10
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    10
+                  </div>
                 </div>
               </div>
             </div>
@@ -1205,7 +1107,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-10"
+                id="react-select-27-option-10"
                 role="option"
                 tabindex="-1"
               >
@@ -1213,7 +1115,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   class="valueContainer"
                   data-testid="dropdown-option-content"
                 >
-                  11
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    11
+                  </div>
                 </div>
               </div>
             </div>
@@ -1231,12 +1139,6 @@ exports[`Dropdown renders correctly when disabled 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-1i7lmxf-control"
@@ -1252,7 +1154,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
           
         </div>
         <div
-          className="css-oab24c-Component"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -1354,12 +1256,6 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-xe3jfm-control"
@@ -1377,7 +1273,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         <input
           aria-autocomplete="list"
           aria-label="Readonly   Selected: "
-          className="css-wmatm6-dummyInput-DummyInput"
+          className="css-62g3xt-dummyInput"
           disabled={false}
           id="react-select-6-input"
           onBlur={[Function]}
@@ -1432,12 +1328,6 @@ exports[`Dropdown renders correctly when rtl 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -1556,12 +1446,6 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -1680,12 +1564,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -2019,12 +1897,6 @@ exports[`Dropdown renders correctly with className 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2143,12 +2015,6 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2166,7 +2032,12 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
-            Ocean
+            <div
+              className="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+            >
+              Ocean
+            </div>
           </div>
         </div>
         <div
@@ -2299,12 +2170,6 @@ exports[`Dropdown renders correctly with empty props 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2423,12 +2288,6 @@ exports[`Dropdown renders correctly with id 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -2547,12 +2406,6 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -2789,12 +2642,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-1jhcivv-control"
@@ -3025,12 +2872,6 @@ exports[`Dropdown renders correctly with multi 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3167,12 +3008,6 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-1i7lmxf-control"
@@ -3233,7 +3068,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 </div>
               </div>
               <div
-                className="css-oab24c-Component"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -3339,12 +3174,6 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-xe3jfm-control"
@@ -3407,7 +3236,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               <input
                 aria-autocomplete="list"
                 aria-label="Readonly   Selected: Ocean, Blue"
-                className="css-wmatm6-dummyInput-DummyInput"
+                className="css-62g3xt-dummyInput"
                 disabled={false}
                 id="react-select-14-input"
                 onBlur={[Function]}
@@ -3466,12 +3295,6 @@ exports[`Dropdown renders correctly with multiline 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3590,12 +3413,6 @@ exports[`Dropdown renders correctly with options 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3714,12 +3531,6 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3838,12 +3649,6 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -3962,12 +3767,6 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div
     className=""
     onBlur={[Function]}
@@ -4096,12 +3895,6 @@ exports[`Dropdown renders correctly with value 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"
@@ -4119,7 +3912,12 @@ exports[`Dropdown renders correctly with value 1`] = `
             data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
-            Ocean
+            <div
+              className="typography inherit start singleLineEllipsis text text2Normal"
+              data-testid="text"
+            >
+              Ocean
+            </div>
           </div>
         </div>
         <div
@@ -4252,12 +4050,6 @@ exports[`Dropdown renders correctly without clear button 1`] = `
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <span
-    aria-atomic="false"
-    aria-live="polite"
-    aria-relevant="additions text"
-    className="css-1f43avz-a11yText-A11yText"
-  />
   <div>
     <div
       className=" css-13ywfe7-control"

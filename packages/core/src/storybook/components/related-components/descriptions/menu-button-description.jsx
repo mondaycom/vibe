@@ -12,9 +12,9 @@ export const MenuButtonDescription = () => {
     () => (
       <MenuButton>
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     ),

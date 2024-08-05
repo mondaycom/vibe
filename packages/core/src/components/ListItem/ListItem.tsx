@@ -10,14 +10,15 @@ import { withStaticProps, VibeComponentProps, VibeComponent, ElementContent } fr
 import { useKeyEvent } from "../../hooks";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
-import { ListItemComponentType } from "./ListItemConstants";
+import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
+import { ListItemElement, ListItemSize } from "./ListItem.types";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
   /**
-   * the ListItem component [li, div, a]
+   * the ListItem element [li, div, a]
    */
-  component?: ListItemComponentType;
+  component?: ListItemElement;
   /**
    * The textual content of the list item
    */
@@ -57,7 +58,7 @@ export interface ListItemProps extends VibeComponentProps {
   /**
    * The size of the list item
    */
-  size?: (typeof SIZES)[keyof typeof SIZES];
+  size?: ListItemSize;
   /**
    Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
    */
@@ -65,13 +66,13 @@ export interface ListItemProps extends VibeComponentProps {
   "aria-current"?: AriaAttributes["aria-current"];
 }
 
-const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; components?: typeof ListItemComponentType } =
+const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; components?: typeof ListItemComponentTypeEnum } =
   forwardRef(
     (
       {
         className,
         id,
-        component = ListItem.components.DIV,
+        component = "div",
         onClick = NOOP,
         onHover = NOOP,
         selected,
@@ -81,7 +82,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         children,
         "aria-current": ariaCurrent,
         "data-testid": dataTestId
-      },
+      }: ListItemProps,
       ref
     ) => {
       const { updateFocusedItem } = useContext(ListContext);
@@ -126,7 +127,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
             [styles.disabled]: disabled
           })}
           id={id}
-          type={Text.types.TEXT2}
+          type="text2"
           aria-disabled={disabled}
           aria-selected={selected}
           onClick={componentOnClick}
@@ -149,5 +150,5 @@ Object.assign(ListItem, {
 
 export default withStaticProps(ListItem, {
   sizes: SIZES,
-  components: ListItemComponentType
+  components: ListItemComponentTypeEnum
 });

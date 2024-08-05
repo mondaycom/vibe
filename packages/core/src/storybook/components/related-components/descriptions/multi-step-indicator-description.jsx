@@ -9,24 +9,24 @@ export const MultiStepIndicatorDescription = () => {
     };
     const steps = [
       {
-        status: MultiStepIndicator.stepStatuses.ACTIVE,
+        status: "active",
         titleText: "1st",
         subtitleText: ""
       },
       {
-        status: MultiStepIndicator.stepStatuses.PENDING,
+        status: "pending",
         titleText: "2nd",
         subtitleText: ""
       },
       {
-        status: MultiStepIndicator.stepStatuses.PENDING,
+        status: "pending",
         titleText: "3rd",
         subtitleText: ""
       }
     ];
     return (
       <div style={style}>
-        <MultiStepIndicator textPlacement={MultiStepIndicator.textPlacements.VERTICAL} steps={steps} />
+        <MultiStepIndicator textPlacement="vertical" steps={steps} />
       </div>
     );
   }, []);

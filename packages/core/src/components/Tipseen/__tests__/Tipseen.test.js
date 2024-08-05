@@ -76,7 +76,7 @@ describe("Snapshot tests", () => {
     });
     it("renders correctly with dark close button theme", async () => {
       const { asFragment } = render(
-        <Tipseen showDelay={0} closeButtonTheme={Tipseen.closeButtonThemes.DARK}>
+        <Tipseen showDelay={0} closeButtonTheme="dark">
           {tipseenMockChildren}
         </Tipseen>
       );

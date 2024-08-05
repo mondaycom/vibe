@@ -34,7 +34,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -43,7 +43,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -91,7 +91,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -100,7 +100,7 @@ exports[`Toast renders correctly when open is true 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -184,7 +184,7 @@ exports[`Toast renders correctly with button 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -193,7 +193,7 @@ exports[`Toast renders correctly with button 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -291,7 +291,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -300,7 +300,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -416,7 +416,7 @@ exports[`Toast renders correctly with link 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -425,7 +425,7 @@ exports[`Toast renders correctly with link 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -527,7 +527,7 @@ exports[`Toast renders correctly with loading 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -536,7 +536,7 @@ exports[`Toast renders correctly with loading 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >
@@ -647,7 +647,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "24px",
+        "gap": "var(--spacing-large)",
       }
     }
   >
@@ -656,7 +656,7 @@ exports[`Toast renders correctly with negative type 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "16px",
+          "gap": "var(--spacing-medium)",
         }
       }
     >

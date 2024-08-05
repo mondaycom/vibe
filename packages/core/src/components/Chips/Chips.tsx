@@ -228,7 +228,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={leftIcon}
             iconSize={iconSize}
@@ -236,13 +236,13 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type={Text.types.TEXT2} className={styles.label}>
+        <Text type="text2" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={rightIcon}
             iconSize={iconSize}
@@ -262,8 +262,8 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
         {hasCloseButton && (
           <IconButton
-            size={IconButton.sizes.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
+            size="xxs"
+            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip

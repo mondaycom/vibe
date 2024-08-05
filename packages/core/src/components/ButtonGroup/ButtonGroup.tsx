@@ -7,14 +7,15 @@ import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { BASE_SIZES, SIZES } from "../../constants";
-import { ButtonType, Size } from "../Button/ButtonConstants";
+import { SIZES } from "../../constants";
+import { ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
+import { ButtonType, ButtonSize } from "../Button/Button.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -31,15 +32,15 @@ export interface ButtonGroupProps extends VibeComponentProps {
   options: Array<ButtonGroupOption>;
   value?: ButtonValue;
   onSelect?: (value: ButtonValue, name: string) => void;
-  size?: Size;
-  kind?: ButtonType.SECONDARY | ButtonType.TERTIARY;
+  size?: ButtonSize;
+  kind?: Extract<ButtonType, "secondary" | "tertiary">;
   name?: string;
   disabled?: boolean;
   groupAriaLabel?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
@@ -50,7 +51,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
 
 const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
   sizes?: typeof SIZES;
-  kinds?: typeof ButtonType;
+  kinds?: typeof ButtonTypeEnum;
 } = forwardRef(
   (
     {
@@ -60,8 +61,8 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       disabled = false,
       value = "",
       onSelect,
-      size = BASE_SIZES.SMALL,
-      kind = ButtonType.SECONDARY,
+      size = "small",
+      kind = "secondary",
       groupAriaLabel = "",
       tooltipPosition,
       tooltipHideDelay,
@@ -71,7 +72,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       id,
       "data-testid": dataTestId,
       fullWidth = false
-    },
+    }: ButtonGroupProps,
     ref
   ) => {
     const inputRef = useRef();
@@ -110,7 +111,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
             active={isSelected}
             rightFlat={index !== options.length - 1}
             leftFlat={index !== 0}
-            kind={Button.kinds.TERTIARY}
+            kind="tertiary"
             preventClickAnimation
             ariaLabel={option.ariaLabel}
             tooltipContent={option.tooltipContent}

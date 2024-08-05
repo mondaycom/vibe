@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Icon from "../../Icon/Icon";
 import AttentionBox from "../AttentionBox";
 
 describe("AttentionBox renders correctly", () => {
@@ -35,9 +34,7 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders with icon font type", () => {
-    const tree = renderer
-      .create(<AttentionBox title="Title" text="Text" iconType={Icon.type.ICON_FONT} icon="fa fa-star" />)
-      .toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" iconType="font" icon="fa fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -7,20 +7,18 @@ const stepsContent = [<div key="first">first</div>, <div key="second">second</di
 describe("Steps", () => {
   describe("with numeric type renders correctly", () => {
     it("with regular props", () => {
-      const tree = renderer.create(<Steps type={Steps.types.NUMBERS} steps={stepsContent} />).toJSON();
+      const tree = renderer.create(<Steps type="numbers" steps={stepsContent} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("when viewing first step", () => {
-      const tree = renderer
-        .create(<Steps type={Steps.types.NUMBERS} steps={stepsContent} activeStepIndex={0} />)
-        .toJSON();
+      const tree = renderer.create(<Steps type="numbers" steps={stepsContent} activeStepIndex={0} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("when viewing last step", () => {
       const tree = renderer
-        .create(<Steps type={Steps.types.NUMBERS} steps={stepsContent} activeStepIndex={stepsContent.length - 1} />)
+        .create(<Steps type="numbers" steps={stepsContent} activeStepIndex={stepsContent.length - 1} />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -28,12 +26,7 @@ describe("Steps", () => {
     it("when hide navigations icons", () => {
       const tree = renderer
         .create(
-          <Steps
-            type={Steps.types.NUMBERS}
-            steps={stepsContent}
-            activeStepIndex={stepsContent.length - 1}
-            areButtonsIconsHidden
-          />
+          <Steps type="numbers" steps={stepsContent} activeStepIndex={stepsContent.length - 1} areButtonsIconsHidden />
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -41,14 +34,7 @@ describe("Steps", () => {
 
     it("when steps content is on top", () => {
       const tree = renderer
-        .create(
-          <Steps
-            type={Steps.types.NUMBERS}
-            steps={stepsContent}
-            activeStepIndex={stepsContent.length - 1}
-            isContentOnTop
-          />
-        )
+        .create(<Steps type="numbers" steps={stepsContent} activeStepIndex={stepsContent.length - 1} isContentOnTop />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -56,20 +42,18 @@ describe("Steps", () => {
 
   describe("with gallery type renders correctly", () => {
     it("with regular props", () => {
-      const tree = renderer.create(<Steps type={Steps.types.GALLERY} steps={stepsContent} />).toJSON();
+      const tree = renderer.create(<Steps type="gallery" steps={stepsContent} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("when viewing first step", () => {
-      const tree = renderer
-        .create(<Steps type={Steps.types.GALLERY} steps={stepsContent} activeStepIndex={0} />)
-        .toJSON();
+      const tree = renderer.create(<Steps type="gallery" steps={stepsContent} activeStepIndex={0} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("when viewing last step", () => {
       const tree = renderer.create(
-        <Steps type={Steps.types.GALLERY} steps={stepsContent} activeStepIndex={stepsContent.length - 1} />
+        <Steps type="gallery" steps={stepsContent} activeStepIndex={stepsContent.length - 1} />
       );
       expect(tree).toMatchSnapshot();
     });
@@ -77,12 +61,7 @@ describe("Steps", () => {
     it("when hide navigations icons", () => {
       const tree = renderer
         .create(
-          <Steps
-            type={Steps.types.GALLERY}
-            steps={stepsContent}
-            activeStepIndex={stepsContent.length - 1}
-            areButtonsIconsHidden
-          />
+          <Steps type="gallery" steps={stepsContent} activeStepIndex={stepsContent.length - 1} areButtonsIconsHidden />
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -90,14 +69,7 @@ describe("Steps", () => {
 
     it("when steps content is on top", () => {
       const tree = renderer
-        .create(
-          <Steps
-            type={Steps.types.GALLERY}
-            steps={stepsContent}
-            activeStepIndex={stepsContent.length - 1}
-            isContentOnTop
-          />
-        )
+        .create(<Steps type="gallery" steps={stepsContent} activeStepIndex={stepsContent.length - 1} isContentOnTop />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -106,7 +78,7 @@ describe("Steps", () => {
       const tree = renderer
         .create(
           <Steps
-            type={Steps.types.GALLERY}
+            type="gallery"
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             areNavigationButtonsHidden

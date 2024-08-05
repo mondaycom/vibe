@@ -6,7 +6,7 @@ import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./TextWithHighlight.module.scss";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 const getTextPart = (
   text: string,
@@ -43,7 +43,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   /** HTML tag to wrap the selected text */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
   wrappingElementClassName?: string;
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
@@ -63,7 +63,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       wrappingTextTag = "em",
       wrappingElementClassName,
       "data-testid": dataTestId
-    },
+    }: TextWithHighlightProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -101,7 +101,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       if (componentRef.current) {
         componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp.toString());
       }
-    }, [componentRef, linesToClamp]);
+    }, [componentRef, linesToClamp, isOverflowing]);
 
     const Element = (
       <div

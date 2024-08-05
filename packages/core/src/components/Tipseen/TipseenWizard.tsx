@@ -1,12 +1,11 @@
 import React, { FC, useContext, useMemo } from "react";
 import cx from "classnames";
 import Steps, { StepsProps } from "../Steps/Steps";
-import Button from "../../components/Button/Button";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 import { TipseenContext } from "./Tipseen";
 import { TipseenColor } from "./TipseenConstants";
-import { StepsColor } from "../Steps/StepsConstants";
+import { ButtonSize, ButtonType } from "../Button";
 
 const FINISH_TEXT = "Got it";
 
@@ -23,28 +22,28 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, onFinish, titleClass
   const overrideStepsProps = stepsProps as StepsProps;
   const color = useContext(TipseenContext);
   const buttonColor = useMemo(() => {
-    return color === TipseenColor.INVERTED ? StepsColor.ON_INVERTED_BACKGROUND : StepsColor.ON_PRIMARY_COLOR;
+    return color === TipseenColor.INVERTED ? "on-inverted-background" : "on-primary-color";
   }, [color]);
 
   const nextButtonProps = useMemo(
     () => ({
-      kind: Button.kinds.PRIMARY,
-      size: Button.sizes.SMALL,
+      kind: "primary" as ButtonType,
+      size: "small" as ButtonSize,
       children: ""
     }),
     []
   );
   const backButtonProps = useMemo(
     () => ({
-      size: Button.sizes.SMALL,
+      size: "small" as ButtonSize,
       children: ""
     }),
     []
   );
   const finishButtonProps = useMemo(
     () => ({
-      kind: Button.kinds.PRIMARY,
-      size: Button.sizes.SMALL,
+      kind: "primary" as ButtonType,
+      size: "small" as ButtonSize,
       children: FINISH_TEXT
     }),
     []

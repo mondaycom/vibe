@@ -1,11 +1,17 @@
 import { SIZES } from "../../constants/sizes";
 
+/**
+ * @deprecated
+ */
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
 
+/**
+ * @deprecated
+ */
 export enum ButtonColor {
   PRIMARY = "primary",
   POSITIVE = "positive",
@@ -45,6 +51,9 @@ export const BUTTON_KIND_CLASS_NAMES = {
 
 export const BUTTON_ICON_SIZE = 20;
 
+/**
+ * @deprecated
+ */
 export enum ButtonInputType {
   BUTTON = "button",
   SUBMIT = "submit",

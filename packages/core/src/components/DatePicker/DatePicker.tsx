@@ -2,7 +2,6 @@ import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
 import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
@@ -15,6 +14,8 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
+// Make sure to update when upgrading react-dates
+import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
   /** set the first day of the week to display */
@@ -70,9 +71,19 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
+    const [yearFunc, setYearFunc] = useState(null);
 
     const renderMonth = useCallback(
-      ({ month }: { month: Moment }) => {
+      ({
+        month,
+        onYearSelect
+      }: {
+        month: moment.Moment;
+        onYearSelect: (currentMonth: moment.Moment, newMonthVal: string) => void;
+      }) => {
+        if (!yearFunc && onYearSelect) {
+          setYearFunc(() => onYearSelect);
+        }
         return (
           <DatePickerHeaderComponent
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_HEADER, id)}
@@ -83,7 +94,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         );
       },
-      [dataTestId, isMonthYearSelection, hideNavigationKeys, id]
+      [isMonthYearSelection, dataTestId, id, hideNavigationKeys, yearFunc]
     );
 
     const renderDay = useCallback(
@@ -98,10 +109,15 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       [firstDayOfWeek]
     );
 
-    const changeCurrentDateFromMonthYearView = useCallback((date: Moment | null) => {
-      setOverrideDateForView(date);
-      setIsMonthYearSelection(false);
-    }, []);
+    const changeCurrentDateFromMonthYearView = useCallback(
+      (newDate: Moment | null) => {
+        const oldDate = overrideDateForView || date;
+        setOverrideDateForView(newDate);
+        setIsMonthYearSelection(false);
+        yearFunc(oldDate, moment(newDate).year());
+      },
+      [overrideDateForView, date, yearFunc]
+    );
 
     const renderMonthYearSelection = useCallback(() => {
       return (
@@ -112,7 +128,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
       );
-    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, date, id]);
+    }, [dataTestId, id, overrideDateForView, date, shouldBlockYear, changeCurrentDateFromMonthYearView]);
 
     const onDateRangeChange = useCallback(
       (date: RangeDate) => {
@@ -144,7 +160,6 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       >
         {range ? (
           <DayPickerRangeController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
@@ -166,7 +181,6 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         ) : (
           <DayPickerSingleDateController
-            key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
