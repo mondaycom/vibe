@@ -43,7 +43,6 @@ export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
 export * from "./RadioButton";
-export * from "./ResponsiveList";
 export * from "./Search";
 export * from "./Skeleton";
 export * from "./Slider";
