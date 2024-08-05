@@ -151,7 +151,7 @@ export const BuiltInPageHeaderNotEditable = {
       <Flex align="center" gap="small" aria-labelledby="my-work-id">
         <Search className={styles.pageHeaderSearch} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
-        <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
+        <Button leftIcon={Custom} kind="tertiary">
           Customize
         </Button>
       </Flex>

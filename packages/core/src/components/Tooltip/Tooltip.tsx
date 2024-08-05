@@ -4,9 +4,10 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, DialogPosition, HideShowEvent } from "../../constants";
+import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum } from "../Dialog/DialogConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { TooltipTheme } from "./TooltipConstants";
+import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -15,7 +16,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
-import { TooltipPositionsType } from "./Tooltip.types";
+import { TooltipPositions, TooltipTheme } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -56,7 +57,7 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   showDelay?: number;
   disableDialogSlide?: boolean;
-  animationType?: AnimationType;
+  animationType?: DialogAnimationType;
   withoutDialog?: boolean;
   /**
    * the container selector in which to append the dialog
@@ -86,15 +87,15 @@ interface TooltipBaseProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: TooltipPositionsType;
+  position?: TooltipPositions;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
-  showTrigger?: HideShowEvent | Array<HideShowEvent>;
+  showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
-  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
+  hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
    * If true, prevents open Tooltip from closing on mouseEnter and closes Tooltip, when mouse leaves it
    */
@@ -144,8 +145,10 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static hideShowTriggers = HideShowEvent;
-  static animationTypes = AnimationType;
+  static positions = TooltipPositionsEnum;
+  static hideShowTriggers = HideShowEventEnum;
+  static themes = TooltipThemeEnum;
+  static animationTypes = AnimationTypeEnum;
   static defaultProps = {
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
@@ -153,7 +156,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     hideDelay: 100,
     showDelay: 300,
     disableDialogSlide: true,
-    animationType: AnimationType.EXPAND,
+    animationType: AnimationTypeEnum.EXPAND,
     withoutDialog: false,
     containerSelector: "#tooltips-container",
     tip: true,
@@ -308,17 +311,20 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
-      position: position as DialogPosition,
+      position: position,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
       tooltipClassName: cx(styles.arrow, getStyle(styles, theme), arrowClassName),
-      animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay
     };
-    return <Dialog {...dialogProps}>{children}</Dialog>;
+    return (
+      <Dialog {...dialogProps} animationType="expand">
+        {children}
+      </Dialog>
+    );
   }
 }

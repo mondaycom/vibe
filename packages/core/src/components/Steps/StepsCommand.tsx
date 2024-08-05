@@ -51,7 +51,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       data-testid={
         isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND
       }
-      kind={Button.kinds.TERTIARY}
+      kind="tertiary"
       onClick={onClick}
       disabled={isDisabled}
       // @ts-ignore

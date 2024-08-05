@@ -7,7 +7,13 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, Size } from "./ButtonConstants";
+import {
+  BUTTON_ICON_SIZE,
+  ButtonColor as ButtonColorEnum,
+  ButtonInputType as ButtonInputTypeEnum,
+  ButtonType as ButtonTypeEnum
+} from "./ButtonConstants";
+import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -31,7 +37,7 @@ export interface ButtonProps extends VibeComponentProps {
   /** Name of the button - for form submit usages  */
   name?: string;
   /** The button's size */
-  size?: Size;
+  size?: ButtonSize;
   /** The button's color */
   color?: ButtonColor;
   /** The button's type */
@@ -95,10 +101,10 @@ export interface ButtonProps extends VibeComponentProps {
 
 const Button: VibeComponent<ButtonProps, unknown> & {
   sizes?: typeof SIZES;
-  colors?: typeof ButtonColor;
-  kinds?: typeof ButtonType;
-  types?: typeof ButtonInputType;
-  inputTags?: typeof ButtonInputType;
+  colors?: typeof ButtonColorEnum;
+  kinds?: typeof ButtonTypeEnum;
+  types?: typeof ButtonInputTypeEnum;
+  inputTags?: typeof ButtonInputTypeEnum;
 } = forwardRef<unknown, ButtonProps>(
   (
     {
@@ -152,8 +158,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const { loading } = useButtonLoading({ isLoading });
 
     useEffect(() => {
-      if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
-      if (kind !== ButtonType.PRIMARY) return;
+      if (color !== "on-primary-color" && color !== "fixed-light") return;
+      if (kind !== "primary") return;
       if (!buttonRef.current) return;
 
       const buttonElement = buttonRef.current;
@@ -199,7 +205,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     );
 
     const classNames = useMemo(() => {
-      const calculatedColor = success ? ButtonColor.POSITIVE : color;
+      const calculatedColor = success ? "positive" : color;
       return cx(
         className,
         styles.button,
@@ -388,10 +394,10 @@ Button.defaultProps = {
   name: undefined,
   style: undefined,
   id: undefined,
-  kind: ButtonType.PRIMARY,
+  kind: "primary",
   onClick: NOOP,
-  size: SIZES.MEDIUM,
-  color: ButtonColor.PRIMARY,
+  size: "medium",
+  color: "primary",
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -403,7 +409,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: ButtonInputType.BUTTON,
+  type: "button",
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
@@ -423,8 +429,8 @@ Button.defaultProps = {
 
 export default withStaticProps(Button, {
   sizes: SIZES,
-  colors: ButtonColor,
-  kinds: ButtonType,
-  types: ButtonInputType,
-  inputTags: ButtonInputType
+  colors: ButtonColorEnum,
+  kinds: ButtonTypeEnum,
+  types: ButtonInputTypeEnum,
+  inputTags: ButtonInputTypeEnum
 });

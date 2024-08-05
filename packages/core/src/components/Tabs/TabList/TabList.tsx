@@ -16,7 +16,6 @@ export interface TabListProps extends VibeComponentProps {
   activeTabId?: number;
   tabType?: string;
   size?: string;
-  noPadding?: boolean;
   children?: ReactElement<TabProps>[];
 }
 
@@ -29,7 +28,6 @@ const TabList: FC<TabListProps> = forwardRef(
       activeTabId = 0,
       tabType = "Compact",
       size,
-      noPadding,
       children,
       "data-testid": dataTestId
     },
@@ -107,9 +105,7 @@ const TabList: FC<TabListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, { [styles.noPadding]: noPadding }, className, [
-          getStyle(styles, camelCase(tabType))
-        ])}
+        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >

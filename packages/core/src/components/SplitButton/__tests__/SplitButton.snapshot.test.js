@@ -33,9 +33,7 @@ describe("SplitButton renders correctly", () => {
   });
 
   it("with tertiary button", () => {
-    const tree = renderer
-      .create(<SplitButton secondaryDialogContent={secondaryContent} kind={SplitButton.kinds.TERTIARY} />)
-      .toJSON();
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} kind="tertiary" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

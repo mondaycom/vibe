@@ -3,7 +3,6 @@ import Button from "../../Button/Button";
 import Modal from "../Modal";
 import { Dialog, DialogContentContainer, Heading } from "../../../components";
 import Flex from "../../Flex/Flex";
-import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
 import styles from "./Modal.stories.module.scss";
 import cx from "classnames";
@@ -41,7 +40,7 @@ export const ModalExampleWrapper = ({
   const closeModal = useCallback(() => {
     setShow(false);
   }, []);
-  const openModalColor = bestPractice ? Button.colors.POSITIVE : Button.colors.NEGATIVE;
+  const openModalColor = bestPractice ? "positive" : "negative";
   const openModalButton = useHelperOpenModalButton({
     testId: openModalTestId,
     title: buttonTitle || modalTitle,
@@ -116,9 +115,8 @@ export const DialogAsModalBadExample = () => {
       onClickOutside={closeDialog}
       wrapperClassName={cx(styles.modalDialogBadExample, styles.wrapper)}
       content={dialogContent}
-      showTrigger={DEFAULT_DIALOG_SHOW_TRIGGER}
     >
-      <Button onClick={onShow} color={Button.colors.NEGATIVE}>
+      <Button onClick={onShow} color="negative">
         Click here
       </Button>
     </Dialog>

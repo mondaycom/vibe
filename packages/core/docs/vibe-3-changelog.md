@@ -6,6 +6,10 @@
 - `SearchComponent` and `Input` components removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs) and [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs) respectively.
 - `EditableInput` removed, use [`TextField`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
 
+## Colors
+
+- Removed `--shareable-color` and `--private-color`
+
 ## Typography
 
 - `Text` and `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
@@ -46,6 +50,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style
+- `color` - remove dark_indigo and blackish colors
 
 ### Clickable
 
@@ -154,6 +159,14 @@ codemod: `avatar-component-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
+### Tabs
+
+- Reset spacings (removed default browser's margin/padding for ul,li elements)
+
+### TabList
+
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom
+
 ## TextField
 
 - `dataTestId` -> `data-testid` [codemod]
@@ -165,11 +178,13 @@ codemod: `avatar-component-migration`
 
 ### Tipseen
 
+- Default `color` changed from 'primary' to 'inverted'
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
 - `justify` removed [codemod]
 - `justifyTypes` removed [codemod]
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
+- `content` prop is now mandatory
 
 ### TipseenContent
 
@@ -184,14 +199,20 @@ codemod: `avatar-component-migration`
 ### Tooltip
 
 - `paddingSize` removed [codemod]
-- `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
+- `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true
 - `hideDelay` changed default to be 100
-- `position` changed to accept string instead of static prop [codemod]
 - `position` changed to only accept "top, right, bottom, left" [codemod]
 - `justify` removed [codemod]
 - `arrowPosition` removed [codemod]
-- `TooltipArrowPosition` removed [codemod]
+
+### ColorPicker
+
+- `ColorPicker.COLOR_STYLES` removed [codemod]
+
+### ColorPickerContent
+
+- `ColorPickerContent.COLOR_STYLES` removed [codemod]
 
 ## Hooks
 

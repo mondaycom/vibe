@@ -48,7 +48,7 @@ export const Selected = {
   render: colorPickerTemplate.bind({}),
   args: {
     ColorIndicatorIcon: TextColorIndicator,
-    colorStyle: ColorPicker.COLOR_STYLES.SELECTED
+    colorStyle: "selected"
   },
   name: "Selected"
 };
@@ -76,7 +76,7 @@ export const SelectedIcon = {
 export const Shapes = {
   render: colorPickerTemplate.bind({}),
   args: {
-    colorShape: ColorPicker.colorShapes.CIRCLE
+    colorShape: "circle"
   },
   name: "Shapes"
 };

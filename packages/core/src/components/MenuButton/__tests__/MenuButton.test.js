@@ -102,7 +102,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton
           triggerElement={props => (
-            <Button kind={Button.kinds.PRIMARY} {...props} className={""}>
+            <Button kind="primary" {...props} className={""}>
               Button
             </Button>
           )}

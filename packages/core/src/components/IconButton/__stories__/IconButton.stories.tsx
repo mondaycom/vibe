@@ -55,9 +55,9 @@ export const Kinds: Story = {
         width: "100%"
       }}
     >
-      <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton" />
-      <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton" />
-      <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
+      <IconButton icon={Bolt} kind="primary" ariaLabel="My primary IconButton" />
+      <IconButton icon={Bolt} kind="secondary" ariaLabel="My secondary IconButton" />
+      <IconButton icon={Bolt} kind="tertiary" ariaLabel="My tertiary IconButton" />
     </div>
   ),
   parameters: {
@@ -79,41 +79,11 @@ export const Sizes: Story = {
         width: "100%"
       }}
     >
-      <IconButton
-        key="xxs"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.XXS}
-        ariaLabel="My xxs IconButton"
-      />
-      <IconButton
-        key="xs"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.XS}
-        ariaLabel="My xs IconButton"
-      />
-      <IconButton
-        key="small"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.SMALL}
-        ariaLabel="My small IconButton"
-      />
-      <IconButton
-        key="medium"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.MEDIUM}
-        ariaLabel="My medium IconButton"
-      />
-      <IconButton
-        key="large"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.LARGE}
-        ariaLabel="My large IconButton"
-      />
+      <IconButton key="xxs" icon={Robot} kind="secondary" size="xxs" ariaLabel="My xxs IconButton" />
+      <IconButton key="xs" icon={Robot} kind="secondary" size="xs" ariaLabel="My xs IconButton" />
+      <IconButton key="small" icon={Robot} kind="secondary" size="small" ariaLabel="My small IconButton" />
+      <IconButton key="medium" icon={Robot} kind="secondary" size="medium" ariaLabel="My medium IconButton" />
+      <IconButton key="large" icon={Robot} kind="secondary" size="large" ariaLabel="My large IconButton" />
     </div>
   ),
   parameters: {
@@ -135,9 +105,9 @@ export const Active: Story = {
         width: "100%"
       }}
     >
-      <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active />
-      <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active />
-      <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
+      <IconButton icon={Doc} kind="primary" ariaLabel="My small active IconButton" active />
+      <IconButton icon={Doc} kind="secondary" ariaLabel="My active medium IconButton" active />
+      <IconButton icon={Doc} kind="tertiary" ariaLabel="My active large IconButton" active />
     </div>
   ),
   parameters: {
@@ -161,21 +131,21 @@ export const Disabled: Story = {
     >
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.PRIMARY}
+        kind="primary"
         ariaLabel="My small disabled IconButton"
         disabled
         disabledReason="This function is not available"
       />
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.SECONDARY}
+        kind="secondary"
         ariaLabel="My disabled medium IconButton"
         disabled
         disabledReason="This function is not available"
       />
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.TERTIARY}
+        kind="tertiary"
         ariaLabel="My disabled large IconButton"
         disabled
         disabledReason="This function is not available"
@@ -204,7 +174,7 @@ export const IconButtonAsToolbarButton: Story = {
       <Flex className={styles.dashboardHeader} gap="small">
         <Icon icon={Drag} />
         <Text type="text1">Widget name</Text>
-        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
+        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size="small" />
       </Flex>
       <div className={styles.dashboardContent} />
     </Flex>
@@ -270,7 +240,7 @@ export const IconButtonAsCloseButton: Story = {
           <Button className={styles.recycleBinRestoreButton}>Restore</Button>
         </Flex>
       </Flex>
-      <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
+      <IconButton icon={CloseSmall} size="small" ariaLabel="Remove from Recycle bin" />
     </>
   ),
   parameters: {

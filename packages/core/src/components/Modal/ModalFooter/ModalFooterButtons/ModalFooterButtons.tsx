@@ -39,7 +39,7 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
       >
         <Flex justify="end" gap="small">
           {secondaryButtonText && (
-            <Button onClick={onSecondaryButtonClick} kind={Button.kinds.TERTIARY}>
+            <Button onClick={onSecondaryButtonClick} kind="tertiary">
               {secondaryButtonText}
             </Button>
           )}

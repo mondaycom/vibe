@@ -15,7 +15,7 @@ export const CardShadowExample = () => {
           People Column
         </Heading>
         <span className={`${CSS_BASE_CLASS}-description`}>Get an instant overview of where things stand</span>
-        <Button kind={Button.kinds.SECONDARY} className={classes[`${CSS_BASE_CLASS}-button`]}>
+        <Button kind="secondary" className={classes[`${CSS_BASE_CLASS}-button`]}>
           Add to board
         </Button>
       </div>
