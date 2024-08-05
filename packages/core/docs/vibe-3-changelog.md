@@ -164,6 +164,10 @@ codemod: `avatar-component-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
+### Tabs
+
+- Reset spacings (removed default browser's margin/padding for ul,li elements)
+
 ### TabList
 
 - `noPadding` is removed as it's the default, component no longer gets a default padding bottom
@@ -211,11 +215,9 @@ codemod: `avatar-component-migration`
 
 - `ColorPicker.COLOR_STYLES` removed [codemod]
 
-
 ### ColorPickerContent
 
 - `ColorPickerContent.COLOR_STYLES` removed [codemod]
-
 
 ## Hooks
 

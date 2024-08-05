@@ -6,7 +6,18 @@ import TabPanels from "../TabPanels/TabPanels";
 import TabsContext from "../TabsContext/TabsContext";
 import { Calendar, Chart, Table } from "../../Icon/Icons";
 import TextField from "../../TextField/TextField";
-import "./Tabs.stories.scss";
+import Box from "../../Box/Box";
+import Flex from "../../Flex/Flex";
+
+const ExampleTabContent = ({ children }: { children: string }) => (
+  <Box
+    backgroundColor={Box.backgroundColors.GREY_BACKGROUND_COLOR}
+    padding={Box.paddings.MEDIUM}
+    style={{ width: "480px", height: "111px" }}
+  >
+    {children}
+  </Box>
+);
 
 export default {
   title: "Navigation/Tabs/Tabs",
@@ -19,18 +30,24 @@ export default {
   }
 };
 
-const tabsTemplate = ({ tabPanelClassName, ...otherArgs }: { tabPanelClassName: string }) => {
+const tabsTemplate = ({ ...args }) => {
   return (
-    <TabsContext {...otherArgs}>
+    <TabsContext {...args}>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel className={tabPanelClassName}>First slide</TabPanel>
-        <TabPanel className={tabPanelClassName}>Second slide</TabPanel>
-        <TabPanel className={tabPanelClassName}>Third slide</TabPanel>
+        <TabPanel>
+          <ExampleTabContent>First slide</ExampleTabContent>
+        </TabPanel>
+        <TabPanel>
+          <ExampleTabContent>Second slide</ExampleTabContent>
+        </TabPanel>
+        <TabPanel>
+          <ExampleTabContent>Third slide</ExampleTabContent>
+        </TabPanel>
       </TabPanels>
     </TabsContext>
   );
@@ -55,10 +72,18 @@ export const Default = {
         <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
-        <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
-        <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
-        <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
+        <TabPanel>
+          <ExampleTabContent>First slide</ExampleTabContent>
+        </TabPanel>
+        <TabPanel>
+          <ExampleTabContent>Second slide</ExampleTabContent>
+        </TabPanel>
+        <TabPanel>
+          <ExampleTabContent>Third slide</ExampleTabContent>
+        </TabPanel>
+        <TabPanel>
+          <ExampleTabContent>Fourth slide</ExampleTabContent>
+        </TabPanel>
       </TabPanels>
     </TabsContext>
   ),
@@ -87,7 +112,7 @@ export const Stretched = {
 
 export const Motion = {
   render: () => (
-    <div className="monday-storybook-tabs_column-wrapper">
+    <Flex direction="column" gap="medium">
       <TabsContext>
         <TabList>
           <Tab>First</Tab>
@@ -96,10 +121,18 @@ export const Motion = {
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection="ltr">
-          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
+          <TabPanel>
+            <ExampleTabContent>First slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Second slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Third slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Fourth slide</ExampleTabContent>
+          </TabPanel>
         </TabPanels>
       </TabsContext>
       <TabsContext>
@@ -110,13 +143,21 @@ export const Motion = {
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection="rtl">
-          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
-          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
+          <TabPanel>
+            <ExampleTabContent>First slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Second slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Third slide</ExampleTabContent>
+          </TabPanel>
+          <TabPanel>
+            <ExampleTabContent>Fourth slide</ExampleTabContent>
+          </TabPanel>
         </TabPanels>
       </TabsContext>
-    </div>
+    </Flex>
   ),
 
   name: "Motion"
@@ -142,11 +183,11 @@ export const AdminSectionTabs = {
         <Tab>Account</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel className="monday-storybook-tabs_wrapper">
+        <TabPanel>
           <h2>Login Details</h2>
           <TextField title="Profile Name" size="medium" placeholder="Profile Name" />
         </TabPanel>
-        <TabPanel className="monday-storybook-tabs_wrapper">
+        <TabPanel>
           <h2>Account Details</h2>
           <TextField title="Account Name" size="medium" placeholder="Account Name" />
         </TabPanel>
