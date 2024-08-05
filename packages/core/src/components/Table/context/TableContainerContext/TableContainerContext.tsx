@@ -1,11 +1,14 @@
 import React, { createContext, useContext, useMemo, useRef } from "react";
-import { ITableContainerContext, ITableContainerProviderProps } from "./TableContainerContext.types";
+import {
+  TableContainerContext as ITableContainerContext,
+  TableContainerProviderProps
+} from "./TableContainerContext.types";
 
 const TableContainerContext = createContext<ITableContainerContext | undefined>(undefined);
 
-export const TableContainerProvider = ({ children }: ITableContainerProviderProps) => {
+export const TableContainerProvider = ({ children }: TableContainerProviderProps) => {
   const menuContainerRef = useRef<HTMLDivElement>(null);
-  const contextValue = useMemo<ITableContainerContext>(() => ({ menuContainerRef }), [menuContainerRef]);
+  const contextValue = useMemo<TableContainerContext>(() => ({ menuContainerRef }), [menuContainerRef]);
   return <TableContainerContext.Provider value={contextValue}>{children}</TableContainerContext.Provider>;
 };
 

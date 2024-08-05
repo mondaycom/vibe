@@ -1,9 +1,9 @@
 import React, { createContext, UIEventHandler, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { ITableContext, ITableProviderProps } from "./TableContext.types";
+import { TableContext as ITableContext, TableProviderProps } from "./TableContext.types";
 
 const TableContext = createContext<ITableContext | undefined>(undefined);
 
-export const TableProvider = ({ value, children }: ITableProviderProps) => {
+export const TableProvider = ({ value, children }: TableProviderProps) => {
   const tableRootRef = useRef<HTMLDivElement>(null);
 
   const [isVirtualized, setIsVirtualized] = useState<boolean>(false);
@@ -47,7 +47,7 @@ export const TableProvider = ({ value, children }: ITableProviderProps) => {
     [scrollLeft]
   );
 
-  const contextValue = useMemo<ITableContext>(
+  const contextValue = useMemo<TableContext>(
     () => ({
       ...value,
       tableRootRef,

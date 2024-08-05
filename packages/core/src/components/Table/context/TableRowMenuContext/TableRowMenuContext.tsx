@@ -1,10 +1,10 @@
 import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { ITableRowMenuContext, ITableRowMenuProviderProps } from "./TableRowMenuContext.types";
+import { TableRowMenuContext as ITableRowMenuContext, TableRowMenuProviderProps } from "./TableRowMenuContext.types";
 import { useTable } from "../TableContext/TableContext";
 
 const TableRowMenuContext = createContext<ITableRowMenuContext | undefined>(undefined);
 
-export const TableRowMenuProvider = ({ children }: ITableRowMenuProviderProps) => {
+export const TableRowMenuProvider = ({ children }: TableRowMenuProviderProps) => {
   const { tableRootRef } = useTable();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -60,7 +60,7 @@ export const TableRowMenuProvider = ({ children }: ITableRowMenuProviderProps) =
     setHoveredRowRef(null);
   }, []);
 
-  const contextValue = useMemo<ITableRowMenuContext>(
+  const contextValue = useMemo<TableRowMenuContext>(
     () => ({
       hoveredRowId,
       resetHoveredRow,

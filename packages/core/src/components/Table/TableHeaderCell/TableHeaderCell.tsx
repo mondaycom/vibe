@@ -14,7 +14,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-export interface ITableHeaderCellProps extends VibeComponentProps {
+export interface TableHeaderCellProps extends VibeComponentProps {
   title: string;
   icon?: SubIcon;
   infoContent?: string;
@@ -24,7 +24,7 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   sticky?: boolean;
 }
 
-const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
+const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = forwardRef(
   (
     {
       id,
