@@ -51,8 +51,6 @@ export interface ColorPickerContentProps extends VibeComponentProps {
 }
 
 const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
-  // Backward compatibility for enum naming
-  COLOR_STYLES?: typeof ColorStyleEnum;
   sizes?: typeof BaseSizes;
   colorStyles?: typeof ColorStyleEnum;
   colorSizes?: typeof BaseSizes;
@@ -155,8 +153,6 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 );
 
 export default withStaticProps(ColorPickerContent, {
-  // Backward compatibility for enum naming
-  COLOR_STYLES: ColorStyleEnum,
   sizes: BaseSizes,
   colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,
