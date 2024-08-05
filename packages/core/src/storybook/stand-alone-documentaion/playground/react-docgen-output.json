@@ -505,7 +505,7 @@
           },
           "description": "",
           "defaultValue": {
-            "value": "Avatar.colors.CHILI_BLUE",
+            "value": "chili-blue",
             "computed": true
           }
         },

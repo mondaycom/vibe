@@ -5,6 +5,11 @@
 - `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
 - `SearchComponent` and `Input` components removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs) and [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs) respectively.
 - `EditableInput` removed, use [`TextField`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+- `monday-ui-react-core/types` removed, exported types are now exported from `monday-ui-react-core` [codemod]
+- `monday-ui-react-core/storybookComponents` removed, use the `vibe-storybook-components` package instead [codemod]
+- CommonJS support removed
+- `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
+- All components' props interfaces are exported
 
 ## Colors
 
@@ -37,6 +42,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 

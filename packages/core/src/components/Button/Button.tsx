@@ -11,15 +11,14 @@ import {
   BUTTON_ICON_SIZE,
   ButtonColor as ButtonColorEnum,
   ButtonInputType as ButtonInputTypeEnum,
-  ButtonType as ButtonTypeEnum,
-  getActualSize
+  ButtonType as ButtonTypeEnum
 } from "./ButtonConstants";
 import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
@@ -210,7 +209,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return cx(
         className,
         styles.button,
-        getStyle(styles, camelCase("size-" + getActualSize(size))),
+        getStyle(styles, camelCase("size-" + size)),
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {

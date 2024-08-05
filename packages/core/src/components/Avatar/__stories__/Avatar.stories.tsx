@@ -62,9 +62,9 @@ export const Disable = {
 export const AvatarWithText = {
   render: () => (
     <>
-      <Avatar size="small" type="text" text="RM" backgroundColor={Avatar.colors.LIPSTICK} ariaLabel="Ron Meir" />
-      <Avatar size="medium" type="text" text="RM" backgroundColor={Avatar.colors.LIPSTICK} ariaLabel="Ron Meir" />
-      <Avatar size="large" type="text" text="RM" backgroundColor={Avatar.colors.DONE_GREEN} ariaLabel="Ron Meir" />
+      <Avatar size="small" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
+      <Avatar size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
+      <Avatar size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
     </>
   ),
 
@@ -74,23 +74,9 @@ export const AvatarWithText = {
 export const SquareAvatar = {
   render: () => (
     <>
-      <Avatar size="small" type="text" text="R" backgroundColor={Avatar.colors.BRIGHT_BLUE} square ariaLabel="Ron" />
-      <Avatar
-        size="medium"
-        type="icon"
-        icon={WhatsNew}
-        backgroundColor={Avatar.colors.AQUAMARINE}
-        square
-        ariaLabel="Present"
-      />
-      <Avatar
-        size="large"
-        type="text"
-        text="RM"
-        backgroundColor={Avatar.colors.WORKING_ORANGE}
-        square
-        ariaLabel="Ron Meir"
-      />
+      <Avatar size="small" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
+      <Avatar size="medium" type="icon" icon={WhatsNew} backgroundColor="aquamarine" square ariaLabel="Present" />
+      <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />
     </>
   ),
 
