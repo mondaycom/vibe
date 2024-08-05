@@ -44,8 +44,8 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
       disableDialogSlide={true}
       withoutDialog={false}
       content={isOverflowing && text}
-      showTrigger="mouseenter"
-      hideTrigger="mouseleave"
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
     >
       <li
         id={id}
