@@ -60,8 +60,7 @@ export const Overview = {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
     position: "right",
-    hideDismiss: false,
-    color: "inverted"
+    hideDismiss: false
   }
 };
 
@@ -76,7 +75,6 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
-              color="inverted"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -90,6 +88,7 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
+              color="primary"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -129,7 +128,6 @@ export const TipseenWithAWizard = {
         <Tipseen
           modifiers={modifiers}
           position="right"
-          color="inverted"
           content={
             <TipseenWizard
               title="This is a title"
@@ -166,7 +164,6 @@ export const TipseenWithImage = {
           position="right"
           modifiers={modifiers}
           closeButtonTheme="dark"
-          color="inverted"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -192,7 +189,6 @@ export const TipseenWithCustomMedia = {
           position="right"
           modifiers={modifiers}
           closeButtonTheme="dark"
-          color="inverted"
           content={
             <>
               <TipseenMedia>
@@ -227,7 +223,6 @@ export const FloatingTipseen = {
       <Tipseen
         closeButtonTheme="dark"
         floating
-        color="inverted"
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />

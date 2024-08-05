@@ -169,6 +169,7 @@ codemod: `avatar-component-migration`
 
 ### Tipseen
 
+- Default `color` changed from 'primary' to 'inverted'
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
 - `justify` removed [codemod]

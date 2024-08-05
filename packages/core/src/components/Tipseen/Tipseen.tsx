@@ -99,7 +99,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tooltipArrowClassName,
       modifiers = [],
       floating = false,
-      color = "primary",
+      color = "inverted",
       "data-testid": dataTestId
     }: TipseenProps,
     ref
