@@ -170,6 +170,7 @@ codemod: `avatar-component-migration`
 - `justify` removed [codemod]
 - `justifyTypes` removed [codemod]
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
+- `content` prop is now mandatory
 
 ### TipseenContent
 
