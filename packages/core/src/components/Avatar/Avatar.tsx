@@ -163,11 +163,7 @@ const Avatar: React.FC<AvatarProps> & {
           className: styles.clickableWrapper
         }}
       >
-        <Tooltip
-          showTrigger={[Tooltip.hideShowTriggers.FOCUS, Tooltip.hideShowTriggers.MOUSE_ENTER]}
-          hideTrigger={[Tooltip.hideShowTriggers.BLUR, Tooltip.hideShowTriggers.MOUSE_LEAVE]}
-          {...overrideTooltipProps}
-        >
+        <Tooltip showTrigger={["focus", "mouseenter"]} hideTrigger={["blur", "mouseleave"]} {...overrideTooltipProps}>
           <div
             className={cx(
               styles.circle,

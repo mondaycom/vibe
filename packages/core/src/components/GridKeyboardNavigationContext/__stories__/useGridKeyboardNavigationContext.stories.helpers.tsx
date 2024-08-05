@@ -48,7 +48,7 @@ export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwar
         {items.map((item, index) => (
           <Button
             key={item}
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             onClick={onClickByIndex(index)}
             disabled={disabled || disabledIndexes?.includes(index)}
             className={cx("use-grid-keyboard-dummy-grid-item", { "active-item": index === activeIndex })}

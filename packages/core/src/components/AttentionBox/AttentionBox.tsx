@@ -103,8 +103,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       </Flex>
       {onClose && (
         <IconButton
-          size={IconButton?.sizes?.SMALL}
-          color={IconButton.colors.ON_PRIMARY_COLOR}
+          size="small"
+          color="on-primary-color"
           className={styles.closeIcon}
           wrapperClassName={cx(styles.closeIconWrapper, {
             [styles.closeIconCompact]: compact

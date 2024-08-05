@@ -10,7 +10,8 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { ButtonColor, ButtonType } from "../Button/Button.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
@@ -111,7 +112,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       iconClassName,
       id,
       icon = AddSmall,
-      size = IconButton.sizes.MEDIUM,
+      size = "medium",
       tooltipProps = {} as TooltipProps,
       tooltipContent,
       ariaLabeledBy,
@@ -122,7 +123,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       hideTooltip = false,
-      kind = IconButton.kinds.TERTIARY,
+      kind = "tertiary",
       active,
       disabled = false,
       disabledReason,
@@ -132,7 +133,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       insetFocus = false,
       tabIndex,
       loading = false
-    },
+    }: IconButtonProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -151,12 +152,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
 
     const iconSize = useMemo(() => {
       switch (size) {
-        case IconButton.sizes.XXS:
-        case IconButton.sizes.XS:
+        case "xxs":
+        case "xs":
           return 16;
-        case IconButton.sizes.SMALL:
-        case IconButton.sizes.MEDIUM:
-        case IconButton.sizes.LARGE:
+        case "small":
+        case "medium":
+        case "large":
           return BUTTON_ICON_SIZE;
         default:
           return 24;

@@ -236,7 +236,7 @@ const Combobox: React.FC<ComboboxProps> & {
             <span className={styles.comboboxMessage}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
-            <Button className={styles.addNewButton} size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
+            <Button className={styles.addNewButton} size={size} kind="tertiary" onClick={onAddNewCallback}>
               <span className={styles.buttonLabel}>{getAddNewLabel()}</span>
             </Button>
           )}

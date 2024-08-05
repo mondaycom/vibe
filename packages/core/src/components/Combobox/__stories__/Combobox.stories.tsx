@@ -424,7 +424,7 @@ export const WithButton = {
     return (
       <DialogContentContainer>
         <Combobox options={options} placeholder="Placeholder text here" />
-        <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>
+        <Button kind="tertiary" className="combobox-stories-styles_btn" leftIcon={Edit}>
           Edit
         </Button>
       </DialogContentContainer>
@@ -767,7 +767,7 @@ export const ComboboxAsPersonPicker = {
             </DialogContentContainer>
           )}
           tooltip
-          position={Dialog.positions.BOTTOM}
+          position="bottom"
           open={true}
         >
           <div className="person-picker-mock">

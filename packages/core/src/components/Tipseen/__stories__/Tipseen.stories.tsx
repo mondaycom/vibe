@@ -221,7 +221,7 @@ export const FloatingTipseen = {
   render: () => {
     return (
       <Tipseen
-        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+        closeButtonTheme="dark"
         floating
         content={
           <>

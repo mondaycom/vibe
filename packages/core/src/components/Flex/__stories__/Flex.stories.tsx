@@ -17,8 +17,8 @@ const flexTemplate = (args: FlexProps) => {
   return (
     <Flex {...args}>
       <Button>Primary</Button>
-      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+      <Button kind="tertiary">Tertiary</Button>
+      <Button kind="tertiary">Tertiary</Button>
     </Flex>
   );
 };
@@ -42,15 +42,15 @@ export const Directions = {
       <StoryDescription description="Horizontal">
         <Flex>
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Vertical">
         <Flex direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
     </div>
@@ -65,43 +65,43 @@ export const HorizontalSpacingBetweenItems = {
       <StoryDescription description="No spacing between items">
         <Flex>
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items">
         <Flex gap="xs">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items">
         <Flex gap="small">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items">
         <Flex gap="medium">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items">
         <Flex gap="large">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Custom spacing between items">
         <Flex gap={32}>
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
     </div>
@@ -121,43 +121,43 @@ export const VerticalSpacingBetweenItems = {
       <StoryDescription description="No spacing between items" vertical>
         <Flex direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items" vertical>
         <Flex gap="xs" direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items" vertical>
         <Flex gap="small" direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items" vertical>
         <Flex gap="medium" direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items" vertical>
         <Flex gap="large" direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Custom spacing between items" vertical>
         <Flex gap={32} direction="column">
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
     </Flex>
@@ -182,8 +182,8 @@ export const HorizontalPositions = {
           }}
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position">
@@ -194,8 +194,8 @@ export const HorizontalPositions = {
           }}
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position">
@@ -206,8 +206,8 @@ export const HorizontalPositions = {
           }}
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position">
@@ -218,8 +218,8 @@ export const HorizontalPositions = {
           }}
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position">
@@ -230,8 +230,8 @@ export const HorizontalPositions = {
           }}
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
     </div>
@@ -257,8 +257,8 @@ export const VerticalPositions = {
           direction="column"
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
@@ -270,8 +270,8 @@ export const VerticalPositions = {
           direction="column"
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position" vertical>
@@ -283,8 +283,8 @@ export const VerticalPositions = {
           direction="column"
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position" vertical>
@@ -296,8 +296,8 @@ export const VerticalPositions = {
           direction="column"
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position" vertical>
@@ -309,8 +309,8 @@ export const VerticalPositions = {
           direction="column"
         >
           <Button>Primary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
+          <Button kind="tertiary">Tertiary</Button>
         </Flex>
       </StoryDescription>
     </Flex>
@@ -345,16 +345,16 @@ export const FlexAsToolbarContainer = {
   render: () => (
     <Flex gap="small">
       <Button leftIcon={Add}>Add</Button>
-      <Button kind={Button.kinds.TERTIARY} leftIcon={Search}>
+      <Button kind="tertiary" leftIcon={Search}>
         Search
       </Button>
-      <Button kind={Button.kinds.TERTIARY} leftIcon={Person}>
+      <Button kind="tertiary" leftIcon={Person}>
         Person
       </Button>
-      <Button kind={Button.kinds.TERTIARY} leftIcon={Filter}>
+      <Button kind="tertiary" leftIcon={Filter}>
         Filter
       </Button>
-      <Button kind={Button.kinds.TERTIARY} leftIcon={Sort}>
+      <Button kind="tertiary" leftIcon={Sort}>
         Sort
       </Button>
     </Flex>

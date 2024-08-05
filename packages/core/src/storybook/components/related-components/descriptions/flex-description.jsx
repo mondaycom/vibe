@@ -7,8 +7,8 @@ export const FlexDescription = () => {
     return (
       <Flex gap="small">
         <Button>Primary</Button>
-        <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-        <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        <Button kind="tertiary">Tertiary</Button>
+        <Button kind="tertiary">Tertiary</Button>
       </Flex>
     );
   }, []);

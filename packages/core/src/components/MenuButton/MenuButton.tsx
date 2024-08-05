@@ -12,21 +12,21 @@ import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
 } from "./MenuButtonConstants";
+import {
+  DialogPosition as DialogPositionEnum,
+  HideShowEvent as DialogTriggerEventEnum,
+  DialogSize as DialogSizeEnum
+} from "../Dialog/DialogConstants";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
-import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
-import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
+import { DialogOffset, DialogPosition, DialogSize, DialogTriggerEvent } from "../Dialog/Dialog.types";
 import { NOOP } from "../../utils/function-utils";
-import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import { Menu } from "../Icon/Icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
-const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
-const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
-const EMPTY_ARRAY: HideShowEvent[] = [];
 const MOVE_BY = { main: 8, secondary: 0 };
 
 export interface MenuButtonProps extends VibeComponentProps {
@@ -91,11 +91,11 @@ export interface MenuButtonProps extends VibeComponentProps {
    CLICK, CLICK_OUTSIDE, ESCAPE_KEY, TAB_KEY, MOUSE_ENTER, MOUSE_LEAVE,
    ENTER, MOUSE_DOWN, FOCUS, BLUR, CONTENT_CLICK
    */
-  tooltipTriggers?: HideShowEvent | HideShowEvent[];
+  tooltipTriggers?: DialogTriggerEvent | DialogTriggerEvent[];
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   /**
    * Tooltip Element Wrapper ClassName
    */
@@ -127,7 +127,7 @@ export interface MenuButtonProps extends VibeComponentProps {
 const MenuButton: VibeComponent<MenuButtonProps> & {
   sizes?: typeof MenuButtonSizeEnum;
   paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPosition;
+  dialogPositions?: typeof DialogPositionEnum;
   hideTriggers?: typeof Dialog.hideShowTriggers;
   componentPositions?: typeof MenuButtonComponentPositionEnum;
 } = forwardRef(
@@ -334,10 +334,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         position={dialogPosition}
         containerSelector={dialogContainerSelector}
         startingEdge={startingEdge}
-        animationType={AnimationType.EXPAND}
+        animationType="expand"
         content={content}
         moveBy={computedDialogOffset}
-        showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
+        showTrigger={disabled ? [] : ["click", "enter"]}
         hideTrigger={hideTrigger}
         showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
         hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
@@ -356,7 +356,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       <Tooltip
         content={tooltipContent}
         position={tooltipPosition}
-        showTrigger={TOOLTIP_SHOW_TRIGGER}
+        showTrigger="mouseenter"
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
@@ -375,8 +375,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
 export default withStaticProps(MenuButton, {
   sizes: MenuButtonSizeEnum,
-  paddingSizes: DialogContentContainer.sizes,
-  dialogPositions: Dialog.positions,
-  hideTriggers: Dialog.hideShowTriggers,
+  paddingSizes: DialogSizeEnum,
+  dialogPositions: DialogPositionEnum,
+  hideTriggers: DialogTriggerEventEnum,
   componentPositions: MenuButtonComponentPositionEnum
 });
