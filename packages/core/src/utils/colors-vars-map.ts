@@ -64,14 +64,6 @@ export const colorsMap = [
     description: "Use to indicate hover state on a negative-selected items"
   },
   {
-    color: "--private-color",
-    description: "Use to indicate that something is private (board, icons...)"
-  },
-  {
-    color: "--shareable-color",
-    description: "Use to indicate that something is shareable (board, dashboard...)"
-  },
-  {
     color: "--warning-color",
     description: "Use to indicate a warning action/state (severity, alert, caution...)"
   },
@@ -175,6 +167,9 @@ export const contentColors = [
 
 export type CONTENT_COLORS_VALUES = (typeof contentColors)[number];
 
+/**
+ * @deprecated
+ */
 export enum ColorStyle {
   REGULAR = "regular",
   HOVER = "hover",
@@ -224,24 +219,37 @@ export enum ContentColorByName {
   PECAN = "pecan"
 }
 
+/**
+ * @deprecated
+ */
 export enum StateSelectedColor {
-  POSITIVE = "--positive-color-selected",
-  NEGATIVE = "--negative-color-selected",
-  PRIMARY = "--primary-selected-color",
-  WARNING = "--warning-color-selected"
-}
-export enum StateSelectedHoverColor {
-  POSITIVE = "--positive-color-selected-hover",
-  NEGATIVE = "--negative-color-selected-hover",
-  PRIMARY = "--primary-selected-hover-color"
+  POSITIVE = "positive",
+  NEGATIVE = "negative",
+  PRIMARY = "primary",
+  WARNING = "warning"
 }
 
+/**
+ * @deprecated
+ */
+export enum StateSelectedHoverColor {
+  POSITIVE = "positive",
+  NEGATIVE = "negative",
+  PRIMARY = "primary"
+}
+
+/**
+ * @deprecated
+ */
 export const ElementAllowedColor = {
   ...ContentColorByName,
   ...StateSelectedColor,
   ...StateSelectedHoverColor
 };
 
+/**
+ * @deprecated
+ */
 export type ElementColor = (typeof ElementAllowedColor)[keyof typeof ElementAllowedColor] | string;
 
 export const elementColorsNames = Object.values(ElementAllowedColor).reduce((acc: Record<string, string>, key) => {

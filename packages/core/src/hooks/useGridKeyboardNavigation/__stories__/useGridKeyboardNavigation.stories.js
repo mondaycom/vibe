@@ -52,7 +52,7 @@ export const Overview = {
               key={item}
               disabled={disabledIndexes.includes(index)}
               onClick={onClickByIndex(index)}
-              kind={Button.kinds.SECONDARY}
+              kind="secondary"
               className={cx("use-grid-keyboard-nav-item", {
                 "active-item": index === activeIndex
               })}

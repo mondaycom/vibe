@@ -3,20 +3,22 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { BaseSizes } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { ColorStyle } from "../../utils/colors-vars-map";
+import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import {
-  ColorShapes,
+  ColorShapes as ColorShapesEnum,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   ColorPickerValue,
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
+import { ColorStyle } from "../../types/Colors";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;
@@ -33,7 +35,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   isBlackListMode?: boolean;
   colorsList?: ColorPickerArrayValueOnly;
   isMultiselect?: boolean;
-  colorSize?: BaseSizes;
+  colorSize?: ColorPickerSizes;
   numberOfColorsInLine?: number;
   focusOnMount?: boolean;
   colorShape?: ColorShapes;
@@ -51,12 +53,10 @@ export interface ColorPickerProps extends VibeComponentProps {
 }
 
 const ColorPicker: VibeComponent<ColorPickerProps> & {
-  // Backward compatibility for enum naming
-  COLOR_STYLES?: typeof ColorStyle;
   sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyle;
+  colorStyles?: typeof ColorStyleEnum;
   colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapes;
+  colorShapes?: typeof ColorShapesEnum;
 } = forwardRef(
   (
     {
@@ -64,7 +64,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       onSave = NOOP,
       value = "",
       noColorText,
-      colorStyle = ColorStyle.REGULAR,
+      colorStyle = "regular",
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
@@ -72,15 +72,15 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       isBlackListMode = true,
       colorsList = [],
       isMultiselect,
-      colorSize = BaseSizes.MEDIUM,
+      colorSize = "medium",
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       focusOnMount,
-      colorShape = ColorShapes.SQUARE,
+      colorShape = "square",
       forceUseRawColorList,
       showColorNameTooltip,
       id,
       "data-testid": dataTestId
-    },
+    }: ColorPickerProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -88,7 +88,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
 
     const onChange = useCallback(onSave, [onSave]);
 
-    const width = calculateColorPickerDialogWidth(colorSize, numberOfColorsInLine);
+    const width = calculateColorPickerDialogWidth(colorSize as BaseSizes, numberOfColorsInLine);
 
     return (
       <DialogContentContainer
@@ -125,10 +125,8 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
 );
 
 export default withStaticProps(ColorPicker, {
-  // Backward compatibility for enum naming
-  COLOR_STYLES: ColorStyle,
   sizes: BaseSizes,
-  colorStyles: ColorStyle,
+  colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes
+  colorShapes: ColorShapesEnum
 });

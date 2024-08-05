@@ -197,7 +197,7 @@ export const MaxAvatarsToDisplay = {
     return (
       <Flex direction="column" gap="medium" align="start" className={styles.sliderCountContainer}>
         <Slider
-          size={Slider.sizes.SMALL}
+          size="small"
           min={1}
           max={14}
           defaultValue={max}

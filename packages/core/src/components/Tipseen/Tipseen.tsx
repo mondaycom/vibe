@@ -1,13 +1,18 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType, EMPTY_ARR, HideShowEvent } from "../../constants";
+import { AnimationType as AnimationTypeEnum, HideShowEvent as HideShowEventEnum } from "../Dialog/DialogConstants";
+import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import TipseenTitle from "./TipseenTitle";
-import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme, TipseenColor } from "./TipseenConstants";
+import {
+  TIPSEEN_CLOSE_BUTTON_ARIA_LABEL,
+  TipseenCloseButtonTheme as TipseenCloseButtonThemeEnum,
+  TipseenColor as TipseenColorEnum
+} from "./TipseenConstants";
+import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
@@ -17,23 +22,23 @@ import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  position?: TooltipPositionsType;
-  animationType?: AnimationType;
+  position?: TooltipPositions;
+  animationType?: DialogAnimationType;
   hideDelay?: number;
   showDelay?: number;
   title?: string;
   hideCloseButton?: boolean;
   children?: ReactElement;
   containerSelector?: string;
-  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
-  showTrigger?: HideShowEvent | Array<HideShowEvent>;
+  hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
+  showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   width?: number;
   moveBy?: MoveBy;
   hideWhenReferenceHidden?: boolean;
@@ -50,10 +55,9 @@ export interface TipseenProps extends VibeComponentProps {
   modifiers?: Array<Modifier<unknown>>;
   closeAriaLabel?: string;
   onClose?: () => void;
-  // Better be required, but it might be a breaking change
-  content?: ElementContent;
+  content: ElementContent;
   /**
-   * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
+   * Control the color of the Tipseen close button. Dark theme can be useful while presenting bright images under the tipseen image
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
   floating?: boolean;
@@ -61,43 +65,43 @@ export interface TipseenProps extends VibeComponentProps {
   color?: TipseenColor;
 }
 
-export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRIMARY);
+export const TipseenContext = React.createContext<TipseenColor>("primary");
 
 const Tipseen: VibeComponent<TipseenProps> & {
-  closeButtonThemes?: typeof TipseenCloseButtonTheme;
-  animationTypes?: typeof AnimationType;
-  hideShowTriggers?: typeof HideShowEvent;
-  colors?: typeof TipseenColor;
+  closeButtonThemes?: typeof TipseenCloseButtonThemeEnum;
+  animationTypes?: typeof AnimationTypeEnum;
+  hideShowTriggers?: typeof HideShowEventEnum;
+  colors?: typeof TipseenColorEnum;
 } = forwardRef(
   (
     {
       className,
       id,
       position = "bottom",
-      animationType = AnimationType.EXPAND,
+      animationType = "expand",
       hideDelay = 0,
       showDelay = 100,
       title,
       titleClassName,
       hideCloseButton,
-      closeButtonTheme = TipseenCloseButtonTheme.LIGHT,
+      closeButtonTheme = "light",
       onClose,
       closeAriaLabel,
       children = null,
       content,
       containerSelector,
-      hideTrigger = EMPTY_ARR,
-      showTrigger = EMPTY_ARR,
+      hideTrigger = [],
+      showTrigger = [],
       width,
       moveBy,
       hideWhenReferenceHidden = false,
       tip = true,
       tooltipArrowClassName,
-      modifiers = EMPTY_ARR,
+      modifiers = [],
       floating = false,
-      color = TipseenColor.PRIMARY,
+      color = "inverted",
       "data-testid": dataTestId
-    },
+    }: TipseenProps,
     ref
   ) => {
     const defaultDelayOpen =
@@ -121,11 +125,11 @@ const Tipseen: VibeComponent<TipseenProps> & {
     }, [showDelay, setDelayOpen]);
 
     const textColor = useMemo(() => {
-      return color === TipseenColor.INVERTED ? "onInverted" : "onPrimary";
+      return color === "inverted" ? "onInverted" : "onPrimary";
     }, [color]);
     const closeButtonColor = useMemo(() => {
-      if (closeButtonTheme === TipseenCloseButtonTheme.LIGHT) {
-        return color === TipseenColor.INVERTED ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+      if (closeButtonTheme === "light") {
+        return color === "inverted" ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
       } else {
         return closeButtonTheme;
       }
@@ -139,13 +143,11 @@ const Tipseen: VibeComponent<TipseenProps> & {
             <IconButton
               hideTooltip
               className={cx(styles.tipseenCloseButton, {
-                [styles.dark]:
-                  closeButtonTheme === TipseenCloseButtonTheme.DARK ||
-                  closeButtonTheme === TipseenCloseButtonTheme.FIXED_DARK
+                [styles.dark]: closeButtonTheme === "dark" || closeButtonTheme === "fixed-dark"
               })}
               onClick={onClose}
-              size={Button.sizes.XS}
-              kind={Button.kinds.TERTIARY}
+              size="xs"
+              kind="tertiary"
               // @ts-ignore
               color={closeButtonColor}
               ariaLabel={overrideCloseAriaLabel}
@@ -177,7 +179,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           content={tooltipContent}
-          theme={color === TipseenColor.INVERTED ? "dark" : "primary"}
+          theme={color === "inverted" ? "dark" : "primary"}
           containerSelector={containerSelector}
           disableDialogSlide={false}
           moveBy={moveBy}
@@ -195,8 +197,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
 );
 
 export default withStaticProps(Tipseen, {
-  closeButtonThemes: TipseenCloseButtonTheme,
-  animationTypes: AnimationType,
-  hideShowTriggers: HideShowEvent,
-  colors: TipseenColor
+  closeButtonThemes: TipseenCloseButtonThemeEnum,
+  animationTypes: AnimationTypeEnum,
+  hideShowTriggers: HideShowEventEnum,
+  colors: TipseenColorEnum
 });

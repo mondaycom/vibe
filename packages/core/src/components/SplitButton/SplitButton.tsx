@@ -10,15 +10,13 @@ import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
   DEFAULT_DIALOG_SHOW_TRIGGER,
   DIALOG_MOVE_BY,
-  EMPTY_ARR,
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticProps } from "../../types";
-import { AnimationType, DialogPosition } from "../../constants";
-import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
+import { AnimationType, DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -31,6 +29,7 @@ import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
+import { DialogTriggerEvent } from "../Dialog/Dialog.types";
 
 export interface SplitButtonProps extends ButtonProps {
   /*
@@ -135,10 +134,10 @@ const SplitButton: FC<SplitButtonProps> & {
   }, [setDialogOpen, onSecondaryDialogDidShow]);
 
   const hideDialog = useCallback(
-    (_: DialogEvent, eventName: HideShowEvent) => {
+    (_: DialogEvent, eventName: DialogTriggerEvent) => {
       setDialogOpen(false);
       onSecondaryDialogDidHide();
-      if (eventName === HideShowEvent.ESCAPE_KEY) {
+      if (eventName === "esckey") {
         secondaryButtonRef.current.focus();
       }
     },
@@ -178,10 +177,7 @@ const SplitButton: FC<SplitButtonProps> & {
     [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(
-    () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
-    [disabled]
-  );
+  const dialogShowTrigger = useMemo(() => (disabled ? [] : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
 
   const dialogHideTrigger = useMemo(() => {
     if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];

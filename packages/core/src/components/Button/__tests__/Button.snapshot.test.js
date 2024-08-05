@@ -33,7 +33,7 @@ describe("Button renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  Object.values([Button.sizes.SMALL, Button.sizes.MEDIUM, Button.sizes.LARGE]).forEach(size => {
+  Object.values(["small", "medium", "large"]).forEach(size => {
     it(`renders Button size- ${size}`, () => {
       const tree = renderer.create(<Button size={size}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
