@@ -4,7 +4,8 @@ import Icon from "../Icon/Icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
@@ -48,8 +49,7 @@ export interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
-  // TODO Vibe 3.0: filter ElementAllowedColor.DARK_INDIGO, ElementAllowedColor.BLACKISH from colors which are valid for Chips
-  color?: ElementColor;
+  color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /** Size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -86,7 +86,7 @@ export interface ChipsProps extends VibeComponentProps {
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
-  colors?: typeof ElementAllowedColor;
+  colors?: typeof ElementAllowedColorEnum;
   avatarTypes?: typeof AvatarTypeEnum;
 } = forwardRef<HTMLDivElement, ChipsProps>(
   (
@@ -103,7 +103,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       disabled = false,
       readOnly = false,
       allowTextSelection = false,
-      color = Chips.colors.PRIMARY,
+      color = "primary",
       iconSize = 18,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
@@ -279,6 +279,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
 );
 
 export default withStaticProps(Chips, {
-  colors: ElementAllowedColor,
+  colors: ElementAllowedColorEnum,
   avatarTypes: AvatarTypeEnum
 });

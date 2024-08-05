@@ -50,6 +50,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style
+- `color` - remove dark_indigo and blackish colors
 
 ### Clickable
 

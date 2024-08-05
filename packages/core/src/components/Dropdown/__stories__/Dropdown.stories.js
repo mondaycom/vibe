@@ -423,17 +423,17 @@ export const DropdownWithChipColors = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          chipColor: Dropdown.chipColors.NEGATIVE
+          chipColor: "negative"
         },
         {
           value: "Hadas",
           label: "Hadas Farhi",
-          chipColor: Dropdown.chipColors.POSITIVE
+          chipColor: "positive"
         },
         {
           value: "Netta",
           label: "Netta Muller",
-          chipColor: Dropdown.chipColors.PRIMARY
+          chipColor: "primary"
         }
       ],
       []

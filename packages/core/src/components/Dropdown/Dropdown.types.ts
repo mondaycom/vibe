@@ -273,7 +273,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
 
 export type DropdownProps = DropdownComponentProps;
 
-export type DropdownChipColors = "PRIMARY" | "NEGATIVE" | "POSITIVE";
+export type DropdownChipColors = "primary" | "negative" | "positive";
 
 export type DropdownMenuPosition = "absolute" | "fixed";
 
