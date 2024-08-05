@@ -2,59 +2,54 @@
   "name": "monday-ui-react-core",
   "version": "2.128.0",
   "description": "Official monday.com UI resources for application development in React.js",
-  "main": "./dist/main.js",
-  "types": "./dist/types.d.ts",
+  "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/esm/src/index.js",
-      "default": "./dist/main.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
     },
-    "./dist/": "./dist/",
     "./icons": {
-      "types": "./dist/esm/components/Icon/Icons/index.d.ts",
-      "import": "./dist/esm/src/components/Icon/Icons/icons.js",
-      "default": "./dist/allIcons.js"
+      "types": "./dist/components/Icon/Icons/index.d.ts",
+      "import": "./dist/src/components/Icon/Icons/icons.js",
+      "default": "./dist/src/components/Icon/Icons/icons.js"
     },
     "./interactionsTests": {
-      "types": "./dist/esm/tests/interactions-utils.d.ts",
-      "import": "./dist/esm/src/tests/interactionsTests.js",
-      "default": "./dist/esm/src/tests/interactionsTests.js"
+      "types": "./dist/tests/interactions-utils.d.ts",
+      "import": "./dist/src/tests/interactionsTests.js",
+      "default": "./dist/src/tests/interactionsTests.js"
     },
     "./testIds": {
-      "types": "./dist/esm/tests/test-ids-utils.d.ts",
-      "import": "./dist/esm/src/tests/testIds.js",
-      "default": "./dist/esm/src/tests/testIds.js"
+      "types": "./dist/tests/test-ids-utils.d.ts",
+      "import": "./dist/src/tests/testIds.js",
+      "default": "./dist/src/tests/testIds.js"
     },
-    "./storybookComponents": "./dist/storybook/index.js",
     "./next": {
-      "types": "./dist/esm/components/next/next.d.ts",
-      "import": "./dist/esm/src/components/next/next.js",
-      "default": "./dist/esm/src/components/next/next.js"
+      "types": "./dist/components/next/next.d.ts",
+      "import": "./dist/src/components/next/next.js",
+      "default": "./dist/src/components/next/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
+    "./colors": "./dist/assets/colors.json",
     "./mockedClassNames": {
-      "import": "./dist/mocked_classnames_esm/src/index.js"
-    },
-    "./types": "./dist/esm/types/index.d.ts"
+      "import": "./dist/mocked_classnames/src/index.js",
+      "default": "./dist/mocked_classnames/src/index.js"
+    }
   },
   "typesVersions": {
     "*": {
       "icons": [
-        "./dist/esm/components/Icon/Icons/index.d.ts"
+        "./dist/components/Icon/Icons/index.d.ts"
       ],
       "interactionsTests": [
-        "./dist/esm/tests/interactions-utils.d.ts"
+        "./dist/tests/interactions-utils.d.ts"
       ],
       "testIds": [
-        "./dist/esm/tests/test-ids-utils.d.ts"
+        "./dist/tests/test-ids-utils.d.ts"
       ],
       "next": [
-        "./dist/esm/components/next/next.d.ts"
-      ],
-      "types": [
-        "./dist/esm/types/index.d.ts"
+        "./dist/components/next/next.d.ts"
       ]
     }
   },
@@ -63,17 +58,13 @@
     "test:watch": "jest --watch",
     "test:update": "yarn test -u",
     "test:coverage": "yarn test -- --coverage",
-    "start": "yarn build:react-icons && yarn build:commonjs -- --watch",
-    "build": "yarn build:react-icons && yarn build:storybook-exports && yarn build:commonjs && yarn build:esm && yarn build:esm:mock-classnames && yarn build:types",
-    "build:exports": "./scripts/build-exports.js",
-    "build:types": "./scripts/build-types.js",
-    "build:storybook-exports": "./scripts/build-storybook-exports.js",
-    "build:commonjs": "webpack --mode production --config webpack/default.config.js",
+    "start": "yarn build:react-icons && yarn build:esm -- --watch",
+    "build": "yarn build:react-icons && yarn build:esm && yarn build:esm:mock-classnames",
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors ../../node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "storybook": "storybook dev -p 7008",
-    "build-storybook": "yarn build:storybook-exports && storybook build -o static_storybook",
+    "build-storybook": "storybook build -o static_storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
@@ -90,10 +81,7 @@
   "author": "",
   "license": "MIT",
   "files": [
-    "src/",
-    "dist/",
-    "README.md",
-    "THEME_README.md"
+    "dist"
   ],
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -119,8 +107,7 @@
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
-    "style-inject": "^0.3.0",
-    "vibe-storybook-components": "0.19.2"
+    "style-inject": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -204,7 +191,6 @@
     "boxt": "^1.1.1",
     "chalk": "^4.1.2",
     "chromatic": "^11.5.4",
-    "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^6.5.1",
     "csstype": "^3.1.0",
     "ejs": "^3.1.9",
@@ -246,6 +232,7 @@
     "react-test-renderer": "^16.14.0",
     "resolve-url-loader": "^5.0.0",
     "rollup": "^2.79.1",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
@@ -262,16 +249,12 @@
     "stylelint-config-standard": "^24.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "svg2react-icon": "^3.1.178",
-    "terser-webpack-plugin": "^5.3.0",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "webpack": "^5.73.0",
-    "webpack-bundle-analyzer": "^4.6.1",
-    "webpack-cli": "^4.9.1",
-    "webpack-node-externals": "^3.0.0"
+    "vibe-storybook-components": "0.19.2"
   },
   "peerDependencies": {
     "moment": "^2.29.1",
