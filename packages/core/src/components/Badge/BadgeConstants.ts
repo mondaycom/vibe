@@ -1,4 +1,4 @@
-import { DialogPosition } from "../../constants";
+import { DialogPosition } from "../Dialog/DialogConstants";
 
 /**
  * @deprecated

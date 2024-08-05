@@ -4,12 +4,8 @@ import React, { useRef } from "react";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbItem.module.scss";
-
-const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
-const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
 
 export interface BreadcrumbItemProps extends VibeComponentProps {
   /** The display text. */
@@ -48,8 +44,8 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
       disableDialogSlide={true}
       withoutDialog={false}
       content={isOverflowing && text}
-      showTrigger={MOUSEENTER}
-      hideTrigger={MOUSELEAVE}
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
     >
       <li
         id={id}

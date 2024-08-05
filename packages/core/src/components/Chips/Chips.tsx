@@ -262,8 +262,8 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
         {hasCloseButton && (
           <IconButton
-            size={IconButton.sizes.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
+            size="xxs"
+            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip

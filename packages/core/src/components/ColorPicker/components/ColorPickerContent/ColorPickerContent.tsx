@@ -1,14 +1,15 @@
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
-import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import { ColorStyle as ColorStyleEnum, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import {
-  ColorShapes,
+  ColorShapes as ColorShapesEnum,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   ColorPickerValue,
   ColorPickerArrayValueOnly
 } from "../../ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
   GridKeyboardNavigationContext,
@@ -18,6 +19,7 @@ import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
 import useMergeRef from "../../../../hooks/useMergeRef";
+import { ColorStyle } from "../../../../types/Colors";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
@@ -27,7 +29,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;
   colorStyle?: ColorStyle;
-  colorSize?: BaseSizes;
+  colorSize?: ColorPickerSizes;
   colorShape?: ColorShapes;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   noColorText?: string;
@@ -49,12 +51,10 @@ export interface ColorPickerContentProps extends VibeComponentProps {
 }
 
 const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
-  // Backward compatibility for enum naming
-  COLOR_STYLES?: typeof ColorStyle;
   sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyle;
+  colorStyles?: typeof ColorStyleEnum;
   colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapes;
+  colorShapes?: typeof ColorShapesEnum;
 } = forwardRef(
   (
     {
@@ -62,7 +62,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       onValueChange,
       value,
       noColorText,
-      colorStyle = ColorStyle.REGULAR,
+      colorStyle = "regular",
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
@@ -74,12 +74,12 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       tooltipContentByColor = {},
       focusOnMount,
-      colorShape = ColorShapes.SQUARE,
+      colorShape = "square",
       forceUseRawColorList,
       showColorNameTooltip,
       id,
       "data-testid": dataTestId
-    },
+    }: ColorPickerContentProps,
     ref
   ) => {
     const gridRef = useRef(null);
@@ -120,7 +120,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 
     const positions = useMemo(() => [{ topElement: colorsRef, bottomElement: buttonRef }], []);
     const keyboardContext = useGridKeyboardNavigationContext(positions, gridRef);
-    const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
+    const width = calculateColorPickerWidth(colorSize as BaseSizes, numberOfColorsInLine);
 
     return (
       <div className={className} style={{ width }} ref={mergedRef} tabIndex={-1}>
@@ -153,10 +153,8 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 );
 
 export default withStaticProps(ColorPickerContent, {
-  // Backward compatibility for enum naming
-  COLOR_STYLES: ColorStyle,
   sizes: BaseSizes,
-  colorStyles: ColorStyle,
+  colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes
+  colorShapes: ColorShapesEnum
 });

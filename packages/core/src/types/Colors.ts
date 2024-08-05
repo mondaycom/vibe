@@ -38,3 +38,5 @@ export function getElementColor(
   }
   return colorValue;
 }
+
+export type ColorStyle = "regular" | "hover" | "selected";

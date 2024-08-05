@@ -5,7 +5,6 @@ import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
 import Info from "../../Icon/Icons/components/Info";
-import { ButtonType } from "../../Button/ButtonConstants";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
@@ -14,7 +13,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-export interface ITableHeaderCellProps extends VibeComponentProps {
+export interface TableHeaderCellProps extends VibeComponentProps {
   title: string;
   icon?: SubIcon;
   infoContent?: string;
@@ -24,7 +23,7 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   sticky?: boolean;
 }
 
-const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
+const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = forwardRef(
   (
     {
       id,
@@ -84,8 +83,8 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           <Flex direction="row" align="center" className={styles.tableHeaderCellSort}>
             <IconButton
               icon={getSortIcon(sortState)}
-              kind={ButtonType.TERTIARY}
-              size={IconButton.sizes.XS}
+              kind="tertiary"
+              size="xs"
               ariaLabel={sortButtonAriaLabel}
               aria-hidden={!shouldShowSortIcon}
               className={cx(styles.sort, getStyle(styles, sortState), {
