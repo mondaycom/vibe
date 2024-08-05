@@ -24,13 +24,7 @@ export enum ButtonColor {
   // FIXED_DARK = "fixed-dark"
 }
 
-export const OLD_BUTTON_SIZES = {
-  sm: SIZES.SMALL,
-  md: SIZES.MEDIUM,
-  lg: SIZES.LARGE
-} as const;
-
-export type Size = (typeof SIZES)[keyof typeof SIZES] | keyof typeof OLD_BUTTON_SIZES;
+export type Size = (typeof SIZES)[keyof typeof SIZES];
 
 export const BUTTON_KIND_CLASS_NAMES = {
   PRIMARY: ""
