@@ -220,6 +220,11 @@ codemod: `avatar-component-migration`
 
 - `ColorPickerContent.COLOR_STYLES` removed [codemod]
 
+### ResponsiveList
+
+- Remove entire component
+
+
 ## Hooks
 
 ### useClickableProps

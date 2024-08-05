@@ -68,7 +68,6 @@ exports[`exports should export all components 1`] = `
   "ModalHeader",
   "MultiStepIndicator",
   "RadioButton",
-  "ResponsiveList",
   "Search",
   "Skeleton",
   "Slider",
