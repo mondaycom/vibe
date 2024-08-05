@@ -16,7 +16,7 @@ const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
-const injectStyle = fs.readFileSync("./build/styleInject.ejs", "utf8");
+const injectStyle = fs.readFileSync("./scripts/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
