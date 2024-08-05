@@ -42,6 +42,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
