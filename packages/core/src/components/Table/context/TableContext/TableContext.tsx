@@ -47,7 +47,7 @@ export const TableProvider = ({ value, children }: TableProviderProps) => {
     [scrollLeft]
   );
 
-  const contextValue = useMemo<TableContext>(
+  const contextValue = useMemo<ITableContext>(
     () => ({
       ...value,
       tableRootRef,

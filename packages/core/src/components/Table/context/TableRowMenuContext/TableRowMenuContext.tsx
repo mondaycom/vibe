@@ -60,7 +60,7 @@ export const TableRowMenuProvider = ({ children }: TableRowMenuProviderProps) =>
     setHoveredRowRef(null);
   }, []);
 
-  const contextValue = useMemo<TableRowMenuContext>(
+  const contextValue = useMemo<ITableRowMenuContext>(
     () => ({
       hoveredRowId,
       resetHoveredRow,

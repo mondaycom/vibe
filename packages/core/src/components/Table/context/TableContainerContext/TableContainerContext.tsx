@@ -8,7 +8,7 @@ const TableContainerContext = createContext<ITableContainerContext | undefined>(
 
 export const TableContainerProvider = ({ children }: TableContainerProviderProps) => {
   const menuContainerRef = useRef<HTMLDivElement>(null);
-  const contextValue = useMemo<TableContainerContext>(() => ({ menuContainerRef }), [menuContainerRef]);
+  const contextValue = useMemo<ITableContainerContext>(() => ({ menuContainerRef }), [menuContainerRef]);
   return <TableContainerContext.Provider value={contextValue}>{children}</TableContainerContext.Provider>;
 };
 
