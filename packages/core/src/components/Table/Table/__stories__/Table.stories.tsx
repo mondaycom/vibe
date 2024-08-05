@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table, { ITableColumn, ITableProps } from "../Table";
+import Table, { TableColumn, TableProps } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -44,7 +44,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tableTemplate = (args: ITableProps) => <Table {...args}></Table>;
+const tableTemplate = (args: TableProps) => <Table {...args}></Table>;
 
 export const Overview = {
   render: tableTemplate.bind({}),
@@ -180,7 +180,7 @@ export const Overview = {
 
 export const Sizes = {
   render: () => {
-    const columns: ITableColumn[] = [
+    const columns: TableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -210,7 +210,7 @@ export const Sizes = {
       <>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.MEDIUM}
+          size="medium"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -236,7 +236,7 @@ export const Sizes = {
         </Table>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.LARGE}
+          size="large"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -275,7 +275,7 @@ export const Sizes = {
 
 export const Borders = {
   render: () => {
-    const columns: ITableColumn[] = [
+    const columns: TableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
