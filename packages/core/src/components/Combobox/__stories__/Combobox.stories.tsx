@@ -162,13 +162,13 @@ export const Sizes = {
     return (
       <div className="combobox-stories-styles_row">
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.SMALL} placeholder="Placeholder text here" />
+          <Combobox options={options} size="small" placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
+          <Combobox options={options} size="large" placeholder="Placeholder text here" />
         </DialogContentContainer>
       </div>
     );
@@ -424,7 +424,7 @@ export const WithButton = {
     return (
       <DialogContentContainer>
         <Combobox options={options} placeholder="Placeholder text here" />
-        <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>
+        <Button kind="tertiary" className="combobox-stories-styles_btn" leftIcon={Edit}>
           Edit
         </Button>
       </DialogContentContainer>
@@ -761,13 +761,13 @@ export const ComboboxAsPersonPicker = {
                 options={options}
                 categories={categories}
                 optionRenderer={optionRenderer}
-                size={Combobox.sizes.SMALL}
+                size="small"
                 placeholder="Search"
               />
             </DialogContentContainer>
           )}
           tooltip
-          position={Dialog.positions.BOTTOM}
+          position="bottom"
           open={true}
         >
           <div className="person-picker-mock">

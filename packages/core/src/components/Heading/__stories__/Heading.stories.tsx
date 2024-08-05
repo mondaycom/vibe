@@ -40,34 +40,49 @@ export const Overview = {
 
 export const TypesAndWeights = {
   render: () => (
-    <Flex gap="small" direction="column" justify="start" align="start">
-      <Heading type="h1" weight="bold">
-        Bold H1 title
-      </Heading>
-      <Heading type="h1" weight="normal">
-        Normal H1 title
-      </Heading>
-      <Heading type="h1" weight="light">
-        Light H1 title
-      </Heading>
-      <Heading type="h2" weight="bold">
-        Bold H2 title
-      </Heading>
-      <Heading type="h2" weight="normal">
-        Normal H2 title
-      </Heading>
-      <Heading type="h2" weight="light">
-        Light H2 title
-      </Heading>
-      <Heading type="h3" weight="bold">
-        Bold H3 title
-      </Heading>
-      <Heading type="h3" weight="normal">
-        Normal H3 title
-      </Heading>
-      <Heading type="h3" weight="light">
-        Light H3 title
-      </Heading>
+    <Flex gap="large" direction="column" justify="start" align="start">
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Heading type="h1" weight="bold">
+          Bold H1 title
+        </Heading>
+        <Heading type="h1" weight="medium">
+          Medium H1 title
+        </Heading>
+        <Heading type="h1" weight="normal">
+          Normal H1 title
+        </Heading>
+        <Heading type="h1" weight="light">
+          Light H1 title
+        </Heading>
+      </Flex>
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Heading type="h2" weight="bold">
+          Bold H2 title
+        </Heading>
+        <Heading type="h2" weight="medium">
+          Medium H2 title
+        </Heading>
+        <Heading type="h2" weight="normal">
+          Normal H2 title
+        </Heading>
+        <Heading type="h2" weight="light">
+          Light H2 title
+        </Heading>
+      </Flex>
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Heading type="h3" weight="bold">
+          Bold H3 title
+        </Heading>
+        <Heading type="h3" weight="medium">
+          Medium H3 title
+        </Heading>
+        <Heading type="h3" weight="normal">
+          Normal H3 title
+        </Heading>
+        <Heading type="h3" weight="light">
+          Light H3 title
+        </Heading>
+      </Flex>
     </Flex>
   ),
 
@@ -136,7 +151,7 @@ export const BuiltInPageHeaderNotEditable = {
       <Flex align="center" gap="small" aria-labelledby="my-work-id">
         <Search className={styles.pageHeaderSearch} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
-        <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
+        <Button leftIcon={Custom} kind="tertiary">
           Customize
         </Button>
       </Flex>

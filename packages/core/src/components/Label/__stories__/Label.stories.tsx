@@ -174,7 +174,7 @@ export const Celebration = {
     return (
       <>
         <Label text="New" kind="line" celebrationAnimation={animate} />
-        <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} onClick={() => setAnimate(true)}>
+        <Button size="small" kind="tertiary" onClick={() => setAnimate(true)}>
           Click to celebrate
         </Button>
       </>

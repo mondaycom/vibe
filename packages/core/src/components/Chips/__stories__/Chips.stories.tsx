@@ -70,9 +70,9 @@ export const Themes = {
   render: () => (
     <>
       <Chips label="This is a long chip" />
-      <Chips label="Chip positive" color={Chips.colors.POSITIVE} />
-      <Chips label="Chip negative" color={Chips.colors.NEGATIVE} />
-      <Chips label="Chip warning" color={Chips.colors.WARNING} />
+      <Chips label="Chip positive" color="positive" />
+      <Chips label="Chip negative" color="negative" />
+      <Chips label="Chip warning" color="warning" />
       <Chips label="Disabled" disabled />
     </>
   ),
@@ -158,7 +158,7 @@ export const OnColor = {
           borderRadius: "var(--sb-border-radius-small)"
         }}
       >
-        <Chips label="On positive" showBorder color={Chips.colors.POSITIVE} readOnly />
+        <Chips label="On positive" showBorder color="positive" readOnly />
       </Flex>
       <Flex
         align="center"
@@ -171,7 +171,7 @@ export const OnColor = {
           borderRadius: "var(--sb-border-radius-small)"
         }}
       >
-        <Chips label="On negative" showBorder color={Chips.colors.NEGATIVE} readOnly />
+        <Chips label="On negative" showBorder color="negative" readOnly />
       </Flex>
     </Flex>
   ),
@@ -183,17 +183,17 @@ export const ColorfulChipsForDifferentContent = {
   render: () => (
     <DialogContentContainer className={styles.searchBar}>
       <div className={styles.item}>
-        <Chips label="January" color={Chips.colors.POSITIVE} />
+        <Chips label="January" color="positive" />
       </div>
       <Search />
       <div className={styles.item}>
-        <Chips label="August" readOnly color={Chips.colors.LIPSTICK} />
+        <Chips label="August" readOnly color="lipstick" />
       </div>
       <div className={styles.item}>
-        <Chips label="April" readOnly color={Chips.colors.BUBBLE} />
+        <Chips label="April" readOnly color="bubble" />
       </div>
       <div className={styles.item}>
-        <Chips label="March" readOnly color={Chips.colors.EGG_YOLK} />
+        <Chips label="March" readOnly color="egg_yolk" />
       </div>
     </DialogContentContainer>
   ),
@@ -220,7 +220,7 @@ export const ChipsInAPersonPickerComboBox = {
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-2">
-          <Avatar size="small" backgroundColor={Avatar.colors.DARK_PURPLE} text="LC" type="text" />
+          <Avatar size="small" backgroundColor="dark_purple" text="LC" type="text" />
           <Text type="text2" className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
           </Text>
@@ -232,7 +232,7 @@ export const ChipsInAPersonPickerComboBox = {
           </Text>
         </Flex>
         <Flex align="center" justify="center" key="cont-4">
-          <Avatar size="small" text="DY" type="text" backgroundColor={Avatar.colors.PEACH} />
+          <Avatar size="small" text="DY" type="text" backgroundColor="peach" />
           <Text type="text2" className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </Text>

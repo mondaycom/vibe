@@ -5,7 +5,7 @@ import { multiInteractionTests, overviewPlaySuite } from "../__tests__/Dropdown.
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import { OptionRenderer } from "./OptionRenderer.js";
+import { OptionRenderer } from "./OptionRenderer";
 import { Attach, Email } from "../../Icon/Icons";
 import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
@@ -76,9 +76,9 @@ export const Overview = {
 export const Sizes = {
   render: () => (
     <>
-      <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
-      <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
-      <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Small" size="small" className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Medium" size="medium" className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Large" size="large" className="dropdown-stories-styles_spacing" />
     </>
   )
 };
@@ -423,17 +423,17 @@ export const DropdownWithChipColors = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          chipColor: Dropdown.chipColors.NEGATIVE
+          chipColor: "negative"
         },
         {
           value: "Hadas",
           label: "Hadas Farhi",
-          chipColor: Dropdown.chipColors.POSITIVE
+          chipColor: "positive"
         },
         {
           value: "Netta",
           label: "Netta Muller",
-          chipColor: Dropdown.chipColors.PRIMARY
+          chipColor: "primary"
         }
       ],
       []
@@ -827,18 +827,14 @@ export const DropdownInsidePopover = {
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
           <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-            <Dropdown
-              placeholder="Dropdown inside DialogContentContainer"
-              options={options}
-              menuPosition={Dropdown.menuPositions.FIXED}
-            />
+            <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition="fixed" />
           </Box>
         </DialogContentContainer>
         <div>
           <Button onClick={() => setShow(true)}>Open Modal</Button>
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
-              <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
+              <Dropdown placeholder="Dropdown" options={options} menuPosition="fixed" />
             </ModalContent>
           </Modal>
         </div>

@@ -105,7 +105,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
         />
         <Button>Themed</Button>
         <div className="brand-colors">
-          <Button color={Button.colors.BRAND}>Themed branded</Button>
+          <Button color="brand">Themed branded</Button>
         </div>
       </Flex>
     </ThemeProvider>

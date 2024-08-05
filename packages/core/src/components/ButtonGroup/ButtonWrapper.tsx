@@ -1,17 +1,16 @@
 import React from "react";
 import { isNil } from "lodash-es";
 import Button, { ButtonProps } from "../Button/Button";
-import { HideShowEvent } from "../../constants";
 import Tooltip from "../Tooltip/Tooltip";
 import { MoveBy } from "../../types/MoveBy";
-import { TooltipPositionsType } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 export interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
@@ -36,8 +35,8 @@ export const ButtonWrapper = ({
         hideDelay={tooltipHideDelay}
         showDelay={tooltipShowDelay}
         content={tooltipContent}
-        showTrigger={[HideShowEvent.MOUSE_ENTER]}
-        hideTrigger={[HideShowEvent.MOUSE_LEAVE]}
+        showTrigger={["mouseenter"]}
+        hideTrigger={["mouseleave"]}
         containerSelector={tooltipContainerSelector}
       >
         {button}

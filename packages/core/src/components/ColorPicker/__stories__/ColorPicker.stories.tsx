@@ -2,7 +2,7 @@ import ColorPicker from "../ColorPicker";
 import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
 import Check from "../../Icon/Icons/components/Check";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions.js";
+import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions";
 import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -48,7 +48,7 @@ export const Selected = {
   render: colorPickerTemplate.bind({}),
   args: {
     ColorIndicatorIcon: TextColorIndicator,
-    colorStyle: ColorPicker.COLOR_STYLES.SELECTED
+    colorStyle: "selected"
   },
   name: "Selected"
 };
@@ -76,7 +76,7 @@ export const SelectedIcon = {
 export const Shapes = {
   render: colorPickerTemplate.bind({}),
   args: {
-    colorShape: ColorPicker.colorShapes.CIRCLE
+    colorShape: "circle"
   },
   name: "Shapes"
 };

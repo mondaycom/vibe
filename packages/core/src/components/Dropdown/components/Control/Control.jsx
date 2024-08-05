@@ -1,6 +1,6 @@
 import React from "react";
 import { components } from "react-select";
-import Tooltip from "../../../../components/Tooltip/Tooltip";
+import Tooltip from "../../../Tooltip/Tooltip";
 
 const Control = props => {
   const { selectProps } = props;
@@ -10,7 +10,7 @@ const Control = props => {
     return (
       <Tooltip
         content={selectProps?.selectProps?.tooltipContent}
-        hideTrigger={[Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.CLICK]}
+        hideTrigger={["mouseleave", "click"]}
         showTrigger={[Tooltip.hideShowTriggers.MOUSE_ENTER]}
       >
         <div ref={controlRef}>{control}</div>

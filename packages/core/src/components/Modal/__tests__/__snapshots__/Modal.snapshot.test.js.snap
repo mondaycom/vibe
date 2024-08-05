@@ -344,7 +344,7 @@ Snapshot Diff:
 exports[`Modal with full width 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"full_width"}
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"full-width"}
 
 @@ --- --- @@
       data-testid="monday-modal-overlay"

@@ -2,8 +2,7 @@ import React from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Calendar, Doc, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
-import { TableVirtualizedRow } from "../../TableVirtualizedBody/TableVirtualizedBody";
-import { ITableColumn } from "../Table";
+import { TableColumn } from "../Table";
 
 export const doAndDontIconsRuleColumns = [
   {
@@ -118,7 +117,7 @@ export const emailTableData = [
   }
 ];
 
-export const emailColumns = [
+export const emailColumns: TableColumn[] = [
   {
     id: "sentOn",
     title: "Sent on",
@@ -258,14 +257,14 @@ export const highlightableTableData = [
   }
 ];
 
-export const priorityColumnToLabelColor = {
+export const priorityColumnToLabelColor: { [key: string]: LabelColor } = {
   Urgent: LabelColor.NEGATIVE,
   High: LabelColor.DARK,
   Normal: LabelColor.PRIMARY,
   Low: LabelColor.POSITIVE
 };
 
-export const statusColumnToLabelColor = {
+export const statusColumnToLabelColor: { [key: string]: LabelColor } = {
   Sent: LabelColor.POSITIVE,
   Queued: LabelColor.DARK,
   Failed: LabelColor.NEGATIVE,
@@ -307,13 +306,13 @@ export const scrollTableColumns = [
   }
 ];
 
-export const virtualizedScrollTableData: TableVirtualizedRow[] = [...new Array(5000)].map((_, index) => ({
+export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) => ({
   id: index.toString(),
   num: index,
   text: `This is line number ${index}`
 }));
 
-export const virtualizedScrollTableColumns: ITableColumn[] = [
+export const virtualizedScrollTableColumns: TableColumn[] = [
   {
     id: "num",
     title: "#",
@@ -325,7 +324,7 @@ export const virtualizedScrollTableColumns: ITableColumn[] = [
   }
 ];
 
-export function sort(columnId: string, sortState: "asc" | "desc" | "none", tableData: []) {
+export function sort<T>(columnId: keyof T, sortState: "asc" | "desc" | "none", tableData: T[]) {
   if (sortState === "asc") {
     return [...tableData].sort((a, b) => {
       return b[columnId] > a[columnId] ? 1 : -1;
@@ -352,6 +351,6 @@ export const TableAvatar = ({ text }: { text: string }) => (
     customSize={24}
     size="small"
     ariaLabel={text}
-    backgroundColor={Avatar.colors.DARK_PURPLE}
+    backgroundColor="dark_purple"
   />
 );

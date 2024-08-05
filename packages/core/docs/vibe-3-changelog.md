@@ -2,7 +2,20 @@
 
 ## General
 
-- `monday-ui-react-core/next` removed - import same components from `monday-ui-react-core` instead.
+- `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
+- `monday-ui-react-core/types` removed, exported types are now exported from `monday-ui-react-core` [codemod]
+- `monday-ui-react-core/storybookComponents` removed, use the `vibe-storybook-components` package instead [codemod]
+- CommonJS support removed
+- `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
+- All components' props interfaces are exported
+
+## Colors
+
+- Removed `--shareable-color` and `--private-color`
+
+## Typography
+
+- `Text` and `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
 
 ## Components
 
@@ -27,10 +40,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
-
-### Box 🚩
-
-- `scrollable` -> change default to true [codemod (?)]
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
@@ -46,6 +56,7 @@ codemod: `chips-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod ✅]
 - `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style. Pay attention that this codemod removes `clickable` and `isClickable` only if `onClick` is present [codemod ✅]
+- `color` - remove dark_indigo and blackish colors
 
 ### Clickable
 
@@ -58,7 +69,6 @@ codemod: `chips-component-migration`
 ### Dialog
 
 - `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
-- [!!!] `JustifyType` removed
 
 ### DialogContentContainer 🚩
 
@@ -69,13 +79,14 @@ codemod: `chips-component-migration`
 
 - `classname` -> `className` [codemod]
 
-### Dropdown 🚩
-
-- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
-
 ### Flex
 
 - Removed `Flex.gaps.NONE`
+
+### Dropdown 🚩
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+- Remove size 'xxs' and 'xs'
 
 ### EditableInput
 
@@ -175,6 +186,14 @@ codemod: `search-component-import-migration`
 
 - `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
 
+### Tabs
+
+- Reset spacings (removed default browser's margin/padding for ul,li elements)
+
+### TabList
+
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom
+
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
@@ -188,11 +207,13 @@ codemod: `search-component-import-migration`
 
 ### Tipseen
 
+- Default `color` changed from 'primary' to 'inverted'
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
 - `justify` removed
 - `justifyTypes` removed
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
+- `content` prop is now mandatory
 
 ### TipseenContent
 
@@ -207,14 +228,25 @@ codemod: `search-component-import-migration`
 ### Tooltip
 
 - `paddingSize` removed
-- [!!!] `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
-- [!!!] `showOnDialogEnter` changed default to be true (should we remove this prop?)
+- `themes` - remove all themes besides for "dark" & "primary" [codemod]
+- `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
-- [!!!] `position` changed to accept string instead of static prop
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
 - `arrowPosition` removed
-- `TooltipArrowPosition` removed
+
+### ColorPicker
+
+- `ColorPicker.COLOR_STYLES` removed [codemod]
+
+### ColorPickerContent
+
+- `ColorPickerContent.COLOR_STYLES` removed [codemod]
+
+### ResponsiveList
+
+- Remove entire component
+
 
 ## Hooks
 

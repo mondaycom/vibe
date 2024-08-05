@@ -3,7 +3,6 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import Button from "../../components/Button/Button";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
 import Loader from "../Loader/Loader";
@@ -149,15 +148,15 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
             {toastLinks}
           </Flex>
           {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size={Loader.sizes.XS} />}
+          {loading && <Loader size="xs" />}
         </Flex>
         {closeable && (
           <IconButton
             className={cx(styles.closeButton)}
             onClick={handleClose}
-            size={Button.sizes.SMALL}
-            kind={Button.kinds.TERTIARY}
-            color={Button.colors.FIXED_LIGHT}
+            size="small"
+            kind="tertiary"
+            color="fixed-light"
             ariaLabel={closeButtonAriaLabel}
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
             icon={CloseSmall}

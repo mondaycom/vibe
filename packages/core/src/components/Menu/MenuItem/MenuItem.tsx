@@ -10,7 +10,8 @@ import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { TooltipPositionsType } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { SubmenuPosition } from "./MenuItem.Types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -32,7 +33,7 @@ export interface MenuItemProps extends VibeComponentProps {
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
   useDocumentEventListeners?: boolean;
   tooltipContent?: string;
-  tooltipPosition?: TooltipPositionsType;
+  tooltipPosition?: TooltipPositions;
   tooltipShowDelay?: number;
   tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
@@ -55,6 +56,7 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   splitMenuItem?: boolean;
   "aria-label"?: AriaAttributes["aria-label"];
+  submenuPosition?: SubmenuPosition;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {

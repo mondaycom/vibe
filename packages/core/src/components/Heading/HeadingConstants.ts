@@ -12,6 +12,7 @@ export enum HeadingType {
  */
 export enum HeadingWeight {
   BOLD = "bold",
+  MEDIUM = "medium",
   NORMAL = "normal",
   LIGHT = "light"
 }

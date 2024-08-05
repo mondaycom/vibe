@@ -4,7 +4,8 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
-import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
@@ -26,7 +27,7 @@ export interface AvatarProps extends VibeComponentProps {
   textClassName?: string;
   /** Class name for a div-wrapper of avatar content */
   avatarContentWrapperClassName?: string;
-  backgroundColor?: ElementColor;
+  backgroundColor?: ElementAllowedColor;
   customBackgroundColor?: string;
   role?: AriaRole;
   size?: AvatarSize;
@@ -46,8 +47,8 @@ export interface AvatarProps extends VibeComponentProps {
 const Avatar: React.FC<AvatarProps> & {
   types?: typeof AvatarTypeEnum;
   sizes?: typeof AvatarSizeEnum;
-  colors?: typeof ElementAllowedColor;
-  backgroundColors?: typeof ElementAllowedColor;
+  colors?: typeof ElementAllowedColorEnum;
+  backgroundColors?: typeof ElementAllowedColorEnum;
 } = ({
   id,
   type = "text",
@@ -62,7 +63,7 @@ const Avatar: React.FC<AvatarProps> & {
   ariaLabel,
   withoutTooltip = false,
   role,
-  backgroundColor = Avatar.colors.CHILI_BLUE,
+  backgroundColor = "chili-blue",
   square,
   disabled,
   tabIndex,
@@ -163,11 +164,7 @@ const Avatar: React.FC<AvatarProps> & {
           className: styles.clickableWrapper
         }}
       >
-        <Tooltip
-          showTrigger={[Tooltip.hideShowTriggers.FOCUS, Tooltip.hideShowTriggers.MOUSE_ENTER]}
-          hideTrigger={[Tooltip.hideShowTriggers.BLUR, Tooltip.hideShowTriggers.MOUSE_LEAVE]}
-          {...overrideTooltipProps}
-        >
+        <Tooltip showTrigger={["focus", "mouseenter"]} hideTrigger={["blur", "mouseleave"]} {...overrideTooltipProps}>
           <div
             className={cx(
               styles.circle,
@@ -204,6 +201,6 @@ const Avatar: React.FC<AvatarProps> & {
 export default withStaticProps(Avatar, {
   types: AvatarTypeEnum,
   sizes: AvatarSizeEnum,
-  colors: ElementAllowedColor,
-  backgroundColors: ElementAllowedColor
+  colors: ElementAllowedColorEnum,
+  backgroundColors: ElementAllowedColorEnum
 });

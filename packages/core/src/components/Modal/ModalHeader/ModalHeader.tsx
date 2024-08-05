@@ -121,8 +121,8 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           onClick={closeModal}
           ariaLabel={closeButtonAriaLabel}
           icon={CloseSmall}
-          kind={IconButton.kinds.TERTIARY}
-          size={IconButton.sizes.SMALL}
+          kind="tertiary"
+          size="small"
         />
       </div>
     </div>

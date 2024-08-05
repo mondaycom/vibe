@@ -208,56 +208,51 @@ describe("TextField Tests", () => {
   describe("types", () => {
     it("default type should be text", () => {
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).toBe(TextField.types.TEXT);
+      expect(input.type).toBe("text");
     });
 
     it("type should be password", () => {
       const { rerender } = inputComponent;
       act(() => {
         inputComponent = rerender(
-          <TextField
-            placeholder={defaultPlaceHolder}
-            onChange={onChangeStub}
-            id="test"
-            type={TextField.types.PASSWORD}
-          />
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type="password" />
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).toBe(TextField.types.PASSWORD);
+      expect(input.type).toBe("password");
     });
 
     it("type should be tel", () => {
       const { rerender } = inputComponent;
       act(() => {
         inputComponent = rerender(
-          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.TEL} />
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type="tel" />
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).toBe(TextField.types.TEL);
+      expect(input.type).toBe("tel");
     });
 
     it("type should be url", () => {
       const { rerender } = inputComponent;
       act(() => {
         inputComponent = rerender(
-          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.URL} />
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type="url" />
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).toBe(TextField.types.URL);
+      expect(input.type).toBe("url");
     });
 
     it("type should be email", () => {
       const { rerender } = inputComponent;
       act(() => {
         inputComponent = rerender(
-          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.EMAIL} />
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type="email" />
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).toBe(TextField.types.EMAIL);
+      expect(input.type).toBe("email");
     });
   });
   describe("autocomplete", () => {

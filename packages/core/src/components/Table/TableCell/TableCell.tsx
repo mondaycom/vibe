@@ -6,12 +6,12 @@ import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
-export interface ITableCellProps extends VibeComponentProps {
+export interface TableCellProps extends VibeComponentProps {
   children?: React.ReactNode;
   sticky?: boolean;
 }
 
-const TableCell: VibeComponent<ITableCellProps, HTMLDivElement> = forwardRef(
+const TableCell: VibeComponent<TableCellProps, HTMLDivElement> = forwardRef(
   ({ sticky, id, className, "data-testid": dataTestId, children }, ref) => {
     const isSingleChild = React.Children.count(children) === 1;
     const typeOfFirstChild = typeof React.Children.toArray(children)[0];
