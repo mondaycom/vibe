@@ -151,14 +151,14 @@ codemod: `chips-component-migration`
 
 ### Modal
 
-- Modal no longer have the ability to have a close button due to UX decision
+- Modal no longer have the ability to remove the close button due to UX decision
   - Removed `hideCloseButton` prop which is not needed anymore [codemod]
 - Modal will not render if `show` is false
   - `unmountOnClose` removed, modal will always unmount on close [codemod]
 
 ### ModalHeader
 
-- Modal no longer have the ability to have a close button due to UX decision
+- Modal no longer have the ability to remove the close button due to UX decision
   - Removed `hideCloseButton` prop which is not needed anymore [codemod]
 
 ### RadioButton
