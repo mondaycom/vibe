@@ -24,6 +24,7 @@ import {
   COMBOBOX_LISTBOX_ID
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
+import { ComboboxSizes } from "./Combobox.types";
 
 export interface ComboboxProps extends VibeComponentProps {
   className?: string;
@@ -48,7 +49,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
+  size?: ComboboxSizes;
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -129,7 +130,7 @@ const Combobox: React.FC<ComboboxProps> & {
       searchIcon,
       id = "",
       placeholder = "",
-      size = Combobox.sizes.MEDIUM,
+      size = "medium",
       defaultVisualFocusFirstIndex,
       optionLineHeight = 32,
       optionsListHeight,
@@ -161,7 +162,7 @@ const Combobox: React.FC<ComboboxProps> & {
       "data-testid": dataTestId,
       debounceRate,
       searchInputRef
-    },
+    }: ComboboxProps,
     ref
   ) => {
     const componentRef = useRef(null);
