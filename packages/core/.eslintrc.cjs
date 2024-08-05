@@ -67,12 +67,9 @@ module.exports = {
     },
     {
       files: [
-        "webpack.config.js",
         "plopfile.js",
         "babel.config.js",
         ".eslintrc.js",
-        "scripts/**/*.js",
-        "webpack/**/*.js",
         "__mocks__/**/*.js",
         "plop/**/*.js",
         "rollup.config.js"

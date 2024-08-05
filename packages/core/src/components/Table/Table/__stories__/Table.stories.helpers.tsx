@@ -351,6 +351,6 @@ export const TableAvatar = ({ text }: { text: string }) => (
     customSize={24}
     size="small"
     ariaLabel={text}
-    backgroundColor={Avatar.colors.DARK_PURPLE}
+    backgroundColor="dark_purple"
   />
 );
