@@ -64,14 +64,6 @@ export const colorsMap = [
     description: "Use to indicate hover state on a negative-selected items"
   },
   {
-    color: "--private-color",
-    description: "Use to indicate that something is private (board, icons...)"
-  },
-  {
-    color: "--shareable-color",
-    description: "Use to indicate that something is shareable (board, dashboard...)"
-  },
-  {
     color: "--warning-color",
     description: "Use to indicate a warning action/state (severity, alert, caution...)"
   },
