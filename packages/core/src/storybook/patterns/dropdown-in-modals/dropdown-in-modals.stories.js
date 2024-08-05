@@ -207,8 +207,8 @@ export const MenuPosition = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
@@ -333,8 +333,8 @@ export const InsideOverflowContainer = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
@@ -433,11 +433,7 @@ export const InsideOverflowWithTransformContainer = () => {
   );
 
   return (
-    <Dialog
-      content={secondDialogContent}
-      hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-      showTrigger={Dialog.hideShowTriggers.CLICK}
-    >
+    <Dialog content={secondDialogContent} hideTrigger="clickoutside" showTrigger="click">
       <Button>Popup Dialog</Button>
     </Dialog>
   );

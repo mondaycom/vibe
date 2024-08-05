@@ -185,14 +185,12 @@ codemod: `avatar-component-migration`
 ### Tooltip
 
 - `paddingSize` removed [codemod]
-- `themes` Remove all themes besides for dark & primary, and changed theme to accept string instead of static prop. theme="primary" instead of theme={Tooltip.themes.Primary} [codemod]
+- `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true
 - `hideDelay` changed default to be 100
-- `position` changed to accept string instead of static prop [codemod]
 - `position` changed to only accept "top, right, bottom, left" [codemod]
 - `justify` removed [codemod]
 - `arrowPosition` removed [codemod]
-- `TooltipArrowPosition` removed [codemod]
 
 ### ColorPicker
 
