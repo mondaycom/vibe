@@ -88,7 +88,7 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
-              color={Tipseen.colors.PRIMARY}
+              color="primary"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -163,7 +163,7 @@ export const TipseenWithImage = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -188,7 +188,7 @@ export const TipseenWithCustomMedia = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenMedia>
