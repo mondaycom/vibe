@@ -1,10 +1,10 @@
 import React from "react";
-import { TypographyColor } from "../Typography/TypographyConstants";
+import { TypographyColor } from "../Typography/Typography.types";
 
 type AlertBannerContextType = {
-  textColor: TypographyColor.ON_PRIMARY | TypographyColor.ON_INVERTED | TypographyColor.FIXED_DARK;
+  textColor: Extract<TypographyColor, "onPrimary" | "onInverted" | "fixedDark">;
 };
 
 export const AlertBannerContext = React.createContext<AlertBannerContextType>({
-  textColor: TypographyColor.ON_PRIMARY
+  textColor: "onPrimary"
 });

@@ -1,10 +1,25 @@
 import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
-import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
+import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
+import { LoaderColors, LoaderSize, LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
+
+const mapSizesToLoaderSize: Record<LoaderSizes, number> = {
+  xs: 16,
+  small: 24,
+  medium: 40,
+  large: 64
+};
+
+const mapLoaderColorsToColors: Record<LoaderColors, string> = {
+  primary: "primary-color",
+  secondary: "secondary-text-color",
+  onPrimary: "text-color-on-inverted",
+  dark: "primary-text-color"
+};
 
 export interface LoaderProps extends VibeComponentProps {
   className?: string;
@@ -16,19 +31,25 @@ export interface LoaderProps extends VibeComponentProps {
 }
 
 const Loader: VibeComponent<LoaderProps, HTMLElement> & {
-  sizes?: typeof LoaderSizes;
-  colors?: typeof LoaderColors;
+  sizes?: typeof LoaderSizesEnum;
+  colors?: typeof LoaderColorsEnum;
 } = forwardRef(
   (
     { className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const sizeStyle = useMemo(() => {
-      if (typeof size === "number") {
-        return { width: size, height: size };
+      const loaderSize = typeof size === "string" ? mapSizesToLoaderSize[size] : size;
+      if (typeof loaderSize === "number") {
+        return { width: loaderSize, height: loaderSize };
       }
       return undefined;
     }, [size]);
+
+    const colorStyle = useMemo(() => {
+      if (!mapLoaderColorsToColors[color]) return;
+      return `var(--${mapLoaderColorsToColors[color]})`;
+    }, [color]);
 
     return (
       <div
@@ -40,7 +61,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LOADER, id)}
       >
-        <svg className={cx(styles.circleLoaderSpinner, className)} viewBox="0 0 50 50" color={color} aria-hidden>
+        <svg className={cx(styles.circleLoaderSpinner, className)} viewBox="0 0 50 50" color={colorStyle} aria-hidden>
           {hasBackground && (
             <circle
               className={styles.circleLoaderSpinnerBackground}
@@ -59,6 +80,6 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 );
 
 export default withStaticProps(Loader, {
-  sizes: LoaderSizes,
-  colors: LoaderColors
+  sizes: LoaderSizesEnum,
+  colors: LoaderColorsEnum
 });

@@ -1,12 +1,12 @@
 import React, { forwardRef, UIEventHandler, useCallback } from "react";
-import { ITableProps } from "./Table";
+import { TableProps } from "./Table";
 import cx from "classnames";
 import { useTable } from "../context/TableContext/TableContext";
 import styles from "./TableRoot.module.scss";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 
-type TableRootProps = Pick<ITableProps, "id" | "className" | "data-testid" | "style" | "children">;
+type TableRootProps = Pick<TableProps, "id" | "className" | "data-testid" | "style" | "children">;
 
 const TableRoot = forwardRef(
   (

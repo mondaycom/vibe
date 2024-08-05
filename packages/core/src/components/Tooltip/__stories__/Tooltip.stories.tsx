@@ -125,28 +125,28 @@ export const Positions = {
 
 export const IconTooltip = () => (
   <Tooltip content="Hidden columns" withMaxWidth>
-    <IconButton kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} icon={Hide} />
+    <IconButton kind="secondary" size="small" icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
   <Tooltip content="Item name: Bottom sheets" withMaxWidth>
-    <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} leftIcon={Subitems}>
+    <Button kind="secondary" size="small" leftIcon={Subitems}>
       Subitem
     </Button>
   </Tooltip>
 );
 
 export const ImmediateTooltips = () => (
-  <Flex gap={Flex.gaps.SMALL}>
+  <Flex gap="small">
     <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
   </Flex>
 );

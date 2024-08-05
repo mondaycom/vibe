@@ -60,8 +60,7 @@ export const Overview = {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
     position: "right",
-    hideDismiss: false,
-    color: Tipseen.colors.INVERTED
+    hideDismiss: false
   }
 };
 
@@ -76,7 +75,6 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
-              color={Tipseen.colors.INVERTED}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -90,6 +88,7 @@ export const Colors = {
             <Tipseen
               modifiers={modifiers}
               position="right"
+              color="primary"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -129,7 +128,6 @@ export const TipseenWithAWizard = {
         <Tipseen
           modifiers={modifiers}
           position="right"
-          color={Tipseen.colors.INVERTED}
           content={
             <TipseenWizard
               title="This is a title"
@@ -165,8 +163,7 @@ export const TipseenWithImage = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -191,8 +188,7 @@ export const TipseenWithCustomMedia = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenMedia>
@@ -225,9 +221,8 @@ export const FloatingTipseen = {
   render: () => {
     return (
       <Tipseen
-        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+        closeButtonTheme="dark"
         floating
-        color={Tipseen.colors.INVERTED}
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />

@@ -1,10 +1,18 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useMemo, useRef } from "react";
 import DialogContentContainer from "../../../../DialogContentContainer/DialogContentContainer";
 import usePopover from "../../../../../hooks/usePopover";
 import { MenuChild } from "../../../Menu/MenuConstants";
 import { MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
+import { Placement } from "../../../../../hooks/popoverConstants";
 
-const MenuItemSubMenu = ({ anchorRef, open, autoFocusOnMount, onClose, children }: MenuItemSubMenuProps) => {
+const MenuItemSubMenu = ({
+  anchorRef,
+  open,
+  autoFocusOnMount,
+  onClose,
+  children,
+  submenuPosition
+}: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
   const popperElementRef = useRef<HTMLDivElement>(null);
 
@@ -17,11 +25,17 @@ const MenuItemSubMenu = ({ anchorRef, open, autoFocusOnMount, onClose, children 
     });
   }, [autoFocusOnMount, open]);
 
+  const submenuPlacement = useMemo(
+    () => (submenuPosition === "left" ? Placement.LEFT_START : undefined),
+    [submenuPosition]
+  );
+
   const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
     anchorRef?.current,
     popperElementRef?.current,
     {
-      isOpen: open
+      isOpen: open,
+      placement: submenuPlacement
     }
   );
 

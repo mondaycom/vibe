@@ -54,7 +54,7 @@ export const Sizes: Story = {
   ),
   decorators: [
     Story => (
-      <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
+      <Flex direction="column" justify="start" gap="medium">
         <Story />
       </Flex>
     ),
@@ -73,7 +73,7 @@ export const WithAdditionalAction: Story = {
   render: () => (
     <Search
       placeholder="Search with icon"
-      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size={IconButton.sizes.SMALL} />}
+      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size="small" />}
     />
   ),
   decorators: [withFixedWidth],
@@ -110,9 +110,7 @@ const options = [
 ];
 
 export const FilterInCombobox: Story = {
-  render: () => (
-    <Combobox placeholder="Placeholder text here" options={options} size={Combobox.sizes.SMALL} optionLineHeight={28} />
-  ),
+  render: () => <Combobox placeholder="Placeholder text here" options={options} size="small" optionLineHeight={28} />,
   decorators: [
     Story => (
       <DialogContentContainer>

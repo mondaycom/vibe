@@ -12,5 +12,9 @@
     .editableHeading {
       width: 200px;
     }
+
+    .editableHeading:first-child {
+      width: 125px;
+    }
   }
 }

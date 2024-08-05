@@ -1,6 +1,6 @@
 // Constants
 import { keyCodes } from "../../constants";
-import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
+import { HideShowEvent } from "../Dialog/DialogConstants";
 
 export const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
 export const DEFAULT_DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK];

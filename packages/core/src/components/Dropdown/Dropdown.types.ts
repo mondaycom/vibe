@@ -10,8 +10,6 @@ import {
 } from "react-select";
 import React from "react";
 import { VibeComponentProps } from "../../types";
-import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
-import { SIZES_VALUES } from "../../constants";
 
 export type DropdownOption = any;
 
@@ -138,13 +136,13 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement?: (typeof DROPDOWN_MENU_PLACEMENT)[keyof typeof DROPDOWN_MENU_PLACEMENT];
+  menuPlacement?: DropdownMenuPlacement;
 
   /**
    * The CSS position value of the menu, when "fixed" extra layout management might be required
    * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
    */
-  menuPosition?: (typeof DROPDOWN_MENU_POSITION)[keyof typeof DROPDOWN_MENU_POSITION];
+  menuPosition?: DropdownMenuPosition;
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
@@ -161,7 +159,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Select menu size from `Dropdown.sizes` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
-  size?: SIZES_VALUES;
+  size?: DropdownSize;
   /**
    * If provided Dropdown will work in async mode. Can be either promise or callback
    */
@@ -274,3 +272,11 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
 }
 
 export type DropdownProps = DropdownComponentProps;
+
+export type DropdownChipColors = "primary" | "negative" | "positive";
+
+export type DropdownMenuPosition = "absolute" | "fixed";
+
+export type DropdownMenuPlacement = "top" | "bottom" | "auto";
+
+export type DropdownSize = "small" | "medium" | "large";

@@ -9,14 +9,14 @@ import styles from "./MenuItemSubMenuIcon.module.scss";
 import { MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 
 const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Flex justify={Flex.justify.CENTER} className={styles.subMenuIconWrapper}>
+  <Flex justify="center" className={styles.subMenuIconWrapper}>
     {props.isSplit === true ? (
       <>
         <Divider direction="vertical" className={styles.divider} />
         <IconButton
           icon={DropdownChevronRight}
           className={styles.splitMenuItemIconButton}
-          kind={IconButton.kinds.TERTIARY}
+          kind="tertiary"
           size={null} // Customizing size via className
           iconClassName={cx(styles.splitSubMenuIcon, { [styles.disabled]: props.disabled })}
           tabIndex={-1}

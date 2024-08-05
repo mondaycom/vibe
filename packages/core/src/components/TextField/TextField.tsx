@@ -19,10 +19,10 @@ import {
   getActualSize,
   SIZE_MAPPER,
   TextFieldAriaLabel,
-  TextFieldFeedbackState,
-  TextFieldSize,
-  TextFieldTextType
+  TextFieldFeedbackState as TextFieldFeedbackStateEnum,
+  TextFieldTextType as TextFieldTextTypeEnum
 } from "./TextFieldConstants";
+import { TextFieldType, TextFieldSize } from "./TextField.types";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
@@ -76,7 +76,7 @@ export interface TextFieldProps extends VibeComponentProps {
     secondary: string;
   };
   /** TEXT_TYPES is exposed on the component itself */
-  type?: TextFieldTextType;
+  type?: TextFieldType;
   maxLength?: number;
   trim?: boolean;
   /** ARIA role for container landmark */
@@ -104,8 +104,8 @@ export interface TextFieldProps extends VibeComponentProps {
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
   sizes?: typeof BASE_SIZES;
-  types?: typeof TextFieldTextType;
-  feedbacks?: typeof TextFieldFeedbackState;
+  types?: typeof TextFieldTextTypeEnum;
+  feedbacks?: typeof TextFieldFeedbackStateEnum;
 } = forwardRef(
   (
     {
@@ -127,7 +127,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       secondaryIconName,
       id = "input",
       title = "",
-      size = TextField.sizes.SMALL,
+      size = "small",
       validation = null,
       wrapperClassName = "",
       onIconClick = NOOP,
@@ -138,7 +138,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       searchResultsContainerId = "",
       activeDescendant = "",
       iconsNames = EMPTY_OBJECT,
-      type = TextFieldTextType.TEXT,
+      type = "text",
       maxLength = null,
       trim = false,
       role = "",
@@ -154,7 +154,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       controlled = false,
       iconTooltipContent,
       secondaryTooltipContent
-    },
+    }: TextFieldProps,
     ref
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
@@ -334,8 +334,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={iconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
-                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  iconType="font"
+                  iconSize={size === "small" ? "16px" : "18px"}
                 />
               </Clickable>
             </Tooltip>
@@ -359,14 +359,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={secondaryIconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
-                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  iconType="font"
+                  iconSize={size === "small" ? "16px" : "18px"}
                 />
               </Clickable>
             </Tooltip>
           </div>
           {shouldShowExtraText && (
-            <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
+            <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)}>
                   {isRequiredAndEmpty ? requiredErrorText : validation.text}
@@ -387,6 +387,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
 export default withStaticProps(TextField, {
   sizes: BASE_SIZES,
-  feedbacks: TextFieldFeedbackState,
-  types: TextFieldTextType
+  feedbacks: TextFieldFeedbackStateEnum,
+  types: TextFieldTextTypeEnum
 });

@@ -93,12 +93,12 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       {children ? (
         children
       ) : (
-        <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
+        <Flex align="start" gap="small" className={titleClassName}>
           {icon && (
             <Icon
               className={cx(styles.icon, iconClassName)}
               icon={icon}
-              iconType={Icon.type.SVG}
+              iconType="svg"
               iconSize={iconSize}
               ignoreFocusStyle
               clickable={false}
@@ -110,7 +110,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         </Flex>
       )}
       {description && (
-        <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
+        <Text type="text2" maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}
         </Text>
       )}
@@ -121,8 +121,8 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           onClick={closeModal}
           ariaLabel={closeButtonAriaLabel}
           icon={CloseSmall}
-          kind={IconButton.kinds.TERTIARY}
-          size={IconButton.sizes.SMALL}
+          kind="tertiary"
+          size="small"
         />
       </div>
     </div>

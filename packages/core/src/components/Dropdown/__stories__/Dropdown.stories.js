@@ -76,9 +76,9 @@ export const Overview = {
 export const Sizes = {
   render: () => (
     <>
-      <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
-      <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
-      <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Small" size="small" className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Medium" size="medium" className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Large" size="large" className="dropdown-stories-styles_spacing" />
     </>
   )
 };
@@ -104,7 +104,7 @@ export const Disabled = {
     );
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown defaultValue={[options[0]]} options={options} disabled className="dropdown-stories-styles_spacing" />
         <Dropdown
           multi
@@ -139,7 +139,7 @@ export const Readonly = {
     );
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown defaultValue={[options[0]]} options={options} readOnly className="dropdown-stories-styles_spacing" />
         <Dropdown
           multi
@@ -188,7 +188,7 @@ export const MultiChoiceWithDifferentStates = {
     );
 
     return (
-      <Flex wrap gap={Flex.gaps.MEDIUM}>
+      <Flex wrap gap="medium">
         <StoryDescription description="Single line" vertical>
           <div
             style={{
@@ -329,7 +329,7 @@ export const DropdownWithAvatar = {
     );
 
     return (
-      <Flex gap={Flex.gaps.SMALL}>
+      <Flex gap="small">
         <StoryDescription vertical description="Single value">
           <div>
             <Dropdown
@@ -382,7 +382,7 @@ export const DropdownWithIcon = {
     );
 
     return (
-      <Flex gap={Flex.gaps.SMALL}>
+      <Flex gap="small">
         <StoryDescription vertical description="Single value">
           <div>
             <Dropdown
@@ -423,17 +423,17 @@ export const DropdownWithChipColors = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          chipColor: Dropdown.chipColors.NEGATIVE
+          chipColor: "negative"
         },
         {
           value: "Hadas",
           label: "Hadas Farhi",
-          chipColor: Dropdown.chipColors.POSITIVE
+          chipColor: "positive"
         },
         {
           value: "Netta",
           label: "Netta Muller",
-          chipColor: Dropdown.chipColors.PRIMARY
+          chipColor: "primary"
         }
       ],
       []
@@ -823,22 +823,18 @@ export const DropdownInsidePopover = {
     };
 
     return (
-      <Flex gap={Flex.gaps.LARGE}>
+      <Flex gap="large">
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
           <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-            <Dropdown
-              placeholder="Dropdown inside DialogContentContainer"
-              options={options}
-              menuPosition={Dropdown.menuPositions.FIXED}
-            />
+            <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition="fixed" />
           </Box>
         </DialogContentContainer>
         <div>
           <Button onClick={() => setShow(true)}>Open Modal</Button>
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
-              <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
+              <Dropdown placeholder="Dropdown" options={options} menuPosition="fixed" />
             </ModalContent>
           </Modal>
         </div>
@@ -927,7 +923,7 @@ export const DropdownWithRef = {
     }, []);
 
     return (
-      <Flex direction={Flex.directions.ROW}>
+      <Flex direction="row">
         <Dropdown
           placeholder="Dropdown with ref"
           options={options}
@@ -964,7 +960,7 @@ export const DropdownValueSelection = {
     );
 
     return (
-      <Flex gap={Flex.gaps.LARGE}>
+      <Flex gap="large">
         <Dropdown placeholder="Tab selects value" options={options} className="dropdown-stories-styles_big-spacing" />
         <Dropdown
           placeholder="Tab does not select value"

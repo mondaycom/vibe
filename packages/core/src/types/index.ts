@@ -1,5 +1,4 @@
 export * from "./events";
-export * from "./positions";
 export * from "./SubIcon";
 export { default as VibeComponent } from "./VibeComponent";
 export { default as VibeComponentProps } from "./VibeComponentProps";
@@ -8,3 +7,4 @@ export * from "./ArrayLastElement";
 export * from "./SplitString";
 export * from "./ElementContent";
 export * from "./ValueOf";
+export * from "./Colors";

@@ -31,11 +31,11 @@ export const Overview = {
 export const CaptionPlacements = {
   render: () => [
     <Menu key="top">
-      <MenuTitle caption="Top caption" captionPosition={MenuTitle.positions.TOP} />
+      <MenuTitle caption="Top caption" captionPosition="top" />
       <MenuItem title="Menu item" />
     </Menu>,
     <Menu key="center">
-      <MenuTitle caption="Center caption" captionPosition={MenuTitle.positions.CENTER} />
+      <MenuTitle caption="Center caption" captionPosition="center" />
       <MenuItem title="Menu item" />
     </Menu>
   ],

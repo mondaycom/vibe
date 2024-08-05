@@ -3,7 +3,6 @@ import React from "react";
 import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
-import Icon from "../../../Icon/Icon";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -56,7 +55,7 @@ export const Icons: Story = {
   render: () => (
     <Menu>
       <MenuItem title="SVG icon" icon={Activity} />
-      <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
+      <MenuItem title="Font icon" icon="fa fa-star" iconType="font" />
     </Menu>
   ),
   parameters: {
@@ -131,7 +130,7 @@ export const TooltipStory: Story = {
         tooltipContent="Menu item with icon and tooltip"
         tooltipPosition="left"
         icon={Activity}
-        iconType={Icon.type.SVG}
+        iconType="svg"
       />
     </Menu>
   ),

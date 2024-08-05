@@ -4,7 +4,8 @@ import Icon from "../Icon/Icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
@@ -48,8 +49,7 @@ export interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
-  // TODO Vibe 3.0: filter ElementAllowedColor.DARK_INDIGO, ElementAllowedColor.BLACKISH from colors which are valid for Chips
-  color?: ElementColor;
+  color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /** Size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -86,7 +86,7 @@ export interface ChipsProps extends VibeComponentProps {
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
-  colors?: typeof ElementAllowedColor;
+  colors?: typeof ElementAllowedColorEnum;
   avatarTypes?: typeof AvatarTypeEnum;
 } = forwardRef<HTMLDivElement, ChipsProps>(
   (
@@ -103,7 +103,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       disabled = false,
       readOnly = false,
       allowTextSelection = false,
-      color = Chips.colors.PRIMARY,
+      color = "primary",
       iconSize = 18,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
@@ -228,7 +228,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={leftIcon}
             iconSize={iconSize}
@@ -236,13 +236,13 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type={Text.types.TEXT2} className={styles.label}>
+        <Text type="text2" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
+            iconType="font"
             clickable={false}
             icon={rightIcon}
             iconSize={iconSize}
@@ -262,8 +262,8 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
         {hasCloseButton && (
           <IconButton
-            size={IconButton.sizes.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
+            size="xxs"
+            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip
@@ -279,6 +279,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
 );
 
 export default withStaticProps(Chips, {
-  colors: ElementAllowedColor,
+  colors: ElementAllowedColorEnum,
   avatarTypes: AvatarTypeEnum
 });

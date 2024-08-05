@@ -8,7 +8,7 @@ import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
-import { IconType } from "../Icon/IconConstants";
+import { IconType as IconTypeEnum } from "../Icon/IconConstants";
 import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
 import { AttentionBoxType } from "./AttentionBox.types";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
@@ -24,7 +24,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: SubIcon;
-  iconType?: IconType.SVG | IconType.ICON_FONT;
+  iconType?: "svg" | "font";
   title?: string;
   text?: string;
   children?: ElementContent;
@@ -36,14 +36,14 @@ export interface AttentionBoxProps extends VibeComponentProps {
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
   types?: typeof AttentionBoxTypeEnum;
-  iconTypes?: typeof IconType;
+  iconTypes?: typeof IconTypeEnum;
 } = ({
   className,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = "primary",
   icon,
-  iconType = Icon.type.SVG,
+  iconType = "svg",
   title,
   text,
   children,
@@ -68,12 +68,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       {title && (
-        <Flex
-          justify={Flex.justify.START}
-          align={Flex.align.CENTER}
-          className={styles.titleContainer}
-          gap={Flex.gaps.XS}
-        >
+        <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">
           {!withoutIcon && (
             <Icon
               className={styles.icon}
@@ -85,17 +80,17 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconSize="20"
             />
           )}
-          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.MEDIUM} className={styles.title}>
+          <Text type="text1" element="h5" weight="medium" className={styles.title}>
             {title}
           </Text>
         </Flex>
       )}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
+      <Flex justify="start" align="center" gap="xs">
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon iconType={iconType} iconSize={18} ariaHidden clickable={false} icon={overrideIcon} ignoreFocusStyle />
         )}
         <Text
-          type={Text.types.TEXT2}
+          type="text2"
           element={compact ? undefined : "p"}
           className={cx(styles.text, {
             [styles.compact]: compact,
@@ -108,8 +103,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       </Flex>
       {onClose && (
         <IconButton
-          size={IconButton?.sizes?.SMALL}
-          color={IconButton.colors.ON_PRIMARY_COLOR}
+          size="small"
+          color="on-primary-color"
           className={styles.closeIcon}
           wrapperClassName={cx(styles.closeIconWrapper, {
             [styles.closeIconCompact]: compact
@@ -126,5 +121,5 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
 export default withStaticProps(AttentionBox, {
   types: AttentionBoxTypeEnum,
-  iconTypes: IconType
+  iconTypes: IconTypeEnum
 });

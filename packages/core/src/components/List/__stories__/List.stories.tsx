@@ -114,12 +114,12 @@ export const ListWithAvatars = {
 export const ListWithVirtualizationOptimization = {
   render: () => (
     <Flex
-      align={Flex.align.START}
-      gap={Flex.gaps.LARGE}
+      align="start"
+      gap="large"
       style={{
         width: "100%"
       }}
-      direction={Flex.directions.COLUMN}
+      direction="column"
     >
       <StoryDescription description="Regular">
         <DialogContentContainer

@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import Steps, { StepsProps } from "../Steps";
-import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
@@ -62,8 +61,8 @@ export const Overview = {
 
 export const Types = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
-      <Steps type={Steps.types.NUMBERS} steps={steps5} activeStepIndex={2} />
+    <Flex direction="column" gap="medium">
+      <Steps type="numbers" steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
     </Flex>
@@ -74,13 +73,13 @@ export const Types = {
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} className="monday-storybook-steps_color">
-      <Steps steps={steps5} activeStepIndex={2} color={Steps.colors.ON_PRIMARY_COLOR} type={Steps.types.NUMBERS} />
-      <Steps steps={steps5} activeStepIndex={2} color={Steps.colors.ON_PRIMARY_COLOR} />
+    <Flex direction="column" gap="medium" className="monday-storybook-steps_color">
+      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
+      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
       <Steps
         steps={steps5}
         activeStepIndex={2}
-        color={Steps.colors.ON_PRIMARY_COLOR}
+        color="on-primary-color"
         areNavigationButtonsHidden
         className="monday-storybook-steps_padding"
       />
@@ -157,7 +156,7 @@ export const StepsInsideATipseen = {
         <Tipseen
           position="left"
           modifiers={modifiers}
-          animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
+          animationType="opacity-and-slide"
           content={
             <TipseenWizard
               title="This is a title"
@@ -165,12 +164,12 @@ export const StepsInsideATipseen = {
               onChangeActiveStep={onChangeActiveStep}
               activeStepIndex={activeStepIndex}
               backButtonProps={{
-                size: Button.sizes.SMALL,
+                size: "small",
                 onClick: stepPrev
               }}
               nextButtonProps={{
-                kind: Button.kinds.PRIMARY,
-                size: Button.sizes.SMALL,
+                kind: "primary",
+                size: "small",
                 onClick: stepNext
               }}
               onFinish={() => {}}

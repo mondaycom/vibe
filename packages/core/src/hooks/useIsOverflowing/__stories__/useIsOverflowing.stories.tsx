@@ -17,7 +17,7 @@ export const Overview = {
       });
 
       return (
-        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+        <Flex direction="column" gap="medium" align="start">
           <div>Is overflowing: {isOverflowing.toString()}</div>
           <Tooltip content={isOverflowing ? text : undefined}>
             <div ref={ref} className={styles.textContainer}>
@@ -31,7 +31,7 @@ export const Overview = {
     const [text, setText] = useState("");
 
     return (
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} align={Flex.align.START}>
+      <Flex direction="column" gap="small" align="start">
         <TextField onChange={setText} placeholder="Type text here" className={styles.input} />
         <ComponentWithOverflow text={text} />
       </Flex>

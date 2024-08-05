@@ -1,6 +1,6 @@
-import { Slider } from "../index";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 import { ReactElement } from "react";
+import { SliderSize, SliderColor as SliderColorType } from "./Slider.types";
 
 export const BEM_PREFIX = "monday";
 
@@ -10,17 +10,22 @@ export const UPDATE_SLIDER_SIZE_DEBOUNCE = 200;
 
 export const TOOLTIP_SHOW_DELAY = 300;
 
+/**
+ * @deprecated
+ */
 export enum InfixKind {
   PREFIX = "prefix",
   POSTFIX = "postfix"
 }
 
+/**
+ * @deprecated
+ */
 export enum SliderColor {
   PRIMARY = "primary",
   NEGATIVE = "negative",
   POSITIVE = "positive"
 }
-export type SliderSize = (typeof Slider.sizes)[keyof typeof Slider.sizes];
 
 export type SliderContextSelection = {
   max: number;
@@ -35,7 +40,7 @@ export type SliderContextUI = {
   active: number;
   ariaLabel: string;
   ariaLabelledby: string;
-  color: SliderColor;
+  color: SliderColorType;
   disabled: boolean;
   dragging: number;
   focused: number;
