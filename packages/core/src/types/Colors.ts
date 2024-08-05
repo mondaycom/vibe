@@ -1,12 +1,13 @@
 import { contentColors } from "../utils/colors-vars-map";
 
-export const MapStateSelectedColor = {
+const MapStateSelectedColor = {
   positive: "--positive-color-selected",
   negative: "--negative-color-selected",
   primary: "--primary-selected-color",
   warning: "--warning-color-selected"
 };
-export const MapStateSelectedHoverColor = {
+
+const MapStateSelectedHoverColor = {
   positive: "--positive-color-selected-hover",
   negative: "--negative-color-selected-hover",
   primary: "--primary-selected-hover-color"
