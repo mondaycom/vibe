@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import { Featured } from "../../Icon/Icons";
+import { Upgrade } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
 import "./MultiStepIndicator.stories.scss";
 
@@ -218,8 +218,8 @@ export const FulfilledIcons = {
           <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
         </div>
         <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Custom (featured)</span>
-          <MultiStepIndicator steps={steps} fulfilledStepIcon={Featured} />
+          <span className="monday-storybook-multiStepIndicator_title">Custom </span>
+          <MultiStepIndicator steps={steps} fulfilledStepIcon={Upgrade} />
         </div>
       </div>
     );
