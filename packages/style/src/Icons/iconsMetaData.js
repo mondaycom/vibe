@@ -5,17 +5,24 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Baseline",
-      file: "Baseline.svg",
-      description: "Baseline",
-      tags: "Baseline, Platform, Gantt, Base, Widget"
+      name: "Upgrade",
+      file: "Upgrade.svg",
+      description: "Upgrade",
+      tags: "Upgrade"
   },
 
   {
-      name: "ItemHeightSingle",
-      file: "ItemHeightSingle.svg",
-      description: "Item height single spacing",
-      tags: "Height, Item, Line, Single"
+    name: "Baseline",
+    file: "Baseline.svg",
+    description: "Baseline",
+    tags: "Baseline, Platform, Gantt, Base, Widget"
+  },
+
+  {
+    name: "ItemHeightSingle",
+    file: "ItemHeightSingle.svg",
+    description: "Item height single spacing",
+    tags: "Height, Item, Line, Single"
   },
 
   {
@@ -404,13 +411,6 @@ export const iconsMetaData = [
     file: "Recurring.svg",
     description: "Recurring icon",
     tags: "recurring, time, timebased, every, automation, cron"
-  },
-
-  {
-    name: "Featured",
-    file: "Featured.svg",
-    description: "Featured category icon",
-    tags: "featured, category, highlights, automation, diamond, upgrade"
   },
 
   {
@@ -1735,14 +1735,6 @@ export const iconsMetaData = [
     file: "Update.svg",
     description: "Update",
     tags: "Bubble, Update, Message, Talk",
-    category: [PLATFORM]
-  },
-
-  {
-    name: "Upgrade",
-    file: "Upgrade.svg",
-    description: "Upgrade",
-    tags: "Upgrade, Stars",
     category: [PLATFORM]
   },
 
