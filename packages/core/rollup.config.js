@@ -124,7 +124,6 @@ export default {
     }),
     copy({
       targets: [
-        { src: "src/constants/colors.json", dest: "dist/assets" },
         {
           src: "../../node_modules/monday-ui-style/dist/index.min.css",
           dest: "dist/tokens",
