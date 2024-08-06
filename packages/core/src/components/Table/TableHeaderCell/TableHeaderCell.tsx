@@ -63,7 +63,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
         tabIndex={onSortClicked ? 0 : undefined}
       >
         <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
-          {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
+          {icon && <Icon icon={icon} className={styles.icon} />}
           {
             <Text type="text2" weight="medium" color="secondary">
               {title}
@@ -75,7 +75,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
               referenceWrapperClassName={styles.infoTooltip}
               addKeyboardHideShowTriggersByDefault
             >
-              <Icon icon={Info} iconLabel={infoContent} clickable={false} />
+              <Icon icon={Info} iconLabel={infoContent} />
             </Tooltip>
           )}
         </Flex>

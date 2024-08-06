@@ -218,7 +218,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           <div className={cx(styles.content)}>
             {title && (
               <Flex gap="xs">
-                {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
+                {icon && <Icon iconSize="20" icon={icon} />}
                 <div className={styles.title}>{title}</div>
               </Flex>
             )}

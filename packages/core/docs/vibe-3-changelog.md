@@ -88,6 +88,10 @@ codemod: `avatar-component-migration`
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 - Remove size 'xxs' and 'xs'
 
+### Icon
+
+- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon [codemod]
+
 ### IconButton
 
 - `dataTestId` -> `data-testid` [codemod]
@@ -177,6 +181,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
+- `iconsNames` prop removed `layout` [codemod]
 
 ### ThemeProvider
 
