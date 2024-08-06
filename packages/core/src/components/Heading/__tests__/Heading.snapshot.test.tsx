@@ -4,7 +4,7 @@ import Heading from "../Heading";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Heading />).toJSON();
+    const tree = renderer.create(<Heading>text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
