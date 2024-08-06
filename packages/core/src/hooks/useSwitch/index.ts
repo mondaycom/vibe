@@ -28,7 +28,11 @@ export default function useSwitch({ isChecked, defaultChecked, onChange, isDisab
         setOverrideChecked(newChecked);
       }
       // TODO fix in next major. We should always pass the event
-      onChange && onChange(newChecked, event && typeof event === "object" && "target" in event ? event : undefined);
+      if (event && typeof event === "object" && "target" in event) {
+        onChange?.(newChecked, event);
+      } else {
+        onChange?.(newChecked);
+      }
     },
     [isChecked, isDisabled, onChange, overrideChecked]
   );
