@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import Skeleton from "../Skeleton";
+import Skeleton, { SkeletonProps } from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";
@@ -11,7 +11,7 @@ export default {
   component: Skeleton
 };
 
-const skeletonTemplate = args => {
+const skeletonTemplate = (args: SkeletonProps) => {
   return (
     <div className="monday-storybook-skeleton_rules-column">
       <div className="monday-storybook-skeleton_rules-row">

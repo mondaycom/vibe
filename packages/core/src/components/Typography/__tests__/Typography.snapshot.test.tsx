@@ -5,7 +5,7 @@ import { TypographyColor, TypographyAlign } from "../TypographyConstants";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Typography />).toJSON();
+    const tree = renderer.create(<Typography>text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -23,11 +23,6 @@ describe("Search renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("when underline", () => {
-    const tree = renderer.create(<Search underline />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with wrapperClassName", () => {
     const tree = renderer.create(<Search wrapperClassName="testClassName" />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -44,7 +39,7 @@ describe("Search renders correctly", () => {
   });
 
   it("with validation", () => {
-    const tree = renderer.create(<Search validation={{ status: "error" }} />).toJSON();
+    const tree = renderer.create(<Search validation={{ status: "error", text: "error" }} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -98,8 +98,8 @@ describe("Box renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with backgronudColor prop", () => {
-    const tree = renderer.create(<Box BackgronudColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR} />).toJSON();
+  it("with backgroundColor prop", () => {
+    const tree = renderer.create(<Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

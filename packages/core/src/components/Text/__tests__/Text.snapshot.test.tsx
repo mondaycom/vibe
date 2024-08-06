@@ -4,7 +4,7 @@ import Text from "../Text";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Text />).toJSON();
+    const tree = renderer.create(<Text>text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
