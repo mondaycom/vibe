@@ -19,6 +19,10 @@ export const colorsMap = [
     description: "Use this to indicate highlighted components of primary items"
   },
   {
+    color: "--primary-surface-color",
+    description: "Use this as the surface of the main layout appearance"
+  },
+  {
     color: "--primary-selected-on-secondary-color",
     description: "Use to indicate selected state of primary items on secondary background color"
   },
