@@ -67,12 +67,11 @@ describe("useAdjacentSelectableMenuIndex", () => {
     it("should return the null if there is only one child", () => {
       const children = [ENABLED_SELECTABLE_CHILD];
       const currentIndex = 0;
-      const expectedResult = null;
 
       const { result: hookResult } = renderHookForTest(children);
       const result = hookResult.current.getPreviousSelectableIndex(currentIndex);
 
-      expect(result).toEqual(expectedResult);
+      expect(result).toEqual(null);
     });
 
     it("should return the second index if there are three items and the third index is selected", () => {
@@ -120,7 +119,7 @@ describe("useAdjacentSelectableMenuIndex", () => {
     });
   });
 
-  function renderHookForTest(children) {
+  function renderHookForTest(children: any) {
     return renderHook(() => useAdjacentSelectableMenuIndex({ children }));
   }
 });

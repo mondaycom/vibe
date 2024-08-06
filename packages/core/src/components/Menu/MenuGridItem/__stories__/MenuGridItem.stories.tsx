@@ -3,7 +3,7 @@ import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { DialogContentContainer, Menu, MenuItem, MenuTitle } from "../../..";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
 import { Activity, Code, Favorite, Feedback, Invite, Settings } from "../../../Icon/Icons";
-import MenuGridItem from "../MenuGridItem";
+import MenuGridItem, { MenuGridItemProps } from "../MenuGridItem";
 import "./MenuGridItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -20,7 +20,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const menuGridItemTemplate = args => (
+const menuGridItemTemplate = (args: MenuGridItemProps) => (
   <Menu>
     <MenuItem title="This is a menu button" />
     <MenuTitle caption="Try keyboard navigation :)" />
