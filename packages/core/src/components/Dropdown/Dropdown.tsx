@@ -53,7 +53,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       placeholder = "",
       disabled = false,
       readOnly = false,
-      withReadOnlyStyle,
       onMenuOpen = NOOP,
       onMenuClose = NOOP,
       onFocus = NOOP,
@@ -375,7 +374,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         isClearable={!readOnly && clearable}
         isSearchable={!readOnly && searchable}
         readOnly={readOnly}
-        withReadOnlyStyle={withReadOnlyStyle}
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}

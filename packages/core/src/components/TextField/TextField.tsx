@@ -91,10 +91,6 @@ export interface TextFieldProps extends VibeComponentProps {
   name?: string;
   underline?: boolean;
   /**
-   * Apply new style for read only, use along with `readonly` prop
-   */
-  withReadOnlyStyle?: boolean;
-  /**
    * When true, component is controlled by an external state
    */
   controlled?: boolean;
@@ -150,7 +146,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       tabIndex,
       underline = false,
       name,
-      withReadOnlyStyle,
       controlled = false,
       iconTooltipContent,
       secondaryTooltipContent
@@ -275,9 +270,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             <input
               className={cx(className, styles.input, {
                 [styles.inputHasIcon]: !!hasIcon,
-                [styles.readOnly]: readonly,
-                // TODO: use `readonly` prop next major instead of withReadOnlyStyle
-                [styles.withReadOnlyStyle]: withReadOnlyStyle
+                [styles.readOnly]: readonly
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
