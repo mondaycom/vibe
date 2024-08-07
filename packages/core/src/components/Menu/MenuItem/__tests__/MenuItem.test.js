@@ -1,7 +1,8 @@
 import React from "react";
-import { render, waitFor, fireEvent, act } from "@testing-library/react";
+import { render, waitFor, fireEvent, act, within } from "@testing-library/react";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
+import { Label } from "../../../Label";
 
 const title = "Menu Item";
 
@@ -66,6 +67,26 @@ describe("<MenuItem />", () => {
       });
     }
   );
+
+  it("should render Label when pass a string", async () => {
+    const labelText = "Label Text";
+    const { getByText } = render(<MenuItem title={title} label={labelText} />);
+    const labelElement = getByText(labelText);
+    await waitFor(() => expect(labelElement).toBeTruthy());
+  });
+
+  it("should render the Label component with props when pass a component", async () => {
+    const labelText = "Label Text";
+    const { getByTestId } = render(
+      <MenuItem title={title} label={<Label text={labelText} color="dark" kind="line" />} />
+    );
+    const labelElement = getByTestId("label");
+    await waitFor(() => expect(labelElement).toBeTruthy());
+    const { getAllByTestId } = within(labelElement);
+    const labelTextElement = getAllByTestId("text")[0];
+    expect(labelTextElement).toHaveClass("colorDark");
+    expect(labelTextElement).toHaveClass("kindLine");
+  });
 
   describe.skip("click", () => {
     it("should call the callback on click", async () => {
