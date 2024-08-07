@@ -1263,7 +1263,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1rifoe4-Component"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3181,7 +3181,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-nrtwla-Component"
+        className=" css-yilbcx-Component"
       >
         <div
           className="value-container"
