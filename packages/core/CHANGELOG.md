@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.129.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.128.0...monday-ui-react-core@2.129.0) (2024-08-07)
+
+
+### Bug Fixes
+
+* **useSwitch:** type guard to fix breaking change we accidentally introduced in previous version ([#2330](https://github.com/mondaycom/vibe/issues/2330)) ([d07d907](https://github.com/mondaycom/vibe/commit/d07d907b2e46f8ec004a6823c4f0fd45a7deff1b))
+
+
+### Features
+
+* **Icon:** update numbers icon ([#2296](https://github.com/mondaycom/vibe/issues/2296)) ([847d2c8](https://github.com/mondaycom/vibe/commit/847d2c840ffcee68a00b157f0dd6d907328aebe2))
+* **primary-surface-color:** new color token ([#2300](https://github.com/mondaycom/vibe/issues/2300)) ([780fdf7](https://github.com/mondaycom/vibe/commit/780fdf7be027bfba3aa4a643969e024263e80ec6))
+* **Tipseen:** New paddings for tipseen ([#2251](https://github.com/mondaycom/vibe/issues/2251)) ([a4d40a0](https://github.com/mondaycom/vibe/commit/a4d40a0b68a95288c192b56f418990b3579ac9ef))
+
+
+
+
+
 # [2.128.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.127.0...monday-ui-react-core@2.128.0) (2024-08-01)
 
 

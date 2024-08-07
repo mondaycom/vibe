@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.10.0...monday-ui-style@0.11.0) (2024-08-07)
+
+
+### Features
+
+* **icons:** add Items Count icon ([#2294](https://github.com/mondaycom/vibe/issues/2294)) ([da16f1e](https://github.com/mondaycom/vibe/commit/da16f1e56be9f6233b0c5fe7514ff1fb72ef19d5))
+* **Icon:** update numbers icon ([#2296](https://github.com/mondaycom/vibe/issues/2296)) ([847d2c8](https://github.com/mondaycom/vibe/commit/847d2c840ffcee68a00b157f0dd6d907328aebe2))
+* **primary-surface-color:** new color token ([#2300](https://github.com/mondaycom/vibe/issues/2300)) ([780fdf7](https://github.com/mondaycom/vibe/commit/780fdf7be027bfba3aa4a643969e024263e80ec6))
+
+
+
+
+
 # [0.10.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.9.0...monday-ui-style@0.10.0) (2024-07-18)
 
 
