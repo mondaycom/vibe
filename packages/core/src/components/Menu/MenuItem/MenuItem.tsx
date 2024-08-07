@@ -17,7 +17,7 @@ import { SubmenuPosition } from "./MenuItem.Types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
-  label?: string;
+  label?: string | React.ReactElement<typeof Label>;
   icon?: SubIcon;
   iconType?: IconType;
   iconBackgroundColor?: string;
@@ -116,6 +116,16 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       return title;
     }, [disableReason, disabled, title, tooltipContent]);
 
+    const renderLabel = useMemo(() => {
+      if (!label) return;
+      if (typeof label === "string") {
+        return <Label kind={Label.kinds.LINE} text={label} />;
+      }
+      if (React.isValidElement(label) && label.type === Label) {
+        return label;
+      }
+    }, [label]);
+
     return (
       <BaseMenuItem
         key={key}
@@ -152,7 +162,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
               {title}
             </div>
           </Tooltip>
-          {label && <Label kind={Label.kinds.LINE} text={label} />}
+          {renderLabel}
         </>
       </BaseMenuItem>
     );
