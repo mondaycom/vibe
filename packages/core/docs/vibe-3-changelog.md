@@ -227,8 +227,16 @@ codemod: `avatar-component-migration`
 
 - Remove entire component
 
+## Icons
+
+- Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
+
 ## Hooks
 
 ### useClickableProps
 
 - `dataTestId` -> `data-testid` [codemod]
+
+## monday-ui-style
+
+- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json
