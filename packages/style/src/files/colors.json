@@ -174,11 +174,7 @@
     "warning-color": "#ffcb00",
     "warning-color-hover": "#eaaa15",
     "warning-color-selected": "#fceba1",
-    "warning-color-selected-hover": "#f2d973",
-    "color-warning": "#ffcb00",
-    "color-warning-hover": "#eaaa15",
-    "color-warning-select": "#fceba1",
-    "color-warning-select-hover": "#f2d973"
+    "warning-color-selected-hover": "#f2d973"
   },
   "dark-app-theme": {
     "primary-color": "#0073ea",
@@ -335,11 +331,7 @@
     "warning-color": "#ffcb00",
     "warning-color-hover": "#eaaa15",
     "warning-color-selected": "#503e02",
-    "warning-color-selected-hover": "#402f00",
-    "color-warning": "#ffcb00",
-    "color-warning-hover": "#eaaa15",
-    "color-warning-select": "#503e02",
-    "color-warning-select-hover": "#402f00"
+    "warning-color-selected-hover": "#402f00"
   },
   "black-app-theme": {
     "primary-color": "#0073ea",
@@ -496,11 +488,7 @@
     "warning-color": "#ffcb00",
     "warning-color-hover": "#eaaa15",
     "warning-color-selected": "#503e02",
-    "warning-color-selected-hover": "#402f00",
-    "color-warning": "#ffcb00",
-    "color-warning-hover": "#eaaa15",
-    "color-warning-select": "#503e02",
-    "color-warning-select-hover": "#402f00"
+    "warning-color-selected-hover": "#402f00"
   },
   "hacker_theme-app-theme": {
     "primary-color": "#fe78c6",
@@ -678,10 +666,6 @@
     "warning-color": "#ffcb00",
     "warning-color-hover": "#eaaa15",
     "warning-color-selected": "#503e02",
-    "warning-color-selected-hover": "#402f00",
-    "color-warning": "#ffcb00",
-    "color-warning-hover": "#eaaa15",
-    "color-warning-select": "#503e02",
-    "color-warning-select-hover": "#402f00"
+    "warning-color-selected-hover": "#402f00"
   }
 }

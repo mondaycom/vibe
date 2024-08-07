@@ -253,3 +253,7 @@ codemod: `search-component-import-migration`
 ### useClickableProps
 
 - `dataTestId` -> `data-testid` [codemod]
+
+## monday-ui-style
+
+- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json
