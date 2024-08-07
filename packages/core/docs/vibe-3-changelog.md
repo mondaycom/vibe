@@ -36,7 +36,7 @@ codemod: `avatar-component-migration`
 
 ### AvatarGroup
 
-- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
 ### BreadcrumbItem
 
@@ -175,7 +175,7 @@ codemod: `avatar-component-migration`
 
 ### TabList
 
-- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
 ## TextField
 
