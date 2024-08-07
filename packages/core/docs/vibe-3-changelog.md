@@ -224,6 +224,9 @@ codemod: `avatar-component-migration`
 
 - Remove entire component
 
+### Icons
+
+- Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
 
 ## Hooks
 
