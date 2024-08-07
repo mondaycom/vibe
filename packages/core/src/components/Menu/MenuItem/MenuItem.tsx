@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef, useCallback } from "react";
+import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
 import { DialogPosition } from "../../../constants";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
@@ -116,7 +116,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       return title;
     }, [disableReason, disabled, title, tooltipContent]);
 
-    const renderLabel = useCallback(() => {
+    const renderLabel = useMemo(() => {
       if (!label) return;
       if (typeof label === "string") {
         return <Label kind={Label.kinds.LINE} text={label} />;
@@ -162,7 +162,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
               {title}
             </div>
           </Tooltip>
-          {renderLabel()}
+          {renderLabel}
         </>
       </BaseMenuItem>
     );

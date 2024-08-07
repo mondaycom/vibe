@@ -68,20 +68,20 @@ describe("<MenuItem />", () => {
     }
   );
 
-  it("should render Label when pass a string", async () => {
+  it("should render Label when pass a string", () => {
     const labelText = "Label Text";
     const { getByText } = render(<MenuItem title={title} label={labelText} />);
     const labelElement = getByText(labelText);
-    await waitFor(() => expect(labelElement).toBeTruthy());
+    expect(labelElement).toBeTruthy();
   });
 
-  it("should render the Label component with props when pass a component", async () => {
+  it("should render the Label component with props when pass a component", () => {
     const labelText = "Label Text";
     const { getByTestId } = render(
       <MenuItem title={title} label={<Label text={labelText} color="dark" kind="line" />} />
     );
     const labelElement = getByTestId("label");
-    await waitFor(() => expect(labelElement).toBeTruthy());
+    expect(labelElement).toBeTruthy();
     const { getAllByTestId } = within(labelElement);
     const labelTextElement = getAllByTestId("text")[0];
     expect(labelTextElement).toHaveClass("colorDark");
