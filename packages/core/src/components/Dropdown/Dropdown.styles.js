@@ -58,10 +58,18 @@ const disabledContainerStyle = isDisabled => {
   };
 };
 
-const readOnlyStyle = readOnly => {
+const readOnlyContainerStyle = readOnly => {
   if (!readOnly) return {};
   return {
-    border: "hidden",
+    border: "hidden"
+  };
+};
+
+const readOnlyStyle = isReadOnly => {
+  if (!isReadOnly) {
+    return {};
+  }
+  return {
     backgroundColor: getCSSVar("allgrey-background-color")
   };
 };
@@ -136,7 +144,7 @@ const container =
         borderColor: getCSSVar("primary-color")
       },
       ...disabledContainerStyle(isDisabled),
-      ...readOnlyStyle(readOnly)
+      ...readOnlyContainerStyle(readOnly)
     };
   };
 
@@ -162,7 +170,7 @@ const control =
       }),
       cursor: readOnly ? "default" : "pointer",
       ...disabledContainerStyle(isDisabled),
-      ...readOnlyStyle(readOnly)
+      ...readOnlyContainerStyle(readOnly)
     };
   };
 
@@ -241,7 +249,7 @@ const singleValue =
     const { readOnly } = selectProps;
     const readOnlyProps = readOnly
       ? {
-          ...readOnlyStyle(readOnly),
+          ...readOnlyContainerStyle(readOnly),
           cursor: "text"
         }
       : {};
