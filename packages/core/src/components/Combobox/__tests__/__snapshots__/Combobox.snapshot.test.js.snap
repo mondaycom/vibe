@@ -24,7 +24,6 @@ exports[`Combobox renders correctly when disabled 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -87,7 +86,6 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -150,7 +148,6 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -213,7 +210,6 @@ exports[`Combobox renders correctly with className 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -276,7 +272,6 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -339,7 +334,6 @@ exports[`Combobox renders correctly with divider 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -501,7 +495,6 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -673,7 +666,6 @@ exports[`Combobox renders correctly with empty props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -736,7 +728,6 @@ exports[`Combobox renders correctly with id 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -799,7 +790,6 @@ exports[`Combobox renders correctly with loading 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -890,7 +880,6 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -953,7 +942,6 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -1016,7 +1004,6 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -1133,7 +1120,6 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -1196,7 +1182,6 @@ exports[`Combobox renders correctly with placeholder 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >
@@ -1259,7 +1244,6 @@ exports[`Combobox renders correctly with size 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20px"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20px"
       >

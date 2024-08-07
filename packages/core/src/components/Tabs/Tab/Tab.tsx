@@ -60,7 +60,6 @@ const Tab: FC<TabProps> = forwardRef(
 
       const iconElement = (
         <Icon
-          clickable={false}
           ariaHidden={true}
           iconType={iconType}
           icon={icon}

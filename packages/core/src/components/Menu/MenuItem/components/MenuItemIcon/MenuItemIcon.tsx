@@ -29,7 +29,6 @@ const MenuItemIcon = ({
   >
     <Icon
       iconType={type || (typeof icon === "function" ? "svg" : "font")}
-      clickable={false}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle

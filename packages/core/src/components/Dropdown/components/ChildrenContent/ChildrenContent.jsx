@@ -34,13 +34,13 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
               customSize={20}
             />
           )}
-          {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
+          {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} />}
         </>
       )}
       <Text type={Text.types.TEXT2} color={Text.colors.INHERIT}>
         {children}
       </Text>
-      {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
+      {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} />}
       {data?.rightAvatar && (
         <Avatar withoutBorder square={data.square} src={data.rightAvatar} type="img" customSize={20} />
       )}

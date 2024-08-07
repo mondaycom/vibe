@@ -220,14 +220,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             loading={loading}
             loaderClassName={cx(styles.loader, getStyle(styles, size))}
           >
-            <Icon
-              icon={icon}
-              iconType="svg"
-              iconSize={iconSize}
-              ignoreFocusStyle
-              className={iconClassName}
-              clickable={false}
-            />
+            <Icon icon={icon} iconType="svg" iconSize={iconSize} ignoreFocusStyle className={iconClassName} />
           </Button>
         </Tooltip>
       </IconButtonWrapper>

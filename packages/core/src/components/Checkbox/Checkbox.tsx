@@ -141,7 +141,6 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
             iconType="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
-            clickable={false}
             ariaHidden={true}
             iconSize="16"
           />
