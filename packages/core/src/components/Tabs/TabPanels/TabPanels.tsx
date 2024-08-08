@@ -12,7 +12,6 @@ import { withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
-  renderOnlyActiveTab?: boolean;
   activeTabId?: number;
   animationDirection?: TabPanelsAnimationDirection;
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
@@ -22,16 +21,7 @@ const TabPanels: FC<TabPanelsProps> & {
   animationDirections?: typeof TabPanelsAnimationDirectionEnum;
 } = forwardRef(
   (
-    {
-      className,
-      id,
-      activeTabId = 0,
-      animationDirection = "rtl",
-      children,
-      // TODO Vibe 2.0 BREAKING change to true - breaking change
-      renderOnlyActiveTab = false,
-      "data-testid": dataTestId
-    }: TabPanelsProps,
+    { className, id, activeTabId = 0, animationDirection = "rtl", children, "data-testid": dataTestId }: TabPanelsProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -39,7 +29,7 @@ const TabPanels: FC<TabPanelsProps> & {
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;
-        if (renderOnlyActiveTab && !isActiveTab) return null;
+        if (!isActiveTab) return null;
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
         return React.cloneElement(child, {
@@ -53,7 +43,7 @@ const TabPanels: FC<TabPanelsProps> & {
           )
         });
       }).filter(Boolean);
-    }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
+    }, [children, activeTabId, animationDirection]);
 
     return (
       <div
