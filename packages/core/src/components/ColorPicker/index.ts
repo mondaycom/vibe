@@ -3,3 +3,5 @@ export {
   default as ColorPickerContent,
   ColorPickerContentProps
 } from "./components/ColorPickerContent/ColorPickerContent";
+
+export * from "./ColorPicker.types";

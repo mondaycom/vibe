@@ -2,7 +2,6 @@ import React from "react";
 import { cleanup } from "@testing-library/react";
 import { snapshotDiff } from "../../../utils/jest-utils";
 import { Sound } from "../../Icon/Icons";
-import Slider from "../Slider";
 import { renderSliderForSnapshots } from "./sliderTestUtils";
 
 jest.mock("../../Icon/Icon", () => {
@@ -64,13 +63,13 @@ describe("Slider Render", () => {
   });
 
   it("07. with color", async () => {
-    const props = { color: Slider.colors.POSITIVE };
+    const props = { color: "positive" };
     const currentRender = await renderSliderForSnapshots(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
   it(`08. with size`, async () => {
-    const props = { size: Slider.sizes.LARGE };
+    const props = { size: "large" };
     const currentRender = await renderSliderForSnapshots(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });

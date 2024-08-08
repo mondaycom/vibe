@@ -3,12 +3,12 @@ import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
-import { StepsColor, StepsType } from "./StepsConstants";
+import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
+import { StepsColor, StepsType } from "./Steps.types";
 import { ButtonProps } from "../Button/Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 export interface StepsProps extends VibeComponentProps {
   /**
@@ -22,10 +22,6 @@ export interface StepsProps extends VibeComponentProps {
   areNavigationButtonsHidden?: boolean;
   steps?: ReactElement[];
   type?: StepsType;
-  /**
-   * @deprecated - Use color instead
-   */
-  isOnPrimary?: boolean;
   color?: StepsColor;
   isContentOnTop?: boolean;
   areButtonsIconsHidden?: boolean;
@@ -35,7 +31,7 @@ export interface StepsProps extends VibeComponentProps {
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
+const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?: typeof StepsColorEnum } = forwardRef(
   (
     {
       className,
@@ -43,27 +39,22 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
       "data-testid": dataTestId,
       steps = [],
       activeStepIndex = 0,
-      type = StepsType.GALLERY,
+      type = "gallery",
       onChangeActiveStep = NOOP,
       onFinish,
-      // TODO Remove in next major as breaking change
-      isOnPrimary = false,
       color,
       areNavigationButtonsHidden = false,
       isContentOnTop = false,
-      backButtonProps = {},
-      nextButtonProps = {},
-      finishButtonProps = {},
+      backButtonProps = { children: "" },
+      nextButtonProps = { children: "" },
+      finishButtonProps = { children: "" },
       areButtonsIconsHidden = false
-    },
+    }: StepsProps,
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
-    const overrideColor = backwardCompatibilityForProperties([
-      color,
-      isOnPrimary ? StepsColor.ON_PRIMARY_COLOR : undefined
-    ]);
+
     return (
       <div
         ref={mergedRef}
@@ -78,7 +69,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           activeStepIndex={activeStepIndex}
           stepsCount={steps.length}
           areNavigationButtonsHidden={areNavigationButtonsHidden}
-          color={overrideColor}
+          color={color}
           backButtonProps={backButtonProps}
           nextButtonProps={nextButtonProps}
           finishButtonProps={finishButtonProps}
@@ -96,5 +87,6 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
 );
 
 export default withStaticProps(Steps, {
-  types: StepsType
+  types: StepsTypeEnum,
+  colors: StepsColorEnum
 });

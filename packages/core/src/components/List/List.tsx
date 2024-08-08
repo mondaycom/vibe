@@ -16,7 +16,8 @@ import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
 import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
-import { ListWrapperComponentStringType, ListWrapperComponentType } from "./ListConstants";
+import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
+import { ListElement } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
 import {
@@ -33,7 +34,7 @@ export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
-  component?: ListWrapperComponentType | ListWrapperComponentStringType;
+  component?: ListElement;
   /**
    * ARIA label string to describe to list
    */
@@ -52,7 +53,7 @@ export interface ListProps extends VibeComponentProps {
 }
 
 const List: VibeComponent<ListProps> & {
-  components?: typeof ListWrapperComponentType;
+  components?: typeof ListWrapperComponentTypeEnum;
 } = forwardRef(
   (
     {
@@ -159,5 +160,5 @@ const List: VibeComponent<ListProps> & {
 );
 
 export default withStaticProps(List, {
-  components: ListWrapperComponentType
+  components: ListWrapperComponentTypeEnum
 });

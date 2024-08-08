@@ -22,8 +22,7 @@ import { Flex } from "../../";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: List,
-  enumPropNamesArray: ["component"]
+  component: List
 });
 
 export default {
@@ -115,12 +114,12 @@ export const ListWithAvatars = {
 export const ListWithVirtualizationOptimization = {
   render: () => (
     <Flex
-      align={Flex.align.START}
-      gap={Flex.gaps.LARGE}
+      align="start"
+      gap="large"
       style={{
         width: "100%"
       }}
-      direction={Flex.directions.COLUMN}
+      direction="column"
     >
       <StoryDescription description="Regular">
         <DialogContentContainer
@@ -194,7 +193,7 @@ export const ListAsLeftpane = {
       <span className={classes["leftpane-workspaces-title"]}>Workspace</span>
       <span className={classes["leftpane-workspaces-options"]}>
         <div className={classes["leftpane-workspaces-description"]}>
-          <Avatar size={Avatar.sizes.SMALL} text="W" backgroundColor={Avatar.colors.INDIGO} isSquare />
+          <Avatar size="small" text="W" backgroundColor="indigo" square />
           Workspace name
         </div>
         <Icon className={classes["leftpane-workspaces-options-icon"]} icon={DropdownChevronDown} />

@@ -24,8 +24,8 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
     return (
       <Button
         ref={ref}
-        size={Button.sizes.SMALL}
-        kind={Button.kinds.TERTIARY}
+        size="small"
+        kind="tertiary"
         onClick={() => onSelectionAction(-1)} //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
         className={styles.clearColorButton}
       >

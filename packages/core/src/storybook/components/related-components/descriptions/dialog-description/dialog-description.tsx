@@ -24,9 +24,9 @@ export const DialogDescription = () => {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK]}
-          position={Dialog.positions.RIGHT}
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
+          position="right"
           moveBy={{ main: 2, secondary: 0 }}
           content={
             <DialogContentContainer>
@@ -34,7 +34,7 @@ export const DialogDescription = () => {
             </DialogContentContainer>
           }
         >
-          <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          <IconButton icon={Info} active kind="secondary" />
         </Dialog>
       </div>
     );

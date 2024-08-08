@@ -4,7 +4,7 @@ import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/Avatar.types";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
@@ -24,9 +24,6 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
   focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
   counterContainerRef?: RefObject<HTMLDivElement>;
 }
-
-const SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
-const HIDE_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_LEAVE];
 
 const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({
   focusPrevPlaceholderRef,
@@ -74,12 +71,10 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   }
   return (
     <Tooltip
-      // for disable close tooltip when hovering content
-      showOnDialogEnter
       open={isKeyboardTooltipVisible}
       hideDelay={AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY}
-      showTrigger={SHOW_TRIGGER}
-      hideTrigger={HIDE_TRIGGER}
+      showTrigger={["mouseenter"]}
+      hideTrigger={["mouseleave"]}
       onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}

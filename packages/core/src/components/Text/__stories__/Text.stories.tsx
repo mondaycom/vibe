@@ -35,54 +35,35 @@ export const Overview = {
 
 export const SizesAndWeights = {
   render: () => (
-    <Flex
-      gap={Flex.gaps.LARGE}
-      direction={Flex.directions.COLUMN}
-      justify={Flex.justify.START}
-      align={Flex.align.START}
-    >
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
-        <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    <Flex gap="large" direction="column" justify="start" align="start">
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Text type="text1" weight="bold">
           This is text1 bold
         </Text>
-        <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
+        <Text type="text1" weight="medium">
           This is text1 medium
         </Text>
-        <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+        <Text type="text1" weight="normal">
           This is text1 normal
         </Text>
       </Flex>
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
-        <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
+
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Text type="text2" weight="bold">
           This is text2 bold
         </Text>
-        <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
+        <Text type="text2" weight="medium">
           This is text2 medium
         </Text>
-        <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
+        <Text type="text2" weight="normal">
           This is text2 normal
         </Text>
       </Flex>
-      <Flex
-        gap={Flex.gaps.SMALL}
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
-      >
-        <Text type={Text.types.TEXT3} weight={Text.weights.MEDIUM}>
+      <Flex gap="small" direction="column" justify="start" align="start">
+        <Text type="text3" weight="medium">
           This is text3 medium
         </Text>
-        <Text type={Text.types.TEXT3} weight={Text.weights.NORMAL}>
+        <Text type="text3" weight="normal">
           This is text3 normal
         </Text>
       </Flex>
@@ -94,21 +75,13 @@ export const SizesAndWeights = {
 
 export const Colors = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text color={Text.colors.PRIMARY}>Primary text</Text>
-      <Text color={Text.colors.SECONDARY}>Secondary text</Text>
-      <Text
-        className={cx(styles.primaryBackground, styles.smallRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_PRIMARY}
-      >
+    <Flex direction="column" align="start" gap="small">
+      <Text color="primary">Primary text</Text>
+      <Text color="secondary">Secondary text</Text>
+      <Text className={cx(styles.primaryBackground, styles.smallRectangle)} align="center" color="onPrimary">
         On primary text
       </Text>
-      <Text
-        className={cx(styles.invertedBackground, styles.smallRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
-      >
+      <Text className={cx(styles.invertedBackground, styles.smallRectangle)} align="center" color="onInverted">
         On inverted text
       </Text>
       <Text
@@ -117,8 +90,8 @@ export const Colors = {
         style={{
           backgroundColor: "black"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_LIGHT}
+        align="center"
+        color="fixedLight"
       >
         Fixed light
       </Text>
@@ -128,8 +101,8 @@ export const Colors = {
         style={{
           backgroundColor: "whitesmoke"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_DARK}
+        align="center"
+        color="fixedDark"
       >
         Fixed dark
       </Text>
@@ -142,11 +115,11 @@ export const Colors = {
 export const Overflow = {
   render: () => (
     <Flex
-      direction={Flex.directions.COLUMN}
+      direction="column"
       id={OVERFLOW_TEXT_CONTAINER_ID}
-      justify={Flex.justify.START}
-      align={Flex.align.INITIAL}
-      gap={Flex.gaps.SMALL}
+      justify="start"
+      align="initial"
+      gap="small"
       style={{ width: "480px" }}
     >
       <Text
@@ -172,7 +145,7 @@ export const Overflow = {
 
 export const Paragraph = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN}>
+    <Flex direction="column">
       <Text element="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -195,30 +168,22 @@ export const Paragraph = {
 
 export const LinksInsideRunningText = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text align={Text.align.CENTER}>
+    <Flex direction="column" align="start" gap="small">
+      <Text align="center">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>{" "}
         inside running text.
       </Text>
-      <Text
-        className={cx(styles.primaryBackground, styles.mediumRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_PRIMARY}
-      >
+      <Text className={cx(styles.primaryBackground, styles.mediumRectangle)} align="center" color="onPrimary">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>{" "}
         inside running text on a primary color
       </Text>
-      <Text
-        className={cx(styles.invertedBackground, styles.mediumRectangle)}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
-      >
+      <Text className={cx(styles.invertedBackground, styles.mediumRectangle)} align="center" color="onInverted">
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
@@ -232,8 +197,8 @@ export const LinksInsideRunningText = {
         style={{
           backgroundColor: "black"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_LIGHT}
+        align="center"
+        color="fixedLight"
       >
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
@@ -248,8 +213,8 @@ export const LinksInsideRunningText = {
         style={{
           backgroundColor: "whitesmoke"
         }}
-        align={Text.align.CENTER}
-        color={Text.colors.FIXED_DARK}
+        align="center"
+        color="fixedDark"
       >
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>

@@ -3,7 +3,8 @@ import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
 import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
-import { StepsType, FINISH_TEXT, StepsColor } from "./StepsConstants";
+import { FINISH_TEXT } from "./StepsConstants";
+import { StepsType, StepsColor } from "./Steps.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import Button, { ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
@@ -32,12 +33,12 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   nextButtonProps,
   finishButtonProps,
   areButtonsIconsHidden,
-  color = StepsColor.PRIMARY,
+  color = "primary",
   onFinish,
   className
-}) => {
+}: StepsHeaderProps) => {
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
-    type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;
+    type === "gallery" ? StepsGalleryHeader : StepsNumbersHeader;
 
   // TODO: make finish button as default in next major
   const showFinishButton = useMemo(() => {

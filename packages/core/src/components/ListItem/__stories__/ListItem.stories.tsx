@@ -8,8 +8,7 @@ import { person1 } from "../../Avatar/__stories__/assets";
 import { Send } from "../../Icon/Icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: ListItem,
-  enumPropNamesArray: ["size", "component"]
+  component: ListItem
 });
 
 export default {
@@ -46,9 +45,9 @@ export const States = {
 export const Sizes = {
   render: () => (
     <>
-      <ListItem size={ListItem.sizes.SMALL}>Small item</ListItem>
-      <ListItem size={ListItem.sizes.MEDIUM}>Medium item</ListItem>
-      <ListItem size={ListItem.sizes.LARGE}>Large item</ListItem>
+      <ListItem size="small">Small item</ListItem>
+      <ListItem size="medium">Medium item</ListItem>
+      <ListItem size="large">Large item</ListItem>
     </>
   ),
 

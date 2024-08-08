@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { debounce } from "lodash-es";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
-import { InfixKind } from "./SliderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./SelectionIndicator.module.scss";
+import { InfixKind } from "./Slider.types";
 
 const VALUE_UPDATE_DELAY = 300;
 
@@ -27,8 +27,8 @@ export interface SelectionIndicatorProps extends VibeComponentProps {
   key?: InfixKind;
 }
 
-const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKind.PREFIX }) => {
-  const isPostfix = kind === InfixKind.POSTFIX;
+const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = "prefix" }) => {
+  const isPostfix = kind === "postfix";
   const { ranged, value, valueText } = useSliderSelection();
   const [, currentTextValue] = getCurrentLabel(isPostfix, ranged, value, valueText);
   const { changeThumbValue } = useSliderActions();

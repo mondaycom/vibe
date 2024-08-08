@@ -2,7 +2,7 @@ import React from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Calendar, Doc, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
-import { ITableColumn } from "../Table";
+import { TableColumn } from "../Table";
 
 export const doAndDontIconsRuleColumns = [
   {
@@ -117,7 +117,7 @@ export const emailTableData = [
   }
 ];
 
-export const emailColumns: ITableColumn[] = [
+export const emailColumns: TableColumn[] = [
   {
     id: "sentOn",
     title: "Sent on",
@@ -312,7 +312,7 @@ export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) =>
   text: `This is line number ${index}`
 }));
 
-export const virtualizedScrollTableColumns: ITableColumn[] = [
+export const virtualizedScrollTableColumns: TableColumn[] = [
   {
     id: "num",
     title: "#",
@@ -349,8 +349,8 @@ export const TableAvatar = ({ text }: { text: string }) => (
       .map(s => s[0])
       .join("")}
     customSize={24}
-    size={Avatar.sizes.SMALL}
+    size="small"
     ariaLabel={text}
-    backgroundColor={Avatar.colors.DARK_PURPLE}
+    backgroundColor="dark_purple"
   />
 );

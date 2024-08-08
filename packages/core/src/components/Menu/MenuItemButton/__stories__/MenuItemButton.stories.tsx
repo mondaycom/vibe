@@ -32,13 +32,13 @@ export const Overview = {
 export const States = {
   render: () => [
     <Menu key="Primary">
-      <MenuItemButton kind={MenuItemButton.kinds.PRIMARY}>Primary</MenuItemButton>
+      <MenuItemButton kind="primary">Primary</MenuItemButton>
     </Menu>,
     <Menu key="Secondary">
-      <MenuItemButton kind={MenuItemButton.kinds.SECONDARY}>Secondary</MenuItemButton>
+      <MenuItemButton kind="secondary">Secondary</MenuItemButton>
     </Menu>,
     <Menu key="Tertiary">
-      <MenuItemButton kind={MenuItemButton.kinds.TERTIARY}>Tertiary</MenuItemButton>
+      <MenuItemButton kind="tertiary">Tertiary</MenuItemButton>
     </Menu>
   ],
   name: "States"
@@ -47,17 +47,17 @@ export const States = {
 export const Disabled = {
   render: () => [
     <Menu key="disabled-Primary">
-      <MenuItemButton kind={MenuItemButton.kinds.PRIMARY} disabled disableReason="Disabled reason">
+      <MenuItemButton kind="primary" disabled disableReason="Disabled reason">
         Primary
       </MenuItemButton>
     </Menu>,
     <Menu key="disabled-Secondary">
-      <MenuItemButton kind={MenuItemButton.kinds.SECONDARY} disabled disableReason="Disabled reason">
+      <MenuItemButton kind="secondary" disabled disableReason="Disabled reason">
         Secondary
       </MenuItemButton>
     </Menu>,
     <Menu key="disabled-Tertiary">
-      <MenuItemButton kind={MenuItemButton.kinds.TERTIARY} disabled disableReason="Disabled reason">
+      <MenuItemButton kind="tertiary" disabled disableReason="Disabled reason">
         Tertiary
       </MenuItemButton>
     </Menu>

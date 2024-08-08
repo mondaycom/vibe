@@ -9,9 +9,9 @@ import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { ButtonColor, ButtonType } from "../Button/Button.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
@@ -92,10 +92,6 @@ export interface IconButtonProps extends VibeComponentProps {
    * if disabled - this will be shown in the tooltip
    */
   disabledReason?: string;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
@@ -116,7 +112,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       iconClassName,
       id,
       icon = AddSmall,
-      size = IconButton.sizes.MEDIUM,
+      size = "medium",
       tooltipProps = {} as TooltipProps,
       tooltipContent,
       ariaLabeledBy,
@@ -127,24 +123,22 @@ const IconButton: VibeComponent<IconButtonProps> & {
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       hideTooltip = false,
-      kind = IconButton.kinds.TERTIARY,
+      kind = "tertiary",
       active,
       disabled = false,
       disabledReason,
       onClick = NOOP,
       color,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus = false,
       tabIndex,
       loading = false
-    },
+    }: IconButtonProps,
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const overrideTooltipContent = useMemo(
       () => tooltipProps?.content || tooltipContent,
       [tooltipProps?.content, tooltipContent]
@@ -158,12 +152,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
 
     const iconSize = useMemo(() => {
       switch (size) {
-        case IconButton.sizes.XXS:
-        case IconButton.sizes.XS:
+        case "xxs":
+        case "xs":
           return 16;
-        case IconButton.sizes.SMALL:
-        case IconButton.sizes.MEDIUM:
-        case IconButton.sizes.LARGE:
+        case "small":
+        case "medium":
+        case "large":
           return BUTTON_ICON_SIZE;
         default:
           return 24;
@@ -216,7 +210,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             aria-hidden={ariaHidden}
             ref={mergedRef}
             id={id}
-            data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}
@@ -228,7 +222,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
           >
             <Icon
               icon={icon}
-              iconType={Icon.type.SVG}
+              iconType="svg"
               iconSize={iconSize}
               ignoreFocusStyle
               className={iconClassName}

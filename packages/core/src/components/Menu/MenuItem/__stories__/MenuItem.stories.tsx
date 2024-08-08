@@ -3,8 +3,6 @@ import React from "react";
 import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
-import Icon from "../../../Icon/Icon";
-import Tooltip from "../../../Tooltip/Tooltip";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -57,7 +55,7 @@ export const Icons: Story = {
   render: () => (
     <Menu>
       <MenuItem title="SVG icon" icon={Activity} />
-      <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
+      <MenuItem title="Font icon" icon="fa fa-star" iconType="font" />
     </Menu>
   ),
   parameters: {
@@ -126,17 +124,13 @@ export const TooltipStory: Story = {
       <MenuItem title="Menu item with tooltip" tooltipContent="I am tooltip" />
       <MenuItem title="Disabled menu item with tooltip" disabled={true} disableReason="I am a disabled tooltip" />
       <MenuItem title="I am a very very very very long text please hover me to get a tooltip" />
-      <MenuItem
-        title="Menu item with bottom tooltip"
-        tooltipContent="I am tooltip"
-        tooltipPosition={MenuItem.tooltipPositions.BOTTOM}
-      />
+      <MenuItem title="Menu item with bottom tooltip" tooltipContent="I am tooltip" tooltipPosition="bottom" />
       <MenuItem
         title="Menu item with icon and tooltip"
         tooltipContent="Menu item with icon and tooltip"
-        tooltipPosition={Tooltip.positions.LEFT}
+        tooltipPosition="left"
         icon={Activity}
-        iconType={Icon.type.SVG}
+        iconType="svg"
       />
     </Menu>
   ),

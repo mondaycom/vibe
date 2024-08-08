@@ -1,18 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
-import { DialogPosition } from "../../../constants";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
-import { IconType } from "../../Icon/IconConstants";
-import { TooltipPosition } from "./MenuItemConstants";
+import { IconType } from "../../Icon";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
+import { TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { SubmenuPosition } from "./MenuItem.Types";
 
 export interface MenuItemProps extends VibeComponentProps {
@@ -35,15 +33,11 @@ export interface MenuItemProps extends VibeComponentProps {
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
   useDocumentEventListeners?: boolean;
   tooltipContent?: string;
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPositions;
   tooltipShowDelay?: number;
   tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
   /**
    * Class name which is added to div which wraps an Icon
    */
@@ -72,15 +66,12 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
 
 const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
-  tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = forwardRef(
   (
     {
       className,
-      // Backward compatibility for props naming
-      classname,
       iconWrapperClassName,
       title = "",
       label = "",
@@ -93,7 +84,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       key,
       children,
       tooltipContent,
-      tooltipPosition = MenuItem.tooltipPositions.RIGHT,
+      tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
       "aria-label": ariaLabel,
@@ -101,7 +92,6 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const titleRef = useRef();
 
     // if "title" is a component ariaLabel is mandatory
@@ -119,7 +109,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     const renderLabel = useMemo(() => {
       if (!label) return;
       if (typeof label === "string") {
-        return <Label kind={Label.kinds.LINE} text={label} />;
+        return <Label kind="line" text={label} />;
       }
       if (React.isValidElement(label) && label.type === Label) {
         return label;
@@ -131,7 +121,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         key={key}
         ref={ref}
         subMenu={children}
-        className={overrideClassName}
+        className={className}
         disabled={disabled}
         selected={selected}
         {...baseMenuProps}
@@ -175,6 +165,5 @@ Object.assign(MenuItem, {
 });
 
 export default withStaticProps(MenuItem, {
-  iconType: Icon.type,
-  tooltipPositions: DialogPosition
+  iconType: Icon.type
 });

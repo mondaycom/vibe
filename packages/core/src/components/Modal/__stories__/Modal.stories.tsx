@@ -99,7 +99,6 @@ export const WidthVariantsNormal = {
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            width={Modal.width.DEFAULT}
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
@@ -146,7 +145,7 @@ export const WidthVariantsFull = {
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            width={Modal.width.FULL_WIDTH}
+            width="full-width"
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
@@ -241,7 +240,6 @@ export const ModalWithIcon = {
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            width={Modal.width.DEFAULT}
             contentSpacing
           >
             {}
@@ -337,7 +335,6 @@ export const ModalWithEditableTitle = {
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            width={Modal.width.DEFAULT}
             contentSpacing
           >
             <ModalHeader description={"Description text goes here"}>

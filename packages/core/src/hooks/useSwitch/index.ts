@@ -8,7 +8,7 @@ enum SwitchRole {
 export interface UseSwitchProps {
   isChecked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (value: boolean, event?: ChangeEvent<HTMLInputElement> | any) => void;
+  onChange?: (value: boolean, event?: ChangeEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
 }
 
@@ -18,8 +18,7 @@ export default function useSwitch({ isChecked, defaultChecked, onChange, isDisab
   const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);
 
   const overrideOnChange = useCallback(
-    // TODO fix in next major. We need to remove any type
-    (event?: ChangeEvent<HTMLInputElement> | any) => {
+    (event?: ChangeEvent<HTMLInputElement>) => {
       if (isDisabled) {
         return;
       }
@@ -27,12 +26,7 @@ export default function useSwitch({ isChecked, defaultChecked, onChange, isDisab
       if (isChecked === undefined) {
         setOverrideChecked(newChecked);
       }
-      // TODO fix in next major. We should always pass the event
-      if (event && typeof event === "object" && "target" in event) {
-        onChange?.(newChecked, event);
-      } else {
-        onChange?.(newChecked);
-      }
+      onChange?.(newChecked, event);
     },
     [isChecked, isDisabled, onChange, overrideChecked]
   );

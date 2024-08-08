@@ -6,12 +6,19 @@ import ModalContent from "./ModalContent/ModalContent";
 import ModalHeader from "./ModalHeader/ModalHeader";
 import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
-import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
+import {
+  isModalContent,
+  isModalFooter,
+  isModalHeader,
+  ModalWidth as ModalWidthEnum,
+  validateTitleProp
+} from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
+import { ModalWidth } from "./Modal.types";
 
 export interface ModalProps {
   /**
@@ -47,11 +54,7 @@ export interface ModalProps {
   /**
    *  Set the modal's width. Can be one of the presets or any custom size
    */
-  width?: typeof ModalWidth | string;
-  /**
-   * @deprecated
-   */
-  hideCloseButton?: boolean;
+  width?: ModalWidth | string;
   /**
    *  Aria label for the close button
    */
@@ -76,13 +79,9 @@ export interface ModalProps {
    * z-index attribute of the container
    */
   zIndex?: number;
-  /**
-   * If true, the modal will unmount when it's not shown
-   */
-  unmountOnClose?: boolean;
 }
 
-const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
+const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
   classNames = { container: "", overlay: "", modal: "" },
   id,
   show,
@@ -92,16 +91,12 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   alertDialog = false,
   children,
   triggerElement,
-  width = ModalWidth.DEFAULT,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton = false,
+  width = "default",
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,
-  unmountOnClose,
   "data-testid": dataTestId
-}) => {
+}: ModalProps) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
     [children]
@@ -160,7 +155,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     return childrenArray.find(isModalFooter) || null;
   }, [childrenArray]);
 
-  const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
+  const customWidth = width !== "default" && width !== "full-width";
 
   const dialog = ReactDOM.createPortal(
     <div
@@ -178,8 +173,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
       <div
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
-          [styles.default]: width === ModalWidth.DEFAULT,
-          [styles.full]: width === ModalWidth.FULL_WIDTH,
+          [styles.default]: width === "default",
+          [styles.full]: width === "full-width",
           [styles.spacing]: contentSpacing
         })}
         style={{ width: customWidth ? width : null }}
@@ -192,12 +187,13 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     document.body
   );
 
-  if (unmountOnClose && !shouldShow) {
+  if (!shouldShow) {
     return null;
   }
+
   return ReactDOM.createPortal(dialog, document.body);
 };
 
 export default withStaticProps(Modal, {
-  width: ModalWidth
+  width: ModalWidthEnum
 });

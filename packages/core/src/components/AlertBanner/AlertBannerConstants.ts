@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export enum AlertBannerBackgroundColor {
   PRIMARY = "primary",
   POSITIVE = "positive",

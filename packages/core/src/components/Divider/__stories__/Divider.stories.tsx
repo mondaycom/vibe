@@ -42,11 +42,11 @@ export const Directions = {
         }}
       >
         <span className={styles["divider-description-text"]}>Horizontal</span>
-        <Divider direction={Divider.directions.HORIZONTAL} />
+        <Divider direction="horizontal" />
       </div>
       <div className={styles["divider-description-container"]}>
         <span className={styles["divider-description-text"]}>Vertical</span>
-        <Divider direction={Divider.directions.VERTICAL} className={styles["divider-description-horizontal"]} />
+        <Divider direction="vertical" className={styles["divider-description-horizontal"]} />
       </div>
     </div>
   ),

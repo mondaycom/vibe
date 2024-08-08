@@ -12,6 +12,9 @@ export const COLOR_SIZES: Record<BaseSizes, number> = {
 export const COLOR_PADDING = 8;
 export const DIALOG_WIDTH_PADDING = 24;
 
+/**
+ * @deprecated
+ */
 export enum ColorShapes {
   SQUARE = "square",
   CIRCLE = "circle"

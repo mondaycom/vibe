@@ -12,7 +12,6 @@ import React, {
 } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useClickOutside from "../../../hooks/useClickOutside";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
@@ -32,10 +31,6 @@ import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
   size?: (typeof SIZES)[keyof typeof SIZES];
   tabIndex?: number;
   ariaLabel?: string;
@@ -61,8 +56,6 @@ const Menu: VibeComponent<MenuProps> & {
     {
       id,
       className,
-      // Backward compatibility for props naming
-      classname,
       size = Menu.sizes.MEDIUM,
       tabIndex = 0,
       ariaLabel = "Menu",
@@ -87,7 +80,6 @@ const Menu: VibeComponent<MenuProps> & {
     const overrideId = useMenuId(id);
     const splitMenuItemIconButtonRef = useRef<HTMLElement>(null);
 
-    const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
 
@@ -200,7 +192,7 @@ const Menu: VibeComponent<MenuProps> & {
         onBlur={focusWithinProps?.onBlur}
         id={overrideId}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU, id)}
-        className={cx(styles.menu, getStyle(styles, size), overrideClassName)}
+        className={cx(styles.menu, getStyle(styles, size), className)}
         ref={mergedRef}
         tabIndex={tabIndex}
         aria-label={ariaLabel}

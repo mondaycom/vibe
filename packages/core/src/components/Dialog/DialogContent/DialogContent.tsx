@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, CSSProperties, ReactElement, useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
@@ -7,9 +6,9 @@ import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { HideShowEvent } from "../consts/dialog-show-hide-event";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import { AnimationType, keyCodes } from "../../../constants";
+import { keyCodes } from "../../../constants";
+import { DialogAnimationType, DialogTriggerEvent } from "../Dialog.types";
 import * as PopperJS from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
@@ -25,18 +24,16 @@ export interface DialogContentProps extends VibeComponentProps {
   isOpen?: boolean;
   // TODO breaking change convert to enum
   startingEdge?: any;
-  // TODO breaking change convert to enum - AnimationType
-  animationType?: string;
+  animationType?: DialogAnimationType;
   onEsc?: (event: React.KeyboardEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
   onMouseLeave?: (event: React.MouseEvent) => void;
-  onClickOutside?: (event: React.MouseEvent, hideShowEvent: HideShowEvent) => void;
+  onClickOutside?: (event: React.MouseEvent, hideShowEvent: DialogTriggerEvent) => void;
   onClick?: (event: React.MouseEvent) => void;
   showDelay?: number;
   styleObject?: CSSProperties;
   isReferenceHidden?: boolean;
   hasTooltip?: boolean;
-  disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
   containerSelector?: string;
   disableContainerScroll?: boolean | string;
   /**
@@ -69,14 +66,14 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       containerSelector,
       disableContainerScroll = false,
       "data-testid": dataTestId
-    },
+    }: DialogContentProps,
     forwardRef
   ) => {
     const ref = useRef(null);
     const onOutSideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
-          return onClickOutside(event, HideShowEvent.CLICK_OUTSIDE);
+          return onClickOutside(event, "clickoutside");
         }
       },
       [isOpen, onClickOutside]
@@ -108,14 +105,14 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
 
     switch (animationType) {
-      case AnimationType.EXPAND:
+      case "expand":
         transitionOptions.classNames = {
           appear: styles.expandAppear,
           appearActive: styles.expandAppearActive,
           exit: styles.expandExit
         };
         break;
-      case AnimationType.OPACITY_AND_SLIDE:
+      case "opacity-and-slide":
         transitionOptions.classNames = {
           appear: styles.opacitySlideAppear,
           appearActive: styles.opacitySlideAppearActive

@@ -5,7 +5,8 @@ import NavigationChevronLeft from "../../components/Icon/Icons/components/Naviga
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import { BACK_TEXT, NEXT_TEXT, StepsColor } from "./StepsConstants";
+import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
+import { StepsColor } from "./Steps.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
@@ -28,9 +29,9 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   activeStepIndex,
   stepsCount,
   isIconHidden = false,
-  buttonProps = {},
-  color = StepsColor.PRIMARY
-}) => {
+  buttonProps = { children: "" },
+  color = "primary"
+}: StepsCommandProps) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
     if (buttonChildren) return buttonChildren;
@@ -50,7 +51,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       data-testid={
         isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND
       }
-      kind={Button.kinds.TERTIARY}
+      kind="tertiary"
       onClick={onClick}
       disabled={isDisabled}
       // @ts-ignore

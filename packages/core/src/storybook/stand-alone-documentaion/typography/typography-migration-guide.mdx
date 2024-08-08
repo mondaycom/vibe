@@ -2,7 +2,7 @@ import { Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import { EDITABLE_HEADING, HEADING, TEXT } from "../../components/related-components/component-description-map";
 import { migrationTable } from "./assets";
-import { TipNextEndpoint, TipUseComponent } from "./typograpghy.stories.helpers";
+import { TipUseComponent } from "./typograpghy.stories.helpers";
 
 <Meta title="Typography Migration Guide" />
 
@@ -34,8 +34,8 @@ This change allows designers crating more accurate and refined designs, while en
   guidelines={[
     <>
       Use the <StorybookLink page="Text/Text">Text</StorybookLink> component for paragraphs, labels, and texts up to
-      16px. It includes 2 variants: <code>Text1</code>, <code>Text2</code> and  <code>Text3</code>. Each variant has a fixed size and three
-      different weights.
+      16px. It includes 2 variants: <code>Text1</code>, <code>Text2</code> and <code>Text3</code>. Each variant has a
+      fixed size and three different weights.
     </>,
     <>
       Use the <StorybookLink page="Text/Heading">Heading</StorybookLink> component the for titles and text from 18px and
@@ -48,29 +48,26 @@ This change allows designers crating more accurate and refined designs, while en
 ## How to import
 
 ```js
-import { Text } from "monday-ui-react-core";
-import { Heading } from "monday-ui-react-core/next";
+import { Text, Heading } from "monday-ui-react-core";
 ```
-
-<TipNextEndpoint />
 
 ## How to use
 
 Each of these components can get the variants as a prop. You also get out-of-the-box built-in colors and an "ellipsis" with a Tooltip for a long text that breaks the line. For example:
 
 ```jsx
-<Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+<Text type="text1" weight="normal">
   This is text1 normal
 </Text>
 ```
 
 ```jsx
-<Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+<Heading type="h2" weight="normal">
   Normal H2 title
 </Heading>
 ```
 
-For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--docs#type-styles" withoutSpacing target={Link.targets.PARENT}>Type Styles table</Link>.
+For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--docs#type-styles" withoutSpacing target="_parent">Type Styles table</Link>.
 
 <TipUseComponent />
 

@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Tab from "../Tab";
 import Email from "../../../Icon/Icons/components/Email";
-import Icon from "../../../Icon/Icon";
 
 describe("Tab renders correctly", () => {
   it("with empty props", () => {
@@ -33,7 +32,7 @@ describe("Tab renders correctly", () => {
   it("with icon on left", () => {
     const tree = renderer
       .create(
-        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">
+        <Tab icon={Email} iconType="svg" iconSide="left">
           Tab
         </Tab>
       )
@@ -44,7 +43,7 @@ describe("Tab renders correctly", () => {
   it("with icon on right", () => {
     const tree = renderer
       .create(
-        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">
+        <Tab icon={Email} iconType="svg" iconSide="right">
           Tab
         </Tab>
       )

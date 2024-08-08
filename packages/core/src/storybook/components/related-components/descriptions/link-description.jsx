@@ -4,10 +4,7 @@ import Link from "../../../../components/Link/Link";
 import { ExternalPage } from "../../../../components/Icon/Icons";
 
 export const LinkDescription = () => {
-  const component = useMemo(
-    () => <Link text="Read more" icon={ExternalPage} iconPosition={Link.iconPositions.START} />,
-    []
-  );
+  const component = useMemo(() => <Link text="Read more" icon={ExternalPage} iconPosition="start" />, []);
   return (
     <RelatedComponent
       component={component}

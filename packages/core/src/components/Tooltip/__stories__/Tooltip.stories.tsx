@@ -30,6 +30,7 @@ const tooltipTemplate = (args: TooltipProps) => {
         modifiers={modifiers}
         withMaxWidth
         {...args}
+        open
       >
         <div />
       </Tooltip>
@@ -58,8 +59,9 @@ export const TooltipWithTitle = () => (
       title="Tooltip title"
       withMaxWidth
       shouldShowOnMount
-      position={Tooltip.positions.RIGHT}
+      position="right"
       modifiers={modifiers}
+      open
     >
       <div />
     </Tooltip>
@@ -74,9 +76,10 @@ export const TooltipWithImage = () => (
       withMaxWidth
       shouldShowOnMount
       image={image}
-      position={Tooltip.positions.RIGHT}
+      position="right"
       modifiers={modifiers}
       className="monday-storybook-tooltip_image__tooltip"
+      open
     >
       <div />
     </Tooltip>
@@ -90,40 +93,22 @@ export const Positions = {
         <div>
           {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
          Therefore, there is no need to move this prop in your implementations. */}
-          <Tooltip
-            modifiers={modifiers}
-            content="Top"
-            shouldShowOnMount
-            position={Tooltip.positions.BOTTOM}
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Top" shouldShowOnMount position="bottom" withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth>
+          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Left"
-            position={Tooltip.positions.RIGHT}
-            shouldShowOnMount
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Left" position="right" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
         <div>
-          <Tooltip
-            modifiers={modifiers}
-            content="Right"
-            position={Tooltip.positions.LEFT}
-            shouldShowOnMount
-            withMaxWidth
-          >
+          <Tooltip modifiers={modifiers} content="Right" position="left" shouldShowOnMount withMaxWidth open>
             <div />
           </Tooltip>
         </div>
@@ -140,28 +125,28 @@ export const Positions = {
 
 export const IconTooltip = () => (
   <Tooltip content="Hidden columns" withMaxWidth>
-    <IconButton kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} icon={Hide} />
+    <IconButton kind="secondary" size="small" icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
   <Tooltip content="Item name: Bottom sheets" withMaxWidth>
-    <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} leftIcon={Subitems}>
+    <Button kind="secondary" size="small" leftIcon={Subitems}>
       Subitem
     </Button>
   </Tooltip>
 );
 
 export const ImmediateTooltips = () => (
-  <Flex gap={Flex.gaps.SMALL}>
+  <Flex gap="small">
     <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip content="I'm a tooltip" withMaxWidth>
-      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+      <IconButton icon={Menu} kind="secondary" size="small" />
     </Tooltip>
   </Flex>
 );

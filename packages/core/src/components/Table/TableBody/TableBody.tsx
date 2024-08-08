@@ -1,7 +1,7 @@
 import React, { ReactElement, ComponentProps, forwardRef } from "react";
 import cx from "classnames";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import TableRow, { ITableRowProps } from "../TableRow/TableRow";
+import TableRow, { TableRowProps } from "../TableRow/TableRow";
 import VirtualizedList from "../../VirtualizedList/VirtualizedList";
 import styles from "./TableBody.module.scss";
 import { useTable } from "../context/TableContext/TableContext";
@@ -11,14 +11,14 @@ import { getLoadingTypeForCell } from "../Table/tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
-export interface ITableBodyProps extends VibeComponentProps {
+export interface TableBodyProps extends VibeComponentProps {
   children?:
-    | ReactElement<ITableRowProps>
-    | ReactElement<ITableRowProps>[]
+    | ReactElement<TableRowProps>
+    | ReactElement<TableRowProps>[]
     | ReactElement<ComponentProps<typeof VirtualizedList>>;
 }
 
-const TableBody: VibeComponent<ITableBodyProps, HTMLDivElement> = forwardRef(
+const TableBody: VibeComponent<TableBodyProps, HTMLDivElement> = forwardRef(
   ({ id, className, "data-testid": dataTestId, children }, ref) => {
     const { dataState, emptyState, errorState, columns } = useTable();
     const { isLoading, isError } = dataState || {};

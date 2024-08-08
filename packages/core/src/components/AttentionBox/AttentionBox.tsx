@@ -8,9 +8,9 @@ import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import InfoIcon from "../Icon/Icons/components/Info";
-import { IconType } from "../Icon/IconConstants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { AttentionBoxType } from "./AttentionBoxConstants";
+import { IconType as IconTypeEnum } from "../Icon/IconConstants";
+import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
+import { AttentionBoxType } from "./AttentionBox.types";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
@@ -18,17 +18,13 @@ import styles from "./AttentionBox.module.scss";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
   /** we support 5 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: SubIcon;
-  iconType?: IconType.SVG | IconType.ICON_FONT;
+  iconType?: "svg" | "font";
   title?: string;
   text?: string;
   children?: ElementContent;
@@ -39,17 +35,15 @@ export interface AttentionBoxProps extends VibeComponentProps {
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxType;
-  iconTypes?: typeof IconType;
+  types?: typeof AttentionBoxTypeEnum;
+  iconTypes?: typeof IconTypeEnum;
 } = ({
   className,
-  // Backward compatibility for props naming
-  componentClassName,
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
-  type = AttentionBox.types.PRIMARY,
+  type = "primary",
   icon,
-  iconType = Icon.type.SVG,
+  iconType = "svg",
   title,
   text,
   children,
@@ -60,28 +54,21 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   id,
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close"
-}) => {
-  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-
+}: AttentionBoxProps) => {
   const defaultIcon = useMemo(() => {
-    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+    return type === "primary" ? InfoIcon : AlertIcon;
   }, [type]);
 
   const overrideIcon = icon === undefined ? defaultIcon : icon;
 
   return (
     <aside
-      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName)}
+      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), className)}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       {title && (
-        <Flex
-          justify={Flex.justify.START}
-          align={Flex.align.CENTER}
-          className={styles.titleContainer}
-          gap={Flex.gaps.XS}
-        >
+        <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">
           {!withoutIcon && (
             <Icon
               className={styles.icon}
@@ -93,17 +80,17 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconSize="20"
             />
           )}
-          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.MEDIUM} className={styles.title}>
+          <Text type="text1" element="h5" weight="medium" className={styles.title}>
             {title}
           </Text>
         </Flex>
       )}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
+      <Flex justify="start" align="center" gap="xs">
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon iconType={iconType} iconSize={18} ariaHidden clickable={false} icon={overrideIcon} ignoreFocusStyle />
         )}
         <Text
-          type={Text.types.TEXT2}
+          type="text2"
           element={compact ? undefined : "p"}
           className={cx(styles.text, {
             [styles.compact]: compact,
@@ -116,8 +103,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       </Flex>
       {onClose && (
         <IconButton
-          size={IconButton?.sizes?.SMALL}
-          color={IconButton.colors.ON_PRIMARY_COLOR}
+          size="small"
+          color="on-primary-color"
           className={styles.closeIcon}
           wrapperClassName={cx(styles.closeIconWrapper, {
             [styles.closeIconCompact]: compact
@@ -133,6 +120,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 };
 
 export default withStaticProps(AttentionBox, {
-  types: AttentionBoxType,
-  iconTypes: IconType
+  types: AttentionBoxTypeEnum,
+  iconTypes: IconTypeEnum
 });

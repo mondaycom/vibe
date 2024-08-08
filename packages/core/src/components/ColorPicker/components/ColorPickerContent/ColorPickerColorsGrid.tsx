@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { CONTENT_COLORS_VALUES, ColorStyle } from "../../../../utils/colors-vars-map";
-import { BaseSizes } from "../../../../constants";
-import { ColorPickerArrayValueOnly, ColorPickerValueOnly, ColorShapes } from "../../ColorPickerConstants";
+import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
+import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";
+import { ColorStyle } from "../../../../types/Colors";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -32,7 +33,7 @@ export interface ColorPickerColorsGridProps extends VibeComponentProps {
   colorStyle?: ColorStyle;
   value?: string | string[];
   shouldRenderIndicatorWithoutBackground?: boolean;
-  colorSize?: BaseSizes;
+  colorSize?: ColorPickerSizes;
   numberOfColorsInLine?: number;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>;
   focusOnMount?: boolean;

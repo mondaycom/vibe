@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { SIZES, SIZES_VALUES } from "../../constants";
+import { BaseSizes, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
@@ -38,8 +38,7 @@ import {
 import { VibeComponent, withStaticProps } from "../../types";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
-  size?: typeof SIZES;
-  sizes?: typeof SIZES;
+  sizes?: typeof BaseSizes;
   chipColors?: typeof DROPDOWN_CHIP_COLORS;
   menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
   menuPositions?: typeof DROPDOWN_MENU_POSITION;
@@ -54,7 +53,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       placeholder = "",
       disabled = false,
       readOnly = false,
-      withReadOnlyStyle,
       onMenuOpen = NOOP,
       onMenuClose = NOOP,
       onFocus = NOOP,
@@ -73,9 +71,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       ValueRenderer,
       valueRenderer,
       menuRenderer,
-      menuPlacement = Dropdown.menuPlacements.BOTTOM,
+      menuPlacement = "bottom",
       rtl,
-      size = Dropdown.sizes.MEDIUM,
+      size = "medium",
       asyncOptions,
       cacheOptions,
       defaultOptions,
@@ -109,7 +107,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
-      menuPosition = Dropdown.menuPositions.ABSOLUTE,
+      menuPosition = "absolute",
       "data-testid": dataTestId
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
@@ -376,7 +374,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         isClearable={!readOnly && clearable}
         isSearchable={!readOnly && searchable}
         readOnly={readOnly}
-        withReadOnlyStyle={withReadOnlyStyle}
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
@@ -423,9 +420,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 );
 
 export default withStaticProps(Dropdown, {
-  // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
-  size: SIZES,
-  sizes: SIZES,
+  sizes: BaseSizes,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,

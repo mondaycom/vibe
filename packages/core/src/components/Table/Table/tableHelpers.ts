@@ -1,11 +1,11 @@
 import React, { AriaAttributes } from "react";
-import { ITableColumn, TableLoadingStateType } from "./Table";
+import { TableColumn, TableLoadingStateType } from "./Table";
 import Sort from "../../Icon/Icons/components/Sort";
-import { ITableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "../../Icon/Icons";
 import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 
-export function generateWidth(width: ITableColumn["width"]): string {
+export function generateWidth(width: TableColumn["width"]): string {
   if (typeof width === "number") {
     return `${width}px`;
   } else if (typeof width === "string") {
@@ -17,7 +17,7 @@ export function generateWidth(width: ITableColumn["width"]): string {
   }
 }
 
-export function getTableRowLayoutStyles(columns: ITableColumn[], style: React.CSSProperties = {}): React.CSSProperties {
+export function getTableRowLayoutStyles(columns: TableColumn[], style: React.CSSProperties = {}): React.CSSProperties {
   return {
     ...style,
     display: "grid",
@@ -25,7 +25,7 @@ export function getTableRowLayoutStyles(columns: ITableColumn[], style: React.CS
   };
 }
 
-export function getSortIcon(sortState: ITableHeaderCellProps["sortState"]) {
+export function getSortIcon(sortState: TableHeaderCellProps["sortState"]) {
   if (sortState === "asc") {
     return SortAscending;
   } else if (sortState === "desc") {
@@ -35,7 +35,7 @@ export function getSortIcon(sortState: ITableHeaderCellProps["sortState"]) {
   }
 }
 
-export function getNextSortState(sortState: ITableHeaderCellProps["sortState"]): ITableHeaderCellProps["sortState"] {
+export function getNextSortState(sortState: TableHeaderCellProps["sortState"]): TableHeaderCellProps["sortState"] {
   if (sortState === "asc") {
     return "desc";
   } else if (sortState === "desc") {
@@ -45,7 +45,7 @@ export function getNextSortState(sortState: ITableHeaderCellProps["sortState"]):
   }
 }
 
-export function getAriaSort(sortState: ITableHeaderCellProps["sortState"]): AriaAttributes["aria-sort"] {
+export function getAriaSort(sortState: TableHeaderCellProps["sortState"]): AriaAttributes["aria-sort"] {
   if (sortState === "asc") {
     return "ascending";
   }

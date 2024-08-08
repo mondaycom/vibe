@@ -186,7 +186,7 @@ export const MenuPosition = () => {
   ];
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
         <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
@@ -207,8 +207,8 @@ export const MenuPosition = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
@@ -218,7 +218,7 @@ export const MenuPosition = () => {
           </DialogContentContainer>
         }
       >
-        <Button kind={Button.kinds.PRIMARY} color={Button.colors.NEGATIVE}>
+        <Button kind="primary" color="negative">
           Popup Dialog
         </Button>
       </Dialog>
@@ -316,7 +316,7 @@ export const InsideOverflowContainer = () => {
   };
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
         <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
@@ -333,8 +333,8 @@ export const InsideOverflowContainer = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
@@ -344,7 +344,7 @@ export const InsideOverflowContainer = () => {
           </DialogContentContainer>
         }
       >
-        <Button color={Button.colors.NEGATIVE}>Popup Dialog</Button>
+        <Button color="negative">Popup Dialog</Button>
       </Dialog>
     </Flex>
   );
@@ -433,11 +433,7 @@ export const InsideOverflowWithTransformContainer = () => {
   );
 
   return (
-    <Dialog
-      content={secondDialogContent}
-      hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-      showTrigger={Dialog.hideShowTriggers.CLICK}
-    >
+    <Dialog content={secondDialogContent} hideTrigger="clickoutside" showTrigger="click">
       <Button>Popup Dialog</Button>
     </Dialog>
   );

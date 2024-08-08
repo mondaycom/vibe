@@ -73,7 +73,7 @@ Link is an actionable text component with connection to another web pages.
         component: (
           <Link
             text="Read more"
-            iconPosition={Link.iconPositions.START}
+            iconPosition="start"
             href="https://www.monday.com"
             icon={ExternalPage}
           />
@@ -82,8 +82,8 @@ Link is an actionable text component with connection to another web pages.
       },
       negative: {
         component: [
-          <Link icon={Gallery} iconPosition={Link.iconPositions.END} />,
-          <Link icon={ExternalPage} text="Read more" iconPosition={Link.iconPositions.END} />
+          <Link icon={Gallery} iconPosition="end" />,
+          <Link icon={ExternalPage} text="Read more" iconPosition="end" />
         ],
         description: "Don’t use two icons for one link."
       }

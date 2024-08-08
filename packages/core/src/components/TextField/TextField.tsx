@@ -11,7 +11,6 @@ import React, {
 } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Loader from "../Loader/Loader";
 import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
@@ -20,10 +19,10 @@ import {
   getActualSize,
   SIZE_MAPPER,
   TextFieldAriaLabel,
-  TextFieldFeedbackState,
-  TextFieldSize,
-  TextFieldTextType
+  TextFieldFeedbackState as TextFieldFeedbackStateEnum,
+  TextFieldTextType as TextFieldTextTypeEnum
 } from "./TextFieldConstants";
+import { TextFieldType, TextFieldSize } from "./TextField.types";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
@@ -77,7 +76,7 @@ export interface TextFieldProps extends VibeComponentProps {
     secondary: string;
   };
   /** TEXT_TYPES is exposed on the component itself */
-  type?: TextFieldTextType;
+  type?: TextFieldType;
   maxLength?: number;
   trim?: boolean;
   /** ARIA role for container landmark */
@@ -87,19 +86,10 @@ export interface TextFieldProps extends VibeComponentProps {
   requiredErrorText?: string;
   /** shows loading animation */
   loading?: boolean;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
-  requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
   name?: string;
   underline?: boolean;
-  /**
-   * Apply new style for read only, use along with `readonly` prop
-   */
-  withReadOnlyStyle?: boolean;
   /**
    * When true, component is controlled by an external state
    */
@@ -110,8 +100,8 @@ export interface TextFieldProps extends VibeComponentProps {
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
   sizes?: typeof BASE_SIZES;
-  types?: typeof TextFieldTextType;
-  feedbacks?: typeof TextFieldFeedbackState;
+  types?: typeof TextFieldTextTypeEnum;
+  feedbacks?: typeof TextFieldFeedbackStateEnum;
 } = forwardRef(
   (
     {
@@ -133,7 +123,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       secondaryIconName,
       id = "input",
       title = "",
-      size = TextField.sizes.SMALL,
+      size = "small",
       validation = null,
       wrapperClassName = "",
       onIconClick = NOOP,
@@ -144,33 +134,26 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       searchResultsContainerId = "",
       activeDescendant = "",
       iconsNames = EMPTY_OBJECT,
-      type = TextFieldTextType.TEXT,
+      type = "text",
       maxLength = null,
       trim = false,
       role = "",
       required = false,
       requiredErrorText = "",
       loading = false,
-      requiredAsterisk = false,
-      dataTestId: backwardCompatibilityDataTestId,
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
       underline = false,
       name,
-      withReadOnlyStyle,
       controlled = false,
       iconTooltipContent,
       secondaryTooltipContent
-    },
+    }: TextFieldProps,
     ref
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, backwardCompatibilityDataTestId],
-      getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
-    );
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef, setRef);
 
@@ -280,16 +263,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className={cx(styles.labelWrapper)}>
-          <FieldLabel labelText={title} icon={labelIconName} labelFor={id} requiredAsterisk={requiredAsterisk} />
+          <FieldLabel labelText={title} icon={labelIconName} labelFor={id} required={required} />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={cx(className, styles.input, {
                 [styles.inputHasIcon]: !!hasIcon,
-                [styles.readOnly]: readonly,
-                // TODO: use `readonly` prop next major instead of withReadOnlyStyle
-                [styles.withReadOnlyStyle]: withReadOnlyStyle
+                [styles.readOnly]: readonly
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
@@ -300,7 +281,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               ref={mergedRef}
               type={type}
               id={id}
-              data-testid={overrideDataTestId}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}
@@ -323,7 +304,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 })}
               >
                 <div className={cx(styles.loader)}>
-                  <Loader svgClassName={cx(styles.loaderSvg)} />
+                  <Loader className={cx(styles.loaderSvg)} />
                 </div>
               </div>
             )}
@@ -346,8 +327,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={iconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
-                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  iconType="font"
+                  iconSize={size === "small" ? "16px" : "18px"}
                 />
               </Clickable>
             </Tooltip>
@@ -371,14 +352,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   icon={secondaryIconName}
                   className={cx(styles.icon)}
                   clickable={false}
-                  iconType={Icon.type.ICON_FONT}
-                  iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
+                  iconType="font"
+                  iconSize={size === "small" ? "16px" : "18px"}
                 />
               </Clickable>
             </Tooltip>
           </div>
           {shouldShowExtraText && (
-            <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
+            <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)}>
                   {isRequiredAndEmpty ? requiredErrorText : validation.text}
@@ -399,6 +380,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
 export default withStaticProps(TextField, {
   sizes: BASE_SIZES,
-  feedbacks: TextFieldFeedbackState,
-  types: TextFieldTextType
+  feedbacks: TextFieldFeedbackStateEnum,
+  types: TextFieldTextTypeEnum
 });

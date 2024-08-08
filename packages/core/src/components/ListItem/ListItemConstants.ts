@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export enum ListItemComponentType {
   DIV = "div",
   LI = "li",

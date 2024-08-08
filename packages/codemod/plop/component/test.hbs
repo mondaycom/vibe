@@ -1,0 +1,19 @@
+import transform from "../{{kebabCase componentName}}-component-migration";
+import { defineInlineTest } from "jscodeshift/src/testUtils";
+
+function prependImport(source: string): string {
+  return `
+    import { {{pascalCase componentName}} } from "monday-ui-react-core";
+    ${source}
+  `;
+}
+
+describe("{{pascalCase componentName}} component migration", () => {
+  defineInlineTest(
+    transform,
+    {}, // jscodeshift test options
+    "input",
+    "output",
+    "should update 'propNameX' to 'propNameY'"
+  );
+});

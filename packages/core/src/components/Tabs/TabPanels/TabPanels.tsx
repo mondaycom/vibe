@@ -3,7 +3,8 @@ import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
+import { TabPanelsAnimationDirection as TabPanelsAnimationDirectionEnum } from "./TabPanelsConstants";
+import { TabPanelsAnimationDirection } from "./TabPanels.types";
 import { TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
@@ -18,19 +19,19 @@ export interface TabPanelsProps extends VibeComponentProps {
 }
 
 const TabPanels: FC<TabPanelsProps> & {
-  animationDirections?: typeof TabPanelsAnimationDirection;
+  animationDirections?: typeof TabPanelsAnimationDirectionEnum;
 } = forwardRef(
   (
     {
       className,
       id,
       activeTabId = 0,
-      animationDirection = TabPanelsAnimationDirection.RTL,
+      animationDirection = "rtl",
       children,
       // TODO Vibe 2.0 BREAKING change to true - breaking change
       renderOnlyActiveTab = false,
       "data-testid": dataTestId
-    },
+    }: TabPanelsProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -72,5 +73,5 @@ Object.assign(TabPanels, {
 });
 
 export default withStaticProps(TabPanels, {
-  animationDirections: TabPanelsAnimationDirection
+  animationDirections: TabPanelsAnimationDirectionEnum
 });

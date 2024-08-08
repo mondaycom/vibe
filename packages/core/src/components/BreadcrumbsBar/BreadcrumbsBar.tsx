@@ -2,7 +2,8 @@ import cx from "classnames";
 import React, { FC, ReactElement } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
-import { BreadcrumbsBarType } from "./BreadcrumbsConstants";
+import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
+import { BreadcrumbsBarType } from "./Breadcrumbst.types";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
@@ -13,13 +14,13 @@ export interface BreadcrumbBarProps extends VibeComponentProps {
   children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
 }
 
-const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarType } = ({
+const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTypeEnum } = ({
   className,
   children,
-  type = BreadcrumbsBar.types.INDICATION,
+  type = "indication",
   id,
   "data-testid": dataTestId
-}) => (
+}: BreadcrumbBarProps) => (
   <nav
     aria-label="Breadcrumb"
     className={cx(styles.breadcrumbsBar, className)}
@@ -34,7 +35,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
                 index > 0 && <NavigationChevronRight className={styles.separatorIcon} size="14" aria-hidden="true" />,
                 React.cloneElement(child, {
                   ...child?.props,
-                  isClickable: type !== BreadcrumbsBar.types.INDICATION
+                  isClickable: type !== "indication"
                 })
               ]
             : null
@@ -44,5 +45,5 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
 );
 
 export default withStaticProps(BreadcrumbsBar, {
-  types: BreadcrumbsBarType
+  types: BreadcrumbsBarTypeEnum
 });

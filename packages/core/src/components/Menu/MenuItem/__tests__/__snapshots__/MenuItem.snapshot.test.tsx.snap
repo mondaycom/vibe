@@ -74,7 +74,7 @@ exports[`Snapshots renders correctly with a label 1`] = `
     data-testid="label"
   >
     <span
-      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary withAnimation"
+      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
       data-testid="text"
     >
       <span
@@ -150,11 +150,7 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
 >
   <div
     className="container directionRow justifyCenter alignCenter iconWrapper"
-    style={
-      {
-        "gap": "0px",
-      }
-    }
+    style={{}}
   >
     <svg
       aria-hidden={true}
@@ -200,11 +196,7 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
 >
   <div
     className="container directionRow justifyCenter alignCenter iconWrapper"
-    style={
-      {
-        "gap": "0px",
-      }
-    }
+    style={{}}
   >
     <span
       aria-hidden={true}

@@ -3,6 +3,9 @@ import Check from "../Icon/Icons/components/Check";
 import Alert from "../Icon/Icons/components/Alert";
 import Warning from "../Icon/Icons/components/Warning";
 
+/**
+ * @deprecated
+ */
 export enum ToastType {
   NORMAL = "normal",
   POSITIVE = "positive",
@@ -11,6 +14,9 @@ export enum ToastType {
   DARK = "dark"
 }
 
+/**
+ * @deprecated
+ */
 export enum ToastActionType {
   LINK = "link",
   BUTTON = "button"
@@ -24,6 +30,9 @@ export const defaultIconMap = {
   [ToastType.DARK]: Info
 };
 
+/**
+ * @deprecated
+ */
 export type ToastAction = {
   type: ToastActionType;
   content?: string;

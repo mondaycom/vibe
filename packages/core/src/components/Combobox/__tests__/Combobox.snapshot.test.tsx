@@ -45,7 +45,7 @@ describe("Combobox renders correctly", () => {
   });
 
   it("with size", () => {
-    const tree = renderer.create(<Combobox size={Combobox.sizes.LARGE} />).toJSON();
+    const tree = renderer.create(<Combobox size="large" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

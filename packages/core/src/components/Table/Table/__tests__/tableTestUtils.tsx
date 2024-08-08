@@ -1,8 +1,8 @@
 import React from "react";
 import * as TableContextModule from "../../context/TableContext/TableContext";
-import { ITableContext } from "../../context/TableContext/TableContext.types";
+import { TableContext } from "../../context/TableContext/TableContext.types";
 import * as TableRowMenuContextModule from "../../context/TableRowMenuContext/TableRowMenuContext";
-import { ITableRowMenuContext } from "../../context/TableRowMenuContext/TableRowMenuContext.types";
+import { TableRowMenuContext } from "../../context/TableRowMenuContext/TableRowMenuContext.types";
 import { RowSizes } from "../TableConsts";
 
 export function mockUseTable() {
@@ -27,7 +27,7 @@ export function mockUseTable() {
         onVirtualizedListScroll: jest.fn(),
         isVirtualized: false,
         markTableAsVirtualized: jest.fn()
-      } satisfies ITableContext)
+      } satisfies TableContext)
   );
 }
 
@@ -49,6 +49,6 @@ export function mockUseTableRowMenu() {
         menuButtonPosition: 0,
         setTableMenuShown: jest.fn(),
         setTableMenuHidden: jest.fn()
-      } satisfies ITableRowMenuContext)
+      } satisfies TableRowMenuContext)
   );
 }

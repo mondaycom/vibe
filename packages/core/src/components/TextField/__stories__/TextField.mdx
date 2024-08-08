@@ -65,7 +65,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       positive: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:
@@ -77,7 +77,7 @@ Use validation to give feedback to the user for a case where he has provided an 
             <TextField
               title="What is your email address?"
               placeholder="email@monday.com"
-              size={TextField.sizes.MEDIUM}
+              size="medium"
             />
           </div>
         ),
@@ -89,7 +89,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       positive: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:
@@ -98,7 +98,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       negative: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
             For example: email@monday.com
           </div>
         ),
@@ -122,8 +122,6 @@ Users can insert text.
 <Canvas of={TextFieldStories.InputFieldWithPlaceholderText} />
 
 ### Required input field
-
-Use the <code>requiredAsterisk</code> prop to indicate that a field is required. When set to <code>true</code>, an asterisk (\*) will appear next to the label.
 
 <Canvas of={TextFieldStories.RequiredInputField} />
 

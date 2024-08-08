@@ -35,7 +35,7 @@ export const Overview = {
     });
 
     return (
-      <Flex direction={Flex.directions.COLUMN}>
+      <Flex direction="column">
         <Search
           ref={focusedElementRef}
           role={focusedElementProps.role}

@@ -3,3 +3,5 @@ export { default as TipseenContent, TipseenContentProps } from "./TipseenContent
 export { default as TipseenWizard, TipseenWizardProps } from "./TipseenWizard";
 export { default as TipseenImage, TipseenImageProps } from "./TipseenImage";
 export { default as TipseenMedia, TipseenMediaProps } from "./TipseenMedia/TipseenMedia";
+
+export * from "./Tipseen.types";

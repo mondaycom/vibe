@@ -101,18 +101,8 @@ describe("Modal tests", () => {
         expect(modal.getAttribute("role")).toMatch("dialog");
       });
 
-      it("should have relevant aria attributes when hidden", () => {
-        const component = renderComponent();
-        const modal = queryClosedModal(component);
-        expect(modal).toHaveAttribute("id");
-        expect(modal).toHaveAttribute("aria-modal");
-        expect(modal).toHaveAttribute("aria-labelledby");
-        expect(modal).toHaveAttribute("aria-hidden");
-        expect(modal.getAttribute("role")).toEqual("dialog");
-      });
-
       it("should have relevant aria attributes when in alert mode", () => {
-        const component = renderComponent({ isAlertDialog: true });
+        const component = renderComponent({ openOnStart: true, isAlertDialog: true });
         const modal = queryClosedModal(component);
         expect(modal.getAttribute("role")).toEqual("alertdialog");
       });
@@ -120,7 +110,7 @@ describe("Modal tests", () => {
 
     describe("modal", () => {
       it("should have relevant attributes", function () {
-        const component = renderComponent();
+        const component = renderComponent({ openOnStart: true });
         const title = component.queryByText(MODAL_TITLE_TEXT);
         expect(title).toHaveAttribute("id");
       });

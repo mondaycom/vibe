@@ -4,7 +4,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import React, { FC, useContext } from "react";
 import Link, { LinkProps } from "../../Link/Link";
 import styles from "./AlertBannerLink.module.scss";
-import { TypographyColor } from "../../Typography/TypographyConstants";
 import { AlertBannerContext } from "../AlertBannerContext";
 
 export interface AlertBannerLinkProps extends LinkProps {
@@ -31,8 +30,8 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
       <Link
         {...linkProps}
         textClassName={cx(styles.bannerLink, {
-          [styles.bannerLinkTextColorOnPrimary]: textColor === TypographyColor.ON_PRIMARY,
-          [styles.bannerLinkTextColorOnInverted]: textColor === TypographyColor.ON_INVERTED
+          [styles.bannerLinkTextColorOnPrimary]: textColor === "onPrimary",
+          [styles.bannerLinkTextColorOnInverted]: textColor === "onInverted"
         })}
       />
     </div>

@@ -1,5 +1,8 @@
 export const SKELETON_ROWS_AMOUNT = 5;
 
+/**
+ * @deprecated
+ */
 export enum RowSizes {
   MEDIUM = "medium",
   LARGE = "large"

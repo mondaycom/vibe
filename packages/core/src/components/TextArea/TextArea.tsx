@@ -72,7 +72,7 @@ const TextArea = forwardRef(
           placeholder={placeholder}
         />
         {helpText && (
-          <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
+          <Text className={cx(styles.helpText)} color="inherit" id={helpTextId}>
             {helpText}
           </Text>
         )}

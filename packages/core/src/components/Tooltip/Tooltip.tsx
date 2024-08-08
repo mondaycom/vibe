@@ -4,10 +4,10 @@ import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
-import { DialogPosition } from "../../constants/positions";
+import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum } from "../Dialog/DialogConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
+import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -16,6 +16,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
+import { TooltipPositions, TooltipTheme } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -37,10 +38,8 @@ interface TooltipWithChildrenProps {
 interface TooltipBaseProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
-  arrowPosition?: TooltipArrowPosition;
   /** Class name for a tooltip's arrow */
   arrowClassName?: string;
-  paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
    * How much to move the dialog in relative to children
    * main is the axis in which the position is aligned to
@@ -48,7 +47,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   moveBy?: MoveBy;
   theme?: TooltipTheme;
-  justify?: JustifyType;
   getContainer?: () => HTMLElement;
   /**
    * how much delay should the Dialog wait until it should trigger the hide in MS
@@ -59,7 +57,7 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   showDelay?: number;
   disableDialogSlide?: boolean;
-  animationType?: AnimationType;
+  animationType?: DialogAnimationType;
   withoutDialog?: boolean;
   /**
    * the container selector in which to append the dialog
@@ -89,15 +87,15 @@ interface TooltipBaseProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: DialogPosition;
+  position?: TooltipPositions;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
-  showTrigger?: HideShowEvent | Array<HideShowEvent>;
+  showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
-  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
+  hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
    * If true, prevents open Tooltip from closing on mouseEnter and closes Tooltip, when mouse leaves it
    */
@@ -147,22 +145,18 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static positions = DialogPosition;
-  static hideShowTriggers = HideShowEvent;
-  static themes = TooltipTheme;
-  static animationTypes = AnimationType;
-  static justifyTypes = JustifyType;
-  static arrowPositions = TooltipArrowPosition;
+  static positions = TooltipPositionsEnum;
+  static hideShowTriggers = HideShowEventEnum;
+  static themes = TooltipThemeEnum;
+  static animationTypes = AnimationTypeEnum;
   static defaultProps = {
-    arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
-    theme: TooltipTheme.Dark,
-    position: Tooltip.positions.TOP,
-    justify: Tooltip.justifyTypes.CENTER,
-    hideDelay: 0,
+    theme: "dark",
+    position: "top",
+    hideDelay: 100,
     showDelay: 300,
     disableDialogSlide: true,
-    animationType: AnimationType.EXPAND,
+    animationType: AnimationTypeEnum.EXPAND,
     withoutDialog: false,
     containerSelector: "#tooltips-container",
     tip: true,
@@ -170,7 +164,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     modifiers: new Array<Modifier<unknown>>(),
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
-    showOnDialogEnter: false,
+    showOnDialogEnter: true,
     referenceWrapperClassName: "",
     addKeyboardHideShowTriggersByDefault: false,
     open: false
@@ -190,7 +184,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style, withMaxWidth, title, image, icon } = this.props;
+    const { theme, content, className, style, withMaxWidth, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -221,9 +215,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           )}
         >
           {image && <img className={styles.image} src={image} alt="" />}
-          <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
+          <div className={cx(styles.content)}>
             {title && (
-              <Flex gap={Flex.gaps.XS}>
+              <Flex gap="xs">
                 {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
                 <div className={styles.title}>{title}</div>
               </Flex>
@@ -241,7 +235,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
-          getStyle(styles, camelCase("padding-size-" + paddingSize)),
           { [styles.withMaxWidth]: withMaxWidth },
           className
         )}
@@ -296,16 +289,15 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   render() {
     const {
       withoutDialog,
-      justify,
       children,
       forceRenderWithoutChildren,
       getContainer,
       theme,
-      paddingSize,
       tip,
       arrowClassName,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      position
     } = this.props;
 
     if (!children && !forceRenderWithoutChildren) {
@@ -319,22 +311,20 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      position: position,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
-      startingEdge: justify,
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
-      tooltipClassName: cx(
-        styles.arrow,
-        getStyle(styles, theme),
-        getStyle(styles, camelCase("padding-size-" + paddingSize)),
-        arrowClassName
-      ),
-      animationType: AnimationType.EXPAND,
+      tooltipClassName: cx(styles.arrow, getStyle(styles, theme), arrowClassName),
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay
     };
-    return <Dialog {...dialogProps}>{children}</Dialog>;
+    return (
+      <Dialog {...dialogProps} animationType="expand">
+        {children}
+      </Dialog>
+    );
   }
 }

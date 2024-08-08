@@ -8,8 +8,8 @@ import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { TextType, TextWeight } from "../Text/TextConstants";
-import { HeadingType, HeadingWeight } from "../Heading/HeadingConstants";
+import { TextType, TextWeight } from "../Text/Text.types";
+import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */

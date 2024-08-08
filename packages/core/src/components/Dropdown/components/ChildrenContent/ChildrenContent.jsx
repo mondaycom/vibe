@@ -30,7 +30,7 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
               withoutBorder
               square={data.square}
               src={data.leftAvatar}
-              type={Avatar.types.IMG}
+              type="img"
               customSize={20}
             />
           )}
@@ -42,7 +42,7 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
       </Text>
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
       {data?.rightAvatar && (
-        <Avatar withoutBorder square={data.square} src={data.rightAvatar} type={Avatar.types.IMG} customSize={20} />
+        <Avatar withoutBorder square={data.square} src={data.rightAvatar} type="img" customSize={20} />
       )}
     </div>
   );

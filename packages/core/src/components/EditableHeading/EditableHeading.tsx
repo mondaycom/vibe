@@ -3,7 +3,8 @@ import React, { forwardRef } from "react";
 import Heading from "../Heading/Heading";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
-import { HeadingType, HeadingWeight } from "../Heading/HeadingConstants";
+import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
+import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
@@ -21,17 +22,11 @@ export interface EditableHeadingProps extends VibeComponentProps, EditableTypogr
 }
 
 const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
-  types?: typeof Heading.types;
-  weights?: typeof Heading.weights;
+  types?: typeof HeadingTypeEnum;
+  weights?: typeof HeadingWeightEnum;
 } = forwardRef(
   (
-    {
-      type = Heading.types.H1,
-      weight = Heading.weights.NORMAL,
-      id,
-      "data-testid": dataTestId,
-      ...editableTypographyProps
-    },
+    { type = "h1", weight = "normal", id, "data-testid": dataTestId, ...editableTypographyProps }: EditableHeadingProps,
     ref
   ) => {
     return (
@@ -49,6 +44,6 @@ const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
 );
 
 export default withStaticProps(EditableHeading, {
-  types: HeadingType,
-  weights: HeadingWeight
+  types: HeadingTypeEnum,
+  weights: HeadingWeightEnum
 });

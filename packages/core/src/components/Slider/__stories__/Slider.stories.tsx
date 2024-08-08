@@ -33,9 +33,9 @@ export const Overview = {
 export const Sizes = {
   render: () => (
     <>
-      <Slider size={Slider.sizes.SMALL} defaultValue={12} />
-      <Slider size={Slider.sizes.MEDIUM} defaultValue={24} />
-      <Slider size={Slider.sizes.LARGE} defaultValue={35} />
+      <Slider size="small" defaultValue={12} />
+      <Slider size="medium" defaultValue={24} />
+      <Slider size="large" defaultValue={35} />
     </>
   )
 };
@@ -43,9 +43,9 @@ export const Sizes = {
 export const Ranged = {
   render: () => (
     <>
-      <Slider data-testid={"monday-ranged-slider-s"} size={Slider.sizes.SMALL} ranged={true} />
-      <Slider data-testid={"monday-ranged-slider-m"} size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
-      <Slider size={Slider.sizes.LARGE} ranged={true} defaultValue={[25, 32]} />
+      <Slider data-testid={"monday-ranged-slider-s"} size="small" ranged={true} />
+      <Slider data-testid={"monday-ranged-slider-m"} size="medium" ranged={true} defaultValue={[12, 55]} />
+      <Slider size="large" ranged={true} defaultValue={[25, 32]} />
     </>
   )
 
@@ -56,9 +56,9 @@ export const Ranged = {
 export const Colors = {
   render: () => (
     <>
-      <Slider color={Slider.colors.POSITIVE} defaultValue={34} size={Slider.sizes.MEDIUM} />
-      <Slider color={Slider.colors.NEGATIVE} ranged={true} defaultValue={[12, 55]} size={Slider.sizes.MEDIUM} />
-      <Slider color={Slider.colors.PRIMARY} defaultValue={12} size={Slider.sizes.MEDIUM} />
+      <Slider color="positive" defaultValue={34} size="medium" />
+      <Slider color="negative" ranged={true} defaultValue={[12, 55]} size="medium" />
+      <Slider color="primary" defaultValue={12} size="medium" />
     </>
   )
 };
@@ -66,15 +66,9 @@ export const Colors = {
 export const Disabled = {
   render: () => (
     <>
-      <Slider disabled={true} defaultValue={24} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
-      <Slider disabled={true} color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
-      <Slider
-        disabled={true}
-        ranged={true}
-        defaultValue={[12, 55]}
-        color={Slider.colors.PRIMARY}
-        size={Slider.sizes.MEDIUM}
-      />
+      <Slider disabled={true} defaultValue={24} color="positive" size="medium" />
+      <Slider disabled={true} color="negative" size="medium" />
+      <Slider disabled={true} ranged={true} defaultValue={[12, 55]} color="primary" size="medium" />
     </>
   )
 };
@@ -82,14 +76,14 @@ export const Disabled = {
 export const WithLabels = {
   render: () => (
     <>
-      <Slider indicateSelection={true} defaultValue={12} size={Slider.sizes.SMALL} />
-      <Slider indicateSelection={true} ranged={true} defaultValue={[12, 55]} size={Slider.sizes.SMALL} />
+      <Slider indicateSelection={true} defaultValue={12} size="small" />
+      <Slider indicateSelection={true} ranged={true} defaultValue={[12, 55]} size="small" />
       <Slider
         // @ts-ignore
         prefix={{ icon: Sound }}
         indicateSelection={true}
         defaultValue={70}
-        size={Slider.sizes.SMALL}
+        size="small"
       />
       <Slider
         // @ts-ignore
@@ -97,9 +91,9 @@ export const WithLabels = {
         // @ts-ignore
         postfix={{ icon: Sound }}
         defaultValue={45}
-        size={Slider.sizes.MEDIUM}
+        size="medium"
       />
-      <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size={Slider.sizes.LARGE} />
+      <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size="large" />
     </>
   ),
   decorators: [VerticalStories],
@@ -115,14 +109,9 @@ export const WithLabels = {
 export const ShowValue = {
   render: () => (
     <>
-      <Slider data-testid={"monday-slider-show-value-s"} showValue={true} defaultValue={12} size={Slider.sizes.SMALL} />
-      <Slider
-        data-testid={"monday-slider-show-value-m"}
-        showValue={true}
-        defaultValue={55}
-        size={Slider.sizes.MEDIUM}
-      />
-      <Slider data-testid={"monday-slider-show-value-l"} showValue={true} defaultValue={89} size={Slider.sizes.LARGE} />
+      <Slider data-testid={"monday-slider-show-value-s"} showValue={true} defaultValue={12} size="small" />
+      <Slider data-testid={"monday-slider-show-value-m"} showValue={true} defaultValue={55} size="medium" />
+      <Slider data-testid={"monday-slider-show-value-l"} showValue={true} defaultValue={89} size="large" />
     </>
   )
 
@@ -133,25 +122,10 @@ export const ShowValue = {
 export const LimitsSteps = {
   render: () => (
     <>
-      <Slider prefix="Step 10" step={10} indicateSelection={true} defaultValue={10} size={Slider.sizes.SMALL} />
-      <Slider
-        prefix="Step 2, Max: 20"
-        max={20}
-        step={2}
-        indicateSelection={true}
-        defaultValue={4}
-        size={Slider.sizes.MEDIUM}
-      />
-      <Slider
-        prefix="from 20%"
-        postfix="till 80%"
-        min={20}
-        max={80}
-        showValue={true}
-        defaultValue={62}
-        size={Slider.sizes.LARGE}
-      />
-      <Slider ranged={true} indicateSelection={true} min={100} max={200} step={10} size={Slider.sizes.LARGE} />
+      <Slider prefix="Step 10" step={10} indicateSelection={true} defaultValue={10} size="small" />
+      <Slider prefix="Step 2, Max: 20" max={20} step={2} indicateSelection={true} defaultValue={4} size="medium" />
+      <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} defaultValue={62} size="large" />
+      <Slider ranged={true} indicateSelection={true} min={100} max={200} step={10} size="large" />
     </>
   ),
 
@@ -168,7 +142,7 @@ export const Customisation = {
         className="my-custom-class"
         defaultValue={19}
         prefix="Check Dev-Tools for Custom Classes"
-        size={Slider.sizes.MEDIUM}
+        size="medium"
       />
       <Slider
         id="custom-value-formatter"
@@ -179,7 +153,7 @@ export const Customisation = {
         indicateSelection={true}
         valueFormatter={value => `${value}GB`}
         prefix="Custom value formatter"
-        size={Slider.sizes.MEDIUM}
+        size="medium"
       />
       <Slider
         id="custom-value-formatter"
@@ -191,7 +165,7 @@ export const Customisation = {
         selectionIndicatorWidth="120px"
         valueFormatter={value => `${value} meter/hour`}
         prefix="Long value formatter"
-        size={Slider.sizes.MEDIUM}
+        size="medium"
       />
       <Slider
         id="custom-prefix"
@@ -202,7 +176,7 @@ export const Customisation = {
           // set css: .my-slider-wide { max-width: none }
           return <span style={{ whiteSpace: "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
         }}
-        size={Slider.sizes.MEDIUM}
+        size="medium"
       />
     </>
   ),

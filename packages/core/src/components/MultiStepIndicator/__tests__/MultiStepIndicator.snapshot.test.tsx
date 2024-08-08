@@ -1,21 +1,21 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Featured } from "../../Icon/Icons";
+import { Upgrade } from "../../Icon/Icons";
 import MultiStepIndicator, { Step } from "../MultiStepIndicator";
 
 const exampleSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Title",
     subtitleText: "Subtitle"
   },
   {
-    status: MultiStepIndicator.stepStatuses.ACTIVE,
+    status: "active",
     titleText: "Active",
     subtitleText: "Active Subtitle"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Pending",
     subtitleText: "Pending Subtitle"
   }
@@ -43,9 +43,7 @@ describe("MultiStepIndicator renders correctly", () => {
   });
 
   it("with textPlacement vertical", () => {
-    const tree = renderer.create(
-      <MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
-    );
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} textPlacement="vertical" />);
     expect(tree).toMatchSnapshot();
   });
 
@@ -60,23 +58,17 @@ describe("MultiStepIndicator renders correctly", () => {
   });
 
   it("with fulfilledStepIcon", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Featured} />);
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Upgrade} />);
     expect(tree).toMatchSnapshot();
   });
 
   it("with mode compact", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} size={MultiStepIndicator.sizes.COMPACT} />);
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} size="compact" />);
     expect(tree).toMatchSnapshot();
   });
 
   it("with mode compact textPlacement vertical", () => {
-    const tree = renderer.create(
-      <MultiStepIndicator
-        steps={exampleSteps}
-        size={MultiStepIndicator.sizes.COMPACT}
-        textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
-      />
-    );
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} size="compact" textPlacement="vertical" />);
     expect(tree).toMatchSnapshot();
   });
 });

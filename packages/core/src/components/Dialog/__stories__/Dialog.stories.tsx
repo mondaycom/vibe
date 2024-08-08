@@ -12,7 +12,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
-import { HideShowEvent } from "../../../constants/dialog";
+import { HideShowEvent } from "../DialogConstants";
 import { DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -23,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const showHideArgTypes = {
-  options: Object.values(HideShowEvent),
+  options: HideShowEvent,
   control: {
     type: "multi-select"
   },
@@ -74,16 +74,16 @@ const dialogTemplate = ({
         modifiers={modifiers}
         shouldShowOnMount={shouldShowOnMount}
         {...dialogProps}
-        showTrigger={showTrigger || [Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={hideTrigger || [Dialog.hideShowTriggers.CLICK]}
-        position={position || Dialog.positions.RIGHT}
+        showTrigger={showTrigger || ["click"]}
+        hideTrigger={hideTrigger || ["click"]}
+        position={position || "right"}
         content={
           <DialogContentContainer>
             <ExampleContent />
           </DialogContentContainer>
         }
       >
-        <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+        <IconButton icon={Info} active kind="secondary" />
       </Dialog>
     </div>
   );
@@ -130,11 +130,11 @@ export const Positions = {
       ];
 
       return (
-        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+        <Flex className="monday-storybook-dialog--story-padding" gap="medium">
           <Dialog
             modifiers={modifiers}
             open={checkedTop}
-            position={Dialog.positions.TOP}
+            position="top"
             showTrigger={[]}
             hideTrigger={[]}
             content={
@@ -143,13 +143,13 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+            <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
               Top
             </Button>
           </Dialog>
           <Dialog
             modifiers={modifiers}
-            position={Dialog.positions.BOTTOM}
+            position="bottom"
             showTrigger={[]}
             hideTrigger={[]}
             open={checkedBottom}
@@ -159,7 +159,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottom} active={checkedBottom}>
+            <Button kind="secondary" onClick={onChangeBottom} active={checkedBottom}>
               Bottom
             </Button>
           </Dialog>
@@ -167,7 +167,7 @@ export const Positions = {
             modifiers={modifiers}
             showTrigger={[]}
             hideTrigger={[]}
-            position={Dialog.positions.RIGHT}
+            position="right"
             open={checkedRight}
             content={
               <DialogContentContainer>
@@ -175,13 +175,13 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeRight} active={checkedRight}>
+            <Button kind="secondary" onClick={onChangeRight} active={checkedRight}>
               Right
             </Button>
           </Dialog>
           <Dialog
             modifiers={modifiers}
-            position={Dialog.positions.LEFT}
+            position="left"
             showTrigger={[]}
             hideTrigger={[]}
             open={checkedLeft}
@@ -191,7 +191,7 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeLeft} active={checkedLeft}>
+            <Button kind="secondary" onClick={onChangeLeft} active={checkedLeft}>
               Left
             </Button>
           </Dialog>
@@ -226,25 +226,25 @@ export const ShowTriggers = {
     ];
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
         <Dialog
           modifiers={modifiers}
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
           content={
             <DialogContentContainer>
               <ExampleContent />
             </DialogContentContainer>
           }
         >
-          <Button kind={Button.kinds.SECONDARY} active={clickButtonActive} onClick={onClickClickButton}>
+          <Button kind="secondary" active={clickButtonActive} onClick={onClickClickButton}>
             On click
           </Button>
         </Dialog>
         <Dialog
           modifiers={modifiers}
-          showTrigger={[Dialog.hideShowTriggers.MOUSE_ENTER]}
-          hideTrigger={[Dialog.hideShowTriggers.MOUSE_LEAVE]}
+          showTrigger={["mouseenter"]}
+          hideTrigger={["mouseleave"]}
           content={
             <DialogContentContainer>
               <ExampleContent />
@@ -252,27 +252,22 @@ export const ShowTriggers = {
           }
         >
           <div onMouseEnter={onHoverButton} onMouseLeave={onHoverButton}>
-            <Button kind={Button.kinds.SECONDARY} active={hoverButtonActive}>
+            <Button kind="secondary" active={hoverButtonActive}>
               On mouse enter
             </Button>
           </div>
         </Dialog>
         <Dialog
           modifiers={modifiers}
-          showTrigger={[Dialog.hideShowTriggers.FOCUS]}
-          hideTrigger={[Dialog.hideShowTriggers.BLUR]}
+          showTrigger={["focus"]}
+          hideTrigger={["blur"]}
           content={
             <DialogContentContainer>
               <ExampleContent />
             </DialogContentContainer>
           }
         >
-          <Button
-            onFocus={onFocusButton}
-            onBlur={onFocusButton}
-            kind={Button.kinds.SECONDARY}
-            active={focusButtonActive}
-          >
+          <Button onFocus={onFocusButton} onBlur={onFocusButton} kind="secondary" active={focusButtonActive}>
             On focus
           </Button>
         </Dialog>
@@ -281,14 +276,14 @@ export const ShowTriggers = {
           shouldShowOnMount
           showTrigger={[]}
           hideTrigger={[]}
-          position={Dialog.positions.RIGHT}
+          position="right"
           content={
             <DialogContentContainer>
               <ExampleContent />
             </DialogContentContainer>
           }
         >
-          <Button kind={Button.kinds.SECONDARY} active>
+          <Button kind="secondary" active>
             On mount
           </Button>
         </Dialog>
@@ -348,18 +343,18 @@ export const HideTriggers = {
         id={HIDE_TRIGGERS_CONTAINER}
         className="monday-storybook-dialog_hide-triggers-story"
         wrap
-        direction={Flex.directions.COLUMN}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
+        direction="column"
+        justify="start"
+        align="start"
       >
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
           containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onClickOutside={switchClickOutsideActive}
-          position={Dialog.positions.RIGHT}
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK_OUTSIDE]}
+          position="right"
+          showTrigger={["click"]}
+          hideTrigger={["clickoutside"]}
           content={
             <DialogContentContainer data-testid={CLICK_OUTSIDE_DIALOG}>
               <ExampleContent rowsCount={1} />
@@ -368,7 +363,7 @@ export const HideTriggers = {
         >
           <Button
             data-testid={CLICK_OUTSIDE_DIALOG_BUTTON}
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={clickOutsideButtonActive}
             onClick={switchClickOutsideActive}
             style={{
@@ -381,9 +376,9 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          position={Dialog.positions.RIGHT}
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+          position="right"
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
           content={
             <DialogContentContainer>
               <ExampleContent rowsCount={1} />
@@ -391,7 +386,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={clickButtonActive}
             onClick={switchClickButtonActive}
             style={{
@@ -404,9 +399,9 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          position={Dialog.positions.RIGHT}
-          showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.BLUR]}
+          position="right"
+          showTrigger={["focus", "click"]}
+          hideTrigger={["blur"]}
           content={
             <DialogContentContainer>
               <ExampleContent rowsCount={1} />
@@ -414,7 +409,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={blurButtonActive}
             onClick={switchBlurButtonActive}
             style={{
@@ -427,9 +422,9 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          position={Dialog.positions.RIGHT}
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CONTENT_CLICK]}
+          position="right"
+          showTrigger={["click"]}
+          hideTrigger={["onContentClick"]}
           onContentClick={switchContentClickActive}
           content={
             <DialogContentContainer>
@@ -438,7 +433,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={contentClickButtonActive}
             onClick={switchContentClickActive}
             style={{
@@ -451,9 +446,9 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          showTrigger={[Dialog.hideShowTriggers.MOUSE_ENTER]}
-          hideTrigger={[Dialog.hideShowTriggers.MOUSE_LEAVE]}
-          position={Dialog.positions.RIGHT}
+          showTrigger={["mouseenter"]}
+          hideTrigger={["mouseleave"]}
+          position="right"
           onDialogDidHide={switchMouseLeaveActive}
           onDialogDidShow={switchMouseLeaveActive}
           content={
@@ -463,7 +458,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={mouseLeaveButtonActive}
             onClick={switchMouseLeaveActive}
             style={{
@@ -476,9 +471,9 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CONTEXT_MENU]}
-          position={Dialog.positions.RIGHT}
+          showTrigger={["click"]}
+          hideTrigger={["contextmenu"]}
+          position="right"
           containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onDialogDidHide={switchContextMenuActive}
           onDialogDidShow={switchContextMenuActive}
@@ -489,7 +484,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             active={contextMenuButtonActive}
             style={{
               marginBlock: "54px"
@@ -539,7 +534,7 @@ export const ControlledDialog = {
           <DialogContentContainer>
             <DialogContentContainer>
               <Button
-                kind={Button.kinds.SECONDARY}
+                kind="secondary"
                 // @ts-ignore
                 onClick={() => setIsOpen(false)}
               >
@@ -580,16 +575,16 @@ export const DialogWithTooltip = {
           tooltip
           modifiers={modifiers}
           shouldShowOnMount
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK]}
-          position={Dialog.positions.RIGHT}
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
+          position="right"
           content={
             <DialogContentContainer>
               <ExampleContent />
             </DialogContentContainer>
           }
         >
-          <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          <IconButton icon={Info} active kind="secondary" />
         </Dialog>
       </div>
     );
@@ -613,7 +608,7 @@ export const DisableScrollWhenDialogOpen = {
     });
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
         <div
           className={"scrollable"}
           style={{
@@ -629,7 +624,7 @@ export const DisableScrollWhenDialogOpen = {
           >
             <Dialog
               open={checkedTop}
-              position={Dialog.positions.LEFT}
+              position="left"
               showTrigger={[]}
               hideTrigger={[]}
               containerSelector={".scrollable"}
@@ -640,7 +635,7 @@ export const DisableScrollWhenDialogOpen = {
                 </DialogContentContainer>
               }
             >
-              <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+              <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
                 Click
               </Button>
             </Dialog>
