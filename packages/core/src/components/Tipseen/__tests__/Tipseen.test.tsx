@@ -52,31 +52,20 @@ describe("Snapshot tests", () => {
 
   describe("Tipseen tests", () => {
     it("renders correctly without p" + "rops", () => {
-      const tree = renderer.create(<Tipseen>{tipseenMockChildren}</Tipseen>).toJSON();
+      const tree = renderer.create(<Tipseen content="content">{tipseenMockChildren}</Tipseen>).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without close", () => {
       const { asFragment } = render(
-        <Tipseen showDelay={0} hideCloseButton>
+        <Tipseen content="content" showDelay={0} hideCloseButton>
           {tipseenMockChildren}
         </Tipseen>
       );
-      expect(asFragment()).toMatchSnapshot();
-    });
-    it("renders correctly without close - deprecated version", async () => {
-      const { asFragment } = render(
-        <Tipseen showDelay={0} isCloseButtonHidden>
-          {tipseenMockChildren}
-        </Tipseen>
-      );
-      await waitFor(() => {
-        expect(asFragment()).toBeTruthy();
-      });
       expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with dark close button theme", async () => {
       const { asFragment } = render(
-        <Tipseen showDelay={0} closeButtonTheme="dark">
+        <Tipseen content="content" showDelay={0} closeButtonTheme="dark">
           {tipseenMockChildren}
         </Tipseen>
       );
@@ -86,7 +75,7 @@ describe("Snapshot tests", () => {
       expect(asFragment()).toMatchSnapshot();
     });
     it("renders correctly with floating variation", async () => {
-      const { container } = render(<Tipseen floating />);
+      const { container } = render(<Tipseen content="content" floating />);
       await waitFor(() => {
         expect(container.firstChild).toBeTruthy();
       });
@@ -100,7 +89,7 @@ describe("Integration Tests", () => {
     it("call onClose function when click on close button", () => {
       const onClickMock = jest.fn();
       const { getByLabelText } = render(
-        <Tipseen onClose={onClickMock}>
+        <Tipseen content="content" onClose={onClickMock}>
           <div />
         </Tipseen>
       );
