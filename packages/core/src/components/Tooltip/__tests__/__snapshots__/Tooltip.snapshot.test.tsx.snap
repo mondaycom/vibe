@@ -34,7 +34,11 @@ exports[`Tooltip renders correctly with data-testid 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark"
@@ -86,7 +90,11 @@ exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark"
@@ -138,7 +146,11 @@ exports[`Tooltip renders correctly with position 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark"
@@ -195,7 +207,11 @@ exports[`Tooltip renders correctly with style 1`] = `
           }
         }
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark"
@@ -247,7 +263,11 @@ exports[`Tooltip renders correctly with theme 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow primary"
@@ -269,7 +289,11 @@ exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
   className="tooltip dark"
 >
-  test
+  <div
+    className="content"
+  >
+    test
+  </div>
 </div>
 `;
 
@@ -307,7 +331,11 @@ exports[`Tooltip renders correctly without arrow 1`] = `
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content"
+        >
+          test
+        </div>
       </div>
     </div>
   </span>,
