@@ -53,7 +53,6 @@ function transform({ j, root }: TransformationContext) {
 
   elements.forEach(elementPath => {
     updateComponentName(j, elementPath, alias || "Search");
-    // console.log(elementPath);
     updateComponentNamespaceProps(j, elementPath, "SearchComponent", alias || "Search");
   });
 }
