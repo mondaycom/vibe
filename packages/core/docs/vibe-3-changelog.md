@@ -218,6 +218,7 @@ codemod: `avatar-component-migration`
 - `position` changed to only accept "top, right, bottom, left" [codemod]
 - `justify` removed [codemod]
 - `arrowPosition` removed [codemod]
+- `addKeyboardHideShowTriggersByDefault` make default true [codemod]
 
 ### ColorPicker
 
