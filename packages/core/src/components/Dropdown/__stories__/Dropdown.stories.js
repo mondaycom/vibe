@@ -60,10 +60,6 @@ export const Overview = {
     className: "dropdown-stories-styles_spacing"
   },
   parameters: {
-    controls: {
-      // TODO: remove exclusion when prop is removed in next major
-      exclude: ["withReadOnlyStyle"]
-    },
     docs: {
       liveEdit: {
         isEnabled: false

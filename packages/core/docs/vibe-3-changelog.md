@@ -91,6 +91,7 @@ codemod: `avatar-component-migration`
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 - Remove size 'xxs' and 'xs'
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
 
 ### IconButton
 
@@ -181,6 +182,8 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+-
 
 ### ThemeProvider
 
@@ -228,7 +231,7 @@ codemod: `avatar-component-migration`
 
 - Remove entire component
 
-### Icons
+## Icons
 
 - Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
 
