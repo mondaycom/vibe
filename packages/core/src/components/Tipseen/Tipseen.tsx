@@ -20,6 +20,7 @@ import { TooltipTheme } from "../Tooltip/TooltipConstants";
 import { ButtonColor } from "../Button/ButtonConstants";
 import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
@@ -107,11 +108,20 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
       floating = false,
-      color = TipseenColor.PRIMARY,
+      color: colorProp,
       "data-testid": dataTestId
     },
     ref
   ) => {
+    useWarnDeprecated({
+      component: "Tipseen",
+      condition: colorProp === undefined,
+      message:
+        "The default `color` prop will be changed to 'Tipseen.colors.INVERTED' in the next major version. To keep current color, please use `color={Tipseen.colors.PRIMARY}`"
+    });
+
+    const color = colorProp ?? TipseenColor.PRIMARY;
+
     const defaultDelayOpen =
       Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
 

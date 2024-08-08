@@ -7,6 +7,7 @@ import styles from "./ResponsiveList.module.scss";
 import { VibeComponent, withStaticProps } from "../../types";
 import MenuButton from "../MenuButton/MenuButton";
 import { DEFAULT_MINIMAL_MARGIN, EMPTY_ARRAY, ResponsiveListProps } from "./ResponsiveList.types";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 
 const ResponsiveList: VibeComponent<ResponsiveListProps> & {
   menuButtonSizes?: typeof MenuButton.sizes;
@@ -30,6 +31,12 @@ const ResponsiveList: VibeComponent<ResponsiveListProps> & {
     },
     ref
   ) => {
+    useWarnDeprecated({
+      component: "ResponsiveList",
+      message:
+        "The component is deprecated and will be removed in the next major version. Please consider using alternative solutions"
+    });
+
     const componentRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
     const index = useElementsOverflowingIndex({
