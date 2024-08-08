@@ -3,11 +3,10 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import Tab from "../Tab";
 
 describe("Tab tests", () => {
-  let onClickMock: jest.Mock<any, any>;
+  const onClickMock = jest.fn();
   const text = "tab";
 
   beforeEach(() => {
-    onClickMock = jest.fn();
     render(<Tab onClick={onClickMock}>{text}</Tab>);
   });
 

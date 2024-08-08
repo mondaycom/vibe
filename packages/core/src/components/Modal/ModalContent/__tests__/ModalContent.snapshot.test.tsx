@@ -4,7 +4,7 @@ import ModalContent from "../ModalContent";
 
 describe("ModalContent renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<ModalContent />).toJSON();
+    const tree = renderer.create(<ModalContent>content</ModalContent>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

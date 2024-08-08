@@ -1,13 +1,13 @@
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import Dialog from "../Dialog";
+import Dialog, { DialogProps } from "../Dialog";
 
-function renderVisibleDialogOnMount(dialogProps) {
+function renderVisibleDialogOnMount(dialogProps: DialogProps) {
   renderDialogOnMount({ ...dialogProps, shouldShowOnMount: true });
 }
 
-function renderDialogOnMount(dialogProps) {
+function renderDialogOnMount(dialogProps: DialogProps) {
   render(<Dialog {...dialogProps} />);
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Steps from "../Steps";
+import Steps, { StepsProps } from "../Steps";
 import { NEXT_TEXT, BACK_TEXT } from "../StepsConstants";
 
 jest.useFakeTimers();
@@ -14,7 +14,7 @@ const stepsContent = [
     second
   </div>
 ];
-const renderComponent = props => {
+const renderComponent = (props: StepsProps) => {
   return render(<Steps steps={stepsContent} {...props} />);
 };
 

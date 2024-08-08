@@ -12,12 +12,11 @@ describe("<AlertBanner />", () => {
   });
 
   describe("on close", () => {
-    let onCloseStub;
-    let alertBannerComponent;
+    let onCloseStub: jest.Mock;
 
     beforeEach(() => {
       onCloseStub = jest.fn();
-      alertBannerComponent = render(
+      render(
         <AlertBanner onClose={onCloseStub}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerButton onClick={NOOP}>Lorem Ipsum Salura</AlertBannerButton>
@@ -26,7 +25,12 @@ describe("<AlertBanner />", () => {
     });
 
     it("should be able to close alert banner when clicking on close button", () => {
-      const { container } = alertBannerComponent;
+      const { container } = render(
+        <AlertBanner onClose={onCloseStub}>
+          <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+          <AlertBannerButton onClick={NOOP}>Lorem Ipsum Salura</AlertBannerButton>
+        </AlertBanner>
+      );
       fireEvent.click(container.querySelector("[data-testid='alert-banner-close-button']"));
       expect(onCloseStub.mock.calls.length).toBe(1);
     });
