@@ -17,7 +17,6 @@ import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
 import { AlertBannerContext } from "./AlertBannerContext";
 
-// TODO: [breaking] type it to adopt a structure of a text and one (optional) cta (either link/button)
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 
 export interface AlertBannerProps extends VibeComponentProps {

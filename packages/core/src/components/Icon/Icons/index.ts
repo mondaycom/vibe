@@ -88,7 +88,6 @@ export {default as Event} from './components/Event';
 export {default as Expand} from './components/Expand';
 export {default as ExternalPage} from './components/ExternalPage';
 export {default as Favorite} from './components/Favorite';
-export {default as Featured} from './components/Featured';
 export {default as Feedback} from './components/Feedback';
 export {default as File} from './components/File';
 export {default as Filter} from './components/Filter';

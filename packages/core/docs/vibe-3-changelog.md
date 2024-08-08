@@ -32,6 +32,10 @@ codemod: `avatar-component-migration`
 - `isSquare` -> `square` [codemod ✅]
 - `isDisabled` -> `disabled` [codemod ✅]
 
+### AvatarGroup
+
+- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+
 ### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]
@@ -87,6 +91,7 @@ codemod: `chips-component-migration`
 
 - Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
 - Remove size 'xxs' and 'xs'
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
 
 ### EditableInput
 
@@ -192,13 +197,14 @@ codemod: `search-component-import-migration`
 
 ### TabList
 
-- `noPadding` is removed as it's the default, component no longer gets a default padding bottom
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
 
 ### ThemeProvider
 
@@ -247,6 +253,9 @@ codemod: `search-component-import-migration`
 
 - Remove entire component
 
+## Icons
+
+- Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
 
 ## Hooks
 
