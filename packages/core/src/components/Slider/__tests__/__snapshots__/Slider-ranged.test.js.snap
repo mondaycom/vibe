@@ -170,7 +170,7 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent bottom hasTooltip"
++           class="contentComponent top hasTooltip"
 +         >
 +           <div
 +             class="tooltip dark"
@@ -179,7 +179,7 @@ Snapshot Diff:
 +           </div>
 +           <div
 +             class="arrow arrow dark"
-+             data-placement="bottom"
++             data-placement="top"
 +             style="position: absolute;"
 +           />
 +         </div>
