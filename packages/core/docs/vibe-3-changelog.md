@@ -218,6 +218,8 @@ codemod: `avatar-component-migration`
 - `position` changed to only accept "top, right, bottom, left" [codemod]
 - `justify` removed [codemod]
 - `arrowPosition` removed [codemod]
+- `withMaxWidth` prop removed, max-width is now set to 240px
+- Tooltip's content is now wrapped in another div
 
 ### ColorPicker
 
