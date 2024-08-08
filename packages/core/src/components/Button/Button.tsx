@@ -16,11 +16,12 @@ import {
 import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
+import { SubIcon } from "../Icon";
 
 export interface ButtonProps extends VibeComponentProps {
   children: React.ReactNode;

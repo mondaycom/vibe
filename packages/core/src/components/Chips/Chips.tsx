@@ -5,18 +5,19 @@ import useMergeRef from "../../hooks/useMergeRef";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
-import { ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { ElementAllowedColor, getElementColor } from "./Colors.types";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { AvatarType } from "../Avatar/Avatar.types";
-import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
+import { SubIcon } from "../Icon";
 
 const CHIPS_AVATAR_SIZE = 20;
 

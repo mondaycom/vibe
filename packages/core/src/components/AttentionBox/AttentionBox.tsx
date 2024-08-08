@@ -11,10 +11,11 @@ import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType as IconTypeEnum } from "../Icon/IconConstants";
 import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
 import { AttentionBoxType } from "./AttentionBox.types";
-import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import { VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
+import { SubIcon } from "../Icon";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;

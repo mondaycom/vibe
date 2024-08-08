@@ -12,13 +12,13 @@ import {
   ColorPickerValue,
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes } from "./ColorPicker.types";
+import { ColorShapes, ColorPickerSizes, ColorStyle } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
+import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
-import { ColorStyle } from "../../types/Colors";
+import { SubIcon } from "../Icon";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;

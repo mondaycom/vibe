@@ -3,11 +3,11 @@ import cx from "classnames";
 import React, { CSSProperties, forwardRef, Ref } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { IconType as IconTypeEnum } from "./IconConstants";
-import { IconType } from "./Icon.types";
+import { IconType, MouseEventCallBack, SubIcon } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon, withStaticProps } from "../../types";
+import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (_event: React.MouseEvent) => {};

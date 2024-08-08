@@ -10,12 +10,12 @@ import { ButtonWrapper } from "./ButtonWrapper";
 import { SIZES } from "../../constants";
 import { ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
 import { ButtonType, ButtonSize } from "../Button/Button.types";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { MoveBy } from "../../types/MoveBy";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { MoveBy, TooltipPositions } from "../Tooltip/Tooltip.types";
+import { SubIcon } from "../Icon";
 
 type ButtonGroupOption = {
   icon?: SubIcon;

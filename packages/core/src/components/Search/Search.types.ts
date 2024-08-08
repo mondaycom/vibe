@@ -1,8 +1,9 @@
 import React from "react";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { VibeComponentProps } from "../../types";
 import { InputSize } from "../BaseInput/BaseInput.types";
 import IconButton from "../IconButton/IconButton";
 import MenuButton from "../MenuButton/MenuButton";
+import { SubIcon } from "../Icon";
 
 export interface SearchProps extends VibeComponentProps {
   /**
