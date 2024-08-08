@@ -13,8 +13,9 @@ import {
 import { MultiStepType, MultiStepSize, StepStatus, TextPlacement } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
+import { SubIcon } from "../Icon";
 
 export type Step = {
   titleText: string;

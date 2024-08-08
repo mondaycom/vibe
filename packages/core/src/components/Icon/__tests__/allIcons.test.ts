@@ -1,4 +1,3 @@
-import { ArrayLastElement, SplitString } from "../../../types";
 import { keysOf } from "../../../helpers/key-of";
 import { exposeIcons } from "../../../utils/icon-utils";
 import * as allIcons from "../Icons";
@@ -7,9 +6,10 @@ import {
   getClickableScreenReaderAccessProps,
   getClickableIconScreenReaderAccessProps
 } from "../../../helpers/screenReaderAccessHelper";
+import { ArrayLastElement, Helpers } from "./helpers";
 
 type IconPath = `/icons/${keyof typeof allIcons}`;
-type SplittedIconPath = SplitString<IconPath, "/">;
+type SplittedIconPath = Helpers<IconPath, "/">;
 
 const all = allIcons as Record<keyof typeof allIcons, () => unknown>;
 

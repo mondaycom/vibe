@@ -2,8 +2,7 @@ import React from "react";
 import { isNil } from "lodash-es";
 import Button, { ButtonProps } from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
-import { MoveBy } from "../../types/MoveBy";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { MoveBy, TooltipPositions } from "../Tooltip/Tooltip.types";
 
 export interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;

@@ -5,7 +5,7 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
-import { SubIcon, withStaticProps } from "../../../../types";
+import { withStaticProps } from "../../../../types";
 import {
   ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
   IComboboxOption,
@@ -14,6 +14,7 @@ import {
 import { ComboboxOptionIconType } from "../../Combobox.types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
+import { SubIcon } from "../../../Icon";
 
 export interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;

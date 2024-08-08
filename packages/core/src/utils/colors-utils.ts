@@ -1,5 +1,5 @@
 import { ColorStyle as ColorStyleEnum, contentColors } from "./colors-vars-map";
-import { ColorStyle } from "../types/Colors";
+import { ColorStyle } from "../components";
 
 const ColorUtils = {
   modes: ColorStyleEnum,

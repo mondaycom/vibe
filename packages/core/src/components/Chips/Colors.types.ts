@@ -1,4 +1,4 @@
-import { contentColors } from "../utils/colors-vars-map";
+import { contentColors } from "../../utils/colors-vars-map";
 
 const MapStateSelectedColor = {
   positive: "--positive-color-selected",
@@ -38,5 +38,3 @@ export function getElementColor(
   }
   return colorValue;
 }
-
-export type ColorStyle = "regular" | "hover" | "selected";

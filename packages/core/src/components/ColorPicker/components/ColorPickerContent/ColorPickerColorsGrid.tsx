@@ -3,10 +3,10 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
+import { ColorShapes, ColorPickerSizes, ColorStyle } from "../../ColorPicker.types";
+import { VibeComponent, VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";
-import { ColorStyle } from "../../../../types/Colors";
+import { SubIcon } from "../../../Icon";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {

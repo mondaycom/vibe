@@ -8,10 +8,11 @@ import { ButtonType } from "../../Button/Button.types";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
+import { VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { SubIcon } from "../../Icon";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   kind?: ButtonType;

@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
@@ -12,6 +12,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { SubIcon } from "../../Icon";
 
 export interface TableHeaderCellProps extends VibeComponentProps {
   title: string;

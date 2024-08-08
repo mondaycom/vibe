@@ -1,1 +1,1 @@
-export type Sizes = "small" | "medium";
+export type ToggleSizes = "small" | "medium";

@@ -5,15 +5,16 @@ import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
-import { ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { ElementAllowedColor, getElementColor } from "../Chips/Colors.types";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Avatar.module.scss";
+import { SubIcon } from "../Icon";
 
 export interface AvatarProps extends VibeComponentProps {
   src?: string;

@@ -9,14 +9,13 @@ import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum 
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
-import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
-import { TooltipPositions, TooltipTheme } from "./Tooltip.types";
+import { MoveBy, TooltipPositions, TooltipTheme } from "./Tooltip.types";
+import { SubIcon } from "../Icon";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 

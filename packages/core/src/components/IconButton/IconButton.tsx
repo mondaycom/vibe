@@ -6,7 +6,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
@@ -14,6 +14,7 @@ import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ButtonColor, ButtonType } from "../Button/Button.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
+import { SubIcon } from "../Icon";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**

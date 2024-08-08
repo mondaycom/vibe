@@ -44,8 +44,9 @@ import {
   Shadow,
   DISABLED
 } from "./BoxConstants";
-import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
+import { ValueOf } from "./Box.types";
 
 export interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;

@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { TableHeaderProps } from "../TableHeader/TableHeader";
 import { TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
@@ -12,6 +12,7 @@ import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
 import TableRoot from "./TableRoot";
+import { SubIcon } from "../../Icon";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 

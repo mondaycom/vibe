@@ -5,10 +5,11 @@ import Icon from "../Icon/Icon";
 import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { ListItemElement } from "../ListItem/ListItem.types";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 import { ListItemIconMargin } from "./ListItemIcon.types";
+import { SubIcon } from "../Icon";
 
 export const LIST_ITEM_ICON_SIZE = 18;
 

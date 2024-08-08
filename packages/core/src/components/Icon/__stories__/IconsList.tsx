@@ -5,7 +5,7 @@ import * as allIcons from "../Icons";
 import Flex from "../../Flex/Flex";
 import styles from "./Icon.stories.module.scss";
 import Icon from "../Icon";
-import { SubIcon } from "../../../types";
+import { SubIcon } from "../Icon.types";
 
 interface IconMeta {
   name: string;

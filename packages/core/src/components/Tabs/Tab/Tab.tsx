@@ -6,10 +6,9 @@ import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { IconType } from "../../Icon";
+import { IconType, SubIcon } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { SubIcon } from "../../../types/SubIcon";
 
 export interface TabProps extends VibeComponentProps {
   /**

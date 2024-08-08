@@ -8,11 +8,12 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { ColorPickerValueOnly } from "../../ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
+import { ColorShapes, ColorPickerSizes, ColorStyle } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, ColorStyle } from "../../../../types";
+import { VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
 import styles from "./ColorPickerItemComponent.module.scss";
+import { SubIcon } from "../../../Icon";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: ColorPickerValueOnly;

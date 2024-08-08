@@ -9,7 +9,7 @@ import { AvatarSize } from "./Avatar.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./AvatarBadge.module.scss";
 import Icon from "../Icon/Icon";
-import { SubIcon } from "../../types";
+import { SubIcon } from "../Icon";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   src?: string;

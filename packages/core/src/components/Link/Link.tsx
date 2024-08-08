@@ -5,8 +5,9 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { IconPosition, LinkTarget } from "./Link.types";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
+import { SubIcon } from "../Icon";
 
 export interface LinkProps extends VibeComponentProps {
   /**
