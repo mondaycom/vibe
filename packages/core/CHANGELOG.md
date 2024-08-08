@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.130.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.129.0...monday-ui-react-core@2.130.0) (2024-08-08)
+
+
+### Features
+
+* **Breadcrumbs:** be able to show only the icon ([#2336](https://github.com/mondaycom/vibe/issues/2336)) ([d68c9c3](https://github.com/mondaycom/vibe/commit/d68c9c34498ab423f8eb179bc5e2dc07c5588757))
+* **combobox:** Add render action to combobox ([#2297](https://github.com/mondaycom/vibe/issues/2297)) ([a6d4adb](https://github.com/mondaycom/vibe/commit/a6d4adb57c994e4fb0176a287ec3cac488a2d05b))
+* **MenuItem:** Add all label capabilities to menu item ([#2335](https://github.com/mondaycom/vibe/issues/2335)) ([d786e92](https://github.com/mondaycom/vibe/commit/d786e9250abfd464a1064218421cbbe15998514e))
+
+
+
+
+
 # [2.129.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.128.0...monday-ui-react-core@2.129.0) (2024-08-07)
 
 
