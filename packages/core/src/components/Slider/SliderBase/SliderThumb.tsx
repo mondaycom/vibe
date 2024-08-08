@@ -77,6 +77,7 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
       content={showValue ? null : valueText}
       position="top"
       showDelay={TOOLTIP_SHOW_DELAY}
+      addKeyboardHideShowTriggersByDefault={false}
     >
       <div
         aria-label={ariaLabel}

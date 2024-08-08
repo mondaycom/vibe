@@ -166,7 +166,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: true,
     referenceWrapperClassName: "",
-    addKeyboardHideShowTriggersByDefault: false,
+    addKeyboardHideShowTriggersByDefault: true,
     open: false
   };
   constructor(props: TooltipProps) {
