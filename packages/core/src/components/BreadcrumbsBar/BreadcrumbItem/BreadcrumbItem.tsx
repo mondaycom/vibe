@@ -31,6 +31,7 @@ export interface BreadcrumbItemProps extends VibeComponentProps {
   isCurrent?: boolean;
   /** An Icon - If no icon needed then should be left empty. */
   icon?: SubIcon;
+  showText?: boolean;
 }
 
 const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
@@ -45,6 +46,7 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   isCurrent = false,
   icon,
   id,
+  showText = true,
   "data-testid": dataTestId
 }) => {
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
@@ -55,9 +57,10 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
     <Tooltip
       disableDialogSlide={true}
       withoutDialog={false}
-      content={isOverflowing && text}
+      content={(isOverflowing || !showText) && text}
       showTrigger={MOUSEENTER}
       hideTrigger={MOUSELEAVE}
+      addKeyboardHideShowTriggersByDefault={!showText}
     >
       <li
         id={id}
@@ -75,6 +78,7 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
           icon={icon}
           isCurrent={isCurrent}
           disabled={overrideDisabled}
+          showText={showText}
         />
       </li>
     </Tooltip>
