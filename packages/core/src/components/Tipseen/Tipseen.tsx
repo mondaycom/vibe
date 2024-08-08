@@ -14,7 +14,6 @@ import {
 } from "./TipseenConstants";
 import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
@@ -22,7 +21,7 @@ import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { MoveBy, TooltipPositions } from "../Tooltip/Tooltip.types";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
