@@ -13,6 +13,7 @@ export interface BreadcrumbContentProps extends VibeComponentProps {
   icon?: SubIcon;
   isCurrent?: boolean;
   disabled?: boolean;
+  showText?: boolean;
 }
 
 const iconProps = { className: styles.breadcrumbIcon, size: 14, clickable: false };
@@ -20,7 +21,7 @@ const iconProps = { className: styles.breadcrumbIcon, size: 14, clickable: false
 export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbContentProps & React.RefAttributes<unknown>> =
   forwardRef<unknown, BreadcrumbContentProps>(
     (
-      { className, isClickable, link, onClick, text, icon, isCurrent, disabled = false },
+      { className, isClickable, link, onClick, text, icon, isCurrent, disabled = false, showText = true },
       ref: ForwardedRef<HTMLSpanElement>
     ) => {
       const Icon = icon;
@@ -43,16 +44,19 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
               className={cx(styles.breadcrumbContent, className, {
                 [styles.disabled]: disabled,
                 [styles.clickable]: isClickable,
-                [styles.current]: isCurrent
+                [styles.current]: isCurrent,
+                [styles.withoutText]: !showText
               })}
               href={link}
               onKeyDown={onKeyDown}
               aria-current={isCurrent ? "page" : undefined}
             >
               {Icon && <Icon {...iconProps} />}
-              <span ref={ref} className={styles.breadcrumbText}>
-                {text}
-              </span>
+              {showText && (
+                <span ref={ref} className={styles.breadcrumbText}>
+                  {text}
+                </span>
+              )}
             </a>
           );
         }
@@ -61,7 +65,8 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             className={cx(styles.breadcrumbContent, className, {
               [styles.disabled]: disabled,
               [styles.clickable]: isClickable,
-              [styles.current]: isCurrent
+              [styles.current]: isCurrent,
+              [styles.withoutText]: !showText
             })}
             onClick={onClick}
             onKeyDown={onKeyDown}
@@ -70,9 +75,11 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             role="button"
           >
             {Icon && <Icon {...iconProps} />}
-            <span ref={ref} className={styles.breadcrumbText}>
-              {text}
-            </span>
+            {showText && (
+              <span ref={ref} className={styles.breadcrumbText}>
+                {text}
+              </span>
+            )}
           </span>
         );
       }
@@ -82,16 +89,19 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             [styles.disabled]: disabled,
             [styles.clickable]: isClickable,
             [styles.current]: isCurrent,
-            [styles.notClickable]: !isClickable
+            [styles.notClickable]: !isClickable,
+            [styles.withoutText]: !showText
           })}
           aria-disabled="true"
           tabIndex={tabIndex}
           aria-current={isCurrent ? "page" : undefined}
         >
           {Icon && <Icon {...iconProps} />}
-          <span ref={ref} className={styles.breadcrumbText}>
-            {text}
-          </span>
+          {showText && (
+            <span ref={ref} className={styles.breadcrumbText}>
+              {text}
+            </span>
+          )}
         </span>
       );
     }

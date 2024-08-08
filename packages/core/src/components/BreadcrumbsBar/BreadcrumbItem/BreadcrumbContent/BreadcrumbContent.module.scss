@@ -11,6 +11,10 @@
   padding: 0 2px;
   overflow: hidden;
   text-decoration: none;
+
+  &.withoutText {
+    padding: 4px;
+  }
 }
 
 a.breadcrumbContent:hover {
