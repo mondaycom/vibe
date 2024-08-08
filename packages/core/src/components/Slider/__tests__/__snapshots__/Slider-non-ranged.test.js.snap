@@ -59,7 +59,11 @@ Snapshot Diff:
 +           <div
 +             class="tooltip dark"
 +           >
-+             20%
++             <div
++               class="content"
++             >
++               20%
++             </div>
 +           </div>
 +           <div
 +             class="arrow arrow dark"
@@ -94,7 +98,11 @@ Snapshot Diff:
 -           <div
 -             class="tooltip dark"
 -           >
--             20%
+-             <div
+-               class="content"
+-             >
+-               20%
+-             </div>
 -           </div>
 -           <div
 -             class="arrow arrow dark"
@@ -129,7 +137,11 @@ Snapshot Diff:
 +           <div
 +             class="tooltip dark"
 +           >
-+             20%
++             <div
++               class="content"
++             >
++               20%
++             </div>
 +           </div>
 +           <div
 +             class="arrow arrow dark"
@@ -164,7 +176,11 @@ Snapshot Diff:
 -           <div
 -             class="tooltip dark"
 -           >
--             20%
+-             <div
+-               class="content"
+-             >
+-               20%
+-             </div>
 -           </div>
 -           <div
 -             class="arrow arrow dark"
