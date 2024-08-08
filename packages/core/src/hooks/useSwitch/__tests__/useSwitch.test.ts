@@ -71,7 +71,7 @@ describe("useSwitch", () => {
       const { result } = renderHookForTest({ defaultChecked: true, onChange });
       callOnChange(result);
       expect(onChange).toBeCalledTimes(1);
-      expect(onChange).toBeCalledWith(false, expect.anything());
+      expect(onChange).toBeCalledWith(false);
     });
   });
 
