@@ -126,6 +126,7 @@ codemod: `avatar-component-migration`
 ### MenuItem
 
 - `classname` -> `className` [codemod]
+- Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 

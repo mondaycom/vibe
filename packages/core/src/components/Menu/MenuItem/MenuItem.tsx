@@ -107,16 +107,21 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     }, [disableReason, disabled, title, tooltipContent]);
 
     return (
-      <BaseMenuItem
-        key={key}
-        ref={ref}
-        subMenu={children}
-        className={className}
-        disabled={disabled}
-        selected={selected}
-        {...baseMenuProps}
+      <Tooltip
+        content={shouldShowTooltip ? finalTooltipContent : null}
+        position={tooltipPosition}
+        showDelay={tooltipShowDelay}
+        {...tooltipProps}
       >
-        <>
+        <BaseMenuItem
+          key={key}
+          ref={ref}
+          subMenu={children}
+          className={className}
+          disabled={disabled}
+          selected={selected}
+          {...baseMenuProps}
+        >
           {Boolean(icon) && (
             <MenuItemIcon
               icon={icon}
@@ -128,23 +133,12 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
               wrapperClassName={iconWrapperClassName}
             />
           )}
-          <Tooltip
-            content={shouldShowTooltip ? finalTooltipContent : null}
-            position={tooltipPosition}
-            showDelay={tooltipShowDelay}
-            {...tooltipProps}
-          >
-            <div ref={titleRef} className={styles.title}>
-              {title}
-            </div>
-            {/* Tooltip should be on a whole MenuItem, but it's a breaking change (tooltip adds span) - should be fixed in the next major and then this div be removed */}
-            <div className={styles.hiddenTitle} aria-hidden tabIndex={-1}>
-              {title}
-            </div>
-          </Tooltip>
+          <div ref={titleRef} className={styles.title}>
+            {title}
+          </div>
           {label && <Label kind="line" text={label} />}
-        </>
-      </BaseMenuItem>
+        </BaseMenuItem>
+      </Tooltip>
     );
   }
 );
