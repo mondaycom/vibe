@@ -73,6 +73,7 @@
   border-color: var(--disabled-background-color);
   color: var(--disabled-text-color);
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .disabled:hover {
