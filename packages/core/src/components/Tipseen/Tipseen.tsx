@@ -116,7 +116,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
     useWarnDeprecated({
       component: "Tipseen",
       condition: colorProp === undefined,
-      message: "The default `color` prop will be changed to 'Tipseen.colors.INVERTED' in the next major version."
+      message:
+        "The default `color` prop will be changed to 'Tipseen.colors.INVERTED' in the next major version. To keep current color, please use `color={Tipseen.colors.PRIMARY}`"
     });
 
     const color = colorProp ?? TipseenColor.PRIMARY;

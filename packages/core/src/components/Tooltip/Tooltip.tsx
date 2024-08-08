@@ -186,13 +186,13 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     this.wasShown = false;
     warnDeprecated({
       component: "Tooltip",
-      condition: !["primary", "dark"].includes(this.props.theme),
+      condition: this.props.theme && !["primary", "dark"].includes(this.props.theme),
       message:
         "'theme' prop will be able to get only 'dark' and 'primary' in the upcoming major version. Please consider using these themes."
     });
     warnDeprecated({
       component: "Tooltip",
-      condition: !["top", "left", "right", "bottom"].includes(this.props.position),
+      condition: this.props.position && !["top", "left", "right", "bottom"].includes(this.props.position),
       message:
         "'position' prop will be able to get only 'top', 'bottom', 'left', and 'right' values in the upcoming major version. Please consider using these positions."
     });

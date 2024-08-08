@@ -6,7 +6,7 @@ export function useWarnDeprecated({
   message
 }: {
   component: string;
-  condition?: ReactNode | boolean;
+  condition?: boolean;
   message: string;
 }) {
   useEffect(() => {
@@ -21,7 +21,7 @@ export function warnDeprecated({
   message
 }: {
   component: string;
-  condition: ReactNode | boolean;
+  condition: boolean;
   message: string;
 }) {
   if (condition && process.env.NODE_ENV !== "production") {
