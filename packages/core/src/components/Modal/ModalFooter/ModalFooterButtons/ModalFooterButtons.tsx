@@ -26,7 +26,7 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
       className,
       id,
       "data-testid": dataTestId
-    },
+    }: ModalFooterButtonsProps,
     // As ModalFooter does not currently forward refs
     // eslint-disable-next-line
     ref

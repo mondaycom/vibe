@@ -67,7 +67,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       name = "",
       id,
       "data-testid": dataTestId
-    },
+    }: CheckBoxProps,
     ref
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);

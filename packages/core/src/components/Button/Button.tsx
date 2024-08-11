@@ -149,7 +149,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       "data-testid": dataTestId,
       insetFocus,
       tabIndex
-    },
+    }: ButtonProps,
     ref
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);

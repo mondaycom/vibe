@@ -44,7 +44,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       isActive,
       colorShape,
       "data-testid": dataTestId
-    },
+    }: ColorPickerItemComponentProps,
     _ref
   ) => {
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one

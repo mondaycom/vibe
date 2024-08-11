@@ -89,7 +89,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       tooltipProps,
       "aria-label": ariaLabel,
       ...baseMenuProps
-    },
+    }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
     const titleRef = useRef();

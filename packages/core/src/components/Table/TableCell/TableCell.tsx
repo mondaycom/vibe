@@ -12,7 +12,7 @@ export interface TableCellProps extends VibeComponentProps {
 }
 
 const TableCell: VibeComponent<TableCellProps, HTMLDivElement> = forwardRef(
-  ({ sticky, id, className, "data-testid": dataTestId, children }, ref) => {
+  ({ sticky, id, className, "data-testid": dataTestId, children }: TableCellProps, ref) => {
     const isSingleChild = React.Children.count(children) === 1;
     const typeOfFirstChild = typeof React.Children.toArray(children)[0];
     const isFirstChildString = typeOfFirstChild === "string" || typeOfFirstChild === "number";

@@ -22,7 +22,7 @@ export interface SliderRailProps extends VibeComponentProps {
 }
 
 const SliderRail: VibeComponent<SliderRailProps, unknown> = forwardRef<unknown, SliderRailProps>(
-  ({ className, children, onClick = NOOP, size }, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ className, children, onClick = NOOP, size }: SliderRailProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { shapeTestId } = useSliderUi();
     function handleClick(e: React.MouseEvent) {
       onClick(e);

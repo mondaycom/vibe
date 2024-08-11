@@ -165,7 +165,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       role,
       style,
       "data-testid": dataTestId
-    },
+    }: VirtualizedListProps,
     ref
   ) => {
     // states
