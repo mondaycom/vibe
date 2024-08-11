@@ -117,11 +117,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    * Overwrites z-index of the tooltip
    */
   zIndex?: number;
-  // TODO: make default next major
-  /**
-   * Limit tooltip to 240px
-   */
-  withMaxWidth?: boolean;
   /**
    * The title of the tooltip
    */
@@ -197,7 +192,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, className, style, withMaxWidth, title, image, icon } = this.props;
+    const { theme, content, className, style, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -215,44 +210,18 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       return null;
     }
 
-    if (title || image) {
-      return (
-        <div
-          style={style}
-          className={cx(
-            styles.tooltip,
-            styles.tooltipWithContent,
-            getStyle(styles, camelCase(theme)),
-            { [styles.withMaxWidth]: withMaxWidth },
-            className
-          )}
-        >
-          {image && <img className={styles.image} src={image} alt="" />}
-          <div className={cx(styles.content)}>
-            {title && (
-              <Flex gap="xs">
-                {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
-                <div className={styles.title}>{title}</div>
-              </Flex>
-            )}
-            {contentValue}
-          </div>
-        </div>
-      );
-    }
-
-    // TODO: remove in next major, use (title || image) variant instead
     return (
-      <div
-        style={style}
-        className={cx(
-          styles.tooltip,
-          getStyle(styles, camelCase(theme)),
-          { [styles.withMaxWidth]: withMaxWidth },
-          className
-        )}
-      >
-        {contentValue}
+      <div style={style} className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}>
+        {image && <img className={styles.image} src={image} alt="" />}
+        <div className={cx(styles.content)}>
+          {title && (
+            <Flex gap="xs">
+              {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
+              <div className={styles.title}>{title}</div>
+            </Flex>
+          )}
+          {contentValue}
+        </div>
       </div>
     );
   }

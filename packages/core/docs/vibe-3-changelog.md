@@ -245,6 +245,8 @@ codemod: `search-component-import-migration`
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
 - `arrowPosition` removed
+- `withMaxWidth` prop removed, max-width is now set to 240px [codemod]
+- Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
 
 ### ColorPicker
 
