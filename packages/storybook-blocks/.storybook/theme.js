@@ -4,7 +4,7 @@ import logo from './logo.png';
 export default create({
   base: 'light',
   brandImage: logo,
-  brandUrl: 'https://mondaycom.github.io/vibe-storybook-components',
+  brandUrl: 'https://vibe.monday.com/storybook-blocks',
   barSelectedColor: '#5034ff',
   brandTitle: 'Vibe Storybook Components',
   background: {
