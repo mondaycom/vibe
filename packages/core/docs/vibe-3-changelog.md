@@ -218,7 +218,7 @@ codemod: `avatar-component-migration`
 - `position` changed to only accept "top, right, bottom, left" [codemod]
 - `justify` removed [codemod]
 - `arrowPosition` removed [codemod]
-- `addKeyboardHideShowTriggersByDefault` make default true [codemod]
+- `addKeyboardHideShowTriggersByDefault` make default true [codemod - remove prop if exists, and add as false if doesn't exist]
 
 ### ColorPicker
 
