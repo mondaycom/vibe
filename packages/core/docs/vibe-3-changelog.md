@@ -44,7 +44,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
-- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### ButtonGroup
 
@@ -69,6 +69,7 @@ codemod: `chips-component-migration`
 ### Counter
 
 - `wrapperClassName` -> `className` [codemod]
+  - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### Dialog
 
@@ -206,6 +207,8 @@ codemod: `search-component-import-migration`
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
 - Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+-
 
 ### ThemeProvider
 
