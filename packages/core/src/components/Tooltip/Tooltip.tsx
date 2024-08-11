@@ -17,6 +17,7 @@ import { SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
 import { TooltipPositions, TooltipTheme } from "./Tooltip.types";
+import { warnDeprecated } from "../../utils/warn-deprecated";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -177,6 +178,18 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     this.onTooltipHide = this.onTooltipHide.bind(this);
 
     this.wasShown = false;
+    warnDeprecated({
+      component: "Tooltip",
+      condition: this.props.theme && !["primary", "dark"].includes(this.props.theme),
+      message:
+        "'theme' prop will be able to get only 'dark' and 'primary' in the upcoming major version. Please consider using these themes."
+    });
+    warnDeprecated({
+      component: "Tooltip",
+      condition: this.props.position && !["top", "left", "right", "bottom"].includes(this.props.position),
+      message:
+        "'position' prop will be able to get only 'top', 'bottom', 'left', and 'right' values in the upcoming major version. Please consider using these positions."
+    });
   }
 
   getContainer() {
