@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
-import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPickerConstants";
+import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPicker.types";
 import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";

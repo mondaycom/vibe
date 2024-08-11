@@ -24,13 +24,7 @@ import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
-
-type ItemType = {
-  value: string;
-  height: number;
-  width: number;
-  id: string;
-};
+import { VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 
 export interface VirtualizedGridProps extends VibeComponentProps {
   /**
@@ -46,11 +40,7 @@ export interface VirtualizedGridProps extends VibeComponentProps {
    * item render function
    * returns `JSX.Element`
    */
-  itemRenderer: (
-    item: ItemType,
-    index: number,
-    style: CSSProperties
-  ) => ItemType | ComponentType<GridChildComponentProps<ItemType>>;
+  itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ItemType | GridChildComponentProps<ItemType>;
   /**
    * in order to calculate the number of rows to render in the grid, the component needs the height of the row
    * return `number`
