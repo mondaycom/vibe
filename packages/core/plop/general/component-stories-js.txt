@@ -5,7 +5,6 @@ import styles from "./{{properCase componentName}}.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: {{properCase componentName}},
-  enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: [] // List the component's actions here
 });

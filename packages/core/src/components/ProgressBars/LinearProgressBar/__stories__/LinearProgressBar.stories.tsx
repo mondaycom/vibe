@@ -9,8 +9,7 @@ import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
 import "./LinearProgressBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: LinearProgressBar,
-  enumPropNamesArray: ["size", "barStyle"]
+  component: LinearProgressBar
 });
 
 export default {

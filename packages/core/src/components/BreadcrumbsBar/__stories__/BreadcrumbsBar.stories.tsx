@@ -9,7 +9,6 @@ import "./BreadcrumbsBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar,
-  enumPropNamesArray: ["type"]
 });
 
 const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {

@@ -9,7 +9,6 @@ type Story = StoryObj<MenuItemProps>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItem,
-  enumPropNamesArray: ["tooltipPosition"],
   iconPropNamesArray: ["icon"]
 });
 

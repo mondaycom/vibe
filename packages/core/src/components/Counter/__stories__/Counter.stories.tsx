@@ -10,8 +10,7 @@ import Avatar from "../../Avatar/Avatar";
 import "./Counter.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Counter,
-  enumPropNamesArray: ["size", "color", "kind"]
+  component: Counter
 });
 
 const counterTemplate = createComponentTemplate(Counter);

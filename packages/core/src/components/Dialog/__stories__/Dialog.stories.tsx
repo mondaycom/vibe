@@ -16,10 +16,7 @@ import { HideShowEvent } from "../DialogConstants";
 import { DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Dialog,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  component: Dialog
 });
 
 const showHideArgTypes = {

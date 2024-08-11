@@ -4,8 +4,7 @@ import TabPanel, { TabPanelProps } from "../../TabPanel/TabPanel";
 import TabPanels from "../TabPanels";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: TabPanels,
-  enumPropNamesArray: ["animationDirection"]
+  component: TabPanels
 });
 
 export default {

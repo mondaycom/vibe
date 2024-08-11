@@ -11,9 +11,6 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
-  enumPropNamesArray: ["anchor", "alignment", "type"],
-  iconPropNamesArray: [],
-  actionPropsArray: [],
   ignoreControlsPropNamesArray: ["children"]
 });
 

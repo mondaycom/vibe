@@ -13,11 +13,9 @@ import cx from "classnames";
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
    * Sets the Text type
-   * @type {TextType}
    * */
   type?: TextType;
   /** Sets the Text weight
-   * @type {TextWeight}
    */
   weight?: TextWeight;
 }

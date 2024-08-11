@@ -11,7 +11,6 @@ type Story = StoryObj<typeof TextField>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: TextField,
-  enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]
 });
 

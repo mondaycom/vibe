@@ -14,7 +14,6 @@ import { fakeFetchUsers } from "./Dropdown.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
-  enumPropNamesArray: ["size", "menuPosition", "menuPlacement"],
   actionPropsArray: [
     "onMenuOpen",
     "onMenuClose",

@@ -12,11 +12,9 @@ import EditableTypography, { EditableTypographyImplementationProps } from "../Ed
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
    * Sets the Heading type
-   * @type {HeadingType}
    * */
   type?: HeadingType;
   /** Sets the Heading weight
-   * @type {HeadingWeight}
    */
   weight?: HeadingWeight;
 }

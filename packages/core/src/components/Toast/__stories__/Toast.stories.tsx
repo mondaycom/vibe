@@ -9,7 +9,6 @@ import "./Toast.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
-  enumPropNamesArray: ["type"],
   iconPropNamesArray: ["icon"]
 });
 

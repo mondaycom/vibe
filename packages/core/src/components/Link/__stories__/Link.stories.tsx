@@ -7,7 +7,6 @@ import "./Link.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,
-  enumPropNamesArray: ["iconPosition", "target"],
   iconPropNamesArray: ["icon"]
 });
 

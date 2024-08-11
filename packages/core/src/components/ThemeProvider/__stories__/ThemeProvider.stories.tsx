@@ -16,10 +16,7 @@ import Button from "../../Button/Button";
 import { themeProviderSystemThemeSuite } from "../__tests__/ThemeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: ThemeProvider,
-  enumPropNamesArray: [],
-  iconPropNamesArray: [],
-  actionPropsArray: []
+  component: ThemeProvider
 });
 
 export default {

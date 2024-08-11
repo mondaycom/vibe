@@ -4,33 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Box.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Box,
-  enumPropNamesArray: [
-    "className",
-    "id",
-    "children",
-    "disabled",
-    "border",
-    "borderColor",
-    "rounded",
-    "shadow",
-    "margin",
-    "marginX",
-    "marginY",
-    "marginTop",
-    "marginEnd",
-    "marginBottom",
-    "marginStart",
-    "padding",
-    "paddingX",
-    "paddingY",
-    "paddingTop",
-    "paddingEnd",
-    "paddingBottom",
-    "paddingStart",
-    "backgroundColor",
-    "textColor"
-  ]
+  component: Box
 });
 
 export default {

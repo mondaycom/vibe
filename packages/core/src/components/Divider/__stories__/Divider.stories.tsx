@@ -4,8 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Divider.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Divider,
-  enumPropNamesArray: ["direction"]
+  component: Divider
 });
 
 const dividerTemplate = (args: DividerProps) => (

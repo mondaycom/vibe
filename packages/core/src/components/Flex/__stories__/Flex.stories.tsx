@@ -9,7 +9,6 @@ import styles from "./Flex.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Flex,
-  enumPropNamesArray: ["justify", "align"],
   actionPropsArray: ["onClick"]
 });
 

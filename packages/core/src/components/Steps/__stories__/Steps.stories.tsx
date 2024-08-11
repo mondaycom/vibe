@@ -9,7 +9,6 @@ import "./Steps.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
-  enumPropNamesArray: ["type"],
   actionPropsArray: ["onChangeActiveStep"]
 });
 

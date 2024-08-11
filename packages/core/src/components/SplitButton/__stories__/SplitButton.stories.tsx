@@ -13,14 +13,7 @@ import "./SplitButton.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
-  enumPropNamesArray: [
-    "kind",
-    "dialogPaddingSize",
-    {
-      propName: "secondaryDialogPosition",
-      enumName: "secondaryPositions"
-    }
-  ],
+
   iconPropNamesArray: ["leftIcon", "rightIcon"],
   actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"]
 });

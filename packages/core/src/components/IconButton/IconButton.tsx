@@ -78,7 +78,7 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   tooltipContent?: string;
   /**
-   * Kind of button - like <Button />
+   * Kind of button - like Button
    */
   kind?: ButtonType;
   active?: boolean;
