@@ -38,17 +38,7 @@ module.exports = api => {
         "@babel/preset-env",
         {
           modules: env === "test" ? "commonjs" : false,
-          targets: TESTING_STORYBOOK
-            ? {
-                node: "current"
-              }
-            : {
-                chrome: "66",
-                ie: "11",
-                firefox: "51",
-                edge: "18",
-                node: "current"
-              }
+          targets: TESTING_STORYBOOK ? { node: "current" } : {}
         }
       ],
       "@babel/preset-typescript",
