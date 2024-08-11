@@ -36,8 +36,8 @@
 
     &CloseButton {
       position: absolute;
-      top: var(--spacing-xs);
-      right: var(--spacing-xs);
+      top: var(--spacing-small);
+      right: var(--spacing-small);
       z-index: 2;
 
       &.dark {

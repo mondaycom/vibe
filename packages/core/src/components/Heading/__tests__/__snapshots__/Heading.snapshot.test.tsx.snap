@@ -42,7 +42,9 @@ exports[`Text renders correctly with empty props 1`] = `
 <h1
   className="typography primary start singleLineEllipsis heading h1Normal"
   data-testid="text"
-/>
+>
+  text
+</h1>
 `;
 
 exports[`Text renders correctly with type 1`] = `

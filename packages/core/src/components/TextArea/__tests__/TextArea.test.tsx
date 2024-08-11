@@ -29,7 +29,7 @@ describe("TextArea", () => {
   });
 
   it("should render TextArea with a custom rows count", () => {
-    render(<TextArea size="small" id="small-textarea" rows="10" />);
+    render(<TextArea size="small" id="small-textarea" rows={10} />);
     expect(screen.getByRole("textbox")).toHaveAttribute("rows", "10");
   });
 

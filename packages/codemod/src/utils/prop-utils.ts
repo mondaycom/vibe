@@ -4,9 +4,11 @@ import {
   JSCodeshift,
   JSXAttribute,
   JSXElement,
+  JSXExpressionContainer,
   JSXIdentifier,
   JSXOpeningElement,
-  Literal
+  Literal,
+  MemberExpression
 } from "jscodeshift";
 import { logPropMigrationError } from "./report-utils";
 
@@ -119,4 +121,36 @@ export function migratePropsNames(
       logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
     }
   });
+}
+
+/**
+ * Updates props that are using the component namespace to use the new namespace
+ * e.g. <OldName size={OldName.sizes.XXL}> -> <NewName size={NewName.sizes.XXL}>
+ * Should be used when updating specifiers and component jsx names
+ */
+export function updateComponentNamespaceProps(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  oldNamespace: string,
+  newNamespace: string
+) {
+  j(elementPath)
+    .find(JSXAttribute)
+    .find(JSXExpressionContainer)
+    .forEach(exprContainerPath => {
+      j(exprContainerPath)
+        .find(MemberExpression)
+        .forEach(memberExprPath => {
+          // Only update the base of the MemberExpression chain
+          // e.g. <OldName size={OldName.attr.other.OldName.XXL}> would only update the first 'OldName'
+          let base = memberExprPath.node.object;
+          while (base.type === "MemberExpression") {
+            base = base.object;
+          }
+
+          if (base.type === "Identifier" && base.name === oldNamespace) {
+            base.name = newNamespace;
+          }
+        });
+    });
 }

@@ -3,6 +3,7 @@ import renderer from "react-test-renderer";
 import { noop as NOOP } from "lodash-es";
 import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
+import { ButtonSize } from "../Button.types";
 
 jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
@@ -35,7 +36,7 @@ describe("Button renders correctly", () => {
 
   Object.values(["small", "medium", "large"]).forEach(size => {
     it(`renders Button size- ${size}`, () => {
-      const tree = renderer.create(<Button size={size}>Button</Button>).toJSON();
+      const tree = renderer.create(<Button size={size as ButtonSize}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
