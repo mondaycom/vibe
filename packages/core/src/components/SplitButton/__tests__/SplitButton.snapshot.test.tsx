@@ -23,17 +23,31 @@ const CustomMenuWithItems = (
 
 describe("SplitButton renders correctly", () => {
   it("with only required props", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} />).toJSON();
+    const tree = renderer
+      .create(<SplitButton secondaryDialogContent={secondaryContent}>split button</SplitButton>)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with disabled", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} disabled />).toJSON();
+    const tree = renderer
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} disabled>
+          split button
+        </SplitButton>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with tertiary button", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} kind="tertiary" />).toJSON();
+    const tree = renderer
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} kind="tertiary">
+          split button
+        </SplitButton>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -43,7 +57,9 @@ describe("SplitButton renders correctly", () => {
         <SplitButton
           secondaryDialogContent={secondaryContent}
           dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM}
-        />
+        >
+          split button
+        </SplitButton>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -51,33 +67,59 @@ describe("SplitButton renders correctly", () => {
 
   it("with secondary position", () => {
     const tree = renderer
-      .create(<SplitButton secondaryDialogContent={secondaryContent} secondaryDialogPosition="bottom-end" />)
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} secondaryDialogPosition="bottom-end">
+          split button
+        </SplitButton>
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with zIndex", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} zIndex={2} />).toJSON();
+    const tree = renderer
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} zIndex={2}>
+          split button
+        </SplitButton>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with left icon", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} leftIcon={Delete} />).toJSON();
+    const tree = renderer
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} leftIcon={Delete}>
+          split button
+        </SplitButton>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with right icon", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} rightIcon={Delete} />).toJSON();
+    const tree = renderer
+      .create(
+        <SplitButton secondaryDialogContent={secondaryContent} rightIcon={Delete}>
+          split button
+        </SplitButton>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with SplitButtonMenu", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={SplitButtonMenuWithItems} />).toJSON();
+    const tree = renderer
+      .create(<SplitButton secondaryDialogContent={SplitButtonMenuWithItems}>split button</SplitButton>)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with custom menu", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={CustomMenuWithItems} />).toJSON();
+    const tree = renderer
+      .create(<SplitButton secondaryDialogContent={CustomMenuWithItems}>split button</SplitButton>)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

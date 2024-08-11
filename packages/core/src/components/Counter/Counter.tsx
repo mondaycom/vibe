@@ -11,8 +11,7 @@ import { NOOP } from "../../utils/function-utils";
 import {
   CounterColor as CounterColorEnum,
   CounterSize as CounterSizeEnum,
-  CounterType as CounterTypeEnum,
-  getActualSize
+  CounterType as CounterTypeEnum
 } from "./CounterConstants";
 import { CounterColor, CounterSize, CounterType } from "./Counter.types";
 import { withStaticProps } from "../../types";
@@ -101,7 +100,7 @@ const Counter: React.FC<CounterProps> & {
   const classNames = useMemo(() => {
     return cx(
       styles.counter,
-      getStyle(styles, camelCase("size-" + getActualSize(size))),
+      getStyle(styles, camelCase("size-" + size)),
       getStyle(styles, camelCase("kind-" + kind)),
       getStyle(styles, camelCase("color-" + color)),
       {

@@ -38,14 +38,6 @@ exports[`Snapshots renders correctly with children 1`] = `
     >
       item 1
     </div>
-    <div
-      aria-hidden={true}
-      className="hiddenTitle"
-      tabIndex={-1}
-    >
-      item 1
-    </div>
-    
   </li>
   <li
     aria-current={false}
@@ -61,14 +53,6 @@ exports[`Snapshots renders correctly with children 1`] = `
     >
       item 2
     </div>
-    <div
-      aria-hidden={true}
-      className="hiddenTitle"
-      tabIndex={-1}
-    >
-      item 2
-    </div>
-    
   </li>
 </ul>
 `;

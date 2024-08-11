@@ -12,7 +12,6 @@ import { TransformationContext } from "../../../types";
  * 2. Update the 'isDisabled' prop to 'disabled'
  */
 function transform({ j, root, filePath }: TransformationContext) {
-  if (!getCoreImportsForFile(root).length) return;
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "Avatar");
   if (!componentName) return;

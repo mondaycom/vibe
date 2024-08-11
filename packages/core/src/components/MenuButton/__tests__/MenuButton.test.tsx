@@ -158,14 +158,14 @@ describe("MenuButton", () => {
         const button = getByLabelText("Menu Button");
         await waitFor(async () => {
           fireEvent.click(button);
-          expect(await screen.findAllByText("Menu Item", { hidden: false })).toBeTruthy();
+          expect(await screen.findAllByText("Menu Item")).toBeTruthy();
           userEvent.type(button, "{enter}");
         });
         if (closeMenuOnItemClick) {
-          await waitForElementToBeRemoved(() => screen.queryAllByText("Menu Item", { hidden: false }));
-          expect(screen.queryByText("Menu Item", { hidden: true })).toBeFalsy();
+          await waitForElementToBeRemoved(() => screen.queryByText("Menu Item"));
+          expect(screen.queryByText("Menu Item")).toBeFalsy();
         } else {
-          expect(screen.queryAllByText("Menu Item", { hidden: true })).toBeTruthy();
+          expect(screen.queryByText("Menu Item")).toBeTruthy();
         }
       }
     );

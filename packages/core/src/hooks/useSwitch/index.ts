@@ -26,7 +26,7 @@ export default function useSwitch({ isChecked, defaultChecked, onChange, isDisab
       if (isChecked === undefined) {
         setOverrideChecked(newChecked);
       }
-      onChange && onChange(newChecked, event);
+      onChange?.(newChecked, event);
     },
     [isChecked, isDisabled, onChange, overrideChecked]
   );
