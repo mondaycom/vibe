@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  border: 1px dashed antiquewhite;
+  padding: 20px var(--spacing-large);
+  flex-shrink: 0;
+}
+
+.leftSection {
+  flex: 1;
+}
+
+.secondary {
+  margin-left: auto;
+}
+
+.buttonGroup {
+  flex: 1;
+  gap: 20px;
+}
