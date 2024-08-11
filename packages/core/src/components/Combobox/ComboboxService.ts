@@ -18,7 +18,6 @@ export const getOptionsByCategories = (
     if (result[categoryId]) {
       result[categoryId].push(option);
     } else {
-      // eslint-disable-next-line no-param-reassign
       result[categoryId] = [option];
     }
 
@@ -27,7 +26,6 @@ export const getOptionsByCategories = (
 
   // reorder the keys according to the categories order
   return Object.keys(categories).reduce((result: OptionsByCategories, categoryId) => {
-    // eslint-disable-next-line no-param-reassign
     if (optionsByCategories[categoryId]) result[categoryId] = optionsByCategories[categoryId];
 
     return result;

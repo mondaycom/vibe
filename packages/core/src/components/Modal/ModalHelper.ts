@@ -13,7 +13,6 @@ export enum ModalWidth {
 }
 
 // the type A11yDialog is not exported from a11y-dialog, so mocking it with any for now
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type A11yDialogType = any;
 
 export const isModalHeader = (child: ReactElement) => child.type === ModalHeader;

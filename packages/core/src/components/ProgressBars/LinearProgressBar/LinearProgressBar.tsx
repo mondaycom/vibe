@@ -141,7 +141,6 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
               color={color}
               min={min}
               max={max}
-              /* eslint-disable-next-line react/no-array-index-key */
               id={`bar_${color}_${i}`}
               key={`bar_${color}_${i}`}
             />

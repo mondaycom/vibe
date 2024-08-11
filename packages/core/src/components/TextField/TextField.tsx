@@ -69,7 +69,7 @@ export interface TextFieldProps extends VibeComponentProps {
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /**  Icon names labels for a11y */
-  /// TODO Remove layout in next major
+  /// TODO: [breaking] remove layout
   iconsNames?: {
     layout: string;
     primary: string;

@@ -9,7 +9,6 @@ import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon, withStaticProps } from "../../types";
 
-// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (_event: React.MouseEvent) => {};
 
 export interface IconSubComponentProps {
@@ -28,7 +27,6 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
 }
 
 export interface IconProps extends VibeComponentProps {
-  // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
   /**
    * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
@@ -111,12 +109,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
       return null;
     }
 
-    // Replace in major version change with more accurate check
+    // TODO: [breaking] make more accurate check
     const isFunctionType = typeof icon === "function";
 
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    // Replace in major version change with more accurate check
+    // TODO: [breaking] make more accurate check
     if (iconType === "svg" || isFunctionType || typeof icon === "object") {
       return renderIcon(icon, {
         id,

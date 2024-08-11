@@ -201,7 +201,6 @@ export function comboboxItemRenderer({
   item: IComboboxItem;
   style: CSSProperties;
   optionEvents: IComboboxOptionEvents;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   optionRenderData: any;
   isVirtualized: boolean;
   stickyCategories?: boolean;

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React, { useCallback, useEffect, useState } from "react";
 import { components } from "react-select";
 import cx from "classnames";
@@ -79,6 +78,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           />
         ) : null;
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete, size]
   );
 

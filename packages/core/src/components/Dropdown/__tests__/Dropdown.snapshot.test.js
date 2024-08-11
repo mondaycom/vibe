@@ -136,7 +136,6 @@ describe("Dropdown renders correctly", () => {
   });
 
   it("with tabIndex", () => {
-    // eslint-disable-next-line jsx-a11y/tabindex-no-positive
     const tree = renderer.create(<Dropdown tabIndex={9999} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

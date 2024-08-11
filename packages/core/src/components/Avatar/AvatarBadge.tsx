@@ -17,8 +17,6 @@ export interface AvatarBadgeProps extends VibeComponentProps {
    * Use to provide SVG Components
    */
   icon?: SubIcon;
-  // TODO Remove in next major as breaking change
-  ariaLabel?: string;
   tabIndex?: string | number;
   className?: string;
   size?: AvatarSize;
@@ -29,8 +27,6 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 } = ({
   src,
   icon,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ariaLabel,
   tabIndex = 0,
   className,
   size = "large",

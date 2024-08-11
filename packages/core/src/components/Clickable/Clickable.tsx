@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import cx from "classnames";
 import React, { AriaRole, forwardRef } from "react";
 import { noop as NOOP } from "lodash-es";
@@ -26,10 +25,10 @@ export interface ClickableProps extends VibeComponentProps {
    * Is the element and its content should be hidden from screen readers and other assistive technologies
    */
   ariaHidden?: boolean;
-  // TODO remove string in Vibe 2.0
+  // TODO: [breaking] remove string type
   ariaHasPopup?: boolean | string;
   ariaExpanded?: boolean;
-  // TODO remove string in Vibe 2.0
+  // TODO: [breaking] remove string type
   tabIndex?: string | number;
   disabled?: boolean;
   style?: React.CSSProperties;

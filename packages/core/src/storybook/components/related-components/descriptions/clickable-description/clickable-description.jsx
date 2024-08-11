@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Clickable from "../../../../../components/Clickable/Clickable";
