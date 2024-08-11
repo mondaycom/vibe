@@ -241,6 +241,7 @@ codemod: `search-component-import-migration`
 - `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
+- `addKeyboardHideShowTriggersByDefault` make default true [codemod - remove prop if exists, and add as false if doesn't exist]
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
 - `arrowPosition` removed

@@ -309,7 +309,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             )}
             <Tooltip
               content={isPrimary ? iconTooltipContent : undefined}
-              addKeyboardHideShowTriggersByDefault
               referenceWrapperClassName={styles.tooltipContainer}
             >
               <Clickable
