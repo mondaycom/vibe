@@ -103,6 +103,7 @@ export enum ComponentDefaultTestId {
   MODAL_CONTENT = "modal-content",
   MODAL_HEADER = "modal-header",
   MODAL_FOOTER_BUTTONS = "modal-footer-buttons",
+  MODAL_NEXT_HEADER = "modal-header",
   FORMATTED_NUMBER = "formatted-number",
   HIDDEN_TEXT = "hidden-text",
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
