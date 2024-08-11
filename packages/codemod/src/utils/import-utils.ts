@@ -27,6 +27,52 @@ export function getCoreNextImportsForFile(root: Collection): Collection<ImportDe
   return getImports(root, CORE_NEXT_IMPORT_PATH);
 }
 
+export function findImportsThatIncludesSpecifier(
+  j: JSCodeshift,
+  paths: Collection<ImportDeclaration>,
+  specifierName: string
+): Collection<ImportDeclaration> {
+  return paths.filter(path => {
+    const specifiers = extractSpecifiersFromImport(j, path);
+    return specifiers.some(spec => spec.imported.name === specifierName);
+  });
+}
+
+/**
+ * Updates the name of an import specifier (named import) in an import declaration.
+ */
+export function updateImportSpecifierName(
+  j: JSCodeshift,
+  importDeclarationPath: ASTPath<ImportDeclaration>,
+  oldName: string,
+  newName: string,
+  alias?: string
+) {
+  j(importDeclarationPath)
+    .find(ImportSpecifier, { imported: { name: oldName } })
+    .replaceWith(path => {
+      // override alias, or use current alias if exists, or use newName if no alias is provided
+      const oldAlias = path.node.local?.name;
+      const hasAlias = oldAlias && oldAlias !== oldName;
+      const newAlias = alias || newName;
+      return j.importSpecifier(j.identifier(newName), j.identifier(hasAlias ? oldAlias : newAlias));
+    });
+}
+
+/**
+ * Removes a specific import specifier (named import) from an import declaration.
+ * If the import declaration does not have any other specifiers, the whole import declaration is removed afterward.
+ */
+export function removeSpecifierFromImport(j: JSCodeshift, path: ASTPath<ImportDeclaration>, specifierName: string) {
+  j(path)
+    .find(ImportSpecifier, { imported: { name: specifierName } })
+    .remove();
+  const specifiers = path.node.specifiers;
+  if (!specifiers?.length) {
+    j(path).remove();
+  }
+}
+
 /**
  * Retrieves all import specifiers (named imports) from a given import declaration.
  */

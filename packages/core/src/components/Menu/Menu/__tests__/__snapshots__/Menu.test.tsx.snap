@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots renders correctly with children 1`] = `
+<ul
+  aria-label="Menu"
+  className="menu medium dummy-class-name"
+  data-testid="menu"
+  id="menu-2"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+  role="menu"
+  tabIndex={0}
+>
+  <div
+    className="typography secondary start singleLineEllipsis text text2Normal title"
+    data-testid="menu-title_menu-2-item-0"
+  >
+    <label
+      className="titleCaption titleCaptionBottom"
+      data-testid="menu-title-caption_menu-2-item-0"
+      id="menu-2-item-0"
+    >
+      my title
+    </label>
+  </div>
+  <li
+    aria-current={true}
+    className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
+    data-testid="menu-item_1"
+    id="menu-2-item-1"
+    onClick={[Function]}
+    role="menuitem"
+    tabIndex={-1}
+  >
+    <div
+      className="title"
+    >
+      item 1
+    </div>
+    <div
+      aria-hidden={true}
+      className="hiddenTitle"
+      tabIndex={-1}
+    >
+      item 1
+    </div>
+  </li>
+  <li
+    aria-current={false}
+    className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
+    data-testid="menu-item_2"
+    id="menu-2-item-2"
+    onClick={[Function]}
+    role="menuitem"
+    tabIndex={-1}
+  >
+    <div
+      className="title"
+    >
+      item 2
+    </div>
+    <div
+      aria-hidden={true}
+      className="hiddenTitle"
+      tabIndex={-1}
+    >
+      item 2
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Snapshots renders correctly with custom class name 1`] = `
+<ul
+  aria-label="Menu"
+  className="menu medium dummy-class-name"
+  data-testid="menu"
+  id="menu-1"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+  role="menu"
+  tabIndex={0}
+/>
+`;
+
+exports[`Snapshots renders correctly with empty props 1`] = `
+<ul
+  aria-label="Menu"
+  className="menu medium"
+  data-testid="menu"
+  id="menu-0"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+  role="menu"
+  tabIndex={0}
+/>
+`;

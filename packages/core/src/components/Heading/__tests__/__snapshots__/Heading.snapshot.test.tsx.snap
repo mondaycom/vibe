@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders correctly with align 1`] = `
+<h1
+  className="typography primary center singleLineEllipsis heading h1Normal"
+  data-testid="text"
+>
+  text
+</h1>
+`;
+
+exports[`Text renders correctly with color 1`] = `
+<h1
+  className="typography secondary start singleLineEllipsis heading h1Normal"
+  data-testid="text"
+>
+  text
+</h1>
+`;
+
+exports[`Text renders correctly with element 1`] = `
+<p
+  className="typography primary start singleLineEllipsis heading h1Normal"
+  data-testid="text"
+>
+  text
+</p>
+`;
+
+exports[`Text renders correctly with element as children 1`] = `
+<h1
+  className="typography primary start singleLineEllipsis heading h1Normal"
+  data-testid="text"
+>
+  <div>
+    text
+  </div>
+</h1>
+`;
+
+exports[`Text renders correctly with empty props 1`] = `
+<h1
+  className="typography primary start singleLineEllipsis heading h1Normal"
+  data-testid="text"
+>
+  text
+</h1>
+`;
+
+exports[`Text renders correctly with type 1`] = `
+<h2
+  className="typography primary start singleLineEllipsis heading h2Normal"
+  data-testid="text"
+>
+  text
+</h2>
+`;
+
+exports[`Text renders correctly with weight 1`] = `
+<h1
+  className="typography primary start singleLineEllipsis heading h1Bold"
+  data-testid="text"
+>
+  text
+</h1>
+`;

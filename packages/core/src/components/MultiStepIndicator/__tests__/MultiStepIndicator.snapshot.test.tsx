@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Featured } from "../../Icon/Icons";
+import { Upgrade } from "../../Icon/Icons";
 import MultiStepIndicator, { Step } from "../MultiStepIndicator";
 
 const exampleSteps: Step[] = [
@@ -58,7 +58,7 @@ describe("MultiStepIndicator renders correctly", () => {
   });
 
   it("with fulfilledStepIcon", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Featured} />);
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Upgrade} />);
     expect(tree).toMatchSnapshot();
   });
 

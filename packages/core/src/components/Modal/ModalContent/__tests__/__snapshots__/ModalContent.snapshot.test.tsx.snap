@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalContent renders correctly with children 1`] = `
+<div
+  className="typography primary start text text1Normal container"
+  data-testid="modal-content"
+>
+  <div>
+    children
+  </div>
+</div>
+`;
+
+exports[`ModalContent renders correctly with empty props 1`] = `
+<div
+  className="typography primary start text text1Normal container"
+  data-testid="modal-content"
+>
+  content
+</div>
+`;

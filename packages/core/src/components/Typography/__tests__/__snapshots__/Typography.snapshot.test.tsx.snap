@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders correctly with align 1`] = `
+<span
+  className="typography primary center singleLineEllipsis"
+  data-testid="text"
+>
+  text
+</span>
+`;
+
+exports[`Text renders correctly with color 1`] = `
+<span
+  className="typography secondary start singleLineEllipsis"
+  data-testid="text"
+>
+  text
+</span>
+`;
+
+exports[`Text renders correctly with element 1`] = `
+<p
+  className="typography primary start singleLineEllipsis"
+  data-testid="text"
+>
+  text
+</p>
+`;
+
+exports[`Text renders correctly with element as children 1`] = `
+<span
+  className="typography primary start singleLineEllipsis"
+  data-testid="text"
+>
+  <div>
+    text
+  </div>
+</span>
+`;
+
+exports[`Text renders correctly with empty props 1`] = `
+<span
+  className="typography primary start singleLineEllipsis"
+  data-testid="text"
+>
+  text
+</span>
+`;
+
+exports[`Text renders correctly with html attribute 1`] = `
+<span
+  className="typography primary start singleLineEllipsis"
+  data-testid="text"
+  role="banner"
+>
+  text
+</span>
+`;

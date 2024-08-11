@@ -2,7 +2,6 @@ import React from "react";
 import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
-import colors from "../../../../constants/colors.json";
 import { Info } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
@@ -72,15 +71,15 @@ export const MultiProgressBar = {
       () => [
         {
           value: 25,
-          color: colors.primary
+          color: "var(--primary-color)"
         },
         {
           value: 75,
-          color: colors.yellow
+          color: "var(--warning-color)"
         },
         {
           value: 100,
-          color: colors.grass_green
+          color: "var(--positive-color)"
         }
       ],
       []

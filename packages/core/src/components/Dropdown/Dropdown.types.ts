@@ -47,7 +47,7 @@ export type CustomOptionProps = CustomOptionBaseProps & OptionProps<OptionTypeBa
 
 export type DropdownState = {
   isDisabled: boolean;
-  selectProps: { withReadOnlyStyle: boolean; readOnly: boolean };
+  selectProps: { readOnly: boolean };
 };
 
 export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptionBaseProps, VibeComponentProps {
@@ -261,8 +261,6 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * createFilter function is available at Dropdown.createFilter
    */
   filterOption?: (option: DropdownOption, inputValue: string) => boolean;
-
-  withReadOnlyStyle?: boolean;
   OptionRenderer?: React.ReactNode;
   menuIsOpen?: boolean;
   onOptionSelect?: (option: DropdownOption) => void;

@@ -39,10 +39,6 @@ export const Overview: Story = {
     placeholder: "Placeholder text here"
   },
   parameters: {
-    controls: {
-      // TODO: remove exclusion when prop is removed in next major
-      exclude: ["withReadOnlyStyle"]
-    },
     docs: {
       liveEdit: {
         isEnabled: false
