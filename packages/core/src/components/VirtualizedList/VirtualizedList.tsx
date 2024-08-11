@@ -13,6 +13,7 @@ import React, {
 } from "react";
 import { noop as NOOP } from "lodash-es";
 import {
+  ScrollDirection,
   VariableSizeList as List,
   ListOnItemsRenderedProps,
   ListChildComponentProps,
