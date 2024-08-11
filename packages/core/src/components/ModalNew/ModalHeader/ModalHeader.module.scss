@@ -1,0 +1,21 @@
+// TODO remove, only for dev purposes
+:root {
+  --modal-content-inline-padding: var(--spacing-xl);
+}
+
+.header {
+  width: 100%;
+  border: 1px dashed rosybrown;
+  align-self: flex-start;
+  padding-inline: var(--modal-content-inline-padding);
+
+  .titleBasicLayoutPadding {
+    // 32px of modal - 8px of close button + 56px size of action buttons + 16px of padding
+    padding-inline-end: calc(var(--modal-content-inline-padding) + var(--spacing-xxl));
+  }
+
+  .subtitleIcon {
+    margin-inline-end: var(--spacing-xs);
+    color: var(--icon-color);
+  }
+}
