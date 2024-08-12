@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.130.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.130.0...monday-ui-react-core@2.130.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* **menuButton:** fix scale for disabled menu button ([#2319](https://github.com/mondaycom/vibe/issues/2319)) ([c84a9ae](https://github.com/mondaycom/vibe/commit/c84a9ae4e80eed2e3a6e01d7882ef701dd70be47))
+* targets for storybook ([#2351](https://github.com/mondaycom/vibe/issues/2351)) ([e9d2a5c](https://github.com/mondaycom/vibe/commit/e9d2a5ca21d7574991ee5690c00b04b955aaa2f8))
+
+
+
+
+
 # [2.130.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.129.0...monday-ui-react-core@2.130.0) (2024-08-08)
 
 
