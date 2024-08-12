@@ -126,7 +126,7 @@ const Box: VibeComponent<BoxProps> & {
       backgroundColor,
       scrollable,
       style
-    },
+    }: BoxProps,
     ref
   ) => {
     const componentRef = useRef(null);

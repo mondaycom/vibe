@@ -124,7 +124,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       onVerticalScrollbarVisiblityChange = null,
       scrollableClassName,
       "data-testid": dataTestId
-    },
+    }: VirtualizedGridProps,
     ref
   ) => {
     // states

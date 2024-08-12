@@ -67,7 +67,7 @@ const List: VibeComponent<ListProps> & {
       renderOnlyVisibleItems = false,
       style,
       "data-testid": dataTestId
-    },
+    }: ListProps,
     ref
   ) => {
     const componentRef = useRef(null);

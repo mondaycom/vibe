@@ -65,7 +65,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       tooltipProps,
       type,
       weight
-    },
+    }: EditableTypographyProps,
     ref
   ) => {
     const componentRef = useRef(null);

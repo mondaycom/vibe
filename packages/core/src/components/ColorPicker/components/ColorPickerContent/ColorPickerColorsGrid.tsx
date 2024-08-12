@@ -59,7 +59,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       showColorNameTooltip: showColorNameTooltip,
       id,
       "data-testid": dataTestId
-    },
+    }: ColorPickerColorsGridProps,
     ref
   ) => {
     const getItemByIndex = useCallback((index: number) => colorsToRender[index], [colorsToRender]);

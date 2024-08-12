@@ -44,7 +44,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
-- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### ButtonGroup
 
@@ -69,6 +69,7 @@ codemod: `chips-component-migration`
 ### Counter
 
 - `wrapperClassName` -> `className` [codemod]
+  - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### Dialog
 
@@ -139,6 +140,7 @@ codemod: `chips-component-migration`
 ### MenuItem
 
 - `classname` -> `className` [codemod]
+- Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
@@ -205,6 +207,8 @@ codemod: `search-component-import-migration`
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
 - Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+-
 
 ### ThemeProvider
 
@@ -237,9 +241,12 @@ codemod: `search-component-import-migration`
 - `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
+- `addKeyboardHideShowTriggersByDefault` make default true [codemod - remove prop if exists, and add as false if doesn't exist]
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
 - `arrowPosition` removed
+- `withMaxWidth` prop removed, max-width is now set to 240px [codemod]
+- Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
 
 ### ColorPicker
 

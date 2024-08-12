@@ -13,7 +13,7 @@ export interface TableHeaderProps extends VibeComponentProps {
 }
 
 const TableHeader: VibeComponent<TableHeaderProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }, ref) => {
+  ({ id, className, "data-testid": dataTestId, children }: TableHeaderProps, ref) => {
     const { headRef, onHeadScroll, isVirtualized } = useTable();
     const mergedRef = useMergeRef(headRef, ref);
 

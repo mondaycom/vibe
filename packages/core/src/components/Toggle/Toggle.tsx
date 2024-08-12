@@ -46,7 +46,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       offOverrideText = "Off",
       size = "medium",
       "data-testid": dataTestId
-    },
+    }: ToggleProps,
     ref
   ) => {
     const wrapperClassName = cx(styles.wrapper);
