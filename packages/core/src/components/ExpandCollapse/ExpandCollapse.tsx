@@ -45,6 +45,7 @@ export interface ExpandCollapseProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   hideBorder?: boolean;
   captureOnClick?: boolean;
+  disableAnimation: boolean;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
@@ -64,7 +65,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       contentClassName,
       componentClassName,
       "data-testid": dataTestId,
-      captureOnClick = true
+      captureOnClick = true,
+      disableAnimation = false
     },
     ref
   ) => {
@@ -119,7 +121,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             <Icon
               className={cx(styles.iconComponent, {
                 [styles.animateIconOpen]: isExpanded,
-                [styles.animateIconClose]: !isExpanded
+                [styles.animateIconClose]: !isExpanded,
+                [styles.disableAnimation]: disableAnimation
               })}
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
