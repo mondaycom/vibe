@@ -1,3 +1,5 @@
+const TESTING_STORYBOOK = process.env.testing === "storybook";
+
 module.exports = api => {
   const env = process.env.NODE_ENV;
   api.cache.using(() => env);
@@ -35,7 +37,18 @@ module.exports = api => {
       [
         "@babel/preset-env",
         {
-          modules: env === "test" ? "commonjs" : false
+          modules: env === "test" ? "commonjs" : false,
+          targets: TESTING_STORYBOOK
+            ? {
+                node: "current"
+              }
+            : {
+                chrome: "66",
+                ie: "11",
+                firefox: "51",
+                edge: "18",
+                node: "current"
+              }
         }
       ],
       "@babel/preset-typescript",
