@@ -15,9 +15,9 @@ export interface StepsHeaderProps extends VibeComponentProps {
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
   stepsCount: number;
   areNavigationButtonsHidden: boolean;
-  backButtonProps: ButtonProps;
-  nextButtonProps: ButtonProps;
-  finishButtonProps: ButtonProps;
+  backButtonProps: Partial<ButtonProps>;
+  nextButtonProps: Partial<ButtonProps>;
+  finishButtonProps: Partial<ButtonProps>;
   areButtonsIconsHidden: boolean;
   color?: StepsColor;
   onFinish?: (e: React.MouseEvent) => void;

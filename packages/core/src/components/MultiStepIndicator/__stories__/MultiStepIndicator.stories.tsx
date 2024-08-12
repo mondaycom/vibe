@@ -6,6 +6,7 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 import { Upgrade } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
 import "./MultiStepIndicator.stories.scss";
+import { Step } from "../MultiStep.types";
 
 export default {
   title: "Navigation/MultiStepIndicator",
@@ -44,7 +45,7 @@ export const Overview = {
 
 export const Placements = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -91,7 +92,7 @@ export const Placements = {
 
 export const Types = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -142,7 +143,7 @@ export const Types = {
 
 export const Sizes = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -183,7 +184,7 @@ export const Sizes = {
 
 export const FulfilledIcons = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -230,7 +231,7 @@ export const FulfilledIcons = {
 
 export const TransitionAnimation = {
   render: () => {
-    const exampleSteps = useMemo(
+    const exampleSteps = useMemo<Record<string, Step>>(
       () => ({
         firstStep: {
           key: "PENDING",
@@ -256,7 +257,7 @@ export const TransitionAnimation = {
       []
     );
 
-    const [steps, setSteps] = useState([
+    const [steps, setSteps] = useState<Step[]>([
       {
         ...exampleSteps.firstStep
       },
@@ -355,7 +356,7 @@ export const TransitionAnimation = {
 
 export const MultiStepWizard = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",

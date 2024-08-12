@@ -6,6 +6,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
 import { Delete } from "../../Icon/Icons";
 import "./Toast.stories.scss";
+import { ToastAction } from "../Toast.types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
@@ -42,7 +43,7 @@ export const Overview = {
 
 export const DefaultWithButton = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "button",
@@ -64,7 +65,7 @@ export const DefaultWithButton = {
 
 export const ToastWithLink = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "link",
@@ -100,7 +101,7 @@ export const ToastWithLoading = {
 
 export const SuccessMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "button",
@@ -122,7 +123,7 @@ export const SuccessMessage = {
 
 export const ErrorMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "button",
@@ -144,7 +145,7 @@ export const ErrorMessage = {
 
 export const WarningMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "button",
@@ -166,7 +167,7 @@ export const WarningMessage = {
 
 export const DarkMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
           type: "button",
@@ -193,7 +194,7 @@ export const FeedbackLoop = {
     const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
     const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
 
-    const actions = useMemo(
+    const actions = useMemo<ToastAction[]>(
       () => [
         {
           type: "button",

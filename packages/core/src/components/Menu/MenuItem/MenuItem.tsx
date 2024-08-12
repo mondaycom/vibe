@@ -11,7 +11,7 @@ import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { TooltipPositions } from "../../Tooltip/Tooltip.types";
-import { SubmenuPosition } from "./MenuItem.Types";
+import { SubmenuPosition } from "./MenuItem.types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;

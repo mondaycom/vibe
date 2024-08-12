@@ -39,6 +39,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: false
   },
+  typescript: {
+    check: true,
+    checkOptions: {
+      async: false
+    }
+  },
   async webpackFinal(config, { configType }) {
     if (configType === "DEVELOPMENT") {
       if (config.resolve) {

@@ -19,7 +19,7 @@ export interface StepsCommandProps extends VibeComponentProps {
   activeStepIndex: number;
   stepsCount: number;
   isIconHidden?: boolean;
-  buttonProps?: ButtonProps;
+  buttonProps?: Partial<ButtonProps>;
   color?: StepsColor;
 }
 
@@ -29,7 +29,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   activeStepIndex,
   stepsCount,
   isIconHidden = false,
-  buttonProps = { children: "" },
+  buttonProps = {},
   color = "primary"
 }: StepsCommandProps) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
