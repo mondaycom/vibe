@@ -45,7 +45,7 @@ export interface ExpandCollapseProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   hideBorder?: boolean;
   captureOnClick?: boolean;
-  disableAnimation: boolean;
+  disableAnimation?: boolean;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
