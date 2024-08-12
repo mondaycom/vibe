@@ -270,10 +270,6 @@ codemod: `search-component-import-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 
-### useSwitch
-
-- `onChange` type changed to `(value: boolean, event?: ChangeEvent<HTMLInputElement>) => void`
-
 ## monday-ui-style
 
 - Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json
