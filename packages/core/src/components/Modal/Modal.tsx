@@ -12,6 +12,7 @@ import { withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 
 export interface ModalProps {
   /**
@@ -102,6 +103,13 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   unmountOnClose,
   "data-testid": dataTestId
 }) => {
+  useWarnDeprecated({
+    component: "Modal",
+    condition: unmountOnClose === undefined,
+    message:
+      'The "unmountOnClose" prop will be set to default in the next major version, i.e. the modal will not render when "show" is set to false, which is the recommended behavior. To keep the existing behavior regardless, set "unmountOnClose" to false.'
+  });
+
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
     [children]
