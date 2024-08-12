@@ -35,7 +35,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   colors?: typeof LoaderColorsEnum;
 } = forwardRef(
   (
-    { className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId },
+    { className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId }: LoaderProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const sizeStyle = useMemo(() => {

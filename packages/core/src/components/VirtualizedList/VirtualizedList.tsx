@@ -145,7 +145,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       className,
       id,
       items = [],
-      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item,
+      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item as ReactElement,
       getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
       getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
@@ -165,7 +165,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       role,
       style,
       "data-testid": dataTestId
-    },
+    }: VirtualizedListProps,
     ref
   ) => {
     // states

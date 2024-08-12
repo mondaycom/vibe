@@ -36,7 +36,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
       sortState = "none",
       sortButtonAriaLabel = "Sort",
       sticky
-    },
+    }: TableHeaderCellProps,
     ref
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
