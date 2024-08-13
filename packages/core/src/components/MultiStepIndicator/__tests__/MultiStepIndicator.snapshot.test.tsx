@@ -1,7 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { Upgrade } from "../../Icon/Icons";
-import MultiStepIndicator, { Step } from "../MultiStepIndicator";
+import MultiStepIndicator from "../MultiStepIndicator";
+import { Step } from "../MultiStep.types";
 
 const exampleSteps: Step[] = [
   {

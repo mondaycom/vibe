@@ -25,9 +25,9 @@ export interface StepsProps extends VibeComponentProps {
   color?: StepsColor;
   isContentOnTop?: boolean;
   areButtonsIconsHidden?: boolean;
-  backButtonProps?: ButtonProps;
-  nextButtonProps?: ButtonProps;
-  finishButtonProps?: ButtonProps;
+  backButtonProps?: Partial<ButtonProps>;
+  nextButtonProps?: Partial<ButtonProps>;
+  finishButtonProps?: Partial<ButtonProps>;
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
@@ -45,9 +45,9 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
       color,
       areNavigationButtonsHidden = false,
       isContentOnTop = false,
-      backButtonProps = { children: "" },
-      nextButtonProps = { children: "" },
-      finishButtonProps = { children: "" },
+      backButtonProps = {},
+      nextButtonProps = {},
+      finishButtonProps = {},
       areButtonsIconsHidden = false
     }: StepsProps,
     ref

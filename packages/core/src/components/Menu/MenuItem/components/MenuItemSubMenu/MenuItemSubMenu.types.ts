@@ -1,6 +1,6 @@
 import React from "react";
 import { CloseMenuOption, MenuChild } from "../../../Menu/MenuConstants";
-import { SubmenuPosition } from "../../MenuItem.Types";
+import { SubmenuPosition } from "../../MenuItem.types";
 
 export interface MenuItemSubMenuProps {
   /**
