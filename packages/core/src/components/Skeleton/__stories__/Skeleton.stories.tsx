@@ -28,7 +28,14 @@ export const Overview = {
     size: "h1",
     type: "text"
   },
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const ComplexExample = () => {

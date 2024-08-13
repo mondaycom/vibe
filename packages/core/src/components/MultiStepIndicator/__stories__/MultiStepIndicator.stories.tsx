@@ -40,6 +40,13 @@ export const Overview = {
         subtitleText: "Subtitle"
       }
     ]
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
