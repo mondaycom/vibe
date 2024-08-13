@@ -201,6 +201,12 @@ codemod: `search-component-import-migration`
 
 - `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
+
+### TabPanels
+
+- Fix: TabPanels will render only the active tab
+- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod]
+
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
