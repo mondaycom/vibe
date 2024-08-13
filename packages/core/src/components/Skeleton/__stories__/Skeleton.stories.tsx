@@ -5,6 +5,7 @@ import person from "./assets/person.png";
 import Button from "../../Button/Button";
 import { Replay, ThumbsUp } from "../../Icon/Icons";
 import "./Skeleton.stories.scss";
+import { Flex } from "../../Flex";
 
 export default {
   title: "Feedback/Skeleton",
@@ -12,11 +13,21 @@ export default {
 };
 
 const skeletonTemplate = (args: SkeletonProps) => {
-  return <Skeleton {...args} />;
+  return (
+    <Flex direction="column" gap="small">
+      <Skeleton {...args} />
+      <Skeleton {...args} />
+      <Skeleton {...args} />
+    </Flex>
+  );
 };
 
 export const Overview = {
   render: skeletonTemplate.bind({}),
+  args: {
+    size: "h1",
+    type: "text"
+  },
   name: "Overview"
 };
 
