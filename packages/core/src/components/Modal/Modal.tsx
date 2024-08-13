@@ -80,7 +80,7 @@ export interface ModalProps {
    */
   zIndex?: number;
   /**
-   * If true, the modal will unmount when it's not shown
+   * When `false`, the modal will remain in the DOM when closed
    */
   unmountOnClose?: boolean;
 }
