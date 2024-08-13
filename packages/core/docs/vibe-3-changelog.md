@@ -11,7 +11,7 @@
 
 ## Colors
 
-- Removed `--shareable-color` and `--private-color`
+- Removed `--shareable-color` and `--private-color` for all themes
 
 ## Typography
 
@@ -44,7 +44,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
-- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+- `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
@@ -201,7 +201,6 @@ codemod: `search-component-import-migration`
 
 - `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
-
 ### TabPanels
 
 - Fix: TabPanels will render only the active tab
@@ -227,7 +226,7 @@ codemod: `search-component-import-migration`
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
 - `justify` removed
-- `justifyTypes` removed
+  - `Tipseen.justifyTypes` removed
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 - `content` prop is now mandatory
 
@@ -247,10 +246,12 @@ codemod: `search-component-import-migration`
 - `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
-- `addKeyboardHideShowTriggersByDefault` make default true [codemod - remove prop if exists, and add as false if doesn't exist]
+- `addKeyboardHideShowTriggersByDefault` default changed to true [codemod - remove prop if exists, and add as false if doesn't exist]
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
+  - `Tooltip.justifyTypes` removed
 - `arrowPosition` removed
+- - `Tooltip.arrowPositions` removed
 - `withMaxWidth` prop removed, max-width is now set to 240px [codemod]
 - Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
 
@@ -268,7 +269,8 @@ codemod: `search-component-import-migration`
 
 ## Icons
 
-- Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
+- Removed Upgrade icon
+- Featured icon renamed to Upgrade
 
 ## Hooks
 
@@ -278,4 +280,4 @@ codemod: `search-component-import-migration`
 
 ## monday-ui-style
 
-- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json
+- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json, use `warning-color-*` instead
