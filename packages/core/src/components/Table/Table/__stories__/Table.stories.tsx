@@ -17,6 +17,8 @@ import {
   scrollTableData,
   sort,
   statusColumnToLabelColor,
+  stickyColumns,
+  stickyTableData,
   TableAvatar,
   TableEmptyState,
   TableErrorState,
@@ -558,6 +560,40 @@ export const VirtualizedScroll = {
   },
 
   name: "Virtualized Scroll"
+};
+
+export const StickyColumn = {
+  render: () => {
+    return (
+      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={stickyColumns}>
+        <TableHeader>
+          {stickyColumns.map((headerCell, index) => (
+            <TableHeaderCell sticky={index === 0} key={index} title={headerCell.title} />
+          ))}
+        </TableHeader>
+        <TableBody>
+          {stickyTableData.map(rowItem => (
+            <TableRow key={rowItem.id}>
+              <TableCell sticky>{rowItem.projectName}</TableCell>
+              <TableCell>
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+              </TableCell>
+              <TableCell>{rowItem.description}</TableCell>
+              <TableCell>{rowItem.createdOn}</TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
+              <TableCell>{rowItem.owner}</TableCell>
+              <TableCell>{rowItem.priority}</TableCell>
+              <TableCell>{rowItem.category}</TableCell>
+              <TableCell>{rowItem.dueDate}</TableCell>
+              <TableCell>{rowItem.comments}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+
+  name: "Sticky column"
 };
 
 export const HighlightedRow = {

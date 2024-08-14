@@ -208,6 +208,135 @@ export const scrollTableData = [
   }
 ];
 
+export const stickyColumns: ITableColumn[] = [
+  {
+    id: "projectName",
+    title: "Project name",
+    width: 200,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "status",
+    title: "Status",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "description",
+    title: "Description",
+    loadingStateType: "long-text"
+  },
+  {
+    id: "createdOn",
+    title: "Created on",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "emailsSent",
+    title: "Emails sent",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "owner",
+    title: "Owner",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "priority",
+    title: "Priority",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "category",
+    title: "Category",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "dueDate",
+    title: "Due Date",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "comments",
+    title: "Comments",
+    loadingStateType: "long-text"
+  }
+];
+
+export const stickyTableData = [
+  {
+    id: "1",
+    projectName: "Limited time offer",
+    status: "In progress",
+    description: "This is description 1",
+    createdOn: "2024-07-03",
+    emailsSent: 100,
+    owner: "John Doe",
+    priority: "High",
+    category: "Marketing",
+    dueDate: "2024-08-15",
+    comments: "This project needs to be prioritized due to upcoming deadline."
+  },
+  {
+    id: "2",
+    projectName: "Action required",
+    status: "In progress",
+    description: "This is description 2",
+    createdOn: "2024-07-08",
+    emailsSent: 150,
+    owner: "Jane Smith",
+    priority: "Medium",
+    category: "Sales",
+    dueDate: "2024-08-20",
+    comments: "Waiting for client feedback."
+  },
+  {
+    id: "3",
+    projectName: "Cancellation request",
+    status: "Done",
+    description: "This is description 3",
+    createdOn: "2024-07-12",
+    emailsSent: 300,
+    owner: "Mark Johnson",
+    priority: "Low",
+    category: "Support",
+    dueDate: "2024-07-25",
+    comments: "Completed without issues."
+  },
+  {
+    id: "4",
+    projectName: "Limited time offer",
+    status: "Stuck",
+    description: "This is description 4",
+    createdOn: "2024-08-06",
+    emailsSent: 50,
+    owner: "Lucy Brown",
+    priority: "High",
+    category: "Marketing",
+    dueDate: "2024-09-01",
+    comments: "Blocked by vendor issues."
+  },
+  {
+    id: "5",
+    projectName: "Cancellation request",
+    status: "Done",
+    description: "This is description 5",
+    createdOn: "2024-09-05",
+    emailsSent: 400,
+    owner: "Alan Turing",
+    priority: "Low",
+    category: "Support",
+    dueDate: "2024-09-10",
+    comments: "Resolved, no further action required."
+  }
+];
+
 export const highlightableRowColumns = [
   {
     id: "sentOn",
@@ -268,7 +397,9 @@ export const statusColumnToLabelColor: { [key: string]: LabelColor } = {
   Sent: LabelColor.POSITIVE,
   Queued: LabelColor.DARK,
   Failed: LabelColor.NEGATIVE,
-  "In progress": LabelColor.PRIMARY
+  "In progress": LabelColor.PRIMARY,
+  Done: LabelColor.POSITIVE,
+  Stuck: LabelColor.NEGATIVE
 };
 
 export const scrollTableColumns = [
