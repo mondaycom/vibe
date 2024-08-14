@@ -75,15 +75,6 @@ export interface BoxProps extends VibeComponentProps {
   scrollable?: boolean;
   style?: React.CSSProperties;
 }
-const stylesTyped: { [key: string]: string } = styles;
-
-function getStyleByProp(propValue: string): string | undefined {
-  if (propValue && propValue in stylesTyped) {
-    return stylesTyped[propValue];
-  } else {
-    return undefined;
-  }
-}
 
 const Box: VibeComponent<BoxProps> & {
   borders?: typeof BorderEnum;
@@ -141,6 +132,10 @@ const Box: VibeComponent<BoxProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const stylesTyped: Record<string, string> = styles;
+    const getStyleByProp = (propValue: string): string | undefined =>
+      propValue in stylesTyped ? stylesTyped[propValue] : undefined;
+
     return React.createElement(
       elementType,
       {
