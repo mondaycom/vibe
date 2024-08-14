@@ -42,7 +42,7 @@ export default {
 
 const boxTemplate = (args: BoxProps) => (
   <div className={styles.boxWrapper}>
-    <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}>
+    <Box border="border" rounded="roundedMedium" {...args}>
       Box composite component
     </Box>
   </div>
@@ -57,21 +57,12 @@ export const Overview = {
 export const BackgroundColors = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}>
-        Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
-      </Box>
-      <Box backgroundColor={Box.backgroundColors.SECONDARY_BACKGROUND_COLOR}>
-        Box.backgroundColors.SECONDARY_BACKGROUND_COLOR
-      </Box>
-      <Box backgroundColor={Box.backgroundColors.GREY_BACKGROUND_COLOR}>Box.backgroundColors.GREY_BACKGROUND_COLOR</Box>
-      <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR}>
-        Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR
-      </Box>
-      <Box
-        textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
-        backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
-      >
-        Box.backgroundColors.INVERTED_COLOR_BACKGROUND
+      <Box backgroundColor="bgPrimaryBackgroundColor">bgPrimaryBackgroundColor</Box>
+      <Box backgroundColor="bgSecondaryBackgroundColor">bgSecondaryBackgroundColor</Box>
+      <Box backgroundColor="bgGreyBackgroundColor">bgGreyBackgroundColor</Box>
+      <Box backgroundColor="bgAllgreyBackgroundColor">bgAllgreyBackgroundColor</Box>
+      <Box textColor="textTextColorOnInverted" backgroundColor="bgInvertedColorBackground">
+        bgInvertedColorBackground
       </Box>
     </div>
   ),
@@ -82,14 +73,11 @@ export const BackgroundColors = {
 export const TextColors = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_TEXT_COLOR</Box>
-      <Box
-        backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
-        textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
-      >
-        Box.textColors.TEXT_COLOR_ON_INVERTED
+      <Box textColor="textPrimaryTextColor">textPrimaryTextColor</Box>
+      <Box backgroundColor="bgInvertedColorBackground" textColor="textTextColorOnInverted">
+        textTextColorOnInverted
       </Box>
-      <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_TEXT_COLOR</Box>
+      <Box textColor="textSecondaryTextColor">textSecondaryTextColor</Box>
     </div>
   ),
 
@@ -99,7 +87,7 @@ export const TextColors = {
 export const Border = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
+      <Box border="border">default</Box>
     </div>
   ),
 
@@ -109,11 +97,11 @@ export const Border = {
 export const BorderColor = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.UI_BORDER_COLOR}>
-        Box.borderColors.UI_BORDER_COLOR
+      <Box border="border" borderColor="borderColorUiBorderColor">
+        borderColorUiBorderColor
       </Box>
-      <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}>
-        Box.borderColors.LAYOUT_BORDER_COLOR
+      <Box border="border" borderColor="borderColorLayoutBorderColor">
+        borderColorLayoutBorderColor
       </Box>
     </div>
   ),
@@ -124,14 +112,14 @@ export const BorderColor = {
 export const RoundCorners = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.SMALL}>
-        Box.roundeds.SMALL
+      <Box border="border" rounded="roundedSmall">
+        roundedSmall
       </Box>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
-        Box.roundeds.MEDIUM
+      <Box border="border" rounded="roundedMedium">
+        roundedMedium
       </Box>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.BIG}>
-        Box.roundeds.BIG
+      <Box border="border" rounded="roundedBig">
+        roundedBig
       </Box>
     </div>
   ),
@@ -142,10 +130,10 @@ export const RoundCorners = {
 export const Shadow = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box shadow={Box.shadows.XS}>Box.shadows.XS</Box>
-      <Box shadow={Box.shadows.SMALL}>Box.shadows.SMALL</Box>
-      <Box shadow={Box.shadows.MEDIUM}>Box.shadows.MEDIUM</Box>
-      <Box shadow={Box.shadows.LARGE}>Box.shadows.LARGE</Box>
+      <Box shadow="shadowXs">shadowXs</Box>
+      <Box shadow="shadowSmall">shadowSmall</Box>
+      <Box shadow="shadowMedium">shadowMedium</Box>
+      <Box shadow="shadowLarge">shadowLarge</Box>
     </div>
   ),
 
@@ -156,62 +144,38 @@ export const Margin = {
   render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.XS}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.XS</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mXs">
+          <div className={styles.boxPaddingInner}>mXs</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.SMALL}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.SMALL</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mSmall">
+          <div className={styles.boxPaddingInner}>mSmall</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.MEDIUM}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.MEDIUM</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mMedium">
+          <div className={styles.boxPaddingInner}>mMedium</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.LARGE}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.LARGE</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mLarge">
+          <div className={styles.boxPaddingInner}>mLarge</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.XL}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.XL</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mXl">
+          <div className={styles.boxPaddingInner}>mXl</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.XXL}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.XXL</div>
+        <Box backgroundColor="bgPrimaryBackgroundColor" border="border" margin="mXxl">
+          <div className={styles.boxPaddingInner}>mXxl</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box border={Box.borders.DEFAULT} margin={Box.margins.XXXL}>
-          <div className={styles.boxPaddingInner}>Box.margins.XXXL</div>
+        <Box border="border" margin="mXxxl">
+          <div className={styles.boxPaddingInner}>mXxxl</div>
         </Box>
       </div>
     </div>
@@ -224,38 +188,38 @@ export const Padding = {
   render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XS}>
-          <div className={styles.boxPaddingInner}>Box.paddings.XS</div>
+        <Box border="border" padding="pXs">
+          <div className={styles.boxPaddingInner}>pXs</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.SMALL}>
-          <div className={styles.boxPaddingInner}>Box.paddings.SMALL</div>
+        <Box border="border" padding="pSmall">
+          <div className={styles.boxPaddingInner}>pSmall</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.MEDIUM}>
-          <div className={styles.boxPaddingInner}>Box.paddings.MEDIUM</div>
+        <Box border="border" padding="pMedium">
+          <div className={styles.boxPaddingInner}>pMedium</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.LARGE}>
-          <div className={styles.boxPaddingInner}>Box.paddings.LARGE</div>
+        <Box border="border" padding="pLarge">
+          <div className={styles.boxPaddingInner}>pLarge</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XL}>
-          <div className={styles.boxPaddingInner}>Box.paddings.XL</div>
+        <Box border="border" padding="pXl">
+          <div className={styles.boxPaddingInner}>pXl</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXL}>
-          <div className={styles.boxPaddingInner}>Box.paddings.XXL</div>
+        <Box border="border" padding="pXxl">
+          <div className={styles.boxPaddingInner}>pXxl</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXXL}>
-          <div className={styles.boxPaddingInner}>Box.paddings.XXXL</div>
+        <Box border="border" padding="pXxxl">
+          <div className={styles.boxPaddingInner}>pXxxl</div>
         </Box>
       </div>
     </div>
@@ -267,8 +231,8 @@ export const Padding = {
 export const Disabled = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR} border={Box.borders.DEFAULT} disabled>
-        Box.disabled.DISABLED
+      <Box backgroundColor="bgAllgreyBackgroundColor" border="border" disabled>
+        disabled
       </Box>
     </div>
   ),

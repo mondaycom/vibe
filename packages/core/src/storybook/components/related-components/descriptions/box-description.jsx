@@ -11,7 +11,7 @@ export const BoxDescription = () => {
           textAlign: "center"
         }}
       >
-        <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
+        <Box border="dorder" rounded="roundedMedium">
           Box
         </Box>
       </div>

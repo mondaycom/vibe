@@ -2,100 +2,110 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {
-  BACKGROUND_COLORS,
-  BackgroundColor,
-  BORDER,
-  Border,
-  BORDER_COLOR,
-  BorderColor,
-  COLORS,
-  Color,
-  MARGIN,
-  Margin,
-  MARGIN_BOTTOM,
-  MarginBottom,
-  MARGIN_END,
-  MarginEnd,
-  MARGIN_START,
-  MarginStart,
-  MARGIN_TOP,
-  MarginTop,
-  MARGIN_X,
-  MarginX,
-  MARGIN_Y,
-  MarginY,
-  PADDING,
-  Padding,
-  PADDING_BOTTOM,
-  PaddingBottom,
-  PADDING_END,
-  PaddingEnd,
-  PADDING_START,
-  PaddingStart,
-  PADDING_TOP,
-  PaddingTop,
-  PADDING_X,
-  PaddingX,
-  PADDING_Y,
-  PaddingY,
-  ROUNDED,
-  Rounded,
-  SHADOW,
-  Shadow,
-  DISABLED
+  BackgroundColor as BackgroundColorEnum,
+  Border as BorderEnum,
+  BorderColor as BorderColorEnum,
+  BoxTextColor as BoxTextColorEnum,
+  Margin as MarginEnum,
+  MarginBottom as MarginBottomEnum,
+  MarginEnd as MarginEndEnum,
+  MarginStart as MarginStartEnum,
+  MarginTop as MarginTopEnum,
+  MarginX as MarginXEnum,
+  MarginY as MarginYEnum,
+  Padding as PaddingEnum,
+  PaddingBottom as PaddingBottomEnum,
+  PaddingEnd as PaddingEndEnum,
+  PaddingStart as PaddingStartEnum,
+  PaddingTop as PaddingTopEnum,
+  PaddingX as PaddingXEnum,
+  PaddingY as PaddingYEnum,
+  Rounded as RoundedEnum,
+  Shadow as ShadowEnum
 } from "./BoxConstants";
-import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import {
+  BackgroundColor,
+  Border,
+  BorderColor,
+  BoxTextColor,
+  Margin,
+  MarginBottom,
+  MarginEnd,
+  MarginStart,
+  MarginTop,
+  MarginX,
+  MarginY,
+  Padding,
+  PaddingBottom,
+  PaddingEnd,
+  PaddingStart,
+  PaddingTop,
+  PaddingX,
+  PaddingY,
+  Rounded,
+  Shadow
+} from "./Box.types";
+import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 
 export interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
   children?: ElementContent;
   disabled?: boolean;
-  border?: ValueOf<Border>;
-  borderColor?: ValueOf<BorderColor>;
-  rounded?: ValueOf<Rounded>;
-  shadow?: ValueOf<Shadow>;
-  margin?: ValueOf<Margin>;
-  marginX?: ValueOf<MarginX>;
-  marginY?: ValueOf<MarginY>;
-  marginTop?: ValueOf<MarginTop>;
-  marginEnd?: ValueOf<MarginEnd>;
-  marginBottom?: ValueOf<MarginBottom>;
-  marginStart?: ValueOf<MarginStart>;
-  padding?: ValueOf<Padding>;
-  paddingX?: ValueOf<PaddingX>;
-  paddingY?: ValueOf<PaddingY>;
-  paddingTop?: ValueOf<PaddingTop>;
-  paddingEnd?: ValueOf<PaddingEnd>;
-  paddingBottom?: ValueOf<PaddingBottom>;
-  paddingStart?: ValueOf<PaddingStart>;
-  backgroundColor?: ValueOf<BackgroundColor>;
-  textColor?: ValueOf<Color>;
+  border?: Border;
+  borderColor?: BorderColor;
+  rounded?: Rounded;
+  shadow?: Shadow;
+  margin?: Margin;
+  marginX?: MarginX;
+  marginY?: MarginY;
+  marginTop?: MarginTop;
+  marginEnd?: MarginEnd;
+  marginBottom?: MarginBottom;
+  marginStart?: MarginStart;
+  padding?: Padding;
+  paddingX?: PaddingX;
+  paddingY?: PaddingY;
+  paddingTop?: PaddingTop;
+  paddingEnd?: PaddingEnd;
+  paddingBottom?: PaddingBottom;
+  paddingStart?: PaddingStart;
+  backgroundColor?: BackgroundColor;
+  textColor?: BoxTextColor;
   scrollable?: boolean;
   style?: React.CSSProperties;
 }
+const stylesTyped: { [key: string]: string } = styles;
+
+function getStyleByProp(propValue: string): string | undefined {
+  if (propValue && propValue in stylesTyped) {
+    return stylesTyped[propValue];
+  } else {
+    return undefined;
+  }
+}
 
 const Box: VibeComponent<BoxProps> & {
-  borders?: Border;
-  borderColors?: BorderColor;
-  roundeds?: Rounded;
-  shadows?: Shadow;
-  margins?: Margin;
-  marginXs?: MarginX;
-  marginYs?: MarginY;
-  marginTops?: MarginTop;
-  marginEnds?: MarginEnd;
-  marginBottoms?: MarginBottom;
-  marginStarts?: MarginStart;
-  paddings?: Padding;
-  paddingXs?: PaddingX;
-  paddingYs?: PaddingY;
-  paddingTops?: PaddingTop;
-  paddingEnds?: PaddingEnd;
-  paddingBottoms?: PaddingBottom;
-  paddingStarts?: PaddingStart;
-  backgroundColors?: BackgroundColor;
-  textColors?: Color;
+  borders?: typeof BorderEnum;
+  borderColors?: typeof BorderColorEnum;
+  roundeds?: typeof RoundedEnum;
+  shadows?: typeof ShadowEnum;
+  margins?: typeof MarginEnum;
+  marginXs?: typeof MarginXEnum;
+  marginYs?: typeof MarginYEnum;
+  marginTops?: typeof MarginTopEnum;
+  marginEnds?: typeof MarginEndEnum;
+  marginBottoms?: typeof MarginBottomEnum;
+  marginStarts?: typeof MarginStartEnum;
+  paddings?: typeof PaddingEnum;
+  paddingXs?: typeof PaddingXEnum;
+  paddingYs?: typeof PaddingYEnum;
+  paddingTops?: typeof PaddingTopEnum;
+  paddingEnds?: typeof PaddingEndEnum;
+  paddingBottoms?: typeof PaddingBottomEnum;
+  paddingStarts?: typeof PaddingStartEnum;
+  backgroundColors?: typeof BackgroundColorEnum;
+  textColors?: typeof BoxTextColorEnum;
 } = forwardRef(
   (
     {
@@ -138,27 +148,27 @@ const Box: VibeComponent<BoxProps> & {
         className: cx(
           styles.box,
           className,
-          { [DISABLED.DISABLED]: disabled, [styles.scrollable]: scrollable },
-          border,
-          borderColor,
-          rounded,
-          shadow,
-          margin,
-          marginX,
-          marginY,
-          marginTop,
-          marginEnd,
-          marginBottom,
-          marginStart,
-          padding,
-          paddingX,
-          paddingY,
-          paddingTop,
-          paddingEnd,
-          paddingBottom,
-          paddingStart,
-          textColor,
-          backgroundColor
+          { [styles.opacityDisabled]: disabled, [styles.scrollable]: scrollable },
+          getStyleByProp(border),
+          getStyleByProp(borderColor),
+          getStyleByProp(rounded),
+          getStyleByProp(shadow),
+          getStyleByProp(margin),
+          getStyleByProp(marginX),
+          getStyleByProp(marginY),
+          getStyleByProp(marginTop),
+          getStyleByProp(marginEnd),
+          getStyleByProp(marginBottom),
+          getStyleByProp(marginStart),
+          getStyleByProp(padding),
+          getStyleByProp(paddingX),
+          getStyleByProp(paddingY),
+          getStyleByProp(paddingTop),
+          getStyleByProp(paddingEnd),
+          getStyleByProp(paddingBottom),
+          getStyleByProp(paddingStart),
+          getStyleByProp(textColor),
+          getStyleByProp(backgroundColor)
         ),
         id: id,
         style
@@ -169,24 +179,24 @@ const Box: VibeComponent<BoxProps> & {
 );
 
 export default withStaticProps(Box, {
-  borders: BORDER,
-  borderColors: BORDER_COLOR,
-  roundeds: ROUNDED,
-  shadows: SHADOW,
-  margins: MARGIN,
-  marginXs: MARGIN_X,
-  marginYs: MARGIN_Y,
-  marginTops: MARGIN_TOP,
-  marginEnds: MARGIN_END,
-  marginBottoms: MARGIN_BOTTOM,
-  marginStarts: MARGIN_START,
-  paddings: PADDING,
-  paddingXs: PADDING_X,
-  paddingYs: PADDING_Y,
-  paddingTops: PADDING_TOP,
-  paddingEnds: PADDING_END,
-  paddingBottoms: PADDING_BOTTOM,
-  paddingStarts: PADDING_START,
-  backgroundColors: BACKGROUND_COLORS,
-  textColors: COLORS
+  borders: BorderEnum,
+  borderColors: BorderColorEnum,
+  roundeds: RoundedEnum,
+  shadows: ShadowEnum,
+  margins: MarginEnum,
+  marginXs: MarginXEnum,
+  marginYs: MarginYEnum,
+  marginTops: MarginTopEnum,
+  marginEnds: MarginEndEnum,
+  marginBottoms: MarginBottomEnum,
+  marginStarts: MarginStartEnum,
+  paddings: PaddingEnum,
+  paddingXs: PaddingXEnum,
+  paddingYs: PaddingYEnum,
+  paddingTops: PaddingTopEnum,
+  paddingEnds: PaddingEndEnum,
+  paddingBottoms: PaddingBottomEnum,
+  paddingStarts: PaddingStartEnum,
+  backgroundColors: BackgroundColorEnum,
+  textColors: BoxTextColorEnum
 });
