@@ -42,7 +42,7 @@ export default {
 
 const boxTemplate = (args: BoxProps) => (
   <div className={styles.boxWrapper}>
-    <Box border rounded="roundedMedium" {...args}>
+    <Box border rounded="medium" {...args}>
       Box composite component
     </Box>
   </div>
@@ -112,13 +112,13 @@ export const BorderColor = {
 export const RoundCorners = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box border rounded="roundedSmall">
+      <Box border rounded="small">
         roundedSmall
       </Box>
-      <Box border rounded="roundedMedium">
+      <Box border rounded="medium">
         roundedMedium
       </Box>
-      <Box border rounded="roundedBig">
+      <Box border rounded="big">
         roundedBig
       </Box>
     </div>
@@ -130,10 +130,10 @@ export const RoundCorners = {
 export const Shadow = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <Box shadow="shadowXs">shadowXs</Box>
-      <Box shadow="shadowSmall">shadowSmall</Box>
-      <Box shadow="shadowMedium">shadowMedium</Box>
-      <Box shadow="shadowLarge">shadowLarge</Box>
+      <Box shadow="xs">shadowXs</Box>
+      <Box shadow="small">shadowSmall</Box>
+      <Box shadow="medium">shadowMedium</Box>
+      <Box shadow="large">shadowLarge</Box>
     </div>
   ),
 

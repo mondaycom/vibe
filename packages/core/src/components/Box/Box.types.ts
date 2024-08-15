@@ -4,10 +4,6 @@ export type Border = "border";
 
 export type BorderColor = "borderColorUiBorderColor" | "borderColorLayoutBorderColor";
 
-export type Rounded = "roundedSmall" | "roundedMedium" | "roundedBig";
-
-export type Shadow = "shadowXs" | "shadowSmall" | "shadowMedium" | "shadowLarge";
-
 export type BackgroundColor =
   | "bgPrimaryBackgroundColor"
   | "bgSecondaryBackgroundColor"
@@ -20,3 +16,7 @@ export type BoxTextColor = "textPrimaryTextColor" | "textTextColorOnInverted" | 
 export type BoxPropSize = "xs" | "small" | "medium" | "large" | "xl" | "xxl" | "xxxl";
 
 export type BoxPropSizeWithAuto = "auto" | BoxPropSize;
+
+export type Shadow = Extract<BoxPropSize, "xs" | "small" | "medium" | "large">;
+
+export type Rounded = "small" | "medium" | "big";

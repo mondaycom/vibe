@@ -47,12 +47,12 @@ describe("Box renders correctly", () => {
   });
 
   it("with rounded prop", () => {
-    const tree = renderer.create(<Box rounded="roundedSmall" />).toJSON();
+    const tree = renderer.create(<Box rounded="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with shadow prop", () => {
-    const tree = renderer.create(<Box shadow="shadowSmall" />).toJSON();
+    const tree = renderer.create(<Box shadow="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

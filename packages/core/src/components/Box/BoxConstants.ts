@@ -262,5 +262,7 @@ export const SizePrefixMapping = {
   paddingTop: "pt",
   paddingEnd: "pe",
   paddingBottom: "pb",
-  paddingStart: "ps"
+  paddingStart: "ps",
+  shadow: "shadow",
+  rounded: "rounded"
 };
