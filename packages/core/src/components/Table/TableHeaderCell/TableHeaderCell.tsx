@@ -70,10 +70,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
             </Text>
           }
           {infoContent && (
-            <Tooltip
-              content={infoContent}
-              referenceWrapperClassName={styles.infoTooltip}
-            >
+            <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
               <Icon icon={Info} iconLabel={infoContent} />
             </Tooltip>
           )}
