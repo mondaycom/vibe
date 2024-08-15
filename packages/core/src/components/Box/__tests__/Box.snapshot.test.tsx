@@ -37,7 +37,7 @@ describe("Box renders correctly", () => {
   });
 
   it("with border prop", () => {
-    const tree = renderer.create(<Box border="border" />).toJSON();
+    const tree = renderer.create(<Box border />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

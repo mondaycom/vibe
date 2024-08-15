@@ -36,6 +36,10 @@ codemod: `avatar-component-migration`
 
 - `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
+### Box
+- `border` change from string to boolean [codemod]
+- Remove static prop Box.Borders
+
 ### BreadcrumbItem
 
 - `isDisabled` -> `disabled` [codemod]

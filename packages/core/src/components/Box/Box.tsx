@@ -3,7 +3,6 @@ import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {
   BackgroundColor as BackgroundColorEnum,
-  Border as BorderEnum,
   BorderColor as BorderColorEnum,
   BoxTextColor as BoxTextColorEnum,
   Margin as MarginEnum,
@@ -25,7 +24,6 @@ import {
 } from "./BoxConstants";
 import {
   BackgroundColor,
-  Border,
   BorderColor,
   BoxTextColor,
   Margin,
@@ -52,7 +50,7 @@ export interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
   children?: ElementContent;
   disabled?: boolean;
-  border?: Border;
+  border?: boolean;
   borderColor?: BorderColor;
   rounded?: Rounded;
   shadow?: Shadow;
@@ -77,7 +75,6 @@ export interface BoxProps extends VibeComponentProps {
 }
 
 const Box: VibeComponent<BoxProps> & {
-  borders?: typeof BorderEnum;
   borderColors?: typeof BorderColorEnum;
   roundeds?: typeof RoundedEnum;
   shadows?: typeof ShadowEnum;
@@ -143,8 +140,7 @@ const Box: VibeComponent<BoxProps> & {
         className: cx(
           styles.box,
           className,
-          { [styles.opacityDisabled]: disabled, [styles.scrollable]: scrollable },
-          getStyleByProp(border),
+          { [styles.opacityDisabled]: disabled, [styles.scrollable]: scrollable, [styles.border]: border },
           getStyleByProp(borderColor),
           getStyleByProp(rounded),
           getStyleByProp(shadow),
@@ -174,7 +170,6 @@ const Box: VibeComponent<BoxProps> & {
 );
 
 export default withStaticProps(Box, {
-  borders: BorderEnum,
   borderColors: BorderColorEnum,
   roundeds: RoundedEnum,
   shadows: ShadowEnum,
