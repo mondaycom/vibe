@@ -822,7 +822,7 @@ export const DropdownInsidePopover = {
       <Flex gap="large">
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
-          <Box marginTop="mtMedium" marginBottom="mbXxl">
+          <Box marginTop="medium" marginBottom="xxl">
             <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition="fixed" />
           </Box>
         </DialogContentContainer>
