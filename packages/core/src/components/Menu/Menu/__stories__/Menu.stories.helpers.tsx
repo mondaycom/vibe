@@ -3,7 +3,7 @@ import DialogContentContainer from "../../../DialogContentContainer/DialogConten
 import Menu from "../../../Menu/Menu/Menu";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import Search from "../../../Search/Search";
-import { Filter, Calendar, Wand } from "../../../Icon/Icons";
+import { Calendar, Filter, Wand } from "../../../Icon/Icons";
 import styles from "./Menu.stories.module.scss";
 import React from "react";
 
