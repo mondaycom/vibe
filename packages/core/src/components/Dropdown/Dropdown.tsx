@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";

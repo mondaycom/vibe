@@ -40,7 +40,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === "gallery" ? StepsGalleryHeader : StepsNumbersHeader;
 
-  // TODO: make finish button as default in next major
+  // TODO: [breaking] make finish button as default in next major
   const showFinishButton = useMemo(() => {
     if (!onFinish) {
       return;
@@ -70,7 +70,6 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
       {areNavigationButtonsHidden ? null : (
         <>
           {showFinishButton ? (
-            // @ts-ignore
             <Button onClick={onFinish} color={color} {...finishButtonProps}>
               {finishButtonProps?.children || FINISH_TEXT}
             </Button>

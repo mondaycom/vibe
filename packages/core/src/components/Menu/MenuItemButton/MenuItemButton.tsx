@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
 import React, { FC, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";

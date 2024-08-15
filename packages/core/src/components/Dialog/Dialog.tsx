@@ -556,7 +556,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                 enabled: true,
                 phase: "write",
                 fn({ state }) {
-                  // eslint-disable-next-line no-param-reassign
                   if (!state.styles.arrow) {
                     return state;
                   }

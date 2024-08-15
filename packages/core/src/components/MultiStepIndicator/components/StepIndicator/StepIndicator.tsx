@@ -1,4 +1,3 @@
-/* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";

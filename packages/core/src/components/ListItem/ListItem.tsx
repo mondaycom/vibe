@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
 import React, { AriaAttributes, forwardRef, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";

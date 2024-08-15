@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
@@ -46,8 +45,7 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
-  // TODO MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid.
-  //  Should be fixed in next major version
+  //// TODO: [breaking] MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid
   children?: MenuChild | MenuChild[];
   /**
    * Type of menu item with sub menu, which has two click/hover options-

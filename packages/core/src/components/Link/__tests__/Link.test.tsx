@@ -38,7 +38,6 @@ describe("Link", () => {
   });
 
   it("should have the correct target", () => {
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
     const { getByText } = render(<Link href="#" text="test text" target="_self" />);
     const element = getByText("test text").closest("a");
     expect(element.target).toBe("_self");

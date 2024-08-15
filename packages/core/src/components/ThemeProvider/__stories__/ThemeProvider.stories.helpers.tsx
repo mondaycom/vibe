@@ -95,7 +95,6 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
     <ThemeProvider themeConfig={selectedTheme?.value}>
       <Flex gap="large" align="start" wrap className={styles.productThemingContainer}>
         <Dropdown
-          // @ts-ignore
           placeholder={"No theme selected"}
           options={dropdownOptions}
           value={selectedTheme}

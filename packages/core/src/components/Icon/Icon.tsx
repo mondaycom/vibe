@@ -97,12 +97,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
       return null;
     }
 
-    // Replace in major version change with more accurate check
+    // TODO: [breaking] make more accurate check
     const isFunctionType = typeof icon === "function";
 
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    // Replace in major version change with more accurate check
+    // TODO: [breaking] make more accurate check
     if (iconType === "svg" || isFunctionType || typeof icon === "object") {
       return renderIcon(icon, {
         id,

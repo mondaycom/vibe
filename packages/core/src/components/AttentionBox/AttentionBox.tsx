@@ -18,7 +18,7 @@ import styles from "./AttentionBox.module.scss";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
-  // Will remove when releasing version 2 as BREAKING CHANGES
+  // TODO: [breaking] remove prop
   withIconWithoutHeader?: boolean;
   /** we support 5 types of attention boxes */
   type?: AttentionBoxType;
@@ -28,6 +28,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   title?: string;
   text?: string;
   children?: ElementContent;
+  // TODO: [breaking] remove prop
   withoutIcon?: boolean;
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
@@ -39,7 +40,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   iconTypes?: typeof IconTypeEnum;
 } = ({
   className,
-  // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = "primary",
   icon,
@@ -47,7 +47,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   title,
   text,
   children,
-  // TODO Remove in next major as breaking change
   withoutIcon = false,
   onClose,
   compact = false,

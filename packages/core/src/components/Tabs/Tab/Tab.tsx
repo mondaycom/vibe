@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
 import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
@@ -92,6 +91,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-disabled={disabled}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
       >
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
         <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>

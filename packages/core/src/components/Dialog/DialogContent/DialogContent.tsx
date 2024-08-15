@@ -22,7 +22,7 @@ export interface DialogContentProps extends VibeComponentProps {
   position?: PopperJS.Placement;
   wrapperClassName?: string;
   isOpen?: boolean;
-  // TODO breaking change convert to enum
+  // TODO: [breaking] use type
   startingEdge?: any;
   animationType?: DialogAnimationType;
   onEsc?: (event: React.KeyboardEvent) => void;

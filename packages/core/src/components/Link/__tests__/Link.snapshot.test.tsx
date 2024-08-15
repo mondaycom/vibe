@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import renderer from "react-test-renderer";
 import Link from "../Link";
