@@ -212,7 +212,6 @@ codemod: `search-component-import-migration`
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
-- `requiredAsterisk` prop removed and its style will be applied when using the `required` prop [codemod]
 - `iconsNames` prop removed `layout` [codemod]
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
