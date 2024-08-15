@@ -149,7 +149,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       "data-testid": dataTestId,
       insetFocus,
       tabIndex
-    },
+    }: ButtonProps,
     ref
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -316,7 +316,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {leftIcon ? (
             <Icon
               iconType="font"
-              clickable={false}
               icon={leftIcon}
               iconSize={leftIconSize}
               className={cx({
@@ -329,7 +328,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {rightIcon ? (
             <Icon
               iconType="font"
-              clickable={false}
               icon={rightIcon}
               iconSize={rightIconSize}
               className={cx({
@@ -363,7 +361,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             {successIcon ? (
               <Icon
                 iconType="font"
-                clickable={false}
                 icon={successIcon}
                 iconSize={successIconSize}
                 className={cx({

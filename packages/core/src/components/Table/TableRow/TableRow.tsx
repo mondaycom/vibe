@@ -18,7 +18,7 @@ export interface TableRowProps extends VibeComponentProps {
 }
 
 const TableRow: VibeComponent<TableRowProps, HTMLDivElement> = forwardRef(
-  ({ highlighted, children, style, id, className, "data-testid": dataTestId }, ref) => {
+  ({ highlighted, children, style, id, className, "data-testid": dataTestId }: TableRowProps, ref) => {
     const componentRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(componentRef, ref);
     const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenu();

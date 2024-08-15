@@ -7,15 +7,12 @@ import { IconType } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon, withStaticProps } from "../../types";
-
-const CLICK_NOOP = (_event: React.MouseEvent) => {};
+import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 
 export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
-  onClick?: MouseEventCallBack;
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;
@@ -27,15 +24,10 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
 }
 
 export interface IconProps extends VibeComponentProps {
-  onClick?: (event: React.MouseEvent) => void;
   /**
    * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
    */
   icon: SubIcon;
-  /**
-   * Is icon is a button
-   */
-  clickable?: boolean;
   /**
 mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
    */
@@ -75,10 +67,8 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
        * component id
        */
       id,
-      onClick = CLICK_NOOP,
       className,
       icon = "",
-      clickable = true,
       iconLabel,
       iconType = "svg",
       iconSize = 16,
@@ -94,9 +84,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
-      onClick,
       iconLabel,
-      clickable,
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
@@ -121,7 +109,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
         ...screenReaderAccessProps,
         ref: isFunctionType ? undefined : mergedRef,
         size: iconSize.toString(),
-        onClick,
         className: computedClassName,
         style,
         "data-testid": overrideDataTestId

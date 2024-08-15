@@ -6,13 +6,8 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
-import {
-  ColorShapes as ColorShapesEnum,
-  DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  ColorPickerValue,
-  ColorPickerArrayValueOnly
-} from "./ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes } from "./ColorPicker.types";
+import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";

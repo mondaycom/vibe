@@ -19,7 +19,7 @@ export interface TableBodyProps extends VibeComponentProps {
 }
 
 const TableBody: VibeComponent<TableBodyProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }, ref) => {
+  ({ id, className, "data-testid": dataTestId, children }: TableBodyProps, ref) => {
     const { dataState, emptyState, errorState, columns } = useTable();
     const { isLoading, isError } = dataState || {};
 

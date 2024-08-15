@@ -69,12 +69,11 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="dropdown-indicator css-1pxbrck-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -291,12 +290,11 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
             class="dropdown-indicator css-slqvkp-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -370,12 +368,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
             class="dropdown-indicator css-prutdb-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="16px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="16px"
@@ -449,12 +446,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
             class="dropdown-indicator css-1ycu3uq-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -528,12 +524,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
             class="dropdown-indicator css-1uglcx3-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -607,12 +602,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
             class="dropdown-indicator css-1ycu3uq-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -715,12 +709,11 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class="dropdown-indicator css-slqvkp-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -809,12 +802,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
             class="dropdown-indicator css-1pxbrck-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -1231,7 +1223,6 @@ exports[`Dropdown renders correctly when disabled 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1297,13 +1288,11 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1415,13 +1404,11 @@ exports[`Dropdown renders correctly when rtl 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1533,13 +1520,11 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1627,7 +1612,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="16"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="16"
                 >
@@ -1687,7 +1671,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="16"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="16"
                 >
@@ -1750,7 +1733,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
@@ -1837,13 +1819,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1866,13 +1846,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1984,13 +1962,11 @@ exports[`Dropdown renders correctly with className 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2110,13 +2086,11 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2139,13 +2113,11 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2257,13 +2229,11 @@ exports[`Dropdown renders correctly with empty props 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2375,13 +2345,11 @@ exports[`Dropdown renders correctly with id 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2495,7 +2463,6 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
@@ -2582,13 +2549,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2611,13 +2576,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2680,7 +2643,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="18"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="18"
                 >
@@ -2725,7 +2687,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
@@ -2812,13 +2773,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2841,13 +2800,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2977,13 +2934,11 @@ exports[`Dropdown renders correctly with multi 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3149,7 +3104,6 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3264,13 +3218,11 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3382,13 +3334,11 @@ exports[`Dropdown renders correctly with multiline 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3500,13 +3450,11 @@ exports[`Dropdown renders correctly with options 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3618,13 +3566,11 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3736,13 +3682,11 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3864,13 +3808,11 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3990,13 +3932,11 @@ exports[`Dropdown renders correctly with value 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -4019,13 +3959,11 @@ exports[`Dropdown renders correctly with value 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -4137,13 +4075,11 @@ exports[`Dropdown renders correctly without clear button 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
