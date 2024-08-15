@@ -70,7 +70,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
       noLabelAnimation = false,
       id,
       "data-testid": dataTestId
-    },
+    }: RadioButtonProps,
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const inputRef = useRef<HTMLInputElement | null>();

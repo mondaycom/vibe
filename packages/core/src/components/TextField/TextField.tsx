@@ -16,7 +16,6 @@ import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {
   FEEDBACK_CLASSES,
-  getActualSize,
   SIZE_MAPPER,
   TextFieldAriaLabel,
   TextFieldFeedbackState as TextFieldFeedbackStateEnum,
@@ -89,10 +88,6 @@ export interface TextFieldProps extends VibeComponentProps {
   name?: string;
   underline?: boolean;
   /**
-   * Apply new style for read only, use along with `readonly` prop
-   */
-  withReadOnlyStyle?: boolean;
-  /**
    * When true, component is controlled by an external state
    */
   controlled?: boolean;
@@ -148,7 +143,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       tabIndex,
       underline = false,
       name,
-      withReadOnlyStyle,
       controlled = false,
       iconTooltipContent,
       secondaryTooltipContent
@@ -267,15 +261,13 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       >
         <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} labelFor={id} required={required} />
-          <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
+          <div className={cx(styles.inputWrapper, SIZE_MAPPER[size], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={cx(className, styles.input, {
                 [styles.inputHasIcon]: !!hasIcon,
-                [styles.readOnly]: readonly,
-                // TODO: use `readonly` prop next major instead of withReadOnlyStyle
-                [styles.withReadOnlyStyle]: withReadOnlyStyle
+                [styles.readOnly]: readonly
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
@@ -315,7 +307,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             )}
             <Tooltip
               content={isPrimary ? iconTooltipContent : undefined}
-              addKeyboardHideShowTriggersByDefault
               referenceWrapperClassName={styles.tooltipContainer}
             >
               <Clickable

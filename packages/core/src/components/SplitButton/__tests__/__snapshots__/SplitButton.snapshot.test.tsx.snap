@@ -16,7 +16,9 @@ exports[`SplitButton renders correctly with SplitButtonMenu 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -86,7 +88,9 @@ exports[`SplitButton renders correctly with custom menu 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -157,7 +161,9 @@ exports[`SplitButton renders correctly with disabled 1`] = `
     onMouseUp={[Function]}
     tabIndex={-1}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -231,7 +237,7 @@ exports[`SplitButton renders correctly with left icon 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon leftIcon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
@@ -245,6 +251,7 @@ exports[`SplitButton renders correctly with left icon 1`] = `
         fillRule="evenodd"
       />
     </svg>
+    split button
   </button>
   <div
     className="secondaryButtonWrapper"
@@ -315,7 +322,9 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -385,7 +394,9 @@ exports[`SplitButton renders correctly with only required props 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -456,9 +467,10 @@ exports[`SplitButton renders correctly with right icon 1`] = `
     onMouseUp={[Function]}
     type="button"
   >
+    split button
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon rightIcon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="20"
@@ -542,7 +554,9 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -612,7 +626,9 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >
@@ -682,7 +698,9 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
     onMouseDown={[Function]}
     onMouseUp={[Function]}
     type="button"
-  />
+  >
+    split button
+  </button>
   <div
     className="secondaryButtonWrapper"
   >

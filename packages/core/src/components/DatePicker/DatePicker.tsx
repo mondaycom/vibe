@@ -65,7 +65,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       showWeekNumber = false,
       shouldBlockRange,
       "data-testid": dataTestId
-    },
+    }: DatePickerProps,
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);

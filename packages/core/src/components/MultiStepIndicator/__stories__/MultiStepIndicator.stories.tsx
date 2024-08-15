@@ -3,9 +3,10 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import { Featured } from "../../Icon/Icons";
+import { Upgrade } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
 import "./MultiStepIndicator.stories.scss";
+import { Step } from "../MultiStep.types";
 
 export default {
   title: "Navigation/MultiStepIndicator",
@@ -39,12 +40,19 @@ export const Overview = {
         subtitleText: "Subtitle"
       }
     ]
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
 export const Placements = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -91,7 +99,7 @@ export const Placements = {
 
 export const Types = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -142,7 +150,7 @@ export const Types = {
 
 export const Sizes = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -183,7 +191,7 @@ export const Sizes = {
 
 export const FulfilledIcons = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",
@@ -218,8 +226,8 @@ export const FulfilledIcons = {
           <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
         </div>
         <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Custom (featured)</span>
-          <MultiStepIndicator steps={steps} fulfilledStepIcon={Featured} />
+          <span className="monday-storybook-multiStepIndicator_title">Custom </span>
+          <MultiStepIndicator steps={steps} fulfilledStepIcon={Upgrade} />
         </div>
       </div>
     );
@@ -230,7 +238,7 @@ export const FulfilledIcons = {
 
 export const TransitionAnimation = {
   render: () => {
-    const exampleSteps = useMemo(
+    const exampleSteps = useMemo<Record<string, Step>>(
       () => ({
         firstStep: {
           key: "PENDING",
@@ -256,7 +264,7 @@ export const TransitionAnimation = {
       []
     );
 
-    const [steps, setSteps] = useState([
+    const [steps, setSteps] = useState<Step[]>([
       {
         ...exampleSteps.firstStep
       },
@@ -355,7 +363,7 @@ export const TransitionAnimation = {
 
 export const MultiStepWizard = {
   render: () => {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
       () => [
         {
           key: "FULFILLED",

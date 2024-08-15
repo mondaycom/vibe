@@ -470,9 +470,9 @@ export const DisplayingTeams = {
                 ariaLabelItemsName: "teams"
               }}
             >
-              <Avatar type="text" text="T1" backgroundColor={Avatar.backgroundColors.PEACH} ariaLabel="Team 1" />
-              <Avatar type="text" text="T2" backgroundColor={Avatar.backgroundColors.BUBBLE} ariaLabel="Team 2" />
-              <Avatar type="text" text="T3" backgroundColor={Avatar.backgroundColors.BERRY} ariaLabel="Team 3" />
+              <Avatar type="text" text="T1" backgroundColor="peach" ariaLabel="Team 1" />
+              <Avatar type="text" text="T2" backgroundColor="bubble" ariaLabel="Team 2" />
+              <Avatar type="text" text="T3" backgroundColor="berry" ariaLabel="Team 3" />
             </AvatarGroup>
           </TableCell>
         </TableRow>

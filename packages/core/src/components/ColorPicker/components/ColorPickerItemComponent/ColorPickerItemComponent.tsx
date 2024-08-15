@@ -7,7 +7,7 @@ import ColorUtils from "../../../../utils/colors-utils";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { ColorPickerValueOnly } from "../../ColorPickerConstants";
+import { ColorPickerValueOnly } from "../../ColorPicker.types";
 import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
@@ -44,7 +44,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       isActive,
       colorShape,
       "data-testid": dataTestId
-    },
+    }: ColorPickerItemComponentProps,
     _ref
   ) => {
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one

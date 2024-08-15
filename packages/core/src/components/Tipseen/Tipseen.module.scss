@@ -5,6 +5,7 @@
   min-height: 40px;
   --tooltip-padding: 0;
   --tooltip-border-radius: var(--border-radius-medium);
+  --tooltip-max-width: initial;
 
   &WithoutCustomWidth {
     --tooltip-max-width: 320px;
@@ -35,8 +36,8 @@
 
     &CloseButton {
       position: absolute;
-      top: var(--spacing-xs);
-      right: var(--spacing-xs);
+      top: var(--spacing-small);
+      right: var(--spacing-small);
       z-index: 2;
 
       &.dark {

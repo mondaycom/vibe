@@ -17,19 +17,6 @@
   background-color: var(--sb-inverted-color-background);
 }
 
-.emptyStateContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: var(--sb-spacing-large);
-}
-
-.emptyStateHeading {
-  margin-block: var(--sb-spacing-large);
-}
-
 .pageHeaderCommands {
   margin-top: var(--sb-spacing-large);
   & > * {

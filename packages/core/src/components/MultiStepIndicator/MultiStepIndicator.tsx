@@ -10,17 +10,11 @@ import {
   StepStatus as StepStatusEnum,
   TextPlacement as TextPlacementEnum
 } from "./MultiStepConstants";
-import { MultiStepType, MultiStepSize, StepStatus, TextPlacement } from "./MultiStep.types";
+import { MultiStepType, MultiStepSize, TextPlacement, Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
-
-export type Step = {
-  titleText: string;
-  subtitleText: string;
-  status: StepStatus;
-};
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
   steps?: Step[];

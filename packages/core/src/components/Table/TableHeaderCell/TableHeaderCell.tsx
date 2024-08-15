@@ -36,7 +36,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
       sortState = "none",
       sortButtonAriaLabel = "Sort",
       sticky
-    },
+    }: TableHeaderCellProps,
     ref
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -73,7 +73,6 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
             <Tooltip
               content={infoContent}
               referenceWrapperClassName={styles.infoTooltip}
-              addKeyboardHideShowTriggersByDefault
             >
               <Icon icon={Info} iconLabel={infoContent} />
             </Tooltip>

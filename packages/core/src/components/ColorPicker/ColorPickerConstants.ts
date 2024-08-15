@@ -1,5 +1,4 @@
 import { BaseSizes, SIZES } from "../../constants/sizes";
-import { CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
 
 export const DEFAULT_NUMBER_OF_COLORS_IN_LINE = 5;
 
@@ -19,7 +18,3 @@ export enum ColorShapes {
   SQUARE = "square",
   CIRCLE = "circle"
 }
-
-export type ColorPickerValueOnly = CONTENT_COLORS_VALUES | string;
-export type ColorPickerArrayValueOnly = CONTENT_COLORS_VALUES[] | string[];
-export type ColorPickerValue = ColorPickerValueOnly | ColorPickerArrayValueOnly;

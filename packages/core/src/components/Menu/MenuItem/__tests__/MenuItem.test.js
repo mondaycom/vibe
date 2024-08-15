@@ -1,7 +1,8 @@
 import React from "react";
-import { render, waitFor, fireEvent, act } from "@testing-library/react";
+import { render, waitFor, fireEvent, act, within } from "@testing-library/react";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
+import { Label } from "../../../Label";
 
 const title = "Menu Item";
 
@@ -13,7 +14,7 @@ describe("<MenuItem />", () => {
   });
 
   it("should not show subMenu when MenuItem is disabled", () => {
-    const { queryAllByText } = render(
+    const { queryByText } = render(
       <MenuItem disabled index={0} activeItemIndex={0} title="Main Item" isParentMenuVisible hasOpenSubMenu>
         <Menu>
           <MenuItem title="Sub Item" />
@@ -21,7 +22,7 @@ describe("<MenuItem />", () => {
       </MenuItem>
     );
 
-    expect(queryAllByText("Sub Item")).toHaveLength(0);
+    expect(queryByText("Sub Item")).toBeFalsy();
   });
 
   const submenuPositions = [
@@ -40,7 +41,7 @@ describe("<MenuItem />", () => {
       const title = "Main Item";
       const submenuTitle = "Sub Item";
 
-      const { queryAllByText, container } = render(
+      const { queryByText, container } = render(
         <MenuItem
           index={0}
           activeItemIndex={0}
@@ -54,7 +55,7 @@ describe("<MenuItem />", () => {
           </Menu>
         </MenuItem>
       );
-      const menuItemElement = queryAllByText(title)[0];
+      const menuItemElement = queryByText(title);
       await act(async () => {
         fireEvent.mouseEnter(menuItemElement);
       });
@@ -66,6 +67,26 @@ describe("<MenuItem />", () => {
       });
     }
   );
+
+  it("should render Label when pass a string", () => {
+    const labelText = "Label Text";
+    const { getByText } = render(<MenuItem title={title} label={labelText} />);
+    const labelElement = getByText(labelText);
+    expect(labelElement).toBeTruthy();
+  });
+
+  it("should render the Label component with props when pass a component", () => {
+    const labelText = "Label Text";
+    const { getByTestId } = render(
+      <MenuItem title={title} label={<Label text={labelText} color="dark" kind="line" />} />
+    );
+    const labelElement = getByTestId("label");
+    expect(labelElement).toBeTruthy();
+    const { getAllByTestId } = within(labelElement);
+    const labelTextElement = getAllByTestId("text")[0];
+    expect(labelTextElement).toHaveClass("colorDark");
+    expect(labelTextElement).toHaveClass("kindLine");
+  });
 
   describe.skip("click", () => {
     it("should call the callback on click", async () => {

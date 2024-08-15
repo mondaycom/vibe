@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Box renders correctly with backgronudColor prop 1`] = `
+exports[`Box renders correctly with backgroundColor prop 1`] = `
 <div
-  className="box"
+  className="box bgPrimaryBackgroundColor"
 />
 `;
 

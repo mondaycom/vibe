@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.130.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.130.1...monday-ui-react-core@2.130.2) (2024-08-12)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** avatar in tipseen without image is wrong size ([#2353](https://github.com/mondaycom/vibe/issues/2353)) ([3d0cfe6](https://github.com/mondaycom/vibe/commit/3d0cfe6e0988a01b5a34939072c3e21c6c06c076))
+
+
+
+
+
+## [2.130.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.130.0...monday-ui-react-core@2.130.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* **menuButton:** fix scale for disabled menu button ([#2319](https://github.com/mondaycom/vibe/issues/2319)) ([c84a9ae](https://github.com/mondaycom/vibe/commit/c84a9ae4e80eed2e3a6e01d7882ef701dd70be47))
+* targets for storybook ([#2351](https://github.com/mondaycom/vibe/issues/2351)) ([e9d2a5c](https://github.com/mondaycom/vibe/commit/e9d2a5ca21d7574991ee5690c00b04b955aaa2f8))
+
+
+
+
+
+# [2.130.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.129.0...monday-ui-react-core@2.130.0) (2024-08-08)
+
+
+### Features
+
+* **Breadcrumbs:** be able to show only the icon ([#2336](https://github.com/mondaycom/vibe/issues/2336)) ([d68c9c3](https://github.com/mondaycom/vibe/commit/d68c9c34498ab423f8eb179bc5e2dc07c5588757))
+* **combobox:** Add render action to combobox ([#2297](https://github.com/mondaycom/vibe/issues/2297)) ([a6d4adb](https://github.com/mondaycom/vibe/commit/a6d4adb57c994e4fb0176a287ec3cac488a2d05b))
+* **MenuItem:** Add all label capabilities to menu item ([#2335](https://github.com/mondaycom/vibe/issues/2335)) ([d786e92](https://github.com/mondaycom/vibe/commit/d786e9250abfd464a1064218421cbbe15998514e))
+
+
+
+
+
+# [2.129.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.128.0...monday-ui-react-core@2.129.0) (2024-08-07)
+
+
+### Bug Fixes
+
+* **useSwitch:** type guard to fix breaking change we accidentally introduced in previous version ([#2330](https://github.com/mondaycom/vibe/issues/2330)) ([d07d907](https://github.com/mondaycom/vibe/commit/d07d907b2e46f8ec004a6823c4f0fd45a7deff1b))
+
+
+### Features
+
+* **Icon:** update numbers icon ([#2296](https://github.com/mondaycom/vibe/issues/2296)) ([847d2c8](https://github.com/mondaycom/vibe/commit/847d2c840ffcee68a00b157f0dd6d907328aebe2))
+* **primary-surface-color:** new color token ([#2300](https://github.com/mondaycom/vibe/issues/2300)) ([780fdf7](https://github.com/mondaycom/vibe/commit/780fdf7be027bfba3aa4a643969e024263e80ec6))
+* **Tipseen:** New paddings for tipseen ([#2251](https://github.com/mondaycom/vibe/issues/2251)) ([a4d40a0](https://github.com/mondaycom/vibe/commit/a4d40a0b68a95288c192b56f418990b3579ac9ef))
+
+
+
+
+
 # [2.128.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.127.0...monday-ui-react-core@2.128.0) (2024-08-01)
 
 
