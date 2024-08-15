@@ -11,7 +11,7 @@ const CLOSE_BUTTON_LABEL = "close";
 const OPEN_BUTTON_TEXT = "Open";
 
 const ModalManager = props => {
-  const { children, openOnStart = false, isAlertDialog = false, title } = props;
+  const { children, openOnStart = false, isAlertDialog = false, title, unmountOnClose } = props;
   return (
     <ModalExampleWrapper
       buttonTitle="Open"
@@ -21,6 +21,7 @@ const ModalManager = props => {
       title={title || MODAL_TITLE_TEXT}
       alertDialog={isAlertDialog}
       openModalTestId={OPEN_BUTTON_TEXT}
+      unmountOnClose={unmountOnClose}
     >
       {children}
     </ModalExampleWrapper>
@@ -99,6 +100,16 @@ describe("Modal tests", () => {
         expect(modal).toHaveAttribute("aria-labelledby");
         expect(modal).not.toHaveAttribute("aria-hidden");
         expect(modal.getAttribute("role")).toMatch("dialog");
+      });
+
+      it("should have relevant aria attributes when hidden and unmountOnClose is false", () => {
+        const component = renderComponent({ unmountOnClose: false });
+        const modal = queryClosedModal(component);
+        expect(modal).toHaveAttribute("id");
+        expect(modal).toHaveAttribute("aria-modal");
+        expect(modal).toHaveAttribute("aria-labelledby");
+        expect(modal).toHaveAttribute("aria-hidden");
+        expect(modal.getAttribute("role")).toEqual("dialog");
       });
 
       it("should have relevant aria attributes when in alert mode", () => {

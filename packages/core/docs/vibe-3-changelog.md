@@ -160,8 +160,7 @@ codemod: `chips-component-migration`
 
 - Modal no longer have the ability to remove the close button due to UX decision
   - Removed `hideCloseButton` prop which is not needed anymore [codemod]
-- Modal will not render if `show` is false
-  - `unmountOnClose` removed, modal will always unmount on close [codemod]
+- The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render if `show` is "false". To disable this behavior set `unmountOnClose` to "false".
 
 ### ModalHeader
 
