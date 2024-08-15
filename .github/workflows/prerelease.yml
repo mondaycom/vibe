@@ -35,7 +35,7 @@ jobs:
         id: generate-versions
         run: |
           commit_sha=$COMMIT_SHA
-          preid="test-${commit_sha:0:5}"
+          preid="alpha-${commit_sha:0:5}"
 
           full_output=$(yarn lerna version --exact --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid "$preid" -y)
 
