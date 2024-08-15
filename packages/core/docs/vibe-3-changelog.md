@@ -102,6 +102,10 @@ codemod: `chips-component-migration`
 
 - `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
 
+### Icon
+
+- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon [codemod]
+
 ### IconButton
 
 - `dataTestId` -> `data-testid` [codemod]
@@ -208,6 +212,7 @@ codemod: `search-component-import-migration`
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
+- `iconsNames` prop removed `layout` [codemod]
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
 - Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]

@@ -41,7 +41,6 @@ exports[`AlertBanner should render correctly with background color 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -131,7 +130,6 @@ exports[`AlertBanner should render correctly with props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -188,7 +186,6 @@ exports[`AlertBanner should render correctly without props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -328,7 +325,6 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -425,7 +421,6 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
@@ -526,7 +521,6 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="20"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="20"
       >
