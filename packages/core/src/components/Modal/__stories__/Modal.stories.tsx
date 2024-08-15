@@ -10,8 +10,7 @@ import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterBut
 import { Upgrade } from "../../Icon/Icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
-  enumPropNamesArray: ["width"], // List enum props here
-  actionPropsArray: ["onClose"] // List the component's actions here
+  actionPropsArray: ["onClose"]
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

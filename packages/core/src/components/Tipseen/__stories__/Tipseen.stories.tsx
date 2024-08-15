@@ -10,8 +10,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import "./Tipseen.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Tipseen,
-  enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
+  component: Tipseen
 });
 
 export default {

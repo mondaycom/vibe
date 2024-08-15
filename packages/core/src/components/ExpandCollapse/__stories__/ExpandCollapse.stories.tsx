@@ -10,9 +10,6 @@ import styles from "./ExpandCollapse.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ExpandCollapse,
-  enumPropNamesArray: [],
-  iconPropNamesArray: [],
-  actionPropsArray: [],
   ignoreControlsPropNamesArray: ["headerComponentRenderer"]
 });
 

@@ -10,7 +10,6 @@ import { ToastAction } from "../Toast.types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
-  enumPropNamesArray: ["type"],
   iconPropNamesArray: ["icon"]
 });
 

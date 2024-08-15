@@ -18,7 +18,6 @@ import "./Combobox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,
-  enumPropNamesArray: ["size"],
   iconPropNamesArray: ["searchIcon"],
   actionPropsArray: ["onOptionHover", "onOptionLeave", "onFilterChanged"]
 });

@@ -11,8 +11,7 @@ import { Decorator, StoryObj } from "@storybook/react";
 type Story = StoryObj<typeof Label>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Label,
-  enumPropNamesArray: ["kind", "color"]
+  component: Label
 });
 
 export default {

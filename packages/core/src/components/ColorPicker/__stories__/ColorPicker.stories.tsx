@@ -7,7 +7,6 @@ import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ColorPicker,
-  enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
   iconPropNamesArray: ["ColorIndicatorIcon", "SelectedIndicatorIcon", "NoColorIcon"],
   actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }]
 });

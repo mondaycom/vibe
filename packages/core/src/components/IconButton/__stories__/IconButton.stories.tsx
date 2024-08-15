@@ -16,7 +16,6 @@ type Story = StoryObj<typeof IconButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
-  enumPropNamesArray: ["kind", "size", "color"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClick"]
 });

@@ -8,8 +8,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import "./BreadcrumbsBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: BreadcrumbsBar,
-  enumPropNamesArray: ["type"]
+  component: BreadcrumbsBar
 });
 
 const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {

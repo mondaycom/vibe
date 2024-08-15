@@ -7,10 +7,7 @@ import MenuGridItem, { MenuGridItemProps } from "../MenuGridItem";
 import "./MenuGridItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: MenuGridItem,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  component: MenuGridItem
 });
 
 export default {

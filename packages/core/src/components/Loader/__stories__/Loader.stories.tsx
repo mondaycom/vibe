@@ -7,8 +7,7 @@ import { useCallback, useState } from "react";
 import "./Loader.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Loader,
-  enumPropNamesArray: ["size", "color"]
+  component: Loader
 });
 
 export default {

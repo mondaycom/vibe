@@ -7,7 +7,6 @@ import { Invite } from "../../../Icon/Icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItemButton,
-  enumPropNamesArray: ["kind", "tooltipPosition"],
   iconPropNamesArray: ["leftIcon", "rightIcon"]
 });
 

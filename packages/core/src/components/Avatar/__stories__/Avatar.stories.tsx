@@ -11,7 +11,6 @@ import "./Avatar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Avatar,
-  enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["icon"]
 });
 

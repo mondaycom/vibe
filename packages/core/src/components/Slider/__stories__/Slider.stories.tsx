@@ -7,8 +7,7 @@ import { Sound, Video } from "../../Icon/Icons";
 import "./Slider.stories.scss";
 
 const argTypes = createStoryMetaSettingsDecorator({
-  component: Slider,
-  enumPropNamesArray: ["color", "size"]
+  component: Slider
 });
 
 export default {

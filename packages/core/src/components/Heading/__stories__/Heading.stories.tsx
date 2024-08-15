@@ -13,9 +13,7 @@ import { Custom } from "../../Icon/Icons";
 import styles from "./Heading.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Heading,
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  component: Heading
 });
 
 const textTemplate = createComponentTemplate(Heading);

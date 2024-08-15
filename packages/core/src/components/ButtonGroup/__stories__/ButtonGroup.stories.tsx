@@ -9,7 +9,6 @@ type Story = StoryObj<typeof ButtonGroup>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ButtonGroup,
-  enumPropNamesArray: ["kind", "size"],
   actionPropsArray: ["onSelect"]
 });
 

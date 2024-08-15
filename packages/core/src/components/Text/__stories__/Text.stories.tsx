@@ -9,10 +9,7 @@ import { textOverflowSuite } from "../__tests__/Text.interactions";
 import styles from "./Text.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Text,
-  enumPropNamesArray: ["types", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  component: Text
 });
 
 export default {

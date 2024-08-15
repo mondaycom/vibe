@@ -6,8 +6,7 @@ import Menu from "../../Menu/Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: MenuTitle,
-  enumPropNamesArray: ["captionPosition"]
+  component: MenuTitle
 });
 
 export default {

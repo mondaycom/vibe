@@ -16,7 +16,6 @@ import styles from "./Chips.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
-  enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
   actionPropsArray: ["onDelete", "onMouseDown", "onClick"]
 });
