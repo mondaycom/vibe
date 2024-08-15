@@ -57,67 +57,67 @@ describe("Box renders correctly", () => {
   });
 
   it("with margin prop", () => {
-    const tree = renderer.create(<Box margin="mSmall" />).toJSON();
+    const tree = renderer.create(<Box margin="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with marginX prop", () => {
-    const tree = renderer.create(<Box marginX="mxSmall" />).toJSON();
+    const tree = renderer.create(<Box marginX="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with marginY prop", () => {
-    const tree = renderer.create(<Box marginY="mySmall" />).toJSON();
+    const tree = renderer.create(<Box marginY="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with marginTop prop", () => {
-    const tree = renderer.create(<Box marginTop="mtSmall" />).toJSON();
+    const tree = renderer.create(<Box marginTop="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with marginEnd prop", () => {
-    const tree = renderer.create(<Box marginEnd="meSmall" />).toJSON();
+    const tree = renderer.create(<Box marginEnd="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with marginStart prop", () => {
-    const tree = renderer.create(<Box marginStart="msSmall" />).toJSON();
+    const tree = renderer.create(<Box marginStart="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with padding prop", () => {
-    const tree = renderer.create(<Box padding="pSmall" />).toJSON();
+    const tree = renderer.create(<Box padding="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingX prop", () => {
-    const tree = renderer.create(<Box paddingX="pxSmall" />).toJSON();
+    const tree = renderer.create(<Box paddingX="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingY prop", () => {
-    const tree = renderer.create(<Box paddingY="pySmall" />).toJSON();
+    const tree = renderer.create(<Box paddingY="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingTop prop", () => {
-    const tree = renderer.create(<Box paddingTop="ptSmall" />).toJSON();
+    const tree = renderer.create(<Box paddingTop="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingEnd prop", () => {
-    const tree = renderer.create(<Box paddingEnd="peSmall" />).toJSON();
+    const tree = renderer.create(<Box paddingEnd="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingBottom prop", () => {
-    const tree = renderer.create(<Box paddingBottom="pbSmall" />).toJSON();
+    const tree = renderer.create(<Box paddingBottom="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with paddingStart prop", () => {
-    const tree = renderer.create(<Box paddingStart="psSmall" />).toJSON();
+    const tree = renderer.create(<Box paddingStart="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

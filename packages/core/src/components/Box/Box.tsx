@@ -1,4 +1,5 @@
 import React, { forwardRef, useRef } from "react";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {
@@ -20,26 +21,15 @@ import {
   PaddingX as PaddingXEnum,
   PaddingY as PaddingYEnum,
   Rounded as RoundedEnum,
-  Shadow as ShadowEnum
+  Shadow as ShadowEnum,
+  SizePrefixMapping
 } from "./BoxConstants";
 import {
   BackgroundColor,
   BorderColor,
+  BoxPropSize,
+  BoxPropSizeWithAuto,
   BoxTextColor,
-  Margin,
-  MarginBottom,
-  MarginEnd,
-  MarginStart,
-  MarginTop,
-  MarginX,
-  MarginY,
-  Padding,
-  PaddingBottom,
-  PaddingEnd,
-  PaddingStart,
-  PaddingTop,
-  PaddingX,
-  PaddingY,
   Rounded,
   Shadow
 } from "./Box.types";
@@ -54,20 +44,20 @@ export interface BoxProps extends VibeComponentProps {
   borderColor?: BorderColor;
   rounded?: Rounded;
   shadow?: Shadow;
-  margin?: Margin;
-  marginX?: MarginX;
-  marginY?: MarginY;
-  marginTop?: MarginTop;
-  marginEnd?: MarginEnd;
-  marginBottom?: MarginBottom;
-  marginStart?: MarginStart;
-  padding?: Padding;
-  paddingX?: PaddingX;
-  paddingY?: PaddingY;
-  paddingTop?: PaddingTop;
-  paddingEnd?: PaddingEnd;
-  paddingBottom?: PaddingBottom;
-  paddingStart?: PaddingStart;
+  margin?: BoxPropSizeWithAuto;
+  marginX?: BoxPropSizeWithAuto;
+  marginY?: BoxPropSizeWithAuto;
+  marginTop?: BoxPropSizeWithAuto;
+  marginEnd?: BoxPropSizeWithAuto;
+  marginBottom?: BoxPropSize;
+  marginStart?: BoxPropSize;
+  padding?: BoxPropSize;
+  paddingX?: BoxPropSize;
+  paddingY?: BoxPropSize;
+  paddingTop?: BoxPropSize;
+  paddingEnd?: BoxPropSize;
+  paddingBottom?: BoxPropSize;
+  paddingStart?: BoxPropSize;
   backgroundColor?: BackgroundColor;
   textColor?: BoxTextColor;
   scrollable?: boolean;
@@ -95,43 +85,20 @@ const Box: VibeComponent<BoxProps> & {
   backgroundColors?: typeof BackgroundColorEnum;
   textColors?: typeof BoxTextColorEnum;
 } = forwardRef(
-  (
-    {
-      className,
-      id,
-      elementType = "div",
-      children,
-      disabled,
-      border,
-      borderColor,
-      rounded,
-      shadow,
-      margin,
-      marginX,
-      marginY,
-      marginTop,
-      marginEnd,
-      marginBottom,
-      marginStart,
-      padding,
-      paddingX,
-      paddingY,
-      paddingTop,
-      paddingEnd,
-      paddingBottom,
-      paddingStart,
-      textColor,
-      backgroundColor,
-      scrollable,
-      style
-    }: BoxProps,
-    ref
-  ) => {
+  ({ className, id, elementType = "div", children, disabled, border, scrollable, style, ...props }: BoxProps, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
-    const stylesTyped: Record<string, string> = styles;
-    const getStyleByProp = (propValue: string): string | undefined =>
-      propValue in stylesTyped ? stylesTyped[propValue] : undefined;
+
+    const getClassNames = (styles: Record<string, string>, props: Record<string, any | undefined>) => {
+      return Object.keys(props)
+        .filter(prop => props[prop])
+        .map(prop => {
+          const value = props[prop];
+          const prefix = SizePrefixMapping[prop as keyof typeof SizePrefixMapping];
+          return prefix && typeof value === "string" ? styles[camelCase(`${prefix}-${value}`)] : styles[value];
+        })
+        .filter(Boolean);
+    };
 
     return React.createElement(
       elementType,
@@ -141,25 +108,7 @@ const Box: VibeComponent<BoxProps> & {
           styles.box,
           className,
           { [styles.opacityDisabled]: disabled, [styles.scrollable]: scrollable, [styles.border]: border },
-          getStyleByProp(borderColor),
-          getStyleByProp(rounded),
-          getStyleByProp(shadow),
-          getStyleByProp(margin),
-          getStyleByProp(marginX),
-          getStyleByProp(marginY),
-          getStyleByProp(marginTop),
-          getStyleByProp(marginEnd),
-          getStyleByProp(marginBottom),
-          getStyleByProp(marginStart),
-          getStyleByProp(padding),
-          getStyleByProp(paddingX),
-          getStyleByProp(paddingY),
-          getStyleByProp(paddingTop),
-          getStyleByProp(paddingEnd),
-          getStyleByProp(paddingBottom),
-          getStyleByProp(paddingStart),
-          getStyleByProp(textColor),
-          getStyleByProp(backgroundColor)
+          ...getClassNames(styles, props)
         ),
         id: id,
         style

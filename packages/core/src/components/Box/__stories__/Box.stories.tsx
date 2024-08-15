@@ -144,37 +144,37 @@ export const Margin = {
   render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mXs">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="xs">
           <div className={styles.boxPaddingInner}>mXs</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mSmall">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="small">
           <div className={styles.boxPaddingInner}>mSmall</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mMedium">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="medium">
           <div className={styles.boxPaddingInner}>mMedium</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mLarge">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="large">
           <div className={styles.boxPaddingInner}>mLarge</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mXl">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="xl">
           <div className={styles.boxPaddingInner}>mXl</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="mXxl">
+        <Box backgroundColor="bgPrimaryBackgroundColor" border margin="xxl">
           <div className={styles.boxPaddingInner}>mXxl</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box border margin="mXxxl">
+        <Box border margin="xxl">
           <div className={styles.boxPaddingInner}>mXxxl</div>
         </Box>
       </div>
@@ -188,37 +188,37 @@ export const Padding = {
   render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pXs">
+        <Box border padding="xs">
           <div className={styles.boxPaddingInner}>pXs</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pSmall">
+        <Box border padding="small">
           <div className={styles.boxPaddingInner}>pSmall</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pMedium">
+        <Box border padding="medium">
           <div className={styles.boxPaddingInner}>pMedium</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pLarge">
+        <Box border padding="large">
           <div className={styles.boxPaddingInner}>pLarge</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pXl">
+        <Box border padding="xl">
           <div className={styles.boxPaddingInner}>pXl</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pXxl">
+        <Box border padding="xxl">
           <div className={styles.boxPaddingInner}>pXxl</div>
         </Box>
       </div>
       <div className={styles.boxPaddingWrapper}>
-        <Box border padding="pXxxl">
+        <Box border padding="xxl">
           <div className={styles.boxPaddingInner}>pXxxl</div>
         </Box>
       </div>
