@@ -1,1 +1,1 @@
-export type DirectionType = "vertical" | "horizontal";
+export type DividerDirection = "vertical" | "horizontal";

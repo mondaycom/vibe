@@ -3,13 +3,8 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
 import { ColorStyle as ColorStyleEnum, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import {
-  ColorShapes as ColorShapesEnum,
-  DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  ColorPickerValue,
-  ColorPickerArrayValueOnly
-} from "../../ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
+import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "../../ColorPicker.types";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
   GridKeyboardNavigationContext,

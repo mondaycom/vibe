@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactElement, Ref, useMemo } from "react";
-import VirtualizedList, { VirtualizedListItem } from "../VirtualizedList/VirtualizedList";
+import { VirtualizedList, VirtualizedListItem } from "../VirtualizedList";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/Avatar.types";
 import { AvatarProps } from "../Avatar/Avatar";

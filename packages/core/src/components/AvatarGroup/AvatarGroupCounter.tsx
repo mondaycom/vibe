@@ -9,7 +9,7 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
+import { AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
