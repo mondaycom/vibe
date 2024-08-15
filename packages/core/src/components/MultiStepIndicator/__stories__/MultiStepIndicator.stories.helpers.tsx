@@ -1,6 +1,6 @@
 import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import { Step } from "../MultiStepIndicator";
+import { Step } from "../MultiStep.types";
 
 export const firstSteps: Step[] = [
   {

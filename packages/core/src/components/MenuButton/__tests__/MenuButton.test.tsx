@@ -162,10 +162,10 @@ describe("MenuButton", () => {
           userEvent.type(button, "{enter}");
         });
         if (closeMenuOnItemClick) {
-          await waitForElementToBeRemoved(() => screen.queryAllByText("Menu Item"));
+          await waitForElementToBeRemoved(() => screen.queryByText("Menu Item"));
           expect(screen.queryByText("Menu Item")).toBeFalsy();
         } else {
-          expect(screen.queryAllByText("Menu Item")).toBeTruthy();
+          expect(screen.queryByText("Menu Item")).toBeTruthy();
         }
       }
     );

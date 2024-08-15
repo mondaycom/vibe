@@ -99,11 +99,13 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tooltipArrowClassName,
       modifiers = [],
       floating = false,
-      color = "inverted",
+      color: colorProp,
       "data-testid": dataTestId
     }: TipseenProps,
     ref
   ) => {
+    const color = colorProp ?? "inverted";
+
     const defaultDelayOpen =
       Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
 

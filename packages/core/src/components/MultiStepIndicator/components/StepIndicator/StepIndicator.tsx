@@ -41,7 +41,6 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
       className={classNames(styles.numberContainerTextCheckIcon)}
       iconType={fulfilledStepIconType}
       ignoreFocusStyle
-      clickable={false}
       ariaHidden={true}
     />
   ) : (

@@ -71,7 +71,7 @@ const Menu: VibeComponent<MenuProps> & {
       useDocumentEventListeners = false,
       shouldScrollMenu = false,
       "data-testid": dataTestId
-    },
+    }: MenuProps,
     forwardedRef
   ) => {
     const ref = useRef(null);

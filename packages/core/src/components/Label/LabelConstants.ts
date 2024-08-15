@@ -1,4 +1,4 @@
-import { TextType } from "../Text/TextConstants";
+import { TextType } from "../Text/Text.types";
 import Text from "../Text/Text";
 import { LabelSizes } from "./Label.types";
 

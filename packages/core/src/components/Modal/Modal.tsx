@@ -79,6 +79,10 @@ export interface ModalProps {
    * z-index attribute of the container
    */
   zIndex?: number;
+  /**
+   * When `false`, the modal will remain in the DOM when closed
+   */
+  unmountOnClose?: boolean;
 }
 
 const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
@@ -95,6 +99,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,
+  unmountOnClose = true,
   "data-testid": dataTestId
 }: ModalProps) => {
   const childrenArray: ReactElement[] = useMemo(
@@ -187,7 +192,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
     document.body
   );
 
-  if (!shouldShow) {
+  if (unmountOnClose && !shouldShow) {
     return null;
   }
 

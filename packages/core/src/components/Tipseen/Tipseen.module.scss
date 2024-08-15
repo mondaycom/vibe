@@ -5,6 +5,7 @@
   min-height: 40px;
   --tooltip-padding: 0;
   --tooltip-border-radius: var(--border-radius-medium);
+  --tooltip-max-width: initial;
 
   &WithoutCustomWidth {
     --tooltip-max-width: 320px;

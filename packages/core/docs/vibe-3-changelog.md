@@ -11,7 +11,7 @@
 
 ## Colors
 
-- Removed `--shareable-color` and `--private-color`
+- Removed `--shareable-color` and `--private-color` for all themes
 
 ## Typography
 
@@ -44,7 +44,7 @@ codemod: `avatar-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 - `children` prop is now mandatory
-- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
+- `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
@@ -69,6 +69,7 @@ codemod: `chips-component-migration`
 ### Counter
 
 - `wrapperClassName` -> `className` [codemod]
+  - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### Dialog
 
@@ -100,6 +101,10 @@ codemod: `chips-component-migration`
 ### Heading
 
 - `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
+
+### Icon
+
+- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon [codemod]
 
 ### IconButton
 
@@ -139,6 +144,7 @@ codemod: `chips-component-migration`
 ### MenuItem
 
 - `classname` -> `className` [codemod]
+- Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
@@ -158,8 +164,7 @@ codemod: `chips-component-migration`
 
 - Modal no longer have the ability to remove the close button due to UX decision
   - Removed `hideCloseButton` prop which is not needed anymore [codemod]
-- Modal will not render if `show` is false
-  - `unmountOnClose` removed, modal will always unmount on close [codemod]
+- The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render if `show` is "false". To disable this behavior set `unmountOnClose` to "false".
 
 ### ModalHeader
 
@@ -199,12 +204,20 @@ codemod: `search-component-import-migration`
 
 - `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
+### TabPanels
+
+- Fix: TabPanels will render only the active tab
+- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod]
+
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod]
+- `iconsNames` prop removed `layout` [codemod]
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
 - Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+-
 
 ### ThemeProvider
 
@@ -217,7 +230,7 @@ codemod: `search-component-import-migration`
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod]
 - `showDelay` changed default to 100
 - `justify` removed
-- `justifyTypes` removed
+  - `Tipseen.justifyTypes` removed
 - `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
 - `content` prop is now mandatory
 
@@ -237,9 +250,14 @@ codemod: `search-component-import-migration`
 - `themes` - remove all themes besides for "dark" & "primary" [codemod]
 - `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
+- `addKeyboardHideShowTriggersByDefault` default changed to true [codemod - remove prop if exists, and add as false if doesn't exist]
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
+  - `Tooltip.justifyTypes` removed
 - `arrowPosition` removed
+- - `Tooltip.arrowPositions` removed
+- `withMaxWidth` prop removed, max-width is now set to 240px [codemod]
+- Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
 
 ### ColorPicker
 
@@ -255,7 +273,8 @@ codemod: `search-component-import-migration`
 
 ## Icons
 
-- Removed Current Upgrade icon, and rename existing Featured icon to Upgrade
+- Removed Upgrade icon
+- Featured icon renamed to Upgrade
 
 ## Hooks
 
@@ -263,10 +282,6 @@ codemod: `search-component-import-migration`
 
 - `dataTestId` -> `data-testid` [codemod]
 
-### useSwitch
-
-- `onChange` type changed to `(value: boolean, event?: ChangeEvent<HTMLInputElement>) => void`
-
 ## monday-ui-style
 
-- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json
+- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json, use `warning-color-*` instead

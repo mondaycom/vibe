@@ -4,7 +4,7 @@ import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
-import { IconPosition, LinkTarget } from "./Link.types";
+import { LinkIconPosition, LinkTarget } from "./Link.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 
@@ -31,8 +31,8 @@ export interface LinkProps extends VibeComponentProps {
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
   icon?: SubIcon;
-  /** the position of the icon in relation to the etext */
-  iconPosition?: IconPosition;
+  /** the position of the icon in relation to the text */
+  iconPosition?: LinkIconPosition;
   /** disable navigation */
   disableNavigation?: boolean;
   /** inherit text size */
@@ -107,7 +107,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} clickable={false} icon={icon} iconType="font" />;
+  return <Icon className={className} icon={icon} iconType="font" />;
 }
 
 export default withStaticProps(Link, {

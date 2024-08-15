@@ -56,7 +56,7 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       disabled = false,
       style,
       "data-testid": dataTestId
-    },
+    }: ClickableProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const clickableProps = useClickableProps(

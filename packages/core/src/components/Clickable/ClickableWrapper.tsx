@@ -11,7 +11,7 @@ export interface ClickableWrapperProps extends VibeComponentProps {
 }
 
 const ClickableWrapper: VibeComponent<ClickableWrapperProps, HTMLElement> = forwardRef(
-  ({ children, isClickable = true, clickableProps = {} }, ref) => {
+  ({ children, isClickable = true, clickableProps = {} }: ClickableWrapperProps, ref) => {
     if (!isClickable) {
       return <>{children}</>;
     }

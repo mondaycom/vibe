@@ -3,7 +3,7 @@ import React, { FC, ReactElement } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
-import { BreadcrumbsBarType } from "./Breadcrumbst.types";
+import { BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";

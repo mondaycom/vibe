@@ -66,7 +66,6 @@ const Search = forwardRef(
       <Icon
         icon={searchIconName}
         className={styles.icon}
-        clickable={false}
         iconType="font"
         iconSize={size === "small" ? "16px" : "20px"}
       />

@@ -73,7 +73,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               className={styles.icon}
               iconType={iconType}
               ariaHidden
-              clickable={false}
               icon={overrideIcon}
               ignoreFocusStyle
               iconSize="20"
@@ -86,7 +85,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       )}
       <Flex justify="start" align="center" gap="xs">
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
-          <Icon iconType={iconType} iconSize={18} ariaHidden clickable={false} icon={overrideIcon} ignoreFocusStyle />
+          <Icon iconType={iconType} iconSize={18} ariaHidden icon={overrideIcon} ignoreFocusStyle />
         )}
         <Text
           type="text2"

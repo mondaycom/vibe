@@ -16,7 +16,6 @@ import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {
   FEEDBACK_CLASSES,
-  getActualSize,
   SIZE_MAPPER,
   TextFieldAriaLabel,
   TextFieldFeedbackState as TextFieldFeedbackStateEnum,
@@ -33,7 +32,7 @@ import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types"
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
 
-const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
+const EMPTY_OBJECT = { primary: "", secondary: "" };
 
 export interface TextFieldProps extends VibeComponentProps {
   placeholder?: string;
@@ -69,9 +68,7 @@ export interface TextFieldProps extends VibeComponentProps {
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /**  Icon names labels for a11y */
-  /// TODO: [breaking] remove layout
   iconsNames?: {
-    layout: string;
     primary: string;
     secondary: string;
   };
@@ -264,7 +261,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       >
         <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} labelFor={id} required={required} />
-          <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
+          <div className={cx(styles.inputWrapper, SIZE_MAPPER[size], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
@@ -310,7 +307,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             )}
             <Tooltip
               content={isPrimary ? iconTooltipContent : undefined}
-              addKeyboardHideShowTriggersByDefault
               referenceWrapperClassName={styles.tooltipContainer}
             >
               <Clickable
@@ -326,7 +322,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 <Icon
                   icon={iconName}
                   className={cx(styles.icon)}
-                  clickable={false}
                   iconType="font"
                   iconSize={size === "small" ? "16px" : "18px"}
                 />
@@ -351,7 +346,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 <Icon
                   icon={secondaryIconName}
                   className={cx(styles.icon)}
-                  clickable={false}
                   iconType="font"
                   iconSize={size === "small" ? "16px" : "18px"}
                 />

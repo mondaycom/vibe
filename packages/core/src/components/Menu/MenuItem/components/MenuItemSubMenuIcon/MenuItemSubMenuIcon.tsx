@@ -27,7 +27,6 @@ const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: Re
       </>
     ) : (
       <Icon
-        clickable={false}
         icon={DropdownChevronRight}
         iconLabel={props.label}
         className={styles.subMenuIcon}
