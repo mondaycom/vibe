@@ -38,7 +38,9 @@ codemod: `avatar-component-migration`
 
 ### BreadcrumbItem
 
-- `isDisabled` -> `disabled` [codemod]
+codemod: `breadcrumb-item-migration`
+
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### Button
 
