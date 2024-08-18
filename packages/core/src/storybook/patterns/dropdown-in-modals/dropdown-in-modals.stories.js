@@ -189,7 +189,7 @@ export const MenuPosition = () => {
     <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box marginTop="medium" marginBottom="xxl">
           <Dropdown
             placeholder="Dropdown inside DialogContentContainer"
             options={options}
@@ -212,7 +212,7 @@ export const MenuPosition = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box marginTop="medium" marginBottom="xxl">
               <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
             </Box>
           </DialogContentContainer>
@@ -319,7 +319,7 @@ export const InsideOverflowContainer = () => {
     <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box marginTop="medium" marginBottom="xxl">
           <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} insideOverflowContainer />
         </Box>
       </DialogContentContainer>
@@ -338,7 +338,7 @@ export const InsideOverflowContainer = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box marginTop="medium" marginBottom="xxl">
               <Dropdown placeholder="Dropdown" options={options} insideOverflowContainer />
             </Box>
           </DialogContentContainer>
@@ -426,7 +426,7 @@ export const InsideOverflowWithTransformContainer = () => {
   const secondDialogContent = (
     <DialogContentContainer style={dialogStyle}>
       <ModalExampleContent />
-      <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+      <Box marginTop="medium" marginBottom="xxl">
         <Dropdown placeholder="Dropdown" options={options} insideOverflowWithTransformContainer />
       </Box>
     </DialogContentContainer>
