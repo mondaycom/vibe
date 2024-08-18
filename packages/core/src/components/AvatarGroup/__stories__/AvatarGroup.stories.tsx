@@ -1,10 +1,11 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
+import { Meta, StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
-import type { AvatarGroupProps } from "../AvatarGroup";
+import { AvatarGroupProps } from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
@@ -17,8 +18,6 @@ import TableBody from "../../Table/TableBody/TableBody";
 import TableRow from "../../Table/TableRow/TableRow";
 import TableCell from "../../Table/TableCell/TableCell";
 import styles from "./AvatarGroup.stories.module.scss";
-import type { Meta, StoryObj } from "@storybook/react";
-import type { CounterColor } from "src/components/Counter/CounterConstants";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup,
