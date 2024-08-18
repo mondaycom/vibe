@@ -87,12 +87,6 @@ const Box: VibeComponent<BoxProps> & {
         .map(prop => {
           const value = props[prop];
           const prefix = SizePrefixMapping[prop as keyof typeof SizePrefixMapping];
-          console.log(
-            'prefix && typeof value === "string"',
-            prefix,
-            typeof value === "string",
-            styles[camelCase(`${prefix}-${value}`)]
-          );
           return prefix && typeof value === "string" ? styles[camelCase(`${prefix}-${value}`)] : styles[value];
         })
         .filter(Boolean);
