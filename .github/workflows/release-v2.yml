@@ -1,0 +1,47 @@
+name: Release v2 version
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/core
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - uses: ./.github/actions/git-creds
+      - name: Check current branch is "version2"
+        run: |
+          if [[ "$(git branch --show-current)" != "version2" ]]; then
+            echo "Error: Not on 'version2' branch."
+            exit 1
+          fi
+      - name: Build
+        run: yarn build
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Stylelint
+        run: yarn stylelint
+      - name: Generate new core version
+        run: |
+          npm version patch -m "chore(release): bump core package version to %s"
+      - run: yarn config set registry https://registry.npmjs.org/
+      - name: Setup .npmrc for publish
+        id: setup-npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      - name: Publish core to npm
+        run: npm publish --dry-run
+      - name: Remove .npmrc
+        if: steps.setup-npmrc.outcome == 'success'
+        run: rm .npmrc
