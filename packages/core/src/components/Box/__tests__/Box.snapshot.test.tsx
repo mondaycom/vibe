@@ -5,7 +5,7 @@ import Box from "../Box";
 jest.mock("../Box.module.scss", () => ({
   box: "box",
   border: "border",
-  borderColorUiBorderColor: "borderColorUiBorderColor",
+  borderColorUiBorderColor: "uiBorderColor",
   roundedSmall: "roundedSmall",
   shadowSmall: "shadowSmall",
   mSmall: "mSmall",
@@ -42,7 +42,7 @@ describe("Box renders correctly", () => {
   });
 
   it("with borderColor prop", () => {
-    const tree = renderer.create(<Box borderColor="borderColorUiBorderColor" />).toJSON();
+    const tree = renderer.create(<Box borderColor="uiBorderColor" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -122,12 +122,12 @@ describe("Box renders correctly", () => {
   });
 
   it("with backgroundColor prop", () => {
-    const tree = renderer.create(<Box backgroundColor="bgPrimaryBackgroundColor" />).toJSON();
+    const tree = renderer.create(<Box backgroundColor="primaryBackgroundColor" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with text prop", () => {
-    const tree = renderer.create(<Box textColor="textPrimaryTextColor" />).toJSON();
+    const tree = renderer.create(<Box textColor="primaryTextColor" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

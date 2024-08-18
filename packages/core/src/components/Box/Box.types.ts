@@ -1,22 +1,18 @@
-export type Disabled = "opacityDisabled";
-
-export type Border = "border";
-
-export type BorderColor = "borderColorUiBorderColor" | "borderColorLayoutBorderColor";
+export type BorderColor = "uiBorderColor" | "layoutBorderColor";
 
 export type BackgroundColor =
-  | "bgPrimaryBackgroundColor"
-  | "bgSecondaryBackgroundColor"
-  | "bgGreyBackgroundColor"
-  | "bgAllgreyBackgroundColor"
-  | "bgInvertedColorBackground";
+  | "primaryBackgroundColor"
+  | "secondaryBackgroundColor"
+  | "greyBackgroundColor"
+  | "allgreyBackgroundColor"
+  | "invertedColorBackground";
 
-export type BoxTextColor = "textPrimaryTextColor" | "textTextColorOnInverted" | "textSecondaryTextColor";
+export type BoxTextColor = "primaryTextColor" | "textColorOnInverted" | "secondaryTextColor";
 
-export type BoxPropSize = "xs" | "small" | "medium" | "large" | "xl" | "xxl" | "xxxl";
+export type BaseBoxSize = "xs" | "small" | "medium" | "large" | "xl" | "xxl" | "xxxl";
 
-export type BoxPropSizeWithAuto = "auto" | BoxPropSize;
+export type BoxSize = "auto" | BaseBoxSize;
 
-export type Shadow = Extract<BoxPropSize, "xs" | "small" | "medium" | "large">;
+export type Shadow = Extract<BaseBoxSize, "xs" | "small" | "medium" | "large">;
 
-export type Rounded = "small" | "medium" | "big";
+export type RoundedSize = "small" | "medium" | "big";

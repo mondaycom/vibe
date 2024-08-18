@@ -16,8 +16,8 @@ export enum Border {
  * @deprecated
  */
 export enum BorderColor {
-  UI_BORDER_COLOR = "borderColorUiBorderColor",
-  LAYOUT_BORDER_COLOR = "borderColorLayoutBorderColor"
+  UI_BORDER_COLOR = "uiBorderColor",
+  LAYOUT_BORDER_COLOR = "layoutBorderColor"
 }
 
 /**
@@ -232,20 +232,20 @@ export enum PaddingStart {
  * @deprecated
  */
 export enum BackgroundColor {
-  PRIMARY_BACKGROUND_COLOR = "bgPrimaryBackgroundColor",
-  SECONDARY_BACKGROUND_COLOR = "bgSecondaryBackgroundColor",
-  GREY_BACKGROUND_COLOR = "bgGreyBackgroundColor",
-  ALL_GREY_BACKGROUND_COLOR = "bgAllgreyBackgroundColor",
-  INVERTED_COLOR_BACKGROUND = "bgInvertedColorBackground"
+  PRIMARY_BACKGROUND_COLOR = "primaryBackgroundColor",
+  SECONDARY_BACKGROUND_COLOR = "secondaryBackgroundColor",
+  GREY_BACKGROUND_COLOR = "greyBackgroundColor",
+  ALL_GREY_BACKGROUND_COLOR = "allgreyBackgroundColor",
+  INVERTED_COLOR_BACKGROUND = "invertedColorBackground"
 }
 
 /**
  * @deprecated
  */
 export enum BoxTextColor {
-  PRIMARY_TEXT_COLOR = "textPrimaryTextColor",
-  TEXT_COLOR_ON_INVERTED = "textTextColorOnInverted",
-  SECONDARY_TEXT_COLOR = "textSecondaryTextColor"
+  PRIMARY_TEXT_COLOR = "primaryTextColor",
+  TEXT_COLOR_ON_INVERTED = "textColorOnInverted",
+  SECONDARY_TEXT_COLOR = "secondaryTextColor"
 }
 
 export const SizePrefixMapping = {
@@ -264,5 +264,8 @@ export const SizePrefixMapping = {
   paddingBottom: "pb",
   paddingStart: "ps",
   shadow: "shadow",
-  rounded: "rounded"
+  rounded: "rounded",
+  borderColor: "borderColor",
+  backgroundColor: "bg",
+  textColor: "text"
 };

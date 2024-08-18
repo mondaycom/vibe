@@ -24,15 +24,7 @@ import {
   Shadow as ShadowEnum,
   SizePrefixMapping
 } from "./BoxConstants";
-import {
-  BackgroundColor,
-  BorderColor,
-  BoxPropSize,
-  BoxPropSizeWithAuto,
-  BoxTextColor,
-  Rounded,
-  Shadow
-} from "./Box.types";
+import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
 import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 
@@ -42,22 +34,22 @@ export interface BoxProps extends VibeComponentProps {
   disabled?: boolean;
   border?: boolean;
   borderColor?: BorderColor;
-  rounded?: Rounded;
+  rounded?: RoundedSize;
   shadow?: Shadow;
-  margin?: BoxPropSizeWithAuto;
-  marginX?: BoxPropSizeWithAuto;
-  marginY?: BoxPropSizeWithAuto;
-  marginTop?: BoxPropSizeWithAuto;
-  marginEnd?: BoxPropSizeWithAuto;
-  marginBottom?: BoxPropSize;
-  marginStart?: BoxPropSize;
-  padding?: BoxPropSize;
-  paddingX?: BoxPropSize;
-  paddingY?: BoxPropSize;
-  paddingTop?: BoxPropSize;
-  paddingEnd?: BoxPropSize;
-  paddingBottom?: BoxPropSize;
-  paddingStart?: BoxPropSize;
+  margin?: BoxSize;
+  marginX?: BoxSize;
+  marginY?: BoxSize;
+  marginTop?: BoxSize;
+  marginEnd?: BoxSize;
+  marginBottom?: BaseBoxSize;
+  marginStart?: BaseBoxSize;
+  padding?: BaseBoxSize;
+  paddingX?: BaseBoxSize;
+  paddingY?: BaseBoxSize;
+  paddingTop?: BaseBoxSize;
+  paddingEnd?: BaseBoxSize;
+  paddingBottom?: BaseBoxSize;
+  paddingStart?: BaseBoxSize;
   backgroundColor?: BackgroundColor;
   textColor?: BoxTextColor;
   scrollable?: boolean;
@@ -95,6 +87,12 @@ const Box: VibeComponent<BoxProps> & {
         .map(prop => {
           const value = props[prop];
           const prefix = SizePrefixMapping[prop as keyof typeof SizePrefixMapping];
+          console.log(
+            'prefix && typeof value === "string"',
+            prefix,
+            typeof value === "string",
+            styles[camelCase(`${prefix}-${value}`)]
+          );
           return prefix && typeof value === "string" ? styles[camelCase(`${prefix}-${value}`)] : styles[value];
         })
         .filter(Boolean);
