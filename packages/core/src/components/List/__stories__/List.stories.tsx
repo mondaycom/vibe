@@ -8,13 +8,6 @@ import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import ListTitle from "../../ListTitle/ListTitle";
-import Add from "../../Icon/Icons/components/Add";
-import Filter from "../../Icon/Icons/components/Filter";
-import classes from "./List.stories.module.scss";
-import Divider from "../../Divider/Divider";
-import Avatar from "../../Avatar/Avatar";
-import { Icon } from "../../index";
-import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -185,46 +178,4 @@ export const ListWithVirtualizationOptimization = {
   ),
 
   name: "List with virtualization optimization"
-};
-
-export const ListAsLeftpane = {
-  render: () => (
-    <div className={classes["leftpane-workspaces-section"]}>
-      <span className={classes["leftpane-workspaces-title"]}>Workspace</span>
-      <span className={classes["leftpane-workspaces-options"]}>
-        <div className={classes["leftpane-workspaces-description"]}>
-          <Avatar size="small" text="W" backgroundColor="indigo" square />
-          Workspace name
-        </div>
-        <Icon className={classes["leftpane-workspaces-options-icon"]} icon={DropdownChevronDown} />
-      </span>
-      <List>
-        <ListItem>
-          <ListItemIcon icon={Add} />
-          Add
-        </ListItem>
-        <ListItem>
-          <ListItemIcon icon={Filter} />
-          Filter
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem>
-          <ListItemIcon icon={Board} />
-          Board name
-        </ListItem>
-        <ListItem>
-          <ListItemIcon icon={Board} />
-          Board name
-        </ListItem>
-        <ListItem>
-          <ListItemIcon icon={Board} />
-          Board name
-        </ListItem>
-      </List>
-    </div>
-  ),
-
-  name: "List as leftpane"
 };
