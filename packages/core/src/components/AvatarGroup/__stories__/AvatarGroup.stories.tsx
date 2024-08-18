@@ -1,9 +1,11 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
+import { Meta, StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
+import { AvatarGroupProps } from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
@@ -31,9 +33,14 @@ export default {
       }
     }
   }
-};
+} satisfies Meta<typeof AvatarGroup>;
 
-const avatarGroupTemplate = ({ persons, ...args }) => {
+type Story = StoryObj<typeof AvatarGroup>;
+
+interface AvatarGroupTemplateProps extends AvatarGroupProps {
+  persons: Record<`person${1 | 2 | 3 | 4}`, string>;
+}
+const avatarGroupTemplate = ({ persons, ...args }: AvatarGroupTemplateProps) => {
   return (
     <AvatarGroup size="large" max={3} {...args}>
       <Avatar type="img" src={persons.person2} ariaLabel="Sophia Johnson" />
@@ -53,7 +60,7 @@ const avatarGroupTemplate = ({ persons, ...args }) => {
   );
 };
 
-export const Overview = {
+export const Overview: StoryObj<typeof avatarGroupTemplate> = {
   render: avatarGroupTemplate.bind({}),
   args: {
     persons: {
@@ -72,7 +79,7 @@ export const Overview = {
   }
 };
 
-export const Size = {
+export const Size: Story = {
   render: () => (
     <Flex direction="column" gap="large" align="start">
       <StoryDescription description="Large" vertical align={Flex.align.START}>
@@ -133,7 +140,7 @@ export const Size = {
   )
 };
 
-export const ColorVariants = {
+export const ColorVariants: Story = {
   render: () => (
     <Flex direction="column" gap="large" align="start">
       <StoryDescription description="Light" vertical align={Flex.align.START}>
@@ -190,7 +197,7 @@ export const ColorVariants = {
   )
 };
 
-export const MaxAvatarsToDisplay = {
+export const MaxAvatarsToDisplay: Story = {
   render: () => {
     const [max, setMax] = useState(4);
 
@@ -225,9 +232,9 @@ export const MaxAvatarsToDisplay = {
   }
 };
 
-export const HoverVsClickable = {
+export const HoverVsClickable: Story = {
   render: () => {
-    const getDummyAvatarsProps = useCallback(numItems => {
+    const getDummyAvatarsProps = useCallback((numItems: number) => {
       const avatarsProps = [
         {
           type: Avatar.types.IMG,
@@ -251,7 +258,7 @@ export const HoverVsClickable = {
         }
       ];
 
-      let result = [];
+      const result = [];
 
       for (let i = 0; i < numItems; i++) {
         result.push(avatarsProps[i % avatarsProps.length]);
@@ -279,7 +286,7 @@ export const HoverVsClickable = {
           <Flex>
             <AvatarGroup size="large" max={4}>
               {getDummyAvatarsProps(14).map((avatarProps, index) => (
-                <Avatar {...avatarProps} onClick={() => {}} id={index} />
+                <Avatar {...avatarProps} onClick={() => {}} id={String(index)} />
               ))}
             </AvatarGroup>
           </Flex>
@@ -307,7 +314,7 @@ export const Disabled = () => (
   </AvatarGroup>
 );
 
-export const LastSeenUsers = {
+export const LastSeenUsers: Story = {
   render: () => (
     <Flex direction="row" gap="medium">
       <div>Last seen</div>
@@ -331,7 +338,7 @@ export const LastSeenUsers = {
   )
 };
 
-export const CustomCounter = {
+export const CustomCounter: Story = {
   render: () => (
     <AvatarGroup
       size="large"
@@ -352,7 +359,7 @@ export const CustomCounter = {
   )
 };
 
-export const GridTooltip = {
+export const GridTooltip: Story = {
   render: () => (
     <AvatarGroup size="large" type="img" max={4}>
       <Avatar src={person1} />
@@ -375,7 +382,7 @@ export const GridTooltip = {
   )
 };
 
-export const CounterCustomTooltipContent = {
+export const CounterCustomTooltipContent: Story = {
   render: () => (
     <AvatarGroup
       size="large"
@@ -397,7 +404,7 @@ export const CounterCustomTooltipContent = {
   )
 };
 
-export const VirtualizedList = {
+export const VirtualizedList: Story = {
   render: () => {
     const avatars = [
       <Avatar src={person1} ariaLabel="Julia Martinez" />,
@@ -406,8 +413,8 @@ export const VirtualizedList = {
       <Avatar src={person4} ariaLabel="Liam Caldwell" />
     ];
 
-    const getDummyAvatars = multiplier => {
-      let result = [];
+    const getDummyAvatars = (multiplier: number) => {
+      let result: typeof avatars = [];
 
       for (let i = 0; i < multiplier; ++i) {
         result = result.concat(avatars);
@@ -424,7 +431,7 @@ export const VirtualizedList = {
   }
 };
 
-export const DisplayingTeams = {
+export const DisplayingTeams: Story = {
   render: () => (
     <Table
       columns={[
@@ -445,6 +452,8 @@ export const DisplayingTeams = {
           title: "Teams"
         }
       ]}
+      errorState={<div />}
+      emptyState={<div />}
     >
       <TableHeader>
         <TableHeaderCell title="Name" />
