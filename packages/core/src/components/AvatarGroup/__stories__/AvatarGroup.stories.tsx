@@ -329,7 +329,7 @@ export const LastSeenUsers: Story = {
       <AvatarGroup
         size={Avatar.sizes.MEDIUM}
         max={4}
-        counterProps={{ color: CounterColor.DARK }}
+        counterProps={{ color: Counter.colors.DARK }}
         type={Avatar.types.IMG}
       >
         <Avatar src={person1} ariaLabel="Julia Martinez" />
@@ -402,8 +402,7 @@ export const CounterCustomTooltipContent: Story = {
       type={Avatar.types.IMG}
       max={4}
       counterTooltipCustomProps={{
-        content: "... and plenty more employees",
-        forceRenderWithoutChildren: false
+        content: "... and plenty more employees"
       }}
     >
       <Avatar src={person1} ariaLabel="Julia Martinez" />
@@ -466,6 +465,8 @@ export const DisplayingTeams: Story = {
           title: "Teams"
         }
       ]}
+      errorState={<div />}
+      emptyState={<div />}
     >
       <TableHeader>
         <TableHeaderCell title="Name" />
