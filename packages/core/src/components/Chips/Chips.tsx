@@ -17,7 +17,7 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Chips.module.scss";
 
-const CHIPS_AVATAR_SIZE = 20;
+const CHIPS_AVATAR_SIZE = 18;
 
 export interface ChipsProps extends VibeComponentProps {
   label?: ElementContent;
@@ -154,7 +154,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
 
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
-      [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder
