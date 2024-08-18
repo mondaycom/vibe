@@ -24,7 +24,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   aria-label=""
-  className="chips withClose noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -85,7 +85,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   aria-label=""
-  className="chips withClose noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -160,8 +160,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
     data-testid="avatar"
     style={
       {
-        "height": 20,
-        "width": 20,
+        "height": 18,
+        "width": 18,
       }
     }
   >
@@ -190,7 +190,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 exports[`Chips renders correctly renders correctly with left custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips withClose noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -316,8 +316,8 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
     data-testid="avatar"
     style={
       {
-        "height": 20,
-        "width": 20,
+        "height": 18,
+        "width": 18,
       }
     }
   >
@@ -340,7 +340,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 exports[`Chips renders correctly renders correctly with right custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips withClose noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -470,7 +470,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   aria-label="text"
-  className="chips withClose noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
