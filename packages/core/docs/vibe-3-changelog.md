@@ -42,19 +42,23 @@ codemod: `avatar-component-migration`
 
 ### BreadcrumbItem
 
-codemod: `breadcrumb-item-migration`
+codemod: `breadcrumb-item-component-migration`
 
 - `isDisabled` -> `disabled` [codemod ✅]
 
 ### Button
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `button-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 - `children` prop is now mandatory
 - `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
-- `componentClassName` -> `className` [codemod]
+codemod: `button-group-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]]
 
 ### Checkbox
 
