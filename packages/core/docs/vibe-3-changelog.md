@@ -44,7 +44,9 @@ codemod: `breadcrumb-item-migration`
 
 ### Button
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `button-item-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 - `children` prop is now mandatory
 - `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
