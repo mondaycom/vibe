@@ -61,11 +61,11 @@ describe("BreadcrumbItem component migration", () => {
     transform,
     {},
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { BreadcrumbItem } from "other-library";
       <BreadcrumbItem isDisabled />
     `,
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { BreadcrumbItem } from "other-library";
       <BreadcrumbItem isDisabled />
     `,
     "should not change when 'BreadcrumbItem' is not imported from vibe"
