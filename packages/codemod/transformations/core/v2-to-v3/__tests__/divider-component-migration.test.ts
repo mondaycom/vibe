@@ -119,14 +119,28 @@ describe("Divider component migration", () => {
     transform,
     {},
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { Divider } from "other-library";
       <Divider classname="old-class" />
     `,
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { Divider } from "other-library";
       <Divider classname="old-class" />
     `,
     "should not change when 'Divider' is not imported from vibe"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+      import { OtherComponent as Divider } from "other-library";
+      <Divider classname="old-class" />
+    `,
+    `
+      import { OtherComponent as Divider } from "other-library";
+      <Divider classname="old-class" />
+    `,
+    "should not change when 'Divider' is an alias for another component that is not from vibe"
   );
 
   defineInlineTest(
