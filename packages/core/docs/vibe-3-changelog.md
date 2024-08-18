@@ -137,7 +137,9 @@ codemod: `divider-component-migration`
 
 ### Loader
 
-- `svgClassName` -> `className` [codemod]
+codemod: `loader-component-migration`
+
+- `svgClassName` -> `className` [codemod ✅]
 
 ### Menu
 
