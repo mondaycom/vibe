@@ -38,13 +38,13 @@ codemod: `avatar-component-migration`
 
 ### BreadcrumbItem
 
-codemod: `breadcrumb-item-migration`
+codemod: `breadcrumb-item-component-migration`
 
 - `isDisabled` -> `disabled` [codemod ✅]
 
 ### Button
 
-codemod: `button-item-migration`
+codemod: `button-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod ✅]
 - `children` prop is now mandatory
@@ -52,7 +52,9 @@ codemod: `button-item-migration`
 
 ### ButtonGroup
 
-- `componentClassName` -> `className` [codemod]
+codemod: `button-group-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]]
 
 ### Checkbox
 
