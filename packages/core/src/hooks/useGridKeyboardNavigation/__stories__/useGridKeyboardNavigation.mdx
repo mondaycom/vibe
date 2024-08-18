@@ -7,11 +7,11 @@ import * as UseGridKeyboardNavigationStories from "./useGridKeyboardNavigation.s
 
 # useGridKeyboardNavigation
 
-*   [Overview](#overview)
-*   [Usage](#usage)
-*   [Arguments](#arguments)
-*   [Returns](#returns)
-*   [Feedback](#feedback)
+- [Overview](#overview)
+- [Usage](#usage)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
 
 ## Overview
 
@@ -23,6 +23,12 @@ export const PADDING_PX = 24;
 export const ON_CLICK = action("item selected");
 
 <Canvas of={UseGridKeyboardNavigationStories.Overview} />
+
+### Import
+
+```js
+import { useGridKeyboardNavigation } from "monday-ui-react-core/hooks";
+```
 
 ## Usage
 
@@ -69,6 +75,7 @@ export const ON_CLICK = action("item selected");
     />
 
     <FunctionArgument name="disabledIndexes" type="number[]" description="Optional array of disabled indices, which will be skipped while navigating." />
+
   </FunctionArgument>
 </FunctionArguments>
 
@@ -99,5 +106,6 @@ export const ON_CLICK = action("item selected");
         </>
       }
     />
+
   </FunctionArgument>
 </FunctionArguments>
