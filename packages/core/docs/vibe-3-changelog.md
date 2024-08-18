@@ -82,7 +82,9 @@ codemod: `chips-component-migration`
 
 ### Divider
 
-- `classname` -> `className` [codemod]
+codemod: `divider-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### Flex
 
