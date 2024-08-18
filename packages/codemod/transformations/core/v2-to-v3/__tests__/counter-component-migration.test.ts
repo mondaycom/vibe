@@ -119,14 +119,28 @@ describe("Counter component migration", () => {
     transform,
     {},
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { Counter } from "other-library";
       <Counter wrapperClassName="old-class" />
     `,
     `
-      import { OtherComponent } from "monday-ui-react-core";
+      import { Counter } from "other-library";
       <Counter wrapperClassName="old-class" />
     `,
     "should not change when 'Counter' is not imported from vibe"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+      import { OtherComponent as Counter } from "other-library";
+      <Counter wrapperClassName="old-class" />
+    `,
+    `
+      import { OtherComponent as Counter } from "other-library";
+      <Counter wrapperClassName="old-class" />
+    `,
+    "should not change when 'Counter' is an alias for another component that is not from vibe"
   );
 
   defineInlineTest(
