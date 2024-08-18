@@ -14,7 +14,6 @@ function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "Divider");
   if (!componentName) return;
-  console.log("transformdivider");
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 

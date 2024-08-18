@@ -28,8 +28,8 @@ describe("Divider component migration", () => {
   defineInlineTest(
     transform,
     {},
-    prependImport(`<Divider classname="old-class" type="info" />`),
-    prependImport(`<Divider className="old-class" type="info" />`),
+    prependImport(`<Divider classname="old-class" direction="vertical" />`),
+    prependImport(`<Divider className="old-class" direction="vertical" />`),
     "should update 'classname' to 'className' while maintaining other props"
   );
 
