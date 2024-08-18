@@ -68,7 +68,9 @@ codemod: `chips-component-migration`
 
 ### Counter
 
-- `wrapperClassName` -> `className` [codemod]
+codemod: `chips-component-migration`
+
+- `wrapperClassName` -> `className` [codemod ✅]
   - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
 
 ### Dialog
