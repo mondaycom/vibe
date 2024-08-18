@@ -572,7 +572,7 @@ export const StickyColumn = {
             <TableRow key={rowItem.id}>
               <TableCell sticky>{rowItem.projectName}</TableCell>
               <TableCell>
-                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} />
               </TableCell>
               <TableCell>{rowItem.description}</TableCell>
               <TableCell>{rowItem.createdOn}</TableCell>

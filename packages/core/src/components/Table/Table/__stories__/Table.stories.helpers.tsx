@@ -208,7 +208,7 @@ export const scrollTableData = [
   }
 ];
 
-export const stickyColumns: ITableColumn[] = [
+export const stickyColumns: TableColumn[] = [
   {
     id: "projectName",
     title: "Project name",
