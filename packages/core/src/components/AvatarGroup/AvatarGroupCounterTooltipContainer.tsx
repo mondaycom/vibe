@@ -18,7 +18,7 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
    * Array of Avatar elements
    */
   avatars?: ReactElement<AvatarProps>[];
-  counterTooltipCustomProps?: TooltipProps;
+  counterTooltipCustomProps?: Partial<TooltipProps>;
   counterTooltipIsVirtualizedList?: boolean;
   focusPrevPlaceholderRef?: RefObject<HTMLDivElement>;
   focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
