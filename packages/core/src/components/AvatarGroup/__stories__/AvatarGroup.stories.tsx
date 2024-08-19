@@ -82,7 +82,7 @@ export const Overview: StoryObj<typeof avatarGroupTemplate> = {
 export const Size: Story = {
   render: () => (
     <Flex direction="column" gap="large" align="start">
-      <StoryDescription description="Large" vertical align={Flex.align.START}>
+      <StoryDescription description="Large" vertical align={StoryDescription.align.START}>
         <AvatarGroup size="large" type="img" max={4}>
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
@@ -100,7 +100,7 @@ export const Size: Story = {
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Medium" vertical align={Flex.align.START}>
+      <StoryDescription description="Medium" vertical align={StoryDescription.align.START}>
         <AvatarGroup size="medium" type="img" max={4}>
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
@@ -118,7 +118,7 @@ export const Size: Story = {
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Small" vertical align={Flex.align.START}>
+      <StoryDescription description="Small" vertical align={StoryDescription.align.START}>
         <AvatarGroup size="small" type="img" max={4}>
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
@@ -143,7 +143,7 @@ export const Size: Story = {
 export const ColorVariants: Story = {
   render: () => (
     <Flex direction="column" gap="large" align="start">
-      <StoryDescription description="Light" vertical align={Flex.align.START}>
+      <StoryDescription description="Light" vertical align={StoryDescription.align.START}>
         <AvatarGroup
           size="large"
           type="img"
@@ -168,7 +168,7 @@ export const ColorVariants: Story = {
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Dark" vertical align={Flex.align.START}>
+      <StoryDescription description="Dark" vertical align={StoryDescription.align.START}>
         <AvatarGroup
           size="large"
           type="img"
@@ -208,7 +208,7 @@ export const MaxAvatarsToDisplay: Story = {
           min={1}
           max={14}
           defaultValue={max}
-          onChange={value => setMax(value)}
+          onChange={value => setMax(value as number)}
           valueText={`${max}`}
         />
         <AvatarGroup size="large" max={max}>
@@ -269,7 +269,7 @@ export const HoverVsClickable: Story = {
 
     return (
       <Flex direction="row" gap="large">
-        <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+        <StoryDescription description="Counter hover" vertical align={StoryDescription.align.START}>
           <AvatarGroup
             size="large"
             max={4}
@@ -282,7 +282,7 @@ export const HoverVsClickable: Story = {
             ))}
           </AvatarGroup>
         </StoryDescription>
-        <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+        <StoryDescription description="Counter click" vertical align={StoryDescription.align.START}>
           <Flex>
             <AvatarGroup size="large" max={4}>
               {getDummyAvatarsProps(14).map((avatarProps, index) => (
