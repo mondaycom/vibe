@@ -34,7 +34,9 @@ codemod: `avatar-component-migration`
 
 ### AvatarGroup
 
-- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+codemod: `avatar-group-component-migration`
+
+- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### Box
 - `border` change from string to boolean [codemod]
