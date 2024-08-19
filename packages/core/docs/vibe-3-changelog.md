@@ -151,30 +151,42 @@ codemod: `loader-component-migration`
 
 ### Menu
 
-- `classname` -> `className` [codemod]
+codemod: `menu-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuDivider
 
-- `classname` -> `className` [codemod]
+codemod: `menu-divider-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuItem
 
-- `classname` -> `className` [codemod]
+codemod: `menu-item-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 - Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
-- `classname` -> `className` [codemod]
+codemod: `menu-item-button-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuTitle
 
-- `classname` -> `className` [codemod]
+codemod: `menu-title-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuButton
 
-- `componentClassName` -> `className` [codemod]
-- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod]
-- Removed `disabledReason`, use `tooltipContent` instead [codemod]
+codemod: `menu-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod ✅]
+- Removed `disabledReason`, use `tooltipContent` instead [codemod ✅]
 
 ### Modal
 
