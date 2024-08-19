@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.131.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.130.2...monday-ui-react-core@2.131.0) (2024-08-19)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** be able to use some tooltip props ([#2370](https://github.com/mondaycom/vibe/issues/2370)) ([583e1fd](https://github.com/mondaycom/vibe/commit/583e1fddb07656ca76fbad941bdfb49faead547b))
+
+
+### Features
+
+* **Chips:** change chips spacing and size ([#2356](https://github.com/mondaycom/vibe/issues/2356)) ([c455cc6](https://github.com/mondaycom/vibe/commit/c455cc6fa9023d541297c097a95f268b6fa28899))
+
+
+
+
+
 ## [2.130.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.130.1...monday-ui-react-core@2.130.2) (2024-08-12)
 
 
