@@ -230,12 +230,16 @@ codemod: `search-component-import-migration`
 
 ### TabList
 
-- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+codemod: `tab-list-import-migration`
+
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### TabPanels
 
+codemod: `tab-panels-import-migration`
+
 - Fix: TabPanels will render only the active tab
-- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod]
+- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod ✅]
 
 ### TextField
 
