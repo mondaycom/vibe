@@ -13,6 +13,7 @@ import {
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
+  SplitButtonSecondaryContentPosition,
   SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticProps } from "../../types";
@@ -57,6 +58,8 @@ export interface SplitButtonProps extends ButtonProps {
 }
 
 const SplitButton: FC<SplitButtonProps> & {
+  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
+  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
   sizes?: typeof Button.sizes;
   colors?: typeof Button.colors;
   kinds?: typeof Button.kinds;
@@ -288,6 +291,8 @@ SplitButton.defaultProps = {
 };
 
 export default withStaticProps(SplitButton, {
+  secondaryPositions: SplitButtonSecondaryContentPosition,
+  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,
   colors: Button.colors,
   kinds: Button.kinds,
