@@ -1,4 +1,4 @@
-import transform from "../Checkbox-component-migration";
+import transform from "../checkbox-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
