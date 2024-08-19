@@ -11,6 +11,7 @@ import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "..
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   kind?: ButtonType;
@@ -36,6 +37,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
   isSelectable?: boolean;
   isMenuChild?: boolean;
+  tooltipPositions?: typeof TooltipPositionsEnum;
 } = ({
   className,
   kind = "primary",
@@ -132,5 +134,6 @@ Object.assign(MenuItemButton, {
 });
 
 export default withStaticProps(MenuItemButton, {
-  kinds: Button.kinds
+  kinds: Button.kinds,
+  tooltipPositions: TooltipPositionsEnum
 });
