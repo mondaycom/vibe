@@ -8,7 +8,7 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. TODO: What this codemod does?
+ * 1. Remove the 'renderOnlyActiveTab' prop
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
