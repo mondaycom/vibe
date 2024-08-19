@@ -34,7 +34,9 @@ codemod: `avatar-component-migration`
 
 ### AvatarGroup
 
-- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+codemod: `avatar-group-component-migration`
+
+- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### Box
 - `border` change from string to boolean [codemod]
@@ -62,7 +64,9 @@ codemod: `button-group-component-migration`
 
 ### Checkbox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `checkbox-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Chips
 
@@ -74,7 +78,9 @@ codemod: `chips-component-migration`
 
 ### Clickable
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `clickable-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]]
 
 ### Counter
 
@@ -122,7 +128,9 @@ codemod: `divider-component-migration`
 
 ### IconButton
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `icon-button-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 
 ## Input
 
@@ -130,9 +138,11 @@ codemod: `divider-component-migration`
 
 ### Label
 
-- `wrapperClassName` -> `className` [codemod]
+codemod: `label-button-component-migration`
+
+- `wrapperClassName` -> `className` [codemod ✅]
 - Spin in animation removed due to UX decision
-  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod]
+  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod ✅]
 
 ### EditableHeading
 
