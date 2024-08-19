@@ -76,7 +76,9 @@ codemod: `chips-component-migration`
 
 ### Clickable
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `clickable-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]]
 
 ### Counter
 
