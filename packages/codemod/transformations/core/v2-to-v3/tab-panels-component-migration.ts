@@ -10,7 +10,7 @@ import { TransformationContext } from "../../../types";
 /**
  * 1. TODO: What this codemod does?
  */
-function transform({ j, root, filePath }: TransformationContext) {
+function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "TabPanels");
   if (!componentName) return;

@@ -10,7 +10,7 @@ import { TransformationContext } from "../../../types";
 /**
  * 1. Remove the 'noPadding' prop
  */
-function transform({ j, root, filePath }: TransformationContext) {
+function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "TabList");
   if (!componentName) return;
