@@ -126,7 +126,9 @@ codemod: `divider-component-migration`
 
 ### IconButton
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `icon-button-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 
 ## Input
 
