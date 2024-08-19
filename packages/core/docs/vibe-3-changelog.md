@@ -138,9 +138,11 @@ codemod: `icon-button-component-migration`
 
 ### Label
 
-- `wrapperClassName` -> `className` [codemod]
+codemod: `label-button-component-migration`
+
+- `wrapperClassName` -> `className` [codemod ✅]
 - Spin in animation removed due to UX decision
-  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod]
+  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod ✅]
 
 ### EditableHeading
 
