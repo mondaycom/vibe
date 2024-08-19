@@ -62,7 +62,9 @@ codemod: `button-group-component-migration`
 
 ### Checkbox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `checkbox-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Chips
 
