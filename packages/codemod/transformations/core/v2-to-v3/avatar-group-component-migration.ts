@@ -10,7 +10,7 @@ import { TransformationContext } from "../../../types";
 /**
  * 1. Remove the 'removePadding' prop
  */
-function transform({ j, root, filePath }: TransformationContext) {
+function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "AvatarGroup");
   if (!componentName) return;
