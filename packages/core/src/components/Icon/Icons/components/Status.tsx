@@ -5,16 +5,9 @@ export interface StatusProps extends React.SVGAttributes<SVGElement> {
 size?: string | number;
 }
 const Status: React.FC<StatusProps> = ({size, ...props}) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
-    <g clipPath="url(#clip0)">
-      <path d="M1.99805 2.77233C1.99805 2.34471 2.34471 1.99805 2.77233 1.99805H17.2257C17.6533 1.99805 18 2.34471 18 2.77233V7.58989V12.4079V17.2257C18 17.6533 17.6533 18 17.2257 18H2.77233C2.34471 18 1.99805 17.6533 1.99805 17.2257V12.4079V7.58989V2.77233ZM3.54662 13.1822V16.4514H16.4514V13.1822H3.54662ZM16.4514 11.6336H3.54662V8.36417H16.4514V11.6336ZM16.4514 3.54662V6.8156H3.54662V3.54662H16.4514Z"
-        fillRule="evenodd" clipRule="evenodd" />
-    </g>
-    <defs>
-      <clipPath id="clip0">
-        <path transform="translate(2 2)" d="M0 0H16V16H0z" />
-      </clipPath>
-    </defs>
+  <svg viewBox="0 0 39 39" fill="currentColor" width={ size || "39" } height={ size || "39" } {...props}>
+    <path d="M3.89258 5.40513C3.89258 4.57125 4.56856 3.89526 5.40244 3.89526H33.5866C34.4204 3.89526 35.0963 4.57125 35.0963 5.40513V33.5892C35.0963 34.4232 34.4204 35.099 33.5866 35.099H5.40244C4.56856 35.099 3.89258 34.4232 3.89258 33.5892V5.40513ZM6.91231 6.91498V13.2894H32.0767V6.91498H6.91231ZM6.91231 16.3092H32.0767V22.6847H6.91231V16.3092ZM6.91231 25.7043V32.0793H32.0767V25.7043L6.91231 25.7043Z"
+      fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
   </svg>
 );
 Status.displayName = 'Status';
