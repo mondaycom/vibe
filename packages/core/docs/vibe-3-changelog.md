@@ -91,7 +91,9 @@ codemod: `chips-component-migration`
 
 ### Dialog
 
-- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
+codemod: `dialog-component-migration`
+
+- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod✅]
 
 ### DialogContentContainer 🚩
 
@@ -211,7 +213,9 @@ codemod: `menu-button-component-migration`
 
 ### RadioButton
 
-- `componentClassName` -> `className` [codemod]
+codemod: `radio-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ## Search
 
@@ -275,13 +279,17 @@ codemod: `tab-panels-import-migration`
 
 ### TipseenContent
 
-- `isDismissHidden` -> `hideDismiss` [codemod]
-- `isSubmitHidden` -> `hideSubmit` [codemod]
+codemod: `tipseen-content-import-migration`
+
+- `isDismissHidden` -> `hideDismiss` [codemod ✅]
+- `isSubmitHidden` -> `hideSubmit` [codemod ✅]
 
 ### Toggle
 
-- `componentClassName` -> `className` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `toggle-import-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### Tooltip
 

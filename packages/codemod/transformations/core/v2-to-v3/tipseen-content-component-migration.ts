@@ -8,13 +8,12 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Update the 'classname' prop to 'className'
- * 2. Update the 'disabledReason' prop to 'tooltipContent'
- * 1. Update the 'closeDialogOnContentClick' prop to 'closeMenuOnItemClick'
+ * 1. Update the 'isDismissHidden' prop to 'hideDismiss'
+ * 2. Update the 'isSubmitHidden' prop to 'hideSubmit'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "MenuButton");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "TipseenContent");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
@@ -22,9 +21,8 @@ function transform({ j, root, filePath }: TransformationContext) {
 
   elements.forEach(elementPath => {
     migratePropsNames(j, elementPath, filePath, componentName, {
-      componentClassName: "className",
-      disabledReason: "tooltipContent",
-      closeDialogOnContentClick: "closeMenuOnItemClick"
+      isDismissHidden: "hideDismiss",
+      isSubmitHidden: "hideSubmit"
     });
   });
 }
