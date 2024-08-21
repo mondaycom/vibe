@@ -3,7 +3,7 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  removeProp
+  updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
@@ -19,7 +19,7 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    removeProp(j, elementPath, {{#each propsToRemove}}"{{this}}",{{/each}});
+    updatePropValues(j, elementPath, "{{propName}}", { {{#each valuesMapping}}{{@key}}: {{this}}, {{/each}} });
   });
 }
 

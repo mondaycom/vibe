@@ -14,7 +14,8 @@ module.exports = function (plop) {
         choices: [
           { name: "Empty template", value: "emptyTemplate" },
           { name: "Update prop names", value: "updatePropNames" },
-          { name: "Remove prop", value: "removeProp" }
+          { name: "Remove prop", value: "removeProp" },
+          { name: "Update prop values", value: "updatePropValues" }
         ]
       },
       {
@@ -23,6 +24,27 @@ module.exports = function (plop) {
         message: "Enter the old-to-new prop mappings as JSON",
         when: answers => answers.selectedOption === "updatePropNames",
         default: `{ "propAOld": "propANew", "propBOld": "propBNew" }`,
+        validate: function (value) {
+          try {
+            JSON.parse(value);
+            return true;
+          } catch (e) {
+            return "Please enter a valid JSON string.";
+          }
+        }
+      },
+      {
+        type: "input",
+        name: "propName",
+        message: "Enter the prop name that you would like to change its value",
+        when: answers => answers.selectedOption === "updatePropValues"
+      },
+      {
+        type: "input",
+        name: "valuesMapping",
+        message: "Enter the old-to-new values mappings as JSON",
+        when: answers => answers.selectedOption === "updatePropValues",
+        default: `{ "valueAOld": "valueANew", "valueBOld": "valueBNew" }`,
         validate: function (value) {
           try {
             JSON.parse(value);
@@ -50,6 +72,9 @@ module.exports = function (plop) {
       if (data.selectedOption === "updatePropNames") {
         templateFile = "plop/component/transform-update-props.hbs";
         data.propsMapping = JSON.parse(data.propsMapping);
+      } else if (data.selectedOption === "updatePropValues") {
+        templateFile = "plop/component/transform-update-prop-values.hbs";
+        data.valuesMapping = JSON.parse(data.valuesMapping);
       } else if (data.selectedOption === "removeProp") {
         templateFile = "plop/component/transform-remove-props.hbs";
       }

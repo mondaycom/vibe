@@ -80,9 +80,34 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
       return value.expression.value;
     }
   }
-
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
+}
+
+export function setPropValue(
+  j: JSCodeshift,
+  attributePath: ASTPath<JSXAttribute>,
+  newValue: string | number | boolean
+): void {
+  const valueNode = attributePath.node.value;
+
+  if (typeof newValue === "boolean") {
+    if (newValue) {
+      attributePath.node.value = null;
+    } else if (valueNode && j.JSXExpressionContainer.check(valueNode)) {
+      valueNode.expression = j.literal(newValue);
+    } else {
+      attributePath.node.value = j.jsxExpressionContainer(j.literal(newValue));
+    }
+  } else if (typeof newValue === "number" && valueNode && j.JSXExpressionContainer.check(valueNode)) {
+    valueNode.expression = j.literal(newValue);
+  } else if (typeof newValue === "string") {
+    if (valueNode && j.JSXExpressionContainer.check(valueNode)) {
+      valueNode.expression = j.literal(newValue);
+    } else {
+      attributePath.node.value = j.literal(newValue);
+    }
+  }
 }
 
 /**
@@ -119,6 +144,24 @@ export function migratePropsNames(
       removeProp(j, elementPath, deprecatedPropName);
     } else {
       logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
+    }
+  });
+}
+
+export function updatePropValues(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  valuesMapping: Record<string, string | number | boolean>
+): void {
+  findProps(j, elementPath, propName).forEach(attributePath => {
+    const currentPropValue = getPropValue(j, attributePath.node);
+
+    if (currentPropValue !== undefined) {
+      const newValue = valuesMapping[String(currentPropValue)];
+      if (newValue !== undefined) {
+        setPropValue(j, attributePath, newValue);
+      }
     }
   });
 }
