@@ -277,8 +277,10 @@ codemod: `tab-panels-import-migration`
 
 ### TipseenContent
 
-- `isDismissHidden` -> `hideDismiss` [codemod]
-- `isSubmitHidden` -> `hideSubmit` [codemod]
+codemod: `tipseen-content-import-migration`
+
+- `isDismissHidden` -> `hideDismiss` [codemod ✅]
+- `isSubmitHidden` -> `hideSubmit` [codemod ✅]
 
 ### Toggle
 
