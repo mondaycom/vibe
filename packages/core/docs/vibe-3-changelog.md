@@ -284,8 +284,10 @@ codemod: `tipseen-content-import-migration`
 
 ### Toggle
 
-- `componentClassName` -> `className` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `toggle-import-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### Tooltip
 
