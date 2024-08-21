@@ -28,7 +28,7 @@ import propsGif from "./assets/props.gif";
 
 ## Intro
 
-Vibe 3 is a major update to the Vibe design system, introducing several new features, enhancements, and breaking changes. This guide will walk you through the these changes to help you transition smoothly from v2 to v3.
+Vibe 3 is a major update to the Vibe design system, introducing several new features, enhancements, and breaking changes. This guide will walk you through the changes to help you transition smoothly from v2 to v3.
 
 <Tip title="Migration from v1 to v2" emoji={false}>
   To migrate from v1 to v2, please refer to the [Vibe 2 migration
@@ -43,7 +43,7 @@ To help you migrate your existing codebase to Vibe 3, we have created an automat
 npx @vibe/codemod v3-migration path/to/your/files
 ```
 
-Please note that most of the changes are covered by the migration script, but some manual changes may still be required as some change require manual intervention (whether regarding style, UX, or behavior).
+Please note that most of the changes are covered by the migration script, but some manual changes may still be required as some changes require manual intervention (whether regarding style, UX, or behavior).
 
 **It is highly recommended to review the changes made by the script and test your application thoroughly to ensure everything works as expected.**
 
@@ -64,7 +64,7 @@ By removing CommonJS support and optimizing the library exports, the bundle size
 
 New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>, and <StorybookLink page="Inputs/Search">Search</StorybookLink> components
 
-**Enhaced Typescript Support**
+**Enhanced Typescript Support**
 
 All components' types and interfaces are exported for better type-safe compositions. For example:
 
@@ -74,7 +74,7 @@ import { Button, ButtonProps, ButtonType } from "monday-ui-react-core";
 
 **Improved prop type-checking**
 
-Now you can use type-safed string instead of enums (exported as static properties) for props, giving a better developer experience:
+Now you can use type-safe strings instead of static enums for props, providing a better developer experience:
 
 ```tsx
 // Before
@@ -134,7 +134,7 @@ The typography system has been updated to provide a more consistent and accessib
   up. It includes 3 variants: <code>h1</code>, <code>h2</code> and <code>h3</code>. Each of these variant is mapped
   to an <code>h1</code>, <code>h2</code>, <code>h3</code> element accordingly.
 
-For to replace old typography usages follow the migration table below:
+To replace old typography usages follow the migration table below:
 
 <img src={migrationTable} alt="Migration table" />
 
@@ -149,7 +149,7 @@ The following components have been **removed** and are no longer available:
 - `SearchComponent` - use <StorybookLink page="Inputs/Search">Search</StorybookLink> instead
 - `ResponsiveList` - use <StorybookLink page="Hooks/useIsOverflowing">useIsOverflowing</StorybookLink> hook instead, to show/hide content based on overflow
 
-These components were **written from scracth** with new API and style, with a better accessiblity and usability:
+These components were **rewritten from scracth** with new API and style, offering better accessiblity and usability:
 
 - <StorybookLink page="Text/Heading">Heading</StorybookLink>
 - <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>
@@ -270,7 +270,7 @@ The following components have breaking changes to their API, behavior, or style,
 **Label**
 
 - The `wrapperClassName` prop has been removed, use `className` instead
-- The "Spin In" animation removed, and so the `isAnimationDisabled` prop has been removed
+- The "Spin In" animation was removed, and so the `isAnimationDisabled` prop has been removed
 
 **Link**
 
@@ -442,7 +442,7 @@ While we have made every effort to ensure Vibe 3 is stable and reliable, there m
 
 **What if I don't want to migrate to Vibe 3?**
 
-While we recommend migrating to Vibe 3 to take advantage of the new features and improvements, you can continue using Vibe 2. However, please note that Vibe 2 will no longer be recieve any new features and will reach EOL upon the next major version (Vibe 4) release.
+While we recommend migrating to Vibe 3 to take advantage of the new features and improvements, you can continue using Vibe 2. However, please note that Vibe 2 will no longer recieve any new features or updates aside from critical bug fixes, and will reach EOL upon the next major version (Vibe 4) release.
 
 {/* add about packages renaming */}
 
