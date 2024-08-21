@@ -14,10 +14,3 @@ export const TipHowToUseFonts = () => (
     to download Poppins.
   </Tip>
 );
-
-export const TipUseComponent = () => (
-  <Tip title="Notice">
-    No need to define classes for text element and use typography CSS variables anymore, these components cover all the
-    possible variants.
-  </Tip>
-);
