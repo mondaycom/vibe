@@ -91,7 +91,9 @@ codemod: `chips-component-migration`
 
 ### Dialog
 
-- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
+codemod: `dialog-component-migration`
+
+- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod✅]
 
 ### DialogContentContainer 🚩
 
