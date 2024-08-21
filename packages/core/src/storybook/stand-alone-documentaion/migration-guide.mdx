@@ -1,7 +1,6 @@
 import { Meta, Markdown, Source } from "@storybook/blocks";
 import { Link, Tip } from "vibe-storybook-components";
 import { EDITABLE_HEADING, HEADING, TEXT } from "../components/related-components/component-description-map";
-import { migrationTable } from "./typography/assets";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
@@ -134,9 +133,17 @@ The typography system has been updated to provide a more consistent and accessib
   up. It includes 3 variants: <code>h1</code>, <code>h2</code> and <code>h3</code>. Each of these variant is mapped
   to an <code>h1</code>, <code>h2</code>, <code>h3</code> element accordingly.
 
-To replace old typography usages follow the migration table below:
+To replace old typography usages:
 
-<img src={migrationTable} alt="Migration table" />
+- **H1 Main heading** (`--font-h1`) → **Heading/H1/normal**
+- **H2 Secondary heading** (`--font-h2`) → **Heading/H2/bold**
+- **H3 Tertiary heading** (`--font-h3`) → **Heading/H2/light**
+- **H4 Fourth heading** (`--font-h4`) → **Heading/H3/bold**
+- **H5 Paragraph** (`--font-h5`) → **Text/text1/bold**
+- **H6 UI text** (`--font-general-label`) → **Text/text2/normal**
+- **Medium Text** (`--font-subtext`) → **Text/text2/normal**
+- **P Paragraph text** (`--font-paragraph`) → **Text/text1/normal**
+- **Medium text link** (`--font-general-label`, `--link-color`) → **Text/text2/normal**
 
 For more information, refer to the <StorybookLink page="Foundations/Typography">Typography</StorybookLink> docs.
 
