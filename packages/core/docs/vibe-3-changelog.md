@@ -211,7 +211,9 @@ codemod: `menu-button-component-migration`
 
 ### RadioButton
 
-- `componentClassName` -> `className` [codemod]
+codemod: `radio-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ## Search
 
