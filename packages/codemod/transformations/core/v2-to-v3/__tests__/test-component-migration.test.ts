@@ -1,4 +1,4 @@
-import transform from "../box-component-migration";
+import transform from "../test-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
