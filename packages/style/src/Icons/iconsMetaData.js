@@ -5,17 +5,17 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Baseline",
-      file: "Baseline.svg",
-      description: "Baseline",
-      tags: "Baseline, Platform, Gantt, Base, Widget"
+    name: "Baseline",
+    file: "Baseline.svg",
+    description: "Baseline",
+    tags: "Baseline, Platform, Gantt, Base, Widget"
   },
 
   {
-      name: "ItemHeightSingle",
-      file: "ItemHeightSingle.svg",
-      description: "Item height single spacing",
-      tags: "Height, Item, Line, Single"
+    name: "ItemHeightSingle",
+    file: "ItemHeightSingle.svg",
+    description: "Item height single spacing",
+    tags: "Height, Item, Line, Single"
   },
 
   {
@@ -758,8 +758,8 @@ export const iconsMetaData = [
   {
     name: "Comment",
     file: "Comment.svg",
-    description: "Comment",
-    tags: "Comment, Text, Design",
+    description: "Use as indication for comment, review or writing assistant.",
+    tags: "Comment, Text, Speech, Speech bubble, Writing, Review, Assistant",
     category: [PLATFORM]
   },
 
