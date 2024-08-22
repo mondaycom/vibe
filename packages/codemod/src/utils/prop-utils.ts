@@ -1,13 +1,17 @@
 import {
   ASTPath,
   Collection,
+  identifier,
   JSCodeshift,
   JSXAttribute,
   JSXElement,
+  jsxExpressionContainer,
   JSXExpressionContainer,
   JSXIdentifier,
   JSXOpeningElement,
+  literal,
   Literal,
+  memberExpression,
   MemberExpression
 } from "jscodeshift";
 import { logPropMigrationError } from "./report-utils";
@@ -79,9 +83,28 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
       // e.g. <Button text={true} /> or <Button text={"text"} />
       return value.expression.value;
     }
+
+    if (value.expression.type === "MemberExpression") {
+      return getMemberExpressionValue(value.expression);
+    }
   }
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
+}
+
+function getMemberExpressionValue(expression: MemberExpression) {
+  let object = expression.object;
+  let property = expression.property;
+  let result = "";
+  while (object && object.type === "MemberExpression") {
+    result = `.${property?.name}${result}`;
+    property = object.property;
+    object = object.object;
+  }
+  if (object.type === "Identifier") {
+    result = `${object.name}.${property?.name}${result}`;
+  }
+  return result;
 }
 
 export function setPropValue(
@@ -89,25 +112,25 @@ export function setPropValue(
   attributePath: ASTPath<JSXAttribute>,
   newValue: string | number | boolean
 ): void {
-  const valueNode = attributePath.node.value;
-
-  if (typeof newValue === "boolean") {
-    if (newValue) {
-      attributePath.node.value = null;
-    } else if (valueNode && j.JSXExpressionContainer.check(valueNode)) {
-      valueNode.expression = j.literal(newValue);
-    } else {
-      attributePath.node.value = j.jsxExpressionContainer(j.literal(newValue));
-    }
-  } else if (typeof newValue === "number" && valueNode && j.JSXExpressionContainer.check(valueNode)) {
-    valueNode.expression = j.literal(newValue);
-  } else if (typeof newValue === "string") {
-    if (valueNode && j.JSXExpressionContainer.check(valueNode)) {
-      valueNode.expression = j.literal(newValue);
-    } else {
-      attributePath.node.value = j.literal(newValue);
-    }
+  if (typeof newValue !== "string") {
+    const newValueIsTrue = typeof newValue === "boolean" && newValue;
+    attributePath.node.value = newValueIsTrue ? null : jsxExpressionContainer(literal(newValue));
+  } else {
+    const checkIfEnum = /^\w+\.\w+\.\w+$/.test(newValue);
+    attributePath.node.value = checkIfEnum
+      ? jsxExpressionContainer(parseEnumToMemberExpression(newValue))
+      : literal(newValue);
   }
+}
+
+function parseEnumToMemberExpression(value: string) {
+  const parts = value.split(".");
+  let expr = identifier(parts[0]);
+  for (let i = 1; i < parts.length; i++) {
+    // @ts-expect-error error
+    expr = memberExpression(expr, identifier(parts[i]), false);
+  }
+  return expr;
 }
 
 /**
@@ -156,7 +179,6 @@ export function updatePropValues(
 ): void {
   findProps(j, elementPath, propName).forEach(attributePath => {
     const currentPropValue = getPropValue(j, attributePath.node);
-
     if (currentPropValue !== undefined) {
       const newValue = valuesMapping[String(currentPropValue)];
       if (newValue !== undefined) {
