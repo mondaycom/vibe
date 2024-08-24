@@ -337,25 +337,27 @@ const Combobox: React.FC<ComboboxProps> & {
             hideRenderActionOnInput={hideRenderActionOnInput}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
-          <ComboboxItems
-            stickyCategories={stickyCategories}
-            categories={categories}
-            options={items}
-            itemsMap={itemsMap}
-            optionClassName={optionClassName}
-            optionRenderer={optionRenderer}
-            activeItemIndex={activeOptionIndex}
-            onActiveCategoryChanged={onActiveCategoryChanged}
-            onOptionClick={overrideOnOptionClick}
-            onOptionEnter={onOptionHoverCB}
-            onOptionLeave={onOptionLeave}
-            optionLineHeight={optionLineHeight}
-            shouldScrollToSelectedItem={shouldScrollToSelectedItem}
-            renderOnlyVisibleOptions={renderOnlyVisibleOptions}
-            maxOptionsWithoutScroll={maxOptionsWithoutScroll}
-            visualFocusItemIndex={visualFocusItemIndex}
-            id={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
-          />
+          {hasResults && (
+            <ComboboxItems
+              stickyCategories={stickyCategories}
+              categories={categories}
+              options={items}
+              itemsMap={itemsMap}
+              optionClassName={optionClassName}
+              optionRenderer={optionRenderer}
+              activeItemIndex={activeOptionIndex}
+              onActiveCategoryChanged={onActiveCategoryChanged}
+              onOptionClick={overrideOnOptionClick}
+              onOptionEnter={onOptionHoverCB}
+              onOptionLeave={onOptionLeave}
+              optionLineHeight={optionLineHeight}
+              shouldScrollToSelectedItem={shouldScrollToSelectedItem}
+              renderOnlyVisibleOptions={renderOnlyVisibleOptions}
+              maxOptionsWithoutScroll={maxOptionsWithoutScroll}
+              visualFocusItemIndex={visualFocusItemIndex}
+              id={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
+            />
+          )}
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
       </Text>
