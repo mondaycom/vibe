@@ -95,11 +95,9 @@ const preview: Preview = {
       storySort: {
         order: [
           "Welcome",
-          "Getting Started",
-          "Changelog",
-          "Migration Guide",
-          "Contributing",
           "Catalog",
+          "Change Log",
+          "Migration Guide",
           "Playground",
           "Internal",
           "Foundations",
