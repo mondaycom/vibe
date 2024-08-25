@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, RefObject } from "react";
 import LayerContext from "./LayerContext";
 
-interface LayerProviderType {
+export interface LayerProviderType {
   children: ReactNode | ReactNode;
   layerRef: RefObject<HTMLElement> | null;
 }
