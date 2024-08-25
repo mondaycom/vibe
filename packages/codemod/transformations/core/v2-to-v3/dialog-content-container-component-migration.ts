@@ -20,7 +20,10 @@ function transform({ j, root }: TransformationContext) {
 
   elements.forEach(elementPath => {
     updatePropValues(j, elementPath, "size", {
-      "DialogContentContainer.sizes.MEDIUM": "DialogContentContainer.sizes.SMALL"
+      "DialogContentContainer.sizes.MEDIUM": {
+        value: "DialogContentContainer.sizes.SMALL",
+        type: j.memberExpression
+      }
     });
   });
 }

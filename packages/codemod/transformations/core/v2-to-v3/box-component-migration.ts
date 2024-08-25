@@ -19,7 +19,12 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updatePropValues(j, elementPath, "border", { "Box.borders.DEFAULT": true });
+    updatePropValues(j, elementPath, "border", {
+      "Box.borders.DEFAULT": {
+        value: true,
+        type: j.memberExpression
+      }
+    });
   });
 }
 

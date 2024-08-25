@@ -86,51 +86,33 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
     }
 
     if (value.expression.type === "MemberExpression") {
-      return getMemberExpressionValue(value.expression);
+      // e.g. <Button border={Box.borders.DEFAULT} />
+      return j(value.expression).toSource();
     }
   }
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
 }
-function getMemberExpressionValue(expression: MemberExpression): string {
-  let result = "";
-  let current: MemberExpression | Identifier = expression;
-
-  while (current.type === "MemberExpression") {
-    result = `.${(current.property as Identifier).name}${result}`;
-    current = current.object as MemberExpression | Identifier;
-  }
-
-  if (current.type === "Identifier") {
-    result = `${(current as Identifier).name}${result}`;
-  }
-  return result;
-}
 
 export function setPropValue(
   j: JSCodeshift,
   attributePath: ASTPath<JSXAttribute>,
-  newValue: string | number | boolean
+  newValue: {
+    value: string | number | boolean;
+    type: typeof memberExpression | typeof literal;
+  }
 ): void {
-  if (typeof newValue !== "string") {
-    const newValueIsTrue = typeof newValue === "boolean" && newValue;
-    attributePath.node.value = newValueIsTrue ? null : jsxExpressionContainer(literal(newValue));
+  if (typeof newValue.value !== "string") {
+    const newValueIsTrue = typeof newValue.value === "boolean" && newValue.value;
+    attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
   } else {
-    const checkIfEnum = /^\w+\.\w+\.\w+$/.test(newValue);
-    attributePath.node.value = checkIfEnum
-      ? jsxExpressionContainer(parseEnumToMemberExpression(newValue))
-      : literal(newValue);
+    if (newValue.type === memberExpression) {
+      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get().node.expression;
+      attributePath.node.value = j.jsxExpressionContainer(objectValue);
+    } else if (newValue.type === literal) {
+      attributePath.node.value = j.literal(newValue.value);
+    }
   }
-}
-
-function parseEnumToMemberExpression(value: string) {
-  const parts = value.split(".");
-  let expr = identifier(parts[0]);
-  for (let i = 1; i < parts.length; i++) {
-    // @ts-expect-error error
-    expr = memberExpression(expr, identifier(parts[i]), false);
-  }
-  return expr;
 }
 
 /**
@@ -175,7 +157,13 @@ export function updatePropValues(
   j: JSCodeshift,
   elementPath: ASTPath<JSXElement>,
   propName: string,
-  valuesMapping: Record<string, string | number | boolean>
+  valuesMapping: Record<
+    string,
+    {
+      value: string | number | boolean;
+      type: typeof memberExpression | typeof literal;
+    }
+  >
 ): void {
   findProps(j, elementPath, propName).forEach(attributePath => {
     const currentPropValue = getPropValue(j, attributePath.node);
