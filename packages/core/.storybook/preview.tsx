@@ -96,7 +96,7 @@ const preview: Preview = {
         order: [
           "Welcome",
           "Catalog",
-          "Change Log",
+          "Changelog",
           "Migration Guide",
           "Playground",
           "Internal",
