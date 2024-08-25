@@ -8,6 +8,7 @@
 - CommonJS support removed
 - `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
 - All components' props interfaces are exported
+- Tooltips, Tipseens, and Dialog are adjusted to be opened on top of modals, without the need to set the z-index manually
 
 ## Colors
 
@@ -37,6 +38,7 @@ codemod: `avatar-component-migration`
 - `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
 
 ### Box
+
 - `border` change from string to boolean [codemod]
 - Remove static prop Box.Borders
 
