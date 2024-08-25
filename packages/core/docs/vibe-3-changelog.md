@@ -39,6 +39,7 @@ codemod: `avatar-group-component-migration`
 - `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### Box
+
 - `border` change from string to boolean [codemod]
 - Remove static prop Box.Borders
 
@@ -254,13 +255,12 @@ codemod: `tab-panels-import-migration`
 
 ### TextField
 
-- `dataTestId` -> `data-testid` [codemod]
+- `dataTestId` -> `data-testid` [codemod ✅]
 - `iconsNames` prop removed `layout` [codemod]
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
-  - Removed `requiredAsterisk` [codemod] (codemod should replace only if `requiredAsterisk` is used with `required`)
-- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+  - Removed `requiredAsterisk` [codemod ✅]
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod ✅]
 - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
--
 
 ### ThemeProvider
 
