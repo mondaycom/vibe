@@ -15,7 +15,7 @@ export interface {{properCase componentName}}Props extends VibeComponentProps {
 }
 
 const {{properCase componentName}}: VibeComponent<{{properCase componentName}}Props, HTMLElement> = forwardRef(
-  ({ className, id, "data-testid": dataTestId, customProp = "defaultValue" }, ref) => {
+  ({ className, id, "data-testid": dataTestId, customProp = "defaultValue" }: {{properCase componentName}}Props, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 

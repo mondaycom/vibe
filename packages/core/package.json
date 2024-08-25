@@ -217,7 +217,7 @@
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "plop": "2.7.6",
+    "plop": "4.0.1",
     "postcss": "^8.4.5",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^6.2.1",
