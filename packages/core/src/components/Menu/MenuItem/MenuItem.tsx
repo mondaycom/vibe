@@ -10,6 +10,7 @@ import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { SubmenuPosition } from "./MenuItem.types";
 
 export interface MenuItemProps extends VibeComponentProps {
@@ -66,6 +67,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
   isSelectable?: boolean;
   isMenuChild?: boolean;
+  tooltipPositions?: typeof TooltipPositionsEnum;
 } = forwardRef(
   (
     {
@@ -157,5 +159,6 @@ Object.assign(MenuItem, {
 });
 
 export default withStaticProps(MenuItem, {
-  iconType: Icon.type
+  iconType: Icon.type,
+  tooltipPositions: TooltipPositionsEnum
 });

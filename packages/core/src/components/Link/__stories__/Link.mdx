@@ -24,6 +24,12 @@ Link is an actionable text component with connection to another web pages.
 
 <Canvas of={LinkStories.Overview} />
 
+### Import
+
+```js
+import { Link } from "monday-ui-react-core";
+```
+
 ## Props
 
 <PropsTable />
@@ -70,14 +76,7 @@ Link is an actionable text component with connection to another web pages.
     },
     {
       positive: {
-        component: (
-          <Link
-            text="Read more"
-            iconPosition="start"
-            href="https://www.monday.com"
-            icon={ExternalPage}
-          />
-        ),
+        component: <Link text="Read more" iconPosition="start" href="https://www.monday.com" icon={ExternalPage} />,
         description: "Use icon from the left or right side of the link"
       },
       negative: {

@@ -23,6 +23,12 @@ An input field includes a label and a text field users can type text into. They 
 
 <Canvas of={TextFieldStories.Overview} />
 
+### Import
+
+```js
+import { TextField } from "monday-ui-react-core";
+```
+
 ## Props
 
 <PropsTable />
@@ -74,11 +80,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       negative: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField
-              title="What is your email address?"
-              placeholder="email@monday.com"
-              size="medium"
-            />
+            <TextField title="What is your email address?" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:

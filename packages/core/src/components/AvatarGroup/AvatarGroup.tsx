@@ -25,7 +25,7 @@ export interface AvatarGroupProps extends VibeComponentProps {
   /**
    * `Tooltip.props`: props for custom counter tooltip
    */
-  counterTooltipCustomProps?: TooltipProps;
+  counterTooltipCustomProps?: Partial<TooltipProps>;
   /**
    * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
    */

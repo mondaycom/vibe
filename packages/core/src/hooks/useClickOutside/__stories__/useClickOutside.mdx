@@ -17,6 +17,12 @@ This hook is used when you want to capture click events outside your component.
 
 <Canvas of={UseClickOutsideStories.Overview} />
 
+### Import
+
+```js
+import { useClickOutside } from "monday-ui-react-core/hooks";
+```
+
 ## Arguments
 
 <FunctionArguments>
@@ -40,10 +46,10 @@ This hook is used when you want to capture click events outside your component.
       required
     />
     <FunctionArgument
-          name="ignoreClasses"
-          type="string[]"
-          description="A list of classes to ignore when checking if the click is outside the element."
-        />
+      name="ignoreClasses"
+      type="string[]"
+      description="A list of classes to ignore when checking if the click is outside the element."
+    />
     <FunctionArgument
       name="eventName"
       type="keyof HTMLElementEventMap | string"

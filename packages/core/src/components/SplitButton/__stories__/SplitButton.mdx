@@ -26,6 +26,12 @@ A split button is a dual-function menu button that offers a default action as we
 
 <Canvas of={SplitButtonStories.Overview} />
 
+### Import
+
+```js
+import { SplitButton, SplitButtonMenu } from "monday-ui-react-core";
+```
+
 ## Props
 
 <PropsTable />
@@ -69,12 +75,7 @@ The split button has supports multiple sizes: small, medium and large.
       positive: {
         component: [
           <SplitButton children="New item" secondaryDialogContent={<SplitButtonExampleDialog />} />,
-          <SplitButton
-            success
-            kind="tertiary"
-            leftIcon={Search}
-            secondaryDialogContent={<SplitButtonExampleDialog />}
-          >
+          <SplitButton success kind="tertiary" leftIcon={Search} secondaryDialogContent={<SplitButtonExampleDialog />}>
             Search
           </SplitButton>,
           <Button kind="tertiary" leftIcon={Filter}>

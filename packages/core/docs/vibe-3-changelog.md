@@ -34,7 +34,9 @@ codemod: `avatar-component-migration`
 
 ### AvatarGroup
 
-- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+codemod: `avatar-group-component-migration`
+
+- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### Box
 - `border` change from string to boolean [codemod]
@@ -42,23 +44,29 @@ codemod: `avatar-component-migration`
 
 ### BreadcrumbItem
 
-codemod: `breadcrumb-item-migration`
+codemod: `breadcrumb-item-component-migration`
 
 - `isDisabled` -> `disabled` [codemod ✅]
 
 ### Button
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `button-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 - `children` prop is now mandatory
 - `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
 
 ### ButtonGroup
 
-- `componentClassName` -> `className` [codemod]
+codemod: `button-group-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]]
 
 ### Checkbox
 
-- `componentClassName` -> `className` [codemod]
+codemod: `checkbox-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ### Chips
 
@@ -70,7 +78,9 @@ codemod: `chips-component-migration`
 
 ### Clickable
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `clickable-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]]
 
 ### Counter
 
@@ -81,7 +91,9 @@ codemod: `chips-component-migration`
 
 ### Dialog
 
-- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
+codemod: `dialog-component-migration`
+
+- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod✅]
 
 ### DialogContentContainer 🚩
 
@@ -118,7 +130,9 @@ codemod: `divider-component-migration`
 
 ### IconButton
 
-- `dataTestId` -> `data-testid` [codemod]
+codemod: `icon-button-component-migration`
+
+- `dataTestId` -> `data-testid` [codemod ✅]
 
 ## Input
 
@@ -126,9 +140,11 @@ codemod: `divider-component-migration`
 
 ### Label
 
-- `wrapperClassName` -> `className` [codemod]
+codemod: `label-button-component-migration`
+
+- `wrapperClassName` -> `className` [codemod ✅]
 - Spin in animation removed due to UX decision
-  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod]
+  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod ✅]
 
 ### EditableHeading
 
@@ -141,34 +157,48 @@ codemod: `divider-component-migration`
 
 ### Loader
 
-- `svgClassName` -> `className` [codemod]
+codemod: `loader-component-migration`
+
+- `svgClassName` -> `className` [codemod ✅]
 
 ### Menu
 
-- `classname` -> `className` [codemod]
+codemod: `menu-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuDivider
 
-- `classname` -> `className` [codemod]
+codemod: `menu-divider-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuItem
 
-- `classname` -> `className` [codemod]
+codemod: `menu-item-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 - Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
-- `classname` -> `className` [codemod]
+codemod: `menu-item-button-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuTitle
 
-- `classname` -> `className` [codemod]
+codemod: `menu-title-component-migration`
+
+- `classname` -> `className` [codemod ✅]
 
 ### MenuButton
 
-- `componentClassName` -> `className` [codemod]
-- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod]
-- Removed `disabledReason`, use `tooltipContent` instead [codemod]
+codemod: `menu-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod ✅]
+- Removed `disabledReason`, use `tooltipContent` instead [codemod ✅]
 
 ### Modal
 
@@ -183,7 +213,9 @@ codemod: `divider-component-migration`
 
 ### RadioButton
 
-- `componentClassName` -> `className` [codemod]
+codemod: `radio-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ## Search
 
@@ -197,9 +229,6 @@ codemod: `search-component-import-migration`
 
 ## SplitButton
 
-- [!!!] We're now accepting instead of static props, inline string, e.g. "bottom-start". We need to change DialogPosition to be a string in its root declaration (this also requires big codemod changes probably) [codemod]
-  - Requires codemod for when people used secondaryDialogPosition={SplitButton.secondaryBlaBla}. [codemod]
-  - Once changing DialogPosition to be a const, instead of enum, remove DialogPosition double declaration from SplitButton's declaration [internal]
 - Remove `data-testId` prop from nested elements (data-testId used to be applied also to each of the internal elements)
 
 ### Steps 🚩
@@ -212,12 +241,16 @@ codemod: `search-component-import-migration`
 
 ### TabList
 
-- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod]
+codemod: `tab-list-import-migration`
+
+- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### TabPanels
 
+codemod: `tab-panels-import-migration`
+
 - Fix: TabPanels will render only the active tab
-- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod]
+- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod ✅]
 
 ### TextField
 
@@ -246,13 +279,17 @@ codemod: `search-component-import-migration`
 
 ### TipseenContent
 
-- `isDismissHidden` -> `hideDismiss` [codemod]
-- `isSubmitHidden` -> `hideSubmit` [codemod]
+codemod: `tipseen-content-import-migration`
+
+- `isDismissHidden` -> `hideDismiss` [codemod ✅]
+- `isSubmitHidden` -> `hideSubmit` [codemod ✅]
 
 ### Toggle
 
-- `componentClassName` -> `className` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `toggle-import-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### Tooltip
 

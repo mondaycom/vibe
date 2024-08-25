@@ -23,6 +23,7 @@ import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
@@ -72,6 +73,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
   animationTypes?: typeof AnimationTypeEnum;
   hideShowTriggers?: typeof HideShowEventEnum;
   colors?: typeof TipseenColorEnum;
+  positions?: typeof TooltipPositionsEnum;
 } = forwardRef(
   (
     {
@@ -202,5 +204,6 @@ export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonThemeEnum,
   animationTypes: AnimationTypeEnum,
   hideShowTriggers: HideShowEventEnum,
-  colors: TipseenColorEnum
+  colors: TipseenColorEnum,
+  positions: TooltipPositionsEnum
 });
