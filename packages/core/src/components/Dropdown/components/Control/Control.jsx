@@ -4,7 +4,17 @@ import Tooltip from "../../../../components/Tooltip/Tooltip";
 
 const Control = props => {
   const { selectProps } = props;
-  const control = <components.Control {...props} />;
+
+  const rendererProps = {
+    ...props,
+    innerProps: {
+      ...props.innerProps,
+      role: "combobox",
+      ["aria-activedescendant"]: selectProps?.ariaActivedescendant
+    }
+  };
+
+  const control = <components.Control {...rendererProps} />;
   const controlRef = selectProps?.selectProps?.controlRef;
   if (controlRef)
     return (

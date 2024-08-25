@@ -5,6 +5,7 @@ import { SIZES, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
+import BaseSelect from "react-select/base";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
 import MenuComponent from "./components/menu/menu";
@@ -127,7 +128,12 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       return defaultValue;
     }, [defaultValue]);
 
+    BaseSelect.prototype.renderLiveRegion = () => {
+      return null;
+    };
+
     const [selected, setSelected] = useState(overrideDefaultValue || []);
+    const [focusedOptionId, setFocusedOptionId] = useState(null);
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;
@@ -219,9 +225,14 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     );
 
     const Option = useCallback(
-      (props: CustomOptionProps) => (
-        <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
-      ),
+      (props: CustomOptionProps) => {
+        if (props.isFocused) {
+          setFocusedOptionId(props.innerProps.id);
+        }
+        return (
+          <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
+        );
+      },
       [finalOptionRenderer, optionWrapperClassName]
     );
 
@@ -381,9 +392,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
         aria-expanded={!readOnly && menuIsOpen}
+        ariaActivedescendant={focusedOptionId || ""}
         aria-haspopup="listbox"
-        aria-activedescendant
-        role="combobox"
         defaultValue={defaultValue}
         value={value}
         onMenuOpen={onMenuOpen}
