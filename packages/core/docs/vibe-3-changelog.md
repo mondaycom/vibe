@@ -115,9 +115,11 @@ codemod: `divider-component-migration`
 
 ### Dropdown 🚩
 
-- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+codemod: `dropdown-component-migration`
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod ✅]
 - Remove size 'xxs' and 'xs'
-- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle ✅]
 
 ### EditableInput
 
