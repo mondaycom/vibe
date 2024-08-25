@@ -173,6 +173,25 @@ export function updatePropValues(
   });
 }
 
+export function updateStaticPropKeys(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  keysMapping: Record<string, string>
+) {
+  findProps(j, elementPath, propName).forEach(attributePath => {
+    if (attributePath !== undefined) {
+      const currentPropValue = attributePath.node.value?.expression;
+      const currentProperty = currentPropValue.object.property;
+      const newValue = keysMapping[currentProperty.name];
+      if (newValue !== undefined) {
+        currentProperty.name = newValue;
+        attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
+      }
+    }
+  });
+}
+
 /**
  * Updates props that are using the component namespace to use the new namespace
  * e.g. <OldName size={OldName.sizes.XXL}> -> <NewName size={NewName.sizes.XXL}>
