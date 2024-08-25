@@ -1,6 +1,7 @@
 import {
   ASTPath,
   Collection,
+  Identifier,
   identifier,
   JSCodeshift,
   JSXAttribute,
@@ -91,18 +92,17 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
 }
-
-function getMemberExpressionValue(expression: MemberExpression) {
-  let object = expression.object;
-  let property = expression.property;
+function getMemberExpressionValue(expression: MemberExpression): string {
   let result = "";
-  while (object && object.type === "MemberExpression") {
-    result = `.${property?.name}${result}`;
-    property = object.property;
-    object = object.object;
+  let current: MemberExpression | Identifier = expression;
+
+  while (current.type === "MemberExpression") {
+    result = `.${(current.property as Identifier).name}${result}`;
+    current = current.object as MemberExpression | Identifier;
   }
-  if (object.type === "Identifier") {
-    result = `${object.name}.${property?.name}${result}`;
+
+  if (current.type === "Identifier") {
+    result = `${(current as Identifier).name}${result}`;
   }
   return result;
 }

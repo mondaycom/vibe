@@ -25,6 +25,7 @@ function transform({ j, root }: TransformationContext) {
       "Dropdown.size.MEDIUM": true,
       "Dropdown.size.SMALL": "Dropdown.size.MEDIUM",
       false: "Dropdown.size.LARGE",
+      ppp: "Dropdown.size.LARGE",
       "Dropdown.size.TEST": "test"
     });
   });
