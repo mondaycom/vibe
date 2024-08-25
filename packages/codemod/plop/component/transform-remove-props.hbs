@@ -19,7 +19,7 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    removeProp(j, elementPath, {{#each propsToRemove}}"{{this}}",{{/each}});
+    removeProp(j, elementPath, {{#each propsToRemove}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}});
   });
 }
 

@@ -19,8 +19,15 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updatePropValues(j, elementPath, "{{propName}}", { {{#each valuesMapping}}{{@key}}: {{this}}, {{/each}} });
+    updatePropValues(j, elementPath, "{{propName}}", {
+    {{#each valuesMapping}}
+      "{{@key}}": {
+        value: "{{value}}",
+        type: j.{{type}}
+      }{{#unless @last}},{{/unless}}
+    {{/each}}
   });
+});
 }
 
 export default wrap(transform);

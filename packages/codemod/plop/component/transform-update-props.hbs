@@ -19,7 +19,7 @@ function transform({ j, root, filePath }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, { {{#each propsMapping}}{{@key}}: "{{this}}", {{/each}} });
+    migratePropsNames(j, elementPath, filePath, componentName, { {{#each propsMapping}}{{@key}}: "{{this}}"{{#unless @last}}, {{/unless}}{{/each}} });
   });
 }
 
