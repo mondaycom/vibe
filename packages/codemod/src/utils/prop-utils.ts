@@ -1,12 +1,9 @@
 import {
   ASTPath,
   Collection,
-  Identifier,
-  identifier,
   JSCodeshift,
   JSXAttribute,
   JSXElement,
-  jsxExpressionContainer,
   JSXExpressionContainer,
   JSXIdentifier,
   JSXOpeningElement,
