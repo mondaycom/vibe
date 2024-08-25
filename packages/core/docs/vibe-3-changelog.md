@@ -157,8 +157,10 @@ codemod: `label-button-component-migration`
 
 ### Link 🚩
 
-- `componentClassName` -> `className` [codemod]
-- `Link.target` removed, use `Link.targets` instead [codemod]
+codemod: `link-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `Link.target` removed, use `Link.targets` instead [codemod ✅]
 
 ### Loader
 
