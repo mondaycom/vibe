@@ -89,7 +89,6 @@
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "a11y-dialog": "^7.5.2",
-    "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
@@ -158,7 +157,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "@types/autosize": "^4.0.1",
     "@types/babel__standalone": "^7.1.7",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest-axe": "^3.5.9",
