@@ -296,17 +296,19 @@ codemod: `theme-provider-import-migration`
 
 ### Tooltip
 
+codemod: `tooltip-import-migration`
+
 - `paddingSize` removed
-- `themes` - remove all themes besides for "dark" & "primary" [codemod]
+- `themes` - remove all themes besides for "dark" & "primary"
 - `showOnDialogEnter` changed default to be true (should we remove this prop?)
 - `hideDelay` changed default to be 100
-- `addKeyboardHideShowTriggersByDefault` default changed to true [codemod - remove prop if exists, and add as false if doesn't exist]
+- `addKeyboardHideShowTriggersByDefault` default changed to true
 - `position` changed to only accept "top, right, bottom, left"
 - `justify` removed
   - `Tooltip.justifyTypes` removed
 - `arrowPosition` removed
 - - `Tooltip.arrowPositions` removed
-- `withMaxWidth` prop removed, max-width is now set to 240px [codemod]
+- `withMaxWidth` prop removed, max-width is now set to 240px [codemod ✅]
 - Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
 
 ### ColorPicker
