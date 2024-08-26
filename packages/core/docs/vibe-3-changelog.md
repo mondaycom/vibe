@@ -276,8 +276,10 @@ codemod: `theme-provider-import-migration`
 
 ### Tipseen
 
+codemod: `tipseen-import-migration`
+
 - Default `color` changed from 'primary' to 'inverted'
-- `isCloseButtonHidden` -> `hideCloseButton` [codemod]
+- `isCloseButtonHidden` -> `hideCloseButton` [codemod ✅]
 - `showDelay` changed default to 100
 - `justify` removed
   - `Tipseen.justifyTypes` removed
