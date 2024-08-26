@@ -269,7 +269,9 @@ codemod: `tab-panels-import-migration`
 
 ### ThemeProvider
 
-- `theme` -> `themeConfig` [codemod]
+codemod: `theme-provider-import-migration`
+
+- `theme` -> `themeConfig` [codemod ✅]
 - Should it be out of beta ?
 
 ### Tipseen
