@@ -54,11 +54,6 @@ exports[`Combobox renders correctly when disabled 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -117,11 +112,6 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -180,11 +170,6 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -243,11 +228,6 @@ exports[`Combobox renders correctly with className 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -306,11 +286,6 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -703,11 +678,6 @@ exports[`Combobox renders correctly with empty props 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -766,11 +736,6 @@ exports[`Combobox renders correctly with id 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="test-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -857,11 +822,6 @@ exports[`Combobox renders correctly with loading 1`] = `
       </div>
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -920,11 +880,6 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -983,11 +938,6 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -1163,11 +1113,6 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -1226,11 +1171,6 @@ exports[`Combobox renders correctly with placeholder 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -1289,11 +1229,6 @@ exports[`Combobox renders correctly with size 1`] = `
       />
       
     </div>
-    <div
-      className="scrollableContainer optionsContainer"
-      id="combobox-listbox"
-      role="listbox"
-    />
   </div>
 </div>
 `;
