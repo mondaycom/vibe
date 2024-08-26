@@ -39,6 +39,7 @@ codemod: `avatar-group-component-migration`
 - `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### Box
+
 - `border` change from string to boolean [codemod]
 - Remove static prop Box.Borders
 
@@ -202,14 +203,18 @@ codemod: `menu-button-component-migration`
 
 ### Modal
 
+codemod: `modal-component-migration`
+
 - Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
 - The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render if `show` is "false". To disable this behavior set `unmountOnClose` to "false".
 
 ### ModalHeader
 
+codemod: `modal-header-component-migration`
+
 - Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
 
 ### RadioButton
 
