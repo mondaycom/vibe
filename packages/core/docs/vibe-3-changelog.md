@@ -315,7 +315,9 @@ codemod: `color-picker-import-migration`
 
 ### ColorPickerContent
 
-- `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod]
+codemod: `color-picker-content-import-migration`
+
+- `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
 ### ResponsiveList
 
