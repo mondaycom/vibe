@@ -1,13 +1,14 @@
 @import "../../styles/keyframes";
 
 .toast {
+  --toast-width: auto;
+  --toast-padding: var(--spacing-small);
   box-shadow: var(--box-shadow-medium);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
   margin: var(--spacing-medium);
   position: fixed;
-  right: 0;
-  left: 0;
+  left: 50%;
   top: 0;
   margin-right: auto;
   margin-left: auto;
@@ -15,13 +16,24 @@
   align-items: center;
   display: flex;
   min-width: 200px;
+  width: auto;
   border-radius: var(--border-radius-small);
   color: var(--fixed-light-color);
+  transform: translateX(-50%);
+  max-width: calc(var(--toast-width) + 2 * var(--toast-padding));
+  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), max-width 250ms cubic-bezier(0.6, 0, 0.4, 1);
 }
 
 .icon {
   display: flex;
   margin-left: var(--spacing-small);
+}
+
+.actionButton {
+  opacity: 0;
+  animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
 }
 
 .content {
@@ -76,28 +88,59 @@
   }
 }
 
-// Animation
 .enterActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-duration: var(--motion-expressive-long);
-  animation-name: toast-slide-in-elastic;
+  animation: slideIn 350ms cubic-bezier(0.6, 0, 0.4, 1);
 }
+
 .exitActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-duration: var(--motion-productive-long);
-  animation-name: toast-slide-out;
+  animation: slideOut 350ms cubic-bezier(0.6, 0, 0.4, 1);
 }
 
 .closeButton {
   margin-left: var(--spacing-small);
 }
 
-@include keyframe(toast-slide-in-elastic) {
-  @include slide-in-elastic();
+@keyframes slideIn {
+  0% {
+    transform: translate(-50%, -100px);
+  }
+
+  40% {
+    transform: translate(-50%, 16px);
+  }
+
+  100% {
+    transform: translate(-50%, 0px);
+  }
 }
 
-@include keyframe(toast-slide-out) {
-  @include slide-out();
+@keyframes slideOut {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

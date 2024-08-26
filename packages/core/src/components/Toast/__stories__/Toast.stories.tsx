@@ -214,8 +214,18 @@ export const DarkMessage = {
 export const FeedbackLoop = {
   render: () => {
     const [toastOpen, setToastOpen] = useState(false);
-    const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
-    const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const onClickCallback = useCallback(() => {
+      setToastOpen(true);
+      setIsDeleting(true);
+
+      setTimeout(() => {
+        setIsDeleting(false);
+      }, 2000);
+    }, []);
+
+    const onCloseCallback = useCallback(() => setToastOpen(false), []);
 
     const actions = useMemo(
       () => [
@@ -234,13 +244,14 @@ export const FeedbackLoop = {
         </Button>
         <Toast
           open={toastOpen}
-          type={Toast.types.POSITIVE}
-          actions={actions}
+          type={isDeleting ? Toast.types.NORMAL : Toast.types.POSITIVE}
+          actions={isDeleting ? [] : actions}
           onClose={onCloseCallback}
           autoHideDuration={5000}
+          loading={isDeleting}
           className="monday-storybook-toast_box"
         >
-          We successfully deleted 1 item
+          {isDeleting ? "Deleting 1 selected item..." : "We successfully deleted 1 item"}
         </Toast>
       </>
     );

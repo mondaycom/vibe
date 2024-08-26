@@ -59,6 +59,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   closeButtonAriaLabel = "Close",
   "data-testid": dataTestId
 }) => {
+  const ref = useRef(null);
   const toastLinks = useMemo(() => {
     return actions
       ? actions
@@ -120,11 +121,18 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 
   const iconElement = !hideIcon && getIcon(type, icon);
 
+  useEffect(() => {
+    if (ref.current) {
+      const width = ref.current.scrollWidth;
+      ref.current.style.setProperty("--toast-width", `${width}px`);
+    }
+  }, [children]);
+
   return (
     <CSSTransition
       in={open}
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
-      timeout={400}
+      timeout={300}
       unmountOnExit
     >
       <Text
@@ -136,6 +144,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         className={classNames}
         role="alert"
         aria-live="polite"
+        ref={ref}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align={Flex.align.CENTER} gap={Flex.gaps.LARGE} className={styles.content}>
