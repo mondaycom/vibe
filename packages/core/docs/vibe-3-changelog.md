@@ -309,11 +309,13 @@ codemod: `tab-panels-import-migration`
 
 ### ColorPicker
 
-- `ColorPicker.COLOR_STYLES` removed [codemod]
+codemod: `color-picker-import-migration`
+
+- `ColorPicker.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
 ### ColorPickerContent
 
-- `ColorPickerContent.COLOR_STYLES` removed [codemod]
+- `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod]
 
 ### ResponsiveList
 
