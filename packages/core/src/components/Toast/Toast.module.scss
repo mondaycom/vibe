@@ -91,13 +91,17 @@
 .enterActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation: slideIn 350ms cubic-bezier(0.6, 0, 0.4, 1);
+  animation-name: slideIn;
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
 }
 
 .exitActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation: slideOut 350ms cubic-bezier(0.6, 0, 0.4, 1);
+  animation-name: slideOut;
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
 }
 
 .closeButton {
