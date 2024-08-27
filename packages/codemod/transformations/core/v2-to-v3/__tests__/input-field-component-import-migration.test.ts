@@ -165,11 +165,11 @@ describe("InputField component migration", () => {
     {},
     `
         import { InputField } from "monday-ui-react-core";
-        <InputField autoFocus placeholder="I'm InputField" size={InputField.sizes.other.SMALL} />
+        <InputField autoFocus placeholder="I'm InputField" size={InputField.sizes.SMALL} />
       `,
     `
         import { TextField } from "monday-ui-react-core";
-        <TextField autoFocus placeholder="I'm InputField" size={TextField.sizes.other.SMALL} />
+        <TextField autoFocus placeholder="I'm InputField" size={TextField.sizes.SMALL} />
       `,
     "should change props that uses the namespace of 'InputField' to 'TextField'"
   );
