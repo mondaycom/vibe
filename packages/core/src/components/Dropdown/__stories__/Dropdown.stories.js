@@ -278,15 +278,17 @@ export const MultiChoiceWithDifferentStates = {
 
 export const AsyncDropdown = {
   render: () => {
-    const fetchUserOptions = async () => {
+    const fetchUserOptions = async searchTerm => {
       try {
         const response = await fakeFetchUsers();
         const users = await response.json();
 
-        return users.slice(0, 5).map(user => ({
-          label: user.name,
-          value: user.id
-        }));
+        return users
+          .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          .map(user => ({
+            label: user.name,
+            value: user.id
+          }));
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -302,6 +304,13 @@ export const AsyncDropdown = {
         <Dropdown asyncOptions={fetchUserOptions} placeholder="Async options" cacheOptions defaultOptions />
       </div>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { fakeFetchUsers }
+      }
+    }
   }
 };
 
