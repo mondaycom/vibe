@@ -5,6 +5,10 @@
   justify-content: center;
   padding-inline: var(--spacing-small);
 
+  &.small {
+    padding-block: var(--spacing-xs);
+  }
+
   &.medium {
     padding-block: var(--spacing-small);
   }
