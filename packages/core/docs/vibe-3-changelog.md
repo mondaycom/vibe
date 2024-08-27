@@ -141,11 +141,13 @@ codemod: `icon-button-component-migration`
 
 ## Input
 
-- `Input` component removed - use [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs). [codemod]
+codemod: `input-field-component-migration`
+
+- `Input` component removed - use [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs). [codemod ✅]
 
 ### Label
 
-codemod: `label-button-component-migration`
+codemod: `label-component-migration`
 
 - `wrapperClassName` -> `className` [codemod ✅]
 - Spin in animation removed due to UX decision
