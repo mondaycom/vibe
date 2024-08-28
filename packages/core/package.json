@@ -1,5 +1,5 @@
 {
-  "name": "monday-ui-react-core",
+  "name": "@vibe/core",
   "version": "2.131.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "type": "module",

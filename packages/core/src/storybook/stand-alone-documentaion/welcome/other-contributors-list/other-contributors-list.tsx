@@ -60,6 +60,7 @@ export const OtherContributorsList = () => {
       </Paragraph>
       <GithubContributorsList
         organizationName="mondaycom"
+        // TODO: need to support more than 1 package
         packageName="monday-ui-react-core"
         staticContributors={STATIC_CONTRIBUTORS}
         excludedContributorsIds={excludedContributorsIds}

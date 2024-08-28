@@ -14,7 +14,7 @@ module.exports = {
   preset: 'ts-jest/presets/default',
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
-  transformIgnorePatterns: ['/node_modules/(?!monday-ui-react-core)'],
+  transformIgnorePatterns: ['/node_modules/(?!@vibe/core)'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.(tx|tsx)$': 'ts-jest',
