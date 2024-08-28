@@ -1,10 +1,5 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M1.99805 2.77233C1.99805 2.34471 2.34471 1.99805 2.77233 1.99805H17.2257C17.6533 1.99805 18 2.34471 18 2.77233V7.58989V12.4079V17.2257C18 17.6533 17.6533 18 17.2257 18H2.77233C2.34471 18 1.99805 17.6533 1.99805 17.2257V12.4079V7.58989V2.77233ZM3.54662 13.1822V16.4514H16.4514V13.1822H3.54662ZM16.4514 11.6336H3.54662V8.36417H16.4514V11.6336ZM16.4514 3.54662V6.8156H3.54662V3.54662H16.4514Z" fill="currentColor"/>
-</g>
-<defs>
-<clipPath id="clip0">
-<rect width="16" height="16" transform="translate(2 2)"/>
-</clipPath>
-</defs>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.99609 2.77185C1.99609 2.34422 2.34275 1.99756 2.77038 1.99756H17.2238C17.6514 1.99756 17.998 2.34422 17.998 2.77185V17.2252C17.998 17.6529 17.6514 17.9995 17.2238 17.9995H2.77038C2.34275 17.9995 1.99609 17.6529 1.99609 17.2252V2.77185ZM3.54467 3.54613V6.81511V8.36369V11.6332V13.1817V16.4509H16.4495V13.1817V11.6332V8.36369V6.81511V3.54613H3.54467Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.54467 6.81511H16.4495V8.36369H3.54467V6.81511Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.54467 11.6332H16.4495V13.1817H3.54467V11.6332Z" fill="currentColor"/>
 </svg>
