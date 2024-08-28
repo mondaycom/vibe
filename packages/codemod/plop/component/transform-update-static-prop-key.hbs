@@ -3,7 +3,7 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  updatePropValues
+  updateStaticPropKeys
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
@@ -19,14 +19,7 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updatePropValues(j, elementPath, "{{propName}}", {
-    {{#each valuesMapping}}
-      "{{@key}}": {
-        value: "{{value}}",
-        type: j.{{type}}
-      }{{#unless @last}},{{/unless}}
-    {{/each}}
-    });
+    updateStaticPropKeys(j, elementPath, "{{propName}}", { {{#each keysMapping}}{{@key}}: "{{this}}"{{#unless @last}}, {{/unless}}{{/each}} });
   });
 }
 

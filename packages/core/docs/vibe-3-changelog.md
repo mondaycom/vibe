@@ -117,9 +117,11 @@ codemod: `divider-component-migration`
 
 ### Dropdown 🚩
 
-- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod]
+codemod: `dropdown-component-migration`
+
+- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod ✅]
 - Remove size 'xxs' and 'xs'
-- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle]
+- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle ✅]
 
 ### EditableInput
 
@@ -157,8 +159,10 @@ codemod: `label-button-component-migration`
 
 ### Link 🚩
 
-- `componentClassName` -> `className` [codemod]
-- `Link.target` removed, use `Link.targets` instead [codemod]
+codemod: `link-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `Link.target` removed, use `Link.targets` instead [codemod ✅]
 
 ### Loader
 

@@ -16,7 +16,8 @@ module.exports = function (plop) {
             { name: "Empty template", value: "emptyTemplate" },
             { name: "Update prop names", value: "updatePropNames" },
             { name: "Remove prop", value: "removeProp" },
-            { name: "Update prop values", value: "updatePropValues" }
+            { name: "Update prop values", value: "updatePropValues" },
+            { name: "Update static prop keys", value: "updateStaticPropKeys" }
           ]
         },
         {
@@ -25,6 +26,40 @@ module.exports = function (plop) {
           message: "Enter the old-to-new prop mappings as JSON",
           when: answers => answers.selectedOption === "updatePropNames",
           default: `{ "propAOld": "propANew", "propBOld": "propBNew" }`,
+          validate: function (value) {
+            try {
+              JSON.parse(value);
+              return true;
+            } catch (e) {
+              return "Please enter a valid JSON string.";
+            }
+          }
+        },
+        {
+          type: "input",
+          name: "propsToRemove",
+          message: "Enter the names of the props to remove, separated by commas:",
+          when: answers => answers.selectedOption === "removeProp",
+          filter: function (value) {
+            return value
+              .split(",")
+              .map(prop => prop.trim())
+              .filter(Boolean);
+          }
+        },
+        {
+          type: "input",
+          name: "propName",
+          message: "Enter the prop name that you would like to change its value",
+          when: answers =>
+            answers.selectedOption === "updatePropValues" || answers.selectedOption === "updateStaticPropKeys"
+        },
+        {
+          type: "input",
+          name: "keysMapping",
+          message: "Enter the old-to-new static key mappings as JSON",
+          when: answers => answers.selectedOption === "updateStaticPropKeys",
+          default: `{ "keyAOld": "keyANew", "keyBOld": "keyBNew" }`,
           validate: function (value) {
             try {
               JSON.parse(value);
@@ -96,14 +131,24 @@ module.exports = function (plop) {
     actions: function (data) {
       let templateFile = "plop/component/transform.hbs";
 
-      if (data.selectedOption === "updatePropNames") {
-        templateFile = "plop/component/transform-update-props.hbs";
-        data.propsMapping = JSON.parse(data.propsMapping);
-      } else if (data.selectedOption === "updatePropValues") {
-        templateFile = "plop/component/transform-update-prop-values.hbs";
-        data.valuesMapping = JSON.parse(data.valuesMapping);
-      } else if (data.selectedOption === "removeProp") {
-        templateFile = "plop/component/transform-remove-props.hbs";
+      switch (data.selectedOption) {
+        case "updatePropNames":
+          templateFile = "plop/component/transform-update-props.hbs";
+          data.propsMapping = JSON.parse(data.propsMapping);
+          break;
+        case "updatePropValues":
+          templateFile = "plop/component/transform-update-prop-values.hbs";
+          data.valuesMapping = JSON.parse(data.valuesMapping);
+          break;
+        case "removeProp":
+          templateFile = "plop/component/transform-remove-props.hbs";
+          break;
+        case "updateStaticPropKeys":
+          templateFile = "plop/component/transform-update-static-prop-key.hbs";
+          data.keysMapping = JSON.parse(data.keysMapping);
+          break;
+        default:
+          break;
       }
 
       return [

@@ -3,30 +3,26 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  updatePropValues
+  updateStaticPropKeys,
+  removeProp
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. TODO: What does this codemod do?
+ * 1. Update the 'size' prop static prop from 'size' to 'sizes'
+ * 2. Removes 'withReadOnlyStyle' prop if it exists
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "Dropdown");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updatePropValues(j, elementPath, "{{propName}}", {
-    {{#each valuesMapping}}
-      "{{@key}}": {
-        value: "{{value}}",
-        type: j.{{type}}
-      }{{#unless @last}},{{/unless}}
-    {{/each}}
-    });
+    updateStaticPropKeys(j, elementPath, "size", { size: "sizes" });
+    removeProp(j, elementPath, "withReadOnlyStyle");
   });
 }
 
