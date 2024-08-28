@@ -3,23 +3,23 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  migratePropsNames
+  removeProp
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Update the 'isDisabled' prop to 'disabled'
+ * 1. Remove the 'hideCloseButton' prop
  */
-function transform({ j, root, filePath }: TransformationContext) {
+function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "BreadcrumbItem");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "ModalHeader");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, { isDisabled: "disabled" });
+    removeProp(j, elementPath, "hideCloseButton");
   });
 }
 

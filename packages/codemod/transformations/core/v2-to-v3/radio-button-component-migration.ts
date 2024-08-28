@@ -8,24 +8,18 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Update the 'classname' prop to 'className'
- * 2. Update the 'disabledReason' prop to 'tooltipContent'
- * 1. Update the 'closeDialogOnContentClick' prop to 'closeMenuOnItemClick'
+ * 1. Update the 'componentClassName' prop to 'className'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "MenuButton");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "RadioButton");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, {
-      componentClassName: "className",
-      disabledReason: "tooltipContent",
-      closeDialogOnContentClick: "closeMenuOnItemClick"
-    });
+    migratePropsNames(j, elementPath, filePath, componentName, { componentClassName: "className" });
   });
 }
 
