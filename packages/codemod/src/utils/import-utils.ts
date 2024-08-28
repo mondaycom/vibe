@@ -5,7 +5,7 @@ import { VibeCorePath } from "../../types";
 /**
  * Retrieves all import declarations that matches a path for a root (file).
  */
-function getImports(root: Collection, path: VibeCorePath): Collection<ImportDeclaration> {
+export function getImports(root: Collection, path: VibeCorePath): Collection<ImportDeclaration> {
   return root.find(ImportDeclaration, {
     source: {
       value: path
@@ -106,4 +106,8 @@ export function getComponentNameOrAliasFromImports(
     }
   });
   return componentNameOrAlias;
+}
+
+export function renameImportPath(path: ASTPath<ImportDeclaration>, newPathName: string) {
+  path.get().node.source.value = newPathName;
 }
