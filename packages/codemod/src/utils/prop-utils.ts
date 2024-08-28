@@ -94,18 +94,18 @@ export function setPropValue(
   attributePath: ASTPath<JSXAttribute>,
   newValue: {
     value: string | number | boolean;
-    type: typeof MemberExpression | typeof Literal;
+    type: "MemberExpression" | "Literal";
   }
 ): void {
   if (typeof newValue.value !== "string") {
     const newValueIsTrue = typeof newValue.value === "boolean" && newValue.value;
     attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
   } else {
-    if (newValue.type === MemberExpression) {
+    if (newValue.type === "MemberExpression") {
       const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get()?.node?.expression;
       if (!objectValue) return;
       attributePath.node.value = j.jsxExpressionContainer(objectValue);
-    } else if (newValue.type === Literal) {
+    } else if (newValue.type === "Literal") {
       attributePath.node.value = j.literal(newValue.value);
     }
   }
@@ -157,7 +157,7 @@ export function updatePropValues(
     string,
     {
       value: string | number | boolean;
-      type: typeof MemberExpression | typeof Literal;
+      type: "MemberExpression" | "Literal";
     }
   >
 ): void {

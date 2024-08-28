@@ -22,7 +22,7 @@ function transform({ j, root }: TransformationContext) {
     updatePropValues(j, elementPath, "border", {
       "Box.borders.DEFAULT": {
         value: true,
-        type: j.MemberExpression
+        type: "MemberExpression"
       }
     });
   });
