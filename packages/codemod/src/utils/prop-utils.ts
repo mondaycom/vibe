@@ -60,7 +60,7 @@ export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...
 /**
  * Gets the computed value of a prop
  */
-function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
+export function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
   const value = prop.value;
 
   // boolean flag value (e.g. <Button disabled />)
@@ -109,6 +109,20 @@ export function setPropValue(
       attributePath.node.value = j.literal(newValue.value);
     }
   }
+}
+
+export function addNewProp(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  propValue: string,
+  propValueType: "MemberExpression" | "Literal"
+): void {
+  if (isPropExists(j, elementPath, propName)) return;
+  const propValueNode =
+    propValueType === "MemberExpression" ? j.jsxExpressionContainer(j.identifier(propValue)) : j.literal(propValue);
+  const newProp = j.jsxAttribute(j.jsxIdentifier(propName), propValueNode);
+  elementPath.node.openingElement.attributes?.push(newProp);
 }
 
 /**
