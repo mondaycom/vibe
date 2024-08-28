@@ -1,7 +1,7 @@
 import transform from "../type-imports-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
-describe("imports migration", () => {
+describe("Rename type imports migration", () => {
   defineInlineTest(
     transform,
     {},
