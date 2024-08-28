@@ -7,7 +7,6 @@ import {
   updateStaticPropKeys
 } from "../prop-utils";
 import jscodeshift, { ASTPath, JSXElement } from "jscodeshift";
-import { describe, it, expect, vi } from "vitest";
 
 function getElementPath(source: string, parser: "tsx" | "recast" = "tsx"): ASTPath<JSXElement> {
   const j = jscodeshift.withParser(parser);
