@@ -118,14 +118,13 @@ export function addNewProp(
   elementPath: ASTPath<JSXElement>,
   propName: string,
   propValue: string,
-  propValueType: typeof j.memberExpression | typeof j.literal
+  propValueType: "MemberExpression" | "Literal"
 ): void {
-  if (!isPropExists(j, elementPath, propName)) {
-    const propValueNode =
-      propValueType === j.memberExpression ? j.jsxExpressionContainer(j.identifier(propValue)) : j.literal(propValue);
-    const newProp = j.jsxAttribute(j.jsxIdentifier(propName), propValueNode);
-    elementPath.node.openingElement.attributes?.push(newProp);
-  }
+  if (isPropExists(j, elementPath, propName)) return;
+  const propValueNode =
+    propValueType === "MemberExpression" ? j.jsxExpressionContainer(j.identifier(propValue)) : j.literal(propValue);
+  const newProp = j.jsxAttribute(j.jsxIdentifier(propName), propValueNode);
+  elementPath.node.openingElement.attributes?.push(newProp);
 }
 
 /**

@@ -248,7 +248,7 @@ codemod: `search-component-import-migration`
 
 codemod: `steps-component-import-migration`
 
-- `isOnPrimary` removed, use `color={Steps.colors.PRIMARY}` instead [codemod ✅]
+- `isOnPrimary` removed add `color={Steps.colors.PRIMARY}` instead [codemod ✅]
 
 ### Tabs
 

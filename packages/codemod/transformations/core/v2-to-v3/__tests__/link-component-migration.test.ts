@@ -11,7 +11,7 @@ function prependImport(source: string): string {
 describe("Link component migration", () => {
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Link target={Link.target.SELF} componentClassName="class" />`),
     prependImport(`<Link target={Link.targets.SELF} className="class" />`),
     "should update 'target' to 'targets' and 'componentClassName' to 'className'"

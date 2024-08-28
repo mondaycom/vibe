@@ -12,8 +12,7 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. remove 'isOnPrimary' prop if exists and is true
- * 2. add color={Steps.colors.PRIMARY} if 'isOnPrimary' exists and is true
+ * 1. remove 'isOnPrimary' prop if exists and is true and add color={Steps.colors.PRIMARY}
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
@@ -27,9 +26,9 @@ function transform({ j, root }: TransformationContext) {
     if (isPropExists(j, elementPath, "isOnPrimary")) {
       const prop = findProps(j, elementPath, "isOnPrimary").get(0);
       const propValue = getPropValue(j, prop.node);
-      if (propValue) {
+      if (propValue === true) {
         removeProp(j, elementPath, "isOnPrimary");
-        addNewProp(j, elementPath, "color", "Steps.colors.PRIMARY", j.memberExpression);
+        addNewProp(j, elementPath, "color", "Steps.colors.PRIMARY", "MemberExpression");
       }
     }
   });

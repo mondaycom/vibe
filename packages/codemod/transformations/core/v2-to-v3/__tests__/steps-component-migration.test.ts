@@ -12,7 +12,7 @@ function prependImport(source: string): string {
 describe("Steps component migration", () => {
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Steps isOnPrimary />`),
     prependImport(`<Steps color={Steps.colors.PRIMARY} />`),
     "should remove 'isOnPrimary' if exists and add color={Steps.colors.PRIMARY}"
@@ -20,7 +20,7 @@ describe("Steps component migration", () => {
 
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Steps isOnPrimary color={Steps.colors.ON_PRIMARY_COLOR}/>`),
     prependImport(`<Steps color={Steps.colors.ON_PRIMARY_COLOR} />`),
     "should remove 'isOnPrimary' if exists and not add color={Steps.colors.PRIMARY} since color already exists"
@@ -28,7 +28,7 @@ describe("Steps component migration", () => {
 
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Steps isOnPrimary={false} />`),
     prependImport(`<Steps isOnPrimary={false} />`),
     "should not remove 'isOnPrimary' if exists and is false"
@@ -36,7 +36,7 @@ describe("Steps component migration", () => {
 
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Steps color={Steps.colors.ON_PRIMARY_COLOR} />`),
     prependImport(`<Steps color={Steps.colors.ON_PRIMARY_COLOR} />`),
     "should not change if 'isOnPrimary' doesn't exist"
