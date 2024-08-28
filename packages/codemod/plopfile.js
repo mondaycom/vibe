@@ -68,6 +68,58 @@ module.exports = function (plop) {
               return "Please enter a valid JSON string.";
             }
           }
+        },
+        {
+          type: "input",
+          name: "propsToRemove",
+          message: "Enter the names of the props to remove, separated by commas:",
+          when: answers => answers.selectedOption === "removeProp",
+          filter: function (value) {
+            return value
+              .split(",")
+              .map(prop => prop.trim())
+              .filter(Boolean);
+          }
+        },
+        {
+          type: "input",
+          name: "propName",
+          message: "Enter the prop name that you would like to change its value",
+          when: answers =>
+            answers.selectedOption === "updatePropValues" || answers.selectedOption === "updateStaticPropKeys"
+        },
+        {
+          type: "input",
+          name: "keysMapping",
+          message: "Enter the old-to-new static key mappings as JSON",
+          when: answers => answers.selectedOption === "updateStaticPropKeys",
+          default: `{ "keyAOld": "keyANew", "keyBOld": "keyBNew" }`,
+          validate: function (value) {
+            try {
+              JSON.parse(value);
+              return true;
+            } catch (e) {
+              return "Please enter a valid JSON string.";
+            }
+          }
+        },
+        {
+          type: "input",
+          name: "propsToRemove",
+          message: "Enter the names of the props to remove, separated by commas:",
+          when: answers => answers.selectedOption === "removeProp",
+          filter: function (value) {
+            return value
+              .split(",")
+              .map(prop => prop.trim())
+              .filter(Boolean);
+          }
+        },
+        {
+          type: "input",
+          name: "propName",
+          message: "Enter the prop name that you would like to change its value",
+          when: answers => answers.selectedOption === "updatePropValues"
         }
       ];
       const answers = await inquirer.prompt(prompts);

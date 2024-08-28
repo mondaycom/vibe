@@ -96,17 +96,18 @@ export function setPropValue(
   attributePath: ASTPath<JSXAttribute>,
   newValue: {
     value: string | number | boolean;
-    type: typeof memberExpression | typeof literal;
+    type: "MemberExpression" | "Literal";
   }
 ): void {
   if (typeof newValue.value !== "string") {
     const newValueIsTrue = typeof newValue.value === "boolean" && newValue.value;
     attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
   } else {
-    if (newValue.type === memberExpression) {
-      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get().node.expression;
+    if (newValue.type === "MemberExpression") {
+      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get()?.node?.expression;
+      if (!objectValue) return;
       attributePath.node.value = j.jsxExpressionContainer(objectValue);
-    } else if (newValue.type === literal) {
+    } else if (newValue.type === "Literal") {
       attributePath.node.value = j.literal(newValue.value);
     }
   }
@@ -173,7 +174,7 @@ export function updatePropValues(
     string,
     {
       value: string | number | boolean;
-      type: typeof memberExpression | typeof literal;
+      type: "MemberExpression" | "Literal";
     }
   >
 ): void {
@@ -194,17 +195,18 @@ export function updateStaticPropKeys(
   propName: string,
   keysMapping: Record<string, string>
 ) {
-  findProps(j, elementPath, propName).forEach(attributePath => {
-    if (attributePath !== undefined) {
-      const currentPropValue = attributePath.node.value?.expression;
-      const currentProperty = currentPropValue.object.property;
+  findProps(j, elementPath, propName)
+    .find(JSXExpressionContainer, { expression: { type: "MemberExpression" } })
+    .find(MemberExpression)
+    .find(MemberExpression)
+    .forEach(attributePath => {
+      const currentPropValue = attributePath.value;
+      const currentProperty = currentPropValue?.property;
+      if (currentProperty?.type !== "Identifier") return;
       const newValue = keysMapping[currentProperty.name];
-      if (newValue !== undefined) {
-        currentProperty.name = newValue;
-        attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
-      }
-    }
-  });
+      if (newValue === undefined) return;
+      currentProperty.name = newValue;
+    });
 }
 
 /**
