@@ -6,7 +6,6 @@ import {
   updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
-import { MemberExpression } from "jscodeshift";
 
 /**
  * 1. "size" prop update 'Dialog.DialogSize.MEDIUM' to 'Dialog.DialogSize.SMALL'

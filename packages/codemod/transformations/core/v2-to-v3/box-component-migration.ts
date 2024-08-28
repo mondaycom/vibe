@@ -6,7 +6,6 @@ import {
   updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
-import { MemberExpression } from "jscodeshift";
 
 /**
  * 1. "Border" prop update 'Box.borders.DEFAULT' to true
