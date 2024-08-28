@@ -1,5 +1,4 @@
 import jscodeshift from "jscodeshift";
-import { describe, it, expect } from "vitest";
 import {
   findImportsThatIncludesSpecifier,
   getComponentNameOrAliasFromImports,
