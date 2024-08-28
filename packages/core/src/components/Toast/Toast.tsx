@@ -18,6 +18,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import IconButton from "../IconButton/IconButton";
+import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
@@ -60,6 +61,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   "data-testid": dataTestId
 }) => {
   const ref = useRef(null);
+  const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
       ? actions
@@ -70,17 +72,25 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       : null;
   }, [actions]);
 
+  const shouldShowButtonTransition = useMemo(() => {
+    return prevActions !== undefined && actions?.length !== prevActions;
+  }, [actions, prevActions]);
+
   const toastButtons: JSX.Element[] | null = useMemo(() => {
     return actions
       ? actions
           .filter(action => action.type === ToastActionType.BUTTON)
           .map(({ type: _type, content, ...otherProps }, index) => (
-            <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
+            <ToastButton
+              key={`alert-button-${index}`}
+              className={cx(styles.actionButton, { [styles.withTransition]: shouldShowButtonTransition })}
+              {...otherProps}
+            >
               {content}
             </ToastButton>
           ))
       : null;
-  }, [actions]);
+  }, [actions, shouldShowButtonTransition]);
 
   const classNames = useMemo(
     () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),

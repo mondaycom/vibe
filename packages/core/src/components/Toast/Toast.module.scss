@@ -29,7 +29,7 @@
   margin-left: var(--spacing-small);
 }
 
-.actionButton {
+.actionButton.withTransition {
   opacity: 0;
   animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
   animation-delay: 300ms;
