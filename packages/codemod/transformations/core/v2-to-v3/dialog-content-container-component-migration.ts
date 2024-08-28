@@ -23,7 +23,7 @@ function transform({ j, root }: TransformationContext) {
     updatePropValues(j, elementPath, "size", {
       "DialogContentContainer.sizes.MEDIUM": {
         value: "DialogContentContainer.sizes.SMALL",
-        type: MemberExpression
+        type: j.MemberExpression
       }
     });
   });
