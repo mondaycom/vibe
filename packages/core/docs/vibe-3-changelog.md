@@ -334,7 +334,7 @@ codemod: `toggle-import-migration`
 ## Icons
 
 - Removed Upgrade icon
-- Featured icon renamed to Upgrade
+- Featured icon renamed to Upgrade [codemod ✅]
 
 ## Hooks
 
