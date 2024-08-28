@@ -179,15 +179,16 @@ export function updateStaticPropKeys(
   propName: string,
   keysMapping: Record<string, string>
 ) {
-  findProps(j, elementPath, propName).forEach(attributePath => {
-    if (attributePath === undefined) return;
-    const currentPropValue = attributePath.node.value?.expression;
-    const currentProperty = currentPropValue.object.property;
-    const newValue = keysMapping[currentProperty.name];
-    if (newValue === undefined) return;
-    currentProperty.name = newValue;
-    attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
-  });
+  findProps(j, elementPath, propName)
+    .find(JSXExpressionContainer, { expression: { type: "MemberExpression" } })
+    .forEach(attributePath => {
+      const currentPropValue = attributePath.node?.expression;
+      const currentProperty = currentPropValue?.object.property;
+      const newValue = keysMapping[currentProperty.name];
+      if (newValue === undefined) return;
+      currentProperty.name = newValue;
+      attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
+    });
 }
 
 /**
