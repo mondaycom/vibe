@@ -6,6 +6,7 @@ import {
   updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
+import { MemberExpression } from "jscodeshift";
 
 /**
  * 1. "Border" prop update 'Box.borders.DEFAULT' to true
@@ -22,7 +23,7 @@ function transform({ j, root }: TransformationContext) {
     updatePropValues(j, elementPath, "border", {
       "Box.borders.DEFAULT": {
         value: true,
-        type: j.memberExpression
+        type: MemberExpression
       }
     });
   });

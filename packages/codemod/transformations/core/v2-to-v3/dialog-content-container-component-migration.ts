@@ -6,6 +6,7 @@ import {
   updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
+import { MemberExpression } from "jscodeshift";
 
 /**
  * 1. "size" prop update 'Dialog.DialogSize.MEDIUM' to 'Dialog.DialogSize.SMALL'
@@ -22,7 +23,7 @@ function transform({ j, root }: TransformationContext) {
     updatePropValues(j, elementPath, "size", {
       "DialogContentContainer.sizes.MEDIUM": {
         value: "DialogContentContainer.sizes.SMALL",
-        type: j.memberExpression
+        type: MemberExpression
       }
     });
   });
