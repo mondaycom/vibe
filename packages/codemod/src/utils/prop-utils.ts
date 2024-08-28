@@ -79,10 +79,36 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
       // e.g. <Button text={true} /> or <Button text={"text"} />
       return value.expression.value;
     }
-  }
 
+    if (value.expression.type === "MemberExpression") {
+      // e.g. <Button border={Box.borders.DEFAULT} />
+      return j(value.expression).toSource();
+    }
+  }
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
+}
+
+export function setPropValue(
+  j: JSCodeshift,
+  attributePath: ASTPath<JSXAttribute>,
+  newValue: {
+    value: string | number | boolean;
+    type: "MemberExpression" | "Literal";
+  }
+): void {
+  if (typeof newValue.value !== "string") {
+    const newValueIsTrue = typeof newValue.value === "boolean" && newValue.value;
+    attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
+  } else {
+    if (newValue.type === "MemberExpression") {
+      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get()?.node?.expression;
+      if (!objectValue) return;
+      attributePath.node.value = j.jsxExpressionContainer(objectValue);
+    } else if (newValue.type === "Literal") {
+      attributePath.node.value = j.literal(newValue.value);
+    }
+  }
 }
 
 /**
@@ -119,6 +145,29 @@ export function migratePropsNames(
       removeProp(j, elementPath, deprecatedPropName);
     } else {
       logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
+    }
+  });
+}
+
+export function updatePropValues(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  valuesMapping: Record<
+    string,
+    {
+      value: string | number | boolean;
+      type: "MemberExpression" | "Literal";
+    }
+  >
+): void {
+  findProps(j, elementPath, propName).forEach(attributePath => {
+    const currentPropValue = getPropValue(j, attributePath.node);
+    if (currentPropValue !== undefined) {
+      const newValue = valuesMapping[String(currentPropValue)];
+      if (newValue !== undefined) {
+        setPropValue(j, attributePath, newValue);
+      }
     }
   });
 }
