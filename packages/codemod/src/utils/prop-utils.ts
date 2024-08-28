@@ -104,7 +104,7 @@ export function setPropValue(
     attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
   } else {
     if (newValue.type === memberExpression) {
-      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get().node.expression;
+      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get()?.node?.expression;
       attributePath.node.value = j.jsxExpressionContainer(objectValue);
     } else if (newValue.type === literal) {
       attributePath.node.value = j.literal(newValue.value);
