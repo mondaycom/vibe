@@ -3,28 +3,23 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  updatePropValues
+  removeProp
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. "Border" prop update 'Box.borders.DEFAULT' to true
+ * 1. Remove the 'hideCloseButton' prop
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "Box");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "ModalHeader");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updatePropValues(j, elementPath, "border", {
-      "Box.borders.DEFAULT": {
-        value: true,
-        type: "MemberExpression"
-      }
-    });
+    removeProp(j, elementPath, "hideCloseButton");
   });
 }
 
