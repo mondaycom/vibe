@@ -180,15 +180,13 @@ export function updateStaticPropKeys(
   keysMapping: Record<string, string>
 ) {
   findProps(j, elementPath, propName).forEach(attributePath => {
-    if (attributePath !== undefined) {
-      const currentPropValue = attributePath.node.value?.expression;
-      const currentProperty = currentPropValue.object.property;
-      const newValue = keysMapping[currentProperty.name];
-      if (newValue !== undefined) {
-        currentProperty.name = newValue;
-        attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
-      }
-    }
+    if (attributePath === undefined) return;
+    const currentPropValue = attributePath.node.value?.expression;
+    const currentProperty = currentPropValue.object.property;
+    const newValue = keysMapping[currentProperty.name];
+    if (newValue === undefined) return;
+    currentProperty.name = newValue;
+    attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
   });
 }
 

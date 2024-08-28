@@ -10,6 +10,7 @@ import { TransformationContext } from "../../../types";
 
 /**
  * 1. Update the 'size' prop static prop from 'size' to 'sizes'
+ * 2. Removes 'withReadOnlyStyle' prop if it exists
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
