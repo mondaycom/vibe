@@ -181,13 +181,15 @@ export function updateStaticPropKeys(
 ) {
   findProps(j, elementPath, propName)
     .find(JSXExpressionContainer, { expression: { type: "MemberExpression" } })
+    .find(MemberExpression)
+    .find(MemberExpression)
     .forEach(attributePath => {
-      const currentPropValue = attributePath.node?.expression;
-      const currentProperty = currentPropValue?.object.property;
+      const currentPropValue = attributePath.value;
+      const currentProperty = currentPropValue?.property;
+      if (currentProperty?.type !== "Identifier") return;
       const newValue = keysMapping[currentProperty.name];
       if (newValue === undefined) return;
       currentProperty.name = newValue;
-      attributePath.node.value = j.jsxExpressionContainer(currentPropValue);
     });
 }
 
