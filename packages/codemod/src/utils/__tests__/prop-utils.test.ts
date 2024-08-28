@@ -66,8 +66,6 @@ describe("removeProp", () => {
 });
 
 describe("migratePropsNames", () => {
-  const mockLogError = vi.fn(); // Mock the log function if necessary
-
   const testCases = [
     {
       description: "should rename old prop to new prop when the new prop is not found",
@@ -154,6 +152,14 @@ describe("updatePropValues", () => {
         true: { value: "Dialog.sizes.SMALL", type: jscodeshift.memberExpression }
       },
       expected: `<Component someProp={Dialog.sizes.SMALL} />`
+    },
+    {
+      description: "should change value to null if setting to true",
+      source: `<Component someProp={false} />`,
+      valuesMapping: {
+        false: { value: true, type: jscodeshift.memberExpression }
+      },
+      expected: `<Component someProp />`
     }
   ];
 
