@@ -3,26 +3,23 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  updateStaticPropKeys,
   removeProp
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Update the 'size' prop static prop from 'size' to 'sizes'
- * 2. Removes 'withReadOnlyStyle' prop if it exists
+ * 1. Remove the 'hideCloseButton' prop
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "Dropdown");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "Modal");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    updateStaticPropKeys(j, elementPath, "size", { size: "sizes" });
-    removeProp(j, elementPath, "withReadOnlyStyle");
+    removeProp(j, elementPath, "hideCloseButton");
   });
 }
 
