@@ -12,6 +12,7 @@ import {
   AlphaWarning,
   DeprecatedWarning,
   ComponentRules,
+  DocFooter,
   Frame,
   FunctionArgument,
   FunctionArguments,
@@ -60,7 +61,10 @@ const preview: Preview = {
       },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
-          <Unstyled>{children}</Unstyled>
+          <Unstyled>
+            {children}
+            {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
+          </Unstyled>
         </DocsContainer>
       ),
       page: DocsPage,
@@ -95,11 +99,9 @@ const preview: Preview = {
       storySort: {
         order: [
           "Welcome",
-          "Getting Started",
+          "Catalog",
           "Changelog",
           "Migration Guide",
-          "Contributing",
-          "Catalog",
           "Playground",
           "Internal",
           "Foundations",
