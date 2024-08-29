@@ -110,7 +110,7 @@ describe("Prop Utils", () => {
         description: "should update string prop value based on the mapping",
         source: `<Component someProp="oldValue" />`,
         valuesMapping: {
-          oldValue: { value: "newValue", type: jscodeshift.literal }
+          oldValue: { value: "newValue", type: "Literal" }
         },
         expected: `<Component someProp="newValue" />`
       },
@@ -118,7 +118,7 @@ describe("Prop Utils", () => {
         description: "should update number prop value based on the mapping",
         source: `<Component someProp={1} />`,
         valuesMapping: {
-          "1": { value: 42, type: jscodeshift.literal }
+          "1": { value: 42, type: "Literal" }
         },
         expected: `<Component someProp={42} />`
       },
@@ -126,7 +126,7 @@ describe("Prop Utils", () => {
         description: "should update boolean prop value based on the mapping",
         source: `<Component someProp={true} />`,
         valuesMapping: {
-          true: { value: false, type: jscodeshift.literal }
+          true: { value: false, type: "Literal" }
         },
         expected: `<Component someProp={false} />`
       },
@@ -134,7 +134,7 @@ describe("Prop Utils", () => {
         description: "should update member expression prop value based on the mapping",
         source: `<Component someProp={OldNamespace.value} />`,
         valuesMapping: {
-          "OldNamespace.value": { value: "NewNamespace.value", type: jscodeshift.memberExpression }
+          "OldNamespace.value": { value: "NewNamespace.value", type: "MemberExpression" }
         },
         expected: `<Component someProp={NewNamespace.value} />`
       },
@@ -142,7 +142,7 @@ describe("Prop Utils", () => {
         description: "should leave the prop unchanged if the value is not in the mapping",
         source: `<Component someProp="unchangedValue" />`,
         valuesMapping: {
-          oldValue: { value: "newValue", type: jscodeshift.literal }
+          oldValue: { value: "newValue", type: "Literal" }
         },
         expected: `<Component someProp="unchangedValue" />`
       },
@@ -150,7 +150,7 @@ describe("Prop Utils", () => {
         description: "should change value to enum",
         source: `<Component someProp />`,
         valuesMapping: {
-          true: { value: "Dialog.sizes.SMALL", type: jscodeshift.memberExpression }
+          true: { value: "Dialog.sizes.SMALL", type: "MemberExpression" }
         },
         expected: `<Component someProp={Dialog.sizes.SMALL} />`
       },
@@ -158,7 +158,7 @@ describe("Prop Utils", () => {
         description: "should change value to null if setting to true",
         source: `<Component someProp={false} />`,
         valuesMapping: {
-          false: { value: true, type: jscodeshift.memberExpression }
+          false: { value: true, type: "MemberExpression" }
         },
         expected: `<Component someProp />`
       }
