@@ -4,6 +4,7 @@ on: workflow_dispatch
 
 jobs:
   release:
+    if: github.ref_name == 'version2'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,12 +20,6 @@ jobs:
         with:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
-      - name: Check current branch is "version2"
-        run: |
-          if [[ "$(git branch --show-current)" != "version2" ]]; then
-            echo "Error: Not on 'version2' branch."
-            exit 1
-          fi
       - name: Build
         run: yarn build
       - name: Lint
