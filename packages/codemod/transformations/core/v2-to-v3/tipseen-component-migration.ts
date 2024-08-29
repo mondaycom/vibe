@@ -8,18 +8,18 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. TODO: What does this codemod do?
+ * 1. Update the 'isCloseButtonHidden' prop to 'hideCloseButton'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "Tipseen");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, { {{#each propsMapping}}{{@key}}: "{{this}}"{{#unless @last}}, {{/unless}}{{/each}} });
+    migratePropsNames(j, elementPath, filePath, componentName, { isCloseButtonHidden: "hideCloseButton" });
   });
 }
 

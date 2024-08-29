@@ -43,4 +43,54 @@ describe("Packages rename migration", () => {
     import { Heart } from "@vibe/icons";`,
     "should rename both 'monday-ui-react-core' and /icons to '@vibe/core' and '@vibe/icons'"
   );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { getByLabelText } from "another-library";`,
+    `import { getByLabelText } from "another-library";`,
+    "should not change unrelated imports"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { Button, Label } from "monday-ui-react-core";
+     import { getByLabelText } from "another-library";`,
+    `import { Button, Label } from "@vibe/core";
+     import { getByLabelText } from "another-library";`,
+    "should rename 'monday-ui-react-core' to '@vibe/core' but leave unrelated imports unchanged"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { Button } from "monday-ui-react-core";
+     import { Heart } from "monday-ui-react-core/icons";
+     import { BUTTON_TEST_ID } from "monday-ui-react-core/testIds";`,
+    `import { Button } from "@vibe/core";
+     import { Heart } from "@vibe/icons";
+     import { BUTTON_TEST_ID } from "@vibe/core/testIds";`,
+    "should rename all imports from 'monday-ui-react-core' and related paths correctly"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { Button } from "monday-ui-react-core";`,
+    `import { Button } from "@vibe/core";`,
+    "should only change the import path from 'monday-ui-react-core' to '@vibe/core' if no other paths are present"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { Button } from "monday-ui-react-core";
+     import { SomeOtherComponent } from "another-library";
+     import { Icon } from "monday-ui-react-core/icons";`,
+    `import { Button } from "@vibe/core";
+     import { SomeOtherComponent } from "another-library";
+     import { Icon } from "@vibe/icons";`,
+    "should only rename 'monday-ui-react-core' and 'monday-ui-react-core/icons' while leaving other imports unchanged"
+  );
 });

@@ -3,23 +3,28 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  removeProp
+  updatePropValues
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. TODO: What does this codemod do?
+ * 1. "size" prop update 'Dialog.DialogSize.MEDIUM' to 'Dialog.DialogSize.SMALL'
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "DialogContentContainer");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    removeProp(j, elementPath, {{#each propsToRemove}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}});
+    updatePropValues(j, elementPath, "size", {
+      "DialogContentContainer.sizes.MEDIUM": {
+        value: "DialogContentContainer.sizes.SMALL",
+        type: "MemberExpression"
+      }
+    });
   });
 }
 
