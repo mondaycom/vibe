@@ -3,7 +3,7 @@
 ## General
 
 - `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
-- `monday-ui-react-core/types` removed, exported types are now exported from `monday-ui-react-core` [codemod]
+- `monday-ui-react-core/types` removed, exported types are now exported from `monday-ui-react-core` [codemod ✅]
 - `monday-ui-react-core/storybookComponents` removed, use the `vibe-storybook-components` package instead [codemod]
 - CommonJS support removed
 - `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
