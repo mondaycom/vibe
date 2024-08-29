@@ -141,7 +141,10 @@ codemod: `dropdown-component-migration`
 
 ### Icon
 
-- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon [codemod]
+codemod: `icon-component-migration`
+
+- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon
+- Remove `clickable` if it is false [codemod ✅]
 
 ### IconButton
 
