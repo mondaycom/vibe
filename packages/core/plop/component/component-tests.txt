@@ -1,8 +1,9 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import {{properCase componentName}} from "../{{properCase componentName}}";
+import { {{properCase componentName}}Props } from "../{{properCase componentName}}.types";
 
-const renderComponent = props => {
+const renderComponent = (props: {{properCase componentName}}Props) => {
   return render(<{{properCase componentName}} {...props} />);
 };
 
