@@ -9,6 +9,7 @@ import { TransformationContext } from "../../../types";
 
 /**
  * 1. Remove the 'withMaxWidth' prop
+ * 2. Remove the `showTooltipOnlyOnTriggerElement` prop
  */
 function transform({ j, root }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
@@ -20,6 +21,7 @@ function transform({ j, root }: TransformationContext) {
 
   elements.forEach(elementPath => {
     removeProp(j, elementPath, "withMaxWidth");
+    removeProp(j, elementPath, "showTooltipOnlyOnTriggerElement");
   });
 }
 

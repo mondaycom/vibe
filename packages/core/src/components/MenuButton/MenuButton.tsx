@@ -118,10 +118,6 @@ export interface MenuButtonProps extends VibeComponentProps {
    * Close the menu when an item is clicked
    */
   closeMenuOnItemClick?: boolean;
-  /**
-   * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
-   */
-  showTooltipOnlyOnTriggerElement?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -166,7 +162,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
-      showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId
     }: MenuButtonProps,
     ref
@@ -366,10 +361,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       </Tooltip>
     );
 
-    if (showTooltipOnlyOnTriggerElement) {
-      return dialogNode(tooltipNode(triggerElementNode));
-    }
-    return tooltipNode(dialogNode(triggerElementNode));
+    return dialogNode(tooltipNode(triggerElementNode));
   }
 );
 

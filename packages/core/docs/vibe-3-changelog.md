@@ -221,6 +221,7 @@ codemod: `menu-button-component-migration`
 - `componentClassName` -> `className` [codemod ✅]
 - `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod ✅]
 - Removed `disabledReason`, use `tooltipContent` instead [codemod ✅]
+- Removed `showTooltipOnlyOnTriggerElement` as it's now the default, and tooltip will appear only on the icon button itself and not on the menu dialog [codemod ✅]
 
 ### Modal
 

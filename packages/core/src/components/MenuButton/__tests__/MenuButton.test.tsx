@@ -64,28 +64,6 @@ describe("MenuButton", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with showTooltipOnlyOnTriggerElement and tooltip content", () => {
-    const tree = renderer
-      .create(
-        <MenuButton showTooltipOnlyOnTriggerElement tooltipContent="tooltip content">
-          <div>Menu</div>
-        </MenuButton>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("renders correctly with showTooltipOnlyOnTriggerElement and without tooltip content", () => {
-    const tree = renderer
-      .create(
-        <MenuButton showTooltipOnlyOnTriggerElement>
-          <div>Menu</div>
-        </MenuButton>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("renders correctly with a default Menu icon at the end", () => {
     const tree = renderer
       .create(
