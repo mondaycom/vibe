@@ -256,7 +256,7 @@ codemod: `tab-panels-import-migration`
 ### TextField
 
 - `dataTestId` -> `data-testid` [codemod ✅]
-- `iconsNames` prop removed `layout` [codemod]
+- `iconsNames` prop removed `layout`
 - Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
   - Removed `requiredAsterisk` [codemod ✅]
 - Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod ✅]
