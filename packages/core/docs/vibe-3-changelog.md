@@ -2,11 +2,19 @@
 
 ## General
 
-- `monday-ui-react-core/next` removed - import from `monday-ui-react-core` instead.
-- `monday-ui-react-core/types` removed, exported types are now exported from `monday-ui-react-core` [codemod ✅]
-- `monday-ui-react-core/storybookComponents` removed, use the `vibe-storybook-components` package instead [codemod]
+- Package rename - `monday-ui-react-core` renamed to `@vibe/core`: [codemod ✅]
+  - `/tokens` -> `@vibe/core/tokens` [codemod ✅]
+  - `/interactionsTests` -> `@vibe/core/interactionsTests` [codemod ✅]
+  - `/testIds` -> `@vibe/core/testIds` [codemod ✅]
+  - `/mockedClassNames` -> `@vibe/core/mockedClassNames`
+- Removed entry pointes:
+  - `/next` removed, migrate components to `@vibe/core`
+  - `/types` remove, import from `@vibe/core` instead [codemod ✅]
+- Entry points moved to a new library:
+  - `/icons` -> `@vibe/icons` [codemod ✅]
+  - `/storybookComponents` removed, use the `vibe-storybook-components` package instead
+- `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
 - CommonJS support removed
-- `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
 - All components' props interfaces are exported
 
 ## Colors
