@@ -40,12 +40,6 @@ export default {
       pattern: /(\n$)/gm,
       separator: "",
       template: `export { default as {{camelCase hookName}} } from "./{{camelCase hookName}}";\n`
-    },
-    {
-      type: "append",
-      path: "webpack/published-ts-components.js",
-      pattern: /(\/\/ plop_marker:published-hooks)/g,
-      template: `  {{camelCase hookName}}: "hooks/{{camelCase hookName}}",`
     }
   ]
 };

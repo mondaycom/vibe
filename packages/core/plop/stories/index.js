@@ -34,11 +34,6 @@ export default {
     },
     {
       type: "add",
-      path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.helpers.tsx",
-      templateFile: "plop/general/component-stories-helpers-tsx.txt"
-    },
-    {
-      type: "add",
       path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.module.scss",
       templateFile: "plop/general/component-stories-scss.txt"
     }
