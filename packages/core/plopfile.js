@@ -1,11 +1,11 @@
-const Component = require("./plop/component");
-const Tests = require("./plop/tests");
-const Stories = require("./plop/stories");
-const HooksStory = require("./plop/hooks");
+import component from "./plop/component/index.js";
+import tests from "./plop/tests/index.js";
+import stories from "./plop/stories/index.js";
+import hooksStory from "./plop/hooks/index.js";
 
-module.exports = plop => {
-  Component(plop);
-  Tests(plop);
-  Stories(plop);
-  HooksStory(plop);
-};
+export default function (plop) {
+  plop.setGenerator("Component", component);
+  plop.setGenerator("Tests", tests);
+  plop.setGenerator("Stories", stories);
+  plop.setGenerator("Hooks Story", hooksStory);
+}

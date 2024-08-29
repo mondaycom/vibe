@@ -1,6 +1,5 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 import @componentName@ from "../@componentName@";
-import { TipOtherComponent } from "./@componentName@.stories.helpers";
 import * as @componentName@Stories from "./@componentName@.stories";
 
 <Meta of={@componentName@Stories} />
@@ -29,8 +28,6 @@ Please write here the component description
 ## Usage
 
 <UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
-
-<TipOtherComponent />
 
 ## Variants
 
