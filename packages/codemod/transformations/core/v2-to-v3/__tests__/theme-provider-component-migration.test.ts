@@ -11,7 +11,7 @@ function prependImport(source: string): string {
 describe("ThemeProvider component migration", () => {
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<ThemeProvider theme={context.themeConfig} systemTheme={context.theme}><div /></ThemeProvider>`),
     prependImport(
       `<ThemeProvider themeConfig={context.themeConfig} systemTheme={context.theme}><div /></ThemeProvider>`
