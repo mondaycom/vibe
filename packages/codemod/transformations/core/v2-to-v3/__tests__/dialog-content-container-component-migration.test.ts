@@ -11,7 +11,7 @@ function prependImport(source: string): string {
 describe("DialogContentContainer component migration", () => {
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<DialogContentContainer size={DialogContentContainer.sizes.MEDIUM} />`),
     prependImport(`<DialogContentContainer size={DialogContentContainer.sizes.SMALL} />`),
     "should update medium to small"
@@ -35,7 +35,7 @@ describe("DialogContentContainer component migration", () => {
 
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(
       `
       <>

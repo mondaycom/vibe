@@ -11,7 +11,7 @@ function prependImport(source: string): string {
 describe("Box component migration", () => {
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(`<Box border={Box.borders.DEFAULT} />`),
     prependImport(`<Box border />`),
     "should update 'Box.borders.DEFAULT' to 'true'"
@@ -35,7 +35,7 @@ describe("Box component migration", () => {
 
   defineInlineTest(
     transform,
-    {}, // jscodeshift test options
+    {},
     prependImport(
       `
       <>
