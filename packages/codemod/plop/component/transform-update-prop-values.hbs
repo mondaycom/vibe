@@ -1,0 +1,33 @@
+import {
+  wrap,
+  getCoreImportsForFile,
+  getComponentNameOrAliasFromImports,
+  findComponentElements,
+  updatePropValues
+} from "../../../src/utils";
+import { TransformationContext } from "../../../types";
+
+/**
+ * 1. TODO: What does this codemod do?
+ */
+function transform({ j, root }: TransformationContext) {
+  const imports = getCoreImportsForFile(root);
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
+  if (!componentName) return;
+
+  const elements = findComponentElements(root, componentName);
+  if (!elements.length) return;
+
+  elements.forEach(elementPath => {
+    updatePropValues(j, elementPath, "{{propName}}", {
+    {{#each valuesMapping}}
+      "{{@key}}": {
+        value: "{{value}}",
+        type: j.{{type}}
+      }{{#unless @last}},{{/unless}}
+    {{/each}}
+    });
+  });
+}
+
+export default wrap(transform);

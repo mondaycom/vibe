@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.131.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.131.1...monday-ui-react-core@2.131.2) (2024-08-28)
+
+
+### Bug Fixes
+
+* **Combobox:** render comboboxItems only when hasResults is true ([#2380](https://github.com/mondaycom/vibe/issues/2380)) ([7ede2d0](https://github.com/mondaycom/vibe/commit/7ede2d017de9ca1ed1b86565cef7a2000039cd00))
+
+
+
+
+
 ## [2.131.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.131.0...monday-ui-react-core@2.131.1) (2024-08-22)
 
 **Note:** Version bump only for package monday-ui-react-core
