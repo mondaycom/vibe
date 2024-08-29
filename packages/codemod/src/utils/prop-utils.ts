@@ -60,7 +60,7 @@ export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...
 /**
  * Gets the computed value of a prop
  */
-function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
+export function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
   const value = prop.value;
 
   // boolean flag value (e.g. <Button disabled />)
@@ -79,10 +79,50 @@ function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean |
       // e.g. <Button text={true} /> or <Button text={"text"} />
       return value.expression.value;
     }
-  }
 
+    if (value.expression.type === "MemberExpression") {
+      // e.g. <Button border={Box.borders.DEFAULT} />
+      return j(value.expression).toSource();
+    }
+  }
   // can be very complex, we'll have to compare strings
   return value ? j(value).toSource() : undefined;
+}
+
+export function setPropValue(
+  j: JSCodeshift,
+  attributePath: ASTPath<JSXAttribute>,
+  newValue: {
+    value: string | number | boolean;
+    type: "MemberExpression" | "Literal";
+  }
+): void {
+  if (typeof newValue.value !== "string") {
+    const newValueIsTrue = typeof newValue.value === "boolean" && newValue.value;
+    attributePath.node.value = newValueIsTrue ? null : j.jsxExpressionContainer(j.literal(newValue.value));
+  } else {
+    if (newValue.type === "MemberExpression") {
+      const objectValue = j(`${newValue.value}`).find(j.ExpressionStatement).get()?.node?.expression;
+      if (!objectValue) return;
+      attributePath.node.value = j.jsxExpressionContainer(objectValue);
+    } else if (newValue.type === "Literal") {
+      attributePath.node.value = j.literal(newValue.value);
+    }
+  }
+}
+
+export function addNewProp(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  propValue: string,
+  propValueType: "MemberExpression" | "Literal"
+): void {
+  if (isPropExists(j, elementPath, propName)) return;
+  const propValueNode =
+    propValueType === "MemberExpression" ? j.jsxExpressionContainer(j.identifier(propValue)) : j.literal(propValue);
+  const newProp = j.jsxAttribute(j.jsxIdentifier(propName), propValueNode);
+  elementPath.node.openingElement.attributes?.push(newProp);
 }
 
 /**
@@ -121,6 +161,49 @@ export function migratePropsNames(
       logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
     }
   });
+}
+
+export function updatePropValues(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  valuesMapping: Record<
+    string,
+    {
+      value: string | number | boolean;
+      type: "MemberExpression" | "Literal";
+    }
+  >
+): void {
+  findProps(j, elementPath, propName).forEach(attributePath => {
+    const currentPropValue = getPropValue(j, attributePath.node);
+    if (currentPropValue !== undefined) {
+      const newValue = valuesMapping[String(currentPropValue)];
+      if (newValue !== undefined) {
+        setPropValue(j, attributePath, newValue);
+      }
+    }
+  });
+}
+
+export function updateStaticPropKeys(
+  j: JSCodeshift,
+  elementPath: ASTPath<JSXElement>,
+  propName: string,
+  keysMapping: Record<string, string>
+) {
+  findProps(j, elementPath, propName)
+    .find(JSXExpressionContainer, { expression: { type: "MemberExpression" } })
+    .find(MemberExpression)
+    .find(MemberExpression)
+    .forEach(attributePath => {
+      const currentPropValue = attributePath.value;
+      const currentProperty = currentPropValue?.property;
+      if (currentProperty?.type !== "Identifier") return;
+      const newValue = keysMapping[currentProperty.name];
+      if (newValue === undefined) return;
+      currentProperty.name = newValue;
+    });
 }
 
 /**

@@ -3,23 +3,26 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
+  updateStaticPropKeys,
   migratePropsNames
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. TODO: What does this codemod do?
+ * 1. Update the 'target' prop static prop from 'target' to 'targets'
+ * 2. Update the 'componentClassName' prop to 'className'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "{{pascalCase componentName}}");
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "Link");
   if (!componentName) return;
 
   const elements = findComponentElements(root, componentName);
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    migratePropsNames(j, elementPath, filePath, componentName, { {{#each propsMapping}}{{@key}}: "{{this}}"{{#unless @last}}, {{/unless}}{{/each}} });
+    updateStaticPropKeys(j, elementPath, "target", { target: "targets" });
+    migratePropsNames(j, elementPath, filePath, componentName, { componentClassName: "className" });
   });
 }
 
