@@ -7,9 +7,7 @@ import {
   JSXExpressionContainer,
   JSXIdentifier,
   JSXOpeningElement,
-  literal,
   Literal,
-  memberExpression,
   MemberExpression
 } from "jscodeshift";
 import { logPropMigrationError } from "./report-utils";
