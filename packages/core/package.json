@@ -227,7 +227,6 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-live": "^4.1.5",
-    "react-markdown": "^7.1.0",
     "react-resizable": "^3.0.4",
     "react-syntax-highlighter": "^15.5.0",
     "react-test-renderer": "^16.14.0",
