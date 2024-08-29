@@ -8,7 +8,7 @@ import {
 import { TransformationContext } from "../../../types";
 
 /**
- * 2. Update the 'isDisabled' prop to 'disabled'
+ * 1. Update the 'isDisabled' prop to 'disabled'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);

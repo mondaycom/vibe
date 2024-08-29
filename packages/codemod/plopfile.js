@@ -68,6 +68,24 @@ module.exports = function (plop) {
               return "Please enter a valid JSON string.";
             }
           }
+        },
+        {
+          type: "input",
+          name: "propsToRemove",
+          message: "Enter the names of the props to remove, separated by commas:",
+          when: answers => answers.selectedOption === "removeProp",
+          filter: function (value) {
+            return value
+              .split(",")
+              .map(prop => prop.trim())
+              .filter(Boolean);
+          }
+        },
+        {
+          type: "input",
+          name: "propName",
+          message: "Enter the prop name that you would like to change its value",
+          when: answers => answers.selectedOption === "updatePropValues"
         }
       ];
       const answers = await inquirer.prompt(prompts);

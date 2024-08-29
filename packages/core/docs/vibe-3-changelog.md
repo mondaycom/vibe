@@ -94,7 +94,9 @@ codemod: `chips-component-migration`
 
 ### Dialog
 
-- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod]
+codemod: `dialog-component-migration`
+
+- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod✅]
 
 ### DialogContentContainer 🚩
 
@@ -211,18 +213,24 @@ codemod: `menu-button-component-migration`
 
 ### Modal
 
+codemod: `modal-component-migration`
+
 - Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
 - The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render if `show` is "false". To disable this behavior set `unmountOnClose` to "false".
 
 ### ModalHeader
 
+codemod: `modal-header-component-migration`
+
 - Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod]
+  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
 
 ### RadioButton
 
-- `componentClassName` -> `className` [codemod]
+codemod: `radio-button-component-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
 
 ## Search
 
@@ -240,7 +248,9 @@ codemod: `search-component-import-migration`
 
 ### Steps 🚩
 
-- `isOnPrimary` removed, use `color={StepsColor.PRIMARY}` instead [codemod]
+codemod: `steps-component-import-migration`
+
+- `isOnPrimary` removed add `color={Steps.colors.PRIMARY}` instead [codemod ✅]
 
 ### Tabs
 
@@ -286,13 +296,17 @@ codemod: `tab-panels-import-migration`
 
 ### TipseenContent
 
-- `isDismissHidden` -> `hideDismiss` [codemod]
-- `isSubmitHidden` -> `hideSubmit` [codemod]
+codemod: `tipseen-content-import-migration`
+
+- `isDismissHidden` -> `hideDismiss` [codemod ✅]
+- `isSubmitHidden` -> `hideSubmit` [codemod ✅]
 
 ### Toggle
 
-- `componentClassName` -> `className` [codemod]
-- `isDisabled` -> `disabled` [codemod]
+codemod: `toggle-import-migration`
+
+- `componentClassName` -> `className` [codemod ✅]
+- `isDisabled` -> `disabled` [codemod ✅]
 
 ### Tooltip
 
@@ -311,11 +325,15 @@ codemod: `tab-panels-import-migration`
 
 ### ColorPicker
 
-- `ColorPicker.COLOR_STYLES` removed [codemod]
+codemod: `color-picker-import-migration`
+
+- `ColorPicker.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
 ### ColorPickerContent
 
-- `ColorPickerContent.COLOR_STYLES` removed [codemod]
+codemod: `color-picker-content-import-migration`
+
+- `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
 ### ResponsiveList
 
