@@ -1,10 +1,10 @@
 export default {
-  description: "New monday component",
+  description: "New Vibe component",
   prompts: [
     {
       type: "input",
       name: "componentName",
-      message: "What is the name of your component? (use spaces if multi word)"
+      message: "What is the name of your component? (e.g. ButtonGroup)"
     }
   ],
   actions: [
@@ -27,7 +27,7 @@ export default {
     {
       type: "add",
       path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
-      templateFile: "plop/general/component-stories-mdx.txt"
+      templateFile: "plop/component/component-stories-mdx.txt"
     },
     {
       type: "modify",
@@ -38,7 +38,7 @@ export default {
     {
       type: "add",
       path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.tsx",
-      templateFile: "plop/general/component-stories-tsx.txt"
+      templateFile: "plop/component/component-stories-tsx.txt"
     },
     {
       type: "add",
@@ -53,7 +53,7 @@ export default {
     {
       type: "add",
       path: "src/components/{{properCase componentName}}/__tests__/{{properCase componentName}}.test.tsx",
-      templateFile: "plop/general/component-tests.txt"
+      templateFile: "plop/component/component-tests.txt"
     },
     {
       type: "append",
