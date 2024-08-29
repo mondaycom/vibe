@@ -29,13 +29,13 @@ function transform({ root }: TransformationContext) {
     renameImportPath(importPath, `${NEW_CORE_IMPORT_PATH}/interactionsTests`);
   });
 
-  const testIdsImports = getImports(root, `${NEW_CORE_IMPORT_PATH}/testIds`);
+  const testIdsImports = getImports(root, `${CORE_IMPORT_PATH}/testIds`);
 
   testIdsImports.forEach(importPath => {
     renameImportPath(importPath, `${NEW_CORE_IMPORT_PATH}/testIds`);
   });
 
-  const tokensImports = getImports(root, `${NEW_CORE_IMPORT_PATH}/tokens`);
+  const tokensImports = getImports(root, `${CORE_IMPORT_PATH}/tokens`);
 
   tokensImports.forEach(importPath => {
     renameImportPath(importPath, `${NEW_CORE_IMPORT_PATH}/tokens`);
