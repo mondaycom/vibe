@@ -226,18 +226,32 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 
     const Option = useCallback(
       (props: CustomOptionProps) => {
-        if (props.isFocused) {
+        if (props.isFocused && props.innerProps.id !== focusedOptionId) {
           setFocusedOptionId(props.innerProps.id);
         }
         return (
           <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
         );
       },
-      [finalOptionRenderer, optionWrapperClassName]
+      [finalOptionRenderer, optionWrapperClassName, focusedOptionId]
     );
 
     const Input = useCallback(
-      (props: InputProps) => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
+      (props: InputProps | any) => {
+        return (
+          <components.Input
+            {...props}
+            aria-activedescendant={
+              props.selectProps.ariaActivedescendant && props.selectProps.menuIsOpen
+                ? props.selectProps.ariaActivedescendant
+                : ""
+            }
+            role="combobox"
+            aria-label="Dropdown input"
+            aria-controls={menuId}
+          />
+        );
+      },
       [menuId]
     );
 
@@ -392,7 +406,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
         aria-expanded={!readOnly && menuIsOpen}
-        ariaActivedescendant={focusedOptionId || ""}
         aria-haspopup="listbox"
         defaultValue={defaultValue}
         value={value}
@@ -405,6 +418,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         onInputChange={onInputChange}
         openMenuOnFocus={openMenuOnFocus}
         openMenuOnClick={openMenuOnClick}
+        ariaActivedescendant={focusedOptionId ? focusedOptionId : ""}
         isRtl={rtl}
         styles={inlineStyles}
         theme={customTheme}

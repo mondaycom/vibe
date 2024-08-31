@@ -8,9 +8,7 @@ const Control = props => {
   const rendererProps = {
     ...props,
     innerProps: {
-      ...props.innerProps,
-      role: "combobox",
-      ["aria-activedescendant"]: selectProps?.ariaActivedescendant
+      ...props.innerProps
     }
   };
 
