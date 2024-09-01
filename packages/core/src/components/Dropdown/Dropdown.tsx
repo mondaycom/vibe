@@ -133,7 +133,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     };
 
     const [selected, setSelected] = useState(overrideDefaultValue || []);
-    const [focusedOptionId, setFocusedOptionId] = useState(null);
+    const [focusedOptionId, setFocusedOptionId] = useState("");
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;

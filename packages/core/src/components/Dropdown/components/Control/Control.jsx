@@ -4,15 +4,7 @@ import Tooltip from "../../../../components/Tooltip/Tooltip";
 
 const Control = props => {
   const { selectProps } = props;
-
-  const rendererProps = {
-    ...props,
-    innerProps: {
-      ...props.innerProps
-    }
-  };
-
-  const control = <components.Control {...rendererProps} />;
+  const control = <components.Control {...props} />;
   const controlRef = selectProps?.selectProps?.controlRef;
   if (controlRef)
     return (
