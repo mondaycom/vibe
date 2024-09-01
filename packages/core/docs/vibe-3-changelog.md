@@ -136,7 +136,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### EditableInput
 
-- `EditableInput` removed, use [`EditableText`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+- `EditableInput` removed, use [EditableText](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
 
 ### Heading
 
@@ -245,13 +245,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ## Search
 
-- `Search` has changed - follow the [`Search` docs](https://style.monday.com/?path=/docs/inputs-search--docs) for the new API.
+- `Search` has changed - follow the [Search](https://style.monday.com/?path=/docs/inputs-search--docs) docs for the new API.
 
 ## SearchComponent
 
 > codemod: `search-component-import-migration`
 
-- `SearchComponent` component removed - use [Search](https://style.monday.com/?path=/docs/inputs-search--docs). 🔀
+- `SearchComponent` component removed - use [Search](https://style.monday.com/?path=/docs/inputs-search--docs) 🔀
 
 ## SplitButton
 
