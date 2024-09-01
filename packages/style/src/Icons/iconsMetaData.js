@@ -5,10 +5,10 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Upgrade",
-      file: "Upgrade.svg",
-      description: "Upgrade",
-      tags: "Upgrade"
+    name: "Upgrade",
+    file: "Upgrade.svg",
+    description: "Upgrade",
+    tags: "Upgrade"
   },
 
   {
@@ -758,8 +758,8 @@ export const iconsMetaData = [
   {
     name: "Comment",
     file: "Comment.svg",
-    description: "Comment",
-    tags: "Comment, Text, Design",
+    description: "Use as indication for comment, review or writing assistant.",
+    tags: "Comment, Text, Speech, Speech bubble, Writing, Review, Assistant",
     category: [PLATFORM]
   },
 
