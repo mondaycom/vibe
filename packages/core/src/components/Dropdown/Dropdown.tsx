@@ -225,34 +225,33 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     );
 
     const Option = useCallback(
-      (props: CustomOptionProps) => {
-        if (props.isFocused && props.innerProps.id !== focusedOptionId) {
-          setFocusedOptionId(props.innerProps.id);
-        }
-        return (
-          <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
-        );
-      },
-      [finalOptionRenderer, optionWrapperClassName, focusedOptionId]
+      (props: CustomOptionProps) => (
+        <OptionComponent
+          setFocusedOptionId={setFocusedOptionId}
+          {...props}
+          Renderer={finalOptionRenderer}
+          optionWrapperClassName={optionWrapperClassName}
+        />
+      ),
+      [finalOptionRenderer, optionWrapperClassName, setFocusedOptionId]
     );
 
     const Input = useCallback(
       (props: InputProps | any) => {
+        const { focusedOptionId, menuIsOpen } = props.selectProps;
+        const ariaActiveDescendant = focusedOptionId && menuIsOpen ? focusedOptionId : "";
         return (
           <components.Input
             {...props}
-            aria-activedescendant={
-              props.selectProps.ariaActivedescendant && props.selectProps.menuIsOpen
-                ? props.selectProps.ariaActivedescendant
-                : ""
-            }
+            aria-activedescendant={ariaActiveDescendant}
             role="combobox"
+            aria-expanded={!readOnly && menuIsOpen}
             aria-label="Dropdown input"
             aria-controls={menuId}
           />
         );
       },
-      [menuId]
+      [menuId, readOnly]
     );
 
     const SingleValue = useCallback(
@@ -405,7 +404,6 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
-        aria-expanded={!readOnly && menuIsOpen}
         aria-haspopup="listbox"
         defaultValue={defaultValue}
         value={value}
@@ -418,7 +416,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         onInputChange={onInputChange}
         openMenuOnFocus={openMenuOnFocus}
         openMenuOnClick={openMenuOnClick}
-        ariaActivedescendant={focusedOptionId ? focusedOptionId : ""}
+        focusedOptionId={focusedOptionId}
         isRtl={rtl}
         styles={inlineStyles}
         theme={customTheme}
