@@ -20,8 +20,7 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    removeProp(j, elementPath, "withMaxWidth");
-    removeProp(j, elementPath, "showTooltipOnlyOnTriggerElement");
+    removeProp(j, elementPath, "withMaxWidth", "showTooltipOnlyOnTriggerElement");
   });
 }
 
