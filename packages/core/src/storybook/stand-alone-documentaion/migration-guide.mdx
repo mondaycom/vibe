@@ -5,21 +5,21 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
 import propsGif from "./assets/props.gif";
+import packageSplitDiagram from "./assets/package-split.png";
 
 <Meta title="Migration Guide" />
 
 # Vibe 3 Migration Guide
 
-<div class="sb-unstyled" style={{ lineHeight: "1.8" }} >
+<div style={{ lineHeight: "1.8" }} >
 
 - [Intro](#intro)
-- [Automatic migration 🤖](#automatic-migration-)
-- [New features ✨](#new-features-)
-- [Breaking changes 🚨](#breaking-changes-)
+- [New Features ✨](#new-features-)
+- [Migration Steps 🚀](#migration-steps-)
+- [Breaking cCanges 🚨](#breaking-changes-)
   - [General](#general)
   - [Typography](#typography)
   - [Components](#components)
-  - [Hooks](#hooks)
   - [Colors](#colors)
   - [Icons](#icons)
 - [FAQ ❓](#faq-)
@@ -34,46 +34,35 @@ Vibe 3 is a major update to the Vibe design system, introducing several new feat
   guide](https://github.com/mondaycom/vibe/tree/master/docs/vibe2-migration-guide.md)
 </Tip>
 
-## Automatic migration 🤖
+## New Features ✨
 
-To help you migrate your existing codebase to Vibe 3, we have created an automatic migration script (codemod) that will update your codebase to the new APIs and components. To run the migration script, use the following command:
+### Package rename
 
-```bash
-npx @vibe/codemod v3-migration path/to/your/files
-```
+The `monday-ui-react-core` package has been renamed to `@vibe/core` to better reflect the library's purpose and align with the Vibe branding. In addition, the `/icons` entry point has been moved to a new `@vibe/icons` package.
 
-Please note that most of the changes are covered by the migration script, but some manual changes may still be required as some changes require manual intervention (whether regarding style, UX, or behavior).
+<img src={packageSplitDiagram} alt="packages split diagram" width="500"></img>
 
-**It is highly recommended to review the changes made by the script and test your application thoroughly to ensure everything works as expected.**
+### Reduced bundle size
 
-<Tip title="Be aware of uncovered changes" emoji="🚩">
-  Changes that are not covered by the automatic migration are marked with a 🚩 in the [Breaking
-  changes](#breaking-changes-) section below.
-</Tip>
-
-## New features ✨
-
-**Reduced bundle size**
-
-By removing CommonJS support and optimizing the library exports, the bundle size has been reduced by [fill in] for better performance
+By removing CommonJS support, dividing the library into packages, and optimizing the library exports - the bundle size has been reduced to [fill in] kb, resulting in faster load times and improved performance.
 
 {/* bundle phobia image? */}
 
-**New Typography System**
+### New Typography System
 
-New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>, and <StorybookLink page="Inputs/Search">Search</StorybookLink> components
+New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink> components. For more info check the [Typography](#typography) section.
 
-**Enhanced Typescript Support**
+### Enhanced Typescript Support
 
 All components' types and interfaces are exported for better type-safe compositions. For example:
 
 ```tsx
-import { Button, ButtonProps, ButtonType } from "monday-ui-react-core";
+import { Button, ButtonProps, ButtonSize } from "monday-ui-react-core";
 ```
 
-**Improved prop type-checking**
+### Improved prop type-checking
 
-Now you can use type-safe strings instead of static enums for props, providing a better developer experience:
+Now you can use type-safe strings instead of static enums for props, providing a better and faster developement experience:
 
 ```tsx
 // Before
@@ -83,43 +72,75 @@ Now you can use type-safe strings instead of static enums for props, providing a
 <Button kind="primary" size="small">click</Button>
 ```
 
-See Intellisense in action in your favorite IDE:
+See IntelliSense in action in your favorite IDE:
 
 <img src={propsGif} width="300" alt="Using props values instead of enums" />
 
-You can still use the static properties, although not recommended, as they are likely to be deprecated in the future.
+You can keep using the static properties, although not recommended, as they are likely to be deprecated in the future.
 
-{/* Package rename - icon, core */}
-{/* Layer provider */}
+### Improved layering of floating components
 
-## Breaking changes 🚨
+When usedd inside Modals, the floating components (i.e., Tooltip, Tipseen, Dialog) will now be rendered inside the Modal's container by default, ensuring they are always on top. This change prevents any z-index interference and ensures a consistent user experience.
 
-Several breaking changes have been made to optimize and streamline the library. These changes include the removal of deprecated components, updates to component APIs, and overall enhancements.
+{/* <img href={layers.gif} alt="floating elements on modal"></img> */}
 
-The breaking changes are categorized as follows:
+## Migration Steps 🚀
 
-1. [General](#general)
-2. [Typography](#typography)
-3. [Components](#components)
-4. [Hooks](#hooks)
-5. [Colors](#colors)
-6. [Icons](#icons)
+Most of the changes required to migrate from Vibe 2 to Vibe 3 are covered by an automatic migration script, but some manual changes may still be required, especially changes that are related to style, UX, or behavior.
 
-**It's essential to review these changes carefully to ensure your application continues to function correctly and efficiently:**
+These steps will guide you through the migration process:
+
+1. Install the `@vibe/core` (and `@vibe/icons`, if needed) and remove `monday-ui-react-core`:
+
+   ```bash
+   yarn add @vibe/core @vibe/icons # or npm install @vibe/core @vibe/icons
+   yarn remove monday-ui-react-core # or npm uninstall monday-ui-react-core
+   ```
+
+   The changes in your `package.json` file should look like this:
+
+<ul>
+  <DiffCodeBlock
+    code={`"dependencies": {
+- "monday-ui-react-core": "^2.120.0",
++ "@vibe/core": "^3.0.0",
++ "@vibe/icons": "^3.0.0"
+  ...
+},`}
+  />
+</ul>
+
+2. Run the migration script to update your codebase:
+
+   ```bash
+   npx @vibe/codemod v3-migration path/to/your/project/root
+   ```
+
+3. Follow the changes in the [Breaking Changes 🚨](#breaking-changes-) section below and apply any manual changes required.
+
+4. **Review the changes and test your application thoroughly** to ensure everything works as expected.
+
+5. Run Prettier or any code formatting tool to format the changes made by the migration script [optional].
+
+## Breaking Changes 🚨
+
+Several breaking changes have been made to optimize and streamline the library. These changes include the removal of deprecated components, updates to component APIs, and overall enhancements. The following are the most significant changes that require manual intervention, **in addition to the automatic migration script**.
+
+For the complete set of changes, refer to the [Vibe 3 changelog](https://github.com/mondaycom/vibe/blob/master/packages/core/docs/vibe-3-changelog.md).
 
 ### General
 
-- **CommonJS support has been removed** to modernize the library, reduce complexity, and ensure better compatibility with modern JavaScript tooling and ESM (ECMAScript Modules) standards. This change helps improve performance and aligns with current best practices in JavaScript development.
-- The `monday-ui-react-core/next` entry **was removed** - components that were imported from it are now imported from `monday-ui-react-core`.
-- The `monday-ui-react-core/types` entry **was removed**, all types and interfaces are now exported from `monday-ui-react-core`.
+- **CommonJS support has been removed** to modernize the library, reduce complexity, and ensure better compatibility with modern JavaScript tooling and ESM (ECMAScript Modules) standards.
 - The `monday-ui-react-core/storybookComponents` entry **was removed**, use the [vibe-storybook-components](https://www.npmjs.com/package/vibe-storybook-components) package instead.
-- The `monday-ui-react-core/dist/main.css` **was removed**, use `monday-ui-react-core/tokens` instead to load all relevant CSS tokens:
+- The `monday-ui-react-core/dist/main.css` **was removed**, use `@vibe/core/tokens` instead to load all relevant CSS tokens:
 
-<DiffCodeBlock
-  code={`- import "monday-ui-react-core/dist/main.css";
-+ import "monday-ui-react-core/tokens";
+<ul>
+  <DiffCodeBlock
+    code={`- import "monday-ui-react-core/dist/main.css";
++ import "@vibe/core/tokens";
 `}
-/>
+  />
+</ul>
 
 ### Typography
 
@@ -151,7 +172,7 @@ For more information, refer to the <StorybookLink page="Foundations/Typography">
 
 The following components have been **removed** and are no longer available:
 
-- `Input` - use <StorybookLink page="Inputs/Heading">TextField</StorybookLink> instead
+- `Input` - use <StorybookLink page="Inputs/TextField">TextField</StorybookLink> instead
 - `EditableInput` - use <StorybookLink page="Inputs/EditableText">EditableText</StorybookLink> instead
 - `SearchComponent` - use <StorybookLink page="Inputs/Search">Search</StorybookLink> instead
 - `ResponsiveList` - use <StorybookLink page="Hooks/useIsOverflowing">useIsOverflowing</StorybookLink> hook instead, to show/hide content based on overflow
@@ -162,93 +183,61 @@ These components were **rewritten from scracth** with new API and style, offerin
 - <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>
 - <StorybookLink page="Inputs/Search">Search</StorybookLink>
 
+Make sure to import them from `@vibe/core` instead of the `/next` entry:
+
+<DiffCodeBlock
+  code={`- import { Heading, EditableHeading, Search } from "monday-ui-react-core/next";
++ import { Heading, EditableHeading, Search } from "@vibe/core";
+`}
+/>
+
 The following components have breaking changes to their API, behavior, or style, as detailed below:
-
-**AttentionBox**
-
-- The `componentClassName` prop has been removed, use `className` instead
-
-**Avatar**
-
-- The `isSquare` prop has been removed, use `square` instead
-- The `isDisabled` prop has been removed, use `disabled` instead
 
 **AvatarGroup**
 
-- The `removePadding` prop has been removed, and the component no longer gets a padding bottom
-
-**Box**
-
-- The `border` prop type has been changed from string to boolean, and the so `Box.borders` static prop has been removed:
-
-<DiffCodeBlock
-  code={`- <Box border={Box.borders.DEFAULT}>
-+ <Box border>
-`}
-/>
-
-**BreadcrumbItem**
-
-- The `isDisabled` prop has been removed, use `disabled` instead
+- The component no longer gets a padding bottom
 
 **Button**
 
-- The `dataTestId` prop has been removed, use `data-testid` instead
 - The `children` prop is now mandatory
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively:
 
-<DiffCodeBlock
-  code={`- <Button size="sm">
+<ul>
+  <DiffCodeBlock
+    code={`- <Button size="sm">
 + <Button size="small">
 `}
-/>
-
-**ButtonGroup**
-
-- The `componentClassName` prop has been removed, use `className` instead
-
-**Checkbox**
-
-- The `componentClassName` prop has been removed, use `className` instead
+  />
+</ul>
 
 **Chips**
 
-- The `dataTestId` prop has been removed, use `data-testid` instead
 - The `DARK_INDIGO` and `BLACKISH` colors were removed from the `color` prop
 - The `clickable` and `isClickable` props were removed, use `onClick` instead, to get clickable behavior and style:
 
-<DiffCodeBlock
-  code={`- <Chips clickable>
+<ul>
+  <DiffCodeBlock
+    code={`- <Chips clickable>
 + <Chips onClick={() => {}}>
 `}
-/>
-
-**Clickable**
-
-- The `dataTestId` prop has been removed, use `data-testid` instead
+  />
+</ul>
 
 **Counter**
 
-- `wrapperClassName` -> `className`
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively:
 
-<DiffCodeBlock
-  code={`- <Counter size="sm">
+<ul>
+  <DiffCodeBlock
+    code={`- <Counter size="sm">
 + <Counter size="small">
 `}
-/>
-
-**Dialog**
-
-- The `shoudlCallbackOnMount` prop has been removed, use `shouldCallbackOnMount` instead
+  />
+</ul>
 
 **DialogContentContainer**
 
 - The "medium" `size` now has an increased padding, correcting a previous sizing issue where "medium" and "small" had identical paddings. As a result, "small" is now the default size. If no size was specified there's no action required.
-
-**Divider**
-
-- The `classname` prop has been removed, use `className` instead
 
 **Flex**
 
@@ -256,77 +245,34 @@ The following components have breaking changes to their API, behavior, or style,
 
 **Dropdown**
 
-- The `Dropdown.size` property was removed, use `Dropdown.sizes` instead
 - The `xxs`, `xs` sizes were acting as the `small` size and therefore removed. Use `small` instead
-- The `withReadOnlyStyle` prop was removed, new readonly style will be applied automatically when using the `readOnly` prop
+- New readonly style
 
 **Icon**
 
 - The `clickable`, `onClick` props were removed, use `<IconButton>` for clickable icons:
 
-<DiffCodeBlock
-  code={`- <Icon icon={Heart} clickable onClick={() => {}}>
+<ul>
+  <DiffCodeBlock
+    code={`- <Icon icon={Heart} clickable onClick={() => {}}>
 + <IconButton icon={Heart} onClick={() => {}}>
 `}
-/>
-
-**IconButton**
-
-- The `dataTestId` prop has been removed, use `data-testid` instead
+  />
+</ul>
 
 **Label**
 
-- The `wrapperClassName` prop has been removed, use `className` instead
-- The "Spin In" animation was removed, and so the `isAnimationDisabled` prop has been removed
-
-**Link**
-
-- The `componentClassName` prop has been removed, use `className` instead
-- The static `Link.target` propery was removed, use `Link.targets` instead
-
-**Loader**
-
-- The `svgClassName` prop has been removed, use `className` instead
-
-**Menu**
-
-- The `classname` prop has been removed, use `className` instead
-
-**MenuDivider**
-
-- The `classname` prop has been removed, use `className` instead
+- The "Spin In" animation was removed
 
 **MenuItem**
 
-- The `classname` prop has been removed, use `className` instead
-- The provided tooltip (when the text is overflowing) now wraps the entire element so non-block layout given to the `title` prop may break 🚩
-
-**MenuItemButton**
-
-- The `classname` prop has been removed, use `className` instead
-
-**MenuTitle**
-
-- The `classname` prop has been removed, use `className` instead
-
-**MenuButton**
-
-- The `componentClassName` prop has been removed, use `className` instead
-- The `closeDialogOnContentClick` prop has been removed, use `closeMenuOnItemClick` instead
-- The `disabledReason` prop has been removed, use `tooltipContent` instead
+- The provided tooltip (when the text is overflowing) now wraps the entire element so non-block layout given to the `title` prop may break
 
 **Modal**
 
-- The `hideCloseButton` has been removed since Modals should always have a close button
+- The `hideCloseButton` has been removed since Modals should always have a close button. It has also been removed from ModalHeader component.
 - The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render when `show` is "false". To disable this behavior set `unmountOnClose` to "false"
-
-**ModalHeader**
-
-- The `hideCloseButton` has been removed since Modals should always have a close button
-
-**RadioButton**
-
-- The `componentClassName` prop has been removed, use `className` instead
+- Tooltips, Tipseens, and Dialogs on Modals will now be rendered inside the Modal's container by default, without any z-index interference
 
 **SplitButton**
 
@@ -336,11 +282,13 @@ The following components have breaking changes to their API, behavior, or style,
 
 - The `isOnPrimary` prop was removed, use `color="primary` instead:
 
-<DiffCodeBlock
-  code={`- <Steps isOnPrimary>
+<ul>
+  <DiffCodeBlock
+    code={`- <Steps isOnPrimary>
 + <Steps color="primary">
 `}
-/>
+  />
+</ul>
 
 **Tabs**
 
@@ -348,42 +296,37 @@ The following components have breaking changes to their API, behavior, or style,
 
 **TabList**
 
-- The component no longer gets a padding bottom, and so the `noPadding` prop was removed
+- The component no longer gets a padding bottom
 
 **TabPanels**
 
-- TabPanels will render only the active tab instead of rendering all the panels, and so the `renderOnlyActiveTab` was removed
+- TabPanels will render only the active tab instead of rendering all the panels
 
 **TextField**
 
-- The `dataTestId` prop has been removed, use `data-testid` instead
 - The `iconsNames` prop no longer accepts the `layout` property
 - Providing the `required` prop will now show a red asterisk, implying that the field is mandatory, and so the `requiredAsterisk` prop was removed
-- The `withReadOnlyStyle` prop was removed, new readonly style will be applied automatically when using the `readOnly` prop
+- New readonly style
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively:
 
-**ThemeProvider**
-
-- The `theme` has been removed, use `themeConfig` instead
+<ul>
+  <DiffCodeBlock
+    code={`- <TextField size="sm">
++ <TextField size="small">
+`}
+  />
+</ul>
 
 **Tipseen**
 
 - The `content` prop is now mandatory
 - The default `color` has changed from 'primary' to 'inverted'. To keep the previous color, set the `color` prop to 'primary'
-- The `isCloseButtonHidden` prop has been removed, use `hideCloseButton` instead
 - The `showDelay` prop's default value has changed to 100
 - The `justify` prop was removed, and so the `Tipseen.justifyTypes` static property was removed as well
 
 **TipseenContent**
 
-- The `isDismissHidden` prop has been removed, use `hideDismiss` instead
-- The `isSubmitHidden` prop has been removed, use `hideSubmit` instead
 - The `submitButtonProps`, `dismissButtonProps` props were removed, use `submitButtonText` and `dismissButtonText` to change the buttons' text
-
-**Toggle**
-
-- The `componentClassName` prop has been removed, use `className` instead
-- The `isDisabled` prop has been removed, use `disabled` instead
 
 **Tooltip**
 
@@ -393,22 +336,9 @@ The following components have breaking changes to their API, behavior, or style,
 - The `showOnDialogEnter` props's default value has changed to true, now the tooltip will remain open be default when hovering over it
 - The `hideDelay` props's default value changed to 100
 - The `addKeyboardHideShowTriggersByDefault` default changed to true, making it accessible with keyboard navigation
-- The `withMaxWidth` prop was removed, the tooltip's max-width is now set to 240px
-- Tooltip's `content` is now wrapped in another div, meaning that non-block layouts inside the tooltip may break 🚩
-
-**ColorPicker**
-
-- The static `ColorPicker.COLOR_STYLES` property has been removed, use `ColorPicker.colorStyles` instead
-
-**ColorPickerContent**
-
-- The static `ColorPickerContent.COLOR_STYLES` property has been removed, use `ColorPickerContent.colorStyles` instead
-
-### Hooks
-
-**useClickableProps**
-
-- The `dataTestId` prop has been removed, use `data-testid` instead
+- The tooltip's max-width is now set to 240px
+- Tooltip's `content` is now wrapped in another div, meaning that non-block layouts inside the tooltip may break
+- The `containerSelector` will now fallback to `document.body` instead of `#tooltips-container` if not provided
 
 ### Colors
 
@@ -419,21 +349,23 @@ The following components have breaking changes to their API, behavior, or style,
 
 - The `Upgrade` icon has been removed, and the `Featured` icon has been renamed to `Upgrade`:
 
-<DiffCodeBlock
-  code={`- <Icon icon={Featured}>
+<ul>
+  <DiffCodeBlock
+    code={`- <Icon icon={Featured}>
 + <Icon icon={Upgrade}>
 `}
-/>
+  />
+</ul>
 
 ## FAQ ❓
 
 **What is the best way to migrate to Vibe 3?**
 
-It is recommended using the automatic migration script to update your codebase to the new APIs and components. After running the script, review the changes and test your application thoroughly to ensure everything works as expected.
+It is recommended to follow the migration steps outlined in this guide to ensure a smooth transition from Vibe 2 to Vibe 3.
 
 **Are there any manual changes required after running the migration script?**
 
-While the migration script covers most changes, some manual changes may still be required where style, UX, or behavior changes are involved.
+While the migration script covers most changes, some manual changes may still be required where style, UX, or behavior changes are involved. You should walk through the [breaking changes](#breaking-changes-) section to identify any manual changes required.
 
 **Do I need to stop using static properties (e.g. `Button.kinds.PRIMARY`) in my code?**
 
@@ -441,7 +373,7 @@ You can still use static properties, but it is recommended to use type-safe stri
 
 **I have already been using Heading, EditableHeading, Search from `/next`, do I need to change anything?**
 
-If you have been using these components from `/next`, you will only need to update your imports to use the components from the main entry (`monday-ui-react-core`).
+If you have been using these components from `/next`, you will only need to update your imports to use the components from the main entry (`@vibe/core`).
 
 **Are there any known issues or limitations with Vibe 3?**
 
@@ -451,12 +383,12 @@ While we have made every effort to ensure Vibe 3 is stable and reliable, there m
 
 While we recommend migrating to Vibe 3 to take advantage of the new features and improvements, you can continue using Vibe 2. However, please note that Vibe 2 will no longer recieve any new features or updates aside from critical bug fixes, and will reach EOL upon the next major version (Vibe 4) release.
 
-{/* add about packages renaming */}
+**The migration script failed to run, what should I do?**
+
+Make sure to run the migration script in the root directory of your project, and make sure to run it on a clean git branch to avoid any conflicts. If you still encounter issues, please create an [issue](https://github.com/mondaycom/vibe/issues/new/choose) describing the steps, system info and any error messages you received.
 
 </div>
 
 ## Help & Feedback 🙏
 
-If you have any questions, feedback, or need help, please don't hesitate to reach out to us. You can provide [feedback](https://github.com/mondaycom/vibe/discussions) or [report issues](https://github.com/mondaycom/vibe/issues/new/choose) in the [Vibe repository](https://github.com/mondaycom/vibe).
-
-We also welcome contributions and suggestions to help make Vibe better. If you are interested in contributing to the project, please read our <StorybookLink page="Contributing">Contribution guidelines</StorybookLink>.
+If you have any questions, feedback, or need help, please don't hesitate to reach out to us. You can provide [feedback](https://github.com/mondaycom/vibe/discussions) or [report issues](https://github.com/mondaycom/vibe/issues/new/choose) in the [Vibe repository](https://github.com/mondaycom/vibe) on GitHub.
