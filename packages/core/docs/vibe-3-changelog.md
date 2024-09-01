@@ -8,8 +8,7 @@
 - CommonJS support removed
 - `monday-ui-react-core/dist/main.css` removed, use `monday-ui-react-core/tokens` instead [codemod]
 - All components' props interfaces are exported
-- Tooltips, Tipseens, and Dialog are adjusted to be opened on top of modals, without the need to set the z-index manually
-
+  
 ## Colors
 
 - Removed `--shareable-color` and `--private-color` for all themes
