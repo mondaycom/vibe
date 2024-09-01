@@ -1,4 +1,4 @@
-import transform from "../use-clickable-props-hook-migration"; // Adjust the path to your transform
+import transform from "../use-clickable-props-hook-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
