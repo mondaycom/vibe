@@ -17,7 +17,7 @@ import layersGif from "./assets/layers.gif";
 - [Intro](#intro)
 - [New Features ✨](#new-features-)
 - [Migration Steps 🚀](#migration-steps-)
-- [Breaking cCanges 🚨](#breaking-changes-)
+- [Breaking Changes 🚨](#breaking-changes-)
   - [General](#general)
   - [Typography](#typography)
   - [Components](#components)
@@ -51,7 +51,7 @@ By removing CommonJS support, dividing the library into packages, and optimizing
 
 ### New Typography System
 
-New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink> components. For more info check the [Typography](#typography) section.
+New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink> components. For more info, check the [Typography](#typography) section.
 
 ### Enhanced Typescript Support
 
@@ -63,7 +63,7 @@ import { Button, ButtonProps, ButtonSize } from "monday-ui-react-core";
 
 ### Improved prop type-checking
 
-Now you can use type-safe strings instead of static enums for props, providing a better and faster developement experience:
+Now you can use type-safe strings instead of static enums for props, providing a better and faster development experience:
 
 ```tsx
 // Before
@@ -81,7 +81,7 @@ You can keep using the static properties, although not recommended, as they are 
 
 ### Improved layering of floating components
 
-When usedd inside Modals, the floating components (i.e., Tooltip, Tipseen, Dialog) will now be rendered inside the Modal's container by default, ensuring they are always on top. This change prevents any z-index interference and ensures a consistent user experience.
+When used inside Modals, the floating components (i.e., Tooltip, Tipseen, Dialog) will now be rendered inside the Modal's container by default, ensuring they are always on top. This change prevents any z-index interference and ensures a consistent user experience.
 
 <img src={layersGif} alt="floating elements on modal" width="500"></img>
 
@@ -178,7 +178,7 @@ The following components have been **removed** and are no longer available:
 - `SearchComponent` - use <StorybookLink page="Inputs/Search">Search</StorybookLink> instead
 - `ResponsiveList` - use <StorybookLink page="Hooks/useIsOverflowing">useIsOverflowing</StorybookLink> hook instead, to show/hide content based on overflow
 
-These components were **rewritten from scracth** with new API and style, offering better accessiblity and usability:
+These components were **rewritten from scratch** with new API and style, offering better accessibility and usability:
 
 - <StorybookLink page="Text/Heading">Heading</StorybookLink>
 - <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>
@@ -196,11 +196,11 @@ The following components have breaking changes to their API, behavior, or style,
 
 **AvatarGroup**
 
-- The component no longer gets a padding bottom
+- The component no longer has padding at the bottom
 
 **Button**
 
-- The `children` prop is now mandatory
+- The `children` prop is now required
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively:
 
 <ul>
@@ -242,11 +242,11 @@ The following components have breaking changes to their API, behavior, or style,
 
 **Flex**
 
-- The `Flex.gaps.NONE` property has been removed, to specify no gap simply omit the `gap` prop
+- The `Flex.gaps.NONE` property has been removed. To specify no gap simply omit the `gap` prop
 
 **Dropdown**
 
-- The `xxs`, `xs` sizes were acting as the `small` size and therefore removed. Use `small` instead
+- The `xxs`, `xs` sizes were acting as the `small` size and were therefore removed. Use `small` instead
 - New readonly style
 
 **Icon**
@@ -293,7 +293,7 @@ The following components have breaking changes to their API, behavior, or style,
 
 **Tabs**
 
-- Browser's default margin/padding for ul, li elements was reset
+- The browser's default margin/padding for `ul` and `li` elements were reset
 
 **TabList**
 
@@ -334,11 +334,11 @@ The following components have breaking changes to their API, behavior, or style,
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
 - The `themes` prop can now accept only "dark" or "primary"
 - The `position` prop can now accept only "top, right, bottom, left"
-- The `showOnDialogEnter` props's default value has changed to true, now the tooltip will remain open be default when hovering over it
-- The `hideDelay` props's default value changed to 100
+- The `showOnDialogEnter` prop's default value has changed to `true`; now the tooltip will remain open by default when hovering over it
+- The `hideDelay` prop's default value changed to 100
 - The `addKeyboardHideShowTriggersByDefault` default changed to true, making it accessible with keyboard navigation
 - The tooltip's max-width is now set to 240px
-- Tooltip's `content` is now wrapped in another div, meaning that non-block layouts inside the tooltip may break
+- The Tooltip's `content` is now wrapped in another `div`, meaning that non-block layouts inside the tooltip may break
 - The `containerSelector` will now fallback to `document.body` instead of `#tooltips-container` if not provided
 
 ### Colors
