@@ -6,6 +6,7 @@ import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
 import propsGif from "./assets/props.gif";
 import packageSplitDiagram from "./assets/package-split.png";
+import layersGif from "./assets/layers.gif";
 
 <Meta title="Migration Guide" />
 
@@ -82,7 +83,7 @@ You can keep using the static properties, although not recommended, as they are 
 
 When usedd inside Modals, the floating components (i.e., Tooltip, Tipseen, Dialog) will now be rendered inside the Modal's container by default, ensuring they are always on top. This change prevents any z-index interference and ensures a consistent user experience.
 
-{/* <img href={layers.gif} alt="floating elements on modal"></img> */}
+<img src={layersGif} alt="floating elements on modal" width="500"></img>
 
 ## Migration Steps 🚀
 
