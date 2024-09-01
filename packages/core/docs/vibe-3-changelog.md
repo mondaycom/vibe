@@ -1,6 +1,6 @@
 # Vibe 3 Changelog
 
-This is the complete list of changes and deprecations in the Vibe 3 release. Changes that are marked with a 🔀 covered by a migration script (codemod).
+This is the complete list of changes and deprecations in the Vibe 3 release. Changes that are marked with a 🔀 are covered by a migration script (codemod).
 
 For the complete migration guide see the [Vibe 3 Migration Guide](https://style.monday.com/?path=/docs/vibe-3-migration-guide--docs).
 
@@ -12,7 +12,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
   - `/interactionsTests` -> `@vibe/core/interactionsTests` 🔀
   - `/testIds` -> `@vibe/core/testIds` 🔀
   - `/mockedClassNames` -> `@vibe/core/mockedClassNames`
-- Removed entry pointes:
+- Removed entry points:
   - `/types` removed, import from `@vibe/core` instead 🔀
 - Entry points moved to a new package:
   - `/icons` -> use `@vibe/icons` package instead 🔀
@@ -124,7 +124,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Flex
 
-- The `Flex.gaps.NONE` property has been removed, to specify no gap simply omit the `gap` prop
+- The `Flex.gaps.NONE` property has been removed. To specify no gap simply omit the `gap` prop
 
 ### Dropdown
 
@@ -325,11 +325,11 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
 - The `themes` prop can now accept only "dark" or "primary"
 - The `position` prop can now accept only "top, right, bottom, left"
-- The `showOnDialogEnter` props's default value has changed to true, now the tooltip will remain open be default when hovering over it
-- The `hideDelay` props's default value changed to 100
+- The `showOnDialogEnter` props's default value has changed to `true`; now the tooltip will remain open be default when hovering over it
+- The `hideDelay` props's default value has changed to 100
 - The `addKeyboardHideShowTriggersByDefault` default changed to true, making it accessible with keyboard navigation
 - The tooltip's max-width is now set to 240px, and so the `withMaxWidth` prop removed 🔀
-- Tooltip's `content` is now wrapped in another div, meaning that non-block layouts inside the tooltip may break
+- Tooltip's `content` is now wrapped in another `div`, meaning that non-block layouts inside the tooltip may break
 - The `containerSelector` will now fallback to `document.body` instead of `#tooltips-container` if not provided
 
 ### ColorPicker
