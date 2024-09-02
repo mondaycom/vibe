@@ -364,7 +364,7 @@ codemod: `color-picker-content-import-migration`
 
 ### useClickableProps
 
-- `dataTestId` -> `data-testid` [codemod]
+- `dataTestId` -> `data-testid` [codemod ✅]
 
 ## monday-ui-style
 
