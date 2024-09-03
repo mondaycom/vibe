@@ -96,7 +96,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       showTrigger = [],
       width,
       moveBy,
-      hideWhenReferenceHidden = false,
+      hideWhenReferenceHidden = true,
       tip = true,
       tooltipArrowClassName,
       modifiers = [],

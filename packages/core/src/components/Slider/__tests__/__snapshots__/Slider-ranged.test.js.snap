@@ -60,7 +60,6 @@ Snapshot Diff:
         />
 +       <span
 +         class="monday-style-dialog-content-wrapper contentWrapper"
-+         data-popper-reference-hidden="false"
 +         data-testid="tooltip"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
@@ -99,7 +98,6 @@ Snapshot Diff:
         />
 +       <span
 +         class="monday-style-dialog-content-wrapper contentWrapper"
-+         data-popper-reference-hidden="false"
 +         data-testid="tooltip"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
@@ -138,7 +136,6 @@ Snapshot Diff:
         />
 -       <span
 -         class="monday-style-dialog-content-wrapper contentWrapper"
--         data-popper-reference-hidden="false"
 -         data-testid="tooltip"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
@@ -177,7 +174,6 @@ Snapshot Diff:
         />
 +       <span
 +         class="monday-style-dialog-content-wrapper contentWrapper"
-+         data-popper-reference-hidden="false"
 +         data-testid="tooltip"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
@@ -288,10 +284,9 @@ Snapshot Diff:
           role="slider"
           style="left: 65%;"
           tabindex="0"
-        />
+-       />
 -       <span
 -         class="monday-style-dialog-content-wrapper contentWrapper"
--         data-popper-reference-hidden="false"
 -         data-testid="tooltip"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
@@ -311,7 +306,7 @@ Snapshot Diff:
 -             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
--           />
+        />
 -         </div>
 -       </span>
       </div>

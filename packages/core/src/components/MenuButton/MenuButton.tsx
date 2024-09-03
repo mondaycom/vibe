@@ -162,7 +162,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
       tooltipReferenceClassName,
-      hideWhenReferenceHidden = false,
+      hideWhenReferenceHidden = true,
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
