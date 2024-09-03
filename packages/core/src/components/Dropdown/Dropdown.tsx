@@ -3,7 +3,6 @@ import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
-// @ts-ignore
 import AsyncSelect from "react-select/async/dist/react-select.esm.js";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
