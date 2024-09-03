@@ -155,7 +155,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     withoutDialog: false,
     containerSelector: "#tooltips-container",
     tip: true,
-    hideWhenReferenceHidden: true,
+    hideWhenReferenceHidden: false,
     modifiers: new Array<Modifier<unknown>>(),
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,

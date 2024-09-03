@@ -82,7 +82,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
   />
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="true"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
     style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 4px);"
   >
@@ -149,6 +149,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
 exports[`Snapshot tests Tipseen tests renders correctly with floating variation 1`] = `
 <span
   class="monday-style-dialog-content-wrapper contentWrapper"
+  data-popper-reference-hidden="false"
   data-testid="tooltip"
   style="position: absolute; left: 0px; top: 0px;"
 >
@@ -213,6 +214,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
   />
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
     style="position: absolute; left: 0px; top: 0px;"
   >

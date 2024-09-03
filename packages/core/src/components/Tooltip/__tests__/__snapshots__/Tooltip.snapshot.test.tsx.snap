@@ -15,7 +15,7 @@ exports[`Tooltip renders correctly with data-testid 1`] = `
   />,
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    data-popper-reference-hidden={false}
     data-testid="test"
     onClickCapture={[Function]}
     style={
@@ -127,7 +127,7 @@ exports[`Tooltip renders correctly with position 1`] = `
   />,
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    data-popper-reference-hidden={false}
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
@@ -183,7 +183,7 @@ exports[`Tooltip renders correctly with style 1`] = `
   />,
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    data-popper-reference-hidden={false}
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
@@ -244,7 +244,7 @@ exports[`Tooltip renders correctly with theme 1`] = `
   />,
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    data-popper-reference-hidden={false}
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
@@ -312,7 +312,7 @@ exports[`Tooltip renders correctly without arrow 1`] = `
   />,
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    data-popper-reference-hidden={false}
     data-testid="tooltip"
     onClickCapture={[Function]}
     style={
