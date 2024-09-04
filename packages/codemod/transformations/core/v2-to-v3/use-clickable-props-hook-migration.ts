@@ -17,7 +17,7 @@ function transform({ j, root }: TransformationContext) {
       }
     })
     .find(j.ObjectExpression)
-    .find(j.Property, {
+    .find(j.ObjectProperty, {
       key: {
         type: "Identifier",
         name: "dataTestId"

@@ -7,7 +7,6 @@ import {
   JSXExpressionContainer,
   JSXIdentifier,
   JSXOpeningElement,
-  Literal,
   MemberExpression
 } from "jscodeshift";
 import { logPropMigrationError } from "./report-utils";
@@ -60,23 +59,27 @@ export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...
 /**
  * Gets the computed value of a prop
  */
-export function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
+export function getPropValue(j: JSCodeshift, prop: JSXAttribute) {
   const value = prop.value;
 
   // boolean flag value (e.g. <Button disabled />)
   if (value === null) {
     return true;
   }
-
+  if (!value) return;
   // string value (e.g. <Button text="Click me" />)
-  if (value?.type === "Literal") {
-    return value.value;
+  if (value?.type === "StringLiteral") {
+    return value?.value;
   }
 
   // expression value (e.g. <Button text={...} />).
   if (value?.type === "JSXExpressionContainer") {
-    if (value.expression.type === "Literal") {
-      // e.g. <Button text={true} /> or <Button text={"text"} />
+    if (
+      value.expression?.type === "StringLiteral" ||
+      value.expression?.type === "NumericLiteral" ||
+      value.expression?.type === "BooleanLiteral"
+    ) {
+      // e.g. <Button text={true} /> or <Button text={"text"} or <Button text={20} />
       return value.expression.value;
     }
 
