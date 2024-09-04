@@ -1,4 +1,4 @@
-import transform from "../dropdown-component-migration";
+import transform from "../Dropdown-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

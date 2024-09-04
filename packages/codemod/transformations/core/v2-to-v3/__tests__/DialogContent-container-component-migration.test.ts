@@ -1,4 +1,4 @@
-import transform from "../dialog-content-container-component-migration";
+import transform from "../DialogContent-container-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

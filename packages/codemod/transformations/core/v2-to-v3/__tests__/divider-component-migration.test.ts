@@ -1,4 +1,4 @@
-import transform from "../divider-component-migration";
+import transform from "../Divider-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

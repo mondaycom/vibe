@@ -1,4 +1,4 @@
-import transform from "../avatar-group-component-migration";
+import transform from "../AvatarGroup-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

@@ -1,4 +1,4 @@
-import transform from "../tab-list-component-migration";
+import transform from "../TabList-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

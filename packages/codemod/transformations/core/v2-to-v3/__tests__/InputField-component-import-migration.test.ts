@@ -1,5 +1,5 @@
 import { defineInlineTest } from "jscodeshift/src/testUtils";
-import transform from "../input-field-component-import-migration";
+import transform from "../InputField-component-import-migration";
 
 describe("InputField component migration", () => {
   defineInlineTest(

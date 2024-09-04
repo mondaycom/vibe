@@ -1,4 +1,4 @@
-import transform from "../menu-button-component-migration";
+import transform from "../MenuButton-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

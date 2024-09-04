@@ -1,4 +1,4 @@
-import transform from "../icon-component-migration";
+import transform from "../Icon-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 import { describe } from "vitest";
 

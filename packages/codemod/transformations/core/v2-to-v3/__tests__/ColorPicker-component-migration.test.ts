@@ -1,4 +1,4 @@
-import transform from "../color-picker-component-migration";
+import transform from "../ColorPicker-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
