@@ -249,6 +249,7 @@ const singleValue =
     const readOnlyProps = readOnly
       ? {
           ...readOnlyContainerStyle(readOnly),
+          ...readOnlyStyle(readOnly),
           cursor: "text"
         }
       : {};

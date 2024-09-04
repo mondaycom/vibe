@@ -1,4 +1,4 @@
-import { CORE_IMPORT_PATH } from "src/consts";
+import { CORE_IMPORT_PATH } from "../../../src/consts";
 import { wrap, renameImportPath, getImports } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
