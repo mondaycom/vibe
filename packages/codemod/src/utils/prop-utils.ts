@@ -66,7 +66,7 @@ export function getPropValue(j: JSCodeshift, prop: JSXAttribute) {
   if (value === null) {
     return true;
   }
-  if (!value) return;
+
   // string value (e.g. <Button text="Click me" />)
   if (value?.type === "StringLiteral") {
     return value?.value;
