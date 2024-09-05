@@ -9,7 +9,11 @@ import ModalTopActions from "../ModalTopActions/ModalTopActions";
 const Modal = forwardRef(
   (
     {
+      // Would be implemented in a later PR
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       show,
+      // Would be implemented in a later PR
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       size = "medium",
       renderHeaderAction,
       closeButtonTheme,
