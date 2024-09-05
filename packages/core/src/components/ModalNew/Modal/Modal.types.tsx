@@ -5,6 +5,7 @@ import { ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
 export type ModalSize = "small" | "medium" | "large";
 
 export interface ModalProps extends VibeComponentProps {
+  id: string;
   show: boolean;
   size?: ModalSize;
   closeButtonTheme?: ModalTopActionsProps["color"];
