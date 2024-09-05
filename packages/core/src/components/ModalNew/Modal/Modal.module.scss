@@ -8,5 +8,64 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: var(--modal-width, 50%);
+  max-height: var(--modal-max-height, 80%);
   background-color: var(--primary-background-color);
+
+  &.sizeSmall {
+    --modal-max-height: 50%;
+    --modal-width: 45%;
+  }
+
+  &.sizeMedium {
+    --modal-max-height: 80%;
+    --modal-width: 50%;
+  }
+
+  &.sizeLarge {
+    --modal-max-height: 80%;
+    --modal-width: 70%;
+  }
+
+  @media (min-width: 1280px) {
+    &.sizeSmall {
+      --modal-width: 40%;
+    }
+
+    &.sizeMedium {
+      --modal-width: 44%;
+    }
+
+    &.sizeLarge {
+      --modal-width: 66%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    &.sizeSmall {
+      --modal-width: 35%;
+    }
+
+    &.sizeMedium {
+      --modal-width: 38%;
+    }
+
+    &.sizeLarge {
+      --modal-width: 60%;
+    }
+  }
+
+  @media (min-width: 1720px) {
+    &.sizeSmall {
+      --modal-width: 34%;
+    }
+
+    &.sizeMedium {
+      --modal-width: 36%;
+    }
+
+    &.sizeLarge {
+      --modal-width: 58%;
+    }
+  }
 }
