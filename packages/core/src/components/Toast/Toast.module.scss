@@ -21,7 +21,7 @@
   color: var(--fixed-light-color);
   transform: translateX(-50%);
   max-width: calc(var(--toast-width) + 2 * var(--toast-padding));
-  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), max-width 250ms cubic-bezier(0.6, 0, 0.4, 1);
+  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), max-width 200ms cubic-bezier(0, 0, 0.4, 1);
 }
 
 .icon {
