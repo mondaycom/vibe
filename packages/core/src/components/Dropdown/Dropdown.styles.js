@@ -373,7 +373,7 @@ const group =
           bottom: "0",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "93%",
+          width: `calc(100% - (${getCSSVar("spacing-small")} * 2))`,
           height: "1px",
           backgroundColor: getCSSVar("layout-border-color")
         }
