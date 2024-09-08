@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "Official monday.com UI resources for application development in React.js",
   "type": "module",
   "main": "dist/src/index.js",
