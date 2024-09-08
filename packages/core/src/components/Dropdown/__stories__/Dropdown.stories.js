@@ -768,18 +768,6 @@ export const DropdownWithGroups = {
               label: "Option 4"
             }
           ]
-        },
-        {
-          options: [
-            {
-              value: "3",
-              label: "Option 3"
-            },
-            {
-              value: "4",
-              label: "Option 4"
-            }
-          ]
         }
       ],
       []
