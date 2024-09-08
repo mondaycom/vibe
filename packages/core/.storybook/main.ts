@@ -1,6 +1,7 @@
 import path from "path";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import { storybookAddonStylingWebpackOptions } from "./addon-styling-webpack-options";
+import remarkGfm from "remark-gfm";
 
 const getAddons = () => {
   const addons = [
@@ -20,7 +21,17 @@ const getAddons = () => {
     },
     "storybook-addon-playground",
     "@chromatic-com/storybook",
-    "@storybook/addon-storysource"
+    "@storybook/addon-storysource",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm]
+          }
+        }
+      }
+    }
   ];
 
   if (process.env.NODE_ENV !== "production") {
