@@ -188,6 +188,7 @@ export {default as RecycleBin} from './components/RecycleBin';
 export {default as Redo} from './components/Redo';
 export {default as Remove} from './components/Remove';
 export {default as Replay} from './components/Replay';
+export {default as ReplyAll} from './components/ReplyAll';
 export {default as Retry} from './components/Retry';
 export {default as Robot} from './components/Robot';
 export {default as Rotate} from './components/Rotate';
