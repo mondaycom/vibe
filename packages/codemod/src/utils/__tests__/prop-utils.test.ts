@@ -8,8 +8,8 @@ import {
 } from "../prop-utils";
 import jscodeshift, { ASTPath, JSXElement } from "jscodeshift";
 
-function getElementPath(source: string, parser: "tsx" | "recast" = "tsx"): ASTPath<JSXElement> {
-  const j = jscodeshift.withParser(parser);
+function getElementPath(source: string): ASTPath<JSXElement> {
+  const j = jscodeshift.withParser("tsx");
   const root = j(source);
   return root.find(j.JSXElement).paths()[0];
 }
@@ -166,7 +166,7 @@ describe("Prop Utils", () => {
 
     testCases.forEach(({ description, source, valuesMapping, expected }) => {
       it(description, () => {
-        const elementPath = getElementPath(source, "recast");
+        const elementPath = getElementPath(source);
         updatePropValues(jscodeshift, elementPath, "someProp", valuesMapping);
         const output = jscodeshift(elementPath).toSource();
         expect(output).toBe(expected);

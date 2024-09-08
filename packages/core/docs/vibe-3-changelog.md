@@ -99,7 +99,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Counter
 
-> codemod: `chips-component-migration`
+> codemod: `counter-component-migration`
 
 - The `wrapperClassName` prop has been removed, use `className` instead 🔀
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively
@@ -146,7 +146,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 > codemod: `icon-component-migration`
 
-- - The `clickable`, `onClick` props were removed 🔀, use `<IconButton>` for clickable icons
+- The `clickable`, `onClick` props were removed 🔀, use `<IconButton>` for clickable icons
 
 ### IconButton
 
@@ -156,7 +156,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ## Input
 
-> codemod: `input-field-component-migration`
+> codemod: `input-field-component-import-migration`
 
 - `Input` removed - use [TextField](https://style.monday.com/?path=/docs/inputs-textfield--docs) 🔀
 
@@ -259,7 +259,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Steps
 
-> codemod: `steps-component-import-migration`
+> codemod: `steps-component-migration`
 
 - The `isOnPrimary` prop was removed, use `color="primary` instead 🔀
 
@@ -269,17 +269,19 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### TabList
 
-> codemod: `tab-list-import-migration`
+> codemod: `tab-list-component-migration`
 
 - The component no longer gets a padding bottom, and so the `noPadding` prop was removed 🔀
 
 ### TabPanels
 
-> codemod: `tab-panels-import-migration`
+> codemod: `tab-panels-component-migration`
 
 - TabPanels will render only the active tab instead of rendering all the panels, and so the `renderOnlyActiveTab` was removed 🔀
 
 ### TextField
+
+> codemod: `text-field-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 - The `iconsNames` prop no longer accepts the `layout` property
@@ -289,13 +291,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ThemeProvider
 
-> codemod: `theme-provider-import-migration`
+> codemod: `theme-provider-component-migration`
 
 - The `theme` has been removed, use `themeConfig` instead 🔀
 
 ### Tipseen
 
-> codemod: `tipseen-import-migration`
+> codemod: `tipseen-component-migration`
 
 - The `content` prop is now mandatory
 - The default `color` has changed from 'primary' to 'inverted'. To keep the previous color, set the `color` prop to 'primary'
@@ -305,7 +307,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### TipseenContent
 
-> codemod: `tipseen-content-import-migration`
+> codemod: `tipseen-content-component-migration`
 
 - The `isDismissHidden` prop has been removed, use `hideDismiss` instead 🔀
 - The `isSubmitHidden` prop has been removed, use `hideSubmit` instead 🔀
@@ -313,14 +315,14 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Toggle
 
-> codemod: `toggle-import-migration`
+> codemod: `toggle-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 - The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### Tooltip
 
-> codemod: `tooltip-import-migration`
+> codemod: `tooltip-component-migration`
 
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
 - The `themes` prop can now accept only "dark" or "primary"
@@ -334,13 +336,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ColorPicker
 
-> codemod: `color-picker-import-migration`
+> codemod: `color-picker-component-migration`
 
 - The static `ColorPicker.COLOR_STYLES` property has been removed, use `ColorPicker.colorStyles` instead 🔀
 
 ### ColorPickerContent
 
-> codemod: `color-picker-content-import-migration`
+> codemod: `color-picker-content-component-migration`
 
 - The static `ColorPickerContent.COLOR_STYLES` property has been removed, use `ColorPickerContent.colorStyles` instead 🔀
 
@@ -355,5 +357,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 ## Hooks
 
 ### useClickableProps
+
+> codemod: `use-clickable-props-hook-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀

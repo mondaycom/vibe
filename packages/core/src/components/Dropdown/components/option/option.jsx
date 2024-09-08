@@ -1,11 +1,11 @@
 import cx from "classnames";
-import React from "react";
+import React, { useEffect } from "react";
 import { components } from "react-select";
 import Tooltip from "../../../Tooltip/Tooltip";
 import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import styles from "./option.module.scss";
 
-const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) => {
+const Option = ({ Renderer, data, children, setFocusedOptionId, optionWrapperClassName, ...props }) => {
   const tooltipProps = data?.tooltipProps || {};
   const rendererProps = {
     children,
@@ -17,6 +17,12 @@ const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) 
       "aria-selected": props.isSelected
     }
   };
+
+  useEffect(() => {
+    if (props.isFocused) {
+      setFocusedOptionId(props.innerProps.id);
+    }
+  }, [props.isFocused, props.innerProps.id, setFocusedOptionId]);
 
   return (
     <Tooltip {...tooltipProps} position="right">

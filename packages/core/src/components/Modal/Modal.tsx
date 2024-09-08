@@ -19,6 +19,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 import { ModalWidth } from "./Modal.types";
+import LayerProvider from "../LayerProvider/LayerProvider";
 
 export interface ModalProps {
   /**
@@ -163,32 +164,34 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
   const customWidth = width !== "default" && width !== "full-width";
 
   const dialog = ReactDOM.createPortal(
-    <div
-      {...attr.container}
-      className={cx(styles.container, classNames.container)}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-      style={{ "--monday-modal-z-index": zIndex }}
-    >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+    <LayerProvider layerRef={{ current: instance?.$el }}>
       <div
-        onClick={closeIfNotAlertType}
-        className={cx(styles.overlay, classNames.overlay)}
-        data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
-      />
-      <div
-        {...attr.dialog}
-        className={cx(styles.dialog, classNames.modal, {
-          [styles.default]: width === "default",
-          [styles.full]: width === "full-width",
-          [styles.spacing]: contentSpacing
-        })}
-        style={{ width: customWidth ? width : null }}
+        {...attr.container}
+        className={cx(styles.container, classNames.container)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+        style={{ "--monday-modal-z-index": zIndex }}
       >
-        {header}
-        {content}
-        {footer}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <div
+          onClick={closeIfNotAlertType}
+          className={cx(styles.overlay, classNames.overlay)}
+          data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
+        />
+        <div
+          {...attr.dialog}
+          className={cx(styles.dialog, classNames.modal, {
+            [styles.default]: width === "default",
+            [styles.full]: width === "full-width",
+            [styles.spacing]: contentSpacing
+          })}
+          style={{ width: customWidth ? width : null }}
+        >
+          {header}
+          {content}
+          {footer}
+        </div>
       </div>
-    </div>,
+    </LayerProvider>,
     document.body
   );
 

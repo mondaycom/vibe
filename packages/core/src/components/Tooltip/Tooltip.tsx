@@ -153,7 +153,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     disableDialogSlide: true,
     animationType: AnimationTypeEnum.EXPAND,
     withoutDialog: false,
-    containerSelector: "#tooltips-container",
     tip: true,
     hideWhenReferenceHidden: false,
     modifiers: new Array<Modifier<unknown>>(),
@@ -172,10 +171,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     this.onTooltipHide = this.onTooltipHide.bind(this);
 
     this.wasShown = false;
-  }
-
-  getContainer() {
-    return document.getElementById("tooltips-container") || document.querySelector("body");
   }
 
   renderTooltipContent() {
@@ -260,7 +255,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       withoutDialog,
       children,
       forceRenderWithoutChildren,
-      getContainer,
       theme,
       tip,
       arrowClassName,
@@ -284,7 +278,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       tooltip: tip,
       content,
-      getContainer: getContainer || this.getContainer,
       tooltipClassName: cx(styles.arrow, getStyle(styles, theme), arrowClassName),
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,

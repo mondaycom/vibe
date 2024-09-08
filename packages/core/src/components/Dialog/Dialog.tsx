@@ -17,6 +17,7 @@ import * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialog.types";
+import LayerContext from "../LayerProvider/LayerContext";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -180,7 +181,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     open: false,
     animationType: Dialog.animationTypes.EXPAND,
     preventAnimationOnMount: false,
-    containerSelector: "body",
     tooltip: false,
     onDialogDidShow: NOOP,
     onDialogDidHide: NOOP,
@@ -194,6 +194,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
+  context!: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
     super(props);
@@ -267,16 +268,12 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
 
   getContainer() {
     const { containerSelector } = this.props;
-    if (!containerSelector) {
-      return document.body;
-    }
-
     const containerElement = document.querySelector(containerSelector);
     if (!containerElement || !(containerElement instanceof Element)) {
-      // TODO add env check - if not jest env - trashing the logs - https://monday.monday.com/boards/3532714909/pulses/5570955392
-      // console.error(
-      //   `Dialog: Container element with selector "${containerSelector}" was not found or is not an HTMLElement. Dialog may not be correctly positioned.`
-      // );
+      const { layerRef } = this.context;
+      if (layerRef?.current) {
+        return layerRef.current;
+      }
       return document.body;
     }
     return containerElement;
@@ -629,3 +626,5 @@ function chainOnPropsAndInstance(name: string, instance: Dialog, props: DialogPr
   // @ts-ignore
   return chainFunctions([props[name], instance[name]], true);
 }
+
+Dialog.contextType = LayerContext;
