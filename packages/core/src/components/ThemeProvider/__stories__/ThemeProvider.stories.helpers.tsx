@@ -216,7 +216,7 @@ export const DescriptionWithLinkMondaySdkIntegration = () => (
 );
 
 export const MondaySdkIntegrationSourceCode = `
-import { ThemeProvider } from "monday-ui-react-core";
+import { ThemeProvider } from "@vibe/core";
 import mondaySdk from "monday-sdk-js";
 
 const monday = mondaySdk();

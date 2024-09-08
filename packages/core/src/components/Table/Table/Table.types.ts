@@ -1,1 +1,1 @@
-export type RowSizes = "medium" | "large";
+export type RowSizes = "small" | "medium" | "large";

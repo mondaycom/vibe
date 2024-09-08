@@ -21,10 +21,10 @@ jobs:
       - name: Build & deploy Storybooks to GitHub Pages
         run: |
           yarn lerna run build --include-dependencies
-          yarn lerna run --scope monday-ui-react-core build-storybook
+          yarn lerna run --scope @vibe/core build-storybook
           yarn lerna run --scope vibe-storybook-components build-storybook
           cd packages/core/static_storybook
-          echo "style.monday.com" > ./CNAME
+          echo "vibe.monday.com" > ./CNAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Push storybook-blocks Storybook to Github Pages
