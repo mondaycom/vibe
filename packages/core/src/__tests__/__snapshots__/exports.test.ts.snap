@@ -46,6 +46,7 @@ exports[`exports should export all components 1`] = `
   "Icon",
   "IconButton",
   "Label",
+  "LayerProvider",
   "LinearProgressBar",
   "Link",
   "List",

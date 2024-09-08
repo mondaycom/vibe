@@ -16,7 +16,7 @@
 - `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
 - CommonJS support removed
 - All components' props interfaces are exported
-
+  
 ## Colors
 
 - Removed `--shareable-color` and `--private-color` for all themes
