@@ -110,7 +110,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       popupsContainerSelector,
       filterOption,
       menuPosition = Dropdown.menuPositions.ABSOLUTE,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      withGroupDivider = false
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -156,7 +157,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         rtl,
         insideOverflowContainer,
         controlRef,
-        insideOverflowWithTransformContainer
+        insideOverflowWithTransformContainer,
+        withGroupDivider
       });
 
       type BaseStyles = typeof baseStyles;

@@ -271,6 +271,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   onClear?: () => void;
   popupsContainerSelector?: string;
   selectProps?: Record<string, string>;
+  withGroupDivider?: boolean;
 }
 
 export type DropdownProps = DropdownComponentProps;

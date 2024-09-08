@@ -714,7 +714,6 @@ export const DropdownWithGroups = {
       () => [
         {
           label: "Group 1",
-
           options: [
             {
               value: "1",
@@ -739,13 +738,87 @@ export const DropdownWithGroups = {
               label: "Option 4"
             }
           ]
+        },
+        {
+          label: "Group 3",
+
+          options: [
+            {
+              value: "3",
+              label: "Option 3"
+            },
+            {
+              value: "4",
+              label: "Option 4"
+            }
+          ]
+        }
+      ],
+      []
+    );
+
+    const optionsWithoutGroupLabel = useMemo(
+      () => [
+        {
+          options: [
+            {
+              value: "1",
+              label: "Option 1"
+            },
+            {
+              value: "2",
+              label: "Option 2"
+            }
+          ]
+        },
+        {
+          options: [
+            {
+              value: "3",
+              label: "Option 3"
+            },
+            {
+              value: "4",
+              label: "Option 4"
+            }
+          ]
+        },
+        {
+          options: [
+            {
+              value: "3",
+              label: "Option 3"
+            },
+            {
+              value: "4",
+              label: "Option 4"
+            }
+          ]
         }
       ],
       []
     );
 
     return (
-      <Dropdown placeholder="Placeholder text here" options={options} className="dropdown-stories-styles_big-spacing" />
+      <Flex gap={Flex.gaps.LARGE}>
+        <div>
+          <Dropdown
+            placeholder="Groups with group title"
+            options={options}
+            menuIsOpen
+            className="dropdown-stories-styles_big-spacing"
+          />
+        </div>
+        <div>
+          <Dropdown
+            placeholder="Groups with group divider"
+            options={optionsWithoutGroupLabel}
+            withGroupDivider
+            menuIsOpen
+            className="dropdown-stories-styles_big-spacing"
+          />
+        </div>
+      </Flex>
     );
   },
   name: "Dropdown with groups"
