@@ -95,7 +95,7 @@ codemod: `clickable-component-migration`
 
 ### Counter
 
-codemod: `chips-component-migration`
+codemod: `counter-component-migration`
 
 - `wrapperClassName` -> `className` [codemod ✅]
   - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
@@ -154,7 +154,7 @@ codemod: `icon-button-component-migration`
 
 ## Input
 
-codemod: `input-field-component-migration`
+codemod: `input-field-component-import-migration`
 
 - `Input` component removed - use [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs). [codemod ✅]
 
@@ -259,7 +259,7 @@ codemod: `search-component-import-migration`
 
 ### Steps 🚩
 
-codemod: `steps-component-import-migration`
+codemod: `steps-component-migration`
 
 - `isOnPrimary` removed add `color={Steps.colors.PRIMARY}` instead [codemod ✅]
 
@@ -269,18 +269,20 @@ codemod: `steps-component-import-migration`
 
 ### TabList
 
-codemod: `tab-list-import-migration`
+codemod: `tab-list-component-migration`
 
 - `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
 
 ### TabPanels
 
-codemod: `tab-panels-import-migration`
+codemod: `tab-panels-component-migration`
 
 - Fix: TabPanels will render only the active tab
 - `renderOnlyActiveTab` - removed as it's now the default behavior [codemod ✅]
 
 ### TextField
+
+codemod: `text-field-component-migration`
 
 - `dataTestId` -> `data-testid` [codemod ✅]
 - `iconsNames` prop removed `layout`
@@ -291,14 +293,14 @@ codemod: `tab-panels-import-migration`
 
 ### ThemeProvider
 
-codemod: `theme-provider-import-migration`
+codemod: `theme-provider-component-migration`
 
 - `theme` -> `themeConfig` [codemod ✅]
 - Should it be out of beta ?
 
 ### Tipseen
 
-codemod: `tipseen-import-migration`
+codemod: `tipseen-component-migration`
 
 - Default `color` changed from 'primary' to 'inverted'
 - `isCloseButtonHidden` -> `hideCloseButton` [codemod ✅]
@@ -310,21 +312,21 @@ codemod: `tipseen-import-migration`
 
 ### TipseenContent
 
-codemod: `tipseen-content-import-migration`
+codemod: `tipseen-content-component-migration`
 
 - `isDismissHidden` -> `hideDismiss` [codemod ✅]
 - `isSubmitHidden` -> `hideSubmit` [codemod ✅]
 
 ### Toggle
 
-codemod: `toggle-import-migration`
+codemod: `toggle-component-migration`
 
 - `componentClassName` -> `className` [codemod ✅]
 - `isDisabled` -> `disabled` [codemod ✅]
 
 ### Tooltip
 
-codemod: `tooltip-import-migration`
+codemod: `tooltip-component-migration`
 
 - `paddingSize` removed
 - `themes` - remove all themes besides for "dark" & "primary"
@@ -341,13 +343,13 @@ codemod: `tooltip-import-migration`
 
 ### ColorPicker
 
-codemod: `color-picker-import-migration`
+codemod: `color-picker-component-migration`
 
 - `ColorPicker.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
 ### ColorPickerContent
 
-codemod: `color-picker-content-import-migration`
+codemod: `color-picker-content-component-migration`
 
 - `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
 
@@ -363,6 +365,8 @@ codemod: `color-picker-content-import-migration`
 ## Hooks
 
 ### useClickableProps
+
+codemod: `use-clickable-props-hook-migration`
 
 - `dataTestId` -> `data-testid` [codemod ✅]
 
