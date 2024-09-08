@@ -371,11 +371,10 @@ const group =
           content: '""',
           position: "absolute",
           bottom: "0",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: `calc(100% - (${getCSSVar("spacing-small")} * 2))`,
+          left: "var(--spacing-small)",
+          width: "calc(100% - (var(--spacing-small) * 2))",
           height: "1px",
-          backgroundColor: getCSSVar("layout-border-color")
+          backgroundColor: "var(--layout-border-color)"
         }
       }
     })
