@@ -14,7 +14,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 interface Args {
   bannerText: string;
   linkText: string;
-  [props: string]: string
+  [props: string]: string;
 }
 
 const alertBannerTemplate = (args: Args) => {
