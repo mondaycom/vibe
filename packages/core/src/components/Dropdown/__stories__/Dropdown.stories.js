@@ -805,7 +805,6 @@ export const DropdownWithGroups = {
           <Dropdown
             placeholder="Groups with group title"
             options={options}
-            menuIsOpen
             className="dropdown-stories-styles_big-spacing"
           />
         </div>
@@ -814,7 +813,6 @@ export const DropdownWithGroups = {
             placeholder="Groups with group divider"
             options={optionsWithoutGroupLabel}
             withGroupDivider
-            menuIsOpen
             className="dropdown-stories-styles_big-spacing"
           />
         </div>
