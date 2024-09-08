@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "ReplyAll",
+    file: "ReplyAll.svg",
+    description: "Use in a reply all button if needed",
+    tags: "Reply, All, Mail, Send"
+  },
+
+  {
     name: "Baseline",
     file: "Baseline.svg",
     description: "Baseline",
