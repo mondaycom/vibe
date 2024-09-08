@@ -10,7 +10,7 @@ import {
 import { expect } from "@storybook/jest";
 
 const selectAndClearTest = async canvas => {
-  const dropdownElement = await getByRole(canvas, "textbox");
+  const dropdownElement = await getByRole(canvas, "combobox");
   // Open the dropdown
   await clickElement(dropdownElement);
   // Filter it
@@ -26,7 +26,7 @@ const selectAndClearTest = async canvas => {
 };
 
 const hideDropdownWhenPressingEscape = async canvas => {
-  const dropdownElement = await getByRole(canvas, "textbox");
+  const dropdownElement = await getByRole(canvas, "combobox");
   // Open the dropdown
   await clickElement(dropdownElement);
   // Validate open dropdown
@@ -40,7 +40,7 @@ const hideDropdownWhenPressingEscape = async canvas => {
 
 export const overviewPlaySuite = interactionSuite({
   beforeEach: async canvas => {
-    const dropdownElement = await getByRole(canvas, "textbox");
+    const dropdownElement = await getByRole(canvas, "combobox");
     await userEvent.clear(dropdownElement);
     expect(dropdownElement.value).toEqual("");
     await typeText(dropdownElement, "{escape}");
