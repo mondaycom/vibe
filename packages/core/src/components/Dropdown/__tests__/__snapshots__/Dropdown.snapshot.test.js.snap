@@ -6,21 +6,6 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -39,13 +24,16 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant="react-select-32-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="true"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-32-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -228,21 +216,6 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -261,13 +234,16 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-31-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -340,13 +316,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-24-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -419,13 +398,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-25-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -498,13 +480,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-26-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -577,13 +562,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-27-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -656,13 +644,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-28-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -735,13 +726,16 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-23-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -796,21 +790,6 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -829,13 +808,16 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="false"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-30-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -904,21 +886,6 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-          option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -937,13 +904,16 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               style="display: inline-block;"
             >
               <input
+                aria-activedescendant="react-select-29-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
+                aria-expanded="true"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
                 id="react-select-29-input"
+                role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -1323,8 +1293,10 @@ exports[`Dropdown renders correctly when disabled 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -1334,6 +1306,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -1512,8 +1485,10 @@ exports[`Dropdown renders correctly when rtl 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -1523,6 +1498,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -1630,8 +1606,10 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -1641,6 +1619,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -1933,8 +1912,10 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   }
                 >
                   <input
+                    aria-activedescendant=""
                     aria-autocomplete="list"
                     aria-controls="dropdown-menu-list-id"
+                    aria-expanded={false}
                     aria-label="Dropdown input"
                     autoCapitalize="none"
                     autoComplete="off"
@@ -1944,6 +1925,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
+                    role="combobox"
                     spellCheck="false"
                     style={
                       {
@@ -2081,8 +2063,10 @@ exports[`Dropdown renders correctly with className 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -2092,6 +2076,7 @@ exports[`Dropdown renders correctly with className 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -2210,8 +2195,10 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -2221,6 +2208,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -2354,8 +2342,10 @@ exports[`Dropdown renders correctly with empty props 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -2365,6 +2355,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -2472,8 +2463,10 @@ exports[`Dropdown renders correctly with id 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -2483,6 +2476,7 @@ exports[`Dropdown renders correctly with id 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -2678,8 +2672,10 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   }
                 >
                   <input
+                    aria-activedescendant=""
                     aria-autocomplete="list"
                     aria-controls="dropdown-menu-list-id"
+                    aria-expanded={false}
                     aria-label="Dropdown input"
                     autoCapitalize="none"
                     autoComplete="off"
@@ -2689,6 +2685,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
+                    role="combobox"
                     spellCheck="false"
                     style={
                       {
@@ -2908,8 +2905,10 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   }
                 >
                   <input
+                    aria-activedescendant=""
                     aria-autocomplete="list"
                     aria-controls="dropdown-menu-list-id"
+                    aria-expanded={false}
                     aria-label="Dropdown input"
                     autoCapitalize="none"
                     autoComplete="off"
@@ -2919,6 +2918,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
+                    role="combobox"
                     spellCheck="false"
                     style={
                       {
@@ -3070,8 +3070,10 @@ exports[`Dropdown renders correctly with multi 1`] = `
                   }
                 >
                   <input
+                    aria-activedescendant=""
                     aria-autocomplete="list"
                     aria-controls="dropdown-menu-list-id"
+                    aria-expanded={false}
                     aria-label="Dropdown input"
                     autoCapitalize="none"
                     autoComplete="off"
@@ -3081,6 +3083,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
+                    role="combobox"
                     spellCheck="false"
                     style={
                       {
@@ -3237,8 +3240,10 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                   }
                 >
                   <input
+                    aria-activedescendant=""
                     aria-autocomplete="list"
                     aria-controls="dropdown-menu-list-id"
+                    aria-expanded={false}
                     aria-label="Dropdown input"
                     autoCapitalize="none"
                     autoComplete="off"
@@ -3248,6 +3253,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
+                    role="combobox"
                     spellCheck="false"
                     style={
                       {
@@ -3479,8 +3485,10 @@ exports[`Dropdown renders correctly with multiline 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -3490,6 +3498,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -3597,8 +3606,10 @@ exports[`Dropdown renders correctly with options 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -3608,6 +3619,7 @@ exports[`Dropdown renders correctly with options 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -3715,8 +3727,10 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -3726,6 +3740,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -3833,8 +3848,10 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -3844,6 +3861,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -3961,8 +3979,10 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -3972,6 +3992,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -4090,8 +4111,10 @@ exports[`Dropdown renders correctly with value 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -4101,6 +4124,7 @@ exports[`Dropdown renders correctly with value 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
@@ -4234,8 +4258,10 @@ exports[`Dropdown renders correctly without clear button 1`] = `
             }
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="dropdown-menu-list-id"
+              aria-expanded={false}
               aria-label="Dropdown input"
               autoCapitalize="none"
               autoComplete="off"
@@ -4245,6 +4271,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              role="combobox"
               spellCheck="false"
               style={
                 {
