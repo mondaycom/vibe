@@ -11,7 +11,12 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["backgroundColor"]
 });
 
-const alertBannerTemplate = args => {
+interface Args {
+  bannerText: string;
+  linkText: string;
+}
+
+const alertBannerTemplate = (args: Args) => {
   return (
     <AlertBanner {...args}>
       <AlertBannerText text={args.bannerText} />
