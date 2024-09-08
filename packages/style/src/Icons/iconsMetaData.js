@@ -12,6 +12,13 @@ export const iconsMetaData = [
   },
 
   {
+    name: "ReplyAll",
+    file: "ReplyAll.svg",
+    description: "Use in a reply all button if needed",
+    tags: "Reply, All, Mail, Send"
+  },
+
+  {
     name: "Baseline",
     file: "Baseline.svg",
     description: "Baseline",
