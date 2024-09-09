@@ -5,7 +5,6 @@ import {
   JSXAttribute,
   JSXElement,
   JSXExpressionContainer,
-  JSXIdentifier,
   JSXOpeningElement,
   MemberExpression
 } from "jscodeshift";
