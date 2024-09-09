@@ -28,6 +28,18 @@ describe("Prop Utils", () => {
         propName: "nonExistentProp",
         expected: false,
         description: "should return false if prop does not exist"
+      },
+      {
+        source: `<Component someProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someOtherProp",
+        expected: false,
+        description: "should return false if prop doesn't exist on parent element"
+      },
+      {
+        source: `<Component someOtherProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someOtherProp",
+        expected: true,
+        description: "should return true if prop exists on parent element"
       }
     ];
 

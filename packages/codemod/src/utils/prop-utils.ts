@@ -32,7 +32,9 @@ export function updatePropName(
  * Checks for whether a prop is used in a JSX element
  */
 export function isPropExists(j: JSCodeshift, elementPath: ASTPath<JSXElement>, propName: string): boolean {
-  return j(elementPath).find(JSXOpeningElement).find(JSXIdentifier, { name: propName }).size() > 0;
+  const attributes = elementPath.node.openingElement.attributes;
+  if (!attributes) return false;
+  return attributes.some(path => path.type === "JSXAttribute" && path.name.name === propName);
 }
 
 /**
