@@ -1,6 +1,6 @@
 {
   "name": "@vibe/codemod",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "Vibe's component library migration tool",
   "repository": "git+https://github.com/mondaycom/vibe.git",
