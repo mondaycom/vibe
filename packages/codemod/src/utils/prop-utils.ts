@@ -156,7 +156,6 @@ export function migratePropsNames(
   Object.entries(propsNamesMappingOldToNew).forEach(([deprecatedPropName, newPropName]) => {
     const props = findProps(j, elementPath, deprecatedPropName, newPropName);
 
-    // console.log("props---", props);
     if (!props.length) {
       return;
     }
