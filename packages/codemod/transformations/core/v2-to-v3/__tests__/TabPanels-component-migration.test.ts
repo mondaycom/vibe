@@ -1,4 +1,4 @@
-import transform from "../tab-panels-component-migration";
+import transform from "../TabPanels-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

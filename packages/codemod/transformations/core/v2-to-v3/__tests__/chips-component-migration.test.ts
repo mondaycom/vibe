@@ -1,4 +1,4 @@
-import transform from "../chips-component-migration";
+import transform from "../Chips-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 import { describe } from "vitest";
 

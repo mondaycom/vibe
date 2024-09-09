@@ -1,4 +1,4 @@
-import transform from "../modal-header-component-migration";
+import transform from "../ModalHeader-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 import { describe } from "vitest";
 

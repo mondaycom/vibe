@@ -1,4 +1,4 @@
-import transform from "../attention-box-component-migration";
+import transform from "../AttentionBox-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

@@ -1,4 +1,4 @@
-import transform from "../text-field-component-migration";
+import transform from "../TextField-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
