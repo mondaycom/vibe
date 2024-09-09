@@ -40,6 +40,12 @@ describe("Prop Utils", () => {
         propName: "someOtherProp",
         expected: true,
         description: "should return true if prop exists on parent element"
+      },
+      {
+        source: `<Component someProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someProp",
+        expected: true,
+        description: "should return true if prop exists on parent element"
       }
     ];
 
