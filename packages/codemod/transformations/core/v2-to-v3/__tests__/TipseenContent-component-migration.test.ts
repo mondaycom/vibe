@@ -1,4 +1,4 @@
-import transform from "../tipseen-content-component-migration";
+import transform from "../TipseenContent-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

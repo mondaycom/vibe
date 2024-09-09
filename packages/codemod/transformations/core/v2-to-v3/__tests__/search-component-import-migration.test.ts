@@ -1,5 +1,5 @@
 import { defineInlineTest } from "jscodeshift/src/testUtils";
-import transform from "../search-component-import-migration";
+import transform from "../Search-component-import-migration";
 
 describe("SearchComponent component migration", () => {
   defineInlineTest(

@@ -1,4 +1,4 @@
-import transform from "../breadcrumb-item-component-migration";
+import transform from "../BreadcrumbItem-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

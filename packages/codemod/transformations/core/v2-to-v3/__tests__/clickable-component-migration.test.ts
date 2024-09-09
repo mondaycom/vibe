@@ -1,4 +1,4 @@
-import transform from "../clickable-component-migration";
+import transform from "../Clickable-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

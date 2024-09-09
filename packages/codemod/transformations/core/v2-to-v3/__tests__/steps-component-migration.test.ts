@@ -1,4 +1,4 @@
-import transform from "../steps-component-migration";
+import transform from "../Steps-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 import { describe } from "vitest";
 

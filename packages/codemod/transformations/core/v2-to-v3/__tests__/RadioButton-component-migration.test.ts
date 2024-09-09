@@ -1,4 +1,4 @@
-import transform from "../radio-button-component-migration";
+import transform from "../RadioButton-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

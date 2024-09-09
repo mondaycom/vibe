@@ -1,4 +1,4 @@
-import transform from "../label-component-migration";
+import transform from "../Label-component-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
