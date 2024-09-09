@@ -155,22 +155,20 @@ export function migratePropsNames(
 ): void {
   Object.entries(propsNamesMappingOldToNew).forEach(([deprecatedPropName, newPropName]) => {
     const props = findProps(j, elementPath, deprecatedPropName, newPropName);
-
+    console.log("findProps---- ", props.length);
     if (!props.length) {
       return;
     }
 
-    if (props.length == 1) {
+    if (props.length === 1) {
       updatePropName(props, { [deprecatedPropName]: newPropName });
       return;
     }
 
-    if (props.length == 2) {
-      if (propsValueMatch(j, props)) {
-        removeProp(j, elementPath, deprecatedPropName);
-      } else {
-        logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
-      }
+    if (propsValueMatch(j, props)) {
+      removeProp(j, elementPath, deprecatedPropName);
+    } else {
+      logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
     }
   });
 }
