@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.11.1...monday-ui-style@0.12.0) (2024-09-09)
+
+
+### Features
+
+* **Icon:** add reply all icon ([#2418](https://github.com/mondaycom/vibe/issues/2418)) ([031f65d](https://github.com/mondaycom/vibe/commit/031f65d500098c0f34ede3316503aa3fceea0123))
+
+
+
+
+
 ## [0.11.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.11.0...monday-ui-style@0.11.1) (2024-08-22)
 
 **Note:** Version bump only for package monday-ui-style
