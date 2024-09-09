@@ -36,6 +36,22 @@ describe("Menu component migration", () => {
   defineInlineTest(
     transform,
     {},
+    prependImport(`<Menu classname="class"><MenuTile></MenuTile><MenuItem classname="class"></MenuItem></Menu>`),
+    prependImport(`<Menu className="class"><MenuTile></MenuTile><MenuItem classname="class"></MenuItem></Menu>`),
+    "should update 'classname' to 'className' on Menu and not on MenuItem"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<Menu><MenuTile></MenuTile><MenuItem classname="class"></MenuItem></Menu>`),
+    prependImport(`<Menu><MenuTile></MenuTile><MenuItem classname="class"></MenuItem></Menu>`),
+    "should not update 'classname' to 'className' on Menu when exists on MenuItem"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
     prependImport(
       `
       <>
