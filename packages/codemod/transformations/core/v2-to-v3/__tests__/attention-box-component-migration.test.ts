@@ -99,6 +99,54 @@ describe("AttentionBox component migration", () => {
     "should remove 'componentClassName' when when both 'componentClassName' and 'className' props exist with same literal values while one is inside an expression"
   );
 
+  it.todo("nested identical components", () => {
+    defineInlineTest(
+      transform,
+      {},
+      prependImport(
+        `<AttentionBox componentClassName="old-class"><AttentionBox className="new class" /></AttentionBox>`
+      ),
+      prependImport(`<AttentionBox className="old-class"><AttentionBox className="new class" /></AttentionBox>`),
+      "should update 'componentClassName' to 'className' only on parent element"
+    );
+  });
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName="old-class"><div className="new class" /></AttentionBox>`),
+    prependImport(`<AttentionBox className="old-class"><div className="new class" /></AttentionBox>`),
+    "should update 'componentClassName' to 'className' when exists in child component with different value"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(
+      `<AttentionBox componentClassName="old-class"><div><AttentionBoxItem className="new class"></AttentionBoxItem></div></AttentionBox>`
+    ),
+    prependImport(
+      `<AttentionBox className="old-class"><div><AttentionBoxItem className="new class"></AttentionBoxItem></div></AttentionBox>`
+    ),
+    "should update 'componentClassName' to 'className' with inner nested children"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName="old-class"><div componentClassName="new class" /></AttentionBox>`),
+    prependImport(`<AttentionBox className="old-class"><div componentClassName="new class" /></AttentionBox>`),
+    "should update 'componentClassName' to 'className' only on parent element and not on child"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport(`<AttentionBox componentClassName="old-class" nestedElement={<div className="other-class" />} />`),
+    prependImport(`<AttentionBox className="old-class" nestedElement={<div className="other-class" />} />`),
+    "should update 'componentClassName' to 'className2'"
+  );
+
   defineInlineTest(
     transform,
     {},

@@ -15,18 +15,16 @@ import { logPropMigrationError } from "./report-utils";
  * Updates a prop name in a JSX element
  */
 export function updatePropName(
-  j: JSCodeshift,
-  elementPath: ASTPath<JSXElement>,
+  PropCollection: Collection<JSXAttribute>,
   propsNamesMappingOldToNew: Record<string, string>
 ): void {
-  j(elementPath)
-    .find(JSXOpeningElement)
-    .find(JSXIdentifier)
-    .forEach(identifierPath => {
-      if (propsNamesMappingOldToNew[identifierPath.node.name]) {
-        identifierPath.node.name = propsNamesMappingOldToNew[identifierPath.node.name];
-      }
-    });
+  PropCollection.forEach(attr => {
+    const propName = attr.node.name.name;
+    const newPropName = propsNamesMappingOldToNew[String(propName)];
+    if (newPropName) {
+      attr.node.name.name = newPropName;
+    }
+  });
 }
 
 /**
@@ -44,11 +42,16 @@ export function findProps(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...p
     .find(JSXOpeningElement)
     .find(JSXAttribute)
     .filter(attr => {
+      if (
+        elementPath.node.openingElement.name.type === "JSXIdentifier" &&
+        attr.parentPath.node.name.name !== elementPath.node.openingElement.name.name
+      ) {
+        return false;
+      }
       const attrName = attr.node.name.type === "JSXIdentifier" ? attr.node.name.name : "";
       return propNames.includes(attrName);
     });
 }
-
 /**
  * Removes props from a JSX element
  */
@@ -153,15 +156,22 @@ export function migratePropsNames(
   Object.entries(propsNamesMappingOldToNew).forEach(([deprecatedPropName, newPropName]) => {
     const props = findProps(j, elementPath, deprecatedPropName, newPropName);
 
-    if (props.length !== 2) {
-      updatePropName(j, elementPath, { [deprecatedPropName]: newPropName });
+    // console.log("props---", props);
+    if (!props.length) {
       return;
     }
 
-    if (propsValueMatch(j, props)) {
-      removeProp(j, elementPath, deprecatedPropName);
-    } else {
-      logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
+    if (props.length == 1) {
+      updatePropName(props, { [deprecatedPropName]: newPropName });
+      return;
+    }
+
+    if (props.length == 2) {
+      if (propsValueMatch(j, props)) {
+        removeProp(j, elementPath, deprecatedPropName);
+      } else {
+        logPropMigrationError(filePath, componentName, deprecatedPropName, newPropName);
+      }
     }
   });
 }
