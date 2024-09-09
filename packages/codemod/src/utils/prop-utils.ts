@@ -15,12 +15,13 @@ import { logPropMigrationError } from "./report-utils";
  * Updates a prop name in a JSX element
  */
 export function updatePropName(
-  PropCollection: Collection<JSXAttribute>,
+  propCollection: Collection<JSXAttribute>,
   propsNamesMappingOldToNew: Record<string, string>
 ): void {
-  PropCollection.forEach(attr => {
+  propCollection.forEach(attr => {
     const propName = attr.node.name.name;
-    const newPropName = propsNamesMappingOldToNew[String(propName)];
+    if (typeof propName !== "string") return;
+    const newPropName = propsNamesMappingOldToNew[propName];
     if (newPropName) {
       attr.node.name.name = newPropName;
     }
@@ -155,7 +156,6 @@ export function migratePropsNames(
 ): void {
   Object.entries(propsNamesMappingOldToNew).forEach(([deprecatedPropName, newPropName]) => {
     const props = findProps(j, elementPath, deprecatedPropName, newPropName);
-    console.log("findProps---- ", props.length);
     if (!props.length) {
       return;
     }
