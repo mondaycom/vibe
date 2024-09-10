@@ -1,15 +1,15 @@
 {
   "name": "@vibe/codemod",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Vibe's component library migration tool",
   "repository": "git+https://github.com/mondaycom/vibe.git",
   "author": "monday.com",
   "license": "MIT",
-  "bin": "./dist/cli.js",
+  "bin": "./dist/bin/vibe-codemod.js",
   "scripts": {
     "test": "vitest",
     "plop": "plop",
-    "build": "esbuild bin/vibe-codemod.js --bundle --platform=node --external:fs --external:path --external:child_process --external:globby --external:chalk --external:yargs --external:inquirer --outfile=dist/cli.js",
+    "build": "tsc",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "yarn lint -- --fix"
   },
@@ -23,9 +23,9 @@
   },
   "devDependencies": {
     "@types/jscodeshift": "^0.11.11",
+    "@types/readline-sync": "^1.4.8",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "esbuild": "^0.23.1",
     "eslint": "^8.57.0",
     "eslint-plugin-prettier": "^5.1.3",
     "plop": "^4.0.1",
