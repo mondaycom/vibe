@@ -77,6 +77,10 @@ export interface ButtonProps extends VibeComponentProps {
    * aria to be used for screen reader to know if the button is hidden
    */
   "aria-hidden"?: AriaAttributes["aria-hidden"];
+  /**
+   * Indicates the current "pressed" state of toggle buttons
+   */
+  "aria-pressed"?: AriaAttributes["aria-pressed"];
   /** On Button Focus callback */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
@@ -144,6 +148,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
+      "aria-pressed": ariaPressed,
       blurOnMouseUp,
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
@@ -269,7 +274,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
         "aria-describedby": ariaDescribedBy,
-        "aria-hidden": ariaHidden
+        "aria-hidden": ariaHidden,
+        "aria-pressed": ariaPressed
       };
       return props;
     }, [
@@ -294,7 +300,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaExpanded,
       ariaControls,
       ariaDescribedBy,
-      ariaHidden
+      ariaHidden,
+      ariaPressed
     ]);
 
     const leftIconSize = useMemo(() => {
