@@ -28,8 +28,8 @@ const Modal = forwardRef(
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const [titleId, setTitleId] = useState<string>();
-    const [descriptionId, setDescriptionId] = useState<string>();
+    const [titleId, setTitleId] = useState<string>("");
+    const [descriptionId, setDescriptionId] = useState<string>("");
 
     const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
     const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
@@ -45,25 +45,24 @@ const Modal = forwardRef(
 
     return (
       <ModalProvider value={contextValue}>
-        <div id="overlay" className={styles.overlay}>
-          <div
-            ref={ref}
-            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-            role="dialog"
-            aria-modal
-            aria-labelledby={titleId}
-            aria-describedby={descriptionId}
-          >
-            <ModalTopActions
-              renderAction={renderHeaderAction}
-              color={closeButtonTheme}
-              closeButtonAriaLabel={closeButtonAriaLabel}
-              onClose={onClose}
-            />
-            {children}
-          </div>
+        <div id="overlay" className={styles.overlay} />
+        <div
+          ref={ref}
+          className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+          role="dialog"
+          aria-modal
+          aria-labelledby={titleId || undefined}
+          aria-describedby={descriptionId || undefined}
+        >
+          <ModalTopActions
+            renderAction={renderHeaderAction}
+            color={closeButtonTheme}
+            closeButtonAriaLabel={closeButtonAriaLabel}
+            onClose={onClose}
+          />
+          {children}
         </div>
       </ModalProvider>
     );
