@@ -14,8 +14,6 @@ const Modal = forwardRef(
   (
     {
       id,
-      // Would be implemented in a later PR
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       show,
       size = "medium",
       renderHeaderAction,
@@ -42,6 +40,9 @@ const Modal = forwardRef(
       }),
       [id, setTitleIdCallback, setDescriptionIdCallback]
     );
+    if (!show) {
+      return null;
+    }
 
     return (
       <ModalProvider value={contextValue}>
