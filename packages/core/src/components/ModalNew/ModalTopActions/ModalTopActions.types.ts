@@ -19,5 +19,5 @@ export interface ModalTopActionsProps {
     | ((color?: ModalTopActionsButtonColor) => React.ReactElement<typeof MenuButton | typeof IconButton>);
   color?: ModalTopActionsColor;
   closeButtonAriaLabel?: string;
-  onClose?: React.MouseEventHandler<HTMLDivElement>;
+  onClose?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
