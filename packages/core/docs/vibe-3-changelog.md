@@ -34,38 +34,38 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### AttentionBox
 
-> codemod: `attention-box-component-migration`
+> codemod: `AttentionBox-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Avatar
 
-> codemod: `avatar-component-migration`
+> codemod: `Avatar-component-migration`
 
 - The `isSquare` prop has been removed, use `square` instead 🔀
 - The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### AvatarGroup
 
-> codemod: `avatar-group-component-migration`
+> codemod: `AvatarGroup-component-migration`
 
 - The `removePadding` prop has been removed, and the component no longer gets a padding bottom 🔀
 
 ### Box
 
-> codemod: `box-component-migration`
+> codemod: `Box-component-migration`
 
-- The `border` prop type has been changed from string to boolean, and the so `Box.borders` static prop has been removed 🔀
+- The `border` prop type has been changed from string to boolean, and so the `Box.borders` static prop has been removed 🔀
 
 ### BreadcrumbItem
 
-> codemod: `breadcrumb-item-component-migration`
+> codemod: `BreadcrumbItem-component-migration`
 
 - The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### Button
 
-> codemod: `button-component-migration`
+> codemod: `Button-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 - The `children` prop is now mandatory
@@ -73,19 +73,19 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ButtonGroup
 
-> codemod: `button-group-component-migration`
+> codemod: `ButtonGroup-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Checkbox
 
-> codemod: `checkbox-component-migration`
+> codemod: `Checkbox-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Chips
 
-> codemod: `chips-component-migration`
+> codemod: `Chips-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 - The `DARK_INDIGO` and `BLACKISH` colors were removed from the `color` prop
@@ -93,32 +93,32 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Clickable
 
-> codemod: `clickable-component-migration`
+> codemod: `Clickable-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 
 ### Counter
 
-> codemod: `counter-component-migration`
+> codemod: `Counter-component-migration`
 
 - The `wrapperClassName` prop has been removed, use `className` instead 🔀
 - The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively
 
 ### Dialog
 
-> codemod: `dialog-component-migration`
+> codemod: `Dialog-component-migration`
 
 - The `shoudlCallbackOnMount` prop has been removed, use `shouldCallbackOnMount` instead 🔀
 
 ### DialogContentContainer
 
-> codemod: `dialog-content-container-component-migration`
+> codemod: `DialogContentContainer-component-migration`
 
 - The "medium" `size` now has an increased padding, correcting a previous sizing issue where "medium" and "small" had identical paddings. As a result, "small" is now the default size 🔀
 
 ### Divider
 
-> codemod: `divider-component-migration`
+> codemod: `Divider-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
@@ -128,7 +128,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Dropdown
 
-> codemod: `dropdown-component-migration`
+> codemod: `Dropdown-component-migration`
 
 - The `Dropdown.size` property was removed, use `Dropdown.sizes` instead 🔀
 - The `xxs`, `xs` sizes were acting as the `small` size and therefore removed. Use `small` instead
@@ -144,25 +144,25 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Icon
 
-> codemod: `icon-component-migration`
+> codemod: `Icon-component-migration`
 
 - The `clickable`, `onClick` props were removed 🔀, use `<IconButton>` for clickable icons
 
 ### IconButton
 
-> codemod: `icon-button-component-migration`
+> codemod: `IconButton-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 
 ## Input
 
-> codemod: `input-field-component-import-migration`
+> codemod: `InputField-component-import-migration`
 
 - `Input` removed - use [TextField](https://style.monday.com/?path=/docs/inputs-textfield--docs) 🔀
 
 ### Label
 
-> codemod: `label-component-migration`
+> codemod: `Label-component-migration`
 
 - The `wrapperClassName` prop has been removed, use `className` instead 🔀
 - The "Spin In" animation was removed, and so the `isAnimationDisabled` prop has been removed 🔀
@@ -173,51 +173,51 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Link
 
-> codemod: `link-component-migration`
+> codemod: `Link-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 - The static `Link.target` property was removed, use `Link.targets` instead 🔀
 
 ### Loader
 
-> codemod: `loader-component-migration`
+> codemod: `Loader-component-migration`
 
 - The `svgClassName` prop has been removed, use `className` instead 🔀
 
 ### Menu
 
-> codemod: `menu-component-migration`
+> codemod: `Menu-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuDivider
 
-> codemod: `menu-divider-component-migration`
+> codemod: `MenuDivider-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuItem
 
-> codemod: `menu-item-component-migration`
+> codemod: `MenuItem-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 - The provided tooltip (when the text is overflowing) now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
-> codemod: `menu-item-button-component-migration`
+> codemod: `MenuItemButton-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuTitle
 
-> codemod: `menu-title-component-migration`
+> codemod: `MenuTitle-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuButton
 
-> codemod: `menu-button-component-migration`
+> codemod: `MenuButton-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 - The `closeDialogOnContentClick` prop has been removed, use `closeMenuOnItemClick` instead 🔀
@@ -225,7 +225,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Modal
 
-> codemod: `modal-component-migration`
+> codemod: `Modal-component-migration`
 
 - The `hideCloseButton` has been removed since Modals should always have a close button 🔀
 - The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render when `show` is "false". To disable this behavior set `unmountOnClose` to "false"
@@ -233,13 +233,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ModalHeader
 
-> codemod: `modal-header-component-migration`
+> codemod: `ModalHeader-component-migration`
 
 - The `hideCloseButton` has been removed since Modals should always have a close button 🔀
 
 ### RadioButton
 
-> codemod: `radio-button-component-migration`
+> codemod: `RadioButton-component-migration`
 
 - The `classname` prop has been removed, use `className` instead 🔀
 
@@ -249,7 +249,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ## SearchComponent
 
-> codemod: `search-component-import-migration`
+> codemod: `SearchComponent-import-migration`
 
 - `SearchComponent` component removed - use [Search](https://style.monday.com/?path=/docs/inputs-search--docs) 🔀
 
@@ -259,7 +259,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Steps
 
-> codemod: `steps-component-migration`
+> codemod: `Steps-component-migration`
 
 - The `isOnPrimary` prop was removed, use `color="primary` instead 🔀
 
@@ -269,19 +269,19 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### TabList
 
-> codemod: `tab-list-component-migration`
+> codemod: `TabList-component-migration`
 
 - The component no longer gets a padding bottom, and so the `noPadding` prop was removed 🔀
 
 ### TabPanels
 
-> codemod: `tab-panels-component-migration`
+> codemod: `TabPanels-component-migration`
 
 - TabPanels will render only the active tab instead of rendering all the panels, and so the `renderOnlyActiveTab` was removed 🔀
 
 ### TextField
 
-> codemod: `text-field-component-migration`
+> codemod: `TextField-component-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 - The `iconsNames` prop no longer accepts the `layout` property
@@ -291,13 +291,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ThemeProvider
 
-> codemod: `theme-provider-component-migration`
+> codemod: `ThemeProvider-component-migration`
 
 - The `theme` has been removed, use `themeConfig` instead 🔀
 
 ### Tipseen
 
-> codemod: `tipseen-component-migration`
+> codemod: `Tipseen-component-migration`
 
 - The `content` prop is now mandatory
 - The default `color` has changed from 'primary' to 'inverted'. To keep the previous color, set the `color` prop to 'primary'
@@ -307,7 +307,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### TipseenContent
 
-> codemod: `tipseen-content-component-migration`
+> codemod: `TipseenContent-component-migration`
 
 - The `isDismissHidden` prop has been removed, use `hideDismiss` instead 🔀
 - The `isSubmitHidden` prop has been removed, use `hideSubmit` instead 🔀
@@ -315,14 +315,14 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### Toggle
 
-> codemod: `toggle-component-migration`
+> codemod: `Toggle-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
 - The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### Tooltip
 
-> codemod: `tooltip-component-migration`
+> codemod: `Tooltip-component-migration`
 
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
 - The `themes` prop can now accept only "dark" or "primary"
@@ -336,13 +336,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ColorPicker
 
-> codemod: `color-picker-component-migration`
+> codemod: `ColorPicker-component-migration`
 
 - The static `ColorPicker.COLOR_STYLES` property has been removed, use `ColorPicker.colorStyles` instead 🔀
 
 ### ColorPickerContent
 
-> codemod: `color-picker-content-component-migration`
+> codemod: `ColorPickerContent-component-migration`
 
 - The static `ColorPickerContent.COLOR_STYLES` property has been removed, use `ColorPickerContent.colorStyles` instead 🔀
 
@@ -358,6 +358,6 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### useClickableProps
 
-> codemod: `use-clickable-props-hook-migration`
+> codemod: `useClickableProps-hook-migration`
 
 - The `dataTestId` prop has been removed, use `data-testid` instead 🔀
