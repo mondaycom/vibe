@@ -9,6 +9,7 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
 import { ModalContextProps } from "../context/ModalContext.types";
+import useKeyEvent from "../../../hooks/useKeyEvent";
 
 const Modal = forwardRef(
   (
@@ -19,7 +20,7 @@ const Modal = forwardRef(
       renderHeaderAction,
       closeButtonTheme,
       closeButtonAriaLabel,
-      onClose,
+      onClose = () => {},
       children,
       className,
       "data-testid": dataTestId
@@ -40,13 +41,36 @@ const Modal = forwardRef(
       }),
       [id, setTitleIdCallback, setDescriptionIdCallback]
     );
+
+    const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
+      e => {
+        if (!show) return;
+        onClose(e);
+      },
+      [onClose, show]
+    );
+
+    const onEscClick = useCallback<React.KeyboardEventHandler<HTMLDivElement>>(
+      e => {
+        if (!show) return;
+        onClose(e);
+      },
+      [onClose, show]
+    );
+
+    useKeyEvent({
+      callback: onEscClick,
+      capture: true,
+      keys: ["Escape"]
+    });
+
     if (!show) {
       return null;
     }
 
     return (
       <ModalProvider value={contextValue}>
-        <div id="overlay" className={styles.overlay} />
+        <div id="overlay" className={styles.overlay} onClick={onBackdropClick} aria-hidden />
         <div
           ref={ref}
           className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
