@@ -200,7 +200,7 @@ async function main() {
   });
 
   if (transformationFiles.length === 0) {
-    console.error(chalk.red("No transformation files found. Please check the directory path."));
+    console.error(chalk.red("No transformation files found. Please check the migration name supplied."));
     process.exit(1);
   }
 
