@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  align-self: flex-start;
+
+  .title {
+    width: 100%;
+  }
+
+  .descriptionIcon {
+    flex-shrink: 0;
+    margin-inline-end: var(--spacing-xs);
+    color: var(--icon-color);
+  }
+}
