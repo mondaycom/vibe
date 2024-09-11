@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { join, resolve } from "path";
-import { spawnSync } from "child_process";
+import { spawn, spawnSync } from "child_process";
 import * as globby from "globby";
 import * as fs from "fs";
 import * as path from "path";
@@ -138,49 +138,61 @@ async function main() {
 
   const spinner = ora(`Running transformations...`).start();
 
-  async function runSingleTransformation(transform: string): Promise<boolean> {
-    const result = spawnSync(
-      "node",
-      [
-        require.resolve("jscodeshift/bin/jscodeshift"),
-        `--extensions=${extensions.join(",")}`,
-        "--ignore-pattern=node_modules",
-        "--ignore-pattern=**/*.d.ts",
-        `--verbose=${verbosityLevel}`,
-        "--max-workers=8",
-        "--no-babel",
-        "-t",
-        transform,
-        targetDir,
-        outputTarget
-      ],
-      {
-        stdio: verbose ? "inherit" : ["inherit", "pipe", "pipe"],
-        shell: true,
-        env: { ...process.env, FORCE_COLOR: "1" }
+  async function runSingleTransformation(transform: string) {
+    return new Promise(resolve => {
+      const child = spawn(
+        "node",
+        [
+          require.resolve("jscodeshift/bin/jscodeshift"),
+          `--extensions=${extensions.join(",")}`,
+          "--ignore-pattern=node_modules",
+          "--ignore-pattern=**/*.d.ts",
+          `--verbose=${verbosityLevel}`,
+          "--max-workers=8",
+          "--no-babel",
+          "-t",
+          transform,
+          targetDir,
+          outputTarget
+        ],
+        {
+          stdio: verbose ? "inherit" : ["inherit", "pipe", "pipe"],
+          shell: true,
+          env: { ...process.env, FORCE_COLOR: "1" }
+        }
+      );
+
+      let hasError = false;
+
+      if (child.stderr) {
+        child.stderr.on("data", data => {
+          const errorOutput = data.toString();
+          process.stderr.write(errorOutput);
+          if (errorOutput.includes("ERROR")) {
+            hasError = true;
+            errorsCount++;
+          }
+        });
       }
-    );
 
-    let hasError = false;
-
-    if (result.stderr) {
-      const errorOutput = result.stderr.toString();
-      process.stderr.write(errorOutput);
-      if (errorOutput.includes("ERROR")) {
-        hasError = true;
-        errorsCount++;
+      if (child.stdout) {
+        child.stdout.on("data", data => {
+          const output = data.toString();
+          if (output.includes("ERROR")) {
+            hasError = true;
+            errorsCount++;
+          }
+        });
       }
-    }
 
-    if (result.stdout) {
-      const output = result.stdout.toString();
-      if (output.includes("ERROR")) {
-        hasError = true;
-        errorsCount++;
-      }
-    }
-
-    return result.status === 0 && !hasError;
+      child.on("exit", code => {
+        if (code !== 0 || hasError) {
+          resolve(false);
+        } else {
+          resolve(true);
+        }
+      });
+    });
   }
 
   const transformationFiles: string[] = globby.sync(`${transformationsDir}/*.js`, {
@@ -207,14 +219,19 @@ async function main() {
 
     spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transformName}`;
 
-    const result = await runSingleTransformation(transform);
+    try {
+      const result = await runSingleTransformation(transform);
 
-    if (result) {
-      successCount++;
-      spinner.succeed(chalk.green(`Transformation completed: ${transformName}`));
-    } else {
+      if (result) {
+        successCount++;
+        spinner.succeed(chalk.green(`Transformation completed: ${transformName}`));
+      } else {
+        failureCount++;
+        spinner.fail(chalk.red(`Transformation finished with errors: ${transformName}`));
+      }
+    } catch (error) {
       failureCount++;
-      spinner.fail(chalk.red(`Transformation finished with errors: ${transformName}`));
+      spinner.fail(chalk.red(`Transformation failed: ${transformName}`));
     }
 
     if (index < orderedTransformationFiles.length - 1) {
