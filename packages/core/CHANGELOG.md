@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.133.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.132.0...monday-ui-react-core@2.133.0) (2024-09-11)
+
+
+### Features
+
+* add aria-pressed prop to IconButton ([#2428](https://github.com/mondaycom/vibe/issues/2428)) ([4587c6e](https://github.com/mondaycom/vibe/commit/4587c6e2270d9bd688e52256dda0611cf1731fd8))
+
+
+
+
+
 # [2.132.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.131.2...monday-ui-react-core@2.132.0) (2024-09-09)
 
 
