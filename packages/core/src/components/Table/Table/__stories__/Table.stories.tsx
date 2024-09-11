@@ -186,13 +186,12 @@ export const Sizes = {
       {
         id: "sentOn",
         title: "Sent on",
-        width: 180,
         loadingStateType: "medium-text"
       },
       {
         id: "subject",
         title: "Subject",
-        width: 200,
+
         loadingStateType: "long-text"
       }
     ];
@@ -210,6 +209,32 @@ export const Sizes = {
     ];
     return (
       <>
+        <Table
+          style={{ width: "auto" }}
+          size={Table.sizes.SMALL}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={columns}
+        >
+          <TableHeader>
+            {columns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
+              />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {data.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
         <Table
           style={{ width: "auto" }}
           size={Table.sizes.MEDIUM}
@@ -267,7 +292,7 @@ export const Sizes = {
   },
   decorators: [
     (Story: typeof React.Component) => (
-      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_BETWEEN} style={{ flex: 1 }}>
+      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.MEDIUM} style={{ flex: 1 }}>
         <Story />
       </Flex>
     )
