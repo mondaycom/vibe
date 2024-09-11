@@ -1,21 +1,22 @@
 import React from "react";
-import AlertBanner from "../AlertBanner";
+import AlertBanner, { AlertBannerProps } from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./AlertBanner.stories.scss";
+import { Meta, StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
   enumPropNamesArray: ["backgroundColor"]
 });
 
-const alertBannerTemplate = args => {
+const alertBannerTemplate = (args: AlertBannerProps) => {
   return (
     <AlertBanner {...args}>
-      <AlertBannerText text={args.bannerText} />
-      <AlertBannerLink text={args.linkText} href="https://monday.com" />
+      <AlertBannerText text="Alert banner message" />
+      <AlertBannerLink text="this is a CTA" href="https://monday.com" />
     </AlertBanner>
   );
 };
@@ -25,7 +26,7 @@ export default {
   component: AlertBanner,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof AlertBanner>;
 
 export const Overview = {
   render: alertBannerTemplate.bind({}),
@@ -38,7 +39,9 @@ export const Overview = {
   }
 };
 
-export const Types = {
+type Story = StoryObj<typeof AlertBanner>;
+
+export const Types: Story = {
   render: () => (
     <div className="monday-storybook-alert-banner_column-wrapper monday-storybook-alert-banner_big-container">
       <AlertBanner>
@@ -67,7 +70,7 @@ export const Types = {
   name: "Types"
 };
 
-export const AlertBannerWithButton = {
+export const AlertBannerWithButton: Story = {
   render: () => (
     <AlertBanner className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="Lorem ipsum dolor sit amet" />
@@ -78,7 +81,7 @@ export const AlertBannerWithButton = {
   name: "Alert Banner with button"
 };
 
-export const AlertBannerWithLink = {
+export const AlertBannerWithLink: Story = {
   render: () => (
     <AlertBanner className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="Alert banner message" />
@@ -89,7 +92,7 @@ export const AlertBannerWithLink = {
   name: "Alert Banner with link"
 };
 
-export const AlertBannerAsAnAnnouncement = {
+export const AlertBannerAsAnAnnouncement: Story = {
   render: () => (
     <AlertBanner
       backgroundColor={AlertBanner.backgroundColors.DARK}
@@ -103,7 +106,7 @@ export const AlertBannerAsAnAnnouncement = {
   name: "Alert banner as an announcement"
 };
 
-export const AlertBannerAsAnOpportunityToUpgrade = {
+export const AlertBannerAsAnOpportunityToUpgrade: Story = {
   render: () => (
     <AlertBanner className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="7 days left on your monday CRM trial" />
@@ -114,7 +117,7 @@ export const AlertBannerAsAnOpportunityToUpgrade = {
   name: "Alert banner as an opportunity to upgrade"
 };
 
-export const OverflowText = {
+export const OverflowText: Story = {
   render: () => (
     <AlertBanner className="monday-storybook-alert-banner_small-container">
       <AlertBannerText text="This is a really long alert..." />
