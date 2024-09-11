@@ -70,12 +70,17 @@ const Modal = forwardRef(
 
     return (
       <ModalProvider value={contextValue}>
-        <div id="overlay" className={styles.overlay} onClick={onBackdropClick} aria-hidden />
+        <div
+          data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+          className={styles.overlay}
+          onClick={onBackdropClick}
+          aria-hidden
+        />
         <div
           ref={ref}
           className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
           id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
           role="dialog"
           aria-modal
           aria-labelledby={titleId || undefined}
