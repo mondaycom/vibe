@@ -1,17 +1,15 @@
 #!/usr/bin/env node
-import { dirname, resolve } from "path";
-import { spawn, spawnSync } from "child_process";
+import { join, resolve } from "path";
+import { spawnSync } from "child_process";
 import * as globby from "globby";
 import * as fs from "fs";
+import * as path from "path";
 import inquirer from "inquirer";
 import ora from "ora";
 import chalk from "chalk";
 import readlineSync from "readline-sync";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-
-const __filename = process.argv[1];
-const __dirname = dirname(__filename);
 
 const mapMigrationType: { [key: string]: string } = {
   v3: "v2-to-v3"
@@ -66,9 +64,7 @@ async function runWizard() {
 
   return {
     migration: answers.migration || argv.migration,
-    extensions: answers.extensions || argv.extensions,
-    targetDir: argv.target,
-    verbose: argv.verbose
+    extensions: answers.extensions || argv.extensions
   };
 }
 
@@ -92,10 +88,10 @@ async function main() {
   const answers = await runWizard();
 
   const migrationType: string = answers.migration;
-  const transformationsDir: string = resolve(__dirname, `../transformations/core/${mapMigrationType[migrationType]}`);
+  const transformationsDir: string = join(__dirname, "..", "transformations", "core", mapMigrationType[migrationType]);
   const extensions: string[] = answers.extensions;
   const targetDir: string = argv.target;
-  const verbose: boolean = answers.verbose;
+  const verbose: boolean = argv.verbose;
 
   const logFile: string = resolve(targetDir, "codemod.log");
 
@@ -109,7 +105,7 @@ async function main() {
       const status = spawnSync("git", ["status", "--porcelain"], { encoding: "utf-8" }).stdout.trim();
       return status === "";
     } catch (error) {
-      console.error(chalk.red("Error checking Git status:", error.message));
+      console.error(chalk.red("Error checking Git status:"));
       process.exit(1);
     }
   }
@@ -131,9 +127,9 @@ async function main() {
   const verbosityLevel: number = verbose ? 2 : 0;
   const outputTarget: string = verbose ? `>> "${logFile}"` : "";
 
-  let successCount: number = 0;
-  let failureCount: number = 0;
-  let errorsCount: number = 0;
+  let successCount = 0;
+  let failureCount = 0;
+  let errorsCount = 0;
   const startTime = Date.now();
 
   console.log(chalk.green(`Running transformations for migration: ${migrationType} in directory: ${targetDir}`));
@@ -141,51 +137,51 @@ async function main() {
   const spinner = ora(`Running transformations...`).start();
 
   async function runSingleTransformation(transform: string): Promise<boolean> {
-    return new Promise(resolve => {
-      const command = `jscodeshift -t "${transform}" --extensions=${extensions.join(
-        ","
-      )} --ignore-pattern="node_modules" --ignore-pattern="**/*.d.ts" --verbose=${verbosityLevel} "${targetDir}" ${outputTarget} --max-workers=8`;
-
-      const child = spawn(command, {
-        shell: true,
+    const result = spawnSync(
+      "node",
+      [
+        require.resolve("jscodeshift/bin/jscodeshift"),
+        `--extensions=${extensions.join(",")}`,
+        "--ignore-pattern=node_modules",
+        "--ignore-pattern=**/*.d.ts",
+        `--verbose=${verbosityLevel}`,
+        "--max-workers=8",
+        "--no-babel",
+        "-t",
+        transform,
+        targetDir,
+        outputTarget
+      ],
+      {
         stdio: verbose ? "inherit" : ["inherit", "pipe", "pipe"],
+        shell: true,
         env: { ...process.env, FORCE_COLOR: "1" }
-      });
-
-      let hasError = false;
-
-      if (child.stderr) {
-        child.stderr.on("data", data => {
-          const errorOutput = data.toString();
-          process.stderr.write(errorOutput);
-          if (errorOutput.includes("ERROR")) {
-            hasError = true;
-            errorsCount++;
-          }
-        });
       }
+    );
 
-      if (child.stdout) {
-        child.stdout.on("data", data => {
-          const output = data.toString();
-          if (output.includes("ERROR")) {
-            hasError = true;
-            errorsCount++;
-          }
-        });
+    let hasError = false;
+
+    if (result.stderr) {
+      const errorOutput = result.stderr.toString();
+      process.stderr.write(errorOutput);
+      if (errorOutput.includes("ERROR")) {
+        hasError = true;
+        errorsCount++;
       }
+    }
 
-      child.on("exit", code => {
-        if (code !== 0 || hasError) {
-          resolve(false);
-        } else {
-          resolve(true);
-        }
-      });
-    });
+    if (result.stdout) {
+      const output = result.stdout.toString();
+      if (output.includes("ERROR")) {
+        hasError = true;
+        errorsCount++;
+      }
+    }
+
+    return result.status === 0 && !hasError;
   }
 
-  const transformationFiles: string[] = globby.sync(`${transformationsDir}/*.ts`, {
+  const transformationFiles: string[] = globby.sync(`${transformationsDir}/*.js`, {
     ignore: ["node_modules/**", "**/*.d.ts"]
   });
 
@@ -195,8 +191,8 @@ async function main() {
   }
 
   const filesToProcessLast = [
-    resolve(transformationsDir, "type-imports-migration.ts"),
-    resolve(transformationsDir, "packages-rename-migration.ts")
+    resolve(transformationsDir, "type-imports-migration.js"),
+    resolve(transformationsDir, "packages-rename-migration.js")
   ];
   const orderedTransformationFiles = [
     ...transformationFiles.filter(file => !filesToProcessLast.includes(file)),
@@ -205,16 +201,18 @@ async function main() {
 
   for (let index = 0; index < orderedTransformationFiles.length; index++) {
     const transform: string = orderedTransformationFiles[index];
-    spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transform}`;
+    const transformName = path.basename(transform, path.extname(transform));
+
+    spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transformName}`;
 
     const result = await runSingleTransformation(transform);
 
     if (result) {
       successCount++;
-      spinner.succeed(chalk.green(`Transformation completed: ${transform}`));
+      spinner.succeed(chalk.green(`Transformation completed: ${transformName}`));
     } else {
       failureCount++;
-      spinner.fail(chalk.red(`Transformation finished with errors: ${transform}`));
+      spinner.fail(chalk.red(`Transformation finished with errors: ${transformName}`));
     }
 
     if (index < orderedTransformationFiles.length - 1) {
