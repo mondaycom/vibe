@@ -6,7 +6,7 @@ export type ModalSize = "small" | "medium" | "large";
 
 export type ModalCloseEvent =
   | React.MouseEvent<HTMLDivElement | HTMLButtonElement>
-  | React.KeyboardEvent<HTMLDivElement>;
+  | React.KeyboardEvent<HTMLBodyElement>;
 
 export interface ModalProps extends VibeComponentProps {
   id: string;

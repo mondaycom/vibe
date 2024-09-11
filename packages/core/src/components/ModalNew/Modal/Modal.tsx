@@ -50,7 +50,7 @@ const Modal = forwardRef(
       [onClose, show]
     );
 
-    const onEscClick = useCallback<React.KeyboardEventHandler<HTMLDivElement>>(
+    const onEscClick = useCallback<React.KeyboardEventHandler<HTMLBodyElement>>(
       e => {
         if (!show) return;
         onClose(e);
