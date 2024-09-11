@@ -15,12 +15,14 @@ const mapMigrationType: { [key: string]: string } = {
   v3: "v2-to-v3"
 };
 
+const migrations = Object.keys(mapMigrationType);
+
 const argv = yargs(hideBin(process.argv))
   .option("migration", {
     alias: "m",
     type: "string",
     description: "Migration type to run (e.g., v3)",
-    choices: ["v3"]
+    choices: migrations
   })
   .option("target", {
     alias: "t",
@@ -48,7 +50,7 @@ async function runWizard() {
       type: "list",
       name: "migration",
       message: "Which migration would you like to run?",
-      choices: ["v3"],
+      choices: migrations,
       default: argv.migration || "v3",
       when: !argv.migration
     },
@@ -87,13 +89,13 @@ function printReport(successCount: number, failureCount: number, errorsCount: nu
 async function main() {
   const answers = await runWizard();
 
-  const migrationType: string = answers.migration;
-  const transformationsDir: string = join(__dirname, "..", "transformations", "core", mapMigrationType[migrationType]);
-  const extensions: string[] = answers.extensions;
-  const targetDir: string = argv.target;
-  const verbose: boolean = argv.verbose;
+  const migrationType = answers.migration;
+  const transformationsDir = join(__dirname, "..", "transformations", "core", mapMigrationType[migrationType]);
+  const extensions = answers.extensions;
+  const targetDir = argv.target;
+  const verbose = argv.verbose;
 
-  const logFile: string = resolve(targetDir, "codemod.log");
+  const logFile = resolve(targetDir, "codemod.log");
 
   if (!fs.existsSync(transformationsDir)) {
     console.error(chalk.red(`Error: Transformations directory does not exist: ${transformationsDir}`));
@@ -200,7 +202,7 @@ async function main() {
   ];
 
   for (let index = 0; index < orderedTransformationFiles.length; index++) {
-    const transform: string = orderedTransformationFiles[index];
+    const transform = orderedTransformationFiles[index];
     const transformName = path.basename(transform, path.extname(transform));
 
     spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transformName}`;
