@@ -5,12 +5,19 @@
 }
 
 .modal {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
   width: var(--modal-width, 50%);
   max-height: var(--modal-max-height, 80%);
   background-color: var(--primary-background-color);
+  overflow: hidden;
+  border-radius: var(--border-radius-big);
+  box-shadow: var(--box-shadow-large);
 
   &.sizeSmall {
     --modal-max-height: 50%;
