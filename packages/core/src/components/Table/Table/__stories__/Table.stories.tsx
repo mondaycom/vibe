@@ -43,7 +43,14 @@ export default {
     TableVirtualizedBody
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { TableAvatar, TableErrorState, TableEmptyState }
+      }
+    }
+  }
 };
 
 const tableTemplate = (args: ITableProps) => <Table {...args}></Table>;
@@ -176,6 +183,13 @@ export const Overview = {
         ))}
       </TableBody>
     ]
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   },
   name: "Overview"
 };
@@ -471,7 +485,13 @@ export const TableHeaderFunctionality = {
       </Table>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { emailTableData, emailColumns }
+      }
+    }
+  },
   name: "Table Header Functionality"
 };
 
@@ -507,7 +527,13 @@ export const Loading = {
       </TableBody>
     </Table>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { emailTableData, emailColumns }
+      }
+    }
+  },
   name: "Loading"
 };
 
@@ -550,7 +576,13 @@ export const Scroll = {
       </Table>
     </div>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { scrollTableColumns, scrollTableData, priorityColumnToLabelColor, statusColumnToLabelColor }
+      }
+    }
+  },
   name: "Scroll"
 };
 
@@ -583,7 +615,13 @@ export const VirtualizedScroll = {
       </Table>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { virtualizedScrollTableColumns, virtualizedScrollTableData }
+      }
+    }
+  },
   name: "Virtualized Scroll"
 };
 
@@ -617,7 +655,13 @@ export const StickyColumn = {
       </Table>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { stickyColumns, stickyTableData, statusColumnToLabelColor }
+      }
+    }
+  },
   name: "Sticky column"
 };
 
@@ -652,6 +696,12 @@ export const HighlightedRow = {
       </Table>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { emailColumns, emailTableData }
+      }
+    }
+  },
   name: "Highlighted row"
 };
