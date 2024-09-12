@@ -221,6 +221,7 @@ codemod: `menu-button-component-migration`
 - `componentClassName` -> `className` [codemod ✅]
 - `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod ✅]
 - Removed `disabledReason`, use `tooltipContent` instead [codemod ✅]
+- `hideWhenReferenceHidden` changed default to true
 
 ### Modal
 
