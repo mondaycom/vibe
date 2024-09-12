@@ -1,5 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
+import { RemoveScroll } from "react-remove-scroll";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -71,30 +72,32 @@ const Modal = forwardRef(
 
     return (
       <ModalProvider value={contextValue}>
-        <div
-          data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-          className={styles.overlay}
-          onClick={onBackdropClick}
-          aria-hidden
-        />
-        <div
-          ref={ref}
-          className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-          id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-          role="dialog"
-          aria-modal
-          aria-labelledby={titleId}
-          aria-describedby={descriptionId}
-        >
-          <ModalTopActions
-            renderAction={renderHeaderAction}
-            color={closeButtonTheme}
-            closeButtonAriaLabel={closeButtonAriaLabel}
-            onClose={onClose}
+        <RemoveScroll>
+          <div
+            data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+            className={styles.overlay}
+            onClick={onBackdropClick}
+            aria-hidden
           />
-          {children}
-        </div>
+          <div
+            ref={ref}
+            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+            id={id}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+            role="dialog"
+            aria-modal
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
+          >
+            <ModalTopActions
+              renderAction={renderHeaderAction}
+              color={closeButtonTheme}
+              closeButtonAriaLabel={closeButtonAriaLabel}
+              onClose={onClose}
+            />
+            {children}
+          </div>
+        </RemoveScroll>
       </ModalProvider>
     );
   }
