@@ -3,7 +3,8 @@ import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
-import AsyncSelect from "react-select/async";
+import AsyncSelect from "react-select/async/dist/react-select.esm.js";
+import BaseSelect from "react-select/base/dist/react-select.esm.js";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
 import MenuComponent from "./components/menu/menu";
@@ -124,7 +125,12 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       return defaultValue;
     }, [defaultValue]);
 
+    BaseSelect.prototype.renderLiveRegion = (): null => {
+      return null;
+    };
+
     const [selected, setSelected] = useState(overrideDefaultValue || []);
+    const [focusedOptionId, setFocusedOptionId] = useState("");
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;
@@ -217,14 +223,32 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 
     const Option = useCallback(
       (props: CustomOptionProps) => (
-        <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
+        <OptionComponent
+          setFocusedOptionId={setFocusedOptionId}
+          {...props}
+          Renderer={finalOptionRenderer}
+          optionWrapperClassName={optionWrapperClassName}
+        />
       ),
-      [finalOptionRenderer, optionWrapperClassName]
+      [finalOptionRenderer, optionWrapperClassName, setFocusedOptionId]
     );
 
     const Input = useCallback(
-      (props: InputProps) => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
-      [menuId]
+      (props: InputProps | any) => {
+        const { focusedOptionId, menuIsOpen } = props.selectProps;
+        const ariaActiveDescendant = focusedOptionId && menuIsOpen ? focusedOptionId : "";
+        return (
+          <components.Input
+            {...props}
+            aria-activedescendant={ariaActiveDescendant}
+            role="combobox"
+            aria-expanded={!readOnly && menuIsOpen}
+            aria-label="Dropdown input"
+            aria-controls={menuId}
+          />
+        );
+      },
+      [menuId, readOnly]
     );
 
     const SingleValue = useCallback(
@@ -376,10 +400,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
-        aria-expanded={!readOnly && menuIsOpen}
         aria-haspopup="listbox"
-        aria-activedescendant
-        role="combobox"
         defaultValue={defaultValue}
         value={value}
         onMenuOpen={onMenuOpen}
@@ -391,6 +412,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         onInputChange={onInputChange}
         openMenuOnFocus={openMenuOnFocus}
         openMenuOnClick={openMenuOnClick}
+        focusedOptionId={focusedOptionId}
         isRtl={rtl}
         styles={inlineStyles}
         theme={customTheme}

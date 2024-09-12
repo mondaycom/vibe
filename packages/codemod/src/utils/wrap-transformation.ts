@@ -3,7 +3,7 @@ import { TransformationContext } from "../../types";
 
 export default function wrapTransformation(transform: (context: TransformationContext) => void): Transform {
   return (file, api) => {
-    const j = api.jscodeshift;
+    const j = api.jscodeshift.withParser("tsx");
     const root = j(file.source);
     const filePath = file.path;
 

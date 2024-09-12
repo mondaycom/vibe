@@ -8,8 +8,8 @@ import {
 } from "../prop-utils";
 import jscodeshift, { ASTPath, JSXElement } from "jscodeshift";
 
-function getElementPath(source: string, parser: "tsx" | "recast" = "tsx"): ASTPath<JSXElement> {
-  const j = jscodeshift.withParser(parser);
+function getElementPath(source: string): ASTPath<JSXElement> {
+  const j = jscodeshift.withParser("tsx");
   const root = j(source);
   return root.find(j.JSXElement).paths()[0];
 }
@@ -28,6 +28,24 @@ describe("Prop Utils", () => {
         propName: "nonExistentProp",
         expected: false,
         description: "should return false if prop does not exist"
+      },
+      {
+        source: `<Component someProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someOtherProp",
+        expected: false,
+        description: "should return false if prop doesn't exist on parent element"
+      },
+      {
+        source: `<Component someOtherProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someOtherProp",
+        expected: true,
+        description: "should return true if prop exists on parent element"
+      },
+      {
+        source: `<Component someProp="value"><div someOtherProp="value"></div></Component>`,
+        propName: "someProp",
+        expected: true,
+        description: "should return true if prop exists on parent element"
       }
     ];
 
@@ -166,7 +184,7 @@ describe("Prop Utils", () => {
 
     testCases.forEach(({ description, source, valuesMapping, expected }) => {
       it(description, () => {
-        const elementPath = getElementPath(source, "recast");
+        const elementPath = getElementPath(source);
         updatePropValues(jscodeshift, elementPath, "someProp", valuesMapping);
         const output = jscodeshift(elementPath).toSource();
         expect(output).toBe(expected);

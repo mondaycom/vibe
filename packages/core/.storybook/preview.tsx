@@ -100,8 +100,9 @@ const preview: Preview = {
         order: [
           "Welcome",
           "Catalog",
-          "Change Log",
-          "Typography Migration Guide",
+          "Changelog",
+          "Migration Guide",
+          "Playground",
           "Internal",
           "Foundations",
           "Buttons",

@@ -148,7 +148,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
-      dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+      dialogPaddingSize = DialogContentContainer.sizes.SMALL,
       dialogShowTriggerIgnoreClass,
       dialogHideTriggerIgnoreClass,
       onMenuHide = NOOP,

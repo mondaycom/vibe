@@ -1,372 +1,365 @@
 # Vibe 3 Changelog
 
+This is the complete list of changes and deprecations in the Vibe 3 release. Changes that are marked with a 🔀 are covered by a migration script (codemod).
+
+For the complete migration guide see the [Vibe 3 Migration Guide](https://style.monday.com/?path=/docs/vibe-3-migration-guide--docs).
+
 ## General
 
-- Package rename - `monday-ui-react-core` renamed to `@vibe/core`: [codemod ✅]
-  - `/tokens` -> `@vibe/core/tokens` [codemod ✅]
-  - `/interactionsTests` -> `@vibe/core/interactionsTests` [codemod ✅]
-  - `/testIds` -> `@vibe/core/testIds` [codemod ✅]
+- CommonJS support removed
+- Package rename - `monday-ui-react-core` renamed to `@vibe/core`: 🔀
+  - `/tokens` -> `@vibe/core/tokens` 🔀
+  - `/interactionsTests` -> `@vibe/core/interactionsTests` 🔀
+  - `/testIds` -> `@vibe/core/testIds` 🔀
   - `/mockedClassNames` -> `@vibe/core/mockedClassNames`
-- Removed entry pointes:
-  - `/next` removed, migrate components to `@vibe/core`
-  - `/types` remove, import from `@vibe/core` instead [codemod ✅]
-- Entry points moved to a new library:
-  - `/icons` -> `@vibe/icons` [codemod ✅]
+- Removed entry points:
+  - `/types` removed, import from `@vibe/core` instead 🔀
+- Entry points moved to a new package:
+  - `/icons` -> use `@vibe/icons` package instead 🔀
   - `/storybookComponents` removed, use the `vibe-storybook-components` package instead
 - `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
-- CommonJS support removed
 - All components' props interfaces are exported
 
 ## Colors
 
-- Removed `--shareable-color` and `--private-color` for all themes
+- The `--shareable-color` and `--private-color` CSS variables were removed for all themes
+- The `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` colors were removed from the `colors.json` file (in `monday-ui-style` package), use `warning-color-*` respectively
 
 ## Typography
 
-- `Text` and `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
+- Overhauled typography system, for more information check out the [Typography page](https://style.monday.com/?path=/docs/foundations-typography--docs)
+- `Text` and `Heading` API and style changed
 
 ## Components
 
 ### AttentionBox
 
-codemod: `attention-box-component-migration`
+> codemod: `attention-box-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
+- The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Avatar
 
-codemod: `avatar-component-migration`
+> codemod: `avatar-component-migration`
 
-- `isSquare` -> `square` [codemod ✅]
-- `isDisabled` -> `disabled` [codemod ✅]
+- The `isSquare` prop has been removed, use `square` instead 🔀
+- The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### AvatarGroup
 
-codemod: `avatar-group-component-migration`
+> codemod: `avatar-group-component-migration`
 
-- `removePadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
+- The `removePadding` prop has been removed, and the component no longer gets a padding bottom 🔀
 
 ### Box
 
-codemod: `box-component-migration`
+> codemod: `box-component-migration`
 
-- `border` change from string to boolean [codemod ✅]
-- Remove static prop Box.Borders
+- The `border` prop type has been changed from string to boolean, and the so `Box.borders` static prop has been removed 🔀
 
 ### BreadcrumbItem
 
-codemod: `breadcrumb-item-component-migration`
+> codemod: `breadcrumb-item-component-migration`
 
-- `isDisabled` -> `disabled` [codemod ✅]
+- The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### Button
 
-codemod: `button-component-migration`
+> codemod: `button-component-migration`
 
-- `dataTestId` -> `data-testid` [codemod ✅]
-- `children` prop is now mandatory
-- `size` prop - removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` accordingly
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀
+- The `children` prop is now mandatory
+- The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively
 
 ### ButtonGroup
 
-codemod: `button-group-component-migration`
+> codemod: `button-group-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]]
+- The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Checkbox
 
-codemod: `checkbox-component-migration`
+> codemod: `checkbox-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
+- The `componentClassName` prop has been removed, use `className` instead 🔀
 
 ### Chips
 
-codemod: `chips-component-migration`
+> codemod: `chips-component-migration`
 
-- `dataTestId` -> `data-testid` [codemod ✅]
-- `clickable`, `isClickable` removed, use `onClick` instead to get clickable behavior and style. Pay attention that this codemod removes `clickable` and `isClickable` only if `onClick` is present [codemod ✅]
-- `color` - remove dark_indigo and blackish colors
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀
+- The `DARK_INDIGO` and `BLACKISH` colors were removed from the `color` prop
+- The `clickable` and `isClickable` props were removed, use `onClick` instead, to get clickable behavior and style 🔀
 
 ### Clickable
 
-codemod: `clickable-component-migration`
+> codemod: `clickable-component-migration`
 
-- `dataTestId` -> `data-testid` [codemod ✅]]
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 
 ### Counter
 
-codemod: `chips-component-migration`
+> codemod: `counter-component-migration`
 
-- `wrapperClassName` -> `className` [codemod ✅]
-  - Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+- The `wrapperClassName` prop has been removed, use `className` instead 🔀
+- The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively
 
 ### Dialog
 
-codemod: `dialog-component-migration`
+> codemod: `dialog-component-migration`
 
-- `shoudlCallbackOnMount` -> `shouldCallbackOnMount` [codemod✅]
+- The `shoudlCallbackOnMount` prop has been removed, use `shouldCallbackOnMount` instead 🔀
 
-### DialogContentContainer 🚩
+### DialogContentContainer
 
-codemod: `dialog-content-container-component-migration`
+> codemod: `dialog-content-container-component-migration`
 
-- Fixed "medium" size spacings
-- Changed default size to "small" instead of "medium" [codemod - change usages of size medium to small, keep other usages the same ✅]]
+- The "medium" `size` now has an increased padding, correcting a previous sizing issue where "medium" and "small" had identical paddings. As a result, "small" is now the default size 🔀
 
 ### Divider
 
-codemod: `divider-component-migration`
+> codemod: `divider-component-migration`
 
-- `classname` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ### Flex
 
-- Removed `Flex.gaps.NONE`
+- The `Flex.gaps.NONE` property has been removed. To specify no gap simply omit the `gap` prop
 
-### Dropdown 🚩
+### Dropdown
 
-codemod: `dropdown-component-migration`
+> codemod: `dropdown-component-migration`
 
-- Removed `Dropdown.size` property, use `Dropdown.sizes` instead [codemod ✅]
-- Remove size 'xxs' and 'xs'
-- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod - remove withReadOnlyStyle ✅]
+- The `Dropdown.size` property was removed, use `Dropdown.sizes` instead 🔀
+- The `xxs`, `xs` sizes were acting as the `small` size and therefore removed. Use `small` instead
+- The `withReadOnlyStyle` prop was removed, new readonly style will be applied automatically when using the `readOnly` prop 🔀
 
 ### EditableInput
 
-- `EditableInput` removed, use [`EditableText`](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+- `EditableInput` removed, use [EditableText](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
 
 ### Heading
 
-- `Heading` component API and style changed - use the [typography migration guide](https://style.monday.com/?path=/docs/typography-migration-guide--docs) to migrate.
+- `Heading` component API and style changed, follow the [Heading](https://style.monday.com/?path=/docs/text-heading--docs) docs for the new API.
 
 ### Icon
 
-codemod: `icon-component-migration`
+> codemod: `icon-component-migration`
 
-- `clickable`, `onClick` removed, use `<IconButton>` in case of a clickable icon
-- Remove `clickable` if it is false [codemod ✅]
+- The `clickable`, `onClick` props were removed 🔀, use `<IconButton>` for clickable icons
 
 ### IconButton
 
-codemod: `icon-button-component-migration`
+> codemod: `icon-button-component-migration`
 
-- `dataTestId` -> `data-testid` [codemod ✅]
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀
 
 ## Input
 
-codemod: `input-field-component-migration`
+> codemod: `input-field-component-import-migration`
 
-- `Input` component removed - use [`TextField`](https://style.monday.com/?path=/docs/inputs-textfield--docs). [codemod ✅]
+- `Input` removed - use [TextField](https://style.monday.com/?path=/docs/inputs-textfield--docs) 🔀
 
 ### Label
 
-codemod: `label-component-migration`
+> codemod: `label-component-migration`
 
-- `wrapperClassName` -> `className` [codemod ✅]
-- Spin in animation removed due to UX decision
-  - Removed `isAnimationDisabled` prop which is not needed anymore [codemod ✅]
+- The `wrapperClassName` prop has been removed, use `className` instead 🔀
+- The "Spin In" animation was removed, and so the `isAnimationDisabled` prop has been removed 🔀
 
 ### EditableHeading
 
-- Complete API Change (TBD)
+- API and style changed, follow the [EditableHeading](https://style.monday.com/?path=/docs/inputs-editableheading--docs) docs for the new API
 
-### Link 🚩
+### Link
 
-codemod: `link-component-migration`
+> codemod: `link-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
-- `Link.target` removed, use `Link.targets` instead [codemod ✅]
+- The `componentClassName` prop has been removed, use `className` instead 🔀
+- The static `Link.target` property was removed, use `Link.targets` instead 🔀
 
 ### Loader
 
-codemod: `loader-component-migration`
+> codemod: `loader-component-migration`
 
-- `svgClassName` -> `className` [codemod ✅]
+- The `svgClassName` prop has been removed, use `className` instead 🔀
 
 ### Menu
 
-codemod: `menu-component-migration`
+> codemod: `menu-component-migration`
 
-- `classname` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuDivider
 
-codemod: `menu-divider-component-migration`
+> codemod: `menu-divider-component-migration`
 
-- `classname` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuItem
 
-codemod: `menu-item-component-migration`
+> codemod: `menu-item-component-migration`
 
-- `classname` -> `className` [codemod ✅]
-- Tooltip now wraps the entire element so non-block layout given to the `title` prop may break
+- The `classname` prop has been removed, use `className` instead 🔀
+- The provided tooltip (when the text is overflowing) now wraps the entire element so non-block layout given to the `title` prop may break
 
 ### MenuItemButton
 
-codemod: `menu-item-button-component-migration`
+> codemod: `menu-item-button-component-migration`
 
-- `classname` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuTitle
 
-codemod: `menu-title-component-migration`
+> codemod: `menu-title-component-migration`
 
-- `classname` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ### MenuButton
 
-codemod: `menu-button-component-migration`
+> codemod: `menu-button-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
-- `closeDialogOnContentClick` -> `closeMenuOnItemClick` [codemod ✅]
-- Removed `disabledReason`, use `tooltipContent` instead [codemod ✅]
-- `hideWhenReferenceHidden` changed default to true
+- The `componentClassName` prop has been removed, use `className` instead 🔀
+- The `closeDialogOnContentClick` prop has been removed, use `closeMenuOnItemClick` instead 🔀
+- The `disabledReason` prop has been removed, use `tooltipContent` instead 🔀
+- The `hideWhenReferenceHidden` prop default value changes to "true", meaning when the MenuButton is hidden hide the dialog and tooltip as well. To disable this behavior set `hideWhenReferenceHidden` to "false"
+
 
 ### Modal
 
-codemod: `modal-component-migration`
+> codemod: `modal-component-migration`
 
-- Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
-- The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render if `show` is "false". To disable this behavior set `unmountOnClose` to "false".
+- The `hideCloseButton` has been removed since Modals should always have a close button 🔀
+- The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render when `show` is "false". To disable this behavior set `unmountOnClose` to "false"
+- Tooltips, Tipseens, and Dialogs on Modals will now be rendered inside the Modal's container by default, without any z-index interference
 
 ### ModalHeader
 
-codemod: `modal-header-component-migration`
+> codemod: `modal-header-component-migration`
 
-- Modal no longer have the ability to remove the close button due to UX decision
-  - Removed `hideCloseButton` prop which is not needed anymore [codemod ✅]
+- The `hideCloseButton` has been removed since Modals should always have a close button 🔀
 
 ### RadioButton
 
-codemod: `radio-button-component-migration`
+> codemod: `radio-button-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
+- The `classname` prop has been removed, use `className` instead 🔀
 
 ## Search
 
-- `Search` has changed - follow the [`Search` docs](https://style.monday.com/?path=/docs/inputs-search--docs) for the new API.
+- `Search` has changed - follow the [Search](https://style.monday.com/?path=/docs/inputs-search--docs) docs for the new API.
 
-- ## SearchComponent
+## SearchComponent
 
-codemod: `search-component-import-migration`
+> codemod: `search-component-import-migration`
 
-- `SearchComponent` component removed - use [`Search`](https://style.monday.com/?path=/docs/inputs-search--docs). [codemod ✅]
+- `SearchComponent` component removed - use [Search](https://style.monday.com/?path=/docs/inputs-search--docs) 🔀
 
 ## SplitButton
 
-- Remove `data-testId` prop from nested elements (data-testId used to be applied also to each of the internal elements)
+- The `data-testId` prop will no longer be applied to the internal elements, only the root element
 
-### Steps 🚩
+### Steps
 
-codemod: `steps-component-import-migration`
+> codemod: `steps-component-migration`
 
-- `isOnPrimary` removed add `color={Steps.colors.PRIMARY}` instead [codemod ✅]
+- The `isOnPrimary` prop was removed, use `color="primary` instead 🔀
 
 ### Tabs
 
-- Reset spacings (removed default browser's margin/padding for ul,li elements)
+- Browser's default margin/padding for ul, li elements was reset
 
 ### TabList
 
-codemod: `tab-list-import-migration`
+> codemod: `tab-list-component-migration`
 
-- `noPadding` is removed as it's the default, component no longer gets a default padding bottom [codemod ✅]
+- The component no longer gets a padding bottom, and so the `noPadding` prop was removed 🔀
 
 ### TabPanels
 
-codemod: `tab-panels-import-migration`
+> codemod: `tab-panels-component-migration`
 
-- Fix: TabPanels will render only the active tab
-- `renderOnlyActiveTab` - removed as it's now the default behavior [codemod ✅]
+- TabPanels will render only the active tab instead of rendering all the panels, and so the `renderOnlyActiveTab` was removed 🔀
 
 ### TextField
 
-- `dataTestId` -> `data-testid` [codemod ✅]
-- `iconsNames` prop removed `layout`
-- Behavior of asterisk is now controlled by `required` prop, which means a field with asterisk will have to be required.
-  - Removed `requiredAsterisk` [codemod ✅]
-- Remove `withReadOnlyStyle` prop, new read only style will apply when using `readOnly` prop [codemod ✅]
-- Removed `sm`, `md`, `lg` sizes, use `small`, `medium`, `large` respectively
+> codemod: `text-field-component-migration`
+
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀
+- The `iconsNames` prop no longer accepts the `layout` property
+- Providing the `required` prop will now show a red asterisk, implying that the field is mandatory, and so the `requiredAsterisk` prop was removed 🔀
+- The `withReadOnlyStyle` prop was removed, new readonly style will be applied automatically when using the `readOnly` prop 🔀
+- The `sm`, `md`, `lg` sizes were removed, use `small`, `medium`, `large` respectively
 
 ### ThemeProvider
 
-codemod: `theme-provider-import-migration`
+> codemod: `theme-provider-component-migration`
 
-- `theme` -> `themeConfig` [codemod ✅]
-- Should it be out of beta ?
+- The `theme` has been removed, use `themeConfig` instead 🔀
 
 ### Tipseen
 
-codemod: `tipseen-import-migration`
+> codemod: `tipseen-component-migration`
 
-- Default `color` changed from 'primary' to 'inverted'
-- `isCloseButtonHidden` -> `hideCloseButton` [codemod ✅]
-- `showDelay` changed default to 100
-- `justify` removed
-  - `Tipseen.justifyTypes` removed
-- `submitButtonProps`, `dismissButtonProps` props removed, use separate props to customize the button
-- `content` prop is now mandatory
+- The `content` prop is now mandatory
+- The default `color` has changed from 'primary' to 'inverted'. To keep the previous color, set the `color` prop to 'primary'
+- The `isCloseButtonHidden` prop has been removed, use `hideCloseButton` instead 🔀
+- The `showDelay` prop's default value has changed to 100
+- The `justify` prop was removed, and so the `Tipseen.justifyTypes` static property was removed as well
 
 ### TipseenContent
 
-codemod: `tipseen-content-import-migration`
+> codemod: `tipseen-content-component-migration`
 
-- `isDismissHidden` -> `hideDismiss` [codemod ✅]
-- `isSubmitHidden` -> `hideSubmit` [codemod ✅]
+- The `isDismissHidden` prop has been removed, use `hideDismiss` instead 🔀
+- The `isSubmitHidden` prop has been removed, use `hideSubmit` instead 🔀
+- The `submitButtonProps`, `dismissButtonProps` props were removed, use `submitButtonText` and `dismissButtonText` to change the buttons' text
 
 ### Toggle
 
-codemod: `toggle-import-migration`
+> codemod: `toggle-component-migration`
 
-- `componentClassName` -> `className` [codemod ✅]
-- `isDisabled` -> `disabled` [codemod ✅]
+- The `componentClassName` prop has been removed, use `className` instead 🔀
+- The `isDisabled` prop has been removed, use `disabled` instead 🔀
 
 ### Tooltip
 
-codemod: `tooltip-import-migration`
+> codemod: `tooltip-component-migration`
 
-- `paddingSize` removed
-- `themes` - remove all themes besides for "dark" & "primary"
-- `showOnDialogEnter` changed default to be true (should we remove this prop?)
-- `hideDelay` changed default to be 100
-- `addKeyboardHideShowTriggersByDefault` default changed to true
-- `position` changed to only accept "top, right, bottom, left"
-- `justify` removed
-  - `Tooltip.justifyTypes` removed
-- `arrowPosition` removed
-- - `Tooltip.arrowPositions` removed
-- `withMaxWidth` prop removed, max-width is now set to 240px [codemod ✅]
-- Tooltip's content is now wrapped in another div, non-block layouts inside the tooltip may break
+- The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
+- The `themes` prop can now accept only "dark" or "primary"
+- The `position` prop can now accept only "top, right, bottom, left"
+- The `showOnDialogEnter` props's default value has changed to `true`; now the tooltip will remain open be default when hovering over it
+- The `hideDelay` props's default value has changed to 100
+- The `addKeyboardHideShowTriggersByDefault` default changed to true, making it accessible with keyboard navigation
+- The tooltip's max-width is now set to 240px, and so the `withMaxWidth` prop removed 🔀
+- Tooltip's `content` is now wrapped in another `div`, meaning that non-block layouts inside the tooltip may break
+- The `containerSelector` will now fallback to `document.body` instead of `#tooltips-container` if not provided
 
 ### ColorPicker
 
-codemod: `color-picker-import-migration`
+> codemod: `color-picker-component-migration`
 
-- `ColorPicker.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
+- The static `ColorPicker.COLOR_STYLES` property has been removed, use `ColorPicker.colorStyles` instead 🔀
 
 ### ColorPickerContent
 
-codemod: `color-picker-content-import-migration`
+> codemod: `color-picker-content-component-migration`
 
-- `ColorPickerContent.COLOR_STYLES` -> ColorPicker.colorStyles [codemod ✅]
+- The static `ColorPickerContent.COLOR_STYLES` property has been removed, use `ColorPickerContent.colorStyles` instead 🔀
 
 ### ResponsiveList
 
-- Remove entire component
+- Component was removed, use the [useIsOverflowing](https://style.monday.com/?path=/docs/hooks-useisoverflowing--docs) hook instead
 
 ## Icons
 
-- Removed Upgrade icon
-- Featured icon renamed to Upgrade
+- The `Upgrade` icon has been removed, and the `Featured` icon has been renamed to `Upgrade`
 
 ## Hooks
 
 ### useClickableProps
 
-- `dataTestId` -> `data-testid` [codemod ✅]
+> codemod: `use-clickable-props-hook-migration`
 
-## monday-ui-style
-
-- Remove `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` from colors.json, use `warning-color-*` instead
+- The `dataTestId` prop has been removed, use `data-testid` instead 🔀

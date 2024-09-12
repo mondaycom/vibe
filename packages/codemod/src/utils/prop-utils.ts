@@ -5,9 +5,7 @@ import {
   JSXAttribute,
   JSXElement,
   JSXExpressionContainer,
-  JSXIdentifier,
   JSXOpeningElement,
-  Literal,
   MemberExpression
 } from "jscodeshift";
 import { logPropMigrationError } from "./report-utils";
@@ -16,25 +14,26 @@ import { logPropMigrationError } from "./report-utils";
  * Updates a prop name in a JSX element
  */
 export function updatePropName(
-  j: JSCodeshift,
-  elementPath: ASTPath<JSXElement>,
+  propCollection: Collection<JSXAttribute>,
   propsNamesMappingOldToNew: Record<string, string>
 ): void {
-  j(elementPath)
-    .find(JSXOpeningElement)
-    .find(JSXIdentifier)
-    .forEach(identifierPath => {
-      if (propsNamesMappingOldToNew[identifierPath.node.name]) {
-        identifierPath.node.name = propsNamesMappingOldToNew[identifierPath.node.name];
-      }
-    });
+  propCollection.forEach(attr => {
+    const propName = attr.node.name.name;
+    if (typeof propName !== "string") return;
+    const newPropName = propsNamesMappingOldToNew[propName];
+    if (newPropName) {
+      attr.node.name.name = newPropName;
+    }
+  });
 }
 
 /**
  * Checks for whether a prop is used in a JSX element
  */
 export function isPropExists(j: JSCodeshift, elementPath: ASTPath<JSXElement>, propName: string): boolean {
-  return j(elementPath).find(JSXOpeningElement).find(JSXIdentifier, { name: propName }).size() > 0;
+  const attributes = elementPath.node.openingElement.attributes;
+  if (!attributes) return false;
+  return attributes.some(path => path.type === "JSXAttribute" && path.name.name === propName);
 }
 
 /**
@@ -45,11 +44,16 @@ export function findProps(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...p
     .find(JSXOpeningElement)
     .find(JSXAttribute)
     .filter(attr => {
+      if (
+        elementPath.node.openingElement.name.type === "JSXIdentifier" &&
+        attr.parentPath.node.name.name !== elementPath.node.openingElement.name.name
+      ) {
+        return false;
+      }
       const attrName = attr.node.name.type === "JSXIdentifier" ? attr.node.name.name : "";
       return propNames.includes(attrName);
     });
 }
-
 /**
  * Removes props from a JSX element
  */
@@ -60,7 +64,7 @@ export function removeProp(j: JSCodeshift, elementPath: ASTPath<JSXElement>, ...
 /**
  * Gets the computed value of a prop
  */
-export function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | boolean | Literal["value"] | string {
+export function getPropValue(j: JSCodeshift, prop: JSXAttribute) {
   const value = prop.value;
 
   // boolean flag value (e.g. <Button disabled />)
@@ -69,14 +73,18 @@ export function getPropValue(j: JSCodeshift, prop: JSXAttribute): undefined | bo
   }
 
   // string value (e.g. <Button text="Click me" />)
-  if (value?.type === "Literal") {
+  if (value?.type === "StringLiteral") {
     return value.value;
   }
 
   // expression value (e.g. <Button text={...} />).
   if (value?.type === "JSXExpressionContainer") {
-    if (value.expression.type === "Literal") {
-      // e.g. <Button text={true} /> or <Button text={"text"} />
+    if (
+      value.expression?.type === "StringLiteral" ||
+      value.expression?.type === "NumericLiteral" ||
+      value.expression?.type === "BooleanLiteral"
+    ) {
+      // e.g. <Button text={true} /> or <Button text={"text"} or <Button text={20} />
       return value.expression.value;
     }
 
@@ -149,9 +157,12 @@ export function migratePropsNames(
 ): void {
   Object.entries(propsNamesMappingOldToNew).forEach(([deprecatedPropName, newPropName]) => {
     const props = findProps(j, elementPath, deprecatedPropName, newPropName);
+    if (!props.length) {
+      return;
+    }
 
-    if (props.length !== 2) {
-      updatePropName(j, elementPath, { [deprecatedPropName]: newPropName });
+    if (props.length === 1) {
+      updatePropName(props, { [deprecatedPropName]: newPropName });
       return;
     }
 
