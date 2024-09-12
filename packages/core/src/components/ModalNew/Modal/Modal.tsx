@@ -80,7 +80,7 @@ const Modal = forwardRef(
             onClick={onBackdropClick}
             aria-hidden
           />
-          <FocusLock>
+          <FocusLock returnFocus>
             <div
               ref={ref}
               className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
