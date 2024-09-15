@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.134.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.133.0...monday-ui-react-core@2.134.0) (2024-09-15)
+
+
+### Features
+
+* **CloseMedium:** add new icon ([#2431](https://github.com/mondaycom/vibe/issues/2431)) ([6fefb43](https://github.com/mondaycom/vibe/commit/6fefb4331f4ef5a89f9badd71357cc92c5f9f4cb))
+
+
+
+
+
 # [2.133.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.132.0...monday-ui-react-core@2.133.0) (2024-09-11)
 
 
