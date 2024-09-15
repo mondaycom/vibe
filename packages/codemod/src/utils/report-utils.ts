@@ -9,16 +9,14 @@ export function logPropMigrationError(
   newPropName: string
 ): void {
   const message =
-    `${packageName()} ${error()} ${componentNameStyle(componentName)} ${filePathStyle(filePath)} > uses both ` +
-    `${deprecatedPropNameStyle(deprecatedPropName)} and ${newPropNameStyle(newPropName)}. ` +
-    `\n\t\tSkipping migration. Please review this usage and refer to the migration guide for further instructions.`;
+    `\n\n${error()} ${componentNameStyle(componentName)} ${filePathStyle(filePath)}:` +
+    `\n\tComponent uses both ${deprecatedPropNameStyle(deprecatedPropName)} and ${newPropNameStyle(newPropName)}. \n`;
 
   console.error(message);
 }
 
 // chalk styling
-const packageName = () => chalk.dim("[@vibe/codemod]");
-const error = () => chalk.bgRed(" ERROR ");
+const error = () => chalk.red(" ERROR ");
 const componentNameStyle = (name: string) => chalk.bold.bgYellow.black(` ${name} `);
 const filePathStyle = (path: string) => chalk.bold(path);
 const deprecatedPropNameStyle = (name: string) => chalk.italic.red(`"${name}" (deprecated)`);

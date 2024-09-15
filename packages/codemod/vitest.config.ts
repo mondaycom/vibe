@@ -11,7 +11,7 @@ export default defineConfig({
       enabled: true
     },
     onConsoleLog(log) {
-      if (log.includes("@vibe/codemod")) return false;
+      if (log.includes("Component uses both")) return false;
     }
   }
 });
