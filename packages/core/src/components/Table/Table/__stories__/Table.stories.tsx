@@ -225,7 +225,7 @@ export const Sizes = {
       <>
         <Table
           style={{ width: "auto" }}
-size="medium"
+          size="small"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -251,7 +251,7 @@ size="medium"
         </Table>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.MEDIUM}
+          size="medium"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
