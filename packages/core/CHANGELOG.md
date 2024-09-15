@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.134.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.133.0...monday-ui-react-core@2.134.0) (2024-09-15)
+
+
+### Features
+
+* **CloseMedium:** add new icon ([#2431](https://github.com/mondaycom/vibe/issues/2431)) ([6fefb43](https://github.com/mondaycom/vibe/commit/6fefb4331f4ef5a89f9badd71357cc92c5f9f4cb))
+
+
+
+
+
+# [2.133.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.132.0...monday-ui-react-core@2.133.0) (2024-09-11)
+
+
+### Features
+
+* add aria-pressed prop to IconButton ([#2428](https://github.com/mondaycom/vibe/issues/2428)) ([4587c6e](https://github.com/mondaycom/vibe/commit/4587c6e2270d9bd688e52256dda0611cf1731fd8))
+
+
+
+
+
+# [2.132.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.131.2...monday-ui-react-core@2.132.0) (2024-09-09)
+
+
+### Bug Fixes
+
+* **Dropdown:** left icon shrinking with long text ([#2416](https://github.com/mondaycom/vibe/issues/2416)) ([dab052d](https://github.com/mondaycom/vibe/commit/dab052de53e849d284fd13b0d523ae04b2faed93))
+* **Toast:** make type style stronger ([#2408](https://github.com/mondaycom/vibe/issues/2408)) ([7faf565](https://github.com/mondaycom/vibe/commit/7faf5654c1da2e6f2b7051c76df85f72811ca785))
+
+
+### Features
+
+* **Dropdown:** Add A11y props to dropdown ([#2407](https://github.com/mondaycom/vibe/issues/2407)) ([d53d2e2](https://github.com/mondaycom/vibe/commit/d53d2e2f04b067080999f4924bedf358faf03d05))
+* **Dropdown:** add option for divider in dropdown ([#2422](https://github.com/mondaycom/vibe/issues/2422)) ([f5d1e5a](https://github.com/mondaycom/vibe/commit/f5d1e5a802104db4b4e5baae38d06f43ba125eac))
+* **Icon:** add reply all icon ([#2418](https://github.com/mondaycom/vibe/issues/2418)) ([031f65d](https://github.com/mondaycom/vibe/commit/031f65d500098c0f34ede3316503aa3fceea0123))
+
+
+
+
+
 ## [2.131.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.131.1...monday-ui-react-core@2.131.2) (2024-08-28)
 
 

@@ -37,6 +37,7 @@ export {default as Checkbox} from './components/Checkbox';
 export {default as CheckList} from './components/CheckList';
 export {default as Clear} from './components/Clear';
 export {default as Close} from './components/Close';
+export {default as CloseMedium} from './components/CloseMedium';
 export {default as CloseRound} from './components/CloseRound';
 export {default as CloseSmall} from './components/CloseSmall';
 export {default as Code} from './components/Code';

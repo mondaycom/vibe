@@ -12,6 +12,13 @@ export const iconsMetaData = [
   },
 
   {
+    name: "CloseMedium",
+    file: "CloseMedium.svg",
+    description: "Close Medium",
+    tags: "Close, X, Cancel"
+  },
+
+  {
     name: "ReplyAll",
     file: "ReplyAll.svg",
     description: "Use in a reply all button if needed",

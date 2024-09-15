@@ -356,15 +356,31 @@ const indicatorSeparator = () => () => ({
   display: "none"
 });
 
-const group = () => () => ({
-  paddingBottom: 0,
-  marginTop: "4px"
-});
+const group =
+  ({ withGroupDivider }) =>
+  () => ({
+    paddingBottom: 0,
+    marginTop: "4px",
+    ...(withGroupDivider && {
+      ":not(:last-child)": {
+        position: "relative",
+        paddingBottom: "8px",
+        "::after": {
+          content: '""',
+          position: "absolute",
+          bottom: "0",
+          left: "var(--spacing-small)",
+          width: "calc(100% - (var(--spacing-small) * 2))",
+          height: "1px",
+          backgroundColor: "var(--layout-border-color)"
+        }
+      }
+    })
+  });
 
 const groupHeading = () => () => ({
-  height: "32px",
   fontSize: "14px",
-  lineHeight: "22px",
+  lineHeight: "32px",
   display: "flex",
   alignItems: "center",
   marginLeft: getCSSVar("spacing-medium"),

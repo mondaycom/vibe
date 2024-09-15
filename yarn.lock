@@ -21273,6 +21273,15 @@ vfile@^5.0.0:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
+vibe-storybook-components@0.19.2:
+  version "0.19.2"
+  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-0.19.2.tgz#103b1f77cd7d291b31620dce5aa2a2088c113914"
+  integrity sha512-NsV5A9eWYq+E7vmrzi2RS/o0NoirvZK+8xgmovCk+or2orFj/AhnpWSCxdX+QeKg9V9eG/IsSJFr3yQIMX2DEw==
+  dependencies:
+    "@storybook/types" "^7.5.0"
+    browserslist-config-monday "^1.0.6"
+    classnames "^2.3.2"
+
 vite-node@1.6.0:
   version "1.6.0"
   resolved "https://registry.npmjs.org/vite-node/-/vite-node-1.6.0.tgz#2c7e61129bfecc759478fa592754fd9704aaba7f"

@@ -62,6 +62,10 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   "aria-hidden"?: AriaAttributes["aria-hidden"];
   /**
+   * Indicates the current "pressed" state of toggle buttons
+   */
+  "aria-pressed"?: AriaAttributes["aria-pressed"];
+  /**
    * Size of the icon
    */
   size?: Size;
@@ -122,6 +126,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
+      "aria-pressed": ariaPressed,
       hideTooltip = false,
       kind = "tertiary",
       active,
@@ -208,6 +213,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             ariaControls={ariaControls}
             aria-describedby={ariaDescribedBy}
             aria-hidden={ariaHidden}
+            aria-pressed={ariaPressed}
             ref={mergedRef}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
