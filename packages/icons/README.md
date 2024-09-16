@@ -1,6 +1,6 @@
 # @vibe/icons
 
-This package includes all of the icons of monday.com's Vibe Design System
+This package includes all of the icons of monday.com's [Vibe Design System](https://vibe.monday.com/?path=/story/media-icon--icons-list-story), available as React components
 
 ## Installation
 
@@ -13,7 +13,7 @@ npm install @vibe/icons
 ## Usage
 
 ```javascript
-import { Add } from "@vibe/icons";
+import { Close } from "@vibe/icons";
 ```
 
 ### Peer dependencies

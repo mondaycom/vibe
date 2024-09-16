@@ -1,7 +1,15 @@
 const BASIC = "Basic";
 const PLATFORM = "Platform";
 const VIEW = "View";
-export const iconsMetaData = [
+type icon = {
+  name: string;
+  file: string;
+  description: string;
+  tags: string;
+  category?: Array<typeof BASIC | typeof PLATFORM | typeof VIEW>;
+  ignore?: boolean;
+};
+export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
 
@@ -1827,4 +1835,4 @@ export const iconsMetaData = [
     description: "User status",
     tags: "user, status"
   }
-];
+] satisfies icon[];

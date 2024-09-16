@@ -29,7 +29,7 @@ module.exports = plop => {
       return [
         {
           type: "modify",
-          path: "src/iconsMetaData.js",
+          path: "src/iconsMetaData.ts",
           templateFile: "plop/icon/icon-metadata.txt",
           pattern: /(\/\/ plop_marker:icon_metadata)/g
         },

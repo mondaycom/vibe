@@ -1,28 +1,39 @@
 {
   "name": "@vibe/icons",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Vibe's icon library",
   "repository": "git+https://github.com/mondaycom/vibe.git",
   "author": "monday.com",
   "license": "MIT",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "import": "./dist/src/index.js",
-      "default": "./dist/src/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./meta": {
+      "types": "./dist/iconsMetaData.d.ts",
+      "import": "./dist/iconsMetaData.js",
+      "default": "./dist/iconsMetaData.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "meta": [
+        "./dist/iconsMetaData.d.ts"
+      ]
     }
   },
   "scripts": {
     "plop": "plop",
-    "build": "yarn clean && yarn build:react-icons && yarn build:esm",
-    "build:esm": "rollup -c",
+    "build": "yarn clean && yarn build:react-icons && rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors src/svg/ src/react/ --no-sub-dir",
     "clean": "rm -rf dist",
-    "clean:icons": "rm -rf src/react",
-    "lint": "yarn validate-icons",
+    "test": "vitest",
+    "lint": "eslint . --max-warnings 0 && yarn validate-icons",
     "lint:fix": "yarn lint -- --fix",
-    "validate-icons": "node scripts/validate-meta.js && node scripts/icons/validate-icons-colors.js",
+    "validate-icons": "node scripts/validate-meta.js && node scripts/validate-icons-colors.js",
     "generate-meta": "node scripts/generate-meta.js"
   },
   "devDependencies": {
@@ -30,8 +41,12 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
     "svg2react-icon": "^3.1.178",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "lib": ["esnext", "dom"],
     "target": "es6",
     "moduleResolution": "node",
@@ -12,9 +13,10 @@
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist",
-    "rootDir": ".",
+    "rootDir": "src",
     "allowSyntheticDefaultImports": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "allowJs": false,
+    "isolatedModules": true
   },
   "include": [
     "src/**/*"

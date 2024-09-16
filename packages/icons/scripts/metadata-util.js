@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const ICONS_FOLDERS = path.resolve("./src/svg");
-const METADATA_FILENAME = "iconsMetaData.js";
+const METADATA_FILENAME = "iconsMetaData.ts";
 const METADATA_FILE_PATH = path.resolve("./src") + "/" + METADATA_FILENAME;
 
 function getIconsFiles() {
