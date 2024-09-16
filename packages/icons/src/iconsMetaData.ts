@@ -1,7 +1,7 @@
 const BASIC = "Basic";
 const PLATFORM = "Platform";
 const VIEW = "View";
-type icon = {
+type Icon = {
   name: string;
   file: string;
   description: string;
@@ -1835,4 +1835,4 @@ export default [
     description: "User status",
     tags: "user, status"
   }
-] satisfies icon[];
+] satisfies Icon[];

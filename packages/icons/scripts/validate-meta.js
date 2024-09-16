@@ -1,4 +1,4 @@
-const { getFilesWithNoMetadata } = require("./metadata-util");
+import getFilesWithNoMetadata from "./metadata-util.js";
 
 const { metaBadReferences, fileWithNoMeta } = getFilesWithNoMetadata();
 

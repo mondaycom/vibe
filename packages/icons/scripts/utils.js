@@ -32,10 +32,4 @@ function generateErrorMessage(attribute, color, svgFileName) {
       If color='white' and it's declared in <rect> (when using <clipPath> element), delete it and check if the icon looks fine`);
 }
 
-module.exports = {
-  EXCEPTIONAL_ICONS,
-  ALLOWED_COLORS,
-  isEligibleForValidation,
-  validateColors,
-  extractColorsFromSvg
-};
+export { EXCEPTIONAL_ICONS, ALLOWED_COLORS, isEligibleForValidation, validateColors, extractColorsFromSvg };

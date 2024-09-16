@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 const ICONS_FOLDERS = path.resolve("./src/svg");
 const METADATA_FILENAME = "iconsMetaData.ts";
 const METADATA_FILE_PATH = path.resolve("./src") + "/" + METADATA_FILENAME;
@@ -25,6 +25,4 @@ function getFilesWithNoMetadata() {
   return { metaBadReferences, fileWithNoMeta };
 }
 
-module.exports = {
-  getFilesWithNoMetadata
-};
+export default getFilesWithNoMetadata;

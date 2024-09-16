@@ -3,8 +3,8 @@
 // Validation rule for icons svg files, to make sure they use only allowed fill/stroke colors
 // Usage: node scripts/validate-icons-colors.js
 
-const { extractColorsFromSvg, isEligibleForValidation, validateColors } = require("./utils");
-const fs = require("fs");
+import { extractColorsFromSvg, isEligibleForValidation, validateColors } from "./utils.js";
+import fs from "fs";
 
 const SVGS_PATH = "src/svg";
 
