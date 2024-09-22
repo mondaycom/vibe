@@ -19,6 +19,48 @@
   color: var(--fixed-light-color);
   transform: translateX(-50%);
   transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), width 200ms cubic-bezier(0, 0, 0.4, 1);
+
+  .typeNormal {
+    background-color: var(--primary-color);
+  }
+
+  .typePositive {
+    background-color: var(--positive-color);
+  }
+
+  .typeNegative {
+    background-color: var(--negative-color);
+  }
+
+  .typeWarning {
+    background-color: var(--warning-color);
+    color: var(--fixed-dark-color);
+
+    .closeButton {
+      color: var(--fixed-dark-color);
+    }
+
+    .actionButton,
+    .actionLink {
+      color: var(--fixed-dark-color);
+      border-color: var(--fixed-dark-color);
+    }
+  }
+
+  .typeDark {
+    background-color: var(--inverted-color-background);
+    color: var(--text-color-on-inverted);
+
+    .closeButton {
+      color: var(--text-color-on-inverted);
+    }
+
+    .actionButton,
+    .actionLink {
+      color: var(--text-color-on-inverted);
+      border-color: var(--text-color-on-inverted);
+    }
+  }
 }
 
 .icon {
@@ -41,48 +83,6 @@
 .textContent {
   display: inline-flex;
   flex-grow: 1;
-}
-
-.typeNormal {
-  background-color: var(--primary-color);
-}
-
-.typePositive {
-  background-color: var(--positive-color);
-}
-
-.typeNegative {
-  background-color: var(--negative-color);
-}
-
-.typeWarning {
-  background-color: var(--warning-color);
-  color: var(--fixed-dark-color);
-
-  .closeButton {
-    color: var(--fixed-dark-color);
-  }
-
-  .actionButton,
-  .actionLink {
-    color: var(--fixed-dark-color);
-    border-color: var(--fixed-dark-color);
-  }
-}
-
-.typeDark {
-  background-color: var(--inverted-color-background);
-  color: var(--text-color-on-inverted);
-
-  .closeButton {
-    color: var(--text-color-on-inverted);
-  }
-
-  .actionButton,
-  .actionLink {
-    color: var(--text-color-on-inverted);
-    border-color: var(--text-color-on-inverted);
-  }
 }
 
 .enterActive {

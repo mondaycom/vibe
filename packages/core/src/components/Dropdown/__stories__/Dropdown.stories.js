@@ -278,15 +278,17 @@ export const MultiChoiceWithDifferentStates = {
 
 export const AsyncDropdown = {
   render: () => {
-    const fetchUserOptions = async () => {
+    const fetchUserOptions = async searchTerm => {
       try {
         const response = await fakeFetchUsers();
         const users = await response.json();
 
-        return users.slice(0, 5).map(user => ({
-          label: user.name,
-          value: user.id
-        }));
+        return users
+          .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          .map(user => ({
+            label: user.name,
+            value: user.id
+          }));
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -302,6 +304,13 @@ export const AsyncDropdown = {
         <Dropdown asyncOptions={fetchUserOptions} placeholder="Async options" cacheOptions defaultOptions />
       </div>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { fakeFetchUsers }
+      }
+    }
   }
 };
 
@@ -705,7 +714,6 @@ export const DropdownWithGroups = {
       () => [
         {
           label: "Group 1",
-
           options: [
             {
               value: "1",
@@ -735,8 +743,54 @@ export const DropdownWithGroups = {
       []
     );
 
+    const optionsWithoutGroupLabel = useMemo(
+      () => [
+        {
+          options: [
+            {
+              value: "1",
+              label: "Option 1"
+            },
+            {
+              value: "2",
+              label: "Option 2"
+            }
+          ]
+        },
+        {
+          options: [
+            {
+              value: "3",
+              label: "Option 3"
+            },
+            {
+              value: "4",
+              label: "Option 4"
+            }
+          ]
+        }
+      ],
+      []
+    );
+
     return (
-      <Dropdown placeholder="Placeholder text here" options={options} className="dropdown-stories-styles_big-spacing" />
+      <Flex gap={Flex.gaps.LARGE}>
+        <div>
+          <Dropdown
+            placeholder="Groups with group title"
+            options={options}
+            className="dropdown-stories-styles_big-spacing"
+          />
+        </div>
+        <div>
+          <Dropdown
+            placeholder="Groups with group divider"
+            options={optionsWithoutGroupLabel}
+            withGroupDivider
+            className="dropdown-stories-styles_big-spacing"
+          />
+        </div>
+      </Flex>
     );
   },
   name: "Dropdown with groups"
