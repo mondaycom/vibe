@@ -131,12 +131,21 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 
   const iconElement = !hideIcon && getIcon(type, icon);
 
+  // https://n12v.com/css-transition-to-from-auto/
+  const recalculateElementWidth = useCallback((element: HTMLElement) => {
+    const prevWidth = element.style.width;
+    element.style.width = "auto";
+    const endWidth = getComputedStyle(element).width;
+    element.style.width = prevWidth;
+    element.offsetWidth; // force repaint
+    element.style.width = endWidth;
+  }, []);
+
   useEffect(() => {
     if (ref.current) {
-      const width = ref.current.scrollWidth;
-      ref.current.style.setProperty("--toast-width", `${width}px`);
+      recalculateElementWidth(ref.current);
     }
-  }, [children]);
+  }, [children, recalculateElementWidth]);
 
   return (
     <CSSTransition
