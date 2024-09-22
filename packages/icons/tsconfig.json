@@ -19,11 +19,13 @@
     "isolatedModules": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/svg.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist/**/*.js",
+    "dist/**/*",
+    "src/svg/*.svg",
     "**/__tests__/**/*.test.ts"
   ]
 }
