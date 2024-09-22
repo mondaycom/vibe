@@ -1,11 +1,10 @@
 import fs from "fs";
 import path from "path";
 
-const DIST_SVG_FOLDER = "./dist/svg";
-const INDEX_FILE = `${DIST_SVG_FOLDER}/index.js`;
-const TYPES_FILE = `${DIST_SVG_FOLDER}/index.d.ts`;
+const SVG_FOLDER = "./src/svg";
+const INDEX_FILE = `${SVG_FOLDER}/index.ts`;
 
-const svgFiles = fs.readdirSync(DIST_SVG_FOLDER).filter(file => file.endsWith(".svg"));
+const svgFiles = fs.readdirSync(SVG_FOLDER).filter(file => file.endsWith(".svg"));
 
 const svgExports = svgFiles
   .map(file => {
@@ -16,13 +15,4 @@ const svgExports = svgFiles
 
 fs.writeFileSync(INDEX_FILE, svgExports);
 
-const svgTypes = svgFiles
-  .map(file => {
-    const fileNameWithoutExtension = path.basename(file, ".svg");
-    return `export declare const ${fileNameWithoutExtension}: string;`;
-  })
-  .join("\n");
-
-fs.writeFileSync(TYPES_FILE, svgTypes);
-
-console.log(`Generated index.js and index.d.ts for SVG exports in ${DIST_SVG_FOLDER}`);
+console.log(`Generated index.ts for SVG exports in ${SVG_FOLDER}`);
