@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-const DIST_SVG_FOLDER = path.resolve("./dist/svg");
-const INDEX_FILE = path.join(DIST_SVG_FOLDER, "index.js");
-const TYPES_FILE = path.join(DIST_SVG_FOLDER, "index.d.ts");
+const DIST_SVG_FOLDER = "./dist/svg";
+const INDEX_FILE = `${DIST_SVG_FOLDER}/index.js`;
+const TYPES_FILE = `${DIST_SVG_FOLDER}/index.d.ts`;
 
 const svgFiles = fs.readdirSync(DIST_SVG_FOLDER).filter(file => file.endsWith(".svg"));
 
