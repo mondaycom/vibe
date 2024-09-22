@@ -13,18 +13,19 @@ npm install @vibe/icons
 
 ## Usage
 
+#### Using React Components
+
 ```javascript
 import { Close } from "@vibe/icons";
 ```
 
-Alternatively, you can import the raw SVG files
+#### Using Raw SVG Files
 
 ```javascript
 import { Close as CloseSvg } from "@vibe/icons/raw";
 ```
 
 
-
-### Peer dependencies
+## Peer dependencies
 
 We are reliant on React and React DOM, we are using them as externals, and we don't package them to the package, so you must have them in your project
