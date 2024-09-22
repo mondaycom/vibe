@@ -151,7 +151,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
     <CSSTransition
       in={open}
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
-      timeout={300}
+      timeout={400}
       unmountOnExit
     >
       <Text

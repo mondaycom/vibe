@@ -1,7 +1,6 @@
 @import "../../styles/keyframes";
 
 .toast {
-  --toast-padding: var(--spacing-small);
   box-shadow: var(--box-shadow-medium);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
