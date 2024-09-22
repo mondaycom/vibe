@@ -26,6 +26,9 @@
   },
   "typesVersions": {
     "*": {
+      ".": [
+        "./dist/react/index.d.ts"
+      ],
       "meta": [
         "./dist/iconsMetaData.d.ts"
       ],
