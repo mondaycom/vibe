@@ -2,9 +2,23 @@
   "name": "@vibe/core",
   "version": "3.0.0-alpha.8",
   "description": "Official monday.com UI resources for application development in React.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "monday.com",
+  "license": "MIT",
   "type": "module",
   "main": "dist/src/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -65,19 +79,6 @@
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "yarn stylelint -- --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
-  "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
-  },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "@vibe/icons": "0.0.4",
