@@ -34,6 +34,9 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "plop": "plop",
     "build": "yarn clean && yarn build:react-icons && yarn generate-svg-index && rollup -c",
