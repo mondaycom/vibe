@@ -1,6 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
+import copy from "rollup-plugin-copy";
 
 export default {
   input: {
@@ -17,5 +18,12 @@ export default {
     format: "esm"
   },
   external: [/node_modules/],
-  plugins: [resolve(), typescript(), terser()]
+  plugins: [
+    resolve(),
+    typescript(),
+    terser(),
+    copy({
+      targets: [{ src: "src/svg/*", dest: "dist/svg" }]
+    })
+  ]
 };
