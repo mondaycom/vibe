@@ -2,16 +2,23 @@
   "name": "vibe-storybook-components",
   "version": "0.19.3",
   "description": "Collection of Vibe's Storybook components",
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mondaycom/vibe.git"
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/storybook-blocks"
   },
+  "author": "monday.com",
+  "license": "MIT",
   "sideEffects": [
     "*.scss",
     "*.css"
   ],
   "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ],
   "exports": {
     ".": "./dist/index.js",
     "./index.css": "./dist/index.css",
@@ -27,11 +34,6 @@
       ]
     }
   },
-  "files": [
-    "dist/",
-    "src/",
-    "README.md"
-  ],
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs && yarn copy-mixins-to-dist",
     "copy-mixins-to-dist": "scripts/copy-mixins-to-dist.sh",
@@ -43,9 +45,6 @@
     "storybook": "storybook dev -p 7012",
     "build-storybook": "storybook build"
   },
-  "browserslist": [
-    "extends browserslist-config-monday"
-  ],
   "dependencies": {
     "@storybook/types": "^7.5.0",
     "browserslist-config-monday": "^1.0.6",
@@ -120,5 +119,8 @@
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
-  }
+  },
+  "browserslist": [
+    "extends browserslist-config-monday"
+  ],
 }
