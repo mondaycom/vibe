@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-const ICONS_FOLDERS = path.resolve("./src/svg");
+const ICONS_FOLDERS = path.resolve("./src/svg/");
 const METADATA_FILENAME = "iconsMetaData.ts";
 const METADATA_FILE_PATH = path.resolve("./src") + "/" + METADATA_FILENAME;
 
@@ -15,7 +15,7 @@ function getIconsMetaFiles() {
 }
 
 function getFilesWithNoMetadata() {
-  const actualFiles = getIconsFiles();
+  const actualFiles = getIconsFiles().filter(f => f.endsWith(".svg"));
   const actualFilesSet = new Set(actualFiles);
   const metaFiles = getIconsMetaFiles();
   const metaFilesSet = new Set(metaFiles);
