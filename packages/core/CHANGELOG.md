@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.134.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.0...monday-ui-react-core@2.134.1) (2024-09-16)
+
+
+### Bug Fixes
+
+* pass on attributes such as name, onBlur and maxLength to textarea element ([#2435](https://github.com/mondaycom/vibe/issues/2435)) ([be0482d](https://github.com/mondaycom/vibe/commit/be0482dfb7a182919309c0fb2884c222ddfd49f0))
+
+
+
+
+
 # [2.134.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.133.0...monday-ui-react-core@2.134.0) (2024-09-15)
 
 
