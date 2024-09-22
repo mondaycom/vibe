@@ -4,7 +4,6 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
-import { Delete } from "../../Icon/Icons";
 import "./Toast.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
