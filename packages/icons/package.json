@@ -2,7 +2,11 @@
   "name": "@vibe/icons",
   "version": "0.0.4",
   "description": "Vibe's icon library",
-  "repository": "git+https://github.com/mondaycom/vibe.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/icons"
+  },
   "author": "monday.com",
   "license": "MIT",
   "main": "./dist/react/index.js",
