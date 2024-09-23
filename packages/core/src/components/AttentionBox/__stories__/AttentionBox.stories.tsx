@@ -4,13 +4,12 @@ import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
+import { Info, Invite, ThumbsUp, Favorite } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
-import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import "./AttentionBox.stories.scss";
 

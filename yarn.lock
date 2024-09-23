@@ -6059,6 +6059,11 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
+"@vibe/icons@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@vibe/icons/-/icons-0.0.4.tgz#b2786ec0d13f9299e027cf69aafc48eae9a3cf1f"
+  integrity sha512-7EmHapW0ZkocjNIeyZX3dGSMQsfz9sM8uPvRdPi6dAloTe0nD3DLuPnOsI49NaNisQptNmDWm72+Bb/0nKZMpg==
+
 "@vitest/expect@1.6.0":
   version "1.6.0"
   resolved "https://registry.npmjs.org/@vitest/expect/-/expect-1.6.0.tgz#0b3ba0914f738508464983f4d811bc122b51fb30"

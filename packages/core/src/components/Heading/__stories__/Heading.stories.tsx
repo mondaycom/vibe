@@ -9,7 +9,7 @@ import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
-import { Custom } from "../../Icon/Icons";
+import { Custom } from "@vibe/icons";
 import styles from "./Heading.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

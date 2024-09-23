@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Upgrade } from "../../Icon/Icons";
+import { Upgrade } from "@vibe/icons";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { Step } from "../MultiStep.types";
 

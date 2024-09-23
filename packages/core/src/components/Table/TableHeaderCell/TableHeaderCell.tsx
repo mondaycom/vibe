@@ -4,7 +4,7 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
-import Info from "../../Icon/Icons/components/Info";
+import { Info } from "@vibe/icons";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";

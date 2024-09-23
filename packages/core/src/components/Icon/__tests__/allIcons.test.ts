@@ -1,7 +1,7 @@
 import { ArrayLastElement, SplitString } from "../../../types";
 import { keysOf } from "../../../helpers/key-of";
 import { exposeIcons } from "../../../utils/icon-utils";
-import * as allIcons from "../Icons";
+import * as allIcons from "@vibe/icons";
 import {
   getIconScreenReaderAccessProps,
   getClickableScreenReaderAccessProps,

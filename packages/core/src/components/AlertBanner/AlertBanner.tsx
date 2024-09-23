@@ -2,7 +2,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
 import IconButton from "../../components/IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
 import { AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";

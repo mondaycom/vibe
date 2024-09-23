@@ -7,7 +7,7 @@ import Combobox from "../../Combobox/Combobox";
 import Flex from "../../Flex/Flex";
 import { Decorator, Meta, StoryObj } from "@storybook/react";
 import IconButton from "../../IconButton/IconButton";
-import FilterIcon from "../../Icon/Icons/components/Filter";
+import { Filter as FilterIcon } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,

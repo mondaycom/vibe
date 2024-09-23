@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { Email } from "../../Icon/Icons";
+import { Email } from "@vibe/icons";
 
 const mockOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },

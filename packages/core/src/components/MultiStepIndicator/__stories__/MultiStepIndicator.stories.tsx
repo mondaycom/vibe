@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import { Upgrade } from "../../Icon/Icons";
+import { Upgrade } from "@vibe/icons";
 import Flex from "../../Flex/Flex";
 import "./MultiStepIndicator.stories.scss";
 import { Step } from "../MultiStep.types";

@@ -4,7 +4,7 @@ import TabList from "../TabList/TabList";
 import TabPanel from "../TabPanel/TabPanel";
 import TabPanels from "../TabPanels/TabPanels";
 import TabsContext from "../TabsContext/TabsContext";
-import { Calendar, Chart, Table } from "../../Icon/Icons";
+import { Calendar, Chart, Table } from "@vibe/icons";
 import TextField from "../../TextField/TextField";
 import Box from "../../Box/Box";
 import Flex from "../../Flex/Flex";

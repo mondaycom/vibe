@@ -3,7 +3,7 @@ import React, { FC, forwardRef, ReactElement, useCallback, useRef, useState } fr
 import useMergeRef from "../../hooks/useMergeRef";
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
-import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronDown } from "@vibe/icons";
 import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";

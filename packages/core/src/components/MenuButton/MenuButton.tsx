@@ -20,7 +20,7 @@ import {
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
 import { DialogOffset, DialogPosition, DialogSize, DialogTriggerEvent } from "../Dialog/Dialog.types";
 import { NOOP } from "../../utils/function-utils";
-import { Menu } from "../Icon/Icons";
+import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";

@@ -7,7 +7,7 @@ import Modal, { ModalProps } from "../Modal";
 import { useHelperOpenModalButton } from "./Modal.stories.helpers";
 import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
-import { Upgrade } from "../../Icon/Icons";
+import { Upgrade } from "@vibe/icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
   actionPropsArray: ["onClose"]

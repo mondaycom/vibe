@@ -1,7 +1,7 @@
 import React from "react";
 import { cleanup } from "@testing-library/react";
 import { snapshotDiff } from "../../../utils/jest-utils";
-import { Sound } from "../../Icon/Icons";
+import { Sound } from "@vibe/icons";
 import { renderSliderForSnapshots } from "./sliderTestUtils";
 
 jest.mock("../../Icon/Icon", () => {
