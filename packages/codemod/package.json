@@ -10,6 +10,9 @@
   "author": "monday.com",
   "license": "MIT",
   "bin": "./dist/bin/vibe-codemod.js",
+  "files": [
+    "dist"
+  ]
   "scripts": {
     "test": "vitest",
     "plop": "plop",
