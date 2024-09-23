@@ -51,7 +51,7 @@
     "test:update": "yarn test -u",
     "test:coverage": "yarn test -- --coverage",
     "start": "yarn build:esm -- --watch",
-    "build": "&& yarn build:esm && yarn build:esm:mock-classnames",
+    "build": "yarn build:esm && yarn build:esm:mock-classnames",
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "storybook": "storybook dev -p 7008",
