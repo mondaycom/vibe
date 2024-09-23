@@ -1,0 +1,78 @@
+{
+  "name": "@vibe/icons",
+  "version": "0.0.4",
+  "description": "Vibe's icon library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/icons"
+  },
+  "author": "monday.com",
+  "license": "MIT",
+  "main": "./dist/react/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "default": "./dist/react/index.js"
+    },
+    "./meta": {
+      "types": "./dist/iconsMetaData.d.ts",
+      "import": "./dist/iconsMetaData.js",
+      "default": "./dist/iconsMetaData.js"
+    },
+    "./raw": {
+      "types": "./dist/svg/index.d.ts",
+      "import": "./dist/svg/index.js",
+      "default": "./dist/svg/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/react/index.d.ts"
+      ],
+      "meta": [
+        "./dist/iconsMetaData.d.ts"
+      ],
+      "raw": [
+        "./dist/svg/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "plop": "plop",
+    "build": "yarn clean && yarn build:react-icons && yarn generate-svg-index && rollup -c",
+    "build:react-icons": "svg2react-icon --typescript --keep-colors src/svg/ src/react/ --no-sub-dir",
+    "clean": "rm -rf dist",
+    "test": "vitest",
+    "lint": "eslint . --max-warnings 0 && yarn validate-icons",
+    "lint:fix": "yarn lint -- --fix",
+    "validate-icons": "node scripts/validate-meta.js && node scripts/validate-icons-colors.js",
+    "generate-meta": "node scripts/generate-meta.js",
+    "generate-svg-index": "node scripts/generate-svg-index.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
+    "plop": "4.0.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "svg2react-icon": "^3.1.178",
+    "typescript": "^4.7.3",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  }
+}
