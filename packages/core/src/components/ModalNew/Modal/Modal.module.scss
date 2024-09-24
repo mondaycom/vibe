@@ -1,0 +1,12 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(41, 47, 76, 0.7);
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+}
