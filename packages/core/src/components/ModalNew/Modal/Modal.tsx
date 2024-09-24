@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -7,10 +7,13 @@ import { ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
+import { ModalProvider } from "../context/ModalContext";
+import { ModalContextProps } from "../context/ModalContext.types";
 
 const Modal = forwardRef(
   (
     {
+      id,
       // Would be implemented in a later PR
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       show,
@@ -21,32 +24,48 @@ const Modal = forwardRef(
       onClose,
       children,
       className,
-      id,
       "data-testid": dataTestId
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    const [titleId, setTitleId] = useState<string>();
+    const [descriptionId, setDescriptionId] = useState<string>();
+
+    const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
+    const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
+
+    const contextValue = useMemo<ModalContextProps>(
+      () => ({
+        modalId: id,
+        setTitleId: setTitleIdCallback,
+        setDescriptionId: setDescriptionIdCallback
+      }),
+      [id, setTitleIdCallback, setDescriptionIdCallback]
+    );
+
     return (
-      <div id="overlay" className={styles.overlay}>
-        <div
-          ref={ref}
-          className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-          id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-          role="dialog"
-          aria-modal
-          aria-labelledby="TODO" // TODO
-          aria-describedby="TODO" // TODO
-        >
-          <ModalTopActions
-            renderAction={renderHeaderAction}
-            color={closeButtonTheme}
-            closeButtonAriaLabel={closeButtonAriaLabel}
-            onClose={onClose}
-          />
-          {children}
+      <ModalProvider value={contextValue}>
+        <div id="overlay" className={styles.overlay}>
+          <div
+            ref={ref}
+            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+            id={id}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+            role="dialog"
+            aria-modal
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
+          >
+            <ModalTopActions
+              renderAction={renderHeaderAction}
+              color={closeButtonTheme}
+              closeButtonAriaLabel={closeButtonAriaLabel}
+              onClose={onClose}
+            />
+            {children}
+          </div>
         </div>
-      </div>
+      </ModalProvider>
     );
   }
 );
