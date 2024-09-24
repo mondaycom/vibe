@@ -5,6 +5,8 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
 import { ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 const Modal = forwardRef(
   (
@@ -12,8 +14,6 @@ const Modal = forwardRef(
       // Would be implemented in a later PR
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       show,
-      // Would be implemented in a later PR
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       size = "medium",
       renderHeaderAction,
       closeButtonTheme,
@@ -30,7 +30,7 @@ const Modal = forwardRef(
       <div id="overlay" className={styles.overlay}>
         <div
           ref={ref}
-          className={cx(styles.modal, className)}
+          className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
           role="dialog"

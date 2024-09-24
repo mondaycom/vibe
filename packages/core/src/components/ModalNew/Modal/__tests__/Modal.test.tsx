@@ -36,6 +36,22 @@ describe("Modal", () => {
     expect(getByText("My content")).toBeInTheDocument();
   });
 
+  it("applies default size as 'medium' when not supplied with a size", () => {
+    const { getByRole } = render(<Modal show>{childrenContent}</Modal>);
+
+    expect(getByRole("dialog")).toHaveClass("sizeMedium");
+  });
+
+  it("applies the correct given 'large' size", () => {
+    const { getByRole } = render(
+      <Modal show size="large">
+        {childrenContent}
+      </Modal>
+    );
+
+    expect(getByRole("dialog")).toHaveClass("sizeLarge");
+  });
+
   it("calls onClose when the close button is clicked", () => {
     const mockOnClose = jest.fn();
     const { getByLabelText } = render(
