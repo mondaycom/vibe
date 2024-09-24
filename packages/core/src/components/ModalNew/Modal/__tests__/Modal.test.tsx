@@ -3,12 +3,13 @@ import { render, fireEvent } from "@testing-library/react";
 import Modal from "../Modal";
 
 describe("Modal", () => {
+  const id = "modal-id";
   const closeButtonAriaLabel = "Close modal";
   const childrenContent = <span>My content</span>;
 
   it("renders the modal with the correct role", () => {
     const { getByTestId } = render(
-      <Modal show data-testid="modal">
+      <Modal id={id} show data-testid="modal">
         {childrenContent}
       </Modal>
     );
@@ -18,7 +19,7 @@ describe("Modal", () => {
 
   it("renders the modal with the correct aria-modal", () => {
     const { getByTestId } = render(
-      <Modal show data-testid="modal">
+      <Modal id={id} show data-testid="modal">
         {childrenContent}
       </Modal>
     );
@@ -28,7 +29,7 @@ describe("Modal", () => {
 
   it("renders the children content correctly", () => {
     const { getByText } = render(
-      <Modal show closeButtonAriaLabel={closeButtonAriaLabel}>
+      <Modal id={id} show>
         {childrenContent}
       </Modal>
     );
@@ -37,14 +38,18 @@ describe("Modal", () => {
   });
 
   it("applies default size as 'medium' when not supplied with a size", () => {
-    const { getByRole } = render(<Modal show>{childrenContent}</Modal>);
+    const { getByRole } = render(
+      <Modal id={id} show>
+        {childrenContent}
+      </Modal>
+    );
 
     expect(getByRole("dialog")).toHaveClass("sizeMedium");
   });
 
   it("applies the correct given 'large' size", () => {
     const { getByRole } = render(
-      <Modal show size="large">
+      <Modal id={id} show size="large">
         {childrenContent}
       </Modal>
     );
@@ -55,7 +60,7 @@ describe("Modal", () => {
   it("calls onClose when the close button is clicked", () => {
     const mockOnClose = jest.fn();
     const { getByLabelText } = render(
-      <Modal show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
+      <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
         {childrenContent}
       </Modal>
     );
