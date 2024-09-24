@@ -10,6 +10,7 @@ import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
 import { ModalContextProps } from "../context/ModalContext.types";
 import useKeyEvent from "../../../hooks/useKeyEvent";
+import { keyCodes } from "../../../constants";
 
 const Modal = forwardRef(
   (
@@ -27,8 +28,8 @@ const Modal = forwardRef(
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const [titleId, setTitleId] = useState<string>("");
-    const [descriptionId, setDescriptionId] = useState<string>("");
+    const [titleId, setTitleId] = useState<string>();
+    const [descriptionId, setDescriptionId] = useState<string>();
 
     const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
     const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
@@ -61,7 +62,7 @@ const Modal = forwardRef(
     useKeyEvent({
       callback: onEscClick,
       capture: true,
-      keys: ["Escape"]
+      keys: [keyCodes.ESCAPE]
     });
 
     if (!show) {
@@ -83,8 +84,8 @@ const Modal = forwardRef(
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
           role="dialog"
           aria-modal
-          aria-labelledby={titleId || undefined}
-          aria-describedby={descriptionId || undefined}
+          aria-labelledby={titleId}
+          aria-describedby={descriptionId}
         >
           <ModalTopActions
             renderAction={renderHeaderAction}
