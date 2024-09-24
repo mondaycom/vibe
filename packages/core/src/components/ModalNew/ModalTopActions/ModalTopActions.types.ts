@@ -10,7 +10,13 @@ export type ModalTopActionsButtonColor =
   | ButtonColor.ON_INVERTED_BACKGROUND;
 
 export interface ModalTopActionsProps {
-  renderAction?: (color?: ModalTopActionsButtonColor) => React.ReactElement<typeof MenuButton | typeof IconButton>;
+  /**
+   * action can be passed either as a function or direct
+   * it allows passing back to consumer the color he chose, so he won't have to define it twice
+   */
+  renderAction?:
+    | React.ReactElement<typeof MenuButton | typeof IconButton>
+    | ((color?: ModalTopActionsButtonColor) => React.ReactElement<typeof MenuButton | typeof IconButton>);
   color?: ModalTopActionsColor;
   closeButtonAriaLabel?: string;
   onClose?: React.MouseEventHandler<HTMLDivElement>;

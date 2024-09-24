@@ -1,23 +1,22 @@
 import React from "react";
 import styles from "./ModalTopActions.module.scss";
-import { ModalTopActionsButtonColor, ModalTopActionsProps } from "./ModalTopActions.types";
+import { ModalTopActionsButtonColor, ModalTopActionsColor, ModalTopActionsProps } from "./ModalTopActions.types";
 import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
 import { CloseSmall } from "../../Icon/Icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
 
+const colorToButtonColor: Record<ModalTopActionsColor, ModalTopActionsButtonColor> = {
+  dark: ButtonColor.ON_INVERTED_BACKGROUND,
+  light: ButtonColor.ON_PRIMARY_COLOR
+};
+
 const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }: ModalTopActionsProps) => {
-  const buttonColor: ModalTopActionsButtonColor =
-    color === "dark"
-      ? ButtonColor.ON_INVERTED_BACKGROUND
-      : color === "light"
-      ? ButtonColor.ON_PRIMARY_COLOR
-      : ButtonColor.PRIMARY;
+  const buttonColor = colorToButtonColor[color] || ButtonColor.PRIMARY;
 
   return (
     <Flex className={styles.actions}>
-      {/* this allows passing back to consumer the color he chose, so he won't have to define it twice */}
-      {renderAction && renderAction(buttonColor)}
+      {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
         icon={CloseSmall}
         onClick={onClose}

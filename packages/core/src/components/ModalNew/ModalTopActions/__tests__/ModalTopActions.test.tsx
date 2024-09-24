@@ -32,7 +32,7 @@ describe("ModalTopActions", () => {
     expect(() => getByLabelText(closeButtonAriaLabel)).not.toThrow();
   });
 
-  it("renders the action button using the renderAction prop", () => {
+  it("renders the action button using the renderAction prop as a function", () => {
     const renderAction = jest.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
     const { getByTestId } = render(<ModalTopActions renderAction={renderAction} />);
 
@@ -44,6 +44,15 @@ describe("ModalTopActions", () => {
     render(<ModalTopActions color="dark" renderAction={renderAction} />);
 
     expect(renderAction).toHaveBeenCalledWith(ButtonColor.ON_INVERTED_BACKGROUND);
+  });
+
+  it("renders the action button using the renderAction prop directly", () => {
+    const renderAction = (
+      <IconButton data-testid="extra-action" icon={FeedbackIcon} color={IconButton.colors.ON_PRIMARY_COLOR} />
+    );
+    const { getByTestId } = render(<ModalTopActions renderAction={renderAction} />);
+
+    expect(within(getByTestId("extra-action")).getByTestId("icon")).toBeInTheDocument();
   });
 
   it("applies the correct color when 'dark' is passed", () => {
