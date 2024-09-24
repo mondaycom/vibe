@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+import iconsMetaData from "@vibe/icons/meta";
 import Search from "../../Search/Search";
 import * as allIcons from "@vibe/icons";
 import Flex from "../../Flex/Flex";
