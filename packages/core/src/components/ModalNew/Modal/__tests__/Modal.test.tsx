@@ -1,5 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Modal from "../Modal";
 
 describe("Modal", () => {
@@ -25,6 +26,16 @@ describe("Modal", () => {
     );
 
     expect(getByTestId("modal")).toHaveAttribute("aria-modal", "true");
+  });
+
+  it("does not render when 'show' is false", () => {
+    const { queryByRole } = render(
+      <Modal id={id} show={false}>
+        {childrenContent}
+      </Modal>
+    );
+
+    expect(queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("renders the children content correctly", () => {
@@ -57,7 +68,7 @@ describe("Modal", () => {
     expect(getByRole("dialog")).toHaveClass("sizeLarge");
   });
 
-  it("calls onClose when the close button is clicked", () => {
+  it("calls onClose when the close button is clicked with mouse", () => {
     const mockOnClose = jest.fn();
     const { getByLabelText } = render(
       <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
@@ -69,7 +80,54 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it.todo("does not render when 'show' is false");
+  it("calls onClose when the close button is clicked with keyboard", () => {
+    const mockOnClose = jest.fn();
+    const { getByLabelText } = render(
+      <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
+        {childrenContent}
+      </Modal>
+    );
+
+    fireEvent.focus(getByLabelText(closeButtonAriaLabel));
+    userEvent.type(getByLabelText(closeButtonAriaLabel), "{space}");
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it("calls onClose when the backdrop is clicked", () => {
+    const mockOnClose = jest.fn();
+    const { getByTestId } = render(
+      <Modal id={id} show onClose={mockOnClose}>
+        {childrenContent}
+      </Modal>
+    );
+
+    fireEvent.click(getByTestId("modal-overlay_" + id));
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it("calls onClose when the Escape key is pressed while focused on dialog", () => {
+    const mockOnClose = jest.fn();
+    const { getByRole } = render(
+      <Modal id={id} show onClose={mockOnClose}>
+        {childrenContent}
+      </Modal>
+    );
+
+    fireEvent.keyDown(getByRole("dialog"), { key: "Escape" });
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it("calls onClose when the Escape key is pressed without focus", () => {
+    const mockOnClose = jest.fn();
+    render(
+      <Modal id={id} show onClose={mockOnClose}>
+        {childrenContent}
+      </Modal>
+    );
+
+    userEvent.keyboard("{Escape}");
+    expect(mockOnClose).toHaveBeenCalled();
+  });
 
   it.todo("renders the correct aria-labelledby");
 
