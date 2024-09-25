@@ -9,19 +9,19 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
 import { ModalContextProps } from "../context/ModalContext.types";
+import useKeyEvent from "../../../hooks/useKeyEvent";
+import { keyCodes } from "../../../constants";
 
 const Modal = forwardRef(
   (
     {
       id,
-      // Would be implemented in a later PR
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       show,
       size = "medium",
       renderHeaderAction,
       closeButtonTheme,
       closeButtonAriaLabel,
-      onClose,
+      onClose = () => {},
       children,
       className,
       "data-testid": dataTestId
@@ -43,27 +43,57 @@ const Modal = forwardRef(
       [id, setTitleIdCallback, setDescriptionIdCallback]
     );
 
+    const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
+      e => {
+        if (!show) return;
+        onClose(e);
+      },
+      [onClose, show]
+    );
+
+    const onEscClick = useCallback<React.KeyboardEventHandler<HTMLBodyElement>>(
+      e => {
+        if (!show) return;
+        onClose(e);
+      },
+      [onClose, show]
+    );
+
+    useKeyEvent({
+      callback: onEscClick,
+      capture: true,
+      keys: [keyCodes.ESCAPE]
+    });
+
+    if (!show) {
+      return null;
+    }
+
     return (
       <ModalProvider value={contextValue}>
-        <div id="overlay" className={styles.overlay}>
-          <div
-            ref={ref}
-            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-            role="dialog"
-            aria-modal
-            aria-labelledby={titleId}
-            aria-describedby={descriptionId}
-          >
-            <ModalTopActions
-              renderAction={renderHeaderAction}
-              color={closeButtonTheme}
-              closeButtonAriaLabel={closeButtonAriaLabel}
-              onClose={onClose}
-            />
-            {children}
-          </div>
+        <div
+          data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+          className={styles.overlay}
+          onClick={onBackdropClick}
+          aria-hidden
+        />
+        <div
+          ref={ref}
+          className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+          role="dialog"
+          aria-modal
+          aria-labelledby={titleId}
+          aria-describedby={descriptionId}
+        >
+          <ModalTopActions
+            renderAction={renderHeaderAction}
+            color={closeButtonTheme}
+            closeButtonAriaLabel={closeButtonAriaLabel}
+            onClose={onClose}
+          />
+          {children}
         </div>
       </ModalProvider>
     );
