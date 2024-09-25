@@ -2,7 +2,10 @@ import { TextareaHTMLAttributes } from "react";
 import { VibeComponentProps } from "../../types";
 
 export type TextAreaSize = "small" | "large";
-type TextAreaNativeInputProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "role" | "aria-describedby" | "aria-invalid">;
+type TextAreaNativeInputProps = Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  "role" | "aria-describedby" | "aria-invalid"
+>;
 
 export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentProps {
   /**
