@@ -54,6 +54,7 @@ const TextArea = forwardRef(
           </label>
         )}
         <textarea
+          {...rest}
           id={id}
           ref={ref}
           disabled={disabled}
@@ -63,7 +64,6 @@ const TextArea = forwardRef(
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
           aria-invalid={error}
           aria-describedby={helpTextId ?? undefined}
-          {...rest}
         />
         {helpText && (
           <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
