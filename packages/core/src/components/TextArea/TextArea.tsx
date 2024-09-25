@@ -33,7 +33,8 @@ const TextArea = forwardRef(
       required,
       maxLength,
       resize = true,
-      placeholder
+      placeholder,
+      ...rest
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
@@ -76,6 +77,7 @@ const TextArea = forwardRef(
           aria-describedby={helpTextId ?? undefined}
           placeholder={placeholder}
           maxLength={maxLength}
+          {...rest}
         />
         {helpText && (
           <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
