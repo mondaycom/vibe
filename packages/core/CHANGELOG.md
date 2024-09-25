@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.134.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.1...monday-ui-react-core@2.134.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* **TextArea:** Spread rest props to the native textarea tag ([#2442](https://github.com/mondaycom/vibe/issues/2442)) ([f74d5bd](https://github.com/mondaycom/vibe/commit/f74d5bd482ca307d2b33869c1af97d838c29204a))
+
+
+
+
+
 ## [2.134.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.0...monday-ui-react-core@2.134.1) (2024-09-16)
 
 
