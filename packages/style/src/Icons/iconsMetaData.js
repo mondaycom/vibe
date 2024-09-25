@@ -5,10 +5,17 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "CloseMedium",
-      file: "CloseMedium.svg",
-      description: "Close Medium",
-      tags: "Close, X, Cancel"
+    name: "Key",
+    file: "Key.svg",
+    description: "Key",
+    tags: "Key, Authorization"
+  },
+
+  {
+    name: "CloseMedium",
+    file: "CloseMedium.svg",
+    description: "Close Medium",
+    tags: "Close, X, Cancel"
   },
 
   {
