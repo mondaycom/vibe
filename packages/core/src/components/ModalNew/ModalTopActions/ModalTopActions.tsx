@@ -3,7 +3,7 @@ import styles from "./ModalTopActions.module.scss";
 import { ModalTopActionsButtonColor, ModalTopActionsColor, ModalTopActionsProps } from "./ModalTopActions.types";
 import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
-import { CloseSmall } from "../../Icon/Icons";
+import { CloseMedium } from "../../Icon/Icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
 
 const colorToButtonColor: Record<ModalTopActionsColor, ModalTopActionsButtonColor> = {
@@ -18,7 +18,7 @@ const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }:
     <Flex className={styles.actions}>
       {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
-        icon={CloseSmall}
+        icon={CloseMedium}
         onClick={onClose}
         size={IconButton.sizes.SMALL}
         kind={IconButton.kinds.TERTIARY}
