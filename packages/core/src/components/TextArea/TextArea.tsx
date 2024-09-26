@@ -25,12 +25,9 @@ const TextArea = forwardRef(
       id,
       disabled,
       readOnly,
-      value,
-      onChange,
-      "aria-label": ariaLabel,
       required,
       resize = true,
-      placeholder
+      ...rest
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
@@ -57,6 +54,7 @@ const TextArea = forwardRef(
           </label>
         )}
         <textarea
+          {...rest}
           id={id}
           ref={ref}
           disabled={disabled}
@@ -64,12 +62,8 @@ const TextArea = forwardRef(
           required={required}
           rows={numRows}
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
-          value={value}
-          onChange={onChange}
           aria-invalid={error}
-          aria-label={ariaLabel}
           aria-describedby={helpTextId ?? undefined}
-          placeholder={placeholder}
         />
         {helpText && (
           <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
