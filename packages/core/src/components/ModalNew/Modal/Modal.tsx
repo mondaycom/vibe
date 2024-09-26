@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { RemoveScroll } from "react-remove-scroll";
+import FocusLock from "react-focus-lock";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -79,24 +80,26 @@ const Modal = forwardRef(
             onClick={onBackdropClick}
             aria-hidden
           />
-          <div
-            ref={ref}
-            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-            role="dialog"
-            aria-modal
-            aria-labelledby={titleId}
-            aria-describedby={descriptionId}
-          >
-            <ModalTopActions
-              renderAction={renderHeaderAction}
-              color={closeButtonTheme}
-              closeButtonAriaLabel={closeButtonAriaLabel}
-              onClose={onClose}
-            />
-            {children}
-          </div>
+          <FocusLock returnFocus>
+            <div
+              ref={ref}
+              className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+              id={id}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+              role="dialog"
+              aria-modal
+              aria-labelledby={titleId}
+              aria-describedby={descriptionId}
+            >
+              <ModalTopActions
+                renderAction={renderHeaderAction}
+                color={closeButtonTheme}
+                closeButtonAriaLabel={closeButtonAriaLabel}
+                onClose={onClose}
+              />
+              {children}
+            </div>
+          </FocusLock>
         </RemoveScroll>
       </ModalProvider>
     );
