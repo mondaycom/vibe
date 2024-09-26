@@ -126,6 +126,7 @@ export {default as ItemDefaultValues} from './components/ItemDefaultValues';
 export {default as ItemHeightDouble} from './components/ItemHeightDouble';
 export {default as ItemHeightSingle} from './components/ItemHeightSingle';
 export {default as ItemHeightTriple} from './components/ItemHeightTriple';
+export {default as Key} from './components/Key';
 export {default as Keyboard} from './components/Keyboard';
 export {default as Labs} from './components/Labs';
 export {default as Launch} from './components/Launch';
