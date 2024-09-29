@@ -60,8 +60,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       onMenuClose = NOOP,
       onFocus = NOOP,
       onBlur = NOOP,
+      onScroll = NOOP,
+      onMenuScrollToBottom = NOOP,
       onChange: customOnChange = NOOP,
       searchable = true,
+      captureMenuScroll = false,
       options = [],
       defaultValue,
       value: customValue,
@@ -413,6 +416,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         onMenuClose={onMenuClose}
         onFocus={onFocus}
         onBlur={onBlur}
+        onScroll={onScroll}
+        onMenuScrollToBottom={onMenuScrollToBottom}
+        captureMenuScroll={captureMenuScroll}
         onChange={onChange}
         onKeyDown={onKeyDown}
         onInputChange={onInputChange}

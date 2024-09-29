@@ -88,6 +88,18 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   onBlur?: FocusEventHandler;
   /**
+   * Called when scrolling
+   */
+  onScroll?: () => void;
+  /**
+   * Fired when the user scrolls to the bottom of the menu
+   */
+  onMenuScrollToBottom?: () => void;
+  /**
+   * When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
+   */
+  captureMenuScroll?: boolean;
+  /**
    * Called when selected value has changed
    */
   onChange?: (
