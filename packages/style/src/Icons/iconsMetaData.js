@@ -10,7 +10,14 @@ export const iconsMetaData = [
     description: "Upgrade",
     tags: "Upgrade"
   },
-  
+
+  {
+    name: "Shuffle",
+    file: "Shuffle.svg",
+    description: "Use to describe shuffle of items.",
+    tags: "Arrows, Random, Question, Form"
+  },
+
   {
     name: "Key",
     file: "Key.svg",
