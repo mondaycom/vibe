@@ -2,7 +2,10 @@ import { TextareaHTMLAttributes } from "react";
 import { VibeComponentProps } from "../../types";
 
 export type TextAreaSize = "small" | "large";
-type TextAreaNativeInputProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "role">;
+type TextAreaNativeInputProps = Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  "role" | "aria-describedby" | "aria-invalid"
+>;
 
 export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentProps {
   /**
@@ -24,21 +27,9 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    */
   error?: boolean;
   /**
-   * The number of rows in the textarea. Defaults according to the size prop.
-   */
-  rows?: number;
-  /**
    * Label text associated with the textarea element.
    */
   label?: string;
-  /**
-   * If true, the textarea becomes non-interactive
-   */
-  disabled?: boolean;
-  /**
-   * If true, the textarea is read-only and cannot be modified by the user
-   */
-  readOnly?: boolean;
   /**
    * Function to call on textarea value change.
    */
@@ -51,10 +42,6 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    * Accessibility label for the textarea element.
    */
   "aria-label"?: React.AriaAttributes["aria-label"];
-  /**
-   * If true, the textarea is required and must be filled out by the user.
-   */
-  required?: boolean;
   /**
    * If true, the textarea can be resized vertically by the user.
    */
