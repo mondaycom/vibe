@@ -2,7 +2,7 @@ import React, { forwardRef, RefObject, useCallback, useMemo, useRef } from "reac
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRef from "../../hooks/useMergeRef";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { ElementAllowedColor, getElementColor } from "../../types/Colors";

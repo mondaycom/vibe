@@ -7,7 +7,7 @@ import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
 import Loader from "../Loader/Loader";
 import Flex from "../Flex/Flex";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";

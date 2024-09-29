@@ -2,7 +2,7 @@ import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Dialog, DialogContentContainer, Flex, IconButton } from "../../../components";
 import { ExampleContent } from "./helpers";
-import { Info } from "../../Icon/Icons";
+import { Info } from "@vibe/icons";
 import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions";
 import {
   CLICK_OUTSIDE_DIALOG,

@@ -1,7 +1,7 @@
-import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+import iconsMetaData from "@vibe/icons/meta";
 import { createStoryMetaSettings } from "vibe-storybook-components";
 import { CreateStoryMetaSettingsArgs } from "vibe-storybook-components/types";
-import * as AllIcons from "../../components/Icon/Icons";
+import * as AllIcons from "@vibe/icons";
 
 /**
  * Decorator on createStoryMetaSettings from vibe-storybook-components - adds icons metadata and icons components to function arguments

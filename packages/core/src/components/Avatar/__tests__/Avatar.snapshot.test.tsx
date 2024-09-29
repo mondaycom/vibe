@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
-import { WhatsNew } from "../../Icon/Icons";
+import { WhatsNew } from "@vibe/icons";
 
 jest.mock("../../Icon/Icon", () => ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>);
 jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);

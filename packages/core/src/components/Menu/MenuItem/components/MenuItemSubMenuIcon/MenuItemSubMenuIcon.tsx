@@ -4,7 +4,7 @@ import Divider from "../../../../Divider/Divider";
 import Icon from "../../../../Icon/Icon";
 import Flex from "../../../../Flex/Flex";
 import IconButton from "../../../../IconButton/IconButton";
-import { DropdownChevronRight } from "../../../../Icon/Icons";
+import { DropdownChevronRight } from "@vibe/icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";
 import { MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 

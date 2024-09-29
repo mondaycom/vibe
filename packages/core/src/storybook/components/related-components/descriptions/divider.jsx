@@ -3,7 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import Divider from "../../../../components/Divider/Divider";
 import Menu from "../../../../components/Menu/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem/MenuItem";
-import { Settings, Bolt } from "../../../../components/Icon/Icons";
+import { Settings, Bolt } from "@vibe/icons";
 
 export const DividerDescription = () => {
   const component = useMemo(() => {

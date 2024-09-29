@@ -3,7 +3,7 @@ import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "../../Icon/Icons";
+import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";

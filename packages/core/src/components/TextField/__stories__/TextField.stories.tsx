@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Check, CloseSmall, Email, Show, Duplicate } from "../../Icon/Icons";
+import { Check, CloseSmall, Email, Show, Duplicate } from "@vibe/icons";
 import "./TextField.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Heading from "../../Heading/Heading";

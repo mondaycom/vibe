@@ -3,7 +3,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import MenuItemButton from "../MenuItemButton";
 import Menu from "../../Menu/Menu";
-import { Invite } from "../../../Icon/Icons";
+import { Invite } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItemButton,

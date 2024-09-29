@@ -1,6 +1,5 @@
 import React from "react";
-import DropdownChevronUp from "../../Icon/Icons/components/DropdownChevronUp";
-import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import moment from "moment";
 import { Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";

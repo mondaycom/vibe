@@ -5,7 +5,7 @@ import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { Send } from "../../Icon/Icons";
+import { Send } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ListItem

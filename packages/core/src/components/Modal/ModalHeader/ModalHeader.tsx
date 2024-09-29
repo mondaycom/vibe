@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
-import CloseSmall from "../../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";

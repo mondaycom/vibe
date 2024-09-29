@@ -1,8 +1,8 @@
 import React, { AriaAttributes } from "react";
 import { TableColumn, TableLoadingStateType } from "./Table";
-import Sort from "../../Icon/Icons/components/Sort";
+import { Sort } from "@vibe/icons";
 import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
-import { SortAscending, SortDescending } from "../../Icon/Icons";
+import { SortAscending, SortDescending } from "@vibe/icons";
 import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 
 export function generateWidth(width: TableColumn["width"]): string {
