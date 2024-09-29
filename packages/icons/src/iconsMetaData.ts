@@ -12,33 +12,12 @@ type Icon = {
 export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
-  {
-      name: "Shuffle",
-      file: "Shuffle.svg",
-      description: "Use to describe shuffle of items.",
-      tags: "Arrows, Random, Question, Form"
-  },
-
 
   {
     name: "Upgrade",
     file: "Upgrade.svg",
     description: "Upgrade",
     tags: "Upgrade"
-  },
-
-  {
-    name: "Key",
-    file: "Key.svg",
-    description: "Key",
-    tags: "Key, Authorization"
-  },
-
-  {
-    name: "CloseMedium",
-    file: "CloseMedium.svg",
-    description: "Close Medium",
-    tags: "Close, X, Cancel"
   },
 
   {
