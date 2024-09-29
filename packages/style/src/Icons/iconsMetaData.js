@@ -10,6 +10,13 @@ export const iconsMetaData = [
     description: "Upgrade",
     tags: "Upgrade"
   },
+  
+  {
+    name: "Key",
+    file: "Key.svg",
+    description: "Key",
+    tags: "Key, Authorization"
+  },
 
   {
     name: "CloseMedium",
