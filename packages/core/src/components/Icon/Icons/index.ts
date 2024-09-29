@@ -203,6 +203,7 @@ export {default as Share} from './components/Share';
 export {default as ShortText} from './components/ShortText';
 export {default as Show} from './components/Show';
 export {default as Shredder} from './components/Shredder';
+export {default as Shuffle} from './components/Shuffle';
 export {default as Sort} from './components/Sort';
 export {default as SortAscending} from './components/SortAscending';
 export {default as SortDescending} from './components/SortDescending';
