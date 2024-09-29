@@ -14,6 +14,13 @@ export default [
   // plop_marker:icon_metadata
 
   {
+    name: "Upgrade",
+    file: "Upgrade.svg",
+    description: "Upgrade",
+    tags: "Upgrade"
+  },
+
+  {
     name: "Key",
     file: "Key.svg",
     description: "Key",
@@ -25,13 +32,6 @@ export default [
     file: "CloseMedium.svg",
     description: "Close Medium",
     tags: "Close, X, Cancel"
-  },
-
-  {
-    name: "Upgrade",
-    file: "Upgrade.svg",
-    description: "Upgrade",
-    tags: "Upgrade"
   },
 
   {
