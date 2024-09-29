@@ -1,5 +1,5 @@
 import React from "react";
-import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "../../../Icon/Icons";
+import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "@vibe/icons";
 import { DialogContentContainer, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "../../..";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
 import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";

@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Chips from "../Chips";
-import { Calendar } from "../../Icon/Icons";
+import { Calendar } from "@vibe/icons";
 import { person1 } from "../../Avatar/__stories__/assets";
 
 describe("Chips renders correctly", () => {

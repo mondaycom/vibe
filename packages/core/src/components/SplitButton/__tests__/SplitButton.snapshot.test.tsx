@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import SplitButton from "../SplitButton";
-import Delete from "../../Icon/Icons/components/Delete";
+import { Delete } from "@vibe/icons";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";

@@ -3,7 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import ExpandCollapse from "../../../../../components/ExpandCollapse/ExpandCollapse";
 import Text from "../../../../../components/Text/Text";
 import Icon from "../../../../../components/Icon/Icon";
-import Robot from "../../../../../components/Icon/Icons/components/Robot";
+import { Robot } from "@vibe/icons";
 import styles from "./expand-collapse-description.module.scss";
 
 export const ExpandCollapseDescription = () => {

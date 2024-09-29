@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Add, Calendar, Check, Remove } from "../../Icon/Icons";
+import { Add, Calendar, Check, Remove } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
 import "./Button.stories.scss";

@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "../Badge";
 import person from "./assets/person.png";
-import { ExternalPage, WhatsNew } from "../../Icon/Icons";
+import { ExternalPage, WhatsNew } from "@vibe/icons";
 import Link from "../../Link/Link";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";

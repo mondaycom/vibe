@@ -1,7 +1,7 @@
 import React from "react";
 import { components } from "react-select";
 import Icon from "../../../Icon/Icon";
-import DropdownChevronDown from "../../../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronDown } from "@vibe/icons";
 import { getIndicatorSize } from "../../Dropdown.styles";
 
 const DropdownIndicator = props => {

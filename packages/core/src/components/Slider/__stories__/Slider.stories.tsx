@@ -3,7 +3,7 @@ import { createComponentTemplate, VerticalStories } from "vibe-storybook-compone
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Slider from "../Slider";
 import Chips from "../../Chips/Chips";
-import { Sound, Video } from "../../Icon/Icons";
+import { Sound, Video } from "@vibe/icons";
 import "./Slider.stories.scss";
 
 const argTypes = createStoryMetaSettingsDecorator({

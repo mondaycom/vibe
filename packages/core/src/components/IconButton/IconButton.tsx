@@ -4,7 +4,7 @@ import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
-import AddSmall from "../Icon/Icons/components/AddSmall";
+import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";

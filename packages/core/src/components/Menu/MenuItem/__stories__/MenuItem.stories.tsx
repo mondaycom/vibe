@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
-import { Activity } from "../../../Icon/Icons";
+import { Activity } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Meta, StoryObj } from "@storybook/react";
 

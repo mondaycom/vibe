@@ -27,7 +27,7 @@ import useEventListener from "../../hooks/useEventListener";
 // Components import
 import Button, { ButtonProps } from "../Button/Button";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
-import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
 import { DialogTriggerEvent } from "../Dialog/Dialog.types";

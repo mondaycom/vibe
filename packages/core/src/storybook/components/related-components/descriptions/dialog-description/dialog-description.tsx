@@ -4,7 +4,7 @@ import Dialog from "../../../../../components/Dialog/Dialog";
 import DialogContentContainer from "../../../../../components/DialogContentContainer/DialogContentContainer";
 import { ExampleContent } from "../../../../../components/Dialog/__stories__/helpers";
 import IconButton from "../../../../../components/IconButton/IconButton";
-import Info from "../../../../../components/Icon/Icons/components/Info";
+import { Info } from "@vibe/icons";
 import styles from "./dialog-description.module.scss";
 
 export const DialogDescription = () => {

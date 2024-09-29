@@ -11,11 +11,6 @@
       "import": "./dist/src/index.js",
       "default": "./dist/src/index.js"
     },
-    "./icons": {
-      "types": "./dist/components/Icon/Icons/index.d.ts",
-      "import": "./dist/src/components/Icon/Icons/icons.js",
-      "default": "./dist/src/components/Icon/Icons/icons.js"
-    },
     "./interactionsTests": {
       "types": "./dist/tests/interactions-utils.d.ts",
       "import": "./dist/src/tests/interactionsTests.js",
@@ -39,9 +34,6 @@
   },
   "typesVersions": {
     "*": {
-      "icons": [
-        "./dist/components/Icon/Icons/index.d.ts"
-      ],
       "interactionsTests": [
         "./dist/tests/interactions-utils.d.ts"
       ],
@@ -58,11 +50,10 @@
     "test:watch": "jest --watch",
     "test:update": "yarn test -u",
     "test:coverage": "yarn test -- --coverage",
-    "start": "yarn build:react-icons && yarn build:esm -- --watch",
-    "build": "yarn build:react-icons && yarn build:esm && yarn build:esm:mock-classnames",
+    "start": "yarn build:esm -- --watch",
+    "build": "yarn build:esm && yarn build:esm:mock-classnames",
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
-    "build:react-icons": "svg2react-icon --typescript --keep-colors ../../node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "storybook": "storybook dev -p 7008",
     "build-storybook": "storybook build -o static_storybook",
     "deploy-storybook": "storybook-to-ghpages",
@@ -89,6 +80,7 @@
   "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "@popperjs/core": "2.11.6",
+    "@vibe/icons": "0.0.4",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
@@ -248,7 +240,6 @@
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
-    "svg2react-icon": "^3.1.178",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.2",

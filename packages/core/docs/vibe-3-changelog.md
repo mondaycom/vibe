@@ -18,6 +18,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
   - `/icons` -> use `@vibe/icons` package instead 🔀
   - `/storybookComponents` removed, use the `vibe-storybook-components` package instead
 - `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
+- Removed svg icons from `monday-ui-style/src/Icons/`, use `@vibe/icons/raw` instead
 - All components' props interfaces are exported
 
 ## Colors

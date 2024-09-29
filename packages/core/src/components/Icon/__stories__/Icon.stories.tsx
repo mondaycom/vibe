@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../Icon";
-import Bolt from "../Icons/components/Bolt";
+import { Bolt } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import IconsList from "./IconsList";

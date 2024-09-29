@@ -1,7 +1,4 @@
-import Info from "../Icon/Icons/components/Info";
-import Check from "../Icon/Icons/components/Check";
-import Alert from "../Icon/Icons/components/Alert";
-import Warning from "../Icon/Icons/components/Warning";
+import { Info, Check, Alert, Warning } from "@vibe/icons";
 
 /**
  * @deprecated

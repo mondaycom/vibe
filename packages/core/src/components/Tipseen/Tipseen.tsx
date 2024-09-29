@@ -5,7 +5,7 @@ import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types"
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import IconButton from "../../components/IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
 import {
   TIPSEEN_CLOSE_BUTTON_ARIA_LABEL,
