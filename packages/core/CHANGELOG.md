@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.137.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.136.0...monday-ui-react-core@2.137.0) (2024-10-01)
+
+
+### Features
+
+* **Dropdown:** add scroll handlers props ([#2447](https://github.com/mondaycom/vibe/issues/2447)) ([0f1277a](https://github.com/mondaycom/vibe/commit/0f1277a67b56b32943001d0fc16e1a1e133a64be))
+
+
+
+
+
 # [2.136.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.135.1...monday-ui-react-core@2.136.0) (2024-09-29)
 
 
