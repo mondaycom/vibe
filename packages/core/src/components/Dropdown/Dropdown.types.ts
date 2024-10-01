@@ -90,11 +90,11 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Called when scrolling
    */
-  onScroll?: () => void;
+  onScroll?: (event: any) => void;
   /**
    * Fired when the user scrolls to the bottom of the menu
    */
-  onMenuScrollToBottom?: () => void;
+  onMenuScrollToBottom?: (event: WheelEvent) => void;
   /**
    * When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
    */
