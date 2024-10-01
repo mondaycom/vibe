@@ -1,0 +1,20 @@
+.layout {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+
+  .header {
+    width: 100%;
+    margin-block: var(--spacing-xl) var(--spacing-medium);
+    // avoid overlapping top actions -> top actions margin + top actions width + additional spacing
+    padding-inline-end: calc(var(--spacing-large) + var(--spacing-xl) + var(--spacing-medium));
+  }
+
+  .divider {
+    flex-shrink: 0;
+  }
+
+  .content {
+    padding-inline: var(--modal-inline-padding);
+  }
+}
