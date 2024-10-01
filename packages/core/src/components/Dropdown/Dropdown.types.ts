@@ -8,7 +8,7 @@ import {
   OptionTypeBase,
   SingleValueProps
 } from "react-select";
-import React, { UIEventHandler } from "react";
+import React, { UIEventHandler, WheelEventHandler } from "react";
 import { VibeComponentProps } from "../../types";
 import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
 import { SIZES_VALUES } from "../../constants";
@@ -94,7 +94,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Fired when the user scrolls to the bottom of the menu
    */
-  onMenuScrollToBottom?: (event: WheelEvent) => void;
+  onMenuScrollToBottom?: WheelEventHandler<HTMLDivElement>;
   /**
    * When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
    */
