@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.136.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.135.1...monday-ui-react-core@2.136.0) (2024-09-29)
+
+
+### Features
+
+* **Toast:** improve animation ([#2391](https://github.com/mondaycom/vibe/issues/2391)) ([968c852](https://github.com/mondaycom/vibe/commit/968c852bd640a45594d2da1b1a416a8f4aabe120))
+
+
+
+
+
+## [2.135.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.135.0...monday-ui-react-core@2.135.1) (2024-09-29)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
 # [2.135.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.2...monday-ui-react-core@2.135.0) (2024-09-26)
 
 
