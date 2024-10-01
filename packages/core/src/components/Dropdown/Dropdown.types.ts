@@ -8,7 +8,7 @@ import {
   OptionTypeBase,
   SingleValueProps
 } from "react-select";
-import React from "react";
+import React, { UIEventHandler } from "react";
 import { VibeComponentProps } from "../../types";
 import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
 import { SIZES_VALUES } from "../../constants";
@@ -90,7 +90,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Called when scrolling
    */
-  onScroll?: (event: any) => void;
+  onScroll?: UIEventHandler<HTMLDivElement>;
   /**
    * Fired when the user scrolls to the bottom of the menu
    */
