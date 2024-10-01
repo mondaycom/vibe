@@ -5,6 +5,8 @@
 }
 
 .modal {
+  --modal-inline-padding: var(--spacing-xl);
+
   position: fixed;
   top: 50%;
   left: 50%;
