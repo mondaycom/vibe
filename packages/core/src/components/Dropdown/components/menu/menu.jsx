@@ -30,7 +30,7 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, i
   return (
     <components.Menu
       {...props}
-      innerProps={{ onScroll: props.onScroll }}
+      innerProps={{ ...props.innerProps, onScroll: props.onScroll }}
       className={cx(
         styles.dropdownMenuWrapper,
         {
