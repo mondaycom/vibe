@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.137.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.0...monday-ui-react-core@2.137.1) (2024-10-06)
+
+
+### Bug Fixes
+
+* keep current drop shadow with stroke on dark theme ([#2451](https://github.com/mondaycom/vibe/issues/2451)) ([197fc6f](https://github.com/mondaycom/vibe/commit/197fc6fa38d3fb170f94755ba66416e7e27f55f3))
+
+
+
+
+
 # [2.137.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.136.0...monday-ui-react-core@2.137.0) (2024-10-01)
 
 
