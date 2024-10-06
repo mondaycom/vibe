@@ -24,6 +24,18 @@ export default class DropdownDriver {
   render() {
     cleanup();
     this.renderResult = render(<Dropdown {...this.props} />);
+    return this.renderResult;
+  }
+
+  async renderWithEffects() {
+    cleanup();
+    await act(async () => {
+      this.renderResult = render(<Dropdown {...this.props} />);
+
+      // If there's asynchronous logic in useEffect, we can await it here
+      await new Promise(resolve => setTimeout(resolve, 100)); // Adjust timeout based on the async logic
+    });
+    return this.renderResult;
   }
 
   ensureRendered() {

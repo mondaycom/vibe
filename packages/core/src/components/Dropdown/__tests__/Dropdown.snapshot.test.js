@@ -176,11 +176,7 @@ describe("Dropdown renders correctly", () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOpenMenuOnFocus().withVirtualizedOptions();
 
       // Wrap your focusInput call in act to ensure all updates are processed
-      await act(async () => {
-        // Wait for the useEffect to finish
-        await new Promise(resolve => setTimeout(resolve, 100));
-      });
-      component.focusInput();
+      await component.renderWithEffects();
 
       expect(component.snapshot).toMatchSnapshot();
     });
