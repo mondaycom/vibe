@@ -280,6 +280,9 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   getContainer() {
+    if (isClient()) {
+      return null;
+    }
     const { containerSelector } = this.props;
     if (!containerSelector) {
       return document.body;
