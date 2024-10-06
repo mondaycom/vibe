@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface ModalContextProps extends ModalProviderValue {
-  contentScrolled?: boolean;
+  contentScrolled: boolean;
   setContentScrolled: (scrolled: boolean) => void;
 }
 
