@@ -3,22 +3,33 @@
   flex-grow: 1;
   overflow: hidden;
 
-  .header {
-    border: 1px dashed #c74646;
+  .media {
+    width: 100%;
+    height: var(--modal-hero-height, 240px);
+    flex-shrink: 0;
 
+    @media (min-width: 1280px) {
+      --modal-hero-height: 260px;
+    }
+
+    @media (min-width: 1440px) {
+      --modal-hero-height: 260px;
+    }
+
+    @media (min-width: 1720px) {
+      --modal-hero-height: 320px;
+    }
+  }
+
+  .header {
     width: 100%;
     margin-block: var(--spacing-large) var(--spacing-small);
     text-align: center;
   }
 
   .content {
-    flex: 1;
     width: 100%;
+    flex: 1;
     align-self: flex-start;
-  }
-
-  .media {
-    height: 260px;
-    flex-shrink: 0;
   }
 }
