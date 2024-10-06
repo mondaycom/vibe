@@ -6,8 +6,7 @@
   .header {
     width: 100%;
     margin-block: var(--spacing-xl) var(--spacing-medium);
-    // avoid overlapping top actions -> top actions margin + top actions width + additional spacing
-    padding-inline-end: calc(var(--spacing-large) + var(--spacing-xl) + var(--spacing-medium));
+    padding-inline-end: calc(var(--top-actions-spacing) + var(--top-actions-width) + var(--spacing-medium));
   }
 
   .divider {
