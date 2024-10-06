@@ -8,7 +8,7 @@ import {
   OptionTypeBase,
   SingleValueProps
 } from "react-select";
-import React from "react";
+import React, { UIEventHandler, WheelEventHandler } from "react";
 import { VibeComponentProps } from "../../types";
 
 export type DropdownOption = any;
@@ -85,6 +85,18 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * Called when blurred
    */
   onBlur?: FocusEventHandler;
+  /**
+   * Called when scrolling
+   */
+  onScroll?: UIEventHandler<HTMLDivElement>;
+  /**
+   * Fired when the user scrolls to the bottom of the menu
+   */
+  onMenuScrollToBottom?: WheelEventHandler<HTMLDivElement>;
+  /**
+   * When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
+   */
+  captureMenuScroll?: boolean;
   /**
    * Called when selected value has changed
    */

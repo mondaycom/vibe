@@ -18,6 +18,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import IconButton from "../IconButton/IconButton";
+import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
@@ -59,6 +60,8 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
   closeButtonAriaLabel = "Close",
   "data-testid": dataTestId
 }: ToastProps) => {
+  const ref = useRef(null);
+  const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
       ? actions
@@ -69,17 +72,25 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
       : null;
   }, [actions]);
 
+  const shouldShowButtonTransition = useMemo(() => {
+    return prevActions !== undefined && actions?.length !== prevActions;
+  }, [actions, prevActions]);
+
   const toastButtons: JSX.Element[] | null = useMemo(() => {
     return actions
       ? actions
           .filter(action => action.type === "button")
           .map(({ type: _type, content, ...otherProps }, index) => (
-            <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
+            <ToastButton
+              key={`alert-button-${index}`}
+              className={cx(styles.actionButton, { [styles.withTransition]: shouldShowButtonTransition })}
+              {...otherProps}
+            >
               {content}
             </ToastButton>
           ))
       : null;
-  }, [actions]);
+  }, [actions, shouldShowButtonTransition]);
 
   const classNames = useMemo(
     () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),
@@ -120,6 +131,22 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
 
   const iconElement = !hideIcon && getIcon(type, icon);
 
+  // https://n12v.com/css-transition-to-from-auto/
+  const recalculateElementWidth = useCallback((element: HTMLElement) => {
+    const prevWidth = element.style.width;
+    element.style.width = "auto";
+    const endWidth = getComputedStyle(element).width;
+    element.style.width = prevWidth;
+    element.offsetWidth; // force repaint
+    element.style.width = endWidth;
+  }, []);
+
+  useEffect(() => {
+    if (ref.current) {
+      recalculateElementWidth(ref.current);
+    }
+  }, [children, recalculateElementWidth]);
+
   return (
     <CSSTransition
       in={open}
@@ -136,6 +163,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
         className={classNames}
         role="alert"
         aria-live="polite"
+        ref={ref}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align="center" gap="large" className={styles.content}>

@@ -57,8 +57,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       onMenuClose = NOOP,
       onFocus = NOOP,
       onBlur = NOOP,
+      onScroll = NOOP,
+      onMenuScrollToBottom = NOOP,
       onChange: customOnChange = NOOP,
       searchable = true,
+      captureMenuScroll = false,
       options = [],
       defaultValue,
       value: customValue,
@@ -211,9 +214,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
           ariaLabel={menuAriaLabel}
           Renderer={menuRenderer}
           dropdownMenuWrapperClassName={dropdownMenuWrapperClassName}
+          onScroll={onScroll}
         />
       ),
-      [dropdownMenuWrapperClassName, menuRenderer, menuId, menuAriaLabel]
+      [dropdownMenuWrapperClassName, menuRenderer, menuId, menuAriaLabel, onScroll]
     );
 
     const DropdownIndicator = useCallback(
@@ -409,6 +413,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         onMenuClose={onMenuClose}
         onFocus={onFocus}
         onBlur={onBlur}
+        onMenuScrollToBottom={onMenuScrollToBottom}
+        captureMenuScroll={captureMenuScroll}
         onChange={onChange}
         onKeyDown={onKeyDown}
         onInputChange={onInputChange}

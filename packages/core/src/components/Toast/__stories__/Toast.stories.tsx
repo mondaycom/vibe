@@ -4,7 +4,6 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
-import { Delete } from "@vibe/icons";
 import "./Toast.stories.scss";
 import { ToastAction } from "../Toast.types";
 
@@ -186,12 +185,49 @@ export const DarkMessage = {
   name: "Dark message"
 };
 
-// TODO storybook 7 migration: toast isn't opening at the top of the page, but inside of the story instead
 export const FeedbackLoop = {
   render: () => {
-    const [toastOpen, setToastOpen] = useState(false);
-    const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
-    const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
+    const actions = useMemo(
+      () => [
+        {
+          type: Toast.actionTypes.BUTTON,
+          content: "Undo"
+        }
+      ],
+      []
+    );
+
+    return (
+      <Toast open type={Toast.types.POSITIVE} actions={actions} className="monday-storybook-toast_wrapper">
+        We successfully deleted 1 item
+      </Toast>
+    );
+  }
+};
+
+export const Animation = {
+  render: () => {
+    const [successToastOpen, setSuccessToastOpen] = useState(false);
+    const [failureToastOpen, setFailureToastOpen] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const onSuccessClick = useCallback(() => {
+      setSuccessToastOpen(true);
+      setIsDeleting(true);
+
+      setTimeout(() => {
+        setIsDeleting(false);
+      }, 1000);
+    }, []);
+
+    const onFailureClick = useCallback(() => {
+      setFailureToastOpen(true);
+      setIsDeleting(true);
+
+      setTimeout(() => {
+        setIsDeleting(false);
+      }, 1000);
+    }, []);
 
     const actions = useMemo<ToastAction[]>(
       () => [
@@ -205,22 +241,32 @@ export const FeedbackLoop = {
 
     return (
       <>
-        <Button leftIcon={Delete} onClick={onClickCallback}>
-          Delete item
+        <Button onClick={onSuccessClick} kind={Button.kinds.SECONDARY}>
+          Success action
+        </Button>
+        <Button onClick={onFailureClick} kind={Button.kinds.SECONDARY}>
+          Failure action
         </Button>
         <Toast
-          open={toastOpen}
-          type="positive"
-          actions={actions}
-          onClose={onCloseCallback}
-          autoHideDuration={5000}
-          className="monday-storybook-toast_box"
+          open={successToastOpen}
+          type={isDeleting ? "normal" : "positive"}
+          actions={isDeleting ? [] : actions}
+          onClose={() => setSuccessToastOpen(false)}
+          autoHideDuration={2000}
+          loading={isDeleting}
         >
-          We successfully deleted 1 item
+          {isDeleting ? "Deleting 1 selected item..." : "We successfully deleted 1 item"}
+        </Toast>
+        <Toast
+          open={failureToastOpen}
+          type={isDeleting ? "normal" : "negative"}
+          onClose={() => setFailureToastOpen(false)}
+          autoHideDuration={2000}
+          loading={isDeleting}
+        >
+          {isDeleting ? "Deleting 1 selected item..." : "Something went wrong"}
         </Toast>
       </>
     );
-  },
-
-  name: "Feedback loop"
+  }
 };

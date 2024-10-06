@@ -9,6 +9,8 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import * as ToastStories from "./Toast.stories";
 import { TipAlertBanner } from "./Toast.stories.helpers";
+import doImage from "./assets/do.png";
+import dontImage from "./assets/dont.png";
 
 <Meta of={ToastStories} />
 
@@ -45,7 +47,8 @@ import { Toast } from "@vibe/core";
   guidelines={[
     "Use toast notifications immediately after a specific event such as a user action that does not relate to an object on the page. Toast used as a feedback loop to a user’s action.",
     "Toasts should appear one at a time, and only disappear when no longer required.",
-    "Always be clear, concise and, where possible, give follow up actions to allow the user to become more informed or resolve the issue.",
+    "Always be concise, write a short and clear message.",
+    "Where possible, give follow up actions to allow the user to become more informed or resolve the issue.",
     "Always provide an action button or option to undo.",
     "Toast should overlay permanent UI elements without blocking important actions."
   ]}
@@ -148,6 +151,16 @@ Use when something was deleted, a problem has occurred, etc.
         ),
         description: "Don’t offer an action without letting the user undo it."
       }
+    },
+    {
+      positive: {
+        component: <img src={doImage} width="100%" />,
+        description: "If the toast message has 2 steps, make sure both toasts have roughly the same width."
+      },
+      negative: {
+        component: <img src={dontImage} width="100%" />,
+        description: "If the toast message has 2 steps, don’t use toasts with very different widths."
+      }
     }
   ]}
 />
@@ -159,6 +172,12 @@ Use when something was deleted, a problem has occurred, etc.
 After a user has done an action, provide feedback to close the loop. For example, when an item has been deleted, duplicated, etc.
 
 <Canvas of={ToastStories.FeedbackLoop} />
+
+### Animation
+
+Our toast includes 2 animations: slide-in and transform. The transform animation is triggered when the toast changes from one state to another (for example, from loading to success).
+
+<Canvas of={ToastStories.Animation} />
 
 ## Related components
 

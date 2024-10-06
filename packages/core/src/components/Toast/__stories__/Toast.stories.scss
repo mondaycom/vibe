@@ -19,11 +19,4 @@
     margin: 0;
     transform: translate(0, 0);
   }
-
-  &_box {
-    width: 390px;
-    // overriding margin for storybook wrapper
-    margin-right: auto !important;
-    margin-left: auto !important;
-  }
 }
