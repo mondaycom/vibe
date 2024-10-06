@@ -10,7 +10,7 @@ import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
-import { ModalContextProps } from "../context/ModalContext.types";
+import { ModalProviderValue } from "../context/ModalContext.types";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants";
 
@@ -36,7 +36,7 @@ const Modal = forwardRef(
     const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
     const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
 
-    const contextValue = useMemo<ModalContextProps>(
+    const contextValue = useMemo<ModalProviderValue>(
       () => ({
         modalId: id,
         setTitleId: setTitleIdCallback,
