@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { act } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 import { person1 } from "../../Avatar/__stories__/assets";
@@ -171,10 +172,14 @@ describe("Dropdown renders correctly", () => {
       });
     });
 
-    it("should use virtualization if set", () => {
+    it("should use virtualization if set", async () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOpenMenuOnFocus().withVirtualizedOptions();
 
-      component.focusInput();
+      // Wrap your focusInput call in act to ensure all updates are processed
+      await act(async () => {
+        // Wait for the useEffect to finish
+        await new Promise(resolve => setTimeout(resolve, 100));
+      });
 
       expect(component.snapshot).toMatchSnapshot();
     });
