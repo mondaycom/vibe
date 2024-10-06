@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.138.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.1...monday-ui-react-core@2.138.0) (2024-10-06)
+
+
+### Features
+
+* SSR support fixes  ([#2458](https://github.com/mondaycom/vibe/issues/2458)) ([562da71](https://github.com/mondaycom/vibe/commit/562da71cfb984bf368ae2375f72504ec8c179db3))
+
+
+
+
+
 ## [2.137.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.0...monday-ui-react-core@2.137.1) (2024-10-06)
 
 
