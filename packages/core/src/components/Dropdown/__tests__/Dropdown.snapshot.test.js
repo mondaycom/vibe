@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { act } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 import { person1 } from "../../Avatar/__stories__/assets";
