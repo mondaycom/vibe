@@ -15,7 +15,7 @@ import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { isClient } from "src/utils/ssr-utils";
+import { isClient } from "../../utils/ssr-utils";
 
 export interface DialogProps extends VibeComponentProps {
   /**
