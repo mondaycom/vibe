@@ -888,7 +888,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
   >
     <div>
       <div
-        class=" css-13ywfe7-control"
+        class=" css-11nd28h-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -904,10 +904,10 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               style="display: inline-block;"
             >
               <input
-                aria-activedescendant=""
+                aria-activedescendant="react-select-29-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
-                aria-expanded="false"
+                aria-expanded="true"
                 aria-label="Dropdown input"
                 autocapitalize="none"
                 autocomplete="off"
@@ -934,7 +934,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-1ycu3uq-indicatorContainer"
+            class="dropdown-indicator css-1pxbrck-indicatorContainer"
           >
             <svg
               aria-hidden="false"
@@ -954,6 +954,305 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 fill-rule="evenodd"
               />
             </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dropdownMenuWrapper withoutAnimation css-6yg65t-menu"
+    >
+      <div
+        class=""
+        style="position: relative; height: 300px; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
+      >
+        <div
+          style="height: 350008px; width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 4px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-1iwu591-option"
+                id="react-select-29-option-0"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    1
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 39px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-1"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 74px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-2"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 109px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-3"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    4
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 144px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-4"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 179px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-5"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    6
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 214px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-6"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 249px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-7"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    8
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 284px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-8"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    9
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 319px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-9"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    10
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 354px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="optionReset css-6ztf41-option"
+                id="react-select-29-option-10"
+                role="option"
+                tabindex="-1"
+              >
+                <div
+                  class="valueContainer"
+                  data-testid="dropdown-option-content"
+                >
+                  <div
+                    class="typography inherit start singleLineEllipsis text text2Normal"
+                    data-testid="text"
+                    style="--text-clamp-lines: 1;"
+                  >
+                    11
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

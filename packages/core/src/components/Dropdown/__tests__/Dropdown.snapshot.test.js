@@ -174,8 +174,9 @@ describe("Dropdown renders correctly", () => {
     it("should use virtualization if set", async () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOpenMenuOnFocus().withVirtualizedOptions();
 
-      // Wrap your focusInput call in act to ensure all updates are processed
+      // Wait for useEffect to finish
       await component.renderWithEffects();
+      component.focusInput();
 
       expect(component.snapshot).toMatchSnapshot();
     });
