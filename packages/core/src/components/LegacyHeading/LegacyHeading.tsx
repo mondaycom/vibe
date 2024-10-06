@@ -2,7 +2,8 @@ import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { DialogPosition, Sizes } from "../../constants";
-import React, { CSSProperties, useLayoutEffect } from "react";
+import React, { CSSProperties } from "react";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
@@ -90,7 +91,7 @@ const LegacyHeading: React.FC<HeadingProps> & {
 
   const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null, ignoreHeightOverflow: true });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (componentRef.current) {
       componentRef.current.style.setProperty("--heading-clamp-lines", ellipsisMaxLines?.toString());
     }

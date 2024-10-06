@@ -15,6 +15,7 @@ import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { isClient } from "src/utils/ssr-utils";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -257,14 +258,18 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       false
     );
     const { isOpen } = this.state;
-    document.addEventListener("keyup", this.closeDialogOnEscape);
+    if (isClient()) {
+      document.addEventListener("keyup", this.closeDialogOnEscape);
+    }
     if (overrideShouldCallbackOnMount && isOpen) {
       onDialogDidShow && onDialogDidShow();
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keyup", this.closeDialogOnEscape);
+    if (isClient()) {
+      document.removeEventListener("keyup", this.closeDialogOnEscape);
+    }
   }
 
   static getDerivedStateFromProps(nextProps: DialogProps, state: DialogState): DialogState {
