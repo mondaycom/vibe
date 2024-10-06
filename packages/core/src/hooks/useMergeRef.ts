@@ -1,5 +1,5 @@
-import { ForwardedRef, MutableRefObject, RefObject, useLayoutEffect, useRef } from "react";
-
+import { ForwardedRef, MutableRefObject, RefObject, useRef } from "react";
+import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 /*
  * Example usage:
  * const Component = React.forwardRef((props, ref) => {
@@ -16,7 +16,7 @@ import { ForwardedRef, MutableRefObject, RefObject, useLayoutEffect, useRef } fr
 function useMergeRef<T>(...refs: (RefObject<T> | ForwardedRef<T> | null)[]): RefObject<T> {
   const mergedRef = useRef<T>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     refs.forEach(ref => {
       if (!ref) return;
 
