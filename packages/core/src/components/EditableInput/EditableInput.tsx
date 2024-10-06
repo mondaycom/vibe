@@ -1,8 +1,9 @@
 import cx from "classnames";
-import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import autosize from "autosize";
 import useStyle from "../../hooks/useStyle";
 import useMergeRef from "../../hooks/useMergeRef";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import {
   isArrowDownEvent,
   isArrowLeftEvent,
@@ -213,7 +214,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
     // Callbacks END
 
     // Effects
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (shouldFocusOnMount) focus();
       autosizeIfNeeded();
       selectOnMount ? select() : moveCaretAtEnd();

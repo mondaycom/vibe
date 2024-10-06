@@ -33,7 +33,7 @@ export default class DropdownDriver {
       this.renderResult = render(<Dropdown {...this.props} />);
 
       // If there's asynchronous logic in useEffect, we can await it here
-      await new Promise(resolve => setTimeout(resolve, 100)); // Adjust timeout based on the async logic
+      await new Promise(resolve => setTimeout(resolve, 0)); // Adjust timeout based on the async logic
     });
     return this.renderResult;
   }
