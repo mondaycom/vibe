@@ -180,6 +180,7 @@ describe("Dropdown renders correctly", () => {
         // Wait for the useEffect to finish
         await new Promise(resolve => setTimeout(resolve, 100));
       });
+      component.focusInput();
 
       expect(component.snapshot).toMatchSnapshot();
     });
