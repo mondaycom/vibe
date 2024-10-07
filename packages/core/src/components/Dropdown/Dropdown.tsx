@@ -1,18 +1,18 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
 import { noop as NOOP } from "lodash-es";
-import { WindowedMenuList } from "react-windowed-select";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
+import { isClient } from "../../utils/ssr-utils";
 import {
   ADD_AUTO_HEIGHT_COMPONENTS,
   defaultCustomStyles,
@@ -132,6 +132,17 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     BaseSelect.prototype.renderLiveRegion = (): null => {
       return null;
     };
+
+    // SSR support
+    const [WindowedMenuList, setWindowedMenuList] = useState(null);
+    useEffect(() => {
+      if (isClient()) {
+        // Dynamically import the specific named export from react-windowed-select for SSR support
+        import("react-windowed-select").then(module => {
+          setWindowedMenuList(() => module.WindowedMenuList);
+        });
+      }
+    }, []);
 
     const [selected, setSelected] = useState(overrideDefaultValue || []);
     const [focusedOptionId, setFocusedOptionId] = useState("");
@@ -392,7 +403,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
             MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
             ValueContainer: MultiValueContainer
           }),
-          ...(isVirtualized && { MenuList: WindowedMenuList })
+          ...(isVirtualized && WindowedMenuList && { MenuList: WindowedMenuList })
         }}
         // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
         closeMenuOnScroll={closeMenuOnScroll}

@@ -10,7 +10,7 @@ import { Attach, Email } from "@vibe/icons";
 import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./Dropdown.stories.scss";
-import { fakeFetchUsers } from "./Dropdown.stories.helpers";
+import { fakeFetchUsers, generateItems } from "./Dropdown.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
@@ -666,6 +666,15 @@ export const DropdownWithLabels = {
     );
   },
   name: "Dropdown with labels"
+};
+
+export const VirtualizedDropdown = {
+  render: () => {
+    const options = useMemo(() => generateItems(300), []);
+
+    return <Dropdown options={options} isVirtualized className="dropdown-stories-styles_with-chips" />;
+  },
+  name: "Virtualized dropdown"
 };
 
 export const DropdownInsideAForm = {
