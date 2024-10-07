@@ -328,7 +328,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 > codemod: `Tooltip-component-migration`
 
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
-- The `themes` prop can now accept only "dark" or "primary"
+- The `theme` prop can now accept only "dark" or "primary"
 - The `position` prop can now accept only "top, right, bottom, left"
 - The `showOnDialogEnter` props's default value has changed to `true`; now the tooltip will remain open be default when hovering over it
 - The `hideDelay` props's default value has changed to 100
