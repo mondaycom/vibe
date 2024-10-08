@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.138.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.0...monday-ui-react-core@2.138.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* **ColorPickerClearButton:** button isn't clickable inside MenuItem ([#2464](https://github.com/mondaycom/vibe/issues/2464)) ([d6bc515](https://github.com/mondaycom/vibe/commit/d6bc51513d95db7db1c4dc8c81ed0a8282dc6990))
+
+
+
+
+
 # [2.138.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.1...monday-ui-react-core@2.138.0) (2024-10-06)
 
 
