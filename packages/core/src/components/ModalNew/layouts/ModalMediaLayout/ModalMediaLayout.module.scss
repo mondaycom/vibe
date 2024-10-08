@@ -5,19 +5,19 @@
 
   .media {
     width: 100%;
-    height: var(--modal-hero-height, 240px);
+    height: var(--modal-top-media-height, 240px);
     flex-shrink: 0;
 
     @media (min-width: 1280px) {
-      --modal-hero-height: 260px;
+      --modal-top-media-height: 260px;
     }
 
     @media (min-width: 1440px) {
-      --modal-hero-height: 260px;
+      --modal-top-media-height: 260px;
     }
 
     @media (min-width: 1720px) {
-      --modal-hero-height: 320px;
+      --modal-top-media-height: 320px;
     }
   }
 

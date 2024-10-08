@@ -1,6 +1,6 @@
 import React from "react";
 import { VibeComponentProps } from "../../../../types";
 
-export interface ModalHeroLayoutProps extends VibeComponentProps {
+export interface ModalMediaLayoutProps extends VibeComponentProps {
   children: React.ReactNode;
 }
