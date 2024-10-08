@@ -129,6 +129,71 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
+  it("traps focus inside the modal when opened", () => {
+    const { getByLabelText } = render(
+      <>
+        <button type="button">Focusable outside</button>
+        <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+          {childrenContent}
+        </Modal>
+      </>
+    );
+    const closeButton = getByLabelText(closeButtonAriaLabel);
+    expect(closeButton).toHaveFocus();
+
+    userEvent.tab();
+    expect(closeButton).toHaveFocus();
+  });
+
+  it("releases focus lock inside the modal when closed", () => {
+    const { rerender, getByLabelText, getByText } = render(
+      <>
+        <button type="button">Focusable outside 1</button>
+        <button type="button">Focusable outside 2</button>
+        <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+          {childrenContent}
+        </Modal>
+      </>
+    );
+    const closeButton = getByLabelText(closeButtonAriaLabel);
+    expect(closeButton).toHaveFocus();
+
+    rerender(
+      <>
+        <button type="button">Focusable outside 1</button>
+        <button type="button">Focusable outside 2</button>
+        <Modal id={id} show={false} closeButtonAriaLabel={closeButtonAriaLabel}>
+          {childrenContent}
+        </Modal>
+      </>
+    );
+
+    userEvent.tab();
+    expect(getByText("Focusable outside 1")).toHaveFocus();
+    userEvent.tab();
+    expect(getByText("Focusable outside 2")).toHaveFocus();
+  });
+
+  it("traps and moves focus between modal elements", () => {
+    const { getByLabelText, getByText } = render(
+      <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+        <button type="button">Focusable 1</button>
+        <button type="button">Focusable 2</button>
+      </Modal>
+    );
+    const closeButton = getByLabelText(closeButtonAriaLabel);
+    expect(closeButton).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 1")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 2")).toHaveFocus();
+
+    userEvent.tab();
+    expect(closeButton).toHaveFocus();
+  });
+
   it.todo("renders the correct aria-labelledby");
 
   it.todo("renders the correct aria-describedby");

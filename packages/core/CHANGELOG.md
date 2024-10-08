@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.134.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.1...monday-ui-react-core@2.134.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* **TextArea:** Spread rest props to the native textarea tag ([#2442](https://github.com/mondaycom/vibe/issues/2442)) ([f74d5bd](https://github.com/mondaycom/vibe/commit/f74d5bd482ca307d2b33869c1af97d838c29204a))
+
+
+
+
+
+## [2.134.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.0...monday-ui-react-core@2.134.1) (2024-09-16)
+
+
+### Bug Fixes
+
+* pass on attributes such as name, onBlur and maxLength to textarea element ([#2435](https://github.com/mondaycom/vibe/issues/2435)) ([be0482d](https://github.com/mondaycom/vibe/commit/be0482dfb7a182919309c0fb2884c222ddfd49f0))
+
+
+
+
+
+# [2.134.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.133.0...monday-ui-react-core@2.134.0) (2024-09-15)
+
+
+### Features
+
+* **CloseMedium:** add new icon ([#2431](https://github.com/mondaycom/vibe/issues/2431)) ([6fefb43](https://github.com/mondaycom/vibe/commit/6fefb4331f4ef5a89f9badd71357cc92c5f9f4cb))
+
+
+
+
+
 # [2.133.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.132.0...monday-ui-react-core@2.133.0) (2024-09-11)
 
 
