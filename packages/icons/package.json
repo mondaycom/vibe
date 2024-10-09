@@ -26,6 +26,11 @@
       "types": "./dist/svg/index.d.ts",
       "import": "./dist/svg/index.js",
       "default": "./dist/svg/index.js"
+    },
+    "./lazy": {
+      "types": "./dist/lazt/index.d.ts",
+      "import": "./dist/lazy/index.js",
+      "default": "./dist/lazy/index.js"
     }
   },
   "typesVersions": {
@@ -38,6 +43,9 @@
       ],
       "raw": [
         "./dist/svg/index.d.ts"
+      ],
+      "lazy": [
+        "./dist/lazy/index.d.ts"
       ]
     }
   },
@@ -46,7 +54,7 @@
   ],
   "scripts": {
     "plop": "plop",
-    "build": "yarn clean && yarn build:react-icons && yarn generate-svg-index && rollup -c",
+    "build": "yarn clean && yarn build:react-icons && yarn generate-lazy-icons && yarn generate-svg-index && rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors src/svg/ src/react/ --no-sub-dir",
     "clean": "rm -rf dist",
     "test": "vitest",
@@ -54,7 +62,8 @@
     "lint:fix": "yarn lint -- --fix",
     "validate-icons": "node scripts/validate-meta.js && node scripts/validate-icons-colors.js",
     "generate-meta": "node scripts/generate-meta.js",
-    "generate-svg-index": "node scripts/generate-svg-index.js"
+    "generate-svg-index": "node scripts/generate-svg-index.js",
+    "generate-lazy-icons": "node scripts/generate-lazy-icons.js"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
