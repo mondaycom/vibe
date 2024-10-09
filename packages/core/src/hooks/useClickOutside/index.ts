@@ -27,10 +27,10 @@ export default function useClickOutside({
       callback(event);
     },
 
-    [ref, callback]
+    [ref, callback, ignoreClasses]
   );
 
-  const documentRef = useRef(document.body);
+  const documentRef = useRef(typeof document !== "undefined" ? document.body : null);
 
   useEventListener({
     eventName,

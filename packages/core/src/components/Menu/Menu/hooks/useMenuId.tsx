@@ -1,4 +1,5 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
+import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 let menuIdCounter = 0;
 export const generateMenuId = () => {
@@ -7,7 +8,7 @@ export const generateMenuId = () => {
 
 export const useMenuId = (id: string) => {
   const [menuId, setMenuId] = useState<string>();
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setMenuId(id || generateMenuId());
   }, [id]);
   return menuId;
