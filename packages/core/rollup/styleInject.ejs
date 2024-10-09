@@ -16,7 +16,7 @@ function styleInject(css) {
         }
     
         style.appendChild(document.createTextNode(css));
-    } else if (typeof globalThis !== 'undefined' && globalThis.injectedStyles) {
+    } else if (globalThis.injectedStyles) {
         // support SSR environments
         globalThis.injectedStyles[id] = css;
     }
