@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.139.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.1...monday-ui-react-core@2.139.0) (2024-10-09)
+
+
+### Features
+
+* add inputAriaLabel to Dropdown component ([#2466](https://github.com/mondaycom/vibe/issues/2466)) ([1cb3d1e](https://github.com/mondaycom/vibe/commit/1cb3d1eb7608abb575620eb1ba7acbe9e68a77f4))
+
+
+
+
+
 ## [2.138.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.0...monday-ui-react-core@2.138.1) (2024-10-08)
 
 
