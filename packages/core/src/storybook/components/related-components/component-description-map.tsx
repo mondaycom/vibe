@@ -58,6 +58,7 @@ import { IconDescription } from "./descriptions/icon-description";
 import { BoxDescription } from "./descriptions/box-description";
 import { TableDescription } from "./descriptions/table-description";
 import { VirtualizedGridDescription } from "./descriptions/virtualized-grid-description/virtualized-grid-description";
+import { MenuGridItemDescription } from "./descriptions/menu-grid-item-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -112,6 +113,7 @@ export const COLOR_PICKER = "color-picker";
 export const SLIDER = "slider";
 export const BOX = "box";
 export const TABLE = "table";
+export const MENU_GRID_ITEM = "menu-grid-item";
 
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
@@ -172,7 +174,8 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [VIRTUALIZED_GRID, <VirtualizedGridDescription />],
   [COLOR_PICKER, <ColorPickerDescription />],
   [BOX, <BoxDescription />],
-  [TABLE, <TableDescription />]
+  [TABLE, <TableDescription />],
+  [MENU_GRID_ITEM, <MenuGridItemDescription />]
 ];
 
 // General description names (not related to specific components)
