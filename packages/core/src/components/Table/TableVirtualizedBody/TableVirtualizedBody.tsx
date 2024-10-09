@@ -13,7 +13,7 @@ import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuCont
 
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
-export interface ITableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
+export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
   extends VibeComponentProps {
   items: T[];
   rowRenderer: (item: T) => JSX.Element;
@@ -22,7 +22,7 @@ export interface ITableVirtualizedBodyProps<T extends TableVirtualizedRow = Tabl
 
 const TableVirtualizedBody = forwardRef(
   <T extends TableVirtualizedRow = TableVirtualizedRow>(
-    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: ITableVirtualizedBodyProps<T>,
+    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: TableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();

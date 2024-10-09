@@ -9,8 +9,6 @@ type Story = StoryObj<typeof Toggle>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toggle,
-  enumPropNamesArray: [],
-  iconPropNamesArray: [],
   actionPropsArray: ["onChange"]
 });
 

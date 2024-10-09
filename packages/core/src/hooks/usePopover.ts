@@ -42,7 +42,6 @@ export default function usePopover(
           enabled: true,
           phase: "write",
           fn: ({ state }: { state: State }) => {
-            // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;
           }

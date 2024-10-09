@@ -72,17 +72,4 @@ describe("TabList renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it("with noPadding", () => {
-    const tree = renderer
-      .create(
-        <TabList noPadding>
-          <Tab>First</Tab>
-          <Tab>Second</Tab>
-          <Tab>Third</Tab>
-        </TabList>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 });

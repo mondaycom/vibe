@@ -1,9 +1,9 @@
 import React from "react";
 
-export interface ITableContainerContext {
+export interface TableContainerContext {
   menuContainerRef: React.MutableRefObject<HTMLDivElement>;
 }
 
-export interface ITableContainerProviderProps {
+export interface TableContainerProviderProps {
   children: React.ReactNode;
 }

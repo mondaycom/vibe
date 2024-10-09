@@ -1,5 +1,5 @@
 import Skeleton from "../Skeleton";
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 import {
   COUNTER,
   LINEAR_PROGRESS_BAR,
@@ -27,6 +27,12 @@ import "./Skeleton.stories.scss";
 Skeleton loading componet used to indicate content and ui loading that will appear after its loaded. It helps to decrease perceived duration time
 
 <Canvas of={SkeletonStories.Overview} />
+
+### Import
+
+```js
+import { Skeleton } from "@vibe/core";
+```
 
 ## Props
 
@@ -114,6 +120,10 @@ Presents a classic menu or equivalent picker
 />
 
 ## Use cases and examples
+
+### Complex Example
+
+<Canvas of={SkeletonStories.ComplexExample} />
 
 ### Update in the system
 

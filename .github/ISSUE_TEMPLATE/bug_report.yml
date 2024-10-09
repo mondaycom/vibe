@@ -55,7 +55,7 @@ body:
     id: system-info
     attributes:
       label: System Info
-      description: Please run and copy the output of `npx envinfo --system --npmPackages monday-ui-react-core,react --binaries --browsers`
+      description: Please run and copy the output of `npx envinfo --system --npmPackages monday-ui-react-core,@vibe/core,react --binaries --browsers`
       render: shell
       placeholder: Operating System, Browsers, React version
   - type: textarea

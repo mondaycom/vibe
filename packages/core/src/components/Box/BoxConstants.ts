@@ -1,208 +1,271 @@
-import styles from "./Box.module.scss";
+/**
+ * @deprecated
+ */
+export enum Disabled {
+  DISABLED = "opacityDisabled"
+}
 
-export const DISABLED = Object.freeze({
-  DISABLED: styles.opacityDisabled
-});
+/**
+ * @deprecated
+ */
+export enum Border {
+  DEFAULT = "border"
+}
 
-export const BORDER = Object.freeze({
-  DEFAULT: styles.border
-});
-export type Border = typeof BORDER;
+/**
+ * @deprecated
+ */
+export enum BorderColor {
+  UI_BORDER_COLOR = "uiBorderColor",
+  LAYOUT_BORDER_COLOR = "layoutBorderColor"
+}
 
-export const BORDER_COLOR = Object.freeze({
-  UI_BORDER_COLOR: styles.borderColorUiBorderColor,
-  LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor
-});
-export type BorderColor = typeof BORDER_COLOR;
+/**
+ * @deprecated
+ */
+export enum Rounded {
+  SMALL = "roundedSmall",
+  MEDIUM = "roundedMedium",
+  BIG = "roundedBig"
+}
 
-export const ROUNDED = Object.freeze({
-  SMALL: styles.roundedSmall,
-  MEDIUM: styles.roundedMedium,
-  BIG: styles.roundedBig
-});
-export type Rounded = typeof ROUNDED;
+/**
+ * @deprecated
+ */
+export enum Shadow {
+  XS = "shadowXs",
+  SMALL = "shadowSmall",
+  MEDIUM = "shadowMedium",
+  LARGE = "shadowLarge"
+}
 
-export const SHADOW = Object.freeze({
-  XS: styles.shadowXs,
-  SMALL: styles.shadowSmall,
-  MEDIUM: styles.shadowMedium,
-  LARGE: styles.shadowLarge
-});
-export type Shadow = typeof SHADOW;
+/**
+ * @deprecated
+ */
+export enum Margin {
+  AUTO = "mAuto",
+  XS = "mXs",
+  SMALL = "mSmall",
+  MEDIUM = "mMedium",
+  LARGE = "mLarge",
+  XL = "mXl",
+  XXL = "mXxl",
+  XXXL = "mXxxl"
+}
 
-export const MARGIN = Object.freeze({
-  AUTO: styles.mAuto,
-  XS: styles.mXs,
-  SMALL: styles.mSmall,
-  MEDIUM: styles.mMedium,
-  LARGE: styles.mLarge,
-  XL: styles.mXl,
-  XXL: styles.mXxl,
-  XXXL: styles.mXxxl
-});
-export type Margin = typeof MARGIN;
+/**
+ * @deprecated
+ */
+export enum MarginX {
+  AUTO = "mxAuto",
+  XS = "mxXs",
+  SMALL = "mxSmall",
+  MEDIUM = "mxMedium",
+  LARGE = "mxLarge",
+  XL = "mxXl",
+  XXL = "mxXxl",
+  XXXL = "mxXxxl"
+}
 
-export const MARGIN_X = Object.freeze({
-  AUTO: styles.mxAuto,
-  XS: styles.mxXs,
-  SMALL: styles.mxSmall,
-  MEDIUM: styles.mxMedium,
-  LARGE: styles.mxLarge,
-  XL: styles.mxXl,
-  XXL: styles.mxXxl,
-  XXXL: styles.mxXxxl
-});
-export type MarginX = typeof MARGIN_X;
+/**
+ * @deprecated
+ */
+export enum MarginY {
+  AUTO = "myAuto",
+  XS = "myXs",
+  SMALL = "mySmall",
+  MEDIUM = "myMedium",
+  LARGE = "myLarge",
+  XL = "myXl",
+  XXL = "myXxl",
+  XXXL = "myXxxl"
+}
 
-export const MARGIN_Y = Object.freeze({
-  AUTO: styles.myAuto,
-  XS: styles.myXs,
-  SMALL: styles.mySmall,
-  MEDIUM: styles.myMedium,
-  LARGE: styles.myLarge,
-  XL: styles.myXl,
-  XXL: styles.myXxl,
-  XXXL: styles.myXxxl
-});
-export type MarginY = typeof MARGIN_Y;
+/**
+ * @deprecated
+ */
+export enum MarginTop {
+  AUTO = "mtAuto",
+  XS = "mtXs",
+  SMALL = "mtSmall",
+  MEDIUM = "mtMedium",
+  LARGE = "mtLarge",
+  XL = "mtXl",
+  XXL = "mtXxl",
+  XXXL = "mtXxxl"
+}
 
-export const MARGIN_TOP = Object.freeze({
-  AUTO: styles.mtAuto,
-  XS: styles.mtXs,
-  SMALL: styles.mtSmall,
-  MEDIUM: styles.mtMedium,
-  LARGE: styles.mtLarge,
-  XL: styles.mtXl,
-  XXL: styles.mtXxl,
-  XXXL: styles.mtXxxl
-});
-export type MarginTop = typeof MARGIN_TOP;
+/**
+ * @deprecated
+ */
+export enum MarginEnd {
+  AUTO = "meAuto",
+  XS = "meXs",
+  SMALL = "meSmall",
+  MEDIUM = "meMedium",
+  LARGE = "meLarge",
+  XL = "meXl",
+  XXL = "meXxl",
+  XXXL = "meXxxl"
+}
 
-export const MARGIN_END = Object.freeze({
-  AUTO: styles.meAuto,
-  XS: styles.meXs,
-  SMALL: styles.meSmall,
-  MEDIUM: styles.meMedium,
-  LARGE: styles.meLarge,
-  XL: styles.meXl,
-  XXL: styles.meXxl,
-  XXXL: styles.meXxxl
-});
-export type MarginEnd = typeof MARGIN_END;
+/**
+ * @deprecated
+ */
+export enum MarginBottom {
+  AUTO = "mbAuto",
+  XS = "mbXs",
+  SMALL = "mbSmall",
+  MEDIUM = "mbMedium",
+  LARGE = "mbLarge",
+  XL = "mbXl",
+  XXL = "mbXxl",
+  XXXL = "mbXxxl"
+}
 
-export const MARGIN_BOTTOM = Object.freeze({
-  AUTO: styles.mbAuto,
-  XS: styles.mbXs,
-  SMALL: styles.mbSmall,
-  MEDIUM: styles.mbMedium,
-  LARGE: styles.mbLarge,
-  XL: styles.mbXl,
-  XXL: styles.mbXxl,
-  XXXL: styles.mbXxxl
-});
-export type MarginBottom = typeof MARGIN_BOTTOM;
+/**
+ * @deprecated
+ */
+export enum MarginStart {
+  AUTO = "msAuto",
+  XS = "msXs",
+  SMALL = "msSmall",
+  MEDIUM = "msMedium",
+  LARGE = "msLarge",
+  XL = "msXl",
+  XXL = "msXxl",
+  XXXL = "msXxxl"
+}
 
-export const MARGIN_START = Object.freeze({
-  AUTO: styles.msAuto,
-  XS: styles.msXs,
-  SMALL: styles.msSmall,
-  MEDIUM: styles.msMedium,
-  LARGE: styles.msLarge,
-  XL: styles.msXl,
-  XXL: styles.msXxl,
-  XXXL: styles.msXxxl
-});
-export type MarginStart = typeof MARGIN_START;
+/**
+ * @deprecated
+ */
+export enum Padding {
+  XS = "pXs",
+  SMALL = "pSmall",
+  MEDIUM = "pMedium",
+  LARGE = "pLarge",
+  XL = "pXl",
+  XXL = "pXxl",
+  XXXL = "pXxxl"
+}
 
-export const PADDING = Object.freeze({
-  XS: styles.pXs,
-  SMALL: styles.pSmall,
-  MEDIUM: styles.pMedium,
-  LARGE: styles.pLarge,
-  XL: styles.pXl,
-  XXL: styles.pXxl,
-  XXXL: styles.pXxxl
-});
-export type Padding = typeof PADDING;
+/**
+ * @deprecated
+ */
+export enum PaddingX {
+  XS = "pxXs",
+  SMALL = "pxSmall",
+  MEDIUM = "pxMedium",
+  LARGE = "pxLarge",
+  XL = "pxXl",
+  XXL = "pxXxl",
+  XXXL = "pxXxxl"
+}
 
-export const PADDING_X = Object.freeze({
-  XS: styles.pxXs,
-  SMALL: styles.pxSmall,
-  MEDIUM: styles.pxMedium,
-  LARGE: styles.pxLarge,
-  XL: styles.pxXl,
-  XXL: styles.pxXxl,
-  XXXL: styles.pxXxxl
-});
-export type PaddingX = typeof PADDING_X;
+/**
+ * @deprecated
+ */
+export enum PaddingY {
+  XS = "pyXs",
+  SMALL = "pySmall",
+  MEDIUM = "pyMedium",
+  LARGE = "pyLarge",
+  XL = "pyXl",
+  XXL = "pyXxl",
+  XXXL = "pyXxxl"
+}
 
-export const PADDING_Y = Object.freeze({
-  XS: styles.pyXs,
-  SMALL: styles.pySmall,
-  MEDIUM: styles.pyMedium,
-  LARGE: styles.pyLarge,
-  XL: styles.pyXl,
-  XXL: styles.pyXxl,
-  XXXL: styles.pyXxxl
-});
-export type PaddingY = typeof PADDING_Y;
+/**
+ * @deprecated
+ */
+export enum PaddingTop {
+  XS = "ptXs",
+  SMALL = "ptSmall",
+  MEDIUM = "ptMedium",
+  LARGE = "ptLarge",
+  XL = "ptXl",
+  XXL = "ptXxl",
+  XXXL = "ptXxxl"
+}
 
-export const PADDING_TOP = Object.freeze({
-  XS: styles.ptXs,
-  SMALL: styles.ptSmall,
-  MEDIUM: styles.ptMedium,
-  LARGE: styles.ptLarge,
-  XL: styles.ptXl,
-  XXL: styles.ptXxl,
-  XXXL: styles.ptXxxl
-});
-export type PaddingTop = typeof PADDING_TOP;
+/**
+ * @deprecated
+ */
+export enum PaddingEnd {
+  XS = "peXs",
+  SMALL = "peSmall",
+  MEDIUM = "peMedium",
+  LARGE = "peLarge",
+  XL = "peXl",
+  XXL = "peXxl",
+  XXXL = "peXxxl"
+}
 
-export const PADDING_END = Object.freeze({
-  XS: styles.peXs,
-  SMALL: styles.peSmall,
-  MEDIUM: styles.peMedium,
-  LARGE: styles.peLarge,
-  XL: styles.peXl,
-  XXL: styles.peXxl,
-  XXXL: styles.peXxxl
-});
-export type PaddingEnd = typeof PADDING_END;
+/**
+ * @deprecated
+ */
+export enum PaddingBottom {
+  XS = "pbXs",
+  SMALL = "pbSmall",
+  MEDIUM = "pbMedium",
+  LARGE = "pbLarge",
+  XL = "pbXl",
+  XXL = "pbXxl",
+  XXXL = "pbXxxl"
+}
 
-export const PADDING_BOTTOM = Object.freeze({
-  XS: styles.pbXs,
-  SMALL: styles.pbSmall,
-  MEDIUM: styles.pbMedium,
-  LARGE: styles.pbLarge,
-  XL: styles.pbXl,
-  XXL: styles.pbXxl,
-  XXXL: styles.pbXxxl
-});
-export type PaddingBottom = typeof PADDING_BOTTOM;
+/**
+ * @deprecated
+ */
+export enum PaddingStart {
+  XS = "psXs",
+  SMALL = "psSmall",
+  MEDIUM = "psMedium",
+  LARGE = "psLarge",
+  XL = "psXl",
+  XXL = "psXxl",
+  XXXL = "psXxxl"
+}
 
-export const PADDING_START = Object.freeze({
-  XS: styles.psXs,
-  SMALL: styles.psSmall,
-  MEDIUM: styles.psMedium,
-  LARGE: styles.psLarge,
-  XL: styles.psXl,
-  XXL: styles.psXxl,
-  XXXL: styles.psXxxl
-});
-export type PaddingStart = typeof PADDING_START;
+/**
+ * @deprecated
+ */
+export enum BackgroundColor {
+  PRIMARY_BACKGROUND_COLOR = "primaryBackgroundColor",
+  SECONDARY_BACKGROUND_COLOR = "secondaryBackgroundColor",
+  GREY_BACKGROUND_COLOR = "greyBackgroundColor",
+  ALL_GREY_BACKGROUND_COLOR = "allgreyBackgroundColor",
+  INVERTED_COLOR_BACKGROUND = "invertedColorBackground"
+}
 
-export const BACKGROUND_COLORS = Object.freeze({
-  PRIMARY_BACKGROUND_COLOR: styles.bgPrimaryBackgroundColor,
-  SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
-  GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
-  ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
-  INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground
-});
-export type BackgroundColor = typeof BACKGROUND_COLORS;
+/**
+ * @deprecated
+ */
+export enum BoxTextColor {
+  PRIMARY_TEXT_COLOR = "primaryTextColor",
+  TEXT_COLOR_ON_INVERTED = "textColorOnInverted",
+  SECONDARY_TEXT_COLOR = "secondaryTextColor"
+}
 
-export const COLORS = Object.freeze({
-  PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
-  TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,
-  SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor
-});
-export type Color = typeof COLORS;
+export const SizePrefixMapping = {
+  margin: "m",
+  marginX: "mx",
+  marginY: "my",
+  marginTop: "mt",
+  marginEnd: "me",
+  marginBottom: "mb",
+  marginStart: "ms",
+  padding: "p",
+  paddingX: "px",
+  paddingY: "py",
+  paddingTop: "pt",
+  paddingEnd: "pe",
+  paddingBottom: "pb",
+  paddingStart: "ps",
+  shadow: "shadow",
+  rounded: "rounded",
+  borderColor: "borderColor",
+  backgroundColor: "bg",
+  textColor: "text"
+};

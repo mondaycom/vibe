@@ -6,7 +6,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
-import { TypographyColor, TypographyAlign } from "./TypographyConstants";
+import { TypographyAlign, TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import { TypographyContext } from "./utils/TypographyContext";
@@ -50,14 +50,14 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       tooltipProps,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
       element = "span",
-      color = TypographyColor.PRIMARY,
-      align = TypographyAlign.START,
+      color = "primary",
+      align = "start",
       ellipsis = true,
       maxLines = 1,
       withoutTooltip = false,
       role,
       ...htmlAttributes
-    },
+    }: TypographyProps,
     ref
   ) => {
     const { overflowTolerance } = useContext(TypographyContext);

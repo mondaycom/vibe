@@ -47,12 +47,7 @@ const virtualizedGridTemplate = args => {
         />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Button
-          size={Button.sizes.MEDIUM}
-          kind={Button.kinds.PRIMARY}
-          onClick={onClickToScroll}
-          disabled={scrollToDisabled}
-        >
+        <Button size="medium" kind="primary" onClick={onClickToScroll} disabled={scrollToDisabled}>
           {`Scroll to Item ${nextScrollToId}`}
         </Button>
         <div style={{ marginTop: 16, opacity: lastScrolledId ? 1 : 0 }}>{`Scrolled to Item ${lastScrolledId}`}</div>

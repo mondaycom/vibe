@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { InfixKind } from "./SliderConstants";
+import { InfixKind as InfixKindEnum } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./SliderInfix.module.scss";
+import { InfixKind } from "./Slider.types";
 
 export interface SliderInfixProps extends VibeComponentProps {
   /**
@@ -14,7 +15,7 @@ export interface SliderInfixProps extends VibeComponentProps {
   kind?: InfixKind;
 }
 
-const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind = SliderInfix.kinds.PREFIX }) => {
+const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKindEnum } = ({ kind = SliderInfix.kinds.PREFIX }) => {
   const [isShow, modificators, InfixComponent, inlineStyle] = useSliderInfixComponent(kind);
   return (
     isShow && (
@@ -33,5 +34,5 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind
 };
 
 export default withStaticProps(SliderInfix, {
-  kinds: InfixKind
+  kinds: InfixKindEnum
 });

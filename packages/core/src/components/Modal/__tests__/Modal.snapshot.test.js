@@ -89,7 +89,7 @@ describe("Modal", () => {
   });
 
   it("with full width", async () => {
-    const props = withContent({ width: Modal.width.FULL_WIDTH });
+    const props = withContent({ width: "full-width" });
     const currentRender = await renderModal(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });

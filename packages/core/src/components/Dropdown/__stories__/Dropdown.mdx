@@ -27,6 +27,12 @@ Dropdown present a list of options from which a user can select one or several.
 
 <Canvas of={DropdownStories.Overview} />
 
+### Import
+
+```js
+import { Dropdown } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -175,7 +181,7 @@ Dropdown menu can be organized into groups. It can be either by group title or d
 
 ### Dropdown inside popover
 
-Use <code>menuPosition={Dropdown.menuPositions.FIXED}</code> prop attribute for displaying dropdown inside popover (like our Modal
+Use <code>menuPosition="fixed"</code> prop attribute for displaying dropdown inside popover (like our Modal
 component) or container with overflow hidden content.
 
 <TipDevTipPopover />

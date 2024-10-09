@@ -28,7 +28,6 @@ export function chainRefFunctions(
 
 export function chainFunctions(funcs: Array<(args: any) => void | boolean>, allowBreak = false) {
   return (args: any) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (let i = 0; i < funcs.length; i++) {
       const func = funcs[i];
       try {

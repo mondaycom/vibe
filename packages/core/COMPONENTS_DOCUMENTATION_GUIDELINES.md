@@ -53,10 +53,10 @@ Do this:
 ```js
 <Flex direction={Flex.directions.ROW}>
     <StoryDescription description="Xs">
-      <Loader size={Loader.sizes.XS} />
+      <Loader size="xs" />
     </StoryDescription>
     <StoryDescription description="Small">
-      <Loader size={Loader.sizes.SMALL} />
+      <Loader size="small" />
     </StoryDescription>
 </Flex>
 ```

@@ -3,7 +3,8 @@ import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
+import { TabPanelsAnimationDirection as TabPanelsAnimationDirectionEnum } from "./TabPanelsConstants";
+import { TabPanelsAnimationDirection } from "./TabPanels.types";
 import { TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
@@ -11,26 +12,16 @@ import { withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
-  renderOnlyActiveTab?: boolean;
   activeTabId?: number;
   animationDirection?: TabPanelsAnimationDirection;
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
 }
 
 const TabPanels: FC<TabPanelsProps> & {
-  animationDirections?: typeof TabPanelsAnimationDirection;
+  animationDirections?: typeof TabPanelsAnimationDirectionEnum;
 } = forwardRef(
   (
-    {
-      className,
-      id,
-      activeTabId = 0,
-      animationDirection = TabPanelsAnimationDirection.RTL,
-      children,
-      // TODO Vibe 2.0 BREAKING change to true - breaking change
-      renderOnlyActiveTab = false,
-      "data-testid": dataTestId
-    },
+    { className, id, activeTabId = 0, animationDirection = "rtl", children, "data-testid": dataTestId }: TabPanelsProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -38,7 +29,7 @@ const TabPanels: FC<TabPanelsProps> & {
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;
-        if (renderOnlyActiveTab && !isActiveTab) return null;
+        if (!isActiveTab) return null;
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
         return React.cloneElement(child, {
@@ -52,7 +43,7 @@ const TabPanels: FC<TabPanelsProps> & {
           )
         });
       }).filter(Boolean);
-    }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
+    }, [children, activeTabId, animationDirection]);
 
     return (
       <div
@@ -72,5 +63,5 @@ Object.assign(TabPanels, {
 });
 
 export default withStaticProps(TabPanels, {
-  animationDirections: TabPanelsAnimationDirection
+  animationDirections: TabPanelsAnimationDirectionEnum
 });
