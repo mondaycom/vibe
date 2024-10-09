@@ -19,6 +19,7 @@ import {
   defaultCustomStyles,
   DROPDOWN_CHIP_COLORS,
   DROPDOWN_ID,
+  DROPDOWN_INPUT_ARIA_LABEL,
   DROPDOWN_MENU_ARIA_LABEL,
   DROPDOWN_MENU_ID,
   DROPDOWN_MENU_PLACEMENT,
@@ -92,6 +93,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       id = DROPDOWN_ID,
       menuId = DROPDOWN_MENU_ID,
       menuAriaLabel = DROPDOWN_MENU_ARIA_LABEL,
+      inputAriaLabel = DROPDOWN_INPUT_ARIA_LABEL,
       autoFocus = false,
       multi = false,
       multiline = false,
@@ -263,7 +265,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
             aria-activedescendant={ariaActiveDescendant}
             role="combobox"
             aria-expanded={!readOnly && menuIsOpen}
-            aria-label="Dropdown input"
+            aria-label={inputAriaLabel}
             aria-controls={menuId}
           />
         );
