@@ -1,6 +1,7 @@
 import { useCallback, useRef, RefObject } from "react";
 import useEventListener from "../useEventListener";
 import { GenericEventCallback } from "../../types/events";
+import { isClient } from "../../utils/ssr-utils";
 
 export default function useClickOutside({
   ref,
@@ -30,8 +31,7 @@ export default function useClickOutside({
     [ref, callback, ignoreClasses]
   );
 
-  const hasDocument = typeof document !== "undefined";
-  const documentRef = useRef(hasDocument ? document.body : null);
+  const documentRef = useRef(isClient() ? document.body : null);
 
   useEventListener({
     eventName,
