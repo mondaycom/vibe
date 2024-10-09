@@ -32,6 +32,10 @@ export interface CustomMenuBaseProps {
    * aria-label attribute for the menu container
    */
   menuAriaLabel?: string;
+  /**
+   * aria-label attribute for the dropdown input
+   */
+  inputAriaLabel?: string;
 }
 
 export type CustomMenuProps = CustomMenuBaseProps & MenuProps<OptionTypeBase, boolean>;

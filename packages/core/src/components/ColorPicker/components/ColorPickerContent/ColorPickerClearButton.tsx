@@ -27,6 +27,7 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
         size="small"
         kind="tertiary"
         onClick={() => onSelectionAction(-1)} //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
+        blurOnMouseUp={false}
         className={styles.clearColorButton}
       >
         <Icon size="16" className={styles.clearColorIcon} />
