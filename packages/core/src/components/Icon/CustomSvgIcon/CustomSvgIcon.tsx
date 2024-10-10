@@ -4,7 +4,7 @@ import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAc
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { useIsMounted } from "src/hooks/ssr/useIsMounted";
+import { useIsMounted } from "../../../hooks/ssr/useIsMounted";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
