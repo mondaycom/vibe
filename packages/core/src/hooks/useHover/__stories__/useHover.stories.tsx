@@ -10,7 +10,7 @@ export default {
 
 export const Overview = {
   render: () => {
-    const [hoverRef, isHovered] = useHover();
+    const [hoverRef, isHovered] = useHover<HTMLDivElement>();
 
     return (
       <div
