@@ -55,7 +55,7 @@
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "storybook": "storybook dev -p 7008",
-    "build-storybook": "storybook build -o static_storybook",
+    "build-storybook": "storybook build -o static_storybook && node .storybook/storybook-title-fix.js static_storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
