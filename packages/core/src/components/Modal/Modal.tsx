@@ -171,37 +171,34 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
 
   const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
 
-  const dialog =
-    isClient() &&
-    ReactDOM.createPortal(
+  const dialog = (
+    <div
+      {...attr.container}
+      className={cx(styles.container, classNames.container)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+      style={{ "--monday-modal-z-index": zIndex }}
+    >
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        {...attr.container}
-        className={cx(styles.container, classNames.container)}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-        style={{ "--monday-modal-z-index": zIndex }}
+        onClick={closeIfNotAlertType}
+        className={cx(styles.overlay, classNames.overlay)}
+        data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
+      />
+      <div
+        {...attr.dialog}
+        className={cx(styles.dialog, classNames.modal, {
+          [styles.default]: width === ModalWidth.DEFAULT,
+          [styles.full]: width === ModalWidth.FULL_WIDTH,
+          [styles.spacing]: contentSpacing
+        })}
+        style={{ width: customWidth ? width : null }}
       >
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-        <div
-          onClick={closeIfNotAlertType}
-          className={cx(styles.overlay, classNames.overlay)}
-          data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
-        />
-        <div
-          {...attr.dialog}
-          className={cx(styles.dialog, classNames.modal, {
-            [styles.default]: width === ModalWidth.DEFAULT,
-            [styles.full]: width === ModalWidth.FULL_WIDTH,
-            [styles.spacing]: contentSpacing
-          })}
-          style={{ width: customWidth ? width : null }}
-        >
-          {header}
-          {content}
-          {footer}
-        </div>
-      </div>,
-      document.body
-    );
+        {header}
+        {content}
+        {footer}
+      </div>
+    </div>
+  );
 
   if (unmountOnClose && !shouldShow) {
     return null;
