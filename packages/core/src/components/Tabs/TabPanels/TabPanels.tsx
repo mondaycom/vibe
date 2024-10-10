@@ -38,7 +38,7 @@ const TabPanels: FC<TabPanelsProps> & {
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;
-        if (renderOnlyActiveTab && !isActiveTab) return null;
+        if (!React.isValidElement(child) || (renderOnlyActiveTab && !isActiveTab)) return null;
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
         return React.cloneElement(child, {
