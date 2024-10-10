@@ -4,7 +4,7 @@ import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAc
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { isServer } from "../../../utils/ssr-utils";
+import { useIsMounted } from "src/hooks/ssr/useIsMounted";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -42,6 +42,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     isDecorationOnly: ariaHidden
   });
 
+  const isMounted = useIsMounted();
+
   const svgProcessor = useCallback(
     (svg: string) => {
       if (replaceToCurrentColor) return modifySvgCode(svg, "currentColor");
@@ -56,7 +58,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const SVGComponent = SVG as React.FC<any>;
 
-  if (isServer()) {
+  if (!isMounted) {
     // placeholder for server side rendering
     return <div className={className} id={id}></div>;
   }
