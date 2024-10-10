@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { ExternalPage, Info, Link as IconLink } from "../../Icon/Icons";
+import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./Link.stories.scss";
 

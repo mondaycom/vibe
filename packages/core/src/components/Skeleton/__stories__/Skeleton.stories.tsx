@@ -3,7 +3,7 @@ import Skeleton, { SkeletonProps } from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";
-import { Replay, ThumbsUp } from "../../Icon/Icons";
+import { Replay, ThumbsUp } from "@vibe/icons";
 import "./Skeleton.stories.scss";
 import { Flex } from "../../Flex";
 

@@ -8,7 +8,7 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../../components/Icon/Icon";
-import Check from "../../../../components/Icon/Icons/components/Check";
+import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";

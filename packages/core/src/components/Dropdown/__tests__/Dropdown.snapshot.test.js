@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { Email } from "../../Icon/Icons";
+import { Email } from "@vibe/icons";
 
 const mockOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },
@@ -170,9 +170,11 @@ describe("Dropdown renders correctly", () => {
       });
     });
 
-    it("should use virtualization if set", () => {
+    it("should use virtualization if set", async () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOpenMenuOnFocus().withVirtualizedOptions();
 
+      // Wait for useEffect to finish
+      await component.renderWithEffects();
       component.focusInput();
 
       expect(component.snapshot).toMatchSnapshot();

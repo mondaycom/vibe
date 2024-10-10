@@ -1,20 +1,17 @@
 {
   "name": "monday-ui-style",
-  "version": "0.13.0",
+  "version": "0.14.1",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
-    "test": "yarn build && yarn test:without-build && yarn validate-icons",
+    "test": "yarn build && yarn test:without-build",
     "test:without-build": "jest",
-    "validate-icons": "node scripts/validate-meta.js && node scripts/icons/validate-icons-colors.js",
-    "generate-meta": "node scripts/generate-meta.js",
     "compile-styles": "sass --style=expanded ./src/index.scss dist/index.css",
     "copy-public-mixins": "scripts/copy-public-folder.sh mixins",
     "copy-public-functions": "scripts/copy-public-folder.sh functions",
     "copy-files": "cp -r src/files/ dist/",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
     "build": "yarn compile-styles && yarn css-minify && yarn copy-files && yarn copy-public-mixins && yarn copy-public-functions",
-    "plop": "plop",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
@@ -55,8 +52,6 @@
     "clean-css-cli": "^4.3.0",
     "execa": "^5.1.1",
     "jest": "^27.5.1",
-    "node-plop": "^0.26.2",
-    "plop": "^2.7.4",
     "prettier": "^2.0.5",
     "sass": "^1.70.0",
     "stylelint-config-recommended-scss": "^6.0.0"

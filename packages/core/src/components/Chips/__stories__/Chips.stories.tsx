@@ -8,7 +8,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Email } from "../../Icon/Icons";
+import { Email } from "@vibe/icons";
 import person1 from "./assets/person1.png";
 import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";

@@ -1,6 +1,5 @@
 import ColorPicker from "../ColorPicker";
-import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
-import Check from "../../Icon/Icons/components/Check";
+import { TextColorIndicator, Check } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions";
 import { createComponentTemplate } from "vibe-storybook-components";

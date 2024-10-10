@@ -1,7 +1,7 @@
 import React from "react";
 import { components } from "react-select";
 import Icon from "../../../Icon/Icon";
-import CloseSmall from "../../../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import { getIndicatorSize } from "../../Dropdown.styles";
 
 const ClearIndicator = props => {

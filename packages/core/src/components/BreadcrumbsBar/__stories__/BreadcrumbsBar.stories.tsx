@@ -2,7 +2,7 @@ import React from "react";
 import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
 import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
 import Avatar from "../../Avatar/Avatar";
-import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
+import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./BreadcrumbsBar.stories.scss";

@@ -5,7 +5,7 @@ import ExpandCollapse from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Flex, Icon, Text } from "../../index";
 import Heading from "../../Heading/Heading";
-import { Robot } from "../../Icon/Icons";
+import { Robot } from "@vibe/icons";
 import styles from "./ExpandCollapse.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

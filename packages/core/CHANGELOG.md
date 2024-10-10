@@ -3,6 +3,102 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.139.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.1...monday-ui-react-core@2.139.0) (2024-10-09)
+
+
+### Features
+
+* add inputAriaLabel to Dropdown component ([#2466](https://github.com/mondaycom/vibe/issues/2466)) ([1cb3d1e](https://github.com/mondaycom/vibe/commit/1cb3d1eb7608abb575620eb1ba7acbe9e68a77f4))
+
+
+
+
+
+## [2.138.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.0...monday-ui-react-core@2.138.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* **ColorPickerClearButton:** button isn't clickable inside MenuItem ([#2464](https://github.com/mondaycom/vibe/issues/2464)) ([d6bc515](https://github.com/mondaycom/vibe/commit/d6bc51513d95db7db1c4dc8c81ed0a8282dc6990))
+
+
+
+
+
+# [2.138.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.1...monday-ui-react-core@2.138.0) (2024-10-06)
+
+
+### Features
+
+* SSR support fixes  ([#2458](https://github.com/mondaycom/vibe/issues/2458)) ([562da71](https://github.com/mondaycom/vibe/commit/562da71cfb984bf368ae2375f72504ec8c179db3))
+
+
+
+
+
+## [2.137.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.137.0...monday-ui-react-core@2.137.1) (2024-10-06)
+
+
+### Bug Fixes
+
+* keep current drop shadow with stroke on dark theme ([#2451](https://github.com/mondaycom/vibe/issues/2451)) ([197fc6f](https://github.com/mondaycom/vibe/commit/197fc6fa38d3fb170f94755ba66416e7e27f55f3))
+
+
+
+
+
+# [2.137.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.136.0...monday-ui-react-core@2.137.0) (2024-10-01)
+
+
+### Features
+
+* **Dropdown:** add scroll handlers props ([#2447](https://github.com/mondaycom/vibe/issues/2447)) ([0f1277a](https://github.com/mondaycom/vibe/commit/0f1277a67b56b32943001d0fc16e1a1e133a64be))
+
+
+
+
+
+# [2.136.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.135.1...monday-ui-react-core@2.136.0) (2024-09-29)
+
+
+### Features
+
+* **Toast:** improve animation ([#2391](https://github.com/mondaycom/vibe/issues/2391)) ([968c852](https://github.com/mondaycom/vibe/commit/968c852bd640a45594d2da1b1a416a8f4aabe120))
+
+
+
+
+
+## [2.135.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.135.0...monday-ui-react-core@2.135.1) (2024-09-29)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.135.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.2...monday-ui-react-core@2.135.0) (2024-09-26)
+
+
+### Features
+
+* **Key:** add new icon ([#2443](https://github.com/mondaycom/vibe/issues/2443)) ([0c7bdef](https://github.com/mondaycom/vibe/commit/0c7bdeff1c7cc29a9e7b3daa37747f69d42c9822))
+
+
+
+
+
+## [2.134.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.1...monday-ui-react-core@2.134.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* **TextArea:** Spread rest props to the native textarea tag ([#2442](https://github.com/mondaycom/vibe/issues/2442)) ([f74d5bd](https://github.com/mondaycom/vibe/commit/f74d5bd482ca307d2b33869c1af97d838c29204a))
+
+
+
+
+
 ## [2.134.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.134.0...monday-ui-react-core@2.134.1) (2024-09-16)
 
 

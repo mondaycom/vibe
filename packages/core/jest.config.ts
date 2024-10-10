@@ -3,7 +3,7 @@ import type { Config } from "jest";
 const config: Config = {
   clearMocks: true,
   coverageDirectory: "coverage",
-  coveragePathIgnorePatterns: ["node_modules/", "src/components/Icon/Icons/"],
+  coveragePathIgnorePatterns: ["node_modules/"],
   globals: {
     extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"]
   },

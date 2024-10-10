@@ -2,7 +2,7 @@ import React from "react";
 import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
-import { Info } from "../../../Icon/Icons";
+import { Info } from "@vibe/icons";
 import Icon from "../../../Icon/Icon";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";

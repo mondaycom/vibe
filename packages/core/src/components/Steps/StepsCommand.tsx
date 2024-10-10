@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useMemo } from "react";
 import cx from "classnames";
-import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
-import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
+import { NavigationChevronRight, NavigationChevronLeft } from "@vibe/icons";
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";

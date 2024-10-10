@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import { Counter, Flex } from "../..";
 import { guest, home, minus, owner, person1, person2, person3 } from "./assets";
-import { WhatsNew } from "../../Icon/Icons";
+import { WhatsNew } from "@vibe/icons";
 import { useCallback, useState } from "react";
 import "./Avatar.stories.scss";
 

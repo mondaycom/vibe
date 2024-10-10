@@ -8,7 +8,7 @@ import { defaultPlaySuite } from "../__tests__/Combobox.interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
-import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "../../Icon/Icons";
+import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";

@@ -18,6 +18,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
   - `/icons` -> use `@vibe/icons` package instead 🔀
   - `/storybookComponents` removed, use the `vibe-storybook-components` package instead
 - `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
+- Removed svg icons from `monday-ui-style/src/Icons/`, use `@vibe/icons/raw` instead
 - All components' props interfaces are exported
 
 ## Colors
@@ -327,7 +328,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 > codemod: `Tooltip-component-migration`
 
 - The `paddingSize`, `justify`, and `arrowPosition` props were removed. Accordingly the `Tooltip.paddingSizes`, `Tooltip.justifyTypes`, and `Tooltip.arrowPositions` static properties were removed as well
-- The `themes` prop can now accept only "dark" or "primary"
+- The `theme` prop can now accept only "dark" or "primary"
 - The `position` prop can now accept only "top, right, bottom, left"
 - The `showOnDialogEnter` props's default value has changed to `true`; now the tooltip will remain open be default when hovering over it
 - The `hideDelay` props's default value has changed to 100

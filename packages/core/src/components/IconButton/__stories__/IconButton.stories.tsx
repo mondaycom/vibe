@@ -5,7 +5,7 @@ import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import person1 from "./assets/person1.png";
-import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "../../Icon/Icons";
+import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";

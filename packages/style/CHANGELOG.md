@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.14.0...monday-ui-style@0.14.1) (2024-09-29)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
+# [0.14.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.13.0...monday-ui-style@0.14.0) (2024-09-26)
+
+
+### Bug Fixes
+
+* **LearnMode:** fix icon's dimensions ([#2444](https://github.com/mondaycom/vibe/issues/2444)) ([7bcdd53](https://github.com/mondaycom/vibe/commit/7bcdd538dfdfa0becdc91cf51c3db84a766793cf))
+
+
+### Features
+
+* **Key:** add new icon ([#2443](https://github.com/mondaycom/vibe/issues/2443)) ([0c7bdef](https://github.com/mondaycom/vibe/commit/0c7bdeff1c7cc29a9e7b3daa37747f69d42c9822))
+
+
+
+
+
 # [0.13.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.12.0...monday-ui-style@0.13.0) (2024-09-15)
 
 

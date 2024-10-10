@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Combobox from "../Combobox";
-import NewTab from "../../Icon/Icons/components/NewTab";
+import { NewTab } from "@vibe/icons";
 
 describe("Combobox renders correctly", () => {
   it("with empty props", () => {

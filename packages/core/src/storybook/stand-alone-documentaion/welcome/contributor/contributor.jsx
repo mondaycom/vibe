@@ -3,7 +3,7 @@ import cx from "classnames";
 import { InformationBox, InformationBoxTitle, Link } from "vibe-storybook-components";
 import { elementColorsNames } from "../../../../utils/colors-vars-map";
 import { Flex, IconButton } from "../../../../components";
-import { Email } from "../../../../components/Icon/Icons";
+import { Email } from "@vibe/icons";
 import "./contributor.scss";
 
 const BASE_CLASS = "monday-storybook-welcome-contributor";

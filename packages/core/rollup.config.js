@@ -67,7 +67,6 @@ export default {
   },
   input: {
     index: path.join(SRC_PATH, "index.ts"),
-    icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "components/next.ts")

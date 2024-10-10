@@ -3,8 +3,7 @@ import { noop as NOOP } from "lodash-es";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Button, Menu, MenuItem } from "../../index";
-import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
-import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
+import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";
 import React, { useRef } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
