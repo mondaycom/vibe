@@ -69,7 +69,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       innerRef={ref}
       {...screenReaderAccessProps}
       onClick={onClick}
-      loader={PlaceHolder}
+      loader={PlaceHolder} // avoid flickering
       src={src}
       className={className}
       preProcessor={svgProcessor}
