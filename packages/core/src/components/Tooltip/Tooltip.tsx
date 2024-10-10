@@ -318,6 +318,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tip,
       arrowClassName,
       id,
+      position,
       "data-testid": dataTestId
     } = this.props;
 
@@ -329,9 +330,16 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       return this.renderTooltipContent();
     }
 
+    let moveAmount : MoveBy = this.props.moveBy;
+
+    if (position && (position.includes("top") || position.includes("bottom"))) {
+        moveAmount = { main: 11, secondary: 0 };
+    }
+
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      moveBy: moveAmount,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       startingEdge: justify,
       tooltip: tip,
