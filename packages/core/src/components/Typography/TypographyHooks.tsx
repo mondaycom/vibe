@@ -5,15 +5,17 @@ import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
 
 export function useEllipsisClass(ellipsis: boolean, maxLines = 1) {
-  let ellipsisClass: string;
-  // If component contains ellipsis return the fit ellipsis class
-  if (ellipsis) {
-    ellipsisClass = maxLines > 1 ? styles.multiLineEllipsis : styles.singleLineEllipsis;
-  }
-
   const result = useMemo(() => {
-    return { class: ellipsisClass, style: { "--text-clamp-lines": maxLines.toString() } };
-  }, [ellipsisClass, maxLines]);
+    let ellipsisClass: string;
+    let style: Record<string, string>;
+    // If component contains ellipsis return the fit ellipsis class
+    if (ellipsis) {
+      ellipsisClass = maxLines > 1 ? styles.multiLineEllipsis : styles.singleLineEllipsis;
+      style = { "--text-clamp-lines": maxLines.toString() };
+    }
+
+    return { class: ellipsisClass, style };
+  }, [ellipsis, maxLines]);
   return result;
 }
 
