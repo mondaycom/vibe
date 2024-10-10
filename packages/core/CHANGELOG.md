@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.139.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.0...monday-ui-react-core@2.139.1) (2024-10-10)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
 # [2.139.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.138.1...monday-ui-react-core@2.139.0) (2024-10-09)
 
 
