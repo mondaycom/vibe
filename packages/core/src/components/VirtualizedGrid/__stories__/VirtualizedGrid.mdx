@@ -1,6 +1,7 @@
 import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import * as VirtualizedGridStories from "./VirtualizedGrid.stories";
+import { TABLE, VIRTUALIZED_LIST, MENU_GRID_ITEM } from "../../../storybook/components/related-components/component-description-map";
 
 <Meta of={VirtualizedGridStories} />
 
@@ -9,6 +10,7 @@ import * as VirtualizedGridStories from "./VirtualizedGrid.stories";
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
+- [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
@@ -31,3 +33,7 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
     "Rendering only the visible grid items instead of all the grid's items will create better performance and a smoother experience for users while using the grid."
   ]}
 />
+
+## Related components
+
+<RelatedComponents componentsNames={[TABLE, VIRTUALIZED_LIST, MENU_GRID_ITEM]} />

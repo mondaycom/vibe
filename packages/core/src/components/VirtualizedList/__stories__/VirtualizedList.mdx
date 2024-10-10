@@ -2,6 +2,7 @@ import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import { TipItemRenderer } from "./VirtualizedList.stories.helpers";
 import * as VirtualizedListStories from "./VirtualizedList.stories";
+import { LIST, VIRTUALIZED_GRID, TABLE } from "../../../storybook/components/related-components/component-description-map";
 
 <Meta of={VirtualizedListStories} />
 
@@ -10,6 +11,7 @@ import * as VirtualizedListStories from "./VirtualizedList.stories";
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
+- [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
@@ -31,3 +33,7 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
 <UsageGuidelines guidelines={["Use this when you expect to have many items in your list"]} />
 
 <TipItemRenderer />
+
+## Related components
+
+<RelatedComponents componentsNames={[LIST, VIRTUALIZED_GRID, TABLE]} />
