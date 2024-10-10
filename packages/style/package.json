@@ -2,7 +2,27 @@
   "name": "monday-ui-style",
   "version": "0.14.1",
   "description": "Monday UI CSS Foundations",
+  "keywords": [
+    "CSS",
+    "THEMES"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/style"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "monday.com",
+  "license": "MIT",
   "main": "dist/index.css",
+  "files": [
+    "src/",
+    "dist/",
+    "stylelint-config/"
+  ],
   "scripts": {
     "test": "yarn build && yarn test:without-build",
     "test:without-build": "jest",
@@ -16,28 +36,6 @@
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
   },
-  "peerDependencies": {
-    "stylelint": "^14.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git"
-  },
-  "keywords": [
-    "CSS",
-    "THEMES"
-  ],
-  "author": "monday.com",
-  "license": "MIT",
-  "files": [
-    "src/",
-    "dist/",
-    "stylelint-config/"
-  ],
-  "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
-  },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "postcss": "8.4.31",
     "postcss-scss": "^4.0.9",
@@ -55,5 +53,8 @@
     "prettier": "^2.0.5",
     "sass": "^1.70.0",
     "stylelint-config-recommended-scss": "^6.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^14.1.0"
   }
 }

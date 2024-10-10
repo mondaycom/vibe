@@ -2,10 +2,17 @@
   "name": "@vibe/codemod",
   "version": "0.0.8",
   "description": "Vibe's component library migration tool",
-  "repository": "git+https://github.com/mondaycom/vibe.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/codemod"
+  },
   "author": "monday.com",
   "license": "MIT",
   "bin": "./dist/bin/vibe-codemod.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "vitest",
     "plop": "plop",
