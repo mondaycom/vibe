@@ -11,7 +11,10 @@ export function useEllipsisClass(ellipsis: boolean, maxLines = 1) {
     // If component contains ellipsis return the fit ellipsis class
     if (ellipsis) {
       ellipsisClass = maxLines > 1 ? styles.multiLineEllipsis : styles.singleLineEllipsis;
-      style = { "--text-clamp-lines": maxLines.toString() };
+      if (maxLines > 1) {
+        // not relevant for single line ellipsis
+        style = { "--text-clamp-lines": maxLines.toString() };
+      }
     }
 
     return { class: ellipsisClass, style };
