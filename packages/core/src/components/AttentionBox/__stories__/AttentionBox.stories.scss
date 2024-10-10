@@ -2,7 +2,7 @@
 
 .monday-storybook-attention-box {
   &--fixed-width {
-    width: 430px;
+    width: 350px;
   }
 
   &_column-wrapper {
@@ -54,6 +54,10 @@
 
   &_box {
     width: 340px;
+  }
+
+  &_dismissable {
+    width: 274px;
   }
 
   &_search {
