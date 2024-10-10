@@ -58,14 +58,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
 
   if (isServer()) {
     // placeholder for server side rendering
-    return (
-      <div>
-        src={src}
-        className={className}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
-      </div>
-    );
+    return <div className={className} id={id}></div>;
   }
   return (
     <SVGComponent
