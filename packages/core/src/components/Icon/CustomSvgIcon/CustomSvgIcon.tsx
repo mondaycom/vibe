@@ -52,8 +52,11 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
 
   if (typeof src !== "string") return null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const SVGComponent = SVG as React.FC<any>;
+
   return (
-    <SVG
+    <SVGComponent
       innerRef={ref}
       {...screenReaderAccessProps}
       onClick={onClick}
