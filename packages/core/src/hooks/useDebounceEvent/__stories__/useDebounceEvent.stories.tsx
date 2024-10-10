@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useDebounceEvent from "..";
+import useDebounceEvent, { UseDebounceResult } from "..";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
@@ -8,8 +8,9 @@ export default {
 
 export const Overview = {
   render: () => {
-    const { inputValue, onEventChanged } = useDebounceEvent({
-      delay: 100
+    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+      delay: 100,
+      onChange: () => {}
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
@@ -20,8 +21,9 @@ export const Overview = {
 
 export const PassingAnInitialValue = {
   render: () => {
-    const { inputValue, onEventChanged } = useDebounceEvent({
-      initialStateValue: "bla bla bla"
+    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+      initialStateValue: "bla bla bla",
+      onChange: () => {}
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
@@ -34,14 +36,14 @@ export const PassingAnOnChangeHandler = {
   render: () => {
     const [length, setLength] = useState(0);
 
-    const { inputValue, onEventChanged } = useDebounceEvent({
-      onChange: value => setLength(value.length)
+    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+      onChange: (value: string) => setLength(value.length)
     });
 
     return (
       <>
         <input type="text" value={inputValue} onChange={onEventChanged} />
-        {<span>Input has {length} characters</span>}
+        <span>Input has {length} characters</span>
       </>
     );
   },
@@ -51,8 +53,9 @@ export const PassingAnOnChangeHandler = {
 
 export const WithTrim = {
   render: () => {
-    const { inputValue, onEventChanged } = useDebounceEvent({
-      trim: true
+    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+      trim: true,
+      onChange: () => {}
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
