@@ -2,6 +2,7 @@ import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
+import { motion, AnimatePresence } from "framer-motion";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -13,6 +14,7 @@ import { ModalProvider } from "../context/ModalContext";
 import { ModalContextProps } from "../context/ModalContext.types";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants";
+import { modalAnimationCenterPopVariants, modalAnimationOverlayVariants } from "../utils/animationVariants";
 
 const Modal = forwardRef(
   (
@@ -67,41 +69,49 @@ const Modal = forwardRef(
       keys: [keyCodes.ESCAPE]
     });
 
-    if (!show) {
-      return null;
-    }
-
     return (
-      <ModalProvider value={contextValue}>
-        <RemoveScroll>
-          <div
-            data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-            className={styles.overlay}
-            onClick={onBackdropClick}
-            aria-hidden
-          />
-          <FocusLock returnFocus>
-            <div
-              ref={ref}
-              className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
-              id={id}
-              data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-              role="dialog"
-              aria-modal
-              aria-labelledby={titleId}
-              aria-describedby={descriptionId}
-            >
-              <ModalTopActions
-                renderAction={renderHeaderAction}
-                color={closeButtonTheme}
-                closeButtonAriaLabel={closeButtonAriaLabel}
-                onClose={onClose}
+      <AnimatePresence>
+        {show && (
+          <ModalProvider value={contextValue}>
+            <RemoveScroll>
+              <motion.div
+                variants={modalAnimationOverlayVariants}
+                initial="exit"
+                animate="enter"
+                exit="exit"
+                data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                className={styles.overlay}
+                onClick={onBackdropClick}
+                aria-hidden
               />
-              {children}
-            </div>
-          </FocusLock>
-        </RemoveScroll>
-      </ModalProvider>
+              <FocusLock returnFocus>
+                <motion.div
+                  variants={modalAnimationCenterPopVariants}
+                  initial="exit"
+                  animate="enter"
+                  exit="exit"
+                  ref={ref}
+                  className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+                  id={id}
+                  data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+                  role="dialog"
+                  aria-modal
+                  aria-labelledby={titleId}
+                  aria-describedby={descriptionId}
+                >
+                  <ModalTopActions
+                    renderAction={renderHeaderAction}
+                    color={closeButtonTheme}
+                    closeButtonAriaLabel={closeButtonAriaLabel}
+                    onClose={onClose}
+                  />
+                  {children}
+                </motion.div>
+              </FocusLock>
+            </RemoveScroll>
+          </ModalProvider>
+        )}
+      </AnimatePresence>
     );
   }
 );
