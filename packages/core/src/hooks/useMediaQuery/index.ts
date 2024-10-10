@@ -1,4 +1,5 @@
-import { useLayoutEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
+import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
 
 export function useMediaQuery(query: string | string[]) {
   const queries = useMemo(() => {
@@ -7,7 +8,7 @@ export function useMediaQuery(query: string | string[]) {
 
   const [matches, setMatches] = useState(queries.map(query => !!window.matchMedia(query).matches));
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const mediaQueryList = queries.map(query => window.matchMedia(query));
     const updated: [MediaQueryList, (event: MediaQueryListEvent) => void][] = mediaQueryList.map((query, index) => {
       // we save the callback function so when we unmount we could remove the listener

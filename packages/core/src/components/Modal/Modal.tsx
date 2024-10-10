@@ -13,6 +13,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
+import { isClient } from "../../utils/ssr-utils";
 
 export interface ModalProps {
   /**
@@ -170,7 +171,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
 
   const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
 
-  const dialog = ReactDOM.createPortal(
+  const dialog = (
     <div
       {...attr.container}
       className={cx(styles.container, classNames.container)}
@@ -196,14 +197,13 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         {content}
         {footer}
       </div>
-    </div>,
-    document.body
+    </div>
   );
 
   if (unmountOnClose && !shouldShow) {
     return null;
   }
-  return ReactDOM.createPortal(dialog, document.body);
+  return isClient() ? ReactDOM.createPortal(dialog, document.body) : null;
 };
 
 export default withStaticProps(Modal, {
