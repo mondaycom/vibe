@@ -58,21 +58,26 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const SVGComponent = SVG as React.FC<any>;
 
+  const PlaceHolder = <div className={className} id={id}></div>;
+
   if (!isMounted) {
     // placeholder for server side rendering
-    return <div className={className} id={id}></div>;
+    return PlaceHolder;
   }
   return (
     <SVGComponent
       innerRef={ref}
       {...screenReaderAccessProps}
       onClick={onClick}
+      loader={PlaceHolder} // avoid flickering
       src={src}
       className={className}
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
-    />
+    >
+      {PlaceHolder}
+    </SVGComponent>
   );
 };
 
