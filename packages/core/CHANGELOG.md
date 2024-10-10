@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.139.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.2...monday-ui-react-core@2.139.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* fix icons tsx ([#2487](https://github.com/mondaycom/vibe/issues/2487)) ([f53f259](https://github.com/mondaycom/vibe/commit/f53f259879ae36b08f060c6d1e32add02be3e649))
+
+
+
+
+
 ## [2.139.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.1...monday-ui-react-core@2.139.2) (2024-10-10)
 
 
