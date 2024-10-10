@@ -4,6 +4,7 @@ import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAc
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
+import { isServer } from "../../../utils/ssr-utils";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -55,6 +56,17 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const SVGComponent = SVG as React.FC<any>;
 
+  if (isServer()) {
+    // placeholder for server side rendering
+    return (
+      <div>
+        src={src}
+        className={className}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
+      </div>
+    );
+  }
   return (
     <SVGComponent
       innerRef={ref}
