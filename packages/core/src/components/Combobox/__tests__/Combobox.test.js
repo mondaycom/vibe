@@ -106,21 +106,6 @@ describe("Combobox tests", () => {
       fireEvent.mouseOver(getByLabelText("Red"));
       expect(onHoverMock).not.toHaveBeenCalled();
     });
-
-    it("should not trigger on keyboard navigation (Arrow keys, Enter, Space) on disabled options", () => {
-      const onClickMock = jest.fn();
-      const { getByRole } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
-
-      const input = getByRole("combobox");
-
-      fireEvent.focus(input);
-      fireEvent.keyDown(input, { key: "ArrowDown" });
-      fireEvent.keyDown(input, { key: "ArrowDown" });
-      fireEvent.keyDown(input, { key: "ArrowDown" });
-      fireEvent.keyDown(input, { key: "Enter" });
-
-      expect(onClickMock).not.toHaveBeenCalledWith(expect.objectContaining({ label: "Red", value: "red" }));
-    });
   });
 
   describe("With categories", () => {

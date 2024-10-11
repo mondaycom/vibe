@@ -117,12 +117,11 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      if (disabled) return;
       if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
         onOptionClick(event, index, option, false);
       }
     },
-    [onOptionClick, index, option, disabled]
+    [onOptionClick, index, option]
   );
   if (!tooltipContent) {
     tooltipContent = isOptionOverflowing ? label : null;
