@@ -93,9 +93,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const onClick = useCallback(
     (event: React.MouseEvent) => {
+      if (disabled) return;
       onOptionClick(event, index, option, true);
     },
-    [index, option, onOptionClick]
+    [index, option, onOptionClick, disabled]
   );
 
   const onMouseLeave = useCallback(
@@ -116,11 +117,12 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
+      if (disabled) return;
       if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
         onOptionClick(event, index, option, false);
       }
     },
-    [onOptionClick, index, option]
+    [onOptionClick, index, option, disabled]
   );
   if (!tooltipContent) {
     tooltipContent = isOptionOverflowing ? label : null;
