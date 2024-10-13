@@ -52,17 +52,24 @@ function generateCssModulesMockName(name) {
   return name;
 }
 
+const output = {
+  dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
+  indent: false,
+  strict: false,
+  exports: "named",
+  format: "esm",
+  preserveModules: true,
+  preserveModulesRoot: ".",
+  sourcemap: true
+};
+if (!shouldMockModularClassnames) {
+  output.entryFileNames = "[name].mjs";
+  output.chunkFileNames = "[name]-[hash].mjs";
+}
+
 export default {
   onwarn,
-  output: {
-    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
-    indent: false,
-    strict: false,
-    exports: "named",
-    preserveModules: true,
-    preserveModulesRoot: ".",
-    sourcemap: true
-  },
+  output,
   input: {
     index: path.join(SRC_PATH, "index.js"),
     icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),

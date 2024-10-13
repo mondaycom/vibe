@@ -8,30 +8,30 @@
     "./package.json": "./package.json",
     ".": {
       "types": "./dist/types.d.ts",
-      "import": "./dist/esm/src/index.js",
+      "import": "./dist/esm/src/index.mjs",
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
     "./icons": {
       "types": "./dist/esm/components/Icon/Icons/index.d.ts",
-      "import": "./dist/esm/src/components/Icon/Icons/icons.js",
+      "import": "./dist/esm/src/components/Icon/Icons/icons.mjs",
       "default": "./dist/allIcons.js"
     },
     "./interactionsTests": {
       "types": "./dist/esm/tests/interactions-utils.d.ts",
-      "import": "./dist/esm/src/tests/interactionsTests.js",
-      "default": "./dist/esm/src/tests/interactionsTests.js"
+      "import": "./dist/esm/src/tests/interactionsTests.mjs",
+      "default": "./dist/esm/src/tests/interactionsTests.mjs"
     },
     "./testIds": {
       "types": "./dist/esm/tests/test-ids-utils.d.ts",
-      "import": "./dist/esm/src/tests/testIds.js",
-      "default": "./dist/esm/src/tests/testIds.js"
+      "import": "./dist/esm/src/tests/testIds.mjs",
+      "default": "./dist/esm/src/tests/testIds.mjs"
     },
     "./storybookComponents": "./dist/storybook/index.js",
     "./next": {
       "types": "./dist/esm/next/next.d.ts",
-      "import": "./dist/esm/src/next/next.js",
-      "default": "./dist/esm/src/next/next.js"
+      "import": "./dist/esm/src/next/next.mjs",
+      "default": "./dist/esm/src/next/next.mjs"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
