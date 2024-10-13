@@ -12,7 +12,7 @@ export const DividerDescription = () => {
       <div style={{ width: "220px" }}>
         <Menu>
           <MenuItem
-            title="My Item (stuck red)"
+            title="My Item"
             icon={Settings}
             iconType={Icon.type.SVG}
             iconBackgroundColor="var(--sb-negative-color)"
@@ -21,7 +21,7 @@ export const DividerDescription = () => {
         <Divider />
         <Menu>
           <MenuItem
-            title="My Item (indigo)"
+            title="My Item "
             icon={Bolt}
             iconType={Icon.type.SVG}
             iconBackgroundColor="var(--sb-color-purple)"
