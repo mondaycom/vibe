@@ -1,13 +1,13 @@
-import { Canvas, Story, Meta } from "@storybook/blocks";
-import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
+import { Canvas, Meta } from "@storybook/blocks";
 import { ComponentNameDecorator } from "../../components";
 import { Frame } from "vibe-storybook-components";
 import { menuExample, tipseenExample, toolbarExample } from "./assets";
 import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import { TipApplyingSpacing } from "./spacing.stories.helpers";
+import * as SpacingStories from "./spacing.stories.tsx";
 import "./spacing.scss";
 
-<Meta title="Foundations/Spacing" />
+<Meta of={SpacingStories} />
 
 <ComponentNameDecorator withFoundationBackground>Spacing</ComponentNameDecorator>
 
@@ -26,11 +26,7 @@ This is what creates relationships and hierarchy withing the visual controls.
 
 Using the right sizes will create consistency and hierarchy in user interface.
 
-<Canvas>
-  <Story name="Spacing sizes">
-    <SpacingSizes />
-  </Story>
-</Canvas>
+<Canvas of={SpacingStories.Sizes} sourceState="none">
 
 <TipApplyingSpacing />
 
@@ -42,6 +38,7 @@ Using the right sizes will create consistency and hierarchy in user interface.
     "Stay consistent with paddings and sizes across different UI components",
     "Align all the elements to the same spacing within the components or a page"
   ]}
+/>
 />
 
 <Frame className="monday-storybook-spacing_image-container">
