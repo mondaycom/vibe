@@ -20,12 +20,7 @@ export const DividerDescription = () => {
         </Menu>
         <Divider />
         <Menu>
-          <MenuItem
-            title="My Item"
-            icon={Bolt}
-            iconType={Icon.type.SVG}
-            iconBackgroundColor="var(--sb-color-purple)"
-          />
+          <MenuItem title="My Item" icon={Bolt} iconType={Icon.type.SVG} iconBackgroundColor="var(--sb-color-purple)" />
         </Menu>
       </div>
     );
