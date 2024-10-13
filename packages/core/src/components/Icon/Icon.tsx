@@ -29,7 +29,7 @@ export interface IconProps extends VibeComponentProps {
    */
   icon: SubIcon;
   /**
-mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
    */
   iconLabel?: string;
   /**

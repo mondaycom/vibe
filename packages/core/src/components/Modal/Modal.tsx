@@ -20,6 +20,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 import { ModalWidth } from "./Modal.types";
 import LayerProvider from "../LayerProvider/LayerProvider";
+import { isClient } from "../../utils/ssr-utils";
 
 export interface ModalProps {
   /**
@@ -163,7 +164,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
 
   const customWidth = width !== "default" && width !== "full-width";
 
-  const dialog = ReactDOM.createPortal(
+  const dialog = (
     <LayerProvider layerRef={{ current: instance?.$el }}>
       <div
         {...attr.container}
@@ -191,15 +192,13 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
           {footer}
         </div>
       </div>
-    </LayerProvider>,
-    document.body
+    </LayerProvider>
   );
 
   if (unmountOnClose && !shouldShow) {
     return null;
   }
-
-  return ReactDOM.createPortal(dialog, document.body);
+  return isClient() ? ReactDOM.createPortal(dialog, document.body) : null;
 };
 
 export default withStaticProps(Modal, {

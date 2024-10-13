@@ -1,10 +1,11 @@
-import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -288,7 +289,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     }, [size]);
     const icon = Icon ? <Icon size={iconSize.toString()} role="img" aria-hidden="true" /> : null;
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       setIsOpen(open);
     }, [open, setIsOpen]);
 

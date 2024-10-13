@@ -1,8 +1,9 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./TextWithHighlight.module.scss";
@@ -97,7 +98,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
 
     const isOverflowing = useIsOverflowing({ ref: useEllipsis && componentRef });
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (componentRef.current) {
         componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp.toString());
       }

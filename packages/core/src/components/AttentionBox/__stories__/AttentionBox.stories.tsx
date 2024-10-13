@@ -118,14 +118,14 @@ export const Dismissable = {
           title="Regular attention box"
           text="Dismissable attention box with two lines of content."
           onClose={mockOnClose}
-          className="monday-storybook-attention-box_box"
+          className="monday-storybook-attention-box_dismissable"
           icon={Info}
         />
         <AttentionBox
           text="Attention box in compact mode"
           onClose={mockOnClose}
           compact
-          className="monday-storybook-attention-box_box"
+          className="monday-storybook-attention-box_dismissable"
         />
       </div>
     );

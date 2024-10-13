@@ -1,6 +1,7 @@
-import { MutableRefObject, useLayoutEffect, useState } from "react";
+import { MutableRefObject, useState } from "react";
 import { ListItemElement } from "../../ListItem/ListItem.types";
 import { ListElement } from "../List.types";
+import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 let listIdCounter = 0;
 export const generateListId = () => {
@@ -9,7 +10,7 @@ export const generateListId = () => {
 
 export const useListId = (id: string) => {
   const [listId, setListId] = useState<string>();
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setListId(id || generateListId());
   }, [id]);
   return listId;

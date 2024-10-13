@@ -1,6 +1,7 @@
-import { RefObject, useLayoutEffect } from "react";
+import { RefObject } from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
+import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export default function useMenuItemMouseEvents({
   ref,
@@ -28,7 +29,7 @@ export default function useMenuItemMouseEvents({
   const prevIsMouseEnter = usePrevious(isMouseEnter);
   const prevIsMouseEnterOnIconButton = usePrevious(isMouseEnterOnIconButton);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!isMouseEnterOnIconButton) return;
 
     if (isMouseEnterOnIconButton === prevIsMouseEnterOnIconButton) return;
@@ -47,7 +48,7 @@ export default function useMenuItemMouseEvents({
     resetOpenSubMenuIndex
   ]);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
 

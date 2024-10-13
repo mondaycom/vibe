@@ -1,6 +1,7 @@
-import { useMemo, useLayoutEffect } from "react";
+import { useMemo } from "react";
 import { usePopper } from "react-popper";
 import { Placement } from "./popoverConstants";
+import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
 
@@ -28,7 +29,7 @@ export default function usePopover(
 
   // we have to use forceUpdate because
   // usePopper need to run again after any refs changes, even after the first render.
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     forceUpdate();
   }, [referenceElement, popperElement, forceUpdate]);
 

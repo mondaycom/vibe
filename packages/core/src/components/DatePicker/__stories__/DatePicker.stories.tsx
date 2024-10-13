@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import moment from "moment";
-import DatePicker from "../DatePicker";
+import moment, { Moment } from "moment";
+import DatePicker, { DatePickerProps } from "../DatePicker";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import styles from "./DatePicker.stories.module.scss";
+import { RangeDate } from "../types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
@@ -18,13 +19,13 @@ export default {
 };
 
 // for Chromatic check to always have the same date UI
-const MOCK_INITIAL_DATE = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
+const MOCK_INITIAL_DATE: RangeDate = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
 
-const DatePickerTemplate = args => {
+const DatePickerTemplate = (args: DatePickerProps) => {
   const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
   return (
     <DialogContentContainer className={styles.datepickerDialogContentContainer}>
-      <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} {...args} />
+      <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} {...args} />
     </DialogContentContainer>
   );
 };
@@ -40,7 +41,7 @@ export const SingleDay = {
 
     return (
       <DialogContentContainer className={styles.datepickerDialogContentContainer}>
-        <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
+        <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
       </DialogContentContainer>
     );
   },
@@ -59,7 +60,7 @@ export const DateRange = {
           endDate={date.endDate}
           range
           data-testid="date-picker"
-          onPickDate={d => setDate(d)}
+          onPickDate={(d: RangeDate) => setDate(d)}
         />
       </DialogContentContainer>
     );
@@ -74,7 +75,7 @@ export const NumberOfMonths = {
 
     return (
       <DialogContentContainer className={styles.datepickerDialogContentContainer}>
-        <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
+        <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
       </DialogContentContainer>
     );
   },

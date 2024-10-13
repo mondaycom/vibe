@@ -1,6 +1,7 @@
 import { RefObject, useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
 import { GenericEventCallback } from "../../types/events";
+import { isClient } from "../../utils/ssr-utils";
 
 const CTRL_OR_META = "ctrlOrMetaKey";
 
@@ -53,7 +54,7 @@ export default function useKeyEvent({
   stopPropagation = false,
   keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
 }: UseKeyEventArgs) {
-  const documentRef = useRef(document.body);
+  const documentRef = useRef(isClient() ? document.body : null);
   const onKeyUpPress = useCallback(
     (event: KeyboardEvent) => {
       const { key } = event;

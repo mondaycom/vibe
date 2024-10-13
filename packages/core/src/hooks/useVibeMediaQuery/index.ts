@@ -1,5 +1,6 @@
-import { useLayoutEffect, useState } from "react";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useState } from "react";
+import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
+import useMediaQuery from "../useMediaQuery";
 import {
   VIBE_MEDIA_QUERIES,
   LARGE,
@@ -15,7 +16,7 @@ export default function useVibeMediaQuery() {
   const [mediaSize, setMediaSize] = useState(SMALL1);
   const [isSmall1, isSmall2, isMedium1, isMedium2, isLarge, isXLarge] = useMediaQuery(VIBE_MEDIA_QUERIES);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (isSmall1) setMediaSize(SMALL1);
     if (isSmall2) setMediaSize(SMALL2);
     if (isMedium1) setMediaSize(MEDIUM1);

@@ -1,22 +1,25 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, useMemo } from "react";
 import { ElementContent } from "../../types";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
 
-export function useEllipsisClass(ref: MutableRefObject<HTMLElement>, ellipsis: boolean, maxLines: number) {
-  let ellipsisClass;
-  const overrideRef = (node: HTMLElement) => {
-    node?.style.setProperty("--text-clamp-lines", maxLines.toString());
-    ref.current = node;
-  };
+export function useEllipsisClass(ellipsis: boolean, maxLines = 1) {
+  const result = useMemo(() => {
+    let ellipsisClass: string;
+    let style: Record<string, string>;
+    // If component contains ellipsis return the fit ellipsis class
+    if (ellipsis) {
+      ellipsisClass = maxLines > 1 ? styles.multiLineEllipsis : styles.singleLineEllipsis;
+      if (maxLines > 1) {
+        // not relevant for single line ellipsis
+        style = { "--text-clamp-lines": maxLines.toString() };
+      }
+    }
 
-  // If component contains ellipsis return the fit ellipsis class
-  if (ellipsis) {
-    ellipsisClass = maxLines > 1 ? styles.multiLineEllipsis : styles.singleLineEllipsis;
-  }
-
-  return { ref: overrideRef, class: ellipsisClass };
+    return { class: ellipsisClass, style };
+  }, [ellipsis, maxLines]);
+  return result;
 }
 
 export function useTooltipProps(

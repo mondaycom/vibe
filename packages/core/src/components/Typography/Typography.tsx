@@ -64,7 +64,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const ignoreHeightOverflow = maxLines === 1;
-    const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
+    const { class: ellipsisClass, style: ellipsisStyle } = useEllipsisClass(ellipsis, maxLines);
     const overrideTooltipProps = useTooltipProps(
       componentRef,
       withoutTooltip,
@@ -81,9 +81,10 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
           element,
           {
             id,
+            style: ellipsisStyle,
             "data-testid": dataTestId,
             className: cx(styles.typography, styles[color], styles[align], ellipsisClass, className),
-            ref: overrideRef,
+            ref: mergedRef,
             role,
             ...htmlAttributes
           },
