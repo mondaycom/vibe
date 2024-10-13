@@ -8,31 +8,43 @@ export default {
   component: VirtualizedGrid
 };
 
-const virtualizedGridTemplate = args => {
-  const [scrollToId, setScrollToId] = useState(null);
-  const [lastScrolledId, setLastScrolledId] = useState(null);
-  const [scrollToDisabled, setScrollToDisabled] = useState(false);
-  const [nextScrollToId, setNextScrollToId] = useState(args.itemsCount - 1);
+interface VirtualizedGridTemplateArgs {
+  wrapperStyle: React.CSSProperties;
+  wrapperId: string;
+  itemsCount: number;
+}
+
+const virtualizedGridTemplate = (args: VirtualizedGridTemplateArgs) => {
+  const [scrollToId, setScrollToId] = useState<number | null>(null);
+  const [lastScrolledId, setLastScrolledId] = useState<string | null>(null);
+  const [scrollToDisabled, setScrollToDisabled] = useState<boolean>(false);
+  const [nextScrollToId, setNextScrollToId] = useState<number>(args.itemsCount - 1);
+
   const getColumnWidth = useCallback(() => {
     return 100;
   }, []);
+
   const getRowHeight = useCallback(() => {
     return 50;
   }, []);
+
   const items = useMemo(() => {
     return generateItems(50, 100, args.itemsCount);
   }, [args.itemsCount]);
+
   const onClickToScroll = useCallback(() => {
     setScrollToId(nextScrollToId);
-    setLastScrolledId("");
+    setLastScrolledId(null);
     setScrollToDisabled(true);
   }, [setScrollToId, setScrollToDisabled, nextScrollToId]);
+
   const onScrollToFinished = useCallback(() => {
-    setLastScrolledId(nextScrollToId);
+    setLastScrolledId(nextScrollToId.toString());
     setScrollToId(null);
     setNextScrollToId(Math.round(Math.random() * items.length));
     setScrollToDisabled(false);
   }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
+
   return (
     <div style={args.wrapperStyle}>
       <div style={{ width: "430px", height: "100%" }}>
