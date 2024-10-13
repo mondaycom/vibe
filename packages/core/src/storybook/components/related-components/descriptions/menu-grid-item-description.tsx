@@ -16,8 +16,7 @@ export const MenuGridItemDescription = () => {
       component={component}
       title="MenuGridItem"
       href="?path=/docs/navigation-menu-menugriditem--docs"
-      description="MenuGridItem can be used to place a grid-like, keyboard navigable container, inside a Menu. The user will be
-able to interact and navigate into and from the grid in a natural way."
+      description="MenuGridItem can be used to place a grid-like, keyboard navigable container, inside a Menu."
     />
   );
 };
