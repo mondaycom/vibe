@@ -7,11 +7,7 @@ export const MenuGridItemDescription = () => {
   const component = useMemo(() => {
     return (
       <MenuGridItem>
-        <DummyNavigableGrid
-          itemsCount={8}
-          numberOfItemsInLine={3}
-          withoutBorder
-        />
+        <DummyNavigableGrid itemsCount={8} numberOfItemsInLine={3} withoutBorder />
       </MenuGridItem>
     );
   }, []);
