@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import DialogContentContainer from "../../../../components/DialogContentContainer/DialogContentContainer";
-import Text from "../../../../components/Text/Text"; 
+import Text from "../../../../components/Text/Text";
 
 export const DialogContentContainerDescription = () => {
   const component = useMemo(() => {
