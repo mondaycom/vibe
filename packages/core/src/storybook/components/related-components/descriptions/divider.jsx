@@ -21,7 +21,7 @@ export const DividerDescription = () => {
         <Divider />
         <Menu>
           <MenuItem
-            title="My Item "
+            title="My Item"
             icon={Bolt}
             iconType={Icon.type.SVG}
             iconBackgroundColor="var(--sb-color-purple)"
