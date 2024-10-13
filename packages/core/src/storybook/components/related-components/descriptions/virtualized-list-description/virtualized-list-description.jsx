@@ -3,6 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import VirtualizedList from "../../../../../components/VirtualizedList/VirtualizedList";
 import { generateItems } from "../../../../../components/VirtualizedList/__stories__/VirtualizedList.stories.helpers";
 import styles from "./virtualized-list.module.scss";
+import { Text } from "src/components";
 
 export const VirtualizedListDescription = () => {
   const component = useMemo(() => {
@@ -10,15 +11,16 @@ export const VirtualizedListDescription = () => {
       const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
       return (
         <div key={index} style={style}>
-          <div
+          <Text
             className={styles.virtualizedListItem}
+            color={Text.colors.FIXED_DARK}
             style={{
               backgroundColor,
               height: item.height
             }}
           >
             {item.value}
-          </div>
+          </Text>
         </div>
       );
     };
