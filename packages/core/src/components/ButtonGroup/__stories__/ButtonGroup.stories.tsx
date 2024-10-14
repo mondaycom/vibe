@@ -172,9 +172,7 @@ export const Size: Story = {
   render: () => (
     <>
       <div className="monday-storybook-button-group_column">
-        <Text type={Text.types.TEXT1} >
-          Medium
-        </Text>
+        <Text type={Text.types.TEXT1}>Medium</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
           size={ButtonGroup.sizes.MEDIUM}
@@ -188,9 +186,7 @@ export const Size: Story = {
         />
       </div>
       <div className="monday-storybook-button-group_column">
-        <Text type={Text.types.TEXT1} >
-          Small
-        </Text>
+        <Text type={Text.types.TEXT1}>Small</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
           size={ButtonGroup.sizes.SMALL}
@@ -210,9 +206,7 @@ export const Size: Story = {
 export const ButtonGroupInSettings: Story = {
   render: () => (
     <div className="monday-storybook-button-group_column">
-      <Text type={Text.types.TEXT1}>
-        Function
-      </Text>
+      <Text type={Text.types.TEXT1}>Function</Text>
       <ButtonGroup
         groupAriaLabel="button group aria label"
         size={ButtonGroup.sizes.SMALL}
