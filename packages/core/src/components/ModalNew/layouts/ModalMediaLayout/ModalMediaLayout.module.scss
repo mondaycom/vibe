@@ -1,0 +1,35 @@
+.layout {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+
+  .media {
+    width: 100%;
+    height: var(--modal-top-media-height, 240px);
+    flex-shrink: 0;
+
+    @media (min-width: 1280px) {
+      --modal-top-media-height: 260px;
+    }
+
+    @media (min-width: 1440px) {
+      --modal-top-media-height: 260px;
+    }
+
+    @media (min-width: 1720px) {
+      --modal-top-media-height: 320px;
+    }
+  }
+
+  .header {
+    width: 100%;
+    margin-block: var(--spacing-large) var(--spacing-small);
+    text-align: center;
+  }
+
+  .content {
+    width: 100%;
+    flex: 1;
+    align-self: flex-start;
+  }
+}
