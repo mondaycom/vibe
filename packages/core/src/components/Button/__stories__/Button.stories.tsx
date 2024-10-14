@@ -6,7 +6,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import Button from "../Button";
 import "./Button.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
-import Text from "../../Text/Text"
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Button>;
 
