@@ -172,7 +172,7 @@ export const Size: Story = {
   render: () => (
     <>
       <div className="monday-storybook-button-group_column">
-        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+        <Text type={Text.types.TEXT1} >
           Medium
         </Text>
         <ButtonGroup
@@ -188,7 +188,7 @@ export const Size: Story = {
         />
       </div>
       <div className="monday-storybook-button-group_column">
-        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+        <Text type={Text.types.TEXT1} >
           Small
         </Text>
         <ButtonGroup
@@ -210,7 +210,7 @@ export const Size: Story = {
 export const ButtonGroupInSettings: Story = {
   render: () => (
     <div className="monday-storybook-button-group_column">
-      <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+      <Text type={Text.types.TEXT1}>
         Function
       </Text>
       <ButtonGroup
