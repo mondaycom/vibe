@@ -17,7 +17,9 @@ describe("ModalHeader", () => {
   const useModalMockedReturnedValue = {
     modalId: "modal-id",
     setTitleId: jest.fn(),
-    setDescriptionId: jest.fn()
+    setDescriptionId: jest.fn(),
+    contentScrolled: false,
+    setContentScrolled: jest.fn()
   };
 
   beforeEach(() => {
