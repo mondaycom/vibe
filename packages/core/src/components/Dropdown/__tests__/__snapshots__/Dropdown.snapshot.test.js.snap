@@ -6,21 +6,6 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -39,7 +24,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
               style="display: inline-block;"
             >
               <input
-                aria-activedescendant="react-select-29-option-0"
+                aria-activedescendant="react-select-30-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
                 aria-expanded="true"
@@ -47,7 +32,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-29-input"
+                id="react-select-30-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -101,7 +86,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-1iwu591-option"
-          id="react-select-29-option-0"
+          id="react-select-30-option-0"
           role="option"
           tabindex="-1"
         >
@@ -120,7 +105,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-qj04r2-option"
-          id="react-select-29-option-1"
+          id="react-select-30-option-1"
           role="option"
           tabindex="-1"
         >
@@ -139,7 +124,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-29-option-2"
+          id="react-select-30-option-2"
           role="option"
           tabindex="-1"
         >
@@ -158,7 +143,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-29-option-3"
+          id="react-select-30-option-3"
           role="option"
           tabindex="-1"
         >
@@ -177,7 +162,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-29-option-4"
+          id="react-select-30-option-4"
           role="option"
           tabindex="-1"
         >
@@ -196,7 +181,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-29-option-5"
+          id="react-select-30-option-5"
           role="option"
           tabindex="-1"
         >
@@ -224,21 +209,6 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
@@ -265,7 +235,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-28-input"
+                id="react-select-29-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -649,7 +619,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
         class=" css-11nd28h-control"
       >
         <div
-          class=" css-j6eacz-ValueContainer"
+          class=" css-1ht1nal-Component"
         >
           <div
             class=" css-1usuuna-placeholder"
@@ -670,7 +640,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-2-input"
+                id="react-select-28-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -685,24 +655,24 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           </div>
         </div>
         <div
-          class=" css-hcxwnl-IndicatorsContainer"
+          class=" css-1aqjfd-Component"
         >
           <div
             aria-hidden="true"
             class=" css-1xh8qep-loadingIndicator"
           >
             <span
-              class="css-1yvy2vo-LoadingDot"
+              class="css-imwzes-Component"
             />
             <span
-              class="css-zoievk-LoadingDot"
+              class="css-1ue98e-Component"
             />
             <span
-              class="css-x748d8-LoadingDot"
+              class="css-fwsb3e-Component"
             />
           </div>
           <span
-            class=" css-1xjgjl1-IndicatorSeparator"
+            class=" css-ds71as-Component"
           />
           <div
             aria-hidden="true"
@@ -739,21 +709,6 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-          option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-      </span>
-    </span>
     <div>
       <div
         class=" css-11nd28h-control"
