@@ -129,7 +129,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
             <p
               class="typography onInverted start text text2Normal tipseenContent"
               data-testid="text"
-              style="--text-clamp-lines: 1;"
             >
               content
             </p>
@@ -196,7 +195,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
           <p
             class="typography onInverted start text text2Normal tipseenContent"
             data-testid="text"
-            style="--text-clamp-lines: 1;"
           >
             content
           </p>
@@ -234,7 +232,6 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
             <p
               class="typography onInverted start text text2Normal tipseenContent"
               data-testid="text"
-              style="--text-clamp-lines: 1;"
             >
               content
             </p>
