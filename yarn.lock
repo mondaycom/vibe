@@ -17709,10 +17709,10 @@ react-select@3.1.0:
     react-input-autosize "^2.2.2"
     react-transition-group "^4.3.0"
 
-react-select@^3.2.0:
+"react-select@npm:react-select-module@^3.2.0":
   version "3.2.0"
-  resolved "https://registry.npmjs.org/react-select/-/react-select-3.2.0.tgz#de9284700196f5f9b5277c5d850a9ce85f5c72fe"
-  integrity sha512-B/q3TnCZXEKItO0fFN/I0tWOX3WJvi/X2wtdffmwSQVRwg5BpValScTO1vdic9AxlUgmeSzib2hAZAwIUQUZGQ==
+  resolved "https://registry.npmjs.org/react-select-module/-/react-select-module-3.2.0.tgz#6b5d7ca3f34263d5f38964717eec1aeff9d3fb2a"
+  integrity sha512-/QzlIfprXeIe89NT1I8Xv9kIiSKtv15crkV8hSH0vidDL/Mh1LbbK2Fhn+/qP1wWlLNDcdgfCH+aldt6jxT1XA==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@emotion/cache" "^10.0.9"
