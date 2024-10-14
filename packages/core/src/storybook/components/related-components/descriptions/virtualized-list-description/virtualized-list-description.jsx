@@ -3,7 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import VirtualizedList from "../../../../../components/VirtualizedList/VirtualizedList";
 import { generateItems } from "../../../../../components/VirtualizedList/__stories__/VirtualizedList.stories.helpers";
 import styles from "./virtualized-list.module.scss";
-import { Text } from "src/components";
+import { Text } from "../../../../../components/Text";
 
 export const VirtualizedListDescription = () => {
   const component = useMemo(() => {
