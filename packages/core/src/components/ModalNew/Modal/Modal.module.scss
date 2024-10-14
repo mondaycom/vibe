@@ -5,6 +5,10 @@
 }
 
 .modal {
+  --top-actions-spacing: var(--spacing-large);
+  --top-actions-width: var(--spacing-xl);
+  --modal-inline-padding: var(--spacing-xl);
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -18,6 +22,10 @@
   overflow: hidden;
   border-radius: var(--border-radius-big);
   box-shadow: var(--box-shadow-large);
+
+  &.withHeaderAction {
+    --top-actions-width: calc(var(--spacing-xl) * 2);
+  }
 
   &.sizeSmall {
     --modal-max-height: 50%;
