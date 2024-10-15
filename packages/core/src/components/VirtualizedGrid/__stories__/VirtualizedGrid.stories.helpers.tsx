@@ -1,15 +1,9 @@
 import React, { ComponentType } from "react";
 import { GridChildComponentProps } from "react-window";
+import { VirtualizedListItem } from "/workspaces/vibe/packages/core/src/components/VirtualizedList/VirtualizedList"
 
-type ItemType = {
-  value: string;
-  height: number;
-  width: number;
-  id: string;
-};
-
-export const generateItems = (height = 30, width = 100, itemsCount: number): ItemType[] => {
-  const items: ItemType[] = [];
+export const generateItems = (height = 30, width = 100, itemsCount: number): VirtualizedListItem[] => {
+  const items: VirtualizedListItem[] = [];
   for (let i = 0; i < itemsCount; i++) {
     items.push({ value: `Item ${i}`, height, width, id: `${i}` });
   }
@@ -17,10 +11,10 @@ export const generateItems = (height = 30, width = 100, itemsCount: number): Ite
 };
 
 export const itemRenderer = (
-  item: ItemType,
+  item: VirtualizedListItem,
   index: number,
   style: React.CSSProperties
-): JSX.Element | ComponentType<GridChildComponentProps<ItemType>> => {
+): JSX.Element | ComponentType<GridChildComponentProps<VirtualizedListItem>> => {
   if (item) {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
