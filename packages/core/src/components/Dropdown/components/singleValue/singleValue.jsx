@@ -1,8 +1,10 @@
 import React from "react";
 import cx from "classnames";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import styles from "./singleValue.module.scss";
+
+const { components } = ReactSelectPackage;
 
 const SingleValue = ({ Renderer, data, children, readOnly, singleValueWrapperClassName, ...props }) => {
   const rendererProps = { children, readOnly, data, ...props };

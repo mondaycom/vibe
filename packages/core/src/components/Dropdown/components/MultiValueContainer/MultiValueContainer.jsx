@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
 import Counter from "../../../Counter/Counter";
@@ -8,6 +8,7 @@ import DialogContentContainer from "../../../DialogContentContainer/DialogConten
 import Chips from "../../../Chips/Chips";
 import classes from "./MultiValueContainer.module.scss";
 
+const { components } = ReactSelectPackage;
 const DIALOG_OFFSET_Y = 5;
 
 export default function Container({ children, selectProps, ...otherProps }) {

@@ -1,5 +1,7 @@
 import React from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
+
+const { components } = ReactSelectPackage;
 
 const MultiValue = props => {
   const { Renderer, data } = props;

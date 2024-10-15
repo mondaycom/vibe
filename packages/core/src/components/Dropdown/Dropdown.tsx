@@ -2,7 +2,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
-import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
 import { noop as NOOP } from "lodash-es";
@@ -37,6 +37,10 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
+import type { InputProps, ActionMeta } from "react-select";
+
+const Select = ReactSelectPackage.default;
+const { components, createFilter } = ReactSelectPackage;
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   sizes?: typeof BaseSizes;

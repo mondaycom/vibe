@@ -1,7 +1,9 @@
 import cx from "classnames";
 import React from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import styles from "./menu.module.scss";
+
+const { components } = ReactSelectPackage;
 
 const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, id, ariaLabel, ...props }) => {
   const rendererProps = {

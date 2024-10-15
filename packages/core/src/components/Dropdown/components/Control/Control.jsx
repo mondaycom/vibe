@@ -1,6 +1,8 @@
 import React from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import Tooltip from "../../../Tooltip/Tooltip";
+
+const { components } = ReactSelectPackage;
 
 const Control = props => {
   const { selectProps } = props;

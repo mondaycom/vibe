@@ -1,8 +1,10 @@
 import React from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import Icon from "../../../Icon/Icon";
 import { DropdownChevronDown } from "@vibe/icons";
 import { getIndicatorSize } from "../../Dropdown.styles";
+
+const { components } = ReactSelectPackage;
 
 const DropdownIndicator = props => {
   const { isDisabled, size } = props;

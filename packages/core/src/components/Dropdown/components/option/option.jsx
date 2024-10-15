@@ -1,9 +1,11 @@
 import cx from "classnames";
 import React, { useEffect } from "react";
-import { components } from "react-select";
+import * as ReactSelectPackage from "react-select";
 import Tooltip from "../../../Tooltip/Tooltip";
 import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import styles from "./option.module.scss";
+
+const { components } = ReactSelectPackage;
 
 const Option = ({ Renderer, data, children, setFocusedOptionId, optionWrapperClassName, ...props }) => {
   const tooltipProps = data?.tooltipProps || {};
