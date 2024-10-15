@@ -11,7 +11,7 @@ import Button from "../../../components/Button/Button";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 
 export default {
-  title: "Technical Patterns/Dropdowns inside pop-overs",
+  title: "Technical Patterns/Dropdowns inside pop-overs"
 };
 
 export const ModalWithDamagedDropdown: React.FC = () => {
@@ -36,7 +36,7 @@ export const ModalWithDamagedDropdown: React.FC = () => {
     { value: "12", label: "Option 12" },
     { value: "13", label: "Option 13" },
     { value: "14", label: "Option 14" },
-    { value: "15", label: "Option 15" },
+    { value: "15", label: "Option 15" }
   ];
 
   return (
@@ -74,7 +74,7 @@ export const MenuPosition: React.FC = () => {
       { value: "12", label: "Option 12" },
       { value: "13", label: "Option 13" },
       { value: "14", label: "Option 14" },
-      { value: "15", label: "Option 15" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
@@ -82,24 +82,21 @@ export const MenuPosition: React.FC = () => {
   const dialogStyle: React.CSSProperties = {
     width: "350px",
     height: "200px",
-    overflow: "auto",
+    overflow: "auto"
   };
 
   const modifiers = [
     {
       name: "preventOverflow",
-      options: { mainAxis: false },
-    },
+      options: { mainAxis: false }
+    }
   ];
 
   return (
     <Flex gap={Flex.gaps.LARGE}>
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box
-          marginTop={Box.marginTops.MEDIUM}
-          marginBottom={Box.marginBottoms.XXL}
-        >
+        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
           <Dropdown
             placeholder="Dropdown inside DialogContentContainer"
             options={options}
@@ -111,11 +108,7 @@ export const MenuPosition: React.FC = () => {
         <Button onClick={() => setShow(true)}>Open Modal</Button>
         <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
           <ModalContent>
-            <Dropdown
-              placeholder="Dropdown"
-              options={options}
-              menuPosition={Dropdown.menuPositions.FIXED}
-            />
+            <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
           </ModalContent>
         </Modal>
       </div>
@@ -126,15 +119,8 @@ export const MenuPosition: React.FC = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box
-              marginTop={Box.marginTops.MEDIUM}
-              marginBottom={Box.marginBottoms.XXL}
-            >
-              <Dropdown
-                placeholder="Dropdown"
-                options={options}
-                menuPosition={Dropdown.menuPositions.FIXED}
-              />
+            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+              <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
             </Box>
           </DialogContentContainer>
         }
@@ -170,7 +156,7 @@ export const InsideOverflowContainer: React.FC = () => {
       { value: "12", label: "Option 12" },
       { value: "13", label: "Option 13" },
       { value: "14", label: "Option 14" },
-      { value: "15", label: "Option 15" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
@@ -178,29 +164,22 @@ export const InsideOverflowContainer: React.FC = () => {
   const modifiers = [
     {
       name: "preventOverflow",
-      options: { mainAxis: false },
-    },
+      options: { mainAxis: false }
+    }
   ];
 
   const dialogStyle: React.CSSProperties = {
     width: "350px",
     height: "200px",
-    overflow: "auto",
+    overflow: "auto"
   };
 
   return (
     <Flex gap={Flex.gaps.LARGE}>
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box
-          marginTop={Box.marginTops.MEDIUM}
-          marginBottom={Box.marginBottoms.XXL}
-        >
-          <Dropdown
-            placeholder="Dropdown inside DialogContentContainer"
-            options={options}
-            insideOverflowContainer
-          />
+        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+          <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} insideOverflowContainer />
         </Box>
       </DialogContentContainer>
       <div>
@@ -218,15 +197,8 @@ export const InsideOverflowContainer: React.FC = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box
-              marginTop={Box.marginTops.MEDIUM}
-              marginBottom={Box.marginBottoms.XXL}
-            >
-              <Dropdown
-                placeholder="Dropdown"
-                options={options}
-                insideOverflowContainer
-              />
+            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+              <Dropdown placeholder="Dropdown" options={options} insideOverflowContainer />
             </Box>
           </DialogContentContainer>
         }
@@ -254,7 +226,7 @@ export const InsideOverflowWithTransformContainer: React.FC = () => {
       { value: "12", label: "Option 12" },
       { value: "13", label: "Option 13" },
       { value: "14", label: "Option 14" },
-      { value: "15", label: "Option 15" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
@@ -262,21 +234,14 @@ export const InsideOverflowWithTransformContainer: React.FC = () => {
   const dialogStyle: React.CSSProperties = {
     width: "300px",
     height: "200px",
-    overflow: "auto",
+    overflow: "auto"
   };
 
   const secondDialogContent = (
     <DialogContentContainer style={dialogStyle}>
       <ModalExampleContent />
-      <Box
-        marginTop={Box.marginTops.MEDIUM}
-        marginBottom={Box.marginBottoms.XXL}
-      >
-        <Dropdown
-          placeholder="Dropdown"
-          options={options}
-          insideOverflowWithTransformContainer
-        />
+      <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Dropdown placeholder="Dropdown" options={options} insideOverflowWithTransformContainer />
       </Box>
     </DialogContentContainer>
   );
