@@ -10,7 +10,7 @@ export interface ToggleTextProps extends VibeComponentProps {
 }
 
 const ToggleText: FC<ToggleTextProps> = ({ children, disabled }) => (
-  <Text element="span" type={Text.types.TEXT2} className={cx(styles.text, { [styles.disabled]: disabled })}>
+  <Text element="span" type="text2" className={cx(styles.text, { [styles.disabled]: disabled })}>
     {children}
   </Text>
 );

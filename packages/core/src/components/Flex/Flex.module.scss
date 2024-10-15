@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
+
   &.justify {
     &Start {
       justify-content: flex-start;
@@ -25,6 +26,7 @@
       justify-content: initial;
     }
   }
+
   &.align {
     &Start {
       align-items: flex-start;
@@ -55,6 +57,7 @@
       flex-direction: column;
     }
   }
+
   &.wrap {
     flex-wrap: wrap;
   }

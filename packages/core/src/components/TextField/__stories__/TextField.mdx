@@ -23,6 +23,12 @@ An input field includes a label and a text field users can type text into. They 
 
 <Canvas of={TextFieldStories.Overview} />
 
+### Import
+
+```js
+import { TextField } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -65,7 +71,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       positive: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:
@@ -74,11 +80,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       negative: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField
-              title="What is your email address?"
-              placeholder="email@monday.com"
-              size={TextField.sizes.MEDIUM}
-            />
+            <TextField title="What is your email address?" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:
@@ -89,7 +91,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       positive: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
         description:
@@ -98,7 +100,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       negative: {
         component: (
           <div className="monday-storybook-text-field_size">
-            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            <TextField title="Email" placeholder="email@monday.com" size="medium" />
             For example: email@monday.com
           </div>
         ),
@@ -122,8 +124,6 @@ Users can insert text.
 <Canvas of={TextFieldStories.InputFieldWithPlaceholderText} />
 
 ### Required input field
-
-Use the <code>requiredAsterisk</code> prop to indicate that a field is required. When set to <code>true</code>, an asterisk (\*) will appear next to the label.
 
 <Canvas of={TextFieldStories.RequiredInputField} />
 

@@ -40,8 +40,8 @@ describe("ButtonGroup renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with componentClassName", () => {
-    const tree = renderer.create(<ButtonGroup componentClassName="testClassName" options={option} />).toJSON();
+  it("with className", () => {
+    const tree = renderer.create(<ButtonGroup className="testClassName" options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

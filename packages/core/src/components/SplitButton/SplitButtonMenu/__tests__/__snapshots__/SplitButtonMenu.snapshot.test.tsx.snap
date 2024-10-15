@@ -26,13 +26,6 @@ exports[`SplitButtonMenu renders correctly 1`] = `
     >
       Test 1
     </div>
-    <div
-      aria-hidden={true}
-      className="hiddenTitle"
-      tabIndex={-1}
-    >
-      Test 1
-    </div>
   </li>
   <li
     aria-current={false}
@@ -45,13 +38,6 @@ exports[`SplitButtonMenu renders correctly 1`] = `
   >
     <div
       className="title"
-    >
-      Test 2
-    </div>
-    <div
-      aria-hidden={true}
-      className="hiddenTitle"
-      tabIndex={-1}
     >
       Test 2
     </div>

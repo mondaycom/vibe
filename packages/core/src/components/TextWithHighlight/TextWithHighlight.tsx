@@ -6,8 +6,8 @@ import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { DialogPosition } from "../../constants";
 import styles from "./TextWithHighlight.module.scss";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 const getTextPart = (
   text: string,
@@ -44,7 +44,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   /** HTML tag to wrap the selected text */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
   wrappingElementClassName?: string;
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositions;
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
@@ -64,7 +64,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       wrappingTextTag = "em",
       wrappingElementClassName,
       "data-testid": dataTestId
-    },
+    }: TextWithHighlightProps,
     ref
   ) => {
     const componentRef = useRef(null);

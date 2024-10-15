@@ -1,0 +1,8 @@
+import { VibeComponentProps } from "../../types";
+
+export interface {{properCase componentName}}Props extends VibeComponentProps {
+  /**
+   * some custom prop
+   */
+  customProp?: string;
+}

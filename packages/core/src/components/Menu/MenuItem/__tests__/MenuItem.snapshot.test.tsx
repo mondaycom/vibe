@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
-import { Activity } from "../../../Icon/Icons";
+import { Activity } from "@vibe/icons";
 
 describe("Snapshots", () => {
   it("renders correctly with empty props", () => {

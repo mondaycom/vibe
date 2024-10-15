@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../../Button/Button";
 import styles from "./YearPicker.module.scss";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const NOOP = () => {};
 
 export interface YearsListProps {

@@ -9,7 +9,6 @@
   overflow: hidden;
 
   &.scrollable {
-    /* TODO: make default in the next major version */
     overflow: auto;
     @include scroller;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface ITableRowMenuContext {
+export interface TableRowMenuContext {
   hoveredRowId: string;
   resetHoveredRow: () => void;
   onMouseOverRow: (rowRef: React.MutableRefObject<HTMLDivElement>) => void;
@@ -12,6 +12,6 @@ export interface ITableRowMenuContext {
   setTableMenuHidden: () => void;
 }
 
-export type ITableRowMenuProviderProps = {
+export type TableRowMenuProviderProps = {
   children: React.ReactNode;
 };

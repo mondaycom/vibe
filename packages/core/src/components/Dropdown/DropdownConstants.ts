@@ -7,17 +7,26 @@ export const DROPDOWN_MENU_ID = "dropdown-menu-list-id";
 export const DROPDOWN_MENU_ARIA_LABEL = "Dropdown menu";
 export const DROPDOWN_INPUT_ARIA_LABEL = "Dropdown input";
 
+/**
+ * @deprecated
+ */
 export const DROPDOWN_CHIP_COLORS = {
-  PRIMARY: "PRIMARY",
-  NEGATIVE: "NEGATIVE",
-  POSITIVE: "POSITIVE"
+  PRIMARY: "primary",
+  NEGATIVE: "negative",
+  POSITIVE: "positive"
 };
 
+/**
+ * @deprecated
+ */
 export const DROPDOWN_MENU_POSITION = {
   ABSOLUTE: "absolute",
   FIXED: "fixed"
 };
 
+/**
+ * @deprecated
+ */
 export const DROPDOWN_MENU_PLACEMENT = {
   TOP: "top",
   BOTTOM: "bottom",

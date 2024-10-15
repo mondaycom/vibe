@@ -3,7 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import Button from "../../../../components/Button/Button";
 
 export const ButtonDescription = () => {
-  const component = useMemo(() => <Button size={Button.sizes.LARGE}>Get started</Button>, []);
+  const component = useMemo(() => <Button size="large">Get started</Button>, []);
   return (
     <RelatedComponent
       component={component}

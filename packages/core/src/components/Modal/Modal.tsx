@@ -6,13 +6,20 @@ import ModalContent from "./ModalContent/ModalContent";
 import ModalHeader from "./ModalHeader/ModalHeader";
 import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
-import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
+import {
+  isModalContent,
+  isModalFooter,
+  isModalHeader,
+  ModalWidth as ModalWidthEnum,
+  validateTitleProp
+} from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
-import { useWarnDeprecated } from "../../utils/warn-deprecated";
+import { ModalWidth } from "./Modal.types";
+import LayerProvider from "../LayerProvider/LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 
 export interface ModalProps {
@@ -49,11 +56,7 @@ export interface ModalProps {
   /**
    *  Set the modal's width. Can be one of the presets or any custom size
    */
-  width?: typeof ModalWidth | string;
-  /**
-   * @deprecated
-   */
-  hideCloseButton?: boolean;
+  width?: ModalWidth | string;
   /**
    *  Aria label for the close button
    */
@@ -79,12 +82,12 @@ export interface ModalProps {
    */
   zIndex?: number;
   /**
-   * If true, the modal will unmount when it's not shown
+   * When `false`, the modal will remain in the DOM when closed
    */
   unmountOnClose?: boolean;
 }
 
-const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
+const Modal: FC<ModalProps> & { width?: typeof ModalWidthEnum } = ({
   classNames = { container: "", overlay: "", modal: "" },
   id,
   show,
@@ -94,23 +97,13 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   alertDialog = false,
   children,
   triggerElement,
-  width = ModalWidth.DEFAULT,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton = false,
+  width = "default",
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,
-  unmountOnClose,
+  unmountOnClose = true,
   "data-testid": dataTestId
-}) => {
-  useWarnDeprecated({
-    component: "Modal",
-    condition: unmountOnClose === undefined,
-    message:
-      'The "unmountOnClose" prop will be set to default in the next major version, i.e. the modal will not render when "show" is set to false, which is the recommended behavior. To keep the existing behavior regardless, set "unmountOnClose" to false.'
-  });
-
+}: ModalProps) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
     [children]
@@ -169,35 +162,37 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     return childrenArray.find(isModalFooter) || null;
   }, [childrenArray]);
 
-  const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
+  const customWidth = width !== "default" && width !== "full-width";
 
   const dialog = (
-    <div
-      {...attr.container}
-      className={cx(styles.container, classNames.container)}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-      style={{ "--monday-modal-z-index": zIndex }}
-    >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+    <LayerProvider layerRef={{ current: instance?.$el }}>
       <div
-        onClick={closeIfNotAlertType}
-        className={cx(styles.overlay, classNames.overlay)}
-        data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
-      />
-      <div
-        {...attr.dialog}
-        className={cx(styles.dialog, classNames.modal, {
-          [styles.default]: width === ModalWidth.DEFAULT,
-          [styles.full]: width === ModalWidth.FULL_WIDTH,
-          [styles.spacing]: contentSpacing
-        })}
-        style={{ width: customWidth ? width : null }}
+        {...attr.container}
+        className={cx(styles.container, classNames.container)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+        style={{ "--monday-modal-z-index": zIndex }}
       >
-        {header}
-        {content}
-        {footer}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <div
+          onClick={closeIfNotAlertType}
+          className={cx(styles.overlay, classNames.overlay)}
+          data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
+        />
+        <div
+          {...attr.dialog}
+          className={cx(styles.dialog, classNames.modal, {
+            [styles.default]: width === "default",
+            [styles.full]: width === "full-width",
+            [styles.spacing]: contentSpacing
+          })}
+          style={{ width: customWidth ? width : null }}
+        >
+          {header}
+          {content}
+          {footer}
+        </div>
       </div>
-    </div>
+    </LayerProvider>
   );
 
   if (unmountOnClose && !shouldShow) {
@@ -207,5 +202,5 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
 };
 
 export default withStaticProps(Modal, {
-  width: ModalWidth
+  width: ModalWidthEnum
 });

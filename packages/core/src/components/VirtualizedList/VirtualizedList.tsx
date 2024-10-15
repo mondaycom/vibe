@@ -13,7 +13,6 @@ import React, {
 } from "react";
 import { noop as NOOP } from "lodash-es";
 import {
-  Layout,
   ScrollDirection,
   VariableSizeList as List,
   ListOnItemsRenderedProps,
@@ -36,14 +35,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import styles from "./VirtualizedList.module.scss";
-
-export type VirtualizedListItem = {
-  value?: string | Record<string, unknown>;
-  height?: number;
-  width?: number;
-  id?: string;
-  offsetTop?: number;
-};
+import { VirtualizedListItem, VirtualizedListLayout, VirtualizedListScrollDirection } from "./VirtualizedList.types";
 
 export interface VirtualizedListProps extends VibeComponentProps {
   /**
@@ -56,7 +48,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    * - "vertical" (default) - Up/down scrolling.
    * - "horizontal" - Left/right scrolling.
    */
-  layout?: Layout;
+  layout?: VirtualizedListLayout;
   /**
    * A list of items to be rendered
    */
@@ -136,7 +128,11 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   scrollToId?: string;
   virtualListRef?: ForwardedRef<HTMLElement>;
-  onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
+  onScroll?: (
+    horizontalScrollDirection: VirtualizedListScrollDirection,
+    scrollTop: number,
+    scrollUpdateWasRequested: boolean
+  ) => void;
 }
 
 const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
@@ -145,7 +141,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       className,
       id,
       items = [],
-      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item,
+      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item as ReactElement,
       getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
       getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
@@ -165,7 +161,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       role,
       style,
       "data-testid": dataTestId
-    },
+    }: VirtualizedListProps,
     ref
   ) => {
     // states

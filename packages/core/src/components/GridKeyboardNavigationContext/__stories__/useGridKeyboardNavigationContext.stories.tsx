@@ -71,12 +71,7 @@ export const DisabledElements = {
 
     return (
       <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-        <Flex
-          ref={wrapperRef}
-          direction={Flex.directions.COLUMN}
-          justify={Flex.align.CENTER}
-          className="use-grid-keyboard-dummy-grid-wrapper"
-        >
+        <Flex ref={wrapperRef} direction="column" justify="center" className="use-grid-keyboard-dummy-grid-wrapper">
           <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T" />
           <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M" disabled />
           <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B" />
@@ -106,7 +101,7 @@ export const MultipleDepths = {
 
     return (
       <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-        <Flex id="twoGridLayoutsWrapper" ref={wrapperRef} direction={Flex.directions.COLUMN} tabIndex={-1}>
+        <Flex id="twoGridLayoutsWrapper" ref={wrapperRef} direction="column" tabIndex={-1}>
           <LayoutWithInnerKeyboardNavigation id="gridLayoutTop" itemPrefix="T" ref={topElRef} />
           <LayoutWithInnerKeyboardNavigation id="gridLayoutBottom" itemPrefix="B" ref={bottomElRef} />
         </Flex>

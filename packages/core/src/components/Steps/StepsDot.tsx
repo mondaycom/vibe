@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { noop as NOOP, camelCase } from "lodash-es";
-import { StepsColor, StepsDotAriaCurrent } from "./StepsConstants";
+import { StepsColor, StepsDotAriaCurrent } from "./Steps.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import React, { FC } from "react";
 import styles from "./StepsDot.module.scss";
@@ -17,11 +17,11 @@ export interface StepsDotProps extends VibeComponentProps {
 export const StepsDot: FC<StepsDotProps> = ({
   isActive,
   onClick = NOOP,
-  ariaCurrent = StepsDotAriaCurrent.STEP,
+  ariaCurrent = "step",
   ariaLabel,
   color,
   className
-}) => {
+}: StepsDotProps) => {
   return (
     <button
       type="button"

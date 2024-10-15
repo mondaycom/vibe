@@ -23,14 +23,14 @@ describe("Snapshots", () => {
   });
 
   it("renders correctly with custom class name", () => {
-    const tree = renderer.create(<Menu classname="dummy-class-name" />).toJSON();
+    const tree = renderer.create(<Menu className="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with children", () => {
     const tree = renderer
       .create(
-        <Menu classname="dummy-class-name" focusItemIndexOnMount={0}>
+        <Menu className="dummy-class-name" focusItemIndexOnMount={0}>
           <MenuTitle caption="my title" />
           <MenuItem title="item 1" />
           <Divider />

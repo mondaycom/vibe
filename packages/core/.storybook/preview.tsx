@@ -1,8 +1,8 @@
 import React from "react";
 import * as VibeComponents from "../src/components";
-import * as VibeComponentsNext from "../src/next";
+import * as VibeComponentsNext from "../src/components/next";
 import * as VibeHooks from "../src/hooks";
-import * as VibeIcons from "../src/components/Icon/Icons";
+import * as VibeIcons from "@vibe/icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -100,8 +100,9 @@ const preview: Preview = {
         order: [
           "Welcome",
           "Catalog",
-          "Change Log",
-          "Typography Migration Guide",
+          "Changelog",
+          "Migration Guide",
+          "Playground",
           "Internal",
           "Foundations",
           "Buttons",
