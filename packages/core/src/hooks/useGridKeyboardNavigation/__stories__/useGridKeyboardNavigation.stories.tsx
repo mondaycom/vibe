@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import cx from "classnames";
 import { range } from "lodash-es";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
-import Button from "../../../components/Button/Button";
+import Button from "../../../../src/components/Button/Button";
 import "./useGridKeyboardNavigation.stories.scss";
 
 const ELEMENT_WIDTH_PX = 72;
