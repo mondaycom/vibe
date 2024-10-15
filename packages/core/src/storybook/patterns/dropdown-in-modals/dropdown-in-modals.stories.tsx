@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
-import {DropdownOption} from "../../../components/Dropdown/Dropdown.types";
+import { DropdownOption } from "../../../components/Dropdown/Dropdown.types";
 import Modal from "../../../components/Modal/Modal";
 import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";
@@ -58,23 +58,26 @@ export const MenuPosition: React.FC = () => {
     setShow(false);
   }, [setShow]);
 
-  const options: DropdownOption[] = useMemo(() => [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-    { value: "4", label: "Option 4" },
-    { value: "5", label: "Option 5" },
-    { value: "6", label: "Option 6" },
-    { value: "7", label: "Option 7" },
-    { value: "8", label: "Option 8" },
-    { value: "9", label: "Option 9" },
-    { value: "10", label: "Option 10" },
-    { value: "11", label: "Option 11" },
-    { value: "12", label: "Option 12" },
-    { value: "13", label: "Option 13" },
-    { value: "14", label: "Option 14" },
-    { value: "15", label: "Option 15" },
-  ], []);
+  const options: DropdownOption[] = useMemo(
+    () => [
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" },
+    ],
+    []
+  );
 
   const dialogStyle: React.CSSProperties = {
     width: "350px",
@@ -93,7 +96,10 @@ export const MenuPosition: React.FC = () => {
     <Flex gap={Flex.gaps.LARGE}>
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box
+          marginTop={Box.marginTops.MEDIUM}
+          marginBottom={Box.marginBottoms.XXL}
+        >
           <Dropdown
             placeholder="Dropdown inside DialogContentContainer"
             options={options}
@@ -120,7 +126,10 @@ export const MenuPosition: React.FC = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box
+              marginTop={Box.marginTops.MEDIUM}
+              marginBottom={Box.marginBottoms.XXL}
+            >
               <Dropdown
                 placeholder="Dropdown"
                 options={options}
@@ -145,23 +154,26 @@ export const InsideOverflowContainer: React.FC = () => {
     setShow(false);
   }, [setShow]);
 
-  const options: DropdownOption[] = useMemo(() => [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-    { value: "4", label: "Option 4" },
-    { value: "5", label: "Option 5" },
-    { value: "6", label: "Option 6" },
-    { value: "7", label: "Option 7" },
-    { value: "8", label: "Option 8" },
-    { value: "9", label: "Option 9" },
-    { value: "10", label: "Option 10" },
-    { value: "11", label: "Option 11" },
-    { value: "12", label: "Option 12" },
-    { value: "13", label: "Option 13" },
-    { value: "14", label: "Option 14" },
-    { value: "15", label: "Option 15" },
-  ], []);
+  const options: DropdownOption[] = useMemo(
+    () => [
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" },
+    ],
+    []
+  );
 
   const modifiers = [
     {
@@ -180,7 +192,10 @@ export const InsideOverflowContainer: React.FC = () => {
     <Flex gap={Flex.gaps.LARGE}>
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box
+          marginTop={Box.marginTops.MEDIUM}
+          marginBottom={Box.marginBottoms.XXL}
+        >
           <Dropdown
             placeholder="Dropdown inside DialogContentContainer"
             options={options}
@@ -203,7 +218,10 @@ export const InsideOverflowContainer: React.FC = () => {
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box
+              marginTop={Box.marginTops.MEDIUM}
+              marginBottom={Box.marginBottoms.XXL}
+            >
               <Dropdown
                 placeholder="Dropdown"
                 options={options}
@@ -220,23 +238,26 @@ export const InsideOverflowContainer: React.FC = () => {
 };
 
 export const InsideOverflowWithTransformContainer: React.FC = () => {
-  const options: DropdownOption[] = useMemo(() => [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-    { value: "4", label: "Option 4" },
-    { value: "5", label: "Option 5" },
-    { value: "6", label: "Option 6" },
-    { value: "7", label: "Option 7" },
-    { value: "8", label: "Option 8" },
-    { value: "9", label: "Option 9" },
-    { value: "10", label: "Option 10" },
-    { value: "11", label: "Option 11" },
-    { value: "12", label: "Option 12" },
-    { value: "13", label: "Option 13" },
-    { value: "14", label: "Option 14" },
-    { value: "15", label: "Option 15" },
-  ], []);
+  const options: DropdownOption[] = useMemo(
+    () => [
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" },
+    ],
+    []
+  );
 
   const dialogStyle: React.CSSProperties = {
     width: "300px",
@@ -247,8 +268,15 @@ export const InsideOverflowWithTransformContainer: React.FC = () => {
   const secondDialogContent = (
     <DialogContentContainer style={dialogStyle}>
       <ModalExampleContent />
-      <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-        <Dropdown placeholder="Dropdown" options={options} insideOverflowWithTransformContainer />
+      <Box
+        marginTop={Box.marginTops.MEDIUM}
+        marginBottom={Box.marginBottoms.XXL}
+      >
+        <Dropdown
+          placeholder="Dropdown"
+          options={options}
+          insideOverflowWithTransformContainer
+        />
       </Box>
     </DialogContentContainer>
   );
