@@ -16,8 +16,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "yarn": "^1.22.22"
-  }
+  ]
 }
