@@ -3,12 +3,13 @@ import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Clickable from "../../../../../components/Clickable/Clickable";
 import classes from "./clickable-description.stories.module.scss";
+import { Text } from "../../../../../components";
 
 export const ClickableDescription = () => {
   const component = useMemo(() => {
     return (
       <Clickable className={classes["clickable-description"]} onClick={() => alert("clicked")}>
-        <div>Button with custom appearance</div>
+        <Text ellipsis={false}>Button with custom appearance</Text>
       </Clickable>
     );
   }, []);
