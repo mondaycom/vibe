@@ -1,6 +1,7 @@
 import React, { ComponentType } from "react";
 import { GridChildComponentProps } from "react-window";
-import { VirtualizedListItem } from "/workspaces/vibe/packages/core/src/components/VirtualizedList/VirtualizedList"
+import { VirtualizedListItem } from "/workspaces/vibe/packages/core/src/components/VirtualizedList/VirtualizedList";
+import { Text } from "../../Text";
 
 export const generateItems = (height = 30, width = 100, itemsCount: number): VirtualizedListItem[] => {
   const items: VirtualizedListItem[] = [];
@@ -19,7 +20,8 @@ export const itemRenderer = (
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
-        <div
+        <Text
+          color={Text.colors.FIXED_DARK}
           style={{
             backgroundColor,
             height: item.height,
@@ -30,7 +32,7 @@ export const itemRenderer = (
           }}
         >
           {item.value}
-        </div>
+        </Text>
       </div>
     );
   }
