@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import VirtualizedList from "../VirtualizedList";
+import VirtualizedList, { VirtualizedListItem, VirtualizedListProps } from "../VirtualizedList";
 import { generateItems } from "./VirtualizedList.stories.helpers";
-import { Flex } from "../../";
+import { Flex } from "../..";
 import styles from "./VirtualizedList.module.scss";
 
 export default {
@@ -9,9 +9,9 @@ export default {
   component: VirtualizedList
 };
 
-const virtualizedListTemplate = args => {
-  const itemRenderer = useCallback((item, index, style) => {
-    const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
+const virtualizedListTemplate = (args: VirtualizedListProps) => {
+  const itemRenderer = useCallback((item: VirtualizedListItem, index: number, style: React.CSSProperties) => {
+    const backgroundColor: string = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
         <div
