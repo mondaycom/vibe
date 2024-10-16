@@ -38,6 +38,7 @@ import VibeComponent from "../../types/VibeComponent";
 import styles from "./VirtualizedList.module.scss";
 
 export type VirtualizedListItem = {
+  size?: number;
   value?: string | Record<string, unknown>;
   height?: number;
   width?: number;
