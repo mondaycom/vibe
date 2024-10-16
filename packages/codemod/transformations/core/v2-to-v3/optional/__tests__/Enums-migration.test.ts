@@ -3,7 +3,7 @@ import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
   return `
-    import { Button } from "monday-ui-react-core";
+    import { Button } from "@vibe/core";
     ${source}
   `;
 }
