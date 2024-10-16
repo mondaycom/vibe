@@ -4,30 +4,43 @@ import { generateItems } from "./VirtualizedList.stories.helpers";
 import { Flex } from "../../";
 import styles from "./VirtualizedList.module.scss";
 
-export default {
-  title: "Navigation/VirtualizedList",
-  component: VirtualizedList
-};
+interface Item {
+  height: number;
+  value: string;
+  size: number;
+}
 
-const virtualizedListTemplate = args => {
-  const itemRenderer = useCallback((item, index, style) => {
-    const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
-    return (
-      <div key={index} style={style}>
-        <div
-          className={styles.virtualizedListItem}
-          style={{
-            backgroundColor,
-            height: item.height
-          }}
-        >
-          {item.value}
+interface VirtualizedListProps {
+  items: Item[];
+  itemRenderer: (item: Item, index: number, style: React.CSSProperties) => JSX.Element;
+  getItemSize: (item: Item) => number;
+  layout?: "vertical" | "horizontal";
+}
+
+// Defining the component type properly
+const VirtualizedListTemplate: React.FC<VirtualizedListProps> = (args: unknown) => {
+  const itemRenderer = useCallback(
+    (item: Item, index: number, style: React.CSSProperties): JSX.Element => {
+      const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
+      return (
+        <div key={index} style={style}>
+          <div
+            className={styles.virtualizedListItem}
+            style={{
+              backgroundColor,
+              height: item.height
+            }}
+          >
+            {item.value}
+          </div>
         </div>
-      </div>
-    );
-  }, []);
+      );
+    },
+    []
+  );
+
   return (
-    <Flex align={Flex.align.START} gap={Flex.gaps.LARGE} style={{ width: "100%" }} direction={Flex.directions.ROW}>
+    <Flex align="start" gap="large" style={{ width: "100%" }} direction="row">
       <div
         style={{
           width: 330,
@@ -43,7 +56,7 @@ const virtualizedListTemplate = args => {
             {...args}
             items={generateItems(30, 1000, "vertical")}
             itemRenderer={itemRenderer}
-            getItemSize={item => item.size}
+            getItemSize={(item: Item) => item.size}
           />
         </div>
       </div>
@@ -62,7 +75,7 @@ const virtualizedListTemplate = args => {
             {...args}
             items={generateItems(100, 1000, "horizontal")}
             itemRenderer={itemRenderer}
-            getItemSize={item => item.size}
+            getItemSize={(item: Item) => item.size}
             layout="horizontal"
           />
         </div>
@@ -71,7 +84,8 @@ const virtualizedListTemplate = args => {
   );
 };
 
+// Fixing the export type
 export const Overview = {
-  render: virtualizedListTemplate.bind({}),
+  render: VirtualizedListTemplate.bind({}),
   name: "Overview"
 };
