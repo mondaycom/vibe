@@ -7,8 +7,6 @@ export default {
   title: "Hooks/useListenFocusTriggers"   
 };
 
-interface RenderProps {}
-
 export const Overview = {
   render: () => {
     const [text, setText] = useState<string>("-");
@@ -37,4 +35,4 @@ export const Overview = {
   },
 
   name: "Overview"
-} as const;
+};
