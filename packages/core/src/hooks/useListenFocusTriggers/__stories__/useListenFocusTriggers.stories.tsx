@@ -4,19 +4,19 @@ import { Button, Flex } from "../../../components";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useListenFocusTriggers"
+  title: "Hooks/useListenFocusTriggers"   
 };
 
 export const Overview = {
   render: () => {
-    const [text, setText] = useState("-");
-    const ref = useRef(null);
+    const [text, setText] = useState<string>("-");
+    const ref = useRef<HTMLButtonElement>(null);
 
-    const onFocusByMouse = useCallback(_event => {
+    const onFocusByMouse = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
       setText("mouse");
     }, []);
 
-    const onFocusByKeyboard = useCallback(_event => {
+    const onFocusByKeyboard = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
       setText("keyboard");
     }, []);
 
