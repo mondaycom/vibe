@@ -4,23 +4,22 @@ import React, { useCallback, useRef } from "react";
 import cx from "classnames";
 import Flex from "../../../components/Flex/Flex";
 import Search from "../../../components/Search/Search";
-import useActiveDescendantListFocus from "../index";
-import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
+import useActiveDescendantListFocus from "..";
 import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
 import styles from "./useActiveDescendantListFocus.module.scss";
+import { Meta } from "@storybook/react";
 
 export default {
-  title: "Hooks/useActiveDescendantListFocus",
-  component: UseActiveDescendantListFocus
-};
+  title: "Hooks/useActiveDescendantListFocus"
+} satisfies Meta<typeof useActiveDescendantListFocus>;
 
 export const Overview = {
-  render: () => {
-    const focusedElementRef = useRef(null);
-    const itemsIds = ["id-1", "id-2", "id-3"];
-    const isItemSelectable = useCallback(() => true, []);
+  render: (): JSX.Element => {
+    const focusedElementRef = useRef<HTMLInputElement | null>(null);
+    const itemsIds: string[] = ["id-1", "id-2", "id-3"];
+    const isItemSelectable = useCallback((): boolean => true, []);
 
-    const onItemClick = useCallback(() => {
+    const onItemClick = useCallback((): void => {
       alert("clicked");
     }, []);
 
@@ -36,11 +35,7 @@ export const Overview = {
 
     return (
       <Flex direction={Flex.directions.COLUMN}>
-        <Search
-          ref={focusedElementRef}
-          role={focusedElementProps.role}
-          currentAriaResultId={focusedElementProps["aria-activedescendant"]}
-        />
+        <Search ref={focusedElementRef} currentAriaResultId={focusedElementProps["aria-activedescendant"]} />
         <ul>
           <li
             onClick={onItemClick}
