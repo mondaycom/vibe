@@ -42,7 +42,7 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
             code={code}
             theme={githubDark}
             extensions={[langs.tsx()]}
-            style={{ fontSize: 13 }}
+            style={{ fontSize: 13, position: "relative" }}
             onChange={onChange}
             setup={{
               lineNumbers: false,
@@ -50,14 +50,18 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
               highlightActiveLine: false,
               autocompletion: false
             }}
+            actionComp={
+              <>
+                <section className={styles.actions}>
+                  <LiveEditorAction onClick={onCopyClick} disabled={isCopied}>
+                    {isCopied ? "Copied" : "Copy"}
+                  </LiveEditorAction>
+                  <LiveEditorAction onClick={onFormatClick}>Format</LiveEditorAction>
+                  <LiveEditorAction onClick={onResetClick}>Reset</LiveEditorAction>
+                </section>
+              </>
+            }
           />
-          <section className={styles.actions}>
-            <LiveEditorAction onClick={onCopyClick} disabled={isCopied}>
-              {isCopied ? "Copied" : "Copy"}
-            </LiveEditorAction>
-            <LiveEditorAction onClick={onFormatClick}>Format</LiveEditorAction>
-            <LiveEditorAction onClick={onResetClick}>Reset</LiveEditorAction>
-          </section>
         </>,
         canvasEditorContainer
       )}
