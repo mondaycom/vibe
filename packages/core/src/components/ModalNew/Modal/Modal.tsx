@@ -11,7 +11,7 @@ import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
-import { ModalContextProps } from "../context/ModalContext.types";
+import { ModalProviderValue } from "../context/ModalContext.types";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants";
 import {
@@ -43,7 +43,7 @@ const Modal = forwardRef(
     const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
     const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
 
-    const contextValue = useMemo<ModalContextProps>(
+    const contextValue = useMemo<ModalProviderValue>(
       () => ({
         modalId: id,
         setTitleId: setTitleIdCallback,
@@ -101,7 +101,12 @@ const Modal = forwardRef(
                   exit="exit"
                   custom={anchorElementRef}
                   ref={ref}
-                  className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+                  className={cx(
+                    styles.modal,
+                    getStyle(styles, camelCase("size-" + size)),
+                    { [styles.withHeaderAction]: !!renderHeaderAction },
+                    className
+                  )}
                   id={id}
                   data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
                   role="dialog"
