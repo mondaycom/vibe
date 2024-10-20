@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ModalTopActions.module.scss";
 import { ModalTopActionsButtonColor, ModalTopActionsColor, ModalTopActionsProps } from "./ModalTopActions.types";
-import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "../../Icon/Icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
@@ -15,7 +14,7 @@ const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }:
   const buttonColor = colorToButtonColor[color] || ButtonColor.PRIMARY;
 
   return (
-    <Flex className={styles.actions}>
+    <div className={styles.actions} data-no-autofocus={true}>
       {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
         icon={CloseMedium}
@@ -25,7 +24,7 @@ const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }:
         color={buttonColor}
         ariaLabel={closeButtonAriaLabel}
       />
-    </Flex>
+    </div>
   );
 };
 
