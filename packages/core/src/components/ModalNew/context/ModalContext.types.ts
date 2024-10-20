@@ -1,12 +1,15 @@
 import React from "react";
 
+export interface ModalContextProps extends ModalProviderValue {
+  isContentScrolled: boolean;
+  setContentScrolled: (scrolled: boolean) => void;
+}
+
 export type ModalProviderValue = {
   modalId: string;
   setTitleId: (id: string) => void;
   setDescriptionId: (id: string) => void;
 };
-
-export type ModalContextProps = ModalProviderValue;
 
 export interface ModalProviderProps {
   value: ModalProviderValue;
