@@ -14,7 +14,11 @@ import { ModalProvider } from "../context/ModalContext";
 import { ModalContextProps } from "../context/ModalContext.types";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants";
-import { modalAnimationCenterPopVariants, modalAnimationOverlayVariants } from "../utils/animationVariants";
+import {
+  modalAnimationAnchorPopVariants,
+  modalAnimationCenterPopVariants,
+  modalAnimationOverlayVariants
+} from "../utils/animationVariants";
 
 const Modal = forwardRef(
   (
@@ -26,6 +30,7 @@ const Modal = forwardRef(
       closeButtonTheme,
       closeButtonAriaLabel,
       onClose = () => {},
+      anchorElementRef,
       children,
       className,
       "data-testid": dataTestId
@@ -69,6 +74,10 @@ const Modal = forwardRef(
       keys: [keyCodes.ESCAPE]
     });
 
+    const modalAnimationVariants = anchorElementRef?.current
+      ? modalAnimationAnchorPopVariants
+      : modalAnimationCenterPopVariants;
+
     return (
       <AnimatePresence>
         {show && (
@@ -86,10 +95,11 @@ const Modal = forwardRef(
               />
               <FocusLock returnFocus>
                 <motion.div
-                  variants={modalAnimationCenterPopVariants}
+                  variants={modalAnimationVariants}
                   initial="exit"
                   animate="enter"
                   exit="exit"
+                  custom={anchorElementRef}
                   ref={ref}
                   className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
                   id={id}
