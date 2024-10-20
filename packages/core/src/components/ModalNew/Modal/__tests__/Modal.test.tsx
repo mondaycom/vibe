@@ -2,12 +2,17 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "../Modal";
+import ModalContent from "../../ModalContent/ModalContent";
 
 describe("Modal", () => {
   const id = "modal-id";
   const closeButtonAriaLabel = "Close modal";
-  const childrenContent = <span>My content</span>;
-
+  const childrenContent = (
+    <div>
+      <button type="button">Test button content</button>
+      <span>My content</span>
+    </div>
+  );
   it("renders the modal with the correct role", () => {
     const { getByTestId } = render(
       <Modal id={id} show data-testid="modal">
@@ -129,41 +134,40 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("traps focus inside the modal when opened", () => {
-    const { getByLabelText } = render(
+  it("traps focus inside the modal when opened and move it to first non top-actions element", () => {
+    const { getByText, getByLabelText } = render(
       <>
         <button type="button">Focusable outside</button>
         <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
-          {childrenContent}
+          <button type="button">Test button content</button>
         </Modal>
       </>
     );
-    const closeButton = getByLabelText(closeButtonAriaLabel);
-    expect(closeButton).toHaveFocus();
-
+    expect(getByText("Test button content")).toHaveFocus();
     userEvent.tab();
-    expect(closeButton).toHaveFocus();
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveFocus();
+    userEvent.tab();
+    expect(getByText("Test button content")).toHaveFocus();
   });
 
   it("releases focus lock inside the modal when closed", () => {
-    const { rerender, getByLabelText, getByText } = render(
+    const { rerender, getByText } = render(
       <>
         <button type="button">Focusable outside 1</button>
         <button type="button">Focusable outside 2</button>
         <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
-          {childrenContent}
+          <button type="button">Test button content</button>
         </Modal>
       </>
     );
-    const closeButton = getByLabelText(closeButtonAriaLabel);
-    expect(closeButton).toHaveFocus();
+    expect(getByText("Test button content")).toHaveFocus();
 
     rerender(
       <>
         <button type="button">Focusable outside 1</button>
         <button type="button">Focusable outside 2</button>
         <Modal id={id} show={false} closeButtonAriaLabel={closeButtonAriaLabel}>
-          {childrenContent}
+          <button type="button">Test button content</button>
         </Modal>
       </>
     );
@@ -181,17 +185,39 @@ describe("Modal", () => {
         <button type="button">Focusable 2</button>
       </Modal>
     );
-    const closeButton = getByLabelText(closeButtonAriaLabel);
-    expect(closeButton).toHaveFocus();
-
-    userEvent.tab();
     expect(getByText("Focusable 1")).toHaveFocus();
 
     userEvent.tab();
     expect(getByText("Focusable 2")).toHaveFocus();
 
     userEvent.tab();
+    const closeButton = getByLabelText(closeButtonAriaLabel);
     expect(closeButton).toHaveFocus();
+  });
+
+  it("traps and moves focus to focusable element inside ModalContent and cycle through full focus flow", () => {
+    const { getByLabelText, getByText } = render(
+      <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+        <button type="button">Focusable 1</button>
+        <ModalContent>
+          <button type="button">Focusable inside ModalContent</button>
+        </ModalContent>
+        <button type="button">Focusable 2</button>
+      </Modal>
+    );
+    expect(getByText("Focusable inside ModalContent")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 2")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 1")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable inside ModalContent")).toHaveFocus();
   });
 
   it.todo("renders the correct aria-labelledby");
