@@ -16,5 +16,6 @@ export interface ModalProps extends VibeComponentProps {
   closeButtonAriaLabel?: ModalTopActionsProps["closeButtonAriaLabel"];
   onClose?: (event: ModalCloseEvent) => void;
   renderHeaderAction?: ModalTopActionsProps["renderAction"];
+  anchorElementRef?: React.RefObject<HTMLElement>;
   children: React.ReactNode;
 }
