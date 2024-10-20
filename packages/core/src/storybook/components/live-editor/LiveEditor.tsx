@@ -10,13 +10,12 @@ interface EditorProps {
   style?: React.CSSProperties;
   extensions?: Extension[];
   setup?: BasicSetupOptions;
-  actionComp?: React.ReactNode;
 }
 
 type EditorComponent = React.ForwardRefExoticComponent<EditorProps & React.RefAttributes<ReactCodeMirrorRef>>;
 
 const LiveEditor: EditorComponent = forwardRef(
-  ({ code, onChange, placeholder, theme = "light", style, extensions, setup, actionComp = null }, ref) => {
+  ({ code, onChange, placeholder, theme = "light", style, extensions, setup }, ref) => {
     return (
       <CodeMirror
         style={style}
@@ -27,9 +26,7 @@ const LiveEditor: EditorComponent = forwardRef(
         onChange={onChange}
         placeholder={placeholder}
         basicSetup={setup}
-      >
-        {actionComp}
-      </CodeMirror>
+      />
     );
   }
 );
