@@ -42,7 +42,7 @@ const withLiveEdit: Decorator = (Story, context: StoryContext) => {
             code={code}
             theme={githubDark}
             extensions={[langs.tsx()]}
-            style={{ fontSize: 13, position: "relative" }}
+            style={{ fontSize: 13 }}
             onChange={onChange}
             setup={{
               lineNumbers: false,
