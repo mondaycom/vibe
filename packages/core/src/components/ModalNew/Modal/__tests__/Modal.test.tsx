@@ -3,6 +3,14 @@ import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "../Modal";
 
+jest.mock("framer-motion", () => {
+  const actual = jest.requireActual<typeof import("framer-motion")>("framer-motion");
+  return {
+    ...actual,
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>
+  };
+});
+
 describe("Modal", () => {
   const id = "modal-id";
   const closeButtonAriaLabel = "Close modal";
