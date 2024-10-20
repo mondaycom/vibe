@@ -1,0 +1,25 @@
+.layout {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+
+  .leftPane {
+    height: 100%;
+    width: 60%;
+    padding-inline: var(--modal-inline-padding);
+
+    .header {
+      width: 100%;
+      margin-block: var(--spacing-xl) var(--spacing-large);
+    }
+
+    .content {
+      width: 100%;
+    }
+  }
+
+  .media {
+    flex-shrink: 0;
+    width: 40%;
+  }
+}
