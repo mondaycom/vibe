@@ -109,7 +109,7 @@ export enum ComponentDefaultTestId {
   MODAL_NEXT_CONTENT = "modal-content",
   MODAL_NEXT_MEDIA = "modal-media",
   MODAL_NEXT_BASIC_LAYOUT = "modal-basic-layout",
-  MODAL_NEXT_SIDE_BY_SIDE_LAYOUT = "modal-side_by_side-layout",
+  MODAL_NEXT_SIDE_BY_SIDE_LAYOUT = "modal-side-by-side-layout",
   FORMATTED_NUMBER = "formatted-number",
   HIDDEN_TEXT = "hidden-text",
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
