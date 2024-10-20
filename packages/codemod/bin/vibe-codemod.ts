@@ -61,12 +61,20 @@ async function runWizard() {
       choices: [{ name: "jsx", checked: true }, { name: "tsx", checked: true }, { name: "js" }, { name: "ts" }],
       default: argv.extensions || ["jsx", "tsx"],
       when: !argv.extensions
+    },
+    {
+      type: "confirm",
+      name: "runOptional",
+      message: "Would you like to run the optional migrations as well?",
+      default: false,
+      when: true
     }
   ]);
 
   return {
     migration: answers.migration || argv.migration,
-    extensions: answers.extensions || argv.extensions
+    extensions: answers.extensions || argv.extensions,
+    runOptional: answers.runOptional || false
   };
 }
 
@@ -91,9 +99,11 @@ async function main() {
 
   const migrationType = answers.migration;
   const transformationsDir = join(__dirname, "..", "transformations", "core", mapMigrationType[migrationType]);
+  const optionalTransformationsDir = join(transformationsDir, "optional");
   const extensions = answers.extensions;
   const targetDir = argv.target;
   const verbose = argv.verbose;
+  const runOptional = answers.runOptional;
 
   const logFile = resolve(targetDir, "codemod.log");
 
@@ -236,6 +246,40 @@ async function main() {
 
     if (index < orderedTransformationFiles.length - 1) {
       spinner.start();
+    }
+  }
+
+  if (runOptional && fs.existsSync(optionalTransformationsDir)) {
+    console.log(chalk.blue(`\nRunning optional transformations from: ${optionalTransformationsDir}`));
+
+    const optionalTransformationFiles: string[] = globby.sync(`${optionalTransformationsDir}/*.js`, {
+      ignore: ["node_modules/**", "**/*.d.ts"]
+    });
+
+    for (let index = 0; index < optionalTransformationFiles.length; index++) {
+      const transform = optionalTransformationFiles[index];
+      const transformName = path.basename(transform, path.extname(transform));
+
+      spinner.text = `Processing optional transformation (${index + 1}/${optionalTransformationFiles.length}): ${transformName}`;
+
+      try {
+        const result = await runSingleTransformation(transform);
+
+        if (result) {
+          successCount++;
+          spinner.succeed(chalk.green(`Optional transformation completed: ${transformName}`));
+        } else {
+          failureCount++;
+          spinner.fail(chalk.red(`Optional transformation finished with errors: ${transformName}`));
+        }
+      } catch (error) {
+        failureCount++;
+        spinner.fail(chalk.red(`Optional transformation failed: ${transformName}`));
+      }
+
+      if (index < optionalTransformationFiles.length - 1) {
+        spinner.start();
+      }
     }
   }
 
