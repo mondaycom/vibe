@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useMemo } from "react";
 import { range } from "lodash-es";
+import cx from "classnames";
 import { StepsDot } from "./StepsDot";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./StepsGalleryHeader.module.scss";
@@ -9,7 +10,7 @@ export interface StepsGalleryHeaderProps extends VibeComponentProps {
   activeStepIndex: number;
   stepsCount: number;
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
-  stepDescriptionFunc: (stepIndex: number) => string;
+  stepDescriptionFunc?: (stepIndex: number) => string;
   color?: StepsColor;
 }
 
@@ -18,7 +19,8 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
   stepsCount,
   onChangeActiveStep,
   stepDescriptionFunc,
-  color
+  color,
+  className
 }) => {
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
   const defaultStepDescriptionFunc = useCallback((stepIndex: number) => `Step number ${stepIndex}`, []);
@@ -47,7 +49,7 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
   );
 
   return (
-    <div role="group" className={styles.galleryHeader}>
+    <div role="group" className={cx(styles.galleryHeader, className)}>
       {galleryDots || null}
     </div>
   );
