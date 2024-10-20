@@ -1,19 +1,17 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
-import { DialogPosition } from "../../../constants";
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
-import { IconType } from "../../Icon/IconConstants";
-import { TooltipPosition } from "./MenuItemConstants";
+import { IconType } from "../../Icon";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { SubmenuPosition } from "./MenuItem.Types";
+import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
+import { SubmenuPosition } from "./MenuItem.types";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -35,15 +33,11 @@ export interface MenuItemProps extends VibeComponentProps {
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
   useDocumentEventListeners?: boolean;
   tooltipContent?: string;
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPositions;
   tooltipShowDelay?: number;
   tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
   /**
    * Class name which is added to div which wraps an Icon
    */
@@ -52,8 +46,7 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
-  // TODO MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid.
-  //  Should be fixed in next major version
+  //// TODO: [breaking] MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid
   children?: MenuChild | MenuChild[];
   /**
    * Type of menu item with sub menu, which has two click/hover options-
@@ -72,15 +65,13 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
 
 const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
-  tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
   isMenuChild?: boolean;
+  tooltipPositions?: typeof TooltipPositionsEnum;
 } = forwardRef(
   (
     {
       className,
-      // Backward compatibility for props naming
-      classname,
       iconWrapperClassName,
       title = "",
       label = "",
@@ -93,15 +84,14 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       key,
       children,
       tooltipContent,
-      tooltipPosition = MenuItem.tooltipPositions.RIGHT,
+      tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
       "aria-label": ariaLabel,
       ...baseMenuProps
-    },
+    }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const titleRef = useRef();
 
     // if "title" is a component ariaLabel is mandatory
@@ -119,7 +109,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     const renderLabel = useMemo(() => {
       if (!label) return;
       if (typeof label === "string") {
-        return <Label kind={Label.kinds.LINE} text={label} />;
+        return <Label kind="line" text={label} />;
       }
       if (React.isValidElement(label) && label.type === Label) {
         return label;
@@ -127,16 +117,21 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     }, [label]);
 
     return (
-      <BaseMenuItem
-        key={key}
-        ref={ref}
-        subMenu={children}
-        className={overrideClassName}
-        disabled={disabled}
-        selected={selected}
-        {...baseMenuProps}
+      <Tooltip
+        content={shouldShowTooltip ? finalTooltipContent : null}
+        position={tooltipPosition}
+        showDelay={tooltipShowDelay}
+        {...tooltipProps}
       >
-        <>
+        <BaseMenuItem
+          key={key}
+          ref={ref}
+          subMenu={children}
+          className={className}
+          disabled={disabled}
+          selected={selected}
+          {...baseMenuProps}
+        >
           {Boolean(icon) && (
             <MenuItemIcon
               icon={icon}
@@ -148,23 +143,12 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
               wrapperClassName={iconWrapperClassName}
             />
           )}
-          <Tooltip
-            content={shouldShowTooltip ? finalTooltipContent : null}
-            position={tooltipPosition}
-            showDelay={tooltipShowDelay}
-            {...tooltipProps}
-          >
-            <div ref={titleRef} className={styles.title}>
-              {title}
-            </div>
-            {/* Tooltip should be on a whole MenuItem, but it's a breaking change (tooltip adds span) - should be fixed in the next major and then this div be removed */}
-            <div className={styles.hiddenTitle} aria-hidden tabIndex={-1}>
-              {title}
-            </div>
-          </Tooltip>
+          <div ref={titleRef} className={styles.title}>
+            {title}
+          </div>
           {renderLabel}
-        </>
-      </BaseMenuItem>
+        </BaseMenuItem>
+      </Tooltip>
     );
   }
 );
@@ -176,5 +160,5 @@ Object.assign(MenuItem, {
 
 export default withStaticProps(MenuItem, {
   iconType: Icon.type,
-  tooltipPositions: DialogPosition
+  tooltipPositions: TooltipPositionsEnum
 });

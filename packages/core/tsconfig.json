@@ -3,7 +3,6 @@
   "compilerOptions": {
     "module": "ESNext",
     "declaration": true,
-    "declarationDir": "dist/types",
     "sourceMap": true,
     "allowJs": true,
     "rootDir": "src",

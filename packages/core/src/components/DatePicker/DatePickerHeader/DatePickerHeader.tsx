@@ -1,6 +1,5 @@
 import React from "react";
-import DropdownChevronUp from "../../Icon/Icons/components/DropdownChevronUp";
-import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import moment from "moment";
 import { Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
@@ -41,12 +40,7 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
           onClick={onToggleMonthYearPicker}
         >
           <div className={styles.buttonContent}>
-            <Icon
-              iconType={Icon?.type?.SVG}
-              icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown}
-              iconSize={24}
-              clickable={false}
-            />
+            <Icon iconType="svg" icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown} iconSize={24} />
           </div>
         </button>
       )}

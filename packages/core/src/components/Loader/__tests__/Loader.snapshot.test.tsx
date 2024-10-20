@@ -4,33 +4,33 @@ import Loader from "../Loader";
 
 describe("Loader renders correctly", () => {
   it("with custom class name", () => {
-    const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} className="dummy-class-name" />).toJSON();
+    const tree = renderer.create(<Loader size="medium" className="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with custom class name wrapper", () => {
-    const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} wrapperClassName="dummy-class-name" />).toJSON();
+    const tree = renderer.create(<Loader size="medium" wrapperClassName="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   describe("with size variants", () => {
     it("with XS size", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.XS} />).toJSON();
+      const tree = renderer.create(<Loader size="xs" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with SMALL size", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.SMALL} />).toJSON();
+      const tree = renderer.create(<Loader size="small" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with MEDIUM size", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} />).toJSON();
+      const tree = renderer.create(<Loader size="medium" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with LARGE size", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.LARGE} />).toJSON();
+      const tree = renderer.create(<Loader size="large" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -42,29 +42,29 @@ describe("Loader renders correctly", () => {
 
   describe("with color variants", () => {
     it("with PRIMARY color", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} color={Loader.colors.PRIMARY} />).toJSON();
+      const tree = renderer.create(<Loader size="medium" color="primary" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with ON_PRIMARY color", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />).toJSON();
+      const tree = renderer.create(<Loader size="medium" color="onPrimary" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with SECONDARY color", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} color={Loader.colors.SECONDARY} />).toJSON();
+      const tree = renderer.create(<Loader size="medium" color="secondary" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with DARK color", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} color={Loader.colors.DARK} />).toJSON();
+      const tree = renderer.create(<Loader size="medium" color="dark" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
   describe("with visual variants", () => {
     it("with background", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} hasBackground />).toJSON();
+      const tree = renderer.create(<Loader size="medium" hasBackground />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

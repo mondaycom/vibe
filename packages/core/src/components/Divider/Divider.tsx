@@ -1,38 +1,31 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { DirectionType } from "./DividerConstants";
+import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
+import { DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {
-  direction?: DirectionType;
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
+  direction?: DividerDirection;
   withoutMargin?: boolean;
 }
 
 const Divider: React.FC<DividerProps> & {
-  directions?: typeof DirectionType;
+  directions?: typeof DirectionTypeEnum;
 } = ({
-  // Backward compatibility for props naming
-  classname,
   className = undefined,
   withoutMargin = false,
-  direction = DirectionType.HORIZONTAL,
+  direction = "horizontal",
   id,
   "data-testid": dataTestId
-}) => {
-  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
+}: DividerProps) => {
   return (
     <div
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
-      className={cx(styles.divider, overrideClassName, getStyle(styles, direction), {
+      className={cx(styles.divider, className, getStyle(styles, direction), {
         [styles.withoutMargin]: withoutMargin
       })}
     />
@@ -40,5 +33,5 @@ const Divider: React.FC<DividerProps> & {
 };
 
 export default withStaticProps(Divider, {
-  directions: DirectionType
+  directions: DirectionTypeEnum
 });

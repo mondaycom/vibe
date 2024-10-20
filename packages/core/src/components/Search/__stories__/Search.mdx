@@ -7,8 +7,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import * as SearchStories from "./Search.stories";
 import Search from "../Search";
-import CloseSmall from "../../Icon/Icons/components/CloseSmall";
-import SearchIcon from "../../Icon/Icons/components/Search";
+import { CloseSmall, SearchIcon } from "@vibe/icons";
 import styles from "./Search.stories.module.scss";
 
 <Meta of={SearchStories} />
@@ -30,10 +29,10 @@ Search lets users quickly find relevant content. A search field allows a user to
 
 <Canvas of={SearchStories.Overview} />
 
-## Import
+### Import
 
-```ts
-import { Search } from "monday-ui-react-core/next";
+```js
+import { Search } from "@vibe/core";
 ```
 
 ## Props

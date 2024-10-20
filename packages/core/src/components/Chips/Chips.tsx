@@ -2,19 +2,20 @@ import React, { forwardRef, RefObject, useCallback, useMemo, useRef } from "reac
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRef from "../../hooks/useMergeRef";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/Avatar.types";
 import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Chips.module.scss";
 
 const CHIPS_AVATAR_SIZE = 18;
@@ -23,10 +24,6 @@ export interface ChipsProps extends VibeComponentProps {
   label?: ElementContent;
   disabled?: boolean;
   readOnly?: boolean;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   "data-testid"?: string;
   /**
    * A React element that is positioned to the right of the text
@@ -52,8 +49,7 @@ export interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
-  // TODO Vibe 3.0: filter ElementAllowedColor.DARK_INDIGO, ElementAllowedColor.BLACKISH from colors which are valid for Chips
-  color?: ElementColor;
+  color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /** Size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -78,16 +74,6 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
-   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
-   * @deprecated
-   */
-  clickable?: boolean;
-  /**
-   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
-   * @deprecated
-   */
-  isClickable?: boolean;
-  /**
    * Disable click behaviors
    */
   disableClickableBehavior?: boolean;
@@ -100,8 +86,8 @@ export interface ChipsProps extends VibeComponentProps {
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
-  colors?: typeof ElementAllowedColor;
-  avatarTypes?: typeof AvatarType;
+  colors?: typeof ElementAllowedColorEnum;
+  avatarTypes?: typeof AvatarTypeEnum;
 } = forwardRef<HTMLDivElement, ChipsProps>(
   (
     {
@@ -117,29 +103,25 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       disabled = false,
       readOnly = false,
       allowTextSelection = false,
-      color = Chips.colors.PRIMARY,
+      color = "primary",
       iconSize = 18,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
       noAnimation = true,
       ariaLabel,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       disableClickableBehavior = false,
-      leftAvatarType = AvatarType.IMG,
-      rightAvatarType = AvatarType.IMG,
+      leftAvatarType = "img",
+      rightAvatarType = "img",
       showBorder = false,
       leftRenderer,
       rightRenderer,
       closeButtonAriaLabel = "Remove"
-    },
+    }: ChipsProps,
     ref
   ) => {
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, backwardCompatabilityDataTestId],
-      getTestId(ComponentDefaultTestId.CHIP, id)
-    );
+    const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
@@ -201,7 +183,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         onMouseDown,
         disabled,
         id,
-        "data-testid": overrideDataTestId,
+        "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
@@ -224,11 +206,11 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": overrideDataTestId
+          "data-testid": componentDataTestId
         };
 
-    const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
-    const rightAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: rightAvatar } : { src: rightAvatar };
+    const leftAvatarProps = leftAvatarType === "text" ? { text: leftAvatar } : { src: leftAvatar };
+    const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
       <div {...wrapperProps}>
@@ -245,22 +227,20 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
+            iconType="font"
             icon={leftIcon}
             iconSize={iconSize}
             ignoreFocusStyle
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type={Text.types.TEXT2} className={styles.label}>
+        <Text type="text2" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
+            iconType="font"
             icon={rightIcon}
             iconSize={iconSize}
             ignoreFocusStyle
@@ -279,14 +259,14 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
         {hasCloseButton && (
           <IconButton
-            size={IconButton.sizes.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
+            size="xxs"
+            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
-            data-testid={`${overrideDataTestId}-close`}
+            data-testid={`${componentDataTestId}-close`}
             ref={iconButtonRef}
           />
         )}
@@ -296,6 +276,6 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
 );
 
 export default withStaticProps(Chips, {
-  colors: ElementAllowedColor,
-  avatarTypes: AvatarType
+  colors: ElementAllowedColorEnum,
+  avatarTypes: AvatarTypeEnum
 });

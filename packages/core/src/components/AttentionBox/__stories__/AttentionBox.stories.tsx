@@ -4,19 +4,17 @@ import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
+import { Info, Invite, ThumbsUp, Favorite } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
-import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import "./AttentionBox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
-  enumPropNamesArray: ["type", "iconType"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClose"]
 });
@@ -47,7 +45,7 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+    <Flex direction="column" gap="small">
       <StoryDescription description="Primary">
         <AttentionBox
           title="Enabling SSO Login"
@@ -60,7 +58,7 @@ export const States = {
         <AttentionBox
           title="You're doing great"
           text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          type={AttentionBox.types.SUCCESS}
+          type="success"
           className="monday-storybook-attention-box_box"
           icon={ThumbsUp}
         />
@@ -69,7 +67,7 @@ export const States = {
         <AttentionBox
           title="Account low on free space"
           text="Your account is out of free space, free some space to prevent data loss."
-          type={AttentionBox.types.DANGER}
+          type="danger"
           className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
@@ -77,7 +75,7 @@ export const States = {
         <AttentionBox
           title="Account low on free space"
           text="Your account is out of free space, free some space to prevent data loss."
-          type={AttentionBox.types.WARNING}
+          type="warning"
           className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
@@ -85,7 +83,7 @@ export const States = {
         <AttentionBox
           title="What a great idea!"
           text="You can also make this list sortable by tagging the items with tags column"
-          type={AttentionBox.types.DARK}
+          type="dark"
           className="monday-storybook-attention-box_box"
           icon={Favorite}
         />
@@ -101,7 +99,7 @@ export const AttentionBoxWithLink = {
     return (
       /** Classname for setting a constant width to the attention box */
       <AttentionBox compact className="monday-storybook-attention-box--fixed-width">
-        <Flex justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.XS}>
+        <Flex justify="space-between" gap="xs">
           Get your monday.com notifications
           <AttentionBoxLink href="" text="Learn more" />
         </Flex>
@@ -146,7 +144,7 @@ export const NaturalAttentionBox = {
         withIconWithoutHeader
         icon={Info}
         text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
-        type={AttentionBox.types.DARK}
+        type="dark"
       />
     </div>
   ),
@@ -164,7 +162,7 @@ export const AttentionBoxInsideADialogCombobox = {
         <div className="monday-storybook-attention-box_lable">Suggested people</div>
         <div className="monday-storybook-attention-box_search">
           <div className="monday-storybook-attention-box_inline-container">
-            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+            <Avatar size="medium" src={person} type="img" />
             <span className="monday-storybook-attention-box_name">
               May Kishon <span>(UX/UI Product Designer)</span>
             </span>

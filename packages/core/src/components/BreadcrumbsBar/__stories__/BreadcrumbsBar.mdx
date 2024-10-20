@@ -3,7 +3,7 @@ import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
+import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import {
   BUTTON_GROUP,
@@ -31,6 +31,12 @@ import * as BreadcrumbsBarStories from "./BreadcrumbsBar.stories";
 Breadcrumbs allow users to keep track and maintain awareness of their location as they navigate through pages, folders, files, etc.
 
 <Canvas of={BreadcrumbsBarStories.Overview} />
+
+### Import
+
+```js
+import { BreadcrumbsBar } from "@vibe/core";
+```
 
 ## Props
 
@@ -67,7 +73,7 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
     {
       positive: {
         component: (
-          <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+          <BreadcrumbsBar type="navigation">
             <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
             <BreadcrumbItem text="Folder" icon={Folder} />
             <BreadcrumbItem text="Board" icon={Board} />
@@ -78,7 +84,7 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
       },
       negative: {
         component: (
-          <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+          <BreadcrumbsBar type="navigation">
             <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
             <BreadcrumbItem text="Folder" />
             <BreadcrumbItem text="Board" />
@@ -92,10 +98,10 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
       positive: {
         component: (
           <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
-            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <Avatar size="medium" src={person3} type="img" />
             <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
               <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
-              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+              <BreadcrumbsBar type="navigation">
                 <BreadcrumbItem text="User research" icon={Board} />
                 <BreadcrumbItem text="Video sessions" icon={Group} />
               </BreadcrumbsBar>
@@ -107,10 +113,10 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
       negative: {
         component: (
           <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
-            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <Avatar size="medium" src={person3} type="img" />
             <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
               <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
-              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+              <BreadcrumbsBar type="navigation">
                 <BreadcrumbItem text="User research" icon={Board} />
               </BreadcrumbsBar>
             </div>

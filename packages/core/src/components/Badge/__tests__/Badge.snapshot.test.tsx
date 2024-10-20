@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Badge from "../Badge";
-import Indicator from "../Indicator/Indicator";
 
 describe("Badge", () => {
   it("renders with no props with default badge Indicator", () => {
@@ -12,7 +11,7 @@ describe("Badge", () => {
   it("renders with Counter and counter props", () => {
     const tree = renderer
       .create(
-        <Badge type={Badge.types.COUNTER} count={5}>
+        <Badge type="counter" count={5}>
           Child
         </Badge>
       )
@@ -21,22 +20,22 @@ describe("Badge", () => {
   });
 
   it("renders at different position", () => {
-    const tree = renderer.create(<Badge anchor={Badge.anchors.BOTTOM_START}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge anchor="bottom-start">Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders with different color", () => {
-    const tree = renderer.create(<Badge color={Indicator.colors.PRIMARY}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge color="primary">Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders out of horizontal bounds", () => {
-    const tree = renderer.create(<Badge alignment={Badge.alignments.OUTSIDE}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge alignment="outside">Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders with margins from component's bounds", () => {
-    const tree = renderer.create(<Badge alignment={Badge.alignments.CIRCULAR}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge alignment="circular">Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

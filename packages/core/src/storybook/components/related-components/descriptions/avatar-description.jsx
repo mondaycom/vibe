@@ -4,7 +4,7 @@ import { person1 } from "../../../../components/Avatar/__stories__/assets";
 import Avatar from "../../../../components/Avatar/Avatar";
 
 export const AvatarDescription = () => {
-  const component = useMemo(() => <Avatar src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />, []);
+  const component = useMemo(() => <Avatar src={person1} type="img" ariaLabel="Hadas Fahri" />, []);
   return (
     <RelatedComponent
       component={component}

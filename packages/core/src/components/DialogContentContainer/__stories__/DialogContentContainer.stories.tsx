@@ -6,7 +6,6 @@ import DialogContentContainerExample from "./DialogContentContainerExample";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DialogContentContainer,
-  enumPropNamesArray: ["type", "size"],
   ignoreControlsPropNamesArray: ["children"]
 });
 

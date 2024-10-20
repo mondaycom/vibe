@@ -59,7 +59,7 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
       rtl,
       id,
       "data-testid": dataTestId
-    },
+    }: FormattedNumberProps,
     ref
   ) => {
     const renderSuffix = useMemo(() => {

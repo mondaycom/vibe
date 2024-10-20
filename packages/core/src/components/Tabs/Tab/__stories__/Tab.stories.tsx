@@ -1,7 +1,7 @@
 import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Tab from "../../Tab/Tab";
-import { Email } from "../../../Icon/Icons";
+import { Email } from "@vibe/icons";
 
 export default {
   title: "Navigation/Tabs/Tab",

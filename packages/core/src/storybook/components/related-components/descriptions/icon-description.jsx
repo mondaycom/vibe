@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import Bolt from "../../../../components/Icon/Icons/components/Bolt";
+import { Bolt } from "@vibe/icons";
 import Icon from "../../../../components/Icon/Icon";
 
 export const IconDescription = () => {

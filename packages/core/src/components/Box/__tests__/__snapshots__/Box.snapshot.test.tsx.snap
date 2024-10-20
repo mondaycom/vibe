@@ -14,7 +14,7 @@ exports[`Box renders correctly with border prop 1`] = `
 
 exports[`Box renders correctly with borderColor prop 1`] = `
 <div
-  className="box borderColorUiBorderColor"
+  className="box uiBorderColor"
 />
 `;
 

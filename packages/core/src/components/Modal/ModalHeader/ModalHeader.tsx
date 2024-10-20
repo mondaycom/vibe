@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
-import CloseSmall from "../../Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
@@ -56,10 +56,6 @@ interface BaseModalHeaderProps extends VibeComponentProps {
    * Aria label for the close button
    */
   closeButtonAriaLabel?: string;
-  /**
-   * @deprecated
-   */
-  hideCloseButton?: boolean;
 }
 
 interface ModalHeaderWithOnlyTitle extends BaseModalHeaderProps {
@@ -85,9 +81,6 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   closeModal = NOOP,
   iconSize = 24,
   iconClassName,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton,
   closeButtonAriaLabel = "close",
   id,
   "data-testid": dataTestId
@@ -100,15 +93,14 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       {children ? (
         children
       ) : (
-        <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
+        <Flex align="start" gap="small" className={titleClassName}>
           {icon && (
             <Icon
               className={cx(styles.icon, iconClassName)}
               icon={icon}
-              iconType={Icon.type.SVG}
+              iconType="svg"
               iconSize={iconSize}
               ignoreFocusStyle
-              clickable={false}
             />
           )}
           <Heading id={id} maxLines={2}>
@@ -117,7 +109,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         </Flex>
       )}
       {description && (
-        <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
+        <Text type="text2" maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}
         </Text>
       )}
@@ -128,8 +120,8 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           onClick={closeModal}
           ariaLabel={closeButtonAriaLabel}
           icon={CloseSmall}
-          kind={IconButton.kinds.TERTIARY}
-          size={IconButton.sizes.SMALL}
+          kind="tertiary"
+          size="small"
         />
       </div>
     </div>

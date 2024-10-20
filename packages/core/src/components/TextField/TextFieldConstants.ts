@@ -14,14 +14,9 @@ const OLD_TEXT_FIELD_SIZES = {
 
 export type TextFieldSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES] | keyof typeof OLD_TEXT_FIELD_SIZES;
 
-// Support old sizes (backward compatible)
-export const getActualSize = (size: TextFieldSize): keyof typeof SIZE_MAPPER => {
-  if (size in OLD_TEXT_FIELD_SIZES) {
-    return OLD_TEXT_FIELD_SIZES[size as keyof typeof OLD_TEXT_FIELD_SIZES] as keyof typeof SIZE_MAPPER;
-  }
-  return size as keyof typeof SIZE_MAPPER;
-};
-
+/**
+ * @deprecated
+ */
 export enum TextFieldTextType {
   TEXT = "text",
   PASSWORD = "password",
@@ -34,6 +29,9 @@ export enum TextFieldTextType {
   EMAIL = "email"
 }
 
+/**
+ * @deprecated
+ */
 export enum TextFieldFeedbackState {
   ERROR = "error",
   SUCCESS = "success"

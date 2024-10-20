@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/blocks";
 import ButtonGroup from "../ButtonGroup";
-import { Mobile } from "../../Icon/Icons";
+import { Mobile } from "@vibe/icons";
 import { BREADCRUBMS, BUTTON, TABS } from "../../../storybook/components/related-components/component-description-map";
-import Desktop from "./assets/Desktop.js";
+import Desktop from "./assets/Desktop";
 import { TipCheckYourself } from "./ButtonGroup.stories.helpers";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
 
@@ -24,6 +24,12 @@ import * as ButtonGroupStories from "./ButtonGroup.stories";
 ButtonGroup can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container.
 
 <Canvas of={ButtonGroupStories.Overview} />
+
+### Import
+
+```js
+import { ButtonGroup } from "@vibe/core";
+```
 
 ## Props
 

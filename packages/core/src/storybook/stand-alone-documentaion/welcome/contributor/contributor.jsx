@@ -3,7 +3,7 @@ import cx from "classnames";
 import { InformationBox, InformationBoxTitle, Link } from "vibe-storybook-components";
 import { elementColorsNames } from "../../../../utils/colors-vars-map";
 import { Flex, IconButton } from "../../../../components";
-import { Email } from "../../../../components/Icon/Icons";
+import { Email } from "@vibe/icons";
 import "./contributor.scss";
 
 const BASE_CLASS = "monday-storybook-welcome-contributor";
@@ -13,8 +13,8 @@ export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
     <Flex justify={Flex.justify.SPACE_BETWEEN}>
       <InformationBoxTitle>{fullName}</InformationBoxTitle>
       {email && (
-        <Link tabIndex="-1" href={`mailto:${email}`} target={Link.targets.PARENT}>
-          <IconButton icon={Email} kind={IconButton.kinds.TERTIARY} ariaLabel={`Contact ${fullName}`} />
+        <Link tabIndex="-1" href={`mailto:${email}`} target="_parent">
+          <IconButton icon={Email} kind="tertiary" ariaLabel={`Contact ${fullName}`} />
         </Link>
       )}
     </Flex>

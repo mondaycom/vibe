@@ -47,7 +47,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       disabled = false,
       useDocumentEventListeners = false,
       "data-testid": dataTestId
-    },
+    }: MenuGridItemProps,
     ref
   ) => {
     const componentRef = useRef(null);

@@ -1,11 +1,11 @@
 import React, { FC, useCallback, useMemo } from "react";
 import cx from "classnames";
-import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
-import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
+import { NavigationChevronRight, NavigationChevronLeft } from "@vibe/icons";
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import { BACK_TEXT, NEXT_TEXT, StepsColor } from "./StepsConstants";
+import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
+import { StepsColor } from "./Steps.types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
@@ -18,7 +18,7 @@ export interface StepsCommandProps extends VibeComponentProps {
   activeStepIndex: number;
   stepsCount: number;
   isIconHidden?: boolean;
-  buttonProps?: ButtonProps;
+  buttonProps?: Partial<ButtonProps>;
   color?: StepsColor;
 }
 
@@ -29,8 +29,8 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   stepsCount,
   isIconHidden = false,
   buttonProps = {},
-  color = StepsColor.PRIMARY
-}) => {
+  color = "primary"
+}: StepsCommandProps) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
     if (buttonChildren) return buttonChildren;
@@ -50,7 +50,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       data-testid={
         isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND
       }
-      kind={Button.kinds.TERTIARY}
+      kind="tertiary"
       onClick={onClick}
       disabled={isDisabled}
       // @ts-ignore
@@ -61,7 +61,6 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       {isIconHidden ? null : (
         <Icon
           icon={icon}
-          clickable={false}
           className={cx(styles.icon, getStyle(styles, camelCase("color-" + color)), {
             [styles.disabled]: isDisabled
           })}

@@ -108,7 +108,7 @@ function useActiveDescendantListFocus({
   useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
 
   // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
-  // we keep it for backward compatibility
+  // TODO: [breaking] remove backward compatibility support
   const backwardCompatibilityCreateOnClickCallback = useCallback(
     (itemIndex: number) => (event: React.KeyboardEvent | React.MouseEvent) => onItemClick(event, itemIndex),
     [onItemClick]
@@ -121,7 +121,7 @@ function useActiveDescendantListFocus({
       role: focusedElementRole
     },
     // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
-    // we keep it for backward compatibility
+    // TODO: [breaking] remove backward compatibility support
     onItemClickCallback: onItemClick,
     createOnItemClickCallback: backwardCompatibilityCreateOnClickCallback,
     setVisualFocusItemId

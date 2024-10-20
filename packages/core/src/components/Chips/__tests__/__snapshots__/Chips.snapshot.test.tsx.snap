@@ -67,7 +67,6 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="16"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -128,7 +127,6 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="16"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -240,7 +238,6 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
       data-testid="icon"
       fill="currentColor"
       height="16"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -273,7 +270,6 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
     data-testid="icon"
     fill="currentColor"
     height="18"
-    onClick={[Function]}
     viewBox="0 0 20 20"
     width="18"
   >
@@ -390,7 +386,6 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
       data-testid="icon"
       fill="currentColor"
       height="16"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -453,7 +448,6 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
     data-testid="icon"
     fill="currentColor"
     height="18"
-    onClick={[Function]}
     viewBox="0 0 20 20"
     width="18"
   >
@@ -513,7 +507,6 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
       data-testid="icon"
       fill="currentColor"
       height="16"
-      onClick={[Function]}
       viewBox="0 0 20 20"
       width="16"
     >

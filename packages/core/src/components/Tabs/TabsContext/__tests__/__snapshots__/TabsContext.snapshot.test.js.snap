@@ -48,13 +48,6 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     data-testid="tab-panels"
   >
     <div
-      className="tabPanelWrapper tabPanel non-active"
-      data-testid="tab-panel"
-      role="tabpanel"
-    >
-      First slide
-    </div>
-    <div
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
       data-testid="tab-panel"
       role="tabpanel"

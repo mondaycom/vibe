@@ -1,10 +1,10 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import TableCell from "../../TableCell/TableCell";
-import Table, { ITableColumn } from "../Table";
+import Table, { TableColumn } from "../Table";
 import TableBody from "../../TableBody/TableBody";
 import TableRow from "../../TableRow/TableRow";
-import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
+import TableHeaderCell, { TableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
 import { mockUseTable, mockUseTableRowMenu } from "./tableTestUtils";
@@ -168,7 +168,7 @@ describe("Table", () => {
 
   describe("Layout", () => {
     it("Should apply column layout CSS variable to table's styling scope", () => {
-      const columns: ITableColumn[] = [
+      const columns: TableColumn[] = [
         { id: "1", title: "Fixed width", width: 20 },
         { id: "2", title: "Min and max", width: { min: 10, max: 20 } },
         { id: "3", title: "Dynamic width" }
@@ -211,7 +211,7 @@ describe("Table", () => {
       ["asc", "ascending"],
       ["desc", "descending"],
       ["none", "none"]
-    ])("Sort", (sortState: ITableHeaderCellProps["sortState"], ariaSort) => {
+    ])("Sort", (sortState: TableHeaderCellProps["sortState"], ariaSort) => {
       it(`Should apply aria-sort to header element (${sortState}, ${ariaSort}) when onSortClicked is defined`, () => {
         const onSortClicked = jest.fn();
         const { getByRole } = render(

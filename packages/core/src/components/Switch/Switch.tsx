@@ -40,7 +40,7 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
       children: originalChildren,
       wrapperClassName,
       "data-testid": dataTestId
-    },
+    }: SwitchProps,
     ref
   ) => {
     const { onChange: overrideOnChange, isChecked: overrideChecked } = useSwitch({

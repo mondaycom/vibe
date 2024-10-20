@@ -2,10 +2,17 @@ import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
-import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from "./FlexConstants";
+import {
+  FlexAlign as FlexAlignEnum,
+  FlexDirection as FlexDirectionEnum,
+  FlexGap as FlexGapEnum,
+  FlexJustify as FlexJustifyEnum
+} from "./FlexConstants";
+import { FlexDirection, FlexJustify, FlexAlign, FlexGap } from "./Flex.types";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
+import { camelCase } from "lodash-es";
 
 export interface FlexProps extends VibeComponentProps {
   style?: object;
@@ -25,35 +32,45 @@ export interface FlexProps extends VibeComponentProps {
 }
 
 const Flex: VibeComponent<FlexProps> & {
-  justify?: typeof FlexJustify;
-  align?: typeof FlexAlign;
-  gaps?: typeof FlexGap;
-  directions?: typeof FlexDirection;
+  justify?: typeof FlexJustifyEnum;
+  align?: typeof FlexAlignEnum;
+  gaps?: typeof FlexGapEnum;
+  directions?: typeof FlexDirectionEnum;
 } = forwardRef(
   (
     {
       className,
       id,
       elementType = "div",
-      direction = Flex.directions.ROW,
+      direction = "row",
       wrap = false,
       children,
-      justify = Flex.justify.START,
-      align = Flex.align.CENTER,
-      gap = Flex.gaps.NONE,
+      justify = "start",
+      align = "center",
+      gap,
       onClick,
       style,
       ariaLabelledby,
       ariaLabel,
       tabIndex,
       "data-testid": dataTestId
-    },
+    }: FlexProps,
     ref
   ) => {
     const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const gapStyle = useMemo(() => {
+      if (!gap) {
+        return;
+      }
+      if (typeof gap === "number") {
+        return { gap: `${gap}px` };
+      }
+      return { gap: `var(--spacing-${gap})` };
+    }, [gap]);
+
+    const overrideStyle = useMemo(() => ({ ...style, ...gapStyle }), [style, gapStyle]);
     const onClickProps = useMemo(() => {
       if (onClick) return { elementType, ariaLabelledby };
       return { "aria-labelledby": ariaLabelledby };
@@ -68,9 +85,9 @@ const Flex: VibeComponent<FlexProps> & {
         ref={mergedRef}
         className={cx(
           styles.container,
-          getStyle(styles, `direction${direction}`),
-          getStyle(styles, `justify${justify}`),
-          getStyle(styles, `align${align}`),
+          getStyle(styles, camelCase(`direction-${direction}`)),
+          getStyle(styles, camelCase(`justify-${justify}`)),
+          getStyle(styles, camelCase(`align-${align}`)),
           className,
           {
             [styles.wrap]: wrap
@@ -88,8 +105,8 @@ const Flex: VibeComponent<FlexProps> & {
 );
 
 export default withStaticProps(Flex, {
-  justify: FlexJustify,
-  align: FlexAlign,
-  gaps: FlexGap,
-  directions: FlexDirection
+  justify: FlexJustifyEnum,
+  align: FlexAlignEnum,
+  gaps: FlexGapEnum,
+  directions: FlexDirectionEnum
 });

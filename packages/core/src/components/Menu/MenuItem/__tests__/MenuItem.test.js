@@ -14,7 +14,7 @@ describe("<MenuItem />", () => {
   });
 
   it("should not show subMenu when MenuItem is disabled", () => {
-    const { queryAllByText } = render(
+    const { queryByText } = render(
       <MenuItem disabled index={0} activeItemIndex={0} title="Main Item" isParentMenuVisible hasOpenSubMenu>
         <Menu>
           <MenuItem title="Sub Item" />
@@ -22,7 +22,7 @@ describe("<MenuItem />", () => {
       </MenuItem>
     );
 
-    expect(queryAllByText("Sub Item")).toHaveLength(0);
+    expect(queryByText("Sub Item")).toBeFalsy();
   });
 
   const submenuPositions = [
@@ -41,7 +41,7 @@ describe("<MenuItem />", () => {
       const title = "Main Item";
       const submenuTitle = "Sub Item";
 
-      const { queryAllByText, container } = render(
+      const { queryByText, container } = render(
         <MenuItem
           index={0}
           activeItemIndex={0}
@@ -55,7 +55,7 @@ describe("<MenuItem />", () => {
           </Menu>
         </MenuItem>
       );
-      const menuItemElement = queryAllByText(title)[0];
+      const menuItemElement = queryByText(title);
       await act(async () => {
         fireEvent.mouseEnter(menuItemElement);
       });

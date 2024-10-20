@@ -1,5 +1,5 @@
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import { Announcement, Check } from "../../Icon/Icons";
+import { Announcement, Check } from "@vibe/icons";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import { MenuItem } from "../../index";
 import React from "react";

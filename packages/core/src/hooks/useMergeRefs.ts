@@ -8,7 +8,7 @@ import { LegacyRef, MutableRefObject, useMemo } from "react";
  * });
  */
 
-// TODO deprecate / replace with useMergeRef in next major version - https://monday.monday.com/boards/3532714909/pulses/5657904659
+// TODO: [breaking] deprecate / replace with useMergeRef in next major version - https://monday.monday.com/boards/3532714909/pulses/5657904659
 /**
  * Returns a single ref callback that merges multiple ref callbacks
  * @deprecated - for internal usage - use `useMergeRef` hook instead
@@ -35,7 +35,6 @@ function assignRef(ref: MutableRefObject<any> | LegacyRef<any>, value: HTMLEleme
   }
 
   try {
-    // eslint-disable-next-line no-param-reassign
     (ref as MutableRefObject<any>).current = value;
   } catch (error) {
     console.error(error);

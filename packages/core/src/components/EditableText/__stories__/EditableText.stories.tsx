@@ -7,7 +7,6 @@ import styles from "./EditableText.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableText,
-  enumPropNamesArray: ["weight", "type"],
   actionPropsArray: ["onChange"]
 });
 

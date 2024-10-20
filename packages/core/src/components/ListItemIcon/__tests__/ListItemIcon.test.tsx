@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import ListItemIcon from "../ListItemIcon";
-import { Sun } from "../../Icon/Icons";
+import { Sun } from "@vibe/icons";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ListItemIcon />).toJSON();

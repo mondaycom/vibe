@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
 import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
@@ -6,7 +5,7 @@ import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { IconType } from "../../Icon/IconConstants";
+import { IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
@@ -49,7 +48,7 @@ const Tab: FC<TabProps> = forwardRef(
       iconSide = "left",
       children,
       "data-testid": dataTestId
-    },
+    }: TabProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -60,7 +59,6 @@ const Tab: FC<TabProps> = forwardRef(
 
       const iconElement = (
         <Icon
-          clickable={false}
           ariaHidden={true}
           iconType={iconType}
           icon={icon}
@@ -93,6 +91,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-disabled={disabled}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
       >
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
         <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>

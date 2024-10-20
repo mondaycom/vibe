@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Combobox from "../Combobox";
-import NewTab from "../../Icon/Icons/components/NewTab";
+import { NewTab } from "@vibe/icons";
 
 describe("Combobox renders correctly", () => {
   it("with empty props", () => {
@@ -45,7 +45,7 @@ describe("Combobox renders correctly", () => {
   });
 
   it("with size", () => {
-    const tree = renderer.create(<Combobox size={Combobox.sizes.LARGE} />).toJSON();
+    const tree = renderer.create(<Combobox size="large" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
