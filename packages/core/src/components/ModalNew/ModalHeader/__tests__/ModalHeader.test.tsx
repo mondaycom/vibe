@@ -18,7 +18,7 @@ describe("ModalHeader", () => {
     modalId: "modal-id",
     setTitleId: jest.fn(),
     setDescriptionId: jest.fn(),
-    contentScrolled: false,
+    isContentScrolled: false,
     setContentScrolled: jest.fn()
   };
 

@@ -14,7 +14,7 @@ const ModalBasicLayout = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [header, content] = React.Children.toArray(children);
-    const { contentScrolled } = useModal();
+    const { isContentScrolled } = useModal();
 
     return (
       <Flex
@@ -26,7 +26,7 @@ const ModalBasicLayout = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_BASIC_LAYOUT, id)}
       >
         <div className={styles.header}>{header}</div>
-        {contentScrolled && <Divider className={styles.divider} withoutMargin />}
+        {isContentScrolled && <Divider className={styles.divider} withoutMargin />}
         <div className={styles.content}>{content}</div>
       </Flex>
     );

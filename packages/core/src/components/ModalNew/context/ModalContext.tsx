@@ -4,15 +4,15 @@ import { ModalContextProps, ModalProviderProps } from "./ModalContext.types";
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
 export const ModalProvider = ({ value, children }: ModalProviderProps) => {
-  const [contentScrolled, setContentScrolled] = useState<boolean>(false);
+  const [isContentScrolled, setContentScrolled] = useState<boolean>(false);
 
   const contextValue = useMemo<ModalContextProps>(
     () => ({
       ...value,
-      contentScrolled,
+      isContentScrolled,
       setContentScrolled: (newContentScrolled: boolean) => setContentScrolled(newContentScrolled)
     }),
-    [contentScrolled, value]
+    [isContentScrolled, value]
   );
 
   return <ModalContext.Provider value={contextValue}>{children}</ModalContext.Provider>;
