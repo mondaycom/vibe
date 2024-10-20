@@ -2,7 +2,7 @@ import { ButtonProps } from "../../../Button";
 import React from "react";
 import { VibeComponentProps } from "../../../../types";
 
-export interface ModalFooterActionProps extends Pick<ButtonProps, "onClick" | "className"> {
+export interface ModalFooterActionProps extends Omit<ButtonProps, "children" | "kind"> {
   text: string;
 }
 
