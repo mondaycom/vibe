@@ -2,6 +2,7 @@ import React from "react";
 import { useMemo } from "react";
 import ColorUtils from "../../../../utils/colors-utils";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
+import Text from "../../../../components/Text/Text";
 
 export const ContentColorRow = ({ colorName }) => {
   const regularStyle = useMemo(
@@ -25,7 +26,9 @@ export const ContentColorRow = ({ colorName }) => {
 
   return (
     <tr className="content-color-row">
-      <ContentColorCell>{`--${colorName}`}</ContentColorCell>
+      <ContentColorCell>
+        <Text>{`--${colorName}`}</Text>
+      </ContentColorCell>
       <ContentColorCell style={regularStyle} />
       <ContentColorCell style={hoverStyle} />
       <ContentColorCell style={selectedStyle} />

@@ -6,6 +6,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import Button from "../Button";
 import "./Button.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Button>;
 
@@ -149,7 +150,9 @@ export const OnColorStates: Story = {
   render: () => (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ marginBottom: "var(--sb-spacing-small)" }}>Regular</span>
+        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+          Regular
+        </Text>
         <div className="monday-storybook-button_on-color-button">
           <Button color="on-primary-color" marginRight>
             Primary on color
@@ -162,7 +165,9 @@ export const OnColorStates: Story = {
           </Button>
         </div>
         <br />
-        <span style={{ marginBottom: "var(--sb-spacing-small)" }}>Disabled</span>
+        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+          Disabled
+        </Text>
         <div className="monday-storybook-button_on-color-button">
           <Button color="on-primary-color" disabled marginRight>
             Primary on color

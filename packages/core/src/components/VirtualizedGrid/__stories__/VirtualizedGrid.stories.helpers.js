@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "../../Text";
 
 export const generateItems = (height = 30, width = "100%", itemsCount) => {
   const items = [];
@@ -13,7 +14,8 @@ export const itemRenderer = (item, index, style) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
-        <div
+        <Text
+          color={Text.colors.FIXED_DARK}
           style={{
             backgroundColor,
             height: item.height,
@@ -24,7 +26,7 @@ export const itemRenderer = (item, index, style) => {
           }}
         >
           {item.value}
-        </div>
+        </Text>
       </div>
     );
   }
