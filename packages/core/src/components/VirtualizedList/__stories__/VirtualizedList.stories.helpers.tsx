@@ -2,7 +2,7 @@
 import React from "react";
 import { Tip } from "vibe-storybook-components";
 
-export const generateItems = (defaultItemSize: number = 30, itemsCount: number, layout: string) => {
+export const generateItems = (defaultItemSize = 30, itemsCount: number, layout: string) => {
   const items: { value: string; size: number; id: number; height: number }[] = [];
   const isVertical = layout !== "horizontal";
 
