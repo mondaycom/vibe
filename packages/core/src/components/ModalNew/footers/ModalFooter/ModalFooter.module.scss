@@ -1,0 +1,12 @@
+.primary {
+  order: 2;
+
+  &:only-child {
+    margin-left: auto;
+  }
+}
+
+.secondary {
+  order: 1;
+  margin-left: auto;
+}
