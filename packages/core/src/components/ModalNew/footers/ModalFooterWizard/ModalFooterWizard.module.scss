@@ -9,6 +9,6 @@
 .stepDots {
   position: absolute;
   left: 50%;
-  translate: -50%;
+  transform: translateX(-50%);
   margin: 0;
 }
