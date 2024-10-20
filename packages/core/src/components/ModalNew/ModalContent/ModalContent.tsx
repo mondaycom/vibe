@@ -16,6 +16,7 @@ const ModalContent = forwardRef(
         className={cx(styles.content, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_CONTENT, id)}
+        data-autofocus-inside={true}
       >
         {children}
       </div>
