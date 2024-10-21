@@ -19,7 +19,7 @@ const WizardSlideshow = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.WIZARD_SLIDESHOW, id)}
         ref={ref}
       >
-        <AnimatePresence initial={false} exitBeforeEnter custom={direction}>
+        <AnimatePresence initial={false} custom={direction}>
           <SlideTransition key={activeStep} direction={direction}>
             {children[activeStep]}
           </SlideTransition>

@@ -2,7 +2,7 @@ import { SlideDirection } from "../SlideTransition.types";
 
 export const slideAnimationVariants = {
   initial: (direction: SlideDirection) => ({
-    x: direction === "forward" ? "100%" : "-100%"
+    x: direction === "forward" ? "10%" : "-10%"
   }),
   enter: {
     x: 0
