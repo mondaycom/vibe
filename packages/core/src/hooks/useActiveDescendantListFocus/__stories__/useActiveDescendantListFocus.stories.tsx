@@ -4,6 +4,8 @@ import React, { useCallback, useRef } from "react";
 import cx from "classnames";
 import Flex from "../../../components/Flex/Flex";
 import Search from "../../../components/Search/Search";
+import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
+import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
 import useActiveDescendantListFocus from "../index";
 import { Meta, StoryObj } from "@storybook/react";
 import styles from "./useActiveDescendantListFocus.module.scss";
@@ -11,7 +13,8 @@ import styles from "./useActiveDescendantListFocus.module.scss";
 type Story = StoryObj<typeof useActiveDescendantListFocus>;
 
 export default {
-  title: "Hooks/useActiveDescendantListFocus"
+  title: "Hooks/useActiveDescendantListFocus",
+  component: UseActiveDescendantListFocus
 } satisfies Meta<typeof useActiveDescendantListFocus>;
 
 export const Overview: Story = {
