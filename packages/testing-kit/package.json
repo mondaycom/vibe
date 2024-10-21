@@ -1,0 +1,33 @@
+{
+  "name": "monday-ui-e2e-toolkit",
+  "version": "1.0.0",
+  "description": "Monday UI e2e testing toolkit",
+  "keywords": [
+    "TESTING",
+    "E2E"
+  ],
+  "author": "Uzeyir Abdullayev <uziab@monday.com>",
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "license": "ISC",
+  "main": "lib/testing-kit.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/testing-kit.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
