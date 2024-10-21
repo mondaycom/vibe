@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.0.0-alpha.15",
+  "version": "3.0.0-alpha.16",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -81,7 +81,7 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/icons": "^0.0.5-alpha.0",
+    "@vibe/icons": "^0.0.5-alpha.1",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
