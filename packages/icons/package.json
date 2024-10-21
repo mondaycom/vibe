@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icons",
-  "version": "0.0.4",
+  "version": "0.0.5-alpha.0",
   "description": "Vibe's icon library",
   "repository": {
     "type": "git",
@@ -83,5 +83,6 @@
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
-  }
+  },
+  "sideEffects": false
 }
