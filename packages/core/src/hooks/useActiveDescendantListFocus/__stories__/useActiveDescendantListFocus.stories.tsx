@@ -36,7 +36,11 @@ export const Overview: Story = {
 
     return (
       <Flex direction={Flex.directions.COLUMN}>
-        <Search ref={focusedElementRef} currentAriaResultId={focusedElementProps["aria-activedescendant"]} />
+        <Search
+          ref={focusedElementRef}
+          role={focusedElementProps.role}
+          currentAriaResultId={focusedElementProps["aria-activedescendant"]}
+        />
         <ul>
           <li
             onClick={onItemClick}
@@ -73,5 +77,6 @@ export const Overview: Story = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
+  play: overviewInteractionSuite
 };
