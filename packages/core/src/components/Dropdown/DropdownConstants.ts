@@ -10,25 +10,25 @@ export const DROPDOWN_INPUT_ARIA_LABEL = "Dropdown input";
 /**
  * @deprecated
  */
-export const DROPDOWN_CHIP_COLORS = {
-  PRIMARY: "primary",
-  NEGATIVE: "negative",
-  POSITIVE: "positive"
-};
+export enum DROPDOWN_CHIP_COLORS {
+  PRIMARY = "primary",
+  NEGATIVE = "negative",
+  POSITIVE = "positive"
+}
 
 /**
  * @deprecated
  */
-export const DROPDOWN_MENU_POSITION = {
-  ABSOLUTE: "absolute",
-  FIXED: "fixed"
-};
+export enum DROPDOWN_MENU_POSITION {
+  ABSOLUTE = "absolute",
+  FIXED = "fixed"
+}
 
 /**
  * @deprecated
  */
-export const DROPDOWN_MENU_PLACEMENT = {
-  TOP: "top",
-  BOTTOM: "bottom",
-  AUTO: "auto"
-};
+export enum DROPDOWN_MENU_PLACEMENT {
+  TOP = "top",
+  BOTTOM = "bottom",
+  AUTO = "auto"
+}
