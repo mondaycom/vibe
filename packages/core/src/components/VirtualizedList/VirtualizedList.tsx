@@ -129,6 +129,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   onLayoutDirectionScrollbarVisibilityChange?: (value: boolean) => void;
   role?: string;
+  ariaLabel?: string;
   /** Custom style to pass to the component */
   style?: CSSProperties;
   /**
@@ -163,6 +164,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
+      ariaLabel,
       style,
       "data-testid": dataTestId
     },
@@ -386,6 +388,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         className={cx(styles.virtualizedListWrapper, className)}
         id={id}
         role={role}
+        aria-label={ariaLabel}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
         style={style}
       >
