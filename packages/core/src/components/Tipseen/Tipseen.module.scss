@@ -7,7 +7,7 @@
   --tooltip-border-radius: var(--border-radius-medium);
   --tooltip-max-width: initial;
 
-  &WithoutCustomWidth {
+  &.tipseenWrapperWithoutCustomWidth {
     --tooltip-max-width: 320px;
   }
 
