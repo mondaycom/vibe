@@ -6,17 +6,11 @@
     "TESTING",
     "E2E"
   ],
-  "author": "Uzeyir Abdullayev <uziab@monday.com>",
+  "author": "",
   "homepage": "https://github.com/mondaycom/vibe#readme",
   "license": "ISC",
-  "main": "lib/testing-kit.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
+  "main": "dist/index.js",
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git"
@@ -27,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
   },
-  "dependencies": {
-    "@playwright/test": "^1.48.0"
+  "devDependencies": {
+    "@playwright/test": "1.45.3"
   }
 }

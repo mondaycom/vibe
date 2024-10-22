@@ -2950,12 +2950,12 @@
   "resolved" "https://registry.npmjs.org/@pkgr/core/-/core-0.1.1.tgz"
   "version" "0.1.1"
 
-"@playwright/test@^1.48.0":
-  "integrity" "sha512-W5lhqPUVPqhtc/ySvZI5Q8X2ztBOUgZ8LbAFy0JQgrXZs2xaILrUcNO3rQjwbLPfGK13+rZsDa1FpG+tqYkT5w=="
-  "resolved" "https://registry.npmjs.org/@playwright/test/-/test-1.48.0.tgz"
-  "version" "1.48.0"
+"@playwright/test@1.45.3":
+  "integrity" "sha512-UKF4XsBfy+u3MFWEH44hva1Q8Da28G6RFtR2+5saw+jgAFQV5yYnB1fu68Mz7fO+5GJF3wgwAIs0UelU8TxFrA=="
+  "resolved" "https://registry.npmjs.org/@playwright/test/-/test-1.45.3.tgz"
+  "version" "1.45.3"
   dependencies:
-    "playwright" "1.48.0"
+    "playwright" "1.45.3"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.11":
   "integrity" "sha512-7j/6vdTym0+qZ6u4XbSAxrWBGYSdCfTzySkj7WAFgDLmSyWlOrWvpyzxlFh5jtw9dn0oL/jtW+06XfFiisN3JQ=="
@@ -14854,8 +14854,6 @@
 "monday-ui-e2e-toolkit@file:/Users/uziab/Development/vibe/packages/testing-kit":
   "resolved" "file:packages/testing-kit"
   "version" "1.0.0"
-  dependencies:
-    "@playwright/test" "^1.48.0"
 
 "monday-ui-react-core@file:/Users/uziab/Development/vibe/packages/core":
   "resolved" "file:packages/core"
@@ -16231,17 +16229,17 @@
   dependencies:
     "find-up" "^6.3.0"
 
-"playwright-core@1.48.0":
-  "integrity" "sha512-RBvzjM9rdpP7UUFrQzRwR8L/xR4HyC1QXMzGYTbf1vjw25/ya9NRAVnXi/0fvFopjebvyPzsmoK58xxeEOaVvA=="
-  "resolved" "https://registry.npmjs.org/playwright-core/-/playwright-core-1.48.0.tgz"
-  "version" "1.48.0"
+"playwright-core@1.45.3":
+  "integrity" "sha512-+ym0jNbcjikaOwwSZycFbwkWgfruWvYlJfThKYAlImbxUgdWFO2oW70ojPm4OpE4t6TAo2FY/smM+hpVTtkhDA=="
+  "resolved" "https://registry.npmjs.org/playwright-core/-/playwright-core-1.45.3.tgz"
+  "version" "1.45.3"
 
-"playwright@1.48.0":
-  "integrity" "sha512-qPqFaMEHuY/ug8o0uteYJSRfMGFikhUysk8ZvAtfKmUK3kc/6oNl/y3EczF8OFGYIi/Ex2HspMfzYArk6+XQSA=="
-  "resolved" "https://registry.npmjs.org/playwright/-/playwright-1.48.0.tgz"
-  "version" "1.48.0"
+"playwright@1.45.3":
+  "integrity" "sha512-QhVaS+lpluxCaioejDZ95l4Y4jSFCsBvl2UZkpeXlzxmqS+aABr5c82YmfMHrL6x27nvrvykJAFpkzT2eWdJww=="
+  "resolved" "https://registry.npmjs.org/playwright/-/playwright-1.45.3.tgz"
+  "version" "1.45.3"
   dependencies:
-    "playwright-core" "1.48.0"
+    "playwright-core" "1.45.3"
   optionalDependencies:
     "fsevents" "2.3.2"
 
