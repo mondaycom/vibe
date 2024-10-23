@@ -70,35 +70,49 @@ export const Overview = {
   name: "Overview"
 };
 
-export const WidthVariantsNormal = {
-  // Boilerplate for creating a modal, not relevant for this example
+export const Sizes = {
   render:
-    // Internal helper, not part of the API
-    // internal helper, not part of the API
-    // Modal with default width variant
-    // Width prop effects on the modal width
     () => {
-      const [show, setShow] = useState(false);
-      const openModalButtonRef = useRef(null);
-      const closeModal = useCallback(() => {
-        setShow(false);
-      }, []);
-
-      const openModalButton = useHelperOpenModalButton({
+      const [showNormal, setShowNormal] = useState(false);
+      const [showFull, setShowFull] = useState(false);
+      const [showCustom, setShowCustom] = useState(false);
+    
+      const openModalButtonRefNormal = useRef(null);
+      const openModalButtonRefFull = useRef(null);
+      const openModalButtonRefCustom = useRef(null);
+    
+      const closeModalNormal = useCallback(() => setShowNormal(false), []);
+      const closeModalFull = useCallback(() => setShowFull(false), []);
+      const closeModalCustom = useCallback(() => setShowCustom(false), []);
+    
+      const openModalButtonNormal = useHelperOpenModalButton({
         title: "Default",
-        setShow,
-        openModalButtonRef
+        setShow: setShowNormal,
+        openModalButtonRef: openModalButtonRefNormal,
       });
-
+    
+      const openModalButtonFull = useHelperOpenModalButton({
+        title: "Full size",
+        setShow: setShowFull,
+        openModalButtonRef: openModalButtonRefFull,
+      });
+    
+      const openModalButtonCustom = useHelperOpenModalButton({
+        title: "Custom size (720px)",
+        setShow: setShowCustom,
+        openModalButtonRef: openModalButtonRefCustom,
+      });
+    
       return (
         <>
-          {openModalButton}
+          {/* Default Width Modal */}
+          {openModalButtonNormal} 
           <Modal
-            id="story-book-modal"
+            id="storybook-modal-normal"
             title="Modal title"
-            triggerElement={openModalButtonRef.current}
-            show={show}
-            onClose={closeModal}
+            triggerElement={openModalButtonRefNormal.current}
+            show={showNormal}
+            onClose={closeModalNormal}
             width={Modal.width.DEFAULT}
             contentSpacing
           >
@@ -106,46 +120,19 @@ export const WidthVariantsNormal = {
             <ModalFooterButtons
               primaryButtonText="Confirm"
               secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModal}
-              onSecondaryButtonClick={closeModal}
+              onPrimaryButtonClick={closeModalNormal}
+              onSecondaryButtonClick={closeModalNormal}
             />
           </Modal>
-        </>
-      );
-    },
 
-  name: "Width variants - Normal"
-};
-
-export const WidthVariantsFull = {
-  // Boilerplate for creating a modal, not relevant for this example
-  render:
-    // Internal helper, not part of the API
-    // Modal with full width variant
-    // Width prop effects on the modal width
-    () => {
-      const [show, setShow] = useState(false);
-      const openModalButtonRef = useRef(null);
-
-      const closeModal = useCallback(() => {
-        setShow(false);
-      }, []);
-
-      const openModalButton = useHelperOpenModalButton({
-        title: "Full size",
-        setShow,
-        openModalButtonRef
-      });
-
-      return (
-        <>
-          {openModalButton}
+          {/* Full Width Modal */}
+          {openModalButtonFull} 
           <Modal
-            id="story-book-modal"
+            id="storybook-modal-full"
             title="Modal title"
-            triggerElement={openModalButtonRef.current}
-            show={show}
-            onClose={closeModal}
+            triggerElement={openModalButtonRefFull.current}
+            show={showFull}
+            onClose={closeModalFull}
             width={Modal.width.FULL_WIDTH}
             contentSpacing
           >
@@ -153,63 +140,35 @@ export const WidthVariantsFull = {
             <ModalFooterButtons
               primaryButtonText="Confirm"
               secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModal}
-              onSecondaryButtonClick={closeModal}
+              onPrimaryButtonClick={closeModalFull}
+              onSecondaryButtonClick={closeModalFull}
             />
           </Modal>
-        </>
-      );
-    },
-
-  name: "Width variants - Full"
-};
-
-export const WidthVariantsCustom = {
-  // Boilerplate for creating a modal, not relevant for this example
-  render:
-    // Internal helper, not part of the API
-    // Modal with full width variant
-    // Width prop effects on the modal width
-    () => {
-      const [show, setShow] = useState(false);
-      const openModalButtonRef = useRef(null);
-
-      const closeModal = useCallback(() => {
-        setShow(false);
-      }, []);
-
-      const openModalButton = useHelperOpenModalButton({
-        title: "Custom size (i.e. 720px)",
-        setShow,
-        openModalButtonRef
-      });
-
-      return (
-        <>
-          {openModalButton}
+          
+          {/* Custom Width Modal */}
+          {openModalButtonCustom}
           <Modal
-            id="story-book-modal"
+            id="storybook-modal-custom"
             title="Modal title"
-            triggerElement={openModalButtonRef.current}
-            show={show}
-            onClose={closeModal}
-            width={"720px"}
+            triggerElement={openModalButtonRefCustom.current}
+            show={showCustom}
+            onClose={closeModalCustom}
+            width="720px"
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons
               primaryButtonText="Confirm"
               secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModal}
-              onSecondaryButtonClick={closeModal}
+              onPrimaryButtonClick={closeModalCustom}
+              onSecondaryButtonClick={closeModalCustom}
             />
           </Modal>
         </>
       );
     },
-
-  name: "Width variants - custom"
-};
+  name: "Sizes",
+}
 
 export const ModalWithIcon = {
   // Boilerplate for creating a modal, not relevant for add icon to the header
