@@ -1,12 +1,12 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import Avatar from "../Avatar/Avatar";
+import { VibeComponent, withStaticProps } from "../../types";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import { ListItemComponentType } from "../ListItem/ListItemConstants";
 import styles from "./ListItemAvatar.module.scss";
 
-export interface ListItemAvatarProps extends VibeComponentProps {
+export interface ListItemAvatarProps extends AvatarProps {
   /**
    * the ListItem component [li, div, a]
    */
@@ -16,7 +16,16 @@ export interface ListItemAvatarProps extends VibeComponentProps {
 }
 
 const ListItemAvatar: VibeComponent<ListItemAvatarProps> & { components?: typeof ListItemComponentType } = forwardRef(
-  ({ className, id, src, avatarClassName, component: Component = ListItemAvatar.components.DIV }, ref) => {
+  (props, ref) => {
+    const {
+      className,
+      id,
+      src,
+      avatarClassName,
+      component: Component = ListItemAvatar.components.DIV,
+      ...avatarProps
+    } = props;
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -27,6 +36,7 @@ const ListItemAvatar: VibeComponent<ListItemAvatarProps> & { components?: typeof
           type={Avatar.types.IMG}
           size={Avatar.sizes.SMALL}
           className={cx(styles.avatar, avatarClassName)}
+          {...avatarProps}
         />
       </Component>
     );
