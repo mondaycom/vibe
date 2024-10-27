@@ -1,24 +1,33 @@
 import { test, expect } from '@playwright/test';
-import {Button} from '../buttons/Button';
-import { markElementAsClicked, isElementClicked } from './helpers/helpers';
+import { Button } from '../buttons/Button';  // Assuming you have this Button class
 
-test.use({headless: false});
-test('should fire a click event', async ({ page }) => {
-  // Navigate to the Storybook page or any page with your component
-  await page.goto('http://localhost:7008/?path=/story/buttons-button--overview');
-  const frame = page.frameLocator("[id='storybook-preview-iframe']")
+test('should fire a click event and log to console', async ({ page }) => {
+  // Navigate to the Storybook page with the component
+  await page.goto('/?path=/story/buttons-button--overview');
+
+  // Locate the iframe where the button is rendered
+  const frame = page.frameLocator("[id='storybook-preview-iframe']");
   const button = new Button(page, frame.locator('button[data-testid="button"]'), 'Button');
-  await page.evaluate(() => {
-    const iframe = document.querySelector('[id="storybook-preview-iframe"]');
-// Access the iframe's document and query the button inside it
-    const buttonElement = iframe.contentWindow.document.querySelector('button[data-testid="button"]');
-      // Attach event listener inside browser context
-      window.isClicked = '';  // Create a global flag for tracking
-      buttonElement.addEventListener('click', () => {
-        window.isClicked = true; // Set flag to true when clicked
-      }, { once: true }); // Ensure it fires only once
+
+  // Add a listener to capture console logs
+  let consoleMessage = '';
+  page.on('console', async (msg) => {
+    const values = await Promise.all(msg.args().map(arg => arg.jsonValue()));
+    consoleMessage = values.join(' ');
   });
-   await button.click();
-   const isClicked = await page.evaluate(() => window.isClicked);
-   expect(isClicked).toBe(true);
+
+  // Attach a click event listener that logs a message to the console
+  await button.locator.evaluate((buttonElement) => {
+    buttonElement.addEventListener('click', () => {
+      console.log('Button clicked');  // Log to console when clicked
+    });
+  });
+  // Click the button
+  await button.click();
+
+  // Wait a bit to ensure the console log is captured
+  await page.waitForTimeout(500);
+
+  // Verify the console log contains the expected message
+  expect(consoleMessage).toContain('Button clicked');
 });

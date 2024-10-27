@@ -75,7 +75,14 @@ export class ButtonGroup extends BaseElement {
    */
   async click(buttonName: string): Promise<void> {
     await this.initializeButtonsIfNeeded();
+    
     const button = this.getButtonByName(buttonName);
-    await button?.click();
+    
+    // Throw an error if the button is not found
+    if (!button) {
+      throw new Error(`Invalid button name provided: ${buttonName}`);
+    }
+  
+    await button.click();
   }
 }
