@@ -19,14 +19,14 @@ export function mockUseTable() {
         errorState: <div />,
         size: RowSizes.MEDIUM,
         tableRootRef: { current: null },
+        isVirtualized: false,
+        markTableAsVirtualized: jest.fn(),
         scrollLeft: 0,
-        onTableRootScroll: jest.fn(),
+        setScrollLeft: jest.fn(),
         headRef: { current: null },
         onHeadScroll: jest.fn(),
         virtualizedListRef: { current: null },
-        onVirtualizedListScroll: jest.fn(),
-        isVirtualized: false,
-        markTableAsVirtualized: jest.fn()
+        onVirtualizedListScroll: jest.fn()
       } satisfies ITableContext)
   );
 }
