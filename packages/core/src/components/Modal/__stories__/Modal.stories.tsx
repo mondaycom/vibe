@@ -71,104 +71,103 @@ export const Overview = {
 };
 
 export const Sizes = {
-  render:
-    () => {
-      const [showNormal, setShowNormal] = useState(false);
-      const [showFull, setShowFull] = useState(false);
-      const [showCustom, setShowCustom] = useState(false);
-    
-      const openModalButtonRefNormal = useRef(null);
-      const openModalButtonRefFull = useRef(null);
-      const openModalButtonRefCustom = useRef(null);
-    
-      const closeModalNormal = useCallback(() => setShowNormal(false), []);
-      const closeModalFull = useCallback(() => setShowFull(false), []);
-      const closeModalCustom = useCallback(() => setShowCustom(false), []);
-    
-      const openModalButtonNormal = useHelperOpenModalButton({
-        title: "Default",
-        setShow: setShowNormal,
-        openModalButtonRef: openModalButtonRefNormal,
-      });
-    
-      const openModalButtonFull = useHelperOpenModalButton({
-        title: "Full size",
-        setShow: setShowFull,
-        openModalButtonRef: openModalButtonRefFull,
-      });
-    
-      const openModalButtonCustom = useHelperOpenModalButton({
-        title: "Custom size (720px)",
-        setShow: setShowCustom,
-        openModalButtonRef: openModalButtonRefCustom,
-      });
-    
-      return (
-        <>
-          {/* Default Width Modal */}
-          {openModalButtonNormal} 
-          <Modal
-            id="storybook-modal-normal"
-            title="Modal title"
-            triggerElement={openModalButtonRefNormal.current}
-            show={showNormal}
-            onClose={closeModalNormal}
-            width={Modal.width.DEFAULT}
-            contentSpacing
-          >
-            <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons
-              primaryButtonText="Confirm"
-              secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModalNormal}
-              onSecondaryButtonClick={closeModalNormal}
-            />
-          </Modal>
+  render: () => {
+    const [showNormal, setShowNormal] = useState(false);
+    const [showFull, setShowFull] = useState(false);
+    const [showCustom, setShowCustom] = useState(false);
 
-          {/* Full Width Modal */}
-          {openModalButtonFull} 
-          <Modal
-            id="storybook-modal-full"
-            title="Modal title"
-            triggerElement={openModalButtonRefFull.current}
-            show={showFull}
-            onClose={closeModalFull}
-            width={Modal.width.FULL_WIDTH}
-            contentSpacing
-          >
-            <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons
-              primaryButtonText="Confirm"
-              secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModalFull}
-              onSecondaryButtonClick={closeModalFull}
-            />
-          </Modal>
-          
-          {/* Custom Width Modal */}
-          {openModalButtonCustom}
-          <Modal
-            id="storybook-modal-custom"
-            title="Modal title"
-            triggerElement={openModalButtonRefCustom.current}
-            show={showCustom}
-            onClose={closeModalCustom}
-            width="720px"
-            contentSpacing
-          >
-            <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons
-              primaryButtonText="Confirm"
-              secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModalCustom}
-              onSecondaryButtonClick={closeModalCustom}
-            />
-          </Modal>
-        </>
-      );
-    },
-  name: "Sizes",
-}
+    const openModalButtonRefNormal = useRef(null);
+    const openModalButtonRefFull = useRef(null);
+    const openModalButtonRefCustom = useRef(null);
+
+    const closeModalNormal = useCallback(() => setShowNormal(false), []);
+    const closeModalFull = useCallback(() => setShowFull(false), []);
+    const closeModalCustom = useCallback(() => setShowCustom(false), []);
+
+    const openModalButtonNormal = useHelperOpenModalButton({
+      title: "Default",
+      setShow: setShowNormal,
+      openModalButtonRef: openModalButtonRefNormal
+    });
+
+    const openModalButtonFull = useHelperOpenModalButton({
+      title: "Full size",
+      setShow: setShowFull,
+      openModalButtonRef: openModalButtonRefFull
+    });
+
+    const openModalButtonCustom = useHelperOpenModalButton({
+      title: "Custom size (720px)",
+      setShow: setShowCustom,
+      openModalButtonRef: openModalButtonRefCustom
+    });
+
+    return (
+      <>
+        {/* Default Width Modal */}
+        {openModalButtonNormal}
+        <Modal
+          id="storybook-modal-normal"
+          title="Modal title"
+          triggerElement={openModalButtonRefNormal.current}
+          show={showNormal}
+          onClose={closeModalNormal}
+          width={Modal.width.DEFAULT}
+          contentSpacing
+        >
+          <ModalContent>Modal content goes here</ModalContent>
+          <ModalFooterButtons
+            primaryButtonText="Confirm"
+            secondaryButtonText="Cancel"
+            onPrimaryButtonClick={closeModalNormal}
+            onSecondaryButtonClick={closeModalNormal}
+          />
+        </Modal>
+
+        {/* Full Width Modal */}
+        {openModalButtonFull}
+        <Modal
+          id="storybook-modal-full"
+          title="Modal title"
+          triggerElement={openModalButtonRefFull.current}
+          show={showFull}
+          onClose={closeModalFull}
+          width={Modal.width.FULL_WIDTH}
+          contentSpacing
+        >
+          <ModalContent>Modal content goes here</ModalContent>
+          <ModalFooterButtons
+            primaryButtonText="Confirm"
+            secondaryButtonText="Cancel"
+            onPrimaryButtonClick={closeModalFull}
+            onSecondaryButtonClick={closeModalFull}
+          />
+        </Modal>
+
+        {/* Custom Width Modal */}
+        {openModalButtonCustom}
+        <Modal
+          id="storybook-modal-custom"
+          title="Modal title"
+          triggerElement={openModalButtonRefCustom.current}
+          show={showCustom}
+          onClose={closeModalCustom}
+          width="720px"
+          contentSpacing
+        >
+          <ModalContent>Modal content goes here</ModalContent>
+          <ModalFooterButtons
+            primaryButtonText="Confirm"
+            secondaryButtonText="Cancel"
+            onPrimaryButtonClick={closeModalCustom}
+            onSecondaryButtonClick={closeModalCustom}
+          />
+        </Modal>
+      </>
+    );
+  },
+  name: "Sizes"
+};
 
 export const ModalWithIcon = {
   // Boilerplate for creating a modal, not relevant for add icon to the header
