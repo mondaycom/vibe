@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement } from "react";
+import React, { forwardRef, ReactElement, UIEventHandler, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { ITableHeaderProps } from "../TableHeader/TableHeader";
@@ -10,7 +10,9 @@ import { RowHeights, RowSizes } from "./TableConsts";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
-import TableRoot from "./TableRoot";
+import useMergeRef from "../../../hooks/useMergeRef";
+import { TableProviderValue } from "../context/TableContext/TableContext.types";
+import { TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -61,7 +63,35 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
     },
     ref
   ) => {
-    const classNames = cx(styles.table, { [styles.border]: !withoutBorder }, className);
+    const tableRootRef = useRef<HTMLDivElement>(null);
+    const mergedRef = useMergeRef(ref, tableRootRef);
+
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [hoveredRowRef, setHoveredRowRef] = useState<React.RefObject<HTMLDivElement>>(null);
+
+    const resetHoveredRow = useCallback(() => {
+      setIsMenuOpen(false);
+      setHoveredRowRef(null);
+    }, []);
+
+    const [isVirtualized, setIsVirtualized] = useState<boolean>(false);
+    const markTableAsVirtualized = useCallback(() => {
+      setIsVirtualized(true);
+    }, []);
+
+    const [scrollLeft, setScrollLeft] = useState<number>(0);
+
+    const onScroll = useCallback<UIEventHandler<HTMLDivElement>>(
+      e => {
+        resetHoveredRow();
+        if (!isVirtualized) {
+          const newLeft = (e.target as HTMLDivElement).scrollLeft;
+          setScrollLeft(newLeft);
+        }
+      },
+      [resetHoveredRow, isVirtualized]
+    );
+
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
 
     /**
@@ -74,14 +104,56 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       ...style
     } as React.CSSProperties;
 
-    const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
+    const tableProviderValue = useMemo<TableProviderValue>(
+      () => ({
+        columns,
+        dataState,
+        emptyState,
+        errorState,
+        size,
+        tableRootRef,
+        isVirtualized,
+        markTableAsVirtualized,
+        scrollLeft,
+        setScrollLeft: (scrollAmount: number) => setScrollLeft(scrollAmount)
+      }),
+      [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, scrollLeft, size]
+    );
+
+    const tableRowMenuProviderValue = useMemo<TableRowMenuProviderValue>(
+      () => ({
+        tableRootRef,
+        hoveredRowRef,
+        isMenuOpen,
+        resetHoveredRow,
+        setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => setHoveredRowRef(rowRef),
+        setIsMenuOpen: (isOpen: boolean) => setIsMenuOpen(isOpen)
+      }),
+      [hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef]
+    );
 
     return (
-      <TableProvider value={{ columns, dataState, emptyState, errorState, size }}>
-        <TableRowMenuProvider>
-          <TableRoot ref={ref} id={id} className={classNames} style={calculatedStyle} data-testid={testId}>
+      <TableProvider value={tableProviderValue}>
+        <TableRowMenuProvider value={tableRowMenuProviderValue}>
+          <div
+            ref={mergedRef}
+            id={id}
+            className={cx(
+              styles.table,
+              {
+                [styles.border]: !withoutBorder,
+                [styles.virtualized]: isVirtualized,
+                [styles.hasScroll]: scrollLeft > 0
+              },
+              className
+            )}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE, id)}
+            role="table"
+            style={calculatedStyle}
+            onScroll={onScroll}
+          >
             {children}
-          </TableRoot>
+          </div>
         </TableRowMenuProvider>
       </TableProvider>
     );

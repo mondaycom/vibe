@@ -1,76 +1,58 @@
-import React, { createContext, UIEventHandler, useCallback, useContext, useMemo, useRef, useState } from "react";
+import React, { createContext, UIEventHandler, useCallback, useContext, useEffect, useMemo, useRef } from "react";
 import { ITableContext, ITableProviderProps } from "./TableContext.types";
 
 const TableContext = createContext<ITableContext | undefined>(undefined);
 
 export const TableProvider = ({ value, children }: ITableProviderProps) => {
-  const tableRootRef = useRef<HTMLDivElement>(null);
-
-  const [isVirtualized, setIsVirtualized] = useState<boolean>(false);
-  const markTableAsVirtualized = useCallback(() => {
-    setIsVirtualized(true);
-  }, []);
-
-  const [scrollLeft, setScrollLeft] = useState<number>(0);
+  const { setScrollLeft } = value;
   const headRef = useRef<HTMLDivElement>(null);
   const virtualizedListRef = useRef<HTMLDivElement>(null);
+  const lastScrollLeft = useRef<number>(0);
 
-  const onTableRootScroll = useCallback<UIEventHandler<HTMLDivElement>>(
-    e => {
-      const newLeft = (e.target as HTMLDivElement).scrollLeft;
-      if (newLeft !== scrollLeft) {
-        setScrollLeft(newLeft);
+  const syncScroll = useCallback(
+    (newScrollLeft: number, source: "head" | "body") => {
+      if (newScrollLeft === lastScrollLeft.current) return;
+
+      if (source === "body" && headRef.current) {
+        headRef.current.scrollLeft = newScrollLeft;
       }
+      if (source === "head" && virtualizedListRef.current) {
+        virtualizedListRef.current.scrollLeft = newScrollLeft;
+      }
+
+      setScrollLeft(newScrollLeft);
+      lastScrollLeft.current = newScrollLeft;
     },
-    [scrollLeft]
+    [setScrollLeft]
   );
 
   const onHeadScroll: UIEventHandler<HTMLDivElement> = useCallback(
     e => {
       const newLeft = (e.target as HTMLDivElement).scrollLeft;
-      if (virtualizedListRef.current && newLeft !== scrollLeft) {
-        virtualizedListRef.current.scrollLeft = newLeft;
-        setScrollLeft(newLeft);
-      }
+      syncScroll(newLeft, "head");
     },
-    [scrollLeft]
+    [syncScroll]
   );
 
   const onVirtualizedListScroll = useCallback<UIEventHandler<HTMLDivElement>>(
     e => {
       const newLeft = (e.target as HTMLDivElement).scrollLeft;
-      if (headRef.current && newLeft !== scrollLeft) {
-        headRef.current.scrollLeft = newLeft;
-        setScrollLeft(newLeft);
-      }
+      syncScroll(newLeft, "body");
     },
-    [scrollLeft]
+    [syncScroll]
   );
 
   const contextValue = useMemo<ITableContext>(
     () => ({
       ...value,
-      tableRootRef,
       headRef,
-      scrollLeft,
-      onTableRootScroll,
       onHeadScroll,
       virtualizedListRef,
-      onVirtualizedListScroll,
-      isVirtualized,
-      markTableAsVirtualized
+      onVirtualizedListScroll
     }),
-    [
-      value,
-      tableRootRef,
-      scrollLeft,
-      onTableRootScroll,
-      onHeadScroll,
-      onVirtualizedListScroll,
-      isVirtualized,
-      markTableAsVirtualized
-    ]
+    [value, onHeadScroll, onVirtualizedListScroll]
   );
+
   return <TableContext.Provider value={contextValue}>{children}</TableContext.Provider>;
 };
 
