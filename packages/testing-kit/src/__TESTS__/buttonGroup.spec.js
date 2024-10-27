@@ -14,7 +14,7 @@ test.describe("ButtonGroup Class with Storybook", () => {
 
     // Locate the button group inside the iframe
     const buttonGroupLocator = frame.locator('div[data-testid="button-group"]');
-    while (await button.locator.isVisible() === false) {
+    while (await buttonGroupLocator.locator.isVisible() === false) {
       await page.waitForTimeout(30000);
       await page.reload();
       if (await buttonGroupLocator.locator.isVisible() === true) {
