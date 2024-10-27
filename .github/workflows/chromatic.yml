@@ -3,6 +3,9 @@ name: Chromatic
 on:
   pull_request:
     types: [opened, synchronize]
+  push:
+    branches:
+      - master
 
 jobs:
   build:
