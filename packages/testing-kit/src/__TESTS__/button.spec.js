@@ -4,11 +4,18 @@ import { Button } from '../buttons/Button';  // Assuming you have this Button cl
 test('should fire a click event and log to console', async ({ page }) => {
   // Navigate to the Storybook page with the component
   await page.goto('/?path=/story/buttons-button--overview');
-
   // Locate the iframe where the button is rendered
   const frame = page.frameLocator("[id='storybook-preview-iframe']");
   const button = new Button(page, frame.locator('button[data-testid="button"]'), 'Button');
-
+  
+  //TODO - find a better way to wait for the storybook to load
+  while (await button.locator.isVisible() === false) {
+    await page.waitForTimeout(30000);
+    await page.reload();
+    if (await button.locator.isVisible() === true) {
+      break;
+    }
+  }
   // Add a listener to capture console logs
   let consoleMessage = '';
   page.on('console', async (msg) => {

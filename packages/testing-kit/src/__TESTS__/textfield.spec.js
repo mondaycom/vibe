@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { TextField } from "../inputs/TextField";
 
-test.use({ headless: false });
 test.describe("textArea Class with Storybook", () => {
   let textField;
   let textfieldLocator

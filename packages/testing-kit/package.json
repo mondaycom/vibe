@@ -16,7 +16,9 @@
     "url": "git+https://github.com/mondaycom/vibe.git"
   },
   "scripts": {
-    "test": "node ./__tests__/testing-kit.test.js"
+    "test": "npx playwright test",
+    "build": "tsc",
+    "start-server": "cd .. && cd core && yarn storybook"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"

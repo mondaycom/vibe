@@ -10,6 +10,15 @@ module.exports = defineConfig({
   fullyParallel: false,
   workers: 1,
   reporter: [["html", { open: "never", outputFolder: path.join(__dirname, "/reports") }]],
+    // Run your local dev server before starting the tests
+    webServer: {
+        command: 'yarn start-server',
+        url: 'http://127.0.0.1:7008',
+        reuseExistingServer: !process.env.CI,
+        timeout: 120 * 1000,
+        stdout: 'ignore',
+        stderr: 'ignore',
+      },
   use: {
     headless: true,
     baseURL: "http://127.0.0.1:7008",
