@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.139.4](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.3...monday-ui-react-core@2.139.4) (2024-10-21)
+
+
+### Bug Fixes
+
+* **Combobox:** restricted onclick on the disabled ([#2491](https://github.com/mondaycom/vibe/issues/2491)) ([9965476](https://github.com/mondaycom/vibe/commit/996547612af7a33e5dde95ba200ea23fa8ea0963))
+* Dropdown font broken ([#2551](https://github.com/mondaycom/vibe/issues/2551)) ([bca2c68](https://github.com/mondaycom/vibe/commit/bca2c681e622fbd7a6f8291df1c413cc8fc2083f))
+
+
+
+
+
 ## [2.139.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.2...monday-ui-react-core@2.139.3) (2024-10-10)
 
 

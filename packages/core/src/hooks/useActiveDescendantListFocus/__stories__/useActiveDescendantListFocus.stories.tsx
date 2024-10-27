@@ -4,23 +4,26 @@ import React, { useCallback, useRef } from "react";
 import cx from "classnames";
 import Flex from "../../../components/Flex/Flex";
 import Search from "../../../components/Search/Search";
-import useActiveDescendantListFocus from "../index";
 import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
 import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
+import useActiveDescendantListFocus from "../index";
+import { Meta, StoryObj } from "@storybook/react";
 import styles from "./useActiveDescendantListFocus.module.scss";
+
+type Story = StoryObj<typeof useActiveDescendantListFocus>;
 
 export default {
   title: "Hooks/useActiveDescendantListFocus",
   component: UseActiveDescendantListFocus
-};
+} satisfies Meta<typeof useActiveDescendantListFocus>;
 
-export const Overview = {
+export const Overview: Story = {
   render: () => {
-    const focusedElementRef = useRef(null);
-    const itemsIds = ["id-1", "id-2", "id-3"];
-    const isItemSelectable = useCallback(() => true, []);
+    const focusedElementRef = useRef<HTMLInputElement | null>(null);
+    const itemsIds: string[] = ["id-1", "id-2", "id-3"];
+    const isItemSelectable = useCallback((): boolean => true, []);
 
-    const onItemClick = useCallback(() => {
+    const onItemClick = useCallback((): void => {
       alert("clicked");
     }, []);
 
