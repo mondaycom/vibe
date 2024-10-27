@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { DropDown } from "../inputs/DropDown";
 
-test.describe("menuButton Class with Storybook", () => {
+test.describe("dropdown Class with Storybook", () => {
   let Dropdown;
 
   test.beforeEach(async ({ page }) => {

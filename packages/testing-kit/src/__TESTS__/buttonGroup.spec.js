@@ -8,13 +8,19 @@ test.describe("ButtonGroup Class with Storybook", () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the Storybook story where the ButtonGroup component is rendered
     await page.goto("/?path=/story/buttons-buttongroup--default");
-
+  //TODO - find a better way to wait for the storybook to load
     // Locate the iframe where the Storybook component is rendered
     const frame = page.frameLocator("[id='storybook-preview-iframe']");
 
     // Locate the button group inside the iframe
     const buttonGroupLocator = frame.locator('div[data-testid="button-group"]');
-
+    while (await button.locator.isVisible() === false) {
+      await page.waitForTimeout(30000);
+      await page.reload();
+      if (await buttonGroupLocator.locator.isVisible() === true) {
+        break;
+      }
+    }
     // Initialize ButtonGroup with the Playwright page and locator
     buttonGroup = new ButtonGroup(page, buttonGroupLocator, "Test Button Group");
   });
