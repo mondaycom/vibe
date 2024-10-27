@@ -62,4 +62,4 @@ jobs:
         if: ${{ always() }}
         with:
           name: test-results    
-          path: packages/monday-ui-e2e-toolkit/reports
+          path: packages/testing-kit/reports
