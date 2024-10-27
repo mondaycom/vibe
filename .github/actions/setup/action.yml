@@ -14,11 +14,6 @@ runs:
         node-version-file: ".nvmrc"
         registry-url: https://registry.npmjs.org/
         cache: "yarn"
-    - name: Install playwright
-      run: npx playwright install 
-      shell: bash
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm_token }}
     - name: Install
       run: yarn
       shell: bash
