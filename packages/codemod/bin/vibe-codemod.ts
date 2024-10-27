@@ -65,7 +65,7 @@ async function runWizard() {
     {
       type: "confirm",
       name: "runOptional",
-      message: "Would you like to run the optional migrations as well?",
+      message: "Would you like to run the optional enum migrations as well?",
       default: false,
       when: true
     }
@@ -133,6 +133,34 @@ async function main() {
     if (proceed.toLowerCase() !== "y") {
       console.log("Operation cancelled.");
       process.exit(1);
+    }
+  }
+
+  async function processTransformations(transformationFiles: string[], type = "Transformation") {
+    for (let index = 0; index < transformationFiles.length; index++) {
+      const transform = transformationFiles[index];
+      const transformName = path.basename(transform, path.extname(transform));
+
+      spinner.text = `Processing ${type.toLowerCase()} (${index + 1}/${transformationFiles.length}): ${transformName}`;
+
+      try {
+        const result = await runSingleTransformation(transform);
+
+        if (result) {
+          successCount++;
+          spinner.succeed(chalk.green(`${type} completed: ${transformName}`));
+        } else {
+          failureCount++;
+          spinner.fail(chalk.red(`${type} finished with errors: ${transformName}`));
+        }
+      } catch (error) {
+        failureCount++;
+        spinner.fail(chalk.red(`${type} failed: ${transformName}`));
+      }
+
+      if (index < transformationFiles.length - 1) {
+        spinner.start();
+      }
     }
   }
 
@@ -223,31 +251,7 @@ async function main() {
     ...filesToProcessLast
   ];
 
-  for (let index = 0; index < orderedTransformationFiles.length; index++) {
-    const transform = orderedTransformationFiles[index];
-    const transformName = path.basename(transform, path.extname(transform));
-
-    spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transformName}`;
-
-    try {
-      const result = await runSingleTransformation(transform);
-
-      if (result) {
-        successCount++;
-        spinner.succeed(chalk.green(`Transformation completed: ${transformName}`));
-      } else {
-        failureCount++;
-        spinner.fail(chalk.red(`Transformation finished with errors: ${transformName}`));
-      }
-    } catch (error) {
-      failureCount++;
-      spinner.fail(chalk.red(`Transformation failed: ${transformName}`));
-    }
-
-    if (index < orderedTransformationFiles.length - 1) {
-      spinner.start();
-    }
-  }
+  await processTransformations(orderedTransformationFiles);
 
   if (runOptional && fs.existsSync(optionalTransformationsDir)) {
     console.log(chalk.blue(`\nRunning optional transformations from: ${optionalTransformationsDir}`));
@@ -256,31 +260,7 @@ async function main() {
       ignore: ["node_modules/**", "**/*.d.ts"]
     });
 
-    for (let index = 0; index < optionalTransformationFiles.length; index++) {
-      const transform = optionalTransformationFiles[index];
-      const transformName = path.basename(transform, path.extname(transform));
-
-      spinner.text = `Processing optional transformation (${index + 1}/${optionalTransformationFiles.length}): ${transformName}`;
-
-      try {
-        const result = await runSingleTransformation(transform);
-
-        if (result) {
-          successCount++;
-          spinner.succeed(chalk.green(`Optional transformation completed: ${transformName}`));
-        } else {
-          failureCount++;
-          spinner.fail(chalk.red(`Optional transformation finished with errors: ${transformName}`));
-        }
-      } catch (error) {
-        failureCount++;
-        spinner.fail(chalk.red(`Optional transformation failed: ${transformName}`));
-      }
-
-      if (index < optionalTransformationFiles.length - 1) {
-        spinner.start();
-      }
-    }
+    await processTransformations(optionalTransformationFiles, "Optional transformation");
   }
 
   spinner.stop();
