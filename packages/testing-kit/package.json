@@ -16,7 +16,7 @@
     "url": "git+https://github.com/mondaycom/vibe.git"
   },
   "scripts": {
-    "test": "npx playwright test",
+    "test:e2e": "npx playwright test",
     "build": "tsc",
     "start-server": "cd .. && cd core && yarn storybook"
   },

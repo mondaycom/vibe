@@ -39,3 +39,27 @@ jobs:
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
+  
+  tests_e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - id: determine-since-flag
+        uses: ./.github/actions/determine-lerna-since-flag
+      - uses: ./.github/actions/download-builds
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run tests
+        run: yarn lerna run test:e2e $SINCE_FLAG --scope "monday-ui-e2e-toolkit"
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: test-results    
+          path: packages/monday-ui-e2e-toolkit/reports
