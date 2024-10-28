@@ -1801,7 +1801,7 @@ export const iconsMetaData = [
     name: "Wand",
     file: "Wand.svg",
     description: "Wand",
-    tags: "Wand, Star",
+    tags: "Wand, Star, Template",
     category: [PLATFORM]
   },
 
