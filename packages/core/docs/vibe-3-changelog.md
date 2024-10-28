@@ -356,6 +356,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 ## Icons
 
 - The `Upgrade` icon has been removed, and the `Featured` icon has been renamed to `Upgrade`
+- The `Replay` icon has been renamed to `Reply`
 
 ## Hooks
 

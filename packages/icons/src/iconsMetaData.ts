@@ -1523,10 +1523,10 @@ export default [
   },
 
   {
-    name: "Replay",
-    file: "Replay.svg",
-    description: "Replay",
-    tags: "Replay, Message, Arrow",
+    name: "Reply",
+    file: "Reply.svg",
+    description: "Reply",
+    tags: "Reply, Message, Arrow",
     category: [PLATFORM]
   },
 

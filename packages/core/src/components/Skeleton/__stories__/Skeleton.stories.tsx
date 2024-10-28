@@ -3,7 +3,7 @@ import Skeleton, { SkeletonProps } from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";
-import { Replay, ThumbsUp } from "@vibe/icons";
+import { Reply, ThumbsUp } from "@vibe/icons";
 import "./Skeleton.stories.scss";
 import { Flex } from "../../Flex";
 
@@ -144,7 +144,7 @@ export const UpdateInTheSystem = {
               <Button className="monday-storybook-skeleton_btn" leftIcon={ThumbsUp} kind="secondary">
                 Like
               </Button>
-              <Button className="monday-storybook-skeleton_btn" leftIcon={Replay} kind="secondary">
+              <Button className="monday-storybook-skeleton_btn" leftIcon={Reply} kind="secondary">
                 Reply
               </Button>
             </div>
