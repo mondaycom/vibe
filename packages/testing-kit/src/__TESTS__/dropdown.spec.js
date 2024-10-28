@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { DropDown } from "../inputs/DropDown";
 
-test.use({headless: false});
+
 test.describe("dropdown Class with Storybook", () => {
   let Dropdown;
 
