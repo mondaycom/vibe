@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { DropDown } from "../inputs/DropDown";
 
+test.use({headless: false});
 test.describe("dropdown Class with Storybook", () => {
   let Dropdown;
 
@@ -11,8 +12,8 @@ test.describe("dropdown Class with Storybook", () => {
     Dropdown = new DropDown(page, DropDownLocator, "Test DropDown");
   });
 
-  test.skip("set dropdown value", async ({page}) => {
-    await Dropdown.selectItem("Option 2");
+  test("set dropdown value", async ({page}) => {
+    await Dropdown.selectItem("2");
     await page.waitForTimeout(500);
     expect(await Dropdown.getText()).toContain("Option 2");
   });
