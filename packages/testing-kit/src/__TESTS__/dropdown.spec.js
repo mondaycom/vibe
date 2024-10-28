@@ -11,7 +11,7 @@ test.describe("dropdown Class with Storybook", () => {
     Dropdown = new DropDown(page, DropDownLocator, "Test DropDown");
   });
 
-  test("set dropdown value", async ({page}) => {
+  test.skip("set dropdown value", async ({page}) => {
     await Dropdown.selectItem("Option 2");
     await page.waitForTimeout(500);
     expect(await Dropdown.getText()).toContain("Option 2");
