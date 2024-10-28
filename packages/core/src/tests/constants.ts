@@ -107,6 +107,7 @@ export enum ComponentDefaultTestId {
   MODAL_NEXT_OVERLAY = "modal-overlay",
   MODAL_NEXT_HEADER = "modal-header",
   MODAL_NEXT_CONTENT = "modal-content",
+  MODAL_NEXT_FOOTER = "modal-footer",
   MODAL_NEXT_MEDIA = "modal-media",
   MODAL_NEXT_BASIC_LAYOUT = "modal-basic-layout",
   MODAL_NEXT_SIDE_BY_SIDE_LAYOUT = "modal-side-by-side-layout",
