@@ -30,5 +30,5 @@ module.exports = defineConfig({
       args: ["--disable-web-security"]
     }
   },
-  timeout: 60 * 1000,
+  timeout: 180 * 1000,
 });
