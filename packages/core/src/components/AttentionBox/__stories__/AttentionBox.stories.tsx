@@ -201,6 +201,7 @@ export const AttentionBoxAnimation = {
             entryAnimation
             icon={Info}
             text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
+            onClose={() => setOpen(false)}
           />
         )}
       </>
