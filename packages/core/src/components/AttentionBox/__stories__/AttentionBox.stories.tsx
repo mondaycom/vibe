@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -13,6 +13,7 @@ import Flex from "../../Flex/Flex";
 import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import "./AttentionBox.stories.scss";
+import Button from "../../Button/Button";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
@@ -176,6 +177,33 @@ export const AttentionBoxInsideADialogCombobox = {
           <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />
         </div>
       </DialogContentContainer>
+    );
+  },
+
+  name: "Attention box inside a dialog/combobox"
+};
+
+export const AttentionBoxAnimation = {
+  render: () => {
+    const [isOpen, setOpen] = useState(false);
+    const onClick = useCallback(() => {
+      setOpen(true);
+    }, []);
+    return (
+      <>
+        <Button onClick={onClick} kind={Button.kinds.SECONDARY}>
+          Entry animation
+        </Button>
+        {isOpen && (
+          <AttentionBox
+            compact
+            withIconWithoutHeader
+            entryAnimation
+            icon={Info}
+            text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
+          />
+        )}
+      </>
     );
   },
 

@@ -36,7 +36,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
   closeButtonAriaLabel?: string;
-  animateOnEnter?: boolean;
+  entryAnimation?: boolean;
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
@@ -61,7 +61,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   id,
   "data-testid": dataTestId,
   closeButtonAriaLabel = "Close",
-  animateOnEnter = false
+  entryAnimation = false
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
@@ -74,7 +74,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   return (
     <aside
       className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName, {
-        [styles.animateOnEnter]: animateOnEnter
+        [styles.entryAnimation]: entryAnimation
       })}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
