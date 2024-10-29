@@ -1,19 +1,20 @@
 {
-  "name": "monday-ui-e2e-toolkit",
+  "name": "@vibe/testkit",
   "version": "1.0.0",
-  "description": "Monday UI e2e testing toolkit",
+  "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
     "E2E"
   ],
-  "author": "",
+  "author": "monday.com",
   "homepage": "https://github.com/mondaycom/vibe#readme",
   "license": "ISC",
   "main": "dist/index.js",
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git"
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/testkit"
   },
   "scripts": {
     "test:e2e": "npx playwright test",
