@@ -19,7 +19,7 @@
   "scripts": {
     "test:e2e": "npx playwright test",
     "build": "tsc",
-    "start-server": "cd .. && cd core && yarn storybook"
+    "start-server": "yarn lerna run storybook --scope=monday-ui-react-core"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"

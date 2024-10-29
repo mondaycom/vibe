@@ -6,7 +6,7 @@ import { BaseElement } from "../BaseElement";
  * Class representing a DropDown element.
  * Extends the BaseElement class.
  */
-export class DropDown extends BaseElement {
+export class Dropdown extends BaseElement {
   inputField: TextField;
   override page: Page;
   override locator: Locator;

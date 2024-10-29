@@ -12,9 +12,8 @@
   },
   "devDependencies": {
     "lerna": "^8.1.2",
-    "typescript": "^4.7.3",
-    "@playwright/test": "1.45.3"
-  },
+    "typescript": "^4.7.3"
+    },
   "workspaces": [
     "packages/*"
   ]

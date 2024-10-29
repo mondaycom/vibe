@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { Button } from '../buttons/Button';  // Assuming you have this Button class
+import { Button } from '../buttons/Button'; 
 
 test('should fire a click event and log to console', async ({ page }) => {
   // Navigate to the Storybook page with the component

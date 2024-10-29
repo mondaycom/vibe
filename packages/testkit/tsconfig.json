@@ -17,12 +17,12 @@
       "strictBindCallApply": true,
       "strictFunctionTypes": true,
       "strictPropertyInitialization": true,
-      "rootDir": "src/",
+      "rootDir": ".",
       "declaration": false,
       "downlevelIteration": true,
       "experimentalDecorators": true,
       "noImplicitOverride": true,
       "noImplicitReturns": true,
     },
-    "include": ["src/**/*"]
+    "include": [ "buttons", "inputs", "navigation", "pickers", "popover", "text", "utils", "BaseElement.ts", "index.ts"]
   }
