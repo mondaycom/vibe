@@ -12,7 +12,8 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 const mapMigrationType: { [key: string]: string } = {
-  v3: "v2-to-v3"
+  v3: "v2-to-v3",
+  enums: "v2-to-v3/optional"
 };
 
 const migrations = Object.keys(mapMigrationType);
@@ -21,7 +22,7 @@ const argv = yargs(hideBin(process.argv))
   .option("migration", {
     alias: "m",
     type: "string",
-    description: "Migration type to run (e.g., v3)",
+    description: "Migration type to run (e.g., v3, enums)",
     choices: migrations
   })
   .option("target", {
@@ -61,20 +62,12 @@ async function runWizard() {
       choices: [{ name: "jsx", checked: true }, { name: "tsx", checked: true }, { name: "js" }, { name: "ts" }],
       default: argv.extensions || ["jsx", "tsx"],
       when: !argv.extensions
-    },
-    {
-      type: "confirm",
-      name: "runOptional",
-      message: "Would you like to run the optional enum migrations as well?",
-      default: false,
-      when: true
     }
   ]);
 
   return {
     migration: answers.migration || argv.migration,
-    extensions: answers.extensions || argv.extensions,
-    runOptional: answers.runOptional || false
+    extensions: answers.extensions || argv.extensions
   };
 }
 
@@ -99,11 +92,9 @@ async function main() {
 
   const migrationType = answers.migration;
   const transformationsDir = join(__dirname, "..", "transformations", "core", mapMigrationType[migrationType]);
-  const optionalTransformationsDir = join(transformationsDir, "optional");
   const extensions = answers.extensions;
   const targetDir = argv.target;
   const verbose = argv.verbose;
-  const runOptional = answers.runOptional;
 
   const logFile = resolve(targetDir, "codemod.log");
 
@@ -120,6 +111,18 @@ async function main() {
       console.error(chalk.red("Error checking Git status:"));
       process.exit(1);
     }
+  }
+
+  const majorVibeVersion = getPackageMajorVersion("@vibe/core");
+  const isV3Installed = majorVibeVersion && majorVibeVersion >= 3;
+  if (migrationType === "v3" && !isV3Installed) {
+    console.log(
+      chalk.yellow("Warning: You need at least version 3 of the @vibe/core package to fully apply the v3 migration.")
+    );
+  }
+  if (migrationType === "enums" && !isV3Installed) {
+    console.log(chalk.red("Error: You need at least version 3 of the vibe to run the enum migration."));
+    process.exit(1);
   }
 
   if (!isGitClean()) {
@@ -242,26 +245,19 @@ async function main() {
     process.exit(1);
   }
 
-  const filesToProcessLast = [
-    resolve(transformationsDir, "type-imports-migration.js"),
-    resolve(transformationsDir, "packages-rename-migration.js")
-  ];
+  const filesToProcessLast =
+    migrationType === "v3"
+      ? [
+          resolve(transformationsDir, "type-imports-migration.js"),
+          resolve(transformationsDir, "packages-rename-migration.js")
+        ]
+      : [];
   const orderedTransformationFiles = [
     ...transformationFiles.filter(file => !filesToProcessLast.includes(file)),
     ...filesToProcessLast
   ];
 
   await processTransformations(orderedTransformationFiles);
-
-  if (runOptional && fs.existsSync(optionalTransformationsDir)) {
-    console.log(chalk.blue(`\nRunning optional transformations from: ${optionalTransformationsDir}`));
-
-    const optionalTransformationFiles: string[] = globby.sync(`${optionalTransformationsDir}/*.js`, {
-      ignore: ["node_modules/**", "**/*.d.ts"]
-    });
-
-    await processTransformations(optionalTransformationFiles, "Optional transformation");
-  }
 
   spinner.stop();
 
@@ -272,6 +268,26 @@ async function main() {
   if (verbose) {
     console.log(chalk.green(`Transformation logs written to ${logFile}`));
   }
+}
+
+function getPackageMajorVersion(packageName: string): number | null {
+  const packageJsonPath = path.resolve(process.cwd(), "package.json");
+  if (!fs.existsSync(packageJsonPath)) {
+    console.error(chalk.red(`Error: package.json not found at ${packageJsonPath}`));
+    process.exit(1);
+  }
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+  const dependencies = packageJson.dependencies || {};
+  const version = dependencies[packageName];
+
+  if (version) {
+    const majorVersion = parseInt(version.replace(/[^\d.]/g, "").split(".")[0], 10); // Extract the major version
+    if (majorVersion) {
+      return majorVersion;
+    }
+  }
+  console.error(chalk.red(`Error: ${packageName} is not listed in package.json`));
+  return null;
 }
 
 main();
