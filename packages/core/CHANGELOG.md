@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.140.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.4...monday-ui-react-core@2.140.0) (2024-10-29)
+
+
+### Features
+
+* add aria-label to VirtualizedList ([#2558](https://github.com/mondaycom/vibe/issues/2558)) ([e1d5044](https://github.com/mondaycom/vibe/commit/e1d504423d9bce1c94d27d2ff141f61bbd7546b4))
+* **AttentionBox:** add prop for enter animation ([#2566](https://github.com/mondaycom/vibe/issues/2566)) ([15b20b1](https://github.com/mondaycom/vibe/commit/15b20b105d952f6db03136c23ccf369b8d2e6829))
+
+
+
+
+
 ## [2.139.4](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.3...monday-ui-react-core@2.139.4) (2024-10-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.14.1...monday-ui-style@0.15.0) (2024-10-29)
+
+
+### Features
+
+* **Wand:** add "Template" tag to icon ([#2565](https://github.com/mondaycom/vibe/issues/2565)) ([9909743](https://github.com/mondaycom/vibe/commit/99097433d742bd77a94b72968b3ed2008dbf769e))
+
+
+
+
+
 ## [0.14.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.14.0...monday-ui-style@0.14.1) (2024-09-29)
 
 **Note:** Version bump only for package monday-ui-style
