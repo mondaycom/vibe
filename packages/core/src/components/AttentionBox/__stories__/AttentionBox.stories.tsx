@@ -191,19 +191,26 @@ export const AttentionBoxAnimation = {
     }, []);
     return (
       <>
-        <Button onClick={onClick} kind={Button.kinds.SECONDARY}>
-          Entry animation
-        </Button>
-        {isOpen && (
-          <AttentionBox
-            compact
-            withIconWithoutHeader
-            entryAnimation
-            icon={Info}
-            text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
-            onClose={() => setOpen(false)}
-          />
-        )}
+        <Flex
+          gap={Flex.gaps.MEDIUM}
+          style={{
+            height: "44px"
+          }}
+        >
+          <Button onClick={onClick} kind={Button.kinds.SECONDARY}>
+            Entry animation
+          </Button>
+          {isOpen && (
+            <AttentionBox
+              compact
+              withIconWithoutHeader
+              entryAnimation
+              icon={Info}
+              text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
+              onClose={() => setOpen(false)}
+            />
+          )}
+        </Flex>
       </>
     );
   },
