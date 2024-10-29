@@ -36,6 +36,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
   closeButtonAriaLabel?: string;
+  /** Enables an entry animation when the component appears */
   entryAnimation?: boolean;
 }
 
