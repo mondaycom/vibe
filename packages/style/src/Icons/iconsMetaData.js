@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Clipboard",
+      file: "Clipboard.svg",
+      description: "Clipboard",
+      tags: "Clipboard, Board, Copy"
+  },
+
+  {
     name: "Shuffle",
     file: "Shuffle.svg",
     description: "Use to describe shuffle of items.",
