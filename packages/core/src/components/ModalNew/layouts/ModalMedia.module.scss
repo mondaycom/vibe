@@ -1,8 +1,17 @@
 .media {
-  align-items: normal;
-  align-self: normal;
-  width: 100%;
-  height: auto;
+  max-width: 100%;
   max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
   overflow: hidden;
+  position: relative;
+
+  > * {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+  }
 }
