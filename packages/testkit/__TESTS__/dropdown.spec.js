@@ -1,12 +1,13 @@
 import { test, expect } from "@playwright/test";
 import { Dropdown } from "../inputs/Dropdown";
+import { dropdownStory } from "./utils/url-helper";
 
 
 test.describe("dropdown Class with Storybook", () => {
   let DropDown;
 
   test.beforeEach(async ({ page }) => {
-    await page.goto("/?path=/story/inputs-dropdown--overview");
+    await page.goto(dropdownStory);
     const frame = page.frameLocator("[id='storybook-preview-iframe']");
     const DropDownLocator = frame.locator('[id="dropdown-menu-id"]');
     DropDown = new Dropdown(page, DropDownLocator, "Test DropDown");

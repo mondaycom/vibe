@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { ButtonGroup } from "../buttons/ButtonGroup";
+import { buttonGroupStory } from "./utils/url-helper";
 
 
 test.describe("ButtonGroup Class with Storybook", () => {
@@ -7,7 +8,7 @@ test.describe("ButtonGroup Class with Storybook", () => {
 
   test.beforeEach(async ({ page }) => {
     // Navigate to the Storybook story where the ButtonGroup component is rendered
-    await page.goto("/?path=/story/buttons-buttongroup--default");
+    await page.goto(buttonGroupStory);
     //TODO - find a better way to wait for the storybook to load
     // Locate the iframe where the Storybook component is rendered
     const frame = page.frameLocator("[id='storybook-preview-iframe']");

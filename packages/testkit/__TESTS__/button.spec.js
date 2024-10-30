@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { Button } from '../buttons/Button'; 
+import { buttonStory } from './utils/url-helper';
 
 test('should fire a click event and log to console', async ({ page }) => {
   // Navigate to the Storybook page with the component
-  await page.goto('/?path=/story/buttons-button--overview', {timeout: 100000});
+  await page.goto(buttonStory, {timeout: 100000});
   // Locate the iframe where the button is rendered
   const frame = page.frameLocator("[id='storybook-preview-iframe']");
   const button = new Button(page, frame.locator('button[data-testid="button"]'), 'Button');
