@@ -1,24 +1,30 @@
 import { TableProps } from "../../Table/Table";
 import React, { UIEventHandler } from "react";
 
-export interface TableContext {
+export interface TableContext extends TableProviderValue {
+  headRef: React.MutableRefObject<HTMLDivElement>;
+  onHeadScroll: UIEventHandler<HTMLDivElement>;
+  virtualizedListRef: React.MutableRefObject<HTMLDivElement>;
+  onVirtualizedListScroll: UIEventHandler<HTMLDivElement>;
+}
+
+export interface TableProviderForwardedProps {
   columns: TableProps["columns"];
   dataState?: TableProps["dataState"];
   emptyState: TableProps["emptyState"];
   errorState: TableProps["errorState"];
   size: TableProps["size"];
+}
+
+export interface TableProviderValue extends TableProviderForwardedProps {
   tableRootRef: React.MutableRefObject<HTMLDivElement>;
-  scrollLeft: number;
-  onTableRootScroll: UIEventHandler<HTMLDivElement>;
-  headRef: React.MutableRefObject<HTMLDivElement>;
-  onHeadScroll: UIEventHandler<HTMLDivElement>;
-  virtualizedListRef: React.MutableRefObject<HTMLDivElement>;
-  onVirtualizedListScroll: UIEventHandler<HTMLDivElement>;
   isVirtualized: boolean;
   markTableAsVirtualized: () => void;
+  scrollLeft: number;
+  setScrollLeft: (scrollAmount: number) => void;
 }
 
 export type TableProviderProps = {
-  value: Pick<TableContext, "columns" | "dataState" | "emptyState" | "errorState" | "size">;
+  value: TableProviderValue;
   children: React.ReactNode;
 };

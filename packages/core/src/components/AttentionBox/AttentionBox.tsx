@@ -31,6 +31,8 @@ export interface AttentionBoxProps extends VibeComponentProps {
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
   closeButtonAriaLabel?: string;
+  /** Enables an entry animation when the component appears */
+  entryAnimation?: boolean;
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
@@ -50,7 +52,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   compact = false,
   id,
   "data-testid": dataTestId,
-  closeButtonAriaLabel = "Close"
+  closeButtonAriaLabel = "Close",
+  entryAnimation = false
 }: AttentionBoxProps) => {
   const defaultIcon = useMemo(() => {
     return type === "primary" ? InfoIcon : AlertIcon;
@@ -60,7 +63,9 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   return (
     <aside
-      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), className)}
+      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), className, {
+        [styles.entryAnimation]: entryAnimation
+      })}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >

@@ -27,7 +27,7 @@ import * as AttentionBoxStories from "./AttentionBox.stories";
 
 ## Overview
 
-Attention box lets users know important information within content areas, as close as possible to the content it’s about.
+Attention box lets users know important information within content areas, as close as possible to the content it’s about. An optional smooth entrance animation can be used to enhance visibility.
 
 <Canvas of={AttentionBoxStories.Overview} />
 
@@ -139,9 +139,15 @@ Provides additional information about an action or section.
 
 ### Attention box inside a dialog/combobox
 
-Provides cotextual and related information.
+Provides contextual and related information.
 
 <Canvas of={AttentionBoxStories.AttentionBoxInsideADialogCombobox} />
+
+### Animation
+
+The Attention box component consist of enter animation prop to increase user attention. Is highly recommended to use a 200ms delay before the attention box entry motion once the page is fully loaded.
+
+<Canvas of={AttentionBoxStories.AttentionBoxAnimation} />
 
 ## Related components
 
