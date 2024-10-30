@@ -45,7 +45,7 @@ const TableRowMenu = forwardRef(
           <div
             className={cx(styles.rowMenuContainer, getStyle(styles, size))}
             style={{ top: menuButtonPosition }}
-            onMouseOver={onMouseOverRowMenu}
+            onMouseEnter={onMouseOverRowMenu}
             onMouseLeave={onMouseLeaveRowMenu}
           >
             <MenuButton

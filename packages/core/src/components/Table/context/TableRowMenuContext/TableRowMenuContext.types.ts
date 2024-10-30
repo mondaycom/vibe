@@ -1,8 +1,7 @@
 import React from "react";
 
-export interface ITableRowMenuContext {
+export interface ITableRowMenuContext extends Pick<TableRowMenuProviderValue, "resetHoveredRow"> {
   hoveredRowId: string;
-  resetHoveredRow: () => void;
   onMouseOverRow: (rowRef: React.MutableRefObject<HTMLDivElement>) => void;
   onMouseLeaveRow: () => void;
   onMouseOverRowMenu: () => void;
@@ -12,6 +11,16 @@ export interface ITableRowMenuContext {
   setTableMenuHidden: () => void;
 }
 
+export interface TableRowMenuProviderValue {
+  tableRootRef: React.RefObject<HTMLDivElement>;
+  hoveredRowRef: React.RefObject<HTMLDivElement>;
+  isMenuOpen: boolean;
+  resetHoveredRow: () => void;
+  setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => void;
+  setIsMenuOpen: (isOpen: boolean) => void;
+}
+
 export type ITableRowMenuProviderProps = {
+  value: TableRowMenuProviderValue;
   children: React.ReactNode;
 };

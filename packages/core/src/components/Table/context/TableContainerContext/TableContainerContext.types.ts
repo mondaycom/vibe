@@ -1,9 +1,12 @@
 import React from "react";
 
-export interface ITableContainerContext {
-  menuContainerRef: React.MutableRefObject<HTMLDivElement>;
+export type ITableContainerContext = TableContainerProviderValue;
+
+export interface TableContainerProviderValue {
+  menuContainerRef: React.RefObject<HTMLDivElement>;
 }
 
 export interface ITableContainerProviderProps {
+  value: TableContainerProviderValue;
   children: React.ReactNode;
 }
