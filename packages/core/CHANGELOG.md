@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.141.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.140.0...monday-ui-react-core@2.141.0) (2024-10-30)
+
+
+### Bug Fixes
+
+* **Table:** scroll handlers and menu handlers, fix double scroll ([#2564](https://github.com/mondaycom/vibe/issues/2564)) ([214350b](https://github.com/mondaycom/vibe/commit/214350b97fddc5d92a260a8e7b4acfebdcf8683f))
+
+
+### Features
+
+* **TableHeaderCell:** allow passing title as component ([#2563](https://github.com/mondaycom/vibe/issues/2563)) ([bd382b7](https://github.com/mondaycom/vibe/commit/bd382b7dadf719c4dfdfbc33b59e127babd1e42c))
+
+
+
+
+
 # [2.140.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.4...monday-ui-react-core@2.140.0) (2024-10-29)
 
 
