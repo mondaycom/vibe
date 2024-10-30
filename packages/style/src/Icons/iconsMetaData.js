@@ -5,10 +5,17 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Clipboard",
-      file: "Clipboard.svg",
-      description: "Clipboard",
-      tags: "Clipboard, Board, Copy"
+    name: "Clipboard",
+    file: "Clipboard.svg",
+    description: "Clipboard",
+    tags: "Clipboard, Board, Copy"
+  },
+
+  {
+    name: "Forward",
+    file: "Forward.svg",
+    description: "Forward",
+    tags: "Forward, Email, Send, Arrow, Right"
   },
 
   {

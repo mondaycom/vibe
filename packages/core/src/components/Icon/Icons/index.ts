@@ -98,6 +98,7 @@ export {default as Folder} from './components/Folder';
 export {default as Form} from './components/Form';
 export {default as Formula} from './components/Formula';
 export {default as Forum} from './components/Forum';
+export {default as Forward} from './components/Forward';
 export {default as Fullscreen} from './components/Fullscreen';
 export {default as FullscreenClose} from './components/FullscreenClose';
 export {default as Gallery} from './components/Gallery';
