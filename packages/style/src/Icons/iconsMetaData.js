@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "Forward",
+    file: "Forward.svg",
+    description: "Forward",
+    tags: "Forward, Email, Send, Arrow, Right"
+  },
+
+  {
     name: "Shuffle",
     file: "Shuffle.svg",
     description: "Use to describe shuffle of items.",
