@@ -139,10 +139,16 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        // Dynamically import the specific named export from react-windowed-select for SSR support
-        import("react-windowed-select").then(module => {
+        if (process.env.NODE_ENV === "test") {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const module = require("react-windowed-select");
           setWindowedMenuList(() => module.WindowedMenuList);
-        });
+        } else {
+          // Dynamically import the specific named export from react-windowed-select for SSR support
+          import("react-windowed-select").then(module => {
+            setWindowedMenuList(() => module.WindowedMenuList);
+          });
+        }
       }
     }, []);
 
