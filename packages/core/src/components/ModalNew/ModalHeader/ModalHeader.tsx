@@ -41,12 +41,13 @@ const ModalHeader = forwardRef(
           type={Heading.types.H2}
           weight={Heading.weights.MEDIUM}
           maxLines={2}
+          align={Text.align.INHERIT}
           className={styles.title}
         >
           {title}
         </Heading>
         {description && (
-          <Flex id={descriptionId}>
+          <Flex id={descriptionId} className={styles.description}>
             {descriptionIcon && (
               <Icon
                 icon={typeof descriptionIcon === "object" ? descriptionIcon.name : descriptionIcon}
@@ -54,7 +55,7 @@ const ModalHeader = forwardRef(
               />
             )}
             {typeof description === "string" ? (
-              <Text element="span" type={Text.types.TEXT1}>
+              <Text element="span" type={Text.types.TEXT1} align={Text.align.INHERIT} className={styles.description}>
                 {description}
               </Text>
             ) : (

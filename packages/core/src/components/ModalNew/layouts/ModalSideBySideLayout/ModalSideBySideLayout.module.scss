@@ -8,6 +8,7 @@
 
   .header {
     width: 100%;
+    text-align: start;
     margin-block: var(--spacing-xl) var(--spacing-large);
     padding-inline: var(--modal-inline-padding);
     grid-column: 1 / 2;
