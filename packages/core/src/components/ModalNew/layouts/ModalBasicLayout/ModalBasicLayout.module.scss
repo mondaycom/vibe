@@ -5,15 +5,29 @@
 
   .header {
     width: 100%;
-    margin-block: var(--spacing-xl) var(--spacing-medium);
+    margin-block: var(--spacing-xl) var(--spacing-large);
     padding-inline-end: calc(var(--top-actions-spacing) + var(--top-actions-width) + var(--spacing-medium));
+    padding-inline-start: var(--modal-inline-padding);
   }
 
   .divider {
     flex-shrink: 0;
   }
 
-  .content {
-    padding-inline: var(--modal-inline-padding);
+  /**
+   * The footer is optional, so we need to check if it exists before applying padding.
+   * If it exists (or "has" not supported), we apply padding to the content, if it doesn't, we don't apply padding.
+  */
+  @supports selector(:has(*)) {
+    &:has(+ *) {
+      .content {
+        padding-block-end: var(--spacing-xl);
+      }
+    }
+  }
+  @supports not selector(:has(*)) {
+    .content {
+      padding-block-end: var(--spacing-xl);
+    }
   }
 }

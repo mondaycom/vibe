@@ -4,7 +4,8 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalSideBySideLayout.module.scss";
 import { ModalSideBySideLayoutProps } from "./ModalSideBySideLayout.types";
-import Flex from "../../../Flex/Flex";
+import ModalLayoutScrollableContent from "../ModalLayoutScrollableContent";
+import ModalFooterShadow from "../ModalFooterShadow";
 
 const ModalSideBySideLayout = forwardRef(
   (
@@ -13,18 +14,19 @@ const ModalSideBySideLayout = forwardRef(
   ) => {
     const [header, content, media] = React.Children.toArray(children);
     return (
-      <Flex
-        ref={ref}
-        className={cx(styles.layout, className)}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_SIDE_BY_SIDE_LAYOUT, id)}
-      >
-        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} className={styles.leftPane}>
+      <>
+        <div
+          ref={ref}
+          className={cx(styles.layout, className)}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_SIDE_BY_SIDE_LAYOUT, id)}
+        >
           <div className={styles.header}>{header}</div>
-          <div className={styles.content}>{content}</div>
-        </Flex>
-        <div className={styles.media}>{media}</div>
-      </Flex>
+          <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>
+          <div className={styles.media}>{media}</div>
+        </div>
+        <ModalFooterShadow />
+      </>
     );
   }
 );
