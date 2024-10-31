@@ -1,71 +1,65 @@
-# Contribution guidelines
+# Contribution Guide
 
-This is an **official library** of shared UI components for Monday builders. It is used both for internal and external Monday apps development.
+Hi there! We're really excited that you're interested in contributing to Vibe. Before submitting your contribution, please make sure to take a moment and read through the following guidelines:
 
-This library is open-sourced, and we encourage everyone to use and contribute into it.
+## Issue reporting
 
-## How to contribute
+If you found a bug, please [open an issue](https://github.com/mondaycom/vibe/issues/new). Before creating new features or changing existing ones, or for general questions, please make sure to open a [discussion](https://github.com/mondaycom/vibe/discussions) first.
 
-1. Create a fork of this repository
-2. Please use the correct node version it is listed in the `.nvmrc` file (you can use `nvm use` in order to switch to the right node version).
-3. Install dependencies with `yarn install` command
-4. Sync from upstream if needed
-5. Run Storybook environment locally with `yarn storybook` command.
-6. Make sure all components behave as expected by running all Jest tests locally with 'yarn test'.
-7. If there are changes in some of the library snapshot tests, make sure all changes are intentional. If they are, update them with 'yarn test:update'.
-8. Commit to your local fork using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
-9. Create a PR with title based using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
-   For example: `feat: add new TextArea component`
-10. Go over the [checklist](/.github/PULL_REQUEST_TEMPLATE.md) in the PR and make sure that all checks are passed
-11. Wait for the Design and Code review
-12. Enjoy your change after merge!
+## Development Setup
 
-## Information about the project
+To start working locally, run the following commands in the root directory:
 
-### Creating new files in the library
+```bash
+nvm use
+yarn install
+```
 
-Our code generator, Plop, is designed to simplify the creation of frequently used boilerplate code. To utilize it, execute the command `yarn plop`. If you want to learn more about Plop, you can find additional information [here](https://plopjs.com/).
-Currently, our Plop code generator supports the creation of the following:
+Storybook is used as the project's development environment. You can use it to preview your changes and test components in isolation. To start Storybook, run:
 
-1. Tests
-2. Component story documentation pages
-3. Hook story documentation pages
-4. Entirely new components, which include tests and story pages
+```bash
+yarn storybook
+```
 
-We strongly recommend utilizing our Plop code generator within this repository for generating any of the mentioned items. Doing so ensures that your code will be created with the latest recommended structure, providing a solid foundation for your development tasks.
+### Testing
 
-### API
+There are several layers of testing, such as unit/component tests, integration, a11y, and end-to-end tests. Every new feature or bug fix should be covered by tests, depending on the type of change.
 
-If you add new features or abilities to an existing component, please ensure your props' naming follows our conventions and best practices. Read more about it [here](./API_GUIDELINES.MD).
+Please make sure to run tests before submitting your PR:
 
-### Storybook
+```bash
+yarn test
+```
 
-As the main development environment and documentation playground, we are using [Storybook](https://storybook.js.org/).
-Each component should be developed in isolation in the Storybook environment.
-You can read more about our docs implementation best practices [here](COMPONENTS_DOCUMENTATION_GUIDELINES.md).
+If snapshot tests fail, and you are sure that the changes are intentional, update them by running:
 
-### Theming
+```bash
+yarn test:update
+```
 
-Every component should support theming, you can find more information about it [here](THEME_README.md).
+### Linting and formatting
 
-### Tests and coverage
+We use [Prettier](https://prettier.io/) for code formatting. Please, make sure to use it in your editor to keep the codebase consistent.
 
-All the guidelines about testing your new component or changes to the existing one you can find [here](TESTING_README.md).
+To run linting and formatting checks, use:
 
-### Linting
-
-We use [Prettier](https://prettier.io/) with the default community guidelines. Please, make sure that you are formatting your code with prettier.
+```bash
+yarn lint
+```
 
 ### Commits
 
-We are using [Semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) convention for creating Pull Requests and commits messages inside of the Pull Request.
+The project is using [Conventional Commits](https://www.conventionalcommits.org/) to standardize the commit messages, and release new versions automatically according to [Semantic Versioning](https://semver.org/).
 
-### Releasing
+Please make sure to follow the convention for creating Pull Requests and commits.
 
-To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/vibe/actions/workflows/release.yml).
+## Opening a Pull Request
 
-If you want to run it locally, you can do so with [Github's CLI](https://cli.github.com/):
+When opening a PR, please make sure to:
 
-```
-$ gh workflow run "Release new version"
-```
+- Create a PR title based on the [Conventional Commits](https://www.conventionalcommits.org/) format
+- Add a description of the changes you're making, including the motivation for these changes, and any additional context
+- Link to any related issues or discussions
+- Make sure that all checks are passed
+
+After submitting your PR, the maintainers will review your changes and provide feedback. If everything is good, your PR will be merged. We really appreciate your contribution to Vibe! 🚀
