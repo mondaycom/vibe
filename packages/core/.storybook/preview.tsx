@@ -61,10 +61,7 @@ const preview: Preview = {
       },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
-          <Unstyled>
-            {children}
-            {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
-          </Unstyled>
+          <Unstyled>{children}</Unstyled>
         </DocsContainer>
       ),
       page: DocsPage,
