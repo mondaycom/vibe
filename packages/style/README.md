@@ -1,12 +1,13 @@
 # monday.com UI styles
 
-> This package includes all of the styling foundations of monday.com's Vibe Design System
-> Theme definition, colors, shadows, dimensions, etc.
+> Vibe Design System's styling foundations: Theme definition, colors, shadows, dimensions, etc.
 
 ## Installation
 
-```
+```bash
 npm install monday-ui-style
+# or
+yarn add monday-ui-style
 ```
 
 ## Usage

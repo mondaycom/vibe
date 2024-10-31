@@ -99,10 +99,11 @@ const preview: Preview = {
       storySort: {
         order: [
           "Welcome",
+          "Getting Started",
           "Catalog",
+          "Playground",
           "Changelog",
           "Migration Guide",
-          "Playground",
           "Internal",
           "Foundations",
           "Buttons",

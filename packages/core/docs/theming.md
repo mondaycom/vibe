@@ -1,4 +1,4 @@
-# Theming [move to a doc in storybook]
+# Theming
 
 Theming is the ability of our components to change their appearance according to the user's request for example - dark, light theme are pretty common but there are more advanced themes such as two tone and or color blind themes.
 
