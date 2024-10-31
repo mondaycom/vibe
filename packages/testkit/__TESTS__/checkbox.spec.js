@@ -12,7 +12,7 @@ test.describe("menuButton Class with Storybook", () => {
     checkbox = new Checkbox(page, checkboxLocator, "Test checkbox button");
   });
 
-  test("set checkbox", async ({page}) => {
+  test("set checkbox", async () => {
     if (await checkbox.isChecked()){
         await checkbox.setChecked(false);
         expect(await checkbox.isChecked()).toBe(false);

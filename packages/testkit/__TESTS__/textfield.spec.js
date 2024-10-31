@@ -13,7 +13,7 @@ test.describe("textArea Class with Storybook", () => {
     textField = new TextField(page, textfieldLocator, "Test text field");
   });
 
-  test("set text in text field", async ({page}) => {
+  test("set text in text field", async () => {
     await textField.setText("Test Text");
     await textField.exitEditMode();
     expect(textField.locator).toHaveValue("Test Text");

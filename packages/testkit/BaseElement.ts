@@ -6,14 +6,14 @@ import { test, Page, Locator } from "@playwright/test";
 export class BaseElement {
   page : Page;
   locator : Locator;
-  elementReportName: String 
+  elementReportName: string 
   /**
    * Create a BaseElement.
    * @param {Object} page - The Playwright page object.
    * @param {Object} locator - The locator for the element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
-  constructor(page: Page, locator: Locator, elementReportName: String) {
+  constructor(page: Page, locator: Locator, elementReportName: string) {
     this.page = page;
     this.locator = locator;
     this.elementReportName = elementReportName;
@@ -31,7 +31,7 @@ export class BaseElement {
    * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
    * @returns {Promise<void>}
    */
-  async waitForElementsGroup(locator: Locator, elementReportName: String): Promise<void>  {
+  async waitForElementsGroup(locator: Locator, elementReportName: string): Promise<void>  {
     await test.step(`Wait for ${elementReportName} items to stabilize`, async () => {
       let previousCount = 0;
       let stableCountTime = 0;
@@ -75,6 +75,7 @@ export class BaseElement {
       await this.locator.scrollIntoViewIfNeeded();
     });
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getAttributeValue(attributeName: string, options: any = { timeout: 10000, pollInterval: 500 }) : Promise <string | null> {
     let attributeValue = null;
   

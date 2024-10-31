@@ -13,7 +13,7 @@ test.describe("textArea Class with Storybook", () => {
     textArea = new TextArea(page, textAreaLocator, "Test text field");
   });
 
-  test("set text in textarea", async ({page}) => {
+  test("set text in textarea", async () => {
     await textArea.setText("Test Text");
     expect(textArea.textAreaInput.locator).toHaveValue("Test Text");
   });
