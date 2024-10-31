@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
@@ -10,7 +10,6 @@
   "homepage": "https://github.com/mondaycom/vibe#readme",
   "license": "ISC",
   "main": "dist/index.js",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
