@@ -54,14 +54,15 @@ import { Button } from "@vibe/core";
 - [@vibe/codemod](packages/codemod/README.md): Codemods and CLI tools
 - [monday-ui-style](packages/style/README.md): Styling foundations (included in @vibe/core)
 - [vibe-storybook-components](packages/storybook-blocks/README.md): Vibe Storybook Blocks
+- [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
 
 ## Older Versions
 
-Vibe 2 (`monday-ui-react-core`) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
+Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-core)) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
 
 ## Contributing
 
-We welcome and encourage every contributor! Please read our [Contribution Guide](packages/core/CONTRIBUTING.md).
+We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
 
 ## Suggestions
 

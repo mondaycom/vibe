@@ -27,9 +27,9 @@ Poppins, Figtree and Roboto, we recommend adding the following `link` import to 
 
 ## Theming
 
-Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./docs/theming.md) file
+Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./docs/theming.md) file.
 
-## SSR (Server Side Rendering)
+## Experimental SSR (Server Side Rendering)
 
 Components are using style injection on the client side (into <head> element)
 This is not usable on the server side.
@@ -42,12 +42,3 @@ globalThis.injectedStyles = {};
 in order to have each server side render component css inserted into the injectedStyles object
 each component will insert its css string under a unique key.
 Then you can join all the values into one string and add it under a `<style>` element
-
-## Browser Support
-
-- **Firefox**: last 4 versions
-- **Chrome**: last 4 versions
-- **Safari**: 14+
-- **iOS Safari**: last 2 versions
-- **Samsung**: last 2 versions
-- **Opera**: last 2 versions

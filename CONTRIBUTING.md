@@ -4,20 +4,16 @@ Hi there! We're really excited that you're interested in contributing to Vibe. B
 
 ## Issue reporting
 
-If you found a bug, please [open an issue](https://github.com/mondaycom/vibe/issues/new). Before creating new features or changing existing ones, or for general questions, please make sure to open a [discussion](https://github.com/mondaycom/vibe/discussions) first.
+For new features, suggestions, or general questions, please make sure to open a [discussion](https://github.com/mondaycom/vibe/discussions) first.
+
+If you found a bug, please [open an issue](https://github.com/mondaycom/vibe/issues/new).
 
 ## Development Setup
 
-To start working locally, run the following commands in the root directory:
+Storybook is used as the project's development environment. You can use it to preview your changes and test components in isolation. To start working locally, run the following command in the root directory:
 
 ```bash
-nvm use
 yarn install
-```
-
-Storybook is used as the project's development environment. You can use it to preview your changes and test components in isolation. To start Storybook, run:
-
-```bash
 yarn storybook
 ```
 
@@ -62,4 +58,6 @@ When opening a PR, please make sure to:
 - Link to any related issues or discussions
 - Make sure that all checks are passed
 
-After submitting your PR, the maintainers will review your changes and provide feedback. If everything is good, your PR will be merged. We really appreciate your contribution to Vibe! 🚀
+After submitting your PR, the maintainers will review your changes and provide feedback. If everything is good, your PR will be merged.
+
+**We really appreciate your contribution to Vibe! 🚀**
