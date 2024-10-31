@@ -39,7 +39,11 @@ const getColor = () => {
   return { color, backgroundColor };
 };
 
-const getFont = size => ({ fontSize: getSingleValueTextSize(size), lineHeight: getSingleValueTextSize(size) });
+const getFont = size => ({
+  fontSize: getSingleValueTextSize(size),
+  lineHeight: getSingleValueTextSize(size),
+  fontFamily: getCSSVar("font-family")
+});
 
 const disabledContainerStyle = isDisabled => {
   if (!isDisabled) return {};

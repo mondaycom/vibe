@@ -36,7 +36,8 @@ export const Overview = {
         content: "Button"
       }
     ]
-  }
+  },
+  parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
 
 export const DefaultWithButton = {
@@ -58,7 +59,8 @@ export const DefaultWithButton = {
     );
   },
 
-  name: "Default with button"
+  name: "Default with button",
+  parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
 
 export const ToastWithLink = {
@@ -178,7 +180,8 @@ export const WarningMessage = {
     );
   },
 
-  name: "Warning message"
+  name: "Warning message",
+  parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
 
 export const DarkMessage = {
@@ -206,7 +209,8 @@ export const DarkMessage = {
     );
   },
 
-  name: "Dark message"
+  name: "Dark message",
+  parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
 
 export const FeedbackLoop = {
@@ -226,7 +230,8 @@ export const FeedbackLoop = {
         We successfully deleted 1 item
       </Toast>
     );
-  }
+  },
+  parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
 
 export const Animation = {
