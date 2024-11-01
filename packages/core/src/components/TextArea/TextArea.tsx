@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -39,18 +39,18 @@ const TextArea = forwardRef(
 
     const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (!allowExceedingLimit && event.currentTarget.value.length >= characterLimit && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
         event.preventDefault();
         event.stopPropagation();
       }
       rest.onKeyDown?.(event);
-    };
+    }, [allowExceedingLimit, characterLimit, rest.onKeyDown]);
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleOnChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setCharacterCount(event.target.value.length);
       onChange?.(event);
-    }
+    }, [onChange]);
 
     return (
       <div
