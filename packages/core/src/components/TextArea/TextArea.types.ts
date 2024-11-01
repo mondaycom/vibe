@@ -50,4 +50,12 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    * Placeholder text to display when the textarea is empty.
    */
   placeholder?: string;
+  /**
+   * The allowed number of characters.
+   */
+  characterLimit?: number;
+  /**
+   * If true, the textarea will allow the user to exceed the character limit.
+   */
+  allowExceedingLimit?: boolean;
 }
