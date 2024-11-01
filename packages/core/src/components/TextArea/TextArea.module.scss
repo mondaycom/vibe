@@ -20,8 +20,22 @@
     }
   }
 
-  .helpText {
+  .subTextContainer {
+    display: flex;
+    gap: var(--spacing-xs);
     color: var(--secondary-text-color);
+    align-items: top;
+
+    .helpText {
+      width: fit-content;
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .limitText {
+      width: fit-content;
+      flex-shrink: 0;
+    }
   }
 
   .textArea {
@@ -71,12 +85,14 @@
       border-color: var(--color-error);
     }
 
-    .helpText {
+    .helpText,
+    .limitText {
       color: var(--color-error);
     }
   }
 
   &.disabled {
+
     .textArea,
     .textArea:hover {
       color: var(--disabled-text-color);
@@ -90,6 +106,7 @@
   }
 
   &.readOnly {
+
     .textArea,
     .textArea:hover {
       background-color: var(--allgrey-background-color);

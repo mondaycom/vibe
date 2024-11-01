@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -26,6 +26,9 @@ const TextArea = forwardRef(
       disabled,
       readOnly,
       required,
+      characterLimit,
+      allowExceedingLimit,
+      onChange,
       resize = true,
       ...rest
     }: TextAreaProps,
@@ -34,12 +37,27 @@ const TextArea = forwardRef(
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
 
+    const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+      if (!allowExceedingLimit && event.currentTarget.value.length >= characterLimit && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      rest.onKeyDown?.(event);
+    };
+
+    const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setCharacterCount(event.target.value.length);
+      onChange?.(event);
+    }
+
     return (
       <div
         className={cx(
           styles.textAreaWrapper,
           {
-            [styles.error]: error,
+            [styles.error]: error || (characterLimit && characterCount > characterLimit),
             [styles.success]: success,
             [styles.disabled]: disabled,
             [styles.readOnly]: readOnly
@@ -64,12 +82,17 @@ const TextArea = forwardRef(
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
           aria-invalid={error}
           aria-describedby={helpTextId ?? undefined}
+          onChange={handleOnChange}
+          onKeyDown={handleKeyDown}
         />
-        {helpText && (
-          <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
-            {helpText}
-          </Text>
-        )}
+        <div className={cx(styles.subTextContainer)}>
+          {helpText && (
+            <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
+              {helpText}
+            </Text>
+          )}
+          {characterLimit && <div className={cx(styles.limitText)}>{characterCount}/{characterLimit}</div>}
+        </div>
       </div>
     );
   }
