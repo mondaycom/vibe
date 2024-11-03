@@ -4,7 +4,7 @@ import { Button, Flex } from "../../../components";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useListenFocusTriggers"   
+  title: "Hooks/useListenFocusTriggers"
 };
 
 export const Overview = {
