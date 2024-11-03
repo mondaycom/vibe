@@ -12,11 +12,11 @@ export const Overview = {
     const [text, setText] = useState<string>("-");
     const ref = useRef<HTMLButtonElement>(null);
 
-    const onFocusByMouse = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
+    const onFocusByMouse = useCallback((_event: FocusEvent) => {
       setText("mouse");
     }, []);
 
-    const onFocusByKeyboard = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
+    const onFocusByKeyboard = useCallback((_event: FocusEvent) => {
       setText("keyboard");
     }, []);
 
