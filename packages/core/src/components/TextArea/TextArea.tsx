@@ -26,7 +26,7 @@ const TextArea = forwardRef(
       disabled,
       readOnly,
       required,
-      characterLimit,
+      maxLength,
       allowExceedingLimit,
       onChange,
       resize = true,
@@ -39,14 +39,6 @@ const TextArea = forwardRef(
 
     const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
 
-    const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (!allowExceedingLimit && event.currentTarget.value.length >= characterLimit && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      rest.onKeyDown?.(event);
-    }, [allowExceedingLimit, characterLimit, rest.onKeyDown]);
-
     const handleOnChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setCharacterCount(event.target.value.length);
       onChange?.(event);
@@ -57,7 +49,7 @@ const TextArea = forwardRef(
         className={cx(
           styles.textAreaWrapper,
           {
-            [styles.error]: error || (characterLimit && characterCount > characterLimit),
+            [styles.error]: error || (maxLength && characterCount > maxLength),
             [styles.success]: success,
             [styles.disabled]: disabled,
             [styles.readOnly]: readOnly
@@ -74,6 +66,7 @@ const TextArea = forwardRef(
         <textarea
           {...rest}
           id={id}
+          maxLength={maxLength && !allowExceedingLimit ? maxLength : undefined}
           ref={ref}
           disabled={disabled}
           readOnly={readOnly}
@@ -83,7 +76,6 @@ const TextArea = forwardRef(
           aria-invalid={error}
           aria-describedby={helpTextId ?? undefined}
           onChange={handleOnChange}
-          onKeyDown={handleKeyDown}
         />
         <div className={cx(styles.subTextContainer)}>
           {helpText && (
@@ -91,7 +83,7 @@ const TextArea = forwardRef(
               {helpText}
             </Text>
           )}
-          {characterLimit && <div className={cx(styles.limitText)}>{characterCount}/{characterLimit}</div>}
+          {maxLength && <div className={cx(styles.limitText)}>{characterCount}/{maxLength}</div>}
         </div>
       </div>
     );
