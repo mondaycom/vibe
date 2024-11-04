@@ -2,6 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TextArea from "../TextArea";
 import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
 describe("TextArea", () => {
   it("should render TextArea with default props", () => {
@@ -97,6 +98,59 @@ describe("TextArea", () => {
       const textarea = screen.getByRole("textbox");
 
       expect(textarea).toHaveAttribute("aria-describedby", "help-text-textarea-help-text");
+    });
+  });
+
+  describe("TextArea character count and limit", () => {
+    it("should not show limit when character limit is not provided", () => {
+      render(<TextArea />);
+      expect(screen.queryByText("0/")).not.toBeInTheDocument();
+    });
+
+    it("should prevent typing when character limit is reached", () => {
+      const handleChange = jest.fn();
+      render(<TextArea maxLength={5} allowExceedingLimit={false} onChange={handleChange} />);
+
+      const charCount = screen.getByText("0/5");
+      expect(charCount).toBeInTheDocument();
+      
+
+      const input = screen.getByRole("textbox");
+      userEvent.type(input, "12345a");
+
+      expect(input).toHaveValue("12345");
+      expect(charCount).toHaveTextContent("5/5");
+      expect(handleChange).toHaveBeenCalledTimes(5);
+    });
+
+    it("should allow typing when limit is allowed to be exceeded", () => {
+      render(<TextArea maxLength={10} allowExceedingLimit={true} />);
+
+      const charCount = screen.getByText("0/10");
+      expect(charCount).toBeInTheDocument();
+
+      const input = screen.getByRole("textbox");
+      userEvent.type(input, "12345678910");
+
+      expect(input).toHaveValue("12345678910");
+      expect(charCount).toHaveTextContent("11/10");
+    });
+
+    it("should allow text removal when character limit is exceeded", async () => {
+      render(<TextArea maxLength={5} allowExceedingLimit={false} />);
+
+      const input = screen.getByRole("textbox");
+      userEvent.type(input, "12345");
+
+      // Attempt to add more characters (should be prevented)
+      userEvent.type(input, "a");
+      expect(input).toHaveValue("12345");
+
+      // Remove a character (should be allowed)
+      userEvent.type(input, "{backspace}");
+      userEvent.type(input, "4");
+
+      expect(input).toHaveValue("12344");
     });
   });
 });
