@@ -60,6 +60,8 @@ import { Button } from "@vibe/core";
 
 Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-core)) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
 
+For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2).
+
 ## Contributing
 
 We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
