@@ -4,9 +4,9 @@ Hi there! We're really excited that you're interested in contributing to Vibe. B
 
 ## Issue reporting
 
-For new features, suggestions, or general questions, please make sure to open a [discussion](https://github.com/mondaycom/vibe/discussions) first.
+For new features, suggestions, or general questions, please make sure to create a [discussion](https://github.com/mondaycom/vibe/discussions) first.
 
-If you found a bug, please [open an issue](https://github.com/mondaycom/vibe/issues/new).
+If you found a bug, please [create an issue](https://github.com/mondaycom/vibe/issues/new).
 
 ## Development Setup
 
@@ -37,7 +37,7 @@ yarn test:update
 
 We use [Prettier](https://prettier.io/) for code formatting. Please, make sure to use it in your editor to keep the codebase consistent.
 
-To run linting and formatting checks, use:
+Please make sure to run linting and formatting before submitting your PR:
 
 ```bash
 yarn lint
@@ -49,9 +49,9 @@ The project is using [Conventional Commits](https://www.conventionalcommits.org/
 
 Please make sure to follow the convention for creating Pull Requests and commits.
 
-## Opening a Pull Request
+## Creating a Pull Request
 
-When opening a PR, please make sure to:
+When creating a PR, please make sure to:
 
 - Create a PR title based on the [Conventional Commits](https://www.conventionalcommits.org/) format
 - Add a description of the changes you're making, including the motivation for these changes, and any additional context

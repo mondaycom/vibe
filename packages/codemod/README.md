@@ -29,7 +29,7 @@ npx @vibe/codemod [options]
 
 - **Description**: Specifies the target directory where the transformations will be applied.
 - **Default**: Current working directory (`process.cwd()`)
-- **Required**: No (defaults to the current working directory if not provided)
+- **Required**: No
 - **Example**:
 
   ```bash
@@ -40,15 +40,13 @@ npx @vibe/codemod [options]
 
 - **Description**: Specifies which file extensions to include for the migration.
 - **Choices**: `jsx`, `tsx`, `js`, `ts`
-- **Required**: Yes
+- **Default**: `jsx`, `tsx`
+- **Required**: No
 - **Example**:
 
   ```bash
   npx @vibe/codemod --extensions jsx tsx
   ```
-
-> [!WARNING]
-> Running the migration with all available extension options can possibly slow down the process. It is recommended to run the migration with only the necessary options.
 
 ### `--verbose` (alias: `-v`)
 
