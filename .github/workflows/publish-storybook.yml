@@ -39,6 +39,7 @@ jobs:
       - name: Push core Storybook to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
+          target-folder: v2
           clean-exclude: storybook-blocks/*
           folder: packages/core/static_storybook
           branch: gh-pages
