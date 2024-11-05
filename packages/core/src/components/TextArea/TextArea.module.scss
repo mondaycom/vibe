@@ -92,7 +92,6 @@
   }
 
   &.disabled {
-
     .textArea,
     .textArea:hover {
       color: var(--disabled-text-color);
@@ -106,7 +105,6 @@
   }
 
   &.readOnly {
-
     .textArea,
     .textArea:hover {
       background-color: var(--allgrey-background-color);
