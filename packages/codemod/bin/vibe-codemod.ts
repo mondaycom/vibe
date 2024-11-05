@@ -113,15 +113,12 @@ async function main() {
     }
   }
 
-  const majorVibeVersion = getPackageMajorVersion("@vibe/core");
-  const isV3Installed = majorVibeVersion && majorVibeVersion >= 3;
-  if (migrationType === "v3" && !isV3Installed) {
-    console.log(
-      chalk.yellow("Warning: You need at least version 3 of the @vibe/core package to fully apply the v3 migration.")
-    );
+  const isVibeCoreInstalled = checkIfPackageExists("@vibe/core");
+  if (migrationType === "v3" && !isVibeCoreInstalled) {
+    console.log(chalk.yellow("Warning: You need to install @vibe/core package to fully apply the v3 migration."));
   }
-  if (migrationType === "enums" && !isV3Installed) {
-    console.log(chalk.red("Error: You need at least version 3 of the vibe to run the enum migration."));
+  if (migrationType === "enums" && !isVibeCoreInstalled) {
+    console.log(chalk.red("Error: Please install @vibe/core to run the enum migration."));
     process.exit(1);
   }
 
@@ -270,7 +267,7 @@ async function main() {
   }
 }
 
-function getPackageMajorVersion(packageName: string): number | null {
+function checkIfPackageExists(packageName: string): boolean {
   const packageJsonPath = path.resolve(process.cwd(), "package.json");
   if (!fs.existsSync(packageJsonPath)) {
     console.error(chalk.red(`Error: package.json not found at ${packageJsonPath}`));
@@ -279,15 +276,7 @@ function getPackageMajorVersion(packageName: string): number | null {
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
   const dependencies = packageJson.dependencies || {};
   const version = dependencies[packageName];
-
-  if (version) {
-    const majorVersion = parseInt(version.replace(/[^\d.]/g, "").split(".")[0], 10); // Extract the major version
-    if (majorVersion) {
-      return majorVersion;
-    }
-  }
-  console.error(chalk.red(`Error: ${packageName} is not listed in package.json`));
-  return null;
+  return !!version;
 }
 
 main();
