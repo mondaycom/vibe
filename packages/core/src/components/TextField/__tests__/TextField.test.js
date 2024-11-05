@@ -2,6 +2,7 @@ import React from "react";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import TextField from "../TextField";
 import { TextFieldAriaLabel } from "../TextFieldConstants";
+import userEvent from "@testing-library/user-event";
 
 describe("TextField Tests", () => {
   let inputComponent;
@@ -151,7 +152,7 @@ describe("TextField Tests", () => {
     expect(icon).toBeFalsy();
   });
 
-  describe("char count", () => {
+  describe("char count and limit", () => {
     it("should display char count on initial", () => {
       const { rerender, queryByLabelText } = inputComponent;
       const value = "hello";
@@ -169,6 +170,26 @@ describe("TextField Tests", () => {
 
       const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toBe(value.length);
+    });
+
+    it("should display char count and max length on initial", () => {
+      const { rerender, queryByLabelText } = inputComponent;
+      const value = "hello";
+      act(() => {
+        rerender(
+          <TextField
+            placeholder={defaultPlaceHolder}
+            onChange={onChangeStub}
+            id="char-count-test"
+            showCharCount
+            value={value}
+            maxLength={10}
+          />
+        );
+      });
+
+      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
+      expect(charCount.innerHTML).toBe(`${value.length}/10`);
     });
 
     it("char count should display correctly after changing value", () => {
@@ -194,6 +215,39 @@ describe("TextField Tests", () => {
 
       const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toEqual(value.length);
+    });
+
+    it("should prevent typing when character limit is reached and allowExceedingLimit is false", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        rerender(
+          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingLimit={false} />
+        );
+      });
+
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      // This correctly tests the maxLength attribute be properly set on the input element
+      // Using fireEvent bypasses the maxLength where a user wouldn't:
+      // https://github.com/testing-library/user-event/issues/591#issuecomment-517816296
+      expect(input).toHaveAttribute("maxlength", "5");
+    });
+
+    it("should allow typing beyond character limit when allowExceedingLimit is true", () => {
+      const { rerender, queryByLabelText } = inputComponent;
+      act(() => {
+        rerender(<TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingLimit={true} />);
+      });
+
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      act(() => {
+        fireEvent.change(input, { target: { value: "123456" } });
+      });
+
+      expect(input).toHaveValue("123456");
+      expect(input).not.toHaveAttribute("maxlength");
+
+      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
+      expect(charCount.innerHTML).toBe("6/5");
     });
   });
 
