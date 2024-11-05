@@ -42,7 +42,9 @@ export const Overview: Story = {
   render: textAreaTemplate.bind({}),
   args: {
     label: "Text area label",
-    helpText: "Helper text"
+    helpText: "Helper text",
+    maxLength: 2000,
+    showCharCount: true,
   },
   parameters: {
     docs: {
