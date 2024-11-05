@@ -206,7 +206,8 @@
   color: var(--negative-color);
 }
 
-.textField .inputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus {
+.textField .inputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus,
+.textField .inputWrapper.inputErrorValidation + .subTextContainer .counter {
   color: var(--negative-color);
 }
 
