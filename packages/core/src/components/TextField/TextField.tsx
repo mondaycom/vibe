@@ -79,6 +79,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /** TEXT_TYPES is exposed on the component itself */
   type?: TextFieldTextType;
   maxLength?: number;
+  allowExceedingLimit?: boolean;
   trim?: boolean;
   /** ARIA role for container landmark */
   role?: string;
@@ -146,6 +147,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       iconsNames = EMPTY_OBJECT,
       type = TextFieldTextType.TEXT,
       maxLength = null,
+      allowExceedingLimit = false,
       trim = false,
       role = "",
       required = false,
@@ -241,12 +243,16 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
     const validationClass = useMemo(() => {
+      if (maxLength && inputValue.length > maxLength) {
+        return FEEDBACK_CLASSES.error;
+      }
+
       if ((!validation || !validation.status) && !isRequiredAndEmpty) {
         return "";
       }
       const status = isRequiredAndEmpty ? "error" : validation.status;
       return FEEDBACK_CLASSES[status];
-    }, [validation, isRequiredAndEmpty]);
+    }, [validation, isRequiredAndEmpty, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
     const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
@@ -306,7 +312,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               onFocus={onFocus}
               onKeyDown={onKeyDown}
               onWheel={onWheel}
-              maxLength={maxLength}
+              maxLength={maxLength && !allowExceedingLimit ? maxLength : undefined}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
               aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}
@@ -386,7 +392,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               )}
               {showCharCount && (
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
-                  {(inputValue && inputValue.length) || 0}
+                  {(inputValue && inputValue.length) || 0}{maxLength && `/${maxLength}`}
                 </span>
               )}
             </Text>
