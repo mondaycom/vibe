@@ -30,6 +30,7 @@ const TextArea = forwardRef(
       allowExceedingLimit,
       onChange,
       resize = true,
+      showCharCount = false,
       ...rest
     }: TextAreaProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
@@ -83,7 +84,7 @@ const TextArea = forwardRef(
               {helpText}
             </Text>
           )}
-          {maxLength && <div className={cx(styles.limitText)}>{characterCount}/{maxLength}</div>}
+          {maxLength && showCharCount && <div className={cx(styles.limitText)}>{characterCount}/{maxLength}</div>}
         </div>
       </div>
     );
