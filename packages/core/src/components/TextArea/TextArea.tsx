@@ -40,10 +40,13 @@ const TextArea = forwardRef(
 
     const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
 
-    const handleOnChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setCharacterCount(event.target.value.length);
-      onChange?.(event);
-    }, [onChange]);
+    const handleOnChange = useCallback(
+      (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setCharacterCount(event.target.value.length);
+        onChange?.(event);
+      },
+      [onChange]
+    );
 
     return (
       <div
@@ -84,7 +87,12 @@ const TextArea = forwardRef(
               {helpText}
             </Text>
           )}
-          {maxLength && showCharCount && <div className={cx(styles.limitText)}>{characterCount}/{maxLength}</div>}
+          {showCharCount && (
+            <div className={cx(styles.limitText)}>
+              {characterCount}
+              {maxLength && `/${maxLength}`}
+            </div>
+          )}
         </div>
       </div>
     );

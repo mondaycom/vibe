@@ -107,6 +107,11 @@ describe("TextArea", () => {
       expect(screen.queryByText("0/")).not.toBeInTheDocument();
     });
 
+    it("it only shows character count with showCharCount and no MaxLength", () => {
+      render(<TextArea showCharCount />);
+      expect(screen.queryByText("0")).toBeInTheDocument();
+    });
+
     it("should not show character count when only maxLength is provided", () => {
       render(<TextArea maxLength={5} />);
       expect(screen.queryByText("0/5")).not.toBeInTheDocument();
