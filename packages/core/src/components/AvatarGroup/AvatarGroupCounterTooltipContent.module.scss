@@ -4,6 +4,10 @@
   white-space: nowrap;
 }
 
+.tooltipAvatarItemAvatar {
+  flex-shrink: 0;
+}
+
 .tooltipContainer {
   max-height: 300px;
   padding-right: var(--spacing-medium);

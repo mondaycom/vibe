@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.142.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.0...monday-ui-react-core@2.142.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** avatar shrinking in counter tooltip ([#2575](https://github.com/mondaycom/vibe/issues/2575)) ([37befed](https://github.com/mondaycom/vibe/commit/37befed099aa0c211c9c07a7296d158485704b9a))
+
+
+
+
+
 # [2.142.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.141.0...monday-ui-react-core@2.142.0) (2024-10-31)
 
 
