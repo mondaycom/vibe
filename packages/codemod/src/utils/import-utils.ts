@@ -15,8 +15,8 @@ export function getImports(root: Collection, path: string): Collection<ImportDec
 /**
  * Retrieves all "monday-ui-react-core" import declarations for a root.
  */
-export function getCoreImportsForFile(root: Collection): Collection<ImportDeclaration> {
-  return getImports(root, CORE_IMPORT_PATH);
+export function getCoreImportsForFile(root: Collection, path = CORE_IMPORT_PATH): Collection<ImportDeclaration> {
+  return getImports(root, path);
 }
 
 /**

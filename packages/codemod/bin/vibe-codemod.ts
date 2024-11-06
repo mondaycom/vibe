@@ -12,7 +12,8 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 const mapMigrationType: { [key: string]: string } = {
-  v3: "v2-to-v3"
+  v3: "v2-to-v3",
+  enums: "v2-to-v3/enums"
 };
 
 const migrations = Object.keys(mapMigrationType);
@@ -21,7 +22,7 @@ const argv = yargs(hideBin(process.argv))
   .option("migration", {
     alias: "m",
     type: "string",
-    description: "Migration type to run (e.g., v3)",
+    description: "Migration type to run (e.g., v3, enums)",
     choices: migrations
   })
   .option("target", {
@@ -112,6 +113,15 @@ async function main() {
     }
   }
 
+  const isVibeCoreInstalled = checkIfPackageExists("@vibe/core");
+  if (migrationType === "v3" && !isVibeCoreInstalled) {
+    console.log(chalk.yellow("Warning: You need to install @vibe/core package to fully apply the v3 migration."));
+  }
+  if (migrationType === "enums" && !isVibeCoreInstalled) {
+    console.log(chalk.red("Error: Please install @vibe/core to run the enum migration."));
+    process.exit(1);
+  }
+
   if (!isGitClean()) {
     console.warn(
       chalk.yellow(
@@ -123,6 +133,34 @@ async function main() {
     if (proceed.toLowerCase() !== "y") {
       console.log("Operation cancelled.");
       process.exit(1);
+    }
+  }
+
+  async function processTransformations(transformationFiles: string[], type = "Transformation") {
+    for (let index = 0; index < transformationFiles.length; index++) {
+      const transform = transformationFiles[index];
+      const transformName = path.basename(transform, path.extname(transform));
+
+      spinner.text = `Processing ${type.toLowerCase()} (${index + 1}/${transformationFiles.length}): ${transformName}`;
+
+      try {
+        const result = await runSingleTransformation(transform);
+
+        if (result) {
+          successCount++;
+          spinner.succeed(chalk.green(`${type} completed: ${transformName}`));
+        } else {
+          failureCount++;
+          spinner.fail(chalk.red(`${type} finished with errors: ${transformName}`));
+        }
+      } catch (error) {
+        failureCount++;
+        spinner.fail(chalk.red(`${type} failed: ${transformName}`));
+      }
+
+      if (index < transformationFiles.length - 1) {
+        spinner.start();
+      }
     }
   }
 
@@ -204,40 +242,19 @@ async function main() {
     process.exit(1);
   }
 
-  const filesToProcessLast = [
-    resolve(transformationsDir, "type-imports-migration.js"),
-    resolve(transformationsDir, "packages-rename-migration.js")
-  ];
+  const filesToProcessLast =
+    migrationType === "v3"
+      ? [
+          resolve(transformationsDir, "type-imports-migration.js"),
+          resolve(transformationsDir, "packages-rename-migration.js")
+        ]
+      : [];
   const orderedTransformationFiles = [
     ...transformationFiles.filter(file => !filesToProcessLast.includes(file)),
     ...filesToProcessLast
   ];
 
-  for (let index = 0; index < orderedTransformationFiles.length; index++) {
-    const transform = orderedTransformationFiles[index];
-    const transformName = path.basename(transform, path.extname(transform));
-
-    spinner.text = `Processing transformation (${index + 1}/${orderedTransformationFiles.length}): ${transformName}`;
-
-    try {
-      const result = await runSingleTransformation(transform);
-
-      if (result) {
-        successCount++;
-        spinner.succeed(chalk.green(`Transformation completed: ${transformName}`));
-      } else {
-        failureCount++;
-        spinner.fail(chalk.red(`Transformation finished with errors: ${transformName}`));
-      }
-    } catch (error) {
-      failureCount++;
-      spinner.fail(chalk.red(`Transformation failed: ${transformName}`));
-    }
-
-    if (index < orderedTransformationFiles.length - 1) {
-      spinner.start();
-    }
-  }
+  await processTransformations(orderedTransformationFiles);
 
   spinner.stop();
 
@@ -248,6 +265,18 @@ async function main() {
   if (verbose) {
     console.log(chalk.green(`Transformation logs written to ${logFile}`));
   }
+}
+
+function checkIfPackageExists(packageName: string): boolean {
+  const packageJsonPath = path.resolve(process.cwd(), "package.json");
+  if (!fs.existsSync(packageJsonPath)) {
+    console.error(chalk.red(`Error: package.json not found at ${packageJsonPath}`));
+    process.exit(1);
+  }
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+  const dependencies = packageJson.dependencies || {};
+  const version = dependencies[packageName];
+  return !!version;
 }
 
 main();
