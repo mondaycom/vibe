@@ -62,4 +62,6 @@ jobs:
         if: ${{ always() }}
         with:
           name: test-results    
-          path: packages/testing-kit/reports
+          path: |
+            packages/testkit/reports
+            packages/testkit/test-results
