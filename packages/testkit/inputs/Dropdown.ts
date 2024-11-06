@@ -33,6 +33,8 @@ export class Dropdown extends BaseElement {
   async selectItem(item: string): Promise<void> {
     await test.step(`Select ${item} from ${this.elementReportName}`, async () => {
       await this.locator.click();
+      await this.inputField.setText('')
+      await this.page.waitForTimeout(500);
       await this.inputField.setText(item);
       const dropdownItem = this.locator.getByRole("option", { name: item });
       await dropdownItem.click();
