@@ -32,7 +32,7 @@ export default ${fileNameWithoutExtension};
 const indexContent = iconFiles
   .map(file => {
     const fileNameWithoutExtension = path.basename(file, ".tsx");
-    return `export { default as Lazy${fileNameWithoutExtension}Icon } from './${fileNameWithoutExtension}';`;
+    return `export { default as ${fileNameWithoutExtension} } from './${fileNameWithoutExtension}';`;
   })
   .join("\n");
 
