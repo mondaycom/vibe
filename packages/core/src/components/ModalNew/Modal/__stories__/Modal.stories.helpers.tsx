@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../../Button/Button";
 import { useAfterFirstRender } from "../../../../hooks";
 
@@ -23,4 +23,20 @@ export const OpenedModalPreview = ({
       {modal}
     </div>
   );
+};
+
+export const useRemoveModalScrollLock = (show: boolean) => {
+  useEffect(() => {
+    if (show && document.body.attributes.getNamedItem("data-scroll-locked")) {
+      document.body.attributes.removeNamedItem("data-scroll-locked");
+      document.documentElement.addEventListener(
+        "wheel",
+        e => {
+          e.stopImmediatePropagation();
+        },
+        true
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- this is intended to run once, on mount
+  }, []);
 };
