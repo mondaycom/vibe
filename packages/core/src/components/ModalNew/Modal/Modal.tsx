@@ -85,7 +85,7 @@ const Modal = forwardRef(
           <ModalProvider value={contextValue}>
             <motion.div
               variants={modalAnimationOverlayVariants}
-              initial="exit"
+              initial={false}
               animate="enter"
               exit="exit"
               data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
@@ -94,7 +94,7 @@ const Modal = forwardRef(
               aria-hidden
             />
             <FocusLock returnFocus>
-              <RemoveScroll>
+              <RemoveScroll forwardProps>
                 <motion.div
                   variants={modalAnimationVariants}
                   initial="exit"
