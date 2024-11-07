@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Button from "../../../Button/Button";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 import { useAfterFirstRender } from "../../../../hooks";
 
 export const OpenedModalPreview = ({
@@ -40,3 +41,14 @@ export const useRemoveModalScrollLock = (show: boolean) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- this is intended to run once, on mount
   }, []);
 };
+
+export const ModalTip = () => (
+  <Tip>
+    Since the modal is used for short and non-frequent tasks, consider using the main flow for common tasks. For
+    creating a popover positioned next to other components, like customized menus, check out our{" "}
+    <StorybookLink page="Popover/Dialog" size={StorybookLink.sizes.SMALL}>
+      Dialog
+    </StorybookLink>{" "}
+    component.
+  </Tip>
+);
