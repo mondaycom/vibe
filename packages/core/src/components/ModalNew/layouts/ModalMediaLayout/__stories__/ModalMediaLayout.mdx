@@ -1,0 +1,94 @@
+import { Meta } from "@storybook/blocks";
+import * as MediaModalStories from "./ModalMediaLayout.stories";
+import { ratioDo, ratioDont } from "./assets";
+import styles from "../../../Modal/__stories__/Modal.stories.module.scss";
+import { TIPSEEN } from "../../../../../storybook/components/related-components/component-description-map";
+import { MediaModalTip } from "./ModalMediaLayout.stories.helpers";
+
+<Meta of={MediaModalStories} />
+
+# Media Modal
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Use cases and examples](#use-cases-and-examples)
+- [Do's and dont's](do's-and-don'ts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The Media Modal includes a highlighted media section, followed by a textual content area. This modal is intended for cases when you need to catch the user’s attention using visual elements before they interact with the text. It’s ideal for introducing new features or short onboarding flows.
+
+<Canvas of={MediaModalStories.Overview} />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use when you want to prioritize images, videos, or other media before users engage with the text below.",
+    "Use for product highlights, feature releases, or any guides that require visuals first, followed by explanatory text."
+  ]}
+/>
+
+<MediaModalTip />
+
+## Use cases and examples
+
+### Wizard footer
+
+When multi steps modal, use the "wizard footer". For more guidelines about the footer we recommend to check our <StorybookLink page="Feedback/Modal [New]/Footer">ModalFooter</StorybookLink> page.
+
+<Canvas of={MediaModalStories.Wizard} />
+
+### Header with extra icon button
+
+In case of a need of an icon button in the modal header, you can use our default header "Action slot".
+
+You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
+
+<Canvas of={MediaModalStories.HeaderWithExtraIconButton} />
+
+### Animation
+
+Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the element trigger animation, which can be replaced with a center pop animation if there's no specific trigger. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
+
+<Canvas of={MediaModalStories.Animation} />
+
+## Do's and don'ts
+
+<ComponentRules
+  rules={[
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          <img
+            src={ratioDo}
+            alt="modal with nice ratio between image to content and footer"
+            style={{ maxWidth: "80%" }}
+          />
+        ),
+        description: "Keep a balanced ratio between the media section, to the content and footer section."
+      },
+      negative: {
+        component: (
+          <img
+            src={ratioDont}
+            alt="modal with bad ratio between image to content and footer, image is very small"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description:
+          "Don't create a media that will be too small or too big for the modal width, as it create unbalanced look."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+// TODO - Add related components sbs & basic
+
+<RelatedComponents componentsNames={[/*TOOLTIP, DIALOG,*/ TIPSEEN]} />
