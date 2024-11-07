@@ -1,18 +1,18 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Box from "../../../../components/Box/Box";
+import Text from "../../../../components/Text/Text";
 
 export const BoxDescription = () => {
   const component = useMemo(
     () => (
       <div
         style={{
-          width: "80%",
-          textAlign: "center"
+          width: "80%"
         }}
       >
         <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
-          Box
+          <Text align={Text.align.CENTER}>Box</Text>
         </Box>
       </div>
     ),

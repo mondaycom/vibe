@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import {
   addSystemThemeClassNameToBody,
@@ -9,6 +9,7 @@ import {
   removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import { withStaticProps } from "../../types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
@@ -60,7 +61,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   }, [theme]);
 
   // Add the systemTheme class name to the body on mount
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!systemTheme) {
       return;
     }

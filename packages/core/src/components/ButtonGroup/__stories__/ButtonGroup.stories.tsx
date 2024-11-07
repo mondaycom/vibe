@@ -4,6 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./ButtonGroup.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof ButtonGroup>;
 
@@ -171,7 +172,7 @@ export const Size: Story = {
   render: () => (
     <>
       <div className="monday-storybook-button-group_column">
-        Medium
+        <Text type={Text.types.TEXT1}>Medium</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
           size={ButtonGroup.sizes.MEDIUM}
@@ -185,7 +186,7 @@ export const Size: Story = {
         />
       </div>
       <div className="monday-storybook-button-group_column">
-        Small
+        <Text type={Text.types.TEXT1}>Small</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
           size={ButtonGroup.sizes.SMALL}
@@ -205,7 +206,7 @@ export const Size: Story = {
 export const ButtonGroupInSettings: Story = {
   render: () => (
     <div className="monday-storybook-button-group_column">
-      Function
+      <Text type={Text.types.TEXT1}>Function</Text>
       <ButtonGroup
         groupAriaLabel="button group aria label"
         size={ButtonGroup.sizes.SMALL}

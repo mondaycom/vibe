@@ -37,3 +37,11 @@ export const fakeFetchUsers = () => {
     }, 1000);
   });
 };
+
+export const generateItems = (itemsCount = 100) => {
+  const items = [];
+  for (let i = 0; i < itemsCount; i++) {
+    items.push({ value: i, label: `Item ${i}` });
+  }
+  return items;
+};

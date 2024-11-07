@@ -15,7 +15,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
 export interface ITableHeaderCellProps extends VibeComponentProps {
-  title: string;
+  title: string | React.ReactNode;
   icon?: SubIcon;
   infoContent?: string;
   sortState?: "asc" | "desc" | "none";
@@ -70,11 +70,13 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
           gap={Flex.gaps.XS}
         >
           {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
-          {
+          {typeof title === "string" ? (
             <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
               {title}
             </Text>
-          }
+          ) : (
+            title
+          )}
           {infoContent && (
             <Tooltip
               content={infoContent}

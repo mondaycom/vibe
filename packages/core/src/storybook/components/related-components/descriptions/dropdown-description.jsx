@@ -7,9 +7,14 @@ export const DropdownDescription = () => {
     const style = {
       width: "60%"
     };
+    const option = [
+      { id: "1", label: "Option 1" },
+      { id: "2", label: "Option 2" },
+      { id: "3", label: "Option 3" }
+    ];
     return (
       <div style={style}>
-        <Dropdown placeholder="Placeholder text here" size={Dropdown.sizes.MEDIUM} />
+        <Dropdown placeholder="Placeholder text here" size={Dropdown.sizes.MEDIUM} options={option} />
       </div>
     );
   }, []);

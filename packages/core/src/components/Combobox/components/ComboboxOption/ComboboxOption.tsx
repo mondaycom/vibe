@@ -93,9 +93,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const onClick = useCallback(
     (event: React.MouseEvent) => {
+      if (disabled) return;
       onOptionClick(event, index, option, true);
     },
-    [index, option, onOptionClick]
+    [index, option, onOptionClick, disabled]
   );
 
   const onMouseLeave = useCallback(

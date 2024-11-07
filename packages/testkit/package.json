@@ -1,0 +1,29 @@
+{
+  "name": "@vibe/testkit",
+  "version": "1.0.2",
+  "description": "Vibe e2e testing toolkit",
+  "keywords": [
+    "TESTING",
+    "E2E"
+  ],
+  "author": "monday.com",
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/testkit"
+  },
+  "scripts": {
+    "test:e2e": "npx playwright test",
+    "build": "tsc",
+    "start-server": "yarn lerna run storybook --scope=monday-ui-react-core"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.45.3"
+  }
+}

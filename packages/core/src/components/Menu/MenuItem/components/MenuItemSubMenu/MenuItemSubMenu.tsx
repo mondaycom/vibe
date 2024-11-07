@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useMemo, useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import DialogContentContainer from "../../../../DialogContentContainer/DialogContentContainer";
 import usePopover from "../../../../../hooks/usePopover";
 import { MenuChild } from "../../../Menu/MenuConstants";
 import { MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
 import { Placement } from "../../../../../hooks/popoverConstants";
+import useIsomorphicLayoutEffect from "../../../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 const MenuItemSubMenu = ({
   anchorRef,
@@ -16,7 +17,7 @@ const MenuItemSubMenu = ({
   const childRef = useRef<HTMLDivElement>(null);
   const popperElementRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!autoFocusOnMount || !open || !childRef?.current) {
       return;
     }

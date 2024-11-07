@@ -4,6 +4,7 @@ import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAc
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
+import { useIsMounted } from "../../../hooks/ssr/useIsMounted";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -41,6 +42,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     isDecorationOnly: ariaHidden
   });
 
+  const isMounted = useIsMounted();
+
   const svgProcessor = useCallback(
     (svg: string) => {
       if (replaceToCurrentColor) return modifySvgCode(svg, "currentColor");
@@ -52,17 +55,29 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
 
   if (typeof src !== "string") return null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const SVGComponent = SVG as React.FC<any>;
+
+  const PlaceHolder = <div className={className} id={id}></div>;
+
+  if (!isMounted) {
+    // placeholder for server side rendering
+    return PlaceHolder;
+  }
   return (
-    <SVG
+    <SVGComponent
       innerRef={ref}
       {...screenReaderAccessProps}
       onClick={onClick}
+      loader={PlaceHolder} // avoid flickering
       src={src}
       className={className}
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
-    />
+    >
+      {PlaceHolder}
+    </SVGComponent>
   );
 };
 

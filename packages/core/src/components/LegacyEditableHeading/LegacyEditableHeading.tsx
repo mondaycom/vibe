@@ -2,7 +2,8 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import Heading, { HeadingProps } from "../LegacyHeading/LegacyHeading";
 import Clickable from "../Clickable/Clickable";
 import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
@@ -140,7 +141,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
     setIsEditing(editing);
   }, [editing]);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!editing && !valueState && value) {
       // When user entered empty value - rollback to value from props
       setValueState(value);

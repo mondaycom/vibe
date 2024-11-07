@@ -1,16 +1,8 @@
 import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
-import React, {
-  forwardRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
+import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
@@ -181,7 +173,7 @@ const Menu: VibeComponent<MenuProps> & {
       }
     }, [activeItemIndex, hasOpenSubMenu, previousHasOpenSubMenu, useDocumentEventListeners]);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (!focusOnMount || useDocumentEventListeners) return;
       requestAnimationFrame(() => {
         ref && ref.current && ref.current.focus();

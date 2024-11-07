@@ -1,6 +1,7 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
+import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export default function useMouseLeave({
   resetOpenSubMenuIndex,
@@ -16,7 +17,7 @@ export default function useMouseLeave({
   const isMouseEnter = useIsMouseEnter({ ref });
   const prevIsMouseEnter = usePrevious(isMouseEnter);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
     if (hasOpenSubMenu) return;

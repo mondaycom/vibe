@@ -27,8 +27,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
+        class="typography primary start text text1Normal container"
         data-testid="modal-content"
-        style="--text-clamp-lines: 1;"
       >
 +       <div
 +         class="container"
@@ -97,8 +97,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
+        class="typography primary start text text1Normal container"
         data-testid="modal-content"
-        style="--text-clamp-lines: 1;"
       >
 +       <div
 +         class="container"
@@ -154,7 +154,6 @@ Snapshot Diff:
 +       <div
 +         class="typography primary start text text1Normal container"
 +         data-testid="modal-content"
-+         style="--text-clamp-lines: 1;"
 +       >
           <p>
             content
@@ -246,7 +245,6 @@ exports[`Modal with base props 1`] = `
     <div
       class="typography primary start text text1Normal container"
       data-testid="modal-content"
-      style="--text-clamp-lines: 1;"
     >
       <p>
         content

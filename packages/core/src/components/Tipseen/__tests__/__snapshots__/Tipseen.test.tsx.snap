@@ -533,6 +533,11 @@ exports[`Snapshot tests TipseenTitle should render correctly with given text 1`]
   className="typography inherit start multiLineEllipsis text text1Bold title"
   data-testid="tipseen-title"
   role="heading"
+  style={
+    {
+      "--text-clamp-lines": "2",
+    }
+  }
 >
   I'm a title
 </div>

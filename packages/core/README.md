@@ -76,3 +76,17 @@ npm start
 ## Themes
 
 Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./THEME_README.md) file
+
+## SSR (Server Side Rendering)
+
+Components are using style injection on the client side (into <head> element)
+This is not usable on the server side.
+In order to get the required styles on the server side, you should initialize
+
+```javascript
+globalThis.injectedStyles = {};
+```
+
+in order to have each server side render component css inserted into the injectedStyles object
+each component will insert its css string under a unique key.
+Then you can join all the values into one string and add it under a <style> element
