@@ -19,8 +19,9 @@ export default {
 
 export const Overview = {
   render: () => {
-    const { activeStep, next, back, canGoNext, canGoBack } = useWizard({
-      stepCount: 5
+    const { activeStep, next, back, isFirstStep } = useWizard({
+      stepCount: 5,
+      onFinish: () => alert("Wizard Completed!")
     });
 
     return (
@@ -29,12 +30,10 @@ export const Overview = {
           Active Step: {activeStep}
         </Heading>
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!canGoBack}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
             Back
           </Button>
-          <Button onClick={next} disabled={!canGoNext}>
-            Next
-          </Button>
+          <Button onClick={next}>Next</Button>
         </Flex>
       </>
     );
@@ -43,7 +42,7 @@ export const Overview = {
 
 export const WithInitialStep = {
   render: () => {
-    const { activeStep, next, back, canGoNext, canGoBack } = useWizard({
+    const { activeStep, next, back, isFirstStep } = useWizard({
       initialStep: 2,
       stepCount: 5
     });
@@ -54,37 +53,10 @@ export const WithInitialStep = {
           Active Step: {activeStep}
         </Heading>
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!canGoBack}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
             Back
           </Button>
-          <Button onClick={next} disabled={!canGoNext}>
-            Next
-          </Button>
-        </Flex>
-      </>
-    );
-  }
-};
-
-export const WithCompletion = {
-  render: () => {
-    const { activeStep, next, back, canGoNext, canGoBack } = useWizard({
-      stepCount: 3,
-      onComplete: () => alert("Wizard Completed!")
-    });
-
-    return (
-      <>
-        <Heading weight={Heading.weights.MEDIUM} type={Heading.types.H3}>
-          Active Step: {activeStep}
-        </Heading>
-        <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!canGoBack}>
-            Back
-          </Button>
-          <Button onClick={next} disabled={!canGoNext}>
-            Next
-          </Button>
+          <Button onClick={next}>Next</Button>
         </Flex>
       </>
     );
@@ -93,7 +65,7 @@ export const WithCompletion = {
 
 export const WithStepsComponent = {
   render: () => {
-    const { activeStep, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, next, back, goToStep, isFirstStep } = useWizard({
       stepCount: 5
     });
 
@@ -116,12 +88,10 @@ export const WithStepsComponent = {
           onChangeActiveStep={(_e, stepIndex) => goToStep(stepIndex)}
         />
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!canGoBack}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
             Back
           </Button>
-          <Button onClick={next} disabled={!canGoNext}>
-            Next
-          </Button>
+          <Button onClick={next}>Next</Button>
         </Flex>
       </>
     );

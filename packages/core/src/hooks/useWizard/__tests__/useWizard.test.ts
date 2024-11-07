@@ -12,14 +12,24 @@ describe("useWizard", () => {
     expect(result.current.activeStep).toBe(0);
   });
 
-  it("should not allow go back on the first step", () => {
+  it("should correctly identify first step", () => {
     const { result } = renderHook(() => useWizard({ stepCount: 3 }));
-    expect(result.current.canGoBack).toBe(false);
+    expect(result.current.isFirstStep).toBe(true);
+
+    act(() => {
+      result.current.next();
+    });
+    expect(result.current.isFirstStep).toBe(false);
   });
 
-  it("should allow go next on the last step", () => {
+  it("should correctly identify last step", () => {
     const { result } = renderHook(() => useWizard({ stepCount: 3, initialStep: 2 }));
-    expect(result.current.canGoNext).toBe(true);
+    expect(result.current.isLastStep).toBe(true);
+
+    act(() => {
+      result.current.back();
+    });
+    expect(result.current.isLastStep).toBe(false);
   });
 
   it("should increment step when next is called", () => {
@@ -63,16 +73,16 @@ describe("useWizard", () => {
     expect(onStepChange).toHaveBeenCalledWith(1, 0);
   });
 
-  it("should call onComplete when reaching the last step and calling next", () => {
-    const onComplete = jest.fn();
-    const { result } = renderHook(() => useWizard({ stepCount: 3, onComplete }));
+  it("should call onFinish when reaching the last step and calling next", () => {
+    const onFinish = jest.fn();
+    const { result } = renderHook(() => useWizard({ stepCount: 3, onFinish }));
     act(() => {
       result.current.goToStep(2);
     });
     act(() => {
       result.current.next();
     });
-    expect(onComplete).toHaveBeenCalled();
+    expect(onFinish).toHaveBeenCalled();
   });
 
   it("should not call onStepChange when reaching the last step and calling next", () => {

@@ -2,7 +2,7 @@ export interface UseWizardProps {
   initialStep?: number;
   stepCount: number;
   onStepChange?: (newStep: number, oldStep: number) => void;
-  onComplete?: () => void;
+  onFinish?: () => void;
 }
 
 export interface UseWizardReturnValue {
@@ -11,8 +11,8 @@ export interface UseWizardReturnValue {
   next: () => void;
   back: () => void;
   goToStep: (newStep: number) => void;
-  canGoNext: boolean;
-  canGoBack: boolean;
+  isFirstStep: boolean;
+  isLastStep: boolean;
 }
 
 export type WizardDirection = "forward" | "backward";

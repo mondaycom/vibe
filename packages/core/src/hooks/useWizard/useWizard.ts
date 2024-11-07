@@ -1,10 +1,13 @@
 import { useCallback, useState } from "react";
 import { UseWizardProps, UseWizardReturnValue, WizardDirection } from "./useWizard.types";
 
-function useWizard({ initialStep = 0, stepCount, onStepChange, onComplete }: UseWizardProps): UseWizardReturnValue {
+function useWizard({ initialStep = 0, stepCount, onStepChange, onFinish }: UseWizardProps): UseWizardReturnValue {
   const lastStep = stepCount - 1;
   const [activeStep, setActiveStep] = useState<number>(initialStep >= 0 && initialStep <= lastStep ? initialStep : 0);
   const [direction, setDirection] = useState<WizardDirection>();
+
+  const isFirstStep = activeStep === 0;
+  const isLastStep = activeStep === lastStep;
 
   const canGoNext = activeStep <= lastStep;
   const canGoBack = activeStep > 0;
@@ -24,18 +27,18 @@ function useWizard({ initialStep = 0, stepCount, onStepChange, onComplete }: Use
   const next = useCallback(() => {
     if (!canGoNext) return;
     if (activeStep === lastStep) {
-      onComplete?.();
+      onFinish?.();
       return;
     }
     goToStep(activeStep + 1);
-  }, [canGoNext, activeStep, lastStep, goToStep, onComplete]);
+  }, [canGoNext, activeStep, lastStep, goToStep, onFinish]);
 
   const back = useCallback(() => {
     if (!canGoBack) return;
     goToStep(activeStep - 1);
   }, [canGoBack, activeStep, goToStep]);
 
-  return { activeStep, direction, next, back, goToStep, canGoNext, canGoBack };
+  return { activeStep, direction, next, back, goToStep, isFirstStep, isLastStep };
 }
 
 export default useWizard;
