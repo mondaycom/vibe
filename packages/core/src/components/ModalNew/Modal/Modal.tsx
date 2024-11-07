@@ -73,14 +73,14 @@ const Modal = forwardRef(
 
     return (
       <ModalProvider value={contextValue}>
-        <RemoveScroll>
-          <div
-            data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-            className={styles.overlay}
-            onClick={onBackdropClick}
-            aria-hidden
-          />
-          <FocusLock returnFocus>
+        <div
+          data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+          className={styles.overlay}
+          onClick={onBackdropClick}
+          aria-hidden
+        />
+        <FocusLock returnFocus>
+          <RemoveScroll>
             <div
               ref={ref}
               className={cx(
@@ -104,8 +104,8 @@ const Modal = forwardRef(
               />
               {children}
             </div>
-          </FocusLock>
-        </RemoveScroll>
+          </RemoveScroll>
+        </FocusLock>
       </ModalProvider>
     );
   }
