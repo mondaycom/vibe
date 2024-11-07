@@ -30,7 +30,7 @@ export const Overview = {
           Active Step: {activeStep}
         </Heading>
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>
@@ -53,7 +53,7 @@ export const WithInitialStep = {
           Active Step: {activeStep}
         </Heading>
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>
@@ -88,7 +88,7 @@ export const WithStepsComponent = {
           onChangeActiveStep={(_e, stepIndex) => goToStep(stepIndex)}
         />
         <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={!isFirstStep}>
+          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>
