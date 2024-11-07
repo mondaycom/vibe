@@ -31,6 +31,7 @@ const Modal = forwardRef(
       closeButtonAriaLabel,
       onClose = () => {},
       anchorElementRef,
+      alertModal,
       children,
       className,
       "data-testid": dataTestId
@@ -54,18 +55,18 @@ const Modal = forwardRef(
 
     const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
       e => {
-        if (!show) return;
+        if (!show || alertModal) return;
         onClose(e);
       },
-      [onClose, show]
+      [show, alertModal, onClose]
     );
 
     const onEscClick = useCallback<React.KeyboardEventHandler<HTMLBodyElement>>(
       e => {
-        if (!show) return;
+        if (!show || alertModal) return;
         onClose(e);
       },
-      [onClose, show]
+      [alertModal, show, onClose]
     );
 
     useKeyEvent({
