@@ -83,18 +83,18 @@ const Modal = forwardRef(
       <AnimatePresence>
         {show && (
           <ModalProvider value={contextValue}>
-            <RemoveScroll>
-              <motion.div
-                variants={modalAnimationOverlayVariants}
-                initial="exit"
-                animate="enter"
-                exit="exit"
-                data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-                className={styles.overlay}
-                onClick={onBackdropClick}
-                aria-hidden
-              />
-              <FocusLock returnFocus>
+            <motion.div
+              variants={modalAnimationOverlayVariants}
+              initial={false}
+              animate="enter"
+              exit="exit"
+              data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+              className={styles.overlay}
+              onClick={onBackdropClick}
+              aria-hidden
+            />
+            <FocusLock returnFocus>
+              <RemoveScroll forwardProps>
                 <motion.div
                   variants={modalAnimationVariants}
                   initial="exit"
@@ -123,8 +123,8 @@ const Modal = forwardRef(
                   />
                   {children}
                 </motion.div>
-              </FocusLock>
-            </RemoveScroll>
+              </RemoveScroll>
+            </FocusLock>
           </ModalProvider>
         )}
       </AnimatePresence>
