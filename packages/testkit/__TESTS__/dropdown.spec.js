@@ -13,7 +13,7 @@ test.describe("dropdown Class with Storybook", () => {
   });
 
   test("set dropdown value", async ({ page }) => {
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(3000);
     await DropDown.selectItem("2");
     await page.waitForTimeout(500);
     expect(await DropDown.getText()).toContain("2");
