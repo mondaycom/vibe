@@ -26,7 +26,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Feedback/Modal [New]/Basic modal",
+  title: "Components/Modal [New]/Basic modal",
   component: Modal,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
