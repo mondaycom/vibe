@@ -228,6 +228,7 @@ export {default as TextCopy} from './components/TextCopy';
 export {default as TextHuge} from './components/TextHuge';
 export {default as TextMedium} from './components/TextMedium';
 export {default as TextSmall} from './components/TextSmall';
+export {default as ThumbsDown} from './components/ThumbsDown';
 export {default as ThumbsUp} from './components/ThumbsUp';
 export {default as Time} from './components/Time';
 export {default as Timeline} from './components/Timeline';
