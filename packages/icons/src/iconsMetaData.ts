@@ -14,6 +14,13 @@ export default [
   // plop_marker:icon_metadata
 
   {
+      name: "ThumbsDown",
+      file: "ThumbsDown.svg",
+      description: "Meant to indicate dislike in intake forms and feedback buttons. Can come as a supplement to thumbs up.",
+      tags: "Thumbs, Down, Dislike, Feedback"
+  },
+
+  {
     name: "Clipboard",
     file: "Clipboard.svg",
     description: "Clipboard",
