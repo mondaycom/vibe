@@ -42,8 +42,7 @@ export const Overview: Story = {
   render: textAreaTemplate.bind({}),
   args: {
     label: "Text area label",
-    helpText: "Helper text",
-    showCharCount: true,
+    helpText: "Helper text"
   },
   parameters: {
     docs: {
