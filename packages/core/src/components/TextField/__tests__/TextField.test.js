@@ -172,7 +172,7 @@ describe("TextField Tests", () => {
     });
 
     it("should display char count and max length on initial", () => {
-      const { rerender, queryByLabelText } = inputComponent;
+      const { rerender, getByText } = inputComponent;
       const value = "hello";
       act(() => {
         rerender(
@@ -187,8 +187,7 @@ describe("TextField Tests", () => {
         );
       });
 
-      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
-      expect(charCount.innerHTML).toBe(`${value.length}/10`);
+      expect(getByText(`${value.length}/10`)).toBeTruthy();
     });
 
     it("char count should display correctly after changing value", () => {
@@ -232,7 +231,7 @@ describe("TextField Tests", () => {
     });
 
     it("should allow typing beyond character limit when allowExceedingMaxLength is true", () => {
-      const { rerender, queryByLabelText, getByText } = inputComponent;
+      const { rerender, getByText } = inputComponent;
       act(() => {
         rerender(<TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={true} />);
       });
@@ -245,8 +244,7 @@ describe("TextField Tests", () => {
       expect(input).toHaveValue("123456");
       expect(input).not.toHaveAttribute("maxlength");
 
-      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
-      expect(charCount.innerHTML).toBe("6/5");
+      expect(getByText("6/5")).toBeTruthy();
     });
   });
 
