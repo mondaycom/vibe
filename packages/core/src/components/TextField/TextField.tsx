@@ -79,7 +79,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /** TEXT_TYPES is exposed on the component itself */
   type?: TextFieldTextType;
   maxLength?: number;
-  allowExceedingLimit?: boolean;
+  allowExceedingMaxLength?: boolean;
   trim?: boolean;
   /** ARIA role for container landmark */
   role?: string;
@@ -147,7 +147,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       iconsNames = EMPTY_OBJECT,
       type = TextFieldTextType.TEXT,
       maxLength = null,
-      allowExceedingLimit = false,
+      allowExceedingMaxLength = false,
       trim = false,
       role = "",
       required = false,
@@ -312,7 +312,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               onFocus={onFocus}
               onKeyDown={onKeyDown}
               onWheel={onWheel}
-              maxLength={maxLength && !allowExceedingLimit ? maxLength : undefined}
+              maxLength={typeof maxLength === "number" && !allowExceedingMaxLength ? maxLength : undefined}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
               aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}

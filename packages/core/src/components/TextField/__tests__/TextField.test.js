@@ -216,11 +216,11 @@ describe("TextField Tests", () => {
       expect(parseInt(charCount.innerHTML, 10)).toEqual(value.length);
     });
 
-    it("should prevent typing when character limit is reached and allowExceedingLimit is false", () => {
+    it("should prevent typing when character limit is reached and allowExceedingMaxLength is false", () => {
       const { rerender } = inputComponent;
       act(() => {
         rerender(
-          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingLimit={false} />
+          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={false} />
         );
       });
 
@@ -231,10 +231,10 @@ describe("TextField Tests", () => {
       expect(input).toHaveAttribute("maxlength", "5");
     });
 
-    it("should allow typing beyond character limit when allowExceedingLimit is true", () => {
-      const { rerender, queryByLabelText } = inputComponent;
+    it("should allow typing beyond character limit when allowExceedingMaxLength is true", () => {
+      const { rerender, queryByLabelText, getByText } = inputComponent;
       act(() => {
-        rerender(<TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingLimit={true} />);
+        rerender(<TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={true} />);
       });
 
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
