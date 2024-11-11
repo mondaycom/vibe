@@ -243,7 +243,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
     const validationClass = useMemo(() => {
-      if (maxLength !== undefined && inputValue.length > maxLength) {
+      if (typeof maxLength === "number" && inputValue.length > maxLength) {
         return FEEDBACK_CLASSES.error;
       }
 
@@ -393,7 +393,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               {showCharCount && (
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
                   {(inputValue && inputValue.length) || 0}
-                  {maxLength && `/${maxLength}`}
+                  {typeof maxLength === "number" && `/${maxLength}`}
                 </span>
               )}
             </Text>
