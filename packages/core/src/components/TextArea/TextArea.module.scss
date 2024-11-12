@@ -21,10 +21,7 @@
   }
 
   .subTextContainer {
-    display: flex;
-    gap: var(--spacing-xs);
     color: var(--secondary-text-color);
-    align-items: top;
 
     .helpText {
       width: fit-content;
