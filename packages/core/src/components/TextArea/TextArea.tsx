@@ -5,6 +5,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./TextArea.module.scss";
 import { TextAreaProps, TextAreaSize } from "./TextArea.types";
 import Text from "../Text/Text";
+import { Flex } from "../Flex";
 
 const DEFAULT_ROWS: Record<TextAreaSize, number> = {
   small: 3,
@@ -81,19 +82,19 @@ const TextArea = forwardRef(
           aria-describedby={helpTextId ?? undefined}
           onChange={handleOnChange}
         />
-        <div className={cx(styles.subTextContainer)}>
+        <Flex gap={Flex.gaps.XS} className={cx(styles.subTextContainer)}>
           {helpText && (
             <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
               {helpText}
             </Text>
           )}
           {showCharCount && (
-            <div className={cx(styles.limitText)}>
+            <Flex className={cx(styles.limitText)}>
               {characterCount}
               {maxLength && `/${maxLength}`}
-            </div>
+            </Flex>
           )}
-        </div>
+        </Flex>
       </div>
     );
   }
