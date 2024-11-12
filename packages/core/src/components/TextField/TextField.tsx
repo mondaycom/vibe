@@ -33,6 +33,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
+import { HiddenText } from "../HiddenText";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -261,6 +262,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldFocusOnPrimaryIcon =
       (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
+    const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length-text`;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -319,6 +321,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               aria-required={required}
+              aria-describedby={allowExceedingMaxLengthTextId ?? undefined}
               required={required}
               tabIndex={tabIndex}
             />
@@ -394,6 +397,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
                   {(inputValue && inputValue.length) || 0}
                   {typeof maxLength === "number" && `/${maxLength}`}
+                  <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
                 </span>
               )}
             </Text>
