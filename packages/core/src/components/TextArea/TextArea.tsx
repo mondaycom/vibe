@@ -41,6 +41,7 @@ const TextArea = forwardRef(
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
+    const inErrorState = error || (maxLength && value?.length > maxLength);
 
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
 
@@ -57,7 +58,7 @@ const TextArea = forwardRef(
         className={cx(
           styles.textAreaWrapper,
           {
-            [styles.error]: error || (maxLength && characterCount > maxLength),
+            [styles.error]: inErrorState,
             [styles.success]: success,
             [styles.disabled]: disabled,
             [styles.readOnly]: readOnly
