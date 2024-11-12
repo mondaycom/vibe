@@ -84,7 +84,7 @@ const TextArea = forwardRef(
           aria-describedby={[helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined}
           onChange={handleOnChange}
         />
-        <Flex gap={Flex.gaps.XS} className={cx(styles.subTextContainer)}>
+        <Flex gap={Flex.gaps.XS} justify={Flex.justify.SPACE_BETWEEN} className={cx(styles.subTextContainer)}>
           {helpText && (
             <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
               {helpText}

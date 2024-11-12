@@ -24,15 +24,7 @@
     color: var(--secondary-text-color);
 
     .helpText {
-      width: fit-content;
       display: flex;
-      flex-grow: 1;
-    }
-
-    .limitText {
-      width: fit-content;
-      flex-shrink: 0;
-      margin-left: auto;
     }
   }
 
