@@ -31,6 +31,7 @@ const TextArea = forwardRef(
       maxLength,
       allowExceedingMaxLength,
       onChange,
+      value,
       resize = true,
       showCharCount = false,
       ...rest
@@ -41,7 +42,7 @@ const TextArea = forwardRef(
     const helpTextId = helpText && `${id}-help-text`;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
 
-    const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
+    const [characterCount, setCharacterCount] = useState(value?.length || 0);
 
     const handleOnChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -75,6 +76,7 @@ const TextArea = forwardRef(
           id={id}
           maxLength={typeof maxLength === "number" && !allowExceedingMaxLength ? maxLength : undefined}
           ref={ref}
+          value={value}
           disabled={disabled}
           readOnly={readOnly}
           required={required}
