@@ -6,6 +6,7 @@ import styles from "./TextArea.module.scss";
 import { TextAreaProps, TextAreaSize } from "./TextArea.types";
 import Text from "../Text/Text";
 import { Flex } from "../Flex";
+import { HiddenText } from "../HiddenText";
 
 const DEFAULT_ROWS: Record<TextAreaSize, number> = {
   small: 3,
@@ -80,7 +81,7 @@ const TextArea = forwardRef(
           rows={numRows}
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
           aria-invalid={error}
-          aria-describedby={helpTextId ?? undefined}
+          aria-describedby={[helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined}
           onChange={handleOnChange}
         />
         <Flex gap={Flex.gaps.XS} className={cx(styles.subTextContainer)}>
@@ -93,6 +94,7 @@ const TextArea = forwardRef(
             <Flex className={cx(styles.limitText)}>
               {characterCount}
               {maxLength && `/${maxLength}`}
+              <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
             </Flex>
           )}
         </Flex>
