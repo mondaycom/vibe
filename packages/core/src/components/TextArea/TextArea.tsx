@@ -28,7 +28,7 @@ const TextArea = forwardRef(
       readOnly,
       required,
       maxLength,
-      allowExceedingLimit,
+      allowExceedingMaxLength,
       onChange,
       resize = true,
       showCharCount = false,
@@ -38,6 +38,7 @@ const TextArea = forwardRef(
   ) => {
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
+    const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
 
     const [characterCount, setCharacterCount] = useState(rest.value?.length || 0);
 
@@ -71,7 +72,7 @@ const TextArea = forwardRef(
         <textarea
           {...rest}
           id={id}
-          maxLength={maxLength && !allowExceedingLimit ? maxLength : undefined}
+          maxLength={typeof maxLength === "number" && !allowExceedingMaxLength ? maxLength : undefined}
           ref={ref}
           disabled={disabled}
           readOnly={readOnly}

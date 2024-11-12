@@ -119,7 +119,7 @@ describe("TextArea", () => {
 
     it("should prevent typing when character limit is reached", () => {
       const handleChange = jest.fn();
-      render(<TextArea showCharCount maxLength={5} allowExceedingLimit={false} onChange={handleChange} />);
+      render(<TextArea showCharCount maxLength={5} allowExceedingMaxLength={false} onChange={handleChange} />);
 
       const charCount = screen.getByText("0/5");
       expect(charCount).toBeInTheDocument();
@@ -133,7 +133,7 @@ describe("TextArea", () => {
     });
 
     it("should allow typing when limit is allowed to be exceeded", () => {
-      render(<TextArea showCharCount maxLength={10} allowExceedingLimit={true} />);
+      render(<TextArea showCharCount maxLength={10} allowExceedingMaxLength={true} />);
 
       const charCount = screen.getByText("0/10");
       expect(charCount).toBeInTheDocument();
@@ -145,8 +145,8 @@ describe("TextArea", () => {
       expect(charCount).toHaveTextContent("11/10");
     });
 
-    it("should allow text removal when character limit is exceeded", async () => {
-      render(<TextArea showCharCount maxLength={5} allowExceedingLimit={false} />);
+    it("should allow text removal when character limit is exceeded", () => {
+      render(<TextArea showCharCount maxLength={5} allowExceedingMaxLength={false} />);
 
       const input = screen.getByRole("textbox");
       userEvent.type(input, "12345");

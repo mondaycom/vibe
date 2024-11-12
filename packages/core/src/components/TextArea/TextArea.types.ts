@@ -55,9 +55,9 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    */
   maxLength?: number;
   /**
-   * If true, the textarea will allow the user to exceed the character limit.
+   * If true, the TextArea will allow the user to exceed the character limit.
    */
-  allowExceedingLimit?: boolean;
+  allowExceedingMaxLength?: boolean;
   /**
    * If true, the character count and limit will be displayed below the textarea.
    */
