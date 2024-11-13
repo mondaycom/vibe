@@ -7,23 +7,7 @@ type TextAreaNativeInputProps = Omit<
   "role" | "aria-describedby" | "aria-invalid"
 >;
 
-/**
- * This type ensures that allowExceedingMaxLength is only used when maxLength is provided.
- */
-type MaxLengthProps =
-  | {
-      /**
-       * The allowed number of characters.
-       */
-      maxLength?: number;
-      /**
-       * If true, the TextArea will allow the user to exceed the character limit.
-       */
-      allowExceedingMaxLength?: false;
-    }
-  | { allowExceedingMaxLength: true; maxLength: number };
-
-interface TextAreaInterface extends TextAreaNativeInputProps, VibeComponentProps {
+export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentProps {
   /**
    * The current value of the textarea.
    */
@@ -67,9 +51,15 @@ interface TextAreaInterface extends TextAreaNativeInputProps, VibeComponentProps
    */
   placeholder?: string;
   /**
+   * The allowed number of characters.
+   */
+  maxLength?: number;
+  /**
+   * If true, the TextArea will allow the user to exceed the character limit.
+   */
+  allowExceedingMaxLength?: boolean;
+  /**
    * If true, the character count and limit will be displayed below the textarea.
    */
   showCharCount?: boolean;
 }
-
-export type TextAreaProps = TextAreaInterface & MaxLengthProps;
