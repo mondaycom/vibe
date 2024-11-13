@@ -41,7 +41,7 @@ const TextArea = forwardRef(
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
-    const inErrorState = error || (maxLength && value?.length > maxLength);
+    const isErrorState = error || (maxLength && value?.length > maxLength);
 
     const ariaDescribedby = useMemo(
       () => [helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined,
@@ -63,7 +63,7 @@ const TextArea = forwardRef(
         className={cx(
           styles.textAreaWrapper,
           {
-            [styles.error]: inErrorState,
+            [styles.error]: isErrorState,
             [styles.success]: success,
             [styles.disabled]: disabled,
             [styles.readOnly]: readOnly
