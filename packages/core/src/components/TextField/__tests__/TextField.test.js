@@ -233,7 +233,9 @@ describe("TextField Tests", () => {
     it("should allow typing beyond character limit when allowExceedingMaxLength is true", () => {
       const { rerender, getByText } = inputComponent;
       act(() => {
-        rerender(<TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={true} />);
+        rerender(
+          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={true} />
+        );
       });
 
       const input = screen.getByPlaceholderText(defaultPlaceHolder);

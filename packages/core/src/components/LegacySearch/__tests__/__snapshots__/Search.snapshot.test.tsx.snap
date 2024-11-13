@@ -14,6 +14,7 @@ exports[`Search renders correctly when disabled 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -23,7 +24,6 @@ exports[`Search renders correctly when disabled 1`] = `
         data-testid="search_search"
         disabled={true}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -115,6 +115,7 @@ exports[`Search renders correctly with className 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -124,7 +125,6 @@ exports[`Search renders correctly with className 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -216,6 +216,7 @@ exports[`Search renders correctly with icon 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -225,7 +226,6 @@ exports[`Search renders correctly with icon 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -307,6 +307,7 @@ exports[`Search renders correctly with id 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -316,7 +317,6 @@ exports[`Search renders correctly with id 1`] = `
         data-testid="search_testId"
         disabled={false}
         id="testId"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -408,6 +408,7 @@ exports[`Search renders correctly with loading 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -417,7 +418,6 @@ exports[`Search renders correctly with loading 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -538,6 +538,7 @@ exports[`Search renders correctly with placeholder 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label="placeholder"
         aria-owns=""
@@ -547,7 +548,6 @@ exports[`Search renders correctly with placeholder 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -639,6 +639,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -648,7 +649,6 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -730,6 +730,7 @@ exports[`Search renders correctly with underline type 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -739,7 +740,6 @@ exports[`Search renders correctly with underline type 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -831,6 +831,7 @@ exports[`Search renders correctly with validation 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={true}
         aria-label=""
         aria-owns=""
@@ -840,7 +841,6 @@ exports[`Search renders correctly with validation 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -942,6 +942,7 @@ exports[`Search renders correctly with value 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -951,7 +952,6 @@ exports[`Search renders correctly with value 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -1043,6 +1043,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -1052,7 +1053,6 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -1144,6 +1144,7 @@ exports[`Search renders correctly without props 1`] = `
     >
       <input
         aria-activedescendant=""
+        aria-describedby={false}
         aria-invalid={false}
         aria-label=""
         aria-owns=""
@@ -1153,7 +1154,6 @@ exports[`Search renders correctly without props 1`] = `
         data-testid="search_search"
         disabled={false}
         id="search"
-        maxLength={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
