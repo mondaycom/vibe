@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
-import { OpenedModalPreview, useRemoveModalScrollLock } from "../../../Modal/__stories__/Modal.stories.helpers";
+import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
@@ -37,12 +37,12 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (args, { show, setShow }) => {
     const steps = [
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={0}>
         <ModalHeader
           title="Side by side modal"
           description={
@@ -61,7 +61,7 @@ export const Overview: Story = {
           <img src={mediaImage} alt="side by side placeholder" />
         </ModalMedia>
       </ModalSideBySideLayout>,
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={1}>
         <ModalHeader
           title="Side by side modal"
           description={
@@ -89,20 +89,18 @@ export const Overview: Story = {
     });
 
     return (
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   },
   parameters: {
@@ -115,10 +113,10 @@ export const Overview: Story = {
 };
 
 export const Wizard: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     const dropdownOptions = [
       {
         label: "English",
@@ -131,7 +129,7 @@ export const Wizard: Story = {
     ];
 
     const steps = [
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={0}>
         <ModalHeader title="Modal with wizard" description="Fill in the details" />
         <ModalContent>
           <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
@@ -143,19 +141,21 @@ export const Wizard: Story = {
           <img src={mediaImage} alt="side by side placeholder" />
         </ModalMedia>
       </ModalSideBySideLayout>,
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={1}>
         <ModalHeader title="Modal with wizard" description="Update your settings defenitions" />
         <ModalContent>
           <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.STRETCH}>
             <TextField title="Fill address" placeholder="City, street, number" />
             <Flex direction={Flex.directions.COLUMN} align={Flex.align.STRETCH}>
               <FieldLabel labelText="Language preferences" />
-              <Dropdown
-                insideOverflowWithTransformContainer
-                size={Dropdown.sizes.SMALL}
-                placeholder={dropdownOptions[0].label}
-                options={dropdownOptions}
-              />
+              <Dropdown size={Dropdown.sizes.SMALL} placeholder={dropdownOptions[0].label} options={dropdownOptions} />
+            </Flex>
+          </Flex>
+          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.STRETCH}>
+            <TextField title="Fill address" placeholder="City, street, number" />
+            <Flex direction={Flex.directions.COLUMN} align={Flex.align.STRETCH}>
+              <FieldLabel labelText="Language preferences" />
+              <Dropdown size={Dropdown.sizes.SMALL} placeholder={dropdownOptions[0].label} options={dropdownOptions} />
             </Flex>
           </Flex>
         </ModalContent>
@@ -170,63 +170,58 @@ export const Wizard: Story = {
     });
 
     return (
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   }
 };
 
 export const HeaderWithExtraIconButton: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal
-          id="modal-sbd"
-          show={show}
-          renderHeaderAction={
-            <IconButton
-              icon={Help}
-              size={IconButton.sizes.SMALL}
-              kind={IconButton.kinds.TERTIARY}
-              ariaLabel="Help with creating a modal"
-            />
-          }
-          size="large"
-          onClose={() => setShow(false)}
-        >
-          <ModalSideBySideLayout>
-            <ModalHeader title="Modal title" />
-            <ModalContent>
-              {
-                <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
-                </Text>
-              }
-            </ModalContent>
-            <ModalMedia>
-              <img src={mediaImage} alt="side by side placeholder" />
-            </ModalMedia>
-          </ModalSideBySideLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal
+        id="modal-sbs"
+        show={show}
+        renderHeaderAction={
+          <IconButton
+            icon={Help}
+            size={IconButton.sizes.SMALL}
+            kind={IconButton.kinds.TERTIARY}
+            ariaLabel="Help with creating a modal"
+          />
+        }
+        size="large"
+        onClose={() => setShow(false)}
+      >
+        <ModalSideBySideLayout>
+          <ModalHeader title="Modal title" />
+          <ModalContent>
+            {
+              <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            }
+          </ModalContent>
+          <ModalMedia>
+            <img src={mediaImage} alt="side by side placeholder" />
+          </ModalMedia>
+        </ModalSideBySideLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   }
 };
@@ -240,7 +235,7 @@ export const Animation: Story = {
     const anchorButtonRef = useRef<HTMLButtonElement>(null);
 
     const transitionSteps = [
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={0}>
         <ModalHeader title="Modal title" />
         <ModalContent>
           {
@@ -254,7 +249,7 @@ export const Animation: Story = {
           <img src={mediaImage} alt="side by side placeholder" />
         </ModalMedia>
       </ModalSideBySideLayout>,
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={1}>
         <ModalHeader title="Modal title" />
         <ModalContent>
           {
@@ -268,7 +263,7 @@ export const Animation: Story = {
           <img src={mediaImage} alt="side by side placeholder" />
         </ModalMedia>
       </ModalSideBySideLayout>,
-      <ModalSideBySideLayout>
+      <ModalSideBySideLayout key={2}>
         <ModalHeader title="Modal title" />
         <ModalContent>
           {
