@@ -3,3 +3,13 @@
   width: fit-content;
   padding: var(--sb-spacing-large);
 }
+
+.preview {
+  padding-inline-start: 32px;
+  padding-block-start: 40px;
+  height: 360px;
+
+  &.large {
+    height: 540px;
+  }
+}
