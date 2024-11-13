@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
-import { OpenedModalPreview, useRemoveModalScrollLock } from "../../../Modal/__stories__/Modal.stories.helpers";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalMedia from "../../ModalMedia";
@@ -19,6 +18,7 @@ import { Help } from "../../../../Icon/Icons";
 import Flex from "../../../../Flex/Flex";
 import Button from "../../../../Button/Button";
 import { createPortal } from "react-dom";
+import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
 
@@ -34,29 +34,26 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (args, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview large onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
-          <ModalMediaLayout>
-            <ModalMedia>
-              <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
-            </ModalMedia>
-            <ModalHeader title="Modal title" />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                The media modal is ideal for introducing new features or onboarding, the user can also{" "}
-                <Link inheritFontSize inlineText text="add a link" />.
-              </Text>
-            </ModalContent>
-          </ModalMediaLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
+        <ModalMediaLayout>
+          <ModalMedia>
+            <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+          </ModalMedia>
+          <ModalHeader title="Modal title" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              The media modal is ideal for introducing new features or onboarding, the user can also{" "}
+              <Link inheritFontSize inlineText text="add a link" />.
+            </Text>
+          </ModalContent>
+        </ModalMediaLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   },
   parameters: {
@@ -69,10 +66,10 @@ export const Overview: Story = {
 };
 
 export const Wizard: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     const steps = [
       <ModalMediaLayout>
         <ModalMedia>
@@ -104,57 +101,51 @@ export const Wizard: Story = {
     });
 
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   }
 };
 
 export const HeaderWithExtraIconButton: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal
-          id="modal-media"
-          show={show}
-          renderHeaderAction={
-            <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
-          }
-          size="medium"
-          onClose={() => setShow(false)}
-        >
-          <ModalMediaLayout>
-            <ModalMedia>
-              <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
-            </ModalMedia>
-            <ModalHeader title="Modal title" />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                The media modal is ideal for introducing new features or onboarding, the user can also{" "}
-                <Link inheritFontSize inlineText text="add a link" />.
-              </Text>
-            </ModalContent>
-          </ModalMediaLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal
+        id="modal-media"
+        show={show}
+        renderHeaderAction={
+          <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
+        }
+        size="medium"
+        onClose={() => setShow(false)}
+      >
+        <ModalMediaLayout>
+          <ModalMedia>
+            <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+          </ModalMedia>
+          <ModalHeader title="Modal title" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              The media modal is ideal for introducing new features or onboarding, the user can also{" "}
+              <Link inheritFontSize inlineText text="add a link" />.
+            </Text>
+          </ModalContent>
+        </ModalMediaLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   }
 };
