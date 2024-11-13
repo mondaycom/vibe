@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
-import { OpenedModalPreview, useRemoveModalScrollLock } from "../../../Modal/__stories__/Modal.stories.helpers";
+import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
@@ -37,10 +37,10 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (args, { show, setShow }) => {
     const steps = [
       <ModalSideBySideLayout>
         <ModalHeader
@@ -87,20 +87,18 @@ export const Overview: Story = {
     });
 
     return (
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   },
   parameters: {
@@ -113,10 +111,10 @@ export const Overview: Story = {
 };
 
 export const Wizard: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     const dropdownOptions = [
       {
         label: "English",
@@ -168,56 +166,51 @@ export const Wizard: Story = {
     });
 
     return (
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   }
 };
 
 export const HeaderWithExtraIconButton: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [
+    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal
-          id="modal-sbd"
-          show={show}
-          renderHeaderAction={
-            <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
-          }
-          size="large"
-          onClose={() => setShow(false)}
-        >
-          <ModalSideBySideLayout>
-            <ModalHeader title="Modal title" />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                Modal content will appear here, you can custom it however you want, according to the user needs. Please
-                make sure that the content is clear for completing the relevant task.
-              </Text>
-            </ModalContent>
-            <ModalMedia>
-              <img src={mediaImage} alt="side by side placeholder" />
-            </ModalMedia>
-          </ModalSideBySideLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal
+        id="modal-sbs"
+        show={show}
+        renderHeaderAction={
+          <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
+        }
+        size="large"
+        onClose={() => setShow(false)}
+      >
+        <ModalSideBySideLayout>
+          <ModalHeader title="Modal title" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Modal content will appear here, you can custom it however you want, according to the user needs. Please
+              make sure that the content is clear for completing the relevant task.
+            </Text>
+          </ModalContent>
+          <ModalMedia>
+            <img src={mediaImage} alt="side by side placeholder" />
+          </ModalMedia>
+        </ModalSideBySideLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   }
 };
