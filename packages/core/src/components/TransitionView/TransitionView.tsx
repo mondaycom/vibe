@@ -14,7 +14,7 @@ const TransitionView = forwardRef(
   ) => {
     const slideTransitionRef = useRef<HTMLDivElement>(null);
     const [contentHeight, setContentHeight] = useState<number>(height);
-    const slideTransitionHeight = height || contentHeight > 0 ? "100%" : "auto"
+    const slideTransitionHeight = height || contentHeight > 0 ? "100%" : "auto";
 
     useEffect(() => {
       if (!slideTransitionRef.current) return;
