@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useState } from "react";
+import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -43,6 +43,11 @@ const TextArea = forwardRef(
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
     const inErrorState = error || (maxLength && value?.length > maxLength);
 
+    const ariaDescribedby = useMemo(
+      () => [helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined,
+      [helpTextId, allowExceedingMaxLengthTextId]
+    );
+
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
 
     const handleOnChange = useCallback(
@@ -84,7 +89,7 @@ const TextArea = forwardRef(
           rows={numRows}
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
           aria-invalid={error}
-          aria-describedby={[helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined}
+          aria-describedby={ariaDescribedby}
           onChange={handleOnChange}
         />
         <Flex gap={Flex.gaps.XS} justify={Flex.justify.SPACE_BETWEEN} className={cx(styles.subTextContainer)}>
@@ -94,11 +99,13 @@ const TextArea = forwardRef(
             </Text>
           )}
           {showCharCount && (
-            <Flex className={cx(styles.limitText)}>
-              {characterCount}
-              {typeof maxLength === "number" && `/${maxLength}`}
+            <>
+              <Text className={styles.limitText}>
+                {characterCount}
+                {typeof maxLength === "number" && `/${maxLength}`}
+              </Text>
               <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
-            </Flex>
+            </>
           )}
         </Flex>
       </div>
