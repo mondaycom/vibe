@@ -13,11 +13,12 @@ const TransitionView = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const slideTransitionRef = useRef<HTMLDivElement>(null);
-    const [slideHeight, setSlideHeight] = useState<number>(height);
+    const [contentHeight, setContentHeight] = useState<number>(height);
+    const slideTransitionHeight = height || contentHeight > 0 ? "100%" : "auto"
 
     useEffect(() => {
       if (!slideTransitionRef.current) return;
-      setSlideHeight(slideTransitionRef.current.scrollHeight);
+      setContentHeight(slideTransitionRef.current.scrollHeight);
     }, [height, slideTransitionRef]);
 
     return (
@@ -26,14 +27,14 @@ const TransitionView = forwardRef(
         className={cx(styles.slideshow, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TRANSITION_VIEW, id)}
         ref={ref}
-        style={{ height: height ?? slideHeight }}
+        style={{ height: height ?? contentHeight }}
       >
         <AnimatePresence initial={false} custom={direction}>
           <SlideTransition
             key={activeStep}
             direction={direction}
-            // it must be "auto" on initial load to consider scrollable content in slideHeight calculation
-            style={{ height: height || slideHeight > 0 ? "100%" : "auto" }}
+            // it must be "auto" on initial load to consider scrollable content in contentHeight calculation
+            style={{ height: slideTransitionHeight }}
             ref={slideTransitionRef}
           >
             {children[activeStep]}
