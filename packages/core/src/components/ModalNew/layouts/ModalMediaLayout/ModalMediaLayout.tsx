@@ -6,7 +6,6 @@ import styles from "./ModalMediaLayout.module.scss";
 import { ModalMediaLayoutProps } from "./ModalMediaLayout.types";
 import Flex from "../../../Flex/Flex";
 import ModalLayoutScrollableContent from "../ModalLayoutScrollableContent";
-import ModalFooterShadow from "../ModalFooterShadow";
 
 const ModalMediaLayout = forwardRef(
   (
@@ -16,21 +15,18 @@ const ModalMediaLayout = forwardRef(
     const [media, header, content] = React.Children.toArray(children);
 
     return (
-      <>
-        <Flex
-          ref={ref}
-          direction={Flex.directions.COLUMN}
-          align={Flex.align.START}
-          className={cx(styles.layout, className)}
-          id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA_LAYOUT, id)}
-        >
-          <div className={styles.media}>{media}</div>
-          <div className={styles.header}>{header}</div>
-          <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>
-        </Flex>
-        <ModalFooterShadow />
-      </>
+      <Flex
+        ref={ref}
+        direction={Flex.directions.COLUMN}
+        align={Flex.align.START}
+        className={cx(styles.layout, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA_LAYOUT, id)}
+      >
+        <div className={styles.media}>{media}</div>
+        <div className={styles.header}>{header}</div>
+        <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>
+      </Flex>
     );
   }
 );
