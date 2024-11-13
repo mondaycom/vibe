@@ -5,7 +5,6 @@ import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
 import ModalBasicLayout from "../ModalBasicLayout";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
-import { OpenedModalPreview, useRemoveModalScrollLock } from "../../../Modal/__stories__/Modal.stories.helpers";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import Flex from "../../../../Flex/Flex";
 import Button from "../../../../Button/Button";
@@ -18,6 +17,7 @@ import useWizard from "../../../../../hooks/useWizard/useWizard";
 import { Checkbox } from "../../../../Checkbox";
 import IconButton from "../../../../IconButton/IconButton";
 import { Help } from "../../../../Icon/Icons";
+import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
 
@@ -29,48 +29,32 @@ export default {
   title: "Components/Modal [New]/Basic modal",
   component: Modal,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: {
-          createPortal,
-          useRemoveModalScrollLock,
-          OpenedModalPreview
-        }
-      }
-    }
-  }
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (args, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-          <ModalBasicLayout>
-            <ModalHeader
-              title="Modal title"
-              description={
-                <Text type="text1">
-                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                </Text>
-              }
-            />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                Modal content will appear here, you can custom it however you want, according to the user needs. Please
-                make sure that the content is clear for completing the relevant task.
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+        <ModalBasicLayout>
+          <ModalHeader
+            title="Modal title"
+            description={
+              <Text type="text1">
+                Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
               </Text>
-            </ModalContent>
-          </ModalBasicLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+            }
+          />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Modal content will appear here, you can custom it however you want, according to the user needs. Please
+              make sure that the content is clear for completing the relevant task.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   },
   parameters: {
@@ -167,64 +151,51 @@ export const Sizes: Story = {
 };
 
 export const AlertModal: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-basic" show={show} alertModal size="medium" onClose={() => setShow(false)}>
-          <ModalBasicLayout>
-            <ModalHeader title="Alert modal" />
-            <ModalContent>
-              This will allow closing the modal only by the close buttons and not by ESC or by clicking outside.
-            </ModalContent>
-          </ModalBasicLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-basic" show={show} alertModal size="medium" onClose={() => setShow(false)}>
+        <ModalBasicLayout>
+          <ModalHeader title="Alert modal" />
+          <ModalContent>
+            This will allow closing the modal only by the close buttons and not by ESC or by clicking outside.
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   }
 };
 
 export const Scroll: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-          <ModalBasicLayout>
-            <ModalHeader title="Scrollable modal" />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                Modal content will appear here, you can custom it however you want, according to the user needs. Please
-                make sure that the content is clear for completing the relevant task. The Basic Modal is intended for
-                straightforward tasks, like selecting items or gathering basic information. Basic Modals help users
-                focus on a single task without distractions. These modals do not support images or videos. When the
-                content of the modal is too large to fit within the viewport, the modal content should become scrollable
-                while the header and footer stay sticky. If the scroll is too long, consider switching to a different
-                modal size or a different layout. Modal content will appear here, you can custom it however you want,
-                according to the user needs. Please make sure that the content is clear for completing the relevant
-                task.
-              </Text>
-            </ModalContent>
-          </ModalBasicLayout>
-          <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+        <ModalBasicLayout>
+          <ModalHeader title="Scrollable modal" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Modal content will appear here, you can custom it however you want, according to the user needs. Please
+              make sure that the content is clear for completing the relevant task. The Basic Modal is intended for
+              straightforward tasks, like selecting items or gathering basic information. Basic Modals help users focus
+              on a single task without distractions. These modals do not support images or videos. When the content of
+              the modal is too large to fit within the viewport, the modal content should become scrollable while the
+              header and footer stay sticky. If the scroll is too long, consider switching to a different modal size or
+              a different layout. Modal content will appear here, you can custom it however you want, according to the
+              user needs. Please make sure that the content is clear for completing the relevant task.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+      </Modal>
     );
   }
 };
 
 export const Wizard: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow }) => {
     const steps = [
       <ModalBasicLayout>
         <ModalHeader title="Modal with wizard" />
@@ -260,101 +231,88 @@ export const Wizard: Story = {
     });
 
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-          <WizardSlideshow activeStep={activeStep} direction={direction}>
-            {steps}
-          </WizardSlideshow>
-          <ModalFooterWizard
-            activeStep={activeStep}
-            stepCount={steps.length}
-            onDotClick={(_, newStep) => goToStep(newStep)}
-            primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-            secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
-          />
-        </Modal>
-      </OpenedModalPreview>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+        <WizardSlideshow activeStep={activeStep} direction={direction}>
+          {steps}
+        </WizardSlideshow>
+        <ModalFooterWizard
+          activeStep={activeStep}
+          stepCount={steps.length}
+          onDotClick={(_, newStep) => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+        />
+      </Modal>
     );
   }
 };
 
 export const FooterWithSideAction: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-          <ModalBasicLayout>
-            <ModalHeader
-              title="Modal title"
-              description={
-                <Text type="text1">
-                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                </Text>
-              }
-            />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                Modal content will appear here, you can custom it however you want, according to the user needs. Please
-                make sure that the content is clear for completing the relevant task.
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+        <ModalBasicLayout>
+          <ModalHeader
+            title="Modal title"
+            description={
+              <Text type="text1">
+                Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
               </Text>
-            </ModalContent>
-          </ModalBasicLayout>
-          <ModalFooter
-            primaryButton={{ text: "Confirm" }}
-            secondaryButton={{ text: "Cancel" }}
-            renderSideAction={<Checkbox label="Don't show again" />}
+            }
           />
-        </Modal>
-      </OpenedModalPreview>
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Modal content will appear here, you can custom it however you want, according to the user needs. Please
+              make sure that the content is clear for completing the relevant task.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter
+          primaryButton={{ text: "Confirm" }}
+          secondaryButton={{ text: "Cancel" }}
+          renderSideAction={<Checkbox label="Don't show again" />}
+        />
+      </Modal>
     );
   }
 };
 
 export const HeaderWithExtraIconButton: Story = {
-  render: () => {
-    const [show, setShow] = useState(true);
-    useRemoveModalScrollLock(show); // internal hook, for documentation purposes, to enable scroll on first load
-
+  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow }) => {
     return (
-      // OpenedModalPreview is an internal component, for documentation purposes
-      <OpenedModalPreview onOpenModalClick={() => setShow(true)}>
-        <Modal
-          id="modal-basic"
-          show={show}
-          renderHeaderAction={
-            <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
-          }
-          size="medium"
-          onClose={() => setShow(false)}
-        >
-          <ModalBasicLayout>
-            <ModalHeader
-              title="Modal title"
-              description={
-                <Text type="text1">
-                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                </Text>
-              }
-            />
-            <ModalContent>
-              <Text type="text1" align="inherit" element="p">
-                Modal content will appear here, you can custom it however you want, according to the user needs. Please
-                make sure that the content is clear for completing the relevant task.
+      <Modal
+        id="modal-basic"
+        show={show}
+        renderHeaderAction={
+          <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
+        }
+        size="medium"
+        onClose={() => setShow(false)}
+      >
+        <ModalBasicLayout>
+          <ModalHeader
+            title="Modal title"
+            description={
+              <Text type="text1">
+                Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
               </Text>
-            </ModalContent>
-          </ModalBasicLayout>
-          <ModalFooter
-            primaryButton={{ text: "Confirm" }}
-            secondaryButton={{ text: "Cancel" }}
-            renderSideAction={<Checkbox label="Don't show again" />}
+            }
           />
-        </Modal>
-      </OpenedModalPreview>
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Modal content will appear here, you can custom it however you want, according to the user needs. Please
+              make sure that the content is clear for completing the relevant task.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter
+          primaryButton={{ text: "Confirm" }}
+          secondaryButton={{ text: "Cancel" }}
+          renderSideAction={<Checkbox label="Don't show again" />}
+        />
+      </Modal>
     );
   }
 };
