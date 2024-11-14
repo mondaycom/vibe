@@ -59,6 +59,9 @@ import { BoxDescription } from "./descriptions/box-description";
 import { TableDescription } from "./descriptions/table-description";
 import { VirtualizedGridDescription } from "./descriptions/virtualized-grid-description/virtualized-grid-description";
 import { MenuGridItemDescription } from "./descriptions/menu-grid-item-description";
+import { ModalMediaLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalMediaLayout/__stories__/ModalMediaLayoutRelatedComponent";
+import { ModalSideBySideLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalSideBySideLayout/__stories__/ModalSideBySideLayoutRelatedComponent";
+import { ModalBasicLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalBasicLayout/__stories__/ModalBasicLayoutRelatedComponent";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -81,6 +84,9 @@ export const TOAST = "toast";
 export const BADGE = "badge";
 export const MULTI_STEP_INDICATOR = "wizard";
 export const TIPSEEN = "tipseen";
+export const MODAL_BASIC_LAYOUT = "modal-basic-layout";
+export const MODAL_SIDE_BY_SIDE_LAYOUT = "modal-side-by-side-layout";
+export const MODAL_MEDIA_LAYOUT = "modal-media-layout";
 export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
@@ -153,6 +159,9 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [STEPS, <StepsDescription />],
   [SPINNER, <SpinnerDescription />],
   [SKELETON, <SkeletonDescription />],
+  [MODAL_BASIC_LAYOUT, <ModalBasicLayoutRelatedComponent />],
+  [MODAL_SIDE_BY_SIDE_LAYOUT, <ModalSideBySideLayoutRelatedComponent />],
+  [MODAL_MEDIA_LAYOUT, <ModalMediaLayoutRelatedComponent />],
   [SLIDER, <SliderDescription />],
   [ICON_BUTTON, <IconButtonDescription />],
   [MENU_BUTTON, <MenuButtonDescription />],
