@@ -17,7 +17,7 @@ import useWizard from "../../../../../hooks/useWizard/useWizard";
 import { Checkbox } from "../../../../Checkbox";
 import IconButton from "../../../../IconButton/IconButton";
 import { Help } from "../../../../Icon/Icons";
-import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
+import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
 
@@ -33,7 +33,7 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (args, { show, setShow }) => {
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
@@ -159,7 +159,7 @@ export const Sizes: Story = {
 };
 
 export const AlertModal: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow }) => {
     return (
       <Modal id="modal-basic" show={show} alertModal size="medium" onClose={() => setShow(false)}>
@@ -176,7 +176,7 @@ export const AlertModal: Story = {
 };
 
 export const Scroll: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow }) => {
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
@@ -202,7 +202,7 @@ export const Scroll: Story = {
 };
 
 export const Wizard: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow }) => {
     const steps = [
       <ModalBasicLayout>
@@ -262,7 +262,7 @@ export const Wizard: Story = {
 };
 
 export const FooterWithSideAction: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow }) => {
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
@@ -295,7 +295,7 @@ export const FooterWithSideAction: Story = {
 };
 
 export const HeaderWithExtraIconButton: Story = {
-  decorators: [(Story, context) => OpenedModalPreviewDecorator(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow }) => {
     return (
       <Modal

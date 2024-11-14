@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
-import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
+import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
@@ -38,7 +38,7 @@ export default {
 
 export const Overview: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (args, { show, setShow }) => {
     const steps = [
@@ -114,7 +114,7 @@ export const Overview: Story = {
 
 export const Wizard: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     const dropdownOptions = [
@@ -188,7 +188,7 @@ export const Wizard: Story = {
 
 export const HeaderWithExtraIconButton: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     return (

@@ -18,7 +18,7 @@ import { Help } from "../../../../Icon/Icons";
 import Flex from "../../../../Flex/Flex";
 import Button from "../../../../Button/Button";
 import { createPortal } from "react-dom";
-import { OpenedModalPreviewDecorator } from "../../../Modal/__stories__/Modal.stories.helpers";
+import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
 
@@ -35,7 +35,7 @@ export default {
 
 export const Overview: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (args, { show, setShow }) => {
     return (
@@ -67,7 +67,7 @@ export const Overview: Story = {
 
 export const Wizard: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     const steps = [
@@ -119,7 +119,7 @@ export const Wizard: Story = {
 
 export const HeaderWithExtraIconButton: Story = {
   decorators: [
-    (Story, context) => OpenedModalPreviewDecorator(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     return (
