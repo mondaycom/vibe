@@ -8,8 +8,75 @@
   padding-inline-start: 32px;
   padding-block-start: 40px;
   height: 360px;
+  width: 100%;
+  container-type: inline-size;
 
   &.large {
     height: 540px;
+  }
+
+  /**
+    * The following css is to override the default dimensions of the modal component
+    * this is necessary because in the documentation, we're "trapping" the modal component inside the preview component
+    * so the modal component width and height be relative to the preview component and not the viewport
+   */
+
+  [aria-modal][role="dialog"] {
+    &[class$="sizeSmall"] {
+      --modal-max-height: 50%;
+      --modal-width: 45%;
+    }
+
+    &[class$="sizeMedium"] {
+      --modal-max-height: 80%;
+      --modal-width: 50%;
+    }
+
+    &[class$="sizeLarge"] {
+      --modal-max-height: 80%;
+      --modal-width: 70%;
+    }
+
+    @container (min-width: 1280px) {
+      &[class$="sizeSmall"] {
+        --modal-width: 40%;
+      }
+
+      &[class$="sizeMedium"] {
+        --modal-width: 44%;
+      }
+
+      &[class$="sizeLarge"] {
+        --modal-width: 66%;
+      }
+    }
+
+    @container (min-width: 1440px) {
+      &[class$="sizeSmall"] {
+        --modal-width: 35%;
+      }
+
+      &[class$="sizeMedium"] {
+        --modal-width: 38%;
+      }
+
+      &[class$="sizeLarge"] {
+        --modal-width: 60%;
+      }
+    }
+
+    @container (min-width: 1720px) {
+      &[class$="sizeSmall"] {
+        --modal-width: 34%;
+      }
+
+      &[class$="sizeMedium"] {
+        --modal-width: 36%;
+      }
+
+      &[class$="sizeLarge"] {
+        --modal-width: 58%;
+      }
+    }
   }
 }
