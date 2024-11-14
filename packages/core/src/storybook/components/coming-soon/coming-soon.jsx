@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "../../../components/Heading/Heading";
-import { comingSoon } from "./assets";
+import comingSoon from "./assets/comingSoon.png";
 import classes from "./coming-soon.module.scss";
 
 export const ComingSoon = () => (
