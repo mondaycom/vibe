@@ -14,20 +14,7 @@
     flex-shrink: 0;
   }
 
-  /**
-   * The footer is optional, so we need to check if it exists before applying padding.
-   * If it exists (or "has" not supported), we apply padding to the content, if it doesn't, we don't apply padding.
-  */
-  @supports selector(:has(*)) {
-    &:has(+ *) {
-      .content {
-        padding-block-end: var(--spacing-xl);
-      }
-    }
-  }
-  @supports not selector(:has(*)) {
-    .content {
-      padding-block-end: var(--spacing-xl);
-    }
+  .content {
+    padding-block-end: var(--spacing-xl);
   }
 }
