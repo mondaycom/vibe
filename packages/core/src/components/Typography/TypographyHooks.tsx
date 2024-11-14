@@ -36,6 +36,6 @@ export function useTooltipProps(
     ignoreHeightOverflow,
     tolerance: overflowTolerance
   });
-  const isTooltipRendered = !withoutTooltip && ellipsis && isOverflowing && typeof children === "string";
+  const isTooltipRendered = !withoutTooltip && ellipsis && isOverflowing;
   return isTooltipRendered ? { ...tooltipProps, content: children } : {};
 }

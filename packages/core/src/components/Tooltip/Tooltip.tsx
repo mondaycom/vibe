@@ -215,6 +215,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       contentValue = content;
     } else if (typeof content === "string" && content) {
       contentValue = content;
+    } else if (Array.isArray(content) && content.length > 0) {
+      // allow array of elements
+      contentValue = content;
     }
 
     if (!contentValue) {
