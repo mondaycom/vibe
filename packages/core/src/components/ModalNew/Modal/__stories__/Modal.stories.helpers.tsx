@@ -47,7 +47,7 @@ export const useRemoveModalScrollLock = (show: boolean, isDocsView?: boolean) =>
   }, []);
 };
 
-export function OpenedModalPreviewDecorator(
+export function withOpenedModalPreview(
   Story: React.FunctionComponent<{ show: boolean; setShow: (show: boolean) => void }>,
   { large, isDocsView }: { large?: boolean; isDocsView: boolean }
 ) {
