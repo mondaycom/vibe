@@ -96,13 +96,13 @@ const Modal = forwardRef(
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
             >
+              {children}
               <ModalTopActions
                 renderAction={renderHeaderAction}
                 color={closeButtonTheme}
                 closeButtonAriaLabel={closeButtonAriaLabel}
                 onClose={onClose}
               />
-              {children}
             </div>
           </RemoveScroll>
         </FocusLock>
