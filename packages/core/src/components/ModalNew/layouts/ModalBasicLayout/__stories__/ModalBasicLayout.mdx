@@ -2,7 +2,11 @@ import { Meta } from "@storybook/blocks";
 import * as ModalBasicLayoutStories from "./ModalBasicLayout.stories";
 import { actionDo, actionDont } from "./assets";
 import styles from "../../../Modal/__stories__/Modal.stories.module.scss";
-import { TIPSEEN } from "../../../../../storybook/components/related-components/component-description-map";
+import {
+  MODAL_MEDIA_LAYOUT,
+  MODAL_SIDE_BY_SIDE_LAYOUT,
+  TIPSEEN
+} from "../../../../../storybook/components/related-components/component-description-map";
 import { BasicModalTip } from "./ModalBasicLayout.stories.helpers";
 
 <Meta of={ModalBasicLayoutStories} />
@@ -118,6 +122,4 @@ Each modal includes an animation type based on its entrance point, with wizard m
 
 ## Related components
 
-// TODO - Add related components sbs & media
-
-<RelatedComponents componentsNames={[/*TOOLTIP, DIALOG,*/ TIPSEEN]} />
+<RelatedComponents componentsNames={[MODAL_SIDE_BY_SIDE_LAYOUT, MODAL_MEDIA_LAYOUT, TIPSEEN]} />
