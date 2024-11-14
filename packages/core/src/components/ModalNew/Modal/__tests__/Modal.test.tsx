@@ -181,17 +181,18 @@ describe("Modal", () => {
         <button type="button">Focusable 2</button>
       </Modal>
     );
-    const closeButton = getByLabelText(closeButtonAriaLabel);
-    expect(closeButton).toHaveFocus();
-
-    userEvent.tab();
     expect(getByText("Focusable 1")).toHaveFocus();
 
     userEvent.tab();
     expect(getByText("Focusable 2")).toHaveFocus();
 
     userEvent.tab();
+
+    const closeButton = getByLabelText(closeButtonAriaLabel);
     expect(closeButton).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 1")).toHaveFocus();
   });
 
   it.todo("renders the correct aria-labelledby");
