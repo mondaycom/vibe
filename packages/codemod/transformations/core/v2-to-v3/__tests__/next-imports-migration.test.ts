@@ -45,4 +45,12 @@ describe("Rename type imports migration", () => {
      import { AnotherType } from "another-library";`,
     "should change the 'monday-ui-react-core/next' import and leave other imports unchanged"
   );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { VibeComponentProps, Search } from "monday-ui-react-core/next";`,
+    `import { VibeComponentProps, Search } from "monday-ui-react-core";`,
+    "should change the 'monday-ui-react-core/next' for multiple components imported"
+  );
 });
