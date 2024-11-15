@@ -41,14 +41,14 @@ const TextArea = forwardRef(
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
-    const isErrorState = error || (maxLength && value?.length > maxLength);
-
+    
     const ariaDescribedby = useMemo(
       () => [helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined,
       [helpTextId, allowExceedingMaxLengthTextId]
     );
-
+    
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
+    const isErrorState = error || (typeof maxLength === "number" && characterCount > maxLength);
 
     const handleOnChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
