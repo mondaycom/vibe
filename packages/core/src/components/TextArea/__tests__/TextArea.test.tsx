@@ -143,6 +143,7 @@ describe("TextArea", () => {
 
       expect(input).toHaveValue("12345678910");
       expect(charCount).toHaveTextContent("11/10");
+      expect(input).toHaveAttribute("aria-invalid", "true");
     });
 
     it("should allow text removal when character limit is exceeded", () => {

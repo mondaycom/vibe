@@ -88,7 +88,7 @@ const TextArea = forwardRef(
           required={required}
           rows={numRows}
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
-          aria-invalid={error}
+          aria-invalid={isErrorState}
           aria-describedby={ariaDescribedby}
           onChange={handleOnChange}
         />
