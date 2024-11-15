@@ -262,7 +262,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldFocusOnPrimaryIcon =
       (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
-    const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length-text`;
+    const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -321,7 +321,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               aria-required={required}
-              aria-describedby={allowExceedingMaxLengthTextId ?? undefined}
+              aria-describedby={allowExceedingMaxLengthTextId}
               required={required}
               tabIndex={tabIndex}
             />
