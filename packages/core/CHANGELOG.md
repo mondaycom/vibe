@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.144.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.1...monday-ui-react-core@2.144.0) (2024-11-15)
+
+
+### Features
+
+* **TextField:** improved maxLength with exceeding limit UI ([#2576](https://github.com/mondaycom/vibe/issues/2576)) ([291a843](https://github.com/mondaycom/vibe/commit/291a843b7af340bdc06baa7695bd779358f750e9))
+
+
+
+
+
 ## [2.143.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.0...monday-ui-react-core@2.143.1) (2024-11-14)
 
 **Note:** Version bump only for package monday-ui-react-core
