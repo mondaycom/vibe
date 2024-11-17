@@ -92,22 +92,24 @@ const TextArea = forwardRef(
           aria-describedby={ariaDescribedby}
           onChange={handleOnChange}
         />
-        <Flex gap="xs" justify="space-between" className={cx(styles.subTextContainer)}>
-          {helpText && (
-            <Text className={cx(styles.helpText)} color="inherit" id={helpTextId}>
-              {helpText}
-            </Text>
-          )}
-          {showCharCount && (
-            <>
-              <Text className={styles.limitText}>
-                {characterCount}
-                {typeof maxLength === "number" && `/${maxLength}`}
+        {(showCharCount || helpText) && (
+          <Flex gap={Flex.gaps.XS} justify={Flex.justify.SPACE_BETWEEN} className={cx(styles.subTextContainer)}>
+            {helpText && (
+              <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
+                {helpText}
               </Text>
-              <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
-            </>
-          )}
-        </Flex>
+            )}
+            {showCharCount && (
+              <>
+                <Text className={styles.limitText}>
+                  {characterCount}
+                  {typeof maxLength === "number" && `/${maxLength}`}
+                </Text>
+                <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
+              </>
+            )}
+          </Flex>
+        )}
       </div>
     );
   }
