@@ -201,6 +201,9 @@ describe("Modal", () => {
     userEvent.tab();
     const closeButton = getByLabelText(closeButtonAriaLabel);
     expect(closeButton).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 1")).toHaveFocus();
   });
 
   it("traps and moves focus to focusable element inside ModalContent and cycle through full focus flow", () => {
