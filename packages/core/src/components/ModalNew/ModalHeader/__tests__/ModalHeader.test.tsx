@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import ModalHeader from "../ModalHeader";
 import { Text as TextIcon } from "../../../Icon/Icons";
 import { useModal } from "../../context/ModalContext";
+import { ModalContextProps } from "../../context/ModalContext.types";
 
 jest.mock("../../context/ModalContext", () => ({
   useModal: jest.fn()
@@ -14,12 +15,10 @@ describe("ModalHeader", () => {
   const simpleDescription = "This is a description";
   const descriptionIcon = TextIcon;
 
-  const useModalMockedReturnedValue = {
+  const useModalMockedReturnedValue: ModalContextProps = {
     modalId: "modal-id",
     setTitleId: jest.fn(),
-    setDescriptionId: jest.fn(),
-    isContentScrolled: false,
-    setContentScrolled: jest.fn()
+    setDescriptionId: jest.fn()
   };
 
   beforeEach(() => {
