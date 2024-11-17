@@ -12,7 +12,7 @@ export const Abilities = () => (
       All information about colors, typography, spacing, and icons
     </Ability>
     <Ability title="Components" imageSrc={components} linkHref="/?path=/docs/buttons">
-      All the information and guidelines you'll ever need on each component
+      All the information and guidelines you’ll ever need on each component
     </Ability>
   </div>
 );
