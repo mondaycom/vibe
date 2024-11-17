@@ -93,9 +93,9 @@ const TextArea = forwardRef(
           onChange={handleOnChange}
         />
         {(showCharCount || helpText) && (
-          <Flex gap={Flex.gaps.XS} justify={Flex.justify.SPACE_BETWEEN} className={cx(styles.subTextContainer)}>
+          <Flex gap="xs" justify="space-between" className={cx(styles.subTextContainer)}>
             {helpText && (
-              <Text className={cx(styles.helpText)} color={Text.colors.INHERIT} id={helpTextId}>
+              <Text className={cx(styles.helpText)} color="inherit" id={helpTextId}>
                 {helpText}
               </Text>
             )}
