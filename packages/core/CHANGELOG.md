@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.144.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.1...monday-ui-react-core@2.144.0) (2024-11-15)
+
+
+### Features
+
+* **TextField:** improved maxLength with exceeding limit UI ([#2576](https://github.com/mondaycom/vibe/issues/2576)) ([291a843](https://github.com/mondaycom/vibe/commit/291a843b7af340bdc06baa7695bd779358f750e9))
+
+
+
+
+
+## [2.143.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.0...monday-ui-react-core@2.143.1) (2024-11-14)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.143.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.1...monday-ui-react-core@2.143.0) (2024-11-14)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2583](https://github.com/mondaycom/vibe/issues/2583)) ([0d6803c](https://github.com/mondaycom/vibe/commit/0d6803cc2e65cae0cc175f672a2c625ac69fc1d4))
+* **TransitionView:** handle parent without definite height ([#2584](https://github.com/mondaycom/vibe/issues/2584)) ([356255e](https://github.com/mondaycom/vibe/commit/356255e21d3dbdd0eccab4a410e86411e62e35e5))
+
+
+### Features
+
+* **TextArea:** Character count and maxLength ([#2574](https://github.com/mondaycom/vibe/issues/2574)) ([753edb8](https://github.com/mondaycom/vibe/commit/753edb862a4e531d4cab7115aca2bec5965c256a))
+* **ThumbsDown:** new icon ([#2582](https://github.com/mondaycom/vibe/issues/2582)) ([5395753](https://github.com/mondaycom/vibe/commit/53957534f8a28feb6c8345df088b1dc5f5cf02e7))
+* **TransitionView:** component to be used on wizard-related logics to render a step with animation between steps ([#2557](https://github.com/mondaycom/vibe/issues/2557)) ([bbb6856](https://github.com/mondaycom/vibe/commit/bbb68567c5084bbd6f65bc519f11538594f4e570))
+* **useWizard:** add hook for managing wizard logic for different use cases ([#2450](https://github.com/mondaycom/vibe/issues/2450)) ([dc6e393](https://github.com/mondaycom/vibe/commit/dc6e393ad7d75655fd7e0d0f6a93674ffc783e3f))
+
+
+
+
+
 ## [2.142.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.0...monday-ui-react-core@2.142.1) (2024-11-06)
 
 

@@ -2,6 +2,9 @@ import React from "react";
 import cx from "classnames";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Text from "../Text";
+import Link from "../../Link/Link";
+import Heading from "../../Heading/Heading";
+import { HeadingType } from "../../Heading/HeadingConstants";
 import { createComponentTemplate, StorybookLink } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/textTestsConstants";
@@ -119,6 +122,7 @@ export const Overflow = {
       gap="small"
       style={{ width: "480px" }}
     >
+      <Heading type={HeadingType.H3}>Text with 1 line</Heading>
       <Text
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         /**for testing purposes**/
@@ -129,9 +133,18 @@ export const Overflow = {
         This is an example of text with overflow and a Tooltip to help or provide information about specific components
         when a user hovers over them.
       </Text>
+      <Heading type={HeadingType.H3}>Text with 2 lines</Heading>
       <Text maxLines={2}>
         This is an example of text with ellipsis which displayed after two full lines of content this is an example of
         text with ellipsis which displayed after two full lines of content
+      </Text>
+      <Heading type={HeadingType.H3}>Text with array of elements</Heading>
+      <Text maxLines={1}>
+        {[
+          "This is an example of array of texts and ",
+          <Link text="Other elements" href="https://www.monday.com" inheritFontSize inlineText />,
+          " that are overflowing and create a tooltip with the correct information"
+        ]}
       </Text>
     </Flex>
   ),

@@ -31,6 +31,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
+import { HiddenText } from "../HiddenText";
 
 const EMPTY_OBJECT = { primary: "", secondary: "" };
 
@@ -75,6 +76,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /** TEXT_TYPES is exposed on the component itself */
   type?: TextFieldType;
   maxLength?: number;
+  allowExceedingMaxLength?: boolean;
   trim?: boolean;
   /** ARIA role for container landmark */
   role?: string;
@@ -133,6 +135,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       iconsNames = EMPTY_OBJECT,
       type = "text",
       maxLength = null,
+      allowExceedingMaxLength = false,
       trim = false,
       role = "",
       required = false,
@@ -221,12 +224,16 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
     const validationClass = useMemo(() => {
+      if (typeof maxLength === "number" && inputValue.length > maxLength) {
+        return FEEDBACK_CLASSES.error;
+      }
+
       if ((!validation || !validation.status) && !isRequiredAndEmpty) {
         return "";
       }
       const status = isRequiredAndEmpty ? "error" : validation.status;
       return FEEDBACK_CLASSES[status];
-    }, [validation, isRequiredAndEmpty]);
+    }, [validation, isRequiredAndEmpty, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
     const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
@@ -235,6 +242,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldFocusOnPrimaryIcon =
       (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
+    const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -284,13 +292,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               onFocus={onFocus}
               onKeyDown={onKeyDown}
               onWheel={onWheel}
-              maxLength={maxLength}
+              maxLength={typeof maxLength === "number" && !allowExceedingMaxLength ? maxLength : undefined}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
               aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               aria-required={required}
+              aria-describedby={allowExceedingMaxLengthTextId}
               required={required}
               tabIndex={tabIndex}
             />
@@ -362,6 +371,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               {showCharCount && (
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
                   {(inputValue && inputValue.length) || 0}
+                  {typeof maxLength === "number" && `/${maxLength}`}
+                  <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
                 </span>
               )}
             </Text>
