@@ -2,39 +2,39 @@
   font-size: var(--sb-small-text-font-size);
   line-height: 22px;
 }
-.monday-storybook-shadow-example {
+.shadow {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &_example {
+  .example {
     width: 81px;
     height: 81px;
 
-    &--xs {
+    &.xs {
       box-shadow: var(--box-shadow-xs);
     }
 
-    &--small {
+    &.small {
       box-shadow: var(--box-shadow-small);
     }
 
-    &--medium {
+    &.medium {
       box-shadow: var(--box-shadow-medium);
     }
 
-    &--large {
+    &.large {
       box-shadow: var(--box-shadow-large);
     }
   }
 
-  &_title {
+  .title {
     @include shadow-example-text;
     font-weight: 500;
     margin: var(--sb-spacing-small) 0;
   }
 
-  &_code {
+  .code {
     @include shadow-example-text;
   }
 }
