@@ -1,14 +1,14 @@
 import React from "react";
 import { TeamMember } from "./TeamMember";
-import Meirav from "./assets/Meirav.png";
-import YaelRK from "./assets/YaelRK.png";
-import Shahar from "./assets/Shahar.png";
-import Yossi from "./assets/Yossi.png";
-import Talko from "./assets/Talko.png";
-import YaelB from "./assets/YaelB.png";
-import Rivka from "./assets/Rivka.png";
-import Elad from "./assets/Elad.png";
-import Dan from "./assets/Dan.png";
+import Meirav from "../assets/contributors/Meirav.png";
+import YaelRK from "../assets/contributors/YaelRK.png";
+import Shahar from "../assets/contributors/Shahar.png";
+import Yossi from "../assets/contributors/Yossi.png";
+import Talko from "../assets/contributors/Talko.png";
+import YaelB from "../assets/contributors/YaelB.png";
+import Rivka from "../assets/contributors/Rivka.png";
+import Elad from "../assets/contributors/Elad.png";
+import Dan from "../assets/contributors/Dan.png";
 
 import styles from "./Team.module.scss";
 

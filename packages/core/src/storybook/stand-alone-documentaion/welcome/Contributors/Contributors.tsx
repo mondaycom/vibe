@@ -1,9 +1,9 @@
 import React from "react";
 import Contributor from "./Contributor";
 import useContributors from "./useContributors";
-import Hadas from "./assets/Hadas.png";
-import Sergey from "./assets/Sergey.png";
-import Rotem from "./assets/Rotem.png";
+import Hadas from "../assets/contributors/Hadas.png";
+import Sergey from "../assets/contributors/Sergey.png";
+import Rotem from "../assets/contributors/Rotem.png";
 
 const CONTRIBUTORS = [
   {
@@ -57,7 +57,8 @@ const excludedContributors = [
   "rivka-ungar",
   "vibe-gh",
   "YossiSaadi",
-  "shaharzil"
+  "shaharzil",
+  "hadasfa"
 ];
 
 export default function Founders() {

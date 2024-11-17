@@ -1,8 +1,8 @@
 import React from "react";
 import Contributor from "./Contributor";
-import Evgeniy from "./assets/Evgeniy.png";
-import Orr from "./assets/Orr.png";
-import Meytal from "./assets/Meytal.png";
+import Evgeniy from "../assets/contributors/Evgeniy.png";
+import Orr from "../assets/contributors/Orr.png";
+import Meytal from "../assets/contributors/Meytal.png";
 import styles from "./Founders.module.scss";
 
 const FOUNDERS = [
