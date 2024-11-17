@@ -47,11 +47,6 @@ const CONTRIBUTORS = [
   }
 ];
 
-// const excludedContributorsIds: Set<number> = new Set();
-// excludedContributorsIds.add(41898282); // github-actions[bot]
-// excludedContributorsIds.add(49699333); // dependabot[bot]
-// excludedContributorsIds.add(19733683); // snyk-bot
-
 const excludedContributors = [
   "talkor",
   "dependabot[bot]",
