@@ -1838,7 +1838,7 @@ export const iconsMetaData = [
     name: "WhatsNew",
     file: "WhatsNew.svg",
     description: "Whats New",
-    tags: "WhatsNew, New",
+    tags: "WhatsNew, New, Gift",
     category: [PLATFORM]
   },
 
