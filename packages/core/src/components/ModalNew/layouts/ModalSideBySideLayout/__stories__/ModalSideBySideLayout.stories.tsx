@@ -58,7 +58,7 @@ export const Overview: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout key={1}>
@@ -79,7 +79,7 @@ export const Overview: Story = {
           }
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -90,7 +90,7 @@ export const Overview: Story = {
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <TransitionView activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction} height={300}>
           {steps}
         </TransitionView>
         <ModalFooterWizard
@@ -138,7 +138,7 @@ export const Wizard: Story = {
           </Flex>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout key={1}>
@@ -151,16 +151,9 @@ export const Wizard: Story = {
               <Dropdown size={Dropdown.sizes.SMALL} placeholder={dropdownOptions[0].label} options={dropdownOptions} />
             </Flex>
           </Flex>
-          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.STRETCH}>
-            <TextField title="Fill address" placeholder="City, street, number" />
-            <Flex direction={Flex.directions.COLUMN} align={Flex.align.STRETCH}>
-              <FieldLabel labelText="Language preferences" />
-              <Dropdown size={Dropdown.sizes.SMALL} placeholder={dropdownOptions[0].label} options={dropdownOptions} />
-            </Flex>
-          </Flex>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -217,7 +210,7 @@ export const HeaderWithExtraIconButton: Story = {
             }
           </ModalContent>
           <ModalMedia>
-            <img src={mediaImage} alt="side by side placeholder" />
+            <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
           </ModalMedia>
         </ModalSideBySideLayout>
         <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -246,7 +239,7 @@ export const Animation: Story = {
           }
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout key={1}>
@@ -260,7 +253,7 @@ export const Animation: Story = {
           }
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout key={2}>
@@ -274,7 +267,7 @@ export const Animation: Story = {
           }
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -303,15 +296,13 @@ export const Animation: Story = {
             <ModalSideBySideLayout>
               <ModalHeader title="Modal title" />
               <ModalContent>
-                {
-                  <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
-                    Modal content will appear here, you can custom it however you want, according to the user needs.
-                    Please make sure that the content is clear for completing the relevant task.
-                  </Text>
-                }
+                <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
+                  Modal content will appear here, you can custom it however you want, according to the user needs.
+                  Please make sure that the content is clear for completing the relevant task.
+                </Text>
               </ModalContent>
               <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" />
+                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
             <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -323,15 +314,13 @@ export const Animation: Story = {
             <ModalSideBySideLayout>
               <ModalHeader title="Modal title" />
               <ModalContent>
-                {
-                  <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
-                    Modal content will appear here, you can custom it however you want, according to the user needs.
-                    Please make sure that the content is clear for completing the relevant task.
-                  </Text>
-                }
+                <Text type={Text.types.TEXT1} align={Text.align.INHERIT} element="p">
+                  Modal content will appear here, you can custom it however you want, according to the user needs.
+                  Please make sure that the content is clear for completing the relevant task.
+                </Text>
               </ModalContent>
               <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" />
+                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
             <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -340,7 +329,7 @@ export const Animation: Story = {
         )}
         {createPortal(
           <Modal id="modal-sbs-transition" show={showTransition} size="large" onClose={() => setShowTransition(false)}>
-            <TransitionView activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction} height={380}>
               {transitionSteps}
             </TransitionView>
             <ModalFooterWizard

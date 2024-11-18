@@ -42,7 +42,7 @@ export const Overview: Story = {
       <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
         <ModalMediaLayout>
           <ModalMedia>
-            <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+            <img src={mediaImage} alt="media placeholder" style={{ objectFit: "contain" }} />
           </ModalMedia>
           <ModalHeader title="Modal title" />
           <ModalContent>
@@ -73,7 +73,7 @@ export const Wizard: Story = {
     const steps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ objectFit: "contain" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -84,7 +84,7 @@ export const Wizard: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ objectFit: "contain" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -139,7 +139,7 @@ export const HeaderWithExtraIconButton: Story = {
       >
         <ModalMediaLayout>
           <ModalMedia>
-            <img src={mediaImage} alt="media placeholder" style={{ maxWidth: "none", width: "105%" }} />
+            <img src={mediaImage} alt="media placeholder" style={{ objectFit: "contain" }} />
           </ModalMedia>
           <ModalHeader title="Modal title" />
           <ModalContent>
@@ -163,7 +163,7 @@ export const Animation: Story = {
     const transitionSteps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -174,7 +174,7 @@ export const Animation: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -200,7 +200,7 @@ export const Animation: Story = {
           <Modal id="modal-media-center" show={showCenterPop} size="medium" onClose={() => setShowCenterPop(false)}>
             <ModalMediaLayout>
               <ModalMedia>
-                <img src={mediaImage} alt="media placeholder" />
+                <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
               <ModalHeader title="Modal title" />
               <ModalContent>
