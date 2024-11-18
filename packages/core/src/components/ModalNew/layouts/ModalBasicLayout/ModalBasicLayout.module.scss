@@ -1,0 +1,20 @@
+.layout {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .header {
+    width: 100%;
+    margin-block: var(--spacing-xl) var(--spacing-large);
+    padding-inline-end: calc(var(--top-actions-spacing) + var(--top-actions-width) + var(--spacing-medium));
+    padding-inline-start: var(--modal-inline-padding);
+  }
+
+  .divider {
+    flex-shrink: 0;
+  }
+
+  .content {
+    padding-block-end: var(--spacing-xl);
+  }
+}
