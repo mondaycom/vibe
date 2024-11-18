@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.144.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.1...monday-ui-react-core@2.144.0) (2024-11-15)
+
+
+### Features
+
+* **TextField:** improved maxLength with exceeding limit UI ([#2576](https://github.com/mondaycom/vibe/issues/2576)) ([291a843](https://github.com/mondaycom/vibe/commit/291a843b7af340bdc06baa7695bd779358f750e9))
+
+
+
+
+
+## [2.143.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.0...monday-ui-react-core@2.143.1) (2024-11-14)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.143.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.1...monday-ui-react-core@2.143.0) (2024-11-14)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2583](https://github.com/mondaycom/vibe/issues/2583)) ([0d6803c](https://github.com/mondaycom/vibe/commit/0d6803cc2e65cae0cc175f672a2c625ac69fc1d4))
+* **TransitionView:** handle parent without definite height ([#2584](https://github.com/mondaycom/vibe/issues/2584)) ([356255e](https://github.com/mondaycom/vibe/commit/356255e21d3dbdd0eccab4a410e86411e62e35e5))
+
+
+### Features
+
+* **TextArea:** Character count and maxLength ([#2574](https://github.com/mondaycom/vibe/issues/2574)) ([753edb8](https://github.com/mondaycom/vibe/commit/753edb862a4e531d4cab7115aca2bec5965c256a))
+* **ThumbsDown:** new icon ([#2582](https://github.com/mondaycom/vibe/issues/2582)) ([5395753](https://github.com/mondaycom/vibe/commit/53957534f8a28feb6c8345df088b1dc5f5cf02e7))
+* **TransitionView:** component to be used on wizard-related logics to render a step with animation between steps ([#2557](https://github.com/mondaycom/vibe/issues/2557)) ([bbb6856](https://github.com/mondaycom/vibe/commit/bbb68567c5084bbd6f65bc519f11538594f4e570))
+* **useWizard:** add hook for managing wizard logic for different use cases ([#2450](https://github.com/mondaycom/vibe/issues/2450)) ([dc6e393](https://github.com/mondaycom/vibe/commit/dc6e393ad7d75655fd7e0d0f6a93674ffc783e3f))
+
+
+
+
+
+## [2.142.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.0...monday-ui-react-core@2.142.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** avatar shrinking in counter tooltip ([#2575](https://github.com/mondaycom/vibe/issues/2575)) ([37befed](https://github.com/mondaycom/vibe/commit/37befed099aa0c211c9c07a7296d158485704b9a))
+
+
+
+
+
+# [2.142.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.141.0...monday-ui-react-core@2.142.0) (2024-10-31)
+
+
+### Features
+
+* **Clipboard:** new icon ([#2570](https://github.com/mondaycom/vibe/issues/2570)) ([da71c1b](https://github.com/mondaycom/vibe/commit/da71c1bc6ca23a5321b2ea6e177633da6d2e01cf))
+* **Forward:** new icon ([#2569](https://github.com/mondaycom/vibe/issues/2569)) ([2034fd5](https://github.com/mondaycom/vibe/commit/2034fd51e30e2c32425e0e06322739d3526c22eb))
+
+
+
+
+
+# [2.141.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.140.0...monday-ui-react-core@2.141.0) (2024-10-30)
+
+
+### Bug Fixes
+
+* **Table:** scroll handlers and menu handlers, fix double scroll ([#2564](https://github.com/mondaycom/vibe/issues/2564)) ([214350b](https://github.com/mondaycom/vibe/commit/214350b97fddc5d92a260a8e7b4acfebdcf8683f))
+
+
+### Features
+
+* **TableHeaderCell:** allow passing title as component ([#2563](https://github.com/mondaycom/vibe/issues/2563)) ([bd382b7](https://github.com/mondaycom/vibe/commit/bd382b7dadf719c4dfdfbc33b59e127babd1e42c))
+
+
+
+
+
+# [2.140.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.4...monday-ui-react-core@2.140.0) (2024-10-29)
+
+
+### Features
+
+* add aria-label to VirtualizedList ([#2558](https://github.com/mondaycom/vibe/issues/2558)) ([e1d5044](https://github.com/mondaycom/vibe/commit/e1d504423d9bce1c94d27d2ff141f61bbd7546b4))
+* **AttentionBox:** add prop for enter animation ([#2566](https://github.com/mondaycom/vibe/issues/2566)) ([15b20b1](https://github.com/mondaycom/vibe/commit/15b20b105d952f6db03136c23ccf369b8d2e6829))
+
+
+
+
+
+## [2.139.4](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.3...monday-ui-react-core@2.139.4) (2024-10-21)
+
+
+### Bug Fixes
+
+* **Combobox:** restricted onclick on the disabled ([#2491](https://github.com/mondaycom/vibe/issues/2491)) ([9965476](https://github.com/mondaycom/vibe/commit/996547612af7a33e5dde95ba200ea23fa8ea0963))
+* Dropdown font broken ([#2551](https://github.com/mondaycom/vibe/issues/2551)) ([bca2c68](https://github.com/mondaycom/vibe/commit/bca2c681e622fbd7a6f8291df1c413cc8fc2083f))
+
+
+
+
+
 ## [2.139.3](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.139.2...monday-ui-react-core@2.139.3) (2024-10-10)
 
 

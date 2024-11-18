@@ -5,6 +5,35 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "PinFull",
+    file: "PinFull.svg",
+    description: "Use to mark item as pinned.",
+    tags: "Pinned, Pinning"
+  },
+
+  {
+    name: "ThumbsDown",
+    file: "ThumbsDown.svg",
+    description:
+      "Meant to indicate dislike in intake forms and feedback buttons. Can come as a supplement to thumbs up.",
+    tags: "Thumbs, Down, Dislike, Feedback"
+  },
+
+  {
+    name: "Clipboard",
+    file: "Clipboard.svg",
+    description: "Clipboard",
+    tags: "Clipboard, Board, Copy"
+  },
+
+  {
+    name: "Forward",
+    file: "Forward.svg",
+    description: "Forward",
+    tags: "Forward, Email, Send, Arrow, Right"
+  },
+
+  {
     name: "Shuffle",
     file: "Shuffle.svg",
     description: "Use to describe shuffle of items.",
@@ -1801,7 +1830,7 @@ export const iconsMetaData = [
     name: "Wand",
     file: "Wand.svg",
     description: "Wand",
-    tags: "Wand, Star",
+    tags: "Wand, Star, Template",
     category: [PLATFORM]
   },
 
@@ -1809,7 +1838,7 @@ export const iconsMetaData = [
     name: "WhatsNew",
     file: "WhatsNew.svg",
     description: "Whats New",
-    tags: "WhatsNew, New",
+    tags: "WhatsNew, New, Gift",
     category: [PLATFORM]
   },
 

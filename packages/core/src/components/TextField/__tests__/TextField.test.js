@@ -151,7 +151,7 @@ describe("TextField Tests", () => {
     expect(icon).toBeFalsy();
   });
 
-  describe("char count", () => {
+  describe("char count and limit", () => {
     it("should display char count on initial", () => {
       const { rerender, queryByLabelText } = inputComponent;
       const value = "hello";
@@ -169,6 +169,25 @@ describe("TextField Tests", () => {
 
       const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toBe(value.length);
+    });
+
+    it("should display char count and max length on initial", () => {
+      const { rerender, getByText } = inputComponent;
+      const value = "hello";
+      act(() => {
+        rerender(
+          <TextField
+            placeholder={defaultPlaceHolder}
+            onChange={onChangeStub}
+            id="char-count-test"
+            showCharCount
+            value={value}
+            maxLength={10}
+          />
+        );
+      });
+
+      expect(getByText(`${value.length}/10`)).toBeTruthy();
     });
 
     it("char count should display correctly after changing value", () => {
@@ -194,6 +213,40 @@ describe("TextField Tests", () => {
 
       const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toEqual(value.length);
+    });
+
+    it("should prevent typing when character limit is reached and allowExceedingMaxLength is false", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        rerender(
+          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={false} />
+        );
+      });
+
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      // This correctly tests the maxLength attribute be properly set on the input element
+      // Using fireEvent bypasses the maxLength where a user wouldn't:
+      // https://github.com/testing-library/user-event/issues/591#issuecomment-517816296
+      expect(input).toHaveAttribute("maxlength", "5");
+    });
+
+    it("should allow typing beyond character limit when allowExceedingMaxLength is true", () => {
+      const { rerender, getByText } = inputComponent;
+      act(() => {
+        rerender(
+          <TextField placeholder={defaultPlaceHolder} showCharCount maxLength={5} allowExceedingMaxLength={true} />
+        );
+      });
+
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      act(() => {
+        fireEvent.change(input, { target: { value: "123456" } });
+      });
+
+      expect(input).toHaveValue("123456");
+      expect(input).not.toHaveAttribute("maxlength");
+
+      expect(getByText("6/5")).toBeTruthy();
     });
   });
 

@@ -23,7 +23,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
     const mergedRef = useMergeRef(componentRef, ref);
     const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenu();
 
-    const onMouseOver = useCallback(() => {
+    const onMouseEnter = useCallback(() => {
       onMouseOverRow(componentRef);
     }, [onMouseOverRow]);
 
@@ -36,7 +36,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
         aria-selected={highlighted || false}
         className={cx(styles.tableRow, className)}
         style={style}
-        onMouseOver={onMouseOver}
+        onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeaveRow}
         tabIndex={-1}
       >

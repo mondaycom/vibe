@@ -5,9 +5,10 @@ export interface PushNotificationProps extends React.SVGAttributes<SVGElement> {
 size?: string | number;
 }
 const PushNotification: React.FC<PushNotificationProps> = ({size, ...props}) => (
-  <svg viewBox="0 0 28 28" fill="currentColor" width={ size || "28" } height={ size || "28" } {...props}>
-    <path d="M26 3.62H2C1.72386 3.62 1.5 3.84385 1.5 4.11999V6.9701H26.5V4.11999C26.5 3.84385 26.2761 3.62 26 3.62ZM1.5 23.64V8.4701H26.5V23.64C26.5 23.9161 26.2761 24.14 26 24.14H2C1.72386 24.14 1.5 23.9161 1.5 23.64ZM2 2.12C0.895431 2.12 0 3.01542 0 4.11999V23.64C0 24.7446 0.895431 25.64 2 25.64H26C27.1046 25.64 28 24.7446 28 23.64V4.11999C28 3.01543 27.1046 2.12 26 2.12H2ZM4 10C3.44772 10 3 10.4477 3 11V15C3 15.5523 3.44772 16 4 16H24C24.5523 16 25 15.5523 25 15V11C25 10.4477 24.5523 10 24 10H4Z"
-      fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+    <path d="M4.573 8.266a.643.643 0 0 0-.643.642v2.572c0 .355.288.643.643.643H15.43a.643.643 0 0 0 .643-.643V8.908a.643.643 0 0 0-.643-.642H4.573Z" />
+    <path d="M.8 3.486C.8 2.666 1.467 2 2.288 2h15.428c.82 0 1.486.665 1.486 1.486v12.548c0 .82-.665 1.486-1.486 1.486H2.287A1.486 1.486 0 0 1 .8 16.034V3.486Zm16.915-.122H2.287a.121.121 0 0 0-.122.122v1.632h15.672V3.486a.121.121 0 0 0-.122-.122ZM2.165 6.482v9.552c0 .067.054.122.122.122h15.428a.121.121 0 0 0 .122-.122V6.482H2.165Z"
+      fillRule="evenodd" clipRule="evenodd" />
   </svg>
 );
 PushNotification.displayName = 'PushNotification';
