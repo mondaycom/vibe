@@ -96,7 +96,7 @@ export const Overview: Story = {
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
-          onDotClick={(_, newStep) => goToStep(newStep)}
+          onStepClick={(_, newStep) => goToStep(newStep)}
           primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
           secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
         />
@@ -177,7 +177,7 @@ export const Wizard: Story = {
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
-          onDotClick={(_, newStep) => goToStep(newStep)}
+          onStepClick={(_, newStep) => goToStep(newStep)}
           primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
           secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
         />
@@ -346,7 +346,7 @@ export const Animation: Story = {
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
-              onDotClick={(_, newStep) => goToStep(newStep)}
+              onStepClick={(_, newStep) => goToStep(newStep)}
               primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
               secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
             />

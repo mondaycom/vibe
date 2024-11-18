@@ -13,7 +13,7 @@ export interface ModalFooterWizardProps
     VibeComponentProps {
   stepCount: number;
   activeStep: number;
-  onDotClick: (e: React.MouseEvent, stepIndex: number) => void;
+  onStepClick: (e: React.MouseEvent, stepIndex: number) => void;
 }
 
 const ModalFooterWizard = forwardRef(
@@ -23,7 +23,7 @@ const ModalFooterWizard = forwardRef(
       secondaryButton,
       stepCount,
       activeStep,
-      onDotClick,
+      onStepClick,
       "data-testid": dataTestId,
       className,
       id
@@ -38,7 +38,7 @@ const ModalFooterWizard = forwardRef(
       <StepsGalleryHeader
         stepsCount={stepCount}
         activeStepIndex={activeStep}
-        onChangeActiveStep={onDotClick}
+        onChangeActiveStep={onStepClick}
         className={styles.stepDots}
       />
     );
