@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.18.0...monday-ui-style@0.18.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* **Switcher:** revert icon change to older version ([#2596](https://github.com/mondaycom/vibe/issues/2596)) ([202e5a6](https://github.com/mondaycom/vibe/commit/202e5a6a1e20b3fc9c9e20185d8d46fc713650b6))
+
+
+
+
+
 # [0.18.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.17.0...monday-ui-style@0.18.0) (2024-11-18)
 
 
