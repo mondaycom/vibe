@@ -240,7 +240,7 @@ export const Wizard: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: steps.length
     });
 
@@ -252,9 +252,9 @@ export const Wizard: Story = {
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
-          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
           onStepClick={newStep => goToStep(newStep)}
+          primaryButton={{ text: "Next", onClick: next }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
     );
@@ -384,7 +384,7 @@ export const Animation: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -464,9 +464,9 @@ export const Animation: Story = {
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
-              primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
               onStepClick={newStep => goToStep(newStep)}
+              primaryButton={{ text: "Next", onClick: next }}
+              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
             />
           </Modal>,
           document.body
