@@ -14,7 +14,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Popover/Tipseen",
+  title: "Components/Tipseen",
   component: Tipseen,
   subcomponents: {
     TipseenMedia,

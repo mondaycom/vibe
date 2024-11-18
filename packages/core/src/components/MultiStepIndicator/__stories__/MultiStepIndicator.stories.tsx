@@ -9,7 +9,7 @@ import "./MultiStepIndicator.stories.scss";
 import { Step } from "../MultiStep.types";
 
 export default {
-  title: "Navigation/MultiStepIndicator",
+  title: "Components/MultiStepIndicator",
   component: MultiStepIndicator
 };
 

@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Inputs/EditableHeading",
+  title: "Components/EditableHeading",
   component: EditableHeading,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

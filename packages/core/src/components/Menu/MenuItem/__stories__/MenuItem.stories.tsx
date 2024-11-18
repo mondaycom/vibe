@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Navigation/Menu/MenuItem",
+  title: "Components/Menu/MenuItem",
   component: MenuItem,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

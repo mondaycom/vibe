@@ -23,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const iconButtonTemplate = createComponentTemplate(IconButton);
 
 export default {
-  title: "Buttons/IconButton",
+  title: "Components/IconButton",
   component: IconButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

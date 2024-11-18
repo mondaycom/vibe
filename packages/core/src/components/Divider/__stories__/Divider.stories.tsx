@@ -14,7 +14,7 @@ const dividerTemplate = (args: DividerProps) => (
 );
 
 export default {
-  title: "Data display/Divider",
+  title: "Components/Divider",
   component: Divider,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

@@ -15,7 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Popover/Tooltip",
+  title: "Components/Tooltip",
   component: Tooltip,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

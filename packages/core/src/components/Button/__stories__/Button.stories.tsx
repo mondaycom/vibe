@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Buttons/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

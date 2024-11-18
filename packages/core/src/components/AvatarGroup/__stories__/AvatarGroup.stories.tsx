@@ -22,7 +22,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Media/Avatar/AvatarGroup",
+  title: "Components/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,

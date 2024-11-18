@@ -5,7 +5,7 @@ import { Flex } from "../../../Flex";
 import { Heading } from "../../../Heading";
 
 export default {
-  title: "Navigation/Tabs/TabList",
+  title: "Components/Tabs/TabList",
   component: TabList
 };
 

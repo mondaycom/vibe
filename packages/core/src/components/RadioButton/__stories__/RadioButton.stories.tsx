@@ -9,7 +9,7 @@ import Button from "../../Button/Button";
 const radioButtonTemplate = createComponentTemplate(RadioButton);
 
 export default {
-  title: "Inputs/RadioButton",
+  title: "Components/RadioButton",
   component: RadioButton
 };
 

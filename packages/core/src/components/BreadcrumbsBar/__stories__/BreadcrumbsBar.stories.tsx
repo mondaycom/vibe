@@ -24,7 +24,7 @@ const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
 };
 
 export default {
-  title: "Navigation/BreadcrumbsBar/BreadcrumbsBar",
+  title: "Components/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

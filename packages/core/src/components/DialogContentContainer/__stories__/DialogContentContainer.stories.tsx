@@ -12,7 +12,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const dialogContentContainerTemplate = createComponentTemplate(DialogContentContainer);
 
 export default {
-  title: "Popover/DialogContentContainer",
+  title: "Components/DialogContentContainer",
   component: DialogContentContainer,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

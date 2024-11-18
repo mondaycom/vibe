@@ -23,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const chipsTemplate = createComponentTemplate(Chips);
 
 export default {
-  title: "Data display/Chips",
+  title: "Components/Chips",
   component: Chips,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

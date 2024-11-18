@@ -16,7 +16,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const counterTemplate = createComponentTemplate(Counter);
 
 export default {
-  title: "Feedback/Counter",
+  title: "Components/Counter",
   component: Counter,
   argTypes: {
     ...metaSettings.argTypes,

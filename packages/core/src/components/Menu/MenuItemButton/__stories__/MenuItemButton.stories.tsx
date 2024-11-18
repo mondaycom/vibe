@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const menuItemButtonTemplate = createComponentTemplate(MenuItemButton);
 
 export default {
-  title: "Navigation/Menu/MenuItemButton",
+  title: "Components/Menu/MenuItemButton",
   component: MenuItemButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
