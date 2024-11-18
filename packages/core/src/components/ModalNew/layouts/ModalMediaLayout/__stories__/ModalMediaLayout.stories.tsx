@@ -108,9 +108,9 @@ export const Wizard: Story = {
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
-          onStepClick={(_, newStep) => goToStep(newStep)}
           primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
           secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+          onStepClick={newStep => goToStep(newStep)}
         />
       </Modal>
     );
@@ -227,9 +227,9 @@ export const Animation: Story = {
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
-              onStepClick={(_, newStep) => goToStep(newStep)}
               primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
               secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+              onStepClick={newStep => goToStep(newStep)}
             />
           </Modal>,
           document.body
