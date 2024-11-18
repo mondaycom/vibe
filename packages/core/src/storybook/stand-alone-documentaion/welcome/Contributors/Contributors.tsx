@@ -4,6 +4,12 @@ import useContributors from "./useContributors";
 import Hadas from "../assets/contributors/Hadas.png";
 import Sergey from "../assets/contributors/Sergey.png";
 import Rotem from "../assets/contributors/Rotem.png";
+import Devorah from "../assets/contributors/Devorah.png";
+import Dmitry from "../assets/contributors/Dmitry.png";
+import Shay from "../assets/contributors/Shay.png";
+import Eylon from "../assets/contributors/Eylon.png";
+import Noa from "../assets/contributors/Noa.png";
+import LeanyLabs from "../assets/contributors/LeanyLabs.png";
 
 const CONTRIBUTORS = [
   {
@@ -23,27 +29,33 @@ const CONTRIBUTORS = [
   },
   {
     name: "Devorah Friedman",
-    href: "mailto:devorahfr@monday.com"
+    href: "mailto:devorahfr@monday.com",
+    image: Devorah
   },
   {
     name: "Dmitry Kogan",
-    href: "mailto:dimako@monday.com"
+    href: "mailto:dimako@monday.com",
+    image: Dmitry
   },
   {
     name: "Shay Cohen",
-    href: "mailto:shay@monday.com"
+    href: "mailto:shay@monday.com",
+    image: Shay
   },
   {
     name: "Eylon Goren",
-    href: "mailto:eylon@monday.com"
+    href: "mailto:eylon@monday.com",
+    image: Eylon
   },
   {
     name: "Noa Fenko",
-    href: "mailto:noafe@monday.com"
+    href: "mailto:noafe@monday.com",
+    image: Noa
   },
   {
     name: "LeanyLabs",
-    href: "https://github.com/LeanyLabs"
+    href: "https://github.com/LeanyLabs",
+    image: LeanyLabs
   }
 ];
 

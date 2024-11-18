@@ -73,7 +73,6 @@ export default function useContributors({ organizationName, packageName, exclude
       .filter(contributor => !excludedContributors.includes(contributor.login))
       .sort((a, b) => (b?.contributions || 0) - (a?.contributions || 0))
       .map(contributor => {
-        console.log(contributor);
         return {
           id: contributor.id,
           name: contributor.login,
