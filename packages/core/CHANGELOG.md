@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.145.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.0...monday-ui-react-core@2.145.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* **table:** horizontal scroll on react 18 ([#2594](https://github.com/mondaycom/vibe/issues/2594)) ([09c0dc8](https://github.com/mondaycom/vibe/commit/09c0dc83676f5b5a0504e25db0e26227f6b003c9))
+
+
+
+
+
 # [2.145.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.144.0...monday-ui-react-core@2.145.0) (2024-11-18)
 
 
