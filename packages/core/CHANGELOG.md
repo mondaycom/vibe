@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.145.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.144.0...monday-ui-react-core@2.145.0) (2024-11-18)
+
+
+### Bug Fixes
+
+* **TextArea:** don't show the help section if no help text or char co… ([#2590](https://github.com/mondaycom/vibe/issues/2590)) ([162a77d](https://github.com/mondaycom/vibe/commit/162a77d3c734f7833772e5567222de5698108356))
+* **WhatsNew:** update icon ([#2592](https://github.com/mondaycom/vibe/issues/2592)) ([fbcb99f](https://github.com/mondaycom/vibe/commit/fbcb99f257b624ee7a64eb270c30292b25f6e2ef))
+
+
+### Features
+
+* **AvatarGroupCounter:** add option to render MenuButton on a container ([#2591](https://github.com/mondaycom/vibe/issues/2591)) ([d286b28](https://github.com/mondaycom/vibe/commit/d286b285900e73b65fc7658b61fb59af8dc1d846))
+* **PinFull:** new icon ([#2589](https://github.com/mondaycom/vibe/issues/2589)) ([1e34a3c](https://github.com/mondaycom/vibe/commit/1e34a3cff3ee9d1be3d62643258fbca20a2bed83))
+
+
+
+
+
 # [2.144.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.1...monday-ui-react-core@2.144.0) (2024-11-15)
 
 
