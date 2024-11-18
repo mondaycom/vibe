@@ -11,7 +11,7 @@ import Button from "../../../../Button/Button";
 import { createPortal } from "react-dom";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
-import WizardSlideshow from "../../../../WizardSlideshow/WizardSlideshow";
+import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import { Checkbox } from "../../../../Checkbox";
@@ -246,9 +246,9 @@ export const Wizard: Story = {
 
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
@@ -458,9 +458,9 @@ export const Animation: Story = {
             size="medium"
             onClose={() => setShowTransition(false)}
           >
-            <WizardSlideshow activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
-            </WizardSlideshow>
+            </TransitionView>
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}

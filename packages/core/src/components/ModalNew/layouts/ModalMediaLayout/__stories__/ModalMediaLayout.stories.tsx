@@ -11,7 +11,7 @@ import ModalMediaLayout from "../ModalMediaLayout";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
-import WizardSlideshow from "../../../../WizardSlideshow/WizardSlideshow";
+import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import IconButton from "../../../../IconButton/IconButton";
 import { Help } from "../../../../Icon/Icons";
@@ -102,9 +102,9 @@ export const Wizard: Story = {
 
     return (
       <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
@@ -221,9 +221,9 @@ export const Animation: Story = {
             size="medium"
             onClose={() => setShowTransition(false)}
           >
-            <WizardSlideshow activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
-            </WizardSlideshow>
+            </TransitionView>
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}

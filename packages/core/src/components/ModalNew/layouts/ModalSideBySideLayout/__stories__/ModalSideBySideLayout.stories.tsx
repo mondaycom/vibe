@@ -9,7 +9,7 @@ import ModalSideBySideLayout from "../ModalSideBySideLayout";
 import ModalMedia from "../../ModalMedia";
 import { mediaImage } from "./assets";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
-import WizardSlideshow from "../../../../WizardSlideshow/WizardSlideshow";
+import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import TextField from "../../../../TextField/TextField";
 import Flex from "../../../../Flex/Flex";
@@ -90,9 +90,9 @@ export const Overview: Story = {
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
@@ -171,9 +171,9 @@ export const Wizard: Story = {
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
@@ -340,9 +340,9 @@ export const Animation: Story = {
         )}
         {createPortal(
           <Modal id="modal-sbs-transition" show={showTransition} size="large" onClose={() => setShowTransition(false)}>
-            <WizardSlideshow activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
-            </WizardSlideshow>
+            </TransitionView>
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
