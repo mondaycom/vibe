@@ -38,6 +38,7 @@ const ModalHeader = forwardRef(
       >
         <Heading
           id={titleId}
+          align={Text.align.INHERIT}
           type={Heading.types.H2}
           weight={Heading.weights.MEDIUM}
           maxLines={2}
@@ -54,7 +55,7 @@ const ModalHeader = forwardRef(
               />
             )}
             {typeof description === "string" ? (
-              <Text element="span" type={Text.types.TEXT1}>
+              <Text element="span" align={Text.align.INHERIT} type={Text.types.TEXT1}>
                 {description}
               </Text>
             ) : (
