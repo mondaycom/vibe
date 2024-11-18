@@ -20,8 +20,16 @@
     }
   }
 
-  .helpText {
+  .subTextContainer {
     color: var(--secondary-text-color);
+
+    .helpText {
+      display: flex;
+    }
+
+    .limitText {
+      margin-left: auto;
+    }
   }
 
   .textArea {
@@ -71,7 +79,8 @@
       border-color: var(--color-error);
     }
 
-    .helpText {
+    .helpText,
+    .limitText {
       color: var(--color-error);
     }
   }

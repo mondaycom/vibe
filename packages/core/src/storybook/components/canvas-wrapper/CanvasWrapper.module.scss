@@ -19,6 +19,8 @@
 
   & :global(.cm-editor) {
     padding: var(--sb-spacing-medium);
+    padding-right: 0;
+    max-height: 500px;
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
+import { DropdownOption } from "../../../components/Dropdown/Dropdown.types";
 import Modal from "../../../components/Modal/Modal";
 import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";
@@ -13,74 +14,29 @@ export default {
   title: "Technical Patterns/Dropdowns inside pop-overs"
 };
 
-export const ModalWithDamagedDropdown = () => {
-  const [show, setShow] = useState(false);
+export const ModalWithDamagedDropdown: React.FC = () => {
+  const [show, setShow] = useState<boolean>(false);
 
   const closeModal = useCallback(() => {
     setShow(false);
   }, [setShow]);
 
-  const options = [
-    {
-      value: "1",
-      label: "Option 1"
-    },
-    {
-      value: "2",
-      label: "Option 2"
-    },
-    {
-      value: "3",
-      label: "Option 3"
-    },
-    {
-      value: "4",
-      label: "Option 4"
-    },
-    {
-      value: "5",
-      label: "Option 5"
-    },
-    {
-      value: "6",
-      label: "Option 6"
-    },
-    {
-      value: "7",
-      label: "Option 7"
-    },
-    {
-      value: "8",
-      label: "Option 8"
-    },
-    {
-      value: "9",
-      label: "Option 9"
-    },
-    {
-      value: "10",
-      label: "Option 10"
-    },
-    {
-      value: "11",
-      label: "Option 11"
-    },
-    {
-      value: "12",
-      label: "Option 12"
-    },
-    {
-      value: "13",
-      label: "Option 13"
-    },
-    {
-      value: "14",
-      label: "Option 14"
-    },
-    {
-      value: "15",
-      label: "Option 15"
-    }
+  const options: DropdownOption[] = [
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+    { value: "3", label: "Option 3" },
+    { value: "4", label: "Option 4" },
+    { value: "5", label: "Option 5" },
+    { value: "6", label: "Option 6" },
+    { value: "7", label: "Option 7" },
+    { value: "8", label: "Option 8" },
+    { value: "9", label: "Option 9" },
+    { value: "10", label: "Option 10" },
+    { value: "11", label: "Option 11" },
+    { value: "12", label: "Option 12" },
+    { value: "13", label: "Option 13" },
+    { value: "14", label: "Option 14" },
+    { value: "15", label: "Option 15" }
   ];
 
   return (
@@ -95,81 +51,35 @@ export const ModalWithDamagedDropdown = () => {
   );
 };
 
-export const MenuPosition = () => {
-  // for prevent dialog to move while scrolling
-  const [show, setShow] = useState(false);
+export const MenuPosition: React.FC = () => {
+  const [show, setShow] = useState<boolean>(false);
 
   const closeModal = useCallback(() => {
     setShow(false);
   }, [setShow]);
 
-  const options = useMemo(
+  const options: DropdownOption[] = useMemo(
     () => [
-      {
-        value: "1",
-        label: "Option 1"
-      },
-      {
-        value: "2",
-        label: "Option 2"
-      },
-      {
-        value: "3",
-        label: "Option 3"
-      },
-      {
-        value: "4",
-        label: "Option 4"
-      },
-      {
-        value: "5",
-        label: "Option 5"
-      },
-      {
-        value: "6",
-        label: "Option 6"
-      },
-      {
-        value: "7",
-        label: "Option 7"
-      },
-      {
-        value: "8",
-        label: "Option 8"
-      },
-      {
-        value: "9",
-        label: "Option 9"
-      },
-      {
-        value: "10",
-        label: "Option 10"
-      },
-      {
-        value: "11",
-        label: "Option 11"
-      },
-      {
-        value: "12",
-        label: "Option 12"
-      },
-      {
-        value: "13",
-        label: "Option 13"
-      },
-      {
-        value: "14",
-        label: "Option 14"
-      },
-      {
-        value: "15",
-        label: "Option 15"
-      }
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
 
-  const dialogStyle = {
+  const dialogStyle: React.CSSProperties = {
     width: "350px",
     height: "200px",
     overflow: "auto"
@@ -178,10 +88,7 @@ export const MenuPosition = () => {
   const modifiers = [
     {
       name: "preventOverflow",
-
-      options: {
-        mainAxis: false
-      }
+      options: { mainAxis: false }
     }
   ];
 
@@ -226,76 +133,30 @@ export const MenuPosition = () => {
   );
 };
 
-export const InsideOverflowContainer = () => {
-  // for prevent dialog to move while scrolling
-  const [show, setShow] = useState(false);
+export const InsideOverflowContainer: React.FC = () => {
+  const [show, setShow] = useState<boolean>(false);
 
   const closeModal = useCallback(() => {
     setShow(false);
   }, [setShow]);
 
-  const options = useMemo(
+  const options: DropdownOption[] = useMemo(
     () => [
-      {
-        value: "1",
-        label: "Option 1"
-      },
-      {
-        value: "2",
-        label: "Option 2"
-      },
-      {
-        value: "3",
-        label: "Option 3"
-      },
-      {
-        value: "4",
-        label: "Option 4"
-      },
-      {
-        value: "5",
-        label: "Option 5"
-      },
-      {
-        value: "6",
-        label: "Option 6"
-      },
-      {
-        value: "7",
-        label: "Option 7"
-      },
-      {
-        value: "8",
-        label: "Option 8"
-      },
-      {
-        value: "9",
-        label: "Option 9"
-      },
-      {
-        value: "10",
-        label: "Option 10"
-      },
-      {
-        value: "11",
-        label: "Option 11"
-      },
-      {
-        value: "12",
-        label: "Option 12"
-      },
-      {
-        value: "13",
-        label: "Option 13"
-      },
-      {
-        value: "14",
-        label: "Option 14"
-      },
-      {
-        value: "15",
-        label: "Option 15"
-      }
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
@@ -303,13 +164,11 @@ export const InsideOverflowContainer = () => {
   const modifiers = [
     {
       name: "preventOverflow",
-      options: {
-        mainAxis: false
-      }
+      options: { mainAxis: false }
     }
   ];
 
-  const dialogStyle = {
+  const dialogStyle: React.CSSProperties = {
     width: "350px",
     height: "200px",
     overflow: "auto"
@@ -350,74 +209,29 @@ export const InsideOverflowContainer = () => {
   );
 };
 
-export const InsideOverflowWithTransformContainer = () => {
-  const options = useMemo(
+export const InsideOverflowWithTransformContainer: React.FC = () => {
+  const options: DropdownOption[] = useMemo(
     () => [
-      {
-        value: "1",
-        label: "Option 1"
-      },
-      {
-        value: "2",
-        label: "Option 2"
-      },
-      {
-        value: "3",
-        label: "Option 3"
-      },
-      {
-        value: "4",
-        label: "Option 4"
-      },
-      {
-        value: "5",
-        label: "Option 5"
-      },
-      {
-        value: "6",
-        label: "Option 6"
-      },
-      {
-        value: "7",
-        label: "Option 7"
-      },
-      {
-        value: "8",
-        label: "Option 8"
-      },
-      {
-        value: "9",
-        label: "Option 9"
-      },
-      {
-        value: "10",
-        label: "Option 10"
-      },
-      {
-        value: "11",
-        label: "Option 11"
-      },
-      {
-        value: "12",
-        label: "Option 12"
-      },
-      {
-        value: "13",
-        label: "Option 13"
-      },
-      {
-        value: "14",
-        label: "Option 14"
-      },
-      {
-        value: "15",
-        label: "Option 15"
-      }
+      { value: "1", label: "Option 1" },
+      { value: "2", label: "Option 2" },
+      { value: "3", label: "Option 3" },
+      { value: "4", label: "Option 4" },
+      { value: "5", label: "Option 5" },
+      { value: "6", label: "Option 6" },
+      { value: "7", label: "Option 7" },
+      { value: "8", label: "Option 8" },
+      { value: "9", label: "Option 9" },
+      { value: "10", label: "Option 10" },
+      { value: "11", label: "Option 11" },
+      { value: "12", label: "Option 12" },
+      { value: "13", label: "Option 13" },
+      { value: "14", label: "Option 14" },
+      { value: "15", label: "Option 15" }
     ],
     []
   );
 
-  const dialogStyle = {
+  const dialogStyle: React.CSSProperties = {
     width: "300px",
     height: "200px",
     overflow: "auto"

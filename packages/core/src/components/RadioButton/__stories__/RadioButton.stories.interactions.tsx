@@ -3,20 +3,20 @@ import { clickElement, delay, getByRole, getByText, interactionSuite } from "../
 
 const CHANGES_DELAY = 100;
 
-const isRadioButtonSelected = (canvas, text) => {
-  const radioToClick = getByText(canvas, text);
-  const inputElement = radioToClick.parentElement.firstChild.firstChild;
+const isRadioButtonSelected = (canvas: HTMLElement, text: string): boolean => {
+  const radioToClick = getByText(canvas, text) as HTMLElement;
+  const inputElement = radioToClick.parentElement.firstChild.firstChild as HTMLInputElement;
   return inputElement.checked;
 };
 
-const clickNextButton = async canvas => {
-  const nextButton = getByRole(canvas, "button");
+const clickNextButton = async (canvas: HTMLElement): Promise<void> => {
+  const nextButton = getByRole(canvas, "button") as HTMLElement;
   await clickElement(nextButton);
   await delay(CHANGES_DELAY);
 };
 
-const clickRadioButton = async canvas => {
-  const radioToClick = getByText(canvas, "I was mentioned");
+const clickRadioButton = async (canvas: HTMLElement): Promise<void> => {
+  const radioToClick = getByText(canvas, "I was mentioned") as HTMLElement;
   // Click the radio button
   await clickElement(radioToClick);
   await delay(CHANGES_DELAY);
@@ -24,7 +24,7 @@ const clickRadioButton = async canvas => {
   expect(isRadioButtonSelected(canvas, "I was mentioned")).toBe(true);
 };
 
-export const controlRadioButton = async canvas => {
+export const controlRadioButton = async (canvas: HTMLElement): Promise<void> => {
   // check first radio is selected
   await expect(isRadioButtonSelected(canvas, "Radio 1")).toBe(true);
 

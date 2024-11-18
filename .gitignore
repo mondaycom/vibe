@@ -13,3 +13,5 @@ coverage
 .scannerwork
 *.env
 .DS_Store
+packages/testkit/test-results
+packages/testkit/reports

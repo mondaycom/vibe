@@ -8,9 +8,10 @@ import { BorderColors } from "./border-colors/border-colors";
 import { ContentColors } from "./content-colors/content-colors";
 import { cardColorsExample, menuColorsExample } from "./assets";
 import { ComponentNameDecorator } from "../../components";
+import * as ColorsStories from "./colors.stories.tsx"
 import styles from "./colors.module.scss";
 
-<Meta title="Foundations/Colors" />
+<Meta of={ColorsStories} />
 
 <ComponentNameDecorator withFoundationBackground>Colors</ComponentNameDecorator>
 
@@ -30,35 +31,19 @@ The colors are designed to be clear and accessible. They come in three color the
 
 ### Semantic colors
 
-<Canvas>
-  <Story name="Semantic Colors">
-    <SemanticColors />
-  </Story>
-</Canvas>
+<Canvas of={ColorsStories.Semantic} sourceState="none" />
 
 ### Background colors
 
-<Canvas>
-  <Story name="Background Colors">
-    <BackgroundColors />
-  </Story>
-</Canvas>
+<Canvas of={ColorsStories.Background} sourceState="none" />
 
 ### Text colors
 
-<Canvas>
-  <Story name="Text Colors">
-    <TextColors />
-  </Story>
-</Canvas>
+<Canvas of={ColorsStories.Text} sourceState="none" />
 
 ### Border colors
 
-<Canvas>
-  <Story name="Border Colors">
-    <BorderColors />
-  </Story>
-</Canvas>
+<Canvas of={ColorsStories.Border} sourceState="none" />
 
 ### Content colors
 
@@ -66,11 +51,7 @@ These colors are used only for color coding purposes like groups colors, statuse
 this gives understanding and indication of orientation and belonging.
 The board's main strength is its simple and visual appearance. That's why the status colors should appear on the board and nowhere else in the UI.
 
-<Canvas>
-  <Story name="Content Colors">
-    <ContentColors />
-  </Story>
-</Canvas>
+<Canvas of={ColorsStories.Content} sourceState="none" />
 
 ## Usage and examples
 
