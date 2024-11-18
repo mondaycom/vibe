@@ -58,7 +58,7 @@ export const Overview: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout>
@@ -77,7 +77,7 @@ export const Overview: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -88,7 +88,7 @@ export const Overview: Story = {
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <TransitionView activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction} height={300}>
           {steps}
         </TransitionView>
         <ModalFooterWizard
@@ -136,7 +136,7 @@ export const Wizard: Story = {
           </Flex>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout>
@@ -156,7 +156,7 @@ export const Wizard: Story = {
           </Flex>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -206,7 +206,7 @@ export const HeaderWithExtraIconButton: Story = {
             </Text>
           </ModalContent>
           <ModalMedia>
-            <img src={mediaImage} alt="side by side placeholder" />
+            <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
           </ModalMedia>
         </ModalSideBySideLayout>
         <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -233,7 +233,7 @@ export const Animation: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout>
@@ -245,7 +245,7 @@ export const Animation: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>,
       <ModalSideBySideLayout>
@@ -257,7 +257,7 @@ export const Animation: Story = {
           </Text>
         </ModalContent>
         <ModalMedia>
-          <img src={mediaImage} alt="side by side placeholder" />
+          <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
       </ModalSideBySideLayout>
     ];
@@ -292,7 +292,7 @@ export const Animation: Story = {
                 </Text>
               </ModalContent>
               <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" />
+                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
             <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -310,7 +310,7 @@ export const Animation: Story = {
                 </Text>
               </ModalContent>
               <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" />
+                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
             <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
@@ -319,7 +319,7 @@ export const Animation: Story = {
         )}
         {createPortal(
           <Modal id="modal-sbs-transition" show={showTransition} size="large" onClose={() => setShowTransition(false)}>
-            <TransitionView activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction} height={380}>
               {transitionSteps}
             </TransitionView>
             <ModalFooterWizard
