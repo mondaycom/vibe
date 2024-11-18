@@ -141,6 +141,7 @@ export const avatarRenderer = (
             type={type || avatarProps?.type}
             tabIndex={-1}
             size={Avatar.sizes.SMALL}
+            className={avatarGroupCounterTooltipContentStyles.tooltipAvatarItemAvatar}
           />
           {!displayAsGrid && (
             <div id={labelId} className={avatarGroupCounterTooltipContentStyles.tooltipAvatarItemTitle}>

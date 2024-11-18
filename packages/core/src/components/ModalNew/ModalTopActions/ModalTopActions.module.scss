@@ -1,4 +1,6 @@
 .actions {
+  display: flex;
+  align-items: center;
   position: absolute;
   right: var(--spacing-large);
   top: var(--spacing-large);
