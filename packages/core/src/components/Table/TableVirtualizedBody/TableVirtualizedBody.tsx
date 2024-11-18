@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { ComponentType, forwardRef, useCallback, useEffect } from "react";
 import { VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
@@ -27,21 +27,15 @@ const TableVirtualizedBody = forwardRef(
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
     const { resetHoveredRow } = useTableRowMenu();
-    const prevScrollLeft = useRef(0);
 
     const handleOuterScroll = useCallback(
       (e: Event) => {
         const target = e.target as HTMLDivElement;
-        const currentScrollLeft = target.scrollLeft;
-
-        if (currentScrollLeft !== prevScrollLeft.current) {
-          resetHoveredRow();
-          onVirtualizedListScroll({
-            target,
-            currentTarget: target
-          } as unknown as React.UIEvent<HTMLDivElement>);
-          prevScrollLeft.current = currentScrollLeft;
-        }
+        resetHoveredRow();
+        onVirtualizedListScroll({
+          target,
+          currentTarget: target
+        } as unknown as React.UIEvent<HTMLDivElement>);
       },
       [resetHoveredRow, onVirtualizedListScroll]
     );
