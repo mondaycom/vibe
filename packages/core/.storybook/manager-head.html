@@ -35,7 +35,7 @@
   #storybook-explorer-menu button {
     font-family: "Figtree", sans-serif;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 16px;
     font-weight: 500;
     color: var(--sb-secondary-text-color);
   }
@@ -43,7 +43,7 @@
     background: none;
   }
   #storybook-explorer-menu [data-item-id]:hover {
-    background-color: #f1f3fe;
+    background-color: var(--sb-primary-background-hover-color);
   }
 
   /* Items spacings */
@@ -90,6 +90,20 @@
   #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > span,
   #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > span:empty {
     visibility: hidden;
+    margin-left: 5px;
+    margin-right: 8px;
+  }
+
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > a > div > span,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"]:hover > a > div > span,
+  #storybook-explorer-menu
+    .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover
+    > a
+    > div
+    > span,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover > div > span {
+    visibility: visible;
   }
 
   /* Fixes items spacings */
@@ -112,6 +126,9 @@
   .sidebar-container .sidebar-header {
     margin-top: 2px !important;
     margin-left: 12px !important;
+  }
+  #storybook-explorer-searchfield::placeholder {
+    color: #32333861;
   }
 
   /* Removes content<->sidebar border */
