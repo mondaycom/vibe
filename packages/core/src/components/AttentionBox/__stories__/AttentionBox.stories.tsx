@@ -23,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const attentionBoxTemplate = createComponentTemplate(AttentionBox);
 
 export default {
-  title: "Feedback/AttentionBox",
+  title: "Components/AttentionBox",
   component: AttentionBox,
   subcomponents: {
     AttentionBoxLink

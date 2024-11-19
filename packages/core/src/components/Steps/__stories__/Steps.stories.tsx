@@ -15,7 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const steps5 = [<div />, <div />, <div />, <div />, <div />];
 
 export default {
-  title: "Data display/Steps",
+  title: "Components/Steps",
   component: Steps,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Feedback/Toast",
+  title: "Components/Toast",
   component: Toast,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

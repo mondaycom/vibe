@@ -4,8 +4,6 @@ import Evgeniy from "../assets/contributors/Evgeniy.png";
 import Orr from "../assets/contributors/Orr.png";
 import Meytal from "../assets/contributors/Meytal.png";
 import styles from "./Founders.module.scss";
-import Flex from "../../../../components/Flex/Flex";
-import Icon from "../../../../components/Icon/Icon";
 
 const FOUNDERS = [
   {

@@ -14,7 +14,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const iconTemplate = createComponentTemplate(Icon);
 
 export default {
-  title: "Media/Icon",
+  title: "Components/Icon",
   component: Icon,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

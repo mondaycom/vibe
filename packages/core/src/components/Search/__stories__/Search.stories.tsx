@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const searchTemplate = createComponentTemplate(Search);
 
 export default {
-  title: "Inputs/Search",
+  title: "Components/Search",
   component: Search,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

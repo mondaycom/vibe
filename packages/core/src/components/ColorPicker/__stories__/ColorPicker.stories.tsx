@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Pickers/ColorPicker",
+  title: "Components/ColorPicker",
   component: ColorPicker,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

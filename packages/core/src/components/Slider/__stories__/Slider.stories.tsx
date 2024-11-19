@@ -11,7 +11,7 @@ const argTypes = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Inputs/Slider",
+  title: "Components/Slider",
   component: Slider,
   argTypes: argTypes
 };

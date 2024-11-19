@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Navigation/Menu/MenuGridItem",
+  title: "Components/Menu/MenuGridItem",
   component: MenuGridItem,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

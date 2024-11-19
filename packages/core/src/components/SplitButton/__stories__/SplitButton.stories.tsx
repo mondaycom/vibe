@@ -19,7 +19,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Buttons/SplitButton",
+  title: "Components/SplitButton",
   component: SplitButton,
 
   subcomponents: {

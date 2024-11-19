@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 
 export default {
-  title: "Navigation/VirtualizedGrid",
+  title: "Components/VirtualizedGrid",
   component: VirtualizedGrid
 };
 

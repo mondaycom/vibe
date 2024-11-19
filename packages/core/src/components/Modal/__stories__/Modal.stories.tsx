@@ -53,7 +53,7 @@ const modalTemplate = ({ onClose, ...modalProps }: ModalProps) => {
 };
 
 export default {
-  title: "Feedback/Modal",
+  title: "Components/Modal",
   component: Modal,
   subcomponents: {
     ModalHeader,

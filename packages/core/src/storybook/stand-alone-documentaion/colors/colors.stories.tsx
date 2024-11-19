@@ -6,7 +6,8 @@ import { BorderColors } from "./border-colors/border-colors";
 import { ContentColors } from "./content-colors/content-colors";
 
 const meta: Meta = {
-  title: "Foundations/Colors"
+  title: "Foundations/Colors",
+  tags: ["internal"]
 };
 export default meta;
 

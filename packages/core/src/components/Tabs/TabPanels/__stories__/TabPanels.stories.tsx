@@ -8,7 +8,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Navigation/Tabs/TabPanels",
+  title: "Components/Tabs/TabPanels",
   component: TabPanels,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

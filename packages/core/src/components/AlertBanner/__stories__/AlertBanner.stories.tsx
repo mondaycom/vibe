@@ -21,7 +21,7 @@ const alertBannerTemplate = (args: AlertBannerProps) => {
 };
 
 export default {
-  title: "Feedback/AlertBanner",
+  title: "Components/AlertBanner",
   component: AlertBanner,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

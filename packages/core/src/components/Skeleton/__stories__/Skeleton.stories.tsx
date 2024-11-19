@@ -8,7 +8,7 @@ import "./Skeleton.stories.scss";
 import { Flex } from "../../Flex";
 
 export default {
-  title: "Feedback/Skeleton",
+  title: "Components/Skeleton",
   component: Skeleton
 };
 

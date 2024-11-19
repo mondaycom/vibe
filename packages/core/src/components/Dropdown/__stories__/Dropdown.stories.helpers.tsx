@@ -7,7 +7,7 @@ export const TipDevTipPopover = () => (
     <StorybookLink page="Components/Dialog/Dialog" size={StorybookLink.sizes.SMALL}>
       Dialogs,
     </StorybookLink>{" "}
-    <StorybookLink page="Feedback/Modal" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/Modal" size={StorybookLink.sizes.SMALL}>
       Modals
     </StorybookLink>{" "}
     and other popovers click{" "}
