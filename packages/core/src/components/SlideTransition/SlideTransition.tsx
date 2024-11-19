@@ -6,7 +6,7 @@ import { SlideTransitionProps } from "./SlideTransition.types";
 import styles from "./SlideTransition.module.scss";
 
 const SlideTransition = forwardRef(
-  ({ direction, children, className }: SlideTransitionProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+  ({ direction, style, children, className }: SlideTransitionProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     return (
       <motion.div
         ref={ref}
@@ -17,6 +17,7 @@ const SlideTransition = forwardRef(
         exit="exit"
         transition={slideAnimationTransition}
         className={cx(styles.slide, className)}
+        style={style}
       >
         {children}
       </motion.div>

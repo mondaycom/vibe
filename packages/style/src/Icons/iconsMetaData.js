@@ -5,10 +5,18 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "ThumbsDown",
-      file: "ThumbsDown.svg",
-      description: "Meant to indicate dislike in intake forms and feedback buttons. Can come as a supplement to thumbs up.",
-      tags: "Thumbs, Down, Dislike, Feedback"
+    name: "PinFull",
+    file: "PinFull.svg",
+    description: "Use to mark item as pinned.",
+    tags: "Pinned, Pinning"
+  },
+
+  {
+    name: "ThumbsDown",
+    file: "ThumbsDown.svg",
+    description:
+      "Meant to indicate dislike in intake forms and feedback buttons. Can come as a supplement to thumbs up.",
+    tags: "Thumbs, Down, Dislike, Feedback"
   },
 
   {
@@ -1830,7 +1838,7 @@ export const iconsMetaData = [
     name: "WhatsNew",
     file: "WhatsNew.svg",
     description: "Whats New",
-    tags: "WhatsNew, New",
+    tags: "WhatsNew, New, Gift",
     category: [PLATFORM]
   },
 

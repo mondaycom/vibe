@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.18.0...monday-ui-style@0.18.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* **Switcher:** revert icon change to older version ([#2596](https://github.com/mondaycom/vibe/issues/2596)) ([202e5a6](https://github.com/mondaycom/vibe/commit/202e5a6a1e20b3fc9c9e20185d8d46fc713650b6))
+
+
+
+
+
+# [0.18.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.17.0...monday-ui-style@0.18.0) (2024-11-18)
+
+
+### Bug Fixes
+
+* **WhatsNew:** update icon ([#2592](https://github.com/mondaycom/vibe/issues/2592)) ([fbcb99f](https://github.com/mondaycom/vibe/commit/fbcb99f257b624ee7a64eb270c30292b25f6e2ef))
+
+
+### Features
+
+* **PinFull:** new icon ([#2589](https://github.com/mondaycom/vibe/issues/2589)) ([1e34a3c](https://github.com/mondaycom/vibe/commit/1e34a3cff3ee9d1be3d62643258fbca20a2bed83))
+
+
+
+
+
+# [0.17.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.16.0...monday-ui-style@0.17.0) (2024-11-14)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2583](https://github.com/mondaycom/vibe/issues/2583)) ([0d6803c](https://github.com/mondaycom/vibe/commit/0d6803cc2e65cae0cc175f672a2c625ac69fc1d4))
+
+
+### Features
+
+* **ThumbsDown:** new icon ([#2582](https://github.com/mondaycom/vibe/issues/2582)) ([5395753](https://github.com/mondaycom/vibe/commit/53957534f8a28feb6c8345df088b1dc5f5cf02e7))
+
+
+
+
+
 # [0.16.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.15.0...monday-ui-style@0.16.0) (2024-10-31)
 
 

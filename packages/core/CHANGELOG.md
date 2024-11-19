@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.145.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.1...monday-ui-react-core@2.145.2) (2024-11-18)
+
+
+### Bug Fixes
+
+* **Switcher:** revert icon change to older version ([#2596](https://github.com/mondaycom/vibe/issues/2596)) ([202e5a6](https://github.com/mondaycom/vibe/commit/202e5a6a1e20b3fc9c9e20185d8d46fc713650b6))
+
+
+
+
+
+## [2.145.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.0...monday-ui-react-core@2.145.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* **table:** horizontal scroll on react 18 ([#2594](https://github.com/mondaycom/vibe/issues/2594)) ([09c0dc8](https://github.com/mondaycom/vibe/commit/09c0dc83676f5b5a0504e25db0e26227f6b003c9))
+
+
+
+
+
+# [2.145.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.144.0...monday-ui-react-core@2.145.0) (2024-11-18)
+
+
+### Bug Fixes
+
+* **TextArea:** don't show the help section if no help text or char co… ([#2590](https://github.com/mondaycom/vibe/issues/2590)) ([162a77d](https://github.com/mondaycom/vibe/commit/162a77d3c734f7833772e5567222de5698108356))
+* **WhatsNew:** update icon ([#2592](https://github.com/mondaycom/vibe/issues/2592)) ([fbcb99f](https://github.com/mondaycom/vibe/commit/fbcb99f257b624ee7a64eb270c30292b25f6e2ef))
+
+
+### Features
+
+* **AvatarGroupCounter:** add option to render MenuButton on a container ([#2591](https://github.com/mondaycom/vibe/issues/2591)) ([d286b28](https://github.com/mondaycom/vibe/commit/d286b285900e73b65fc7658b61fb59af8dc1d846))
+* **PinFull:** new icon ([#2589](https://github.com/mondaycom/vibe/issues/2589)) ([1e34a3c](https://github.com/mondaycom/vibe/commit/1e34a3cff3ee9d1be3d62643258fbca20a2bed83))
+
+
+
+
+
+# [2.144.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.1...monday-ui-react-core@2.144.0) (2024-11-15)
+
+
+### Features
+
+* **TextField:** improved maxLength with exceeding limit UI ([#2576](https://github.com/mondaycom/vibe/issues/2576)) ([291a843](https://github.com/mondaycom/vibe/commit/291a843b7af340bdc06baa7695bd779358f750e9))
+
+
+
+
+
+## [2.143.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.143.0...monday-ui-react-core@2.143.1) (2024-11-14)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.143.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.1...monday-ui-react-core@2.143.0) (2024-11-14)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2583](https://github.com/mondaycom/vibe/issues/2583)) ([0d6803c](https://github.com/mondaycom/vibe/commit/0d6803cc2e65cae0cc175f672a2c625ac69fc1d4))
+* **TransitionView:** handle parent without definite height ([#2584](https://github.com/mondaycom/vibe/issues/2584)) ([356255e](https://github.com/mondaycom/vibe/commit/356255e21d3dbdd0eccab4a410e86411e62e35e5))
+
+
+### Features
+
+* **TextArea:** Character count and maxLength ([#2574](https://github.com/mondaycom/vibe/issues/2574)) ([753edb8](https://github.com/mondaycom/vibe/commit/753edb862a4e531d4cab7115aca2bec5965c256a))
+* **ThumbsDown:** new icon ([#2582](https://github.com/mondaycom/vibe/issues/2582)) ([5395753](https://github.com/mondaycom/vibe/commit/53957534f8a28feb6c8345df088b1dc5f5cf02e7))
+* **TransitionView:** component to be used on wizard-related logics to render a step with animation between steps ([#2557](https://github.com/mondaycom/vibe/issues/2557)) ([bbb6856](https://github.com/mondaycom/vibe/commit/bbb68567c5084bbd6f65bc519f11538594f4e570))
+* **useWizard:** add hook for managing wizard logic for different use cases ([#2450](https://github.com/mondaycom/vibe/issues/2450)) ([dc6e393](https://github.com/mondaycom/vibe/commit/dc6e393ad7d75655fd7e0d0f6a93674ffc783e3f))
+
+
+
+
+
 ## [2.142.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.142.0...monday-ui-react-core@2.142.1) (2024-11-06)
 
 
