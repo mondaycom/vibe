@@ -41,7 +41,6 @@ const TextArea = forwardRef(
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
-    const isErrorState = error || (maxLength && value?.length > maxLength);
 
     const ariaDescribedby = useMemo(
       () => [helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined,
@@ -49,6 +48,7 @@ const TextArea = forwardRef(
     );
 
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
+    const isErrorState = error || (typeof maxLength === "number" && characterCount > maxLength);
 
     const handleOnChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -88,7 +88,7 @@ const TextArea = forwardRef(
           required={required}
           rows={numRows}
           className={cx(styles.textArea, [styles[size]], { [styles.resize]: resize })}
-          aria-invalid={error}
+          aria-invalid={isErrorState}
           aria-describedby={ariaDescribedby}
           onChange={handleOnChange}
         />
