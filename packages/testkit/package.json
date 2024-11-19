@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
