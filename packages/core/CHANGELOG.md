@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.146.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.2...monday-ui-react-core@2.146.0) (2024-11-19)
+
+
+### Bug Fixes
+
+* **TextArea:** Error state not correctly set when maxlength is exceeded ([#2588](https://github.com/mondaycom/vibe/issues/2588)) ([5a140e8](https://github.com/mondaycom/vibe/commit/5a140e8f335c4b2f4c83ae6beeae3de7db55d746))
+
+
+### Features
+
+* **Switcher:** update icon ([#2597](https://github.com/mondaycom/vibe/issues/2597)) ([3c045b1](https://github.com/mondaycom/vibe/commit/3c045b18caf3dad36787c5ee9e84ebb3f71425b2))
+
+
+
+
+
 ## [2.145.2](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.1...monday-ui-react-core@2.145.2) (2024-11-18)
 
 
