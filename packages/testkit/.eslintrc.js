@@ -20,6 +20,7 @@ const commonTsRules = {
 };
 
 module.exports = {
+  ignorePatterns: ["node_modules", "dist"],
   parserOptions: {
     sourceType: "module"
   },
