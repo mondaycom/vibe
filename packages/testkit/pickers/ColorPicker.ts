@@ -33,7 +33,7 @@ export class ColorPicker extends BaseElement {
    * Get the currently selected color.
    * @returns {Promise<string>} The selected color.
    */
-  async getSelectedColor(): Promise<string| undefined> {
+  async getSelectedColor(): Promise<string | undefined> {
     const selectedColor = new BaseElement(
       this.page,
       this.locator.locator("//*[contains(@class, 'selectedColor')]"),
@@ -41,6 +41,6 @@ export class ColorPicker extends BaseElement {
     );
     const dataTestIdAttr = await selectedColor.getAttributeValue("data-testId");
     const parts = dataTestIdAttr?.split("_");
-    return parts?.slice(-2).join("_");  // Returning the last two parts as the selected color
+    return parts?.slice(-2).join("_"); // Returning the last two parts as the selected color
   }
 }

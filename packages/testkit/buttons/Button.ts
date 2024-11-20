@@ -7,7 +7,7 @@ import { BaseElement } from "../BaseElement";
  * Extends the BaseElement class.
  */
 export class Button extends BaseElement {
-  override page : Page;
+  override page: Page;
   override locator: Locator;
   override elementReportName: string;
   /**
@@ -27,7 +27,7 @@ export class Button extends BaseElement {
    * Execute click action on the element.
    * @returns {Promise<void>}
    */
-  async click() : Promise<void> {
+  async click(): Promise<void> {
     await test.step(`Click on: ${this.elementReportName}`, async () => {
       await this.locator.click();
     });
