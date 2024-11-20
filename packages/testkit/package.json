@@ -26,7 +26,9 @@
   },
   "scripts": {
     "test:e2e": "npx playwright test",
-    "build": "tsc && tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "yarn build:esm",
     "start-server": "yarn lerna run storybook --scope=monday-ui-react-core",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint -- --fix"
