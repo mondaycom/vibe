@@ -1,6 +1,6 @@
 import React from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
-import { InputSize } from "../BaseInput/BaseInput.types";
+import { InputSize } from "../BaseInput";
 import IconButton from "../IconButton/IconButton";
 import MenuButton from "../MenuButton/MenuButton";
 
@@ -93,4 +93,8 @@ export interface SearchProps extends VibeComponentProps {
    * Callback function that is called when the clear button is clicked.
    */
   onClear?: () => void;
+  /**
+   * Callback function that is called when the Enter keyboard key is down.
+   */
+  onEnterKey?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
