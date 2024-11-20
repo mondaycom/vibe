@@ -20,7 +20,8 @@ const getAddons = () => {
     },
     "storybook-addon-playground",
     "@chromatic-com/storybook",
-    "@storybook/addon-storysource"
+    "@storybook/addon-storysource",
+    "./notifications-addon"
   ];
 
   if (process.env.NODE_ENV !== "production") {
