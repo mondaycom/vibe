@@ -13,7 +13,9 @@ test.describe("dropdown Class with Storybook", () => {
   });
 
   test("set dropdown value", async ({ page }) => {
-    await page.waitForTimeout(3000);
+    // extended wait for interaction test to finish
+    await page.waitForTimeout(10000);
+    await DropDown.inputField.setText("");
     await DropDown.selectItem("2");
     await page.waitForTimeout(500);
     expect(await DropDown.getText()).toContain("2");
