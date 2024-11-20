@@ -30,14 +30,20 @@
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
     "start-server": "yarn lerna run storybook --scope=monday-ui-react-core",
-    "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint . --max-warnings=0",
     "lint:fix": "yarn lint -- --fix"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
   },
   "devDependencies": {
+    "@playwright/test": "1.45.3",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
-    "@playwright/test": "1.45.3"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }
