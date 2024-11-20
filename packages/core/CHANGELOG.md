@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.147.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.146.0...monday-ui-react-core@2.147.0) (2024-11-20)
+
+
+### Features
+
+* **Switcher:** update icon ([#2599](https://github.com/mondaycom/vibe/issues/2599)) ([cdac401](https://github.com/mondaycom/vibe/commit/cdac401ee11c14c2ae3ca2d4fe62aa579b2dd1c0))
+
+
+
+
+
 # [2.146.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.145.2...monday-ui-react-core@2.146.0) (2024-11-19)
 
 
