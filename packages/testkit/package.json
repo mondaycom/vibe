@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
@@ -37,7 +37,7 @@
     "url": "https://github.com/mondaycom/vibe/issues"
   },
   "devDependencies": {
-    "eslint": "^8.23.0",
-    "@playwright/test": "1.45.3"
+    "@playwright/test": "1.45.3",
+    "eslint": "^8.23.0"
   }
 }
