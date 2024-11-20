@@ -24,19 +24,19 @@ describe("Search", () => {
     expect(queryByLabelText("Clear")).toBeNull();
   });
 
-  it("should display both the search icon and clear icon when input has value", async () => {
+  it("should display both the search icon and clear icon when input has value", () => {
     const { getByTestId, getAllByTestId } = renderSearch({ value: "Test" });
     expect(getAllByTestId("icon")).toHaveLength(2);
     expect(getByTestId("clean-search-button")).toBeInTheDocument();
   });
 
-  it("should clear the input value when the clear icon is clicked", async () => {
+  it("should clear the input value when the clear icon is clicked", () => {
     const { getByRole, getByLabelText } = renderSearch({ value: "Test" });
     userEvent.click(getByLabelText("Clear"));
     expect(getByRole("searchbox")).toHaveValue("");
   });
 
-  it("should display the clear icon once user inputs", async () => {
+  it("should display the clear icon once user inputs", () => {
     const { getByRole, getByTestId } = renderSearch();
     userEvent.type(getByRole("searchbox"), "Test");
     expect(getByTestId("clean-search-button")).toBeInTheDocument();
@@ -63,7 +63,7 @@ describe("Search", () => {
     expect(onClear).toHaveBeenCalled;
   });
 
-  it("should debounce the onChange call", async () => {
+  it("should debounce the onChange call", () => {
     jest.useFakeTimers();
     const onChange = jest.fn();
 
@@ -152,6 +152,43 @@ describe("Search", () => {
       expect(onFocus).toHaveBeenCalled();
       userEvent.tab();
       expect(onBlur).toHaveBeenCalled();
+    });
+
+    it("should call onEnterKey when Enter key is pressed", () => {
+      const onEnterKey = jest.fn();
+      const { getByRole } = renderSearch({ onEnterKey });
+      const input = getByRole("searchbox");
+      userEvent.click(input);
+      userEvent.keyboard("{Enter}");
+      expect(onEnterKey).toHaveBeenCalledTimes(1);
+    });
+
+    it("should not call onEnterKey when other keys are pressed", () => {
+      const onEnterKey = jest.fn();
+      const { getByRole } = renderSearch({ onEnterKey });
+      const input = getByRole("searchbox");
+      userEvent.click(input);
+      userEvent.keyboard("a");
+      expect(onEnterKey).not.toHaveBeenCalled();
+    });
+
+    it("should not call onEnterKey when input is disabled", () => {
+      const onEnterKey = jest.fn();
+      const { getByRole } = renderSearch({ onEnterKey, disabled: true });
+      const input = getByRole("searchbox");
+      userEvent.click(input);
+      userEvent.keyboard("{Enter}");
+      expect(onEnterKey).not.toHaveBeenCalled();
+    });
+
+    it("should call onEnterKey when input has content and Enter is pressed", () => {
+      const onEnterKey = jest.fn();
+      const { getByRole } = renderSearch({ onEnterKey });
+      const input = getByRole("searchbox");
+      userEvent.click(input);
+      userEvent.type(input, "Hello, World!");
+      userEvent.keyboard("{Enter}");
+      expect(onEnterKey).toHaveBeenCalledTimes(1);
     });
   });
 });
