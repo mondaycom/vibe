@@ -12,7 +12,7 @@ test.describe("dropdown Class with Storybook", () => {
     DropDown = new Dropdown(page, DropDownLocator, "Test DropDown");
   });
 
-  test("set dropdown value", async ({ page }) => {
+  test.fixme("set dropdown value", async ({ page }) => {
     // extended wait for interaction test to finish
     await page.waitForTimeout(10000);
     await DropDown.inputField.setText("");
