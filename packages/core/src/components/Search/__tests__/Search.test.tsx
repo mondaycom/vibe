@@ -154,41 +154,32 @@ describe("Search", () => {
       expect(onBlur).toHaveBeenCalled();
     });
 
-    it("should call onEnterKey when Enter key is pressed", () => {
-      const onEnterKey = jest.fn();
-      const { getByRole } = renderSearch({ onEnterKey });
+    it("should call onKeyDown when Enter key is pressed", () => {
+      const onKeyDown = jest.fn();
+      const { getByRole } = renderSearch({ onKeyDown });
       const input = getByRole("searchbox");
       userEvent.click(input);
       userEvent.keyboard("{Enter}");
-      expect(onEnterKey).toHaveBeenCalledTimes(1);
+      expect(onKeyDown).toHaveBeenCalledTimes(1);
     });
 
-    it("should not call onEnterKey when other keys are pressed", () => {
-      const onEnterKey = jest.fn();
-      const { getByRole } = renderSearch({ onEnterKey });
-      const input = getByRole("searchbox");
-      userEvent.click(input);
-      userEvent.keyboard("a");
-      expect(onEnterKey).not.toHaveBeenCalled();
-    });
-
-    it("should not call onEnterKey when input is disabled", () => {
-      const onEnterKey = jest.fn();
-      const { getByRole } = renderSearch({ onEnterKey, disabled: true });
+    it("should not call onKeyDown when input is disabled", () => {
+      const onKeyDown = jest.fn();
+      const { getByRole } = renderSearch({ onKeyDown, disabled: true });
       const input = getByRole("searchbox");
       userEvent.click(input);
       userEvent.keyboard("{Enter}");
-      expect(onEnterKey).not.toHaveBeenCalled();
+      expect(onKeyDown).not.toHaveBeenCalled();
     });
 
-    it("should call onEnterKey when input has content and Enter is pressed", () => {
-      const onEnterKey = jest.fn();
-      const { getByRole } = renderSearch({ onEnterKey });
+    it("should call onKeyDown for each character when input is typed with content", () => {
+      const onKeyDown = jest.fn();
+      const string = "Hello, World!";
+      const { getByRole } = renderSearch({ onKeyDown });
       const input = getByRole("searchbox");
       userEvent.click(input);
-      userEvent.type(input, "Hello, World!");
-      userEvent.keyboard("{Enter}");
-      expect(onEnterKey).toHaveBeenCalledTimes(1);
+      userEvent.type(input, string);
+      expect(onKeyDown).toHaveBeenCalledTimes(string.length);
     });
   });
 });

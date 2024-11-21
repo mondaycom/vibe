@@ -94,7 +94,7 @@ export interface SearchProps extends VibeComponentProps {
    */
   onClear?: () => void;
   /**
-   * Callback function that is called when the Enter keyboard key is down.
+   * Callback function that is called when a keyboard key is down.
    */
-  onEnterKey?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }

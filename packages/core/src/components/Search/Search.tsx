@@ -35,7 +35,7 @@ const Search = forwardRef(
       onFocus,
       onBlur,
       onClear,
-      onEnterKey,
+      onKeyDown,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -59,14 +59,6 @@ const Search = forwardRef(
       clearValue();
       onClear?.();
     }, [disabled, clearValue, onClear]);
-
-    const handleKeyDown = useCallback(
-      (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (disabled || event.key !== "Enter") return;
-        onEnterKey?.(event);
-      },
-      [disabled, onEnterKey]
-    );
 
     const SearchIcon = (
       <Icon
@@ -120,7 +112,7 @@ const Search = forwardRef(
         onChange={onEventChanged}
         onBlur={onBlur}
         onFocus={onFocus}
-        onKeyDown={handleKeyDown}
+        onKeyDown={onKeyDown}
         autoComplete={autoComplete}
         size={size}
         wrapperRole="search"
