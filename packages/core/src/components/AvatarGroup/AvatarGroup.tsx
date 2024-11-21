@@ -16,6 +16,10 @@ export type AvatarGroupCounterVisualProps = {
   maxDigits?: number;
   ariaLabelItemsName?: string;
   noAnimation?: boolean;
+  /**
+   * Relevant only for when AvatarGroup contains a clickable avatar
+   */
+  dialogContainerSelector?: string;
 };
 
 export interface AvatarGroupProps extends VibeComponentProps {
