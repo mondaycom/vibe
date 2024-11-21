@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useMemo } from "react";
-import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
+import LegacyModalContent from "../../../components/LegacyModal/LegacyModalContent/LegacyModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import { DropdownOption } from "../../../components/Dropdown/Dropdown.types";
-import Modal from "../../../components/Modal/Modal";
+import Modal from "../../../components/LegacyModal/LegacyModal";
 import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";
 import Flex from "../../../components/Flex/Flex";
@@ -43,9 +43,9 @@ export const ModalWithDamagedDropdown: React.FC = () => {
     <div>
       <Button onClick={() => setShow(true)}>Open Modal</Button>
       <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-        <ModalContent>
+        <LegacyModalContent>
           <Dropdown options={options} />
-        </ModalContent>
+        </LegacyModalContent>
       </Modal>
     </div>
   );
@@ -107,9 +107,9 @@ export const MenuPosition: React.FC = () => {
       <div>
         <Button onClick={() => setShow(true)}>Open Modal</Button>
         <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-          <ModalContent>
+          <LegacyModalContent>
             <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
-          </ModalContent>
+          </LegacyModalContent>
         </Modal>
       </div>
       <Dialog
@@ -185,9 +185,9 @@ export const InsideOverflowContainer: React.FC = () => {
       <div>
         <Button onClick={() => setShow(true)}>Open Modal</Button>
         <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-          <ModalContent>
+          <LegacyModalContent>
             <Dropdown options={options} insideOverflowContainer />
-          </ModalContent>
+          </LegacyModalContent>
         </Modal>
       </div>
       <Dialog
