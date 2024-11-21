@@ -5,9 +5,9 @@ import { Button } from "./Button";
  * Class representing a split button that extends the Button class.
  */
 export class SplitButton extends Button {
- override page: Page;
- override locator: Locator;
- override elementReportName: string;
+  override page: Page;
+  override locator: Locator;
+  override elementReportName: string;
 
   /**
    * Create a SplitButton.

@@ -4,7 +4,7 @@ import { textAreaStory } from "./utils/url-helper";
 
 test.describe("textArea Class with Storybook", () => {
   let textArea;
-  let textAreaLocator
+  let textAreaLocator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto(textAreaStory);
@@ -13,8 +13,10 @@ test.describe("textArea Class with Storybook", () => {
     textArea = new TextArea(page, textAreaLocator, "Test text field");
   });
 
-  test("set text in textarea", async ({page}) => {
+  // eslint-disable-next-line no-unused-vars
+  test("set text in textarea", async ({ page }) => {
     await textArea.setText("Test Text");
+    // eslint-disable-next-line playwright/missing-playwright-await
     expect(textArea.textAreaInput.locator).toHaveValue("Test Text");
   });
 });
