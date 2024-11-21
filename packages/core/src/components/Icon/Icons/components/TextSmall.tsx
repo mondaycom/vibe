@@ -6,8 +6,7 @@ size?: string | number;
 }
 const TextSmall: React.FC<TextSmallProps> = ({size, ...props}) => (
   <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
-    <path d="M10.9508 11.6951H9.04606L8.61827 13H8L9.73614 8H10.2607L12 13H11.3849L10.9508 11.6951ZM9.22717 11.1525H10.7728L9.99844 8.81387L9.22717 11.1525Z" fill="currentColor"
-    />
+    <path d="M11.426 12.173H8.57L7.927 14H7l2.604-7h.787L13 14h-.923l-.65-1.827Zm-2.585-.76h2.318L9.998 8.14 8.84 11.414Z" />
   </svg>
 );
 TextSmall.displayName = 'TextSmall';
