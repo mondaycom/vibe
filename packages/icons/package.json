@@ -1,7 +1,7 @@
 {
   "name": "@vibe/icons",
   "version": "0.1.0",
-  "description": "Vibe's icon library",
+  "description": "Vibe's Icon Library",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
