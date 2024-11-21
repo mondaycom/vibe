@@ -71,4 +71,3 @@ The following migrations are included in this CLI:
 
 - **Migration Type**: `enums` (`--migration enums`)
 - **Description**: This migration transforms enums to TS types with version 3 of @vibe/code.
--
