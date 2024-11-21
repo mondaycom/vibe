@@ -83,6 +83,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
             id,
             style: ellipsisStyle,
             "data-testid": dataTestId,
+            "data-vibe-id": getTestId(ComponentDefaultTestId.TEXT),
             className: cx(styles.typography, styles[color], styles[align], ellipsisClass, className),
             ref: mergedRef,
             role,

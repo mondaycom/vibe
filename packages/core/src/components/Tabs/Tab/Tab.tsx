@@ -92,6 +92,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-selected={active}
         aria-disabled={disabled}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+        data-vibe-id={getTestId(ComponentDefaultTestId.TAB)}
       >
         <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}

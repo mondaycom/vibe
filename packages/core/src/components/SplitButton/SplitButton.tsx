@@ -217,6 +217,7 @@ const SplitButton: FC<SplitButtonProps> & {
       ref={ref}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+      data-vibe-id={getTestId(ComponentDefaultTestId.SPLIT_BUTTON)}
     >
       <Button
         {

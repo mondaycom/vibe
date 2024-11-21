@@ -265,6 +265,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onBlur,
         tabIndex: disabled || ariaHidden ? -1 : tabIndex,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-vibe-id": getTestId(ComponentDefaultTestId.BUTTON),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
