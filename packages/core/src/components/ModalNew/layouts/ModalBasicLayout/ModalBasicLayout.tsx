@@ -29,12 +29,12 @@ const ModalBasicLayout = forwardRef(
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_BASIC_LAYOUT, id)}
         >
           <div className={styles.header}>{header}</div>
-          {isContentScrolled && <Divider className={styles.divider} withoutMargin />}
+          <Divider className={cx(styles.divider, { [styles.showDivider]: isContentScrolled })} withoutMargin />
           <ModalLayoutScrollableContent onScroll={onScroll} className={styles.content}>
             {content}
           </ModalLayoutScrollableContent>
         </Flex>
-        {isContentScrolled && <ModalFooterShadow />}
+        <ModalFooterShadow show={isContentScrolled} />
       </>
     );
   }
