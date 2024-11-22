@@ -36,9 +36,9 @@
       "default": "./dist/src/tests/testIds.js"
     },
     "./next": {
-      "types": "./dist/components/next/next.d.ts",
-      "import": "./dist/src/components/next/next.js",
-      "default": "./dist/src/components/next/next.js"
+      "types": "./dist/next.d.ts",
+      "import": "./dist/src/next.js",
+      "default": "./dist/src/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
