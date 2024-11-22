@@ -24,58 +24,44 @@
   [aria-modal][role="dialog"] {
     &[class*="sizeSmall"] {
       --modal-max-height: 50%;
-      --modal-width: 45%;
+      --modal-width: 460px;
     }
 
     &[class*="sizeMedium"] {
       --modal-max-height: 80%;
-      --modal-width: 50%;
+      --modal-width: 540px;
     }
 
     &[class*="sizeLarge"] {
       --modal-max-height: 80%;
-      --modal-width: 70%;
+      --modal-width: 800px;
     }
 
     @container (min-width: 1280px) {
       &[class*="sizeSmall"] {
-        --modal-width: 40%;
+        --modal-width: 480px;
       }
 
       &[class*="sizeMedium"] {
-        --modal-width: 44%;
+        --modal-width: 580px;
       }
 
       &[class*="sizeLarge"] {
-        --modal-width: 66%;
+        --modal-width: 840px;
       }
     }
 
     @container (min-width: 1440px) {
       &[class*="sizeSmall"] {
-        --modal-width: 35%;
+        --modal-width: 520px;
       }
 
       &[class*="sizeMedium"] {
-        --modal-width: 38%;
+        --modal-width: 620px;
       }
 
       &[class*="sizeLarge"] {
-        --modal-width: 60%;
-      }
-    }
-
-    @container (min-width: 1720px) {
-      &[class*="sizeSmall"] {
-        --modal-width: 34%;
-      }
-
-      &[class*="sizeMedium"] {
-        --modal-width: 36%;
-      }
-
-      &[class*="sizeLarge"] {
-        --modal-width: 58%;
+        --modal-width: 900px;
       }
     }
   }
