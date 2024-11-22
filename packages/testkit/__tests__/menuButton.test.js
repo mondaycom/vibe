@@ -12,11 +12,13 @@ test.describe("menuButton Class with Storybook", () => {
     menuButton = new MenuButton(page, menubuttonLocator, "Test menu button");
   });
 
-  test("should open and close menu", async ({page}) => {
+  test("should open and close menu", async ({ page }) => {
     await menuButton.openMenu();
+    // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(500);
     expect(await menuButton.isExpanded()).toBe(true);
     await menuButton.closeMenu();
+    // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(500);
     expect(await menuButton.isExpanded()).toBe(false);
   });

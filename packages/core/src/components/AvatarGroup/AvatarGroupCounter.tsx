@@ -26,10 +26,6 @@ export interface AvatarGroupCounterProps extends VibeComponentProps {
   counterProps?: AvatarGroupCounterVisualProps;
   counterTooltipCustomProps?: Partial<TooltipProps>;
   counterTooltipIsVirtualizedList?: boolean;
-  /**
-   * Relevant only for when AvatarGroup contains a clickable avatar
-   */
-  counterDialogContainerSelector?: string;
   size?: AvatarSize;
   type?: AvatarType;
   counterAriaLabel?: string;
@@ -41,7 +37,6 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  counterDialogContainerSelector,
   size = "medium",
   type,
   counterAriaLabel,
@@ -53,7 +48,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,
     ariaLabelItemsName: counterAriaLabelItemsName = "items",
-    noAnimation
+    noAnimation,
+    dialogContainerSelector
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -108,7 +104,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         zIndex={1}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
-        dialogContainerSelector={counterDialogContainerSelector}
+        dialogContainerSelector={dialogContainerSelector}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {

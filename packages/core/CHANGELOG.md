@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.147.1](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.147.0...monday-ui-react-core@2.147.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** pass dialogContainerSelector from AvatarGroup to AvatarGroupCounter ([#2602](https://github.com/mondaycom/vibe/issues/2602)) ([571e908](https://github.com/mondaycom/vibe/commit/571e908bbc7e8647444026d08a6fe93a2c000330))
+* **TextField:** when inputValue is undefined, length check fails ([#2603](https://github.com/mondaycom/vibe/issues/2603)) ([ad98340](https://github.com/mondaycom/vibe/commit/ad983408dcbdfc725f9106c0a314c7c84ffb66ec))
+
+
+
+
+
 # [2.147.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.146.0...monday-ui-react-core@2.147.0) (2024-11-20)
 
 

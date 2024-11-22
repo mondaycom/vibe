@@ -9,7 +9,8 @@ export class MenuButton extends Button {
   override locator: Locator;
   override elementReportName: string;
   button: Button;
-  menu: any; 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  menu: any;
 
   /**
    * Create a MenuButton.
@@ -18,6 +19,7 @@ export class MenuButton extends Button {
    * @param {string} elementReportName - The name for reporting purposes.
    * @param {any} menuType - The type of menu associated with the button.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(page: Page, locator: Locator, elementReportName: string, menuType: any) {
     super(page, locator, elementReportName);
     this.page = page;
