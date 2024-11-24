@@ -7,7 +7,7 @@ import { Tab } from "./Tab";
  * Extends the BaseElement class.
  */
 export class TabList extends BaseElement {
-  private items: Tab[];  // List of tabs
+  private items: Tab[]; // List of tabs
   private tabsInitialized: boolean;
 
   /**
@@ -44,7 +44,7 @@ export class TabList extends BaseElement {
       await this.waitForElementsGroup(this.locator.locator("li"), this.elementReportName);
       const tabElements = await this.locator.locator("li").all();
       this.items = await Promise.all(
-        tabElements.map(async (locator) => {
+        tabElements.map(async locator => {
           const tabName = await locator.innerText();
           return new Tab(this.page, locator.getByText(`${tabName}`), `Tab Item: ${tabName}`);
         })

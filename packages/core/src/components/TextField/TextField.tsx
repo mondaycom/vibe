@@ -224,7 +224,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
     const validationClass = useMemo(() => {
-      if (typeof maxLength === "number" && inputValue.length > maxLength) {
+      if (typeof maxLength === "number" && inputValue && inputValue.length > maxLength) {
         return FEEDBACK_CLASSES.error;
       }
 
@@ -233,7 +233,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       }
       const status = isRequiredAndEmpty ? "error" : validation.status;
       return FEEDBACK_CLASSES[status];
-    }, [validation, isRequiredAndEmpty, inputValue]);
+    }, [maxLength, validation, isRequiredAndEmpty, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
     const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;

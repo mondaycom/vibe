@@ -66,3 +66,8 @@ The following migrations are included in this CLI:
 
 - **Migration Type**: `v3` (`--migration v3`)
 - **Description**: This migration transforms components and files to comply with version 3 of @vibe/code.
+
+### `enums` Migration
+
+- **Migration Type**: `enums` (`--migration enums`)
+- **Description**: This migration transforms enums to TS types with version 3 of @vibe/code.

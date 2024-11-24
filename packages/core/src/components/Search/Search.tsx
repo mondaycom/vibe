@@ -34,6 +34,7 @@ const Search = forwardRef(
       onFocus,
       onBlur,
       onClear,
+      onKeyDown,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -52,14 +53,11 @@ const Search = forwardRef(
     });
 
     const onClearButtonClick = useCallback(() => {
-      if (disabled) {
-        return;
-      }
-
+      if (disabled) return;
       inputRef.current?.focus?.();
       clearValue();
       onClear?.();
-    }, [disabled, clearValue]);
+    }, [disabled, clearValue, onClear]);
 
     const SearchIcon = (
       <Icon
@@ -112,6 +110,7 @@ const Search = forwardRef(
         onChange={onEventChanged}
         onBlur={onBlur}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         autoComplete={autoComplete}
         size={size}
         wrapperRole="search"

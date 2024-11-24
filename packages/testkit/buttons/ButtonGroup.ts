@@ -7,13 +7,11 @@ import { Button } from "./Button";
  * Extends the BaseElement class.
  */
 export class ButtonGroup extends BaseElement {
-
-  override page : Page;
+  override page: Page;
   override locator: Locator;
   override elementReportName: string;
   items: Button[];
   buttonsInitialized: boolean;
-
 
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
@@ -54,13 +52,12 @@ export class ButtonGroup extends BaseElement {
     });
   }
 
-
   /**
    * Get a button by its name.
    * @param {string} buttonName - The name of the button to retrieve.
    * @returns {Button} The button with the specified name.
    */
-  getButtonByName(buttonName: string): Button|undefined {
+  getButtonByName(buttonName: string): Button | undefined {
     if (!buttonName || typeof buttonName !== "string") {
       throw new Error("Invalid button name provided");
     }
@@ -75,14 +72,14 @@ export class ButtonGroup extends BaseElement {
    */
   async click(buttonName: string): Promise<void> {
     await this.initializeButtonsIfNeeded();
-    
+
     const button = this.getButtonByName(buttonName);
-    
+
     // Throw an error if the button is not found
     if (!button) {
       throw new Error(`Invalid button name provided: ${buttonName}`);
     }
-  
+
     await button.click();
   }
 }

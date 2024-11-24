@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, UIEventHandler, useCallback, useEffect } from "react";
+import React, { ComponentType, forwardRef, useCallback, useEffect } from "react";
 import { VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
@@ -28,29 +28,28 @@ const TableVirtualizedBody = forwardRef(
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
     const { resetHoveredRow } = useTableRowMenu();
 
-    const onAutoSizerScroll = useCallback<UIEventHandler<HTMLDivElement>>(
-      e => {
+    const handleOuterScroll = useCallback(
+      (e: Event) => {
+        const target = e.target as HTMLDivElement;
         resetHoveredRow();
-        onVirtualizedListScroll(e);
+        onVirtualizedListScroll({
+          target,
+          currentTarget: target
+        } as unknown as React.UIEvent<HTMLDivElement>);
       },
       [resetHoveredRow, onVirtualizedListScroll]
     );
 
     useEffect(() => {
-      markTableAsVirtualized();
-    }, [markTableAsVirtualized]);
+      const scrollElement = virtualizedListRef.current;
+      if (!scrollElement) return;
 
-    const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
-      ({ index, style: { width: _width, ...style } }) => {
-        const currentItem = items[index];
-        const element = rowRenderer(currentItem);
-        return React.cloneElement(element, {
-          style: { ...style, ...element.props?.style },
-          key: index
-        });
-      },
-      [items, rowRenderer]
-    );
+      scrollElement.addEventListener("scroll", handleOuterScroll);
+
+      return () => {
+        scrollElement.removeEventListener("scroll", handleOuterScroll);
+      };
+    }, [handleOuterScroll]);
 
     const handleVirtualizedVerticalScroll = useCallback(
       ({
@@ -67,6 +66,22 @@ const TableVirtualizedBody = forwardRef(
       [onScroll]
     );
 
+    const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
+      ({ index, style: { width: _width, ...style } }) => {
+        const currentItem = items[index];
+        const element = rowRenderer(currentItem);
+        return React.cloneElement(element, {
+          style: { ...style, ...element.props?.style },
+          key: index
+        });
+      },
+      [items, rowRenderer]
+    );
+
+    useEffect(() => {
+      markTableAsVirtualized();
+    }, [markTableAsVirtualized]);
+
     return (
       <TableBody
         className={cx(styles.tableBody, className)}
@@ -75,7 +90,7 @@ const TableVirtualizedBody = forwardRef(
         ref={ref}
       >
         {items?.length && (
-          <AutoSizer onScroll={onAutoSizerScroll}>
+          <AutoSizer>
             {({ height, width }: AutoSizerSize) => (
               <List
                 itemSize={RowHeights[size]}

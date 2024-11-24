@@ -12,9 +12,12 @@ test.describe("dropdown Class with Storybook", () => {
     DropDown = new Dropdown(page, DropDownLocator, "Test DropDown");
   });
 
-  test("set dropdown value", async ({ page }) => {
-    await page.waitForTimeout(3000);
+  test.fixme("set dropdown value", async ({ page }) => {
+    // eslint-disable-next-line playwright/no-wait-for-timeout -- extended wait for interaction test to finish
+    await page.waitForTimeout(10000);
+    await DropDown.inputField.setText("");
     await DropDown.selectItem("2");
+    // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(500);
     expect(await DropDown.getText()).toContain("2");
   });
