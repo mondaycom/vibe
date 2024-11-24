@@ -80,7 +80,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
       setIsVirtualized(true);
     }, []);
 
-    const [scrollLeft, setScrollLeft] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     const onScroll = useCallback<UIEventHandler<HTMLDivElement>>(
       e => {
@@ -88,7 +88,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
         if (!isVirtualized) {
           const newLeft = (e.target as HTMLDivElement).scrollLeft;
           const hasScroll = newLeft > 0;
-          setScrollLeft(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
+          setIsScrolled(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
         }
       },
       [resetHoveredRow, isVirtualized]
@@ -116,10 +116,10 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
         tableRootRef,
         isVirtualized,
         markTableAsVirtualized,
-        scrollLeft,
-        setScrollLeft: (scrollLeft: boolean) => setScrollLeft(scrollLeft)
+        isScrolled,
+        setIsScrolled: (scrollLeft: boolean) => setIsScrolled(scrollLeft)
       }),
-      [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, scrollLeft, size]
+      [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, isScrolled, size]
     );
 
     const tableRowMenuProviderValue = useMemo<TableRowMenuProviderValue>(
@@ -145,7 +145,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
               {
                 [styles.border]: !withoutBorder,
                 [styles.virtualized]: isVirtualized,
-                [styles.hasScroll]: scrollLeft
+                [styles.hasScroll]: isScrolled
               },
               className
             )}
