@@ -24,6 +24,12 @@ A radio represents an item in a single selection list.
 
 <Canvas of={RadioButtonStories.Overview} />
 
+### Import
+
+```js
+import { RadioButton } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -73,7 +79,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
         description: (
           <>
             Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use{" "}
-            <StorybookLink page="Inputs/Checkbox">checkboxes</StorybookLink> instead.
+            <StorybookLink page="Components/Checkbox">checkboxes</StorybookLink> instead.
           </>
         )
       }
@@ -100,7 +106,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
         description: (
           <>
             Don’t leave all radio buttons unselcted. If you can’t offer a smart default, consider using the{" "}
-            <StorybookLink page="Inputs/Dropdown">dropdown component.</StorybookLink>
+            <StorybookLink page="Components/Dropdown">dropdown component.</StorybookLink>
           </>
         )
       }

@@ -1,6 +1,9 @@
 /**
  * System themes: dark, light, black
  */
+/**
+ * @deprecated
+ */
 export enum SystemTheme {
   LIGHT = "light",
   DARK = "dark",
@@ -9,6 +12,9 @@ export enum SystemTheme {
 
 /**
  * Colors which are eligible for theming
+ */
+/**
+ * @deprecated
  */
 export enum ThemeColor {
   primaryColor = "primary-color",

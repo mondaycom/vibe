@@ -3,8 +3,7 @@ import { noop as NOOP } from "lodash-es";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Button, Menu, MenuItem } from "../../index";
-import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
-import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
+import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";
 import React, { useRef } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -18,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Buttons/MenuButton",
+  title: "Components/MenuButton",
   component: MenuButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -31,9 +30,9 @@ export const Overview: Story = {
   args: {
     children: (
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-        <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-        <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+        <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+        <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
       </Menu>
     )
   },
@@ -49,39 +48,39 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <MenuButton size={MenuButton.sizes.XXS}>
+      <MenuButton size="xxs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.XS}>
+      <MenuButton size="xs">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.SMALL}>
+      <MenuButton size="small">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.MEDIUM}>
+      <MenuButton size="medium">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton size={MenuButton.sizes.LARGE}>
+      <MenuButton size="large">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     </>
@@ -99,9 +98,9 @@ export const DifferentIcon: Story = {
   render: () => (
     <MenuButton component={MoveArrowDown}>
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-        <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-        <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+        <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+        <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
       </Menu>
     </MenuButton>
   ),
@@ -123,9 +122,9 @@ export const WithText: Story = {
     >
       <MenuButton text="Open">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     </div>
@@ -146,11 +145,11 @@ export const WithTextAndIconAtTheEnd: Story = {
         width: 200
       }}
     >
-      <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
+      <MenuButton text="Open" component={DropdownChevronDown} componentPosition="end">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     </div>
@@ -169,9 +168,9 @@ export const Disabled: Story = {
   render: () => (
     <MenuButton disabled tooltipContent="This action is not available now">
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-        <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-        <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+        <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+        <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
       </Menu>
     </MenuButton>
   ),
@@ -191,15 +190,15 @@ export const CustomTriggerElement: Story = {
     return (
       <MenuButton
         triggerElement={props => (
-          <Button kind={Button.kinds.SECONDARY} {...props} className={""} ref={ref}>
+          <Button kind="secondary" {...props} className={""} ref={ref}>
             Button
           </Button>
         )}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     );

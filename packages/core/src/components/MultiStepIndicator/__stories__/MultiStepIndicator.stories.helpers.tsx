@@ -1,20 +1,20 @@
 import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import MultiStepIndicator, { Step } from "../MultiStepIndicator";
+import { Step } from "../MultiStep.types";
 
 export const firstSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan options",
     subtitleText: "Choose plan"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: "Number of users"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Paying method",
     subtitleText: "How to pay"
   }
@@ -22,17 +22,17 @@ export const firstSteps: Step[] = [
 
 export const secondSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan options",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: "Number of users"
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Paying method",
     subtitleText: "How to pay"
   }
@@ -40,17 +40,17 @@ export const secondSteps: Step[] = [
 
 export const thirdSteps: Step[] = [
   {
-    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    status: "fulfilled",
     titleText: "Plan",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Seats",
     subtitleText: ""
   },
   {
-    status: MultiStepIndicator.stepStatuses.PENDING,
+    status: "pending",
     titleText: "Method",
     subtitleText: ""
   }
@@ -59,11 +59,11 @@ export const thirdSteps: Step[] = [
 export const TipNotWhatYouAreLookingFor = () => (
   <Tip title="Not what you were looking for?">
     In order to navigate between content without a linear progress, use the{" "}
-    <StorybookLink page="Navigation/Tabs" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/Tabs" size={StorybookLink.sizes.SMALL}>
       Tabs
     </StorybookLink>{" "}
     or{" "}
-    <StorybookLink page="Buttons/ButtonGroup" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/ButtonGroup" size={StorybookLink.sizes.SMALL}>
       Button group
     </StorybookLink>{" "}
     component.

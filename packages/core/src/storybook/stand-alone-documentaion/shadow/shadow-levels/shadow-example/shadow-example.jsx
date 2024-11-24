@@ -2,21 +2,19 @@ import React from "react";
 import cx from "classnames";
 import { capitalize } from "lodash-es";
 import { useMemo } from "react";
-import { BEMClass } from "../../../../../helpers/bem-helper";
-import "./shadow-example.scss";
+import styles from "./shadow-example.module.scss";
 
-const CSS_BASE_CLASS = "monday-storybook-shadow-example";
-const bemHelper = BEMClass(CSS_BASE_CLASS);
 export const ShadowExample = ({ size }) => {
   const sizeName = useMemo(() => capitalize(size), [size]);
   return (
-    <div className={CSS_BASE_CLASS}>
-      <div className={cx(bemHelper({ element: "example" }), bemHelper({ element: "example", state: size }))} />
-      <span className={bemHelper({ element: "title" })}>{sizeName}</span>
-      <span className={bemHelper({ element: "code" })}>{`var(--box-shadow-${size})`}</span>
+    <div className={styles.shadow}>
+      <div className={cx(styles.example, styles[size])} />
+      <span className={styles.title}>{sizeName}</span>
+      <span className={styles.code}>{`var(--box-shadow-${size})`}</span>
     </div>
   );
 };
+
 ShadowExample.size = {
   XS: "xs",
   SMALL: "small",

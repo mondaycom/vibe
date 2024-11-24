@@ -1,18 +1,14 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
-import { IconPosition, LinkTarget } from "./LinkConsts";
+import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
+import { LinkIconPosition, LinkTarget } from "./Link.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /**
    * Class name for overriding link text styles
    */
@@ -35,8 +31,8 @@ export interface LinkProps extends VibeComponentProps {
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
   icon?: SubIcon;
-  /** the position of the icon in relation to the etext */
-  iconPosition?: IconPosition;
+  /** the position of the icon in relation to the text */
+  iconPosition?: LinkIconPosition;
   /** disable navigation */
   disableNavigation?: boolean;
   /** inherit text size */
@@ -46,36 +42,33 @@ export interface LinkProps extends VibeComponentProps {
 }
 
 const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
-  targets?: typeof LinkTarget;
-  target?: typeof LinkTarget;
-  iconPositions?: typeof IconPosition;
-  position?: typeof IconPosition;
+  targets?: typeof LinkTargetEnum;
+  iconPositions?: typeof IconPositionEnum;
+  position?: typeof IconPositionEnum;
 } = forwardRef(
   (
     {
       className,
-      componentClassName,
       textClassName,
       href = "",
       text = "",
       rel = "noreferrer",
       onClick = NOOP,
-      target = Link.targets.NEW_WINDOW,
+      target = "_blank",
       ariaLabelDescription = "",
       ariaDescribedby = "",
       icon = "",
-      iconPosition = Link.position.START,
+      iconPosition = "start",
       id = "",
       ariaLabeledBy = "",
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
       "data-testid": dataTestId
-    },
+    }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-    const isStart = iconPosition === IconPosition.START;
+    const isStart = iconPosition === "start";
 
     const onClickWrapper = useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
@@ -96,7 +89,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx(styles.link, overrideClassName, {
+        className={cx(styles.link, className, {
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
         })}
@@ -114,12 +107,11 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
+  return <Icon className={className} icon={icon} iconType="font" />;
 }
 
 export default withStaticProps(Link, {
-  position: IconPosition,
-  target: LinkTarget,
-  iconPositions: IconPosition,
-  targets: LinkTarget
+  position: IconPositionEnum,
+  iconPositions: IconPositionEnum,
+  targets: LinkTargetEnum
 });

@@ -8,8 +8,12 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
+import {
+  CounterColor as CounterColorEnum,
+  CounterSize as CounterSizeEnum,
+  CounterType as CounterTypeEnum
+} from "./CounterConstants";
+import { CounterColor, CounterSize, CounterType } from "./Counter.types";
 import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
 
@@ -18,10 +22,6 @@ export interface CounterProps extends VibeComponentProps {
   id?: string;
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
-  /** Use className instead
-   * @deprecated
-   */
-  wrapperClassName?: string;
   /** Custom class names to pass to the component wrapper */
   className?: string;
   /** Custom class names to pass to the component */
@@ -46,18 +46,16 @@ export interface CounterProps extends VibeComponentProps {
 }
 
 const Counter: React.FC<CounterProps> & {
-  sizes?: typeof CounterSize;
-  colors?: typeof CounterColor;
-  kinds?: typeof CounterType;
+  sizes?: typeof CounterSizeEnum;
+  colors?: typeof CounterColorEnum;
+  kinds?: typeof CounterTypeEnum;
 } = ({
   className,
-  // Backward compatibility for props naming
-  wrapperClassName,
   counterClassName,
   count = 0,
-  size = Counter.sizes.LARGE,
-  kind = Counter.kinds.FILL,
-  color = Counter.colors.PRIMARY,
+  size = "large",
+  kind = "fill",
+  color = "primary",
   maxDigits = 3,
   ariaLabeledBy = "",
   ariaLabel = "",
@@ -66,17 +64,11 @@ const Counter: React.FC<CounterProps> & {
   onMouseDown = NOOP,
   noAnimation = false,
   "data-testid": dataTestId
-}) => {
-  // Variables
-  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
-
-  // State
+}: CounterProps) => {
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
-  // Refs
   const ref = useRef<HTMLDivElement>(null);
 
-  // Callbacks
   const setCountChangedAnimationActive = useCallback(() => {
     setCountChangeAnimationState(true);
   }, [setCountChangeAnimationState]);
@@ -85,17 +77,14 @@ const Counter: React.FC<CounterProps> & {
     setCountChangeAnimationState(false);
   }, [setCountChangeAnimationState]);
 
-  // Listeners
   useEventListener({
     eventName: "animationend",
     callback: setCountChangedAnimationNotActive,
     ref
   });
 
-  // Custom hooks
   const isAfterFirstRender = useAfterFirstRender();
 
-  // Effects
   useEffect(() => {
     if (isAfterFirstRender.current) {
       setCountChangedAnimationActive();
@@ -108,11 +97,10 @@ const Counter: React.FC<CounterProps> & {
     }
   }, [maxDigits]);
 
-  // Memos
   const classNames = useMemo(() => {
     return cx(
       styles.counter,
-      getStyle(styles, camelCase("size-" + getActualSize(size))),
+      getStyle(styles, camelCase("size-" + size)),
       getStyle(styles, camelCase("kind-" + kind)),
       getStyle(styles, camelCase("color-" + color)),
       {
@@ -132,7 +120,7 @@ const Counter: React.FC<CounterProps> & {
 
   return (
     <span
-      className={overrideClassName}
+      className={className}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
@@ -168,7 +156,7 @@ const Counter: React.FC<CounterProps> & {
 };
 
 export default withStaticProps(Counter, {
-  sizes: CounterSize,
-  colors: CounterColor,
-  kinds: CounterType
+  sizes: CounterSizeEnum,
+  colors: CounterColorEnum,
+  kinds: CounterTypeEnum
 });

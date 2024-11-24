@@ -7,6 +7,9 @@ export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
 export const COMBOBOX_OPTION_ITEM = "combobox-option";
 export const COMBOBOX_LISTBOX_ID = "combobox-listbox";
 
+/**
+ * @deprecated
+ */
 export enum ComboboxOptionIconType {
   DEFAULT = "default",
   RENDERER = "renderer"

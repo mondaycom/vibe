@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Steps from "../Steps";
 
-// eslint-disable-next-line react/jsx-key
 const steps6 = [<div />, <div />, <div />, <div />, <div />, <div />];
 
 export const modifiers = [
@@ -33,7 +32,7 @@ export const StepsNumbersDoTemplate = () => {
   }, []);
   return (
     <Steps
-      type={Steps.types.NUMBERS}
+      type="numbers"
       steps={steps6}
       activeStepIndex={activeStepIndex}
       onChangeActiveStep={onChangeActiveStep}

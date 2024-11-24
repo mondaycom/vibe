@@ -1,18 +1,19 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import MultiStepIndicator, { Step } from "../MultiStepIndicator";
+import MultiStepIndicator from "../MultiStepIndicator";
+import { Step } from "../MultiStep.types";
 
 describe("MultiStepIndicator tests", () => {
   it("onClick works and is called once", () => {
     const exampleSteps: Step[] = [
       {
-        status: MultiStepIndicator.stepStatuses.FULFILLED,
+        status: "fulfilled",
         titleText: "Title",
         subtitleText: "Subtitle"
       },
       {
-        status: MultiStepIndicator.stepStatuses.ACTIVE,
+        status: "active",
         titleText: "Active",
         subtitleText: "Active Subtitle"
       }
@@ -21,7 +22,7 @@ describe("MultiStepIndicator tests", () => {
     const stepClickMock = jest.fn();
 
     const multiStepIndicatorComponent = render(
-      <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={stepClickMock} />
+      <MultiStepIndicator type="success" steps={exampleSteps} onClick={stepClickMock} />
     );
 
     const step = multiStepIndicatorComponent.getByText("Title");

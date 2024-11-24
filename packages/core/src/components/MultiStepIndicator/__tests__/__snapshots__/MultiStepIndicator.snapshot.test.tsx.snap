@@ -33,7 +33,6 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -224,7 +223,6 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -422,7 +420,6 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -788,7 +785,6 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -964,7 +960,6 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1155,7 +1150,6 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1346,7 +1340,6 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >
@@ -1537,7 +1530,6 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
             data-testid="icon"
             fill="currentColor"
             height="16"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="16"
           >

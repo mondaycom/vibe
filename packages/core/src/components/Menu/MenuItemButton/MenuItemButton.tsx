@@ -1,24 +1,19 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
 import React, { FC, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { ButtonType } from "../../Button/ButtonConstants";
+import { ButtonType } from "../../Button/Button.types";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPosition } from "../../../constants/positions";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
+import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  classname?: string;
   kind?: ButtonType;
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
@@ -27,7 +22,7 @@ export interface MenuItemButtonProps extends VibeComponentProps {
   disabled?: boolean;
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositions;
   tooltipShowDelay?: number;
   resetOpenSubMenuIndex?: () => void;
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
@@ -40,14 +35,12 @@ export interface MenuItemButtonProps extends VibeComponentProps {
 
 const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
-  tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
   isMenuChild?: boolean;
+  tooltipPositions?: typeof TooltipPositionsEnum;
 } = ({
   className,
-  // Backward compatibility for props naming
-  classname,
-  kind = MenuItemButton.kinds.PRIMARY,
+  kind = "primary",
   leftIcon = null,
   rightIcon = null,
   disabled = false,
@@ -55,7 +48,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   index,
   activeItemIndex = -1,
   onClick,
-  tooltipPosition = MenuItemButton.tooltipPositions.RIGHT,
+  tooltipPosition = "right",
   tooltipShowDelay = 300,
   children,
   resetOpenSubMenuIndex,
@@ -66,11 +59,10 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   useDocumentEventListeners,
   id,
   "data-testid": dataTestId
-}) => {
+}: MenuItemButtonProps) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const mergedRef = useMergeRef(ref, referenceElementRef);
-  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
 
   const shouldShowTooltip = disabled && disableReason;
   const tooltipContent = disableReason;
@@ -109,11 +101,11 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
       showDelay={tooltipShowDelay}
     >
       <Text
-        type={Text.types.TEXT2}
+        type="text2"
         element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
         id={id}
-        className={cx(styles.itemButton, overrideClassName)}
+        className={cx(styles.itemButton, className)}
         ref={mergedRef}
         role="menuitem"
         aria-current={isActive}
@@ -126,7 +118,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
           rightIcon={rightIcon}
           onClick={onClickCallback}
           kind={kind}
-          size={Button.sizes.SMALL}
+          size="small"
           blurOnMouseUp={false}
         >
           <div className={styles.content}>{children}</div>
@@ -143,5 +135,5 @@ Object.assign(MenuItemButton, {
 
 export default withStaticProps(MenuItemButton, {
   kinds: Button.kinds,
-  tooltipPositions: DialogPosition
+  tooltipPositions: TooltipPositionsEnum
 });

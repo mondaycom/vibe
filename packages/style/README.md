@@ -1,12 +1,13 @@
 # monday.com UI styles
 
-> This package includes all of the styling foundations of monday.com's Vibe Design System
-> Theme definition, colors, shadows, dimensions, icons, etc.
+> Vibe Design System's styling foundations: Theme definition, colors, shadows, dimensions, etc.
 
 ## Installation
 
-```
+```bash
 npm install monday-ui-style
+# or
+yarn add monday-ui-style
 ```
 
 ## Usage
@@ -21,12 +22,6 @@ or if you want to import it in your JS files
 
 ```javascript
 import "monday-ui-style/dist/index.min.css";
-```
-
-**Icons**: We expose each icon's SVG from the dist files so you can use them in your app.
-
-```javascript
-import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ```
 
 **Mixins and functions**: We export multiple SCSS mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.

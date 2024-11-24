@@ -16,12 +16,7 @@ export const ComboboxDescription = () => {
     ];
     return (
       <DialogContentContainer style={style}>
-        <Combobox
-          placeholder="Placeholder text here"
-          options={option}
-          size={Combobox.sizes.SMALL}
-          optionLineHeight={28}
-        />
+        <Combobox placeholder="Placeholder text here" options={option} size="small" optionLineHeight={28} />
       </DialogContentContainer>
     );
   }, []);

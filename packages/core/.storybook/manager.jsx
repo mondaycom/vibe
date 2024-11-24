@@ -28,7 +28,8 @@ addons.setConfig({
     },
     filters: {
       patterns: filterStory
-    }
+    },
+    showRoots: false
   }
 });
 

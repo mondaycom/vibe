@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../Icon";
-import Bolt from "../Icons/components/Bolt";
+import { Bolt } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import IconsList from "./IconsList";
@@ -8,14 +8,13 @@ import "./Icon.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,
-  enumPropNamesArray: [{ enumName: "type", propName: "iconType" }],
   iconPropNamesArray: ["icon"]
 });
 
 const iconTemplate = createComponentTemplate(Icon);
 
 export default {
-  title: "Media/Icon",
+  title: "Components/Icon",
   component: Icon,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -31,15 +30,13 @@ export const Overview = {
 };
 
 export const VibeIcon = {
-  render: () => (
-    <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} clickable={false} />
-  ),
+  render: () => <Icon iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
 
   name: "Vibe Icon"
 };
 
 export const FontIcon = {
-  render: () => <Icon iconType={Icon.type.ICON_FONT} iconLabel="my font awesome start icon" icon="fa fa-star" />,
+  render: () => <Icon iconType="font" iconLabel="my font awesome start icon" icon="fa fa-star" />,
 
   name: "Font Icon"
 };
@@ -47,7 +44,7 @@ export const FontIcon = {
 export const CustomSvg = {
   render: () => (
     <Icon
-      iconType={Icon.type.SRC}
+      iconType="src"
       icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
       iconLabel="my src awesome icon"
       className="icon-story-custom-icon"
@@ -65,7 +62,7 @@ export const Color = {
         color: "var(--sb-color-sofia_pink)"
       }}
     >
-      <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
+      <Icon iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
     </div>
   ),
 

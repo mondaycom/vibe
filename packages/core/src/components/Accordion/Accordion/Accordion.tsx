@@ -44,7 +44,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
       defaultIndex = [],
       className = "",
       id
-    },
+    }: AccordionProps,
     ref
   ) => {
     const componentRef = useRef(null);

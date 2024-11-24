@@ -1,7 +1,7 @@
 import Badge from "../Badge";
 import { Canvas, Meta } from "@storybook/blocks";
 import person from "./assets/person.png";
-import { WhatsNew } from "../../Icon/Icons";
+import { WhatsNew } from "@vibe/icons";
 import Link from "../../Link/Link";
 import Button from "../../Button/Button";
 import Avatar from "../../Avatar/Avatar";
@@ -26,6 +26,12 @@ import * as BadgeStories from "./Badge.stories";
 Badge component is responsible for layout an indicator/counter on a child component
 
 <Canvas of={BadgeStories.Overview} />
+
+### Import
+
+```js
+import { Badge } from "@vibe/core";
+```
 
 ## Props
 
@@ -64,7 +70,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
     {
       positive: {
         component: (
-          <Badge alignment={Badge.alignments.OUTSIDE}>
+          <Badge alignment="outside">
             <Link text="Read more" />
           </Badge>
         ),
@@ -90,7 +96,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
       },
       negative: {
         component: (
-          <Badge color={Indicator.colors.PRIMARY}>
+          <Badge color="primary">
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
@@ -100,16 +106,16 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
     {
       positive: {
         component: (
-          <Badge alignment={Badge.alignments.CIRCULAR}>
-            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          <Badge alignment="circular">
+            <Avatar size="medium" src={person} type="img" />
           </Badge>
         ),
         description: "When using Indicator badge, anchor it at the top-right edge"
       },
       negative: {
         component: (
-          <Badge alignment={Badge.alignments.CIRCULAR} anchor={Badge.anchors.TOP_START}>
-            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          <Badge alignment="circular" anchor="top-start">
+            <Avatar size="medium" src={person} type="img" />
           </Badge>
         ),
         description: "Do not place it on any other edge"

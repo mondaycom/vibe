@@ -9,7 +9,7 @@ export const TextFieldDescription = () => {
     };
     return (
       <div style={style}>
-        <TextField placeholder="Placeholder text here" size={TextField.sizes.LARGE} />
+        <TextField placeholder="Placeholder text here" size="large" />
       </div>
     );
   }, []);

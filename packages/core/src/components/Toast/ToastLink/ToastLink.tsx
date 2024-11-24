@@ -12,7 +12,7 @@ const ToastLink: FC<ToastLinkProps> = ({ className, id, "data-testid": dataTestI
   return (
     <Link
       {...linkProps}
-      componentClassName={classNames}
+      className={classNames}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_LINK, id)}
     />

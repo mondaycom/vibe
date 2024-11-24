@@ -40,7 +40,7 @@ const accordionTemplate = (args: AccordionProps) => {
 };
 
 export default {
-  title: "Data display/Accordion",
+  title: "Components/Accordion",
   component: Accordion,
 
   subcomponents: {

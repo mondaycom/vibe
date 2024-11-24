@@ -3,7 +3,7 @@ import type { Config } from "jest";
 const config: Config = {
   clearMocks: true,
   coverageDirectory: "coverage",
-  coveragePathIgnorePatterns: ["node_modules/", "src/components/Icon/Icons/"],
+  coveragePathIgnorePatterns: ["node_modules/"],
   globals: {
     extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"]
   },
@@ -29,7 +29,7 @@ const config: Config = {
       }
     ],
     "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$":
-      "<rootDir>/__mocks__/fileMock.js"
+      "<rootDir>/__mocks__/fileMock.cjs"
   },
   transformIgnorePatterns: ["node_modules/(?!monday-ui-style)/"]
 };

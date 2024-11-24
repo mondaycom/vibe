@@ -20,8 +20,6 @@ const colorKeys = [
   "warning-color-hover",
   "warning-color-selected",
   "warning-color-selected-hover",
-  "private-color",
-  "shareable-color",
   "inverted-color-background",
   "icon-color",
   "fixed-light-color",

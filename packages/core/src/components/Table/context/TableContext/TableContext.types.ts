@@ -1,7 +1,7 @@
-import { ITableProps } from "../../Table/Table";
+import { TableProps } from "../../Table/Table";
 import React, { UIEventHandler } from "react";
 
-export interface ITableContext extends TableProviderValue {
+export interface TableContext extends TableProviderValue {
   headRef: React.MutableRefObject<HTMLDivElement>;
   onHeadScroll: UIEventHandler<HTMLDivElement>;
   virtualizedListRef: React.MutableRefObject<HTMLDivElement>;
@@ -9,11 +9,11 @@ export interface ITableContext extends TableProviderValue {
 }
 
 export interface TableProviderForwardedProps {
-  columns: ITableProps["columns"];
-  dataState?: ITableProps["dataState"];
-  emptyState: ITableProps["emptyState"];
-  errorState: ITableProps["errorState"];
-  size: ITableProps["size"];
+  columns: TableProps["columns"];
+  dataState?: TableProps["dataState"];
+  emptyState: TableProps["emptyState"];
+  errorState: TableProps["errorState"];
+  size: TableProps["size"];
 }
 
 export interface TableProviderValue extends TableProviderForwardedProps {
@@ -24,7 +24,7 @@ export interface TableProviderValue extends TableProviderForwardedProps {
   setScrollLeft: (scrollAmount: number) => void;
 }
 
-export type ITableProviderProps = {
+export type TableProviderProps = {
   value: TableProviderValue;
   children: React.ReactNode;
 };

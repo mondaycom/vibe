@@ -6,14 +6,13 @@ import DialogContentContainerExample from "./DialogContentContainerExample";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DialogContentContainer,
-  enumPropNamesArray: ["type", "size"],
   ignoreControlsPropNamesArray: ["children"]
 });
 
 const dialogContentContainerTemplate = createComponentTemplate(DialogContentContainer);
 
 export default {
-  title: "Popover/DialogContentContainer",
+  title: "Components/DialogContentContainer",
   component: DialogContentContainer,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

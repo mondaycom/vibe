@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Add, Calendar, Check, Remove } from "../../Icon/Icons";
+import { Add, Calendar, Check, Remove } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
 import "./Button.stories.scss";
@@ -12,13 +12,12 @@ type Story = StoryObj<typeof Button>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Button,
-  enumPropNamesArray: ["kind", "size", "color", "type"],
   iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"],
   actionPropsArray: ["onClick"]
 });
 
 export default {
-  title: "Buttons/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -44,8 +43,8 @@ export const ButtonKinds: Story = {
   render: () => (
     <>
       <Button>Primary</Button>
-      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+      <Button kind="secondary">Secondary</Button>
+      <Button kind="tertiary">Tertiary</Button>
     </>
   ),
   name: "Button kinds"
@@ -54,9 +53,9 @@ export const ButtonKinds: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Button size={Button.sizes.LARGE}>Large</Button>
-      <Button size={Button.sizes.MEDIUM}>Medium</Button>
-      <Button size={Button.sizes.SMALL}>Small</Button>
+      <Button size="large">Large</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="small">Small</Button>
     </>
   )
 };
@@ -65,10 +64,10 @@ export const Disabled: Story = {
   render: () => (
     <>
       <Button disabled>Primary</Button>
-      <Button kind={Button.kinds.SECONDARY} disabled>
+      <Button kind="secondary" disabled>
         Secondary
       </Button>
-      <Button kind={Button.kinds.TERTIARY} disabled>
+      <Button kind="tertiary" disabled>
         Tertiary
       </Button>
     </>
@@ -87,8 +86,8 @@ export const States: Story = {
 export const PositiveAndNegative: Story = {
   render: () => (
     <>
-      <Button color={Button.colors.POSITIVE}>Positive</Button>
-      <Button color={Button.colors.NEGATIVE}>Negative</Button>
+      <Button color="positive">Positive</Button>
+      <Button color="negative">Negative</Button>
     </>
   ),
   name: "Positive and Negative"
@@ -155,13 +154,13 @@ export const OnColorStates: Story = {
           Regular
         </Text>
         <div className="monday-storybook-button_on-color-button">
-          <Button color={Button.colors.ON_PRIMARY_COLOR} marginRight>
+          <Button color="on-primary-color" marginRight>
             Primary on color
           </Button>
-          <Button color={Button.colors.ON_PRIMARY_COLOR} kind={Button.kinds.SECONDARY} marginRight>
+          <Button color="on-primary-color" kind="secondary" marginRight>
             Secondary on color
           </Button>
-          <Button color={Button.colors.ON_PRIMARY_COLOR} kind={Button.kinds.TERTIARY}>
+          <Button color="on-primary-color" kind="tertiary">
             Tertiary on color
           </Button>
         </div>
@@ -170,13 +169,13 @@ export const OnColorStates: Story = {
           Disabled
         </Text>
         <div className="monday-storybook-button_on-color-button">
-          <Button color={Button.colors.ON_PRIMARY_COLOR} disabled marginRight>
+          <Button color="on-primary-color" disabled marginRight>
             Primary on color
           </Button>
-          <Button color={Button.colors.ON_PRIMARY_COLOR} disabled marginRight kind={Button.kinds.SECONDARY}>
+          <Button color="on-primary-color" disabled marginRight kind="secondary">
             Secondary on color
           </Button>
-          <Button color={Button.colors.ON_PRIMARY_COLOR} disabled kind={Button.kinds.TERTIARY}>
+          <Button color="on-primary-color" disabled kind="tertiary">
             Tertiary on color
           </Button>
         </div>
@@ -189,10 +188,10 @@ export const OnColorStates: Story = {
 export const AdjacentButtons: Story = {
   render: () => (
     <div>
-      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level" rightFlat>
+      <Button kind="secondary" size="small" ariaLabel="decrease zoom level" rightFlat>
         <Remove />
       </Button>
-      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="increase zoom level" leftFlat>
+      <Button kind="secondary" size="small" ariaLabel="increase zoom level" leftFlat>
         <Add />
       </Button>
     </div>

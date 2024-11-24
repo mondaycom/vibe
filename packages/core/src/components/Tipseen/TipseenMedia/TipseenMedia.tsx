@@ -15,7 +15,7 @@ export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps>
 }
 
 const TipseenMedia: VibeComponent<TipseenMediaProps, HTMLElement> = forwardRef(
-  ({ className, id, "data-testid": dataTestId, children }, ref) => {
+  ({ className, id, "data-testid": dataTestId, children }: TipseenMediaProps, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const color = useContext(TipseenContext);

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
-import { SliderColor } from "../SliderConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderFilledTrack.module.scss";
+import { SliderColor } from "../Slider.types";
 
 function defineFilledTrackProps(dimension: number, offset: number, reverse: boolean) {
   if (reverse) {

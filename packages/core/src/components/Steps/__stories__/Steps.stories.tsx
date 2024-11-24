@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import Steps, { StepsProps } from "../Steps";
-import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
@@ -10,14 +9,13 @@ import "./Steps.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
-  enumPropNamesArray: ["type"],
   actionPropsArray: ["onChangeActiveStep"]
 });
 
 const steps5 = [<div />, <div />, <div />, <div />, <div />];
 
 export default {
-  title: "Data display/Steps",
+  title: "Components/Steps",
   component: Steps,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -62,8 +60,8 @@ export const Overview = {
 
 export const Types = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
-      <Steps type={Steps.types.NUMBERS} steps={steps5} activeStepIndex={2} />
+    <Flex direction="column" gap="medium">
+      <Steps type="numbers" steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
     </Flex>
@@ -74,13 +72,13 @@ export const Types = {
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} className="monday-storybook-steps_color">
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary type={Steps.types.NUMBERS} />
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
+    <Flex direction="column" gap="medium" className="monday-storybook-steps_color">
+      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
+      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
       <Steps
         steps={steps5}
         activeStepIndex={2}
-        isOnPrimary
+        color="on-primary-color"
         areNavigationButtonsHidden
         className="monday-storybook-steps_padding"
       />
@@ -155,9 +153,9 @@ export const StepsInsideATipseen = {
     return (
       <div className="monday-storybook-steps_block">
         <Tipseen
-          position={Tipseen.positions.LEFT}
+          position="left"
           modifiers={modifiers}
-          animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
+          animationType="opacity-and-slide"
           content={
             <TipseenWizard
               title="This is a title"
@@ -165,12 +163,12 @@ export const StepsInsideATipseen = {
               onChangeActiveStep={onChangeActiveStep}
               activeStepIndex={activeStepIndex}
               backButtonProps={{
-                size: Button.sizes.SMALL,
+                size: "small",
                 onClick: stepPrev
               }}
               nextButtonProps={{
-                kind: Button.kinds.PRIMARY,
-                size: Button.sizes.SMALL,
+                kind: "primary",
+                size: "small",
                 onClick: stepNext
               }}
               onFinish={() => {}}

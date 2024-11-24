@@ -25,7 +25,7 @@ export function warnDeprecated({
   message: string;
 }) {
   if (condition && process.env.NODE_ENV !== "production") {
-    const warningMessage = `[monday-ui-react-core] ${component}: ${message}`;
+    const warningMessage = `[@vibe/core] ${component}: ${message}`;
     console.warn(warningMessage);
   }
 }

@@ -35,7 +35,7 @@ jobs:
       - uses: ./.github/actions/git-creds
       - uses: ./.github/actions/download-builds
       - name: Generate new versions
-        run: yarn lerna version --exact --conventional-commits -y
+        run: yarn lerna version --exact --conventional-commits --conventional-graduate -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         id: setup-npmrc

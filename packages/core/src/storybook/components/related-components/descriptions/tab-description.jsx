@@ -5,11 +5,8 @@ import TabList from "../../../../components/Tabs/TabList/TabList";
 
 export const TabsDescription = () => {
   const component = useMemo(() => {
-    const style = {
-      marginLeft: "-40px"
-    };
     return (
-      <div style={style}>
+      <div>
         <TabList>
           <Tab>Tab</Tab>
           <Tab>Tab</Tab>

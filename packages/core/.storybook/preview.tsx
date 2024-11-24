@@ -1,8 +1,8 @@
 import React from "react";
 import * as VibeComponents from "../src/components";
-import * as VibeComponentsNext from "../src/next";
+import * as VibeComponentsNext from "../src/components/next";
 import * as VibeHooks from "../src/hooks";
-import * as VibeIcons from "../src/components/Icon/Icons";
+import * as VibeIcons from "@vibe/icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -76,7 +76,6 @@ const preview: Preview = {
         ComponentName: ComponentNameDecorator,
         h2: SectionName,
         h3: Title,
-        li: AnchorListItem,
         p: Paragraph,
         AlphaWarning,
         DeprecatedWarning,
@@ -99,18 +98,18 @@ const preview: Preview = {
       storySort: {
         order: [
           "Welcome",
+          "Getting Started",
           "Catalog",
-          "Change Log",
-          "Typography Migration Guide",
-          "Internal",
+          "Playground",
+          "Changelog",
+          "Migration Guide",
+          "Contributing",
           "Foundations",
-          "Buttons",
-          "Inputs",
-          "Data display",
-          "Media",
-          "Popover",
-          "Pickers",
-          "*",
+          "Components",
+          "Layout",
+          "Text",
+          "Theming",
+          "Technical Patterns",
           "Accessibility",
           "Hooks"
         ]

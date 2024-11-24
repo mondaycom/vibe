@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import { Calendar, Doc, Status } from "../../../../components/Icon/Icons";
+import { Calendar, Doc, Status } from "@vibe/icons";
 import { Label, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "../../../../components";
 import {
   statusColumnToLabelColor,
@@ -71,7 +71,6 @@ export const TableDescription = () => {
                   <Label
                     text={rowItem.status}
                     color={statusColumnToLabelColor[rowItem.status as keyof typeof statusColumnToLabelColor]}
-                    isAnimationDisabled
                   />
                 </TableCell>
               </TableRow>

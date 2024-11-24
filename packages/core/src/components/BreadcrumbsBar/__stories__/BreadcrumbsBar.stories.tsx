@@ -2,14 +2,13 @@ import React from "react";
 import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
 import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
 import Avatar from "../../Avatar/Avatar";
-import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
+import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./BreadcrumbsBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: BreadcrumbsBar,
-  enumPropNamesArray: ["type"]
+  component: BreadcrumbsBar
 });
 
 const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
@@ -25,7 +24,7 @@ const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
 };
 
 export default {
-  title: "Navigation/BreadcrumbsBar/BreadcrumbsBar",
+  title: "Components/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -59,7 +58,7 @@ export const Overview = {
 
 export const TextOnly = {
   render: () => (
-    <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+    <BreadcrumbsBar type="indication">
       <BreadcrumbItem text="Workspace" isCurrent />
       <BreadcrumbItem text="Folder" />
       <BreadcrumbItem text="Board" />
@@ -72,7 +71,7 @@ export const TextOnly = {
 
 export const WithIcons = {
   render: () => (
-    <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+    <BreadcrumbsBar type="navigation">
       <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
       <BreadcrumbItem text="Folder" icon={Folder} />
       <BreadcrumbItem text="Board" icon={Board} />
@@ -86,10 +85,10 @@ export const WithIcons = {
 export const NavigatableBreadcrumbs = {
   render: () => (
     <div className="monday-storybook-breadcrumbs-bar_inline-wrapper">
-      <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+      <Avatar size="medium" src={person3} type="img" />
       <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
         <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
-        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+        <BreadcrumbsBar type="navigation">
           <BreadcrumbItem text="User research" icon={Board} />
           <BreadcrumbItem text="Video sessions" icon={Group} />
         </BreadcrumbsBar>

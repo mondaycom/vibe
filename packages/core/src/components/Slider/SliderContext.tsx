@@ -3,7 +3,7 @@ import { createTestIdHelper } from "../../helpers/testid-helper";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
 import { SliderProps } from "./Slider";
 import { SliderContextActions, SliderContextInfix, SliderContextSelection, SliderContextUI } from "./SliderConstants";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});

@@ -3,7 +3,7 @@ import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "../../Icon/Icons";
+import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
@@ -13,20 +13,13 @@ import "./SplitButton.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
-  enumPropNamesArray: [
-    "kind",
-    "dialogPaddingSize",
-    {
-      propName: "secondaryDialogPosition",
-      enumName: "secondaryPositions"
-    }
-  ],
+
   iconPropNamesArray: ["leftIcon", "rightIcon"],
   actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"]
 });
 
 export default {
-  title: "Buttons/SplitButton",
+  title: "Components/SplitButton",
   component: SplitButton,
 
   subcomponents: {
@@ -74,7 +67,7 @@ export const Types = {
       />
       <SplitButton
         children="Secondary"
-        kind={SplitButton.kinds.SECONDARY}
+        kind="secondary"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -84,7 +77,7 @@ export const Types = {
       />
       <SplitButton
         children="Tertiary"
-        kind={SplitButton.kinds.TERTIARY}
+        kind="tertiary"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -109,7 +102,7 @@ export const Sizes = {
     <>
       <SplitButton
         children="Small"
-        size={SplitButton.sizes.SMALL}
+        size="small"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -119,7 +112,7 @@ export const Sizes = {
       />
       <SplitButton
         children="Medium"
-        size={SplitButton.sizes.MEDIUM}
+        size="medium"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -129,7 +122,7 @@ export const Sizes = {
       />
       <SplitButton
         children="Large"
-        size={SplitButton.sizes.LARGE}
+        size="large"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem icon={Check} title="Hey" />
@@ -188,7 +181,7 @@ export const SplitButtonAsThePrimaryAction = {
   render: () => (
     <SplitButton
       children="Use template"
-      secondaryDialogPosition={SplitButton.secondaryDialogPositions.BOTTOM_START}
+      secondaryDialogPosition="bottom-start"
       secondaryDialogContent={
         <SplitButtonMenu id="split-menu">
           <MenuItem icon={Download} title="Import template" />
@@ -211,8 +204,8 @@ export const SecondarySplitButton = {
     <>
       <SplitButton
         children="Export to CSV"
-        kind={SplitButton.kinds.SECONDARY}
-        secondaryDialogPosition={SplitButton.secondaryDialogPositions.BOTTOM_START}
+        kind="secondary"
+        secondaryDialogPosition="bottom-start"
         secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem title="Export to PDF" />
@@ -232,11 +225,11 @@ export const CustomMenu = {
   render: () => (
     <SplitButton
       secondaryDialogContent={
-        <Menu focusItemIndexOnMount={2} id="menu" size={Menu.sizes.MEDIUM}>
+        <Menu focusItemIndexOnMount={2} id="menu" size="medium">
           <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} iconType="svg" title="The sun" />
+          <MenuItem icon={Moon} iconType="svg" title="The moon" />
+          <MenuItem icon={Favorite} iconType="svg" title="And the stars" />
         </Menu>
       }
     >

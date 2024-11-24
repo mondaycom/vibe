@@ -24,8 +24,7 @@ export type LossMenuItemProps = Omit<
 >;
 
 export interface BaseMenuItemProps extends LossMenuItemProps, VibeComponentProps {
-  // TODO MenuItem can accept only Menu element as first level, it accepts MenuChild[] as subMenu even though it is not valid.
-  //  Should be fixed in next major version
+  // TODO: [breaking] MenuItem can accept only Menu element as first level, it accepts MenuChild[] as subMenu even though it is not valid.
   subMenu?: MenuChild | MenuChild[];
   children: React.ReactNode;
 }

@@ -6,7 +6,7 @@ import LinearProgressBar from "../LinearProgressBar";
 export const TipMultiStepIndicator = () => (
   <Tip>
     If you need to lead a user through a progress, use the{" "}
-    <StorybookLink page="Navigation/MultiStepIndicator" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/MultiStepIndicator" size={StorybookLink.sizes.SMALL}>
       MultiStepIndicator
     </StorybookLink>{" "}
     instead.

@@ -6,3 +6,5 @@ export {
   default as ModalFooterButtons,
   ModalFooterButtonsProps
 } from "./ModalFooter/ModalFooterButtons/ModalFooterButtons";
+
+export * from "./Modal.types";

@@ -8,7 +8,7 @@ exports[`ModalFooterButtons should render correctly 1`] = `
     className="container directionRow justifyEnd alignCenter"
     style={
       {
-        "gap": "8px",
+        "gap": "var(--spacing-small)",
       }
     }
   >
@@ -52,7 +52,7 @@ exports[`ModalFooterButtons should render correctly with disabled primary 1`] = 
     className="container directionRow justifyEnd alignCenter"
     style={
       {
-        "gap": "8px",
+        "gap": "var(--spacing-small)",
       }
     }
   >
@@ -97,7 +97,7 @@ exports[`ModalFooterButtons should render correctly with no tertiary 1`] = `
     className="container directionRow justifyEnd alignCenter"
     style={
       {
-        "gap": "8px",
+        "gap": "var(--spacing-small)",
       }
     }
   >

@@ -1,9 +1,9 @@
 import React, { CSSProperties, ReactElement } from "react";
 import Icon from "../../components/Icon/Icon";
-import { InfixKind } from "./SliderConstants";
+import { InfixKind } from "./Slider.types";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 
 const defaultIconProps = {
   clickable: false,
@@ -12,7 +12,7 @@ const defaultIconProps = {
 };
 
 export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], ReactElement, CSSProperties] {
-  const isPostfix = kind === InfixKind.POSTFIX;
+  const isPostfix = kind === "postfix";
   const { prefix, postfix, indicateSelection, selectionIndicatorWidth } = useSliderInfix();
   const { ranged, value, valueText } = useSliderSelection();
   const infix = isPostfix ? postfix : prefix;

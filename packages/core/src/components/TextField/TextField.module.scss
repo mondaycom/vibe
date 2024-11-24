@@ -70,7 +70,7 @@
   text-overflow: ellipsis;
   color: var(--primary-text-color);
 
-  &.readOnly.withReadOnlyStyle {
+  &.readOnly {
     background-color: var(--allgrey-background-color);
     border: none;
   }

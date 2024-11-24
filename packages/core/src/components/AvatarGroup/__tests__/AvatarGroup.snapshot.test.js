@@ -60,7 +60,7 @@ describe("AvatarGroup renders correctly", () => {
   it("renders correctly with large size", () => {
     const tree = renderer
       .create(
-        <AvatarGroup size={Avatar.sizes.LARGE} max={1}>
+        <AvatarGroup size="large" max={1}>
           <Avatar text="P1" />
           <Avatar text="P2" />
         </AvatarGroup>

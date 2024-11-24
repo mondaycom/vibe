@@ -1,16 +1,17 @@
-export enum TooltipArrowPosition {
-  BEGIN = "begin",
-  CENTER = "center",
-  END = "end"
+/**
+ * @deprecated
+ */
+export enum TooltipPositions {
+  TOP = "top",
+  RIGHT = "right",
+  BOTTOM = "bottom",
+  LEFT = "left"
 }
 
-// Did not convert to letter case naming for backward compatibility
+/**
+ * @deprecated
+ */
 export enum TooltipTheme {
   Dark = "dark",
-  Success = "success",
-  Error = "error",
-  Share = "share",
-  Private = "private",
-  Surface = "surface",
   Primary = "primary"
 }

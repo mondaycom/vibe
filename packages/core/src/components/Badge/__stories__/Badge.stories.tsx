@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "../Badge";
 import person from "./assets/person.png";
-import { ExternalPage, WhatsNew } from "../../Icon/Icons";
+import { ExternalPage, WhatsNew } from "@vibe/icons";
 import Link from "../../Link/Link";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
@@ -11,16 +11,13 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
-  enumPropNamesArray: ["anchor", "alignment", "type"],
-  iconPropNamesArray: [],
-  actionPropsArray: [],
   ignoreControlsPropNamesArray: ["children"]
 });
 
 const badgeTemplate = createComponentTemplate(Badge);
 
 export default {
-  title: "Feedback/Badge",
+  title: "Components/Badge",
   component: Badge,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -38,12 +35,12 @@ export const Overview = {
 export const States = {
   render: () => (
     <Flex
-      gap={Flex.gaps.LARGE}
+      gap="large"
       style={{
         flex: 1
       }}
-      justify={Flex.justify.START}
-      align={Flex.align.START}
+      justify="start"
+      align="start"
     >
       <StoryDescription description="Indicator" vertical align={StoryDescription.align.START}>
         <Badge>
@@ -51,7 +48,7 @@ export const States = {
         </Badge>
       </StoryDescription>
       <StoryDescription description="Counter" vertical align={StoryDescription.align.START}>
-        <Badge type={Badge.types.COUNTER} count={100} maxDigits={2}>
+        <Badge type="counter" count={100} maxDigits={2}>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>
       </StoryDescription>
@@ -63,7 +60,7 @@ export const States = {
 
 export const ButtonStory = {
   render: () => (
-    <Badge alignment={Badge.alignments.RECTANGULAR}>
+    <Badge alignment="rectangular">
       <Button leftIcon={ExternalPage}>Button</Button>
     </Badge>
   ),
@@ -73,8 +70,8 @@ export const ButtonStory = {
 
 export const AvatarStory = {
   render: () => (
-    <Badge alignment={Badge.alignments.CIRCULAR}>
-      <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
+    <Badge alignment="circular">
+      <Avatar size="large" src={person} type="img" />
     </Badge>
   ),
 
@@ -83,15 +80,15 @@ export const AvatarStory = {
 
 export const InlineElements = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
+    <Flex direction="column" gap="medium" align="start">
+      <Badge alignment="outside">
         <Link text="Read more" />
       </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
+      <Badge alignment="outside">
+        <Link text="What's new" iconPosition="start" icon={WhatsNew} />
       </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+      <Badge alignment="outside">
+        <Link text="Learn more" iconPosition="end" icon={ExternalPage} />
       </Badge>
     </Flex>
   ),
