@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from "@playwright/test";
 import path from "path";
 
 /**
@@ -8,17 +8,17 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   reporter: [["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }]],
-  
+
   // Run your local dev server before starting the tests
   webServer: {
-    command: 'yarn start-server',
-    url: 'http://127.0.0.1:7008',
+    command: "yarn start-server",
+    url: "http://127.0.0.1:7008",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
-    stdout: 'ignore',
-    stderr: 'pipe',
+    stdout: "ignore",
+    stderr: "pipe"
   },
-  
+
   use: {
     headless: true,
     baseURL: "http://127.0.0.1:7008",
@@ -30,5 +30,5 @@ export default defineConfig({
       args: ["--disable-web-security"]
     }
   },
-  timeout: 180 * 1000,
+  timeout: 180 * 1000
 });

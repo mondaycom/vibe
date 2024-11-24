@@ -2,7 +2,6 @@ import { test, expect } from "@playwright/test";
 import { ButtonGroup } from "../buttons/ButtonGroup";
 import { buttonGroupStory } from "./utils/url-helper";
 
-
 test.describe("ButtonGroup Class with Storybook", () => {
   let buttonGroup;
 
@@ -15,10 +14,11 @@ test.describe("ButtonGroup Class with Storybook", () => {
 
     // Locate the button group inside the iframe
     const buttonGroupLocator = frame.locator('div[data-testid="button-group"]');
-    while (await buttonGroupLocator.isVisible() === false) {
+    while ((await buttonGroupLocator.isVisible()) === false) {
+      // eslint-disable-next-line playwright/no-wait-for-timeout
       await page.waitForTimeout(30000);
       await page.reload();
-      if (await buttonGroupLocator.isVisible() === true) {
+      if ((await buttonGroupLocator.isVisible()) === true) {
         break;
       }
     }
@@ -60,7 +60,7 @@ test.describe("ButtonGroup Class with Storybook", () => {
     // Click the button
     await buttonGroup.click("Beta");
 
-    // Wait a bit to ensure the console log is captured
+    // eslint-disable-next-line playwright/no-wait-for-timeout -- Wait a bit to ensure the console log is captured
     await page.waitForTimeout(500);
 
     // Verify the console message contains the expected log
