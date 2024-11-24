@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Feedback/LinearProgressBar",
+  title: "Components/LinearProgressBar",
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

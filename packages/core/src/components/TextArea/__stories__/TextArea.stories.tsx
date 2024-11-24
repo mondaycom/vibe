@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Inputs/TextArea",
+  title: "Components/TextArea",
   component: TextArea,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

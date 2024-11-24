@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Navigation/Link",
+  title: "Components/Link",
   component: Link,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

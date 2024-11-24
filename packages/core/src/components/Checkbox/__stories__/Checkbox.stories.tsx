@@ -12,7 +12,7 @@ const metaSettings = createStoryMetaSettingsDecorator({ component: Checkbox });
 const checkboxTemplate = createComponentTemplate(Checkbox);
 
 export default {
-  title: "Inputs/Checkbox",
+  title: "Components/Checkbox",
   component: Checkbox,
   decorators: metaSettings.decorators
 } satisfies Meta<typeof Checkbox>;

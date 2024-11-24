@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Navigation/List/List",
+  title: "Components/List/List",
   component: List,
   subcomponents: {
     ListItem,

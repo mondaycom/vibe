@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const avatarTemplate = createComponentTemplate(Avatar);
 
 export default {
-  title: "Media/Avatar/Avatar",
+  title: "Components/Avatar",
   component: Avatar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

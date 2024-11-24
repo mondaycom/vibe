@@ -14,7 +14,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
 
 export default {
-  title: "Navigation/BreadcrumbsBar/BreadcrumbItem",
+  title: "Components/BreadcrumbsBar/BreadcrumbItem",
   component: BreadcrumbItem,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const badgeTemplate = createComponentTemplate(Badge);
 
 export default {
-  title: "Feedback/Badge",
+  title: "Components/Badge",
   component: Badge,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

@@ -1,0 +1,18 @@
+@import "~monday-ui-style/dist/mixins";
+
+$contributor-cell-min-width: $grid-auto-fit-cell-width-small;
+$contributor-grid-column-gap: var(--sb-spacing-large);
+$contributor-grid-row-gap: 50px;
+$contributor-grid-cell-array-calc: calc(20% - #{$contributor-grid-column-gap});
+
+.team {
+  margin-top: 68px;
+  margin-bottom: 48px;
+
+  @include grid-auto-fit(
+    $grid-column-gap: $contributor-grid-column-gap,
+    $grid-row-gap: $contributor-grid-row-gap,
+    $grid-cell-min-width: $contributor-cell-min-width,
+    $grid-cell-array-calc: $contributor-grid-cell-array-calc
+  );
+}

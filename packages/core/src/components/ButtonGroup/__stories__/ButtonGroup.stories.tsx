@@ -16,7 +16,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
 
 export default {
-  title: "Buttons/ButtonGroup",
+  title: "Components/ButtonGroup",
   component: ButtonGroup,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

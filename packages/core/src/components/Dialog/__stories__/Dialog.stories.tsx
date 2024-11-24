@@ -32,7 +32,7 @@ const showHideArgTypes = {
 };
 
 export default {
-  title: "Popover/Dialog",
+  title: "Components/Dialog",
   component: Dialog,
   argTypes: {
     ...metaSettings.argTypes,

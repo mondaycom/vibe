@@ -1,0 +1,16 @@
+.imageContainer {
+  position: relative;
+
+  .image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

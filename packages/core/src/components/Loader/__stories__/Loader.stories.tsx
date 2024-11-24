@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Feedback/Loader",
+  title: "Components/Loader",
   component: Loader,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

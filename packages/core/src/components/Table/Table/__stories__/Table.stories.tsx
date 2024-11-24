@@ -32,7 +32,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Data display/Table",
+  title: "Components/Table",
   component: Table,
   subcomponents: {
     TableHeader,

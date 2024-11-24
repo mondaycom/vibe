@@ -7,7 +7,7 @@ import styles from "./Menu.stories.module.scss";
 import { MenuProps } from "../../..";
 
 export default {
-  title: "Navigation/Menu/Menu",
+  title: "Components/Menu/Menu",
   component: Menu
 };
 

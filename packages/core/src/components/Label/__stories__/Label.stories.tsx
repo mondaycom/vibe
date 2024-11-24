@@ -15,7 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Data display/Label",
+  title: "Components/Label",
   component: Label,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

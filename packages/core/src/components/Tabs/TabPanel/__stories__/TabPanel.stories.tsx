@@ -2,7 +2,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import TabPanel from "../TabPanel";
 
 export default {
-  title: "Navigation/Tabs/TabPanel",
+  title: "Components/Tabs/TabPanel",
   component: TabPanel
 };
 

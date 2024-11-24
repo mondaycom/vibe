@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Inputs/Toggle",
+  title: "Components/Toggle",
   component: Toggle,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

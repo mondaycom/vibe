@@ -5,7 +5,7 @@ import { Flex } from "../../";
 import styles from "./VirtualizedList.module.scss";
 
 export default {
-  title: "Navigation/VirtualizedList",
+  title: "Components/VirtualizedList",
   component: VirtualizedList
 };
 

@@ -24,7 +24,7 @@ import layersGif from "./assets/layers.gif";
   - [Colors](#colors)
   - [Icons](#icons)
 - [FAQ ❓](#faq-)
-- [Help & Feedback 🙏](#help--feedback-)
+- [Help 🙏](#help-)
 
 ## Intro
 
@@ -49,7 +49,7 @@ By removing CommonJS support, dividing the library into packages, and optimizing
 
 ### New Typography System
 
-New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink> components. For more info, check the [Typography](#typography) section.
+New and improved <StorybookLink page="Text/Heading">Heading</StorybookLink>, <StorybookLink page="Components/EditableHeading">EditableHeading</StorybookLink> components. For more info, check the [Typography](#typography) section.
 
 ### Enhanced Typescript Support
 
@@ -183,16 +183,16 @@ For more information, refer to the <StorybookLink page="Foundations/Typography">
 
 The following components have been **removed** and are no longer available:
 
-- `Input` - use <StorybookLink page="Inputs/TextField">TextField</StorybookLink> instead
-- `EditableInput` - use <StorybookLink page="Inputs/EditableText">EditableText</StorybookLink> instead
-- `SearchComponent` - use <StorybookLink page="Inputs/Search">Search</StorybookLink> instead
+- `Input` - use <StorybookLink page="Components/TextField">TextField</StorybookLink> instead
+- `EditableInput` - use <StorybookLink page="Components/EditableText">EditableText</StorybookLink> instead
+- `SearchComponent` - use <StorybookLink page="Components/Search">Search</StorybookLink> instead
 - `ResponsiveList` - use <StorybookLink page="Hooks/useIsOverflowing">useIsOverflowing</StorybookLink> hook instead, to show/hide content based on overflow
 
 These components were **rewritten from scratch** with new API and style, offering better accessibility and usability:
 
 - <StorybookLink page="Text/Heading">Heading</StorybookLink>
-- <StorybookLink page="Inputs/EditableHeading">EditableHeading</StorybookLink>
-- <StorybookLink page="Inputs/Search">Search</StorybookLink>
+- <StorybookLink page="Components/EditableHeading">EditableHeading</StorybookLink>
+- <StorybookLink page="Components/Search">Search</StorybookLink>
 
 Make sure to import them from `@vibe/core` instead of the `/next` entry:
 
@@ -405,6 +405,6 @@ Make sure to run the migration script in the root directory of your project, and
 
 </div>
 
-## Help & Feedback 🙏
+## Help 🙏
 
 If you have any questions, feedback, or need help, please don't hesitate to reach out to us. You can provide [feedback](https://github.com/mondaycom/vibe/discussions) or [report issues](https://github.com/mondaycom/vibe/issues/new/choose) in the [Vibe repository](https://github.com/mondaycom/vibe) on GitHub.

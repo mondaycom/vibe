@@ -23,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Inputs/Combobox",
+  title: "Components/Combobox",
   component: Combobox,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

@@ -14,7 +14,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Data Display/ExpandCollapse",
+  title: "Components/ExpandCollapse",
   component: ExpandCollapse,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
