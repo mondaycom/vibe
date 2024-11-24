@@ -2,7 +2,7 @@ name: Publish Storybooks
 
 on:
   workflow_run:
-    workflows: ["Release new version"]
+    workflows: ["Release v2 version"]
     types:
       - completed
   workflow_dispatch:
