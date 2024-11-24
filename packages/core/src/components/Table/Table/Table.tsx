@@ -80,14 +80,15 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
       setIsVirtualized(true);
     }, []);
 
-    const [scrollLeft, setScrollLeft] = useState<number>(0);
+    const [scrollLeft, setScrollLeft] = useState<boolean>(false);
 
     const onScroll = useCallback<UIEventHandler<HTMLDivElement>>(
       e => {
         resetHoveredRow();
         if (!isVirtualized) {
           const newLeft = (e.target as HTMLDivElement).scrollLeft;
-          setScrollLeft(newLeft);
+          const hasScroll = newLeft > 0;
+          setScrollLeft(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
         }
       },
       [resetHoveredRow, isVirtualized]
@@ -116,7 +117,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
         isVirtualized,
         markTableAsVirtualized,
         scrollLeft,
-        setScrollLeft: (scrollAmount: number) => setScrollLeft(scrollAmount)
+        setScrollLeft: (scrollLeft: boolean) => setScrollLeft(scrollLeft)
       }),
       [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, scrollLeft, size]
     );
@@ -144,7 +145,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
               {
                 [styles.border]: !withoutBorder,
                 [styles.virtualized]: isVirtualized,
-                [styles.hasScroll]: scrollLeft > 0
+                [styles.hasScroll]: scrollLeft
               },
               className
             )}

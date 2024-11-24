@@ -21,7 +21,7 @@ export function mockUseTable() {
         tableRootRef: { current: null },
         isVirtualized: false,
         markTableAsVirtualized: jest.fn(),
-        scrollLeft: 0,
+        scrollLeft: false,
         setScrollLeft: jest.fn(),
         headRef: { current: null },
         onHeadScroll: jest.fn(),
