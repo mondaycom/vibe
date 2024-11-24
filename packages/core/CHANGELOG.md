@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.149.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.148.0...monday-ui-react-core@2.149.0) (2024-11-24)
+
+
+### Features
+
+* **Dropdown:** add inputValue and blurInputOnSelect properties to allow editing options ([#2608](https://github.com/mondaycom/vibe/issues/2608)) ([074c12c](https://github.com/mondaycom/vibe/commit/074c12c794ebfbe4d0bed3a9921332f66b0aaf07))
+
+
+
+
+
 # [2.148.0](https://github.com/mondaycom/vibe/compare/monday-ui-react-core@2.147.1...monday-ui-react-core@2.148.0) (2024-11-24)
 
 
