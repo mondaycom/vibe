@@ -20,7 +20,9 @@ export const TableProvider = ({ value, children }: ITableProviderProps) => {
         virtualizedListRef.current.scrollLeft = newScrollLeft;
       }
 
-      setScrollLeft(newScrollLeft);
+      const hasScroll = newScrollLeft > 0;
+      setScrollLeft(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
+
       lastScrollLeft.current = newScrollLeft;
     },
     [setScrollLeft]
