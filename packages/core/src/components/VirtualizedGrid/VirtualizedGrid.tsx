@@ -50,7 +50,7 @@ export interface VirtualizedGridProps extends VibeComponentProps {
     item: ItemType,
     index: number,
     style: CSSProperties
-  ) => ItemType | ComponentType<GridChildComponentProps<ItemType>>;
+  ) => ItemType | ComponentType<GridChildComponentProps<ItemType>> | JSX.Element;
   /**
    * in order to calculate the number of rows to render in the grid, the component needs the height of the row
    * return `number`
