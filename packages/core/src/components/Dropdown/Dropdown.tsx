@@ -117,7 +117,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       filterOption,
       menuPosition = Dropdown.menuPositions.ABSOLUTE,
       "data-testid": dataTestId,
-      withGroupDivider = false
+      withGroupDivider = false,
+      inputValue,
+      blurInputOnSelect
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -458,6 +460,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         loadingMessage={loadingMessage}
         tabSelectsValue={tabSelectsValue}
         filterOption={filterOption}
+        inputValue={inputValue}
+        blurInputOnSelect={blurInputOnSelect}
         {...asyncAdditions}
         {...additions}
       />

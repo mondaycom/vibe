@@ -279,7 +279,14 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * createFilter function is available at Dropdown.createFilter
    */
   filterOption?: (option: DropdownOption, inputValue: string) => boolean;
-
+  /**
+   * The current value of the input field, used to control the current value of the input field programmatically
+   */
+  inputValue?: string;
+  /**
+   * If true, the input field will lose focus when an option is selected
+   */
+  blurInputOnSelect?: boolean;
   withReadOnlyStyle?: boolean;
   OptionRenderer?: React.ReactNode;
   menuIsOpen?: boolean;
