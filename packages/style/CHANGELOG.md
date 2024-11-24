@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.20.1...monday-ui-style@0.21.0) (2024-11-24)
+
+
+### Features
+
+* **colors::** remove shareable-color and private-color ([#2315](https://github.com/mondaycom/vibe/issues/2315)) ([87e880c](https://github.com/mondaycom/vibe/commit/87e880c4e6f224a9fac78dbbf754e63ebcbbfa61))
+
+
+
+
+
 ## [0.20.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.20.0...monday-ui-style@0.20.1) (2024-11-24)
 
 
