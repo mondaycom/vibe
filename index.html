@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>@storybook/cli - Storybook</title>
+    <title>Vibe Design System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     
     <link
       rel="prefetch"
@@ -58,40 +58,134 @@
 <meta property="og:title" content="Vibe Design System" />
 <meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
 <title>Vibe Design System</title>
+<link rel="shortcut icon" href="/favicon.ico" />
 <script src="https://use.fontawesome.com/660238b999.js"></script>
 <style>
   body {
-    font-family: "Roboto", sans-serif;
-    background: #f0f3ff !important;
+    font-family: "Figtree", sans-serif;
+    background: #f9f9f9 !important;
     font-size: 14px;
   }
 
+  /* Sections style */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]),
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) a,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) button {
+    font-family: "Figtree", sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+  /* Sidebar spacings */
+  #storybook-explorer-menu #foundations {
+    margin-top: 24px;
+  }
+
+  /* Items style */
+  #storybook-explorer-menu a,
+  #storybook-explorer-menu button {
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: var(--sb-secondary-text-color);
+    margin-left: 5px;
+  }
+  #storybook-explorer-menu [data-item-id]:focus {
+    background: none;
+  }
+  #storybook-explorer-menu [data-item-id]:hover {
+    background-color: var(--sb-primary-background-hover-color);
+  }
+
+  /* Items spacings */
+  #storybook-explorer-menu a,
+  #storybook-explorer-menu button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  /* Icons color */
   #storybook-explorer-menu svg {
-    color: #5034ff;
-  }
-  #storybook-explorer-menu button[aria-expanded="true"],
-  #storybook-explorer-menu button:focus,
-  #storybook-explorer-menu a[data-selected]:hover {
-    background-color: rgba(80, 52, 255, 0.1);
+    color: var(--sb-secondary-text-color);
   }
 
-  #storybook-explorer-menu a[data-selected="true"],
-  #storybook-explorer-menu a[data-selected="true"]:hover {
-    background-color: #5034ff;
-    color: #f0f3ff;
+  /* Items hover style */
+  #storybook-explorer-menu [data-item-id] {
+    margin: 0 8px;
+    border-radius: 8px;
   }
 
-  #storybook-explorer-menu a[data-selected="true"] svg {
-    color: #f0f3ff;
+  /* Selected items style */
+  #storybook-explorer-menu [data-selected="true"],
+  #storybook-explorer-menu [data-selected="true"]:hover {
+    background: none;
   }
-
-  .os-content button:hover {
-    background-color: rgba(80, 52, 255, 0.1);
+  #storybook-explorer-menu [data-selected="true"] a,
+  #storybook-explorer-menu [data-selected="true"] a svg {
     color: #5034ff;
   }
 
-  .os-content button:hover svg {
-    color: #5034ff;
+  /* Removes node-type icons */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > svg,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > svg,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > svg,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > svg,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > svg {
+    display: none;
+  }
+
+  /* Removed items arrow icon */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > span,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > span:empty {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > a > div > span,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"]:hover > a > div > span,
+  #storybook-explorer-menu
+    .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover
+    > a
+    > div
+    > span,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover > div > span {
+    visibility: visible;
+  }
+
+  /* Fixes items spacings */
+  #storybook-explorer-menu button[data-item-id] {
+    width: calc(100% - 16px);
+  }
+
+  /* Adds a margin between the sidebar sections */
+  [data-parent-id]:has(+ :not([data-parent-id])) {
+    margin-bottom: 16px !important;
+  }
+
+  /* Search field */
+  .sidebar-container .search-field {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 22px !important;
+    margin-bottom: 32px;
+  }
+  .sidebar-container .sidebar-header {
+    margin-top: 2px !important;
+    margin-left: 12px !important;
+  }
+  #storybook-explorer-searchfield::placeholder {
+    color: #32333861;
+  }
+
+  /* Removes content<->sidebar border */
+  div[role="main"] > div {
+    box-shadow: none !important;
   }
 
   /* https://github.com/storybookjs/storybook/issues/25094 */
