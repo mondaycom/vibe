@@ -21,7 +21,7 @@ jobs:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
       - name: Build
-        run: yarn build
+        run: yarn lerna run build --include-dependencies
       - name: Lint
         run: yarn lint
       - name: Test
