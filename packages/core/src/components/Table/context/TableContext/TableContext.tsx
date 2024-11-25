@@ -4,7 +4,7 @@ import { TableContext as ITableContext, TableProviderProps } from "./TableContex
 const TableContext = createContext<ITableContext | undefined>(undefined);
 
 export const TableProvider = ({ value, children }: TableProviderProps) => {
-  const { setScrollLeft } = value;
+  const { setIsScrolled } = value;
   const headRef = useRef<HTMLDivElement>(null);
   const virtualizedListRef = useRef<HTMLDivElement>(null);
   const lastScrollLeft = useRef<number>(0);
@@ -20,10 +20,12 @@ export const TableProvider = ({ value, children }: TableProviderProps) => {
         virtualizedListRef.current.scrollLeft = newScrollLeft;
       }
 
-      setScrollLeft(newScrollLeft);
+      const hasScroll = newScrollLeft > 0;
+      setIsScrolled(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
+
       lastScrollLeft.current = newScrollLeft;
     },
-    [setScrollLeft]
+    [setIsScrolled]
   );
 
   const onHeadScroll: UIEventHandler<HTMLDivElement> = useCallback(

@@ -20,8 +20,8 @@ export interface TableProviderValue extends TableProviderForwardedProps {
   tableRootRef: React.MutableRefObject<HTMLDivElement>;
   isVirtualized: boolean;
   markTableAsVirtualized: () => void;
-  scrollLeft: number;
-  setScrollLeft: (scrollAmount: number) => void;
+  isScrolled: boolean;
+  setIsScrolled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export type TableProviderProps = {
