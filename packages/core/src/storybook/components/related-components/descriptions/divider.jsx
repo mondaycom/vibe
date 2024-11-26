@@ -23,7 +23,7 @@ export const DividerDescription = () => {
     <RelatedComponent
       component={component}
       title="Divider"
-      href="/?path=/docs/data-display-divider--docs"
+      href="/?path=/docs/components-divider--docs"
       description="Divider create separation between two UI elements"
     />
   );

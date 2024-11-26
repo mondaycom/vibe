@@ -24,7 +24,7 @@ export const ComboboxDescription = () => {
     <RelatedComponent
       component={component}
       title="Combobox"
-      href="/?path=/docs/inputs-combobox--docs"
+      href="/?path=/docs/components-combobox--docs"
       description="Combobox allowing users to filter longer lists to only the selections matching a query."
     />
   );

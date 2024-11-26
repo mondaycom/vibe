@@ -23,7 +23,7 @@ export const AvatarGroupDescription = () => {
     <RelatedComponent
       component={component}
       title="AvatarGroup"
-      href="/?path=/docs/media-avatar-avatargroup--docs"
+      href="/?path=/docs/components-avatargroup--docs"
       description="An avatar group displays a number of avatars grouped together in a stack or grid."
     />
   );

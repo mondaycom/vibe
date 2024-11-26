@@ -8,7 +8,7 @@ export const SliderDescription = () => {
     <RelatedComponent
       component={component}
       title="Slider"
-      href="/?path=/docs/inputs-slider--docs"
+      href="/?path=/docs/components-slider--docs"
       description="Displays a slider bar with range selection"
     />
   );

@@ -23,7 +23,7 @@ export const BreadcrumbsDescription = () => {
     <RelatedComponent
       component={component}
       title="Breadcrumbs"
-      href="/?path=/docs/navigation-breadcrumbsbar-breadcrumbsbar--docs"
+      href="/?path=/docs/components-breadcrumbsbar-breadcrumbsbar--docs"
       description="Helps users to keep track and maintain awareness of their location."
     />
   );
