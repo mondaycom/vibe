@@ -19,7 +19,7 @@ export const ExpandCollapseDescription = () => {
     <RelatedComponent
       component={component}
       title="ExpandCollapse"
-      href="/?path=/docs/data-display-expandcollapse--docs"
+      href="/?path=/docs/components-expandcollapse--docs"
       description="ExpandCollapse is a component that allows you to hide and show content."
     />
   );

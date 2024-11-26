@@ -14,7 +14,7 @@ export const EditableTextDescription = () => {
     <RelatedComponent
       component={component}
       title="EditableText"
-      href="/?path=/docs/inputs-EditableText--docs"
+      href="/?path=/docs/components-EditableText--docs"
       description="An extension of the Text component with built in editing capabilities."
     />
   );

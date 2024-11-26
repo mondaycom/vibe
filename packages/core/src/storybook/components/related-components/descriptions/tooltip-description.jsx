@@ -19,7 +19,7 @@ export const TooltipDescription = () => {
     <RelatedComponent
       component={component}
       title="Tooltip"
-      href="/?path=/docs/popover-tooltip--docs"
+      href="/?path=/docs/components-tooltip--docs"
       description="Displays information related to an element over it."
     />
   );

@@ -15,7 +15,7 @@ export const MenuGridItemDescription = () => {
     <RelatedComponent
       component={component}
       title="MenuGridItem"
-      href="?path=/docs/navigation-menu-menugriditem--docs"
+      href="/?path=/docs/components-menu-menugriditem--docs"
       description="MenuGridItem can be used to place a grid-like, keyboard navigable container, inside a Menu."
     />
   );

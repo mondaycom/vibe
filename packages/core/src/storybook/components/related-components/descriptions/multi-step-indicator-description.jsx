@@ -34,7 +34,7 @@ export const MultiStepIndicatorDescription = () => {
     <RelatedComponent
       component={component}
       title="MultiStepIndicator"
-      href="/?path=/docs/navigation-multistepindicator--docs"
+      href="/?path=/docs/components-multistepindicator--docs"
       description="Shows information related to a component when a user hovers over it."
     />
   );

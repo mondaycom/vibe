@@ -230,7 +230,7 @@ export const FloatingTipseen = {
             </TipseenContent>
           </>
         }
-        containerSelector="#story--popover-tipseen--floating-tipseen"
+        containerSelector="#story--components-tipseen--floating-tipseen"
       />
     );
   },

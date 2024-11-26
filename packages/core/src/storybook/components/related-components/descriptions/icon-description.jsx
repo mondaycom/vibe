@@ -12,7 +12,7 @@ export const IconDescription = () => {
     <RelatedComponent
       component={component}
       title="Icon"
-      href="/?path=/docs/media-icon--docs"
+      href="/?path=/docs/components-icon--docs"
       description="When you want to display an icon."
     />
   );

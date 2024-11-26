@@ -19,7 +19,7 @@ export const ToastDescription = () => {
     <RelatedComponent
       component={component}
       title="Toast"
-      href="/?path=/docs/feedback-toast--docs"
+      href="/?path=/docs/components-toast--docs"
       description="A message object that presents timely information or feedback for the user."
     />
   );

@@ -85,7 +85,7 @@ export const TableDescription = () => {
     <RelatedComponent
       component={component}
       title="Table"
-      href="/?path=/docs/data-display-table--docs"
+      href="/?path=/docs/components-table--docs"
       description="Tables are used to organize data, making it easier to understand."
     />
   );

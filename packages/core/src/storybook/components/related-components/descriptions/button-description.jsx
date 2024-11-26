@@ -8,7 +8,7 @@ export const ButtonDescription = () => {
     <RelatedComponent
       component={component}
       title="Button"
-      href="/?path=/docs/buttons-button--docs"
+      href="/?path=/docs/components-button--docs"
       description="Allow users take actions with a single click."
     />
   );

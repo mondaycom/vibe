@@ -9,7 +9,7 @@ export const IconButtonDescription = () => {
     <RelatedComponent
       component={component}
       title="IconButton"
-      href="/?path=/docs/buttons-iconbutton--docs"
+      href="/?path=/docs/components-iconbutton--docs"
       description="When you want to have a button with just an Icon"
     />
   );

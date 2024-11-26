@@ -8,7 +8,7 @@ export const ChipsDescription = () => {
     <RelatedComponent
       component={component}
       title="Chip"
-      href="/?path=/docs/data-display-chips--docs"
+      href="/?path=/docs/components-chips--docs"
       description="Compact elements that represent an input, attribute, or action."
     />
   );

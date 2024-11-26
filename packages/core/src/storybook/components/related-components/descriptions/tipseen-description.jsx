@@ -63,7 +63,7 @@ export const TipseenDescription = () => {
     <RelatedComponent
       component={component}
       title="Tipseen"
-      href="/?path=/docs/popover-tipseen--docs"
+      href="/?path=/docs/components-tipseen--docs"
       description="Displays information related to an element over it."
     />
   );
