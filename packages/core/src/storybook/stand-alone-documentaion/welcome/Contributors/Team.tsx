@@ -34,7 +34,7 @@ const team = [
   {
     imgSrc: YaelRK,
     name: "Yael Rosen-Karen",
-    linkedinUrl: "",
+    linkedinUrl: "https://www.linkedin.com/in/rosen2yael/",
     title: "Product Designer"
   },
   {
@@ -52,7 +52,7 @@ const team = [
   {
     imgSrc: YaelB,
     name: "Yael Bein",
-    linkedinUrl: "https://www.linkedin.com/in/rosen2yael/",
+    linkedinUrl: "https://www.linkedin.com/in/yaelbein/",
     title: "Product Designer"
   },
   {
