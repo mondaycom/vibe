@@ -48,12 +48,12 @@ import { Button } from "@vibe/core";
 
 ## Ecosystem
 
-- [@vibe/core](packages/core/README.md): Core component library
-- [@vibe/icons](packages/icons/README.md): Icons library
-- [@vibe/testkit](packages/testkit/README.md): Testing utilities for Playwright
-- [@vibe/codemod](packages/codemod/README.md): Codemods and CLI tools
-- [monday-ui-style](packages/style/README.md): Styling foundations (included in @vibe/core)
-- [vibe-storybook-components](packages/storybook-blocks/README.md): Vibe Storybook Blocks
+- [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
+- [@vibe/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
+- [@vibe/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
+- [@vibe/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
+- [monday-ui-style](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @vibe/core)
+- [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
 - [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
 
 ## Older Versions
