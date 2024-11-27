@@ -5,7 +5,6 @@ import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalMediaLayout.module.scss";
 import { ModalMediaLayoutProps } from "./ModalMediaLayout.types";
 import Flex from "../../../Flex/Flex";
-import ModalLayoutScrollableContent from "../ModalLayoutScrollableContent";
 
 const ModalMediaLayout = forwardRef(
   (
@@ -25,7 +24,7 @@ const ModalMediaLayout = forwardRef(
       >
         <div className={styles.media}>{media}</div>
         <div className={styles.header}>{header}</div>
-        <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>
+        <div className={styles.content}>{content}</div>
       </Flex>
     );
   }
