@@ -385,7 +385,7 @@ While the migration script covers most changes, some manual changes may still be
 
 **Do I need to stop using static properties (e.g. `Button.kinds.PRIMARY`) in my code?**
 
-You can still use static properties, but it is recommended to use type-safe strings instead. Static properties are likely to be deprecated in the future.
+You can still use static properties, but it is recommended to use type-safe strings instead. Static properties are likely to be deprecated in the future. To migrate to type-safe strings, use the following script: `npx @vibe/codemod -m enums`.
 
 **I have already been using Heading, EditableHeading, Search from `/next`, do I need to change anything?**
 
