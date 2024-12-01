@@ -5,6 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [3.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0-rc.0...@vibe/core@3.0.0) (2024-11-24)
 
+We're excited to announce the release of Vibe v3! 🎉
+
+See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/master/packages/core/docs/vibe-3-changelog.md). To migrate, follow the [migration guide](https://vibe.monday.com/?path=/docs/migration-guide--docs).
 
 ### Bug Fixes
 
