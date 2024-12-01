@@ -76,6 +76,7 @@ export class BaseElement {
       await this.locator.scrollIntoViewIfNeeded();
     });
   }
+
   async getAttributeValue(
     attributeName: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -130,5 +131,13 @@ export class BaseElement {
       count = await this.locator.count();
     });
     return count;
+  }
+
+  async isVisible(): Promise<boolean> {
+    let isVisible = false;
+    await test.step(`Check if ${this.elementReportName} is visible`, async () => {
+      isVisible = await this.locator.isVisible();
+    });
+    return isVisible;
   }
 }
