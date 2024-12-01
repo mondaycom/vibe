@@ -19,4 +19,5 @@ export interface ModalProps extends VibeComponentProps {
   anchorElementRef?: React.RefObject<HTMLElement>;
   alertModal?: boolean;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }

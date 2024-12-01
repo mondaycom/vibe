@@ -33,6 +33,7 @@ const Modal = forwardRef(
       anchorElementRef,
       alertModal,
       children,
+      style,
       className,
       "data-testid": dataTestId
     }: ModalProps,
@@ -114,6 +115,7 @@ const Modal = forwardRef(
                   aria-modal
                   aria-labelledby={titleId}
                   aria-describedby={descriptionId}
+                  style={style}
                 >
                   {children}
                   <ModalTopActions
