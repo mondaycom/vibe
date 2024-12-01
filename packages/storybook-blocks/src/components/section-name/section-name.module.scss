@@ -1,4 +1,4 @@
-@import "../../styles/mixins/typography";
+@import '../../styles/mixins/typography';
 
 .sectionName {
   margin-top: var(--sb-spacing-between-sections);
@@ -10,10 +10,19 @@
   line-height: 33px;
   letter-spacing: -1px;
   text-align: left;
-  display: grid;
+
+  .anchor {
+    margin-left: var(--sb-spacing-small);
+    opacity: 0;
+  }
+
+  &:hover .anchor {
+    opacity: 1;
+  }
 
   &:after {
-    content: "";
+    content: '';
+    display: block;
     margin-top: var(--sb-spacing-small);
     background: var(--sb-primary-text-color);
     height: 2px;
