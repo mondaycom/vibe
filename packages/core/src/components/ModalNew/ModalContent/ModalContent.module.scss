@@ -1,0 +1,7 @@
+@import "~monday-ui-style/dist/mixins";
+
+.content {
+  padding-block-end: var(--spacing-xl);
+  overflow: auto;
+  @include scroller;
+}
