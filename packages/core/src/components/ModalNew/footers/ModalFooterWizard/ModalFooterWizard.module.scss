@@ -1,0 +1,14 @@
+.primary {
+  order: 2;
+}
+
+.secondary {
+  order: 1;
+}
+
+.stepDots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}

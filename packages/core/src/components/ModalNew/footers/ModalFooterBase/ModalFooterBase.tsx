@@ -10,6 +10,8 @@ const ModalFooterBase = forwardRef(
     { primaryButton, secondaryButton, renderAction, id, className, "data-testid": dataTestId }: ModalFooterBaseProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    const { text: primaryButtonText, ...primaryButtonProps } = primaryButton;
+    const { text: secondaryButtonText, ...secondaryButtonProps } = secondaryButton || {};
     return (
       <Flex
         ref={ref}
@@ -19,12 +21,10 @@ const ModalFooterBase = forwardRef(
         className={cx(styles.footer, className)}
         data-testid={dataTestId}
       >
-        <Button onClick={primaryButton.onClick} className={primaryButton.className}>
-          {primaryButton.text}
-        </Button>
+        <Button {...primaryButtonProps}>{primaryButtonText}</Button>
         {secondaryButton && (
-          <Button kind={Button.kinds.TERTIARY} className={secondaryButton.className} onClick={secondaryButton.onClick}>
-            {secondaryButton.text}
+          <Button {...secondaryButtonProps} kind={Button.kinds.TERTIARY}>
+            {secondaryButtonText}
           </Button>
         )}
         {renderAction}
