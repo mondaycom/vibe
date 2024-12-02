@@ -10,6 +10,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer, { Size as AutoSizerSize } from "react-virtualized-auto-sizer";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
+import { TableColumn } from "../Table/Table";
 
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
@@ -18,15 +19,27 @@ export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = Table
   items: T[];
   rowRenderer: (item: T) => JSX.Element;
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
+  columns?: TableColumn[];
+  headerRenderer?: (columns: TableColumn[]) => JSX.Element;
 }
 
 const TableVirtualizedBody = forwardRef(
   <T extends TableVirtualizedRow = TableVirtualizedRow>(
-    { items, rowRenderer, onScroll, id, className, "data-testid": dataTestId }: TableVirtualizedBodyProps<T>,
+    {
+      items,
+      rowRenderer,
+      onScroll,
+      columns,
+      headerRenderer,
+      id,
+      className,
+      "data-testid": dataTestId
+    }: TableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
     const { resetHoveredRow } = useTableRowMenu();
+    const virtualizedWithHeader = !!columns && !!headerRenderer;
 
     const handleOuterScroll = useCallback(
       (e: Event) => {
@@ -49,7 +62,7 @@ const TableVirtualizedBody = forwardRef(
       return () => {
         scrollElement.removeEventListener("scroll", handleOuterScroll);
       };
-    }, [handleOuterScroll]);
+    }, [handleOuterScroll, virtualizedListRef]);
 
     const handleVirtualizedVerticalScroll = useCallback(
       ({
@@ -61,30 +74,42 @@ const TableVirtualizedBody = forwardRef(
         scrollOffset: number;
         scrollUpdateWasRequested: boolean;
       }) => {
+        if (virtualizedWithHeader) return;
         onScroll?.(scrollDirection, scrollOffset, scrollUpdateWasRequested);
       },
-      [onScroll]
+      [onScroll, virtualizedWithHeader]
     );
 
     const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
       ({ index, style: { width: _width, ...style } }) => {
-        const currentItem = items[index];
+        if (virtualizedWithHeader && index === 0) {
+          return null; //placeholder for virtualized with header
+        }
+        const currentIndex = virtualizedWithHeader ? index - 1 : index;
+        const currentItem = items[currentIndex];
         const element = rowRenderer(currentItem);
+
         return React.cloneElement(element, {
           style: { ...style, ...element.props?.style },
           key: index
         });
       },
-      [items, rowRenderer]
+      [items, rowRenderer, virtualizedWithHeader]
     );
 
     useEffect(() => {
-      markTableAsVirtualized();
-    }, [markTableAsVirtualized]);
+      if (!virtualizedWithHeader) markTableAsVirtualized();
+    }, [markTableAsVirtualized, virtualizedWithHeader]);
 
     return (
       <TableBody
-        className={cx(styles.tableBody, className)}
+        className={cx(
+          styles.tableBody,
+          {
+            [styles.withHeader]: virtualizedWithHeader
+          },
+          className
+        )}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_VIRTUALIZED_BODY, id)}
         ref={ref}
@@ -95,12 +120,22 @@ const TableVirtualizedBody = forwardRef(
               <List
                 itemSize={RowHeights[size]}
                 height={height}
-                itemCount={items.length}
+                itemCount={virtualizedWithHeader ? items.length + 1 : items.length}
                 width={width}
                 onScroll={handleVirtualizedVerticalScroll}
                 outerRef={element => {
                   virtualizedListRef.current = element;
                 }}
+                innerElementType={
+                  virtualizedWithHeader
+                    ? forwardRef(({ children, ...rest }, ref) => (
+                        <div ref={ref} {...rest}>
+                          {headerRenderer(columns)}
+                          {children}
+                        </div>
+                      ))
+                    : undefined
+                }
               >
                 {itemRenderer}
               </List>
