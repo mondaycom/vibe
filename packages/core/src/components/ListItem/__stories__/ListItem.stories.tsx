@@ -5,15 +5,14 @@ import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { Send } from "../../Icon/Icons";
+import { Send } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: ListItem,
-  enumPropNamesArray: ["size", "component"]
+  component: ListItem
 });
 
 export default {
-  title: "Navigation/List/ListItem",
+  title: "Components/List/ListItem",
   component: ListItem,
   subcomponents: {
     ListItemIcon,
@@ -46,9 +45,9 @@ export const States = {
 export const Sizes = {
   render: () => (
     <>
-      <ListItem size={ListItem.sizes.SMALL}>Small item</ListItem>
-      <ListItem size={ListItem.sizes.MEDIUM}>Medium item</ListItem>
-      <ListItem size={ListItem.sizes.LARGE}>Large item</ListItem>
+      <ListItem size="small">Small item</ListItem>
+      <ListItem size="medium">Medium item</ListItem>
+      <ListItem size="large">Large item</ListItem>
     </>
   ),
 

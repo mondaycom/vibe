@@ -7,11 +7,10 @@ import Modal, { ModalProps } from "../Modal";
 import { useHelperOpenModalButton } from "./Modal.stories.helpers";
 import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
-import { Upgrade } from "../../Icon/Icons";
+import { Upgrade } from "@vibe/icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
-  enumPropNamesArray: ["width"], // List enum props here
-  actionPropsArray: ["onClose"] // List the component's actions here
+  actionPropsArray: ["onClose"]
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -54,7 +53,7 @@ const modalTemplate = ({ onClose, ...modalProps }: ModalProps) => {
 };
 
 export default {
-  title: "Feedback/Modal",
+  title: "Components/Modal",
   component: Modal,
   subcomponents: {
     ModalHeader,
@@ -112,7 +111,6 @@ export const Sizes = {
           triggerElement={openModalButtonRefNormal.current}
           show={showNormal}
           onClose={closeModalNormal}
-          width={Modal.width.DEFAULT}
           contentSpacing
         >
           <ModalContent>Modal content goes here</ModalContent>
@@ -132,7 +130,7 @@ export const Sizes = {
           triggerElement={openModalButtonRefFull.current}
           show={showFull}
           onClose={closeModalFull}
-          width={Modal.width.FULL_WIDTH}
+          width="full-width"
           contentSpacing
         >
           <ModalContent>Modal content goes here</ModalContent>
@@ -199,7 +197,6 @@ export const ModalWithIcon = {
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            width={Modal.width.DEFAULT}
             contentSpacing
           >
             {}
@@ -295,7 +292,6 @@ export const ModalWithEditableTitle = {
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            width={Modal.width.DEFAULT}
             contentSpacing
           >
             <ModalHeader description={"Description text goes here"}>

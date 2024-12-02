@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { components } from "react-select";
 import Icon from "../../../Icon/Icon";
-import DropdownChevronDown from "../../../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronDown } from "@vibe/icons";
 import { getIndicatorSize } from "../../Dropdown.styles";
 
 const DropdownIndicator = props => {
@@ -10,7 +9,7 @@ const DropdownIndicator = props => {
   return (
     <components.DropdownIndicator {...props} className="dropdown-indicator">
       <Icon
-        iconType={Icon.type.SVG}
+        iconType="svg"
         icon={DropdownChevronDown}
         iconSize={getIndicatorSize(size)}
         tabindex="-1"

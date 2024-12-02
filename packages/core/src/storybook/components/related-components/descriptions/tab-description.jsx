@@ -5,11 +5,8 @@ import TabList from "../../../../components/Tabs/TabList/TabList";
 
 export const TabsDescription = () => {
   const component = useMemo(() => {
-    const style = {
-      marginLeft: "-40px"
-    };
     return (
-      <div style={style}>
+      <div>
         <TabList>
           <Tab>Tab</Tab>
           <Tab>Tab</Tab>
@@ -22,7 +19,7 @@ export const TabsDescription = () => {
     <RelatedComponent
       component={component}
       title="Tabs"
-      href="/?path=/docs/navigation-tabs-tabs--docs"
+      href="/?path=/docs/components-tabs-tabs--docs"
       description="Allow users to navigate between related views of content."
     />
   );

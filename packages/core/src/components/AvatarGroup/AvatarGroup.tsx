@@ -3,20 +3,11 @@ import cx from "classnames";
 import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
-import { CounterColor } from "../Counter/CounterConstants";
+import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./AvatarGroup.module.scss";
-
-export type AvatarGroupCounterVisualProps = {
-  color?: CounterColor.LIGHT | CounterColor.DARK;
-  count?: number;
-  prefix?: string;
-  maxDigits?: number;
-  ariaLabelItemsName?: string;
-  noAnimation?: boolean;
-};
+import { AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 
 export interface AvatarGroupProps extends VibeComponentProps {
   avatarClassName?: string;
@@ -40,11 +31,6 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   counterTooltipIsVirtualizedList?: boolean;
   /**
-   * If true, padding will be removed from the container
-   */
-  // TODO remove this prop in the next major release, should be no padding by default
-  removePadding?: boolean;
-  /**
    * If true, the component will be disabled and non interactive
    */
   disabled?: boolean;
@@ -61,7 +47,6 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  removePadding = false,
   disabled
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
@@ -90,7 +75,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className, { [styles.noPadding]: removePadding })} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
       {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}

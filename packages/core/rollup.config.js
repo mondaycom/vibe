@@ -10,12 +10,13 @@ import autoprefixer from "autoprefixer";
 import { sha256 } from "js-sha256";
 import * as fs from "fs";
 import ejs from "ejs";
+import copy from "rollup-plugin-copy";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
-const injectStyle = fs.readFileSync("./rollup/styleInject.ejs", "utf8");
+const injectStyle = fs.readFileSync("./scripts/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
@@ -55,20 +56,20 @@ function generateCssModulesMockName(name) {
 export default {
   onwarn,
   output: {
-    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
+    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames") : DIST_PATH,
     indent: false,
     strict: false,
     exports: "named",
     preserveModules: true,
     preserveModulesRoot: ".",
-    sourcemap: true
+    sourcemap: true,
+    format: "esm"
   },
   input: {
-    index: path.join(SRC_PATH, "index.js"),
-    icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
+    index: path.join(SRC_PATH, "index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
-    next: path.join(SRC_PATH, "next/next.ts")
+    next: path.join(SRC_PATH, "components/next.ts")
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
@@ -119,6 +120,15 @@ export default {
             ? generateCssModulesMockName(name)
             : generateCssModulesScopedName(name, filename, css)
       }
+    }),
+    copy({
+      targets: [
+        {
+          src: "../../node_modules/monday-ui-style/dist/index.min.css",
+          dest: "dist/tokens",
+          rename: () => "tokens.css"
+        }
+      ]
     })
   ]
 };

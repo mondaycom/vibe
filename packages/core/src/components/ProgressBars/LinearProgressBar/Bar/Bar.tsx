@@ -5,14 +5,16 @@ import cx from "classnames";
 import React, { FC, useMemo } from "react";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import { ProgressBarStyle, ProgressBarType } from "../LinearProgressBarConstants";
+import { LinearProgressBarStyle } from "../LinearProgressBar.types";
 import styles from "./Bar.module.scss";
+
+export type BarType = "primary" | "secondary";
 
 export interface BarProps extends VibeComponentProps {
   /**
-   * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
+   * Determine the progress bar style.
    */
-  barStyle?: ProgressBarStyle;
+  barStyle?: LinearProgressBarStyle;
   /**
    * The progress bar starting value.
    */
@@ -32,7 +34,7 @@ export interface BarProps extends VibeComponentProps {
   baseClass?: string;
   barLabelName?: string;
   color?: string;
-  type?: ProgressBarType;
+  type?: BarType;
   className?: string;
 }
 

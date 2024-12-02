@@ -1,15 +1,15 @@
 import React, { ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import Avatar, { AvatarProps } from "../Avatar/Avatar";
+import { AvatarProps } from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
+import { AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
@@ -37,18 +37,19 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  size = Avatar.sizes.MEDIUM,
+  size = "medium",
   type,
   counterAriaLabel,
   disabled
-}) => {
+}: AvatarGroupCounterProps) => {
   const {
-    color: counterColor = Counter.colors.LIGHT,
+    color: counterColor = "light",
     count: counterValue = counterTooltipAvatars.length,
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,
     ariaLabelItemsName: counterAriaLabelItemsName = "items",
-    noAnimation
+    noAnimation,
+    dialogContainerSelector
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -103,6 +104,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         zIndex={1}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
+        dialogContainerSelector={dialogContainerSelector}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {

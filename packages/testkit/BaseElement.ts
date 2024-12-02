@@ -4,16 +4,16 @@ import { test, Page, Locator } from "@playwright/test";
  * Class representing a base element for Playwright tests.
  */
 export class BaseElement {
-  page : Page;
-  locator : Locator;
-  elementReportName: String 
+  page: Page;
+  locator: Locator;
+  elementReportName: string;
   /**
    * Create a BaseElement.
    * @param {Object} page - The Playwright page object.
    * @param {Object} locator - The locator for the element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
-  constructor(page: Page, locator: Locator, elementReportName: String) {
+  constructor(page: Page, locator: Locator, elementReportName: string) {
     this.page = page;
     this.locator = locator;
     this.elementReportName = elementReportName;
@@ -31,11 +31,12 @@ export class BaseElement {
    * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
    * @returns {Promise<void>}
    */
-  async waitForElementsGroup(locator: Locator, elementReportName: String): Promise<void>  {
+  async waitForElementsGroup(locator: Locator, elementReportName: string): Promise<void> {
     await test.step(`Wait for ${elementReportName} items to stabilize`, async () => {
       let previousCount = 0;
       let stableCountTime = 0;
       const stabilizationTimeMs = 500;
+      // eslint-disable-next-line no-constant-condition
       while (true) {
         const currentCount = await this.locator.locator(locator).count();
 
@@ -58,12 +59,12 @@ export class BaseElement {
    * @returns {Promise<boolean>} - Returns true if the element is enabled, otherwise false.
    */
   async isEnabled(): Promise<boolean> {
-      let isEnabled: boolean = false;
-      await test.step(`Return if ${this.elementReportName} is enabled`, async () => {
-          isEnabled = await this.locator.isEnabled();
-          return isEnabled;
-      });
+    let isEnabled = false;
+    await test.step(`Return if ${this.elementReportName} is enabled`, async () => {
+      isEnabled = await this.locator.isEnabled();
       return isEnabled;
+    });
+    return isEnabled;
   }
 
   /**
@@ -75,15 +76,20 @@ export class BaseElement {
       await this.locator.scrollIntoViewIfNeeded();
     });
   }
-  async getAttributeValue(attributeName: string, options: any = { timeout: 10000, pollInterval: 500 }) : Promise <string | null> {
+
+  async getAttributeValue(
+    attributeName: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    options: any = { timeout: 10000, pollInterval: 500 }
+  ): Promise<string | null> {
     let attributeValue = null;
-  
+
     await test.step(`Get attribute ${attributeName} of ${this.elementReportName}`, async () => {
       const startTime = Date.now();
-  
+
       while (Date.now() - startTime < options.timeout) {
         attributeValue = await this.locator.getAttribute(attributeName);
-  
+
         if (attributeValue !== null) {
           break;
         }
@@ -98,8 +104,8 @@ export class BaseElement {
     return attributeValue;
   }
 
-  async getText() : Promise<string|undefined> {
-    let text: string|undefined;
+  async getText(): Promise<string | undefined> {
+    let text: string | undefined;
     await test.step(`Get text of ${this.elementReportName}`, async () => {
       text = await this.locator.innerText();
       return text;
@@ -113,17 +119,25 @@ export class BaseElement {
     });
   }
 
-  async waitForAbsence() : Promise<void>{
+  async waitForAbsence(): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} to be absent`, async () => {
       await this.waitFor({ state: "detached" });
     });
   }
 
-  async count() : Promise<number>{
-    let count: number=0;
+  async count(): Promise<number> {
+    let count = 0;
     await test.step(`Count elements matching ${this.elementReportName}`, async () => {
       count = await this.locator.count();
     });
     return count;
+  }
+
+  async isVisible(): Promise<boolean> {
+    let isVisible = false;
+    await test.step(`Check if ${this.elementReportName} is visible`, async () => {
+      isVisible = await this.locator.isVisible();
+    });
+    return isVisible;
   }
 }

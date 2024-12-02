@@ -8,7 +8,7 @@ export const SkeletonDescription = () => {
     <RelatedComponent
       component={component}
       title="Skeleton"
-      href="/?path=/docs/feedback-skeleton--docs"
+      href="/?path=/docs/components-skeleton--docs"
       description="Skeleton loading componet used to indicate content and ui loading."
     />
   );

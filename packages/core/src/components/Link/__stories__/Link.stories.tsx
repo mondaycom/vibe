@@ -1,18 +1,17 @@
 import React from "react";
 import Link from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { ExternalPage, Info, Link as IconLink } from "../../Icon/Icons";
+import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./Link.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,
-  enumPropNamesArray: ["iconPosition", "target"],
   iconPropNamesArray: ["icon"]
 });
 
 export default {
-  title: "Navigation/Link",
+  title: "Components/Link",
   component: Link,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -39,7 +38,7 @@ export const RightToLeft = {
   render: () => (
     <>
       <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
-      <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={Info} />
+      <Link text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
     </>
   ),
   name: "Right to left"
@@ -49,7 +48,7 @@ export const WithIcons = {
   render: () => (
     <>
       <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
-      <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+      <Link text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
     </>
   ),
   name: "With icons"

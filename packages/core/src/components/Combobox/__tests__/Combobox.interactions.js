@@ -37,18 +37,6 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
   expect(option1).toBeInTheDocument();
 }
 
-// there is no story which is not overview which activate this ability
-// eslint-disable-next-line no-unused-vars
-async function onSelectOptionClearsFilterTest(canvas) {
-  const { comboboxElement, searchElement } = await getComponentElements(canvas);
-  await typeText(searchElement, "Option");
-  const optionToClick = getByText(comboboxElement, "Option 1");
-  await clickElement(optionToClick);
-  expect(searchElement).toHaveValue("");
-  const option1 = getByText("Option 1");
-  expect(option1).toBeTruthy();
-}
-
 async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
   const { comboboxElement, searchElement } = await getComponentElements(canvas);
 

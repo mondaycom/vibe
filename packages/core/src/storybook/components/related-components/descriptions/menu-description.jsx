@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import DialogContentContainer from "../../../../components/DialogContentContainer/DialogContentContainer";
 import MenuItem from "../../../../components/Menu/MenuItem/MenuItem";
-import { Email, Delete, Info } from "../../../../components/Icon/Icons";
+import { Email, Delete, Info } from "@vibe/icons";
 import { Menu } from "../../../../components";
 
 export const MenuDescription = () => {
@@ -23,7 +23,7 @@ export const MenuDescription = () => {
     <RelatedComponent
       component={component}
       title="Menu"
-      href="/?path=/docs/navigation-menu-menu--docs"
+      href="/?path=/docs/components-menu-menu--docs"
       description="Displays information related to an element over it."
     />
   );

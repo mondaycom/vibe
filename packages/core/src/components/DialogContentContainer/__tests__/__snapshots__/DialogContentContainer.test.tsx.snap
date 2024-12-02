@@ -4,7 +4,7 @@ exports[`renders correctly with data-testid 1`] = `
 <div
   aria-describedby=""
   aria-labelledby=""
-  className="dialogContentContainer typePopover sizeMedium"
+  className="dialogContentContainer typePopover sizeSmall"
   data-testid="test"
   role="dialog"
 />
@@ -14,7 +14,7 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-describedby=""
   aria-labelledby=""
-  className="dialogContentContainer typePopover sizeMedium"
+  className="dialogContentContainer typePopover sizeSmall"
   data-testid="dialog-content-container"
   role="dialog"
 />

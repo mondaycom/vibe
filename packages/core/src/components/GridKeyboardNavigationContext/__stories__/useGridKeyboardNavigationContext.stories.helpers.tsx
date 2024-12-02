@@ -48,7 +48,7 @@ export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwar
         {items.map((item, index) => (
           <Button
             key={item}
-            kind={Button.kinds.SECONDARY}
+            kind="secondary"
             onClick={onClickByIndex(index)}
             disabled={disabled || disabledIndexes?.includes(index)}
             className={cx("use-grid-keyboard-dummy-grid-item", { "active-item": index === activeIndex })}
@@ -84,8 +84,8 @@ export const LayoutWithInnerKeyboardNavigation = forwardRef<HTMLDivElement, Layo
         <Flex
           ref={ref}
           id={id}
-          direction={Flex.directions.COLUMN}
-          align={Flex.align.START}
+          direction="column"
+          align="start"
           className="use-grid-keyboard-dummy-grid-wrapper"
           tabIndex={-1}
         >

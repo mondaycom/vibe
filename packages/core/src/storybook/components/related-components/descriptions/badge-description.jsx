@@ -17,7 +17,7 @@ export const BadgeDescription = () => {
     <RelatedComponent
       component={component}
       title="Badge"
-      href="/?path=/docs/feedback-badge--docs"
+      href="/?path=/docs/components-badge--docs"
       description="Used to place an indicator / counter on a child component"
     />
   );

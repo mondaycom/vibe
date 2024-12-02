@@ -1,9 +1,12 @@
 import React, { createContext, useContext } from "react";
-import { ITableContainerContext, ITableContainerProviderProps } from "./TableContainerContext.types";
+import {
+  TableContainerContext as ITableContainerContext,
+  TableContainerProviderProps
+} from "./TableContainerContext.types";
 
 const TableContainerContext = createContext<ITableContainerContext | undefined>(undefined);
 
-export const TableContainerProvider = ({ value, children }: ITableContainerProviderProps) => {
+export const TableContainerProvider = ({ value, children }: TableContainerProviderProps) => {
   return <TableContainerContext.Provider value={value}>{children}</TableContainerContext.Provider>;
 };
 

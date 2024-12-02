@@ -1,60 +1,61 @@
 {
-  "name": "monday-ui-react-core",
-  "version": "2.144.0",
+  "name": "@vibe/core",
+  "version": "3.0.0",
   "description": "Official monday.com UI resources for application development in React.js",
-  "main": "./dist/main.js",
-  "types": "./dist/types.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "monday.com",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
-    "./package.json": "./package.json",
     ".": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/esm/src/index.js",
-      "default": "./dist/main.js"
-    },
-    "./dist/": "./dist/",
-    "./icons": {
-      "types": "./dist/esm/components/Icon/Icons/index.d.ts",
-      "import": "./dist/esm/src/components/Icon/Icons/icons.js",
-      "default": "./dist/allIcons.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
     },
     "./interactionsTests": {
-      "types": "./dist/esm/tests/interactions-utils.d.ts",
-      "import": "./dist/esm/src/tests/interactionsTests.js",
-      "default": "./dist/esm/src/tests/interactionsTests.js"
+      "types": "./dist/tests/interactions-utils.d.ts",
+      "import": "./dist/src/tests/interactionsTests.js",
+      "default": "./dist/src/tests/interactionsTests.js"
     },
     "./testIds": {
-      "types": "./dist/esm/tests/test-ids-utils.d.ts",
-      "import": "./dist/esm/src/tests/testIds.js",
-      "default": "./dist/esm/src/tests/testIds.js"
+      "types": "./dist/tests/test-ids-utils.d.ts",
+      "import": "./dist/src/tests/testIds.js",
+      "default": "./dist/src/tests/testIds.js"
     },
-    "./storybookComponents": "./dist/storybook/index.js",
     "./next": {
-      "types": "./dist/esm/next/next.d.ts",
-      "import": "./dist/esm/src/next/next.js",
-      "default": "./dist/esm/src/next/next.js"
+      "types": "./dist/components/next/next.d.ts",
+      "import": "./dist/src/components/next/next.js",
+      "default": "./dist/src/components/next/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
-      "import": "./dist/mocked_classnames_esm/src/index.js"
-    },
-    "./types": "./dist/esm/types/index.d.ts"
+      "import": "./dist/mocked_classnames/src/index.js",
+      "default": "./dist/mocked_classnames/src/index.js"
+    }
   },
   "typesVersions": {
     "*": {
-      "icons": [
-        "./dist/esm/components/Icon/Icons/index.d.ts"
-      ],
       "interactionsTests": [
-        "./dist/esm/tests/interactions-utils.d.ts"
+        "./dist/tests/interactions-utils.d.ts"
       ],
       "testIds": [
-        "./dist/esm/tests/test-ids-utils.d.ts"
+        "./dist/tests/test-ids-utils.d.ts"
       ],
       "next": [
-        "./dist/esm/next/next.d.ts"
-      ],
-      "types": [
-        "./dist/esm/types/index.d.ts"
+        "./dist/components/next/next.d.ts"
       ]
     }
   },
@@ -63,17 +64,12 @@
     "test:watch": "jest --watch",
     "test:update": "yarn test -u",
     "test:coverage": "yarn test -- --coverage",
-    "start": "yarn build:react-icons && yarn build:commonjs -- --watch",
-    "build": "yarn build:react-icons && yarn build:storybook-exports && yarn build:commonjs && yarn build:esm && yarn build:esm:mock-classnames && yarn build:types",
-    "build:exports": "./scripts/build-exports.js",
-    "build:types": "./scripts/build-types.js",
-    "build:storybook-exports": "./scripts/build-storybook-exports.js",
-    "build:commonjs": "webpack --mode production --config webpack/default.config.js",
+    "start": "yarn build:esm -- --watch",
+    "build": "yarn build:esm && yarn build:esm:mock-classnames",
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
-    "build:react-icons": "svg2react-icon --typescript --keep-colors ../../node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "storybook": "storybook dev -p 7008",
-    "build-storybook": "yarn build:storybook-exports && storybook build -o static_storybook",
+    "build-storybook": "storybook build -o static_storybook && node .storybook/storybook-title-fix.js static_storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
@@ -83,32 +79,16 @@
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "yarn stylelint -- --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "files": [
-    "src/",
-    "dist/",
-    "README.md",
-    "THEME_README.md"
-  ],
-  "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
-  },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
   "dependencies": {
     "@popperjs/core": "2.11.6",
+    "@vibe/icons": "1.0.0",
     "a11y-dialog": "^7.5.2",
-    "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.17.0",
+    "monday-ui-style": "0.21.0",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
@@ -116,13 +96,12 @@
     "react-is": "^16.9.0",
     "react-popper": "^2.3.0",
     "react-remove-scroll": "^2.6.0",
-    "react-select": "^3.2.0",
+    "react-select": "npm:react-select-module@^3.2.5",
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
-    "style-inject": "^0.3.0",
-    "vibe-storybook-components": "0.19.3"
+    "style-inject": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -174,7 +153,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "@types/autosize": "^4.0.1",
     "@types/babel__standalone": "^7.1.7",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest-axe": "^3.5.9",
@@ -185,6 +163,7 @@
     "@types/react-is": "^16.7.5",
     "@types/react-resizable": "^3.0.7",
     "@types/react-select": "^3.1.2",
+    "@types/react-syntax-highlighter": "^11.0.5",
     "@types/react-test-renderer": "^16.9.0",
     "@types/react-transition-group": "^4.4.5",
     "@types/react-virtualized-auto-sizer": "^1.0.1",
@@ -206,7 +185,6 @@
     "boxt": "^1.1.1",
     "chalk": "^4.1.2",
     "chromatic": "^11.5.4",
-    "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^6.5.1",
     "csstype": "^3.1.0",
     "ejs": "^3.1.9",
@@ -233,7 +211,7 @@
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "plop": "2.7.6",
+    "plop": "4.0.1",
     "postcss": "^8.4.5",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^6.2.1",
@@ -243,11 +221,13 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-live": "^4.1.5",
-    "react-markdown": "^7.1.0",
     "react-resizable": "^3.0.4",
+    "react-syntax-highlighter": "^15.5.0",
     "react-test-renderer": "^16.14.0",
+    "remark-gfm": "^3.0.1",
     "resolve-url-loader": "^5.0.0",
     "rollup": "^2.79.1",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
@@ -263,17 +243,12 @@
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
-    "svg2react-icon": "^3.1.178",
-    "terser-webpack-plugin": "^5.3.0",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "webpack": "^5.73.0",
-    "webpack-bundle-analyzer": "^4.6.1",
-    "webpack-cli": "^4.9.1",
-    "webpack-node-externals": "^3.0.0"
+    "vibe-storybook-components": "0.20.0"
   },
   "peerDependencies": {
     "moment": "^2.29.1",

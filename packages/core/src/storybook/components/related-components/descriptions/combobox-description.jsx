@@ -16,12 +16,7 @@ export const ComboboxDescription = () => {
     ];
     return (
       <DialogContentContainer style={style}>
-        <Combobox
-          placeholder="Placeholder text here"
-          options={option}
-          size={Combobox.sizes.SMALL}
-          optionLineHeight={28}
-        />
+        <Combobox placeholder="Placeholder text here" options={option} size="small" optionLineHeight={28} />
       </DialogContentContainer>
     );
   }, []);
@@ -29,7 +24,7 @@ export const ComboboxDescription = () => {
     <RelatedComponent
       component={component}
       title="Combobox"
-      href="/?path=/docs/inputs-combobox--docs"
+      href="/?path=/docs/components-combobox--docs"
       description="Combobox allowing users to filter longer lists to only the selections matching a query."
     />
   );

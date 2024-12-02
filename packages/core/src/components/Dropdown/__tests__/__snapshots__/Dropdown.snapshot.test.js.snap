@@ -24,7 +24,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
               style="display: inline-block;"
             >
               <input
-                aria-activedescendant="react-select-32-option-0"
+                aria-activedescendant="react-select-30-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
                 aria-expanded="true"
@@ -32,7 +32,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-32-input"
+                id="react-select-30-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -57,12 +57,11 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             class="dropdown-indicator css-1pxbrck-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -87,7 +86,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-1iwu591-option"
-          id="react-select-32-option-0"
+          id="react-select-30-option-0"
           role="option"
           tabindex="-1"
         >
@@ -106,7 +105,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-qj04r2-option"
-          id="react-select-32-option-1"
+          id="react-select-30-option-1"
           role="option"
           tabindex="-1"
         >
@@ -125,7 +124,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-2"
+          id="react-select-30-option-2"
           role="option"
           tabindex="-1"
         >
@@ -144,7 +143,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-3"
+          id="react-select-30-option-3"
           role="option"
           tabindex="-1"
         >
@@ -163,7 +162,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-4"
+          id="react-select-30-option-4"
           role="option"
           tabindex="-1"
         >
@@ -182,7 +181,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         <div
           aria-selected="false"
           class="optionReset css-6ztf41-option"
-          id="react-select-32-option-5"
+          id="react-select-30-option-5"
           role="option"
           tabindex="-1"
         >
@@ -236,7 +235,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-31-input"
+                id="react-select-29-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -261,12 +260,11 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
             class="dropdown-indicator css-slqvkp-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -343,12 +341,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
             class="dropdown-indicator css-prutdb-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="16px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="16px"
@@ -371,15 +368,15 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <div>
       <div
-        class=" css-118upmw-control"
+        class=" css-13ywfe7-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-1ht1nal-Component"
         >
           <div
             class=" css-1usuuna-placeholder"
@@ -415,25 +412,24 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-col3eb-Component"
+          class=" css-1aqjfd-Component"
         >
           <span
             class=" css-ds71as-Component"
           />
           <div
             aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
+            class="dropdown-indicator css-1ycu3uq-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
-              height="16px"
-              role="button"
+              height="20px"
               tabindex="-1"
               viewBox="0 0 20 20"
-              width="16px"
+              width="20px"
             >
               <path
                 clip-rule="evenodd"
@@ -453,15 +449,15 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
-    class="dropdown dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-cmnsoe-container"
     id="dropdown-menu-id"
   >
     <div>
       <div
-        class=" css-118upmw-control"
+        class=" css-1qrvste-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-rxqqti-Component"
         >
           <div
             class=" css-1usuuna-placeholder"
@@ -497,170 +493,6 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-col3eb-Component"
-        >
-          <span
-            class=" css-ds71as-Component"
-          />
-          <div
-            aria-hidden="true"
-            class="dropdown-indicator css-prutdb-indicatorContainer"
-          >
-            <svg
-              aria-hidden="false"
-              class="icon clickable"
-              data-testid="icon"
-              fill="currentColor"
-              height="16px"
-              role="button"
-              tabindex="-1"
-              viewBox="0 0 20 20"
-              width="16px"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
-<DocumentFragment>
-  <div
-    class="dropdown dropdown-story css-bbwnb8-container"
-    id="dropdown-menu-id"
-  >
-    <div>
-      <div
-        class=" css-13ywfe7-control"
-      >
-        <div
-          class=" css-1ht1nal-Component"
-        >
-          <div
-            class=" css-1usuuna-placeholder"
-          />
-          <div
-            class="css-lkl2xd-Component"
-          >
-            <div
-              class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-activedescendant=""
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-expanded="false"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-27-input"
-                role="combobox"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class=" css-1aqjfd-Component"
-        >
-          <span
-            class=" css-ds71as-Component"
-          />
-          <div
-            aria-hidden="true"
-            class="dropdown-indicator css-1ycu3uq-indicatorContainer"
-          >
-            <svg
-              aria-hidden="false"
-              class="icon clickable"
-              data-testid="icon"
-              fill="currentColor"
-              height="20px"
-              role="button"
-              tabindex="-1"
-              viewBox="0 0 20 20"
-              width="20px"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
-<DocumentFragment>
-  <div
-    class="dropdown dropdown-story css-cmnsoe-container"
-    id="dropdown-menu-id"
-  >
-    <div>
-      <div
-        class=" css-1qrvste-control"
-      >
-        <div
-          class=" css-rxqqti-Component"
-        >
-          <div
-            class=" css-1usuuna-placeholder"
-          />
-          <div
-            class="css-lkl2xd-Component"
-          >
-            <div
-              class=""
-              style="display: inline-block;"
-            >
-              <input
-                aria-activedescendant=""
-                aria-autocomplete="list"
-                aria-controls="dropdown-menu-list-id"
-                aria-expanded="false"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-28-input"
-                role="combobox"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
-            </div>
-          </div>
-        </div>
-        <div
           class=" css-hsetqv-Component"
         >
           <span
@@ -671,12 +503,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
             class="dropdown-indicator css-1uglcx3-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -753,12 +584,11 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
             class="dropdown-indicator css-1ycu3uq-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -810,7 +640,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-30-input"
+                id="react-select-28-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -849,12 +679,11 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
             class="dropdown-indicator css-slqvkp-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -898,7 +727,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               style="display: inline-block;"
             >
               <input
-                aria-activedescendant="react-select-29-option-0"
+                aria-activedescendant="react-select-27-option-0"
                 aria-autocomplete="list"
                 aria-controls="dropdown-menu-list-id"
                 aria-expanded="true"
@@ -906,7 +735,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-29-input"
+                id="react-select-27-input"
                 role="combobox"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -931,12 +760,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
             class="dropdown-indicator css-1pxbrck-indicatorContainer"
           >
             <svg
-              aria-hidden="false"
-              class="icon clickable"
+              aria-hidden="true"
+              class="icon"
               data-testid="icon"
               fill="currentColor"
               height="20px"
-              role="button"
               tabindex="-1"
               viewBox="0 0 20 20"
               width="20px"
@@ -969,7 +797,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-1iwu591-option"
-                id="react-select-29-option-0"
+                id="react-select-27-option-0"
                 role="option"
                 tabindex="-1"
               >
@@ -994,7 +822,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-1"
+                id="react-select-27-option-1"
                 role="option"
                 tabindex="-1"
               >
@@ -1019,7 +847,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-2"
+                id="react-select-27-option-2"
                 role="option"
                 tabindex="-1"
               >
@@ -1044,7 +872,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-3"
+                id="react-select-27-option-3"
                 role="option"
                 tabindex="-1"
               >
@@ -1069,7 +897,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-4"
+                id="react-select-27-option-4"
                 role="option"
                 tabindex="-1"
               >
@@ -1094,7 +922,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-5"
+                id="react-select-27-option-5"
                 role="option"
                 tabindex="-1"
               >
@@ -1119,7 +947,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-6"
+                id="react-select-27-option-6"
                 role="option"
                 tabindex="-1"
               >
@@ -1144,7 +972,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-7"
+                id="react-select-27-option-7"
                 role="option"
                 tabindex="-1"
               >
@@ -1169,7 +997,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-8"
+                id="react-select-27-option-8"
                 role="option"
                 tabindex="-1"
               >
@@ -1194,7 +1022,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-9"
+                id="react-select-27-option-9"
                 role="option"
                 tabindex="-1"
               >
@@ -1219,7 +1047,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               <div
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
-                id="react-select-29-option-10"
+                id="react-select-27-option-10"
                 role="option"
                 tabindex="-1"
               >
@@ -1345,7 +1173,6 @@ exports[`Dropdown renders correctly when disabled 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1411,13 +1238,11 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1532,13 +1357,11 @@ exports[`Dropdown renders correctly when rtl 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1653,13 +1476,11 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -1747,15 +1568,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="16"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="16"
                 >
                   <path
-                    clipRule="evenodd"
-                    d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
+                    d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
                   />
                 </svg>
               </button>
@@ -1807,15 +1624,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="16"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="16"
                 >
                   <path
-                    clipRule="evenodd"
-                    d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
+                    d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
                   />
                 </svg>
               </button>
@@ -1870,15 +1683,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
                     <path
-                      clipRule="evenodd"
-                      d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
+                      d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
                     />
                   </svg>
                 </button>
@@ -1960,22 +1769,17 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
             <path
-              clipRule="evenodd"
-              d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-              fill="currentColor"
-              fillRule="evenodd"
+              d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
             />
           </svg>
         </div>
@@ -1989,13 +1793,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2110,13 +1912,11 @@ exports[`Dropdown renders correctly with className 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2239,22 +2039,17 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
             <path
-              clipRule="evenodd"
-              d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-              fill="currentColor"
-              fillRule="evenodd"
+              d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
             />
           </svg>
         </div>
@@ -2268,13 +2063,11 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2389,13 +2182,11 @@ exports[`Dropdown renders correctly with empty props 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2510,13 +2301,11 @@ exports[`Dropdown renders correctly with id 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2630,15 +2419,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
                     <path
-                      clipRule="evenodd"
-                      d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
+                      d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
                     />
                   </svg>
                 </button>
@@ -2720,22 +2505,17 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
             <path
-              clipRule="evenodd"
-              d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-              fill="currentColor"
-              fillRule="evenodd"
+              d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
             />
           </svg>
         </div>
@@ -2749,13 +2529,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -2818,7 +2596,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   data-testid="icon"
                   fill="currentColor"
                   height="18"
-                  onClick={[Function]}
                   viewBox="0 0 20 20"
                   width="18"
                 >
@@ -2863,15 +2640,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     data-testid="icon"
                     fill="currentColor"
                     height="16"
-                    onClick={[Function]}
                     viewBox="0 0 20 20"
                     width="16"
                   >
                     <path
-                      clipRule="evenodd"
-                      d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
+                      d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
                     />
                   </svg>
                 </button>
@@ -2953,22 +2726,17 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
             <path
-              clipRule="evenodd"
-              d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-              fill="currentColor"
-              fillRule="evenodd"
+              d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
             />
           </svg>
         </div>
@@ -2982,13 +2750,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3121,13 +2887,11 @@ exports[`Dropdown renders correctly with multi 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3296,7 +3060,6 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3411,13 +3174,11 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3532,13 +3293,11 @@ exports[`Dropdown renders correctly with multiline 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3653,13 +3412,11 @@ exports[`Dropdown renders correctly with options 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3774,13 +3531,11 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -3895,13 +3650,11 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -4026,13 +3779,11 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -4155,22 +3906,17 @@ exports[`Dropdown renders correctly with value 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
             <path
-              clipRule="evenodd"
-              d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
-              fill="currentColor"
-              fillRule="evenodd"
+              d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
             />
           </svg>
         </div>
@@ -4184,13 +3930,11 @@ exports[`Dropdown renders correctly with value 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
@@ -4305,13 +4049,11 @@ exports[`Dropdown renders correctly without clear button 1`] = `
           onTouchEnd={[Function]}
         >
           <svg
-            aria-hidden={false}
-            className="icon clickable"
+            aria-hidden={true}
+            className="icon"
             data-testid="icon"
             fill="currentColor"
             height="20px"
-            onClick={[Function]}
-            role="button"
             tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"

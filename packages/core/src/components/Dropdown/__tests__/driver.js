@@ -17,7 +17,6 @@ export default class DropdownDriver {
   constructor() {
     this.props = { className: "dropdown-story" };
 
-    // eslint-disable-next-line no-constructor-return
     return this;
   }
 

@@ -10,12 +10,11 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import "./Tipseen.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Tipseen,
-  enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
+  component: Tipseen
 });
 
 export default {
-  title: "Popover/Tipseen",
+  title: "Components/Tipseen",
   component: Tipseen,
   subcomponents: {
     TipseenMedia,
@@ -59,9 +58,8 @@ export const Overview = {
   args: {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
-    position: Tipseen.positions.RIGHT,
-    hideDismiss: false,
-    color: Tipseen.colors.INVERTED
+    position: "right",
+    hideDismiss: false
   }
 };
 
@@ -75,8 +73,7 @@ export const Colors = {
           <div className="monday-storybook-tipseen_small-box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -89,7 +86,8 @@ export const Colors = {
           <div className="monday-storybook-tipseen_small-box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
+              position="right"
+              color="primary"
               content={
                 <TipseenContent title="This is a title" hideDismiss>
                   Message for the user will appear here, to give more information about the feature.
@@ -128,8 +126,7 @@ export const TipseenWithAWizard = {
       return (
         <Tipseen
           modifiers={modifiers}
-          position={Tipseen.positions.RIGHT}
-          color={Tipseen.colors.INVERTED}
+          position="right"
           content={
             <TipseenWizard
               title="This is a title"
@@ -163,10 +160,9 @@ export const TipseenWithImage = {
 
       return (
         <Tipseen
-          position={Tipseen.positions.RIGHT}
+          position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -189,10 +185,9 @@ export const TipseenWithCustomMedia = {
     () => {
       return (
         <Tipseen
-          position={Tipseen.positions.RIGHT}
+          position="right"
           modifiers={modifiers}
-          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-          color={Tipseen.colors.INVERTED}
+          closeButtonTheme="dark"
           content={
             <>
               <TipseenMedia>
@@ -225,9 +220,8 @@ export const FloatingTipseen = {
   render: () => {
     return (
       <Tipseen
-        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+        closeButtonTheme="dark"
         floating
-        color={Tipseen.colors.INVERTED}
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -236,7 +230,7 @@ export const FloatingTipseen = {
             </TipseenContent>
           </>
         }
-        containerSelector="#story--popover-tipseen--floating-tipseen"
+        containerSelector="#story--components-tipseen--floating-tipseen"
       />
     );
   },

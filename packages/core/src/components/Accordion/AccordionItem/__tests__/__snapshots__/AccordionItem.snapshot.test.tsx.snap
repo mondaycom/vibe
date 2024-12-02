@@ -29,7 +29,6 @@ exports[`AccordionItem renders correctly with children 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="24"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="24"
           >
@@ -83,7 +82,6 @@ exports[`AccordionItem renders correctly with className 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="24"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="24"
           >
@@ -135,7 +133,6 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="36"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="36"
           >
@@ -187,7 +184,6 @@ exports[`AccordionItem renders correctly with id 1`] = `
             data-testid="icon"
             fill="currentColor"
             height="24"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="24"
           >
@@ -233,20 +229,18 @@ exports[`AccordionItem renders correctly with title 1`] = `
           onClickCapture={[Function]}
           type="button"
         >
-          <h5
-            aria-label=""
-            className="headingComponent headerContent elementTypeH5 sizeLarge singleLineEllipsis"
-            data-testid="heading"
+          <div
+            className="typography primary start singleLineEllipsis text text1Normal headerContent"
+            data-testid="text"
           >
             Test title
-          </h5>
+          </div>
           <svg
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
             fill="currentColor"
             height="24"
-            onClick={[Function]}
             viewBox="0 0 20 20"
             width="24"
           >

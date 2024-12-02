@@ -4,8 +4,7 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
-import Info from "../../Icon/Icons/components/Info";
-import { ButtonType } from "../../Button/ButtonConstants";
+import { Info } from "@vibe/icons";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
@@ -14,7 +13,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-export interface ITableHeaderCellProps extends VibeComponentProps {
+export interface TableHeaderCellProps extends VibeComponentProps {
   title: string | React.ReactNode;
   icon?: SubIcon;
   infoContent?: string;
@@ -24,7 +23,7 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   sticky?: boolean;
 }
 
-const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
+const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = forwardRef(
   (
     {
       id,
@@ -37,7 +36,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
       sortState = "none",
       sortButtonAriaLabel = "Sort",
       sticky
-    },
+    }: TableHeaderCellProps,
     ref
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -63,36 +62,27 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         aria-sort={onSortClicked ? ariaSort : undefined}
         tabIndex={onSortClicked ? 0 : undefined}
       >
-        <Flex
-          direction={Flex.directions.ROW}
-          align={Flex.align.CENTER}
-          className={styles.tableHeaderCellContent}
-          gap={Flex.gaps.XS}
-        >
-          {icon && <Icon icon={icon} clickable={false} className={styles.icon} />}
+        <Flex direction="row" align="center" className={styles.tableHeaderCellContent} gap="xs">
+          {icon && <Icon icon={icon} className={styles.icon} />}
           {typeof title === "string" ? (
-            <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
+            <Text type="text2" weight="medium" color="secondary">
               {title}
             </Text>
           ) : (
             title
           )}
           {infoContent && (
-            <Tooltip
-              content={infoContent}
-              referenceWrapperClassName={styles.infoTooltip}
-              addKeyboardHideShowTriggersByDefault
-            >
-              <Icon icon={Info} iconLabel={infoContent} clickable={false} />
+            <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
+              <Icon icon={Info} iconLabel={infoContent} />
             </Tooltip>
           )}
         </Flex>
         {onSortClicked && (
-          <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
+          <Flex direction="row" align="center" className={styles.tableHeaderCellSort}>
             <IconButton
               icon={getSortIcon(sortState)}
-              kind={ButtonType.TERTIARY}
-              size={IconButton.sizes.XS}
+              kind="tertiary"
+              size="xs"
               ariaLabel={sortButtonAriaLabel}
               aria-hidden={!shouldShowSortIcon}
               className={cx(styles.sort, getStyle(styles, sortState), {

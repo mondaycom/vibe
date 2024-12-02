@@ -14,7 +14,7 @@ export const TipHeading = () => (
 export const TipLink = () => (
   <Tip>
     If you need to place a link outside of the textual flow, please use our{" "}
-    <StorybookLink page="Navigation/Link" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/Link" size={StorybookLink.sizes.SMALL}>
       Link
     </StorybookLink>{" "}
     component.

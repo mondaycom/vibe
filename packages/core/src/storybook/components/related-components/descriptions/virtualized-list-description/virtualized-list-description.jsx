@@ -37,7 +37,7 @@ export const VirtualizedListDescription = () => {
     <RelatedComponent
       component={component}
       title="VirtualizedList"
-      href="/?path=/docs/navigation-virtualizedlist--docs"
+      href="/?path=/docs/components-virtualizedlist--docs"
       description="VirtualizedList is a component which only renders visible list items, it is a logic component and doesn't change and look and feel."
     />
   );

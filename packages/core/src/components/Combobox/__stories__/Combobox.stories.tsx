@@ -8,7 +8,7 @@ import { defaultPlaySuite } from "../__tests__/Combobox.interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
-import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "../../Icon/Icons";
+import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";
@@ -18,13 +18,12 @@ import "./Combobox.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,
-  enumPropNamesArray: ["size"],
   iconPropNamesArray: ["searchIcon"],
   actionPropsArray: ["onOptionHover", "onOptionLeave", "onFilterChanged"]
 });
 
 export default {
-  title: "Inputs/Combobox",
+  title: "Components/Combobox",
   component: Combobox,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -162,13 +161,13 @@ export const Sizes = {
     return (
       <div className="combobox-stories-styles_row">
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.SMALL} placeholder="Placeholder text here" />
+          <Combobox options={options} size="small" placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
         <DialogContentContainer>
-          <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
+          <Combobox options={options} size="large" placeholder="Placeholder text here" />
         </DialogContentContainer>
       </div>
     );
@@ -234,8 +233,8 @@ export const WithCategories = {
         style={{
           width: "100%"
         }}
-        justify={Flex.justify.START}
-        align={Flex.align.START}
+        justify="start"
+        align="start"
       >
         <StoryDescription
           description="Regular"
@@ -424,7 +423,7 @@ export const WithButton = {
     return (
       <DialogContentContainer>
         <Combobox options={options} placeholder="Placeholder text here" />
-        <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>
+        <Button kind="tertiary" className="combobox-stories-styles_btn" leftIcon={Edit}>
           Edit
         </Button>
       </DialogContentContainer>
@@ -589,17 +588,17 @@ export const WithVirtualizationOptimization = {
 
     return (
       <Flex
-        gap={Flex.gaps.SMALL}
+        gap="small"
         style={{
           width: "100%"
         }}
-        justify={Flex.justify.CENTER}
-        align={Flex.align.START}
+        justify="center"
+        align="start"
       >
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization without categories"
           vertical
           headerStyle={{
@@ -625,7 +624,7 @@ export const WithVirtualizationOptimization = {
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization with categories"
           vertical
           headerStyle={{
@@ -652,7 +651,7 @@ export const WithVirtualizationOptimization = {
         <StoryDescription
           className="combobox-stories-styles_virtualized-description"
           // @ts-ignore
-          align={Flex.align.START}
+          align="start"
           description="Virtualization optimization with sticky categories"
           vertical
           headerStyle={{
@@ -711,7 +710,7 @@ export const ComboboxAsPersonPicker = {
           id: "Hadas Farhi",
           label: "Hadas Farhi",
           src: person1,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Frontend Developer)",
           categoryId: "suggestedPeople"
         },
@@ -719,7 +718,7 @@ export const ComboboxAsPersonPicker = {
           id: "Rotem Dekel",
           label: "Rotem Dekel",
           src: person2,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Product Designer)",
           categoryId: "suggestedPeople"
         },
@@ -727,7 +726,7 @@ export const ComboboxAsPersonPicker = {
           id: "Netta Muller",
           label: "Netta Muller",
           src: person3,
-          type: Avatar.types.IMG,
+          type: "img",
           position: "(Brand Designer)",
           categoryId: "suggestedPeople"
         }
@@ -751,8 +750,8 @@ export const ComboboxAsPersonPicker = {
           width: "100%",
           height: "270px"
         }}
-        justify={Flex.justify.CENTER}
-        align={Flex.align.START}
+        justify="center"
+        align="start"
       >
         <Dialog
           content={() => (
@@ -761,17 +760,17 @@ export const ComboboxAsPersonPicker = {
                 options={options}
                 categories={categories}
                 optionRenderer={optionRenderer}
-                size={Combobox.sizes.SMALL}
+                size="small"
                 placeholder="Search"
               />
             </DialogContentContainer>
           )}
           tooltip
-          position={Dialog.positions.BOTTOM}
+          position="bottom"
           open={true}
         >
           <div className="person-picker-mock">
-            <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
+            <Avatar size="small" src={person1} type="img" />
           </div>
         </Dialog>
       </Flex>

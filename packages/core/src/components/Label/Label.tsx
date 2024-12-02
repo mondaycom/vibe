@@ -3,22 +3,18 @@ import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
-import { LabelColor, LabelKind } from "./LabelConstants";
+import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
+import { LabelColor, LabelKind } from "./Label.types";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { mapSizesToTextSize, Sizes } from "./Label.types";
+import { LabelSizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  wrapperClassName?: string;
   /**
    * Class name for an inner text wrapper
    */
@@ -26,40 +22,36 @@ export interface LabelProps extends VibeComponentProps {
   kind?: LabelKind;
   color?: LabelColor;
   text?: string;
-  isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   celebrationAnimation?: boolean;
-  size?: Sizes;
+  size?: LabelSizes;
 }
 
 const Label: VibeComponent<LabelProps> & {
-  colors?: typeof LabelColor;
-  kinds?: typeof LabelKind;
+  colors?: typeof LabelColorEnum;
+  kinds?: typeof LabelKindEnum;
 } = forwardRef<HTMLElement, LabelProps>(
   (
     {
       className,
-      wrapperClassName,
       labelClassName,
-      kind = LabelKind.FILL,
-      color = LabelColor.PRIMARY,
+      kind = "fill",
+      color = "primary",
       text = "",
-      isAnimationDisabled = false,
       isLegIncluded = false,
       id,
       "data-testid": dataTestId,
       onClick,
       celebrationAnimation,
       size = "medium"
-    },
+    }: LabelProps,
     ref
   ) => {
     const labelRef = useRef<HTMLSpanElement>(null);
     const mergedRef = useMergeRef(ref, labelRef);
     const [isCelebrationAnimation, setIsCelebrationAnimation] = useState(celebrationAnimation);
 
-    const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
     const isClickable = Boolean(onClick);
 
     const classNames = useMemo(
@@ -69,15 +61,13 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("kind" + "-" + kind)),
           getStyle(styles, camelCase("color" + "-" + color)),
           {
-            // When celebrationAnimation is active it wins over the default animation
-            [styles.withAnimation]: !isAnimationDisabled && !isCelebrationAnimation,
             [styles.withLeg]: isLegIncluded,
             [styles.clickable]: isClickable,
             [styles.small]: size === "small"
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation, isClickable, size]
+      [kind, color, isLegIncluded, labelClassName, isClickable, size]
     );
 
     const onClickCallback = useCallback(
@@ -109,7 +99,7 @@ const Label: VibeComponent<LabelProps> & {
       return (
         <span
           {...(isClickable && clickableProps)}
-          className={cx({ [styles.clickableWrapper]: isClickable }, overrideClassName)}
+          className={cx({ [styles.clickableWrapper]: isClickable }, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
           ref={mergedRef}
         >
@@ -117,13 +107,13 @@ const Label: VibeComponent<LabelProps> & {
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color={Text.colors.ON_INVERTED}
+            color="onInverted"
             data-celebration-text={isCelebrationAnimation}
           >
             <Text
               element="span"
               type={mapSizesToTextSize[size]}
-              color={Text.colors.INHERIT}
+              color="inherit"
               className={cx({ [styles.smallText]: size === "small" })}
             >
               {text}
@@ -135,7 +125,7 @@ const Label: VibeComponent<LabelProps> & {
     }, [
       isClickable,
       clickableProps,
-      overrideClassName,
+      className,
       dataTestId,
       id,
       mergedRef,
@@ -160,6 +150,6 @@ const Label: VibeComponent<LabelProps> & {
 );
 
 export default withStaticProps(Label, {
-  colors: LabelColor,
-  kinds: LabelKind
+  colors: LabelColorEnum,
+  kinds: LabelKindEnum
 });

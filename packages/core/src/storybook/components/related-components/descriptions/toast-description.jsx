@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import ToastLineWrapper from "../../../../components/Toast/__stories__/ToastLineWrapper";
-import Toast from "../../../../components/Toast/Toast";
 
 export const ToastDescription = () => {
   const component = useMemo(() => {
@@ -12,7 +11,7 @@ export const ToastDescription = () => {
     };
     return (
       <div style={style}>
-        <ToastLineWrapper text="Message" actions={[{ type: Toast.actionTypes.BUTTON, content: "Button" }]} />
+        <ToastLineWrapper text="Message" actions={[{ type: "button", content: "Button" }]} />
       </div>
     );
   }, []);
@@ -20,7 +19,7 @@ export const ToastDescription = () => {
     <RelatedComponent
       component={component}
       title="Toast"
-      href="/?path=/docs/feedback-toast--docs"
+      href="/?path=/docs/components-toast--docs"
       description="A message object that presents timely information or feedback for the user."
     />
   );

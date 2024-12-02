@@ -1,5 +1,8 @@
+/**
+ * @deprecated
+ */
 export enum IconType {
-  SVG = "SVG",
-  ICON_FONT = "FA",
-  SRC = "SRC"
+  SVG = "svg",
+  ICON_FONT = "font",
+  SRC = "src"
 }

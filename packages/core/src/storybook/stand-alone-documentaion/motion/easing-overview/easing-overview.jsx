@@ -8,7 +8,7 @@ export const EasingOverview = ({ videoSrc, title, description, tokenInfo, tokenD
 
   return (
     <div className={styles.row}>
-      <Flex justify={Flex.justify.SPACE_BETWEEN} align={Flex.align.START} gap={Flex.gaps.LARGE} wrap>
+      <Flex justify="space-between" align="start" gap="large" wrap>
         <TokenInformationBox
           className={styles.easingInformationBox}
           title={title}

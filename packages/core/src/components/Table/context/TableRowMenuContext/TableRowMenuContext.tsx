@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { ITableRowMenuContext, ITableRowMenuProviderProps } from "./TableRowMenuContext.types";
+import { TableRowMenuContext as ITableRowMenuContext, TableRowMenuProviderProps } from "./TableRowMenuContext.types";
 
 const TableRowMenuContext = createContext<ITableRowMenuContext | undefined>(undefined);
 
-export const TableRowMenuProvider = ({ value, children }: ITableRowMenuProviderProps) => {
+export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderProps) => {
   const { tableRootRef, hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef, setIsMenuOpen } = value;
   const rowMouseLeaveTimeoutId = useRef<ReturnType<typeof setTimeout>>(null);
   const [menuButtonPosition, setMenuButtonPosition] = useState(0);

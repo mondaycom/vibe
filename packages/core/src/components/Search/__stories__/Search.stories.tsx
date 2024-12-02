@@ -7,7 +7,7 @@ import Combobox from "../../Combobox/Combobox";
 import Flex from "../../Flex/Flex";
 import { Decorator, Meta, StoryObj } from "@storybook/react";
 import IconButton from "../../IconButton/IconButton";
-import FilterIcon from "../../Icon/Icons/components/Filter";
+import { Filter as FilterIcon } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,
@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const searchTemplate = createComponentTemplate(Search);
 
 export default {
-  title: "Inputs/Search",
+  title: "Components/Search",
   component: Search,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -54,7 +54,7 @@ export const Sizes: Story = {
   ),
   decorators: [
     Story => (
-      <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
+      <Flex direction="column" justify="start" gap="medium">
         <Story />
       </Flex>
     ),
@@ -73,7 +73,7 @@ export const WithAdditionalAction: Story = {
   render: () => (
     <Search
       placeholder="Search with icon"
-      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size={IconButton.sizes.SMALL} />}
+      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size="small" />}
     />
   ),
   decorators: [withFixedWidth],
@@ -110,9 +110,7 @@ const options = [
 ];
 
 export const FilterInCombobox: Story = {
-  render: () => (
-    <Combobox placeholder="Placeholder text here" options={options} size={Combobox.sizes.SMALL} optionLineHeight={28} />
-  ),
+  render: () => <Combobox placeholder="Placeholder text here" options={options} size="small" optionLineHeight={28} />,
   decorators: [
     Story => (
       <DialogContentContainer>

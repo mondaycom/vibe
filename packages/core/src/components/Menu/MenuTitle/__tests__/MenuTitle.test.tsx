@@ -8,7 +8,7 @@ it("renders correctly with empty props", () => {
 });
 
 it("renders correctly with custom class name", () => {
-  const tree = renderer.create(<MenuTitle classname="dummy-class-name" />).toJSON();
+  const tree = renderer.create(<MenuTitle className="dummy-class-name" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

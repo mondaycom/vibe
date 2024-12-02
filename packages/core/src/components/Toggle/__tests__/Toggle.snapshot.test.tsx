@@ -19,12 +19,12 @@ describe("Toggle renders correctly", () => {
   });
 
   it("renders correctly when selection defined by isSelected (on)", () => {
-    const tree = renderer.create(<Toggle componentClassName="dummy-class-name" isSelected />).toJSON();
+    const tree = renderer.create(<Toggle className="dummy-class-name" isSelected />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly when selection defined by isSelected (off)", () => {
-    const tree = renderer.create(<Toggle componentClassName="dummy-class-name" isSelected={false} />).toJSON();
+    const tree = renderer.create(<Toggle className="dummy-class-name" isSelected={false} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

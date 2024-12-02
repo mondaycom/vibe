@@ -1,8 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import CloseSmallIcon from "../Icon/Icons/components/CloseSmall";
-import SearchIcon from "../Icon/Icons/components/Search";
+import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
 import BaseInput from "../BaseInput/BaseInput";
@@ -35,6 +34,7 @@ const Search = forwardRef(
       onFocus,
       onBlur,
       onClear,
+      onKeyDown,
       className,
       ariaExpanded,
       ariaHasPopup,
@@ -53,21 +53,17 @@ const Search = forwardRef(
     });
 
     const onClearButtonClick = useCallback(() => {
-      if (disabled) {
-        return;
-      }
-
+      if (disabled) return;
       inputRef.current?.focus?.();
       clearValue();
       onClear?.();
-    }, [disabled, clearValue]);
+    }, [disabled, clearValue, onClear]);
 
     const SearchIcon = (
       <Icon
         icon={searchIconName}
         className={styles.icon}
-        clickable={false}
-        iconType={Icon.type.ICON_FONT}
+        iconType="font"
         iconSize={size === "small" ? "16px" : "20px"}
       />
     );
@@ -78,7 +74,7 @@ const Search = forwardRef(
         icon={clearIconName}
         ariaLabel={clearIconLabel}
         onClick={onClearButtonClick}
-        size={size === "small" ? IconButton.sizes.XS : IconButton.sizes.SMALL}
+        size={size === "small" ? "xs" : "small"}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
       />
     );
@@ -87,8 +83,8 @@ const Search = forwardRef(
       <>
         {loading && (
           <Loader
-            size={size === "small" ? Loader.sizes.XS : 20}
-            color={Loader.colors.SECONDARY}
+            size={size === "small" ? "xs" : 20}
+            color="secondary"
             wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}
@@ -114,6 +110,7 @@ const Search = forwardRef(
         onChange={onEventChanged}
         onBlur={onBlur}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         autoComplete={autoComplete}
         size={size}
         wrapperRole="search"

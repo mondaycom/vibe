@@ -17,7 +17,7 @@ export const DialogContentContainerDescription = () => {
     <RelatedComponent
       component={component}
       title="DialogContentContainer"
-      href="/?path=/docs/popover-dialogcontentcontainer--docs"
+      href="/?path=/docs/components-dialogcontentcontainer--docs"
       description="An Elevation container, use to elevate content section"
     />
   );

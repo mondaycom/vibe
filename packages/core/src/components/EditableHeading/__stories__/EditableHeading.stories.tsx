@@ -7,12 +7,11 @@ import styles from "./EditableHeading.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
-  enumPropNamesArray: ["weight", "type"],
   actionPropsArray: ["onChange"]
 });
 
 export default {
-  title: "Inputs/EditableHeading",
+  title: "Components/EditableHeading",
   component: EditableHeading,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

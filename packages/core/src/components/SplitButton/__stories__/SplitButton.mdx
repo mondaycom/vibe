@@ -2,7 +2,7 @@ import { Meta } from "@storybook/blocks";
 import { Link, UsageGuidelines } from "vibe-storybook-components";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
+import { Filter, Group, Print, Search, Sort, Upload } from "@vibe/icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import { SplitButtonExampleDialog, TipMenu } from "./SplitButton.stories.helpers";
 import * as SplitButtonStories from "./SplitButton.stories";
@@ -25,6 +25,12 @@ import * as SplitButtonStories from "./SplitButton.stories";
 A split button is a dual-function menu button that offers a default action as well as the possibility of choosing a secondary action, by selecting from a set of alternatives.
 
 <Canvas of={SplitButtonStories.Overview} />
+
+### Import
+
+```js
+import { SplitButton, SplitButtonMenu } from "@vibe/core";
+```
 
 ## Props
 
@@ -69,15 +75,10 @@ The split button has supports multiple sizes: small, medium and large.
       positive: {
         component: [
           <SplitButton children="New item" secondaryDialogContent={<SplitButtonExampleDialog />} />,
-          <SplitButton
-            success
-            kind={SplitButton.kinds.TERTIARY}
-            leftIcon={Search}
-            secondaryDialogContent={<SplitButtonExampleDialog />}
-          >
+          <SplitButton success kind="tertiary" leftIcon={Search} secondaryDialogContent={<SplitButtonExampleDialog />}>
             Search
           </SplitButton>,
-          <Button kind={Button.kinds.TERTIARY} leftIcon={Filter}>
+          <Button kind="tertiary" leftIcon={Filter}>
             Filter
           </Button>
         ],
@@ -113,7 +114,8 @@ The split button has supports multiple sizes: small, medium and large.
         description: (
           <>
             Don’t use split button if there’s only one option within the menu. Use{" "}
-            <StorybookLink page="Buttons/Button">Button</StorybookLink> instead (see example in the secondary dialog).
+            <StorybookLink page="Components/Button">Button</StorybookLink> instead (see example in the secondary
+            dialog).
           </>
         )
       }

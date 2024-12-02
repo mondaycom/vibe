@@ -5,7 +5,7 @@ import { Flex } from "../../";
 import styles from "./VirtualizedList.module.scss";
 
 export default {
-  title: "Navigation/VirtualizedList",
+  title: "Components/VirtualizedList",
   component: VirtualizedList
 };
 
@@ -27,7 +27,7 @@ const virtualizedListTemplate = args => {
     );
   }, []);
   return (
-    <Flex align={Flex.align.START} gap={Flex.gaps.LARGE} style={{ width: "100%" }} direction={Flex.directions.ROW}>
+    <Flex align="start" gap="large" style={{ width: "100%" }} direction="row">
       <div
         style={{
           width: 330,

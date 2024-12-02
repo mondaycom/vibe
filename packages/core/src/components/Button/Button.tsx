@@ -7,18 +7,23 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
+import {
+  BUTTON_ICON_SIZE,
+  ButtonColor as ButtonColorEnum,
+  ButtonInputType as ButtonInputTypeEnum,
+  ButtonType as ButtonTypeEnum
+} from "./ButtonConstants";
+import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
 export interface ButtonProps extends VibeComponentProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
   activeButtonClassName?: string;
@@ -32,7 +37,7 @@ export interface ButtonProps extends VibeComponentProps {
   /** Name of the button - for form submit usages  */
   name?: string;
   /** The button's size */
-  size?: Size;
+  size?: ButtonSize;
   /** The button's color */
   color?: ButtonColor;
   /** The button's type */
@@ -91,10 +96,6 @@ export interface ButtonProps extends VibeComponentProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
-  /**
-   * @deprecated - use "data-testid" instead
-   */
-  dataTestId?: string;
   "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
@@ -104,10 +105,10 @@ export interface ButtonProps extends VibeComponentProps {
 
 const Button: VibeComponent<ButtonProps, unknown> & {
   sizes?: typeof SIZES;
-  colors?: typeof ButtonColor;
-  kinds?: typeof ButtonType;
-  types?: typeof ButtonInputType;
-  inputTags?: typeof ButtonInputType;
+  colors?: typeof ButtonColorEnum;
+  kinds?: typeof ButtonTypeEnum;
+  types?: typeof ButtonInputTypeEnum;
+  inputTags?: typeof ButtonInputTypeEnum;
 } = forwardRef<unknown, ButtonProps>(
   (
     {
@@ -150,22 +151,20 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
       blurOnMouseUp,
-      dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus,
       tabIndex
-    },
+    }: ButtonProps,
     ref
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, buttonRef);
 
     const { loading } = useButtonLoading({ isLoading });
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
 
     useEffect(() => {
-      if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
-      if (kind !== ButtonType.PRIMARY) return;
+      if (color !== "on-primary-color" && color !== "fixed-light") return;
+      if (kind !== "primary") return;
       if (!buttonRef.current) return;
 
       const buttonElement = buttonRef.current;
@@ -211,11 +210,11 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     );
 
     const classNames = useMemo(() => {
-      const calculatedColor = success ? ButtonColor.POSITIVE : color;
+      const calculatedColor = success ? "positive" : color;
       return cx(
         className,
         styles.button,
-        getStyle(styles, camelCase("size-" + getActualSize(size))),
+        getStyle(styles, camelCase("size-" + size)),
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
@@ -238,7 +237,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       className,
       size,
       kind,
-      loading,
       active,
       activeButtonClassName,
       marginRight,
@@ -264,7 +262,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onFocus,
         onBlur,
         tabIndex: disabled || ariaHidden ? -1 : tabIndex,
-        "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -290,7 +288,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       onFocus,
       onBlur,
       tabIndex,
-      overrideDataTestId,
+      dataTestId,
       onMouseDownClicked,
       disabled,
       loading,
@@ -324,8 +322,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         <>
           {leftIcon ? (
             <Icon
-              iconType={Icon?.type.ICON_FONT}
-              clickable={false}
+              iconType="font"
               icon={leftIcon}
               iconSize={leftIconSize}
               className={cx({
@@ -337,8 +334,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           {children}
           {rightIcon ? (
             <Icon
-              iconType={Icon?.type.ICON_FONT}
-              clickable={false}
+              iconType="font"
               icon={rightIcon}
               iconSize={rightIconSize}
               className={cx({
@@ -371,8 +367,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           <span className={styles.successContent}>
             {successIcon ? (
               <Icon
-                iconType={Icon?.type.ICON_FONT}
-                clickable={false}
+                iconType="font"
                 icon={successIcon}
                 iconSize={successIconSize}
                 className={cx({
@@ -403,11 +398,10 @@ Button.defaultProps = {
   name: undefined,
   style: undefined,
   id: undefined,
-  dataTestId: undefined,
-  kind: ButtonType.PRIMARY,
+  kind: "primary",
   onClick: NOOP,
-  size: SIZES.MEDIUM,
-  color: ButtonColor.PRIMARY,
+  size: "medium",
+  color: "primary",
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -419,7 +413,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: ButtonInputType.BUTTON,
+  type: "button",
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
@@ -439,8 +433,8 @@ Button.defaultProps = {
 
 export default withStaticProps(Button, {
   sizes: SIZES,
-  colors: ButtonColor,
-  kinds: ButtonType,
-  types: ButtonInputType,
-  inputTags: ButtonInputType
+  colors: ButtonColorEnum,
+  kinds: ButtonTypeEnum,
+  types: ButtonInputTypeEnum,
+  inputTags: ButtonInputTypeEnum
 });

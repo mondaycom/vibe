@@ -11,8 +11,8 @@ export const BoxDescription = () => {
           width: "80%"
         }}
       >
-        <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
-          <Text align={Text.align.CENTER}>Box</Text>
+        <Box border rounded="medium">
+          <Text align="center">Box</Text>
         </Box>
       </div>
     ),

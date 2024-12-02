@@ -1,6 +1,6 @@
 import { Canvas, Meta } from "@storybook/blocks";
 import Link from "../Link.tsx";
-import { ExternalPage, Gallery } from "../../Icon/Icons";
+import { ExternalPage, Gallery } from "@vibe/icons";
 import { BREADCRUBMS, BUTTON, BADGE } from "../../../storybook/components/related-components/component-description-map";
 import { TipButton } from "./Link.stories.helpers";
 import * as LinkStories from "./Link.stories";
@@ -23,6 +23,12 @@ import * as LinkStories from "./Link.stories";
 Link is an actionable text component with connection to another web pages.
 
 <Canvas of={LinkStories.Overview} />
+
+### Import
+
+```js
+import { Link } from "@vibe/core";
+```
 
 ## Props
 
@@ -70,20 +76,13 @@ Link is an actionable text component with connection to another web pages.
     },
     {
       positive: {
-        component: (
-          <Link
-            text="Read more"
-            iconPosition={Link.iconPositions.START}
-            href="https://www.monday.com"
-            icon={ExternalPage}
-          />
-        ),
+        component: <Link text="Read more" iconPosition="start" href="https://www.monday.com" icon={ExternalPage} />,
         description: "Use icon from the left or right side of the link"
       },
       negative: {
         component: [
-          <Link icon={Gallery} iconPosition={Link.iconPositions.END} />,
-          <Link icon={ExternalPage} text="Read more" iconPosition={Link.iconPositions.END} />
+          <Link icon={Gallery} iconPosition="end" />,
+          <Link icon={ExternalPage} text="Read more" iconPosition="end" />
         ],
         description: "Don’t use two icons for one link."
       }

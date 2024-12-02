@@ -4,7 +4,7 @@ import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import Icon from "../../Icon/Icon";
-import { Board, BoardPrivate } from "../../Icon/Icons";
+import { Board, BoardPrivate } from "@vibe/icons";
 import { modifiers, TipCheckYourself, wizardContent } from "./Tipseen.stories.helpers";
 import {
   ATTENTION_BOX,
@@ -32,6 +32,12 @@ import { tipseenTemplate } from "./Tipseen.stories";
 Tipseen is a virtual unboxing experience that helps users get started with the system and discover new features.
 
 <Canvas of={TipseenStories.Overview} />
+
+### Import
+
+```js
+import { Tipseen, TipseenMedia, TipseenImage, TipseenContent, TipseenWizard } from "@vibe/core";
+```
 
 ## Props
 
@@ -94,8 +100,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
           <div className="monday-storybook-tipseen_column-wrapper right">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               content={
                 <TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />
               }
@@ -112,8 +117,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
           <div className="monday-storybook-tipseen_column-wrapper right">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} />}
             >
               <div className="monday-storybook-tipseen_inline-container right" />{" "}
@@ -133,8 +137,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             </div>
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
             >
               <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
@@ -156,8 +159,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
           <div className="monday-storybook-tipseen_column-wrapper">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.TOP}
-              color={Tipseen.colors.INVERTED}
+              position="top"
               content={
                 <TipseenContent>
                   You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.
@@ -171,8 +173,8 @@ In this case, the Tipseen position will be the right corner of the screen and wi
         description: (
           <>
             Don’t use tipseen to provide additional information on a familiar UI. Use a{" "}
-            <StorybookLink page="Popover/Tooltip">Tooltip</StorybookLink> or{" "}
-            <StorybookLink page="Feedback/AttentionBox">Attention box</StorybookLink> instead.
+            <StorybookLink page="Components/Tooltip">Tooltip</StorybookLink> or{" "}
+            <StorybookLink page="Components/AttentionBox">Attention box</StorybookLink> instead.
           </>
         )
       }
@@ -183,8 +185,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
           <div className="monday-storybook-tipseen_box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
             >
               <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
@@ -201,8 +202,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
           <div className="monday-storybook-tipseen_box">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT}
-              color={Tipseen.colors.INVERTED}
+              position="right"
               tip={false}
               content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
             >

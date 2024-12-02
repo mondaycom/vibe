@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import renderer from "react-test-renderer";
 import Link from "../Link";
@@ -10,7 +9,7 @@ describe("Link renders correctly", () => {
   });
 
   it("with right icon", () => {
-    const tree = renderer.create(<Link icon="fa fa-star" iconPosition={Link.position.END} />).toJSON();
+    const tree = renderer.create(<Link icon="fa fa-star" iconPosition="end" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

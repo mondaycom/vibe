@@ -4,9 +4,10 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
-import { AvatarSize, AvatarType } from "./AvatarConstants";
+import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./Avatar.types";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
@@ -26,7 +27,7 @@ export interface AvatarProps extends VibeComponentProps {
   textClassName?: string;
   /** Class name for a div-wrapper of avatar content */
   avatarContentWrapperClassName?: string;
-  backgroundColor?: ElementColor;
+  backgroundColor?: ElementAllowedColor;
   customBackgroundColor?: string;
   role?: AriaRole;
   size?: AvatarSize;
@@ -34,14 +35,6 @@ export interface AvatarProps extends VibeComponentProps {
   tabIndex?: number;
   ariaHidden?: boolean;
   disabled?: boolean;
-  /**
-   * @deprecated - use square instead
-   */
-  isSquare?: boolean;
-  /**
-   * @deprecated - use disabled instead
-   */
-  isDisabled?: boolean;
   square?: boolean;
   topLeftBadgeProps?: AvatarBadgeProps;
   topRightBadgeProps?: AvatarBadgeProps;
@@ -52,17 +45,17 @@ export interface AvatarProps extends VibeComponentProps {
 }
 
 const Avatar: React.FC<AvatarProps> & {
-  types?: typeof AvatarType;
-  sizes?: typeof AvatarSize;
-  colors?: typeof ElementAllowedColor;
-  backgroundColors?: typeof ElementAllowedColor;
+  types?: typeof AvatarTypeEnum;
+  sizes?: typeof AvatarSizeEnum;
+  colors?: typeof ElementAllowedColorEnum;
+  backgroundColors?: typeof ElementAllowedColorEnum;
 } = ({
   id,
-  type = AvatarType.TEXT,
+  type = "text",
   className,
   avatarContentWrapperClassName,
   textClassName = "",
-  size = AvatarSize.LARGE,
+  size = "large",
   src,
   icon,
   text,
@@ -70,13 +63,9 @@ const Avatar: React.FC<AvatarProps> & {
   ariaLabel,
   withoutTooltip = false,
   role,
-  backgroundColor = Avatar.colors.CHILI_BLUE,
+  backgroundColor = "chili-blue",
   square,
   disabled,
-  // Backward compatibility for props naming
-  isSquare,
-  // Backward compatibility for props naming
-  isDisabled,
   tabIndex,
   ariaHidden = false,
   topLeftBadgeProps,
@@ -88,9 +77,7 @@ const Avatar: React.FC<AvatarProps> & {
   customBackgroundColor = null,
   onClick,
   "data-testid": dataTestId
-}) => {
-  const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
+}: AvatarProps) => {
   const backgroundColorStyle = useMemo(() => {
     if (customBackgroundColor) return { backgroundColor: customBackgroundColor };
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
@@ -177,18 +164,14 @@ const Avatar: React.FC<AvatarProps> & {
           className: styles.clickableWrapper
         }}
       >
-        <Tooltip
-          showTrigger={[Tooltip.hideShowTriggers.FOCUS, Tooltip.hideShowTriggers.MOUSE_ENTER]}
-          hideTrigger={[Tooltip.hideShowTriggers.BLUR, Tooltip.hideShowTriggers.MOUSE_LEAVE]}
-          {...overrideTooltipProps}
-        >
+        <Tooltip showTrigger={["focus", "mouseenter"]} hideTrigger={["blur", "mouseleave"]} {...overrideTooltipProps}>
           <div
             className={cx(
               styles.circle,
               getStyle(styles, camelCase("circle--" + type)),
               {
-                [styles.disabled]: overrideDisabled,
-                [styles.square]: overrideSquare,
+                [styles.disabled]: disabled,
+                [styles.square]: square,
                 [styles.withoutBorder]: withoutBorder
               },
               avatarContentWrapperClassName
@@ -216,8 +199,8 @@ const Avatar: React.FC<AvatarProps> & {
 };
 
 export default withStaticProps(Avatar, {
-  types: AvatarType,
-  sizes: AvatarSize,
-  colors: ElementAllowedColor,
-  backgroundColors: ElementAllowedColor
+  types: AvatarTypeEnum,
+  sizes: AvatarSizeEnum,
+  colors: ElementAllowedColorEnum,
+  backgroundColors: ElementAllowedColorEnum
 });

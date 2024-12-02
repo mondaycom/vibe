@@ -7,10 +7,8 @@ import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
 import { AvatarGroupProps } from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
-import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
-import Tooltip from "../../Tooltip/Tooltip";
 import Table from "../../Table/Table/Table";
 import TableHeader from "../../Table/TableHeader/TableHeader";
 import TableHeaderCell from "../../Table/TableHeaderCell/TableHeaderCell";
@@ -20,12 +18,11 @@ import TableCell from "../../Table/TableCell/TableCell";
 import styles from "./AvatarGroup.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: AvatarGroup,
-  enumPropNamesArray: ["type", "size"] // List enum props here
+  component: AvatarGroup
 });
 
 export default {
-  title: "Media/Avatar/AvatarGroup",
+  title: "Components/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
@@ -45,20 +42,20 @@ interface AvatarGroupTemplateProps extends AvatarGroupProps {
 }
 const avatarGroupTemplate = ({ persons, ...args }: AvatarGroupTemplateProps) => {
   return (
-    <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
-      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sophia Johnson" />
-      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Marco DiAngelo" />
-      <Avatar type={Avatar.types.IMG} src={persons.person4} ariaLabel="Liam Caldwell" />
-      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Julia Martinez" />
-      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sophia Johnson" />
-      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Marco DiAngelo" />
-      <Avatar type={Avatar.types.IMG} src={persons.person4} ariaLabel="Liam Caldwell" />
-      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Julia Martinez" />
-      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sophia Johnson" />
-      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Marco DiAngelo" />
-      <Avatar type={Avatar.types.IMG} src={persons.person4} ariaLabel="Liam Caldwell" />
-      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Julia Martinez" />
-      <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
+    <AvatarGroup size="large" max={3} {...args}>
+      <Avatar type="img" src={persons.person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={persons.person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={persons.person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={persons.person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={persons.person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={persons.person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={persons.person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={persons.person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={persons.person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={persons.person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={persons.person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={persons.person1} ariaLabel="Julia Martinez" />
+      <Avatar type="text" text="MR" ariaLabel="Mark Roytstein" />
     </AvatarGroup>
   );
 };
@@ -84,59 +81,59 @@ export const Overview: StoryObj<typeof avatarGroupTemplate> = {
 
 export const Size: Story = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
-      <StoryDescription description="Large" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={4}>
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+    <Flex direction="column" gap="large" align="start">
+      <StoryDescription description="Large" vertical align={StoryDescription.align.START}>
+        <AvatarGroup size="large" type="img" max={4}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Medium" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.MEDIUM} type={Avatar.types.IMG} max={4}>
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+      <StoryDescription description="Medium" vertical align={StoryDescription.align.START}>
+        <AvatarGroup size="medium" type="img" max={4}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Small" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.SMALL} type={Avatar.types.IMG} max={4}>
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+      <StoryDescription description="Small" vertical align={StoryDescription.align.START}>
+        <AvatarGroup size="small" type="img" max={4}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
     </Flex>
@@ -145,55 +142,55 @@ export const Size: Story = {
 
 export const ColorVariants: Story = {
   render: () => (
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
-      <StoryDescription description="Light" vertical align={Flex.align.START}>
+    <Flex direction="column" gap="large" align="start">
+      <StoryDescription description="Light" vertical align={StoryDescription.align.START}>
         <AvatarGroup
-          size={Avatar.sizes.LARGE}
-          type={Avatar.types.IMG}
+          size="large"
+          type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.LIGHT
+            color: "light"
           }}
         >
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
-      <StoryDescription description="Dark" vertical align={Flex.align.START}>
+      <StoryDescription description="Dark" vertical align={StoryDescription.align.START}>
         <AvatarGroup
-          size={Avatar.sizes.LARGE}
-          type={Avatar.types.IMG}
+          size="large"
+          type="img"
           max={4}
           counterProps={{
-            color: Counter.colors.DARK
+            color: "dark"
           }}
         >
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
     </Flex>
@@ -205,35 +202,30 @@ export const MaxAvatarsToDisplay: Story = {
     const [max, setMax] = useState(4);
 
     return (
-      <Flex
-        direction={Flex.directions.COLUMN}
-        gap={Flex.gaps.MEDIUM}
-        align={Flex.align.START}
-        className={styles.sliderCountContainer}
-      >
+      <Flex direction="column" gap="medium" align="start" className={styles.sliderCountContainer}>
         <Slider
-          size={Slider.sizes.SMALL}
+          size="small"
           min={1}
           max={14}
           defaultValue={max}
-          onChange={value => setMax(value)}
+          onChange={value => setMax(value as number)}
           valueText={`${max}`}
         />
-        <AvatarGroup size={Avatar.sizes.LARGE} max={max}>
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-          <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+        <AvatarGroup size="large" max={max}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </Flex>
     );
@@ -276,13 +268,13 @@ export const HoverVsClickable: Story = {
     }, []);
 
     return (
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-        <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+      <Flex direction="row" gap="large">
+        <StoryDescription description="Counter hover" vertical align={StoryDescription.align.START}>
           <AvatarGroup
-            size={Avatar.sizes.LARGE}
+            size="large"
             max={4}
             counterTooltipCustomProps={{
-              position: Tooltip.positions.BOTTOM
+              position: "bottom"
             }}
           >
             {getDummyAvatarsProps(14).map(avatarProps => (
@@ -290,9 +282,9 @@ export const HoverVsClickable: Story = {
             ))}
           </AvatarGroup>
         </StoryDescription>
-        <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+        <StoryDescription description="Counter click" vertical align={StoryDescription.align.START}>
           <Flex>
-            <AvatarGroup size={Avatar.sizes.LARGE} max={4}>
+            <AvatarGroup size="large" max={4}>
               {getDummyAvatarsProps(14).map((avatarProps, index) => (
                 <Avatar {...avatarProps} onClick={() => {}} id={String(index)} />
               ))}
@@ -304,34 +296,29 @@ export const HoverVsClickable: Story = {
   }
 };
 export const Disabled = () => (
-  <AvatarGroup size={Avatar.sizes.LARGE} max={4} disabled>
-    <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
+  <AvatarGroup size="large" max={4} disabled>
+    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
   </AvatarGroup>
 );
 
 export const LastSeenUsers: Story = {
   render: () => (
-    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM}>
+    <Flex direction="row" gap="medium">
       <div>Last seen</div>
-      <AvatarGroup
-        size={Avatar.sizes.MEDIUM}
-        max={4}
-        counterProps={{ color: Counter.colors.DARK }}
-        type={Avatar.types.IMG}
-      >
+      <AvatarGroup size="medium" max={4} counterProps={{ color: "dark" }} type="img">
         <Avatar src={person1} ariaLabel="Julia Martinez" />
         <Avatar src={person2} ariaLabel="Sophia Johnson" />
         <Avatar src={person3} ariaLabel="Marco DiAngelo" />
@@ -354,12 +341,12 @@ export const LastSeenUsers: Story = {
 export const CustomCounter: Story = {
   render: () => (
     <AvatarGroup
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
+      size="large"
+      type="img"
       max={4}
       counterProps={{
         count: 100500,
-        color: Counter.colors.DARK,
+        color: "dark",
         prefix: "",
         maxDigits: 5
       }}
@@ -374,7 +361,7 @@ export const CustomCounter: Story = {
 
 export const GridTooltip: Story = {
   render: () => (
-    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={4}>
+    <AvatarGroup size="large" type="img" max={4}>
       <Avatar src={person1} />
       <Avatar src={person2} />
       <Avatar src={person3} />
@@ -398,8 +385,8 @@ export const GridTooltip: Story = {
 export const CounterCustomTooltipContent: Story = {
   render: () => (
     <AvatarGroup
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
+      size="large"
+      type="img"
       max={4}
       counterTooltipCustomProps={{
         content: "... and plenty more employees"
@@ -437,7 +424,7 @@ export const VirtualizedList: Story = {
     };
 
     return (
-      <AvatarGroup size={Avatar.sizes.LARGE} max={4} counterTooltipIsVirtualizedList type={Avatar.types.IMG}>
+      <AvatarGroup size="large" max={4} counterTooltipIsVirtualizedList type="img">
         {getDummyAvatars(334)}
       </AvatarGroup>
     );
@@ -477,8 +464,8 @@ export const DisplayingTeams: Story = {
       <TableBody>
         <TableRow>
           <TableCell>
-            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-              <Avatar type={Avatar.types.IMG} src={person1} size={Avatar.sizes.MEDIUM} ariaLabel="Julia Martinez" />
+            <Flex direction="row" gap="small">
+              <Avatar type="img" src={person1} size="medium" ariaLabel="Julia Martinez" />
               Julia Martinez
             </Flex>
           </TableCell>
@@ -486,30 +473,15 @@ export const DisplayingTeams: Story = {
           <TableCell>Developer</TableCell>
           <TableCell>
             <AvatarGroup
-              size={Avatar.sizes.MEDIUM}
+              size="medium"
               max={2}
               counterProps={{
                 ariaLabelItemsName: "teams"
               }}
             >
-              <Avatar
-                type={Avatar.types.TEXT}
-                text="T1"
-                backgroundColor={Avatar.backgroundColors.PEACH}
-                ariaLabel="Team 1"
-              />
-              <Avatar
-                type={Avatar.types.TEXT}
-                text="T2"
-                backgroundColor={Avatar.backgroundColors.BUBBLE}
-                ariaLabel="Team 2"
-              />
-              <Avatar
-                type={Avatar.types.TEXT}
-                text="T3"
-                backgroundColor={Avatar.backgroundColors.BERRY}
-                ariaLabel="Team 3"
-              />
+              <Avatar type="text" text="T1" backgroundColor="peach" ariaLabel="Team 1" />
+              <Avatar type="text" text="T2" backgroundColor="bubble" ariaLabel="Team 2" />
+              <Avatar type="text" text="T3" backgroundColor="berry" ariaLabel="Team 3" />
             </AvatarGroup>
           </TableCell>
         </TableRow>

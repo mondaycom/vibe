@@ -213,7 +213,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
 </div>
 `;
 
-exports[`ButtonGroup renders correctly with componentClassName 1`] = `
+exports[`ButtonGroup renders correctly with className 1`] = `
 <div
   className="buttonGroup testClassName kindSecondary"
   data-testid="button-group"

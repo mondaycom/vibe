@@ -12,7 +12,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Pickers/DatePicker",
+  title: "Components/DatePicker",
   component: DatePicker,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

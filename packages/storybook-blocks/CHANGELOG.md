@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.3...vibe-storybook-components@0.20.0) (2024-11-24)
+
+
+### Features
+
+* layering floating components on modals ([#2383](https://github.com/mondaycom/vibe/issues/2383)) ([3fd084c](https://github.com/mondaycom/vibe/commit/3fd084c6a5d158cb442968188118988305b7a29b))
+
+
+
+
+
 ## [0.19.3](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.2...vibe-storybook-components@0.19.3) (2024-09-09)
 
 **Note:** Version bump only for package vibe-storybook-components

@@ -6,7 +6,7 @@ import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
-import { AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/Avatar.types";
 import { ElementContent } from "src/types/ElementContent";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE, AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 import { keyCodes } from "../../constants";
@@ -132,7 +132,7 @@ export const avatarRenderer = (
       clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
+        <Flex direction="row" gap="xs" ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}

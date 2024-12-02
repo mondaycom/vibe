@@ -2,20 +2,18 @@ import React from "react";
 import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
-import colors from "../../../../constants/colors.json";
-import { Info } from "../../../Icon/Icons";
+import { Info } from "@vibe/icons";
 import Icon from "../../../Icon/Icon";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
 import "./LinearProgressBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: LinearProgressBar,
-  enumPropNamesArray: ["size", "barStyle"]
+  component: LinearProgressBar
 });
 
 export default {
-  title: "Feedback/LinearProgressBar",
+  title: "Components/LinearProgressBar",
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -31,7 +29,7 @@ export const Overview = {
 
   args: {
     value: 20,
-    size: LinearProgressBar.sizes.LARGE
+    size: "large"
   }
 };
 
@@ -39,20 +37,11 @@ export const Regular = {
   render: () => (
     <div className="linear-progress-bar_column">
       <div className="linear-progress-bar_block">
-        <LinearProgressBar
-          className="linear-progress-bar_small-wrapper"
-          indicateProgress
-          value={30}
-          size={LinearProgressBar.sizes.LARGE}
-        />
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" indicateProgress value={30} size="large" />
         With label
       </div>
       <div className="linear-progress-bar_block">
-        <LinearProgressBar
-          className="linear-progress-bar_small-wrapper"
-          value={30}
-          size={LinearProgressBar.sizes.LARGE}
-        />
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" value={30} size="large" />
         Without label
       </div>
     </div>
@@ -68,7 +57,7 @@ export const WithSecondaryValue = {
       value={50}
       indicateProgress
       valueSecondary={65}
-      size={LinearProgressBar.sizes.LARGE}
+      size="large"
     />
   ),
 
@@ -81,15 +70,15 @@ export const MultiProgressBar = {
       () => [
         {
           value: 25,
-          color: colors.primary
+          color: "var(--primary-color)"
         },
         {
           value: 75,
-          color: colors.yellow
+          color: "var(--warning-color)"
         },
         {
           value: 100,
-          color: colors.grass_green
+          color: "var(--positive-color)"
         }
       ],
       []
@@ -99,7 +88,7 @@ export const MultiProgressBar = {
       <LinearProgressBar
         className="linear-progress-bar_big-wrapper"
         value={25}
-        size={LinearProgressBar.sizes.LARGE}
+        size="large"
         indicateProgress
         multi
         multiValues={multiValues}
@@ -121,7 +110,7 @@ export const ProgressBarAsACounter = {
         </div>
         <span>142/200</span>
       </div>
-      <LinearProgressBar value={71} size={LinearProgressBar.sizes.LARGE} barStyle={LinearProgressBar.styles.POSITIVE} />
+      <LinearProgressBar value={71} size="large" barStyle="positive" />
     </div>
   ),
 
@@ -135,7 +124,7 @@ export const ProgressBarAsLoadingIndicator = {
         <div className="linear-progress-bar_img" />
         <div className="linear-progress-bar_aside">
           <b>Frame 697.pg</b>
-          <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION} className="linear-progress-bar_breadcrumbs">
+          <BreadcrumbsBar type="indication" className="linear-progress-bar_breadcrumbs">
             <BreadcrumbItem text="Hadas Test" />
             <BreadcrumbItem text="Activity 6" />
           </BreadcrumbsBar>

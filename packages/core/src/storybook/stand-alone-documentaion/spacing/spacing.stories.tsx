@@ -2,7 +2,8 @@ import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
 import { StoryObj, Meta } from "@storybook/react";
 
 const meta: Meta = {
-  title: "Foundations/Spacing"
+  title: "Foundations/Spacing",
+  tags: ["internal"]
 };
 export default meta;
 

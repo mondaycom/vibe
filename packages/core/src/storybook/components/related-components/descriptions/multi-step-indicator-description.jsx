@@ -9,24 +9,24 @@ export const MultiStepIndicatorDescription = () => {
     };
     const steps = [
       {
-        status: MultiStepIndicator.stepStatuses.ACTIVE,
+        status: "active",
         titleText: "1st",
         subtitleText: ""
       },
       {
-        status: MultiStepIndicator.stepStatuses.PENDING,
+        status: "pending",
         titleText: "2nd",
         subtitleText: ""
       },
       {
-        status: MultiStepIndicator.stepStatuses.PENDING,
+        status: "pending",
         titleText: "3rd",
         subtitleText: ""
       }
     ];
     return (
       <div style={style}>
-        <MultiStepIndicator textPlacement={MultiStepIndicator.textPlacements.VERTICAL} steps={steps} />
+        <MultiStepIndicator textPlacement="vertical" steps={steps} />
       </div>
     );
   }, []);
@@ -34,7 +34,7 @@ export const MultiStepIndicatorDescription = () => {
     <RelatedComponent
       component={component}
       title="MultiStepIndicator"
-      href="/?path=/docs/navigation-multistepindicator--docs"
+      href="/?path=/docs/components-multistepindicator--docs"
       description="Shows information related to a component when a user hovers over it."
     />
   );

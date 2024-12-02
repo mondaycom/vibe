@@ -8,7 +8,7 @@ export const ToggleDescription = () => {
     <RelatedComponent
       component={component}
       title="Toggle"
-      href="/?path=/docs/inputs-toggle--docs"
+      href="/?path=/docs/components-toggle--docs"
       description="Allow users to turn an individual option on or off."
     />
   );
