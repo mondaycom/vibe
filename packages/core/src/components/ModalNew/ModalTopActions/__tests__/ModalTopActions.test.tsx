@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
 import IconButton from "../../../IconButton/IconButton";
-import { Feedback as FeedbackIcon } from "../../../Icon/Icons";
+import { Feedback as FeedbackIcon } from "@vibe/icons";
 import { ButtonColor } from "../../../Button/ButtonConstants";
 import { camelCase } from "lodash-es";
 

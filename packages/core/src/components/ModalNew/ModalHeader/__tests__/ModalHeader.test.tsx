@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import ModalHeader from "../ModalHeader";
-import { Text as TextIcon } from "../../../Icon/Icons";
+import { Text as TextIcon } from "@vibe/icons";
 import { useModal } from "../../context/ModalContext";
 
 jest.mock("../../context/ModalContext", () => ({
