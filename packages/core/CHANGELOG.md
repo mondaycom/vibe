@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0...@vibe/core@3.1.0) (2024-12-03)
+
+
+### Bug Fixes
+
+* **table:** Reduce scroll delay in table ([#2611](https://github.com/mondaycom/vibe/issues/2611)) ([0a37b1a](https://github.com/mondaycom/vibe/commit/0a37b1ae03b9338a88d604bd395ba46533a224f0))
+
+
+### Features
+
+* **Modal:** footers for new Modal component ([#2553](https://github.com/mondaycom/vibe/issues/2553)) ([ba63288](https://github.com/mondaycom/vibe/commit/ba6328894d132ff4070ece9d47f3b1a9bcb23162))
+* **Modal:** layouts for new Modal component ([#2552](https://github.com/mondaycom/vibe/issues/2552)) ([97d81fa](https://github.com/mondaycom/vibe/commit/97d81fa86ca8018cfb70f4de7d9cb7a2fa701120))
+* **Modal:** new Modal components building blocks ([#2432](https://github.com/mondaycom/vibe/issues/2432)) ([43b6b42](https://github.com/mondaycom/vibe/commit/43b6b42872bceac8bceac114b10ebbff3864f5fa))
+
+
+
+
+
 # [3.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0-rc.0...@vibe/core@3.0.0) (2024-11-24)
 
 We're excited to announce the release of Vibe v3! 🎉
