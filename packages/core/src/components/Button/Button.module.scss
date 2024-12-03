@@ -386,7 +386,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.disabled {
-  border-color: var(--disabled-background-color);
+  border-color: var(--disabled-text-color);
   color: var(--disabled-text-color);
   cursor: not-allowed;
   pointer-events: none;
