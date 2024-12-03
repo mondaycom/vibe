@@ -439,20 +439,20 @@ export const scrollTableColumns = [
 
 export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) => ({
   id: index.toString(),
-  num: index,
-  text: `This is line number ${index}`
+  name: `User${index}`,
+  email: `user${index}@example.com`,
+  ...Object.fromEntries([...Array(10)].map((_, i) => [`column${i + 1}`, `Value ${index}-${i + 1}`]))
 }));
 
 export const virtualizedScrollTableColumns: TableColumn[] = [
-  {
-    id: "num",
-    title: "#",
-    width: 100
-  },
-  {
-    id: "text",
-    title: "Text"
-  }
+  { id: "id", title: "ID", width: 100 },
+  { id: "name", title: "Name", width: 150 },
+  { id: "email", title: "Email", width: 200 },
+  ...[...Array(10)].map((_, i) => ({
+    id: `column${i + 1}`,
+    title: `Column ${i + 1}`,
+    width: 150
+  }))
 ];
 
 export function sort<T>(columnId: keyof T, sortState: "asc" | "desc" | "none", tableData: T[]) {
