@@ -12,6 +12,13 @@ type Icon = {
 export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+      name: "ScheduledEmail",
+      file: "ScheduledEmail.svg",
+      description: "Editing scheduled email reports",
+      tags: "email, time, clock, watch, send, delay, schedule"
+  },
+
 
   {
     name: "PinFull",
