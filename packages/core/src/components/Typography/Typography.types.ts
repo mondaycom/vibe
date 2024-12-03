@@ -7,4 +7,4 @@ export type TypographyColor =
   | "fixedDark"
   | "inherit";
 
-export type TypographyAlign = "start" | "center" | "end";
+export type TypographyAlign = "start" | "center" | "end" | "inherit";

@@ -75,7 +75,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       overflowTolerance
     ) as TooltipProps;
 
-    const overrideAlign = align === TypographyAlign.INHERIT ? "alignInherit" : align;
+    const overrideAlign = align === "inherit" ? "alignInherit" : align;
 
     return (
       <Tooltip {...overrideTooltipProps}>
