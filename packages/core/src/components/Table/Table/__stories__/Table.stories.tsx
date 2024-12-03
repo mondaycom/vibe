@@ -584,14 +584,29 @@ export const Scroll = {
 
 export const VirtualizedScroll = {
   render: () => {
-    const Row = ({ num, text }: (typeof virtualizedScrollTableData)[number]) => {
+    const Row = (data: (typeof virtualizedScrollTableData)[number]) => {
       return (
         <TableRow>
-          <TableCell>{num}</TableCell>
-          <TableCell>{text}</TableCell>
+          {virtualizedScrollTableColumns.map(column => {
+            return (
+              <TableCell sticky={column.id === "id"} key={column.id}>
+                {data[column.id as keyof typeof data]}
+              </TableCell>
+            );
+          })}
         </TableRow>
       );
     };
+
+    const Header = React.useCallback((columns: TableColumn[]) => {
+      return (
+        <TableHeader>
+          {columns.map((cell, index) => (
+            <TableHeaderCell sticky={index === 0} key={index} {...cell} />
+          ))}
+        </TableHeader>
+      );
+    }, []);
 
     return (
       <Table
@@ -602,12 +617,12 @@ export const VirtualizedScroll = {
           height: 250
         }}
       >
-        <TableHeader>
-          {virtualizedScrollTableColumns.map((cell, index) => (
-            <TableHeaderCell key={index} {...cell} />
-          ))}
-        </TableHeader>
-        <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
+        <TableVirtualizedBody
+          rowRenderer={Row}
+          items={virtualizedScrollTableData}
+          columns={virtualizedScrollTableColumns}
+          headerRenderer={Header}
+        />
       </Table>
     );
   },

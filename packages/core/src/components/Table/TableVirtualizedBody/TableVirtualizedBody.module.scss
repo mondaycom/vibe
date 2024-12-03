@@ -1,4 +1,8 @@
 .tableBody {
   // Take into consideration header's height since VirtualizedBody sets a static height
   height: calc(100% - var(--table-row-size));
+
+  &.withHeader {
+    height: 100%;
+  }
 }
