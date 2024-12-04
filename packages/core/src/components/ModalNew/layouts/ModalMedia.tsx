@@ -14,8 +14,8 @@ const ModalMedia = forwardRef(
       <Flex
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA, id)}
-        justify={Flex.justify.CENTER}
-        align={Flex.align.STRETCH}
+        justify="center"
+        align="stretch"
         ref={ref}
         className={cx(styles.media, className)}
       >

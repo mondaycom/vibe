@@ -17,5 +17,6 @@ export enum TypographyColor {
 export enum TypographyAlign {
   START = "start",
   CENTER = "center",
-  END = "end"
+  END = "end",
+  INHERIT = "inherit"
 }

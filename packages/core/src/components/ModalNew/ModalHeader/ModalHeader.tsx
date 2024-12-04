@@ -28,21 +28,15 @@ const ModalHeader = forwardRef(
 
     return (
       <Flex
-        gap={Flex.gaps.XS}
-        direction={Flex.directions.COLUMN}
-        align={Flex.align.START}
+        gap="xs"
+        direction="column"
+        align="start"
         ref={ref}
         className={cx(styles.header, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_HEADER, id)}
       >
-        <Heading
-          id={titleId}
-          type={Heading.types.H2}
-          weight={Heading.weights.MEDIUM}
-          maxLines={2}
-          className={styles.title}
-        >
+        <Heading id={titleId} align="inherit" type="h2" weight="medium" maxLines={2} className={styles.title}>
           {title}
         </Heading>
         {description && (
@@ -54,7 +48,7 @@ const ModalHeader = forwardRef(
               />
             )}
             {typeof description === "string" ? (
-              <Text element="span" type={Text.types.TEXT1}>
+              <Text element="span" align="inherit" type="text1">
                 {description}
               </Text>
             ) : (

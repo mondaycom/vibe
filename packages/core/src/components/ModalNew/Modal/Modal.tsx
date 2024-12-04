@@ -31,7 +31,9 @@ const Modal = forwardRef(
       closeButtonAriaLabel,
       onClose = () => {},
       anchorElementRef,
+      alertModal,
       children,
+      style,
       className,
       "data-testid": dataTestId
     }: ModalProps,
@@ -54,18 +56,18 @@ const Modal = forwardRef(
 
     const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
       e => {
-        if (!show) return;
+        if (!show || alertModal) return;
         onClose(e);
       },
-      [onClose, show]
+      [show, alertModal, onClose]
     );
 
     const onEscClick = useCallback<React.KeyboardEventHandler<HTMLBodyElement>>(
       e => {
-        if (!show) return;
+        if (!show || alertModal) return;
         onClose(e);
       },
-      [onClose, show]
+      [alertModal, show, onClose]
     );
 
     useKeyEvent({
@@ -84,7 +86,7 @@ const Modal = forwardRef(
           <ModalProvider value={contextValue}>
             <motion.div
               variants={modalAnimationOverlayVariants}
-              initial="exit"
+              initial={false}
               animate="enter"
               exit="exit"
               data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
@@ -93,7 +95,7 @@ const Modal = forwardRef(
               aria-hidden
             />
             <FocusLock returnFocus>
-              <RemoveScroll>
+              <RemoveScroll forwardProps>
                 <motion.div
                   variants={modalAnimationVariants}
                   initial="exit"
@@ -113,6 +115,7 @@ const Modal = forwardRef(
                   aria-modal
                   aria-labelledby={titleId}
                   aria-describedby={descriptionId}
+                  style={style}
                 >
                   {children}
                   <ModalTopActions

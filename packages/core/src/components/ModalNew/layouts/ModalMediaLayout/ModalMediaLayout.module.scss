@@ -33,9 +33,12 @@
 
   .content {
     width: 100%;
+    height: 100%;
     flex: 1;
     align-self: flex-start;
+    padding-inline: var(--modal-inline-padding);
     padding-block-end: var(--spacing-large);
     text-align: center;
+    overflow: hidden;
   }
 }

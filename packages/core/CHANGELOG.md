@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.1.0...@vibe/core@3.2.0) (2024-12-04)
+
+
+### Bug Fixes
+
+* **table:** fix scroll delay in header on virtualized table ([#2619](https://github.com/mondaycom/vibe/issues/2619)) ([2230b03](https://github.com/mondaycom/vibe/commit/2230b0309bd624d2d1da32f73e55f718ae7a68da))
+
+
+### Features
+
+* **TextField:** add dir prop ([#2624](https://github.com/mondaycom/vibe/issues/2624)) ([c0545d9](https://github.com/mondaycom/vibe/commit/c0545d98ad41c632fd410bc6a8bec79a2461089e))
+
+
+
+
+
 # [3.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0...@vibe/core@3.1.0) (2024-12-03)
 
 

@@ -25,7 +25,7 @@ const ModalSideBySideLayout = forwardRef(
           <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>
           <div className={styles.media}>{media}</div>
         </div>
-        <ModalFooterShadow />
+        <ModalFooterShadow show />
       </>
     );
   }

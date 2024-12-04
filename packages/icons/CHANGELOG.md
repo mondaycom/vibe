@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.0.0...@vibe/icons@1.1.0) (2024-12-04)
+
+
+### Features
+
+* add ScheduledEmail and Downgrade icons ([#2623](https://github.com/mondaycom/vibe/issues/2623)) ([de041ae](https://github.com/mondaycom/vibe/commit/de041ae3a9db483ae42fe8fe779ba13c5deb477a))
+
+
+
+
+
 # [1.0.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@0.1.0...@vibe/icons@1.0.0) (2024-11-24)
 
 
