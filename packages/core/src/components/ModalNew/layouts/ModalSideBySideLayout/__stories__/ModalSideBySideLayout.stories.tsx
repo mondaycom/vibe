@@ -32,6 +32,15 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/Modal [New]/Side by side modal",
   component: Modal,
+  subcomponents: {
+    ModalSideBySideLayout,
+    ModalMedia,
+    ModalHeader,
+    ModalContent,
+    ModalFooter,
+    ModalFooterWizard,
+    TransitionView
+  },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
@@ -87,7 +96,7 @@ export const Overview: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} {...args}>
         <TransitionView activeStep={activeStep} direction={direction} height={300}>
           {steps}
         </TransitionView>

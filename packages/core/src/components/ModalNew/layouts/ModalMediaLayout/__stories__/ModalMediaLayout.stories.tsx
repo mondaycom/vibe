@@ -29,6 +29,15 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/Modal [New]/Media modal",
   component: Modal,
+  subcomponents: {
+    ModalMediaLayout,
+    ModalMedia,
+    ModalHeader,
+    ModalContent,
+    ModalFooter,
+    ModalFooterWizard,
+    TransitionView
+  },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
@@ -39,7 +48,7 @@ export const Overview: Story = {
   ],
   render: (args, { show, setShow }) => {
     return (
-      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} {...args}>
         <ModalMediaLayout>
           <ModalMedia>
             <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />

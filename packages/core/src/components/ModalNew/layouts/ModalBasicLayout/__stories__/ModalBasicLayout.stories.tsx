@@ -28,6 +28,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/Modal [New]/Basic modal",
   component: Modal,
+  subcomponents: { ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, TransitionView },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
@@ -36,7 +37,7 @@ export const Overview: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (args, { show, setShow }) => {
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} {...args}>
         <ModalBasicLayout>
           <ModalHeader
             title="Modal title"
