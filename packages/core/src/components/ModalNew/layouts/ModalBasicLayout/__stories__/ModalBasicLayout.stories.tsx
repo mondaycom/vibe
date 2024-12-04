@@ -54,7 +54,10 @@ export const Overview: Story = {
             </Text>
           </ModalContent>
         </ModalBasicLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   },
@@ -98,7 +101,10 @@ export const Sizes: Story = {
                 </Text>
               </ModalContent>
             </ModalBasicLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowSmall(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowSmall(false) }}
+            />
           </Modal>,
           document.body
         )}
@@ -120,7 +126,10 @@ export const Sizes: Story = {
                 </Text>
               </ModalContent>
             </ModalBasicLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowMedium(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowMedium(false) }}
+            />
           </Modal>,
           document.body
         )}
@@ -142,7 +151,10 @@ export const Sizes: Story = {
                 </Text>
               </ModalContent>
             </ModalBasicLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowLarge(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowLarge(false) }}
+            />
           </Modal>,
           document.body
         )}
@@ -162,7 +174,10 @@ export const AlertModal: Story = {
             This will allow closing the modal only by the close buttons and not by ESC or by clicking outside.
           </ModalContent>
         </ModalBasicLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   }
@@ -188,7 +203,10 @@ export const Scroll: Story = {
             </Text>
           </ModalContent>
         </ModalBasicLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   }
@@ -270,8 +288,8 @@ export const FooterWithSideAction: Story = {
           </ModalContent>
         </ModalBasicLayout>
         <ModalFooter
-          primaryButton={{ text: "Confirm" }}
-          secondaryButton={{ text: "Cancel" }}
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
           renderSideAction={<Checkbox label="Don't show again" />}
         />
       </Modal>
@@ -309,8 +327,8 @@ export const HeaderWithExtraIconButton: Story = {
           </ModalContent>
         </ModalBasicLayout>
         <ModalFooter
-          primaryButton={{ text: "Confirm" }}
-          secondaryButton={{ text: "Cancel" }}
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
           renderSideAction={<Checkbox label="Don't show again" />}
         />
       </Modal>
@@ -393,7 +411,10 @@ export const Animation: Story = {
                 </Text>
               </ModalContent>
             </ModalBasicLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
+            />
           </Modal>,
           document.body
         )}
@@ -415,7 +436,10 @@ export const Animation: Story = {
                 </Text>
               </ModalContent>
             </ModalBasicLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+            />
           </Modal>,
           document.body
         )}

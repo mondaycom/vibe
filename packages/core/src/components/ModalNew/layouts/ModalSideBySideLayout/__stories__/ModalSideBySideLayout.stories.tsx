@@ -218,7 +218,10 @@ export const HeaderWithExtraIconButton: Story = {
             <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
           </ModalMedia>
         </ModalSideBySideLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   }
@@ -305,7 +308,10 @@ export const Animation: Story = {
                 <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
+            />
           </Modal>,
           document.body
         )}
@@ -323,7 +329,10 @@ export const Animation: Story = {
                 <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
               </ModalMedia>
             </ModalSideBySideLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+            />
           </Modal>,
           document.body
         )}

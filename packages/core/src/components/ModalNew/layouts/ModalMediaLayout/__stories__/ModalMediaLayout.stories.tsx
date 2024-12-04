@@ -61,7 +61,10 @@ export const Overview: Story = {
             </Text>
           </ModalContent>
         </ModalMediaLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   },
@@ -153,7 +156,10 @@ export const HeaderWithExtraIconButton: Story = {
             </Text>
           </ModalContent>
         </ModalMediaLayout>
-        <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
       </Modal>
     );
   }
@@ -214,7 +220,10 @@ export const Animation: Story = {
                 </Text>
               </ModalContent>
             </ModalMediaLayout>
-            <ModalFooter primaryButton={{ text: "Confirm" }} secondaryButton={{ text: "Cancel" }} />
+            <ModalFooter
+              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+            />
           </Modal>,
           document.body
         )}
