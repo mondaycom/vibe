@@ -16,8 +16,8 @@ const ModalMediaLayout = forwardRef(
     return (
       <Flex
         ref={ref}
-        direction={Flex.directions.COLUMN}
-        align={Flex.align.START}
+        direction="column"
+        align="start"
         className={cx(styles.layout, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA_LAYOUT, id)}

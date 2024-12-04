@@ -21,8 +21,8 @@ const ModalBasicLayout = forwardRef(
     return (
       <>
         <Flex
-          direction={Flex.directions.COLUMN}
-          align={Flex.align.START}
+          direction="column"
+          align="start"
           ref={ref}
           className={cx(styles.layout, className)}
           id={id}
