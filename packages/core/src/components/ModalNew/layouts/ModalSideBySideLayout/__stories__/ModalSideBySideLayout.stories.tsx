@@ -96,8 +96,8 @@ export const Overview: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} {...args}>
-        <TransitionView activeStep={activeStep} direction={direction} height={300}>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 400 }} {...args}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
         <ModalFooterWizard
@@ -175,7 +175,7 @@ export const Wizard: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 500 }}>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 400 }}>
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -203,6 +203,7 @@ export const HeaderWithExtraIconButton: Story = {
         renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="large"
         onClose={() => setShow(false)}
+        style={{ height: 400 }}
       >
         <ModalSideBySideLayout>
           <ModalHeader title="Modal title" />
@@ -292,7 +293,7 @@ export const Animation: Story = {
             anchorElementRef={anchorButtonRef}
             size="large"
             onClose={() => setShowAnchor(false)}
-            style={{ height: 500 }}
+            style={{ height: 400 }}
           >
             <ModalSideBySideLayout>
               <ModalHeader title="Modal title" />
@@ -314,7 +315,13 @@ export const Animation: Story = {
           document.body
         )}
         {createPortal(
-          <Modal id="modal-sbs-center" show={showCenterPop} size="large" onClose={() => setShowCenterPop(false)}>
+          <Modal
+            id="modal-sbs-center"
+            show={showCenterPop}
+            size="large"
+            onClose={() => setShowCenterPop(false)}
+            style={{ height: 400 }}
+          >
             <ModalSideBySideLayout>
               <ModalHeader title="Modal title" />
               <ModalContent>
@@ -335,8 +342,14 @@ export const Animation: Story = {
           document.body
         )}
         {createPortal(
-          <Modal id="modal-sbs-transition" show={showTransition} size="large" onClose={() => setShowTransition(false)}>
-            <TransitionView activeStep={activeStep} direction={direction} height={380}>
+          <Modal
+            id="modal-sbs-transition"
+            show={showTransition}
+            size="large"
+            onClose={() => setShowTransition(false)}
+            style={{ height: 400 }}
+          >
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
             </TransitionView>
             <ModalFooterWizard
