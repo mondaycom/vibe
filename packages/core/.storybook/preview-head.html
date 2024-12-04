@@ -41,15 +41,19 @@
   .sbdocs .docs-story {
     border: var(--sb-layout-border-color);
   }
-  .sbdocs .docs-story > div {
+  .sbdocs .docs-story > div:first-child {
     background: var(--sb-secondary-background-color);
+  }
+  .sbdocs .docs-story > div:nth-child(2) {
+    /* prevent Show Code from rendering above full-screen components (such as Modal's overlay) */
+    z-index: unset;
+    background: unset;
   }
 
   .sbdocs {
     color: var(--sb-primary-text-color);
   }
 
-  .sbdocs p a,
   .sbdocs ul li a {
     color: var(--sb-link-color);
   }
