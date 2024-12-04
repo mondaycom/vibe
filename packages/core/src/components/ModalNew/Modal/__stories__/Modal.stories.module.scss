@@ -11,8 +11,16 @@
   width: 100%;
   container-type: inline-size;
 
+  &.small {
+    height: 360px;
+  }
+
+  &.medium {
+    height: 416px;
+  }
+
   &.large {
-    height: 540px;
+    height: 530px;
   }
 
   /**

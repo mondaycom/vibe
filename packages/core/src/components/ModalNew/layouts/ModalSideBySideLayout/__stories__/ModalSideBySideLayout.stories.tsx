@@ -16,7 +16,7 @@ import Flex from "../../../../Flex/Flex";
 import Dropdown from "../../../../Dropdown/Dropdown";
 import FieldLabel from "../../../../FieldLabel/FieldLabel";
 import IconButton from "../../../../IconButton/IconButton";
-import { Help } from "../../../../Icon/Icons";
+import { Menu } from "@vibe/icons";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import Button from "../../../../Button/Button";
 import { createPortal } from "react-dom";
@@ -47,7 +47,7 @@ export default {
 
 export const Overview: Story = {
   decorators: [
-    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
   render: (args, { show, setShow }) => {
     const steps = [
@@ -121,7 +121,7 @@ export const Overview: Story = {
 
 export const Wizard: Story = {
   decorators: [
-    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     const dropdownOptions = [
@@ -193,16 +193,14 @@ export const Wizard: Story = {
 
 export const HeaderWithExtraIconButton: Story = {
   decorators: [
-    (Story, context) => withOpenedModalPreview(Story, { large: true, isDocsView: context.viewMode === "docs" })
+    (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
   render: (_, { show, setShow }) => {
     return (
       <Modal
         id="modal-sbs"
         show={show}
-        renderHeaderAction={
-          <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
-        }
+        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="large"
         onClose={() => setShow(false)}
       >

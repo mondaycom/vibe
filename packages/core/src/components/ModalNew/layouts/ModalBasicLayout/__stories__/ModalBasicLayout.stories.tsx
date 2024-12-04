@@ -16,7 +16,7 @@ import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWiz
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import { Checkbox } from "../../../../Checkbox";
 import IconButton from "../../../../IconButton/IconButton";
-import { Help } from "../../../../Icon/Icons";
+import { Menu } from "@vibe/icons";
 import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
@@ -304,9 +304,7 @@ export const HeaderWithExtraIconButton: Story = {
       <Modal
         id="modal-basic"
         show={show}
-        renderHeaderAction={
-          <IconButton icon={Help} size="small" kind="tertiary" ariaLabel="Help with creating a modal" />
-        }
+        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="medium"
         onClose={() => setShow(false)}
       >
