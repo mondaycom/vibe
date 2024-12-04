@@ -11,7 +11,7 @@ import Button from "../../../../Button/Button";
 import { createPortal } from "react-dom";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
-import WizardSlideshow from "../../../../WizardSlideshow/WizardSlideshow";
+import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import { Checkbox } from "../../../../Checkbox";
@@ -226,21 +226,21 @@ export const Wizard: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: steps.length
     });
 
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+          primaryButton={{ text: "Next", onClick: next }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
     );
@@ -355,7 +355,7 @@ export const Animation: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -425,15 +425,15 @@ export const Animation: Story = {
             size="medium"
             onClose={() => setShowTransition(false)}
           >
-            <WizardSlideshow activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
-            </WizardSlideshow>
+            </TransitionView>
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
               onStepClick={goToStep}
-              primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+              primaryButton={{ text: "Next", onClick: next }}
+              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
             />
           </Modal>,
           document.body

@@ -9,7 +9,7 @@ import ModalSideBySideLayout from "../ModalSideBySideLayout";
 import ModalMedia from "../../ModalMedia";
 import { mediaImage } from "./assets";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
-import WizardSlideshow from "../../../../WizardSlideshow/WizardSlideshow";
+import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import TextField from "../../../../TextField/TextField";
 import Flex from "../../../../Flex/Flex";
@@ -82,21 +82,21 @@ export const Overview: Story = {
       </ModalSideBySideLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: steps.length
     });
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+          primaryButton={{ text: "Next", onClick: next }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
     );
@@ -161,21 +161,21 @@ export const Wizard: Story = {
       </ModalSideBySideLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: steps.length
     });
 
     return (
       <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
-        <WizardSlideshow activeStep={activeStep} direction={direction}>
+        <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
-        </WizardSlideshow>
+        </TransitionView>
         <ModalFooterWizard
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-          secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+          primaryButton={{ text: "Next", onClick: next }}
+          secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
     );
@@ -262,7 +262,7 @@ export const Animation: Story = {
       </ModalSideBySideLayout>
     ];
 
-    const { activeStep, direction, next, back, canGoNext, canGoBack, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -319,15 +319,15 @@ export const Animation: Story = {
         )}
         {createPortal(
           <Modal id="modal-sbs-transition" show={showTransition} size="large" onClose={() => setShowTransition(false)}>
-            <WizardSlideshow activeStep={activeStep} direction={direction}>
+            <TransitionView activeStep={activeStep} direction={direction}>
               {transitionSteps}
-            </WizardSlideshow>
+            </TransitionView>
             <ModalFooterWizard
               activeStep={activeStep}
               stepCount={transitionSteps.length}
               onStepClick={goToStep}
-              primaryButton={{ text: "Next", onClick: next, disabled: !canGoNext }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: !canGoBack }}
+              primaryButton={{ text: "Next", onClick: next }}
+              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
             />
           </Modal>,
           document.body
