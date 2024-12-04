@@ -95,6 +95,7 @@ export interface TextFieldProps extends VibeComponentProps {
   controlled?: boolean;
   iconTooltipContent?: string;
   secondaryTooltipContent?: string;
+  dir?: "ltr" | "rtl" | "auto";
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -148,7 +149,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       name,
       controlled = false,
       iconTooltipContent,
-      secondaryTooltipContent
+      secondaryTooltipContent,
+      dir
     }: TextFieldProps,
     ref
   ) => {
@@ -302,6 +304,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               aria-describedby={allowExceedingMaxLengthTextId}
               required={required}
               tabIndex={tabIndex}
+              dir={dir}
             />
             {loading && (
               <div
