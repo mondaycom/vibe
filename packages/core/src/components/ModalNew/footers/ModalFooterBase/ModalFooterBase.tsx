@@ -16,14 +16,14 @@ const ModalFooterBase = forwardRef(
       <Flex
         ref={ref}
         id={id}
-        justify={Flex.justify.SPACE_BETWEEN}
-        gap={Flex.gaps.SMALL}
+        justify="space-between"
+        gap="small"
         className={cx(styles.footer, className)}
         data-testid={dataTestId}
       >
         <Button {...primaryButtonProps}>{primaryButtonText}</Button>
         {secondaryButton && (
-          <Button {...secondaryButtonProps} kind={Button.kinds.TERTIARY}>
+          <Button {...secondaryButtonProps} kind="tertiary">
             {secondaryButtonText}
           </Button>
         )}

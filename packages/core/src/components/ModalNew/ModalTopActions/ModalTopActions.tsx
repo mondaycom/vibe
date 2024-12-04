@@ -19,8 +19,8 @@ const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }:
       <IconButton
         icon={CloseMedium}
         onClick={onClose}
-        size={IconButton.sizes.SMALL}
-        kind={IconButton.kinds.TERTIARY}
+        size="small"
+        kind="tertiary"
         color={buttonColor}
         ariaLabel={closeButtonAriaLabel}
       />

@@ -1,7 +1,15 @@
-.shadowWrapper::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 10px;
-  box-shadow: var(--box-shadow-medium);
+.shadowWrapper {
+  &::after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--motion-productive-medium) ease-out;
+    width: 100%;
+    height: 10px;
+    box-shadow: var(--box-shadow-medium);
+  }
+
+  &.show::after {
+    opacity: 1;
+  }
 }

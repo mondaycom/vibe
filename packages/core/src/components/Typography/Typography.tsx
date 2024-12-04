@@ -75,6 +75,8 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       overflowTolerance
     ) as TooltipProps;
 
+    const overrideAlign = align === "inherit" ? "alignInherit" : align;
+
     return (
       <Tooltip {...overrideTooltipProps}>
         {React.createElement(
@@ -83,7 +85,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
             id,
             style: ellipsisStyle,
             "data-testid": dataTestId,
-            className: cx(styles.typography, styles[color], styles[align], ellipsisClass, className),
+            className: cx(styles.typography, styles[color], styles[overrideAlign], ellipsisClass, className),
             ref: mergedRef,
             role,
             ...htmlAttributes
