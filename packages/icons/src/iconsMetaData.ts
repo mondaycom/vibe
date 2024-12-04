@@ -12,6 +12,20 @@ type Icon = {
 export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+      name: "Downgrade",
+      file: "Downgrade.svg",
+      description: "Used for downgrading a version",
+      tags: "Arrow, Down, Version"
+  },
+
+  {
+      name: "ScheduledEmail",
+      file: "ScheduledEmail.svg",
+      description: "Editing scheduled email reports",
+      tags: "email, time, clock, watch, send, delay, schedule"
+  },
+
 
   {
     name: "PinFull",
