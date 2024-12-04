@@ -7,14 +7,7 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalFooterWizard.module.scss";
 import { StepsGalleryHeader } from "../../../Steps/StepsGalleryHeader";
-
-export interface ModalFooterWizardProps
-  extends Required<Pick<ModalFooterBaseProps, "primaryButton" | "secondaryButton">>,
-    VibeComponentProps {
-  stepCount: number;
-  activeStep: number;
-  onStepClick: (stepIndex: number) => void;
-}
+import { ModalFooterWizardProps } from "./ModalFooterWizard.types";
 
 const ModalFooterWizard = forwardRef(
   (
