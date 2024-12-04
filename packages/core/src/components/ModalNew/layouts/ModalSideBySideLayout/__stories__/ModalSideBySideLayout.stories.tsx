@@ -166,7 +166,7 @@ export const Wizard: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)}>
+      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 500 }}>
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -282,6 +282,7 @@ export const Animation: Story = {
             anchorElementRef={anchorButtonRef}
             size="large"
             onClose={() => setShowAnchor(false)}
+            style={{ height: 500 }}
           >
             <ModalSideBySideLayout>
               <ModalHeader title="Modal title" />
