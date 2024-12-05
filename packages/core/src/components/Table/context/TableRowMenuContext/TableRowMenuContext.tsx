@@ -7,6 +7,7 @@ export const TableRowMenuProvider = ({ value, children }: ITableRowMenuProviderP
   const { tableRootRef, hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef, setIsMenuOpen } = value;
   const rowMouseLeaveTimeoutId = useRef<ReturnType<typeof setTimeout>>(null);
   const [menuButtonPosition, setMenuButtonPosition] = useState(0);
+  const hasMenuRef = useRef<boolean | null>(null);
 
   const resetTimeout = useCallback(() => {
     clearTimeout(rowMouseLeaveTimeoutId.current);
@@ -15,12 +16,18 @@ export const TableRowMenuProvider = ({ value, children }: ITableRowMenuProviderP
 
   const onMouseOverRow = useCallback(
     (rowRef: React.RefObject<HTMLDivElement>) => {
-      if (isMenuOpen || hoveredRowRef?.current === rowRef.current) return;
+      if (hasMenuRef.current === false || isMenuOpen || hoveredRowRef?.current === rowRef.current) return;
+
       resetTimeout();
       setHoveredRowRef(rowRef);
       const tableRootTop = tableRootRef.current.getBoundingClientRect().top;
       const rowTop = rowRef.current.getBoundingClientRect().top;
       setMenuButtonPosition(rowTop - tableRootTop);
+      if (hasMenuRef.current === null) {
+        requestAnimationFrame(() => {
+          hasMenuRef.current = !!document?.querySelector(`[data-row-menu-id]`);
+        });
+      }
     },
     [isMenuOpen, hoveredRowRef, resetTimeout, setHoveredRowRef, tableRootRef]
   );
