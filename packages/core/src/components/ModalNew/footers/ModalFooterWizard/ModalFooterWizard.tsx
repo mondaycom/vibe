@@ -1,8 +1,6 @@
 import React, { forwardRef } from "react";
-import { VibeComponentProps } from "../../../../types";
 import cx from "classnames";
 import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
-import { ModalFooterBaseProps } from "../ModalFooterBase/ModalFooterBase.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalFooterWizard.module.scss";
