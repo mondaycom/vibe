@@ -106,7 +106,7 @@ const TableVirtualizedBody = forwardRef(
         virtualizedWithHeader
           ? forwardRef(({ children, ...rest }: any, ref: React.Ref<HTMLDivElement>) => (
               <div ref={ref} {...rest}>
-                {headerRenderer!(columns!)}
+                {headerRenderer(columns)}
                 {children}
               </div>
             ))
