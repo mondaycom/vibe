@@ -26,11 +26,12 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Modal [New]/Basic modal",
+  title: "Internal/Components/Modal [New]/Basic modal",
   component: Modal,
   subcomponents: { ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, TransitionView },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  tags: ["internal"]
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
