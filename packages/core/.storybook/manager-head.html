@@ -3,14 +3,11 @@
 <meta property="og:title" content="Vibe Design System" />
 <meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
 <title>Vibe Design System</title>
-
 <script src="https://use.fontawesome.com/660238b999.js"></script>
 <script type="module">
-  if (!document.querySelector("link[rel~='icon']")) {
-    faviconLink = document.createElement("link");
-    faviconLink.rel = "icon";
-    document.head.appendChild(faviconLink);
-    faviconLink.href = import.meta.url.includes("localhost") ? "/favicon-dev.ico" : "/favicon.ico";
+  const faviconLink = document.querySelector("link[rel='icon']");
+  if (import.meta.url.includes("localhost")) {
+    faviconLink.href = "/favicon-dev.ico";
   }
 </script>
 <style>
