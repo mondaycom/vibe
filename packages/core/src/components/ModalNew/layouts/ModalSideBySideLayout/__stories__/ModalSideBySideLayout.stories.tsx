@@ -7,7 +7,7 @@ import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
 import ModalMedia from "../../ModalMedia";
-import { mediaImage } from "./assets";
+import mediaImage from "./assets/media-image.png";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";

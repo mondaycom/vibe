@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalMedia from "../../ModalMedia";
-import { mediaImage } from "./assets";
+import mediaImage from "./assets/media-image.png";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import ModalMediaLayout from "../ModalMediaLayout";
 import Text from "../../../../Text/Text";
