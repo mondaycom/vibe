@@ -41,7 +41,7 @@ describe("ModalTopActions", () => {
 
   it("calls renderAction with correct color argument", () => {
     const renderAction = jest.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
-    render(<ModalTopActions color="dark" renderAction={renderAction} />);
+    render(<ModalTopActions theme="dark" renderAction={renderAction} />);
 
     expect(renderAction).toHaveBeenCalledWith(ButtonColor.ON_INVERTED_BACKGROUND);
   });
@@ -56,12 +56,12 @@ describe("ModalTopActions", () => {
   });
 
   it("applies the correct color when 'dark' is passed", () => {
-    const { getByLabelText } = render(<ModalTopActions color="dark" closeButtonAriaLabel={closeButtonAriaLabel} />);
+    const { getByLabelText } = render(<ModalTopActions theme="dark" closeButtonAriaLabel={closeButtonAriaLabel} />);
     expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + ButtonColor.ON_INVERTED_BACKGROUND));
   });
 
   it("applies the correct color when 'light' is passed", () => {
-    const { getByLabelText } = render(<ModalTopActions color="light" closeButtonAriaLabel={closeButtonAriaLabel} />);
+    const { getByLabelText } = render(<ModalTopActions theme="light" closeButtonAriaLabel={closeButtonAriaLabel} />);
     expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + ButtonColor.ON_PRIMARY_COLOR));
   });
 
