@@ -56,6 +56,8 @@ export interface MenuItemProps extends VibeComponentProps {
   splitMenuItem?: boolean;
   "aria-label"?: AriaAttributes["aria-label"];
   submenuPosition?: SubmenuPosition;
+  tooltipId?: string;
+  shouldShowTooltip?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
@@ -121,6 +123,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
         content={shouldShowTooltip ? finalTooltipContent : null}
         position={tooltipPosition}
         showDelay={tooltipShowDelay}
+        childId={baseMenuProps.id}
         {...tooltipProps}
       >
         <BaseMenuItem
@@ -130,6 +133,8 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
           className={className}
           disabled={disabled}
           selected={selected}
+          tooltipId={tooltipProps?.id}
+          shouldShowTooltip={!!shouldShowTooltip}
           {...baseMenuProps}
         >
           {Boolean(icon) && (
