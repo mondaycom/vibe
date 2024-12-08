@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.2.0...@vibe/core@3.3.0) (2024-12-08)
+
+
+### Bug Fixes
+
+* **Button:** fix secondary disabled border color ([#2622](https://github.com/mondaycom/vibe/issues/2622)) ([0df501d](https://github.com/mondaycom/vibe/commit/0df501db6618f1ae38b6e3581b2e6169da026746))
+* support vitest [prerelease] ([#2625](https://github.com/mondaycom/vibe/issues/2625)) ([638b19f](https://github.com/mondaycom/vibe/commit/638b19f9d582d5bc7cc9c8f6f633bde7bc333e55))
+* **table:** avoid unnecessary re-rendering of table rows ([#2626](https://github.com/mondaycom/vibe/issues/2626)) ([c83a4c4](https://github.com/mondaycom/vibe/commit/c83a4c4ea09173932b66c7cbe3c14d1266ad1388))
+
+
+### Features
+
+* **Modal:** animation enhancements and general fixes and enhancements ([#2620](https://github.com/mondaycom/vibe/issues/2620)) ([17a14fe](https://github.com/mondaycom/vibe/commit/17a14fe4e93e23bcdfd4b6da61095bc679185b3b))
+* **TransitionView:** fill parent if parent has definite height ([#2629](https://github.com/mondaycom/vibe/issues/2629)) ([da5e3b3](https://github.com/mondaycom/vibe/commit/da5e3b3d98d6f5ccdbfd34a4441526c62b5096b0))
+
+
+
+
+
 # [3.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.1.0...@vibe/core@3.2.0) (2024-12-04)
 
 
