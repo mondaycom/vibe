@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./ModalTopActions.module.scss";
-import { ModalTopActionsButtonColor, ModalTopActionsColor, ModalTopActionsProps } from "./ModalTopActions.types";
+import { ModalTopActionsButtonColor, ModalTopActionsTheme, ModalTopActionsProps } from "./ModalTopActions.types";
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "@vibe/icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
 
-const colorToButtonColor: Record<ModalTopActionsColor, ModalTopActionsButtonColor> = {
+const colorToButtonColor: Record<ModalTopActionsTheme, ModalTopActionsButtonColor> = {
   dark: ButtonColor.ON_INVERTED_BACKGROUND,
   light: ButtonColor.ON_PRIMARY_COLOR
 };
 
-const ModalTopActions = ({ renderAction, color, closeButtonAriaLabel, onClose }: ModalTopActionsProps) => {
-  const buttonColor = colorToButtonColor[color] || ButtonColor.PRIMARY;
+const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }: ModalTopActionsProps) => {
+  const buttonColor = colorToButtonColor[theme] || ButtonColor.PRIMARY;
 
   return (
     <div className={styles.actions} data-no-autofocus={true}>

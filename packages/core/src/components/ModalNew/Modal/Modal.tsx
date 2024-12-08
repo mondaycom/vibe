@@ -120,7 +120,7 @@ const Modal = forwardRef(
                   {children}
                   <ModalTopActions
                     renderAction={renderHeaderAction}
-                    color={closeButtonTheme}
+                    theme={closeButtonTheme}
                     closeButtonAriaLabel={closeButtonAriaLabel}
                     onClose={onClose}
                   />
