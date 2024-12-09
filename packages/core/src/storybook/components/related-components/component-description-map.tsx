@@ -59,9 +59,9 @@ import { BoxDescription } from "./descriptions/box-description";
 import { TableDescription } from "./descriptions/table-description";
 import { VirtualizedGridDescription } from "./descriptions/virtualized-grid-description/virtualized-grid-description";
 import { MenuGridItemDescription } from "./descriptions/menu-grid-item-description";
-import { ModalMediaLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalMediaLayout/__stories__/ModalMediaLayoutRelatedComponent";
-import { ModalSideBySideLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalSideBySideLayout/__stories__/ModalSideBySideLayoutRelatedComponent";
-import { ModalBasicLayoutRelatedComponent } from "../../../components/ModalNew/layouts/ModalBasicLayout/__stories__/ModalBasicLayoutRelatedComponent";
+import { ModalMediaLayoutRelatedComponent } from "../../../components/Modal/layouts/ModalMediaLayout/__stories__/ModalMediaLayoutRelatedComponent";
+import { ModalSideBySideLayoutRelatedComponent } from "../../../components/Modal/layouts/ModalSideBySideLayout/__stories__/ModalSideBySideLayoutRelatedComponent";
+import { ModalBasicLayoutRelatedComponent } from "../../../components/Modal/layouts/ModalBasicLayout/__stories__/ModalBasicLayoutRelatedComponent";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
