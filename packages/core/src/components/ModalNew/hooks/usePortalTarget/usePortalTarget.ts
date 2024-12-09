@@ -13,7 +13,7 @@ const usePortalTarget = (portalTarget?: PortalTarget): Element | DocumentFragmen
       if (typeof portalTarget === "string") {
         const target = document.querySelector(portalTarget);
         if (!target) {
-          console.warn(`Target with selector "${portalTarget}" not found. Falling back to document.body.`);
+          warn(`Target with selector "${portalTarget}" not found. Falling back to document.body.`);
           return document.body;
         }
         return target;
@@ -27,7 +27,7 @@ const usePortalTarget = (portalTarget?: PortalTarget): Element | DocumentFragmen
         return portalTarget.current;
       }
 
-      console.warn("Invalid portalTarget provided. Falling back to document.body.");
+      warn("Invalid target provided. Falling back to document.body.");
       return document.body;
     };
 
@@ -39,3 +39,9 @@ const usePortalTarget = (portalTarget?: PortalTarget): Element | DocumentFragmen
 };
 
 export default usePortalTarget;
+
+function warn(message: string): void {
+  if (process.env.NODE_ENV !== "production") {
+    console.warn(message);
+  }
+}
