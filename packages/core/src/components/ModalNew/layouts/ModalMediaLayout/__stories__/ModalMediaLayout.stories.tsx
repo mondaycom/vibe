@@ -17,7 +17,6 @@ import IconButton from "../../../../IconButton/IconButton";
 import { Menu } from "@vibe/icons";
 import Flex from "../../../../Flex/Flex";
 import Button from "../../../../Button/Button";
-import { createPortal } from "react-dom";
 import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;
@@ -47,9 +46,9 @@ export const Overview: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
   ],
-  render: (args, { show, setShow }) => {
+  render: (args, { show, setShow, container }) => {
     return (
-      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} {...args}>
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} container={container} {...args}>
         <ModalMediaLayout>
           <ModalMedia>
             <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
@@ -82,7 +81,7 @@ export const Wizard: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
   ],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     const steps = [
       <ModalMediaLayout>
         <ModalMedia>
@@ -114,7 +113,7 @@ export const Wizard: Story = {
     });
 
     return (
-      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} container={container}>
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -134,7 +133,7 @@ export const HeaderWithExtraIconButton: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
   ],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
       <Modal
         id="modal-media"
@@ -142,6 +141,7 @@ export const HeaderWithExtraIconButton: Story = {
         renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="medium"
         onClose={() => setShow(false)}
+        container={container}
       >
         <ModalMediaLayout>
           <ModalMedia>
@@ -205,47 +205,38 @@ export const Animation: Story = {
           <Button onClick={() => setShowCenterPop(true)}>Center pop</Button>
           <Button onClick={() => setShowTransition(true)}>Transition</Button>
         </Flex>
-        {createPortal(
-          <Modal id="modal-media-center" show={showCenterPop} size="medium" onClose={() => setShowCenterPop(false)}>
-            <ModalMediaLayout>
-              <ModalMedia>
-                <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
-              </ModalMedia>
-              <ModalHeader title="Modal title" />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  The media modal is ideal for introducing new features or onboarding, the user can also{" "}
-                  <Link inheritFontSize inlineText text="add a link" />.
-                </Text>
-              </ModalContent>
-            </ModalMediaLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
-            />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal
-            id="modal-media-transition"
-            show={showTransition}
-            size="medium"
-            onClose={() => setShowTransition(false)}
-          >
-            <TransitionView activeStep={activeStep} direction={direction}>
-              {transitionSteps}
-            </TransitionView>
-            <ModalFooterWizard
-              activeStep={activeStep}
-              stepCount={transitionSteps.length}
-              onStepClick={goToStep}
-              primaryButton={{ text: "Next", onClick: next }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
-            />
-          </Modal>,
-          document.body
-        )}
+
+        <Modal id="modal-media-center" show={showCenterPop} size="medium" onClose={() => setShowCenterPop(false)}>
+          <ModalMediaLayout>
+            <ModalMedia>
+              <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+            </ModalMedia>
+            <ModalHeader title="Modal title" />
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                The media modal is ideal for introducing new features or onboarding, the user can also{" "}
+                <Link inheritFontSize inlineText text="add a link" />.
+              </Text>
+            </ModalContent>
+          </ModalMediaLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+          />
+        </Modal>
+
+        <Modal id="modal-media-transition" show={showTransition} size="medium" onClose={() => setShowTransition(false)}>
+          <TransitionView activeStep={activeStep} direction={direction}>
+            {transitionSteps}
+          </TransitionView>
+          <ModalFooterWizard
+            activeStep={activeStep}
+            stepCount={transitionSteps.length}
+            onStepClick={goToStep}
+            primaryButton={{ text: "Next", onClick: next }}
+            secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
+          />
+        </Modal>
       </>
     );
   }

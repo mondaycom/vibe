@@ -8,7 +8,6 @@ import ModalContent from "../../../ModalContent/ModalContent";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import Flex from "../../../../Flex/Flex";
 import Button from "../../../../Button/Button";
-import { createPortal } from "react-dom";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
 import TransitionView from "../../../../TransitionView/TransitionView";
@@ -36,9 +35,9 @@ export default {
 
 export const Overview: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (args, { show, setShow }) => {
+  render: (args, { show, setShow, container }) => {
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} {...args}>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container} {...args}>
         <ModalBasicLayout>
           <ModalHeader
             title="Modal title"
@@ -84,81 +83,75 @@ export const Sizes: Story = {
           <Button onClick={() => setShowMedium(true)}>Medium</Button>
           <Button onClick={() => setShowLarge(true)}>Large</Button>
         </Flex>
-        {createPortal(
-          <Modal id="modal-basic-small" show={showSmall} size="small" onClose={() => setShowSmall(false)}>
-            <ModalBasicLayout>
-              <ModalHeader
-                title="Modal title"
-                description={
-                  <Text type="text1">
-                    Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                  </Text>
-                }
-              />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
+
+        <Modal id="modal-basic-small" show={showSmall} size="small" onClose={() => setShowSmall(false)}>
+          <ModalBasicLayout>
+            <ModalHeader
+              title="Modal title"
+              description={
+                <Text type="text1">
+                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
                 </Text>
-              </ModalContent>
-            </ModalBasicLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowSmall(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowSmall(false) }}
+              }
             />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal id="modal-basic-medium" show={showMedium} size="medium" onClose={() => setShowMedium(false)}>
-            <ModalBasicLayout>
-              <ModalHeader
-                title="Modal title"
-                description={
-                  <Text type="text1">
-                    Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                  </Text>
-                }
-              />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+          </ModalBasicLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowSmall(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowSmall(false) }}
+          />
+        </Modal>
+
+        <Modal id="modal-basic-medium" show={showMedium} size="medium" onClose={() => setShowMedium(false)}>
+          <ModalBasicLayout>
+            <ModalHeader
+              title="Modal title"
+              description={
+                <Text type="text1">
+                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
                 </Text>
-              </ModalContent>
-            </ModalBasicLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowMedium(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowMedium(false) }}
+              }
             />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal id="modal-basic-large" show={showLarge} size="large" onClose={() => setShowLarge(false)}>
-            <ModalBasicLayout>
-              <ModalHeader
-                title="Modal title"
-                description={
-                  <Text type="text1">
-                    Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                  </Text>
-                }
-              />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+          </ModalBasicLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowMedium(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowMedium(false) }}
+          />
+        </Modal>
+
+        <Modal id="modal-basic-large" show={showLarge} size="large" onClose={() => setShowLarge(false)}>
+          <ModalBasicLayout>
+            <ModalHeader
+              title="Modal title"
+              description={
+                <Text type="text1">
+                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
                 </Text>
-              </ModalContent>
-            </ModalBasicLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowLarge(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowLarge(false) }}
+              }
             />
-          </Modal>,
-          document.body
-        )}
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+          </ModalBasicLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowLarge(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowLarge(false) }}
+          />
+        </Modal>
       </>
     );
   }
@@ -166,9 +159,9 @@ export const Sizes: Story = {
 
 export const AlertModal: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
-      <Modal id="modal-basic" show={show} alertModal size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-basic" show={show} alertModal size="medium" onClose={() => setShow(false)} container={container}>
         <ModalBasicLayout>
           <ModalHeader title="Alert modal" />
           <ModalContent>
@@ -186,9 +179,9 @@ export const AlertModal: Story = {
 
 export const Scroll: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
         <ModalBasicLayout>
           <ModalHeader title="Scrollable modal" />
           <ModalContent>
@@ -215,7 +208,7 @@ export const Scroll: Story = {
 
 export const Wizard: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     const steps = [
       <ModalBasicLayout>
         <ModalHeader title="Modal with wizard" />
@@ -251,7 +244,7 @@ export const Wizard: Story = {
     });
 
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -269,9 +262,9 @@ export const Wizard: Story = {
 
 export const FooterWithSideAction: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)}>
+      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
         <ModalBasicLayout>
           <ModalHeader
             title="Modal title"
@@ -300,7 +293,7 @@ export const FooterWithSideAction: Story = {
 
 export const HeaderWithExtraIconButton: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
       <Modal
         id="modal-basic"
@@ -308,6 +301,7 @@ export const HeaderWithExtraIconButton: Story = {
         renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="medium"
         onClose={() => setShow(false)}
+        container={container}
       >
         <ModalBasicLayout>
           <ModalHeader
@@ -386,82 +380,71 @@ export const Animation: Story = {
           <Button onClick={() => setShowCenterPop(true)}>Center pop</Button>
           <Button onClick={() => setShowTransition(true)}>Transition</Button>
         </Flex>
-        {createPortal(
-          <Modal
-            id="modal-basic-anchor"
-            show={showAnchor}
-            anchorElementRef={anchorButtonRef}
-            size="medium"
-            onClose={() => setShowAnchor(false)}
-          >
-            <ModalBasicLayout>
-              <ModalHeader
-                title="Modal title"
-                description={
-                  <Text type="text1">
-                    Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                  </Text>
-                }
-              />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
+
+        <Modal
+          id="modal-basic-anchor"
+          show={showAnchor}
+          anchorElementRef={anchorButtonRef}
+          size="medium"
+          onClose={() => setShowAnchor(false)}
+        >
+          <ModalBasicLayout>
+            <ModalHeader
+              title="Modal title"
+              description={
+                <Text type="text1">
+                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
                 </Text>
-              </ModalContent>
-            </ModalBasicLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
+              }
             />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal id="modal-basic-center" show={showCenterPop} size="medium" onClose={() => setShowCenterPop(false)}>
-            <ModalBasicLayout>
-              <ModalHeader
-                title="Modal title"
-                description={
-                  <Text type="text1">
-                    Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
-                  </Text>
-                }
-              />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+          </ModalBasicLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
+          />
+        </Modal>
+
+        <Modal id="modal-basic-center" show={showCenterPop} size="medium" onClose={() => setShowCenterPop(false)}>
+          <ModalBasicLayout>
+            <ModalHeader
+              title="Modal title"
+              description={
+                <Text type="text1">
+                  Modal subtitle, can come with icon <Link inheritFontSize inlineText text="and link." />
                 </Text>
-              </ModalContent>
-            </ModalBasicLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+              }
             />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal
-            id="modal-basic-transition"
-            show={showTransition}
-            size="medium"
-            onClose={() => setShowTransition(false)}
-          >
-            <TransitionView activeStep={activeStep} direction={direction}>
-              {transitionSteps}
-            </TransitionView>
-            <ModalFooterWizard
-              activeStep={activeStep}
-              stepCount={transitionSteps.length}
-              onStepClick={goToStep}
-              primaryButton={{ text: "Next", onClick: next }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
-            />
-          </Modal>,
-          document.body
-        )}
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+          </ModalBasicLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+          />
+        </Modal>
+
+        <Modal id="modal-basic-transition" show={showTransition} size="medium" onClose={() => setShowTransition(false)}>
+          <TransitionView activeStep={activeStep} direction={direction}>
+            {transitionSteps}
+          </TransitionView>
+          <ModalFooterWizard
+            activeStep={activeStep}
+            stepCount={transitionSteps.length}
+            onStepClick={goToStep}
+            primaryButton={{ text: "Next", onClick: next }}
+            secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
+          />
+        </Modal>
       </>
     );
   }

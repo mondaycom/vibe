@@ -19,7 +19,6 @@ import IconButton from "../../../../IconButton/IconButton";
 import { Menu } from "@vibe/icons";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import Button from "../../../../Button/Button";
-import { createPortal } from "react-dom";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
 
@@ -50,7 +49,7 @@ export const Overview: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
-  render: (args, { show, setShow }) => {
+  render: (args, { show, setShow, container }) => {
     const steps = [
       <ModalSideBySideLayout>
         <ModalHeader
@@ -97,7 +96,15 @@ export const Overview: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 400 }} {...args}>
+      <Modal
+        id="modal-sbs"
+        show={show}
+        size="large"
+        onClose={() => setShow(false)}
+        style={{ height: 400 }}
+        container={container}
+        {...args}
+      >
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -124,7 +131,7 @@ export const Wizard: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     const dropdownOptions = [
       {
         label: "English",
@@ -176,7 +183,14 @@ export const Wizard: Story = {
     });
 
     return (
-      <Modal id="modal-sbs" show={show} size="large" onClose={() => setShow(false)} style={{ height: 400 }}>
+      <Modal
+        id="modal-sbs"
+        show={show}
+        size="large"
+        onClose={() => setShow(false)}
+        container={container}
+        style={{ height: 400 }}
+      >
         <TransitionView activeStep={activeStep} direction={direction}>
           {steps}
         </TransitionView>
@@ -196,7 +210,7 @@ export const HeaderWithExtraIconButton: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
-  render: (_, { show, setShow }) => {
+  render: (_, { show, setShow, container }) => {
     return (
       <Modal
         id="modal-sbs"
@@ -204,6 +218,7 @@ export const HeaderWithExtraIconButton: Story = {
         renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
         size="large"
         onClose={() => setShow(false)}
+        container={container}
         style={{ height: 400 }}
       >
         <ModalSideBySideLayout>
@@ -287,82 +302,76 @@ export const Animation: Story = {
           <Button onClick={() => setShowCenterPop(true)}>Center pop</Button>
           <Button onClick={() => setShowTransition(true)}>Transition</Button>
         </Flex>
-        {createPortal(
-          <Modal
-            id="modal-sbs-anchor"
-            show={showAnchor}
-            anchorElementRef={anchorButtonRef}
-            size="large"
-            onClose={() => setShowAnchor(false)}
-            style={{ height: 400 }}
-          >
-            <ModalSideBySideLayout>
-              <ModalHeader title="Modal title" />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
-                </Text>
-              </ModalContent>
-              <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
-              </ModalMedia>
-            </ModalSideBySideLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
-            />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal
-            id="modal-sbs-center"
-            show={showCenterPop}
-            size="large"
-            onClose={() => setShowCenterPop(false)}
-            style={{ height: 400 }}
-          >
-            <ModalSideBySideLayout>
-              <ModalHeader title="Modal title" />
-              <ModalContent>
-                <Text type="text1" align="inherit" element="p">
-                  Modal content will appear here, you can custom it however you want, according to the user needs.
-                  Please make sure that the content is clear for completing the relevant task.
-                </Text>
-              </ModalContent>
-              <ModalMedia>
-                <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
-              </ModalMedia>
-            </ModalSideBySideLayout>
-            <ModalFooter
-              primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
-              secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
-            />
-          </Modal>,
-          document.body
-        )}
-        {createPortal(
-          <Modal
-            id="modal-sbs-transition"
-            show={showTransition}
-            size="large"
-            onClose={() => setShowTransition(false)}
-            style={{ height: 400 }}
-          >
-            <TransitionView activeStep={activeStep} direction={direction}>
-              {transitionSteps}
-            </TransitionView>
-            <ModalFooterWizard
-              activeStep={activeStep}
-              stepCount={transitionSteps.length}
-              onStepClick={goToStep}
-              primaryButton={{ text: "Next", onClick: next }}
-              secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
-            />
-          </Modal>,
-          document.body
-        )}
+
+        <Modal
+          id="modal-sbs-anchor"
+          show={showAnchor}
+          anchorElementRef={anchorButtonRef}
+          size="large"
+          onClose={() => setShowAnchor(false)}
+          style={{ height: 400 }}
+        >
+          <ModalSideBySideLayout>
+            <ModalHeader title="Modal title" />
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+            <ModalMedia>
+              <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
+            </ModalMedia>
+          </ModalSideBySideLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowAnchor(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowAnchor(false) }}
+          />
+        </Modal>
+
+        <Modal
+          id="modal-sbs-center"
+          show={showCenterPop}
+          size="large"
+          onClose={() => setShowCenterPop(false)}
+          style={{ height: 400 }}
+        >
+          <ModalSideBySideLayout>
+            <ModalHeader title="Modal title" />
+            <ModalContent>
+              <Text type="text1" align="inherit" element="p">
+                Modal content will appear here, you can custom it however you want, according to the user needs. Please
+                make sure that the content is clear for completing the relevant task.
+              </Text>
+            </ModalContent>
+            <ModalMedia>
+              <img src={mediaImage} alt="side by side placeholder" style={{ width: "100%", objectFit: "cover" }} />
+            </ModalMedia>
+          </ModalSideBySideLayout>
+          <ModalFooter
+            primaryButton={{ text: "Confirm", onClick: () => setShowCenterPop(false) }}
+            secondaryButton={{ text: "Cancel", onClick: () => setShowCenterPop(false) }}
+          />
+        </Modal>
+
+        <Modal
+          id="modal-sbs-transition"
+          show={showTransition}
+          size="large"
+          onClose={() => setShowTransition(false)}
+          style={{ height: 400 }}
+        >
+          <TransitionView activeStep={activeStep} direction={direction}>
+            {transitionSteps}
+          </TransitionView>
+          <ModalFooterWizard
+            activeStep={activeStep}
+            stepCount={transitionSteps.length}
+            onStepClick={goToStep}
+            primaryButton={{ text: "Next", onClick: next }}
+            secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
+          />
+        </Modal>
       </>
     );
   }
