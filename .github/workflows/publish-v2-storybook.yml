@@ -1,4 +1,4 @@
-name: Publish V2 Storybook
+name: Publish v2 Storybook
 
 on:
   workflow_run:
@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: version2
           fetch-depth: 0
       - name: Run Setup
         uses: ./.github/actions/setup
