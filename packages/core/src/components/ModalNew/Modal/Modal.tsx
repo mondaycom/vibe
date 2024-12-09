@@ -19,6 +19,8 @@ import {
   modalAnimationCenterPopVariants,
   modalAnimationOverlayVariants
 } from "../utils/animationVariants";
+import { createPortal } from "react-dom";
+import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 
 const Modal = forwardRef(
   (
@@ -32,6 +34,7 @@ const Modal = forwardRef(
       onClose = () => {},
       anchorElementRef,
       alertModal,
+      container = document.body,
       children,
       style,
       className,
@@ -39,6 +42,8 @@ const Modal = forwardRef(
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    const portalTargetElement = usePortalTarget(container);
+
     const [titleId, setTitleId] = useState<string>();
     const [descriptionId, setDescriptionId] = useState<string>();
 
@@ -84,49 +89,54 @@ const Modal = forwardRef(
       <AnimatePresence>
         {show && (
           <ModalProvider value={contextValue}>
-            <motion.div
-              variants={modalAnimationOverlayVariants}
-              initial={false}
-              animate="enter"
-              exit="exit"
-              data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-              className={styles.overlay}
-              onClick={onBackdropClick}
-              aria-hidden
-            />
-            <FocusLock returnFocus>
-              <RemoveScroll forwardProps>
+            {createPortal(
+              <>
                 <motion.div
-                  variants={modalAnimationVariants}
-                  initial="exit"
+                  variants={modalAnimationOverlayVariants}
+                  initial={false}
                   animate="enter"
                   exit="exit"
-                  custom={anchorElementRef}
-                  ref={ref}
-                  className={cx(
-                    styles.modal,
-                    getStyle(styles, camelCase("size-" + size)),
-                    { [styles.withHeaderAction]: !!renderHeaderAction },
-                    className
-                  )}
-                  id={id}
-                  data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-                  role="dialog"
-                  aria-modal
-                  aria-labelledby={titleId}
-                  aria-describedby={descriptionId}
-                  style={style}
-                >
-                  {children}
-                  <ModalTopActions
-                    renderAction={renderHeaderAction}
-                    theme={closeButtonTheme}
-                    closeButtonAriaLabel={closeButtonAriaLabel}
-                    onClose={onClose}
-                  />
-                </motion.div>
-              </RemoveScroll>
-            </FocusLock>
+                  data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                  className={styles.overlay}
+                  onClick={onBackdropClick}
+                  aria-hidden
+                />
+                <FocusLock returnFocus>
+                  <RemoveScroll forwardProps>
+                    <motion.div
+                      variants={modalAnimationVariants}
+                      initial="exit"
+                      animate="enter"
+                      exit="exit"
+                      custom={anchorElementRef}
+                      ref={ref}
+                      className={cx(
+                        styles.modal,
+                        getStyle(styles, camelCase("size-" + size)),
+                        { [styles.withHeaderAction]: !!renderHeaderAction },
+                        className
+                      )}
+                      id={id}
+                      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+                      role="dialog"
+                      aria-modal
+                      aria-labelledby={titleId}
+                      aria-describedby={descriptionId}
+                      style={style}
+                    >
+                      {children}
+                      <ModalTopActions
+                        renderAction={renderHeaderAction}
+                        theme={closeButtonTheme}
+                        closeButtonAriaLabel={closeButtonAriaLabel}
+                        onClose={onClose}
+                      />
+                    </motion.div>
+                  </RemoveScroll>
+                </FocusLock>
+              </>,
+              portalTargetElement
+            )}
           </ModalProvider>
         )}
       </AnimatePresence>

@@ -1,6 +1,7 @@
 import { VibeComponentProps } from "../../../types";
 import React from "react";
 import { ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
+import { PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
 
 export type ModalSize = "small" | "medium" | "large";
 
@@ -45,6 +46,10 @@ export interface ModalProps extends VibeComponentProps {
    * When true, prevents closing the modal when clicking the overlay ("click-outside") or pressing ESC.
    */
   alertModal?: boolean;
+  /**
+   * The target element to render the modal into.
+   */
+  container?: PortalTarget;
   /**
    * Modal content.
    */
