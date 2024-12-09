@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useMemo } from "react";
-import LegacyModalContent from "../../../components/LegacyModal/LegacyModalContent/LegacyModalContent";
+import ModalContent from "../../../components/LegacyModal/LegacyModalContent/LegacyModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import { DropdownOption } from "../../../components/Dropdown/Dropdown.types";
 import Modal from "../../../components/LegacyModal/LegacyModal";
@@ -43,9 +43,9 @@ export const ModalWithDamagedDropdown: React.FC = () => {
     <div>
       <Button onClick={() => setShow(true)}>Open Modal</Button>
       <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-        <LegacyModalContent>
+        <ModalContent>
           <Dropdown options={options} />
-        </LegacyModalContent>
+        </ModalContent>
       </Modal>
     </div>
   );
@@ -107,9 +107,9 @@ export const MenuPosition: React.FC = () => {
       <div>
         <Button onClick={() => setShow(true)}>Open Modal</Button>
         <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-          <LegacyModalContent>
+          <ModalContent>
             <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
-          </LegacyModalContent>
+          </ModalContent>
         </Modal>
       </div>
       <Dialog
@@ -185,9 +185,9 @@ export const InsideOverflowContainer: React.FC = () => {
       <div>
         <Button onClick={() => setShow(true)}>Open Modal</Button>
         <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-          <LegacyModalContent>
+          <ModalContent>
             <Dropdown options={options} insideOverflowContainer />
-          </LegacyModalContent>
+          </ModalContent>
         </Modal>
       </div>
       <Dialog
