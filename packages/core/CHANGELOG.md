@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.3.0...@vibe/core@3.4.0) (2024-12-09)
+
+
+### Bug Fixes
+
+* **table:** avoid unnecessary re-rendering if TableRowMenu doesn't exist ([#2630](https://github.com/mondaycom/vibe/issues/2630)) ([e8d093e](https://github.com/mondaycom/vibe/commit/e8d093ebc8231c90cfbfa596c686f163d1ad60c4))
+
+
+### Features
+
+* **Modal:** modal improvements, add stories for main Modal and modal's layouts ([#2627](https://github.com/mondaycom/vibe/issues/2627)) ([bead0ba](https://github.com/mondaycom/vibe/commit/bead0bae158a05d9654748e4bf020fc6ccbbc9be))
+* **Modal:** use createPortal and LayerProvider in Modal ([#2634](https://github.com/mondaycom/vibe/issues/2634)) ([b8f895b](https://github.com/mondaycom/vibe/commit/b8f895b3bea0c9a57763ef6d7fe6f604e89989e4))
+
+
+
+
+
 # [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.2.0...@vibe/core@3.3.0) (2024-12-08)
 
 
