@@ -30,10 +30,7 @@ export default {
   subcomponents: { ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, TransitionView },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
-  tags: ["internal"],
-  parameters: {
-    chromatic: {}
-  }
+  tags: ["internal"]
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
