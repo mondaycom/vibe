@@ -11,17 +11,6 @@
     position: relative;
     width: 100%;
     flex-shrink: 0;
-
-    height: var(--modal-top-media-height, 240px);
-    @media (min-width: 1280px) {
-      --modal-top-media-height: 260px;
-    }
-    @media (min-width: 1440px) {
-      --modal-top-media-height: 260px;
-    }
-    @media (min-width: 1720px) {
-      --modal-top-media-height: 320px;
-    }
   }
 
   .header {
