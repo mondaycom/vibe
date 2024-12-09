@@ -295,24 +295,29 @@ export const HoverVsClickable: Story = {
     );
   }
 };
-export const Disabled = () => (
-  <AvatarGroup size="large" max={4} disabled>
-    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-    <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
-    <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
-    <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-    <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-  </AvatarGroup>
-);
+
+export const Disabled: Story = {
+  render: () => {
+    return (
+      <AvatarGroup size="large" max={4} disabled>
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      </AvatarGroup>
+    );
+  }
+};
 
 export const LastSeenUsers: Story = {
   render: () => (
