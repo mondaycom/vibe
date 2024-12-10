@@ -2,7 +2,7 @@
   --monday-modal-z-index: 10000;
   position: fixed;
   inset: 0;
-  background-color: rgba(41, 47, 76, 0.7);
+  background-color: var(--color-surface);
   z-index: var(--monday-modal-z-index);
 }
 
