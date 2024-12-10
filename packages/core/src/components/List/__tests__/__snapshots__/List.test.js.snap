@@ -29,7 +29,7 @@ exports[`List renders correctly with list items 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     role="option"
-    tabIndex={0}
+    tabIndex={-1}
   >
     1
   </li>
