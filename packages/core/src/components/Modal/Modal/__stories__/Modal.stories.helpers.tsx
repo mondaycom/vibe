@@ -4,7 +4,6 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 import { useAfterFirstRender } from "../../../../hooks";
 import cx from "classnames";
 import styles from "./Modal.stories.module.scss";
-import { createPortal } from "react-dom";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 
 export const OpenedModalPreview = forwardRef(
