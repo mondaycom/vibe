@@ -29,7 +29,10 @@ export default {
   component: Modal,
   subcomponents: { ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, TransitionView },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    layout: "fullscreen"
+  }
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {

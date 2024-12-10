@@ -41,7 +41,10 @@ export default {
     TransitionView
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    layout: "fullscreen"
+  }
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
