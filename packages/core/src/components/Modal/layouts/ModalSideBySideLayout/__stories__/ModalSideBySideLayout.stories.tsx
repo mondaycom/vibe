@@ -6,7 +6,7 @@ import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
-import ModalMedia from "../../ModalMedia";
+import ModalMedia from "../../../ModalMedia/ModalMedia";
 import mediaImage from "./assets/media-image.png";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import TransitionView from "../../../../TransitionView/TransitionView";
