@@ -26,7 +26,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Internal/Components/Modal [New]/Media modal",
+  title: "Components/Modal [New]/Media modal",
   component: Modal,
   subcomponents: {
     ModalMediaLayout,
@@ -38,8 +38,7 @@ export default {
     TransitionView
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  tags: ["internal"]
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {

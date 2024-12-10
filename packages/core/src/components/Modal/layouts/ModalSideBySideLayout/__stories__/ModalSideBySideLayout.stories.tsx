@@ -29,7 +29,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Internal/Components/Modal [New]/Side by side modal",
+  title: "Components/Modal [New]/Side by side modal",
   component: Modal,
   subcomponents: {
     ModalSideBySideLayout,
@@ -41,8 +41,7 @@ export default {
     TransitionView
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  tags: ["internal"]
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
