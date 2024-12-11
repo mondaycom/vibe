@@ -201,7 +201,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
 
     return (
       <div
-        style={{ ...style, "--tooltip-max-width": `${maxWidth}px` } as CSSProperties}
+        style={maxWidth ? ({ ...style, "--tooltip-max-width": `${maxWidth}px` } as CSSProperties) : style}
         className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}
       >
         {image && <img className={styles.image} src={image} alt="" />}
