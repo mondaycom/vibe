@@ -143,7 +143,9 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * custom value render function
    */
-  valueRenderer?: React.ReactNode;
+  valueRenderer?:
+    | React.ReactNode
+    | ((props: Omit<CustomSingleValueProps, "Renderer"> & DropdownOption) => React.ReactNode);
   ValueRenderer?: React.ReactNode;
   /**
    * custom menu render function
