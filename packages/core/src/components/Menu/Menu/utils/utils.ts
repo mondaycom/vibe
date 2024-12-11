@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { MenuChild } from "../MenuConstants";
 
 export function isMenuChildSelectable(child: MenuChild): boolean {
-  return !!child.type.isSelectable && !child.props.disabled;
+  return !!child.type.isSelectable;
 }
 
 export const generateMenuItemId = (menuId: string, child: ReactElement, index: number) => {

@@ -39,7 +39,9 @@ const BaseMenuItem = forwardRef(
       "data-testid": dataTestId,
       splitMenuItem = false,
       children,
-      submenuPosition = "right"
+      submenuPosition = "right",
+      tooltipId,
+      shouldShowTooltip = false
     }: BaseMenuItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -122,6 +124,8 @@ const BaseMenuItem = forwardRef(
         type="text2"
         aria-haspopup={subMenu ? true : undefined}
         aria-expanded={subMenu ? shouldShowSubMenu : undefined}
+        aria-disabled={disabled}
+        aria-describedby={shouldShowTooltip ? tooltipId || `${id}-tooltip` : undefined}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
         className={cx(styles.item, className, {
           [styles.disabled]: disabled,
