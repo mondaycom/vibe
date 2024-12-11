@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
-import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
+import React, { CSSProperties, isValidElement, PureComponent, ReactElement, useMemo } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
 import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
@@ -128,6 +128,10 @@ interface TooltipBaseProps extends VibeComponentProps {
    * The icon of the tooltip next to the title
    */
   icon?: SubIcon;
+  /**
+   * Sets the max width of the Tooltip, defaults to 240px
+   */
+  maxWidth?: number;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -174,7 +178,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, className, style, title, image, icon } = this.props;
+    const { theme, content, className, style, maxWidth, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -196,7 +200,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     }
 
     return (
-      <div style={style} className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}>
+      <div
+        style={{ ...style, "--tooltip-max-width": `${maxWidth}px` } as CSSProperties}
+        className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}
+      >
         {image && <img className={styles.image} src={image} alt="" />}
         <div className={cx(styles.content)}>
           {title && (
