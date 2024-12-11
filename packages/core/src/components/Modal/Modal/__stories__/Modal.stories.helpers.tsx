@@ -4,7 +4,6 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 import { useAfterFirstRender } from "../../../../hooks";
 import cx from "classnames";
 import styles from "./Modal.stories.module.scss";
-import { createPortal } from "react-dom";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 
 export const OpenedModalPreview = forwardRef(
@@ -25,14 +24,14 @@ export const OpenedModalPreview = forwardRef(
     const isAfterFirstRender = useAfterFirstRender();
     return (
       <div
-        className={cx(styles.preview, getStyle(styles, size))}
+        className={cx(styles.preview, { [getStyle(styles, size)]: isDocsView })}
         ref={ref}
         // workaround to prevent modal from autofocusing on page load
         // autofocus would work as expected when modal closes and reopens
         {...(!isAfterFirstRender.current && isDocsView && { "data-no-autofocus": true })}
       >
         <Button onClick={onOpenModalClick}>Open Modal</Button>
-        {isDocsView ? modal : createPortal(modal, document.body)}
+        {modal}
       </div>
     );
   }

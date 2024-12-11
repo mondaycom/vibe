@@ -4,7 +4,7 @@ import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
-import ModalMedia from "../../ModalMedia";
+import ModalMedia from "../../../ModalMedia/ModalMedia";
 import mediaImage from "./assets/media-image.png";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import ModalMediaLayout from "../ModalMediaLayout";
@@ -26,7 +26,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Internal/Components/Modal [New]/Media modal",
+  title: "Components/Modal [New]/Media modal",
   component: Modal,
   subcomponents: {
     ModalMediaLayout,
@@ -39,7 +39,9 @@ export default {
   },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
-  tags: ["internal"]
+  parameters: {
+    layout: "fullscreen"
+  }
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {

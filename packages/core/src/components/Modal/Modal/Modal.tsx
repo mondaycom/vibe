@@ -98,7 +98,7 @@ const Modal = forwardRef(
                   <motion.div
                     ref={overlayRef}
                     variants={modalAnimationOverlayVariants}
-                    initial={false}
+                    initial="initial"
                     animate="enter"
                     exit="exit"
                     data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
