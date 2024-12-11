@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
-import React, { CSSProperties, isValidElement, PureComponent, ReactElement, useMemo } from "react";
+import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
 import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
