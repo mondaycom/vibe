@@ -167,7 +167,9 @@ export const AlertModal: Story = {
         <ModalBasicLayout>
           <ModalHeader title="Alert modal" />
           <ModalContent>
-            This will allow closing the modal only by the close buttons and not by ESC or by clicking outside.
+            <Text type="text1" align="inherit" element="p">
+              This will allow closing the modal only by the close buttons and not by ESC or by clicking outside.
+            </Text>
           </ModalContent>
         </ModalBasicLayout>
         <ModalFooter
@@ -183,7 +185,14 @@ export const Scroll: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow, container }) => {
     return (
-      <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
+      <Modal
+        id="modal-basic"
+        show={show}
+        size="medium"
+        onClose={() => setShow(false)}
+        container={container}
+        style={{ height: 400 }}
+      >
         <ModalBasicLayout>
           <ModalHeader title="Scrollable modal" />
           <ModalContent>
