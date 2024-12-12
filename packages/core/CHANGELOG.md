@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.0...@vibe/core@3.4.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* **List:** fix ListTitle getting focus on initialization ([#2638](https://github.com/mondaycom/vibe/issues/2638)) ([0986200](https://github.com/mondaycom/vibe/commit/0986200af94f425a9ba19e4d0948786525557b2e))
+
+
+
+
+
 # [3.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.3.0...@vibe/core@3.4.0) (2024-12-09)
 
 
