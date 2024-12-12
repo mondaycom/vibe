@@ -22,7 +22,6 @@
 }
 
 .buttonsContainer .button.activeButton {
-  z-index: 20;
   background-color: var(--primary-selected-color);
   border-color: var(--primary-color);
 }
@@ -36,7 +35,6 @@
 }
 
 .optionText:not(.disabled).selected {
-  z-index: 10;
   color: var(--primary-text-color);
 }
 
