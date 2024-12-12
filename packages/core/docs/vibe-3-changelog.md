@@ -2,7 +2,7 @@
 
 This is the complete list of changes and deprecations in the Vibe 3 release. Changes that are marked with a 🔀 are covered by a migration script (codemod).
 
-For the complete migration guide see the [Vibe 3 Migration Guide](https://style.monday.com/?path=/docs/vibe-3-migration-guide--docs).
+For the complete migration guide see the [Vibe 3 Migration Guide](https://vibe.monday.com/?path=/docs/migration-guide).
 
 ## General
 
@@ -28,7 +28,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ## Typography
 
-- Overhauled typography system, for more information check out the [Typography page](https://style.monday.com/?path=/docs/foundations-typography--docs)
+- Overhauled typography system, for more information check out the [Typography page](https://vibe.monday.com/?path=/docs/foundations-typography)
 - `Text` and `Heading` API and style changed
 
 ## Components
@@ -137,11 +137,11 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### EditableInput
 
-- `EditableInput` removed, use [EditableText](https://style.monday.com/?path=/docs/inputs-editabletext--docs) instead
+- `EditableInput` removed, use [EditableText](https://vibe.monday.com/?path=/docs/components-editabletext) instead
 
 ### Heading
 
-- `Heading` component API and style changed, follow the [Heading](https://style.monday.com/?path=/docs/text-heading--docs) docs for the new API.
+- `Heading` component API and style changed, follow the [Heading](https://vibe.monday.com/?path=/docs/text-heading) docs for the new API.
 
 ### Icon
 
@@ -159,7 +159,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 > codemod: `InputField-component-import-migration`
 
-- `Input` removed - use [TextField](https://style.monday.com/?path=/docs/inputs-textfield--docs) 🔀
+- `Input` removed - use [TextField](https://vibe.monday.com/?path=/docs/components-textfield) 🔀
 
 ### Label
 
@@ -170,7 +170,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### EditableHeading
 
-- API and style changed, follow the [EditableHeading](https://style.monday.com/?path=/docs/inputs-editableheading--docs) docs for the new API
+- API and style changed, follow the [EditableHeading](https://vibe.monday.com/?path=/docs/components-editableheading) docs for the new API
 
 ### Link
 
@@ -248,13 +248,13 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ## Search
 
-- `Search` has changed - follow the [Search](https://style.monday.com/?path=/docs/inputs-search--docs) docs for the new API.
+- `Search` has changed - follow the [Search](https://vibe.monday.com/?path=/docs/components-search) docs for the new API.
 
 ## SearchComponent
 
 > codemod: `SearchComponent-import-migration`
 
-- `SearchComponent` component removed - use [Search](https://style.monday.com/?path=/docs/inputs-search--docs) 🔀
+- `SearchComponent` component removed - use [Search](https://vibe.monday.com/?path=/docs/components-search) 🔀
 
 ## SplitButton
 
@@ -351,7 +351,7 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://style.
 
 ### ResponsiveList
 
-- Component was removed, use the [useIsOverflowing](https://style.monday.com/?path=/docs/hooks-useisoverflowing--docs) hook instead
+- Component was removed, use the [useIsOverflowing](https://vibe.monday.com/?path=/docs/hooks-useisoverflowing) hook instead
 
 ## Icons
 
