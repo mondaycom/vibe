@@ -19,7 +19,11 @@ export function useHiddenOptionsData({
 
       while (childIndex < ref.children.length && optionIndex < selectedOptionsCount) {
         const child = ref.children[childIndex];
-        const isOption = child.classList.contains(chipClassName) || child.classList.contains(chipWrapperClassName);
+        const chipClasses = chipClassName.split(" ");
+
+        const isOption =
+          child.classList.contains(chipWrapperClassName) ||
+          chipClasses.some(className => child.classList.contains(className));
 
         if (isOption) {
           const { bottom: childBottom } = child.getBoundingClientRect();
