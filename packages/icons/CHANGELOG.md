@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.1.0...@vibe/icons@1.2.0) (2024-12-12)
+
+
+### Features
+
+* **Move:** new icon ([#2646](https://github.com/mondaycom/vibe/issues/2646)) ([12b5cd1](https://github.com/mondaycom/vibe/commit/12b5cd1f72e9546c9b27ec9a237f4e9a51143a88))
+
+
+
+
+
 # [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.0.0...@vibe/icons@1.1.0) (2024-12-04)
 
 

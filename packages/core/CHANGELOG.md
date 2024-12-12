@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.1...@vibe/core@3.5.0) (2024-12-12)
+
+
+### Features
+
+* **Tooltip:** be able to change max width ([#2643](https://github.com/mondaycom/vibe/issues/2643)) ([f39633b](https://github.com/mondaycom/vibe/commit/f39633b190da5b7e453d958bf36028c8332139f5))
+
+
+
+
+
 ## [3.4.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.0...@vibe/core@3.4.1) (2024-12-12)
 
 
