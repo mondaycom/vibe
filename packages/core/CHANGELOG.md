@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.0...@vibe/core@3.5.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* **List:** getting wrong tabIndex on initialization ([#2648](https://github.com/mondaycom/vibe/issues/2648)) ([7aaaa73](https://github.com/mondaycom/vibe/commit/7aaaa73fddb3c8434104785f65268ee373079634))
+
+
+
+
+
 # [3.5.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.1...@vibe/core@3.5.0) (2024-12-12)
 
 
