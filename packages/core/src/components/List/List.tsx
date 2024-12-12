@@ -140,8 +140,8 @@ const List: VibeComponent<ListProps> & {
             return child;
           }
           const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
-          const isFocusableItem = isListItem(childrenRefs.current[index]);
-
+          const currentRef = childrenRefs.current[index];
+          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
