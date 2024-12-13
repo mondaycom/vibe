@@ -1,8 +1,7 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "types": ["./types.ts"]
+    "resolveJsonModule": true
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.json"]
 }
