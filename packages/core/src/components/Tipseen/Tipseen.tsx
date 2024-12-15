@@ -61,6 +61,7 @@ export interface TipseenProps extends VibeComponentProps {
   onShow?: () => void;
   /** Callback function triggered when the tooltip becomes hidden */
   onHide?: () => void;
+  onShowHide?: () => void;
   content: ElementContent;
   /**
    * Control the color of the Tipseen close button. Dark theme can be useful while presenting bright images under the tipseen image
@@ -93,6 +94,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideCloseButton,
       closeButtonTheme = "light",
       onClose,
+      onShowHide,
       onShow,
       onHide,
       closeAriaLabel,
@@ -201,6 +203,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           onTooltipShow={onShow}
+          onShowHide={onShowHide}
           onTooltipHide={onHide}
           forceRenderWithoutChildren={floating}
         >

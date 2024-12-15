@@ -115,6 +115,7 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * callback to be called when the dialog is shown
    */
+  onShowHide?: (params: { isVisible: boolean }) => void;
   onDialogDidShow?: (event?: DialogEvent, eventName?: DialogTriggerEvent | string) => void;
   /**
    * callback to be called when the dialog is hidden
@@ -158,6 +159,7 @@ export interface DialogProps extends VibeComponentProps {
 
 export interface DialogState {
   isOpen?: boolean;
+  isReferenceHidden?: boolean;
   shouldUseDerivedStateFromProps?: boolean;
   preventAnimation?: boolean;
 }
@@ -184,6 +186,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     preventAnimationOnMount: false,
     tooltip: false,
     onDialogDidShow: NOOP,
+    onShowHide: NOOP,
     onDialogDidHide: NOOP,
     onClickOutside: NOOP,
     onContentClick: NOOP,
@@ -498,6 +501,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       hideWhenReferenceHidden,
       disableContainerScroll,
       containerSelector,
+      onShowHide,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -510,6 +514,9 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     if (!contentRendered) {
       return children;
     }
+
+    let self = this;
+
     return (
       <Manager>
         <Reference>
@@ -571,6 +578,20 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     //   res[1]}% ${100 - res[2]}%`;
                     state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                     return state;
+                  }
+                },
+                {
+                  name: "my-test",
+                  enabled: true,
+                  phase: "main",
+                  fn({ state }) {
+                    const referenceHidden = state.modifiersData.hide.isReferenceHidden;
+
+                    if (self.state.isReferenceHidden !== referenceHidden) {
+                      // console.log('AAAAAAAAAAAA isReferenceHidden', isReferenceHidden);
+                      self.setState({ isReferenceHidden: referenceHidden });
+                      onShowHide({isVisible: !referenceHidden});
+                    }
                   }
                 },
                 ...modifiers

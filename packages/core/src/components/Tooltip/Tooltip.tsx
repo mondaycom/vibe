@@ -79,6 +79,7 @@ interface TooltipBaseProps extends VibeComponentProps {
   hideWhenReferenceHidden?: boolean;
   onTooltipHide?: () => void;
   onTooltipShow?: () => void;
+  onShowHide?: () => void;
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
