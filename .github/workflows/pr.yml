@@ -18,3 +18,13 @@ jobs:
     uses: ./.github/workflows/test.yml
     secrets:
       npm_token: ${{ secrets.npm_token }}
+
+  commitlint:
+    name: Commit Lint
+    needs: build
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}

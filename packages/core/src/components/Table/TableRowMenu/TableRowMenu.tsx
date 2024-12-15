@@ -47,6 +47,7 @@ const TableRowMenu = forwardRef(
             style={{ top: menuButtonPosition }}
             onMouseEnter={onMouseOverRowMenu}
             onMouseLeave={onMouseLeaveRowMenu}
+            data-row-menu-id={rowId}
           >
             <MenuButton
               id={id}

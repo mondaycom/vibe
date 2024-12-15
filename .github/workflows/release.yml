@@ -27,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          token: ${{ secrets.VIBE_GITHUB_TOKEN }}
           fetch-depth: 0
       - name: Run Setup
         uses: ./.github/actions/setup
@@ -35,7 +36,9 @@ jobs:
       - uses: ./.github/actions/git-creds
       - uses: ./.github/actions/download-builds
       - name: Generate new versions
-        run: yarn lerna version --exact --conventional-commits --conventional-graduate -y
+        run: yarn lerna version --exact --conventional-commits --conventional-graduate --message "Publish [skip ci]" -y
+        env:
+          GH_TOKEN: ${{ secrets.VIBE_GITHUB_TOKEN }}
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         id: setup-npmrc

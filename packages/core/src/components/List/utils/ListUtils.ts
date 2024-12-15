@@ -36,7 +36,7 @@ export const getListItemComponentType = (listComponent: ListElement): ListItemEl
   }
 };
 
-const isListItem = (element: HTMLElement) => {
+export const isListItem = (element: HTMLElement) => {
   return element && element.getAttribute("role") === "option";
 };
 

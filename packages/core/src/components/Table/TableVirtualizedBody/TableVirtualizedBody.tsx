@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useCallback, useEffect } from "react";
+import React, { ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
 import { VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
@@ -101,6 +101,19 @@ const TableVirtualizedBody = forwardRef(
       if (!virtualizedWithHeader) markTableAsVirtualized();
     }, [markTableAsVirtualized, virtualizedWithHeader]);
 
+    const memoizedInnerElementType = useMemo(
+      () =>
+        virtualizedWithHeader
+          ? forwardRef(({ children, ...rest }: any, ref: React.Ref<HTMLDivElement>) => (
+              <div ref={ref} {...rest}>
+                {headerRenderer!(columns!)}
+                {children}
+              </div>
+            ))
+          : undefined,
+      [virtualizedWithHeader, headerRenderer, columns]
+    );
+
     return (
       <TableBody
         className={cx(
@@ -126,16 +139,7 @@ const TableVirtualizedBody = forwardRef(
                 outerRef={element => {
                   virtualizedListRef.current = element;
                 }}
-                innerElementType={
-                  virtualizedWithHeader
-                    ? forwardRef(({ children, ...rest }, ref) => (
-                        <div ref={ref} {...rest}>
-                          {headerRenderer(columns)}
-                          {children}
-                        </div>
-                      ))
-                    : undefined
-                }
+                innerElementType={memoizedInnerElementType}
               >
                 {itemRenderer}
               </List>

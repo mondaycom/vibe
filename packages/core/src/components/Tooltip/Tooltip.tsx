@@ -129,6 +129,10 @@ interface TooltipBaseProps extends VibeComponentProps {
    * The icon of the tooltip next to the title
    */
   icon?: SubIcon;
+  /**
+   * Sets the max width of the Tooltip, defaults to 240px
+   */
+  maxWidth?: number;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -175,7 +179,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, className, style, title, image, icon, id, childId } = this.props;
+    const { theme, content, className, style, maxWidth, title, image, icon, id, childId } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -197,7 +201,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     }
 
     return (
-      <div style={style} className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}>
+      <div
+        style={maxWidth ? ({ ...style, "--tooltip-max-width": `${maxWidth}px` } as CSSProperties) : style}
+        className={cx(styles.tooltip, getStyle(styles, camelCase(theme)), className)}
+      >
         {image && <img className={styles.image} src={image} alt="" />}
         <div id={id || `${childId}-tooltip`} className={cx(styles.content)}>
           {title && (
