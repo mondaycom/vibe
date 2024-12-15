@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.1...@vibe/core@3.6.0) (2024-12-15)
+
+
+### Bug Fixes
+
+* **ButtonGroup:** remove z-index from active button ([#2649](https://github.com/mondaycom/vibe/issues/2649)) ([9f15af8](https://github.com/mondaycom/vibe/commit/9f15af83e69ac8a8e48d743dda65a9e846b6eea5))
+* **Dropdown:** when disabled chip has extra class ([#2650](https://github.com/mondaycom/vibe/issues/2650)) ([3bf35bd](https://github.com/mondaycom/vibe/commit/3bf35bd2287c3a7f061368718548e1d3707df2f7))
+
+
+### Features
+
+* **Tipseen:** allow referenceWrapperClassName prop for component ([#2652](https://github.com/mondaycom/vibe/issues/2652)) ([9d6fcc2](https://github.com/mondaycom/vibe/commit/9d6fcc295965abc12e05d786c1d98f5a5080cfd1))
+
+
+
+
+
 ## [3.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.0...@vibe/core@3.5.1) (2024-12-12)
 
 
