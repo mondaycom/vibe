@@ -308,7 +308,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   onShowDialog(event: DialogEvent, eventName: DialogTriggerEvent | string) {
-    if (this.isShown()) return;
+    if (this.state.isOpen) return;
     const { onDialogDidShow } = this.props;
     onDialogDidShow(event, eventName);
   }
@@ -581,9 +581,14 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   return null;
                 }
 
-                if (hideWhenReferenceHidden && isReferenceHidden) {
-                  const event = new CustomEvent("onReferenceHidden");
-                  this.hideDialog(event, "onReferenceHidden");
+                if (hideWhenReferenceHidden) {
+                  if (isReferenceHidden) {
+                    const event = new CustomEvent("onReferenceHidden");
+                    this.hideDialogIfNeeded(event, "onReferenceHidden");
+                  } else {
+                    const event = new CustomEvent("onReferenceShown");
+                    this.showDialogIfNeeded(event, "onReferenceShown");
+                  }
                 }
 
                 return (
