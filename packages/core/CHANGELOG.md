@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.0...@vibe/core@3.6.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* load inlinesvg with esm ([#2656](https://github.com/mondaycom/vibe/issues/2656)) ([1ef3ab3](https://github.com/mondaycom/vibe/commit/1ef3ab36a7bfe7bc6b0bc2ce15756a75276f24b5))
+
+
+
+
+
 # [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.1...@vibe/core@3.6.0) (2024-12-15)
 
 
