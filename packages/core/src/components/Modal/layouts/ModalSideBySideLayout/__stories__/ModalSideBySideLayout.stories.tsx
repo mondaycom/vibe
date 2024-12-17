@@ -6,7 +6,7 @@ import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories
 import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalSideBySideLayout from "../ModalSideBySideLayout";
-import ModalMedia from "../../ModalMedia";
+import ModalMedia from "../../../ModalMedia/ModalMedia";
 import mediaImage from "./assets/media-image.png";
 import useWizard from "../../../../../hooks/useWizard/useWizard";
 import TransitionView from "../../../../TransitionView/TransitionView";
@@ -29,7 +29,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Internal/Components/Modal [New]/Side by side modal",
+  title: "Components/Modal [New]/Side by side modal",
   component: Modal,
   subcomponents: {
     ModalSideBySideLayout,
@@ -42,7 +42,9 @@ export default {
   },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
-  tags: ["internal"]
+  parameters: {
+    layout: "fullscreen"
+  }
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {

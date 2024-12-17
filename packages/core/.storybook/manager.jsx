@@ -16,7 +16,7 @@ addons.setConfig({
       const [statusMatch, statusType] = statusRegex.exec(name) || [];
 
       if (statusMatch) {
-        return <SidebarItem status={statusType}>{name.replace(statusMatch, "").trim()}</SidebarItem>;
+        return <SidebarItem status={statusType.toLowerCase()}>{name.replace(statusMatch, "").trim()}</SidebarItem>;
       }
 
       const { status: storyStatus } = parameters;

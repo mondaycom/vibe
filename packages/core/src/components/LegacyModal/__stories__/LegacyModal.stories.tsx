@@ -53,7 +53,7 @@ const modalTemplate = ({ onClose, ...modalProps }: ModalProps) => {
 };
 
 export default {
-  title: "Components/Modal",
+  title: "Components/Modal [Deprecated]",
   component: Modal,
   subcomponents: {
     ModalHeader,

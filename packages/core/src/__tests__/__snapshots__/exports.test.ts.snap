@@ -110,4 +110,16 @@ exports[`exports should export all components 1`] = `
 ]
 `;
 
-exports[`exports should export next all components 1`] = `[]`;
+exports[`exports should export next all components 1`] = `
+[
+  "Modal",
+  "ModalBasicLayout",
+  "ModalContent",
+  "ModalFooter",
+  "ModalFooterWizard",
+  "ModalHeader",
+  "ModalMedia",
+  "ModalMediaLayout",
+  "ModalSideBySideLayout",
+]
+`;
