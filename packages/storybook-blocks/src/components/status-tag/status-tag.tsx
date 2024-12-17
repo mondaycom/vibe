@@ -9,7 +9,6 @@ interface StatusTagProps {
 }
 
 const StatusTag: FC<StatusTagProps> = ({ type }) => {
-  console.log('type', type);
   return <label className={cx(styles.statusTag, styles[type])}>{type}</label>;
 };
 
