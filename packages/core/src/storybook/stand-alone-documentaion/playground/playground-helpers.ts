@@ -6,24 +6,31 @@ export const jsx = `() => {
   }
 
   return (
-    <Flex direction="column" gap={40} className="playground">
-      <img src={vibeLogo} alt="Vibe Logo" className="vibe-logo" />
-      <section>
-        <Heading type="h3" align="center" color="secondary">
+    <Flex direction="column" className="playground">
+      <img
+        src="https://vibe.monday.com/logo.svg"
+        alt="Vibe Logo"
+        className="vibe-logo"
+      />
+      <Flex direction="column" align="center" justify="center" gap="xs">
+        <Heading type="h3" align="center">
           Playground
         </Heading>
-        <Text type="text2" color="secondary" ellipsis={false}>
+        <Text type="text2" ellipsis={false}>
           Craft, Experiment, and Innovate with Vibe.
         </Text>
-      </section>
-      <Flex direction="column" align="center" justify="center" gap="small">
-        <Button kind="secondary" size="small" onClick={onButtonClick}>
-          Clicked {timesClicked} time{timesClicked === 1 ? "" : "s"}
-        </Button>
-        <Text type="text3" color="secondary" ellipsis={false}>
-          Tip: Can't see the editor? Click 'D' on your keyboard
-        </Text>
       </Flex>
+      <Button
+        kind="secondary"
+        size="small"
+        onClick={onButtonClick}
+        className="count-button"
+      >
+        Clicked {timesClicked} time{timesClicked === 1 ? "" : "s"}
+      </Button>
+      <Text type="text3" ellipsis={false} color="secondary">
+        Can't see the editor? Click 'D' on your keyboard
+      </Text>
     </Flex>
   );
 }`;
@@ -36,12 +43,17 @@ export const css = `.playground {
 
 .vibe-logo {
   width: 150px;
+  margin-block-end: var(--spacing-large);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .vibe-logo:hover {
   transform: scale(1.02);
   filter: drop-shadow(0 0 32px rgba(80, 52, 255, 0.3));
+}
+
+.count-button {
+  margin-block: var(--spacing-medium);
 }
 `;
 

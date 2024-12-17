@@ -3,7 +3,6 @@ import * as VibeComponents from "../src/components";
 import * as VibeComponentsNext from "../src/components/next";
 import * as VibeHooks from "../src/hooks";
 import * as VibeIcons from "@vibe/icons";
-import vibeLogo from "./logo.svg";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -119,7 +118,6 @@ const preview: Preview = {
     playground: {
       storyId: "playground",
       components: {
-        vibeLogo,
         ...VibeComponents,
         VibeIcons,
         VibeNext: VibeComponentsNext,
