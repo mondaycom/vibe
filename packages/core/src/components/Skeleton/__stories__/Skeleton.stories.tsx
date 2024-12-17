@@ -38,27 +38,29 @@ export const Overview = {
   }
 };
 
-export const ComplexExample = () => {
-  return (
-    <div className="monday-storybook-skeleton_rules-column">
-      <div className="monday-storybook-skeleton_rules-row">
-        <Skeleton type="circle" />
-        <Skeleton type="text" width={110} size="small" />
-      </div>
-      <div className="monday-storybook-skeleton_article">
-        <div>
-          <Skeleton />
+export const ComplexExample = {
+  render: () => {
+    return (
+      <div className="monday-storybook-skeleton_rules-column">
+        <div className="monday-storybook-skeleton_rules-row">
+          <Skeleton type="circle" />
+          <Skeleton type="text" width={110} size="small" />
         </div>
-        <div className="monday-storybook-skeleton_aside">
-          <Skeleton type="text" size="h1" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" />
-          <Skeleton type="text" size="h4" width={82} />
+        <div className="monday-storybook-skeleton_article">
+          <div>
+            <Skeleton />
+          </div>
+          <div className="monday-storybook-skeleton_aside">
+            <Skeleton type="text" size="h1" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" width={82} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export const Shapes = {
