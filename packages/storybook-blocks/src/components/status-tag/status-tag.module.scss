@@ -9,6 +9,11 @@
     border-color: var(--sb-brand-color);
   }
 
+  &.new {
+    color: var(--sb-positive-color);
+    border-color: var(--sb-positive-color);
+  }
+
   &.deprecated {
     color: var(--sb-negative-color);
     border-color: var(--sb-negative-color);
