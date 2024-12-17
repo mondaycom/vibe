@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.1...@vibe/core@3.6.2) (2024-12-17)
+
+
+### Bug Fixes
+
+* **Dropdown:** fix valueRenderer return type ([#2642](https://github.com/mondaycom/vibe/issues/2642)) ([87afb2d](https://github.com/mondaycom/vibe/commit/87afb2d96a23395b4e9a7d796fd1c4aac6882c87))
+
+
+
+
+
 ## [3.6.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.0...@vibe/core@3.6.1) (2024-12-16)
 
 
