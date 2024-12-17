@@ -43,6 +43,7 @@ export interface TipseenProps extends VibeComponentProps {
   width?: number;
   moveBy?: MoveBy;
   hideWhenReferenceHidden?: boolean;
+  referenceWrapperClassName?: string;
   /**
    * when false, the arrow of the tooltip is hidden
    */
@@ -97,6 +98,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       width,
       moveBy,
       hideWhenReferenceHidden = false,
+      referenceWrapperClassName,
       tip = true,
       tooltipArrowClassName,
       modifiers = [],
@@ -188,6 +190,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          referenceWrapperClassName={referenceWrapperClassName}
           tip={tip && !floating}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}

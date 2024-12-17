@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Move",
+      file: "Move.svg",
+      description: "Use when you need to indicate a reorder or move items in a list",
+      tags: "Reorder, Move, Change, Arrow, Expand"
+  },
+
+  {
       name: "Downgrade",
       file: "Downgrade.svg",
       description: "Used for downgrading a version",

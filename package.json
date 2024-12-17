@@ -8,7 +8,7 @@
     "lint": "lerna run lint",
     "test": "lerna run test",
     "storybook": "lerna run storybook --parallel --stream",
-    "postinstall": "lerna run build --scope=vibe-storybook-components"
+    "postinstall": "lerna run build --scope={vibe-storybook-components,@vibe/icons}"
   },
   "devDependencies": {
     "lerna": "^8.1.2",
