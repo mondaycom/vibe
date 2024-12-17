@@ -43,7 +43,12 @@ export default {
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
   parameters: {
-    layout: "fullscreen"
+    layout: "fullscreen",
+    docs: {
+      liveEdit: {
+        scope: { TransitionView, FieldLabel, mediaImage }
+      }
+    }
   }
 } satisfies Meta<typeof Modal>;
 
