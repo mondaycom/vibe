@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.2...@vibe/core@3.7.0) (2024-12-17)
+
+
+### Features
+
+* **Modal:** export new Modal component to /next ([#2641](https://github.com/mondaycom/vibe/issues/2641)) ([244c1cb](https://github.com/mondaycom/vibe/commit/244c1cbfa80641f8e3a07270a0dfb4fd3e488bc7))
+
+
+
+
+
 ## [3.6.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.1...@vibe/core@3.6.2) (2024-12-17)
 
 
