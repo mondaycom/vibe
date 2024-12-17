@@ -1,4 +1,22 @@
-export const jsx = `() => {
+import * as VibeComponents from "../../../components";
+import * as VibeIcons from "@vibe/icons";
+import * as VibeComponentsNext from "../../../components/next";
+import * as VibeHooks from "../../../hooks";
+import React from "react";
+
+const VibeLegacy = Object.fromEntries(Object.entries(VibeComponents).filter(([key]) => key in VibeComponentsNext));
+const combinedComponents = { ...VibeComponents, ...VibeComponentsNext };
+
+export const playgroundVibeComponents = { ...combinedComponents, VibeLegacy, VibeIcons, ...VibeHooks };
+export const playgroundReactCommonHooks = {
+  useState: React.useState,
+  useEffect: React.useEffect,
+  useCallback: React.useCallback,
+  useMemo: React.useMemo,
+  useRef: React.useRef
+};
+
+const jsx = `() => {
   const [timesClicked, setTimesClicked] = useState<number>(0);
 
   function onButtonClick(): void {
@@ -35,7 +53,7 @@ export const jsx = `() => {
   );
 }`;
 
-export const css = `.playground {
+const css = `.playground {
   padding-block-start: 40px;
   margin: 0;
   width: 100vw;
@@ -57,4 +75,4 @@ export const css = `.playground {
 }
 `;
 
-export default { jsx, css };
+export const introCode = { jsx, css };
