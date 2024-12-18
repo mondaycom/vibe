@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.1...@vibe/core@3.7.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* next entry point pointed to a wrong path ([#2660](https://github.com/mondaycom/vibe/issues/2660)) ([b1a0b2c](https://github.com/mondaycom/vibe/commit/b1a0b2cb0d289fe4f499e82271ef84152ab82d88))
+
+
+
+
+
 ## [3.7.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.0...@vibe/core@3.7.1) (2024-12-17)
 
 
