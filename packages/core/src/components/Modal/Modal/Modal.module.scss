@@ -1,13 +1,13 @@
+$modal-default-z-index: 10000;
+
 .overlay {
-  --monday-modal-z-index: 10000;
   position: fixed;
   inset: 0;
   background-color: var(--color-surface);
-  z-index: var(--monday-modal-z-index);
+  z-index: var(--monday-modal-z-index, $modal-default-z-index);
 }
 
 .modal {
-  --monday-modal-z-index: 10000;
   --top-actions-spacing: var(--spacing-large);
   --top-actions-width: var(--spacing-xl);
   --modal-inline-padding: var(--spacing-xl);
@@ -15,7 +15,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: var(--monday-modal-z-index);
+  z-index: var(--monday-modal-z-index, $modal-default-z-index);
 
   display: flex;
   flex-direction: column;

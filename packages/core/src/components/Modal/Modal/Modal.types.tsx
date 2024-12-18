@@ -58,4 +58,8 @@ export interface ModalProps extends VibeComponentProps {
    * Additional inline styles for the modal.
    */
   style?: React.CSSProperties;
+  /**
+   * The z-index to be used for the modal and overlay.
+   */
+  zIndex?: number;
 }

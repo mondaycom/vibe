@@ -38,6 +38,7 @@ const Modal = forwardRef(
       container = document.body,
       children,
       style,
+      zIndex,
       className,
       "data-testid": dataTestId
     }: ModalProps,
@@ -88,6 +89,9 @@ const Modal = forwardRef(
       ? modalAnimationAnchorPopVariants
       : modalAnimationCenterPopVariants;
 
+    const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
+    const modalStyle = { ...zIndexStyle, ...style };
+
     return (
       <AnimatePresence>
         {show && (
@@ -105,6 +109,7 @@ const Modal = forwardRef(
                     className={styles.overlay}
                     onClick={onBackdropClick}
                     aria-hidden
+                    style={zIndexStyle}
                   />
                   <FocusLock returnFocus>
                     <RemoveScroll forwardProps>
@@ -127,7 +132,7 @@ const Modal = forwardRef(
                         aria-modal
                         aria-labelledby={titleId}
                         aria-describedby={descriptionId}
-                        style={style}
+                        style={modalStyle}
                       >
                         {children}
                         <ModalTopActions
