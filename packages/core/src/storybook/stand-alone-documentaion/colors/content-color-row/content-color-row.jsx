@@ -27,7 +27,7 @@ export const ContentColorRow = ({ colorName }) => {
   return (
     <tr className="content-color-row">
       <ContentColorCell>
-        <Text>{`--${colorName}`}</Text>
+        <Text>{`--color-${colorName}`}</Text>
       </ContentColorCell>
       <ContentColorCell style={regularStyle} />
       <ContentColorCell style={hoverStyle} />
