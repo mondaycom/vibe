@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.2...@vibe/core@3.7.3) (2024-12-18)
+
+
+### Bug Fixes
+
+* **Dropdown:** fix menuRenderer type ([#2661](https://github.com/mondaycom/vibe/issues/2661)) ([16b707b](https://github.com/mondaycom/vibe/commit/16b707b84eb6695b36ea7615d46a181a2540bef6))
+
+
+
+
+
 ## [3.7.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.1...@vibe/core@3.7.2) (2024-12-18)
 
 
