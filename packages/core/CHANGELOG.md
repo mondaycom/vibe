@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.8.0...@vibe/core@3.9.0) (2024-12-19)
+
+
+### Bug Fixes
+
+* **ModalBasicLayout:** fix for logic of when to show modal footer shadow ([#2665](https://github.com/mondaycom/vibe/issues/2665)) ([9d68962](https://github.com/mondaycom/vibe/commit/9d68962a87fcae22d43d592aa395bbbe8aa470c7))
+
+
+### Features
+
+* **TransitionView:** remove previous slide before continuing to next slide, enhance animation ([#2668](https://github.com/mondaycom/vibe/issues/2668)) ([0bd51df](https://github.com/mondaycom/vibe/commit/0bd51df7253834864d60039f420ef531b0fdfc30))
+
+
+
+
+
 # [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.3...@vibe/core@3.8.0) (2024-12-19)
 
 
