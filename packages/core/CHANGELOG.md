@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.3...@vibe/core@3.8.0) (2024-12-19)
+
+
+### Features
+
+* **Modal:** allow passing z-index to overlay and modal ([#2662](https://github.com/mondaycom/vibe/issues/2662)) ([3d1aceb](https://github.com/mondaycom/vibe/commit/3d1acebcd50da9e723248d71f20befcb683f0778))
+* **Tooltip:** add dir prop ([#2666](https://github.com/mondaycom/vibe/issues/2666)) ([5280307](https://github.com/mondaycom/vibe/commit/5280307a4af6a8f97f0256a1e63dec2d5df44717))
+
+
+
+
+
 ## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.2...@vibe/core@3.7.3) (2024-12-18)
 
 
