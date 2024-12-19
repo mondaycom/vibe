@@ -78,6 +78,7 @@ export const States = {
           text="Your account is out of free space, free some space to prevent data loss."
           type="warning"
           className="monday-storybook-attention-box_box"
+          icon={Info}
         />
       </StoryDescription>
       <StoryDescription description="Dark">
