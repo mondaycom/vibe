@@ -2,20 +2,14 @@ import { SlideDirection } from "../SlideTransition.types";
 
 export const slideAnimationVariants = {
   initial: (direction: SlideDirection) => ({
-    x: direction === "forward" ? "10%" : "-10%",
-    opacity: 0
+    x: direction === "forward" ? "3%" : "-3%"
   }),
   enter: {
-    x: 0,
-    opacity: 1
-  },
-  exit: (direction: SlideDirection) => ({
-    x: direction === "forward" ? "-10%" : "10%",
-    opacity: 0
-  })
+    x: 0
+  }
 };
 
 export const slideAnimationTransition = {
-  duration: 0.1,
+  duration: 0.25,
   ease: [0.0, 0.0, 0.4, 1.0]
 };

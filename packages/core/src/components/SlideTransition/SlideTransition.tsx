@@ -14,7 +14,6 @@ const SlideTransition = forwardRef(
         variants={slideAnimationVariants}
         initial="initial"
         animate="enter"
-        exit="exit"
         transition={slideAnimationTransition}
         className={cx(styles.slide, className)}
         style={style}
