@@ -15,7 +15,7 @@ const ModalBasicLayout = forwardRef(
     { children, className, id, "data-testid": dataTestId }: ModalBasicLayoutProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const { isContentScrolled, onScroll } = useLayoutScrolledContent();
+    const { ref: contentRef, isContentScrolled, isScrollable, isScrolledToEnd, onScroll } = useLayoutScrolledContent();
     const [header, content] = React.Children.toArray(children);
 
     return (
@@ -30,11 +30,11 @@ const ModalBasicLayout = forwardRef(
         >
           <div className={styles.header}>{header}</div>
           <Divider className={cx(styles.divider, { [styles.showDivider]: isContentScrolled })} withoutMargin />
-          <ModalLayoutScrollableContent onScroll={onScroll} className={styles.content}>
+          <ModalLayoutScrollableContent onScroll={onScroll} className={styles.content} ref={contentRef}>
             {content}
           </ModalLayoutScrollableContent>
         </Flex>
-        <ModalFooterShadow show={isContentScrolled} />
+        {isScrollable && <ModalFooterShadow show={!isScrolledToEnd} />}
       </>
     );
   }
