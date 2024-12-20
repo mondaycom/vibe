@@ -44,10 +44,10 @@ export interface TextFieldProps extends VibeComponentProps {
     value: string,
     event: React.ChangeEvent<HTMLInputElement> | Pick<React.ChangeEvent<HTMLInputElement>, "target">
   ) => void;
-  onBlur?: (event: React.FocusEvent) => void;
-  onFocus?: (event: React.FocusEvent) => void;
-  onKeyDown?: (event: React.KeyboardEvent) => void;
-  onWheel?: (event: React.WheelEvent) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onWheel?: (event: React.WheelEvent<HTMLInputElement>) => void;
   debounceRate?: number;
   autoFocus?: boolean;
   disabled?: boolean;
