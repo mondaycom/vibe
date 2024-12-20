@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import Button from "../../../Button/Button";
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import { useAfterFirstRender } from "../../../../hooks";
 import cx from "classnames";
 import styles from "./Modal.stories.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
@@ -21,14 +20,12 @@ export const OpenedModalPreview = forwardRef(
     },
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const isAfterFirstRender = useAfterFirstRender();
     return (
       <div
         className={cx(styles.preview, { [getStyle(styles, size)]: isDocsView })}
         ref={ref}
         // workaround to prevent modal from autofocusing on page load
-        // autofocus would work as expected when modal closes and reopens
-        {...(!isAfterFirstRender.current && isDocsView && { "data-no-autofocus": true })}
+        {...(isDocsView && { "data-no-autofocus": true })}
       >
         <Button onClick={onOpenModalClick}>Open Modal</Button>
         {modal}
@@ -51,8 +48,7 @@ export const useRemoveModalScrollLock = (show: boolean, isDocsView?: boolean) =>
         );
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- this is intended to run once, on mount
-  }, []);
+  }, [show, isDocsView]);
 };
 
 export function withOpenedModalPreview(
@@ -65,7 +61,7 @@ export function withOpenedModalPreview(
 ) {
   const [show, setShow] = useState(true);
   const container = useRef<HTMLElement>(null);
-  useRemoveModalScrollLock(show, isDocsView); // internal hook, for documentation purposes, to enable scroll on first load
+  useRemoveModalScrollLock(show, isDocsView); // internal hook, for documentation purposes, to enable page scroll on docs view
 
   return (
     // internal component, for documentation purposes, to open modal inside a container
