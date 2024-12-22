@@ -117,7 +117,7 @@ const List: VibeComponent<ListProps> & {
 
     useEffect(() => {
       const selectedItemIndex = childrenRefs.current.findIndex(
-        child => isListItem(child) && child?.getAttribute("aria-selected") === "true"
+        child => child instanceof HTMLElement && isListItem(child) && child?.getAttribute("aria-selected") === "true"
       );
       if (selectedItemIndex !== -1) {
         updateFocusedItem(getListItemIdByIndex(childrenRefs, selectedItemIndex));
