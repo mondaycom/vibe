@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.0...@vibe/core@3.9.1) (2024-12-22)
+
+
+### Bug Fixes
+
+* **List:** fix error when ListItem is not HTMLElement ([#2672](https://github.com/mondaycom/vibe/issues/2672)) ([e175d32](https://github.com/mondaycom/vibe/commit/e175d326cab32d8a0d8e3d812689b8d8397aba56))
+
+
+
+
+
 # [3.9.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.8.0...@vibe/core@3.9.0) (2024-12-19)
 
 
