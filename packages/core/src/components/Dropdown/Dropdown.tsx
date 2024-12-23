@@ -376,7 +376,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       }
     };
 
-    const DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+    let DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+
+    // @ts-expect-error - We need to check if the default export is available
+    DropDownComponent = DropDownComponent.default || DropDownComponent;
 
     const asyncAdditions = {
       ...(asyncOptions && {
