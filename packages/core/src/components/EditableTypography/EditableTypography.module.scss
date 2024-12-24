@@ -9,7 +9,7 @@
   overflow: hidden;
   position: relative;
 
-  .input {
+  .input,.textarea {
     display: inline-block;
     max-width: 100%;
     min-width: 64px;
@@ -24,6 +24,11 @@
     &:active {
       outline: none;
     }
+  }
+
+  .textarea {
+    max-height: 300px;
+    resize: none;
   }
 
   .typography {

@@ -43,6 +43,8 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   type?: TextType | HeadingType;
   /** Sets the Text/Heading weight */
   weight?: TextWeight | HeadingWeight;
+  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
+  multiline?: boolean;
 }
 
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
@@ -64,7 +66,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       onEditModeChange,
       tooltipProps,
       type,
-      weight
+      weight,
+      multiline
     }: EditableTypographyProps,
     ref
   ) => {
@@ -74,6 +77,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
+    const [inputHeight, setInputHeight] = useState(0);
 
     const prevValue = usePrevious(value);
 
@@ -128,8 +132,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       handleInputValueChange();
     }
 
-    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
-      if (event.key === keyCodes.ENTER) {
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
+      if (event.key === keyCodes.ENTER && !multiline) {
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
@@ -138,7 +142,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setInputValue(event.target.value);
     }
 
@@ -160,22 +164,33 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       if (!typographyRef.current) {
         return;
       }
+
       const { width } = typographyRef.current.getBoundingClientRect();
       setInputWidth(width);
+
+      const computedStyle = window.getComputedStyle(typographyRef.current);
+      const lineHeight = parseFloat(computedStyle.lineHeight || "0") + 1;
+      setInputHeight(inputValue.split("\n").length * lineHeight);
     }, [inputValue, isEditing]);
 
-    return (
-      <div
-        ref={mergedRef}
-        id={id}
-        aria-label={ariaLabel}
-        data-testid={dataTestId}
-        className={cx(styles.editableTypography, className)}
-        role={isEditing ? null : "button"}
-        onClick={onTypographyClick}
-        onKeyDown={toggleKeyboardEditMode}
-      >
-        {isEditing && (
+    function getEditableElement() {
+      if (multiline) {
+        return (
+          <textarea
+            ref={inputRef}
+            className={cx(styles.textarea, typographyClassName)}
+            value={inputValue}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            aria-label={ariaLabel}
+            placeholder={placeholder}
+            style={{ width: inputWidth, height: inputHeight }}
+            role="textbox"
+          />
+        );
+      } else {
+        return (
           <input
             ref={inputRef}
             className={cx(styles.input, typographyClassName)}
@@ -188,7 +203,22 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             style={{ width: inputWidth }}
             role="input"
           />
-        )}
+        );
+      }
+    }
+
+    return (
+      <div
+        ref={mergedRef}
+        id={id}
+        aria-label={ariaLabel}
+        data-testid={dataTestId}
+        className={cx(styles.editableTypography, className)}
+        role={isEditing ? null : "button"}
+        onClick={onTypographyClick}
+        onKeyDown={toggleKeyboardEditMode}
+      >
+        {isEditing && getEditableElement()}
         <TypographyComponent
           ref={typographyRef}
           aria-hidden={isEditing}
@@ -202,7 +232,14 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           weight={weight}
           type={type}
         >
-          {inputValue || placeholder}
+          {(multiline
+            ? inputValue.split("\n").map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < inputValue.split("\n").length - 1 && <br />}
+                </React.Fragment>
+              ))
+            : inputValue) || placeholder}
         </TypographyComponent>
       </div>
     );
