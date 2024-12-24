@@ -18,7 +18,7 @@ export interface EditableTextProps extends VibeComponentProps, EditableTypograph
   /** Sets the Text weight
    */
   weight?: TextWeight;
-  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines 
+  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines
    */
   multiline?: boolean;
 }
