@@ -18,6 +18,16 @@ describe("EditableText", () => {
     expect(input).toBeInTheDocument();
   });
 
+  it("should render a textarea in edit mode with multiline", () => {
+    render(<EditableText multiline value="Editable text" />);
+
+    const component = screen.getByRole("button");
+    fireEvent.click(component);
+
+    const input = screen.queryByRole("textarea");
+    expect(input).toBeInTheDocument();
+  });
+
   it("should not render an input when 'readOnly' is false when clicked", () => {
     render(<EditableText value="Editable test" readOnly />);
 
@@ -114,6 +124,26 @@ describe("EditableText", () => {
         });
 
         expect(within(screen.getByRole("button")).getByText(value)).toBeInTheDocument();
+
+        expect(onChange).not.toBeCalled();
+      });
+
+      it("should not call onChange when value changed but Enter was clicked for multiline in an editable component", async () => {
+        const value = "Editable test";
+        render(<EditableText value={value} onChange={onChange} />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("input");
+
+        expect(input).toHaveValue(value);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter" });
+        });
+
+        expect(within(screen.getByRole("button")).getByText(value)).not.toBeInTheDocument();
 
         expect(onChange).not.toBeCalled();
       });

@@ -14,3 +14,12 @@
     }
   }
 }
+
+.multilineContainer {
+  display: flex;
+  flex-direction: row;
+
+  .editableText {
+    width: 200px;
+  }
+}
