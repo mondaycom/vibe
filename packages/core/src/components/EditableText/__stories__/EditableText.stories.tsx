@@ -103,7 +103,7 @@ export const Types = {
   }
 };
 
-const multilineValue = "This is a multiline\nhere's the second line"
+const multilineValue = "This is a multiline\nhere's the second line";
 export const Multiline = {
   render: () => (
     <div className={styles.multilineContainer}>
