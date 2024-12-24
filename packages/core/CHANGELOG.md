@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.2...@vibe/core@3.9.3) (2024-12-24)
+
+
+### Bug Fixes
+
+* **VirtualizedGrid:** fix onItemsRendered params ([#2674](https://github.com/mondaycom/vibe/issues/2674)) ([48d4711](https://github.com/mondaycom/vibe/commit/48d4711844f7baebd9d10a86cb6cf10d0aa27e6c))
+
+
+
+
+
 ## [3.9.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.1...@vibe/core@3.9.2) (2024-12-23)
 
 **Note:** Version bump only for package @vibe/core
