@@ -27,8 +27,9 @@
   }
 
   .textarea {
-    max-height: 300px;
+    max-height: inherit;
     resize: none;
+    box-sizing: border-box;
   }
 
   .typography {
