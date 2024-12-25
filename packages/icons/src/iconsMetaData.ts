@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "WarningFull",
+      file: "WarningFull.svg",
+      description: "Use for warning or when there is conflict of dependencies",
+      tags: "Warning, Caution, Conflict, Dependency"
+  },
+
+  {
       name: "Move",
       file: "Move.svg",
       description: "Use when you need to indicate a reorder or move items in a list",
