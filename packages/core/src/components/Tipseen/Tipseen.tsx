@@ -152,7 +152,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
                 [styles.dark]: closeButtonTheme === "dark" || closeButtonTheme === "fixed-dark"
               })}
               onClick={onClose}
-              data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CLOSE_BUTTON)}
+              data-testid={getTestId(ComponentDefaultTestId.TIPSEEN)}
               size="xs"
               kind="tertiary"
               // @ts-ignore
