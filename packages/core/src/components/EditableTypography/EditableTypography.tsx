@@ -67,7 +67,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       tooltipProps,
       type,
       weight,
-      multiline
+      multiline = false
     }: EditableTypographyProps,
     ref
   ) => {
@@ -148,7 +148,10 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setInputValue(event.target.value);
-      resizeTextarea();
+
+      if (multiline) {
+        resizeTextarea();
+      }
     }
 
     const toggleKeyboardEditMode = useKeyboardButtonPressedFunc(toggleEditMode);
@@ -156,18 +159,27 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     function focus() {
       if (inputRef.current) {
         inputRef.current?.focus();
-        resizeTextarea();
+
+        if (multiline) {
+          resizeTextarea();
+        }
       }
     }
 
     /* Dynamically resizes the textarea to fit its content */
     function resizeTextarea() {
-      if (multiline && inputRef.current) {
+      console.log("*************************resize called, why?", multiline, inputRef.current);
+      if (inputRef.current) {
         // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
         setInputHeight("auto");
 
         requestAnimationFrame(() => {
           const textarea = inputRef.current as HTMLTextAreaElement;
+
+          if (!textarea) {
+            return;
+          }
+
           const computedStyle = window.getComputedStyle(textarea);
 
           // Calculate the appropriate height by taking into account the scrollable content inside the textarea,
@@ -215,7 +227,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             aria-label={ariaLabel}
             placeholder={placeholder}
             style={{ width: inputWidth, height: inputHeight }}
-            role="textbox"
+            role="input"
             rows={1}
           />
         );

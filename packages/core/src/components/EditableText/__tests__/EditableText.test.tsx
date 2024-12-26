@@ -24,8 +24,9 @@ describe("EditableText", () => {
     const component = screen.getByRole("button");
     fireEvent.click(component);
 
-    const input = screen.queryByRole("textarea");
+    const input = screen.queryByRole("input");
     expect(input).toBeInTheDocument();
+    expect(input.tagName).toBe("TEXTAREA");
   });
 
   it("should not render an input when 'readOnly' is false when clicked", () => {
@@ -108,6 +109,29 @@ describe("EditableText", () => {
         expect(onChange).toHaveBeenCalledWith(newValue);
       });
 
+      it("should call onChange with new value when changed in a multiline editable component", async () => {
+        const value = "Editable test";
+        const newValue = "New Editable test";
+        render(<EditableText value={value} onChange={onChange} multiline />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("input");
+        fireEvent.change(input, {
+          target: { value: newValue }
+        });
+
+        expect(input).toHaveValue(newValue);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter" });
+        });
+        expect(within(await screen.findByRole("button")).getByText(newValue)).toBeInTheDocument();
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toHaveBeenCalledWith(newValue);
+      });
+
       it("should not call onChange when value isn't changed in an editable component", async () => {
         const value = "Editable test";
         render(<EditableText value={value} onChange={onChange} />);
@@ -128,9 +152,9 @@ describe("EditableText", () => {
         expect(onChange).not.toBeCalled();
       });
 
-      it("should not call onChange when value changed but Enter was clicked for multiline in an editable component", async () => {
+      it("should not call onChange when value changed but Shift+Enter was clicked for multiline in an editable component", async () => {
         const value = "Editable test";
-        render(<EditableText value={value} onChange={onChange} />);
+        render(<EditableText value={value} onChange={onChange} multiline />);
 
         const component = screen.getByRole("button");
         fireEvent.click(component);
@@ -140,10 +164,8 @@ describe("EditableText", () => {
         expect(input).toHaveValue(value);
 
         await waitFor(() => {
-          fireEvent.keyDown(input, { key: "Enter" });
+          fireEvent.keyDown(input, { key: "Enter", shiftKey: true });
         });
-
-        expect(within(screen.getByRole("button")).getByText(value)).not.toBeInTheDocument();
 
         expect(onChange).not.toBeCalled();
       });
