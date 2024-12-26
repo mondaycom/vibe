@@ -66,6 +66,27 @@ The <StorybookLink page="Components/Modal [New]/Media modal">Media Modal</Storyb
 
 <ModalTip />
 
+## Accessibility
+
+The Modal component provides several built-in enhancements to simplify usage and improve accessibility:
+
+<UsageGuidelines
+  guidelines={[
+    <span>
+      <b>Scroll lock:</b> While the modal is open, it prevents background content from scrolling, ensuring user focus
+      remains on the modal.",
+    </span>,
+    <span>
+      <b>Focus lock:</b> Keeps focus within the modal elements, preventing users from tabbing outside of the modal while
+      it is open. Focus also automatically returns to the last focused element upon closing.
+    </span>,
+    <span>
+      <b>Aria attributes:</b> For better screen reader support, while using the <code>ModalHeader</code> it
+      automatically sets <code>aria-labelledby</code> and <code>aria-describedby</code> on the modal.
+    </span>
+  ]}
+/>
+
 ## Do's and don'ts
 
 <ComponentRules
