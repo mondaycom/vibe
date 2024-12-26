@@ -20,7 +20,7 @@ import { BasicModalTip } from "./ModalBasicLayout.stories.helpers";
 - [Variants](#variants)
 - [Scroll](#scroll)
 - [Use cases and examples](#use-cases-and-examples)
-- [Do's and dont's](do's-and-don'ts)
+- [Do's and dont's](#dos-and-donts)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
@@ -69,28 +69,34 @@ When the content of the modal is too large to fit within the viewport, the modal
 
 ## Use cases and examples
 
-### Wizard footer
+### Wizard modal
 
-When multi steps modal, use the ModalFooterWizard.
+For modals with multiple steps, use the ModalFooterWizard.
 
 <Canvas of={ModalBasicLayoutStories.Wizard} />
 
-### Footer with side action
+### Confirmation modal
+
+Confirmation modal ensure that users acknowledge the outcomes of their actions. It is based on the small size modal and comes with predefine properties. To use a confirmation modal, simply copy the code provided below.
+
+<Canvas of={ModalBasicLayoutStories.Confirmation} />
+
+### Footer with extra content
 
 The footer has an option to include additional content on the left side when needed. This extra content can consist of a button, checkbox, or simple text for notes. Note that this option is only available with the default footer.
 
-<Canvas of={ModalBasicLayoutStories.FooterWithSideAction} />
+<Canvas of={ModalBasicLayoutStories.FooterWithExtraContent} />
 
-### Header with extra icon button
+### Header with icon button
 
 In case of a need of an icon button in the modal header, you can use our default header "Action slot".
 You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
 
-<Canvas of={ModalBasicLayoutStories.HeaderWithExtraIconButton} />
+<Canvas of={ModalBasicLayoutStories.HeaderWithIconButton} />
 
 ### Animation
 
-Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the element trigger animation, which can be replaced with a center pop animation if there's no specific trigger. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
+Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the center pop animation, which can be replaced with an anchor animation if there is a specific trigger to open the modal. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
 
 <Canvas of={ModalBasicLayoutStories.Animation} />
 

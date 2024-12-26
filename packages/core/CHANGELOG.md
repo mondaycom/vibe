@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.3...@vibe/core@3.10.0) (2024-12-26)
+
+
+### Features
+
+* **Tipseen:** add event in Tipseen onClose prop ([#2680](https://github.com/mondaycom/vibe/issues/2680)) ([a79f610](https://github.com/mondaycom/vibe/commit/a79f6105a6b1b6a96a0fdce1326239539e027587))
+
+
+
+
+
 ## [3.9.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.2...@vibe/core@3.9.3) (2024-12-24)
 
 

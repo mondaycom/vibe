@@ -276,7 +276,7 @@ export const Wizard: Story = {
   }
 };
 
-export const FooterWithSideAction: Story = {
+export const FooterWithExtraContent: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow, container }) => {
     return (
@@ -307,7 +307,30 @@ export const FooterWithSideAction: Story = {
   }
 };
 
-export const HeaderWithExtraIconButton: Story = {
+export const Confirmation: Story = {
+  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
+  render: (_, { show, setShow, container }) => {
+    return (
+      <Modal id="modal-basic" show={show} size="small" onClose={() => setShow(false)} container={container}>
+        <ModalBasicLayout>
+          <ModalHeader title="Want to delete?" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              There are other tasks connected to this task. Deleting this task will remove any existing connections. It
+              will be kept in trash for 30 days.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
+      </Modal>
+    );
+  }
+};
+
+export const HeaderWithIconButton: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow, container }) => {
     return (
