@@ -77,6 +77,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
+    const [inputHeight, setInputHeight] = useState<number | string>(0);
 
     const prevValue = usePrevious(value);
 
@@ -158,6 +159,9 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     /* Dynamically resizes the textarea to fit its content */
     function resizeTextarea() {
       if (multiline && inputRef.current) {
+        // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
+        setInputHeight("auto");
+
         requestAnimationFrame(() => {
           const textarea = inputRef.current as HTMLTextAreaElement;
           const computedStyle = window.getComputedStyle(textarea);
@@ -170,14 +174,11 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           const borderTopWidth = parseFloat(computedStyle.borderTopWidth) || 0;
           const borderBottomWidth = parseFloat(computedStyle.borderBottomWidth) || 0;
 
-          // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
-          textarea.style.height = "auto";
-
           const newHeight = textarea.scrollHeight + borderTopWidth + borderBottomWidth;
           const minHeight = lineHeight + paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;
 
           // Ensure we at least have 1 line
-          textarea.style.height = `${Math.max(newHeight, minHeight)}px`;
+          setInputHeight(Math.max(newHeight, minHeight));
         });
       }
     }
@@ -209,7 +210,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             onBlur={handleBlur}
             aria-label={ariaLabel}
             placeholder={placeholder}
-            style={{ width: inputWidth }}
+            style={{ width: inputWidth, height: inputHeight }}
             role="textbox"
             rows={1}
           />
