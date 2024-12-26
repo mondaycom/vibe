@@ -90,6 +90,7 @@ export enum ComponentDefaultTestId {
   TIPSEEN_CONTENT = "tipseen-content",
   TIPSEEN_CONTENT_SUBMIT = "tipseen-content-submit",
   TIPSEEN_CONTENT_DISMISS = "tipseen-content-dismiss",
+  TIPSEEN_CLOSE_BUTTON = "tipseen-close-button",
   TIPSEEN_TITLE = "tipseen-title",
   DIVIDER = "divider",
   DATEPICKER = "date-picker",
