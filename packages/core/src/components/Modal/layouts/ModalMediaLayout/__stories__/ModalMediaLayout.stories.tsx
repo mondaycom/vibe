@@ -112,30 +112,6 @@ export const Wizard: Story = {
             animation.
           </Text>
         </ModalContent>
-      </ModalMediaLayout>,
-      <ModalMediaLayout>
-        <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
-        </ModalMedia>
-        <ModalHeader title="Modal with wizard" />
-        <ModalContent>
-          <Text type="text1" align="inherit" element="p">
-            Now the modal can also allow wizard process, when including stepper in the modal footer, it also contain an
-            animation.
-          </Text>
-        </ModalContent>
-      </ModalMediaLayout>,
-      <ModalMediaLayout>
-        <ModalMedia>
-          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
-        </ModalMedia>
-        <ModalHeader title="Modal with wizard" />
-        <ModalContent>
-          <Text type="text1" align="inherit" element="p">
-            Now the modal can also allow wizard process, when including stepper in the modal footer, it also contain an
-            animation.
-          </Text>
-        </ModalContent>
       </ModalMediaLayout>
     ];
 
