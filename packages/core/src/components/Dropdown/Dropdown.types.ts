@@ -143,12 +143,14 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * custom value render function
    */
-  valueRenderer?: React.ReactNode;
+  valueRenderer?:
+    | React.ReactNode
+    | ((props: Omit<CustomSingleValueProps, "Renderer"> & DropdownOption) => React.ReactNode);
   ValueRenderer?: React.ReactNode;
   /**
    * custom menu render function
    */
-  menuRenderer?: React.ReactElement;
+  menuRenderer?: React.ReactElement | ((props: CustomMenuProps) => React.ReactElement);
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */

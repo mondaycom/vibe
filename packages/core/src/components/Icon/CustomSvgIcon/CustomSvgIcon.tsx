@@ -56,7 +56,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   if (typeof src !== "string") return null;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const SVGComponent = SVG as React.FC<any>;
+  const SVGComponent = (SVG.default || SVG) as React.FC<any>; // fix esm issue
 
   const PlaceHolder = <div className={className} id={id}></div>;
 

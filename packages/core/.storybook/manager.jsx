@@ -16,7 +16,7 @@ addons.setConfig({
       const [statusMatch, statusType] = statusRegex.exec(name) || [];
 
       if (statusMatch) {
-        return <SidebarItem status={statusType}>{name.replace(statusMatch, "").trim()}</SidebarItem>;
+        return <SidebarItem status={statusType.toLowerCase()}>{name.replace(statusMatch, "").trim()}</SidebarItem>;
       }
 
       const { status: storyStatus } = parameters;
@@ -27,14 +27,20 @@ addons.setConfig({
       return <SidebarItem status={parameters.status}>{name.replace(storyStatus, "").trim()}</SidebarItem>;
     },
     filters: {
-      patterns: filterStory
+      patterns: shouldShowStory
     },
     showRoots: false
   }
 });
 
-function filterStory(item) {
+/**
+ * In order to hide stories you need to add `tags: ['internal']` to the stories file metadata.
+ * In order to hide MDX, you need to add `Internal` to the title in the MDX's `Meta` declaration `title` or to the `title` in the stories file metadata.
+ *
+ * Notice that all stories are available in development mode and in Chromatic.
+ */
+function shouldShowStory(item) {
   const isDev = isChromatic() || process.env.NODE_ENV === "development";
-  const isInternal = !item.tags?.includes?.("internal") && !item.title?.startsWith?.("Internal");
-  return isDev || isInternal;
+  const isPublic = !item.tags?.includes?.("internal") && !item.title?.startsWith?.("Internal");
+  return isDev || isPublic;
 }

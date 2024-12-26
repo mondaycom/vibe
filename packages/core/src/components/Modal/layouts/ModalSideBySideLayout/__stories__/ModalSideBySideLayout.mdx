@@ -1,0 +1,157 @@
+import { Meta } from "@storybook/blocks";
+import * as SideBySideModalStories from "./ModalSideBySideLayout.stories";
+import breakdownDo from "./assets/breakdown-do.png";
+import breakdownDont from "./assets/breakdown-dont.png";
+import columnsDo from "./assets/columns-do.png";
+import columnsDont from "./assets/columns-dont.png";
+import wizardDo from "./assets/wizard-do.png";
+import wizardDont from "./assets/wizard-dont.png";
+import styles from "../../../Modal/__stories__/Modal.stories.module.scss";
+import {
+  MODAL_BASIC_LAYOUT,
+  MODAL_MEDIA_LAYOUT,
+  TIPSEEN
+} from "../../../../../storybook/components/related-components/component-description-map";
+import { SideBySideModalTip } from "./ModalSideBySideLayout.stories.helpers";
+
+<Meta of={SideBySideModalStories} />
+
+# Side-by-side modal
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Use cases and examples](#use-cases-and-examples)
+- [Do's and dont's](#dos-and-donts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The Side-by-side Modal offers a layout with two distinct sections. The left side is reserved for providing information or inputs, like text fields or dropdown. The right side is reserved for visual media that supports the content on the left, like an image that adds context. This layout works best when users need to reference visual elements alongside textual information.
+
+<Canvas of={SideBySideModalStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "This modal emphasis the balance between the textual inputs and visual media, so one doesn’t overpower the other.",
+    "Use when you need to support textual inputs with visual media, like a visual diagram or set of instructions.",
+    "Use when users need to compare textual information with visual media, like a preview or data visualization."
+  ]}
+/>
+
+<SideBySideModalTip />
+
+## Use cases and examples
+
+### Wizard modal
+
+For modals with multiple steps, use the ModalFooterWizard. You can use it to break down the tasks. Not every step must include an image.
+
+<Canvas of={SideBySideModalStories.Wizard} />
+
+### Header with icon button
+
+In case of a need of an icon button in the modal header, you can use our default header "Action slot".
+You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
+
+<Canvas of={SideBySideModalStories.HeaderWithIconButton} />
+
+### Animation
+
+Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the center pop animation, which can be replaced with an anchor animation if there is a specific trigger to open the modal. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
+
+<Canvas of={SideBySideModalStories.Animation} />
+
+## Do's and don'ts
+
+<ComponentRules
+  rules={[
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          <img
+            src={breakdownDo}
+            alt="modal without scroll and without much content in left side"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: "Split up processes with several tasks into distinct steps using our wizard modal footer."
+      },
+      negative: {
+        component: (
+          <img
+            src={breakdownDont}
+            alt="modal with scroll and with a lot of content in left side"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: "Don't use scrolling for side-by-side modals in case of several tasks."
+      }
+    },
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          <img
+            src={columnsDo}
+            alt="modal with side by side layout without media content in its right side"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: "The right side of the modal is for media content. You can remove it if you don't need it."
+      },
+      negative: {
+        component: (
+          <img
+            src={columnsDont}
+            alt="modal with side by side layout with extra content in its right side"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: (
+          <>
+            Don't turn this modal into a two-column grid. If you don't need an image, consider using the{" "}
+            <StorybookLink page="Components/Modal [New]/Basic modal">basic modal</StorybookLink>.
+          </>
+        )
+      }
+    },
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          <img
+            src={wizardDo}
+            alt="modal with a wizard footer with the last button enabled"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description:
+          "When using a wizard modal, allow the user to complete the process and close the modal by leaving the last CTA enabled. "
+      },
+      negative: {
+        component: (
+          <img
+            src={wizardDont}
+            alt="modal with a wizard footer with the last button disabled"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description:
+          "Don’t finish the Tipseen wizard process with a disabled CTA. Also, when in first step, make sure the “Back” button is disabled."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[MODAL_MEDIA_LAYOUT, MODAL_BASIC_LAYOUT, TIPSEEN]} />

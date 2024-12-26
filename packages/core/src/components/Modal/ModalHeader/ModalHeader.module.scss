@@ -1,22 +1,14 @@
-@import "../../../styles/typography";
+.header {
+  width: 100%;
+  align-self: flex-start;
 
-.container {
-  margin-block-start: var(--spacing-medium);
+  .title {
+    width: 100%;
+  }
 
-  .icon {
-    margin-top: var(--spacing-xs);
+  .descriptionIcon {
     flex-shrink: 0;
-    color: var(--primary-text-color);
-  }
-
-  .description {
-    margin-block-start: var(--spacing-small);
-    color: var(--secondary-text-color);
-  }
-
-  .closeButton {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    margin-inline-end: var(--spacing-xs);
+    color: var(--icon-color);
   }
 }

@@ -5,6 +5,7 @@ import React, {
   forwardRef,
   ReactElement,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState
@@ -26,6 +27,7 @@ import {
   getListItemIndexById,
   getNextListItemIndex,
   getPrevListItemIndex,
+  isListItem,
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
@@ -113,6 +115,20 @@ const List: VibeComponent<ListProps> & {
       ref: componentRef
     });
 
+    useEffect(() => {
+      const selectedItemIndex = childrenRefs.current.findIndex(
+        child => child instanceof HTMLElement && isListItem(child) && child?.getAttribute("aria-selected") === "true"
+      );
+      if (selectedItemIndex !== -1) {
+        updateFocusedItem(getListItemIdByIndex(childrenRefs, selectedItemIndex));
+      } else {
+        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child));
+        if (firstFocusableIndex !== -1) {
+          updateFocusedItem(getListItemIdByIndex(childrenRefs, firstFocusableIndex));
+        }
+      }
+    }, [updateFocusedItem]);
+
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
@@ -123,12 +139,13 @@ const List: VibeComponent<ListProps> & {
           if (!React.isValidElement(child)) {
             return child;
           }
-
           const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
+          const currentRef = childrenRefs.current[index];
+          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
-            tabIndex: focusIndex === index ? 0 : -1,
+            tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
             id,
             component: getListItemComponentType(component)
           });

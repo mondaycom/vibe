@@ -1,8 +1,4 @@
 import React from "react";
-import * as VibeComponents from "../src/components";
-import * as VibeComponentsNext from "../src/components/next";
-import * as VibeHooks from "../src/hooks";
-import * as VibeIcons from "@vibe/icons";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -34,7 +30,11 @@ import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
-import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
+import {
+  playgroundVibeComponents,
+  playgroundReactCommonHooks,
+  introCode
+} from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
 import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 import modes from "./modes";
@@ -96,6 +96,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
+        method: "alphabetical",
         order: [
           "Welcome",
           "Getting Started",
@@ -117,7 +118,10 @@ const preview: Preview = {
     },
     playground: {
       storyId: "playground",
-      components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext, ...VibeHooks },
+      components: {
+        ...playgroundVibeComponents,
+        ...playgroundReactCommonHooks
+      },
       introCode,
       autocompletions: generateAutocompletion(reactDocgenOutput)
     }

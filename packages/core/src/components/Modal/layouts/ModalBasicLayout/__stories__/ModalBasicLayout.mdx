@@ -1,0 +1,135 @@
+import { Meta } from "@storybook/blocks";
+import * as ModalBasicLayoutStories from "./ModalBasicLayout.stories";
+import actionDo from "./assets/action-do.png";
+import actionDont from "./assets/action-dont.png";
+import styles from "../../../Modal/__stories__/Modal.stories.module.scss";
+import {
+  MODAL_MEDIA_LAYOUT,
+  MODAL_SIDE_BY_SIDE_LAYOUT,
+  TIPSEEN
+} from "../../../../../storybook/components/related-components/component-description-map";
+import { BasicModalTip } from "./ModalBasicLayout.stories.helpers";
+
+<Meta of={ModalBasicLayoutStories} />
+
+# Basic modal
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Scroll](#scroll)
+- [Use cases and examples](#use-cases-and-examples)
+- [Do's and dont's](#dos-and-donts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The Basic Modal is intended for straightforward tasks, like selecting items or gathering basic information. Basic Modals help users focus on a single task without distractions. These modals do not support images or videos.
+
+<Canvas of={ModalBasicLayoutStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use for straightforward tasks like confirming routine actions, gathering simple info, or displaying brief instructions.",
+    "Use when users need to choose from a long list of items or options, or when they need to fill out a long form.",
+    "Use when there is no need for media (images or videos).",
+    "Use when the content is scrollable."
+  ]}
+/>
+
+<BasicModalTip />
+
+## Variants
+
+### Sizes
+
+The modal component has three sizes - small, medium, and large. The modal width is responsive and adjust in width based on screen size. Each size also has a maximum height to keep harmonic window ratio, while the content area adapting to fit.
+
+<Canvas of={ModalBasicLayoutStories.Sizes} />
+
+### Alert Modal
+
+Use the "alertModal" boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
+
+<Canvas of={ModalBasicLayoutStories.AlertModal} />
+
+## Scroll
+
+When the content of the modal is too large to fit within the viewport, the modal content should become scrollable while the header and footer stay sticky. If the scroll is too long, consider switching to a different modal size or a different layout.
+
+<Canvas of={ModalBasicLayoutStories.Scroll} />
+
+## Use cases and examples
+
+### Wizard modal
+
+For modals with multiple steps, use the ModalFooterWizard.
+
+<Canvas of={ModalBasicLayoutStories.Wizard} />
+
+### Confirmation modal
+
+Confirmation modal ensure that users acknowledge the outcomes of their actions. It is based on the small size modal and comes with predefine properties. To use a confirmation modal, simply copy the code provided below.
+
+<Canvas of={ModalBasicLayoutStories.Confirmation} />
+
+### Footer with extra content
+
+The footer has an option to include additional content on the left side when needed. This extra content can consist of a button, checkbox, or simple text for notes. Note that this option is only available with the default footer.
+
+<Canvas of={ModalBasicLayoutStories.FooterWithExtraContent} />
+
+### Header with icon button
+
+In case of a need of an icon button in the modal header, you can use our default header "Action slot".
+You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
+
+<Canvas of={ModalBasicLayoutStories.HeaderWithIconButton} />
+
+### Animation
+
+Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the center pop animation, which can be replaced with an anchor animation if there is a specific trigger to open the modal. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
+
+<Canvas of={ModalBasicLayoutStories.Animation} />
+
+## Do's and don'ts
+
+<ComponentRules
+  rules={[
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          <img
+            src={actionDo}
+            alt="modal featuring an extra action checkbox on the footer"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: "Use button, checkbox, or simple text for notes as an extra content to the footer."
+      },
+      negative: {
+        component: (
+          <img
+            src={actionDont}
+            alt="modal featuring an extra action image on the footer"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
+        description: "Don't use images, inputs or any kind of content that can overload the user."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[MODAL_SIDE_BY_SIDE_LAYOUT, MODAL_MEDIA_LAYOUT, TIPSEEN]} />

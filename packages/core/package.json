@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.2.0",
+  "version": "3.10.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "dist"
   ],
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/src/index.js",
@@ -36,9 +37,9 @@
       "default": "./dist/src/tests/testIds.js"
     },
     "./next": {
-      "types": "./dist/components/next/next.d.ts",
-      "import": "./dist/src/components/next/next.js",
-      "default": "./dist/src/components/next/next.js"
+      "types": "./dist/components/next.d.ts",
+      "import": "./dist/src/components/next.js",
+      "default": "./dist/src/components/next.js"
     },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
@@ -55,7 +56,7 @@
         "./dist/tests/test-ids-utils.d.ts"
       ],
       "next": [
-        "./dist/components/next/next.d.ts"
+        "./dist/components/next.d.ts"
       ]
     }
   },
@@ -81,7 +82,7 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/icons": "1.1.0",
+    "@vibe/icons": "1.3.0",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
@@ -96,7 +97,7 @@
     "react-is": "^16.9.0",
     "react-popper": "^2.3.0",
     "react-remove-scroll": "^2.6.0",
-    "react-select": "npm:react-select-module@^3.2.5",
+    "react-select": "npm:react-select-module@^3.2.6",
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
@@ -248,7 +249,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vibe-storybook-components": "0.20.0"
+    "vibe-storybook-components": "0.21.1"
   },
   "peerDependencies": {
     "moment": "^2.29.1",

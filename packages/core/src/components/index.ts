@@ -40,7 +40,7 @@ export * from "./ListTitle";
 export * from "./Loader";
 export * from "./Menu";
 export * from "./MenuButton";
-export * from "./Modal";
+export * from "./LegacyModal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
 export * from "./RadioButton";

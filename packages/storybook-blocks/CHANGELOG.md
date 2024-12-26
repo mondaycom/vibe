@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.21.0...vibe-storybook-components@0.21.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* StatusTag remove log, sort stories alphabetically, modal docs fixes ([#2659](https://github.com/mondaycom/vibe/issues/2659)) ([5b13f48](https://github.com/mondaycom/vibe/commit/5b13f48e57cdca2aadc7cc4a612f4e6fe016112d))
+
+
+
+
+
+# [0.21.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.20.0...vibe-storybook-components@0.21.0) (2024-12-17)
+
+
+### Features
+
+* **Modal:** export new Modal component to /next ([#2641](https://github.com/mondaycom/vibe/issues/2641)) ([244c1cb](https://github.com/mondaycom/vibe/commit/244c1cbfa80641f8e3a07270a0dfb4fd3e488bc7))
+
+
+
+
+
 # [0.20.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.19.3...vibe-storybook-components@0.20.0) (2024-11-24)
 
 

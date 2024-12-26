@@ -36,8 +36,8 @@ export const getListItemComponentType = (listComponent: ListElement): ListItemEl
   }
 };
 
-const isListItem = (element: HTMLElement) => {
-  return element && element.getAttribute("role") === "option";
+export const isListItem = (element: HTMLElement) => {
+  return element && element instanceof HTMLElement && element.getAttribute("role") === "option";
 };
 
 export const getNextListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {

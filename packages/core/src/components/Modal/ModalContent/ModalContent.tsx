@@ -1,31 +1,25 @@
-import React, { FC, ReactElement } from "react";
-import cx from "classnames";
-import Text from "../../Text/Text";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import React, { forwardRef } from "react";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import styles from "./ModalContent.module.scss";
+import { ModalContentProps } from "./ModalContent.types";
 
-export interface ModalContentProps extends VibeComponentProps {
-  children: ReactElement | ReactElement[] | string;
-}
-
-const ModalContent: FC<ModalContentProps> = ({ className, id, "data-testid": dataTestId, children }) => {
-  return (
-    <Text
-      type="text1"
-      id={id}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_CONTENT, id)}
-      className={cx(styles.container, className)}
-      ellipsis={false}
-    >
-      {children}
-    </Text>
-  );
-};
-
-Object.assign(ModalContent, {
-  displayName: "ModalContent"
-});
+const ModalContent = forwardRef(
+  (
+    { children, className, id, "data-testid": dataTestId }: ModalContentProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={className}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_CONTENT, id)}
+        data-autofocus-inside={true}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 export default ModalContent;

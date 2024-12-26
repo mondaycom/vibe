@@ -1,0 +1,22 @@
+@import "../../../styles/typography";
+
+.container {
+  margin-block-start: var(--spacing-medium);
+
+  .icon {
+    margin-top: var(--spacing-xs);
+    flex-shrink: 0;
+    color: var(--primary-text-color);
+  }
+
+  .description {
+    margin-block-start: var(--spacing-small);
+    color: var(--secondary-text-color);
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}

@@ -21,6 +21,7 @@ export const Types: Story = {
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
       <StatusTag type="alpha" />
       <StatusTag type="beta" />
+      <StatusTag type="new" />
       <StatusTag type="deprecated" />
     </Flex>
   ),

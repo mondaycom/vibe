@@ -3,8 +3,13 @@
 <meta property="og:title" content="Vibe Design System" />
 <meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
 <title>Vibe Design System</title>
-<link rel="shortcut icon" href="/favicon.ico" />
 <script src="https://use.fontawesome.com/660238b999.js"></script>
+<script type="module">
+  const faviconLink = document.querySelector("link[rel='icon']");
+  if (import.meta.url.includes("localhost")) {
+    faviconLink.href = "/favicon-dev.ico";
+  }
+</script>
 <style>
   body {
     font-family: "Figtree", sans-serif;

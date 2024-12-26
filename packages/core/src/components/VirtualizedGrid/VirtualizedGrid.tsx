@@ -1,6 +1,12 @@
 import React, { CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { GridChildComponentProps, GridOnScrollProps, ScrollDirection, VariableSizeGrid as Grid } from "react-window";
+import {
+  GridChildComponentProps,
+  GridOnScrollProps,
+  ScrollDirection,
+  VariableSizeGrid as Grid,
+  GridOnItemsRenderedProps
+} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
@@ -209,14 +215,14 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
     );
 
     const onItemsRenderedCB = useThrottledCallback(
-      ({ visibleStartIndex, visibleStopIndex }) => {
+      ({ visibleRowStartIndex, visibleRowStopIndex }: GridOnItemsRenderedProps) => {
         if (!onItemsRendered) return;
         const data = getOnItemsRenderedData(
           items,
           normalizedItems,
           idGetter,
-          visibleStartIndex,
-          visibleStopIndex,
+          visibleRowStartIndex,
+          visibleRowStopIndex,
           gridHeight,
           scrollTopRef.current
         );

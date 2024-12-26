@@ -141,7 +141,14 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        if (process.env.NODE_ENV === "test") {
+        let isRequireAvailable = false;
+        try {
+          isRequireAvailable = typeof require === "function" && typeof module !== "undefined";
+        } catch (e) {
+          isRequireAvailable = false;
+        }
+
+        if (isRequireAvailable) {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const module = require("react-windowed-select");
           setWindowedMenuList(() => module.WindowedMenuList);
@@ -369,7 +376,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       }
     };
 
-    const DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+    let DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+
+    // @ts-expect-error - We need to check if the default export is available
+    DropDownComponent = DropDownComponent.default || DropDownComponent;
 
     const asyncAdditions = {
       ...(asyncOptions && {
