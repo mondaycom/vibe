@@ -133,7 +133,11 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }
 
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
-      if (event.key === keyCodes.ENTER && !multiline) {
+      if (event.key === keyCodes.ENTER) {
+        if (multiline && event.shiftKey) {
+          return;
+        }
+
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
