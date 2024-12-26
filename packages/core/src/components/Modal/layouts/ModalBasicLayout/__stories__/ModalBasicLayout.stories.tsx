@@ -255,9 +255,11 @@ export const Wizard: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: steps.length
     });
+
+    const primaryButtonText = isLastStep ? "Confirm" : "Next";
 
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
@@ -268,7 +270,7 @@ export const Wizard: Story = {
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next }}
+          primaryButton={{ text: primaryButtonText, onClick: next }}
           secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
@@ -406,7 +408,7 @@ export const Animation: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -480,7 +482,7 @@ export const Animation: Story = {
             activeStep={activeStep}
             stepCount={transitionSteps.length}
             onStepClick={goToStep}
-            primaryButton={{ text: "Next", onClick: next }}
+            primaryButton={{ text: isLastStep ? "Confirm" : "Next", onClick: next }}
             secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
           />
         </Modal>
