@@ -56,7 +56,7 @@ export interface TipseenProps extends VibeComponentProps {
    */
   modifiers?: Array<Modifier<unknown>>;
   closeAriaLabel?: string;
-  onClose?: () => void;
+  onClose?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   content: ElementContent;
   /**
    * Control the color of the Tipseen close button. Dark theme can be useful while presenting bright images under the tipseen image

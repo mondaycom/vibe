@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.2.0...@vibe/icons@1.3.0) (2024-12-26)
+
+
+### Features
+
+* **icons:** add WarningFull icon ([#2676](https://github.com/mondaycom/vibe/issues/2676)) ([24e9abd](https://github.com/mondaycom/vibe/commit/24e9abde7f886df3879ad01e696d3e8a6e1dd622))
+* **icons:** revise Warning icon ([#2677](https://github.com/mondaycom/vibe/issues/2677)) ([325895e](https://github.com/mondaycom/vibe/commit/325895ea304f0d75a2fd84674515c1f03ae3266e))
+
+
+
+
+
 # [1.2.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.1.0...@vibe/icons@1.2.0) (2024-12-12)
 
 

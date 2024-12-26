@@ -19,7 +19,7 @@ import { MediaModalTip } from "./ModalMediaLayout.stories.helpers";
 - [Props](#props)
 - [Usage](#usage)
 - [Use cases and examples](#use-cases-and-examples)
-- [Do's and dont's](do's-and-don'ts)
+- [Do's and dont's](#dos-and-donts)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
@@ -46,18 +46,24 @@ The Media Modal includes a highlighted media section, followed by a textual cont
 
 ## Use cases and examples
 
-### Wizard footer
+### Wizard modal
 
-When multi steps modal, use the ModalFooterWizard.
+For modals with multiple steps, use the ModalFooterWizard.
 
 <Canvas of={MediaModalStories.Wizard} />
+
+### Announcement modal
+
+Announcement modals used to effectively introduce new features or updates to users in a focused and engaging way. It is the media modal with predefine properties. To use an announcement modal, simply copy the code provided below.
+
+<Canvas of={MediaModalStories.Announcement} />
 
 ### Header with extra icon button
 
 In case of a need of an icon button in the modal header, you can use our default header "Action slot".
 You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
 
-<Canvas of={MediaModalStories.HeaderWithExtraIconButton} />
+<Canvas of={MediaModalStories.HeaderWithIconButton} />
 
 ### Animation
 
