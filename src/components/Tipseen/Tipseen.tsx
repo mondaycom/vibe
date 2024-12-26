@@ -55,7 +55,7 @@ interface TipseenProps extends VibeComponentProps {
    */
   isCloseButtonOnImage?: boolean;
   closeButtonOnImage?: boolean;
-  onClose?: (event: React.MouseEvent) => void;
+  onClose?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   // Better be required, but it might be a breaking change
   content?: ElementContent;
 }
