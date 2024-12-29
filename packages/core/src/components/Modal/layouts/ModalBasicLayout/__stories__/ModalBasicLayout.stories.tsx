@@ -313,7 +313,9 @@ export const FooterWithExtraContent: Story = {
 };
 
 export const Confirmation: Story = {
-  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [
+    (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
+  ],
   render: (_, { show, setShow, container }) => {
     return (
       <Modal id="modal-basic" show={show} size="small" onClose={() => setShow(false)} container={container}>
