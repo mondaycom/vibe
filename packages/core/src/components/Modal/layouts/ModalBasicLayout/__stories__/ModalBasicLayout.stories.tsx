@@ -41,7 +41,10 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [
+    (Story, context) =>
+      withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs", allowFullViewInDocs: true })
+  ],
   render: (args, { show, setShow, container }) => {
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container} {...args}>

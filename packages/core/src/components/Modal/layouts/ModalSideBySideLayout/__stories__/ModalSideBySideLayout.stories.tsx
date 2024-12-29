@@ -54,7 +54,12 @@ export default {
 
 export const Overview: Story = {
   decorators: [
-    (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
+    (Story, context) =>
+      withOpenedModalPreview(Story, {
+        size: "medium",
+        isDocsView: context.viewMode === "docs",
+        allowFullViewInDocs: true
+      })
   ],
   render: (args, { show, setShow, container }) => {
     const steps = [

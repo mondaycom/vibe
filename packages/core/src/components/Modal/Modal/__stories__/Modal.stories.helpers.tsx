@@ -76,7 +76,11 @@ export function withOpenedModalPreview(
     setShow: (show: boolean) => void;
     container?: Element | DocumentFragment;
   }>,
-  { size, isDocsView }: { size?: "small" | "medium" | "large"; isDocsView: boolean }
+  {
+    size,
+    isDocsView,
+    allowFullViewInDocs
+  }: { size?: "small" | "medium" | "large"; isDocsView: boolean; allowFullViewInDocs?: boolean }
 ) {
   const [show, setShow] = useState(true);
   const [isFullView, setFullView] = useState(false);
@@ -94,7 +98,7 @@ export function withOpenedModalPreview(
       }}
       isDocsView={isDocsView}
       isFullView={isFullView}
-      showFullPreviewButton={isDocsView && !isFullView && show}
+      showFullPreviewButton={allowFullViewInDocs && isDocsView && !isFullView && show}
       onFullPreviewClick={() => {
         setShow(false);
         setFullView(true);
