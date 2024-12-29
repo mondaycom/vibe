@@ -1,5 +1,7 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import Button from "../../../Button/Button";
+import IconButton from "../../../IconButton/IconButton";
+import { Fullscreen } from "@vibe/icons";
 import { StorybookLink, Tip } from "vibe-storybook-components";
 import cx from "classnames";
 import styles from "./Modal.stories.module.scss";
@@ -10,12 +12,18 @@ export const OpenedModalPreview = forwardRef(
     {
       onOpenModalClick,
       isDocsView,
+      isFullView,
       size = "small",
+      showFullPreviewButton,
+      onFullPreviewClick,
       children: modal
     }: {
       onOpenModalClick: () => void;
       isDocsView?: boolean;
+      isFullView?: boolean;
       size?: "small" | "medium" | "large";
+      showFullPreviewButton?: boolean;
+      onFullPreviewClick: () => void;
       children: React.ReactNode;
     },
     ref: React.ForwardedRef<HTMLDivElement>
@@ -24,19 +32,30 @@ export const OpenedModalPreview = forwardRef(
       <div
         className={cx(styles.preview, { [getStyle(styles, size)]: isDocsView })}
         ref={ref}
-        // workaround to prevent modal from autofocusing on page load
-        {...(isDocsView && { "data-no-autofocus": true })}
+        // workaround to prevent modal from autofocusing on page load (unless on full view)
+        {...(isDocsView && !isFullView && { "data-no-autofocus": true })}
       >
         <Button onClick={onOpenModalClick}>Open Modal</Button>
         {modal}
+        {showFullPreviewButton && (
+          <IconButton
+            wrapperClassName={styles.fullPreviewButtonWrapper}
+            className={styles.fullPreviewButton}
+            kind="secondary"
+            icon={Fullscreen}
+            color="primary"
+            onClick={onFullPreviewClick}
+            ariaLabel="Open modal in full preview mode"
+          />
+        )}
       </div>
     );
   }
 );
 
-export const useRemoveModalScrollLock = (show: boolean, isDocsView?: boolean) => {
+export const useRemoveModalScrollLock = (show: boolean, isDocsView?: boolean, isFullView?: boolean) => {
   useEffect(() => {
-    if (show && document.body.attributes.getNamedItem("data-scroll-locked") && isDocsView) {
+    if (show && document.body.attributes.getNamedItem("data-scroll-locked") && isDocsView && !isFullView) {
       requestAnimationFrame(() => {
         document.body.attributes.removeNamedItem("data-scroll-locked");
         document.documentElement.addEventListener(
@@ -48,32 +67,45 @@ export const useRemoveModalScrollLock = (show: boolean, isDocsView?: boolean) =>
         );
       });
     }
-  }, [show, isDocsView]);
+  }, [show, isDocsView, isFullView]);
 };
 
 export function withOpenedModalPreview(
   Story: React.FunctionComponent<{
     show: boolean;
     setShow: (show: boolean) => void;
-    container?: React.RefObject<HTMLElement>;
+    container?: Element | DocumentFragment;
   }>,
   { size, isDocsView }: { size?: "small" | "medium" | "large"; isDocsView: boolean }
 ) {
   const [show, setShow] = useState(true);
-  const container = useRef<HTMLElement>(null);
-  useRemoveModalScrollLock(show, isDocsView); // internal hook, for documentation purposes, to enable page scroll on docs view
+  const [isFullView, setFullView] = useState(false);
+  useRemoveModalScrollLock(show, isDocsView, isFullView); // internal hook, for documentation purposes, to enable page scroll on docs view
+
+  const [modalContainer, setModalContainer] = useState<Element | DocumentFragment>(null);
 
   return (
     // internal component, for documentation purposes, to open modal inside a container
     <OpenedModalPreview
       size={size}
-      onOpenModalClick={() => setShow(true)}
+      onOpenModalClick={() => {
+        setShow(true);
+        setFullView(false);
+      }}
       isDocsView={isDocsView}
+      isFullView={isFullView}
+      showFullPreviewButton={isDocsView && !isFullView && show}
+      onFullPreviewClick={() => {
+        setShow(false);
+        setFullView(true);
+        setTimeout(() => setShow(true), 250);
+      }}
       ref={element => {
-        isDocsView ? (container.current = element) : (container.current = document.body);
+        if (!element || !isDocsView || isFullView) return;
+        setModalContainer(element);
       }}
     >
-      <Story show={show} setShow={setShow} container={container} />
+      <Story show={show} setShow={setShow} container={isFullView ? document.body : modalContainer} />
     </OpenedModalPreview>
   );
 }
