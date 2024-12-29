@@ -22,7 +22,7 @@ import { SideBySideModalTip } from "./ModalSideBySideLayout.stories.helpers";
 - [Props](#props)
 - [Usage](#usage)
 - [Use cases and examples](#use-cases-and-examples)
-- [Do's and dont's](do's-and-don'ts)
+- [Do's and dont's](#dos-and-donts)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
@@ -50,22 +50,22 @@ The Side-by-side Modal offers a layout with two distinct sections. The left side
 
 ## Use cases and examples
 
-### Wizard footer
+### Wizard modal
 
-When multi steps modal, use the ModalFooterWizard.
+For modals with multiple steps, use the ModalFooterWizard. You can use it to break down the tasks. Not every step must include an image.
 
 <Canvas of={SideBySideModalStories.Wizard} />
 
-### Header with extra icon button
+### Header with icon button
 
 In case of a need of an icon button in the modal header, you can use our default header "Action slot".
 You can also use it as a <StorybookLink page="Buttons/MenuButton">menu button</StorybookLink> component.
 
-<Canvas of={SideBySideModalStories.HeaderWithExtraIconButton} />
+<Canvas of={SideBySideModalStories.HeaderWithIconButton} />
 
 ### Animation
 
-Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the element trigger animation, which can be replaced with a center pop animation if there's no specific trigger. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
+Each modal includes an animation type based on its entrance point, with wizard modals also featuring transition animations. The default is the center pop animation, which can be replaced with an anchor animation if there is a specific trigger to open the modal. Transition animation is used exclusively for wizard modals and cannot be changed or removed.
 
 <Canvas of={SideBySideModalStories.Animation} />
 

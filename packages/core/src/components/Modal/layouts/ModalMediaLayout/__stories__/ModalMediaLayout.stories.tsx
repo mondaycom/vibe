@@ -92,7 +92,7 @@ export const Wizard: Story = {
     const steps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -103,7 +103,7 @@ export const Wizard: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -136,7 +136,35 @@ export const Wizard: Story = {
   }
 };
 
-export const HeaderWithExtraIconButton: Story = {
+export const Announcement: Story = {
+  decorators: [
+    (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow, container }) => {
+    return (
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} container={container}>
+        <ModalMediaLayout>
+          <ModalMedia>
+            <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          </ModalMedia>
+          <ModalHeader title="Meet our new feature" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Introducing our latest feature designed to make your workflow faster and easier. For more details{" "}
+              <Link inheritFontSize inlineText text="click here" />.
+            </Text>
+          </ModalContent>
+        </ModalMediaLayout>
+        <ModalFooter
+          primaryButton={{ text: "Got it", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Dismiss", onClick: () => setShow(false) }}
+        />
+      </Modal>
+    );
+  }
+};
+
+export const HeaderWithIconButton: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
   ],
@@ -179,7 +207,7 @@ export const Animation: Story = {
     const transitionSteps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -190,7 +218,7 @@ export const Animation: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
