@@ -317,6 +317,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return BUTTON_ICON_SIZE;
     }, [successIcon]);
 
+    const hasRenderableChildren = useMemo(() => React.Children.toArray(children).some(Boolean), [children]);
+
     const buttonContent = useMemo(
       () => (
         <>
@@ -326,7 +328,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               icon={leftIcon}
               iconSize={leftIconSize}
               className={cx({
-                [styles.leftIcon]: !!children
+                [styles.leftIcon]: hasRenderableChildren
               })}
               ignoreFocusStyle
             />
@@ -338,14 +340,14 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               icon={rightIcon}
               iconSize={rightIconSize}
               className={cx({
-                [styles.rightIcon]: !!children
+                [styles.rightIcon]: hasRenderableChildren
               })}
               ignoreFocusStyle
             />
           ) : null}
         </>
       ),
-      [children, leftIcon, leftIconSize, rightIcon, rightIconSize]
+      [children, hasRenderableChildren, leftIcon, leftIconSize, rightIcon, rightIconSize]
     );
 
     if (loading) {
