@@ -222,7 +222,7 @@ export const Wizard: Story = {
   }
 };
 
-export const HeaderWithExtraIconButton: Story = {
+export const HeaderWithIconButton: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "medium", isDocsView: context.viewMode === "docs" })
   ],
