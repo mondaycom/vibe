@@ -9,6 +9,57 @@ describe("<Button />", () => {
     cleanup();
   });
 
+  describe("children", () => {
+    it("should render a single child correctly", () => {
+      const { getByText } = render(<Button>Renderable Child</Button>);
+      const button = getByText("Renderable Child");
+      expect(button).toBeInTheDocument();
+    });
+
+    it("should not render a single child if it is not applicable", () => {
+      const { container } = render(<Button>{null}</Button>);
+      expect(container.firstChild).toBeEmptyDOMElement();
+    });
+
+    it("should render multiple children correctly", () => {
+      const { getByText } = render(
+        <Button>
+          <span>Child 1</span>
+          <span>Child 2</span>
+        </Button>
+      );
+      expect(getByText("Child 1")).toBeInTheDocument();
+      expect(getByText("Child 2")).toBeInTheDocument();
+    });
+
+    it("should not render children if all are non-renderable", () => {
+      const { container } = render(
+        <Button>
+          {false}
+          {null}
+          {undefined}
+        </Button>
+      );
+      expect(container.firstChild).toBeEmptyDOMElement();
+    });
+
+    it("should add leftIcon className when children are renderable", () => {
+      const { getByTestId } = render(<Button leftIcon="icon">Child</Button>);
+      expect(getByTestId("icon")).toHaveClass("leftIcon");
+    });
+
+    it("should not add leftIcon className when children are non-renderable", () => {
+      const { getByTestId } = render(
+        <Button leftIcon="icon">
+          {false}
+          {null}
+          {undefined}
+        </Button>
+      );
+      expect(getByTestId("icon")).not.toHaveClass("leftIcon");
+    });
+  });
+
   describe("click", () => {
     let clickActionStub;
     let onMouseDownStub;
