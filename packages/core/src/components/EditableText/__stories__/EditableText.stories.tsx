@@ -103,7 +103,6 @@ export const Types = {
   }
 };
 
-const multilineValue = "This is a multiline\nhere's the second line";
 export const Multiline = {
   render: () => (
     <div className={styles.multilineContainer}>
@@ -111,7 +110,7 @@ export const Multiline = {
         type={EditableText.types.TEXT1}
         weight={EditableText.weights.NORMAL}
         multiline
-        value={multilineValue}
+        value={"This is a multiline\nhere's the second line"}
         className={styles.editableText}
       />
     </div>

@@ -168,7 +168,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     /* Dynamically resizes the textarea to fit its content */
     function resizeTextarea() {
-      console.log("*************************resize called, why?", multiline, inputRef.current);
       if (inputRef.current) {
         // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
         setInputHeight("auto");
@@ -227,7 +226,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             aria-label={ariaLabel}
             placeholder={placeholder}
             style={{ width: inputWidth, height: inputHeight }}
-            role="input"
+            role="textbox"
             rows={1}
           />
         );

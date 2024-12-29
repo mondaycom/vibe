@@ -18,7 +18,7 @@ export interface EditableTextProps extends VibeComponentProps, EditableTypograph
   /** Sets the Text weight
    */
   weight?: TextWeight;
-  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines
+  /** Enables editing multiple lines of text
    */
   multiline?: boolean;
 }
@@ -33,7 +33,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
       weight = "normal",
       "data-testid": dataTestId,
       id,
-      multiline = false,
+      multiline,
       ...editableTypographyProps
     }: EditableTextProps,
     ref

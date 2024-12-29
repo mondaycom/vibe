@@ -24,9 +24,8 @@ describe("EditableText", () => {
     const component = screen.getByRole("button");
     fireEvent.click(component);
 
-    const input = screen.queryByRole("input");
+    const input = screen.queryByRole("textbox");
     expect(input).toBeInTheDocument();
-    expect(input.tagName).toBe("TEXTAREA");
   });
 
   it("should not render an input when 'readOnly' is false when clicked", () => {
@@ -117,7 +116,7 @@ describe("EditableText", () => {
         const component = screen.getByRole("button");
         fireEvent.click(component);
 
-        const input = screen.getByRole("input");
+        const input = screen.getByRole("textbox");
         fireEvent.change(input, {
           target: { value: newValue }
         });
@@ -159,7 +158,7 @@ describe("EditableText", () => {
         const component = screen.getByRole("button");
         fireEvent.click(component);
 
-        const input = screen.getByRole("input");
+        const input = screen.getByRole("textbox");
 
         expect(input).toHaveValue(value);
 

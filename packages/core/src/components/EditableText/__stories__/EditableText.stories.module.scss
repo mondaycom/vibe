@@ -16,11 +16,10 @@
 }
 
 .multilineContainer {
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
 
   .editableText {
     width: 400px;
-    max-height: 200px;
   }
 }
