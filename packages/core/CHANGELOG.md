@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.0...@vibe/core@3.10.1) (2024-12-29)
+
+
+### Bug Fixes
+
+* **Button:** ensure icons className is not added when children are non-renderable ([#2685](https://github.com/mondaycom/vibe/issues/2685)) ([7758e29](https://github.com/mondaycom/vibe/commit/7758e2996bd26d3f7c76bd99b89584823ed5389b))
+
+
+
+
+
 # [3.10.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.3...@vibe/core@3.10.0) (2024-12-26)
 
 
