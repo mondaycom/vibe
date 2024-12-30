@@ -184,6 +184,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           showDelay={showDelay}
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
+          showOnDialogEnter={false}
           content={tooltipContent}
           theme={color === "inverted" ? "dark" : "primary"}
           containerSelector={containerSelector}
