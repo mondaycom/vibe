@@ -33,7 +33,7 @@ const usePortalTarget = (portalTarget?: PortalTarget): Element | DocumentFragmen
 
     const target = resolveTarget();
     setResolvedTarget(target);
-  }, [portalTarget, resolvedTarget]);
+  }, [portalTarget]);
 
   return resolvedTarget;
 };

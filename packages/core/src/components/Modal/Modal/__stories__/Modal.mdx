@@ -24,15 +24,18 @@ import {
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
-- [Do's and dont's](do's-and-don'ts)
+- [Accessibility](#accessibility)
+- [Do's and dont's](#dos-and-donts)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
 
-Modals help users focus on a single task or a piece of information by popping up and blocking the rest of the page’s content. Modals disappear when user complete a required action or dismiss it. Use modals for quick, infrequent tasks.
-
-We have 3 different modal component, each one provide a different layout for a different use case:
+<p style={{ marginBlockEnd: "var(--sb-spacing-xxxl)" }}>
+  Modals help users focus on a single task or a piece of information by popping up and blocking the rest of the page’s
+  content. Modals disappear when user complete a required action or dismiss it. Use modals for quick, infrequent tasks.
+  We have 3 different modal component, each one provide a different layout for a different use case:
+</p>
 
 ### Basic modal
 
@@ -65,6 +68,27 @@ The <StorybookLink page="Components/Modal [New]/Media modal">Media Modal</Storyb
 />
 
 <ModalTip />
+
+## Accessibility
+
+The Modal component provides several built-in enhancements to simplify usage and improve accessibility:
+
+<UsageGuidelines
+  guidelines={[
+    <span>
+      <b>Scroll lock:</b> While the modal is open, it prevents background content from scrolling, ensuring user focus
+      remains on the modal.",
+    </span>,
+    <span>
+      <b>Focus lock:</b> Keeps focus within the modal elements, preventing users from tabbing outside of the modal while
+      it is open. Focus also automatically returns to the last focused element upon closing.
+    </span>,
+    <span>
+      <b>Aria attributes:</b> For better screen reader support, while using the <code>ModalHeader</code> it
+      automatically sets <code>aria-labelledby</code> and <code>aria-describedby</code> on the modal.
+    </span>
+  ]}
+/>
 
 ## Do's and don'ts
 
