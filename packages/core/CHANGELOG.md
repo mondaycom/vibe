@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.2...@vibe/core@3.10.3) (2024-12-30)
+
+
+### Bug Fixes
+
+* **Table:** menu not rendering on react 18 ([#2684](https://github.com/mondaycom/vibe/issues/2684)) ([0ae670f](https://github.com/mondaycom/vibe/commit/0ae670f3104d4a0b7ef6ea4e39805b4585d52eef))
+
+
+
+
+
 ## [3.10.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.1...@vibe/core@3.10.2) (2024-12-30)
 
 
