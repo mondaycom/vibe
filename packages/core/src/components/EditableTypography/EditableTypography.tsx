@@ -78,6 +78,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
     const [inputHeight, setInputHeight] = useState<number | string>(0);
+    const textareaBorderBoxSizing = useRef(0);
+    const textareaLineHeight = useRef(0);
 
     const prevValue = usePrevious(value);
 
@@ -161,7 +163,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         inputRef.current?.focus();
 
         if (multiline) {
-          resizeTextarea();
+          calculateTextareaHeightAttrs();
         }
       }
     }
@@ -179,21 +181,13 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             return;
           }
 
-          const computedStyle = window.getComputedStyle(textarea);
-
-          // Calculate the appropriate height by taking into account the scrollable content inside the textarea,
-          // as well as the styles applied to it, such as padding and border widths.
-          const lineHeight = parseFloat(computedStyle.lineHeight) || 16;
-          const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
-          const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
-          const borderTopWidth = parseFloat(computedStyle.borderTopWidth) || 0;
-          const borderBottomWidth = parseFloat(computedStyle.borderBottomWidth) || 0;
-
-          const newHeight = textarea.scrollHeight + borderTopWidth + borderBottomWidth;
-          const minHeight = lineHeight + paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;
-
           // Ensure we at least have 1 line
-          setInputHeight(Math.max(newHeight, minHeight));
+          setInputHeight(
+            Math.max(
+              textarea.scrollHeight + textareaBorderBoxSizing.current,
+              textareaLineHeight.current + textareaBorderBoxSizing.current
+            )
+          );
         });
       }
     }
@@ -212,6 +206,33 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       const { width } = typographyRef.current.getBoundingClientRect();
       setInputWidth(width);
     }, [inputValue, isEditing]);
+
+    /* Calculate the minimual textarea height, taking its applied styles (padding, border width) into consideration 
+       This is done only on focus, so that we don't need to get the computed style every time.
+    */
+    function calculateTextareaHeightAttrs() {
+      if (multiline && inputRef.current) {
+        const textarea = inputRef.current as HTMLTextAreaElement;
+
+        if (!textarea) {
+          return;
+        }
+
+        const computedStyle = window.getComputedStyle(textarea);
+
+        // Calculate the appropriate height by taking into account the scrollable content inside the textarea,
+        // as well as the styles applied to it, such as padding and border widths.
+        const lineHeight = parseFloat(computedStyle.lineHeight) || 16;
+        const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
+        const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+        const borderTopWidth = parseFloat(computedStyle.borderTopWidth) || 0;
+        const borderBottomWidth = parseFloat(computedStyle.borderBottomWidth) || 0;
+
+        textareaLineHeight.current = lineHeight;
+        textareaBorderBoxSizing.current = paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;
+        resizeTextarea();
+      }
+    }
 
     return (
       <div
