@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.1...@vibe/core@3.10.2) (2024-12-30)
+
+
+### Bug Fixes
+
+* **Tipseen:** showDelay of 0 causes component to auto-close when mouse leave ([#2687](https://github.com/mondaycom/vibe/issues/2687)) ([f8b59f6](https://github.com/mondaycom/vibe/commit/f8b59f6998e6c988d9536a04b112067404b507d3))
+
+
+### Performance Improvements
+
+* remove redundant overflow style manipulation ([#2678](https://github.com/mondaycom/vibe/issues/2678)) ([5b57172](https://github.com/mondaycom/vibe/commit/5b57172e2d33027993ed2509f8d2c470d51b3d2c))
+
+
+
+
+
 ## [3.10.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.0...@vibe/core@3.10.1) (2024-12-29)
 
 
