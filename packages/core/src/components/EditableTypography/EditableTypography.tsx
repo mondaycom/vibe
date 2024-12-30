@@ -213,41 +213,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       setInputWidth(width);
     }, [inputValue, isEditing]);
 
-    function getEditableElement() {
-      if (multiline) {
-        return (
-          <textarea
-            ref={inputRef}
-            className={cx(styles.textarea, typographyClassName)}
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            aria-label={ariaLabel}
-            placeholder={placeholder}
-            style={{ width: inputWidth, height: inputHeight }}
-            role="textbox"
-            rows={1}
-          />
-        );
-      } else {
-        return (
-          <input
-            ref={inputRef}
-            className={cx(styles.input, typographyClassName)}
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            aria-label={ariaLabel}
-            placeholder={placeholder}
-            style={{ width: inputWidth }}
-            role="input"
-          />
-        );
-      }
-    }
-
     return (
       <div
         ref={mergedRef}
@@ -259,7 +224,35 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         onClick={onTypographyClick}
         onKeyDown={toggleKeyboardEditMode}
       >
-        {isEditing && getEditableElement()}
+        {isEditing &&
+          (multiline ? (
+            <textarea
+              ref={inputRef}
+              className={cx(styles.textarea, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth, height: inputHeight }}
+              role="textbox"
+              rows={1}
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              className={cx(styles.input, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth }}
+              role="input"
+            />
+          ))}
         <TypographyComponent
           ref={typographyRef}
           aria-hidden={isEditing}
