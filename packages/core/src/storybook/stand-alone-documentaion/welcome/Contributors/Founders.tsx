@@ -26,10 +26,10 @@ const FOUNDERS = [
     tooltip: "Product Designer"
   },
   {
-      name: "Hadas Farhi",
-      href: "https://www.linkedin.com/in/hadasfarhi/",
-      image: Hadas,
-      tooltip: "Software Engineer"
+    name: "Hadas Farhi",
+    href: "https://www.linkedin.com/in/hadasfarhi/",
+    image: Hadas,
+    tooltip: "Software Engineer"
   }
 ];
 
