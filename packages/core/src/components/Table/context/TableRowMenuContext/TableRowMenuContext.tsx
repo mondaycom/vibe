@@ -24,7 +24,7 @@ export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderPr
       const rowTop = rowRef.current.getBoundingClientRect().top;
       setMenuButtonPosition(rowTop - tableRootTop);
       if (hasMenuRef.current === null) {
-        requestAnimationFrame(() => {
+        setTimeout(() => {
           hasMenuRef.current = !!document?.querySelector(`[data-row-menu-id]`);
         });
       }

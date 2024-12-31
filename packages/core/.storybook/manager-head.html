@@ -175,3 +175,72 @@
 
   gtag("config", "G-0CBP2ER8YL");
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const waitForComponentsFolder = () => {
+      return new Promise(resolve => {
+        const observer = new MutationObserver((mutations, obs) => {
+          const componentsFolder = document.querySelector("button#components");
+          if (componentsFolder) {
+            obs.disconnect();
+            resolve(componentsFolder);
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    };
+
+    const initComponentsFolderLogic = componentsFolder => {
+      const isExpanded = componentsFolder.getAttribute("aria-expanded") === "true";
+
+      if (isExpanded) {
+        addModalFolderObserver();
+      } else {
+        const folderObserver = new MutationObserver((mutations, obs) => {
+          for (const mutation of mutations) {
+            if (mutation.attributeName === "aria-expanded") {
+              if (componentsFolder.getAttribute("aria-expanded") === "true") {
+                addModalFolderObserver();
+                obs.disconnect();
+                break;
+              }
+            }
+          }
+        });
+        folderObserver.observe(componentsFolder, { attributes: true });
+      }
+    };
+
+    const addModalFolderObserver = () => {
+      const modalFolder = document.querySelector("button#components-modal-new");
+      if (!modalFolder) return;
+
+      const modalFolderObserver = new MutationObserver(mutations => {
+        for (const mutation of mutations) {
+          if (mutation.attributeName === "aria-expanded") {
+            const oldVal = mutation.oldValue || "";
+            const newVal = modalFolder.getAttribute("aria-expanded") || "";
+
+            if (oldVal !== "true" && newVal === "true") {
+              const modalDocsPage = modalFolder.nextElementSibling.querySelector("a");
+              modalDocsPage.click();
+            }
+          }
+        }
+      });
+
+      modalFolderObserver.observe(modalFolder, {
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ["aria-expanded"]
+      });
+    };
+
+    waitForComponentsFolder().then(componentsFolder => {
+      try {
+        initComponentsFolderLogic(componentsFolder);
+      } catch (e) {}
+    });
+  });
+</script>

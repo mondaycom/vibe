@@ -11,6 +11,26 @@
   width: 100%;
   container-type: inline-size;
 
+  .fullPreviewButtonWrapper {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 10001;
+  }
+
+  .fullPreviewButton {
+    background: var(--sb-dark-background-color);
+
+    &:hover {
+      background: linear-gradient(
+          to right,
+          var(--sb-primary-background-hover-color),
+          var(--sb-primary-background-hover-color)
+        ),
+        linear-gradient(to right, var(--sb-dark-background-color), var(--sb-dark-background-color)) !important;
+    }
+  }
+
   &.small {
     height: 360px;
   }
