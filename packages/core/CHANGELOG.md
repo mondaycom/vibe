@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.11.0...@vibe/core@3.12.0) (2024-12-31)
+
+
+### Features
+
+* support multiline for EditableText ([#2683](https://github.com/mondaycom/vibe/issues/2683)) ([8c4bf29](https://github.com/mondaycom/vibe/commit/8c4bf29790a007811e9abd70a18f2cebed0679f9))
+
+
+
+
+
 # [3.11.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.3...@vibe/core@3.11.0) (2024-12-31)
 
 
