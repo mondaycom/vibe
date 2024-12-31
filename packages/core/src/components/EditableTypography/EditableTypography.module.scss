@@ -50,5 +50,9 @@
     &.placeholder {
       color: var(--secondary-text-color);
     }
+
+    &.multiline {
+      white-space: pre-wrap;
+    }
   }
 }

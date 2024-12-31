@@ -280,7 +280,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           className={cx(styles.typography, typographyClassName, {
             [styles.hidden]: isEditing,
             [styles.disabled]: readOnly,
-            [styles.placeholder]: !inputValue && placeholder
+            [styles.placeholder]: !inputValue && placeholder,
+            [styles.multiline]: !isEditing && multiline,
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}
@@ -288,14 +289,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           type={type}
           ellipsis={!multiline}
         >
-          {(multiline
-            ? inputValue.split("\n").map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  {index < inputValue.split("\n").length - 1 && <br />}
-                </React.Fragment>
-              ))
-            : inputValue) || placeholder}
+          {inputValue || placeholder}
         </TypographyComponent>
       </div>
     );
