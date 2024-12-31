@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.3...@vibe/core@3.11.0) (2024-12-31)
+
+
+### Features
+
+* **EditableTypography:** allow autoselect of text when going into edit mode ([#2691](https://github.com/mondaycom/vibe/issues/2691)) ([941fab2](https://github.com/mondaycom/vibe/commit/941fab2f94857e93b90f46eb42e5eb752c2f991f))
+
+
+
+
+
 ## [3.10.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.2...@vibe/core@3.10.3) (2024-12-30)
 
 
