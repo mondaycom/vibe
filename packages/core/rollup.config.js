@@ -86,13 +86,13 @@ export default {
       babelHelpers: "bundled",
       extensions: EXTENSIONS
     }),
-    terser({
-      compress: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true
-      }
-    }),
+    // terser({
+    //   compress: {
+    //     pure_getters: true,
+    //     unsafe: true,
+    //     unsafe_comps: true
+    //   }
+    // }),
     postcss({
       /**
        * Normally, this plugin expects a local version of "node_modules" to be present, but since
