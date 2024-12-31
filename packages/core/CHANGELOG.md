@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.11.0...@vibe/core@3.12.0) (2024-12-31)
+
+
+### Features
+
+* support multiline for EditableText ([#2683](https://github.com/mondaycom/vibe/issues/2683)) ([8c4bf29](https://github.com/mondaycom/vibe/commit/8c4bf29790a007811e9abd70a18f2cebed0679f9))
+
+
+
+
+
+# [3.11.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.3...@vibe/core@3.11.0) (2024-12-31)
+
+
+### Features
+
+* **EditableTypography:** allow autoselect of text when going into edit mode ([#2691](https://github.com/mondaycom/vibe/issues/2691)) ([941fab2](https://github.com/mondaycom/vibe/commit/941fab2f94857e93b90f46eb42e5eb752c2f991f))
+
+
+
+
+
+## [3.10.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.2...@vibe/core@3.10.3) (2024-12-30)
+
+
+### Bug Fixes
+
+* **Table:** menu not rendering on react 18 ([#2684](https://github.com/mondaycom/vibe/issues/2684)) ([0ae670f](https://github.com/mondaycom/vibe/commit/0ae670f3104d4a0b7ef6ea4e39805b4585d52eef))
+
+
+
+
+
+## [3.10.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.1...@vibe/core@3.10.2) (2024-12-30)
+
+
+### Bug Fixes
+
+* **Tipseen:** showDelay of 0 causes component to auto-close when mouse leave ([#2687](https://github.com/mondaycom/vibe/issues/2687)) ([f8b59f6](https://github.com/mondaycom/vibe/commit/f8b59f6998e6c988d9536a04b112067404b507d3))
+
+
+### Performance Improvements
+
+* remove redundant overflow style manipulation ([#2678](https://github.com/mondaycom/vibe/issues/2678)) ([5b57172](https://github.com/mondaycom/vibe/commit/5b57172e2d33027993ed2509f8d2c470d51b3d2c))
+
+
+
+
+
+## [3.10.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.0...@vibe/core@3.10.1) (2024-12-29)
+
+
+### Bug Fixes
+
+* **Button:** ensure icons className is not added when children are non-renderable ([#2685](https://github.com/mondaycom/vibe/issues/2685)) ([7758e29](https://github.com/mondaycom/vibe/commit/7758e2996bd26d3f7c76bd99b89584823ed5389b))
+
+
+
+
+
+# [3.10.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.3...@vibe/core@3.10.0) (2024-12-26)
+
+
+### Features
+
+* **Tipseen:** add event in Tipseen onClose prop ([#2680](https://github.com/mondaycom/vibe/issues/2680)) ([a79f610](https://github.com/mondaycom/vibe/commit/a79f6105a6b1b6a96a0fdce1326239539e027587))
+
+
+
+
+
+## [3.9.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.2...@vibe/core@3.9.3) (2024-12-24)
+
+
+### Bug Fixes
+
+* **VirtualizedGrid:** fix onItemsRendered params ([#2674](https://github.com/mondaycom/vibe/issues/2674)) ([48d4711](https://github.com/mondaycom/vibe/commit/48d4711844f7baebd9d10a86cb6cf10d0aa27e6c))
+
+
+
+
+
 ## [3.9.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.1...@vibe/core@3.9.2) (2024-12-23)
 
 **Note:** Version bump only for package @vibe/core

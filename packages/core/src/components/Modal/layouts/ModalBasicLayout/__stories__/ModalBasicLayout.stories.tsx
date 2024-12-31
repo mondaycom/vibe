@@ -41,7 +41,10 @@ export default {
 } satisfies Meta<typeof Modal>;
 
 export const Overview: Story = {
-  decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
+  decorators: [
+    (Story, context) =>
+      withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs", allowFullViewInDocs: true })
+  ],
   render: (args, { show, setShow, container }) => {
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container} {...args}>
@@ -255,9 +258,11 @@ export const Wizard: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: steps.length
     });
+
+    const primaryButtonText = isLastStep ? "Confirm" : "Next";
 
     return (
       <Modal id="modal-basic" show={show} size="medium" onClose={() => setShow(false)} container={container}>
@@ -268,7 +273,7 @@ export const Wizard: Story = {
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next }}
+          primaryButton={{ text: primaryButtonText, onClick: next }}
           secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
@@ -276,7 +281,7 @@ export const Wizard: Story = {
   }
 };
 
-export const FooterWithSideAction: Story = {
+export const FooterWithExtraContent: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow, container }) => {
     return (
@@ -307,7 +312,32 @@ export const FooterWithSideAction: Story = {
   }
 };
 
-export const HeaderWithExtraIconButton: Story = {
+export const Confirmation: Story = {
+  decorators: [
+    (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow, container }) => {
+    return (
+      <Modal id="modal-basic" show={show} size="small" onClose={() => setShow(false)} container={container}>
+        <ModalBasicLayout>
+          <ModalHeader title="Want to delete?" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              There are other tasks connected to this task. Deleting this task will remove any existing connections. It
+              will be kept in trash for 30 days.
+            </Text>
+          </ModalContent>
+        </ModalBasicLayout>
+        <ModalFooter
+          primaryButton={{ text: "Confirm", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Cancel", onClick: () => setShow(false) }}
+        />
+      </Modal>
+    );
+  }
+};
+
+export const HeaderWithIconButton: Story = {
   decorators: [(Story, context) => withOpenedModalPreview(Story, { isDocsView: context.viewMode === "docs" })],
   render: (_, { show, setShow, container }) => {
     return (
@@ -383,7 +413,7 @@ export const Animation: Story = {
       </ModalBasicLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -457,7 +487,7 @@ export const Animation: Story = {
             activeStep={activeStep}
             stepCount={transitionSteps.length}
             onStepClick={goToStep}
-            primaryButton={{ text: "Next", onClick: next }}
+            primaryButton={{ text: isLastStep ? "Confirm" : "Next", onClick: next }}
             secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
           />
         </Modal>

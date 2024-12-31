@@ -51,7 +51,12 @@ export default {
 
 export const Overview: Story = {
   decorators: [
-    (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
+    (Story, context) =>
+      withOpenedModalPreview(Story, {
+        size: "large",
+        isDocsView: context.viewMode === "docs",
+        allowFullViewInDocs: true
+      })
   ],
   render: (args, { show, setShow, container }) => {
     return (
@@ -92,7 +97,7 @@ export const Wizard: Story = {
     const steps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -103,7 +108,7 @@ export const Wizard: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -115,9 +120,11 @@ export const Wizard: Story = {
       </ModalMediaLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: steps.length
     });
+
+    const primaryButtonText = isLastStep ? "Confirm" : "Next";
 
     return (
       <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} container={container}>
@@ -128,7 +135,7 @@ export const Wizard: Story = {
           activeStep={activeStep}
           stepCount={steps.length}
           onStepClick={goToStep}
-          primaryButton={{ text: "Next", onClick: next }}
+          primaryButton={{ text: primaryButtonText, onClick: next }}
           secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
         />
       </Modal>
@@ -136,7 +143,35 @@ export const Wizard: Story = {
   }
 };
 
-export const HeaderWithExtraIconButton: Story = {
+export const Announcement: Story = {
+  decorators: [
+    (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
+  ],
+  render: (_, { show, setShow, container }) => {
+    return (
+      <Modal id="modal-media" show={show} size="medium" onClose={() => setShow(false)} container={container}>
+        <ModalMediaLayout>
+          <ModalMedia>
+            <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          </ModalMedia>
+          <ModalHeader title="Meet our new feature" />
+          <ModalContent>
+            <Text type="text1" align="inherit" element="p">
+              Introducing our latest feature designed to make your workflow faster and easier. For more details{" "}
+              <Link inheritFontSize inlineText text="click here" />.
+            </Text>
+          </ModalContent>
+        </ModalMediaLayout>
+        <ModalFooter
+          primaryButton={{ text: "Got it", onClick: () => setShow(false) }}
+          secondaryButton={{ text: "Dismiss", onClick: () => setShow(false) }}
+        />
+      </Modal>
+    );
+  }
+};
+
+export const HeaderWithIconButton: Story = {
   decorators: [
     (Story, context) => withOpenedModalPreview(Story, { size: "large", isDocsView: context.viewMode === "docs" })
   ],
@@ -179,7 +214,7 @@ export const Animation: Story = {
     const transitionSteps = [
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -190,7 +225,7 @@ export const Animation: Story = {
       </ModalMediaLayout>,
       <ModalMediaLayout>
         <ModalMedia>
-          <img height={260} src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
+          <img src={mediaImage} alt="media placeholder" style={{ width: "100%", objectFit: "cover" }} />
         </ModalMedia>
         <ModalHeader title="Modal with wizard" />
         <ModalContent>
@@ -202,7 +237,7 @@ export const Animation: Story = {
       </ModalMediaLayout>
     ];
 
-    const { activeStep, direction, next, back, isFirstStep, goToStep } = useWizard({
+    const { activeStep, direction, next, back, isFirstStep, isLastStep, goToStep } = useWizard({
       stepCount: transitionSteps.length
     });
 
@@ -240,7 +275,7 @@ export const Animation: Story = {
             activeStep={activeStep}
             stepCount={transitionSteps.length}
             onStepClick={goToStep}
-            primaryButton={{ text: "Next", onClick: next }}
+            primaryButton={{ text: isLastStep ? "Confirm" : "Next", onClick: next }}
             secondaryButton={{ text: "Back", onClick: back, disabled: isFirstStep }}
           />
         </Modal>

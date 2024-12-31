@@ -5,13 +5,9 @@ function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, tole
   if (!element) {
     return false;
   }
-  const curOverflow = element.style.overflow;
-  if (!curOverflow || curOverflow === "visible") element.style.overflow = "hidden";
-  const isOverflowing =
-    element.clientWidth < element.scrollWidth ||
-    (!ignoreHeightOverflow && element.clientHeight + tolerance < element.scrollHeight);
-  element.style.overflow = curOverflow;
-  return isOverflowing;
+  const isOverflowingWidth = element.clientWidth < element.scrollWidth;
+  const isOverflowingHeight = !ignoreHeightOverflow && element.clientHeight + tolerance < element.scrollHeight;
+  return isOverflowingWidth || isOverflowingHeight;
 }
 
 export default function useIsOverflowing({
@@ -27,7 +23,11 @@ export default function useIsOverflowing({
     checkOverflow(ref?.current, ignoreHeightOverflow, tolerance)
   );
   const callback = useCallback(() => {
-    setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow, tolerance));
+    const element = ref?.current;
+    if (!element) return;
+
+    const newOverflowState = checkOverflow(element, ignoreHeightOverflow, tolerance);
+    setIsOverflowing(prevState => (prevState !== newOverflowState ? newOverflowState : prevState));
   }, [ignoreHeightOverflow, ref, tolerance]);
 
   useResizeObserver({

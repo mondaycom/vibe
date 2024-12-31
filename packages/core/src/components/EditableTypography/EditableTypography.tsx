@@ -26,6 +26,8 @@ export interface EditableTypographyImplementationProps {
   ariaLabel?: string;
   /** Controls the mode of the component (i.e. view/edit mode) */
   isEditMode?: boolean;
+  /** If true, automatically select all text when entering edit mode */
+  autoSelectTextOnEditMode?: boolean;
   /** Will be called when the mode of the component changes */
   onEditModeChange?: (isEditMode: boolean) => void;
   /** Override Tooltip props when needed */
@@ -43,6 +45,8 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   type?: TextType | HeadingType;
   /** Sets the Text/Heading weight */
   weight?: TextWeight | HeadingWeight;
+  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
+  multiline?: boolean;
 }
 
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
@@ -61,10 +65,12 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       typographyClassName,
       component: TypographyComponent,
       isEditMode,
+      autoSelectTextOnEditMode,
       onEditModeChange,
       tooltipProps,
       type,
-      weight
+      weight,
+      multiline = false
     }: EditableTypographyProps,
     ref
   ) => {
@@ -74,6 +80,9 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
+    const [inputHeight, setInputHeight] = useState<number | string>(0);
+    const textareaBorderBoxSizing = useRef(0);
+    const textareaLineHeight = useRef(0);
 
     const prevValue = usePrevious(value);
 
@@ -128,8 +137,12 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       handleInputValueChange();
     }
 
-    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
       if (event.key === keyCodes.ENTER) {
+        if (multiline && event.shiftKey) {
+          return;
+        }
+
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
@@ -138,31 +151,101 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setInputValue(event.target.value);
+
+      if (multiline) {
+        resizeTextarea();
+      }
     }
 
     const toggleKeyboardEditMode = useKeyboardButtonPressedFunc(toggleEditMode);
 
     function focus() {
+      inputRef.current?.focus?.();
+
       if (inputRef.current) {
-        inputRef.current?.focus();
+        const inputElement = inputRef.current as HTMLInputElement | HTMLTextAreaElement;
+        const textLength = inputElement.value.length;
+        inputElement.setSelectionRange(textLength, textLength);
+      }
+
+      if (multiline) {
+        calculateTextareaHeightAttrs();
       }
     }
 
-    useEffect(() => {
-      if (isEditing) {
-        focus();
+    /* Dynamically resizes the textarea to fit its content */
+    function resizeTextarea() {
+      if (inputRef.current) {
+        // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
+        setInputHeight("auto");
+
+        requestAnimationFrame(() => {
+          const textarea = inputRef.current as HTMLTextAreaElement;
+
+          if (!textarea) {
+            return;
+          }
+
+          // Ensure we at least have 1 line
+          setInputHeight(
+            Math.max(
+              textarea.scrollHeight + textareaBorderBoxSizing.current,
+              textareaLineHeight.current + textareaBorderBoxSizing.current
+            )
+          );
+        });
       }
-    }, [isEditing]);
+    }
+
+    function selectAllInputText() {
+      inputRef.current?.select?.();
+    }
+
+    useEffect(() => {
+      if (!isEditing) return;
+      focus();
+      if (autoSelectTextOnEditMode) {
+        selectAllInputText();
+      }
+    }, [autoSelectTextOnEditMode, isEditing]);
 
     useEffect(() => {
       if (!typographyRef.current) {
         return;
       }
+
       const { width } = typographyRef.current.getBoundingClientRect();
       setInputWidth(width);
     }, [inputValue, isEditing]);
+
+    /* Calculate the minimual textarea height, taking its applied styles (padding, border width) into consideration 
+       This is done only on focus, so that we don't need to get the computed style every time.
+    */
+    function calculateTextareaHeightAttrs() {
+      if (multiline && inputRef.current) {
+        const textarea = inputRef.current as HTMLTextAreaElement;
+
+        if (!textarea) {
+          return;
+        }
+
+        const computedStyle = window.getComputedStyle(textarea);
+
+        // Calculate the appropriate height by taking into account the scrollable content inside the textarea,
+        // as well as the styles applied to it, such as padding and border widths.
+        const lineHeight = parseFloat(computedStyle.lineHeight) || 16;
+        const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
+        const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+        const borderTopWidth = parseFloat(computedStyle.borderTopWidth) || 0;
+        const borderBottomWidth = parseFloat(computedStyle.borderBottomWidth) || 0;
+
+        textareaLineHeight.current = lineHeight;
+        textareaBorderBoxSizing.current = paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;
+        resizeTextarea();
+      }
+    }
 
     return (
       <div
@@ -175,32 +258,49 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         onClick={onTypographyClick}
         onKeyDown={toggleKeyboardEditMode}
       >
-        {isEditing && (
-          <input
-            ref={inputRef}
-            className={cx(styles.input, typographyClassName)}
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            aria-label={ariaLabel}
-            placeholder={placeholder}
-            style={{ width: inputWidth }}
-            role="input"
-          />
-        )}
+        {isEditing &&
+          (multiline ? (
+            <textarea
+              ref={inputRef}
+              className={cx(styles.textarea, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth, height: inputHeight }}
+              role="textbox"
+              rows={1}
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              className={cx(styles.input, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth }}
+              role="input"
+            />
+          ))}
         <TypographyComponent
           ref={typographyRef}
           aria-hidden={isEditing}
           className={cx(styles.typography, typographyClassName, {
             [styles.hidden]: isEditing,
             [styles.disabled]: readOnly,
-            [styles.placeholder]: !inputValue && placeholder
+            [styles.placeholder]: !inputValue && placeholder,
+            [styles.multiline]: !isEditing && multiline
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}
           weight={weight}
           type={type}
+          ellipsis={!multiline}
         >
           {inputValue || placeholder}
         </TypographyComponent>

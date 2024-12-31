@@ -1,7 +1,6 @@
 import React from "react";
 import Contributor from "./Contributor";
 import useContributors from "./useContributors";
-import Hadas from "../assets/contributors/Hadas.png";
 import Sergey from "../assets/contributors/Sergey.png";
 import Rotem from "../assets/contributors/Rotem.png";
 import Devorah from "../assets/contributors/Devorah.png";
@@ -16,11 +15,6 @@ const CONTRIBUTORS = [
     name: "Rotem Dekel",
     href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/",
     image: Rotem
-  },
-  {
-    name: "Hadas Farhi",
-    href: "https://www.linkedin.com/in/hadasfarhi/",
-    image: Hadas
   },
   {
     name: "Sergey Roytman",
