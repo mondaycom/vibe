@@ -26,6 +26,8 @@ export interface EditableTypographyImplementationProps {
   ariaLabel?: string;
   /** Controls the mode of the component (i.e. view/edit mode) */
   isEditMode?: boolean;
+  /** If true, automatically select all text when entering edit mode */
+  autoSelectTextOnEditMode?: boolean;
   /** Will be called when the mode of the component changes */
   onEditModeChange?: (isEditMode: boolean) => void;
   /** Override Tooltip props when needed */
@@ -61,6 +63,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       typographyClassName,
       component: TypographyComponent,
       isEditMode,
+      autoSelectTextOnEditMode,
       onEditModeChange,
       tooltipProps,
       type,
@@ -145,16 +148,20 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const toggleKeyboardEditMode = useKeyboardButtonPressedFunc(toggleEditMode);
 
     function focus() {
-      if (inputRef.current) {
-        inputRef.current?.focus();
-      }
+      inputRef.current?.focus?.();
+    }
+
+    function selectAllInputText() {
+      inputRef.current?.select?.();
     }
 
     useEffect(() => {
-      if (isEditing) {
-        focus();
+      if (!isEditing) return;
+      focus();
+      if (autoSelectTextOnEditMode) {
+        selectAllInputText();
       }
-    }, [isEditing]);
+    }, [autoSelectTextOnEditMode, isEditing]);
 
     useEffect(() => {
       if (!typographyRef.current) {
