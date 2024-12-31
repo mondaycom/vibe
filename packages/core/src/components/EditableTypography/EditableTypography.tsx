@@ -164,6 +164,12 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     function focus() {
       inputRef.current?.focus?.();
 
+      if (inputRef.current) {
+        const inputElement = inputRef.current as HTMLInputElement | HTMLTextAreaElement;
+        const textLength = inputElement.value.length;
+        inputElement.setSelectionRange(textLength, textLength);
+      }
+
       if (multiline) {
         calculateTextareaHeightAttrs();
       }
@@ -288,7 +294,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             [styles.hidden]: isEditing,
             [styles.disabled]: readOnly,
             [styles.placeholder]: !inputValue && placeholder,
-            [styles.multiline]: !isEditing && multiline,
+            [styles.multiline]: !isEditing && multiline
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}
