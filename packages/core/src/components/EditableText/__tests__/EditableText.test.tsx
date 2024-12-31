@@ -18,6 +18,16 @@ describe("EditableText", () => {
     expect(input).toBeInTheDocument();
   });
 
+  it("should render a textarea in edit mode with multiline", () => {
+    render(<EditableText multiline value="Editable text" />);
+
+    const component = screen.getByRole("button");
+    fireEvent.click(component);
+
+    const input = screen.queryByRole("textbox");
+    expect(input).toBeInTheDocument();
+  });
+
   it("should not render an input when 'readOnly' is false when clicked", () => {
     render(<EditableText value="Editable test" readOnly />);
 
@@ -98,6 +108,29 @@ describe("EditableText", () => {
         expect(onChange).toHaveBeenCalledWith(newValue);
       });
 
+      it("should call onChange with new value when changed in a multiline editable component", async () => {
+        const value = "Editable test";
+        const newValue = "New Editable test";
+        render(<EditableText value={value} onChange={onChange} multiline />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("textbox");
+        fireEvent.change(input, {
+          target: { value: newValue }
+        });
+
+        expect(input).toHaveValue(newValue);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter" });
+        });
+        expect(within(await screen.findByRole("button")).getByText(newValue)).toBeInTheDocument();
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toHaveBeenCalledWith(newValue);
+      });
+
       it("should not call onChange when value isn't changed in an editable component", async () => {
         const value = "Editable test";
         render(<EditableText value={value} onChange={onChange} />);
@@ -114,6 +147,24 @@ describe("EditableText", () => {
         });
 
         expect(within(screen.getByRole("button")).getByText(value)).toBeInTheDocument();
+
+        expect(onChange).not.toBeCalled();
+      });
+
+      it("should not call onChange when value changed but Shift+Enter was clicked for multiline in an editable component", async () => {
+        const value = "Editable test";
+        render(<EditableText value={value} onChange={onChange} multiline />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("textbox");
+
+        expect(input).toHaveValue(value);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter", shiftKey: true });
+        });
 
         expect(onChange).not.toBeCalled();
       });

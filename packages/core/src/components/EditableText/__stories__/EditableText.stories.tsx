@@ -102,3 +102,22 @@ export const Types = {
     }
   }
 };
+
+export const Multiline = {
+  render: () => (
+    <EditableText
+      type={EditableText.types.TEXT1}
+      weight={EditableText.weights.NORMAL}
+      multiline
+      value={"This is a multiline\nhere's the second line"}
+      className={styles.editableText}
+    />
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
+};
