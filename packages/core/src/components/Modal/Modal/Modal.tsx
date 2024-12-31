@@ -23,6 +23,9 @@ import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import { LayerProvider } from "../../LayerProvider";
 
+// @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
+const FocusLockComponent = (FocusLock.default || FocusLock) as typeof FocusLock;
+
 const Modal = forwardRef(
   (
     {
@@ -111,7 +114,7 @@ const Modal = forwardRef(
                     aria-hidden
                     style={zIndexStyle}
                   />
-                  <FocusLock returnFocus>
+                  <FocusLockComponent returnFocus>
                     <RemoveScroll forwardProps>
                       <motion.div
                         variants={modalAnimationVariants}
@@ -143,7 +146,7 @@ const Modal = forwardRef(
                         />
                       </motion.div>
                     </RemoveScroll>
-                  </FocusLock>
+                  </FocusLockComponent>
                 </>,
                 portalTargetElement
               )}
