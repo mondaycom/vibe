@@ -3,9 +3,10 @@
 .editableTypography {
   display: inline-flex;
   min-width: 0;
-  max-width: 100%;
   // Shifts the component to align the text with the container
   margin-left: -6px;
+  // Adds 6 px removed above to the element width to avoid unnecessary overflow
+  max-width: calc(100% + 6px);
   overflow: hidden;
   position: relative;
 
