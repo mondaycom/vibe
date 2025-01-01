@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.1...@vibe/core@3.12.2) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Modal:** RemoveScroll is overriding Modal's div's ref ([#2697](https://github.com/mondaycom/vibe/issues/2697)) ([7f1772f](https://github.com/mondaycom/vibe/commit/7f1772fbede8bc6b3a01df435bec78020a90ca83))
+
+
+
+
+
 ## [3.12.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.0...@vibe/core@3.12.1) (2025-01-01)
 
 
