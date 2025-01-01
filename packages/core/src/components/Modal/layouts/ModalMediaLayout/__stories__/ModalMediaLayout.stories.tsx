@@ -43,7 +43,7 @@ export default {
     layout: "fullscreen",
     docs: {
       liveEdit: {
-        scope: { TransitionView, mediaImage }
+        scope: { mediaImage }
       }
     }
   }

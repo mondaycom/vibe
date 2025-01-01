@@ -31,12 +31,7 @@ export default {
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
   parameters: {
-    layout: "fullscreen",
-    docs: {
-      liveEdit: {
-        scope: { TransitionView }
-      }
-    }
+    layout: "fullscreen"
   }
 } satisfies Meta<typeof Modal>;
 

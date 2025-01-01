@@ -104,6 +104,7 @@ exports[`exports should export all components 1`] = `
   "ToastLink",
   "Toggle",
   "Tooltip",
+  "TransitionView",
   "VirtualizedGrid",
   "VirtualizedList",
   "useGridKeyboardNavigationContext",

@@ -4,8 +4,8 @@ import { SlideDirection } from "../SlideTransition/SlideTransition.types";
 
 export interface TransitionViewProps extends VibeComponentProps {
   activeStep: number;
-  direction: TransitionDirection;
+  direction: TransitionViewDirection;
   children: React.ReactNode[];
 }
 
-export type TransitionDirection = SlideDirection;
+export type TransitionViewDirection = SlideDirection;
