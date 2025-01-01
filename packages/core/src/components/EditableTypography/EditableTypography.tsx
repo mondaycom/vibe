@@ -314,4 +314,3 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 );
 
 export default EditableTypography;
-
