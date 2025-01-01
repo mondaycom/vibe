@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.2...@vibe/core@3.12.3) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Modal:** Esc should be scoped to the current top modal and not to close all modals ([#2698](https://github.com/mondaycom/vibe/issues/2698)) ([8fa3253](https://github.com/mondaycom/vibe/commit/8fa3253d059e6c98eef8b36188b4cd7385f90c4e))
+
+
+
+
+
 ## [3.12.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.1...@vibe/core@3.12.2) (2025-01-01)
 
 
