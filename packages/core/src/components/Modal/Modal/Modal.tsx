@@ -115,14 +115,13 @@ const Modal = forwardRef(
                     style={zIndexStyle}
                   />
                   <FocusLockComponent returnFocus>
-                    <RemoveScroll forwardProps>
+                    <RemoveScroll forwardProps ref={ref}>
                       <motion.div
                         variants={modalAnimationVariants}
                         initial="exit"
                         animate="enter"
                         exit="exit"
                         custom={anchorElementRef}
-                        ref={ref}
                         className={cx(
                           styles.modal,
                           getStyle(styles, camelCase("size-" + size)),
