@@ -131,19 +131,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("calls onClose when the Escape key is pressed while focused on dialog", () => {
-    const mockOnClose = jest.fn();
-    const { getByRole } = render(
-      <Modal id={id} show onClose={mockOnClose}>
-        {childrenContent}
-      </Modal>
-    );
-
-    fireEvent.keyDown(getByRole("dialog"), { key: "Escape" });
-    expect(mockOnClose).toHaveBeenCalled();
-  });
-
-  it("calls onClose when the Escape key is pressed without focus", () => {
+  it("calls onClose when the Escape key is pressed while modal loads with auto-focusable content", () => {
     const mockOnClose = jest.fn();
     render(
       <Modal id={id} show onClose={mockOnClose}>
@@ -151,8 +139,41 @@ describe("Modal", () => {
       </Modal>
     );
 
-    userEvent.keyboard("{Escape}");
+    userEvent.keyboard("{escape}");
     expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it("calls onClose when the Escape key is pressed while modal loads without an auto-focusable content", () => {
+    const mockOnClose = jest.fn();
+    render(
+      <Modal id={id} show onClose={mockOnClose}>
+        <div aria-hidden>I am not focusable</div>
+      </Modal>
+    );
+
+    userEvent.keyboard("{escape}");
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it("closes only the top most modal when Escape is pressed with multiple modals open", () => {
+    const mockOnCloseModal1 = jest.fn();
+    const mockOnCloseModal2 = jest.fn();
+
+    render(
+      <>
+        <Modal id="modal1" show onClose={mockOnCloseModal1} data-testid="modal1">
+          <div>Modal 1 Content</div>
+        </Modal>
+        <Modal id="modal2" show onClose={mockOnCloseModal2} data-testid="modal2">
+          <div>Modal 2 Content</div>
+        </Modal>
+      </>
+    );
+
+    userEvent.keyboard("{escape}");
+
+    expect(mockOnCloseModal1).not.toHaveBeenCalled();
+    expect(mockOnCloseModal2).toHaveBeenCalled();
   });
 
   it("traps focus inside the modal when opened and move it to first non top-actions element", () => {

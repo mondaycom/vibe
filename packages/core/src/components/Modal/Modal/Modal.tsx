@@ -12,7 +12,6 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ModalProvider } from "../context/ModalContext";
 import { ModalProviderValue } from "../context/ModalContext.types";
-import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants";
 import {
   modalAnimationAnchorPopVariants,
@@ -22,6 +21,7 @@ import {
 import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import { LayerProvider } from "../../LayerProvider";
+import useMergeRef from "../../../hooks/useMergeRef";
 
 // @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
 const FocusLockComponent = (FocusLock.default || FocusLock) as typeof FocusLock;
@@ -49,6 +49,8 @@ const Modal = forwardRef(
   ) => {
     const portalTargetElement = usePortalTarget(container);
 
+    const modalRef = useRef<HTMLDivElement>(null);
+    const modalMergedRef = useMergeRef<HTMLDivElement>(ref, modalRef);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     const [titleId, setTitleId] = useState<string>();
@@ -74,19 +76,13 @@ const Modal = forwardRef(
       [show, alertModal, onClose]
     );
 
-    const onEscClick = useCallback<React.KeyboardEventHandler<HTMLBodyElement>>(
+    const onModalKeyDown = useCallback<React.KeyboardEventHandler<HTMLDivElement>>(
       e => {
-        if (!show || alertModal) return;
+        if (e.key !== keyCodes.ESCAPE || !show || alertModal) return;
         onClose(e);
       },
-      [alertModal, show, onClose]
+      [alertModal, onClose, show]
     );
-
-    useKeyEvent({
-      callback: onEscClick,
-      capture: true,
-      keys: [keyCodes.ESCAPE]
-    });
 
     const modalAnimationVariants = anchorElementRef?.current
       ? modalAnimationAnchorPopVariants
@@ -115,7 +111,7 @@ const Modal = forwardRef(
                     style={zIndexStyle}
                   />
                   <FocusLockComponent returnFocus>
-                    <RemoveScroll forwardProps ref={ref}>
+                    <RemoveScroll forwardProps ref={modalMergedRef}>
                       <motion.div
                         variants={modalAnimationVariants}
                         initial="exit"
@@ -135,6 +131,8 @@ const Modal = forwardRef(
                         aria-labelledby={titleId}
                         aria-describedby={descriptionId}
                         style={modalStyle}
+                        onKeyDown={onModalKeyDown}
+                        tabIndex={-1}
                       >
                         {children}
                         <ModalTopActions
