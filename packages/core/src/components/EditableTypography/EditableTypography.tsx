@@ -144,9 +144,12 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         }
 
         event.preventDefault();
+        event.stopPropagation();
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
+        event.preventDefault();
+        event.stopPropagation();
         handleEditModeChange(false);
         setInputValue(value);
       }
