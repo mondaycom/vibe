@@ -61,6 +61,19 @@ describe("Modal", () => {
     expect(getByText("My content")).toBeInTheDocument();
   });
 
+  it("ensures the ref prop does not return null when modal is shown", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Modal id={id} show ref={ref} data-testid="modal">
+        <div>Content</div>
+      </Modal>
+    );
+
+    expect(getByTestId("modal")).toBeInTheDocument();
+    expect(ref.current).not.toBeNull();
+  });
+
   it("applies default size as 'medium' when not supplied with a size", () => {
     const { getByRole } = render(
       <Modal id={id} show>
