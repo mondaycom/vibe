@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.2...@vibe/core@3.12.3) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Modal:** Esc should be scoped to the current top modal and not to close all modals ([#2698](https://github.com/mondaycom/vibe/issues/2698)) ([8fa3253](https://github.com/mondaycom/vibe/commit/8fa3253d059e6c98eef8b36188b4cd7385f90c4e))
+
+
+
+
+
+## [3.12.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.1...@vibe/core@3.12.2) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Modal:** RemoveScroll is overriding Modal's div's ref ([#2697](https://github.com/mondaycom/vibe/issues/2697)) ([7f1772f](https://github.com/mondaycom/vibe/commit/7f1772fbede8bc6b3a01df435bec78020a90ca83))
+
+
+
+
+
+## [3.12.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.0...@vibe/core@3.12.1) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Dropdown:** fix a11y props when searchable is false ([#2689](https://github.com/mondaycom/vibe/issues/2689)) ([ca0a4ed](https://github.com/mondaycom/vibe/commit/ca0a4ed9cc8f1cb19cad793f77561941c0962f7d))
+* **EditableTypography:** Enter and Esc click to end edit mode is bubbling to other places afterwards ([#2696](https://github.com/mondaycom/vibe/issues/2696)) ([428ba51](https://github.com/mondaycom/vibe/commit/428ba51830eb34137ba51bfe016efcc4c4b67853))
+* **EditableTypography:** Enter click to end edit mode is bubbling to other places afterwards ([#2694](https://github.com/mondaycom/vibe/issues/2694)) ([c60db9f](https://github.com/mondaycom/vibe/commit/c60db9fbff945255a2e283711a73f5c8bf0909ff))
+
+
+
+
+
 # [3.12.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.11.0...@vibe/core@3.12.0) (2024-12-31)
 
 

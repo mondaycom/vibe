@@ -283,14 +283,19 @@ function getSingleValueTextSize(size) {
   }
 }
 
-const input = () => provided => ({
-  ...provided,
-  ...getFont(),
-  ...getColor(),
-  display: "flex",
-  alignItems: "center",
-  textIndent: "-2px"
-});
+const input =
+  ({ searchable }) =>
+  provided => ({
+    ...provided,
+    ...getFont(),
+    ...getColor(),
+    display: "flex",
+    alignItems: "center",
+    textIndent: "-2px",
+    ...(!searchable && {
+      width: "0px"
+    })
+  });
 
 // 12px - because we have inner 4px
 const getCenterContentStyle = rtl => {

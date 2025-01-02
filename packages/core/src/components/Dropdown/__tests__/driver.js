@@ -77,6 +77,11 @@ export default class DropdownDriver {
     return this.renderResult.container.querySelector("[class*='singleValue']").innerHTML;
   }
 
+  get input() {
+    this.ensureRendered();
+    return this.renderResult.getByLabelText("Dropdown input");
+  }
+
   focusInput() {
     this.ensureRendered();
 
@@ -240,5 +245,9 @@ export default class DropdownDriver {
 
   withOnClear(onClear) {
     return this.setProp("onClear", onClear);
+  }
+
+  withSearchable(value) {
+    return this.setProp("searchable", value);
   }
 }

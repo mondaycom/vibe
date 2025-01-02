@@ -1,5 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import EditableText from "../EditableText";
 import { within } from "@storybook/testing-library";
 
@@ -220,6 +221,52 @@ describe("EditableText", () => {
         expect(onEditModeChange).toHaveBeenCalledTimes(2);
         expect(onEditModeChange).toHaveBeenLastCalledWith(false);
       });
+    });
+  });
+
+  describe("event bubbling and propagation", () => {
+    it("should prevent Enter key press from propagating outside EditableText", () => {
+      const onChange = jest.fn();
+      const externalKeyHandler = jest.fn();
+
+      render(
+        <div onKeyDown={externalKeyHandler} data-testid="external-container">
+          <EditableText value="Editable text" onChange={onChange} />
+        </div>
+      );
+
+      const component = screen.getByRole("button");
+      fireEvent.click(component);
+
+      const input = screen.getByRole("input");
+      fireEvent.change(input, { target: { value: "New value" } });
+      userEvent.keyboard("{enter}");
+
+      expect(onChange).toHaveBeenCalledWith("New value");
+      expect(externalKeyHandler).not.toHaveBeenCalled();
+    });
+
+    it("should prevent Esc key press from propagating outside EditableText", () => {
+      const onChange = jest.fn();
+      const onEditModeChange = jest.fn();
+      const externalKeyHandler = jest.fn();
+
+      render(
+        <div onKeyDown={externalKeyHandler} data-testid="external-container">
+          <EditableText value="Editable text" onChange={onChange} onEditModeChange={onEditModeChange} />
+        </div>
+      );
+
+      const component = screen.getByRole("button");
+      fireEvent.click(component);
+
+      const input = screen.getByRole("input");
+      fireEvent.change(input, { target: { value: "New value" } });
+      userEvent.keyboard("{escape}");
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onEditModeChange).toHaveBeenCalledTimes(2);
+      expect(externalKeyHandler).not.toHaveBeenCalled();
     });
   });
 

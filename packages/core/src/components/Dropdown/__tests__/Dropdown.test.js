@@ -207,4 +207,23 @@ describe("Dropdown", () => {
       });
     });
   });
+
+  describe("input aria attributes", () => {
+    const cases = [
+      { searchable: false, expectedReadOnly: true },
+      { searchable: true, expectedReadOnly: false }
+    ];
+
+    cases.forEach(({ searchable, expectedReadOnly }) => {
+      it(`Should set correct ARIA attributes when searchable is ${searchable}`, () => {
+        const component = new DropdownDriver().withOptions().withValue(mockOptions[0]).withSearchable(searchable);
+        component.render();
+        const inputElement = component.input;
+        expect(inputElement.getAttribute("aria-label")).toBe("Dropdown input");
+        expect(inputElement.getAttribute("role")).toBe("combobox");
+        expect(inputElement.hasAttribute("readOnly")).toBe(expectedReadOnly);
+        expect(inputElement.getAttribute("aria-expanded")).toBe("false");
+      });
+    });
+  });
 });

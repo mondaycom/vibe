@@ -192,7 +192,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         controlRef,
         insideOverflowWithTransformContainer,
-        withGroupDivider
+        withGroupDivider,
+        searchable
       });
 
       type BaseStyles = typeof baseStyles;
@@ -279,6 +280,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
             aria-expanded={!readOnly && menuIsOpen}
             aria-label={inputAriaLabel}
             aria-controls={menuId}
+            readOnly={!searchable ? true : undefined}
           />
         );
       },
@@ -432,7 +434,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         placeholder={placeholder}
         isDisabled={disabled}
         isClearable={!readOnly && clearable}
-        isSearchable={!readOnly && searchable}
+        isSearchable={!readOnly}
         readOnly={readOnly}
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
