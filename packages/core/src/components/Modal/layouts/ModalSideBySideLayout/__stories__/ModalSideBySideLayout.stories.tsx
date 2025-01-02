@@ -46,7 +46,7 @@ export default {
     layout: "fullscreen",
     docs: {
       liveEdit: {
-        scope: { TransitionView, FieldLabel, mediaImage }
+        scope: { FieldLabel, mediaImage }
       }
     }
   }
