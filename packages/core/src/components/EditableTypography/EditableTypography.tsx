@@ -1,4 +1,4 @@
-import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
+import React, { ElementType, forwardRef, useEffect, useRef, useState, useLayoutEffect } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -79,8 +79,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
-    const [inputWidth, setInputWidth] = useState(0);
-    const [inputHeight, setInputHeight] = useState<number | string>(0);
     const textareaBorderBoxSizing = useRef(0);
     const textareaLineHeight = useRef(0);
 
@@ -183,7 +181,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     function resizeTextarea() {
       if (inputRef.current) {
         // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
-        setInputHeight("auto");
+        inputRef?.current?.style.setProperty("--input-height", "auto");
 
         requestAnimationFrame(() => {
           const textarea = inputRef.current as HTMLTextAreaElement;
@@ -193,12 +191,11 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           }
 
           // Ensure we at least have 1 line
-          setInputHeight(
-            Math.max(
-              textarea.scrollHeight + textareaBorderBoxSizing.current,
-              textareaLineHeight.current + textareaBorderBoxSizing.current
-            )
+          const height = Math.max(
+            textarea.scrollHeight + textareaBorderBoxSizing.current,
+            textareaLineHeight.current + textareaBorderBoxSizing.current
           );
+          inputRef?.current?.style.setProperty("--input-height", `${height}px`);
         });
       }
     }
@@ -215,13 +212,13 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [autoSelectTextOnEditMode, isEditing]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       if (!typographyRef.current) {
         return;
       }
 
       const { width } = typographyRef.current.getBoundingClientRect();
-      setInputWidth(width);
+      inputRef?.current?.style.setProperty("--input-width", `${width}px`);
     }, [inputValue, isEditing]);
 
     /* Calculate the minimual textarea height, taking its applied styles (padding, border width) into consideration 
@@ -273,7 +270,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               onBlur={handleBlur}
               aria-label={ariaLabel}
               placeholder={placeholder}
-              style={{ width: inputWidth, height: inputHeight }}
+              // style={{ width: inputWidth, height: inputHeight }}
               role="textbox"
               rows={1}
             />
@@ -287,7 +284,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               onBlur={handleBlur}
               aria-label={ariaLabel}
               placeholder={placeholder}
-              style={{ width: inputWidth }}
               role="input"
             />
           ))}

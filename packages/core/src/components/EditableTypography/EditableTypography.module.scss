@@ -9,7 +9,9 @@
   overflow: hidden;
   position: relative;
 
-  .input,.textarea {
+  .input,
+  .textarea {
+    width: var(--input-width);
     display: inline-block;
     max-width: 100%;
     min-width: 64px;
@@ -28,6 +30,7 @@
 
   .textarea {
     resize: none;
+    height: var(--input-height);
   }
 
   .typography {
