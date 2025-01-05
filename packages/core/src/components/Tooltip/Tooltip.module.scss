@@ -11,6 +11,7 @@
   background-color: var(--inverted-color-background);
   color: var(--text-color-on-inverted);
   --tooltip-max-width: 240px;
+  white-space: pre-wrap;
 
   .image {
     display: block;
