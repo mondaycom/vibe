@@ -25,10 +25,19 @@ describe("ModalHeader", () => {
     useModalMocked.mockReturnValue(useModalMockedReturnedValue);
   });
 
-  it("renders the title correctly", () => {
-    const { getByText } = render(<ModalHeader title={title} />);
+  it("should render a Heading component when title is a string", () => {
+    const { getByRole } = render(<ModalHeader title={title} />);
+    const headingElement = getByRole("heading", { name: title });
+    expect(headingElement).toBeInTheDocument();
+  });
 
-    expect(getByText(title)).toBeInTheDocument();
+  it("should not wrap in Heading if title is a ReactNode", () => {
+    const CustomTitle = () => <div data-testid="custom-title">My Custom Title</div>;
+
+    const { getByTestId, queryByRole } = render(<ModalHeader title={<CustomTitle />} />);
+
+    expect(getByTestId("custom-title")).toBeInTheDocument();
+    expect(queryByRole("heading")).not.toBeInTheDocument();
   });
 
   it("renders the description correctly", () => {

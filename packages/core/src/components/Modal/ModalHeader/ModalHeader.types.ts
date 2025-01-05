@@ -28,6 +28,6 @@ export type ModalHeaderProps = {
    * Main heading text of the modal.
    * When supplied, would also add an aria-labelledby attribute to the modal dialog element.
    */
-  title: string;
+  title: string | React.ReactNode;
 } & (WithDescription | WithoutDescription) &
   VibeComponentProps;
