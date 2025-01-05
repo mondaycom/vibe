@@ -1,4 +1,4 @@
-import React, { ElementType, forwardRef, useEffect, useRef, useState, useLayoutEffect } from "react";
+import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -10,6 +10,7 @@ import { TooltipProps } from "../Tooltip/Tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { TextType, TextWeight } from "../Text/Text.types";
 import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -212,7 +213,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [autoSelectTextOnEditMode, isEditing]);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (!typographyRef.current) {
         return;
       }
