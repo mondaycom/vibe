@@ -270,7 +270,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               onBlur={handleBlur}
               aria-label={ariaLabel}
               placeholder={placeholder}
-              // style={{ width: inputWidth, height: inputHeight }}
               role="textbox"
               rows={1}
             />
