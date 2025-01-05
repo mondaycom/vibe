@@ -181,7 +181,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     function resizeTextarea() {
       if (inputRef.current) {
         // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
-        inputRef?.current?.style.setProperty("--input-height", "auto");
+        inputRef.current?.style.setProperty("--input-height", "auto");
 
         requestAnimationFrame(() => {
           const textarea = inputRef.current as HTMLTextAreaElement;
@@ -195,7 +195,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             textarea.scrollHeight + textareaBorderBoxSizing.current,
             textareaLineHeight.current + textareaBorderBoxSizing.current
           );
-          inputRef?.current?.style.setProperty("--input-height", `${height}px`);
+          inputRef.current?.style.setProperty("--input-height", `${height}px`);
         });
       }
     }
