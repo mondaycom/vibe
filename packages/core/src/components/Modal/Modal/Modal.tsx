@@ -43,7 +43,9 @@ const Modal = forwardRef(
       style,
       zIndex,
       className,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      "aria-labelledby": ariaLabelledby,
+      "aria-describedby": ariaDescribedby
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -56,8 +58,20 @@ const Modal = forwardRef(
     const [titleId, setTitleId] = useState<string>();
     const [descriptionId, setDescriptionId] = useState<string>();
 
-    const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
-    const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
+    const setTitleIdCallback = useCallback(
+      (newId: string) => {
+        if (ariaLabelledby) return;
+        setTitleId(newId);
+      },
+      [ariaLabelledby]
+    );
+    const setDescriptionIdCallback = useCallback(
+      (newId: string) => {
+        if (ariaDescribedby) return;
+        setDescriptionId(newId);
+      },
+      [ariaDescribedby]
+    );
 
     const contextValue = useMemo<ModalProviderValue>(
       () => ({
@@ -128,8 +142,8 @@ const Modal = forwardRef(
                         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
                         role="dialog"
                         aria-modal
-                        aria-labelledby={titleId}
-                        aria-describedby={descriptionId}
+                        aria-labelledby={ariaLabelledby || titleId}
+                        aria-describedby={ariaDescribedby || descriptionId}
                         style={modalStyle}
                         onKeyDown={onModalKeyDown}
                         tabIndex={-1}

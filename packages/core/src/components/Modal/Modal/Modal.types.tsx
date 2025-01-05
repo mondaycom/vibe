@@ -62,4 +62,12 @@ export interface ModalProps extends VibeComponentProps {
    * The z-index to be used for the modal and overlay.
    */
   zIndex?: number;
+  /**
+   * If provided, overrides the automatically generated aria-labelledby, that is assigned when used with ModalHeader.
+   */
+  "aria-labelledby"?: string;
+  /**
+   * If provided, overrides the automatically generated aria-describedby, that is assigned when used with ModalHeader.
+   */
+  "aria-describedby"?: string;
 }
