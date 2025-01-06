@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.3...@vibe/core@3.13.0) (2025-01-06)
+
+
+### Bug Fixes
+
+* **tooltip:** fix text with line breaks ([#2700](https://github.com/mondaycom/vibe/issues/2700)) ([5863c05](https://github.com/mondaycom/vibe/commit/5863c0526ff45b106ccc19f4feac4ffb8e90edea))
+
+
+### Features
+
+* **TransitionView:** export component to be used publicly ([#2699](https://github.com/mondaycom/vibe/issues/2699)) ([661be75](https://github.com/mondaycom/vibe/commit/661be7534be8f366b6541c40c7a11761185bc928))
+
+
+
+
+
 ## [3.12.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.2...@vibe/core@3.12.3) (2025-01-01)
 
 
