@@ -1516,6 +1516,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="value-container-chips without-placeholder"
@@ -2341,6 +2342,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="value-container-chips without-placeholder"
@@ -2569,6 +2571,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="value-container-chips without-placeholder"
@@ -2790,6 +2793,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="placeholder-container"
@@ -2927,6 +2931,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="value-container-chips without-placeholder"
@@ -3095,6 +3100,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
       >
         <div
           className="value-container"
+          onTouchEndCapture={[Function]}
         >
           <div
             className="value-container-chips without-placeholder"
