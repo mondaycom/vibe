@@ -10,6 +10,7 @@ import { TooltipProps } from "../Tooltip/Tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { TextType, TextWeight } from "../Text/Text.types";
 import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -49,6 +50,8 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   multiline?: boolean;
 }
 
+const PADDING_OFFSET = 2;
+
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
   (
     {
@@ -79,10 +82,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
-    const [inputWidth, setInputWidth] = useState(0);
-    const [inputHeight, setInputHeight] = useState<number | string>(0);
-    const textareaBorderBoxSizing = useRef(0);
-    const textareaLineHeight = useRef(0);
 
     const prevValue = usePrevious(value);
 
@@ -157,10 +156,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setInputValue(event.target.value);
-
-      if (multiline) {
-        resizeTextarea();
-      }
     }
 
     const toggleKeyboardEditMode = useKeyboardButtonPressedFunc(toggleEditMode);
@@ -172,34 +167,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         const inputElement = inputRef.current as HTMLInputElement | HTMLTextAreaElement;
         const textLength = inputElement.value.length;
         inputElement.setSelectionRange(textLength, textLength);
-      }
-
-      if (multiline) {
-        calculateTextareaHeightAttrs();
-      }
-    }
-
-    /* Dynamically resizes the textarea to fit its content */
-    function resizeTextarea() {
-      if (inputRef.current) {
-        // Temporarily set the height to "auto" to accurately measure the scroll height of the content inside the textarea.
-        setInputHeight("auto");
-
-        requestAnimationFrame(() => {
-          const textarea = inputRef.current as HTMLTextAreaElement;
-
-          if (!textarea) {
-            return;
-          }
-
-          // Ensure we at least have 1 line
-          setInputHeight(
-            Math.max(
-              textarea.scrollHeight + textareaBorderBoxSizing.current,
-              textareaLineHeight.current + textareaBorderBoxSizing.current
-            )
-          );
-        });
       }
     }
 
@@ -215,41 +182,20 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [autoSelectTextOnEditMode, isEditing]);
 
-    useEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (!typographyRef.current) {
         return;
       }
 
       const { width } = typographyRef.current.getBoundingClientRect();
-      setInputWidth(width);
-    }, [inputValue, isEditing]);
+      inputRef?.current?.style.setProperty("--input-width", `${width}px`);
 
-    /* Calculate the minimual textarea height, taking its applied styles (padding, border width) into consideration 
-       This is done only on focus, so that we don't need to get the computed style every time.
-    */
-    function calculateTextareaHeightAttrs() {
-      if (multiline && inputRef.current) {
-        const textarea = inputRef.current as HTMLTextAreaElement;
-
-        if (!textarea) {
-          return;
-        }
-
-        const computedStyle = window.getComputedStyle(textarea);
-
-        // Calculate the appropriate height by taking into account the scrollable content inside the textarea,
-        // as well as the styles applied to it, such as padding and border widths.
-        const lineHeight = parseFloat(computedStyle.lineHeight) || 16;
-        const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
-        const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
-        const borderTopWidth = parseFloat(computedStyle.borderTopWidth) || 0;
-        const borderBottomWidth = parseFloat(computedStyle.borderBottomWidth) || 0;
-
-        textareaLineHeight.current = lineHeight;
-        textareaBorderBoxSizing.current = paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;
-        resizeTextarea();
+      if (multiline) {
+        const textareaElement = inputRef?.current as HTMLTextAreaElement;
+        textareaElement?.style.setProperty("--input-height", "auto");
+        textareaElement?.style.setProperty("--input-height", `${textareaElement.scrollHeight + PADDING_OFFSET}px`);
       }
-    }
+    }, [inputValue, isEditing]);
 
     return (
       <div
@@ -273,7 +219,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               onBlur={handleBlur}
               aria-label={ariaLabel}
               placeholder={placeholder}
-              style={{ width: inputWidth, height: inputHeight }}
               role="textbox"
               rows={1}
             />
@@ -287,7 +232,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               onBlur={handleBlur}
               aria-label={ariaLabel}
               placeholder={placeholder}
-              style={{ width: inputWidth }}
               role="input"
             />
           ))}
