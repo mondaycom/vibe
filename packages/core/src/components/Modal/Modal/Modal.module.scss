@@ -1,47 +1,50 @@
-$modal-default-z-index: 10000;
-
-.overlay {
+.container {
   position: fixed;
   inset: 0;
-  background-color: var(--color-surface);
-  z-index: var(--monday-modal-z-index, $modal-default-z-index);
-}
+  z-index: var(--monday-modal-z-index, 10000);
 
-.modal {
-  --top-actions-spacing: var(--spacing-large);
-  --top-actions-width: var(--spacing-xl);
-  --modal-inline-padding: var(--spacing-xl);
-
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: var(--monday-modal-z-index, $modal-default-z-index);
-
-  display: flex;
-  flex-direction: column;
-  width: var(--modal-width);
-  max-height: var(--modal-max-height);
-  background-color: var(--primary-background-color);
-  overflow: hidden;
-  border-radius: var(--border-radius-big);
-  box-shadow: var(--box-shadow-large);
-
-  &.withHeaderAction {
-    --top-actions-width: calc(var(--spacing-xl) * 2);
+  .overlay {
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    background-color: var(--color-surface);
   }
 
-  &.sizeSmall {
-    --modal-max-height: 50%;
-    --modal-width: 480px;
-  }
+  .modal {
+    --top-actions-spacing: var(--spacing-large);
+    --top-actions-width: var(--spacing-xl);
+    --modal-inline-padding: var(--spacing-xl);
 
-  &.sizeMedium {
-    --modal-max-height: 80%;
-    --modal-width: 580px;
-  }
+    position: relative;
+    top: 50%;
+    left: 50%;
 
-  &.sizeLarge {
-    --modal-max-height: 80%;
-    --modal-width: 840px;
+    display: flex;
+    flex-direction: column;
+    width: var(--modal-width);
+    max-height: var(--modal-max-height);
+    background-color: var(--primary-background-color);
+    overflow: hidden;
+    border-radius: var(--border-radius-big);
+    box-shadow: var(--box-shadow-large);
+
+    &.withHeaderAction {
+      --top-actions-width: calc(var(--spacing-xl) * 2);
+    }
+
+    &.sizeSmall {
+      --modal-max-height: 50%;
+      --modal-width: 480px;
+    }
+
+    &.sizeMedium {
+      --modal-max-height: 80%;
+      --modal-width: 580px;
+    }
+
+    &.sizeLarge {
+      --modal-max-height: 80%;
+      --modal-width: 840px;
+    }
   }
 }

@@ -53,7 +53,7 @@ const Modal = forwardRef(
 
     const modalRef = useRef<HTMLDivElement>(null);
     const modalMergedRef = useMergeRef<HTMLDivElement>(ref, modalRef);
-    const overlayRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const [titleId, setTitleId] = useState<string>();
     const [descriptionId, setDescriptionId] = useState<string>();
@@ -103,28 +103,28 @@ const Modal = forwardRef(
       : modalAnimationCenterPopVariants;
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
-    const modalStyle = { ...zIndexStyle, ...style };
+    // useEffect(() => {
+    //   containerRef.current?.style?.setProperty("--monday-modal-z-index", zIndex?.toString() || "");
+    // }, [zIndex, containerRef]);
 
     return (
       <AnimatePresence>
         {show && (
-          <LayerProvider layerRef={overlayRef}>
+          <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <>
-                  <motion.div
-                    ref={overlayRef}
-                    variants={modalAnimationOverlayVariants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-                    className={styles.overlay}
-                    onClick={onBackdropClick}
-                    aria-hidden
-                    style={zIndexStyle}
-                  />
-                  <FocusLockComponent returnFocus>
+                <FocusLockComponent returnFocus>
+                  <div ref={containerRef} className={styles.container} style={zIndexStyle}>
+                    <motion.div
+                      variants={modalAnimationOverlayVariants}
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                      data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                      className={styles.overlay}
+                      onClick={onBackdropClick}
+                      aria-hidden
+                    />
                     <RemoveScroll forwardProps ref={modalMergedRef}>
                       <motion.div
                         variants={modalAnimationVariants}
@@ -144,7 +144,7 @@ const Modal = forwardRef(
                         aria-modal
                         aria-labelledby={ariaLabelledby || titleId}
                         aria-describedby={ariaDescribedby || descriptionId}
-                        style={modalStyle}
+                        style={style}
                         onKeyDown={onModalKeyDown}
                         tabIndex={-1}
                       >
@@ -157,8 +157,8 @@ const Modal = forwardRef(
                         />
                       </motion.div>
                     </RemoveScroll>
-                  </FocusLockComponent>
-                </>,
+                  </div>
+                </FocusLockComponent>,
                 portalTargetElement
               )}
             </ModalProvider>
