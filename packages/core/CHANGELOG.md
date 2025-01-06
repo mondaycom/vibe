@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.13.0...@vibe/core@3.14.0) (2025-01-06)
+
+
+### Bug Fixes
+
+* **Dropdown:** allow remove chips on mobile ([#2704](https://github.com/mondaycom/vibe/issues/2704)) ([01ceab5](https://github.com/mondaycom/vibe/commit/01ceab59ea6b6d1027878902f9fb5db9b24bb6dd))
+* **EditableTypography:** improve performance ([#2701](https://github.com/mondaycom/vibe/issues/2701)) ([f7e5514](https://github.com/mondaycom/vibe/commit/f7e5514154df6e3b451115eeb34f0d994fed428b))
+
+
+### Features
+
+* **Modal:** allow accepting custom arias, allow passing ReactNode to ModalHeader's title ([#2702](https://github.com/mondaycom/vibe/issues/2702)) ([8201d7f](https://github.com/mondaycom/vibe/commit/8201d7fbbbd85282af179964d8d3de111f43c169))
+
+
+
+
+
 # [3.13.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.3...@vibe/core@3.13.0) (2025-01-06)
 
 
