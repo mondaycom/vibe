@@ -36,9 +36,14 @@ const ModalHeader = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_HEADER, id)}
       >
-        <Heading id={titleId} align="inherit" type="h2" weight="medium" maxLines={2} className={styles.title}>
-          {title}
-        </Heading>
+        {typeof title === "string" ? (
+          <Heading id={titleId} align="inherit" type="h2" weight="medium" maxLines={2} className={styles.title}>
+            {title}
+          </Heading>
+        ) : (
+          title
+        )}
+
         {description && (
           <Flex id={descriptionId}>
             {descriptionIcon && (

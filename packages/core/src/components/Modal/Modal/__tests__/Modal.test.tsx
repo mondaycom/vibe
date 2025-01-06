@@ -3,6 +3,7 @@ import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "../Modal";
 import ModalContent from "../../ModalContent/ModalContent";
+import ModalHeader from "../../ModalHeader/ModalHeader";
 
 jest.mock("framer-motion", () => {
   const actual = jest.requireActual<typeof import("framer-motion")>("framer-motion");
@@ -21,7 +22,7 @@ describe("Modal", () => {
       <span>My content</span>
     </div>
   );
-  it("renders the modal with the correct role", () => {
+  it("should render the modal with the correct role", () => {
     const { getByTestId } = render(
       <Modal id={id} show data-testid="modal">
         {childrenContent}
@@ -31,7 +32,7 @@ describe("Modal", () => {
     expect(getByTestId("modal")).toHaveAttribute("role", "dialog");
   });
 
-  it("renders the modal with the correct aria-modal", () => {
+  it("should render the modal with the correct aria-modal", () => {
     const { getByTestId } = render(
       <Modal id={id} show data-testid="modal">
         {childrenContent}
@@ -41,7 +42,7 @@ describe("Modal", () => {
     expect(getByTestId("modal")).toHaveAttribute("aria-modal", "true");
   });
 
-  it("does not render when 'show' is false", () => {
+  it("should not render when 'show' is false", () => {
     const { queryByRole } = render(
       <Modal id={id} show={false}>
         {childrenContent}
@@ -51,7 +52,7 @@ describe("Modal", () => {
     expect(queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("renders the children content correctly", () => {
+  it("should render the children content correctly", () => {
     const { getByText } = render(
       <Modal id={id} show>
         {childrenContent}
@@ -61,7 +62,7 @@ describe("Modal", () => {
     expect(getByText("My content")).toBeInTheDocument();
   });
 
-  it("ensures the ref prop does not return null when modal is shown", () => {
+  it("should ensure the ref prop does not return null when modal is shown", () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
@@ -74,7 +75,7 @@ describe("Modal", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("applies default size as 'medium' when not supplied with a size", () => {
+  it("should apply default size as 'medium' when not supplied with a size", () => {
     const { getByRole } = render(
       <Modal id={id} show>
         {childrenContent}
@@ -84,7 +85,7 @@ describe("Modal", () => {
     expect(getByRole("dialog")).toHaveClass("sizeMedium");
   });
 
-  it("applies the correct given 'large' size", () => {
+  it("should apply the correct given 'large' size", () => {
     const { getByRole } = render(
       <Modal id={id} show size="large">
         {childrenContent}
@@ -94,7 +95,7 @@ describe("Modal", () => {
     expect(getByRole("dialog")).toHaveClass("sizeLarge");
   });
 
-  it("calls onClose when the close button is clicked with mouse", () => {
+  it("should call onClose when the close button is clicked with mouse", () => {
     const mockOnClose = jest.fn();
     const { getByLabelText } = render(
       <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
@@ -106,7 +107,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("calls onClose when the close button is clicked with keyboard", () => {
+  it("should call onClose when the close button is clicked with keyboard", () => {
     const mockOnClose = jest.fn();
     const { getByLabelText } = render(
       <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
@@ -119,7 +120,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("calls onClose when the backdrop is clicked", () => {
+  it("should call onClose when the backdrop is clicked", () => {
     const mockOnClose = jest.fn();
     const { getByTestId } = render(
       <Modal id={id} show onClose={mockOnClose}>
@@ -131,7 +132,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("calls onClose when the Escape key is pressed while modal loads with auto-focusable content", () => {
+  it("should call onClose when the Escape key is pressed while modal loads with auto-focusable content", () => {
     const mockOnClose = jest.fn();
     render(
       <Modal id={id} show onClose={mockOnClose}>
@@ -143,7 +144,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("calls onClose when the Escape key is pressed while modal loads without an auto-focusable content", () => {
+  it("should call onClose when the Escape key is pressed while modal loads without an auto-focusable content", () => {
     const mockOnClose = jest.fn();
     render(
       <Modal id={id} show onClose={mockOnClose}>
@@ -155,7 +156,7 @@ describe("Modal", () => {
     expect(mockOnClose).toHaveBeenCalled();
   });
 
-  it("closes only the top most modal when Escape is pressed with multiple modals open", () => {
+  it("should close only the top most modal when Escape is pressed with multiple modals open", () => {
     const mockOnCloseModal1 = jest.fn();
     const mockOnCloseModal2 = jest.fn();
 
@@ -176,7 +177,7 @@ describe("Modal", () => {
     expect(mockOnCloseModal2).toHaveBeenCalled();
   });
 
-  it("traps focus inside the modal when opened and move it to first non top-actions element", () => {
+  it("should trap focus inside the modal when opened and move it to first non top-actions element", () => {
     const { getByText, getByLabelText } = render(
       <>
         <button type="button">Focusable outside</button>
@@ -192,7 +193,7 @@ describe("Modal", () => {
     expect(getByText("Test button content")).toHaveFocus();
   });
 
-  it("releases focus lock inside the modal when closed", () => {
+  it("should release focus lock from inside the modal when closed", () => {
     const { rerender, getByText } = render(
       <>
         <button type="button">Focusable outside 1</button>
@@ -240,32 +241,95 @@ describe("Modal", () => {
     expect(getByText("Focusable 1")).toHaveFocus();
   });
 
-  it("traps and moves focus to focusable element inside ModalContent and cycle through full focus flow", () => {
-    const { getByLabelText, getByText } = render(
-      <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
-        <button type="button">Focusable 1</button>
-        <ModalContent>
-          <button type="button">Focusable inside ModalContent</button>
-        </ModalContent>
-        <button type="button">Focusable 2</button>
-      </Modal>
-    );
-    expect(getByText("Focusable inside ModalContent")).toHaveFocus();
+  describe("integrated with ModalContent", () => {
+    it("should trap and moves focus to focusable element inside ModalContent and to cycle through full focus flow", () => {
+      const { getByLabelText, getByText } = render(
+        <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+          <button type="button">Focusable 1</button>
+          <ModalContent>
+            <button type="button">Focusable inside ModalContent</button>
+          </ModalContent>
+          <button type="button">Focusable 2</button>
+        </Modal>
+      );
+      expect(getByText("Focusable inside ModalContent")).toHaveFocus();
 
-    userEvent.tab();
-    expect(getByText("Focusable 2")).toHaveFocus();
+      userEvent.tab();
+      expect(getByText("Focusable 2")).toHaveFocus();
 
-    userEvent.tab();
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveFocus();
+      userEvent.tab();
+      expect(getByLabelText(closeButtonAriaLabel)).toHaveFocus();
 
-    userEvent.tab();
-    expect(getByText("Focusable 1")).toHaveFocus();
+      userEvent.tab();
+      expect(getByText("Focusable 1")).toHaveFocus();
 
-    userEvent.tab();
-    expect(getByText("Focusable inside ModalContent")).toHaveFocus();
+      userEvent.tab();
+      expect(getByText("Focusable inside ModalContent")).toHaveFocus();
+    });
   });
 
-  it.todo("renders the correct aria-labelledby");
+  describe("integrated with ModalHeader", () => {
+    it("should use auto-generated aria-labelledby when none is provided", () => {
+      const { getByRole } = render(
+        <Modal show id={id}>
+          <ModalHeader title="Title from Header" />
+        </Modal>
+      );
 
-  it.todo("renders the correct aria-describedby");
+      expect(getByRole("dialog")).toHaveAttribute("aria-labelledby", `${id}_label`);
+    });
+
+    it("should use auto-generated aria-describedby when none is provided", () => {
+      const { getByRole } = render(
+        <Modal show id={id}>
+          <ModalHeader title="Title" description="Some description" />
+        </Modal>
+      );
+
+      expect(getByRole("dialog")).toHaveAttribute("aria-describedby", `${id}_desc`);
+    });
+
+    it("should respect user-provided aria-labelledby and should not use the auto-generated ID", () => {
+      const customAriaLabelId = "myCustomTitleId";
+      const { getByRole } = render(
+        <Modal show id={id} aria-labelledby={customAriaLabelId}>
+          <ModalHeader title="Header Title" />
+        </Modal>
+      );
+
+      expect(getByRole("dialog")).toHaveAttribute("aria-labelledby", customAriaLabelId);
+    });
+
+    it("should respect user-provided aria-describedby and should not generate an ID", () => {
+      const customAriaDescId = "myCustomDescriptionId";
+      const { getByRole } = render(
+        <Modal show id={id} aria-describedby={customAriaDescId}>
+          <ModalHeader title="Header Title" description="I am a description" />
+        </Modal>
+      );
+
+      expect(getByRole("dialog")).toHaveAttribute("aria-describedby", customAriaDescId);
+    });
+
+    it("should respect user-provided aria-describedby even if description isn't supplied to ModalHeader", () => {
+      const customAriaDescId = "myCustomDescriptionId";
+      const { getByRole } = render(
+        <Modal show id={id} aria-describedby={customAriaDescId}>
+          <ModalHeader title="Header Title" />
+        </Modal>
+      );
+
+      expect(getByRole("dialog")).toHaveAttribute("aria-describedby", customAriaDescId);
+    });
+
+    it("should not generate aria-describedby if there is no description in ModalHeader and the user provided none", () => {
+      const { getByRole } = render(
+        <Modal show id={id}>
+          <ModalHeader title="Just a title, no description" />
+        </Modal>
+      );
+
+      expect(getByRole("dialog")).not.toHaveAttribute("aria-describedby");
+    });
+  });
 });
