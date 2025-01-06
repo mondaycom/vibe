@@ -103,9 +103,6 @@ const Modal = forwardRef(
       : modalAnimationCenterPopVariants;
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
-    // useEffect(() => {
-    //   containerRef.current?.style?.setProperty("--monday-modal-z-index", zIndex?.toString() || "");
-    // }, [zIndex, containerRef]);
 
     return (
       <AnimatePresence>
