@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.14.0...@vibe/core@3.15.0) (2025-01-07)
+
+
+### Bug Fixes
+
+* **Modal:** avoid breaking changes due to specificity ([#2705](https://github.com/mondaycom/vibe/issues/2705)) ([393ecf8](https://github.com/mondaycom/vibe/commit/393ecf8c7881cd30606a847e3ce55b3f090ed234))
+
+
+### Features
+
+* **Modal:** wrap the overlay and modal inside a container, to allow portaling with layer provider to the container ([#2703](https://github.com/mondaycom/vibe/issues/2703)) ([6f4b9d5](https://github.com/mondaycom/vibe/commit/6f4b9d5b18b8258b1cc20bba31542fb3cdc2714b))
+
+
+
+
+
 # [3.14.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.13.0...@vibe/core@3.14.0) (2025-01-06)
 
 
