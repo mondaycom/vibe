@@ -15,6 +15,7 @@ import { BasicModalTip } from "./ModalBasicLayout.stories.helpers";
 # Basic modal
 
 - [Overview](#overview)
+- [Import](#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
@@ -29,6 +30,16 @@ import { BasicModalTip } from "./ModalBasicLayout.stories.helpers";
 The Basic Modal is intended for straightforward tasks, like selecting items or gathering basic information. Basic Modals help users focus on a single task without distractions. These modals do not support images or videos.
 
 <Canvas of={ModalBasicLayoutStories.Overview} />
+
+### Import
+
+All the Basic Modal layout components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```ts
+import { Modal, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, ModalBasicLayout } from "@vibe/core/next";
+```
 
 ## Props
 

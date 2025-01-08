@@ -16,6 +16,7 @@ import { MediaModalTip } from "./ModalMediaLayout.stories.helpers";
 # Media Modal
 
 - [Overview](#overview)
+- [Import](#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Use cases and examples](#use-cases-and-examples)
@@ -28,6 +29,16 @@ import { MediaModalTip } from "./ModalMediaLayout.stories.helpers";
 The Media Modal includes a highlighted media section, followed by a textual content area. This modal is intended for cases when you need to catch the user’s attention using visual elements before they interact with the text. It’s ideal for introducing new features or short onboarding flows.
 
 <Canvas of={MediaModalStories.Overview} />
+
+### Import
+
+All the Media Modal layout components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```ts
+import { Modal, ModalHeader, ModalContent, ModalMedia, ModalFooter, ModalFooterWizard, ModalMediaLayout } from "@vibe/core/next";
+```
 
 ## Props
 

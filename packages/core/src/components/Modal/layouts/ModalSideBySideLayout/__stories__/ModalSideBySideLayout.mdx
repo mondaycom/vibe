@@ -19,6 +19,7 @@ import { SideBySideModalTip } from "./ModalSideBySideLayout.stories.helpers";
 # Side-by-side modal
 
 - [Overview](#overview)
+- [Import](#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Use cases and examples](#use-cases-and-examples)
@@ -31,6 +32,16 @@ import { SideBySideModalTip } from "./ModalSideBySideLayout.stories.helpers";
 The Side-by-side Modal offers a layout with two distinct sections. The left side is reserved for providing information or inputs, like text fields or dropdown. The right side is reserved for visual media that supports the content on the left, like an image that adds context. This layout works best when users need to reference visual elements alongside textual information.
 
 <Canvas of={SideBySideModalStories.Overview} />
+
+### Import
+
+All the Side-by-side Modal layout components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```ts
+import { Modal, ModalHeader, ModalContent, ModalMedia, ModalFooter, ModalFooterWizard, ModalSideBySideLayout } from "@vibe/core/next";
+```
 
 ## Props
 

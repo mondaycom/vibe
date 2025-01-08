@@ -22,6 +22,7 @@ import {
 # Modal
 
 - [Overview](#overview)
+- [Import](#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Accessibility](#accessibility)
@@ -36,6 +37,26 @@ import {
   content. Modals disappear when user complete a required action or dismiss it. Use modals for quick, infrequent tasks.
   We have 3 different modal component, each one provide a different layout for a different use case:
 </p>
+
+### Import
+
+All the Modal-related components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```ts
+import {
+  Modal,
+  ModalHeader,
+  ModalContent,
+  ModalMedia,
+  ModalFooter,
+  ModalFooterWizard,
+  ModalBasicLayout,
+  ModalSideBySideLayout,
+  ModalMediaLayout
+} from "@vibe/core/next";
+```
 
 ### Basic modal
 
