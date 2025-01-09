@@ -1,7 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { pressKey } from "../utils/common-actions";
-import { BaseElement } from "../BaseElement";
-import { Button } from "../buttons/Button";
+import { BaseElement } from "./BaseElement";
+import { Button } from "./Button";
 import { TextField } from "./TextField";
 
 /**

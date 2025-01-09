@@ -1,5 +1,5 @@
 import { test, Page, Locator } from "@playwright/test";
-import { BaseElement } from "../BaseElement";
+import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
 
 /**
@@ -58,7 +58,7 @@ export class ButtonGroup extends BaseElement {
    * @returns {Button} The button with the specified name.
    */
   getButtonByName(buttonName: string): Button | undefined {
-    if (!buttonName || typeof buttonName !== "string") {
+    if (!buttonName) {
       throw new Error("Invalid button name provided");
     }
 

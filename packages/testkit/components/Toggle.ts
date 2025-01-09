@@ -1,5 +1,5 @@
 import { Page, Locator, test } from "@playwright/test";
-import { BaseElement } from "../BaseElement";
+import { BaseElement } from "./BaseElement";
 
 /**
  * Class representing a Toggle element.

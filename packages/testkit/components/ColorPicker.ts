@@ -1,6 +1,6 @@
 import { Page, Locator } from "@playwright/test";
-import { BaseElement } from "../BaseElement";
-import { Button } from "../buttons/Button";
+import { BaseElement } from "./BaseElement";
+import { Button } from "./Button";
 
 /**
  * Class representing a ColorPicker element.

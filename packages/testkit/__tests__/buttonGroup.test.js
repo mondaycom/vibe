@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { ButtonGroup } from "../buttons/ButtonGroup";
+import { ButtonGroup } from "../components";
 import { buttonGroupStory } from "./utils/url-helper";
 
 test.describe("ButtonGroup Class with Storybook", () => {

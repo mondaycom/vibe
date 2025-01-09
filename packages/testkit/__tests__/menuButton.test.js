@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { MenuButton } from "../buttons/MenuButton";
+import { MenuButton } from "../components";
 import { menuButtonStory } from "./utils/url-helper";
 
 test.describe("menuButton Class with Storybook", () => {
@@ -8,8 +8,8 @@ test.describe("menuButton Class with Storybook", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(menuButtonStory);
     const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const menubuttonLocator = frame.locator('[data-testid="menu-button"]');
-    menuButton = new MenuButton(page, menubuttonLocator, "Test menu button");
+    const menuButtonLocator = frame.locator('[data-testid="menu-button"]');
+    menuButton = new MenuButton(page, menuButtonLocator, "Test menu button");
   });
 
   test("should open and close menu", async ({ page }) => {

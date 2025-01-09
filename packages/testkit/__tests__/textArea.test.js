@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { TextArea } from "../inputs/TextArea";
+import { TextArea } from "../components";
 import { textAreaStory } from "./utils/url-helper";
 
 test.describe("textArea Class with Storybook", () => {
@@ -14,9 +14,9 @@ test.describe("textArea Class with Storybook", () => {
   });
 
   // eslint-disable-next-line no-unused-vars
-  test("set text in textarea", async ({ page }) => {
+  test("set text in textarea", async () => {
     await textArea.setText("Test Text");
     // eslint-disable-next-line playwright/missing-playwright-await
-    expect(textArea.textAreaInput.locator).toHaveValue("Test Text");
+    await expect(textArea.textAreaInput.locator).toHaveValue("Test Text");
   });
 });

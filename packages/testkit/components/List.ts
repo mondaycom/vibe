@@ -1,6 +1,6 @@
 import { test, Page, Locator } from "@playwright/test";
 import { ListItem } from "./ListItem";
-import { BaseElement } from "../BaseElement";
+import { BaseElement } from "./BaseElement";
 
 /**
  * Class representing a List element.
