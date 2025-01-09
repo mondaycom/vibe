@@ -78,7 +78,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
       width={size}
-      height={size ? "auto" : undefined}
+      height="auto"
     >
       {PlaceHolder}
     </SVGComponent>
