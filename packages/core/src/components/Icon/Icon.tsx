@@ -125,6 +125,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={overrideDataTestId}
+          size={iconSize}
         />
       );
     }

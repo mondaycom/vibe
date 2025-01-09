@@ -21,6 +21,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   replaceToCurrentColor?: boolean;
   customColor?: string;
   ref?: Ref<SVGElement>;
+  size?: number | string;
 }
 
 const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
@@ -34,6 +35,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   replaceToCurrentColor = false,
   customColor,
   id,
+  size,
   "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
@@ -75,6 +77,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
+      width={size}
+      height={size ? "auto" : undefined}
     >
       {PlaceHolder}
     </SVGComponent>
