@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { Button } from "./buttons";
+import { Button } from "./Button";
 
 /**
  * Class representing a Dialog element.

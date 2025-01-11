@@ -1,7 +1,8 @@
 import { Page, Locator, test } from "@playwright/test";
 import { TextField } from "./TextField";
-import { Button, MenuButton } from "./buttons";
-import { Dialog } from "./popover";
+import { Button } from "./Button";
+import { MenuButton } from "./MenuButton";
+import { Dialog } from "./Dialog";
 import { Menu } from "./Menu";
 
 /**

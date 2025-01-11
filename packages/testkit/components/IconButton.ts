@@ -1,6 +1,6 @@
 import { Locator, Page, test } from "@playwright/test";
 import { Button } from "./Button";
-import { Dialog } from "./popover";
+import { Dialog } from "./Dialog";
 import { Menu } from "./Menu";
 
 /**

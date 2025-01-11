@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { IconButton } from "./buttons";
+import { IconButton } from "./IconButton";
 
 /**
  * Class representing a Modal
