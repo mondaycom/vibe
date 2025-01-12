@@ -31,6 +31,12 @@ import { Close } from "@vibe/icons/lazy";
 import { Close as CloseSvg } from "@vibe/icons/raw";
 ```
 
+#### Using Meta Information
+
+```javascript
+import iconsMetaData from "@vibe/icons/meta";
+```
+
 
 ## Peer dependencies
 
