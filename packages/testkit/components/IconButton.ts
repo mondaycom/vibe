@@ -1,6 +1,7 @@
-import { test, Page, Locator } from "@playwright/test";
+import { Locator, Page, test } from "@playwright/test";
 import { Button } from "./Button";
-import { Dialog } from "../popover/Dialog";
+import { Dialog } from "./Dialog";
+import { Menu } from "./Menu";
 
 /**
  * Class representing an icon button that extends the Button class.
@@ -9,18 +10,23 @@ export class IconButton extends Button {
   override page: Page;
   override locator: Locator;
   override elementReportName: string;
+  icon: Button;
+  menu: Dialog | Menu | undefined;
 
   /**
    * Create an IconButton.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the IconButton element.
    * @param {string} elementReportName - The name for reporting purposes.
+   * @param menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menuType?: Dialog | Menu) {
     super(page, locator, elementReportName);
     this.page = page;
     this.locator = locator;
     this.elementReportName = elementReportName;
+    this.icon = new Button(this.page, this.locator, `${this.elementReportName} - Icon`);
+    this.menu = menuType;
   }
 
   /**
@@ -32,9 +38,10 @@ export class IconButton extends Button {
     await test.step(
       `Select ${item} from ${this.elementReportName}`,
       async () => {
-        await this.locator.click();
-        const dialog = new Dialog(this.page, this.page.getByRole("dialog"), `${this.elementReportName} - Menu`);
-        await dialog.selectItem(item);
+        await this.icon.click();
+        if (this.menu) {
+          await this.menu.selectItem(item);
+        }
       },
       { box: false }
     );

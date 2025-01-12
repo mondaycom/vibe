@@ -1,5 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 import { Button } from "./Button";
+import { Menu } from "./Menu";
+import { Dialog } from "./Dialog";
 
 /**
  * Class representing a menu button that extends the Button class.
@@ -9,8 +11,7 @@ export class MenuButton extends Button {
   override locator: Locator;
   override elementReportName: string;
   button: Button;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  menu: any;
+  menu: Dialog | Menu;
 
   /**
    * Create a MenuButton.
@@ -19,14 +20,23 @@ export class MenuButton extends Button {
    * @param {string} elementReportName - The name for reporting purposes.
    * @param {any} menuType - The type of menu associated with the button.
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType: any) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Dialog | Menu) {
     super(page, locator, elementReportName);
     this.page = page;
     this.locator = locator;
     this.elementReportName = elementReportName;
     this.button = new Button(this.page, this.locator, elementReportName);
     this.menu = menuType;
+  }
+
+  /**
+   * Select an item from the menu.
+   * @param {string} item - The item to select.
+   * @returns {Promise<void>}
+   */
+  async selectItem(item: string): Promise<void> {
+    await this.openMenu();
+    await this.menu.selectItem(item);
   }
 
   /**

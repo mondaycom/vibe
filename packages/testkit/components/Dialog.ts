@@ -1,12 +1,15 @@
 import { Page, Locator } from "@playwright/test";
-import { BaseElement } from "../BaseElement";
-import { Button } from "../buttons/Button";
+import { Button } from "./Button";
 
 /**
  * Class representing a Dialog element.
  * Extends the BaseElement class.
  */
-export class Dialog extends BaseElement {
+export class Dialog {
+  private readonly page: Page;
+  private locator: Locator;
+  private elementReportName: string;
+
   /**
    * Create a Dialog.
    * @param {Page} page - The Playwright page object.
@@ -14,7 +17,9 @@ export class Dialog extends BaseElement {
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
-    super(page, locator, elementReportName);
+    this.page = page;
+    this.locator = locator;
+    this.elementReportName = elementReportName;
   }
 
   /**

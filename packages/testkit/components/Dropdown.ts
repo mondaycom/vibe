@@ -1,6 +1,6 @@
 import { Page, Locator, test } from "@playwright/test";
 import { TextField } from "./TextField";
-import { BaseElement } from "../BaseElement";
+import { BaseElement } from "./BaseElement";
 
 /**
  * Class representing a DropDown element.

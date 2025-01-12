@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { Checkbox } from "../inputs/Checkbox";
+import { Checkbox } from "../components";
 import { checkboxStory } from "./utils/url-helper";
 
 test.describe("menuButton Class with Storybook", () => {
@@ -13,7 +13,7 @@ test.describe("menuButton Class with Storybook", () => {
   });
 
   // eslint-disable-next-line no-unused-vars
-  test("set checkbox", async ({ page }) => {
+  test("set checkbox", async () => {
     // eslint-disable-next-line playwright/no-conditional-in-test
     if (await checkbox.isChecked()) {
       await checkbox.setChecked(false);

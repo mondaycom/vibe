@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { Button } from "../buttons/Button";
+import { Button } from "../components";
 import { buttonStory } from "./utils/url-helper";
 
 test("should fire a click event and log to console", async ({ page }) => {
