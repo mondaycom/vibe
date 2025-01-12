@@ -39,8 +39,6 @@ The meta export provides detailed metadata for each icon, including:
 - `file`: The SVG file name.
 - `description`: A description of the icon's purpose or usage.
 - `tags`: Associated tags as a comma-separated string.
-- `category`: (Optional) Icon categories such as `Basic`, `Platform`, or `View`.
-- `ignore`: (Optional) Indicates if the icon should be ignored.
 
 This metadata can be used to programmatically work with icons, such as building custom icon pickers or managing icons in your project.
 
