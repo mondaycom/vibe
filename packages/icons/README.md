@@ -31,6 +31,20 @@ import { Close } from "@vibe/icons/lazy";
 import { Close as CloseSvg } from "@vibe/icons/raw";
 ```
 
+#### Using Meta Information
+
+The meta export provides detailed metadata for each icon, including:
+
+- `name`: The name of the icon.
+- `file`: The SVG file name.
+- `description`: A description of the icon's purpose or usage.
+- `tags`: Associated tags as a comma-separated string.
+
+This metadata can be used to programmatically work with icons, such as building custom icon pickers or managing icons in your project.
+
+```javascript
+import iconsMetaData from "@vibe/icons/meta";
+```
 
 ## Peer dependencies
 
