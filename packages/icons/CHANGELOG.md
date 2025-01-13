@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.0...@vibe/icons@1.3.1) (2025-01-13)
+
+
+### Bug Fixes
+
+* **Icons:** update icons ([#2711](https://github.com/mondaycom/vibe/issues/2711)) ([be229ad](https://github.com/mondaycom/vibe/commit/be229adf34bfd22154c1db4c9696fada25d16608))
+* **icons:** update person icon ([#2714](https://github.com/mondaycom/vibe/issues/2714)) ([5dc2a1b](https://github.com/mondaycom/vibe/commit/5dc2a1b6f9aa35dc9acf16d04a770d31e5ead27e))
+
+
+
+
+
 # [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.2.0...@vibe/icons@1.3.0) (2024-12-26)
 
 
