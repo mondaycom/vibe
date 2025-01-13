@@ -154,6 +154,15 @@ export interface DialogProps extends VibeComponentProps {
    * If string use it as selector to prevent scroll.
    */
   disableContainerScroll?: boolean | string;
+  /**
+   * Enables the observation of content resize for the popper element.
+   * When set to `true`, a ResizeObserver is attached to the popper content,
+   * automatically triggering repositioning when the size of the content changes.
+   *
+   * This is useful for dialogs, tooltips, or popovers with dynamic content
+   * that may grow or shrink without a re-render being triggered.
+   */
+  observeContentResize?: boolean;
 }
 
 export interface DialogState {
@@ -191,7 +200,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     hideWhenReferenceHidden: false,
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
-    addKeyboardHideShowTriggersByDefault: false
+    addKeyboardHideShowTriggersByDefault: false,
+    observeContentResize: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -498,6 +508,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       hideWhenReferenceHidden,
       disableContainerScroll,
       containerSelector,
+      observeContentResize,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -571,6 +582,22 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     //   res[1]}% ${100 - res[2]}%`;
                     state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                     return state;
+                  }
+                },
+                {
+                  name: "observeContentResize",
+                  enabled: observeContentResize,
+                  phase: "beforeWrite",
+                  fn() {},
+                  effect({ state, instance }) {
+                    const observer = new ResizeObserver(() => {
+                      instance.update();
+                    });
+                    observer.observe(state.elements.popper);
+
+                    return () => {
+                      observer.disconnect();
+                    };
                   }
                 },
                 ...modifiers
