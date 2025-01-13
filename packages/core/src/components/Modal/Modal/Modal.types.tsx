@@ -3,7 +3,7 @@ import React from "react";
 import { ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
 import { PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
 
-export type ModalSize = "small" | "medium" | "large";
+export type ModalSize = "small" | "medium" | "large" | "full-view";
 
 export type ModalCloseEvent =
   | React.MouseEvent<HTMLDivElement | HTMLButtonElement>

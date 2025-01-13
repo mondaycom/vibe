@@ -1,3 +1,5 @@
+$full-view-margin: 40px;
+
 .container {
   position: fixed;
   inset: 0;
@@ -12,7 +14,8 @@
 }
 
 .modal {
-  --top-actions-spacing: var(--spacing-large);
+  --top-actions-margin-inline: var(--spacing-large);
+  --top-actions-margin-block: var(--spacing-large);
   --top-actions-width: var(--spacing-xl);
   --modal-inline-padding: var(--spacing-xl);
 
@@ -28,6 +31,7 @@
   overflow: hidden;
   border-radius: var(--border-radius-big);
   box-shadow: var(--box-shadow-large);
+  outline: none;
 
   &.withHeaderAction {
     --top-actions-width: calc(var(--spacing-xl) * 2);
@@ -46,5 +50,21 @@
   &.sizeLarge {
     --modal-max-height: 80%;
     --modal-width: 840px;
+  }
+
+  &.sizeFullView {
+    --top-actions-margin-inline: var(--spacing-xl);
+    --modal-max-height: 100%;
+    --modal-width: auto;
+
+    position: fixed;
+    inset: 0;
+    height: calc(100% - $full-view-margin);
+
+    margin-inline: $full-view-margin;
+    margin-block-start: $full-view-margin;
+
+    border-end-start-radius: unset;
+    border-end-end-radius: unset;
   }
 }
