@@ -42,6 +42,7 @@ jobs:
           clean-exclude: |
             storybook-blocks/*
             v2/*
+            playground/*
           folder: packages/core/static_storybook
           branch: gh-pages
         env:
