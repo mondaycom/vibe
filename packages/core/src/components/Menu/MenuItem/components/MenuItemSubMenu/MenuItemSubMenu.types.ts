@@ -3,7 +3,7 @@ import { CloseMenuOption, MenuChild } from "../../../Menu/MenuConstants";
 import { SubmenuPosition } from "../../MenuItem.types";
 import { MenuItemProps } from "../../MenuItem";
 
-export interface MenuItemSubMenuProps extends Pick<MenuItemProps, "observeSubMenuContentResize"> {
+export interface MenuItemSubMenuProps extends Pick<MenuItemProps, "autoAdjustOnSubMenuContentResize"> {
   /**
    * Reference to the anchor element that the submenu is related to. This is used to position the submenu correctly relative to the parent menu item.
    */

@@ -57,13 +57,11 @@ export interface MenuItemProps extends VibeComponentProps {
   "aria-label"?: AriaAttributes["aria-label"];
   submenuPosition?: SubmenuPosition;
   /**
-   * Enables the observation of content resize for the menu item's submenu.
-   * When set to `true`, a ResizeObserver is attached to the popper content,
-   * automatically triggering repositioning when the size of the submenu's content changes.
+   * When set to `true`, submenu's content and size changes would automatically trigger repositioning.
    *
    * This is useful for when submenu's content may grow or shrink without a re-render being triggered.
    */
-  observeSubMenuContentResize?: boolean;
+  autoAdjustOnSubMenuContentResize?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {

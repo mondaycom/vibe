@@ -13,7 +13,7 @@ const MenuItemSubMenu = ({
   onClose,
   children,
   submenuPosition,
-  observeSubMenuContentResize
+  autoAdjustOnSubMenuContentResize
 }: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
   const popperElementRef = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ const MenuItemSubMenu = ({
     {
       isOpen: open,
       placement: submenuPlacement,
-      observeContentResize: observeSubMenuContentResize
+      observeContentResize: autoAdjustOnSubMenuContentResize
     }
   );
 
