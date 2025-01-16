@@ -113,16 +113,16 @@ export const modalAnimationAnchorPopVariants: Variants = {
 export const modalAnimationFullViewVariants: Variants = {
   enter: {
     opacity: [0.3, 1, 1],
-    y: [24, 24, 0],
+    y: [30, 0],
     transition: {
-      duration: 0.2,
+      duration: 0.25,
       ease: enterEase,
       times: [0, 0.33, 1]
     }
   },
   exit: {
     opacity: 0,
-    y: 24,
+    y: 30,
     transition: {
       duration: 0.1,
       ease: exitEase
