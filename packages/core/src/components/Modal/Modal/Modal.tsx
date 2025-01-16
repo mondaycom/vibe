@@ -16,6 +16,7 @@ import { keyCodes } from "../../../constants";
 import {
   modalAnimationAnchorPopVariants,
   modalAnimationCenterPopVariants,
+  modalAnimationFullViewVariants,
   modalAnimationOverlayVariants
 } from "../utils/animationVariants";
 import { createPortal } from "react-dom";
@@ -98,9 +99,12 @@ const Modal = forwardRef(
       [alertModal, onClose, show]
     );
 
-    const modalAnimationVariants = anchorElementRef?.current
-      ? modalAnimationAnchorPopVariants
-      : modalAnimationCenterPopVariants;
+    const modalAnimationVariants =
+      size === "full-view"
+        ? modalAnimationFullViewVariants
+        : anchorElementRef?.current
+        ? modalAnimationAnchorPopVariants
+        : modalAnimationCenterPopVariants;
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
