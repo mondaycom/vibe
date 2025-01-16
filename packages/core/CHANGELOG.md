@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.17.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.16.0...@vibe/core@3.17.0) (2025-01-16)
+
+
+### Features
+
+* **Modal:** add full-view size for Modal ([#2716](https://github.com/mondaycom/vibe/issues/2716)) ([ac85841](https://github.com/mondaycom/vibe/commit/ac85841076824c3dfa781acf9367885e4f4ae38e))
+
+
+
+
+
 # [3.16.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.15.1...@vibe/core@3.16.0) (2025-01-13)
 
 
