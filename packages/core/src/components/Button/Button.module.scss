@@ -142,13 +142,13 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorPrimaryActive,
-.kindPrimary.colorPrimary:hover,
+//.kindPrimary.colorPrimary:hover,
 .kindPrimary.colorPrimary:focus {
   background: var(--primary-hover-color);
 }
 
 .kindPrimary.colorBrandActive,
-.kindPrimary.colorBrand:hover,
+//.kindPrimary.colorBrand:hover,
 .kindPrimary.colorBrand:focus {
   background: var(--brand-hover-color);
 }
@@ -158,7 +158,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorPositiveActive,
-.kindPrimary.colorPositive:hover,
+//.kindPrimary.colorPositive:hover,
 .kindPrimary.colorPositive:focus {
   background: var(--positive-color-hover);
 }
@@ -168,7 +168,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorNegativeActive,
-.kindPrimary.colorNegative:hover,
+//.kindPrimary.colorNegative:hover,
 .kindPrimary.colorNegative:focus {
   background: var(--negative-color-hover);
 }
@@ -179,7 +179,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorInvertedActive,
-.kindPrimary.colorInverted:hover,
+//.kindPrimary.colorInverted:hover,
 .kindPrimary.colorInverted:focus {
   background: var(--placeholder-color);
 }
@@ -194,11 +194,15 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorOnPrimaryColorActive,
+.kindPrimary.colorOnPrimaryColorActive:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorOnPrimaryColorActive,
 .kindPrimary.colorOnPrimaryColor:hover,
 .kindPrimary.colorOnPrimaryColor:focus {
   background-color: #e6e9ef;
-  backdrop-filter: brightness(85%);
-  @include focus-style-on-primary();
 }
 
 .kindPrimary.colorOnPrimaryColor.disabled {
@@ -211,11 +215,15 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorFixedLightActive,
+.kindPrimary.colorFixedLight:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorFixedLightActive,
 .kindPrimary.colorFixedLight:hover,
 .kindPrimary.colorFixedLight:focus {
   background-color: #e6e9ef;
-  backdrop-filter: brightness(85%);
-  @include focus-style-on-primary();
 }
 
 .kindPrimary.colorFixedLight.disabled {
@@ -229,7 +237,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorOnInvertedBackgroundActive,
-.kindPrimary.colorOnInvertedBackground:hover,
+//.kindPrimary.colorOnInvertedBackground:hover,
 .kindPrimary.colorOnInvertedBackground:focus {
   background: var(--ui-background-color);
 }
@@ -272,7 +280,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorPrimaryActive:hover {
-  background-color: var(--primary-selected-hover-color);
+  //background-color: var(--primary-selected-hover-color);
   border-color: var(--primary-color);
 }
 
@@ -282,16 +290,19 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindSecondary.colorBrandActive,
 .kindSecondary.colorBrandActive:hover {
-  background-color: var(--brand-selected-color);
   border-color: var(--brand-color);
 }
 
-.kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
+.kindSecondary.colorBrandActive {
+  background-color: var(--brand-selected-color);
+}
+
+//.kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindSecondary.colorPrimary:focus:not(.colorPrimaryActive) {
   background: var(--primary-background-hover-color);
 }
 
-.kindSecondary.colorBrand:hover:not(.colorBrandActive),
+//.kindSecondary.colorBrand:hover:not(.colorBrandActive),
 .kindSecondary.colorBrand:focus:not(.colorBrandActive) {
   background: var(--primary-background-hover-color);
 }
@@ -302,7 +313,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorPositiveActive,
-.kindSecondary.colorPositive:hover,
+//.kindSecondary.colorPositive:hover,
 .kindSecondary.colorPositive:focus {
   background: var(--positive-color-selected);
 }
@@ -313,7 +324,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorNegativeActive,
-.kindSecondary.colorNegative:hover,
+//.kindSecondary.colorNegative:hover,
 .kindSecondary.colorNegative:focus {
   background: var(--negative-color-selected);
 }
@@ -324,7 +335,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorInvertedActive,
-.kindSecondary.colorInverted:hover,
+//.kindSecondary.colorInverted:hover,
 .kindSecondary.colorInverted:focus {
   background: var(--primary-background-hover-color);
 }
@@ -369,7 +380,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorOnInvertedBackgroundActive,
-.kindSecondary.colorOnInvertedBackground:hover,
+//.kindSecondary.colorOnInvertedBackground:hover,
 .kindSecondary.colorOnInvertedBackground:focus {
   background: var(--icon-color);
 }
@@ -392,9 +403,9 @@ $disabled-on-primary-color-opacity: 0.5;
   pointer-events: none;
 }
 
-.kindSecondary.disabled:hover {
-  background-color: transparent;
-}
+//.kindSecondary.disabled:hover {
+//  background-color: transparent;
+//}
 
 .kindTertiary {
   color: var(--primary-text-color);
@@ -405,25 +416,25 @@ $disabled-on-primary-color-opacity: 0.5;
   background-color: var(--primary-selected-color);
 }
 
-.kindTertiary.colorPrimaryActive:hover {
-  background-color: var(--primary-selected-hover-color);
-}
+//.kindTertiary.colorPrimaryActive:hover {
+//  background-color: var(--primary-selected-hover-color);
+//}
 
 .kindTertiary.colorBrandActive {
   color: var(--text-color-on-brand);
 }
 
-.kindTertiary.colorBrandActive,
-.kindTertiary.colorBrandActive:hover {
+.kindTertiary.colorBrandActive {
+  //.kindTertiary.colorBrandActive:hover {
   background-color: var(--brand-selected-color);
 }
 
-.kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
+//.kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
   background: var(--primary-background-hover-color);
 }
 
-.kindTertiary.colorBrand:hover:not(.colorBrandActive),
+//.kindTertiary.colorBrand:hover:not(.colorBrandActive),
 .kindTertiary.colorBrand:focus:not(.colorBrandActive) {
   background: var(--primary-background-hover-color);
 }
@@ -433,7 +444,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorPositiveActive,
-.kindTertiary.colorPositive:hover,
+//.kindTertiary.colorPositive:hover,
 .kindTertiary.colorPositive:focus {
   background: var(--positive-color-selected);
 }
@@ -443,7 +454,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorNegativeActive,
-.kindTertiary.colorNegative:hover,
+//.kindTertiary.colorNegative:hover,
 .kindTertiary.colorNegative:focus {
   background: var(--negative-color-selected);
 }
@@ -453,7 +464,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorInvertedActive,
-.kindTertiary.colorInverted:hover,
+//.kindTertiary.colorInverted:hover,
 .kindTertiary.colorInverted:focus {
   background: var(--primary-background-hover-color);
 }
@@ -499,7 +510,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorOnInvertedBackgroundActive,
-.kindTertiary.colorOnInvertedBackground:hover,
+//.kindTertiary.colorOnInvertedBackground:hover,
 .kindTertiary.colorOnInvertedBackground:focus {
   background: var(--icon-color);
 }
@@ -516,9 +527,9 @@ $disabled-on-primary-color-opacity: 0.5;
   pointer-events: none;
 }
 
-.kindTertiary.disabled:hover {
-  background-color: transparent;
-}
+//.kindTertiary.disabled:hover {
+//  background-color: transparent;
+//}
 
 .noSidePadding {
   padding-right: 0;
