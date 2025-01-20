@@ -13,33 +13,81 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "WarningFull",
-      file: "WarningFull.svg",
-      description: "Use for warning or when there is conflict of dependencies",
-      tags: "Warning, Caution, Conflict, Dependency"
+      name: "AlignRight",
+      file: "AlignRight.svg",
+      description: "Typically used to adjust the alignment of text to the right within a document or text field.",
+      tags: "Align, Right, Body, Paragraph, Text"
   },
 
   {
-      name: "Move",
-      file: "Move.svg",
-      description: "Use when you need to indicate a reorder or move items in a list",
-      tags: "Reorder, Move, Change, Arrow, Expand"
+      name: "AlignLeft",
+      file: "AlignLeft.svg",
+      description: "Typically used to adjust the alignment of text to the left within a document or text field.",
+      tags: "Align, Left, Body, Paragraph, Text"
   },
 
   {
-      name: "Downgrade",
-      file: "Downgrade.svg",
-      description: "Used for downgrading a version",
-      tags: "Arrow, Down, Version"
+      name: "AlignCenter",
+      file: "AlignCenter.svg",
+      description: "Typically used to adjust the alignment of text to the center within a document or text field.",
+      tags: "Align, Center, Body, Paragraph, Text"
   },
 
   {
-      name: "ScheduledEmail",
-      file: "ScheduledEmail.svg",
-      description: "Editing scheduled email reports",
-      tags: "email, time, clock, watch, send, delay, schedule"
+    name: "MoveArrowLeftNarrow",
+    file: "MoveArrowLeftNarrow.svg",
+    description: "Move arrow left narrow",
+    tags: "Move, Arrow, Left, Narrow, Short"
   },
 
+  {
+    name: "CollapseHorizontally",
+    file: "CollapseHorizontally.svg",
+    description: "Horizontal interfaces that can be collapse and expand",
+    tags: "Collapse, Horizontally, Minimize"
+  },
+
+  {
+    name: "MoveArrowRightNarrow",
+    file: "MoveArrowRightNarrow.svg",
+    description: "Move Arrow Right Narrow",
+    tags: "Move, Arrow, Right, Narrow, Short"
+  },
+
+  {
+    name: "Files",
+    file: "Files.svg",
+    description: "Multiple files",
+    tags: "File, Folder, Attachments"
+  },
+
+  {
+    name: "WarningFull",
+    file: "WarningFull.svg",
+    description: "Use for warning or when there is conflict of dependencies",
+    tags: "Warning, Caution, Conflict, Dependency"
+  },
+
+  {
+    name: "Move",
+    file: "Move.svg",
+    description: "Use when you need to indicate a reorder or move items in a list",
+    tags: "Reorder, Move, Change, Arrow, Expand"
+  },
+
+  {
+    name: "Downgrade",
+    file: "Downgrade.svg",
+    description: "Used for downgrading a version",
+    tags: "Arrow, Down, Version"
+  },
+
+  {
+    name: "ScheduledEmail",
+    file: "ScheduledEmail.svg",
+    description: "Editing scheduled email reports",
+    tags: "email, time, clock, watch, send, delay, schedule"
+  },
 
   {
     name: "PinFull",
