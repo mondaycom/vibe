@@ -246,8 +246,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
         }
 
-        // if (child.type && child.type.isMenu) {
-        newProps.onClose = onMenuDidClose;
+        if (child.type && child.type.isMenu) {
+          newProps.onClose = onMenuDidClose;
+        }
 
         return React.cloneElement(child, newProps);
       });
