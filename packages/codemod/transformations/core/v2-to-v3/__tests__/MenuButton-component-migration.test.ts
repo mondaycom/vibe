@@ -12,19 +12,9 @@ describe("MenuButton component migration", () => {
   defineInlineTest(
     transform,
     {},
-    prependImport(
-      `<MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>`
-    ),
-    prependImport(`<MenuButton className="old-class" closeMenuOnItemClick tooltipContent="Reason Text"/>`),
-    "should update 'componentClassName' to 'className' & 'closeDialogOnContentClick' to 'closeMenuOnItemClick' & 'disabledReason' to 'tooltipContent'"
-  );
-
-  defineInlineTest(
-    transform,
-    {},
-    prependImport(`<MenuButton closeDialogOnContentClick={false} />`),
-    prependImport(`<MenuButton closeMenuOnItemClick={false} />`),
-    "should update 'closeDialogOnContentClick' to 'closeMenuOnItemClick'"
+    prependImport(`<MenuButton componentClassName="old-class" disabledReason="Reason Text"/>`),
+    prependImport(`<MenuButton className="old-class" tooltipContent="Reason Text"/>`),
+    "should update 'componentClassName' to 'className' to & 'disabledReason' to 'tooltipContent'"
   );
 
   defineInlineTest(
@@ -46,12 +36,8 @@ describe("MenuButton component migration", () => {
   defineInlineTest(
     transform,
     {},
-    prependImport(
-      `<MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text" ariaLabel="Menu Button" />`
-    ),
-    prependImport(
-      `<MenuButton className="old-class" closeMenuOnItemClick tooltipContent="Reason Text" ariaLabel="Menu Button" />`
-    ),
+    prependImport(`<MenuButton componentClassName="old-class" disabledReason="Reason Text" ariaLabel="Menu Button" />`),
+    prependImport(`<MenuButton className="old-class" tooltipContent="Reason Text" ariaLabel="Menu Button" />`),
     "should update new props while maintaining other props"
   );
 
@@ -156,11 +142,11 @@ describe("MenuButton component migration", () => {
     {},
     `
       import { OtherComponent as MenuButton } from "other-library";
-      <MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>
+      <MenuButton componentClassName="old-class" disabledReason="Reason Text"/>
     `,
     `
       import { OtherComponent as MenuButton } from "other-library";
-      <MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>
+      <MenuButton componentClassName="old-class" disabledReason="Reason Text"/>
     `,
     "should not change when 'MenuButton' is an alias for another component that is not from vibe"
   );
@@ -170,11 +156,11 @@ describe("MenuButton component migration", () => {
     {},
     `
       import { OtherComponent as MenuButton } from "monday-ui-react-core";
-      <MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>
+      <MenuButton componentClassName="old-class" disabledReason="Reason Text"/>
     `,
     `
       import { OtherComponent as MenuButton } from "monday-ui-react-core";
-      <MenuButton componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>
+      <MenuButton componentClassName="old-class" disabledReason="Reason Text"/>
     `,
     "should not change when 'MenuButton' is an alias for another component from vibe"
   );
@@ -184,11 +170,11 @@ describe("MenuButton component migration", () => {
     {},
     `
       import { MenuButton as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" closeDialogOnContentClick disabledReason="Reason Text"/>
+      <VibeComponent componentClassName="old-class" disabledReason="Reason Text"/>
     `,
     `
       import { MenuButton as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" closeMenuOnItemClick tooltipContent="Reason Text"/>
+      <VibeComponent className="old-class" tooltipContent="Reason Text"/>
     `,
     "should change when 'MenuButton' is imported with alias from vibe"
   );
