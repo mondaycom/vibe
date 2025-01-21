@@ -35,6 +35,11 @@ export interface ModalProps extends VibeComponentProps {
    */
   onClose?: (event: ModalCloseEvent) => void;
   /**
+   * Determines if focus should automatically move to the first focusable element when the component mounts.
+   * When set to `false` - disables the automatic focus behavior.
+   */
+  autoFocus?: boolean;
+  /**
    * Additional action to render in the header area.
    */
   renderHeaderAction?: ModalTopActionsProps["renderAction"];

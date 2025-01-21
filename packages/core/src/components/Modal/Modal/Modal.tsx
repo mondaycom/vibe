@@ -37,6 +37,7 @@ const Modal = forwardRef(
       closeButtonTheme,
       closeButtonAriaLabel,
       onClose = () => {},
+      autoFocus = true,
       anchorElementRef,
       alertModal,
       container = document.body,
@@ -114,7 +115,7 @@ const Modal = forwardRef(
           <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <FocusLockComponent returnFocus>
+                <FocusLockComponent returnFocus autoFocus={autoFocus}>
                   <div ref={containerRef} className={styles.container} style={zIndexStyle}>
                     <motion.div
                       variants={modalAnimationOverlayVariants}
