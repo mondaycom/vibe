@@ -33,6 +33,14 @@ export interface AccordionProps extends VibeComponentProps {
    * Array of initial expanded indexes
    */
   defaultIndex?: Array<number>;
+  /**
+   * A classname to be added to the accordion container
+   */
+  className?: string;
+  /**
+   * An id to be added the accordion container.
+   */
+  id?: string;
 }
 
 const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
