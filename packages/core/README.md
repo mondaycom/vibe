@@ -1,5 +1,15 @@
 # Vibe Design System - Core
 
+# ⚠️ Deprecation Notice
+
+**monday-ui-react-core is now deprecated.**
+
+We have transitioned to the [`@vibe/core`](https://www.npmjs.com/package/@vibe/core) package, which serves as the successor to `monday-ui-react-core` starting from major version **3.x**.
+
+All our packages are now consolidated under the `@vibe` namespace to provide a more streamlined and enhanced development experience.
+
+To ensure a smooth transition, please refer to our comprehensive [**Migration Guide**](https://vibe.monday.com/?path=/docs/migration-guide).
+
 [![npm](https://img.shields.io/npm/v/monday-ui-react-core)](https://www.npmjs.com/package/monday-ui-react-core)
 
 ![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
