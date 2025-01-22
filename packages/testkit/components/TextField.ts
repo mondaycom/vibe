@@ -9,6 +9,7 @@ import { BaseElement } from "./BaseElement";
 export class TextField extends BaseElement {
   override page: Page;
   override locator: Locator;
+  override elementReportName: string;
   /**
    * Create a TextField.
    * @param {Page} page - The Playwright page object.
@@ -19,6 +20,7 @@ export class TextField extends BaseElement {
     super(page, locator, elementReportName);
     this.page = page;
     this.locator = locator;
+    this.elementReportName = elementReportName;
   }
 
   /**
@@ -28,8 +30,35 @@ export class TextField extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} in element: ${this.elementReportName}`, async () => {
-      await this.locator.fill(text);
+      const tagName = await this.locator.evaluate(el => el.tagName);
+      if (tagName !== "input") {
+        throw new Error(
+          `Element is not an input element. Element: ${this.elementReportName}. Element must be of type input.`
+        );
+      } else {
+        if (!(await this.isEmpty())) {
+          await this.clearText();
+        }
+        await this.locator.fill(text);
+      }
     });
+  }
+
+  /**
+   * Clear the text in the input element.
+   */
+  async clearText(): Promise<void> {
+    await test.step(`Clear text in element: ${this.elementReportName}`, async () => {
+      await this.locator.fill("");
+    });
+  }
+
+  /**
+   * Get the value of the input element.
+   * @returns {Promise<string>}
+   */
+  async isEmpty(): Promise<boolean> {
+    return (await this.locator.inputValue()) === "";
   }
 
   /**
