@@ -49,7 +49,11 @@ export class Dropdown extends BaseElement {
     });
   }
 
-  //
+  /**
+   * Select multiple items from a dropdown.
+   * @param items - The values text to be selected in the dropdown.
+   * @returns {Promise<void>}
+   */
   async selectMultipleItems(items: string[]): Promise<void> {
     await test.step(`Select ${items} from ${this.elementReportName}`, async () => {
       await this.open();
