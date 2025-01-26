@@ -61,10 +61,44 @@ $full-view-margin: 40px;
     inset: 0;
     height: calc(100% - $full-view-margin);
 
-    margin-inline: $full-view-margin;
+    margin-inline: var(--spacing-large);
     margin-block-start: $full-view-margin;
 
     border-end-start-radius: unset;
     border-end-end-radius: unset;
+  }
+
+  @media (min-width: 1280px) {
+    &.sizeSmall {
+      --modal-width: 480px;
+    }
+
+    &.sizeMedium {
+      --modal-width: 580px;
+    }
+
+    &.sizeLarge {
+      --modal-width: 840px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    &.sizeSmall {
+      --modal-width: 520px;
+    }
+
+    &.sizeMedium {
+      --modal-width: 620px;
+    }
+
+    &.sizeLarge {
+      --modal-width: 900px;
+    }
+  }
+
+  @media (min-width: 1720px) {
+    &.sizeFullView {
+      margin-inline: $full-view-margin;
+    }
   }
 }
