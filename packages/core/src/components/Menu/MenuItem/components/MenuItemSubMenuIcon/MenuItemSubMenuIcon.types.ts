@@ -20,6 +20,10 @@ export interface SimpleMenuItemSubMenuIconProps {
    * Label for the submenu icon, used for accessibility.
    */
   label?: string;
+  /**
+   * Whether the split submenu icon is disabled.
+   */
+  disabled?: boolean;
 }
 
 export type MenuItemSubMenuIconProps = SimpleMenuItemSubMenuIconProps | SplitMenuItemSubMenuIconProps;
