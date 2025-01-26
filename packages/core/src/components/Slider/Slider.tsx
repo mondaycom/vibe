@@ -77,6 +77,14 @@ export type SliderProps = {
    */
   showValue?: boolean;
   /**
+   * Position of the `value` when `showValue` is true
+   */
+  valueLabelPosition?: "top" | "bottom";
+  /**
+   * Color of the `value` when `showValue` is true
+   */
+  valueLabelColor?: "primary" | "secondary";
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size?: SliderSize;
@@ -136,6 +144,8 @@ const Slider: React.FC<SliderProps> & {
       ranged = false,
       step = 1,
       showValue = false,
+      valueLabelPosition = "top",
+      valueLabelColor = "primary",
       size = "small",
       value,
       defaultValue = 0,
@@ -167,6 +177,8 @@ const Slider: React.FC<SliderProps> & {
         onChange={onChange}
         ranged={ranged}
         showValue={showValue}
+        valueLabelPosition={valueLabelPosition}
+        valueLabelColor={valueLabelColor}
         size={size}
         step={step}
         value={value}

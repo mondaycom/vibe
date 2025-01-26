@@ -47,6 +47,8 @@ export type SliderContextUI = {
   size: SliderSize;
   shapeTestId: (subElement: string) => string;
   showValue: boolean;
+  valueLabelPosition: "top" | "bottom";
+  valueLabelColor: "primary" | "secondary";
 };
 
 export type SliderContextActions = {
