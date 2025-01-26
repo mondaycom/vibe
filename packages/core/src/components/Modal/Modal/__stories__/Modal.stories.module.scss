@@ -51,17 +51,17 @@
   [aria-modal][role="dialog"] {
     &[class*="sizeSmall"] {
       --modal-max-height: 50%;
-      --modal-width: 480px;
+      --modal-width: 460px;
     }
 
     &[class*="sizeMedium"] {
       --modal-max-height: 80%;
-      --modal-width: 580px;
+      --modal-width: 540px;
     }
 
     &[class*="sizeLarge"] {
       --modal-max-height: 80%;
-      --modal-width: 840px;
+      --modal-width: 800px;
     }
 
     &[class*="sizeFullView"] {
