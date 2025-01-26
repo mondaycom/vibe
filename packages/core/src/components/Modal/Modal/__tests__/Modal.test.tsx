@@ -241,6 +241,78 @@ describe("Modal", () => {
     expect(getByText("Focusable 1")).toHaveFocus();
   });
 
+  it("should allow focus by default if onFocusAttempt is not provided", () => {
+    const { getByText, getByLabelText } = render(
+      <>
+        <button type="button">Focusable outside</button>
+        <Modal id={id} show closeButtonAriaLabel={closeButtonAriaLabel}>
+          <button type="button">Focusable 1</button>
+          <button type="button">Focusable 2</button>
+        </Modal>
+      </>
+    );
+
+    expect(getByText("Focusable 1")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 2")).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveFocus();
+  });
+
+  it("should block focus if onFocusAttempt returns HTMLElement", () => {
+    const modalRef = React.createRef<HTMLDivElement>();
+    const onFocusAttemptMock = jest.fn(nextFocusedElement => {
+      return nextFocusedElement.textContent === "Focusable 2" ? modalRef.current : true;
+    });
+
+    const { getByText, getByRole } = render(
+      <>
+        <button type="button">Focusable outside</button>
+        <Modal
+          id={id}
+          ref={modalRef}
+          show
+          onFocusAttempt={onFocusAttemptMock}
+          closeButtonAriaLabel={closeButtonAriaLabel}
+        >
+          <button type="button">Focusable 1</button>
+          <button type="button">Focusable 2</button>
+        </Modal>
+      </>
+    );
+
+    expect(getByText("Focusable 1")).toHaveFocus();
+
+    userEvent.tab();
+    expect(onFocusAttemptMock).toHaveBeenCalledWith(getByText("Focusable 2"));
+    // initial + focusable 1 + ignored focusable 2 + enforced modal
+    expect(onFocusAttemptMock).toHaveBeenCalledTimes(4);
+    expect(getByRole("dialog")).toHaveFocus();
+  });
+
+  it("should not auto-focus any modal content when autoFocus is false", () => {
+    const outsideButtonRef = React.createRef<HTMLButtonElement>();
+    const { getByText } = render(
+      <>
+        <button type="button" ref={outsideButtonRef}>
+          Focusable outside
+        </button>
+        <Modal id={id} show autoFocus={false} closeButtonAriaLabel={closeButtonAriaLabel}>
+          <button type="button">Focusable 1</button>
+        </Modal>
+      </>
+    );
+
+    expect(document.body).toHaveFocus();
+    userEvent.tab();
+    expect(document.body).toHaveFocus();
+
+    userEvent.tab();
+    expect(getByText("Focusable 1")).toHaveFocus();
+  });
+
   describe("integrated with ModalContent", () => {
     it("should trap and moves focus to focusable element inside ModalContent and to cycle through full focus flow", () => {
       const { getByLabelText, getByText } = render(
@@ -265,6 +337,24 @@ describe("Modal", () => {
 
       userEvent.tab();
       expect(getByText("Focusable inside ModalContent")).toHaveFocus();
+    });
+
+    it("should pass autoFocus prop value to ModalContent's data-autofocus-inside attribute", () => {
+      const { getByTestId, rerender } = render(
+        <Modal id={id} show>
+          <ModalContent data-testid="modal-content">Some content</ModalContent>
+        </Modal>
+      );
+
+      expect(getByTestId("modal-content")).toHaveAttribute("data-autofocus-inside", "true");
+
+      rerender(
+        <Modal id={id} show autoFocus={false}>
+          <ModalContent data-testid="modal-content">Some content</ModalContent>
+        </Modal>
+      );
+
+      expect(getByTestId("modal-content")).toHaveAttribute("data-autofocus-inside", "false");
     });
   });
 
