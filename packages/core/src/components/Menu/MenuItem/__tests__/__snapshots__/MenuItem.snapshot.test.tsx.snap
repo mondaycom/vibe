@@ -159,7 +159,6 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
-      onClick={[Function]}
       role="img"
     />
   </div>

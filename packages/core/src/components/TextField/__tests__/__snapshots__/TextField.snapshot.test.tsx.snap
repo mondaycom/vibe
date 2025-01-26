@@ -699,7 +699,6 @@ exports[`TextField renders correctly with icon 1`] = `
           aria-hidden={true}
           className="icon icon fa fa-star"
           data-testid="icon"
-          onClick={[Function]}
           role="img"
         />
       </div>
@@ -1154,7 +1153,6 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
           aria-hidden={true}
           className="icon icon fa fa-star"
           data-testid="icon"
-          onClick={[Function]}
           role="img"
         />
       </div>

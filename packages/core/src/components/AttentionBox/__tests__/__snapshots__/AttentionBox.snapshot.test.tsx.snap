@@ -448,7 +448,6 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
-      onClick={[Function]}
       role="img"
     />
     <h5

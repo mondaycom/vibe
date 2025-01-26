@@ -6,7 +6,7 @@ export default function useIconScreenReaderAccessProps({
   label,
   isDecorationOnly
 }: {
-  isClickable: boolean;
+  isClickable?: boolean;
   label: string;
   isDecorationOnly: boolean;
 }) {

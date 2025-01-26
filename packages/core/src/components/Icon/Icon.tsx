@@ -46,7 +46,7 @@ export interface IconProps extends VibeComponentProps {
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
   /**
-   * Hide icon asset from screen reader. No need to set value for this prop when `clickable` is false
+   * Hide icon asset from screen reader.
    */
   ariaHidden?: boolean;
   style?: React.CSSProperties;
@@ -83,7 +83,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
     ref
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
-    const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
+    const { screenReaderAccessProps, computedClassName, iconRef } = useIconProps({
       iconLabel,
       className,
       isDecorationOnly: ariaHidden,
@@ -121,7 +121,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
           src={icon}
           {...screenReaderAccessProps}
           className={cx(computedClassName)}
-          onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={overrideDataTestId}
@@ -133,7 +132,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
         id={id}
         {...screenReaderAccessProps}
         className={cx(computedClassName)}
-        onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
         data-testid={overrideDataTestId}
