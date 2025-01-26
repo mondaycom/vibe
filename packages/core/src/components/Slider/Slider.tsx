@@ -11,7 +11,7 @@ import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
-import { SliderColor, SliderSize } from "./Slider.types";
+import { SliderColor, SliderLabelColor, SliderLabelPosition, SliderSize } from "./Slider.types";
 
 export type SliderProps = {
   /**
@@ -79,11 +79,11 @@ export type SliderProps = {
   /**
    * Position of the `value` when `showValue` is true
    */
-  valueLabelPosition?: "top" | "bottom";
+  valueLabelPosition?: SliderLabelPosition;
   /**
    * Color of the `value` when `showValue` is true
    */
-  valueLabelColor?: "primary" | "secondary";
+  valueLabelColor?: SliderLabelColor;
   /**
    * Size small/medium/large of the component (Slider)
    */
