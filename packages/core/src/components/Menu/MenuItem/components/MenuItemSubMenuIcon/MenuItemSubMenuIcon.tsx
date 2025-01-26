@@ -29,7 +29,7 @@ const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: Re
       <Icon
         icon={DropdownChevronRight}
         iconLabel={props.label}
-        className={styles.subMenuIcon}
+        className={cx(styles.subMenuIcon, { [styles.disabled]: props.disabled })}
         ignoreFocusStyle
         iconSize={18}
       />
