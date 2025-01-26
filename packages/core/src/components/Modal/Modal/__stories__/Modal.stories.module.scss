@@ -63,5 +63,38 @@
       --modal-max-height: 80%;
       --modal-width: 840px;
     }
+
+    &[class*="sizeFullView"] {
+      --modal-max-height: 100%;
+      --modal-width: auto;
+    }
+
+    @container (min-width: 1280px) {
+      &[class*="sizeSmall"] {
+        --modal-width: 480px;
+      }
+
+      &[class*="sizeMedium"] {
+        --modal-width: 580px;
+      }
+
+      &[class*="sizeLarge"] {
+        --modal-width: 840px;
+      }
+    }
+
+    @container (min-width: 1440px) {
+      &[class*="sizeSmall"] {
+        --modal-width: 520px;
+      }
+
+      &[class*="sizeMedium"] {
+        --modal-width: 620px;
+      }
+
+      &[class*="sizeLarge"] {
+        --modal-width: 900px;
+      }
+    }
   }
 }
