@@ -16,6 +16,14 @@
   animation: counterPopElastic var(--motion-expressive-short);
 }
 
+.sizeXs {
+  @include vibe-text(text3, normal);
+  @include smoothing-text;
+  min-width: 18px;
+  line-height: 18px;
+  padding: 0 var(--spacing-small);
+}
+
 .sizeSmall {
   @include font-caption();
   min-width: 18px;

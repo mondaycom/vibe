@@ -136,6 +136,24 @@ export const Size: Story = {
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
         </AvatarGroup>
       </StoryDescription>
+      <StoryDescription description="XS" vertical align={StoryDescription.align.START}>
+        <AvatarGroup size="xs" type="img" max={4}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        </AvatarGroup>
+      </StoryDescription>
     </Flex>
   )
 };

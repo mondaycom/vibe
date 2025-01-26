@@ -68,6 +68,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
         noAnimation={noAnimation}
         counterClassName={cx({ [styles.disabled]: disabled })}
+        size={size === "xs" ? "xs" : undefined}
       />
     );
   }, [

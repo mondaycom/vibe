@@ -47,12 +47,16 @@ export const Sizes = {
   render: () => (
     <>
       <div className="storybook-counter_column">
-        <Counter count={5} />
-        Big
+        <Counter count={5} size="xs" />
+        XS
       </div>
       <div className="storybook-counter_column">
         <Counter count={5} size="small" />
         Small
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} />
+        Large
       </div>
     </>
   ),
