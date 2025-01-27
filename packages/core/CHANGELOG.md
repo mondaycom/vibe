@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.18.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.1...@vibe/core@3.18.0) (2025-01-27)
+
+
+### Bug Fixes
+
+* **MenuItem:** fix disabled submenu arrow button ([#2735](https://github.com/mondaycom/vibe/issues/2735)) ([f9ba468](https://github.com/mondaycom/vibe/commit/f9ba468a125050a2c5458569badaa62b65c2abe7))
+
+
+### Features
+
+* **Avatar:** add xs size ([#2732](https://github.com/mondaycom/vibe/issues/2732)) ([abfefda](https://github.com/mondaycom/vibe/commit/abfefdad3266736f8b650d39ab90ad9394ff19fb))
+* **Slider:** be able to change value label position and color ([#2734](https://github.com/mondaycom/vibe/issues/2734)) ([c84db0a](https://github.com/mondaycom/vibe/commit/c84db0a60368dd7fa1f56c7aff0079ac1375681b))
+
+
+
+
+
 ## [3.17.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.0...@vibe/core@3.17.1) (2025-01-20)
 
 
