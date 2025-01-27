@@ -19,6 +19,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
+import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -584,22 +585,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     return state;
                   }
                 },
-                {
-                  name: "observeContentResize",
-                  enabled: observeContentResize,
-                  phase: "beforeWrite",
-                  fn() {},
-                  effect({ state, instance }) {
-                    const observer = new ResizeObserver(() => {
-                      instance.update();
-                    });
-                    observer.observe(state.elements.popper);
-
-                    return () => {
-                      observer.disconnect();
-                    };
-                  }
-                },
+                createObserveContentResizeModifier(observeContentResize),
                 ...modifiers
               ]}
             >

@@ -56,6 +56,12 @@ export interface MenuItemProps extends VibeComponentProps {
   splitMenuItem?: boolean;
   "aria-label"?: AriaAttributes["aria-label"];
   submenuPosition?: SubmenuPosition;
+  /**
+   * When set to `true`, submenu's content and size changes would automatically trigger repositioning.
+   *
+   * This is useful for when submenu's content may grow or shrink without a re-render being triggered.
+   */
+  autoAdjustOnSubMenuContentResize?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
