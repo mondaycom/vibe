@@ -261,7 +261,7 @@ Snapshot Diff:
 -       />
 +       >
 +         <label
-+           class="label"
++           class="label colorPrimary positionTop"
 +         >
 +           0%
 +         </label>

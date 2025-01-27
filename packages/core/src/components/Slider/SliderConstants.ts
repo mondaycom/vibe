@@ -1,6 +1,6 @@
 import { IconType } from "../Icon";
 import { ReactElement } from "react";
-import { SliderSize, SliderColor as SliderColorType } from "./Slider.types";
+import { SliderSize, SliderColor as SliderColorType, SliderLabelPosition, SliderLabelColor } from "./Slider.types";
 
 export const BEM_PREFIX = "monday";
 
@@ -47,6 +47,8 @@ export type SliderContextUI = {
   size: SliderSize;
   shapeTestId: (subElement: string) => string;
   showValue: boolean;
+  valueLabelPosition: SliderLabelPosition;
+  valueLabelColor: SliderLabelColor;
 };
 
 export type SliderContextActions = {

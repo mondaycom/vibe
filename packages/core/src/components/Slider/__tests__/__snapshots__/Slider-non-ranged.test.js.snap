@@ -223,7 +223,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           18%
@@ -261,7 +261,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           22%
@@ -299,7 +299,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           10%
@@ -337,7 +337,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           40%
@@ -375,7 +375,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           40%

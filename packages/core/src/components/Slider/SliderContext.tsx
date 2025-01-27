@@ -49,6 +49,8 @@ export function SliderProvider({
   onChange,
   ranged,
   showValue,
+  valueLabelPosition,
+  valueLabelColor,
   size,
   step,
   value,
@@ -69,8 +71,34 @@ export function SliderProvider({
   const [dragging, setDragging, getDragging] = useDragging();
 
   const uiContextValue: SliderContextUI = useMemo(
-    () => ({ active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue }),
-    [active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue]
+    () => ({
+      active,
+      ariaLabel,
+      ariaLabelledby,
+      color,
+      disabled,
+      dragging,
+      focused,
+      size,
+      shapeTestId,
+      showValue,
+      valueLabelPosition,
+      valueLabelColor
+    }),
+    [
+      active,
+      ariaLabel,
+      ariaLabelledby,
+      color,
+      disabled,
+      dragging,
+      focused,
+      size,
+      shapeTestId,
+      showValue,
+      valueLabelPosition,
+      valueLabelColor
+    ]
   );
 
   const selectionContextValue: SliderContextSelection = useMemo(

@@ -15,7 +15,7 @@
 
 .dragging {
   cursor: grabbing !important;
-  transform: translate(-50%, -50%) scale(1.33, 1.33);
+  transform: translate(-50%, -50%) scale(1.15, 1.15);
   transform-origin: center center;
   transition: transform var(--motion-productive-long) var(--motion-timing-enter);
   box-shadow: var(--box-shadow-small);
@@ -62,8 +62,8 @@
 }
 
 .medium {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
 }
 
 .large {
@@ -72,7 +72,6 @@
 }
 
 .label {
-  bottom: calc(100% + 8px);
   left: 50%;
   max-width: 50px;
   overflow: hidden;
@@ -80,4 +79,20 @@
   text-overflow: ellipsis;
   transform: translate(-50%, 0);
   white-space: nowrap;
+
+  &.positionTop {
+    bottom: calc(100% + 8px);
+  }
+
+  &.positionBottom {
+    top: calc(100% + 8px);
+  }
+
+  &.colorPrimary {
+    color: var(--primary-text-color);
+  }
+
+  &.colorSecondary {
+    color: var(--secondary-text-color);
+  }
 }
