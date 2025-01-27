@@ -11,6 +11,7 @@ export enum AvatarType {
  * @deprecated
  */
 export enum AvatarSize {
+  XS = "xs",
   SMALL = "small",
   MEDIUM = "medium",
   LARGE = "large"
