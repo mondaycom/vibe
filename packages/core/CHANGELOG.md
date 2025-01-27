@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.18.0...@vibe/core@3.19.0) (2025-01-27)
+
+
+### Features
+
+* **MenuItem:** allow observing submenu content resize when a re-render isn't triggered ([#2713](https://github.com/mondaycom/vibe/issues/2713)) ([ef07e3c](https://github.com/mondaycom/vibe/commit/ef07e3cd1b65120c4489d5a1691f4ddabbdeffc3))
+
+
+
+
+
 # [3.18.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.1...@vibe/core@3.18.0) (2025-01-27)
 
 
