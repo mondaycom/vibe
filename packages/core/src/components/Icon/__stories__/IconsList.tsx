@@ -22,7 +22,7 @@ export default function IconsList() {
       <div className={styles.grid}>
         {iconsMetaData
           .filter((icon: IconMeta) => {
-            return icon.tags.toLowerCase().includes(query.toLowerCase());
+            return `${icon.tags},${icon.name}`.toLowerCase().includes(query.toLowerCase());
           })
           .map((icon: IconMeta) => {
             const fileName = icon.file.split(".")[0] as string;
