@@ -1,12 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import MenuButton from "../MenuButton";
 import { Bolt } from "@vibe/icons";
 import Button from "../../Button/Button";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
-import { userEvent } from "@storybook/testing-library";
 
 describe("MenuButton", () => {
   it("renders correctly with empty props", () => {
