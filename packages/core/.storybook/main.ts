@@ -1,6 +1,5 @@
 import path from "path";
-import type { StorybookConfig } from "@storybook/react-webpack5";
-import { storybookAddonStylingWebpackOptions } from "./addon-styling-webpack-options";
+import type { StorybookConfig } from "@storybook/react-vite";
 import remarkGfm from "remark-gfm";
 
 const getAddons = () => {
@@ -15,10 +14,6 @@ const getAddons = () => {
     },
     "@storybook/addon-themes",
     "@storybook/preset-scss",
-    {
-      name: "@storybook/addon-styling-webpack",
-      options: storybookAddonStylingWebpackOptions
-    },
     "storybook-addon-playground",
     "@chromatic-com/storybook",
     "@storybook/addon-storysource",
@@ -40,35 +35,39 @@ const getAddons = () => {
 
   return addons;
 };
-const config: StorybookConfig = {
+
+export default {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: getAddons(),
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/react-vite",
     options: {}
   },
-  docs: {
-    autodocs: false
+  core: {
+    builder: "@storybook/builder-vite"
   },
   typescript: {
     check: true,
-    checkOptions: {
-      async: false
-    }
+    reactDocgen: "react-docgen-typescript"
   },
-  async webpackFinal(config, { configType }) {
-    if (configType === "DEVELOPMENT") {
-      if (config.resolve) {
-        config.resolve.alias = {
-          ...config.resolve.alias,
+  staticDirs: ["./static"],
+  async viteFinal(config, { configType }) {
+    if (configType !== "DEVELOPMENT") return config;
+    const { mergeConfig } = await import("vite");
+
+    return mergeConfig(config, {
+      resolve: {
+        alias: {
           "monday-ui-style/dist/index.min.css": path.resolve(__dirname, "../../style/src/index.scss"),
-          "monday-ui-style/dist": path.resolve(__dirname, "../../style/src")
-        };
+          "monday-ui-style/dist": path.resolve(__dirname, "../../style/src"),
+          // mixins workaround for vite:
+          "~monday-ui-style": path.resolve(__dirname, "../../style"),
+          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks")
+        }
+      },
+      define: {
+        "process.env.NODE_ENV": JSON.stringify("development")
       }
-      return config;
-    }
-    return config;
-  },
-  staticDirs: ["./static"]
-};
-export default config;
+    });
+  }
+} satisfies StorybookConfig;

@@ -223,7 +223,9 @@
             const newVal = modalFolder.getAttribute("aria-expanded") || "";
 
             if (oldVal !== "true" && newVal === "true") {
-              const modalDocsPage = modalFolder.nextElementSibling.querySelector("a");
+              const modalDocsPage = document
+                .querySelector(":has(> button#components-modal-new)")
+                .nextElementSibling.querySelector("a");
               modalDocsPage.click();
             }
           }
