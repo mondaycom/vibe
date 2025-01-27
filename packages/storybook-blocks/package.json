@@ -70,7 +70,6 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.5.0",
     "@storybook/react-webpack5": "^7.5.0",
-    "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
