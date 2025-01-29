@@ -100,5 +100,5 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * Controls the visibility of the clear icon.
    */
-  hasClearIcon?: boolean;
+  showClearIcon?: boolean;
 }
