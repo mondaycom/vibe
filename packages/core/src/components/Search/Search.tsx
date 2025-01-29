@@ -38,6 +38,7 @@ const Search = forwardRef(
       className,
       ariaExpanded,
       ariaHasPopup,
+      hasClearIcon = true,
       id,
       "data-testid": dataTestId
     }: SearchProps,
@@ -88,7 +89,7 @@ const Search = forwardRef(
             wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}
-        {inputValue && !disabled && ClearIcon}
+        {inputValue && !disabled && hasClearIcon && ClearIcon}
         {!(hideRenderActionOnInput && inputValue) && RenderAction}
       </>
     );

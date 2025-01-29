@@ -24,6 +24,12 @@ describe("Search", () => {
     expect(queryByLabelText("Clear")).toBeNull();
   });
 
+  it("should not display the clear icon when hasClearValue false", () => {
+    const { queryByLabelText, getAllByTestId } = renderSearch({ value: "Test", hasClearIcon: false });
+    expect(getAllByTestId("icon")).toHaveLength(1);
+    expect(queryByLabelText("Clear")).toBeNull();
+  });
+
   it("should display both the search icon and clear icon when input has value", () => {
     const { getByTestId, getAllByTestId } = renderSearch({ value: "Test" });
     expect(getAllByTestId("icon")).toHaveLength(2);
