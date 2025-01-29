@@ -2,7 +2,7 @@
 
 exports[`Slider Render 01. with empty props 1`] = `
 <div
-  class="slider"
+  class="slider positionTop"
   data-testid="monday-slider"
 >
   <div
@@ -74,8 +74,8 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="slider"
-+   class="slider slide-me"
+-   class="slider positionTop"
++   class="slider positionTop slide-me"
     data-testid="monday-slider"
   >
     <div
@@ -88,7 +88,7 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
-    class="slider"
+    class="slider positionTop"
 -   data-testid="monday-slider"
 +   data-testid="my-slider"
 +   id="my-slider"
@@ -249,8 +249,8 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="slider"
-+   class="slider valueShown"
+-   class="slider positionTop"
++   class="slider valueShown positionTop"
     data-testid="monday-slider"
   >
     <div
