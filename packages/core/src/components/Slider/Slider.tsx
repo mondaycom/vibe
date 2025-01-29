@@ -12,6 +12,8 @@ import cx from "classnames";
 import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
 import { SliderColor, SliderLabelColor, SliderLabelPosition, SliderSize } from "./Slider.types";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 export type SliderProps = {
   /**
@@ -187,7 +189,12 @@ const Slider: React.FC<SliderProps> & {
         valueText={valueText}
       >
         <div
-          className={cx(styles.slider, { [styles.valueShown]: showValue }, className)}
+          className={cx(
+            styles.slider,
+            { [styles.valueShown]: showValue },
+            getStyle(styles, camelCase("position-" + valueLabelPosition)),
+            className
+          )}
           data-testid={dataTestId}
           id={id}
           ref={mergedRef}
