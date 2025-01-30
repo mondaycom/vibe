@@ -16,6 +16,10 @@ export type ModalProviderValue = {
    * Callback to set the description element ID for accessibility.
    */
   setDescriptionId: (id: string) => void;
+  /**
+   * Passed from the Modal component, `true` by default, `false` if set by user.
+   */
+  autoFocus?: boolean;
 };
 
 export interface ModalProviderProps {

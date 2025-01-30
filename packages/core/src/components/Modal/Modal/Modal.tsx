@@ -37,6 +37,8 @@ const Modal = forwardRef(
       closeButtonTheme,
       closeButtonAriaLabel,
       onClose = () => {},
+      autoFocus = true,
+      onFocusAttempt,
       anchorElementRef,
       alertModal,
       container = document.body,
@@ -78,9 +80,10 @@ const Modal = forwardRef(
       () => ({
         modalId: id,
         setTitleId: setTitleIdCallback,
-        setDescriptionId: setDescriptionIdCallback
+        setDescriptionId: setDescriptionIdCallback,
+        autoFocus
       }),
-      [id, setTitleIdCallback, setDescriptionIdCallback]
+      [id, setTitleIdCallback, setDescriptionIdCallback, autoFocus]
     );
 
     const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
@@ -108,13 +111,31 @@ const Modal = forwardRef(
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
+    const handleFocusLockWhiteList = useCallback(
+      (nextFocusedElement?: HTMLElement) => {
+        if (!onFocusAttempt) return true;
+
+        const outcome = onFocusAttempt(nextFocusedElement);
+
+        if (outcome === true) return true;
+
+        if (outcome instanceof HTMLElement) {
+          outcome.focus();
+          return false;
+        }
+
+        return false;
+      },
+      [onFocusAttempt]
+    );
+
     return (
       <AnimatePresence>
         {show && (
           <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <FocusLockComponent returnFocus>
+                <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
                   <div ref={containerRef} className={styles.container} style={zIndexStyle}>
                     <motion.div
                       variants={modalAnimationOverlayVariants}
