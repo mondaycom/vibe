@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.20.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.19.0...@vibe/core@3.20.0) (2025-01-30)
+
+
+### Bug Fixes
+
+* **Slider:** margin on slider wrapper based on valueLabelPosition prop ([#2741](https://github.com/mondaycom/vibe/issues/2741)) ([e2ae9f6](https://github.com/mondaycom/vibe/commit/e2ae9f6f2ac6aa03ef42235334474d8fcb0bf497))
+
+
+### Features
+
+* **Search:** add prop for hiding clear icon ([#2742](https://github.com/mondaycom/vibe/issues/2742)) ([779db25](https://github.com/mondaycom/vibe/commit/779db25221bd760f3d827d9da87128d2aa1fd202))
+
+
+
+
+
 # [3.19.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.18.0...@vibe/core@3.19.0) (2025-01-27)
 
 
