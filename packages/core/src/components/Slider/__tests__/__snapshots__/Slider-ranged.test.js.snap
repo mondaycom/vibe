@@ -2,7 +2,7 @@
 
 exports[`a. Ranges Slider: basic renderer 1`] = `
 <div
-  class="slider"
+  class="slider positionTop"
   data-testid="monday-slider"
 >
   <div
