@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.21.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.20.0...@vibe/core@3.21.0) (2025-01-30)
+
+
+### Features
+
+* **Modal:** allow disabling autoFocus ([#2729](https://github.com/mondaycom/vibe/issues/2729)) ([abb15b2](https://github.com/mondaycom/vibe/commit/abb15b2e967e640b59d13b36165a4ff1f2b23585))
+
+
+
+
+
 # [3.20.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.19.0...@vibe/core@3.20.0) (2025-01-30)
 
 
