@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.21.0...monday-ui-style@0.21.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* change fixed-dark-color to be fixed on all themes ([#2745](https://github.com/mondaycom/vibe/issues/2745)) ([f113746](https://github.com/mondaycom/vibe/commit/f113746d2b1e741f4edfff6c535bdb811be9d2dc))
+
+
+
+
+
 # [0.21.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.20.1...monday-ui-style@0.21.0) (2024-11-24)
 
 
