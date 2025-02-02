@@ -47,6 +47,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
   tooltipMoveBy?: MoveBy;
   children?: React.ReactNode;
   fullWidth?: boolean;
+  blurOnMouseUp?: boolean;
 }
 
 const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
@@ -69,6 +70,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       tooltipShowDelay,
       tooltipContainerSelector,
       tooltipMoveBy,
+      blurOnMouseUp = true,
       id,
       "data-testid": dataTestId,
       fullWidth = false
@@ -120,6 +122,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
+            blurOnMouseUp={blurOnMouseUp}
             className={cx(styles.button, styles.optionText, {
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
@@ -141,6 +144,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       tooltipShowDelay,
       tooltipContainerSelector,
       tooltipMoveBy,
+      blurOnMouseUp,
       disabled,
       fullWidth,
       onClick
