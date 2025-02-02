@@ -63,4 +63,12 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    * If true, the character count and limit will be displayed below the textarea.
    */
   showCharCount?: boolean;
+  /**
+   * If true, the textarea will be disabled.
+   */
+  disabled?: boolean;
+  /**
+   * If true, the textarea will be read-only.
+   */
+  readOnly?: boolean;
 }
