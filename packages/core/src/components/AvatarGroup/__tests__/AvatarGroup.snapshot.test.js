@@ -68,6 +68,17 @@ describe("AvatarGroup renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+  it("renders correctly with xs size", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup size="xs" max={1}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
   it("renders correctly with counter ariaLabel default-tooltip", () => {
     const tree = renderer

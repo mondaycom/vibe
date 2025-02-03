@@ -20,6 +20,7 @@ export enum CounterColor {
  * @deprecated
  */
 export enum CounterSize {
+  XS = "xs",
   SMALL = "small",
   LARGE = "large"
 }

@@ -22,6 +22,10 @@
     min-width: $size;
     border-radius: math.div($size, 2);
   }
+  &.xs {
+    @include counterSize($avatar-size-xs);
+    padding: 0 1px;
+  }
   &.small {
     @include counterSize($avatar-size-small);
     padding: 0 1px;

@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.22.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.0...@vibe/core@3.22.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* **Slider:** increase value label max-width to 64px ([#2748](https://github.com/mondaycom/vibe/issues/2748)) ([1435c4d](https://github.com/mondaycom/vibe/commit/1435c4daa6e3c8330d12cd3c1ac952667cd75f66))
+
+
+
+
+
+# [3.22.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.21.0...@vibe/core@3.22.0) (2025-02-02)
+
+
+### Features
+
+* **ButtonGroup:** add blurOnMouseUp to ButtonGroup ([#2743](https://github.com/mondaycom/vibe/issues/2743)) ([bfcb116](https://github.com/mondaycom/vibe/commit/bfcb116f204b2557d875ef2fd0eb3e098f996f68))
+
+
+
+
+
+# [3.21.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.20.0...@vibe/core@3.21.0) (2025-01-30)
+
+
+### Features
+
+* **Modal:** allow disabling autoFocus ([#2729](https://github.com/mondaycom/vibe/issues/2729)) ([abb15b2](https://github.com/mondaycom/vibe/commit/abb15b2e967e640b59d13b36165a4ff1f2b23585))
+
+
+
+
+
+# [3.20.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.19.0...@vibe/core@3.20.0) (2025-01-30)
+
+
+### Bug Fixes
+
+* **Slider:** margin on slider wrapper based on valueLabelPosition prop ([#2741](https://github.com/mondaycom/vibe/issues/2741)) ([e2ae9f6](https://github.com/mondaycom/vibe/commit/e2ae9f6f2ac6aa03ef42235334474d8fcb0bf497))
+
+
+### Features
+
+* **Search:** add prop for hiding clear icon ([#2742](https://github.com/mondaycom/vibe/issues/2742)) ([779db25](https://github.com/mondaycom/vibe/commit/779db25221bd760f3d827d9da87128d2aa1fd202))
+
+
+
+
+
+# [3.19.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.18.0...@vibe/core@3.19.0) (2025-01-27)
+
+
+### Features
+
+* **MenuItem:** allow observing submenu content resize when a re-render isn't triggered ([#2713](https://github.com/mondaycom/vibe/issues/2713)) ([ef07e3c](https://github.com/mondaycom/vibe/commit/ef07e3cd1b65120c4489d5a1691f4ddabbdeffc3))
+
+
+
+
+
+# [3.18.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.1...@vibe/core@3.18.0) (2025-01-27)
+
+
+### Bug Fixes
+
+* **MenuItem:** fix disabled submenu arrow button ([#2735](https://github.com/mondaycom/vibe/issues/2735)) ([f9ba468](https://github.com/mondaycom/vibe/commit/f9ba468a125050a2c5458569badaa62b65c2abe7))
+
+
+### Features
+
+* **Avatar:** add xs size ([#2732](https://github.com/mondaycom/vibe/issues/2732)) ([abfefda](https://github.com/mondaycom/vibe/commit/abfefdad3266736f8b650d39ab90ad9394ff19fb))
+* **Slider:** be able to change value label position and color ([#2734](https://github.com/mondaycom/vibe/issues/2734)) ([c84db0a](https://github.com/mondaycom/vibe/commit/c84db0a60368dd7fa1f56c7aff0079ac1375681b))
+
+
+
+
+
 ## [3.17.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.0...@vibe/core@3.17.1) (2025-01-20)
 
 
