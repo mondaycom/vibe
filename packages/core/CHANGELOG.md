@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.22.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.0...@vibe/core@3.22.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* **Slider:** increase value label max-width to 64px ([#2748](https://github.com/mondaycom/vibe/issues/2748)) ([1435c4d](https://github.com/mondaycom/vibe/commit/1435c4daa6e3c8330d12cd3c1ac952667cd75f66))
+
+
+
+
+
 # [3.22.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.21.0...@vibe/core@3.22.0) (2025-02-02)
 
 
