@@ -64,7 +64,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * When set to true, the component's placeholder will be displayed as ellipsis when it's too long
    */
-  forcePlaceholderEllipsis?: boolean;
+  allowPlaceholderEllipsis?: boolean;
   /**
    * If set to true, dropdown will be disabled
    */
