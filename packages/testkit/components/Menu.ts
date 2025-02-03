@@ -41,12 +41,13 @@ export class Menu extends BaseElement {
    */
   async initializeItems(): Promise<void> {
     await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("[role='menuitem']"), this.elementReportName);
-      const listElements = await this.locator.locator("[role='menuitem']").all();
+      const menuItemLocator = this.locator.locator("[role='menuitem']");
+      await this.waitForAndVerifyElements(menuItemLocator);
+      const listElements = await menuItemLocator.all();
       this.items = await Promise.all(
         listElements.map(async locator => {
           const itemName = await locator.innerText();
-          return new MenuItem(this.page, locator, `Menu Item: ${itemName}`);
+          return new MenuItem(this.page, locator.filter({ hasText: itemName }), `Menu Item: ${itemName}`);
         })
       );
     });
@@ -74,6 +75,7 @@ export class Menu extends BaseElement {
       menuItem = new MenuItem(this.page, this.locator.getByText(`${listItem}`), `Menu Item: ${listItem}`);
     }
     await menuItem.scrollIntoView();
+    await menuItem.hover();
     await menuItem.click();
   }
 }

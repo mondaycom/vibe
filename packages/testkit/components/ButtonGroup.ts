@@ -41,8 +41,9 @@ export class ButtonGroup extends BaseElement {
    */
   async initializeButtons() {
     await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("button"), this.elementReportName);
-      const buttonElements = await this.locator.locator("button").all();
+      const buttonLocator = this.locator.locator("button");
+      await this.waitForAndVerifyElements(buttonLocator);
+      const buttonElements = await buttonLocator.all();
       this.items = await Promise.all(
         buttonElements.map(async locator => {
           const buttonName = await locator.innerText();

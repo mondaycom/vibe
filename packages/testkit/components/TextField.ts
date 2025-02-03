@@ -30,17 +30,8 @@ export class TextField extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} in element: ${this.elementReportName}`, async () => {
-      const tagName = await this.locator.evaluate(el => el.tagName);
-      if (tagName !== "input") {
-        throw new Error(
-          `Element is not an input element. Element: ${this.elementReportName}. Element must be of type input.`
-        );
-      } else {
-        if (!(await this.isEmpty())) {
-          await this.clearText();
-        }
-        await this.locator.fill(text);
-      }
+      await this.locator.fill("");
+      await this.locator.fill(text);
     });
   }
 

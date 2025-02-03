@@ -41,8 +41,9 @@ export class TabList extends BaseElement {
    */
   async initializeTabs(): Promise<void> {
     await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("li"), this.elementReportName);
-      const tabElements = await this.locator.locator("li").all();
+      const tabLocator = this.locator.locator("li");
+      await this.waitForAndVerifyElements(tabLocator);
+      const tabElements = await tabLocator.all();
       this.items = await Promise.all(
         tabElements.map(async locator => {
           const tabName = await locator.innerText();
