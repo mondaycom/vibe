@@ -178,14 +178,14 @@ const control =
   };
 
 const placeholder =
-  ({ forcePlaceholderEllipsis }) =>
+  ({ allowPlaceholderEllipsis }) =>
   (provided, { isDisabled }) => ({
     ...provided,
     ...getFont(),
     color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
     fontWeight: getCSSVar("font-weight-normal"),
     // 22px because we have the inner arrow of opened/closed
-    ...(forcePlaceholderEllipsis && { width: "calc(100% - 22px)" })
+    ...(allowPlaceholderEllipsis && { width: "calc(100% - 22px)" })
   });
 
 const indicatorsContainer =
