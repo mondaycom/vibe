@@ -42,3 +42,19 @@ export const Icons = {
 
   name: "Icons"
 };
+
+export const Disabled = {
+  render: () => (
+    <>
+      <Tab>Tab</Tab>
+      <Tab disabled disabledReason="This tab is not available">
+        Tab
+      </Tab>
+      <Tab disabled tooltipProps={{ content: "This tab is blocked" }}>
+        Tab
+      </Tab>
+    </>
+  ),
+
+  name: "Icons"
+};
