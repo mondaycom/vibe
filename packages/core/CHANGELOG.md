@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.23.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.1...@vibe/core@3.23.0) (2025-02-03)
+
+
+### Features
+
+* **Dropdown:** allow ellipsis for component's placeholder ([#2749](https://github.com/mondaycom/vibe/issues/2749)) ([66b1924](https://github.com/mondaycom/vibe/commit/66b1924857ef766cc4095816c680e301b21dff5e))
+
+
+
+
+
 ## [3.22.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.0...@vibe/core@3.22.1) (2025-02-03)
 
 
