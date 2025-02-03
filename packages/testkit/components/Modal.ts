@@ -23,7 +23,7 @@ export class Modal {
     this.elementReportName = elementReportName;
     this.closeModalButton = new IconButton(
       this.page,
-      this.locator.locator("[aria-label]").filter({ hasText: /close/i }),
+      this.locator.getByTestId("close-modal-button"),
       elementReportName
     );
   }
