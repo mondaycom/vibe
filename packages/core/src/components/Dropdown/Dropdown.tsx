@@ -53,7 +53,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       singleValueWrapperClassName,
       dropdownMenuWrapperClassName,
       placeholder = "",
-      forcePlaceholderEllipsis,
+      allowPlaceholderEllipsis,
       disabled = false,
       readOnly = false,
       onMenuOpen = NOOP,
@@ -196,7 +196,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         withGroupDivider,
         searchable,
-        forcePlaceholderEllipsis
+        allowPlaceholderEllipsis
       });
 
       type BaseStyles = typeof baseStyles;
@@ -241,7 +241,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       rtl,
       insideOverflowContainer,
       insideOverflowWithTransformContainer,
-      forcePlaceholderEllipsis,
+      allowPlaceholderEllipsis,
       extraStyles,
       multi,
       multiline
@@ -423,14 +423,14 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 
     const calculatedPlaceholder = useMemo(
       () =>
-        forcePlaceholderEllipsis ? (
+        allowPlaceholderEllipsis ? (
           <Text type="text2" color="inherit">
             {placeholder}
           </Text>
         ) : (
           placeholder
         ),
-      [forcePlaceholderEllipsis, placeholder]
+      [allowPlaceholderEllipsis, placeholder]
     );
 
     return (
