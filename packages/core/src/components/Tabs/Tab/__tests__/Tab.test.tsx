@@ -28,7 +28,7 @@ describe("Tab tests", () => {
   });
 
   describe("Tooltips", () => {
-    it("should display the tooltip content from tooltipProps", async () => {
+    it("should not display tooltip content from tooltipProps if disabled is false", () => {
       const tooltipContent = "My Text";
       const tooltipProps = { content: tooltipContent };
 
@@ -38,24 +38,7 @@ describe("Tab tests", () => {
         fireEvent.mouseEnter(component);
       });
       jest.advanceTimersByTime(1000);
-      const content = screen.getByText(tooltipContent);
-      expect(content).toBeTruthy();
-      act(() => {
-        fireEvent.mouseLeave(component);
-      });
-      jest.advanceTimersByTime(1000);
-    });
-
-    it("should display not disabledReason if disabled is false", () => {
-      const disabledReason = "I'm a disabled button";
-
-      renderComponent({ disabledReason });
-      const component = screen.getByText(text);
-      act(() => {
-        fireEvent.mouseEnter(component);
-      });
-      jest.advanceTimersByTime(1000);
-      const content = screen.queryByText(disabledReason);
+      const content = screen.queryByText(tooltipContent);
       expect(content).toBeFalsy();
       act(() => {
         fireEvent.mouseLeave(component);
@@ -63,16 +46,17 @@ describe("Tab tests", () => {
       jest.advanceTimersByTime(1000);
     });
 
-    it("should display disabledReason if disabled is true", () => {
-      const disabledReason = "I'm a disabled button";
+    it("should display tooltip content from tooltipProps if disabled is true", () => {
+      const tooltipContent = "My Text";
+      const tooltipProps = { content: tooltipContent };
 
-      renderComponent({ disabledReason, disabled: true });
+      renderComponent({ tooltipProps, disabled: true });
       const component = screen.getByText(text);
       act(() => {
         fireEvent.mouseEnter(component);
       });
       jest.advanceTimersByTime(1000);
-      const content = screen.queryByText(disabledReason);
+      const content = screen.queryByText(tooltipContent);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);

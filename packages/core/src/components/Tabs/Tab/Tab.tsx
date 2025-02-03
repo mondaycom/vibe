@@ -28,7 +28,6 @@ export interface TabProps extends VibeComponentProps {
   iconSide?: string;
   onClick?: (value: number) => void;
   tooltipProps?: Partial<TooltipProps>;
-  disabledReason?: string;
   /**
    * Tab link-name
    */
@@ -47,7 +46,6 @@ const Tab: FC<TabProps> = forwardRef(
       focus = false,
       onClick = NOOP,
       tooltipProps = {} as TooltipProps,
-      disabledReason,
       icon,
       iconType,
       iconSide = "left",
@@ -58,11 +56,6 @@ const Tab: FC<TabProps> = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
-
-    const calculatedTooltipContent = useMemo(() => {
-      if (disabled && disabledReason) return disabledReason;
-      if (tooltipProps?.content) return tooltipProps?.content;
-    }, [disabled, disabledReason, tooltipProps]);
 
     function renderIconAndChildren() {
       if (!icon) return children;
@@ -87,7 +80,7 @@ const Tab: FC<TabProps> = forwardRef(
       return [...childrenArray, iconElement];
     }
     return (
-      <Tooltip {...tooltipProps} content={calculatedTooltipContent}>
+      <Tooltip {...tooltipProps} content={disabled && tooltipProps.content}>
         <li
           ref={mergedRef}
           key={id}
