@@ -6,9 +6,6 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class Button extends BaseElement {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   /**
    * Create a Button.
    * @param {Page} page - The Playwright page object.
@@ -17,9 +14,6 @@ export class Button extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
   }
 
   /**

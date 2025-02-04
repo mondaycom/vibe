@@ -51,6 +51,16 @@ export class BaseElement {
   }
 
   /**
+   * Click the element.
+   * @returns {Promise<void>}
+   */
+  async click(): Promise<void> {
+    await test.step(`Click ${this.elementReportName}`, async () => {
+      await this.locator.click();
+    });
+  }
+
+  /**
    * Scroll the element into view if needed.
    * @returns {Promise<void>}
    */

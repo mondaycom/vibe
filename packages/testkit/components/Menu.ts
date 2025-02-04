@@ -23,34 +23,19 @@ export class Menu extends BaseElement {
   }
 
   /**
-   * Initialize list items if they are not already initialized.
-   * @returns {Promise<void>}
+   * Get all menu items.
+   * @returns {Promise<MenuItem[]>} An array of MenuItem objects.
    */
-  async initializeItemsIfNeeded(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName} if needed`, async () => {
-      if (!this.itemsInitialized) {
-        await this.initializeItems();
-        this.itemsInitialized = true;
-      }
-    });
-  }
-
-  /**
-   * Initialize the list items by locating all list elements.
-   * @returns {Promise<void>}
-   */
-  async initializeItems(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName}`, async () => {
-      const menuItemLocator = this.locator.locator("[role='menuitem']");
-      await this.waitForAndVerifyElements(menuItemLocator);
-      const listElements = await menuItemLocator.all();
-      this.items = await Promise.all(
-        listElements.map(async locator => {
-          const itemName = await locator.innerText();
-          return new MenuItem(this.page, locator.filter({ hasText: itemName }), `Menu Item: ${itemName}`);
-        })
+  async getAllMenuItems(): Promise<MenuItem[]> {
+    let menuItems: MenuItem[] = [];
+    await test.step(`Get all menu items in ${this.elementReportName}`, async () => {
+      const menuItemsLocators = await this.locator.locator("[role='menuitem']").all();
+      const menuItemsPromises = menuItemsLocators.map(
+        async locator => new MenuItem(this.page, locator, await locator.innerText())
       );
+      menuItems = await Promise.all(menuItemsPromises);
     });
+    return menuItems;
   }
 
   /**
@@ -58,8 +43,16 @@ export class Menu extends BaseElement {
    * @param {string} itemName - The name of the item to retrieve.
    * @returns {ListItem | undefined} The list item with the specified name or undefined if not found.
    */
-  getItemByName(itemName: string): MenuItem | undefined {
-    return this.items.find(item => item.elementReportName.includes(itemName));
+  async getItemByName(itemName: string): Promise<MenuItem | undefined> {
+    let menuItem: MenuItem | undefined;
+    await test.step(`Get menu item by name ${itemName} in ${this.elementReportName}`, async () => {
+      menuItem = new MenuItem(
+        this.page,
+        this.locator.locator("[role='menuitem']").filter({ hasText: itemName }),
+        `Menu Item: ${itemName}`
+      );
+    });
+    return menuItem;
   }
 
   /**
@@ -68,14 +61,11 @@ export class Menu extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(listItem: string): Promise<void> {
-    await this.initializeItemsIfNeeded();
-    let menuItem = this.getItemByName(listItem);
-    if (!menuItem) {
-      // If the item is not in the initialized list, create it dynamically
-      menuItem = new MenuItem(this.page, this.locator.getByText(`${listItem}`), `Menu Item: ${listItem}`);
-    }
-    await menuItem.scrollIntoView();
-    await menuItem.hover();
+    const menuItem = new MenuItem(
+      this.page,
+      this.locator.locator("[role='menuitem']").filter({ hasText: listItem }),
+      `Menu Item: ${listItem}`
+    );
     await menuItem.click();
   }
 }

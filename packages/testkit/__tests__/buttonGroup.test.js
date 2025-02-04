@@ -28,19 +28,13 @@ test.describe("ButtonGroup Class with Storybook", () => {
 
   test("should initialize buttons if needed", async () => {
     // Initialize the buttons inside the ButtonGroup
-    await buttonGroup.initializeButtonsIfNeeded();
-
-    // Verify that buttons are initialized
-    expect(buttonGroup.buttonsInitialized).toBe(true);
-
+    const buttons = await buttonGroup.getButtons();
     // Verify that buttons exist in the items array
-    expect(buttonGroup.items.length).toBeGreaterThan(0); // Ensure that buttons were initialized
+    expect(buttons.length).toBeGreaterThan(0);
   });
 
   test("should retrieve a button by name and click it", async ({ page }) => {
     // Initialize the buttons inside the ButtonGroup
-    await buttonGroup.initializeButtonsIfNeeded();
-
     const button = await buttonGroup.getButtonByName("Beta"); // Adjust the button name as needed
 
     // Add a listener for console logs to capture the click event

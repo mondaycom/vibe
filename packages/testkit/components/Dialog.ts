@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { Button } from "./Button";
+import { BaseElement } from "./BaseElement";
 
 /**
  * Class representing a Dialog element.
@@ -27,8 +27,13 @@ export class Dialog {
    * @param {string} item - The name of the item to select.
    * @returns {Promise<void>}
    */
-  async selectItem(item: string): Promise<void> {
-    const menuItem = new Button(this.page, this.locator.getByText(`${item}`), `Select Menu Item: ${item}`);
-    await menuItem.click();
+  async selectItem(itmeName: string): Promise<void> {
+    const dialogItem = new BaseElement(
+      this.page,
+      this.locator.getByText(`${itmeName}`).first(),
+      `Select Menu Item: ${itmeName}`
+    );
+    await dialogItem.hover();
+    await dialogItem.click();
   }
 }
