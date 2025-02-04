@@ -80,7 +80,7 @@ const Tab: FC<TabProps> = forwardRef(
       return [...childrenArray, iconElement];
     }
     return (
-      <Tooltip {...tooltipProps} content={disabled && tooltipProps.content}>
+      <Tooltip {...tooltipProps} content={tooltipProps.content}>
         <li
           ref={mergedRef}
           key={id}

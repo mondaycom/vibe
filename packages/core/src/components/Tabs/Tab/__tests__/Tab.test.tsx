@@ -28,25 +28,7 @@ describe("Tab tests", () => {
   });
 
   describe("Tooltips", () => {
-    it("should not display tooltip content from tooltipProps if disabled is false", () => {
-      const tooltipContent = "My Text";
-      const tooltipProps = { content: tooltipContent };
-
-      renderComponent({ tooltipProps });
-      const component = screen.getByText(text);
-      act(() => {
-        fireEvent.mouseEnter(component);
-      });
-      jest.advanceTimersByTime(1000);
-      const content = screen.queryByText(tooltipContent);
-      expect(content).toBeFalsy();
-      act(() => {
-        fireEvent.mouseLeave(component);
-      });
-      jest.advanceTimersByTime(1000);
-    });
-
-    it("should display tooltip content from tooltipProps if disabled is true", () => {
+    it("should display tooltip content from tooltipProps", () => {
       const tooltipContent = "My Text";
       const tooltipProps = { content: tooltipContent };
 
