@@ -51,6 +51,50 @@ exports[`Flex renders correctly Horizontal display with children 1`] = `
 </div>
 `;
 
+exports[`Flex renders correctly Horizontal display with flex 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  style={{}}
+>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 1,
+        "flexShrink": 0,
+      }
+    }
+  >
+    1
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 0,
+        "flexShrink": 1,
+      }
+    }
+  >
+    2
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 0,
+        "flexShrink": 1,
+      }
+    }
+  >
+    3
+  </div>
+</div>
+`;
+
 exports[`Flex renders correctly Horizontal display with gap 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
@@ -135,6 +179,50 @@ exports[`Flex renders correctly Vertical display with children 1`] = `
     2
   </div>
   <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with flex 1`] = `
+<div
+  className="container directionColumn justifyStart alignCenter"
+  style={{}}
+>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 1,
+        "flexShrink": 0,
+      }
+    }
+  >
+    1
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 0,
+        "flexShrink": 1,
+      }
+    }
+  >
+    2
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flexBasis": "auto",
+        "flexGrow": 0,
+        "flexShrink": 1,
+      }
+    }
+  >
     3
   </div>
 </div>
