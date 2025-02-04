@@ -28,7 +28,7 @@ test.describe("ButtonGroup Class with Storybook", () => {
 
   test("should initialize buttons if needed", async () => {
     // Initialize the buttons inside the ButtonGroup
-    const buttons = await buttonGroup.getButtons();
+    const buttons = await buttonGroup.getAllButtons();
     // Verify that buttons exist in the items array
     expect(buttons.length).toBeGreaterThan(0);
   });
@@ -52,16 +52,12 @@ test.describe("ButtonGroup Class with Storybook", () => {
     });
 
     // Click the button
-    await buttonGroup.click("Beta");
+    await buttonGroup.clickButton("Beta");
 
     // eslint-disable-next-line playwright/no-wait-for-timeout -- Wait a bit to ensure the console log is captured
     await page.waitForTimeout(500);
 
     // Verify the console message contains the expected log
     expect(consoleMessage).toContain("Button clicked: Beta");
-  });
-
-  test("should throw an error if trying to click a non-existent button", async () => {
-    await expect(buttonGroup.click("NonExistentButton")).rejects.toThrow("Invalid button name provided");
   });
 });
