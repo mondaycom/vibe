@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
+import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
