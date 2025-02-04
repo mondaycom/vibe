@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.24.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.23.0...@vibe/core@3.24.0) (2025-02-04)
+
+
+### Features
+
+* **Tab:** add tooltipProps prop ([#2750](https://github.com/mondaycom/vibe/issues/2750)) ([3714938](https://github.com/mondaycom/vibe/commit/3714938f24bb4a920114b30ba942feef2002ff08))
+* **useIsOverflowing:** allow width tolerance ([#2752](https://github.com/mondaycom/vibe/issues/2752)) ([6102dd1](https://github.com/mondaycom/vibe/commit/6102dd10b8a5be9e8b8c7579a6454c9f32fac86e))
+
+
+
+
+
 # [3.23.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.1...@vibe/core@3.23.0) (2025-02-03)
 
 
