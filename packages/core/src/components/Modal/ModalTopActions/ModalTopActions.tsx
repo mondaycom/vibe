@@ -4,7 +4,7 @@ import { ModalTopActionsButtonColor, ModalTopActionsTheme, ModalTopActionsProps 
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "@vibe/icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
-import { ComponentDefaultTestId } from "src/tests/constants";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const colorToButtonColor: Record<ModalTopActionsTheme, ModalTopActionsButtonColor> = {
   dark: ButtonColor.ON_INVERTED_BACKGROUND,
