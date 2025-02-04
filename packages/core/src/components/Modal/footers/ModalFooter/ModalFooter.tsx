@@ -1,23 +1,10 @@
 import React, { forwardRef } from "react";
-import cx from "classnames";
 import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { ModalFooterProps } from "./ModalFooter.types";
 import styles from "./ModalFooter.module.scss";
-import { ModalFooterActionProps } from "../ModalFooterBase/ModalFooterBase.types";
-
-function getPropsForButton(button?: ModalFooterActionProps, buttonClassName?: string) {
-  if (!button) return undefined;
-  const { tooltipProps, className, ...rest } = button;
-  return {
-    ...rest,
-    className: tooltipProps ? className : cx(className, buttonClassName),
-    tooltipProps: tooltipProps
-      ? { ...tooltipProps, referenceWrapperClassName: cx(tooltipProps.referenceWrapperClassName, buttonClassName) }
-      : undefined
-  };
-}
+import { getPropsForButton } from "../utils/getPropsForButton";
 
 const ModalFooter = forwardRef(
   (
