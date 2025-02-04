@@ -135,7 +135,7 @@ export class BaseElement {
    * @param {Locator} locator - The locator for the elements.
    * @returns {Promise<void>}
    */
-  async waitForAndVerifyElements(locator: Locator): Promise<void> {
+  protected async waitForAndVerifyElements(locator: Locator): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} items to stabilize and verify existence`, async () => {
       let previousCount = 0;
       let stableCountTime = 0;

@@ -5,10 +5,6 @@ import { Button } from "./Button";
  * Class representing a split button that extends the Button class.
  */
 export class SplitButton extends Button {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
-
   /**
    * Create a SplitButton.
    * @param {Page} page - The Playwright page object.
@@ -17,9 +13,6 @@ export class SplitButton extends Button {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
   }
 
   /**

@@ -7,9 +7,6 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class TextField extends BaseElement {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   /**
    * Create a TextField.
    * @param {Page} page - The Playwright page object.
@@ -18,9 +15,6 @@ export class TextField extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
   }
 
   /**
@@ -30,7 +24,7 @@ export class TextField extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} in element: ${this.elementReportName}`, async () => {
-      await this.locator.fill("");
+      await this.clearText();
       await this.locator.fill(text);
     });
   }

@@ -6,8 +6,6 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class Toggle extends BaseElement {
-  override page: Page;
-  override locator: Locator;
   /**
    * Create a Toggle.
    * @param {Page} page - The Playwright page object.
@@ -16,8 +14,6 @@ export class Toggle extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
   }
 
   /**
