@@ -11,7 +11,6 @@ export * from "./Menu";
 export * from "./MenuButton";
 export * from "./MenuItem";
 export * from "./Modal";
-export * from "./Dialog";
 export * from "./Tab";
 export * from "./TabList";
 export * from "./TextField";
