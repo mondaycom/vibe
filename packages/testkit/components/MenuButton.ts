@@ -1,14 +1,13 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, test } from "@playwright/test";
 import { Button } from "./Button";
 import { Menu } from "./Menu";
-import { Dialog } from "./Dialog";
 
 /**
  * Class representing a menu button that extends the Button class.
  */
 export class MenuButton extends Button {
   button: Button;
-  menu: Dialog | Menu;
+  menu: Menu;
 
   /**
    * Create a MenuButton.
@@ -17,7 +16,7 @@ export class MenuButton extends Button {
    * @param {string} elementReportName - The name for reporting purposes.
    * @param {any} menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Dialog | Menu) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Menu) {
     super(page, locator, elementReportName);
     this.button = new Button(this.page, this.locator, elementReportName);
     this.menu = menuType;
@@ -29,8 +28,10 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async selectItem(item: string): Promise<void> {
-    await this.openMenu();
-    await this.menu.selectItem(item);
+    await test.step(`Select item: ${item} from menu`, async () => {
+      await this.openMenu();
+      await this.menu.selectItem(item);
+    });
   }
 
   /**
