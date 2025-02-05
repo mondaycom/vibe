@@ -6,8 +6,8 @@ export function getPropsForButton(button?: ModalFooterActionProps, buttonClassNa
   const { tooltipProps, className, ...rest } = button;
   return {
     ...rest,
-    className: tooltipProps ? className : cx(className, buttonClassName),
-    tooltipProps: tooltipProps
+    className: tooltipProps?.content ? className : cx(className, buttonClassName),
+    tooltipProps: tooltipProps?.content
       ? { ...tooltipProps, referenceWrapperClassName: cx(tooltipProps.referenceWrapperClassName, buttonClassName) }
       : undefined
   };

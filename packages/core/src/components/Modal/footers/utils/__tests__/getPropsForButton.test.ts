@@ -38,4 +38,20 @@ describe("getPropsForButton", () => {
       tooltipProps: { content: "Hello", referenceWrapperClassName: "my-button-class" }
     });
   });
+
+  it("should attach the button className to button itself and return undefined tooltipProps if tooltip content is empty", () => {
+    const result = getPropsForButton(
+      {
+        className: "existing-class",
+        text: "Click Me",
+        tooltipProps: { referenceWrapperClassName: "original-tooltip-class", content: "" }
+      },
+      "my-button-class"
+    );
+    expect(result).toEqual({
+      text: "Click Me",
+      className: cx("existing-class", "my-button-class"),
+      tooltipProps: undefined
+    });
+  });
 });
