@@ -16,9 +16,6 @@ export class Search extends TextField {
 
   constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu | Dialog) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
     this.input = new TextField(this.page, this.locator.locator("[type='search']"), `${this.elementReportName} - Input`);
     this.cleanSearchButton = new Button(this.page, this.locator.locator("[aria-label='Clear']"), "Clean Button");
     if (filterMenuType) {

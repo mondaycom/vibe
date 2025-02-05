@@ -7,9 +7,6 @@ import { Menu } from "./Menu";
  * Class representing an icon button that extends the Button class.
  */
 export class IconButton extends Button {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   icon: Button;
   menu: Dialog | Menu | undefined;
 
@@ -22,9 +19,6 @@ export class IconButton extends Button {
    */
   constructor(page: Page, locator: Locator, elementReportName: string, menuType?: Dialog | Menu) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
     this.icon = new Button(this.page, this.locator, `${this.elementReportName} - Icon`);
     this.menu = menuType;
   }

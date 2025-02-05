@@ -7,49 +7,24 @@ import { Button } from "./Button";
  * Extends the BaseElement class.
  */
 export class ButtonGroup extends BaseElement {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
-  items: Button[];
-  buttonsInitialized: boolean;
-
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
-    this.items = [];
-    this.buttonsInitialized = false;
   }
 
   /**
-   * Initialize buttons if they are not already initialized.
-   * @returns {Promise<void>}
+   * Get all buttons in the button group.
+   * @returns {Promise<Button[]>} An array of Button objects.
    */
-  async initializeButtonsIfNeeded() {
-    await test.step(`Initialize ${this.elementReportName} if needed`, async () => {
-      if (!this.buttonsInitialized) {
-        await this.initializeButtons();
-        this.buttonsInitialized = true;
-      }
-    });
-  }
-
-  /**
-   * Initialize the buttons by locating all button elements.
-   * @returns {Promise<void>}
-   */
-  async initializeButtons() {
-    await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("button"), this.elementReportName);
-      const buttonElements = await this.locator.locator("button").all();
-      this.items = await Promise.all(
-        buttonElements.map(async locator => {
-          const buttonName = await locator.innerText();
-          return new Button(this.page, locator.getByText(`${buttonName}`), `Button: ${buttonName}`);
-        })
+  async getAllButtons(): Promise<Button[]> {
+    let buttons: Button[] = [];
+    await test.step(`Get all buttons in ${this.elementReportName}`, async () => {
+      const buttonsLocators = await this.locator.locator("button").all();
+      const buttonPromises = buttonsLocators.map(
+        async buttonLocator => new Button(this.page, buttonLocator, await buttonLocator.innerText())
       );
+      buttons = await Promise.all(buttonPromises);
     });
+    return buttons;
   }
 
   /**
@@ -57,12 +32,16 @@ export class ButtonGroup extends BaseElement {
    * @param {string} buttonName - The name of the button to retrieve.
    * @returns {Button} The button with the specified name.
    */
-  getButtonByName(buttonName: string): Button | undefined {
-    if (!buttonName) {
-      throw new Error("Invalid button name provided");
-    }
-
-    return this.items.find(item => item.elementReportName.includes(buttonName));
+  async getButtonByName(buttonName: string): Promise<Button | undefined> {
+    let button: Button | undefined;
+    await test.step(`Get button by name ${buttonName} in ${this.elementReportName}`, async () => {
+      button = new Button(
+        this.page,
+        this.locator.locator("button").filter({ hasText: buttonName }),
+        `Button: ${buttonName}`
+      );
+    });
+    return button;
   }
 
   /**
@@ -70,16 +49,17 @@ export class ButtonGroup extends BaseElement {
    * @param {string} buttonName - The name of the button to click.
    * @returns {Promise<void>}
    */
-  async click(buttonName: string): Promise<void> {
-    await this.initializeButtonsIfNeeded();
-
-    const button = this.getButtonByName(buttonName);
-
-    // Throw an error if the button is not found
-    if (!button) {
-      throw new Error(`Invalid button name provided: ${buttonName}`);
-    }
-
-    await button.click();
+  async clickButton(buttonName: string): Promise<void> {
+    await test.step(`Click button ${buttonName} in ${this.elementReportName}`, async () => {
+      const button = new Button(
+        this.page,
+        this.locator.locator("button").filter({ hasText: buttonName }),
+        `Button: ${buttonName}`
+      );
+      if (!button) {
+        throw new Error(`Invalid button name provided: ${buttonName}`);
+      }
+      await button.click();
+    });
   }
 }

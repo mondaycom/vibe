@@ -7,9 +7,6 @@ import { Dialog } from "./Dialog";
  * Class representing a menu button that extends the Button class.
  */
 export class MenuButton extends Button {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   button: Button;
   menu: Dialog | Menu;
 
@@ -22,9 +19,6 @@ export class MenuButton extends Button {
    */
   constructor(page: Page, locator: Locator, elementReportName: string, menuType: Dialog | Menu) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
     this.button = new Button(this.page, this.locator, elementReportName);
     this.menu = menuType;
   }
