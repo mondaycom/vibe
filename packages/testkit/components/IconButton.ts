@@ -1,6 +1,5 @@
 import { Locator, Page, test } from "@playwright/test";
 import { Button } from "./Button";
-import { Dialog } from "./Dialog";
 import { Menu } from "./Menu";
 
 /**
@@ -8,7 +7,7 @@ import { Menu } from "./Menu";
  */
 export class IconButton extends Button {
   icon: Button;
-  menu: Dialog | Menu | undefined;
+  menu: Menu | undefined;
 
   /**
    * Create an IconButton.
@@ -17,7 +16,7 @@ export class IconButton extends Button {
    * @param {string} elementReportName - The name for reporting purposes.
    * @param menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType?: Dialog | Menu) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menuType?: Menu) {
     super(page, locator, elementReportName);
     this.icon = new Button(this.page, this.locator, `${this.elementReportName} - Icon`);
     this.menu = menuType;
