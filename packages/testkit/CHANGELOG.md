@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.1...@vibe/testkit@1.3.0) (2025-02-05)
+
+
+### Features
+
+* Remove Dialog's testkit class ([#2756](https://github.com/mondaycom/vibe/issues/2756)) ([174a8c1](https://github.com/mondaycom/vibe/commit/174a8c1309a42004c4bc5ef0f0931a5df159f1cb))
+
+
+
+
+
 ## [1.2.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.0...@vibe/testkit@1.2.1) (2025-01-19)
 
 
