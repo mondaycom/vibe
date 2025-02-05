@@ -3,7 +3,6 @@ export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./ColorPicker";
 export * from "./Combobox";
-export * from "./Dialog";
 export * from "./Dropdown";
 export * from "./List";
 export * from "./ListItem";
