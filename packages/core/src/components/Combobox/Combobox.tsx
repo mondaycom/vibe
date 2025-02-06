@@ -20,7 +20,8 @@ import {
   IComboboxCategoryMap,
   IComboboxItem,
   IComboboxOption,
-  COMBOBOX_LISTBOX_ID
+  COMBOBOX_LISTBOX_ID,
+  IComboboxCategory
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 import { ComboboxSizes } from "./Combobox.types";
@@ -256,15 +257,15 @@ const Combobox: React.FC<ComboboxProps> & {
       );
     }
 
-    const [activeCategoryLabel, setActiveCategoryLabel] = useState<string>();
+    const [activeCategory, setActiveCategory] = useState<IComboboxCategory>();
 
     const onActiveCategoryChanged = useCallback(
       (categoryData: IComboboxItem) => {
-        if (categoryData?.category?.label !== activeCategoryLabel) {
-          setActiveCategoryLabel(categoryData?.category?.label);
+        if (categoryData?.category?.label !== activeCategory?.label) {
+          setActiveCategory(categoryData?.category);
         }
       },
-      [activeCategoryLabel]
+      [activeCategory]
     );
 
     const { items, itemsMap, selectableItems } = useItemsData({
@@ -336,7 +337,7 @@ const Combobox: React.FC<ComboboxProps> & {
             renderAction={RenderAction}
             hideRenderActionOnInput={hideRenderActionOnInput}
           />
-          {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
+          {stickyCategories && <StickyCategoryHeader label={activeCategory?.label} color={activeCategory?.color} />}
           {hasResults && (
             <ComboboxItems
               stickyCategories={stickyCategories}

@@ -4,7 +4,7 @@ import styles from "./StickyCategoryHeader.module.scss";
 import comboboxStyles from "../../Combobox.module.scss";
 import comboboxCategoryStyles from "../ComboboxCategory/ComboboxCategory.module.scss";
 
-export const StickyCategoryHeader = ({ label }: { label: string }) => {
+export const StickyCategoryHeader = ({ label, color }: { label: string; color?: string }) => {
   return label === undefined ? null : (
     <div
       className={cx(
@@ -12,6 +12,7 @@ export const StickyCategoryHeader = ({ label }: { label: string }) => {
         comboboxStyles.comboboxCategory,
         comboboxCategoryStyles.comboboxCategory
       )}
+      style={color && { color }}
       aria-hidden
     >
       {label}
