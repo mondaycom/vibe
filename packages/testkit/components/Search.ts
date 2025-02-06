@@ -2,7 +2,6 @@ import { Page, Locator, test } from "@playwright/test";
 import { TextField } from "./TextField";
 import { Button } from "./Button";
 import { MenuButton } from "./MenuButton";
-import { Dialog } from "./Dialog";
 import { Menu } from "./Menu";
 
 /**
@@ -14,11 +13,8 @@ export class Search extends TextField {
   private filterButton: Button | undefined;
   private input: TextField;
 
-  constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu | Dialog) {
+  constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
     this.input = new TextField(this.page, this.locator.locator("[type='search']"), `${this.elementReportName} - Input`);
     this.cleanSearchButton = new Button(this.page, this.locator.locator("[aria-label='Clear']"), "Clean Button");
     if (filterMenuType) {
@@ -46,6 +42,8 @@ export class Search extends TextField {
    * @returns {Promise<void>}
    */
   async clear(): Promise<void> {
-    await this.cleanSearchButton.click();
+    await test.step("Clear search field", async () => {
+      await this.cleanSearchButton.click();
+    });
   }
 }

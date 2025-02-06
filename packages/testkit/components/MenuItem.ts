@@ -22,6 +22,7 @@ export class MenuItem extends BaseElement {
    */
   async click(): Promise<void> {
     await test.step(`Click ${this.elementReportName}`, async () => {
+      await this.locator.hover();
       await this.locator.click();
     });
   }

@@ -7,9 +7,6 @@ import { Tab } from "./Tab";
  * Extends the BaseElement class.
  */
 export class TabList extends BaseElement {
-  private items: Tab[]; // List of tabs
-  private tabsInitialized: boolean;
-
   /**
    * Create a TabList.
    * @param {Page} page - The Playwright page object.
@@ -18,47 +15,31 @@ export class TabList extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.items = [];
-    this.tabsInitialized = false;
   }
 
-  /**
-   * Initialize tabs if they are not already initialized.
-   * @returns {Promise<void>}
-   */
-  async initializeTabsIfNeeded(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName} if needed`, async () => {
-      if (!this.tabsInitialized) {
-        await this.initializeTabs();
-        this.tabsInitialized = true;
-      }
-    });
-  }
-
-  /**
-   * Initialize the tabs by locating all tab elements.
-   * @returns {Promise<void>}
-   */
-  async initializeTabs(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("li"), this.elementReportName);
-      const tabElements = await this.locator.locator("li").all();
-      this.items = await Promise.all(
-        tabElements.map(async locator => {
-          const tabName = await locator.innerText();
-          return new Tab(this.page, locator.getByText(`${tabName}`), `Tab Item: ${tabName}`);
-        })
+  async getAllTabs(): Promise<Tab[]> {
+    let tabs: Tab[] = [];
+    await test.step(`Get all tabs in ${this.elementReportName}`, async () => {
+      const tabsLocators = await this.locator.locator("li").all();
+      const tabPromises = tabsLocators.map(
+        async tabLocator => new Tab(this.page, tabLocator, await tabLocator.innerText())
       );
+      tabs = await Promise.all(tabPromises);
     });
+    return tabs;
   }
 
   /**
-   * Get a tab item by its name.
-   * @param {string} itemName - The name of the tab item to retrieve.
-   * @returns {Tab | undefined} The tab item with the specified name or undefined if not found.
+   * Get a tab by its name.
+   * @param {string} tabName - The name of the button to retrieve.
+   * @returns {Button} The button with the specified name.
    */
-  getItemByName(itemName: string): Tab | undefined {
-    return this.items.find(item => item.elementReportName.includes(itemName));
+  async getTabByName(tabName: string): Promise<Tab | undefined> {
+    let tab: Tab | undefined;
+    await test.step(`Get tab by name ${tabName} in ${this.elementReportName}`, async () => {
+      tab = new Tab(this.page, this.locator.locator("li").filter({ hasText: tabName }), `Tab: ${tabName}`);
+    });
+    return tab;
   }
 
   /**
@@ -67,12 +48,9 @@ export class TabList extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectTab(tabName: string): Promise<void> {
-    await this.initializeTabsIfNeeded();
-    const item = this.getItemByName(tabName);
-    if (item) {
-      await item.click();
-    } else {
-      throw new Error(`Tab with name "${tabName}" not found`);
-    }
+    await test.step(`Select tab ${tabName} in ${this.elementReportName}`, async () => {
+      const tab = new Tab(this.page, this.locator.locator("li").filter({ hasText: tabName }), `Tab Item: ${tabName}`);
+      await tab.click();
+    });
   }
 }

@@ -22,7 +22,9 @@ export const States = {
   render: () => (
     <>
       <Tab>Normal</Tab>
-      <Tab disabled>Disabled</Tab>
+      <Tab disabled tooltipProps={{ content: "This tab is disabled" }}>
+        Disabled
+      </Tab>
       <Tab active>Active</Tab>
     </>
   ),

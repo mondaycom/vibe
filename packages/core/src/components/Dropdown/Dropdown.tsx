@@ -26,6 +26,7 @@ import {
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
+import Text from "../Text/Text";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {
@@ -52,6 +53,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       singleValueWrapperClassName,
       dropdownMenuWrapperClassName,
       placeholder = "",
+      allowPlaceholderEllipsis,
       disabled = false,
       readOnly = false,
       onMenuOpen = NOOP,
@@ -193,7 +195,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         controlRef,
         insideOverflowWithTransformContainer,
         withGroupDivider,
-        searchable
+        searchable,
+        allowPlaceholderEllipsis
       });
 
       type BaseStyles = typeof baseStyles;
@@ -233,7 +236,16 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       }
 
       return mergedStyles;
-    }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
+    }, [
+      size,
+      rtl,
+      insideOverflowContainer,
+      insideOverflowWithTransformContainer,
+      allowPlaceholderEllipsis,
+      extraStyles,
+      multi,
+      multiline
+    ]);
 
     const Menu = useCallback(
       (props: CustomMenuProps) => (
@@ -409,6 +421,18 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll]
     );
 
+    const calculatedPlaceholder = useMemo(
+      () =>
+        allowPlaceholderEllipsis ? (
+          <Text type="text2" color="inherit">
+            {placeholder}
+          </Text>
+        ) : (
+          placeholder
+        ),
+      [allowPlaceholderEllipsis, placeholder]
+    );
+
     return (
       <DropDownComponent
         className={cx(styles.dropdown, className)}
@@ -431,7 +455,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         closeMenuOnScroll={closeMenuOnScroll}
         size={size}
         noOptionsMessage={noOptionsMessage}
-        placeholder={placeholder}
+        placeholder={calculatedPlaceholder}
         isDisabled={disabled}
         isClearable={!readOnly && clearable}
         isSearchable={!readOnly}
