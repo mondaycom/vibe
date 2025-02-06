@@ -110,10 +110,14 @@ const Flex: VibeComponent<FlexProps> & {
     }, [gap]);
 
     const flexStyle = useMemo(() => {
-      if (!flex) {
-        return {};
+      if (!flex) return {};
+
+      if (["string, number"].includes(typeof flex)) {
+        // which means we got a valid regular css flex value:
+        return { flex };
       }
 
+      // otherwise your regular logic
       return {
         flexGrow: flex.grow,
         flexShrink: flex.shrink,
