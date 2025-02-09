@@ -1,20 +1,19 @@
 import React, { forwardRef } from "react";
-import cx from "classnames";
 import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { ModalFooterProps } from "./ModalFooter.types";
 import styles from "./ModalFooter.module.scss";
+import { getPropsForButton } from "../utils/getPropsForButton";
 
 const ModalFooter = forwardRef(
   (
     { primaryButton, secondaryButton, renderSideAction, "data-testid": dataTestId, className, id }: ModalFooterProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const primary = { ...primaryButton, className: cx(primaryButton.className, styles.primary) };
-    const secondary = secondaryButton
-      ? { ...secondaryButton, className: cx(secondaryButton.className, styles.secondary) }
-      : undefined;
+    const primary = getPropsForButton(primaryButton, styles.primary);
+    const secondary = getPropsForButton(secondaryButton, styles.secondary);
+
     return (
       <ModalFooterBase
         ref={ref}
