@@ -34,7 +34,7 @@ export interface AccordionProps extends VibeComponentProps {
    */
   defaultIndex?: Array<number>;
   /**
-   * A classname to be added to the accordion container
+   * A class name to be added to the accordion container
    */
   className?: string;
   /**
