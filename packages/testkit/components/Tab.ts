@@ -1,4 +1,4 @@
-import { Page, Locator, test } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 
 /**
@@ -14,15 +14,5 @@ export class Tab extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-  }
-
-  /**
-   * Click the Tab element.
-   * @returns {Promise<void>}
-   */
-  async click(): Promise<void> {
-    await test.step(`Click on ${this.elementReportName} tab`, async () => {
-      await this.locator.click();
-    });
   }
 }

@@ -36,8 +36,10 @@
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
   },
+  "dependencies": {
+    "@playwright/test": "1.50.0"
+  },
   "devDependencies": {
-    "@playwright/test": "1.45.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
