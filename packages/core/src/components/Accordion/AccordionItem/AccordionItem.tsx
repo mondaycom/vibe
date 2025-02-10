@@ -41,11 +41,11 @@ export interface AccordionItemProps extends VibeComponentProps {
    */
   expandCollapseComponentClassName?: string;
   /**
-   * Determines whether click events are captured.
+   * If true, the click event is handled during the capture phase instead of bubbling.
    */
   captureOnClick?: boolean;
   /**
-   * A classname to be added to the accordion item container
+   * A class name to be added to the accordion item container
    */
   className?: string;
   /**
