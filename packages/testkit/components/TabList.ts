@@ -37,7 +37,8 @@ export class TabList extends BaseElement {
   async getTabByName(tabName: string): Promise<Tab | undefined> {
     let tab: Tab | undefined;
     await test.step(`Get tab by name ${tabName} in ${this.elementReportName}`, async () => {
-      tab = new Tab(this.page, this.locator.locator("li").filter({ hasText: tabName }), `Tab: ${tabName}`);
+      const tabLocator = this.locator.locator("li").filter({ hasText: tabName });
+      tab = new Tab(this.page, tabLocator, `Tab: ${tabName}`);
     });
     return tab;
   }
@@ -49,8 +50,12 @@ export class TabList extends BaseElement {
    */
   async selectTab(tabName: string): Promise<void> {
     await test.step(`Select tab ${tabName} in ${this.elementReportName}`, async () => {
-      const tab = new Tab(this.page, this.locator.locator("li").filter({ hasText: tabName }), `Tab Item: ${tabName}`);
-      await tab.click();
+      const tab = await this.getTabByName(tabName);
+      if (tab) {
+        await tab.click();
+      } else {
+        throw new Error(`Tab with name "${tabName}" not found in ${this.elementReportName}`);
+      }
     });
   }
 }
