@@ -33,6 +33,10 @@ export interface ComboboxProps extends VibeComponentProps {
   optionClassName?: string;
   searchWrapperClassName?: string;
   /**
+   * Class name for sticky category header
+   */
+  stickyCategoryClassName?: string;
+  /**
    * Placeholder to show when no value was selected
    */
   placeholder?: string;
@@ -137,6 +141,7 @@ const Combobox: React.FC<ComboboxProps> & {
       className = "",
       optionClassName = "",
       searchWrapperClassName,
+      stickyCategoryClassName,
       searchIcon,
       id = "",
       placeholder = "",
@@ -337,7 +342,13 @@ const Combobox: React.FC<ComboboxProps> & {
             renderAction={RenderAction}
             hideRenderActionOnInput={hideRenderActionOnInput}
           />
-          {stickyCategories && <StickyCategoryHeader label={activeCategory?.label} color={activeCategory?.color} />}
+          {stickyCategories && (
+            <StickyCategoryHeader
+              label={activeCategory?.label}
+              color={activeCategory?.color}
+              className={stickyCategoryClassName}
+            />
+          )}
           {hasResults && (
             <ComboboxItems
               stickyCategories={stickyCategories}
