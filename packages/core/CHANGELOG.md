@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.27.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.27.0) (2025-02-11)
+
+
+### Features
+
+* **Combobox:** add className for sticky header ([#2759](https://github.com/mondaycom/vibe/issues/2759)) ([63094f7](https://github.com/mondaycom/vibe/commit/63094f75ff19e08d435b3947ed86272c387cc18c))
+
+
+
+
+
 # [3.26.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.26.0) (2025-02-11)
 
 

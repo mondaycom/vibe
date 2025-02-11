@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.5.0) (2025-02-11)
+
+
+### Features
+
+* testkit - playwright should be a peer dependency ([#2758](https://github.com/mondaycom/vibe/issues/2758)) ([758cc08](https://github.com/mondaycom/vibe/commit/758cc0835576076cd8c323a24f3db8fe2a5ba812))
+
+
+
+
+
 # [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.4.0) (2025-02-11)
 
 
