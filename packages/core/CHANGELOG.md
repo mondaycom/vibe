@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.27.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.0...@vibe/core@3.27.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* **Dialog:** ensure event handlers are properly forwarded in DialogContentContainer ([#2762](https://github.com/mondaycom/vibe/issues/2762)) ([8a9bfbd](https://github.com/mondaycom/vibe/commit/8a9bfbd1aacf6e8fbc71b2e294ed51a654c46574))
+
+
+
+
+
 # [3.27.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.27.0) (2025-02-11)
 
 

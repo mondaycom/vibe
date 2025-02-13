@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.0...@vibe/testkit@1.5.1) (2025-02-13)
+
+**Note:** Version bump only for package @vibe/testkit
+
+
+
+
+
 # [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.5.0) (2025-02-11)
 
 
