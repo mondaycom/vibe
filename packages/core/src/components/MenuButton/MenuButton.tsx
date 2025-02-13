@@ -123,6 +123,7 @@ export interface MenuButtonProps extends VibeComponentProps {
    * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
    */
   showTooltipOnlyOnTriggerElement?: boolean;
+  closeDialogOnContentClick?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -168,7 +169,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       active,
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      closeDialogOnContentClick = false
     }: MenuButtonProps,
     ref
   ) => {
@@ -226,6 +228,11 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         Dialog.hideShowTriggers.ESCAPE_KEY
       ]);
 
+      if (closeDialogOnContentClick) {
+        triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+        triggers.add(Dialog.hideShowTriggers.ENTER);
+      }
+
       if (removeTabCloseTrigger) {
         triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
       }
@@ -246,7 +253,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         return React.cloneElement(child, newProps);
       });
       return [cloned, Array.from(triggers)];
-    }, [children, onMenuDidClose, removeTabCloseTrigger]);
+    }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
     const content = useMemo(() => {
       if (clonedChildren.length === 0) return null;

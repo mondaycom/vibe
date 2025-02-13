@@ -221,7 +221,6 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://vibe.m
 > codemod: `MenuButton-component-migration`
 
 - The `componentClassName` prop has been removed, use `className` instead 🔀
-- The `closeDialogOnContentClick` prop has been removed, use `closeMenuOnItemClick` instead 🔀
 - The `disabledReason` prop has been removed, use `tooltipContent` instead 🔀
 - The `hideWhenReferenceHidden` prop default value changes to "true", meaning when the MenuButton is hidden hide the dialog and tooltip as well. To disable this behavior set `hideWhenReferenceHidden` to "false"
 

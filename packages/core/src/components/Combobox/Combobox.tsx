@@ -20,7 +20,8 @@ import {
   IComboboxCategoryMap,
   IComboboxItem,
   IComboboxOption,
-  COMBOBOX_LISTBOX_ID
+  COMBOBOX_LISTBOX_ID,
+  IComboboxCategory
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 import { ComboboxSizes } from "./Combobox.types";
@@ -31,6 +32,10 @@ export interface ComboboxProps extends VibeComponentProps {
   className?: string;
   optionClassName?: string;
   searchWrapperClassName?: string;
+  /**
+   * Class name for sticky category header
+   */
+  stickyCategoryClassName?: string;
   /**
    * Placeholder to show when no value was selected
    */
@@ -136,6 +141,7 @@ const Combobox: React.FC<ComboboxProps> & {
       className = "",
       optionClassName = "",
       searchWrapperClassName,
+      stickyCategoryClassName,
       searchIcon,
       id = "",
       placeholder = "",
@@ -256,15 +262,15 @@ const Combobox: React.FC<ComboboxProps> & {
       );
     }
 
-    const [activeCategoryLabel, setActiveCategoryLabel] = useState<string>();
+    const [activeCategory, setActiveCategory] = useState<IComboboxCategory>();
 
     const onActiveCategoryChanged = useCallback(
       (categoryData: IComboboxItem) => {
-        if (categoryData?.category?.label !== activeCategoryLabel) {
-          setActiveCategoryLabel(categoryData?.category?.label);
+        if (categoryData?.category?.label !== activeCategory?.label) {
+          setActiveCategory(categoryData?.category);
         }
       },
-      [activeCategoryLabel]
+      [activeCategory]
     );
 
     const { items, itemsMap, selectableItems } = useItemsData({
@@ -336,7 +342,13 @@ const Combobox: React.FC<ComboboxProps> & {
             renderAction={RenderAction}
             hideRenderActionOnInput={hideRenderActionOnInput}
           />
-          {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
+          {stickyCategories && (
+            <StickyCategoryHeader
+              label={activeCategory?.label}
+              color={activeCategory?.color}
+              className={stickyCategoryClassName}
+            />
+          )}
           {hasResults && (
             <ComboboxItems
               stickyCategories={stickyCategories}

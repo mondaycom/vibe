@@ -4,6 +4,7 @@ import { ModalTopActionsButtonColor, ModalTopActionsTheme, ModalTopActionsProps 
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "@vibe/icons";
 import { ButtonColor } from "../../Button/ButtonConstants";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const colorToButtonColor: Record<ModalTopActionsTheme, ModalTopActionsButtonColor> = {
   dark: ButtonColor.ON_INVERTED_BACKGROUND,
@@ -17,6 +18,7 @@ const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }:
     <div className={styles.actions} data-no-autofocus={true}>
       {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
+        data-testid={ComponentDefaultTestId.MODAL_NEXT_CLOSE_BUTTON}
         icon={CloseMedium}
         onClick={onClose}
         size="small"

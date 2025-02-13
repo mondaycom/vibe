@@ -16,6 +16,7 @@ import { keyCodes } from "../../../constants";
 import {
   modalAnimationAnchorPopVariants,
   modalAnimationCenterPopVariants,
+  modalAnimationFullViewVariants,
   modalAnimationOverlayVariants
 } from "../utils/animationVariants";
 import { createPortal } from "react-dom";
@@ -36,6 +37,8 @@ const Modal = forwardRef(
       closeButtonTheme,
       closeButtonAriaLabel,
       onClose = () => {},
+      autoFocus = true,
+      onFocusAttempt,
       anchorElementRef,
       alertModal,
       container = document.body,
@@ -43,7 +46,9 @@ const Modal = forwardRef(
       style,
       zIndex,
       className,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      "aria-labelledby": ariaLabelledby,
+      "aria-describedby": ariaDescribedby
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -51,21 +56,34 @@ const Modal = forwardRef(
 
     const modalRef = useRef<HTMLDivElement>(null);
     const modalMergedRef = useMergeRef<HTMLDivElement>(ref, modalRef);
-    const overlayRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const [titleId, setTitleId] = useState<string>();
     const [descriptionId, setDescriptionId] = useState<string>();
 
-    const setTitleIdCallback = useCallback((id: string) => setTitleId(id), []);
-    const setDescriptionIdCallback = useCallback((id: string) => setDescriptionId(id), []);
+    const setTitleIdCallback = useCallback(
+      (newId: string) => {
+        if (ariaLabelledby) return;
+        setTitleId(newId);
+      },
+      [ariaLabelledby]
+    );
+    const setDescriptionIdCallback = useCallback(
+      (newId: string) => {
+        if (ariaDescribedby) return;
+        setDescriptionId(newId);
+      },
+      [ariaDescribedby]
+    );
 
     const contextValue = useMemo<ModalProviderValue>(
       () => ({
         modalId: id,
         setTitleId: setTitleIdCallback,
-        setDescriptionId: setDescriptionIdCallback
+        setDescriptionId: setDescriptionIdCallback,
+        autoFocus
       }),
-      [id, setTitleIdCallback, setDescriptionIdCallback]
+      [id, setTitleIdCallback, setDescriptionIdCallback, autoFocus]
     );
 
     const onBackdropClick = useCallback<React.MouseEventHandler<HTMLDivElement>>(
@@ -84,33 +102,51 @@ const Modal = forwardRef(
       [alertModal, onClose, show]
     );
 
-    const modalAnimationVariants = anchorElementRef?.current
-      ? modalAnimationAnchorPopVariants
-      : modalAnimationCenterPopVariants;
+    const modalAnimationVariants =
+      size === "full-view"
+        ? modalAnimationFullViewVariants
+        : anchorElementRef?.current
+        ? modalAnimationAnchorPopVariants
+        : modalAnimationCenterPopVariants;
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
-    const modalStyle = { ...zIndexStyle, ...style };
+
+    const handleFocusLockWhiteList = useCallback(
+      (nextFocusedElement?: HTMLElement) => {
+        if (!onFocusAttempt) return true;
+
+        const outcome = onFocusAttempt(nextFocusedElement);
+
+        if (outcome === true) return true;
+
+        if (outcome instanceof HTMLElement) {
+          outcome.focus();
+          return false;
+        }
+
+        return false;
+      },
+      [onFocusAttempt]
+    );
 
     return (
       <AnimatePresence>
         {show && (
-          <LayerProvider layerRef={overlayRef}>
+          <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <>
-                  <motion.div
-                    ref={overlayRef}
-                    variants={modalAnimationOverlayVariants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-                    className={styles.overlay}
-                    onClick={onBackdropClick}
-                    aria-hidden
-                    style={zIndexStyle}
-                  />
-                  <FocusLockComponent returnFocus>
+                <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
+                  <div ref={containerRef} className={styles.container} style={zIndexStyle}>
+                    <motion.div
+                      variants={modalAnimationOverlayVariants}
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                      data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                      className={styles.overlay}
+                      onClick={onBackdropClick}
+                      aria-hidden
+                    />
                     <RemoveScroll forwardProps ref={modalMergedRef}>
                       <motion.div
                         variants={modalAnimationVariants}
@@ -128,9 +164,9 @@ const Modal = forwardRef(
                         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
                         role="dialog"
                         aria-modal
-                        aria-labelledby={titleId}
-                        aria-describedby={descriptionId}
-                        style={modalStyle}
+                        aria-labelledby={ariaLabelledby || titleId}
+                        aria-describedby={ariaDescribedby || descriptionId}
+                        style={style}
                         onKeyDown={onModalKeyDown}
                         tabIndex={-1}
                       >
@@ -143,8 +179,8 @@ const Modal = forwardRef(
                         />
                       </motion.div>
                     </RemoveScroll>
-                  </FocusLockComponent>
-                </>,
+                  </div>
+                </FocusLockComponent>,
                 portalTargetElement
               )}
             </ModalProvider>

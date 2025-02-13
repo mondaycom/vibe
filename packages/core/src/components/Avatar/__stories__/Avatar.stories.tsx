@@ -38,6 +38,7 @@ export const Overview = {
 export const Size = {
   render: () => (
     <>
+      <Avatar size="xs" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="small" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
@@ -50,6 +51,7 @@ export const Size = {
 export const Disable = {
   render: () => (
     <>
+      <Avatar size="xs" src={person1} type="img" disabled />
       <Avatar size="small" src={person1} type="img" disabled />
       <Avatar size="medium" src={person1} type="img" disabled />
       <Avatar size="large" src={person1} type="img" disabled />
@@ -61,6 +63,7 @@ export const Disable = {
 export const AvatarWithText = {
   render: () => (
     <>
+      <Avatar size="xs" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="small" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
@@ -73,6 +76,7 @@ export const AvatarWithText = {
 export const SquareAvatar = {
   render: () => (
     <>
+      <Avatar size="xs" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
       <Avatar size="small" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
       <Avatar size="medium" type="icon" icon={WhatsNew} backgroundColor="aquamarine" square ariaLabel="Present" />
       <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />

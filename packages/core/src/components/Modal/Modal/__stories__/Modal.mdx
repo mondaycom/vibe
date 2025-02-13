@@ -37,6 +37,26 @@ import {
   We have 3 different modal component, each one provide a different layout for a different use case:
 </p>
 
+### Import
+
+All the Modal-related components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```ts
+import {
+  Modal,
+  ModalHeader,
+  ModalContent,
+  ModalMedia,
+  ModalFooter,
+  ModalFooterWizard,
+  ModalBasicLayout,
+  ModalSideBySideLayout,
+  ModalMediaLayout
+} from "@vibe/core/next";
+```
+
 ### Basic modal
 
 The <StorybookLink page="Components/Modal [New]/Basic modal">Basic Modal</StorybookLink> is intended for straightforward tasks, like selecting items or gathering basic information. Basic Modals help users focus on a single task without distractions. These modals do not support images or videos.

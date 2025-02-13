@@ -1,6 +1,9 @@
 import { Variants } from "framer-motion";
 import { RefObject } from "react";
 
+const enterEase = [0.0, 0.0, 0.4, 1.0];
+const exitEase = [0.6, 0.0, 1.0, 1.0];
+
 export const modalAnimationOverlayVariants: Variants = {
   initial: {
     opacity: 0
@@ -9,14 +12,14 @@ export const modalAnimationOverlayVariants: Variants = {
     opacity: 0.7,
     transition: {
       duration: 0.1,
-      ease: [0.0, 0.0, 0.4, 1.0]
+      ease: enterEase
     }
   },
   exit: {
     opacity: 0,
     transition: {
       duration: 0.1,
-      ease: [0.6, 0.0, 1.0, 1.0]
+      ease: exitEase
     }
   }
 };
@@ -35,7 +38,7 @@ export const modalAnimationCenterPopVariants: Variants = {
     y: "-50%",
     transition: {
       duration: 0.15,
-      ease: [0.0, 0.0, 0.4, 1.0],
+      ease: enterEase,
       times: [0, 0.5, 1]
     }
   },
@@ -46,7 +49,7 @@ export const modalAnimationCenterPopVariants: Variants = {
     y: "-50%",
     transition: {
       duration: 0.1,
-      ease: [0.6, 0.0, 1.0, 1.0],
+      ease: exitEase,
       times: [0, 0.5, 1]
     }
   }
@@ -79,7 +82,7 @@ export const modalAnimationAnchorPopVariants: Variants = {
     y: "-50%",
     transition: {
       duration: 0.2,
-      ease: [0.0, 0.0, 0.4, 1.0],
+      ease: enterEase,
       times: [0, 0.4, 1]
     }
   },
@@ -100,9 +103,29 @@ export const modalAnimationAnchorPopVariants: Variants = {
       y,
       transition: {
         duration: 0.15,
-        ease: [0.6, 0.0, 1.0, 1.0],
+        ease: exitEase,
         times: [0, 0.6, 1]
       }
     };
+  }
+};
+
+export const modalAnimationFullViewVariants: Variants = {
+  enter: {
+    opacity: [0.3, 1, 1],
+    y: [30, 0],
+    transition: {
+      duration: 0.25,
+      ease: enterEase,
+      times: [0, 0.33, 1]
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: 30,
+    transition: {
+      duration: 0.1,
+      ease: exitEase
+    }
   }
 };

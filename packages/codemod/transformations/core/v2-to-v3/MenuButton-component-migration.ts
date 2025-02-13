@@ -10,7 +10,6 @@ import { TransformationContext } from "../../../types";
 /**
  * 1. Update the 'classname' prop to 'className'
  * 2. Update the 'disabledReason' prop to 'tooltipContent'
- * 1. Update the 'closeDialogOnContentClick' prop to 'closeMenuOnItemClick'
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
@@ -23,8 +22,7 @@ function transform({ j, root, filePath }: TransformationContext) {
   elements.forEach(elementPath => {
     migratePropsNames(j, elementPath, filePath, componentName, {
       componentClassName: "className",
-      disabledReason: "tooltipContent",
-      closeDialogOnContentClick: "closeMenuOnItemClick"
+      disabledReason: "tooltipContent"
     });
   });
 }

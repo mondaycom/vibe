@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.3...@vibe/icons@1.4.0) (2025-01-27)
+
+
+### Features
+
+* **Icons:** add ClassicFolder icon ([#2731](https://github.com/mondaycom/vibe/issues/2731)) ([2c33612](https://github.com/mondaycom/vibe/commit/2c336127c38c492a0b91c514c6ee293c40f8a9dd))
+* **Icons:** add new icons ([#2726](https://github.com/mondaycom/vibe/issues/2726)) ([72a2b80](https://github.com/mondaycom/vibe/commit/72a2b8045defaac5ab9c0d6889012825bbcdbf9e))
+
+
+
+
+
+## [1.3.3](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.2...@vibe/icons@1.3.3) (2025-01-20)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2724](https://github.com/mondaycom/vibe/issues/2724)) ([0782cc9](https://github.com/mondaycom/vibe/commit/0782cc9f16fe3fe123bc45303312c2a7a9c17adc))
+
+
+
+
+
+## [1.3.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.1...@vibe/icons@1.3.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* **icons:** update icons ([#2720](https://github.com/mondaycom/vibe/issues/2720)) ([14998e1](https://github.com/mondaycom/vibe/commit/14998e1a911f87760cd053c9ab4e10c51ded6d74))
+* **Icon:** update icons ([#2717](https://github.com/mondaycom/vibe/issues/2717)) ([742d9c2](https://github.com/mondaycom/vibe/commit/742d9c20c0b906c667c847cca42c17124f15b15a))
+
+
+
+
+
+## [1.3.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.0...@vibe/icons@1.3.1) (2025-01-13)
+
+
+### Bug Fixes
+
+* **Icons:** update icons ([#2711](https://github.com/mondaycom/vibe/issues/2711)) ([be229ad](https://github.com/mondaycom/vibe/commit/be229adf34bfd22154c1db4c9696fada25d16608))
+* **icons:** update person icon ([#2714](https://github.com/mondaycom/vibe/issues/2714)) ([5dc2a1b](https://github.com/mondaycom/vibe/commit/5dc2a1b6f9aa35dc9acf16d04a770d31e5ead27e))
+
+
+
+
+
 # [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.2.0...@vibe/icons@1.3.0) (2024-12-26)
 
 

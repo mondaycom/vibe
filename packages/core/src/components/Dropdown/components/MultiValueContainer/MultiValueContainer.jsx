@@ -84,7 +84,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
 
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
-      <div className={classes["value-container"]}>
+      <div
+        className={classes["value-container"]}
+        onTouchEndCapture={e => {
+          e.stopPropagation();
+        }}
+      >
         {showPlaceholder && (
           <div className={classes["placeholder-container"]}>
             <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>

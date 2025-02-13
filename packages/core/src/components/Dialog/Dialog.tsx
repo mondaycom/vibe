@@ -19,6 +19,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
+import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -154,6 +155,15 @@ export interface DialogProps extends VibeComponentProps {
    * If string use it as selector to prevent scroll.
    */
   disableContainerScroll?: boolean | string;
+  /**
+   * Enables the observation of content resize for the popper element.
+   * When set to `true`, a ResizeObserver is attached to the popper content,
+   * automatically triggering repositioning when the size of the content changes.
+   *
+   * This is useful for dialogs, tooltips, or popovers with dynamic content
+   * that may grow or shrink without a re-render being triggered.
+   */
+  observeContentResize?: boolean;
 }
 
 export interface DialogState {
@@ -191,7 +201,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     hideWhenReferenceHidden: false,
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
-    addKeyboardHideShowTriggersByDefault: false
+    addKeyboardHideShowTriggersByDefault: false,
+    observeContentResize: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -498,6 +509,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       hideWhenReferenceHidden,
       disableContainerScroll,
       containerSelector,
+      observeContentResize,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -573,6 +585,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     return state;
                   }
                 },
+                createObserveContentResizeModifier(observeContentResize),
                 ...modifiers
               ]}
             >

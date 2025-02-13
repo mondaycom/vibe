@@ -13,7 +13,6 @@ const useModalMocked = jest.mocked(useModal);
 describe("ModalHeader", () => {
   const title = "Test Modal Header";
   const simpleDescription = "This is a description";
-  const descriptionIcon = TextIcon;
 
   const useModalMockedReturnedValue: ModalContextProps = {
     modalId: "modal-id",
@@ -25,28 +24,37 @@ describe("ModalHeader", () => {
     useModalMocked.mockReturnValue(useModalMockedReturnedValue);
   });
 
-  it("renders the title correctly", () => {
-    const { getByText } = render(<ModalHeader title={title} />);
-
-    expect(getByText(title)).toBeInTheDocument();
+  it("should render a Heading component when title is a string", () => {
+    const { getByRole } = render(<ModalHeader title={title} />);
+    const headingElement = getByRole("heading", { name: title });
+    expect(headingElement).toBeInTheDocument();
   });
 
-  it("renders the description correctly", () => {
+  it("should not wrap in Heading if title is a ReactNode", () => {
+    const CustomTitle = () => <div data-testid="custom-title">My Custom Title</div>;
+
+    const { getByTestId, queryByRole } = render(<ModalHeader title={<CustomTitle />} />);
+
+    expect(getByTestId("custom-title")).toBeInTheDocument();
+    expect(queryByRole("heading")).not.toBeInTheDocument();
+  });
+
+  it("should render the description correctly", () => {
     const { getByText } = render(<ModalHeader title={title} description={simpleDescription} />);
 
     expect(getByText(simpleDescription)).toBeInTheDocument();
   });
 
-  it("renders the description icon when provided", () => {
+  it("should render the description icon when provided", () => {
     const { getByText, getByTestId } = render(
-      <ModalHeader title={title} description={simpleDescription} descriptionIcon={descriptionIcon} />
+      <ModalHeader title={title} description={simpleDescription} descriptionIcon={TextIcon} />
     );
 
     expect(getByText(simpleDescription)).toBeInTheDocument();
     expect(getByTestId("icon")).toBeInTheDocument();
   });
 
-  it("renders custom description node", () => {
+  it("should render custom description node", () => {
     const customDescription = <span data-testid="custom-description">Custom description content</span>;
 
     const { getByTestId } = render(<ModalHeader title={title} description={customDescription} />);
@@ -54,13 +62,13 @@ describe("ModalHeader", () => {
     expect(getByTestId("custom-description")).toBeInTheDocument();
   });
 
-  it("does not render description when not provided", () => {
+  it("should not render description when not provided", () => {
     const { queryByText } = render(<ModalHeader title={title} />);
 
     expect(queryByText(simpleDescription)).not.toBeInTheDocument();
   });
 
-  it("renders with description icon when descriptionIcon is an object", () => {
+  it("should render with description icon when descriptionIcon is an object", () => {
     const descriptionIconObject = {
       name: TextIcon,
       className: "with-custom-icon-class"
@@ -74,37 +82,36 @@ describe("ModalHeader", () => {
     expect(icon).toHaveClass(descriptionIconObject.className);
   });
 
-  it("sets the titleId and descriptionId in the context when rendered", () => {
-    const { getByText } = render(<ModalHeader title={title} description={simpleDescription} />);
-
+  it("should call setTitleId if modalId is available and title is provided", () => {
+    render(<ModalHeader title="Title" />);
     expect(useModalMockedReturnedValue.setTitleId).toHaveBeenCalledWith("modal-id_label");
-    expect(useModalMockedReturnedValue.setDescriptionId).toHaveBeenCalledWith("modal-id_desc");
-    expect(getByText(title)).toBeInTheDocument();
-    expect(getByText(simpleDescription)).toBeInTheDocument();
   });
 
-  it("does not set descriptionId if no description is provided", () => {
-    render(<ModalHeader title={title} />);
+  it("should call setDescriptionId if modalId is available and description is provided", () => {
+    render(<ModalHeader title="Title" description="I am a description" />);
+    expect(useModalMockedReturnedValue.setDescriptionId).toHaveBeenCalledWith("modal-id_desc");
+  });
 
-    expect(useModalMockedReturnedValue.setTitleId).toHaveBeenCalledWith("modal-id_label");
+  it("should not call setDescriptionId if no description is provided", () => {
+    render(<ModalHeader title="Title" />);
     expect(useModalMockedReturnedValue.setDescriptionId).not.toHaveBeenCalled();
   });
 
-  it("renders the title with the correct id", () => {
+  it("should renders the title with the correct id", () => {
     const { getByText } = render(<ModalHeader title={title} />);
 
     const titleElement = getByText(title);
     expect(titleElement).toHaveAttribute("id", "modal-id_label");
   });
 
-  it("renders the description container with the correct id when provided", () => {
+  it("should render the description container with the correct id when provided", () => {
     const { getByText } = render(<ModalHeader title={title} description={simpleDescription} />);
 
     const descriptionElement = getByText(simpleDescription);
     expect(descriptionElement.parentElement).toHaveAttribute("id", "modal-id_desc");
   });
 
-  it("calls setTitleId and setDescriptionId with a custom id if provided", () => {
+  it("should call setTitleId and setDescriptionId with a custom id if provided", () => {
     const customId = "custom-header-id";
     render(<ModalHeader title={title} id={customId} description={simpleDescription} />);
 

@@ -109,7 +109,8 @@ export const Multiline = {
       type={EditableText.types.TEXT1}
       weight={EditableText.weights.NORMAL}
       multiline
-      value={"This is a multiline\nhere's the second line"}
+      value={`This is a multiline
+here's the second line`}
       className={styles.editableText}
     />
   ),
