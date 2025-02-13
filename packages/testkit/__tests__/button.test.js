@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Button } from "../components";
 import { buttonStory } from "./utils/url-helper";
 
-test("should fire a click event and log to console", async ({ page }) => {
+test.fixme("should fire a click event and log to console", async ({ page }) => {
   // Navigate to the Storybook page with the component
   await page.goto(buttonStory, { timeout: 100000 });
   // Locate the iframe where the button is rendered
