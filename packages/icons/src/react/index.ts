@@ -151,6 +151,7 @@ export {default as Mention} from './Mention';
 export {default as Menu} from './Menu';
 export {default as Microphone} from './Microphone';
 export {default as Minimize} from './Minimize';
+export {default as MinusSmall} from './MinusSmall';
 export {default as Mirror} from './Mirror';
 export {default as Mobile} from './Mobile';
 export {default as MondayDoc} from './MondayDoc';
