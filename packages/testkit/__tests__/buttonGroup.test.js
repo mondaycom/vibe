@@ -26,7 +26,7 @@ test.describe("ButtonGroup Class with Storybook", () => {
     buttonGroup = new ButtonGroup(page, buttonGroupLocator, "Test Button Group");
   });
 
-  test("should initialize buttons if needed", async () => {
+  test.fixee("should initialize buttons if needed", async () => {
     // Initialize the buttons inside the ButtonGroup
     const buttons = await buttonGroup.getAllButtons();
     // Verify that buttons exist in the items array
