@@ -21,6 +21,7 @@ export interface EditableTextProps extends VibeComponentProps, EditableTypograph
   /** Enables editing multiple lines of text
    */
   multiline?: boolean;
+  multilineMaxRows?: number;
 }
 
 const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {

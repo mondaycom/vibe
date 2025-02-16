@@ -30,7 +30,7 @@
 
   .textarea {
     resize: none;
-    overflow: hidden;
+    overflow: auto;
     height: var(--input-height);
   }
 
