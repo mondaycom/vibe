@@ -1,9 +1,14 @@
 import { Canvas, Meta } from "@storybook/blocks";
 import Link from "../Link.tsx";
 import { ExternalPage, Gallery } from "@vibe/icons";
+import { Example } from "vibe-storybook-components";
 import { BREADCRUBMS, BUTTON, BADGE } from "../../../storybook/components/related-components/component-description-map";
 import { TipButton } from "./Link.stories.helpers";
 import * as LinkStories from "./Link.stories";
+import tipseen1 from "./tipseen1.svg";
+import tipseen2 from "./tipseen2.svg";
+import tooltip1 from "./tooltip1.svg";
+import tooltip2 from "./tooltip2.svg";
 
 <Meta of={LinkStories} />
 
@@ -45,6 +50,28 @@ import { Link } from "@vibe/core";
 />
 
 <TipButton />
+
+**Link's color on Primary**
+
+- The link on Primary surface should be `text-color-on-primary` with underline.
+
+- For hover state the cursor should transit to pointer to represent clickable area.
+
+<Example>
+  <img src={tipseen1} alt="Example of link on primary surface" />
+  <img src={tipseen2} alt="Example of link on primary surface on hover" />
+</Example>
+
+**Link's color on inverted**
+
+- The link on inverted surface should be `text-color-on-inverted` with underline.
+
+- For hover state the cursor should transit to pointer to represent clickable area.
+
+<Example>
+  <img src={tooltip1} alt="Example of link on inverted surface" />
+  <img src={tooltip2} alt="Example of link on inverted surface on hover" />
+</Example>
 
 ## Variants
 
