@@ -4,5 +4,5 @@ export type LabelSizes = "small" | "medium";
 
 export type LabelKind = "fill" | "line";
 
-type ContentColor = (typeof contentColors)[number];
+export type ContentColor = (typeof contentColors)[number];
 export type LabelColor = "primary" | "dark" | "negative" | "positive" | ContentColor;

@@ -6,7 +6,7 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } 
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
-import { LabelColor, LabelKind } from "./Label.types";
+import { LabelColor, LabelKind, ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
@@ -72,7 +72,6 @@ const Label: VibeComponent<LabelProps> & {
     );
 
     const backgroundColorStyle = useMemo(() => {
-      type ContentColor = (typeof contentColors)[number];
       if (contentColors.includes(color as ContentColor)) {
         return { backgroundColor: `var(--color-${color})` };
       }
