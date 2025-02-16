@@ -15,12 +15,17 @@ export interface EditableTextProps extends VibeComponentProps, EditableTypograph
    * Sets the Text type
    * */
   type?: TextType;
-  /** Sets the Text weight
+  /**
+   * Sets the Text weight
    */
   weight?: TextWeight;
-  /** Enables editing multiple lines of text
+  /**
+   * Enables editing multiple lines of text
    */
   multiline?: boolean;
+  /**
+   * Maximum number of rows for multiline text
+   */
   multilineMaxRows?: number;
 }
 

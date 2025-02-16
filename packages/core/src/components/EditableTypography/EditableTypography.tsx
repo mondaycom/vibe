@@ -48,6 +48,7 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   weight?: TextWeight | HeadingWeight;
   /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
   multiline?: boolean;
+  /** Maximum number of rows for multiline text */
   multilineMaxRows?: number;
 }
 
