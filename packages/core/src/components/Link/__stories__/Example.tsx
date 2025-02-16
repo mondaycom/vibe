@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import styles from "./example.module.scss";
+import styles from "./Example.module.scss";
 import { ElementContent } from "../../../types";
 
 interface ComponentRuleProps {
