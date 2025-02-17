@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.28.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.1...@vibe/core@3.28.0) (2025-02-17)
+
+
+### Features
+
+* **Label:** Add content colors ([#2767](https://github.com/mondaycom/vibe/issues/2767)) ([6ff8036](https://github.com/mondaycom/vibe/commit/6ff803620579fbb80e8204bc35e8a94d025409ab))
+
+
+
+
+
 ## [3.27.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.0...@vibe/core@3.27.1) (2025-02-13)
 
 
