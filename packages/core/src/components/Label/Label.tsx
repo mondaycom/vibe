@@ -5,8 +5,9 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Text from "../Text/Text";
 import Leg from "./Leg";
-import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
-import { LabelColor, LabelKind } from "./Label.types";
+import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
+import { LabelColor, LabelKind, ContentColor } from "./Label.types";
+import { contentColors } from "../../utils/colors-vars-map";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -70,6 +71,12 @@ const Label: VibeComponent<LabelProps> & {
       [kind, color, isLegIncluded, labelClassName, isClickable, size]
     );
 
+    const backgroundColorStyle = useMemo(() => {
+      if (contentColors.includes(color as ContentColor)) {
+        return { backgroundColor: `var(--color-${color})` };
+      }
+    }, [color]);
+
     const onClickCallback = useCallback(
       (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         if (onClick) {
@@ -104,6 +111,7 @@ const Label: VibeComponent<LabelProps> & {
           ref={mergedRef}
         >
           <Text
+            style={backgroundColorStyle}
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
@@ -133,7 +141,8 @@ const Label: VibeComponent<LabelProps> & {
       isCelebrationAnimation,
       text,
       isLegIncluded,
-      size
+      size,
+      backgroundColorStyle
     ]);
 
     // Celebration animation is applied only for line kind
