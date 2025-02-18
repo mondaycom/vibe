@@ -245,8 +245,11 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         scrollOffset: number;
         scrollUpdateWasRequested: boolean;
       }) => {
+        console.log("onScrollCB", scrollDirection, scrollOffset, scrollUpdateWasRequested);
         scrollTopRef.current = scrollOffset;
+        console.log("scrollUpdateWasRequested", scrollUpdateWasRequested, scrollOffset);
         if (!scrollUpdateWasRequested) {
+          console.log("scrollUpdateWasRequested", scrollUpdateWasRequested, scrollOffset);
           animationData.scrollOffsetInitial = scrollOffset;
         }
         onScroll && onScroll(scrollDirection, scrollOffset, scrollUpdateWasRequested);
@@ -277,11 +280,18 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     const startScrollAnimation = useCallback(
       (item: VirtualizedListItem) => {
         const { offsetTop } = item;
+
         if (animationData.animationStartTime) {
           // animation already in progress
           animationData.scrollOffsetFinal = offsetTop;
           return;
         }
+
+        // Update the initial scroll offset with the current scroll position for react 18 batching behavior
+        if (listRef.current?.state?.scrollOffset !== null) {
+          animationData.scrollOffsetInitial = listRef.current?.state?.scrollOffset;
+        }
+
         if (animationData.scrollOffsetInitial === offsetTop) {
           // offset already equals to item offset
           onScrollToFinished && onScrollToFinished();
@@ -314,11 +324,19 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     const updateListSize = useCallback(
       (width: number, height: number) => {
         if (height !== listHeight || width !== listWidth) {
-          setTimeout(() => {
-            setListHeight(height);
-            setListWidth(width);
-            onSizeUpdate(width, height);
-          }, 0);
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              console.log("updateListSize");
+              setListHeight(height);
+              setListWidth(width);
+              onSizeUpdate(width, height);
+            });
+          });
+          // setTimeout(() => {
+          //   setListHeight(height);
+          //   setListWidth(width);
+          //   onSizeUpdate(width, height);
+          // }, 0);
         }
       },
       [listHeight, listWidth, onSizeUpdate]
@@ -348,6 +366,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasScrollbar = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
         const item = normalizedItems[scrollToId as keyof typeof normalizedItems];
+        console.log("scrollToId", scrollToId, prevScrollToId, hasScrollbar, item);
         hasScrollbar && item && startScrollAnimation(item);
       }
     }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listSizeByLayout]);
@@ -355,6 +374,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     useEffect(() => {
       // recalculate row heights
       if (listRef.current) {
+        console.log("RESET!!!");
         listRef.current.resetAfterIndex(0);
       }
     }, [normalizedItems]);
