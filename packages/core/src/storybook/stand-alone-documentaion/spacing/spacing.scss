@@ -6,19 +6,23 @@
       justify-content: center;
     }
 
-    &--menu {
-      height: 334px;
-      width: 470px;
-    }
-
-    &--toolbar {
-      height: 179px;
-      width: 527px;
-    }
-
-    &--tipseen {
-      height: 306px;
-      width: 439px;
+    &--flex {
+      height: 400px;
+      margin-left: 110px;
     }
   }
+}
+
+.storybook-spacing-table-token-name {
+  padding: var(--sb-space-4) var(--sb-space-8);
+  border-radius: 100px;
+  border: 1px solid #E3E3E3;
+  background: #F2F2F2;
+  font-size: 12px;
+}
+
+.monday-storybook-spacing-rules-image {
+  height: fit-content !important;
+  width: fit-content;
+
 }
