@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.28.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.1...@vibe/core@3.28.2) (2025-02-19)
+
+
+### Bug Fixes
+
+* **Tipseen:** setting width more than max-width in tooltip default width has no effect ([#2770](https://github.com/mondaycom/vibe/issues/2770)) ([4dc7a38](https://github.com/mondaycom/vibe/commit/4dc7a3882046157e8f6892193eaa35d0247bf7c6))
+
+
+
+
+
 ## [3.28.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.0...@vibe/core@3.28.1) (2025-02-19)
 
 
