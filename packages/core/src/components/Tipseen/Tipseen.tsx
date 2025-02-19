@@ -175,6 +175,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
             [styles.floating]: floating
           })}
+          maxWidth={width}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
           shouldShowOnMount={!defaultDelayOpen}
