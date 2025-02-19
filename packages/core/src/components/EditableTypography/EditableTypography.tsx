@@ -48,6 +48,8 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   weight?: TextWeight | HeadingWeight;
   /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
   multiline?: boolean;
+  /** Maximum number of rows for multiline text */
+  multilineMaxRows?: number;
 }
 
 const PADDING_OFFSET = 2;
@@ -73,7 +75,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       tooltipProps,
       type,
       weight,
-      multiline = false
+      multiline = false,
+      multilineMaxRows
     }: EditableTypographyProps,
     ref
   ) => {
@@ -190,7 +193,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       const { width } = typographyRef.current.getBoundingClientRect();
       inputRef?.current?.style.setProperty("--input-width", `${width}px`);
 
-      if (multiline) {
+      if (multiline && !multilineMaxRows) {
         const textareaElement = inputRef?.current as HTMLTextAreaElement;
         textareaElement?.style.setProperty("--input-height", "auto");
         textareaElement?.style.setProperty("--input-height", `${textareaElement.scrollHeight + PADDING_OFFSET}px`);
@@ -220,7 +223,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               aria-label={ariaLabel}
               placeholder={placeholder}
               role="textbox"
-              rows={1}
+              rows={multilineMaxRows ? Math.min(inputValue.split("\n").length, multilineMaxRows) : 1}
             />
           ) : (
             <input
@@ -248,7 +251,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           tooltipProps={tooltipProps}
           weight={weight}
           type={type}
-          ellipsis={!multiline}
+          maxLines={multilineMaxRows}
         >
           {inputValue || placeholder}
         </TypographyComponent>
