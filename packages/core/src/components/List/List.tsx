@@ -60,7 +60,7 @@ export interface ListProps extends VibeComponentProps {
   /**
    * ARIA role for the list items. Default is "option".
    */
-  itemRole: AriaRole;
+  itemRole?: AriaRole;
 }
 
 const List: VibeComponent<ListProps> & {
