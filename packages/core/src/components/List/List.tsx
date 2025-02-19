@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, {
   AriaAttributes,
+  AriaRole,
   CSSProperties,
   forwardRef,
   ReactElement,
@@ -52,6 +53,14 @@ export interface ListProps extends VibeComponentProps {
    */
   renderOnlyVisibleItems?: boolean;
   style?: CSSProperties;
+  /**
+   * ARIA role for the list. Default is "listbox".
+   */
+  role?: AriaRole;
+  /**
+   * ARIA role for the list items. Default is "option".
+   */
+  itemRole: AriaRole;
 }
 
 const List: VibeComponent<ListProps> & {
@@ -68,6 +77,8 @@ const List: VibeComponent<ListProps> & {
       "aria-controls": ariaControls,
       renderOnlyVisibleItems = false,
       style,
+      role = "listbox",
+      itemRole = "option",
       "data-testid": dataTestId
     }: ListProps,
     ref
@@ -97,16 +108,16 @@ const List: VibeComponent<ListProps> & {
         let overrideFocusIndex = undefined;
 
         if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
-          overrideFocusIndex = getNextListItemIndex(focusIndex, childrenRefs);
+          overrideFocusIndex = getNextListItemIndex(focusIndex, childrenRefs, itemRole);
         } else if (isUpKey && focusIndex > 0) {
-          overrideFocusIndex = getPrevListItemIndex(focusIndex, childrenRefs);
+          overrideFocusIndex = getPrevListItemIndex(focusIndex, childrenRefs, itemRole);
         }
         if (overrideFocusIndex !== undefined) {
           updateFocusedItem(getListItemIdByIndex(childrenRefs, overrideFocusIndex));
           childrenRefs.current[overrideFocusIndex].focus();
         }
       },
-      [focusIndex, renderOnlyVisibleItems, updateFocusedItem]
+      [focusIndex, itemRole, renderOnlyVisibleItems, updateFocusedItem]
     );
 
     useKeyEvent({
@@ -117,17 +128,18 @@ const List: VibeComponent<ListProps> & {
 
     useEffect(() => {
       const selectedItemIndex = childrenRefs.current.findIndex(
-        child => child instanceof HTMLElement && isListItem(child) && child?.getAttribute("aria-selected") === "true"
+        child =>
+          child instanceof HTMLElement && isListItem(child, itemRole) && child?.getAttribute("aria-selected") === "true"
       );
       if (selectedItemIndex !== -1) {
         updateFocusedItem(getListItemIdByIndex(childrenRefs, selectedItemIndex));
       } else {
-        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child));
+        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child, itemRole));
         if (firstFocusableIndex !== -1) {
           updateFocusedItem(getListItemIdByIndex(childrenRefs, firstFocusableIndex));
         }
       }
-    }, [updateFocusedItem]);
+    }, [itemRole, updateFocusedItem]);
 
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
@@ -141,22 +153,23 @@ const List: VibeComponent<ListProps> & {
           }
           const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
           const currentRef = childrenRefs.current[index];
-          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
+          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef, itemRole);
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
             id,
-            component: getListItemComponentType(component)
+            component: getListItemComponentType(component),
+            role: itemRole
           });
         });
       }
 
       return override;
-    }, [children, component, focusIndex, overrideId, renderOnlyVisibleItems]);
+    }, [children, component, focusIndex, itemRole, overrideId, renderOnlyVisibleItems]);
 
     return (
-      <ListContext.Provider value={{ updateFocusedItem }}>
+      <ListContext.Provider value={{ updateFocusedItem, itemRole }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
           ref={mergedRef}
@@ -167,7 +180,7 @@ const List: VibeComponent<ListProps> & {
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           tabIndex={-1}
-          role="listbox"
+          role={role}
         >
           {overrideChildren}
         </Component>

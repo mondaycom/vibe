@@ -84,7 +84,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
       }: ListItemProps,
       ref
     ) => {
-      const { updateFocusedItem } = useContext(ListContext);
+      const { updateFocusedItem, itemRole } = useContext(ListContext);
       const componentRef = useRef(null);
       const mergedRef = useMergeRef(ref, componentRef);
 
@@ -132,7 +132,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           onClick={componentOnClick}
           onMouseEnter={componentOnHover}
           onFocus={componentOnHover}
-          role="option"
+          role={itemRole}
           tabIndex={tabIndex}
           aria-current={ariaCurrent}
         >
