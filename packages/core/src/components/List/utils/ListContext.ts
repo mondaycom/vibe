@@ -1,4 +1,4 @@
-import React from "react";
+import React, { AriaRole } from "react";
 import { NOOP } from "../../../utils/function-utils";
 
 type ListContextType = {
@@ -7,6 +7,10 @@ type ListContextType = {
    * @param ListItem id
    */
   updateFocusedItem: (id: string) => void;
+  /**
+   * Role of the children of the list
+   */
+  itemRole: AriaRole;
 };
 
-export const ListContext = React.createContext<ListContextType>({ updateFocusedItem: NOOP });
+export const ListContext = React.createContext<ListContextType>({ updateFocusedItem: NOOP, itemRole: "option" });
