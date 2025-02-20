@@ -26,23 +26,29 @@ export default {
 export const Overview = {
   render: avatarTemplate.bind({}),
   name: "Overview",
-
   args: {
     size: "large",
     src: window.location.origin + "/" + person1,
     type: "img",
     ariaLabel: "Julia Martinez"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
 export const Size = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <Avatar size="xs" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="small" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
-    </>
+    </Flex>
   ),
 
   name: "Size"
@@ -50,24 +56,24 @@ export const Size = {
 
 export const Disable = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <Avatar size="xs" src={person1} type="img" disabled />
       <Avatar size="small" src={person1} type="img" disabled />
       <Avatar size="medium" src={person1} type="img" disabled />
       <Avatar size="large" src={person1} type="img" disabled />
-    </>
+    </Flex>
   ),
   name: "Disable"
 };
 
 export const AvatarWithText = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <Avatar size="xs" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="small" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
-    </>
+    </Flex>
   ),
 
   name: "Avatar with text"
@@ -75,12 +81,12 @@ export const AvatarWithText = {
 
 export const SquareAvatar = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <Avatar size="xs" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
       <Avatar size="small" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
       <Avatar size="medium" type="icon" icon={WhatsNew} backgroundColor="aquamarine" square ariaLabel="Present" />
       <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />
-    </>
+    </Flex>
   ),
 
   name: "Square avatar"
@@ -88,10 +94,10 @@ export const SquareAvatar = {
 
 export const AvatarWithRightBadge = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: guest }} ariaLabel="Julia Martinez" />
       <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: owner }} ariaLabel="Julia Martinez" />
-    </>
+    </Flex>
   ),
 
   name: "Avatar with right badge"
@@ -99,11 +105,10 @@ export const AvatarWithRightBadge = {
 
 export const AvatarWithLeftBadge = {
   render: () => (
-    <>
-      {" "}
+    <Flex gap="medium">
       <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: home }} ariaLabel="Julia Martinez" />
       <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: minus }} ariaLabel="Julia Martinez" />
-    </>
+    </Flex>
   ),
 
   name: "Avatar with left badge"
@@ -153,9 +158,11 @@ export const ClickableAvatar = {
     }, []);
 
     return (
-      <Flex direction="column" gap="medium">
-        <Avatar size="large" type="img" src={person1} ariaLabel="Julia Martinez" onClick={incrementCount} />
-        <Counter count={count} />
+      <Flex>
+        <Flex direction="column" gap="medium">
+          <Avatar size="large" type="img" src={person1} ariaLabel="Julia Martinez" onClick={incrementCount} />
+          <Counter count={count} />
+        </Flex>
       </Flex>
     );
   },
