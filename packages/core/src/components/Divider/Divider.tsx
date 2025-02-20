@@ -8,7 +8,13 @@ import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {
+  /**
+   * The direction of the divider 'horizontal' or 'vertical'.
+   */
   direction?: DividerDirection;
+  /**
+   * Removes margin from the divider.
+   */
   withoutMargin?: boolean;
 }
 
