@@ -2,7 +2,7 @@ import { RefObject, useCallback, useMemo, useState } from "react";
 import { isSafari as isSafariCheck } from "src/utils/user-agent-utils";
 import useResizeObserver from "../useResizeObserver";
 
-const SAFARI_DEFAULT_TOLERANCE = 2; // this fixes an issue with Safari in certain zoom levels, where the scrollHeight & scrollWidth are off by a pixel from the clientHeight & clientWidth
+const SAFARI_DEFAULT_TOLERANCE = 2; // this fixes an issue with Safari in certain zoom levels, where the scrollHeight & scrollWidth are off by a pixel from the clientHeight & clientWidth.
 
 function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, heightTolerance = 0, widthTolerance = 0) {
   if (!element) {
