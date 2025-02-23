@@ -103,7 +103,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);
 
-    const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef, widthTolerance: 2 });
+    const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
 
     const finalTooltipContent = useMemo(() => {

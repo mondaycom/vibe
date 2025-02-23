@@ -13,8 +13,8 @@ function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, heig
 export default function useIsOverflowing({
   ref,
   ignoreHeightOverflow = false,
-  tolerance: heightTolerance,
-  widthTolerance
+  tolerance: heightTolerance = 2,
+  widthTolerance = 2
 }: {
   /**
    * The ref of the element to check for overflow.
