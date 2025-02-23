@@ -9,7 +9,7 @@ import Text from "../Text/Text";
 export function renderSideElement(
   element: StartElement | EndElement,
   disabled: boolean,
-  fontSize: TextType
+  textVariant: TextType
 ): React.ReactNode {
   switch (element.type) {
     case "avatar":
@@ -28,12 +28,12 @@ export function renderSideElement(
     case "icon":
       return <Icon className={styles.icon} icon={element.value} iconSize={20} />;
 
-    case "inset":
-      return <div className={styles.inset} />;
+    case "indent":
+      return <div className={styles.indent} />;
 
     case "suffix":
       return (
-        <Text type={fontSize} color="secondary" style={{ maxWidth: "112px" }}>
+        <Text type={textVariant} color="secondary" style={{ maxWidth: "112px" }}>
           {element.value}
         </Text>
       );

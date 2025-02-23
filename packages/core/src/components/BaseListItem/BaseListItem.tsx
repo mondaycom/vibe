@@ -9,7 +9,7 @@ import { Tooltip } from "../Tooltip";
 import { TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
-const BaseListItem: VibeComponent<BaseListItemProps, HTMLDivElement> = forwardRef(
+const BaseListItem: VibeComponent<BaseListItemProps, HTMLLIElement> = forwardRef(
   (
     {
       label,
@@ -39,17 +39,19 @@ const BaseListItem: VibeComponent<BaseListItemProps, HTMLDivElement> = forwardRe
       className
     );
 
-    const fontSize: TextType = size === "small" ? "text2" : "text1";
+    const textVariant: TextType = size === "small" ? "text2" : "text1";
 
     return (
       <Tooltip {...tooltipProps} content={tooltipProps?.content} position={rtl ? "left" : "right"}>
-        <div id={id} ref={ref} className={listItemClassNames} role={role} {...rest}>
-          {startElement && renderSideElement(startElement, disabled, fontSize)}
-          <Text type={fontSize} color="inherit">
+        <li id={id} ref={ref} className={listItemClassNames} role={role} {...rest}>
+          {startElement && renderSideElement(startElement, disabled, textVariant)}
+          <Text type={textVariant} color="inherit">
             {label}
           </Text>
-          {endElement && <div className={styles.endElement}>{renderSideElement(endElement, disabled, fontSize)}</div>}
-        </div>
+          {endElement && (
+            <div className={styles.endElement}>{renderSideElement(endElement, disabled, textVariant)}</div>
+          )}
+        </li>
       </Tooltip>
     );
   }

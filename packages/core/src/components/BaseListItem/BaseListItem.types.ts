@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 
-export interface BaseListItemProps extends React.HTMLAttributes<HTMLDivElement>, VibeComponentProps {
+export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>, VibeComponentProps {
   value?: string;
   /**
    * Primary text content of the list item
@@ -42,6 +42,7 @@ export interface BaseListItemProps extends React.HTMLAttributes<HTMLDivElement>,
    * determines the position of the tooltip according to the direction.
    */
   rtl?: boolean;
+  index?: number;
 }
 
 export type BaseListItemSizes = "small" | "medium" | "large";
@@ -49,10 +50,10 @@ export type BaseListItemSizes = "small" | "medium" | "large";
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }
   | { type: "icon"; value: SubIcon }
-  | { type: "inset" }
+  | { type: "indent" }
   | { type: "suffix"; value: string }
   | { type: "custom"; render: () => ReactNode };
 
-export type StartElement = Extract<SideElement, { type: "avatar" | "icon" | "inset" | "custom" }>;
+export type StartElement = Extract<SideElement, { type: "avatar" | "icon" | "indent" | "custom" }>;
 
 export type EndElement = Extract<SideElement, { type: "icon" | "suffix" | "custom" }>;
