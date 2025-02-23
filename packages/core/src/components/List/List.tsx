@@ -54,13 +54,9 @@ export interface ListProps extends VibeComponentProps {
   renderOnlyVisibleItems?: boolean;
   style?: CSSProperties;
   /**
-   * ARIA role for the list. Default is "listbox".
+   * ARIA role for the list.
    */
   role?: AriaRole;
-  /**
-   * ARIA role for the list items. Default is "option".
-   */
-  itemRole?: AriaRole;
 }
 
 const List: VibeComponent<ListProps> & {
@@ -78,7 +74,6 @@ const List: VibeComponent<ListProps> & {
       renderOnlyVisibleItems = false,
       style,
       role = "listbox",
-      itemRole = "option",
       "data-testid": dataTestId
     }: ListProps,
     ref
@@ -108,16 +103,16 @@ const List: VibeComponent<ListProps> & {
         let overrideFocusIndex = undefined;
 
         if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
-          overrideFocusIndex = getNextListItemIndex(focusIndex, childrenRefs, itemRole);
+          overrideFocusIndex = getNextListItemIndex(focusIndex, childrenRefs);
         } else if (isUpKey && focusIndex > 0) {
-          overrideFocusIndex = getPrevListItemIndex(focusIndex, childrenRefs, itemRole);
+          overrideFocusIndex = getPrevListItemIndex(focusIndex, childrenRefs);
         }
         if (overrideFocusIndex !== undefined) {
           updateFocusedItem(getListItemIdByIndex(childrenRefs, overrideFocusIndex));
           childrenRefs.current[overrideFocusIndex].focus();
         }
       },
-      [focusIndex, itemRole, renderOnlyVisibleItems, updateFocusedItem]
+      [focusIndex, renderOnlyVisibleItems, updateFocusedItem]
     );
 
     useKeyEvent({
@@ -128,18 +123,17 @@ const List: VibeComponent<ListProps> & {
 
     useEffect(() => {
       const selectedItemIndex = childrenRefs.current.findIndex(
-        child =>
-          child instanceof HTMLElement && isListItem(child, itemRole) && child?.getAttribute("aria-selected") === "true"
+        child => child instanceof HTMLElement && isListItem(child) && child?.getAttribute("aria-selected") === "true"
       );
       if (selectedItemIndex !== -1) {
         updateFocusedItem(getListItemIdByIndex(childrenRefs, selectedItemIndex));
       } else {
-        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child, itemRole));
+        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child));
         if (firstFocusableIndex !== -1) {
           updateFocusedItem(getListItemIdByIndex(childrenRefs, firstFocusableIndex));
         }
       }
-    }, [itemRole, updateFocusedItem]);
+    }, [updateFocusedItem]);
 
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
@@ -151,25 +145,25 @@ const List: VibeComponent<ListProps> & {
           if (!React.isValidElement(child)) {
             return child;
           }
-          const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
+          const id = (child.props as ListItemProps).id || `${overrideId}-item-${index}`;
           const currentRef = childrenRefs.current[index];
-          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef, itemRole);
+          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
             id,
             component: getListItemComponentType(component),
-            role: itemRole
+            role: (child.props as ListItemProps).role
           });
         });
       }
 
       return override;
-    }, [children, component, focusIndex, itemRole, overrideId, renderOnlyVisibleItems]);
+    }, [children, component, focusIndex, overrideId, renderOnlyVisibleItems]);
 
     return (
-      <ListContext.Provider value={{ updateFocusedItem, itemRole }}>
+      <ListContext.Provider value={{ updateFocusedItem }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
           ref={mergedRef}

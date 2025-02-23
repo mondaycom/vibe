@@ -8,6 +8,8 @@ export const generateListId = () => {
   return `list-${listIdCounter++}`;
 };
 
+const VALID_ROLES = ["option", "listitem", "menuitem", "tab", "treeitem"];
+
 export const useListId = (id: string) => {
   const [listId, setListId] = useState<string>();
   useIsomorphicLayoutEffect(() => {
@@ -36,32 +38,24 @@ export const getListItemComponentType = (listComponent: ListElement): ListItemEl
   }
 };
 
-export const isListItem = (element: HTMLElement, itemRole: AriaRole) => {
-  return element && element instanceof HTMLElement && element.getAttribute("role") === itemRole;
+export const isListItem = (element: HTMLElement) => {
+  return element && element instanceof HTMLElement && VALID_ROLES.includes(element.getAttribute("role"));
 };
 
-export const getNextListItemIndex = (
-  currentIndex: number,
-  childrenRefs: MutableRefObject<HTMLElement[]>,
-  itemRole: AriaRole
-) => {
+export const getNextListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {
   while (currentIndex < childrenRefs.current.length - 1) {
     const child = childrenRefs.current[++currentIndex];
-    if (isListItem(child, itemRole)) {
+    if (isListItem(child)) {
       return currentIndex;
     }
   }
   return undefined;
 };
 
-export const getPrevListItemIndex = (
-  currentIndex: number,
-  childrenRefs: MutableRefObject<HTMLElement[]>,
-  itemRole: AriaRole
-) => {
+export const getPrevListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {
   while (currentIndex > 0) {
     const child = childrenRefs.current[--currentIndex];
-    if (isListItem(child, itemRole)) {
+    if (isListItem(child)) {
       return currentIndex;
     }
   }

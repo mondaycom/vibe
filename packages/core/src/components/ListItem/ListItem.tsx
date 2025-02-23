@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { AriaAttributes, forwardRef, useCallback, useContext, useEffect, useRef } from "react";
+import React, { AriaAttributes, AriaRole, forwardRef, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
@@ -63,6 +63,10 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "aria-current"?: AriaAttributes["aria-current"];
+  /**
+   * ARIA role for the list item.
+   */
+  role?: AriaRole;
 }
 
 const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; components?: typeof ListItemComponentTypeEnum } =
@@ -80,11 +84,12 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         tabIndex = 0,
         children,
         "aria-current": ariaCurrent,
-        "data-testid": dataTestId
+        "data-testid": dataTestId,
+        role = "option"
       }: ListItemProps,
       ref
     ) => {
-      const { updateFocusedItem, itemRole } = useContext(ListContext);
+      const { updateFocusedItem } = useContext(ListContext);
       const componentRef = useRef(null);
       const mergedRef = useMergeRef(ref, componentRef);
 
@@ -132,7 +137,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           onClick={componentOnClick}
           onMouseEnter={componentOnHover}
           onFocus={componentOnHover}
-          role={itemRole}
+          role={role}
           tabIndex={tabIndex}
           aria-current={ariaCurrent}
         >

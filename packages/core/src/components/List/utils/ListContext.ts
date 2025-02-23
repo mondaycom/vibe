@@ -7,10 +7,6 @@ type ListContextType = {
    * @param ListItem id
    */
   updateFocusedItem: (id: string) => void;
-  /**
-   * Role of the children of the list
-   */
-  itemRole: AriaRole;
 };
 
-export const ListContext = React.createContext<ListContextType>({ updateFocusedItem: NOOP, itemRole: "option" });
+export const ListContext = React.createContext<ListContextType>({ updateFocusedItem: NOOP });
