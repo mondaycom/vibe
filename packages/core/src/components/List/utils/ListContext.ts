@@ -1,4 +1,4 @@
-import React, { AriaRole } from "react";
+import React from "react";
 import { NOOP } from "../../../utils/function-utils";
 
 type ListContextType = {
