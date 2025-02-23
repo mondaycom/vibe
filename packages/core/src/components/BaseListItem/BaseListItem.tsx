@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
 import styles from "./BaseListItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -28,15 +28,19 @@ const BaseListItem: VibeComponent<BaseListItemProps, HTMLLIElement> = forwardRef
     }: BaseListItemProps,
     ref
   ) => {
-    const listItemClassNames = cx(
-      styles.wrapper,
-      {
-        [styles.selected]: selected,
-        [styles.disabled]: disabled,
-        [styles.highlighted]: highlighted
-      },
-      getStyle(styles, size),
-      className
+    const listItemClassNames = useMemo(
+      () =>
+        cx(
+          styles.wrapper,
+          {
+            [styles.selected]: selected,
+            [styles.disabled]: disabled,
+            [styles.highlighted]: highlighted
+          },
+          getStyle(styles, size),
+          className
+        ),
+      [selected, disabled, highlighted, size, className]
     );
 
     const textVariant: TextType = size === "small" ? "text2" : "text1";

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, AriaRole } from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 
@@ -42,6 +42,10 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
    * determines the position of the tooltip according to the direction.
    */
   rtl?: boolean;
+  /**
+   * ARIA role for the list item.
+   */
+  role?: AriaRole;
   index?: number;
 }
 
