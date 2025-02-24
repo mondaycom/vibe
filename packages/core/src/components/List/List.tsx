@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, {
   AriaAttributes,
+  AriaRole,
   CSSProperties,
   forwardRef,
   ReactElement,
@@ -52,6 +53,10 @@ export interface ListProps extends VibeComponentProps {
    */
   renderOnlyVisibleItems?: boolean;
   style?: CSSProperties;
+  /**
+   * ARIA role for the list.
+   */
+  role?: AriaRole;
 }
 
 const List: VibeComponent<ListProps> & {
@@ -68,6 +73,7 @@ const List: VibeComponent<ListProps> & {
       "aria-controls": ariaControls,
       renderOnlyVisibleItems = false,
       style,
+      role = "listbox",
       "data-testid": dataTestId
     }: ListProps,
     ref
@@ -139,7 +145,7 @@ const List: VibeComponent<ListProps> & {
           if (!React.isValidElement(child)) {
             return child;
           }
-          const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
+          const id = (child.props as ListItemProps).id || `${overrideId}-item-${index}`;
           const currentRef = childrenRefs.current[index];
           const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
           return React.cloneElement(child, {
@@ -147,7 +153,8 @@ const List: VibeComponent<ListProps> & {
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
             id,
-            component: getListItemComponentType(component)
+            component: getListItemComponentType(component),
+            role: (child.props as ListItemProps).role
           });
         });
       }
@@ -167,7 +174,7 @@ const List: VibeComponent<ListProps> & {
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           tabIndex={-1}
-          role="listbox"
+          role={role}
         >
           {overrideChildren}
         </Component>
