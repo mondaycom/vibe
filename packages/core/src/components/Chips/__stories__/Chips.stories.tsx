@@ -37,6 +37,13 @@ export const Overview = {
     label: "This is a chip",
     onMouseDown: () => {},
     onClick: () => {}
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -52,6 +59,13 @@ export const ChipsWithIcons = {
       <Chips label="Chip with right icon" rightIcon={Email} />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email }
+      }
+    }
+  },
   name: "Chips with icons"
 };
 
@@ -62,6 +76,13 @@ export const ChipsWithAvatars = {
       <Chips label="Chip with right avatar" rightAvatar={person1} />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
+  },
   name: "Chips with avatars"
 };
 
@@ -87,7 +108,13 @@ export const Clickable = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { NOOP }
+      }
+    }
+  },
   name: "Clickable"
 };
 
@@ -120,7 +147,13 @@ export const ChipsPalette = {
       </Flex>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { _chunk }
+      }
+    }
+  },
   name: "Chips palette"
 };
 
@@ -196,7 +229,13 @@ export const ColorfulChipsForDifferentContent = {
       </div>
     </DialogContentContainer>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
   name: "Colorful chips for different content"
 };
 
@@ -239,6 +278,12 @@ export const ChipsInAPersonPickerComboBox = {
       </div>
     </DialogContentContainer>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, person1, rotem }
+      }
+    }
+  },
   name: "Chips in a person picker combo box"
 };

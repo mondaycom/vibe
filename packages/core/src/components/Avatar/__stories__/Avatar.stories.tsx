@@ -11,16 +11,52 @@ import "./Avatar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Avatar,
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
+  actionPropsArray: ["onClick"]
 });
 
 const avatarTemplate = createComponentTemplate(Avatar);
+const AvatarBadgePropsType = {
+  summary: "AvatarBadgeProps",
+  detail: `{
+    src?: string;
+    icon?: SubIcon;
+    tabIndex?: string | number;
+    className?: string;
+    size?: "xs" | "small" | "medium" | "large";
+  }`
+};
 
 export default {
   title: "Components/Avatar",
   component: Avatar,
-  argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  argTypes: {
+    ...metaSettings.argTypes,
+    bottomRightBadgeProps: {
+      control: "object",
+      table: {
+        type: AvatarBadgePropsType
+      }
+    },
+    bottomLeftBadgeProps: {
+      control: "object",
+      table: {
+        type: AvatarBadgePropsType
+      }
+    },
+    topLeftBadgeProps: {
+      control: "object",
+      table: {
+        type: AvatarBadgePropsType
+      }
+    },
+    topRightBadgeProps: {
+      control: "object",
+      table: {
+        type: AvatarBadgePropsType
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -32,6 +68,13 @@ export const Overview = {
     src: window.location.origin + "/" + person1,
     type: "img",
     ariaLabel: "Julia Martinez"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -44,6 +87,13 @@ export const Size = {
       <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
+  },
 
   name: "Size"
 };
@@ -57,6 +107,14 @@ export const Disable = {
       <Avatar size="large" src={person1} type="img" disabled />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
+  },
+
   name: "Disable"
 };
 
@@ -82,6 +140,13 @@ export const SquareAvatar = {
       <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { WhatsNew }
+      }
+    }
+  },
 
   name: "Square avatar"
 };
@@ -93,6 +158,13 @@ export const AvatarWithRightBadge = {
       <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: owner }} ariaLabel="Julia Martinez" />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, guest, owner }
+      }
+    }
+  },
 
   name: "Avatar with right badge"
 };
@@ -105,6 +177,13 @@ export const AvatarWithLeftBadge = {
       <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: minus }} ariaLabel="Julia Martinez" />
     </>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, home, minus }
+      }
+    }
+  },
 
   name: "Avatar with left badge"
 };
@@ -140,6 +219,13 @@ export const AvatarWithTooltip = {
       </StoryDescription>
     </Flex>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, person1 }
+      }
+    }
+  },
 
   name: "Avatar with tooltip"
 };
@@ -159,6 +245,13 @@ export const ClickableAvatar = {
       </Flex>
     );
   },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
+  },
 
   name: "Clickable avatar"
 };
@@ -171,6 +264,13 @@ export const MultipleAvatars = {
       <Avatar type="img" src={person3} ariaLabel="Liam Caldwell" />
     </AvatarGroup>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  },
 
   name: "Multiple avatars"
 };

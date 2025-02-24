@@ -41,6 +41,13 @@ export const Overview = {
     title: "Attention box title",
     text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
     className: "monday-storybook-attention-box_box"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -92,6 +99,13 @@ export const States = {
       </StoryDescription>
     </Flex>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, Info, ThumbsUp, Favorite }
+      }
+    }
+  },
 
   name: "States"
 };
@@ -132,7 +146,13 @@ export const Dismissable = {
       </div>
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
+  },
   name: "Dismissable "
 };
 
@@ -150,6 +170,13 @@ export const NaturalAttentionBox = {
       />
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
+  },
 
   name: "Natural attention box"
 };
@@ -177,6 +204,13 @@ export const AttentionBoxInsideADialogCombobox = {
         </div>
       </DialogContentContainer>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person, Invite }
+      }
+    }
   },
 
   name: "Attention box inside a dialog/combobox"
@@ -212,6 +246,13 @@ export const AttentionBoxAnimation = {
         </Flex>
       </>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
   },
 
   name: "Attention box inside a dialog/combobox"

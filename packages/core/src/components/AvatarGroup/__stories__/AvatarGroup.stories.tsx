@@ -24,7 +24,27 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/AvatarGroup",
   component: AvatarGroup,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    counterProps: {
+      control: "object",
+      table: {
+        type: {
+          summary: "AvatarGroupCounterVisualProps",
+          detail: `{
+    color?: "light" | "dark";
+    count?: number;
+    prefix?: string;
+    maxDigits?: number;
+    ariaLabelItemsName?: string;
+    noAnimation?: boolean;
+    dialogContainerSelector?: string;
+}`
+        }
+      }
+
+    }
+  },
   decorators: metaSettings.decorators,
   parameters: {
     docs: {

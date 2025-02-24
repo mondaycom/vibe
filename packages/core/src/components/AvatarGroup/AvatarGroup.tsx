@@ -23,7 +23,7 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   counterProps?: AvatarGroupCounterVisualProps;
   /**
-   * `Tooltip.props`: props for custom counter tooltip
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
   /**
