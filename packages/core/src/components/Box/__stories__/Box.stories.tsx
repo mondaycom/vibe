@@ -24,8 +24,14 @@ const boxTemplate = (args: BoxProps) => (
 
 export const Overview = {
   render: boxTemplate.bind({}),
-
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const BackgroundColors = {
@@ -40,6 +46,13 @@ export const BackgroundColors = {
       </Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Background colors"
 };
@@ -54,6 +67,13 @@ export const TextColors = {
       <Box textColor="secondaryTextColor">secondaryTextColor</Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Text Colors"
 };
@@ -64,6 +84,13 @@ export const Border = {
       <Box border>default</Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Border"
 };
@@ -79,6 +106,13 @@ export const BorderColor = {
       </Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Border Color"
 };
@@ -97,6 +131,13 @@ export const RoundCorners = {
       </Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Round Corners"
 };
@@ -110,6 +151,13 @@ export const Shadow = {
       <Box shadow="large">large</Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Shadow"
 };
@@ -154,6 +202,13 @@ export const Margin = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Margin"
 };
@@ -198,6 +253,13 @@ export const Padding = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Padding"
 };
@@ -210,6 +272,13 @@ export const Disabled = {
       </Box>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  },
 
   name: "Disabled"
 };

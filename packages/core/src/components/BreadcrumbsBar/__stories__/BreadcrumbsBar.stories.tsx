@@ -26,8 +26,33 @@ const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
 export default {
   title: "Components/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
-  argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  argTypes: {
+    ...metaSettings.argTypes,
+    children: {
+      description: "Breadcrumb items, each containing text and an optional icon.",
+      control: "object", // ✅ Allows users to modify children in Storybook
+      table: {
+        type: {
+          summary: "BreadcrumbItemProps[]",
+          detail: `{
+            text: string;
+            icon?: React.ReactNode;
+          }[]`
+        },
+        defaultValue: {
+          summary: `[ { text: "Workspace", icon: <IconName /> } ]`
+        }
+      }
+    }
+  },
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      transformSource: (src: string) => {
+        return src.replace(/icon:\s*function[^{]+\{[^}]+\}/g, "icon: <Icon />");
+      }
+    }
+  }
 };
 
 export const Overview = {
