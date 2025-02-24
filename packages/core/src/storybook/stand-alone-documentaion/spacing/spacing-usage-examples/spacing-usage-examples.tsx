@@ -1,18 +1,15 @@
 import React from "react";
-import "./spacing-usage-examples.scss";
+import styles from "./spacing-usage-examples.module.scss";
 import { Flex, Text } from "../../../../components";
 import SpacingWithinComponents from "../assets/SpacingWithinComponents.png";
 import SpacingWithinPatterns from "../assets/SpacingWithinPatterns.png";
 import SpacingWithinLayouts from "../assets/SpacingWithinLayouts.png";
+import { TokenName } from "../spacing-token-name/spacing-token-name";
 
 export const SpacingUsageExamples = () => (
-  <Flex direction="column" gap={40} className="monday-storybook-spacing-usage-examples-container">
+  <Flex direction="column" gap={40} className={styles.container}>
     <Flex gap="large" align="start">
-      <img
-        className="monday-storybook-spacing-usage-examples-img"
-        src={SpacingWithinComponents}
-        alt="Spacing within components"
-      />
+      <img className={styles.img} src={SpacingWithinComponents} alt="Spacing within components" />
       <Flex direction="column" gap="medium" align="start">
         <Text type="text1" weight="medium">
           Spacing within components
@@ -22,20 +19,15 @@ export const SpacingUsageExamples = () => (
           ensuring each one remains distinct and easily recognizable.
         </Text>
         <span>
-          Use tokens from
-          <span className="storybook-spacing-table-token-name">--space-2</span>
+          Use tokens from <TokenName>--space-2</TokenName>
           to
-          <span className="storybook-spacing-table-token-name">--space-16</span>
+          <span className={styles.tokenName}>--space-16</span>
           for small, compact components.
         </span>
       </Flex>
     </Flex>
     <Flex gap="large" align="start">
-      <img
-        className="monday-storybook-spacing-usage-examples-img"
-        src={SpacingWithinPatterns}
-        alt="Spacing within patterns"
-      />
+      <img className={styles.img} src={SpacingWithinPatterns} alt="Spacing within patterns" />
       <Flex direction="column" gap="medium" align="start">
         <Text type="text1" weight="medium">
           Spacing within patterns
@@ -45,20 +37,13 @@ export const SpacingUsageExamples = () => (
           with clear relationships between components, allowing the user to navigate the product with ease.
         </Text>
         <span>
-          Use tokens from
-          <span className="storybook-spacing-table-token-name">--space-4</span>
-          to
-          <span className="storybook-spacing-table-token-name">--space-24</span>
-          for small, compact patterns.
+          Use tokens from <span className={styles.tokenName}>--space-4</span> to <TokenName>--space-24</TokenName> for
+          small, compact patterns.
         </span>
       </Flex>
     </Flex>
     <Flex gap="large" align="start">
-      <img
-        className="monday-storybook-spacing-usage-examples-img"
-        src={SpacingWithinLayouts}
-        alt="Spacing within layouts"
-      />
+      <img className={styles.img} src={SpacingWithinLayouts} alt="Spacing within layouts" />
       <Flex direction="column" gap="medium" align="start">
         <Text type="text1" weight="medium">
           Spacing within layouts
@@ -68,11 +53,8 @@ export const SpacingUsageExamples = () => (
           highly important areas.
         </Text>
         <span>
-          Use tokens from
-          <span className="storybook-spacing-table-token-name">--space-16</span>
-          to
-          <span className="storybook-spacing-table-token-name">--space-80</span>
-          for page layout.
+          Use tokens from <span className={styles.tokenName}>--space-16</span> to
+          <TokenName>--space-80</TokenName> for page layout.
         </span>
       </Flex>
     </Flex>

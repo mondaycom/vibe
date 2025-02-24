@@ -5,7 +5,7 @@ import { FlexSpacingExample, Do1, Dont1, Do2, Dont2, Do3, Dont3 } from "./assets
 import { Text } from "../../../components";
 import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import * as SpacingStories from "./spacing.stories.tsx";
-import "./spacing.scss";
+import styles from "./spacing.module.scss"; // Updated to use CSS Modules
 
 <Meta of={SpacingStories} />
 
@@ -51,17 +51,15 @@ The tokens are used inside the components and should also be included between th
 
 <Source language="css" dark code={`
   margin: var(--space-8);
-margin: var(--space-8) var(--space-4);
-margin: var(--space-32) 0 var(--space-16) 0;
-margin-right: var(--space-12);
+  margin: var(--space-8) var(--space-4);
+  margin: var(--space-32) 0 var(--space-16) 0;
+  margin-right: var(--space-12);
           
-padding: var(--space-16);
-padding: var(--space-20) var(--space-8);
-padding: var(--space-32) var(--space-16) 0 var(--space-16);          
+  padding: var(--space-16);
+  padding: var(--space-20) var(--space-8);
+  padding: var(--space-32) var(--space-16) 0 var(--space-16);          
 `}
->
-
-</Source>
+/>
 
 ## Usage and examples
 
@@ -73,8 +71,8 @@ Flex spacing is a form of spacing that creates equal distance between components
 
 For easier use, you can use our <StorybookLink page="Layout/Flex">flex component</StorybookLink> to position sub-elements. This component works both horizontally and vertically, avoiding the need for a custom CSS file.
 
-<Frame className="monday-storybook-spacing_image-container">
-  <img className="monday-storybook-spacing_image--flex" src={FlexSpacingExample} alt="" />
+<Frame className={styles.imageContainer}>
+  <img className={styles.imageFlex} src={FlexSpacingExample} alt="" />
 </Frame>
 
 ## Do’s and Dont’s
@@ -82,7 +80,7 @@ For easier use, you can use our <StorybookLink page="Layout/Flex">flex component
 <ComponentRules
   rules={[
     {
-      componentContainerClassName: "monday-storybook-spacing-rules-image",
+      componentContainerClassName: styles.rulesImage,
       positive: {
         component: <img src={Do1} alt="" style={{ maxWidth: "100%" }} />,
         description: "Use small-sized spacing to group related items together, so users can scan the content easily."
@@ -93,7 +91,7 @@ For easier use, you can use our <StorybookLink page="Layout/Flex">flex component
       }
     },
     {
-      componentContainerClassName: "monday-storybook-spacing-rules-image",
+      componentContainerClassName: styles.rulesImage,
       positive: {
         component: <img src={Do2} alt="" style={{ maxWidth: "100%" }} />,
         description: "Use the same spacing for similar items or patterns."
@@ -104,7 +102,7 @@ For easier use, you can use our <StorybookLink page="Layout/Flex">flex component
       }
     },
     {
-      componentContainerClassName: "monday-storybook-spacing-rules-image",
+      componentContainerClassName: styles.rulesImage,
       positive: {
         component: <img src={Do3} alt="" style={{ maxWidth: "100%" }} />,
         description: "Use larger spacing to emphasize key elements, such as headings and CTAs."
@@ -120,4 +118,3 @@ For easier use, you can use our <StorybookLink page="Layout/Flex">flex component
 ## Up next
 
 <RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, COLORS]} />
-```

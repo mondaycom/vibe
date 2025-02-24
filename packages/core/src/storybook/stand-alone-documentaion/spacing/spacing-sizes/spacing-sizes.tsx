@@ -1,7 +1,8 @@
 import React from "react";
 import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, Flex } from "../../../../components";
+import { TokenName } from "../spacing-token-name/spacing-token-name";
 
-const SpacingData = [
+const spacingData = [
   {
     TokenName: "space-2",
     Value: "2px",
@@ -91,10 +92,10 @@ export const SpacingSizes = () => (
       <TableHeaderCell title="Description" />
     </TableHeader>
     <TableBody>
-      {SpacingData.map(rowItem => (
+      {spacingData.map(rowItem => (
         <TableRow key={rowItem.TokenName}>
           <TableCell>
-            <div className="storybook-spacing-table-token-name">{rowItem.TokenName}</div>
+            <TokenName>{rowItem.TokenName}</TokenName>
           </TableCell>
           <TableCell>
             <Flex gap="small">
