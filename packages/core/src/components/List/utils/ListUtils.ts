@@ -1,4 +1,4 @@
-import { AriaRole, MutableRefObject, useState } from "react";
+import { MutableRefObject, useState } from "react";
 import { ListItemElement } from "../../ListItem/ListItem.types";
 import { ListElement } from "../List.types";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
