@@ -102,4 +102,63 @@ describe("List", () => {
       expect(list).toHaveAttribute("aria-activedescendant", "list-item-1");
     });
   });
+
+  describe("custom roles", () => {
+    it("List render with a custom role", () => {
+      const { getByRole, getAllByRole } = render(
+        <List role="list">
+          <ListItem role="listitem">1</ListItem>
+          <ListItem role="listitem">2</ListItem>
+        </List>
+      );
+      expect(getByRole("list")).toBeInTheDocument();
+      expect(getAllByRole("listitem")).toHaveLength(2);
+    });
+
+    it("selected ListItem should have aria-selected with custom roles", () => {
+      const { getByTestId } = render(
+        <List role="list">
+          <ListItem data-testid="list-item-1" role="listitem" selected>
+            1
+          </ListItem>
+          <ListItem data-testid="list-item-2" role="listitem">
+            2
+          </ListItem>
+        </List>
+      );
+      expect(getByTestId("list-item-1")).toHaveAttribute("aria-selected", "true");
+      expect(getByTestId("list-item-2")).not.toHaveAttribute("aria-selected");
+    });
+
+    it("List should have aria-activedescendant with custom roles", () => {
+      const { getByRole } = render(
+        <List role="list">
+          <ListItem id="list-item-1" role="listitem">
+            1
+          </ListItem>
+          <ListItem id="list-item-2" role="listitem" selected>
+            2
+          </ListItem>
+        </List>
+      );
+      expect(getByRole("list")).toHaveAttribute("aria-activedescendant", "list-item-2");
+    });
+
+    it("List aria-activedescendant with custom roles", () => {
+      const { getByRole } = render(
+        <List id="list" role="list">
+          <ListItem role="listitem">1</ListItem>
+          <ListItem role="listitem">2</ListItem>
+          <ListItem role="listitem" selected>
+            3
+          </ListItem>
+        </List>
+      );
+      const list = getByRole("list");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");
+      userEvent.tab();
+      userEvent.keyboard("{arrowup}");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-1");
+    });
+  });
 });
