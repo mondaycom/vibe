@@ -121,7 +121,7 @@ export const Types = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { EditableHeading }
+        scope: { EditableHeading, styles }
       }
     }
   }

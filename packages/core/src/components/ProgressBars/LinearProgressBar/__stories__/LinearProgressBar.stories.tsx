@@ -30,6 +30,13 @@ export const Overview = {
   args: {
     value: 20,
     size: "large"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 

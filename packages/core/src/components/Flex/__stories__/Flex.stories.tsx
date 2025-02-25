@@ -26,13 +26,27 @@ export default {
   title: "Layout/Flex",
   component: Flex,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, StoryDescription }
+      }
+    }
+  }
 };
 
 export const Overview = {
   render: flexTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Directions = {
@@ -53,9 +67,7 @@ export const Directions = {
         </Flex>
       </StoryDescription>
     </div>
-  ),
-
-  name: "Directions"
+  )
 };
 
 export const HorizontalSpacingBetweenItems = {
@@ -104,9 +116,7 @@ export const HorizontalSpacingBetweenItems = {
         </Flex>
       </StoryDescription>
     </div>
-  ),
-
-  name: "Horizontal spacing between items"
+  )
 };
 
 export const VerticalSpacingBetweenItems = {
@@ -160,9 +170,7 @@ export const VerticalSpacingBetweenItems = {
         </Flex>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Vertical spacing between items"
+  )
 };
 
 export const HorizontalPositions = {
@@ -234,9 +242,7 @@ export const HorizontalPositions = {
         </Flex>
       </StoryDescription>
     </div>
-  ),
-
-  name: "Horizontal positions"
+  )
 };
 
 export const VerticalPositions = {
@@ -313,9 +319,7 @@ export const VerticalPositions = {
         </Flex>
       </StoryDescription>
     </Flex>
-  ),
-
-  name: "Vertical positions"
+  )
 };
 
 export const SupportMultiLinesLayout = {
@@ -335,9 +339,7 @@ export const SupportMultiLinesLayout = {
       <Chips className={styles["flex-chip"]} label="Chip 6" />
       <Chips className={styles["flex-chip"]} label="Chip 7" />
     </Flex>
-  ),
-
-  name: "Support multi lines layout"
+  )
 };
 
 export const FlexAsToolbarContainer = {
@@ -358,6 +360,11 @@ export const FlexAsToolbarContainer = {
       </Button>
     </Flex>
   ),
-
-  name: "Flex as toolbar container"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Add, Filter, Person, Search, Sort }
+      }
+    }
+  }
 };

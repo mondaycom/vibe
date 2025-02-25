@@ -20,7 +20,14 @@ const tabListTemplate = (args: TabListProps) => (
 
 export const Overview = {
   render: tabListTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Default = {
@@ -31,9 +38,7 @@ export const Default = {
       <Tab>Third</Tab>
       <Tab disabled>Disabled</Tab>
     </TabList>
-  ),
-
-  name: "Default"
+  )
 };
 
 export const Stretched = {
@@ -50,9 +55,7 @@ export const Stretched = {
         <Tab disabled>Disabled</Tab>
       </TabList>
     </div>
-  ),
-
-  name: "Stretched"
+  )
 };
 
 export const Sizes = {
@@ -86,7 +89,5 @@ export const Sizes = {
         </TabList>
       </>
     </Flex>
-  ),
-
-  name: "Sizes"
+  )
 };

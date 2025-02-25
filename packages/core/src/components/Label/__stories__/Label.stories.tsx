@@ -131,6 +131,11 @@ export const Clickable = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: { NOOP }
+      }
     }
   }
 };
@@ -156,6 +161,11 @@ export const SecondaryLabel = {
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
+    },
+    docs: {
+      liveEdit: {
+        scope: { MultipleStoryElementsWrapper }
+      }
     }
   }
 };
