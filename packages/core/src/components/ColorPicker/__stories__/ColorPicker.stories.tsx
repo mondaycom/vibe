@@ -1,4 +1,3 @@
-import React from "react";
 import ColorPicker from "../ColorPicker";
 import { TextColorIndicator, Check } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -22,61 +21,60 @@ const colorPickerTemplate = createComponentTemplate(ColorPicker);
 
 export const Overview = {
   render: colorPickerTemplate.bind({}),
-  name: "Overview",
-  parameters: {
-    docs: {
-      liveEdit: {
-        isEnabled: false
-      }
-    }
-  }
+  name: "Overview"
 };
 
 export const WithIndicator = {
-  render: () => <ColorPicker ColorIndicatorIcon={TextColorIndicator} />,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { TextColorIndicator }
-      }
-    }
-  }
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator
+  },
+  name: "With Indicator"
 };
 
 export const TextIndication = {
-  render: () => (
-    <ColorPicker ColorIndicatorIcon={TextColorIndicator} value="peach" shouldRenderIndicatorWithoutBackground />
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { TextColorIndicator }
-      }
-    }
-  }
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator,
+    value: "peach",
+    shouldRenderIndicatorWithoutBackground: true
+  },
+  name: "Text Indication"
 };
 
 export const Selected = {
-  render: () => <ColorPicker colorStyle="selected" />
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator,
+    colorStyle: "selected"
+  },
+  name: "Selected"
 };
 
 export const NoColor = {
-  render: () => <ColorPicker noColorText="Clear color" />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    noColorText: "Clear color"
+  },
+  name: "No color",
   play: noColorInteractionSuite
 };
 
 export const SelectedIcon = {
-  render: () => <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" />,
-  play: multiSelectionInteractionSuite,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Check }
-      }
-    }
-  }
+  render: colorPickerTemplate.bind({}),
+  args: {
+    isMultiselect: true,
+    SelectedIndicatorIcon: Check,
+    value: "peach"
+  },
+  name: "Selected icon",
+  play: multiSelectionInteractionSuite
 };
 
 export const Shapes = {
-  render: () => <ColorPicker colorShape="circle" />
+  render: colorPickerTemplate.bind({}),
+  args: {
+    colorShape: "circle"
+  },
+  name: "Shapes"
 };
