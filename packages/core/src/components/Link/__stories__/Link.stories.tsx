@@ -26,6 +26,13 @@ export const Overview = {
   args: {
     text: "Read more",
     href: "https://www.monday.com"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -41,7 +48,13 @@ export const RightToLeft = {
       <Link text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
     </>
   ),
-  name: "Right to left"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { IconLink, Info }
+      }
+    }
+  }
 };
 
 export const WithIcons = {
@@ -51,7 +64,13 @@ export const WithIcons = {
       <Link text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
     </>
   ),
-  name: "With icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExternalPage }
+      }
+    }
+  }
 };
 
 export const ReferenceLink = {
@@ -61,9 +80,7 @@ export const ReferenceLink = {
       <Link inlineText inheritFontSize text="standard" href="https://www.monday.com" />
       {` dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
     </div>
-  ),
-
-  name: "Reference link"
+  )
 };
 
 export const ShorteningTexts = {
@@ -73,7 +90,5 @@ export const ShorteningTexts = {
       galley of type and scrambled it to make a type specimen book. `}
       <Link text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
     </div>
-  ),
-
-  name: "Shortening texts"
+  )
 };

@@ -14,7 +14,14 @@ export default {
   title: "Components/Loader",
   component: Loader,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
 };
 
 const loaderTemplate = createComponentTemplate(Loader);
@@ -24,6 +31,13 @@ export const Overview = {
   name: "Overview",
   args: {
     size: "medium"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 

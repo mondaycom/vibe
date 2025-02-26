@@ -92,9 +92,7 @@ export const Placements = {
         </div>
       </div>
     );
-  },
-
-  name: "Placements"
+  }
 };
 
 export const Types = {
@@ -143,9 +141,7 @@ export const Types = {
         </div>
       </div>
     );
-  },
-
-  name: "Types"
+  }
 };
 
 export const Sizes = {
@@ -186,7 +182,13 @@ export const Sizes = {
     );
   },
 
-  name: "Sizes"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
 };
 
 export const FulfilledIcons = {
@@ -232,8 +234,13 @@ export const FulfilledIcons = {
       </div>
     );
   },
-
-  name: "Fulfilled Icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Upgrade }
+      }
+    }
+  }
 };
 
 export const TransitionAnimation = {
@@ -357,8 +364,13 @@ export const TransitionAnimation = {
 
     return <MultiStepIndicator steps={steps} />;
   },
-
-  name: "Transition Animation"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StepStatus }
+      }
+    }
+  }
 };
 
 export const MultiStepWizard = {
@@ -394,7 +406,5 @@ export const MultiStepWizard = {
         textPlacement="vertical"
       />
     );
-  },
-
-  name: "Multi step wizard"
+  }
 };
