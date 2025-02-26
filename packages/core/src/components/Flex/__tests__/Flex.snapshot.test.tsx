@@ -27,7 +27,7 @@ describe("Flex renders correctly", () => {
     it("with align", () => {
       const tree = renderer
         .create(
-          <Flex align={Flex.align.END}>
+          <Flex align="end">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -39,7 +39,7 @@ describe("Flex renders correctly", () => {
     it("with justify", () => {
       const tree = renderer
         .create(
-          <Flex justify={Flex.justify.SPACE_BETWEEN}>
+          <Flex justify="space-between">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -51,7 +51,7 @@ describe("Flex renders correctly", () => {
     it("with align", () => {
       const tree = renderer
         .create(
-          <Flex align={Flex.align.END}>
+          <Flex align="end">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -63,7 +63,7 @@ describe("Flex renders correctly", () => {
     it("with gap", () => {
       const tree = renderer
         .create(
-          <Flex gap={Flex.gaps.LARGE}>
+          <Flex gap="large">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -89,7 +89,7 @@ describe("Flex renders correctly", () => {
     it("with children", () => {
       const tree = renderer
         .create(
-          <Flex direction={Flex.directions.COLUMN}>
+          <Flex direction="column">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -102,7 +102,7 @@ describe("Flex renders correctly", () => {
     it("with justify", () => {
       const tree = renderer
         .create(
-          <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.SPACE_BETWEEN}>
+          <Flex direction="column" justify="space-between">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -114,7 +114,7 @@ describe("Flex renders correctly", () => {
     it("with align", () => {
       const tree = renderer
         .create(
-          <Flex direction={Flex.directions.COLUMN} align={Flex.align.END}>
+          <Flex direction="column" align="end">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -126,7 +126,7 @@ describe("Flex renders correctly", () => {
     it("with wrap", () => {
       const tree = renderer
         .create(
-          <Flex direction={Flex.directions.COLUMN} wrap>
+          <Flex direction="column" wrap>
             <div>1</div>
             <div>2</div>
             <div>3</div>

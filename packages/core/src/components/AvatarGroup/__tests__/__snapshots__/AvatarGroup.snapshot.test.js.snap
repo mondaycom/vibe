@@ -571,6 +571,93 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
 </div>
 `;
 
+exports[`AvatarGroup renders correctly renders correctly with xs size 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="avatar xs avatarContainer"
+    data-testid="avatar"
+    style={{}}
+  >
+    <div
+      className="clickable clickableWrapper disableTextSelection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      <div
+        aria-hidden={false}
+        className="circle circleText"
+        style={
+          {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
+      >
+        <span
+          className="contentText contentTextXs"
+          data-testid="avatar-content"
+        >
+          P1
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer xs light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label="1"
+        className="counter sizeXs kindFill colorLight"
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
 exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
 <div
   className="avatarGroupContainer"

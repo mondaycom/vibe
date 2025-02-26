@@ -5,7 +5,7 @@ import Menu from "../../Menu/Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 
 export default {
-  title: "Navigation/Menu/MenuDivider",
+  title: "Components/Menu/MenuDivider",
   component: MenuDivider
 };
 

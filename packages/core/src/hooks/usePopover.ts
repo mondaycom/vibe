@@ -4,6 +4,7 @@ import { Placement } from "./popoverConstants";
 import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
+import { createObserveContentResizeModifier } from "../components/Dialog/modifiers/observeContentResizeModifier";
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
@@ -19,10 +20,12 @@ export default function usePopover(
   popperElement: HTMLElement,
   {
     isOpen,
-    placement = RIGHT_START
+    placement = RIGHT_START,
+    observeContentResize
   }: {
     isOpen?: boolean;
     placement?: Placement;
+    observeContentResize?: boolean;
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -43,14 +46,14 @@ export default function usePopover(
           enabled: true,
           phase: "write",
           fn: ({ state }: { state: State }) => {
-            // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;
           }
-        }
+        },
+        createObserveContentResizeModifier(observeContentResize)
       ]
     };
-  }, [isOpen, placement]);
+  }, [isOpen, placement, observeContentResize]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 

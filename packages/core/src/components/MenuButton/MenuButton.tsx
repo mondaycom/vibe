@@ -6,31 +6,31 @@ import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
-import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
-import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
+import {
+  MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
+  MenuButtonSize as MenuButtonSizeEnum
+} from "./MenuButtonConstants";
+import {
+  DialogPosition as DialogPositionEnum,
+  HideShowEvent as DialogTriggerEventEnum,
+  DialogSize as DialogSizeEnum
+} from "../Dialog/DialogConstants";
+import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
+import { DialogOffset, DialogPosition, DialogSize, DialogTriggerEvent } from "../Dialog/Dialog.types";
 import { NOOP } from "../../utils/function-utils";
-import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
-import { Menu } from "../Icon/Icons";
+import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
-const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
-const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
-const EMPTY_ARRAY: HideShowEvent[] = [];
 const MOVE_BY = { main: 8, secondary: 0 };
 
 export interface MenuButtonProps extends VibeComponentProps {
-  /**
-   * @deprecated - use className instead
-   */
-  componentClassName?: string;
   /**
    * Control the button's selected state
    */
@@ -48,11 +48,6 @@ export interface MenuButtonProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   zIndex?: number;
   ariaLabel?: string;
-  // TODO: remove in next major version
-  /**
-   * @deprecated use closeMenuOnItemClick instead
-   */
-  closeDialogOnContentClick?: boolean;
   /*
     Class name to provide the element which wraps the popover/modal/dialog
    */
@@ -97,11 +92,11 @@ export interface MenuButtonProps extends VibeComponentProps {
    CLICK, CLICK_OUTSIDE, ESCAPE_KEY, TAB_KEY, MOUSE_ENTER, MOUSE_LEAVE,
    ENTER, MOUSE_DOWN, FOCUS, BLUR, CONTENT_CLICK
    */
-  tooltipTriggers?: HideShowEvent | HideShowEvent[];
+  tooltipTriggers?: DialogTriggerEvent | DialogTriggerEvent[];
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition?: DialogPosition;
+  tooltipPosition?: TooltipPositions;
   /**
    * Tooltip Element Wrapper ClassName
    */
@@ -111,15 +106,11 @@ export interface MenuButtonProps extends VibeComponentProps {
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
   hideWhenReferenceHidden?: boolean;
-  /**
-   * @deprecated - use tooltipContent instead
-   */
-  disabledReason?: string;
   children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
    */
-  componentPosition?: (typeof MenuButtonComponentPosition)[keyof typeof MenuButtonComponentPosition];
+  componentPosition?: MenuButtonComponentPosition;
   /**
    * Element to be used as the trigger element for the Menu - default is button
    */
@@ -132,36 +123,34 @@ export interface MenuButtonProps extends VibeComponentProps {
    * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
    */
   showTooltipOnlyOnTriggerElement?: boolean;
+  closeDialogOnContentClick?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
-  sizes?: typeof MenuButtonSize;
+  sizes?: typeof MenuButtonSizeEnum;
   paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPosition;
+  dialogPositions?: typeof DialogPositionEnum;
   hideTriggers?: typeof Dialog.hideShowTriggers;
-  componentPositions?: typeof MenuButtonComponentPosition;
+  componentPositions?: typeof MenuButtonComponentPositionEnum;
 } = forwardRef(
   (
     {
       id,
       className,
-      // Backward compatibility for props naming
-      componentClassName,
       openDialogComponentClassName,
       children,
       component = Menu,
-      componentPosition = MenuButton.componentPositions.START,
-      size = MenuButtonSize.SMALL,
+      componentPosition = "start",
+      size = "small",
       open = false,
       onClick = NOOP,
       zIndex = null,
       ariaLabel = "Menu",
-      closeDialogOnContentClick = false,
       closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
-      dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+      dialogPaddingSize = DialogContentContainer.sizes.SMALL,
       dialogShowTriggerIgnoreClass,
       dialogHideTriggerIgnoreClass,
       onMenuHide = NOOP,
@@ -170,20 +159,19 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       text,
       tooltipContent,
       tooltipProps,
-      // Backward compatibility for props naming
-      disabledReason,
       tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
-      tooltipPosition = MenuButton.dialogPositions.RIGHT,
+      tooltipPosition = "right",
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
       tooltipReferenceClassName,
-      hideWhenReferenceHidden = false,
+      hideWhenReferenceHidden = true,
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
-      "data-testid": dataTestId
-    },
+      "data-testid": dataTestId,
+      closeDialogOnContentClick = false
+    }: MenuButtonProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -295,12 +283,12 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const Icon = component;
     const iconSize = useMemo(() => {
       switch (size) {
-        case MenuButtonSize.XXS:
-        case MenuButtonSize.XS:
+        case "xxs":
+        case "xs":
           return 16;
-        case MenuButtonSize.SMALL:
-        case MenuButtonSize.MEDIUM:
-        case MenuButtonSize.LARGE:
+        case "small":
+        case "medium":
+        case "large":
           return BUTTON_ICON_SIZE;
         default:
           return 24;
@@ -311,9 +299,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     useIsomorphicLayoutEffect(() => {
       setIsOpen(open);
     }, [open, setIsOpen]);
-
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     // Trigger element props, which are only relevant for "button" element, but might be needed for other elements e.g. Button
     const triggerElementProps =
@@ -332,7 +317,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
         type="button"
-        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
+        className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,
           [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
           [styles.disabled]: disabled,
@@ -345,9 +330,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         aria-disabled={disabled}
         {...triggerElementProps}
       >
-        {componentPosition === MenuButton.componentPositions.START && icon}
+        {componentPosition === "start" && icon}
         {text && <span className={styles.innerText}>{text}</span>}
-        {componentPosition === MenuButton.componentPositions.END && icon}
+        {componentPosition === "end" && icon}
       </TriggerElement>
     );
 
@@ -357,10 +342,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         position={dialogPosition}
         containerSelector={dialogContainerSelector}
         startingEdge={startingEdge}
-        animationType={AnimationType.EXPAND}
+        animationType="expand"
         content={content}
         moveBy={computedDialogOffset}
-        showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
+        showTrigger={disabled ? [] : ["click", "enter"]}
         hideTrigger={hideTrigger}
         showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
         hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
@@ -377,9 +362,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
-        content={overrideTooltipContent}
+        content={tooltipContent}
         position={tooltipPosition}
-        showTrigger={TOOLTIP_SHOW_TRIGGER}
+        showTrigger="mouseenter"
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
@@ -397,9 +382,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 );
 
 export default withStaticProps(MenuButton, {
-  sizes: MenuButtonSize,
-  paddingSizes: DialogContentContainer.sizes,
-  dialogPositions: Dialog.positions,
-  hideTriggers: Dialog.hideShowTriggers,
-  componentPositions: MenuButtonComponentPosition
+  sizes: MenuButtonSizeEnum,
+  paddingSizes: DialogSizeEnum,
+  dialogPositions: DialogPositionEnum,
+  hideTriggers: DialogTriggerEventEnum,
+  componentPositions: MenuButtonComponentPositionEnum
 });

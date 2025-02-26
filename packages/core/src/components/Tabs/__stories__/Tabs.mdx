@@ -1,7 +1,7 @@
 import Tab from "../Tab/Tab";
 import TabList from "../TabList/TabList";
 import { Canvas, Meta } from "@storybook/blocks";
-import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "../../Icon/Icons";
+import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "@vibe/icons";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { UsageGuidelines } from "vibe-storybook-components";
 import {
@@ -30,6 +30,12 @@ import { TipButtonGroup } from "./Tabs.stories.helpers";
 Tabs allow users to navigate between related views of content while remaining in the context of the page.
 
 <Canvas of={TabsStories.Overview} />
+
+### Import
+
+```js
+import { Tabs, TabPanel, TabPanels, TabList, Tab, TabsContext } from "@vibe/core";
+```
 
 ## Props
 
@@ -73,7 +79,7 @@ Tabs animation direction
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-storybook-tabs_spacing">
+          <DialogContentContainer>
             <TabList>
               <Tab icon={Table}>Main Table</Tab>
               <Tab icon={Chart}>Chart</Tab>
@@ -85,7 +91,7 @@ Tabs animation direction
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-storybook-tabs_spacing">
+          <DialogContentContainer>
             <TabList>
               <Tab>Main Table</Tab>
               <Tab icon={Gantt}> </Tab>
@@ -98,7 +104,7 @@ Tabs animation direction
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-storybook-tabs_spacing">
+          <DialogContentContainer>
             <TabList>
               <Tab icon={NewTab}>Main Table</Tab>
               <Tab icon={Table}>Table</Tab>
@@ -112,7 +118,7 @@ Tabs animation direction
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-storybook-tabs_spacing">
+          <DialogContentContainer>
             <TabList>
               <Tab>Main...</Tab>
               <Tab>Table</Tab>

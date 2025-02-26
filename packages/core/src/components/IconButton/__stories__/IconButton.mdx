@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
 import IconButton from "../IconButton";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Add, Bolt, Broom, HighlightColorBucket, Pin, Show } from "../../Icon/Icons";
+import { Add, Bolt, Broom, HighlightColorBucket, Pin, Show } from "@vibe/icons";
 import { BUTTON, ICON, MENU_BUTTON } from "../../../storybook/components/related-components/component-description-map";
 import { TipCheckYourself, TipMenuButton } from "./IconButton.stories.helpers";
 import * as IconButtonStories from "./IconButton.stories";
@@ -25,6 +25,12 @@ Icon button is a square button contains only icon with no visible text labels us
 
 <Canvas of={IconButtonStories.Overview} />
 
+### Import
+
+```js
+import { IconButton } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -34,7 +40,7 @@ Icon button is a square button contains only icon with no visible text labels us
 <UsageGuidelines
   guidelines={[
     <>
-      Icon button will always appear with a <StorybookLink page="Popover/Tooltip">tooltip</StorybookLink> while
+      Icon button will always appear with a <StorybookLink page="Components/Tooltip">tooltip</StorybookLink> while
       hovering, defining the icon’s meaning.
     </>,
     "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
@@ -89,11 +95,11 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
           "Use Icon button when action is lower priority than a regular action or there’s no space available to place a button."
       },
       negative: {
-        component: <IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
+        component: <IconButton icon={Add} kind="primary" ariaLabel="Add item" />,
         description: (
           <>
             Don’t use Icon button as the main action on the page. Instead, use the{" "}
-            <StorybookLink page="Buttons/Button">Button component</StorybookLink> with an icon.
+            <StorybookLink page="Components/Button">Button component</StorybookLink> with an icon.
           </>
         )
       }

@@ -1,0 +1,17 @@
+name: Merge Queue Checks
+
+on:
+  merge_group:
+    types:
+      - checks_requested
+
+jobs:
+  commitlint:
+    name: Commit Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - uses: YossiSaadi/commitlint-github-action@vibe-fork/support-merge_group-event

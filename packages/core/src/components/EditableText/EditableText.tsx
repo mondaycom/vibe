@@ -5,34 +5,37 @@ import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
-import { TextType, TextWeight } from "../Text/TextConstants";
+import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "../Text/TextConstants";
+import { TextType, TextWeight } from "../Text/Text.types";
 import Text from "../Text/Text";
 import cx from "classnames";
 
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
    * Sets the Text type
-   * @type {TextType}
    * */
   type?: TextType;
   /** Sets the Text weight
-   * @type {TextWeight}
    */
   weight?: TextWeight;
+  /** Enables editing multiple lines of text
+   */
+  multiline?: boolean;
 }
 
 const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
-  types?: typeof Text.types;
-  weights?: typeof Text.weights;
+  types?: typeof TextTypeEnum;
+  weights?: typeof TextWeightEnum;
 } = forwardRef(
   (
     {
-      type = Text.types.TEXT2,
-      weight = Text.weights.NORMAL,
+      type = "text2",
+      weight = "normal",
       "data-testid": dataTestId,
       id,
+      multiline,
       ...editableTypographyProps
-    },
+    }: EditableTextProps,
     ref
   ) => {
     return (
@@ -45,6 +48,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
         clearable
         type={type}
         weight={weight}
+        multiline={multiline}
         {...editableTypographyProps}
       />
     );
@@ -52,6 +56,6 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
 );
 
 export default withStaticProps(EditableText, {
-  types: TextType,
-  weights: TextWeight
+  types: TextTypeEnum,
+  weights: TextWeightEnum
 });

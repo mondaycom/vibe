@@ -1,50 +1,49 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType, DialogPosition, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType as AnimationTypeEnum, HideShowEvent as HideShowEventEnum } from "../Dialog/DialogConstants";
+import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
-import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme, TipseenColor } from "./TipseenConstants";
+import {
+  TIPSEEN_CLOSE_BUTTON_ARIA_LABEL,
+  TipseenCloseButtonTheme as TipseenCloseButtonThemeEnum,
+  TipseenColor as TipseenColorEnum
+} from "./TipseenConstants";
+import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
-import { TooltipTheme } from "../Tooltip/TooltipConstants";
 import { ButtonColor } from "../Button/ButtonConstants";
-import { TypographyColor } from "../Typography/TypographyConstants";
 import React from "react";
-import { useWarnDeprecated } from "../../utils/warn-deprecated";
+import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  position?: DialogPosition;
-  animationType?: AnimationType;
+  position?: TooltipPositions;
+  animationType?: DialogAnimationType;
   hideDelay?: number;
   showDelay?: number;
   title?: string;
-  /**
-   * @deprecated - use hideCloseButton instead
-   */
-  isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
   children?: ReactElement;
   containerSelector?: string;
-  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
-  showTrigger?: HideShowEvent | Array<HideShowEvent>;
-  justify?: JustifyType;
+  hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
+  showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   width?: number;
   moveBy?: MoveBy;
   hideWhenReferenceHidden?: boolean;
+  referenceWrapperClassName?: string;
   /**
    * when false, the arrow of the tooltip is hidden
    */
@@ -57,11 +56,10 @@ export interface TipseenProps extends VibeComponentProps {
    */
   modifiers?: Array<Modifier<unknown>>;
   closeAriaLabel?: string;
-  onClose?: () => void;
-  // Better be required, but it might be a breaking change
-  content?: ElementContent;
+  onClose?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  content: ElementContent;
   /**
-   * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
+   * Control the color of the Tipseen close button. Dark theme can be useful while presenting bright images under the tipseen image
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
   floating?: boolean;
@@ -69,58 +67,48 @@ export interface TipseenProps extends VibeComponentProps {
   color?: TipseenColor;
 }
 
-export const TipseenContext = React.createContext<TipseenColor>(TipseenColor.PRIMARY);
+export const TipseenContext = React.createContext<TipseenColor>("primary");
 
 const Tipseen: VibeComponent<TipseenProps> & {
-  closeButtonThemes?: typeof TipseenCloseButtonTheme;
-  positions?: typeof DialogPosition;
-  animationTypes?: typeof AnimationType;
-  justifyTypes?: typeof JustifyType;
-  hideShowTriggers?: typeof HideShowEvent;
-  colors?: typeof TipseenColor;
+  closeButtonThemes?: typeof TipseenCloseButtonThemeEnum;
+  animationTypes?: typeof AnimationTypeEnum;
+  hideShowTriggers?: typeof HideShowEventEnum;
+  colors?: typeof TipseenColorEnum;
+  positions?: typeof TooltipPositionsEnum;
 } = forwardRef(
   (
     {
       className,
       id,
-      position = DialogPosition.BOTTOM,
-      animationType = AnimationType.EXPAND,
+      position = "bottom",
+      animationType = "expand",
       hideDelay = 0,
-      showDelay = 0,
+      showDelay = 100,
       title,
       titleClassName,
       hideCloseButton,
-      // Backward compatability for hideCloseButton
-      isCloseButtonHidden,
-      closeButtonTheme = TipseenCloseButtonTheme.LIGHT,
+      closeButtonTheme = "light",
       onClose,
       closeAriaLabel,
       children = null,
       content,
-      justify = JustifyType.CENTER,
       containerSelector,
-      hideTrigger = EMPTY_ARR,
-      showTrigger = EMPTY_ARR,
+      hideTrigger = [],
+      showTrigger = [],
       width,
       moveBy,
       hideWhenReferenceHidden = false,
+      referenceWrapperClassName,
       tip = true,
       tooltipArrowClassName,
-      modifiers = EMPTY_ARR,
+      modifiers = [],
       floating = false,
       color: colorProp,
       "data-testid": dataTestId
-    },
+    }: TipseenProps,
     ref
   ) => {
-    useWarnDeprecated({
-      component: "Tipseen",
-      condition: colorProp === undefined,
-      message:
-        "The default `color` prop will be changed to 'Tipseen.colors.INVERTED' in the next major version. To keep current color, please use `color={Tipseen.colors.PRIMARY}`"
-    });
-
-    const color = colorProp ?? TipseenColor.PRIMARY;
+    const color = colorProp ?? "inverted";
 
     const defaultDelayOpen =
       Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
@@ -129,7 +117,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const mergedRef = useMergeRef(ref, componentRef);
     const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
-    const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
 
     useEffect(() => {
       let timeout: NodeJS.Timeout;
@@ -144,11 +131,11 @@ const Tipseen: VibeComponent<TipseenProps> & {
     }, [showDelay, setDelayOpen]);
 
     const textColor = useMemo(() => {
-      return color === TipseenColor.INVERTED ? TypographyColor.ON_INVERTED : TypographyColor.ON_PRIMARY;
+      return color === "inverted" ? "onInverted" : "onPrimary";
     }, [color]);
     const closeButtonColor = useMemo(() => {
-      if (closeButtonTheme === TipseenCloseButtonTheme.LIGHT) {
-        return color === TipseenColor.INVERTED ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+      if (closeButtonTheme === "light") {
+        return color === "inverted" ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
       } else {
         return closeButtonTheme;
       }
@@ -158,17 +145,15 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const tooltipContent = (
       <div>
         <div className={cx(styles.tipseenHeader)}>
-          {overrideHideCloseButton ? null : (
+          {hideCloseButton ? null : (
             <IconButton
               hideTooltip
               className={cx(styles.tipseenCloseButton, {
-                [styles.dark]:
-                  closeButtonTheme === TipseenCloseButtonTheme.DARK ||
-                  closeButtonTheme === TipseenCloseButtonTheme.FIXED_DARK
+                [styles.dark]: closeButtonTheme === "dark" || closeButtonTheme === "fixed-dark"
               })}
               onClick={onClose}
-              size={Button.sizes.XS}
-              kind={Button.kinds.TERTIARY}
+              size="xs"
+              kind="tertiary"
               // @ts-ignore
               color={closeButtonColor}
               ariaLabel={overrideCloseAriaLabel}
@@ -177,7 +162,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={textColor} type={Text.types.TEXT2} element="p" className={cx(styles.tipseenContent)}>
+        <Text color={textColor} type="text2" element="p" className={cx(styles.tipseenContent)}>
           <TipseenContext.Provider value={color}>{content}</TipseenContext.Provider>
         </Text>
       </div>
@@ -199,13 +184,14 @@ const Tipseen: VibeComponent<TipseenProps> & {
           showDelay={showDelay}
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
+          showOnDialogEnter={false}
           content={tooltipContent}
-          theme={color === TipseenColor.INVERTED ? TooltipTheme.Dark : TooltipTheme.Primary}
-          justify={justify}
+          theme={color === "inverted" ? "dark" : "primary"}
           containerSelector={containerSelector}
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          referenceWrapperClassName={referenceWrapperClassName}
           tip={tip && !floating}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
@@ -219,10 +205,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
 );
 
 export default withStaticProps(Tipseen, {
-  closeButtonThemes: TipseenCloseButtonTheme,
-  positions: DialogPosition,
-  animationTypes: AnimationType,
-  justifyTypes: JustifyType,
-  hideShowTriggers: HideShowEvent,
-  colors: TipseenColor
+  closeButtonThemes: TipseenCloseButtonThemeEnum,
+  animationTypes: AnimationTypeEnum,
+  hideShowTriggers: HideShowEventEnum,
+  colors: TipseenColorEnum,
+  positions: TooltipPositionsEnum
 });

@@ -7,12 +7,11 @@ import styles from "./EditableText.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableText,
-  enumPropNamesArray: ["weight", "type"],
   actionPropsArray: ["onChange"]
 });
 
 export default {
-  title: "Inputs/EditableText",
+  title: "Components/EditableText",
   component: EditableText,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -94,6 +93,26 @@ export const Types = {
         />
       </div>
     </div>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
+};
+
+export const Multiline = {
+  render: () => (
+    <EditableText
+      type={EditableText.types.TEXT1}
+      weight={EditableText.weights.NORMAL}
+      multiline
+      value={`This is a multiline
+here's the second line`}
+      className={styles.editableText}
+    />
   ),
   parameters: {
     docs: {

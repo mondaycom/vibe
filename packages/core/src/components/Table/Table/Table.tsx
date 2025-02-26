@@ -1,12 +1,13 @@
 import React, { forwardRef, ReactElement, UIEventHandler, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
-import { ITableHeaderProps } from "../TableHeader/TableHeader";
-import { ITableBodyProps } from "../TableBody/TableBody";
+import { TableHeaderProps } from "../TableHeader/TableHeader";
+import { TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { RowHeights, RowSizes } from "./TableConsts";
+import { RowHeights, RowSizes as RowSizesEnum } from "./TableConsts";
+import { RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
@@ -18,7 +19,7 @@ export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "re
 
 type Width = number | `${number}%` | `${number}px` | `${number}fr`;
 
-export interface ITableColumn {
+export interface TableColumn {
   id: string;
   title: string;
   infoContent?: string;
@@ -27,8 +28,8 @@ export interface ITableColumn {
   loadingStateType?: TableLoadingStateType;
 }
 
-export interface ITableProps extends VibeComponentProps {
-  columns: ITableColumn[];
+export interface TableProps extends VibeComponentProps {
+  columns: TableColumn[];
   dataState?: {
     isLoading?: boolean;
     isError?: boolean;
@@ -37,15 +38,15 @@ export interface ITableProps extends VibeComponentProps {
   emptyState: ReactElement;
   style?: React.CSSProperties;
   children?:
-    | ReactElement<ITableHeaderProps>
-    | ReactElement<ITableBodyProps>
-    | Array<ReactElement<ITableHeaderProps> | ReactElement<ITableBodyProps>>;
+    | ReactElement<TableHeaderProps>
+    | ReactElement<TableBodyProps>
+    | Array<ReactElement<TableHeaderProps> | ReactElement<TableBodyProps>>;
   size?: RowSizes;
   withoutBorder?: boolean;
 }
 
-const Table: VibeComponent<ITableProps, HTMLDivElement> & {
-  sizes?: typeof RowSizes;
+const Table: VibeComponent<TableProps, HTMLDivElement> & {
+  sizes?: typeof RowSizesEnum;
 } = forwardRef(
   (
     {
@@ -58,9 +59,9 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       dataState,
       style,
       children,
-      size = Table.sizes.MEDIUM,
+      size = "medium",
       withoutBorder
-    },
+    }: TableProps,
     ref
   ) => {
     const tableRootRef = useRef<HTMLDivElement>(null);
@@ -79,14 +80,15 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       setIsVirtualized(true);
     }, []);
 
-    const [scrollLeft, setScrollLeft] = useState<number>(0);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     const onScroll = useCallback<UIEventHandler<HTMLDivElement>>(
       e => {
         resetHoveredRow();
         if (!isVirtualized) {
           const newLeft = (e.target as HTMLDivElement).scrollLeft;
-          setScrollLeft(newLeft);
+          const hasScroll = newLeft > 0;
+          setIsScrolled(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
         }
       },
       [resetHoveredRow, isVirtualized]
@@ -114,10 +116,10 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
         tableRootRef,
         isVirtualized,
         markTableAsVirtualized,
-        scrollLeft,
-        setScrollLeft: (scrollAmount: number) => setScrollLeft(scrollAmount)
+        isScrolled,
+        setIsScrolled: (scrollLeft: boolean) => setIsScrolled(scrollLeft)
       }),
-      [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, scrollLeft, size]
+      [columns, dataState, emptyState, errorState, isVirtualized, markTableAsVirtualized, isScrolled, size]
     );
 
     const tableRowMenuProviderValue = useMemo<TableRowMenuProviderValue>(
@@ -143,7 +145,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
               {
                 [styles.border]: !withoutBorder,
                 [styles.virtualized]: isVirtualized,
-                [styles.hasScroll]: scrollLeft > 0
+                [styles.hasScroll]: isScrolled
               },
               className
             )}
@@ -160,4 +162,4 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Table, { sizes: RowSizes });
+export default withStaticProps(Table, { sizes: RowSizesEnum });

@@ -5,7 +5,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./MockToggle.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { Sizes } from "./Toggle.types";
+import { ToggleSize } from "./Toggle.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface MockToggleProps extends VibeComponentProps {
@@ -15,7 +15,7 @@ export interface MockToggleProps extends VibeComponentProps {
   onOverrideText?: string;
   selectedClassName?: string;
   disabled: boolean;
-  size?: Sizes;
+  size?: ToggleSize;
 }
 
 export const MockToggle: FC<MockToggleProps> = ({

@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useMemo } from "react";
-import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
+import ModalContent from "../../../components/LegacyModal/LegacyModalContent/LegacyModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import { DropdownOption } from "../../../components/Dropdown/Dropdown.types";
-import Modal from "../../../components/Modal/Modal";
+import Modal from "../../../components/LegacyModal/LegacyModal";
 import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";
 import Flex from "../../../components/Flex/Flex";
@@ -93,10 +93,10 @@ export const MenuPosition: React.FC = () => {
   ];
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box marginTop="medium" marginBottom="xxl">
           <Dropdown
             placeholder="Dropdown inside DialogContentContainer"
             options={options}
@@ -114,18 +114,18 @@ export const MenuPosition: React.FC = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box marginTop="medium" marginBottom="xxl">
               <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
             </Box>
           </DialogContentContainer>
         }
       >
-        <Button kind={Button.kinds.PRIMARY} color={Button.colors.NEGATIVE}>
+        <Button kind="primary" color="negative">
           Popup Dialog
         </Button>
       </Dialog>
@@ -175,10 +175,10 @@ export const InsideOverflowContainer: React.FC = () => {
   };
 
   return (
-    <Flex gap={Flex.gaps.LARGE}>
+    <Flex gap="large">
       <DialogContentContainer style={dialogStyle}>
         <ModalExampleContent />
-        <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+        <Box marginTop="medium" marginBottom="xxl">
           <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} insideOverflowContainer />
         </Box>
       </DialogContentContainer>
@@ -192,18 +192,18 @@ export const InsideOverflowContainer: React.FC = () => {
       </div>
       <Dialog
         modifiers={modifiers}
-        showTrigger={[Dialog.hideShowTriggers.CLICK]}
-        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        showTrigger={["click"]}
+        hideTrigger={["click"]}
         content={
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
-            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Box marginTop="medium" marginBottom="xxl">
               <Dropdown placeholder="Dropdown" options={options} insideOverflowContainer />
             </Box>
           </DialogContentContainer>
         }
       >
-        <Button color={Button.colors.NEGATIVE}>Popup Dialog</Button>
+        <Button color="negative">Popup Dialog</Button>
       </Dialog>
     </Flex>
   );
@@ -240,18 +240,14 @@ export const InsideOverflowWithTransformContainer: React.FC = () => {
   const secondDialogContent = (
     <DialogContentContainer style={dialogStyle}>
       <ModalExampleContent />
-      <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+      <Box marginTop="medium" marginBottom="xxl">
         <Dropdown placeholder="Dropdown" options={options} insideOverflowWithTransformContainer />
       </Box>
     </DialogContentContainer>
   );
 
   return (
-    <Dialog
-      content={secondDialogContent}
-      hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-      showTrigger={Dialog.hideShowTriggers.CLICK}
-    >
+    <Dialog content={secondDialogContent} hideTrigger="clickoutside" showTrigger="click">
       <Button>Popup Dialog</Button>
     </Dialog>
   );

@@ -1,10 +1,10 @@
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
-import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { AlertBannerBackgroundColor } from "./AlertBannerConstants";
+import { CloseSmall } from "@vibe/icons";
+import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
+import { AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
@@ -17,7 +17,6 @@ import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
 import { AlertBannerContext } from "./AlertBannerContext";
 
-// TODO: [breaking] type it to adopt a structure of a text and one (optional) cta (either link/button)
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 
 export interface AlertBannerProps extends VibeComponentProps {
@@ -35,33 +34,33 @@ export interface AlertBannerProps extends VibeComponentProps {
 }
 
 const AlertBanner: VibeComponent<AlertBannerProps> & {
-  backgroundColors?: typeof AlertBannerBackgroundColor;
+  backgroundColors?: typeof AlertBannerBackgroundColorEnum;
 } = forwardRef(
   (
     {
       children: originalChildren,
       className,
-      backgroundColor = AlertBanner.backgroundColors.PRIMARY,
+      backgroundColor = "primary",
       onClose = NOOP,
       ariaLabel = "",
       closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
       "data-testid": dataTestId
-    },
+    }: AlertBannerProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const classNames = useMemo(() => {
       return cx(className, styles.alertBanner, getStyle(styles, backgroundColor));
     }, [className, backgroundColor]);
 
-    const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
-    const isFixedColor = backgroundColor === AlertBanner.backgroundColors.WARNING;
+    const isDarkBackground = backgroundColor === "dark";
+    const isFixedColor = backgroundColor === "warning";
     const textColor = useMemo(() => {
       if (isFixedColor) {
-        return Text.colors.FIXED_DARK;
+        return "fixedDark";
       }
-      return isDarkBackground ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
+      return isDarkBackground ? "onInverted" : "onPrimary";
     }, [isDarkBackground, isFixedColor]);
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
@@ -91,7 +90,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
 
     return (
       <Text
-        type={Text.types.TEXT2}
+        type="text2"
         color={textColor}
         ref={ref}
         className={classNames}
@@ -132,9 +131,9 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
               className={cx(styles.closeBtn)}
               hideTooltip
               onClick={onClose}
-              size={Button.sizes.SMALL}
-              kind={IconButton.kinds.TERTIARY}
-              color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+              size="small"
+              kind="tertiary"
+              color={isDarkBackground ? "on-inverted-background" : "on-primary-color"}
               ariaLabel={closeButtonAriaLabel}
             />
           )}
@@ -144,4 +143,4 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
   }
 );
 
-export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColor });
+export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColorEnum });

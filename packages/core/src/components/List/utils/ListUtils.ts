@@ -1,6 +1,6 @@
 import { MutableRefObject, useState } from "react";
-import { ListWrapperComponentStringType, ListWrapperComponentType } from "../ListConstants";
-import { ListItemComponentType } from "../../ListItem/ListItemConstants";
+import { ListItemElement } from "../../ListItem/ListItem.types";
+import { ListElement } from "../List.types";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 let listIdCounter = 0;
@@ -24,20 +24,20 @@ export const getListItemIndexById = (childrenRefs: MutableRefObject<HTMLElement[
   return childrenRefs.current.findIndex(child => child?.id === id);
 };
 
-export const getListItemComponentType = (listComponent: ListWrapperComponentType | ListWrapperComponentStringType) => {
+export const getListItemComponentType = (listComponent: ListElement): ListItemElement => {
   switch (listComponent) {
-    case ListWrapperComponentType.UL:
-    case ListWrapperComponentType.OL:
-      return ListItemComponentType.LI;
-    case ListWrapperComponentType.NAV:
-      return ListItemComponentType.A;
+    case "ul":
+    case "ol":
+      return "li";
+    case "nav":
+      return "a";
     default:
-      return ListItemComponentType.DIV;
+      return "div";
   }
 };
 
-const isListItem = (element: HTMLElement) => {
-  return element && element.getAttribute("role") === "option";
+export const isListItem = (element: HTMLElement) => {
+  return element && element instanceof HTMLElement && element.getAttribute("role") === "option";
 };
 
 export const getNextListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {

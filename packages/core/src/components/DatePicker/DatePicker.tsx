@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
-import "react-dates";
+import "react-dates/initialize.js";
 import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
@@ -65,7 +65,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       showWeekNumber = false,
       shouldBlockRange,
       "data-testid": dataTestId
-    },
+    }: DatePickerProps,
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);

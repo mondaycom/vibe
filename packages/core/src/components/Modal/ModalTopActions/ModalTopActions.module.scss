@@ -1,0 +1,7 @@
+.actions {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: var(--top-actions-margin-inline);
+  top: var(--top-actions-margin-block);
+}

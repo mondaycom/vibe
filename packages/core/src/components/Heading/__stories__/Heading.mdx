@@ -13,7 +13,6 @@ import { TipEditableHeading } from "./Heading.stories.helpers";
 # Heading
 
 - [Overview](#overview)
-- [Import](#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
@@ -28,18 +27,11 @@ Heading components are used for titles at the top of pages and sub-sections.
 
 <Canvas of={HeadingStories.Overview} />
 
-## Import
+### Import
 
-The Heading component has been introduced in version 2.0 of Vibe.
-However, the import statement `{Heading}` from 'monday-ui-react-core' is already reserved for the <StorybookLink page="Text/LegacyHeading [deprecated]">LegacyHeading</StorybookLink> component.
-Therefore, the new Heading with the updated API can be accessed using the following import statement:
-
-```javascript
-import { Heading } from "monday-ui-react-core/next";
+```js
+import { Heading } from "@vibe/core";
 ```
-
-In the upcoming major release of Vibe packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
-just like any other component.
 
 ## Props
 

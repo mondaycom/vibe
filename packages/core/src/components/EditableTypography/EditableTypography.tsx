@@ -8,8 +8,9 @@ import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { TextType, TextWeight } from "../Text/TextConstants";
-import { HeadingType, HeadingWeight } from "../Heading/HeadingConstants";
+import { TextType, TextWeight } from "../Text/Text.types";
+import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -26,6 +27,8 @@ export interface EditableTypographyImplementationProps {
   ariaLabel?: string;
   /** Controls the mode of the component (i.e. view/edit mode) */
   isEditMode?: boolean;
+  /** If true, automatically select all text when entering edit mode */
+  autoSelectTextOnEditMode?: boolean;
   /** Will be called when the mode of the component changes */
   onEditModeChange?: (isEditMode: boolean) => void;
   /** Override Tooltip props when needed */
@@ -43,7 +46,11 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   type?: TextType | HeadingType;
   /** Sets the Text/Heading weight */
   weight?: TextWeight | HeadingWeight;
+  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
+  multiline?: boolean;
 }
+
+const PADDING_OFFSET = 2;
 
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
   (
@@ -61,11 +68,13 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       typographyClassName,
       component: TypographyComponent,
       isEditMode,
+      autoSelectTextOnEditMode,
       onEditModeChange,
       tooltipProps,
       type,
-      weight
-    },
+      weight,
+      multiline = false
+    }: EditableTypographyProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -73,7 +82,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
-    const [inputWidth, setInputWidth] = useState(0);
 
     const prevValue = usePrevious(value);
 
@@ -128,40 +136,65 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       handleInputValueChange();
     }
 
-    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
       if (event.key === keyCodes.ENTER) {
+        if (multiline && event.shiftKey) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
+        event.preventDefault();
+        event.stopPropagation();
         handleEditModeChange(false);
         setInputValue(value);
       }
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
       setInputValue(event.target.value);
     }
 
     const toggleKeyboardEditMode = useKeyboardButtonPressedFunc(toggleEditMode);
 
     function focus() {
+      inputRef.current?.focus?.();
+
       if (inputRef.current) {
-        inputRef.current?.focus();
+        const inputElement = inputRef.current as HTMLInputElement | HTMLTextAreaElement;
+        const textLength = inputElement.value.length;
+        inputElement.setSelectionRange(textLength, textLength);
       }
     }
 
-    useEffect(() => {
-      if (isEditing) {
-        focus();
-      }
-    }, [isEditing]);
+    function selectAllInputText() {
+      inputRef.current?.select?.();
+    }
 
     useEffect(() => {
+      if (!isEditing) return;
+      focus();
+      if (autoSelectTextOnEditMode) {
+        selectAllInputText();
+      }
+    }, [autoSelectTextOnEditMode, isEditing]);
+
+    useIsomorphicLayoutEffect(() => {
       if (!typographyRef.current) {
         return;
       }
+
       const { width } = typographyRef.current.getBoundingClientRect();
-      setInputWidth(width);
+      inputRef?.current?.style.setProperty("--input-width", `${width}px`);
+
+      if (multiline) {
+        const textareaElement = inputRef?.current as HTMLTextAreaElement;
+        textareaElement?.style.setProperty("--input-height", "auto");
+        textareaElement?.style.setProperty("--input-height", `${textareaElement.scrollHeight + PADDING_OFFSET}px`);
+      }
     }, [inputValue, isEditing]);
 
     return (
@@ -175,32 +208,47 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         onClick={onTypographyClick}
         onKeyDown={toggleKeyboardEditMode}
       >
-        {isEditing && (
-          <input
-            ref={inputRef}
-            className={cx(styles.input, typographyClassName)}
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            aria-label={ariaLabel}
-            placeholder={placeholder}
-            style={{ width: inputWidth }}
-            role="input"
-          />
-        )}
+        {isEditing &&
+          (multiline ? (
+            <textarea
+              ref={inputRef}
+              className={cx(styles.textarea, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              role="textbox"
+              rows={1}
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              className={cx(styles.input, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              role="input"
+            />
+          ))}
         <TypographyComponent
           ref={typographyRef}
           aria-hidden={isEditing}
           className={cx(styles.typography, typographyClassName, {
             [styles.hidden]: isEditing,
             [styles.disabled]: readOnly,
-            [styles.placeholder]: !inputValue && placeholder
+            [styles.placeholder]: !inputValue && placeholder,
+            [styles.multiline]: !isEditing && multiline
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}
           weight={weight}
           type={type}
+          ellipsis={!multiline}
         >
           {inputValue || placeholder}
         </TypographyComponent>

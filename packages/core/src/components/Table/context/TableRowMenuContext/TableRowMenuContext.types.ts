@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface ITableRowMenuContext extends Pick<TableRowMenuProviderValue, "resetHoveredRow"> {
+export interface TableRowMenuContext extends Pick<TableRowMenuProviderValue, "resetHoveredRow"> {
   hoveredRowId: string;
   onMouseOverRow: (rowRef: React.MutableRefObject<HTMLDivElement>) => void;
   onMouseLeaveRow: () => void;
@@ -20,7 +20,7 @@ export interface TableRowMenuProviderValue {
   setIsMenuOpen: (isOpen: boolean) => void;
 }
 
-export type ITableRowMenuProviderProps = {
+export type TableRowMenuProviderProps = {
   value: TableRowMenuProviderValue;
   children: React.ReactNode;
 };

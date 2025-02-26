@@ -1,5 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import EditableText from "../EditableText";
 import { within } from "@storybook/testing-library";
 
@@ -15,6 +16,16 @@ describe("EditableText", () => {
     fireEvent.click(component);
 
     const input = screen.queryByRole("input");
+    expect(input).toBeInTheDocument();
+  });
+
+  it("should render a textarea in edit mode with multiline", () => {
+    render(<EditableText multiline value="Editable text" />);
+
+    const component = screen.getByRole("button");
+    fireEvent.click(component);
+
+    const input = screen.queryByRole("textbox");
     expect(input).toBeInTheDocument();
   });
 
@@ -98,6 +109,29 @@ describe("EditableText", () => {
         expect(onChange).toHaveBeenCalledWith(newValue);
       });
 
+      it("should call onChange with new value when changed in a multiline editable component", async () => {
+        const value = "Editable test";
+        const newValue = "New Editable test";
+        render(<EditableText value={value} onChange={onChange} multiline />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("textbox");
+        fireEvent.change(input, {
+          target: { value: newValue }
+        });
+
+        expect(input).toHaveValue(newValue);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter" });
+        });
+        expect(within(await screen.findByRole("button")).getByText(newValue)).toBeInTheDocument();
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toHaveBeenCalledWith(newValue);
+      });
+
       it("should not call onChange when value isn't changed in an editable component", async () => {
         const value = "Editable test";
         render(<EditableText value={value} onChange={onChange} />);
@@ -114,6 +148,24 @@ describe("EditableText", () => {
         });
 
         expect(within(screen.getByRole("button")).getByText(value)).toBeInTheDocument();
+
+        expect(onChange).not.toBeCalled();
+      });
+
+      it("should not call onChange when value changed but Shift+Enter was clicked for multiline in an editable component", async () => {
+        const value = "Editable test";
+        render(<EditableText value={value} onChange={onChange} multiline />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        const input = screen.getByRole("textbox");
+
+        expect(input).toHaveValue(value);
+
+        await waitFor(() => {
+          fireEvent.keyDown(input, { key: "Enter", shiftKey: true });
+        });
 
         expect(onChange).not.toBeCalled();
       });
@@ -169,6 +221,52 @@ describe("EditableText", () => {
         expect(onEditModeChange).toHaveBeenCalledTimes(2);
         expect(onEditModeChange).toHaveBeenLastCalledWith(false);
       });
+    });
+  });
+
+  describe("event bubbling and propagation", () => {
+    it("should prevent Enter key press from propagating outside EditableText", () => {
+      const onChange = jest.fn();
+      const externalKeyHandler = jest.fn();
+
+      render(
+        <div onKeyDown={externalKeyHandler} data-testid="external-container">
+          <EditableText value="Editable text" onChange={onChange} />
+        </div>
+      );
+
+      const component = screen.getByRole("button");
+      fireEvent.click(component);
+
+      const input = screen.getByRole("input");
+      fireEvent.change(input, { target: { value: "New value" } });
+      userEvent.keyboard("{enter}");
+
+      expect(onChange).toHaveBeenCalledWith("New value");
+      expect(externalKeyHandler).not.toHaveBeenCalled();
+    });
+
+    it("should prevent Esc key press from propagating outside EditableText", () => {
+      const onChange = jest.fn();
+      const onEditModeChange = jest.fn();
+      const externalKeyHandler = jest.fn();
+
+      render(
+        <div onKeyDown={externalKeyHandler} data-testid="external-container">
+          <EditableText value="Editable text" onChange={onChange} onEditModeChange={onEditModeChange} />
+        </div>
+      );
+
+      const component = screen.getByRole("button");
+      fireEvent.click(component);
+
+      const input = screen.getByRole("input");
+      fireEvent.change(input, { target: { value: "New value" } });
+      userEvent.keyboard("{escape}");
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onEditModeChange).toHaveBeenCalledTimes(2);
+      expect(externalKeyHandler).not.toHaveBeenCalled();
     });
   });
 

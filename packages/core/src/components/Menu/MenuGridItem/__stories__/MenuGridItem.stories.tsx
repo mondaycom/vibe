@@ -2,19 +2,16 @@ import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { DialogContentContainer, Menu, MenuItem, MenuTitle } from "../../..";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
-import { Activity, Code, Favorite, Feedback, Invite, Settings } from "../../../Icon/Icons";
+import { Activity, Code, Favorite, Feedback, Invite, Settings } from "@vibe/icons";
 import MenuGridItem, { MenuGridItemProps } from "../MenuGridItem";
 import "./MenuGridItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: MenuGridItem,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  component: MenuGridItem
 });
 
 export default {
-  title: "Navigation/Menu/MenuGridItem",
+  title: "Components/Menu/MenuGridItem",
   component: MenuGridItem,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

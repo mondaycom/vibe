@@ -1,9 +1,8 @@
 import { create } from "@storybook/theming/create";
-import logo from "./logo.png";
 
 export default create({
   base: "light",
-  brandImage: logo,
+  brandImage: "/logo.svg",
   brandUrl: "https://vibe.monday.com",
   barSelectedColor: "#5034ff",
   brandTitle: "Vibe Design System",

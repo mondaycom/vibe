@@ -1,30 +1,17 @@
-# Vibe Design System - Core
+# @vibe/core
 
-[![npm](https://img.shields.io/npm/v/monday-ui-react-core)](https://www.npmjs.com/package/monday-ui-react-core)
+<a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
+<a href="https://www.npmjs.com/package/@vibe/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@vibe/core?label=@vibe/core"></a>
 
-![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
-
-[monday.com](https://www.monday.com) React components library - [Storybook](https://vibe.monday.com)
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| last 4 versions                                                                                                                                                                                                   | last 4 versions                                                                                                                                                                                               | 14+                                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                                                     | last 2 versions                                                                                                                                                                                           |
+> Vibe Design System's Core Component Library in React
 
 ## Usage
 
 Components are imported from the library's root entry:
 
 ```javascript
-import { Button } from "monday-ui-react-core";
+import { Button } from "@vibe/core";
 ```
-
-In order to load all the relevant CSS tokens, you should import the `tokens` file at the root of your application file
-
-```javascript
-import "monday-ui-react-core/tokens";
-```
-
-_If your project (or it's Storybook) is importing files differently - read more [here](./DEPRECATED_IMPORTS.md)._
 
 ### Font installation
 
@@ -38,46 +25,11 @@ Poppins, Figtree and Roboto, we recommend adding the following `link` import to 
 />
 ```
 
-### Peer dependencies
+## Theming
 
-We are reliant on React and React DOM, we are using them as externals, and we don't package them to the package, so you must have them in your project
+Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./docs/theming.md) file.
 
-## Storybook
-
-We are using storybook in order to develop the components independently of any consumer.
-run this to build & run the storybook locally:
-
-```bash
-yarn storybook
-```
-
-the storybook will be served on `http://localhost:7007`
-
-## Developing locally with your consumer application
-
-When developing locally, we are using a npm functionality called npm link, this allows us to
-work locally on our package and use it in a different project without publishing.
-This functionality basically overrides the npm mapping between package name to its repo, and points it to where the package is located locally.
-
-### Troubleshooting local development
-
-- If you are using NVM, make sure both packages are using the same version.
-- Because we are using react hooks and having react as a peerDependency - if you want to develop locally and encounter issues with "invalid hook call" [see this github thread](https://github.com/facebook/react/issues/13991). The quick fix is in your webpack config file alias react to resolve the node_modules path
-
-Go to the project's directory and run:
-
-```zsh
-nvm use
-npm unlink
-npm link
-npm start
-```
-
-## Themes
-
-Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./THEME_README.md) file
-
-## SSR (Server Side Rendering)
+## Experimental SSR (Server Side Rendering)
 
 Components are using style injection on the client side (into <head> element)
 This is not usable on the server side.
@@ -89,4 +41,4 @@ globalThis.injectedStyles = {};
 
 in order to have each server side render component css inserted into the injectedStyles object
 each component will insert its css string under a unique key.
-Then you can join all the values into one string and add it under a <style> element
+Then you can join all the values into one string and add it under a `<style>` element

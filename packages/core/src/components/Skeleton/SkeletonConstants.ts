@@ -1,12 +1,18 @@
 // Fixed names
 export const SKELETON_CUSTOM_SIZE = "custom";
 
+/**
+ * @deprecated
+ */
 export enum SkeletonType {
   CIRCLE = "circle",
   RECTANGLE = "rectangle",
   TEXT = "text"
 }
 
+/**
+ * @deprecated
+ */
 export enum TextSkeletonSize {
   H1 = "h1",
   H2 = "h2",

@@ -127,7 +127,6 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -178,7 +177,6 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -222,7 +220,6 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -272,7 +269,6 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -318,7 +314,6 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -369,7 +364,6 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -416,7 +410,6 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -466,7 +459,6 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -565,7 +557,6 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -603,7 +594,6 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -647,7 +637,6 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -684,7 +673,6 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -730,7 +718,6 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -768,7 +755,6 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -815,7 +801,6 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >
@@ -852,7 +837,6 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
         data-testid="icon"
         fill="currentColor"
         height="16"
-        onClick={[Function]}
         viewBox="0 0 20 20"
         width="16"
       >

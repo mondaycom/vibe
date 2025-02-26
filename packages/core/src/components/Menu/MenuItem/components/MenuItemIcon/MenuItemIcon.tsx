@@ -16,7 +16,7 @@ const MenuItemIcon = ({
   wrapperClassName
 }: MenuItemIconProps) => (
   <Flex
-    justify={Flex.justify.CENTER}
+    justify="center"
     className={cx(
       styles.iconWrapper,
       {
@@ -28,8 +28,7 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? Icon.type.SVG : Icon.type.ICON_FONT)}
-      clickable={false}
+      iconType={type || (typeof icon === "function" ? "svg" : "font")}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle

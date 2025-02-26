@@ -10,8 +10,6 @@ import {
 } from "react-select";
 import React, { UIEventHandler, WheelEventHandler } from "react";
 import { VibeComponentProps } from "../../types";
-import { DROPDOWN_MENU_PLACEMENT, DROPDOWN_MENU_POSITION } from "./DropdownConstants";
-import { SIZES_VALUES } from "../../constants";
 
 export type DropdownOption = any;
 
@@ -53,7 +51,7 @@ export type CustomOptionProps = CustomOptionBaseProps & OptionProps<OptionTypeBa
 
 export type DropdownState = {
   isDisabled: boolean;
-  selectProps: { withReadOnlyStyle: boolean; readOnly: boolean };
+  selectProps: { readOnly: boolean };
 };
 
 export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptionBaseProps, VibeComponentProps {
@@ -63,6 +61,10 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * Placeholder to show when no value was selected
    */
   placeholder?: string;
+  /**
+   * When set to true, the component's placeholder will be displayed as ellipsis when it's too long
+   */
+  allowPlaceholderEllipsis?: boolean;
   /**
    * If set to true, dropdown will be disabled
    */
@@ -145,22 +147,24 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * custom value render function
    */
-  valueRenderer?: React.ReactNode;
+  valueRenderer?:
+    | React.ReactNode
+    | ((props: Omit<CustomSingleValueProps, "Renderer"> & DropdownOption) => React.ReactNode);
   ValueRenderer?: React.ReactNode;
   /**
    * custom menu render function
    */
-  menuRenderer?: React.ReactElement;
+  menuRenderer?: React.ReactElement | ((props: CustomMenuProps) => React.ReactElement);
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement?: (typeof DROPDOWN_MENU_PLACEMENT)[keyof typeof DROPDOWN_MENU_PLACEMENT];
+  menuPlacement?: DropdownMenuPlacement;
 
   /**
    * The CSS position value of the menu, when "fixed" extra layout management might be required
    * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
    */
-  menuPosition?: (typeof DROPDOWN_MENU_POSITION)[keyof typeof DROPDOWN_MENU_POSITION];
+  menuPosition?: DropdownMenuPosition;
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
@@ -175,9 +179,9 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   value?: DropdownOption | DropdownOption[];
   /**
-   * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
+   * Select menu size from `Dropdown.sizes` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
-  size?: SIZES_VALUES;
+  size?: DropdownSize;
   /**
    * If provided Dropdown will work in async mode. Can be either promise or callback
    */
@@ -279,8 +283,14 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * createFilter function is available at Dropdown.createFilter
    */
   filterOption?: (option: DropdownOption, inputValue: string) => boolean;
-
-  withReadOnlyStyle?: boolean;
+  /**
+   * The current value of the input field, used to control the current value of the input field programmatically
+   */
+  inputValue?: string;
+  /**
+   * If true, the input field will lose focus when an option is selected
+   */
+  blurInputOnSelect?: boolean;
   OptionRenderer?: React.ReactNode;
   menuIsOpen?: boolean;
   onOptionSelect?: (option: DropdownOption) => void;
@@ -291,3 +301,11 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
 }
 
 export type DropdownProps = DropdownComponentProps;
+
+export type DropdownChipColors = "primary" | "negative" | "positive";
+
+export type DropdownMenuPosition = "absolute" | "fixed";
+
+export type DropdownMenuPlacement = "top" | "bottom" | "auto";
+
+export type DropdownSize = "small" | "medium" | "large";

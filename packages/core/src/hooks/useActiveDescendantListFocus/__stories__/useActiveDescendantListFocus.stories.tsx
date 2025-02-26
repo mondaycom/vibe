@@ -14,6 +14,7 @@ type Story = StoryObj<typeof useActiveDescendantListFocus>;
 
 export default {
   title: "Hooks/useActiveDescendantListFocus",
+  // @ts-ignore
   component: UseActiveDescendantListFocus
 } satisfies Meta<typeof useActiveDescendantListFocus>;
 
@@ -38,9 +39,10 @@ export const Overview: Story = {
     });
 
     return (
-      <Flex direction={Flex.directions.COLUMN}>
+      <Flex direction="column">
         <Search
           ref={focusedElementRef}
+          // @ts-ignore
           role={focusedElementProps.role}
           currentAriaResultId={focusedElementProps["aria-activedescendant"]}
         />
@@ -81,5 +83,6 @@ export const Overview: Story = {
   },
 
   name: "Overview",
+  // @ts-ignore
   play: overviewInteractionSuite
 };

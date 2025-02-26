@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table, { ITableColumn, ITableProps } from "../Table";
+import Table, { TableColumn, TableProps } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -32,7 +32,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Data display/Table",
+  title: "Components/Table",
   component: Table,
   subcomponents: {
     TableHeader,
@@ -53,7 +53,7 @@ export default {
   }
 };
 
-const tableTemplate = (args: ITableProps) => <Table {...args}></Table>;
+const tableTemplate = (args: TableProps) => <Table {...args}></Table>;
 
 export const Overview = {
   render: tableTemplate.bind({}),
@@ -176,7 +176,7 @@ export const Overview = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
+              <Label text={rowItem.status} color="positive" />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -196,7 +196,7 @@ export const Overview = {
 
 export const Sizes = {
   render: () => {
-    const columns: ITableColumn[] = [
+    const columns: TableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -225,7 +225,7 @@ export const Sizes = {
       <>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.SMALL}
+          size="small"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -251,7 +251,7 @@ export const Sizes = {
         </Table>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.MEDIUM}
+          size="medium"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -277,7 +277,7 @@ export const Sizes = {
         </Table>
         <Table
           style={{ width: "auto" }}
-          size={Table.sizes.LARGE}
+          size="large"
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -306,7 +306,7 @@ export const Sizes = {
   },
   decorators: [
     (Story: typeof React.Component) => (
-      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.MEDIUM} style={{ flex: 1 }}>
+      <Flex align="start" justify="space-between" gap="medium" style={{ flex: 1 }}>
         <Story />
       </Flex>
     )
@@ -316,7 +316,7 @@ export const Sizes = {
 
 export const Borders = {
   render: () => {
-    const columns: ITableColumn[] = [
+    const columns: TableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -398,7 +398,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
+                  <Label text={rowItem.status} color="positive" />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -420,7 +420,7 @@ export const Borders = {
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
+                  <Label text={rowItem.status} color="positive" />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -432,7 +432,7 @@ export const Borders = {
   },
   decorators: [
     (Story: typeof React.Component) => (
-      <Flex direction={Flex.directions.COLUMN} gap={40}>
+      <Flex direction="column" gap={40}>
         <Story />
       </Flex>
     )
@@ -476,7 +476,7 @@ export const TableHeaderFunctionality = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color={Label.colors.POSITIVE} />
+                <Label text={rowItem.status} color="positive" />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -519,7 +519,7 @@ export const Loading = {
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} color={Label.colors.POSITIVE} isAnimationDisabled />
+              <Label text={rowItem.status} color="positive" />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -556,18 +556,14 @@ export const Scroll = {
             <TableRow key={rowItem.id}>
               <TableCell>{rowItem.sentOn}</TableCell>
               <TableCell>
-                <Label
-                  text={rowItem.priority}
-                  color={priorityColumnToLabelColor[rowItem.priority]}
-                  isAnimationDisabled
-                />
+                <Label text={rowItem.priority} color={priorityColumnToLabelColor[rowItem.priority]} />
               </TableCell>
               <TableCell>{rowItem.subject}</TableCell>
               <TableCell>
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -588,14 +584,29 @@ export const Scroll = {
 
 export const VirtualizedScroll = {
   render: () => {
-    const Row = ({ num, text }: (typeof virtualizedScrollTableData)[number]) => {
+    const Row = (data: (typeof virtualizedScrollTableData)[number]) => {
       return (
         <TableRow>
-          <TableCell>{num}</TableCell>
-          <TableCell>{text}</TableCell>
+          {virtualizedScrollTableColumns.map(column => {
+            return (
+              <TableCell sticky={column.id === "id"} key={column.id}>
+                {data[column.id as keyof typeof data]}
+              </TableCell>
+            );
+          })}
         </TableRow>
       );
     };
+
+    const Header = React.useCallback((columns: TableColumn[]) => {
+      return (
+        <TableHeader>
+          {columns.map((cell, index) => (
+            <TableHeaderCell sticky={index === 0} key={index} {...cell} />
+          ))}
+        </TableHeader>
+      );
+    }, []);
 
     return (
       <Table
@@ -606,12 +617,12 @@ export const VirtualizedScroll = {
           height: 250
         }}
       >
-        <TableHeader>
-          {virtualizedScrollTableColumns.map((cell, index) => (
-            <TableHeaderCell key={index} {...cell} />
-          ))}
-        </TableHeader>
-        <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
+        <TableVirtualizedBody
+          rowRenderer={Row}
+          items={virtualizedScrollTableData}
+          columns={virtualizedScrollTableColumns}
+          headerRenderer={Header}
+        />
       </Table>
     );
   },
@@ -639,7 +650,7 @@ export const StickyColumn = {
             <TableRow key={rowItem.id}>
               <TableCell sticky>{rowItem.projectName}</TableCell>
               <TableCell>
-                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} />
               </TableCell>
               <TableCell>{rowItem.description}</TableCell>
               <TableCell>{rowItem.createdOn}</TableCell>
@@ -687,7 +698,7 @@ export const HighlightedRow = {
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label text={rowItem.status} isAnimationDisabled color={Label.colors.POSITIVE} />
+                <Label text={rowItem.status} color="positive" />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>

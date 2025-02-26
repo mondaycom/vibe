@@ -16,21 +16,10 @@ jest.mock("react-transition-group", () => {
 jest.useFakeTimers();
 
 describe("Tooltip renders correctly", () => {
-  it("with end arrowPosition", () => {
-    const tree = renderer
-      .create(
-        <Tooltip shouldShowOnMount content="test" arrowPosition={Tooltip.arrowPositions.END}>
-          <div />
-        </Tooltip>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with theme", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" theme={Tooltip.themes.Error}>
+        <Tooltip shouldShowOnMount content="test" theme="primary">
           <div />
         </Tooltip>
       )
@@ -41,18 +30,7 @@ describe("Tooltip renders correctly", () => {
   it("with position", () => {
     const tree = renderer
       .create(
-        <Tooltip shouldShowOnMount content="test" position={Tooltip.positions.LEFT}>
-          <div />
-        </Tooltip>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with justify", () => {
-    const tree = renderer
-      .create(
-        <Tooltip shouldShowOnMount content="test" justify={Tooltip.justifyTypes.END}>
+        <Tooltip shouldShowOnMount content="test" position="left">
           <div />
         </Tooltip>
       )

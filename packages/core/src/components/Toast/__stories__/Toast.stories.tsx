@@ -5,15 +5,15 @@ import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
 import "./Toast.stories.scss";
+import { ToastAction } from "../Toast.types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
-  enumPropNamesArray: ["type"],
   iconPropNamesArray: ["icon"]
 });
 
 export default {
-  title: "Feedback/Toast",
+  title: "Components/Toast",
   component: Toast,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -32,7 +32,7 @@ export const Overview = {
 
     actions: [
       {
-        type: Toast.actionTypes.BUTTON,
+        type: "button",
         content: "Button"
       }
     ]
@@ -42,10 +42,10 @@ export const Overview = {
 
 export const DefaultWithButton = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Button"
         }
       ],
@@ -65,10 +65,10 @@ export const DefaultWithButton = {
 
 export const ToastWithLink = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.LINK,
+          type: "link",
           text: "Link to action",
           href: "https://monday.com"
         }
@@ -101,10 +101,10 @@ export const ToastWithLoading = {
 
 export const SuccessMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Undo 5"
         }
       ],
@@ -112,13 +112,7 @@ export const SuccessMessage = {
     );
 
     return (
-      <Toast
-        open
-        type={Toast.types.POSITIVE}
-        actions={actions}
-        autoHideDuration={5000}
-        className="monday-storybook-toast_wrapper"
-      >
+      <Toast open type="positive" actions={actions} autoHideDuration={5000} className="monday-storybook-toast_wrapper">
         Positive message toast
       </Toast>
     );
@@ -129,10 +123,10 @@ export const SuccessMessage = {
 
 export const ErrorMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Button"
         }
       ],
@@ -140,13 +134,7 @@ export const ErrorMessage = {
     );
 
     return (
-      <Toast
-        open
-        actions={actions}
-        type={Toast.types.NEGATIVE}
-        autoHideDuration={5000}
-        className="monday-storybook-toast_wrapper"
-      >
+      <Toast open actions={actions} type="negative" autoHideDuration={5000} className="monday-storybook-toast_wrapper">
         Negative message toast
       </Toast>
     );
@@ -157,10 +145,10 @@ export const ErrorMessage = {
 
 export const WarningMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Button"
         }
       ],
@@ -168,13 +156,7 @@ export const WarningMessage = {
     );
 
     return (
-      <Toast
-        open
-        actions={actions}
-        type={Toast.types.WARNING}
-        autoHideDuration={5000}
-        className="monday-storybook-toast_wrapper"
-      >
+      <Toast open actions={actions} type="warning" autoHideDuration={5000} className="monday-storybook-toast_wrapper">
         Warning message toast
       </Toast>
     );
@@ -186,10 +168,10 @@ export const WarningMessage = {
 
 export const DarkMessage = {
   render: () => {
-    const actions = useMemo(
+    const actions: ToastAction[] = useMemo(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Button"
         }
       ],
@@ -197,13 +179,7 @@ export const DarkMessage = {
     );
 
     return (
-      <Toast
-        open
-        actions={actions}
-        type={Toast.types.DARK}
-        autoHideDuration={5000}
-        className="monday-storybook-toast_wrapper"
-      >
+      <Toast open actions={actions} type="dark" autoHideDuration={5000} className="monday-storybook-toast_wrapper">
         Dark message toast
       </Toast>
     );
@@ -258,10 +234,10 @@ export const Animation = {
       }, 1000);
     }, []);
 
-    const actions = useMemo(
+    const actions = useMemo<ToastAction[]>(
       () => [
         {
-          type: Toast.actionTypes.BUTTON,
+          type: "button",
           content: "Undo"
         }
       ],
@@ -278,7 +254,7 @@ export const Animation = {
         </Button>
         <Toast
           open={successToastOpen}
-          type={isDeleting ? Toast.types.NORMAL : Toast.types.POSITIVE}
+          type={isDeleting ? "normal" : "positive"}
           actions={isDeleting ? [] : actions}
           onClose={() => setSuccessToastOpen(false)}
           autoHideDuration={2000}
@@ -288,7 +264,7 @@ export const Animation = {
         </Toast>
         <Toast
           open={failureToastOpen}
-          type={isDeleting ? Toast.types.NORMAL : Toast.types.NEGATIVE}
+          type={isDeleting ? "normal" : "negative"}
           onClose={() => setFailureToastOpen(false)}
           autoHideDuration={2000}
           loading={isDeleting}

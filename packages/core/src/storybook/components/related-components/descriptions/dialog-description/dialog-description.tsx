@@ -4,7 +4,7 @@ import Dialog from "../../../../../components/Dialog/Dialog";
 import DialogContentContainer from "../../../../../components/DialogContentContainer/DialogContentContainer";
 import { ExampleContent } from "../../../../../components/Dialog/__stories__/helpers";
 import IconButton from "../../../../../components/IconButton/IconButton";
-import Info from "../../../../../components/Icon/Icons/components/Info";
+import { Info } from "@vibe/icons";
 import styles from "./dialog-description.module.scss";
 
 export const DialogDescription = () => {
@@ -24,9 +24,9 @@ export const DialogDescription = () => {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          showTrigger={[Dialog.hideShowTriggers.CLICK]}
-          hideTrigger={[Dialog.hideShowTriggers.CLICK]}
-          position={Dialog.positions.RIGHT}
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
+          position="right"
           moveBy={{ main: 2, secondary: 0 }}
           content={
             <DialogContentContainer>
@@ -34,7 +34,7 @@ export const DialogDescription = () => {
             </DialogContentContainer>
           }
         >
-          <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          <IconButton icon={Info} active kind="secondary" />
         </Dialog>
       </div>
     );
@@ -43,7 +43,7 @@ export const DialogDescription = () => {
     <RelatedComponent
       component={component}
       title="Dialog"
-      href="/?path=/docs/popover-dialog--docs"
+      href="/?path=/docs/components-dialog--docs"
       description="The dialog component's purpose is to position a popup component nearby another element, such as any kind of a button."
     />
   );

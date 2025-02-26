@@ -10,57 +10,49 @@ describe("Label renders correctly", () => {
 
   describe("fill", () => {
     it("primary", () => {
-      const tree = renderer.create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.PRIMARY} />).toJSON();
+      const tree = renderer.create(<Label text="Test" kind="fill" color="primary" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("dark", () => {
-      const tree = renderer.create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.DARK} />).toJSON();
+      const tree = renderer.create(<Label text="Test" kind="fill" color="dark" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("positive", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.POSITIVE} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind="fill" color="positive" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("negative", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.NEGATIVE} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind="fill" color="negative" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
   describe("line", () => {
     it("primary", () => {
-      const tree = renderer.create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.PRIMARY} />).toJSON();
+      const tree = renderer.create(<Label text="Test" kind="line" color="primary" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("dark", () => {
-      const tree = renderer.create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.DARK} />).toJSON();
+      const tree = renderer.create(<Label text="Test" kind="line" color="dark" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("positive", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.POSITIVE} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind="line" color="positive" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("negative", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.NEGATIVE} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind="line" color="negative" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("without animation", () => {
-      const tree = renderer.create(<Label text="Test" isAnimationDisabled />).toJSON();
+      const tree = renderer.create(<Label text="Test" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -69,8 +61,8 @@ describe("Label renders correctly", () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it("with wrapperClassName", () => {
-      const tree = renderer.create(<Label wrapperClassName="test" />).toJSON();
+    it("with className", () => {
+      const tree = renderer.create(<Label className="test" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

@@ -10,14 +10,13 @@ type Story = StoryObj<typeof ButtonGroup>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ButtonGroup,
-  enumPropNamesArray: ["kind", "size"],
   actionPropsArray: ["onSelect"]
 });
 
 const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
 
 export default {
-  title: "Buttons/ButtonGroup",
+  title: "Components/ButtonGroup",
   component: ButtonGroup,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

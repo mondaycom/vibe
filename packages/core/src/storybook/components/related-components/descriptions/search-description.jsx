@@ -17,7 +17,7 @@ export const SearchDescription = () => {
     <RelatedComponent
       component={component}
       title="Search"
-      href="/?path=/docs/inputs-search--docs"
+      href="/?path=/docs/components-search--docs"
       description="Displays content classification."
     />
   );

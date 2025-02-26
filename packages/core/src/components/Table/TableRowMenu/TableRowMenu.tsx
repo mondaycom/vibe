@@ -47,12 +47,13 @@ const TableRowMenu = forwardRef(
             style={{ top: menuButtonPosition }}
             onMouseEnter={onMouseOverRowMenu}
             onMouseLeave={onMouseLeaveRowMenu}
+            data-row-menu-id={rowId}
           >
             <MenuButton
               id={id}
               ref={ref}
               className={cx(styles.tableMenu, className)}
-              size={MenuButton.sizes.XS}
+              size="xs"
               onMenuHide={onMenuHide}
               onMenuShow={onMenuShow}
               data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW_MENU, id)}

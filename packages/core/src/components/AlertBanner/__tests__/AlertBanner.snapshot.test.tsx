@@ -17,7 +17,7 @@ describe("AlertBanner", () => {
       .create(
         <AlertBanner
           onClose={NOOP}
-          backgroundColor={AlertBanner.backgroundColors.NEGATIVE}
+          backgroundColor="negative"
           ariaLabel="lorem-banner"
           className="my-lorem-ipsum-banner"
         >
@@ -72,7 +72,7 @@ describe("AlertBanner", () => {
   });
 
   it("should render correctly with background color", () => {
-    const tree = renderer.create(<AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE} />).toJSON();
+    const tree = renderer.create(<AlertBanner backgroundColor="positive" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

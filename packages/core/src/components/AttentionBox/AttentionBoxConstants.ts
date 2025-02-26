@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export enum AttentionBoxType {
   PRIMARY = "primary",
   SUCCESS = "success",

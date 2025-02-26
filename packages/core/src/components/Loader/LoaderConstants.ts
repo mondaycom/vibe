@@ -1,15 +1,19 @@
+/**
+ * @deprecated
+ */
 export enum LoaderColors {
-  PRIMARY = "var(--primary-color)",
-  SECONDARY = "var(--secondary-text-color)",
-  ON_PRIMARY = "var(--text-color-on-inverted)",
-  DARK = "var(--primary-text-color)"
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  ON_PRIMARY = "onPrimary",
+  DARK = "dark"
 }
 
+/**
+ * @deprecated
+ */
 export enum LoaderSizes {
-  XS = 16,
-  SMALL = 24,
-  MEDIUM = 40,
-  LARGE = 64
+  XS = "xs",
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large"
 }
-
-export type LoaderSize = typeof LoaderSizes | number;

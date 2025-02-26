@@ -24,7 +24,7 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex gap={Flex.gaps.MEDIUM}>
+    <Flex gap="medium">
       <Clickable
         className="monday-story-clickable_first-element"
         onClick={() => alert("clicked")}

@@ -21,7 +21,7 @@ export const VirtualizedGridDescription = () => {
     <RelatedComponent
       component={component}
       title="VirtualizedGrid"
-      href="/?path=/docs/navigation-virtualizedgrid--docs"
+      href="/?path=/docs/components-virtualizedgrid--docs"
       description="VirtualizedGrid is a component which only renders visible grid items, it is a logic component and doesn't change and look and feel."
     />
   );

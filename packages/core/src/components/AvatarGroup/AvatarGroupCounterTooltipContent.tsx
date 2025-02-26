@@ -5,7 +5,7 @@ import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/Avatar.types";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {

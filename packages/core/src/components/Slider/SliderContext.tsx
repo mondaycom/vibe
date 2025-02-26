@@ -3,7 +3,7 @@ import { createTestIdHelper } from "../../helpers/testid-helper";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
 import { SliderProps } from "./Slider";
 import { SliderContextActions, SliderContextInfix, SliderContextSelection, SliderContextUI } from "./SliderConstants";
-import { IconType } from "../Icon/IconConstants";
+import { IconType } from "../Icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});
@@ -49,6 +49,8 @@ export function SliderProvider({
   onChange,
   ranged,
   showValue,
+  valueLabelPosition,
+  valueLabelColor,
   size,
   step,
   value,
@@ -69,8 +71,34 @@ export function SliderProvider({
   const [dragging, setDragging, getDragging] = useDragging();
 
   const uiContextValue: SliderContextUI = useMemo(
-    () => ({ active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue }),
-    [active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue]
+    () => ({
+      active,
+      ariaLabel,
+      ariaLabelledby,
+      color,
+      disabled,
+      dragging,
+      focused,
+      size,
+      shapeTestId,
+      showValue,
+      valueLabelPosition,
+      valueLabelColor
+    }),
+    [
+      active,
+      ariaLabel,
+      ariaLabelledby,
+      color,
+      disabled,
+      dragging,
+      focused,
+      size,
+      shapeTestId,
+      showValue,
+      valueLabelPosition,
+      valueLabelColor
+    ]
   );
 
   const selectionContextValue: SliderContextSelection = useMemo(

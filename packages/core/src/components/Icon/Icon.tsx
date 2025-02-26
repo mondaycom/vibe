@@ -2,20 +2,17 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { CSSProperties, forwardRef, Ref } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { IconType } from "./IconConstants";
+import { IconType as IconTypeEnum } from "./IconConstants";
+import { IconType } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon, withStaticProps } from "../../types";
-
-// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-const CLICK_NOOP = (_event: React.MouseEvent) => {};
+import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 
 export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
-  onClick?: MouseEventCallBack;
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;
@@ -33,16 +30,10 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
 }
 
 export interface IconProps extends VibeComponentProps {
-  // eslint-disable-next-line no-unused-vars
-  onClick?: (event: React.MouseEvent) => void;
   /**
    * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
    */
   icon: SubIcon;
-  /**
-   * Is icon is a button
-   */
-  clickable?: boolean;
   /**
    * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
    */
@@ -75,19 +66,17 @@ export interface IconProps extends VibeComponentProps {
   customColor?: string;
 }
 
-const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } = forwardRef(
+const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum } = forwardRef(
   (
     {
       /**
        * component id
        */
       id,
-      onClick = CLICK_NOOP,
       className,
       icon = "",
-      clickable = true,
       iconLabel,
-      iconType = IconType.SVG,
+      iconType = "svg",
       iconSize = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
@@ -96,14 +85,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       useCurrentColor = false,
       customColor,
       "data-testid": dataTestId
-    },
+    }: IconProps,
     ref
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
-      onClick,
       iconLabel,
-      clickable,
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
@@ -116,25 +103,24 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       return null;
     }
 
-    // Replace in major version change with more accurate check
+    // TODO: [breaking] make more accurate check
     const isFunctionType = typeof icon === "function";
 
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    // Replace in major version change with more accurate check
-    if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
+    // TODO: [breaking] make more accurate check
+    if (iconType === "svg" || isFunctionType || typeof icon === "object") {
       return renderIcon(icon, {
         id,
         ...screenReaderAccessProps,
         ref: isFunctionType ? undefined : mergedRef,
         size: iconSize.toString(),
-        onClick,
         className: computedClassName,
         style,
         "data-testid": overrideDataTestId
       });
     }
-    if (iconType === IconType.SRC) {
+    if (iconType === "src") {
       return (
         <CustomSvgIcon
           id={id}
@@ -163,5 +149,5 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
 );
 
 export default withStaticProps(Icon, {
-  type: IconType
+  type: IconTypeEnum
 });

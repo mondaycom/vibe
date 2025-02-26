@@ -9,7 +9,9 @@
   overflow: hidden;
   position: relative;
 
-  .input {
+  .input,
+  .textarea {
+    width: var(--input-width);
     display: inline-block;
     max-width: 100%;
     min-width: 64px;
@@ -24,6 +26,12 @@
     &:active {
       outline: none;
     }
+  }
+
+  .textarea {
+    resize: none;
+    overflow: hidden;
+    height: var(--input-height);
   }
 
   .typography {
@@ -45,6 +53,10 @@
 
     &.placeholder {
       color: var(--secondary-text-color);
+    }
+
+    &.multiline {
+      white-space: pre-wrap;
     }
   }
 }

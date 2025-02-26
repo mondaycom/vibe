@@ -37,6 +37,11 @@ $font-size-avatar-small: 12px;
   font-size: $font-size-avatar-small;
 }
 
+.contentTextXs {
+  margin-top: 1px;
+  @include vibe-text(text3, normal);
+}
+
 .contentIconLarge {
   height: $avatar-icon-large;
   width: $avatar-icon-large;

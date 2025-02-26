@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
@@ -21,9 +20,11 @@ import {
   IComboboxCategoryMap,
   IComboboxItem,
   IComboboxOption,
-  COMBOBOX_LISTBOX_ID
+  COMBOBOX_LISTBOX_ID,
+  IComboboxCategory
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
+import { ComboboxSizes } from "./Combobox.types";
 import IconButton from "../IconButton/IconButton";
 import MenuButton from "../MenuButton/MenuButton";
 
@@ -50,7 +51,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
+  size?: ComboboxSizes;
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -139,7 +140,7 @@ const Combobox: React.FC<ComboboxProps> & {
       searchIcon,
       id = "",
       placeholder = "",
-      size = Combobox.sizes.MEDIUM,
+      size = "medium",
       defaultVisualFocusFirstIndex,
       optionLineHeight = 32,
       optionsListHeight,
@@ -173,7 +174,7 @@ const Combobox: React.FC<ComboboxProps> & {
       searchInputRef,
       renderAction: RenderAction,
       hideRenderActionOnInput
-    },
+    }: ComboboxProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -248,7 +249,7 @@ const Combobox: React.FC<ComboboxProps> & {
             <span className={styles.comboboxMessage}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
-            <Button className={styles.addNewButton} size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
+            <Button className={styles.addNewButton} size={size} kind="tertiary" onClick={onAddNewCallback}>
               <span className={styles.buttonLabel}>{getAddNewLabel()}</span>
             </Button>
           )}
@@ -256,15 +257,15 @@ const Combobox: React.FC<ComboboxProps> & {
       );
     }
 
-    const [activeCategoryLabel, setActiveCategoryLabel] = useState<string>();
+    const [activeCategory, setActiveCategory] = useState<IComboboxCategory>();
 
     const onActiveCategoryChanged = useCallback(
       (categoryData: IComboboxItem) => {
-        if (categoryData?.category?.label !== activeCategoryLabel) {
-          setActiveCategoryLabel(categoryData?.category?.label);
+        if (categoryData?.category?.label !== activeCategory?.label) {
+          setActiveCategory(categoryData?.category);
         }
       },
-      [activeCategoryLabel]
+      [activeCategory]
     );
 
     const { items, itemsMap, selectableItems } = useItemsData({
@@ -304,7 +305,7 @@ const Combobox: React.FC<ComboboxProps> & {
 
     return (
       <Text
-        type={Text.types.TEXT2}
+        type="text2"
         ref={mergedRef}
         className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,
@@ -336,7 +337,7 @@ const Combobox: React.FC<ComboboxProps> & {
             renderAction={RenderAction}
             hideRenderActionOnInput={hideRenderActionOnInput}
           />
-          {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
+          {stickyCategories && <StickyCategoryHeader label={activeCategory?.label} color={activeCategory?.color} />}
           {hasResults && (
             <ComboboxItems
               stickyCategories={stickyCategories}

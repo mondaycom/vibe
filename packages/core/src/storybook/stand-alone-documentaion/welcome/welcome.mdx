@@ -1,10 +1,11 @@
 import { Meta } from "@storybook/blocks";
-import { AbilitiesDescription } from "./abilities-description/abilities-description";
+import { Abilities } from "./Abilities/Abilities";
 import { WelcomeIntro } from "./intro/intro";
 import { Principles } from "./principles/principles";
-import { Contributors } from "./contributors/contributors";
 import { WelcomeHeader } from "./welcome-header/welcome-header";
-import { OtherContributorsList } from "./other-contributors-list/other-contributors-list";
+import Team from "./Contributors/Team";
+import Founders from "./Contributors/Founders";
+import Contributors from "./Contributors/Contributors";
 
 <Meta title="Welcome" />
 
@@ -12,9 +13,11 @@ import { OtherContributorsList } from "./other-contributors-list/other-contribut
 
 <WelcomeIntro />
 
-## What’s inside
+For version 2 docs please visit [v2 docs](https://vibe.monday.com/v2/)
 
-<AbilitiesDescription />
+## What's inside
+
+<Abilities />
 
 ## Our principles
 
@@ -37,6 +40,12 @@ Read our<Link href="https://github.com/mondaycom/vibe/blob/master/CONTRIBUTING.m
 
 ### Meet the Vibe team
 
-<Contributors />
+<Team />
 
-<OtherContributorsList />
+### Founders
+
+<Founders />
+
+### Contributors
+
+<Contributors />

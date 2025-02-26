@@ -1,0 +1,9 @@
+@import "~monday-ui-style/dist/mixins";
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding-inline: var(--modal-inline-padding);
+  overflow: auto;
+  @include scroller;
+}

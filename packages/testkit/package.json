@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.0.5",
+  "version": "1.3.0",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
@@ -29,8 +29,8 @@
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
-    "start-server": "yarn lerna run storybook --scope=monday-ui-react-core",
-    "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
+    "start-server": "yarn lerna run storybook --scope=@vibe/core",
+    "lint": "eslint . --max-warnings=0",
     "lint:fix": "yarn lint -- --fix"
   },
   "bugs": {
@@ -38,6 +38,12 @@
   },
   "devDependencies": {
     "@playwright/test": "1.45.3",
-    "eslint": "^8.23.0"
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }

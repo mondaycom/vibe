@@ -10,15 +10,14 @@ import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
   DEFAULT_DIALOG_SHOW_TRIGGER,
   DIALOG_MOVE_BY,
-  EMPTY_ARR,
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
-  SplitButtonSecondaryContentPosition
+  SplitButtonSecondaryContentPosition,
+  SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticProps } from "../../types";
-import { AnimationType, DialogPosition } from "../../constants";
-import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
+import { AnimationType, DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -28,9 +27,10 @@ import useEventListener from "../../hooks/useEventListener";
 // Components import
 import Button, { ButtonProps } from "../Button/Button";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
-import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
+import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
+import { DialogTriggerEvent } from "../Dialog/Dialog.types";
 
 export interface SplitButtonProps extends ButtonProps {
   /*
@@ -44,8 +44,7 @@ export interface SplitButtonProps extends ButtonProps {
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
-  // TODO in next major remove type DialogPosition
-  secondaryDialogPosition?: DialogPosition | SplitButtonSecondaryContentPosition;
+  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
   /*
     Popover Container padding size
    */
@@ -73,7 +72,7 @@ const SplitButton: FC<SplitButtonProps> & {
   shouldCloseOnClickInsideDialog,
   zIndex = null,
   secondaryDialogClassName,
-  secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
+  secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   disabled,
@@ -94,7 +93,7 @@ const SplitButton: FC<SplitButtonProps> & {
   id,
   "data-testid": dataTestId,
   ...buttonProps
-}) => {
+}: SplitButtonProps) => {
   // State //
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isHovered, setIsHover] = useState(false);
@@ -138,10 +137,10 @@ const SplitButton: FC<SplitButtonProps> & {
   }, [setDialogOpen, onSecondaryDialogDidShow]);
 
   const hideDialog = useCallback(
-    (_: DialogEvent, eventName: HideShowEvent) => {
+    (_: DialogEvent, eventName: DialogTriggerEvent) => {
       setDialogOpen(false);
       onSecondaryDialogDidHide();
-      if (eventName === HideShowEvent.ESCAPE_KEY) {
+      if (eventName === "esckey") {
         secondaryButtonRef.current.focus();
       }
     },
@@ -181,10 +180,7 @@ const SplitButton: FC<SplitButtonProps> & {
     [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(
-    () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
-    [disabled]
-  );
+  const dialogShowTrigger = useMemo(() => (disabled ? [] : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
 
   const dialogHideTrigger = useMemo(() => {
     if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];
@@ -201,10 +197,10 @@ const SplitButton: FC<SplitButtonProps> & {
   }, [secondaryDialogContent, dialogPaddingSize]);
 
   const animationEdgePosition = useMemo(() => {
-    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_MIDDLE) {
+    if (secondaryDialogPosition === "bottom") {
       return "";
     }
-    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_START) {
+    if (secondaryDialogPosition === "bottom-start") {
       return "bottom";
     }
 
@@ -237,7 +233,7 @@ const SplitButton: FC<SplitButtonProps> & {
         onBlur={setNotHovered}
         disabled={disabled}
         loading={loading}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON, id)}
+        data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON, id)}
       >
         {children}
       </Button>
@@ -273,7 +269,7 @@ const SplitButton: FC<SplitButtonProps> & {
             ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
             ariaHasPopup
             ariaExpanded={isDialogOpen}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
+            data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
           >
             <div className={styles.secondaryButtonIconWrapper}>
               <DropdownChevronDown aria-hidden="true" />
@@ -291,12 +287,11 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: DialogPosition.BOTTOM_START,
+  secondaryDialogPosition: "bottom-start",
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
 export default withStaticProps(SplitButton, {
-  // Backward compatibility for enum naming
   secondaryPositions: SplitButtonSecondaryContentPosition,
   secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,

@@ -17,7 +17,6 @@ export default class DropdownDriver {
   constructor() {
     this.props = { className: "dropdown-story" };
 
-    // eslint-disable-next-line no-constructor-return
     return this;
   }
 
@@ -76,6 +75,11 @@ export default class DropdownDriver {
 
   get singleValueText() {
     return this.renderResult.container.querySelector("[class*='singleValue']").innerHTML;
+  }
+
+  get input() {
+    this.ensureRendered();
+    return this.renderResult.getByLabelText("Dropdown input");
   }
 
   focusInput() {
@@ -241,5 +245,9 @@ export default class DropdownDriver {
 
   withOnClear(onClear) {
     return this.setProp("onClear", onClear);
+  }
+
+  withSearchable(value) {
+    return this.setProp("searchable", value);
   }
 }

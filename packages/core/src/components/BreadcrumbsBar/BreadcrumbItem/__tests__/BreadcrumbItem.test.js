@@ -8,7 +8,7 @@ jest.useFakeTimers();
 describe("BreadcrumbsItem tests", () => {
   it("if navigation item, href link is correct", () => {
     const { getByRole } = render(
-      <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+      <BreadcrumbsBar type="navigation">
         <BreadcrumbItem text="Workspace" link="https://www.google.com" />
       </BreadcrumbsBar>
     );
@@ -22,7 +22,7 @@ describe("BreadcrumbsItem tests", () => {
     const onClickMock = jest.fn();
 
     const { getByText } = render(
-      <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+      <BreadcrumbsBar type="navigation">
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
@@ -38,7 +38,7 @@ describe("BreadcrumbsItem tests", () => {
     const onClickMock = jest.fn();
 
     const { getByText } = render(
-      <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
+      <BreadcrumbsBar type="indication">
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
@@ -54,7 +54,7 @@ describe("BreadcrumbsItem tests", () => {
     const onClickMock = jest.fn();
 
     const { getByText } = render(
-      <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+      <BreadcrumbsBar type="navigation">
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
@@ -71,7 +71,7 @@ describe("BreadcrumbsItem tests", () => {
     const onClickMock = jest.fn();
 
     const { getByText } = render(
-      <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+      <BreadcrumbsBar type="navigation">
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );

@@ -370,7 +370,6 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
     data-testid="icon"
     fill="currentColor"
     height="20"
-    onClick={[Function]}
     viewBox="0 0 20 20"
     width="20"
   >
@@ -421,7 +420,6 @@ exports[`Button renders correctly renders correctly with rightIcon 1`] = `
     data-testid="icon"
     fill="currentColor"
     height="20"
-    onClick={[Function]}
     viewBox="0 0 20 20"
     width="20"
   >

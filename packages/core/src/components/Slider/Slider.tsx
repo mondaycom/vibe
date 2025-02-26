@@ -6,14 +6,16 @@ import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { IconType } from "../Icon/IconConstants";
-import { SliderColor, SliderSize } from "./SliderConstants";
+import { IconType } from "../Icon";
+import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
+import { SliderColor, SliderLabelColor, SliderLabelPosition, SliderSize } from "./Slider.types";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 export type SliderProps = {
-  // ------ SliderBase props
   /**
    * Define a string that labels the current element (Slider)
    */
@@ -77,6 +79,14 @@ export type SliderProps = {
    */
   showValue?: boolean;
   /**
+   * Position of the `value` when `showValue` is true
+   */
+  valueLabelPosition?: SliderLabelPosition;
+  /**
+   * Color of the `value` when `showValue` is true
+   */
+  valueLabelColor?: SliderLabelColor;
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size?: SliderSize;
@@ -95,7 +105,6 @@ export type SliderProps = {
    *  - should be used in Controlled Mode only
    */
   valueText?: string;
-  // ------ Additional subcomponents' props
   /**
    * Show selected from Slider range value
    */
@@ -120,7 +129,7 @@ export type SliderProps = {
 
 const Slider: React.FC<SliderProps> & {
   sizes?: typeof BASE_SIZES;
-  colors?: typeof SliderColor;
+  colors?: typeof SliderColorEnum;
 } = forwardRef(
   (
     {
@@ -137,17 +146,18 @@ const Slider: React.FC<SliderProps> & {
       ranged = false,
       step = 1,
       showValue = false,
-      size = Slider.sizes.SMALL,
+      valueLabelPosition = "top",
+      valueLabelColor = "primary",
+      size = "small",
       value,
       defaultValue = 0,
       valueFormatter = (value: number) => `${value}%`,
       valueText,
-      // ------ Additional subcomponents' props
       indicateSelection = false,
       prefix,
       postfix,
       selectionIndicatorWidth = "60px"
-    },
+    }: SliderProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -169,6 +179,8 @@ const Slider: React.FC<SliderProps> & {
         onChange={onChange}
         ranged={ranged}
         showValue={showValue}
+        valueLabelPosition={valueLabelPosition}
+        valueLabelColor={valueLabelColor}
         size={size}
         step={step}
         value={value}
@@ -177,7 +189,12 @@ const Slider: React.FC<SliderProps> & {
         valueText={valueText}
       >
         <div
-          className={cx(styles.slider, { [styles.valueShown]: showValue }, className)}
+          className={cx(
+            styles.slider,
+            { [styles.valueShown]: showValue },
+            getStyle(styles, camelCase("position-" + valueLabelPosition)),
+            className
+          )}
           data-testid={dataTestId}
           id={id}
           ref={mergedRef}
@@ -193,5 +210,5 @@ const Slider: React.FC<SliderProps> & {
 
 export default withStaticProps(Slider, {
   sizes: BASE_SIZES,
-  colors: SliderColor
+  colors: SliderColorEnum
 });

@@ -12,11 +12,11 @@ export const Overview = {
     const [text, setText] = useState<string>("-");
     const ref = useRef<HTMLButtonElement>(null);
 
-    const onFocusByMouse = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
+    const onFocusByMouse = useCallback((_event: FocusEvent) => {
       setText("mouse");
     }, []);
 
-    const onFocusByKeyboard = useCallback((_event: React.FocusEvent<HTMLButtonElement>) => {
+    const onFocusByKeyboard = useCallback((_event: FocusEvent) => {
       setText("keyboard");
     }, []);
 
@@ -27,7 +27,7 @@ export const Overview = {
     });
 
     return (
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+      <Flex direction="column" gap="medium" align="start">
         <Button ref={ref}>Focus target</Button>
         <div>Received focus by: {text}</div>
       </Flex>

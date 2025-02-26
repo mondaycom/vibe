@@ -1,15 +1,14 @@
 import React, { FC, useEffect, useRef } from "react";
-import { DialogPosition } from "../../../constants/positions";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
-import { SliderColor, SliderSize, TOOLTIP_SHOW_DELAY } from "../SliderConstants";
+import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-
-const tooltipPosition = DialogPosition.TOP;
+import { SliderColor, SliderSize } from "../Slider.types";
+import { camelCase } from "lodash-es";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
@@ -36,7 +35,18 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
-  const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const {
+    active,
+    ariaLabel,
+    ariaLabelledby,
+    disabled,
+    dragging,
+    focused,
+    shapeTestId,
+    showValue,
+    valueLabelPosition,
+    valueLabelColor
+  } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -77,8 +87,9 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
     <Tooltip
       open={active === index || dragging === index}
       content={showValue ? null : valueText}
-      position={tooltipPosition}
+      position="top"
       showDelay={TOOLTIP_SHOW_DELAY}
+      addKeyboardHideShowTriggersByDefault={false}
     >
       <div
         aria-label={ariaLabel}
@@ -109,7 +120,17 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
         style={{ left: `${position}%` }}
         tabIndex={disabled ? -1 : 0}
       >
-        {showValue && <label className={styles.label}>{valueText}</label>}
+        {showValue && (
+          <label
+            className={cx(
+              styles.label,
+              getStyle(styles, camelCase("color-" + valueLabelColor)),
+              getStyle(styles, camelCase("position-" + valueLabelPosition))
+            )}
+          >
+            {valueText}
+          </label>
+        )}
       </div>
     </Tooltip>
   );

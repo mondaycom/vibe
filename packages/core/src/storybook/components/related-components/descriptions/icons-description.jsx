@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import { Update, Locked, Lines } from "../../../../components/Icon/Icons";
+import { Update, Locked, Lines } from "@vibe/icons";
 import Icon from "../../../../components/Icon/Icon";
 
 export const IconsDescription = () => {
@@ -21,7 +21,7 @@ export const IconsDescription = () => {
     <RelatedComponent
       component={component}
       title="Icons"
-      href="/?path=/story/media-icon--icons-list-story"
+      href="/?path=/story/components-icon--icons-list-story"
       description="Catalog of publicly avaliable icons."
     />
   );

@@ -20,14 +20,12 @@ describe("LinearProgressBar renders correctly", () => {
   });
 
   it("with size", () => {
-    const tree = renderer.create(<LinearProgressBar value={20} size={LinearProgressBar.sizes.LARGE} />).toJSON();
+    const tree = renderer.create(<LinearProgressBar value={20} size="large" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with barStyle", () => {
-    const tree = renderer
-      .create(<LinearProgressBar value={20} barStyle={LinearProgressBar.styles.POSITIVE} />)
-      .toJSON();
+    const tree = renderer.create(<LinearProgressBar value={20} barStyle="positive" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

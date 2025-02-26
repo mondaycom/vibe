@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { Email } from "../../Icon/Icons";
+import { Email } from "@vibe/icons";
 
 const mockOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },
@@ -136,7 +136,6 @@ describe("Dropdown renders correctly", () => {
   });
 
   it("with tabIndex", () => {
-    // eslint-disable-next-line jsx-a11y/tabindex-no-positive
     const tree = renderer.create(<Dropdown tabIndex={9999} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -164,7 +163,7 @@ describe("Dropdown renders correctly", () => {
     });
 
     it("should render correctly for the different sizes", () => {
-      Object.values(Dropdown.size).forEach(size => {
+      Object.values(Dropdown.sizes).forEach(size => {
         const component = new DropdownDriver().withSize(size).withPlaceholder();
 
         expect(component.snapshot).toMatchSnapshot();

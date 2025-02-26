@@ -31,6 +31,12 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
 
 <Canvas of={AlertBannerStories.Overview} />
 
+### Import
+
+```js
+import { AlertBanner } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -86,7 +92,7 @@ There are five types of alert banners: primary, positive, negative, warning and 
         description: (
           <>
             Don’t use banners for notifying a user of an action they have taken. Instead, provide visual feedback with a{" "}
-            <StorybookLink page="Feedback/Toast">Toast.</StorybookLink>
+            <StorybookLink page="Components/Toast">Toast.</StorybookLink>
           </>
         )
       }
@@ -94,10 +100,7 @@ There are five types of alert banners: primary, positive, negative, warning and 
     {
       positive: {
         component: (
-          <AlertBanner
-            className="monday-storybook-alert-banner_medium-container"
-            backgroundColor={AlertBanner.backgroundColors.NEGATIVE}
-          >
+          <AlertBanner className="monday-storybook-alert-banner_medium-container" backgroundColor="negative">
             <AlertBannerText text="No connection" />
             <AlertBannerLink text="Learn more" href="https://monday.com" />
             <AlertBannerButton>Try again</AlertBannerButton>
@@ -108,18 +111,12 @@ There are five types of alert banners: primary, positive, negative, warning and 
       negative: {
         component: (
           <div className="monday-storybook-alert-banner_column-wrapper">
-            <AlertBanner
-              backgroundColor={AlertBanner.backgroundColors.NEGATIVE}
-              className="monday-storybook-alert-banner_medium-container"
-            >
+            <AlertBanner backgroundColor="negative" className="monday-storybook-alert-banner_medium-container">
               <AlertBannerText text="No connection" />
               <AlertBannerLink text="Learn more" href="https://monday.com" />
               <AlertBannerLink text="Try again" href="https://monday.com" />
             </AlertBanner>
-            <AlertBanner
-              backgroundColor={AlertBanner.backgroundColors.NEGATIVE}
-              className="monday-storybook-alert-banner_medium-container"
-            >
+            <AlertBanner backgroundColor="negative" className="monday-storybook-alert-banner_medium-container">
               <AlertBannerText text="No connection" />
               <AlertBannerButton>Learn more</AlertBannerButton>
               <AlertBannerButton>Try again</AlertBannerButton>
@@ -132,10 +129,7 @@ There are five types of alert banners: primary, positive, negative, warning and 
     {
       positive: {
         component: (
-          <AlertBanner
-            backgroundColor={AlertBanner.backgroundColors.DARK}
-            className="monday-storybook-alert-banner_medium-container"
-          >
+          <AlertBanner backgroundColor="dark" className="monday-storybook-alert-banner_medium-container">
             <AlertBannerText text="Join us at Elevate!" />
             <AlertBannerLink text="RSVP now" href="https://monday.com" />
           </AlertBanner>

@@ -1,6 +1,6 @@
 import React from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
-import { InputSize } from "../BaseInput/BaseInput.types";
+import { InputSize } from "../BaseInput";
 import IconButton from "../IconButton/IconButton";
 import MenuButton from "../MenuButton/MenuButton";
 
@@ -93,4 +93,12 @@ export interface SearchProps extends VibeComponentProps {
    * Callback function that is called when the clear button is clicked.
    */
   onClear?: () => void;
+  /**
+   * Callback function that is called when a keyboard key is down.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  /**
+   * Controls the visibility of the clear icon.
+   */
+  showClearIcon?: boolean;
 }

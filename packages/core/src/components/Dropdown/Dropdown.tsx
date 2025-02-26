@@ -1,7 +1,6 @@
-/* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { SIZES, SIZES_VALUES } from "../../constants";
+import { BaseSizes, SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
@@ -27,6 +26,7 @@ import {
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
+import Text from "../Text/Text";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {
@@ -40,8 +40,7 @@ import {
 import { VibeComponent, withStaticProps } from "../../types";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
-  size?: typeof SIZES;
-  sizes?: typeof SIZES;
+  sizes?: typeof BaseSizes;
   chipColors?: typeof DROPDOWN_CHIP_COLORS;
   menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
   menuPositions?: typeof DROPDOWN_MENU_POSITION;
@@ -54,9 +53,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       singleValueWrapperClassName,
       dropdownMenuWrapperClassName,
       placeholder = "",
+      allowPlaceholderEllipsis,
       disabled = false,
       readOnly = false,
-      withReadOnlyStyle,
       onMenuOpen = NOOP,
       onMenuClose = NOOP,
       onFocus = NOOP,
@@ -78,9 +77,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       ValueRenderer,
       valueRenderer,
       menuRenderer,
-      menuPlacement = Dropdown.menuPlacements.BOTTOM,
+      menuPlacement = "bottom",
       rtl,
-      size = Dropdown.sizes.MEDIUM,
+      size = "medium",
       asyncOptions,
       cacheOptions,
       defaultOptions,
@@ -115,9 +114,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
-      menuPosition = Dropdown.menuPositions.ABSOLUTE,
+      menuPosition = "absolute",
       "data-testid": dataTestId,
-      withGroupDivider = false
+      withGroupDivider = false,
+      inputValue,
+      blurInputOnSelect
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -134,7 +135,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       return defaultValue;
     }, [defaultValue]);
 
-    BaseSelect.prototype.renderLiveRegion = () => {
+    BaseSelect.prototype.renderLiveRegion = (): null => {
       return null;
     };
 
@@ -142,10 +143,23 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        // Dynamically import the specific named export from react-windowed-select for SSR support
-        import("react-windowed-select").then(module => {
+        let isRequireAvailable = false;
+        try {
+          isRequireAvailable = typeof require === "function" && typeof module !== "undefined";
+        } catch (e) {
+          isRequireAvailable = false;
+        }
+
+        if (isRequireAvailable) {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const module = require("react-windowed-select");
           setWindowedMenuList(() => module.WindowedMenuList);
-        });
+        } else {
+          // Dynamically import the specific named export from react-windowed-select for SSR support
+          import("react-windowed-select").then(module => {
+            setWindowedMenuList(() => module.WindowedMenuList);
+          });
+        }
       }
     }, []);
 
@@ -180,7 +194,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         controlRef,
         insideOverflowWithTransformContainer,
-        withGroupDivider
+        withGroupDivider,
+        searchable,
+        allowPlaceholderEllipsis
       });
 
       type BaseStyles = typeof baseStyles;
@@ -220,7 +236,16 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       }
 
       return mergedStyles;
-    }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
+    }, [
+      size,
+      rtl,
+      insideOverflowContainer,
+      insideOverflowWithTransformContainer,
+      allowPlaceholderEllipsis,
+      extraStyles,
+      multi,
+      multiline
+    ]);
 
     const Menu = useCallback(
       (props: CustomMenuProps) => (
@@ -267,6 +292,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
             aria-expanded={!readOnly && menuIsOpen}
             aria-label={inputAriaLabel}
             aria-controls={menuId}
+            readOnly={!searchable ? true : undefined}
           />
         );
       },
@@ -364,7 +390,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       }
     };
 
-    const DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+    let DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+
+    // @ts-expect-error - We need to check if the default export is available
+    DropDownComponent = DropDownComponent.default || DropDownComponent;
 
     const asyncAdditions = {
       ...(asyncOptions && {
@@ -392,6 +421,18 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll]
     );
 
+    const calculatedPlaceholder = useMemo(
+      () =>
+        allowPlaceholderEllipsis ? (
+          <Text type="text2" color="inherit">
+            {placeholder}
+          </Text>
+        ) : (
+          placeholder
+        ),
+      [allowPlaceholderEllipsis, placeholder]
+    );
+
     return (
       <DropDownComponent
         className={cx(styles.dropdown, className)}
@@ -414,12 +455,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         closeMenuOnScroll={closeMenuOnScroll}
         size={size}
         noOptionsMessage={noOptionsMessage}
-        placeholder={placeholder}
+        placeholder={calculatedPlaceholder}
         isDisabled={disabled}
         isClearable={!readOnly && clearable}
-        isSearchable={!readOnly && searchable}
+        isSearchable={!readOnly}
         readOnly={readOnly}
-        withReadOnlyStyle={withReadOnlyStyle}
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
@@ -459,6 +499,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         loadingMessage={loadingMessage}
         tabSelectsValue={tabSelectsValue}
         filterOption={filterOption}
+        inputValue={inputValue}
+        blurInputOnSelect={blurInputOnSelect}
         {...asyncAdditions}
         {...additions}
       />
@@ -467,9 +509,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
 );
 
 export default withStaticProps(Dropdown, {
-  // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
-  size: SIZES,
-  sizes: SIZES,
+  sizes: BaseSizes,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,

@@ -1,8 +1,6 @@
 import React from "react";
 import List, { ListProps } from "../List";
-import Board from "../../Icon/Icons/components/Board";
-import Team from "../../Icon/Icons/components/Team";
-import ThumbsUp from "../../Icon/Icons/components/ThumbsUp";
+import { Board, Team, ThumbsUp } from "@vibe/icons";
 import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
@@ -15,12 +13,11 @@ import { Flex } from "../../";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: List,
-  enumPropNamesArray: ["component"]
+  component: List
 });
 
 export default {
-  title: "Navigation/List/List",
+  title: "Components/List/List",
   component: List,
   subcomponents: {
     ListItem,
@@ -108,12 +105,12 @@ export const ListWithAvatars = {
 export const ListWithVirtualizationOptimization = {
   render: () => (
     <Flex
-      align={Flex.align.START}
-      gap={Flex.gaps.LARGE}
+      align="start"
+      gap="large"
       style={{
         width: "100%"
       }}
-      direction={Flex.directions.COLUMN}
+      direction="column"
     >
       <StoryDescription description="Regular">
         <DialogContentContainer

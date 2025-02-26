@@ -5,10 +5,9 @@ import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import person1 from "./assets/person1.png";
-import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "../../Icon/Icons";
+import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
-import Heading from "../../LegacyHeading/LegacyHeading";
 import Avatar from "../../Avatar/Avatar";
 import styles from "./IconButton.stories.module.scss";
 import { Meta, StoryObj } from "@storybook/react";
@@ -17,7 +16,6 @@ type Story = StoryObj<typeof IconButton>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
-  enumPropNamesArray: ["kind", "size", "color"],
   iconPropNamesArray: ["icon"],
   actionPropsArray: ["onClick"]
 });
@@ -25,7 +23,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const iconButtonTemplate = createComponentTemplate(IconButton);
 
 export default {
-  title: "Buttons/IconButton",
+  title: "Components/IconButton",
   component: IconButton,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -56,9 +54,9 @@ export const Kinds: Story = {
         width: "100%"
       }}
     >
-      <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton" />
-      <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton" />
-      <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
+      <IconButton icon={Bolt} kind="primary" ariaLabel="My primary IconButton" />
+      <IconButton icon={Bolt} kind="secondary" ariaLabel="My secondary IconButton" />
+      <IconButton icon={Bolt} kind="tertiary" ariaLabel="My tertiary IconButton" />
     </div>
   ),
   parameters: {
@@ -80,41 +78,11 @@ export const Sizes: Story = {
         width: "100%"
       }}
     >
-      <IconButton
-        key="xxs"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.XXS}
-        ariaLabel="My xxs IconButton"
-      />
-      <IconButton
-        key="xs"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.XS}
-        ariaLabel="My xs IconButton"
-      />
-      <IconButton
-        key="small"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.SMALL}
-        ariaLabel="My small IconButton"
-      />
-      <IconButton
-        key="medium"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.MEDIUM}
-        ariaLabel="My medium IconButton"
-      />
-      <IconButton
-        key="large"
-        icon={Robot}
-        kind={IconButton.kinds.SECONDARY}
-        size={IconButton.sizes.LARGE}
-        ariaLabel="My large IconButton"
-      />
+      <IconButton key="xxs" icon={Robot} kind="secondary" size="xxs" ariaLabel="My xxs IconButton" />
+      <IconButton key="xs" icon={Robot} kind="secondary" size="xs" ariaLabel="My xs IconButton" />
+      <IconButton key="small" icon={Robot} kind="secondary" size="small" ariaLabel="My small IconButton" />
+      <IconButton key="medium" icon={Robot} kind="secondary" size="medium" ariaLabel="My medium IconButton" />
+      <IconButton key="large" icon={Robot} kind="secondary" size="large" ariaLabel="My large IconButton" />
     </div>
   ),
   parameters: {
@@ -136,9 +104,9 @@ export const Active: Story = {
         width: "100%"
       }}
     >
-      <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active />
-      <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active />
-      <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
+      <IconButton icon={Doc} kind="primary" ariaLabel="My small active IconButton" active />
+      <IconButton icon={Doc} kind="secondary" ariaLabel="My active medium IconButton" active />
+      <IconButton icon={Doc} kind="tertiary" ariaLabel="My active large IconButton" active />
     </div>
   ),
   parameters: {
@@ -162,21 +130,21 @@ export const Disabled: Story = {
     >
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.PRIMARY}
+        kind="primary"
         ariaLabel="My small disabled IconButton"
         disabled
         disabledReason="This function is not available"
       />
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.SECONDARY}
+        kind="secondary"
         ariaLabel="My disabled medium IconButton"
         disabled
         disabledReason="This function is not available"
       />
       <IconButton
         icon={Doc}
-        kind={IconButton.kinds.TERTIARY}
+        kind="tertiary"
         ariaLabel="My disabled large IconButton"
         disabled
         disabledReason="This function is not available"
@@ -196,16 +164,16 @@ export const IconButtonAsToolbarButton: Story = {
   render: () => (
     <Flex
       className={styles.dashboard}
-      direction={Flex.directions.COLUMN}
-      align={Flex.align.START}
+      direction="column"
+      align="start"
       style={{
         width: "50%"
       }}
     >
-      <Flex className={styles.dashboardHeader} gap={Flex.gaps.SMALL}>
+      <Flex className={styles.dashboardHeader} gap="small">
         <Icon icon={Drag} />
-        <Heading type={Heading.types.h5} value="Widget name" />
-        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
+        <Text type="text1">Widget name</Text>
+        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size="small" />
       </Flex>
       <div className={styles.dashboardContent} />
     </Flex>
@@ -233,43 +201,36 @@ export const IconButtonAsCloseButton: Story = {
           style={{
             width: "100%"
           }}
-          justify={Flex.justify.START}
-          gap={Flex.gaps.LARGE}
+          justify="start"
+          gap="large"
         >
-          <Flex
-            direction={Flex.directions.COLUMN}
-            className={styles.recycleBinTitleContainer}
-            justify={Flex.justify.CENTER}
-          >
+          <Flex direction="column" className={styles.recycleBinTitleContainer} justify="center">
             <Icon icon={Item} iconSize={40} />
-            <Heading
-              className={styles.recycleBinTitle}
-              type={Heading.types.h5}
-              value="Item"
-              id="monday-recycle-bin-title"
-            />
+            <Text type="text1" className={styles.recycleBinTitle} id="monday-recycle-bin-title">
+              Item
+            </Text>
           </Flex>
-          <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+          <Avatar size="large" src={person1} type="img" />
           <Flex
-            direction={Flex.directions.COLUMN}
+            direction="column"
             className={styles.recycleBinContent}
-            align={Flex.align.START}
+            align="start"
             ariaLabelledby="monday-recycle-bin-title"
           >
-            <Flex gap={Flex.gaps.XS}>
+            <Flex gap="xs">
               <Link withoutSpacing href="">
                 Hadas Farhi
               </Link>
               <span>deleted the item</span>
-              <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+              <Text type="text1" element="span" weight="medium">
                 Hello World
               </Text>
               <span>from the board</span>
             </Flex>
-            <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+            <Text type="text1" element="span" weight="medium">
               Tasks
             </Text>
-            <Flex gap={Flex.gaps.XS} className={styles.recycleBinSubNote}>
+            <Flex gap="xs" className={styles.recycleBinSubNote}>
               <Icon icon={Time} />
               <span className={styles.recycleBinTimeStamp}>13m</span>
               <span>(Available for restore in the next 1M)</span>
@@ -278,7 +239,7 @@ export const IconButtonAsCloseButton: Story = {
           <Button className={styles.recycleBinRestoreButton}>Restore</Button>
         </Flex>
       </Flex>
-      <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
+      <IconButton icon={CloseSmall} size="small" ariaLabel="Remove from Recycle bin" />
     </>
   ),
   parameters: {

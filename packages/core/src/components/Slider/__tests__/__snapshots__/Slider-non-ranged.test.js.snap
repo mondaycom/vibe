@@ -2,7 +2,7 @@
 
 exports[`a. Non-ranged Slider: basic renderer 1`] = `
 <div
-  class="slider"
+  class="slider positionTop"
   data-testid="monday-slider"
 >
   <div
@@ -54,15 +54,19 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent top edgeCenter hasTooltip"
++           class="contentComponent top hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
-+             20%
++             <div
++               class="content"
++             >
++               20%
++             </div>
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -89,15 +93,19 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent top edgeCenter hasTooltip"
+-           class="contentComponent top hasTooltip"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
--             20%
+-             <div
+-               class="content"
+-             >
+-               20%
+-             </div>
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -124,15 +132,19 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent top edgeCenter hasTooltip"
++           class="contentComponent top hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
-+             20%
++             <div
++               class="content"
++             >
++               20%
++             </div>
 +           </div>
 +           <div
-+             class="arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -159,15 +171,19 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
+-           class="contentComponent top hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
--             20%
+-             <div
+-               class="content"
+-             >
+-               20%
+-             </div>
 -           </div>
 -           <div
--             class="arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -207,7 +223,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           18%
@@ -245,7 +261,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           22%
@@ -283,7 +299,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           10%
@@ -321,7 +337,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           40%
@@ -359,7 +375,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="label"
+            class="label colorPrimary positionTop"
           >
 -           20%
 +           40%

@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { SIZES } from "../../constants/sizes";
 import { getCSSVar } from "../../services/themes";
 import { getScrollableParent } from "../../utils/dom-utils";
@@ -69,7 +68,6 @@ const readOnlyContainerStyle = readOnly => {
   };
 };
 
-// TODO: unite backgroundColor style with `readOnlyContainerStyle` in next major [breaking]
 const readOnlyStyle = isReadOnly => {
   if (!isReadOnly) {
     return {};
@@ -180,12 +178,14 @@ const control =
   };
 
 const placeholder =
-  () =>
+  ({ allowPlaceholderEllipsis }) =>
   (provided, { isDisabled }) => ({
     ...provided,
     ...getFont(),
     color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
-    fontWeight: getCSSVar("font-weight-normal")
+    fontWeight: getCSSVar("font-weight-normal"),
+    // 22px because we have the inner arrow of opened/closed
+    ...(allowPlaceholderEllipsis && { width: "calc(100% - 22px)" })
   });
 
 const indicatorsContainer =
@@ -251,11 +251,11 @@ const menuOpenOpacity = ({ menuIsOpen }) => {
 const singleValue =
   () =>
   (provided, { isDisabled, selectProps }) => {
-    const { readOnly, withReadOnlyStyle } = selectProps;
+    const { readOnly } = selectProps;
     const readOnlyProps = readOnly
       ? {
           ...readOnlyContainerStyle(readOnly),
-          ...readOnlyStyle(withReadOnlyStyle),
+          ...readOnlyStyle(readOnly),
           cursor: "text"
         }
       : {};
@@ -285,14 +285,19 @@ function getSingleValueTextSize(size) {
   }
 }
 
-const input = () => provided => ({
-  ...provided,
-  ...getFont(),
-  ...getColor(),
-  display: "flex",
-  alignItems: "center",
-  textIndent: "-2px"
-});
+const input =
+  ({ searchable }) =>
+  provided => ({
+    ...provided,
+    ...getFont(),
+    ...getColor(),
+    display: "flex",
+    alignItems: "center",
+    textIndent: "-2px",
+    ...(!searchable && {
+      width: "0px"
+    })
+  });
 
 // 12px - because we have inner 4px
 const getCenterContentStyle = rtl => {
@@ -305,14 +310,14 @@ const getCenterContentStyle = rtl => {
 
 const valueContainer =
   ({ size, rtl }) =>
-  (provided, { isDisabled, selectProps: { withReadOnlyStyle, readOnly } }) => ({
+  (provided, { isDisabled, selectProps: { readOnly } }) => ({
     ...provided,
     ...getCenterContentStyle(rtl),
     ...getFont(),
     ...getColor(),
     ...getInnerSize(size),
     ...disabledContainerStyle(isDisabled),
-    ...readOnlyStyle(withReadOnlyStyle && readOnly),
+    ...readOnlyStyle(readOnly),
     borderRadius: getCSSVar("border-radius-small")
   });
 

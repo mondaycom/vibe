@@ -69,11 +69,11 @@ describe("Tooltip tests", () => {
     expect(onTooltipHide).toHaveBeenCalledTimes(0);
   });
 
-  it("Should trigger onTooltipHide on keyboard blur when addKeyboardHideShowTriggersByDefault is true", async () => {
+  it("Should trigger onTooltipHide on keyboard blur by default", async () => {
     const onTooltipHide = jest.fn();
     const testId = "tooltip-button";
     const { getByTestId } = render(
-      <Tooltip content="content" onTooltipHide={onTooltipHide} addKeyboardHideShowTriggersByDefault>
+      <Tooltip content="content" onTooltipHide={onTooltipHide}>
         <Button data-testid={testId}>hello</Button>
       </Tooltip>
     );

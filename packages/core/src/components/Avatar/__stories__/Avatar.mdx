@@ -31,6 +31,12 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 <Canvas of={AvatarStories.Overview} />
 
+### Import
+
+```js
+import { Avatar } from "@vibe/core";
+```
+
 ## Props
 
 <PropsTable />
@@ -53,7 +59,7 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 ### Size
 
-Avatars appear in 3 sizes: Small, Medium, and Large.
+Avatars appear in 4 sizes: XS, Small, Medium, and Large.
 
 <Canvas of={AvatarStories.Size} />
 
@@ -83,9 +89,9 @@ Use for non-person avatars, such as a workspace or team.
       positive: {
         component: (
           <div className="monday-storybook-avatar_multiple">
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
-            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
+            <Avatar className="multiple-avatar" size="large" src={person1} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person2} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person3} type="img" />
           </div>
         ),
         description: "Use consistent avatar sizes for common use cases to convey their purpose."
@@ -93,24 +99,9 @@ Use for non-person avatars, such as a workspace or team.
       negative: {
         component: (
           <div className="monday-storybook-avatar_multiple-reverse">
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.SMALL}
-              src={person1}
-              type={Avatar.types.IMG}
-            />
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.MEDIUM}
-              src={person2}
-              type={Avatar.types.IMG}
-            />
-            <Avatar
-              className="multiple-reverse-avatar"
-              size={Avatar.sizes.LARGE}
-              src={person3}
-              type={Avatar.types.IMG}
-            />
+            <Avatar className="multiple-reverse-avatar" size="small" src={person1} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="medium" src={person2} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="large" src={person3} type="img" />
           </div>
         ),
         description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
@@ -118,11 +109,11 @@ Use for non-person avatars, such as a workspace or team.
     },
     {
       positive: {
-        component: <Avatar src={maleIcon} type={Avatar.types.IMG} />,
+        component: <Avatar src={maleIcon} type="img" />,
         description: "Use branded generic avatars when a user has not set their avatar image."
       },
       negative: {
-        component: <Avatar src={femaleIcon} type={Avatar.types.IMG} />,
+        component: <Avatar src={femaleIcon} type="img" />,
         description: "Don’t make assumptions and use gendered placeholder avatars."
       }
     }
@@ -157,7 +148,7 @@ Use to fire actions on avatar click event.
 
 ### Multiple avatars
 
-To group multiple Avatars together, use the <StorybookLink page="Media/Avatar/AvatarGroup">AvatarGroup</StorybookLink> component.
+To group multiple Avatars together, use the <StorybookLink page="Components/AvatarGroup">AvatarGroup</StorybookLink> component.
 
 <Canvas of={AvatarStories.MultipleAvatars} />
 

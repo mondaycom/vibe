@@ -18,5 +18,6 @@ export const Catalog: Story = {
     chromatic: {
       pauseAnimationAtEnd: true
     }
-  }
+  },
+  tags: ["internal"]
 };

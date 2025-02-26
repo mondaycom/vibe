@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export enum TypographyColor {
   PRIMARY = "primary",
   SECONDARY = "secondary",
@@ -8,8 +11,12 @@ export enum TypographyColor {
   INHERIT = "inherit"
 }
 
+/**
+ * @deprecated
+ */
 export enum TypographyAlign {
   START = "start",
   CENTER = "center",
-  END = "end"
+  END = "end",
+  INHERIT = "inherit"
 }

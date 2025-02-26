@@ -6,15 +6,15 @@ import { AvatarGroup, Avatar } from "../../../../components";
 export const AvatarGroupDescription = () => {
   const component = useMemo(
     () => (
-      <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type={Avatar.types.IMG} src={person4} ariaLabel="Liam Caldwell" />
+      <AvatarGroup size="large" max={3}>
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
       </AvatarGroup>
     ),
     []
@@ -23,7 +23,7 @@ export const AvatarGroupDescription = () => {
     <RelatedComponent
       component={component}
       title="AvatarGroup"
-      href="/?path=/docs/media-avatar-avatargroup--docs"
+      href="/?path=/docs/components-avatargroup--docs"
       description="An avatar group displays a number of avatars grouped together in a stack or grid."
     />
   );

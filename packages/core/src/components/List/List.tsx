@@ -5,6 +5,7 @@ import React, {
   forwardRef,
   ReactElement,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState
@@ -16,7 +17,8 @@ import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
 import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
-import { ListWrapperComponentStringType, ListWrapperComponentType } from "./ListConstants";
+import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
+import { ListElement } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
 import {
@@ -25,6 +27,7 @@ import {
   getListItemIndexById,
   getNextListItemIndex,
   getPrevListItemIndex,
+  isListItem,
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
@@ -33,7 +36,7 @@ export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
-  component?: ListWrapperComponentType | ListWrapperComponentStringType;
+  component?: ListElement;
   /**
    * ARIA label string to describe to list
    */
@@ -52,7 +55,7 @@ export interface ListProps extends VibeComponentProps {
 }
 
 const List: VibeComponent<ListProps> & {
-  components?: typeof ListWrapperComponentType;
+  components?: typeof ListWrapperComponentTypeEnum;
 } = forwardRef(
   (
     {
@@ -66,7 +69,7 @@ const List: VibeComponent<ListProps> & {
       renderOnlyVisibleItems = false,
       style,
       "data-testid": dataTestId
-    },
+    }: ListProps,
     ref
   ) => {
     const componentRef = useRef(null);
@@ -112,6 +115,20 @@ const List: VibeComponent<ListProps> & {
       ref: componentRef
     });
 
+    useEffect(() => {
+      const selectedItemIndex = childrenRefs.current.findIndex(
+        child => child instanceof HTMLElement && isListItem(child) && child?.getAttribute("aria-selected") === "true"
+      );
+      if (selectedItemIndex !== -1) {
+        updateFocusedItem(getListItemIdByIndex(childrenRefs, selectedItemIndex));
+      } else {
+        const firstFocusableIndex = childrenRefs.current.findIndex(child => isListItem(child));
+        if (firstFocusableIndex !== -1) {
+          updateFocusedItem(getListItemIdByIndex(childrenRefs, firstFocusableIndex));
+        }
+      }
+    }, [updateFocusedItem]);
+
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
@@ -122,12 +139,13 @@ const List: VibeComponent<ListProps> & {
           if (!React.isValidElement(child)) {
             return child;
           }
-
           const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
+          const currentRef = childrenRefs.current[index];
+          const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
-            tabIndex: focusIndex === index ? 0 : -1,
+            tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
             id,
             component: getListItemComponentType(component)
           });
@@ -159,5 +177,5 @@ const List: VibeComponent<ListProps> & {
 );
 
 export default withStaticProps(List, {
-  components: ListWrapperComponentType
+  components: ListWrapperComponentTypeEnum
 });

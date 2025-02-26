@@ -6,12 +6,11 @@ import Menu from "../../Menu/Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: MenuTitle,
-  enumPropNamesArray: ["captionPosition"]
+  component: MenuTitle
 });
 
 export default {
-  title: "Navigation/Menu/MenuTitle",
+  title: "Components/Menu/MenuTitle",
   component: MenuTitle,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -31,11 +30,11 @@ export const Overview = {
 export const CaptionPlacements = {
   render: () => [
     <Menu key="top">
-      <MenuTitle caption="Top caption" captionPosition={MenuTitle.positions.TOP} />
+      <MenuTitle caption="Top caption" captionPosition="top" />
       <MenuItem title="Menu item" />
     </Menu>,
     <Menu key="center">
-      <MenuTitle caption="Center caption" captionPosition={MenuTitle.positions.CENTER} />
+      <MenuTitle caption="Center caption" captionPosition="center" />
       <MenuItem title="Menu item" />
     </Menu>
   ],
