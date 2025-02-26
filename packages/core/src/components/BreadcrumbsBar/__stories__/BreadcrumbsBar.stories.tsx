@@ -26,10 +26,31 @@ const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
 export default {
   title: "Components/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    children: {
+      description: "Breadcrumb items, each containing text and an optional icon.",
+      control: "object",
+      table: {
+        type: {
+          summary: "BreadcrumbItemProps[]",
+          detail: `{
+            text: string;
+            icon?: React.ReactNode;
+          }[]`
+        },
+        defaultValue: {
+          summary: `[ { text: "Workspace", icon: <IconName /> } ]`
+        }
+      }
+    }
+  },
   decorators: metaSettings.decorators,
   parameters: {
     docs: {
+      transformSource: (src: string) => {
+        return src.replace(/icon:\s*function[^{]+\{[^}]+\}/g, "icon: <Icon />");
+      },
       liveEdit: {
         scope: { Board, Group }
       }

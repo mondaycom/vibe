@@ -29,7 +29,14 @@ export default {
     AttentionBoxLink
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -41,6 +48,13 @@ export const Overview = {
     title: "Attention box title",
     text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
     className: "monday-storybook-attention-box_box"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -92,8 +106,13 @@ export const States = {
       </StoryDescription>
     </Flex>
   ),
-
-  name: "States"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, ThumbsUp, Favorite }
+      }
+    }
+  }
 };
 
 export const AttentionBoxWithLink = {
@@ -131,9 +150,7 @@ export const Dismissable = {
         />
       </div>
     );
-  },
-
-  name: "Dismissable "
+  }
 };
 
 export const NaturalAttentionBox = {
@@ -149,9 +166,7 @@ export const NaturalAttentionBox = {
         type="dark"
       />
     </div>
-  ),
-
-  name: "Natural attention box"
+  )
 };
 
 export const AttentionBoxInsideADialogCombobox = {
@@ -177,6 +192,13 @@ export const AttentionBoxInsideADialogCombobox = {
         </div>
       </DialogContentContainer>
     );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person, Invite }
+      }
+    }
   },
 
   name: "Attention box inside a dialog/combobox"
