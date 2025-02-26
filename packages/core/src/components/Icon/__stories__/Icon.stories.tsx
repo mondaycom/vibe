@@ -26,19 +26,29 @@ export const Overview = {
 
   args: {
     icon: Bolt
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
 export const VibeIcon = {
   render: () => <Icon iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
-
-  name: "Vibe Icon"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Bolt }
+      }
+    }
+  }
 };
 
 export const FontIcon = {
-  render: () => <Icon iconType="font" iconLabel="my font awesome start icon" icon="fa fa-star" />,
-
-  name: "Font Icon"
+  render: () => <Icon iconType="font" iconLabel="my font awesome start icon" icon="fa fa-star" />
 };
 
 export const CustomSvg = {
@@ -50,9 +60,7 @@ export const CustomSvg = {
       className="icon-story-custom-icon"
       useCurrentColor
     />
-  ),
-
-  name: "Custom SVG"
+  )
 };
 
 export const Color = {
@@ -66,7 +74,13 @@ export const Color = {
     </div>
   ),
 
-  name: "Color"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Bolt }
+      }
+    }
+  }
 };
 
 export const IconsListStory = {

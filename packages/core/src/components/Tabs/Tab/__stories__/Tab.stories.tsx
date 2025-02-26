@@ -15,7 +15,14 @@ export const Overview = {
   args: {
     children: "Tab"
   },
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const States = {
@@ -27,9 +34,7 @@ export const States = {
       </Tab>
       <Tab active>Active</Tab>
     </>
-  ),
-
-  name: "States"
+  )
 };
 
 export const Icons = {
@@ -41,6 +46,11 @@ export const Icons = {
       </Tab>
     </>
   ),
-
-  name: "Icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email }
+      }
+    }
+  }
 };

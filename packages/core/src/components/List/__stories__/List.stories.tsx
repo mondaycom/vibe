@@ -42,7 +42,14 @@ const listTemplate = (args: ListProps) => {
 export const Overview = {
   render: listTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const ListWithCategories = {
@@ -55,9 +62,7 @@ export const ListWithCategories = {
       <ListItem>List item 3</ListItem>
       <ListItem>List item 4</ListItem>
     </List>
-  ),
-
-  name: "List with categories"
+  )
 };
 
 export const ListWithIcons = {
@@ -77,8 +82,13 @@ export const ListWithIcons = {
       </ListItem>
     </List>
   ),
-
-  name: "List with icons"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Board, Team, ThumbsUp }
+      }
+    }
+  }
 };
 
 export const ListWithAvatars = {
@@ -99,7 +109,13 @@ export const ListWithAvatars = {
     </List>
   ),
 
-  name: "List with avatars"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
 };
 
 export const ListWithVirtualizationOptimization = {
@@ -175,5 +191,11 @@ export const ListWithVirtualizationOptimization = {
     </Flex>
   ),
 
-  name: "List with virtualization optimization"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
 };

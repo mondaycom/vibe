@@ -50,6 +50,9 @@ export default {
     docs: {
       transformSource: (src: string) => {
         return src.replace(/icon:\s*function[^{]+\{[^}]+\}/g, "icon: <Icon />");
+      },
+      liveEdit: {
+        scope: { Board, Group }
       }
     }
   }
@@ -78,6 +81,13 @@ export const Overview = {
         icon: Group
       }
     ]
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -103,6 +113,13 @@ export const WithIcons = {
       <BreadcrumbItem text="Group" icon={Group} />
     </BreadcrumbsBar>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Workspace, Folder }
+      }
+    }
+  },
 
   name: "With icons"
 };
@@ -120,6 +137,13 @@ export const NavigatableBreadcrumbs = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person3 }
+      }
+    }
+  },
 
   name: "Navigatable breadcrumbs"
 };
