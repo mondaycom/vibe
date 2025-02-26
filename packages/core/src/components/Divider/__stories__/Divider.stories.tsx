@@ -1,7 +1,6 @@
 import React from "react";
 import Divider, { DividerProps } from "../Divider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import styles from "./Divider.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Divider
@@ -22,7 +21,15 @@ export default {
 
 export const Overview = {
   render: dividerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+  args: {},
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Directions = {
@@ -35,17 +42,38 @@ export const Directions = {
       }}
     >
       <div
-        className={styles["divider-description-container"]}
         style={{
+          display: "flex",
+          alignItems: "center",
           height: 40
         }}
       >
-        <span className={styles["divider-description-text"]}>Horizontal</span>
+        <span
+          style={{
+            marginRight: "var(--sb-spacing-large)",
+            alignSelf: "center"
+          }}
+        >
+          Horizontal
+        </span>
         <Divider direction="horizontal" />
       </div>
-      <div className={styles["divider-description-container"]}>
-        <span className={styles["divider-description-text"]}>Vertical</span>
-        <Divider direction="vertical" className={styles["divider-description-horizontal"]} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          height: 200
+        }}
+      >
+        <span
+          style={{
+            marginRight: "var(--sb-spacing-large)",
+            alignSelf: "center"
+          }}
+        >
+          Vertical
+        </span>
+        <Divider direction="vertical" />
       </div>
     </div>
   ),
