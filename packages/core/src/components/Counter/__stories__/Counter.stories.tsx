@@ -213,5 +213,4 @@ export const CountTheNumberOfUpdates = {
       }
     }
   }
-
 };

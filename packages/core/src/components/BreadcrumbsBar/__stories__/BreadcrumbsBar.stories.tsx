@@ -31,7 +31,7 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { Board, Group}
+        scope: { Board, Group }
       }
     }
   }
