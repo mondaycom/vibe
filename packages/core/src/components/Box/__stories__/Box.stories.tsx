@@ -2,7 +2,7 @@ import React from "react";
 import Box, { BoxProps } from "../Box";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Divider } from "../../Divider";
-import { StoryFn } from "@storybook/react"; // Import StoryFn type
+import { StoryFn } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Box
