@@ -222,7 +222,7 @@ export const MaxAvatarsToDisplay: Story = {
     const [max, setMax] = useState(4);
 
     return (
-      <Flex direction="column" gap="medium" align="start">
+      <Flex direction="column" gap="medium" align="start" style={{ width: "100%" }}>
         <Slider
           size="small"
           min={1}
