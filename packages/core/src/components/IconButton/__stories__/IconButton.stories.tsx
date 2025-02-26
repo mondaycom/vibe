@@ -193,7 +193,7 @@ export const IconButtonAsToolbarButton: Story = {
 
 export const IconButtonAsCloseButton: Story = {
   render: () => (
-    <Flex gap="medium">
+    <Flex gap="medium" style={{ width: "100%" }}>
       <Box
         border
         rounded="small"
