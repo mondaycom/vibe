@@ -8,20 +8,41 @@ import { AvatarType } from "../Avatar/Avatar.types";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
+  /**
+   * Class name applied to the tooltip container.
+   */
   className?: string;
+  /**
+   * The type of avatars displayed in the tooltip.
+   */
   type?: AvatarType;
   /**
-   * Counter element & focus placeholders
+   * The counter element and focus placeholders.
    */
   children?: ReactElement[];
   /**
-   * Array of Avatar elements
+   * The list of avatars displayed inside the tooltip.
    */
   avatars?: ReactElement<AvatarProps>[];
+  /**
+   * Props for customizing the counter tooltip.
+   */
   counterTooltipCustomProps?: Partial<TooltipProps>;
+  /**
+   * If true, the tooltip uses a virtualized list for performance optimization.
+   */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * Ref for the element before the tooltip content, used for keyboard navigation.
+   */
   focusPrevPlaceholderRef?: RefObject<HTMLDivElement>;
+  /**
+   * Ref for the element after the tooltip content, used for keyboard navigation.
+   */
   focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
+  /**
+   * Ref for the counter container element.
+   */
   counterContainerRef?: RefObject<HTMLDivElement>;
 }
 

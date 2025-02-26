@@ -5,19 +5,19 @@ import { VibeComponentProps, ElementContent } from "../../../types";
 
 export interface AccordionItemProps extends VibeComponentProps {
   /**
-   * Header title for the accordion item.
+   * The header content displayed in the accordion item.
    */
   title?: ElementContent;
   /**
-   * The value of the expandable section
+   * The content rendered inside the accordion item.
    */
   children?: ElementContent;
   /**
-   * The font size of the expand/collapse icon.
+   * The size of the expand/collapse icon.
    */
   iconSize?: number | string;
   /**
-   * Custom callback triggered when the item is clicked.
+   * Callback fired upon item click.
    */
   onClick?: () => void;
   /** @ignore */
@@ -25,33 +25,25 @@ export interface AccordionItemProps extends VibeComponentProps {
   /** @ignore */
   onClickAccordionCallback?: () => void;
   /**
-   * Determines whether the item's border is hidden.
+   * If true, the accordion item's border is hidden.
    */
   hideBorder?: boolean;
   /**
-   * Custom class name to add to the header of the expandable
+   * Class name applied to the accordion header.
    */
   headerClassName?: string;
   /**
-   * Custom class name to add to the content of the expandable
+   * Class name applied to the accordion content.
    */
   contentClassName?: string;
   /**
-   * Custom class name to add to the ExpandCollapse component
+   * Class name applied to the expand/collapse component.
    */
   expandCollapseComponentClassName?: string;
   /**
-   * If true, the click event is handled during the capture phase instead of bubbling.
+   * If true, the click event is handled during the capture phase.
    */
   captureOnClick?: boolean;
-  /**
-   * A class name to be added to the accordion item container
-   */
-  className?: string;
-  /**
-   * An id to be added the accordion item container.
-   */
-  id?: string;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(

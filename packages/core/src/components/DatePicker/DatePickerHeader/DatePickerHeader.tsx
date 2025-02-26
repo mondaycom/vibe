@@ -6,11 +6,29 @@ import styles from "./DatePickerHeader.module.scss";
 import Icon from "../../Icon/Icon";
 
 export interface DatePickerHeaderProps {
+  /**
+   * The currently selected date.
+   */
   currentDate: Moment;
+  /**
+   * If true, the month and year selection view is active.
+   */
   isMonthYearSelection: boolean;
+  /**
+   * Callback fired when toggling the month and year picker.
+   */
   onToggleMonthYearPicker: () => void;
+  /**
+   * If true, hides the navigation buttons.
+   */
   hideNavigationKeys: boolean;
+  /**
+   * Test ID for testing purposes.
+   */
   "data-testid"?: string;
+  /**
+   * The ARIA label for the toggle button.
+   */
   ariaLabel?: string;
 }
 

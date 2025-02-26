@@ -13,20 +13,65 @@ import {
 import styles from "./ComboboxItems.module.scss";
 
 export interface ComboboxItemsProps extends IComboboxOptionEvents {
+  /**
+   * Class name applied to the options container.
+   */
   className?: string;
+  /**
+   * Class name applied to individual options.
+   */
   optionClassName?: string;
+  /**
+   * The categories available in the combobox.
+   */
   categories?: IComboboxCategoryMap;
+  /**
+   * The list of options displayed in the combobox.
+   */
   options?: IComboboxItem[];
+  /**
+   * Custom renderer for an option.
+   */
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
+  /**
+   * The index of the currently active item.
+   */
   activeItemIndex?: number;
+  /**
+   * The index of the item with visual focus.
+   */
   visualFocusItemIndex?: number;
+  /**
+   * The height of each option item.
+   */
   optionLineHeight?: number;
+  /**
+   * If true, the list scrolls to the selected item when opened.
+   */
   shouldScrollToSelectedItem?: boolean;
+  /**
+   * If true, only renders visible options (optimization for large lists).
+   */
   renderOnlyVisibleOptions?: boolean;
+  /**
+   * Callback fired when the active category changes.
+   */
   onActiveCategoryChanged?: (category: IComboboxItem) => void;
+  /**
+   * The maximum number of options displayed without scrolling.
+   */
   maxOptionsWithoutScroll?: number;
+  /**
+   * A map of item IDs to item data.
+   */
   itemsMap?: Map<string, IComboboxItem>;
+  /**
+   * If true, categories remain visible when scrolling.
+   */
   stickyCategories?: boolean;
+  /**
+   * The ID of the options container.
+   */
   id?: string;
 }
 

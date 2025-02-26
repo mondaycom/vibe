@@ -23,83 +23,169 @@ import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
 export interface ButtonProps extends VibeComponentProps {
+  /**
+   * The content of the button.
+   */
   children: React.ReactNode;
-  /** Custom class names to pass to the component */
+  /**
+   * Class name applied to the button.
+   */
   className?: string;
+  /**
+   * Class name applied when the button is active.
+   */
   activeButtonClassName?: string;
-  /** The button's kind */
+  /**
+   * The button's style variant.
+   */
   kind?: ButtonType;
-  /** Callback function to run when the button is clicked */
+  /**
+   * Callback fired when the button is clicked.
+   */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /**
+   * Callback fired when the button is pressed down.
+   */
   onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Blur on button click */
+  /**
+   * If true, the button loses focus when clicked.
+   */
   blurOnMouseUp?: boolean;
-  /** Name of the button - for form submit usages  */
+  /**
+   * The name of the button, useful for form submissions.
+   */
   name?: string;
-  /** The button's size */
+  /**
+   * The size of the button.
+   */
   size?: ButtonSize;
-  /** The button's color */
+  /**
+   * The color of the button.
+   */
   color?: ButtonColor;
-  /** The button's type */
+  /**
+   * The HTML type of the button.
+   */
   type?: ButtonInputType;
-  /** Whether the button should be disabled or not */
+  /**
+   * If true, the button is disabled.
+   */
   disabled?: boolean;
-  /** Icon to place on the right */
+  /**
+   * Icon displayed on the right side.
+   */
   rightIcon?: SubIcon;
-  /** Icon to place on the left */
+  /**
+   * Icon displayed on the left side.
+   */
   leftIcon?: SubIcon;
-  /** the success props are used when you have async action and wants to display a success message */
+  /**
+   * If true, displays a success state after an async action.
+   */
   success?: boolean;
-  /** Success icon name */
+  /**
+   * The icon displayed in the success state.
+   */
   successIcon?: SubIcon;
-  /** Success text */
+  /**
+   * The text displayed in the success state.
+   */
   successText?: string;
-  /** loading boolean which switches the text to a loader */
+  /**
+   * If true, replaces the text with a loading indicator.
+   */
   loading?: boolean;
-  /** className which is applied to loader container **/
+  /**
+   * Class name applied to the loader container.
+   */
   loaderClassName?: string;
-  style?: React.CSSProperties;
-  /** displays the active state */
+  /**
+   * If true, applies an active state to the button.
+   */
   active?: boolean;
-  /** id to pass to the button */
-  id?: string;
-  /** adds 8px margin to the right */
+  /**
+   * Inline styles applied to the button.
+   */
+  style?: React.CSSProperties;
+  /**
+   * If true, adds an 8px margin to the right.
+   */
   marginRight?: boolean;
-  /** adds 8px margin to the left */
+  /**
+   * If true, adds an 8px margin to the left.
+   */
   marginLeft?: boolean;
-  /** element id to describe the button accordingly */
+  /**
+   * ID of the element labeling the button.
+   */
   ariaLabeledBy?: string;
-  /** aria label to provide important when providing only Icon */
+  /**
+   * The label of the button for accessibility.
+   */
   ariaLabel?: string;
-  /** aria for a button popup */
+  /**
+   * Defines the presence of a popup associated with the button.
+   */
   ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
-  /** aria to be set if the popup is open */
+  /**
+   * If true, indicates that the associated popup is open.
+   */
   ariaExpanded?: boolean;
-  /** aria controls - receives id for the controlled region */
+  /**
+   * ID of the region controlled by the button.
+   */
   ariaControls?: string;
+  /**
+   * ID of the element describing the button.
+   */
   "aria-describedby"?: AriaAttributes["aria-describedby"];
   /**
-   * aria to be used for screen reader to know if the button is hidden
+   * If true, hides the button from assistive technologies.
    */
   "aria-hidden"?: AriaAttributes["aria-hidden"];
   /**
-   * Indicates the current "pressed" state of toggle buttons
+   * Indicates the pressed state of a toggle button.
    */
   "aria-pressed"?: AriaAttributes["aria-pressed"];
-  /** On Button Focus callback */
+  /**
+   * Callback fired when the button gains focus.
+   */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
-  /** On Button Blur callback */
+  /**
+   * Callback fired when the button loses focus.
+   */
   onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
+  /**
+   * If true, removes right-side padding.
+   */
   rightFlat?: boolean;
+  /**
+   * If true, removes left-side padding.
+   */
   leftFlat?: boolean;
+  /**
+   * If true, prevents the click animation effect.
+   */
   preventClickAnimation?: boolean;
+  /**
+   * If true, removes side padding.
+   */
   noSidePadding?: boolean;
-  /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
+  /**
+   * The default text color when using `ON_PRIMARY_COLOR` kind.
+   */
   defaultTextColorOnPrimaryColor?: string;
+  /**
+   * Test ID for testing purposes.
+   */
   "data-testid"?: string;
-  /** Change the focus indicator from around the button to within it */
+  /**
+   * If true, the focus indicator is displayed inside the button instead of around it.
+   */
   insetFocus?: boolean;
-  /** Specifies the tab order of an element */
+  /**
+   * The tab order of the button.
+   */
   tabIndex?: number;
 }
 

@@ -21,15 +21,28 @@ type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps |
 
 export interface AlertBannerProps extends VibeComponentProps {
   /**
-   * Set external styling to the progress bar.
+   * The background color of the alert banner.
    */
-  className?: string;
   backgroundColor?: AlertBannerBackgroundColor;
+  /**
+   * If true, the close button is hidden.
+   */
   isCloseHidden?: boolean;
-  /** ARIA description for the progress bar */
+  /**
+   * The label of the alert banner.
+   */
   ariaLabel?: string;
+  /**
+   * The label of the close button.
+   */
   closeButtonAriaLabel?: string;
+  /**
+   * Callback fired when the close button is clicked.
+   */
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /**
+   * The content of the alert banner.
+   */
   children?: ChildrenType | ChildrenType[];
 }
 

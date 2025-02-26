@@ -13,23 +13,47 @@ import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
 
 export interface TabProps extends VibeComponentProps {
   /**
-   * Class name for tab link-name
+   * Class name applied to the inner tab content.
    */
   tabInnerClassName?: string;
   /**
-   * Tab index
+   * The index value of the tab.
    */
   value?: number;
+  /**
+   * If true, disables the tab.
+   */
   disabled?: boolean;
+  /**
+   * If true, marks the tab as active.
+   */
   active?: boolean;
+  /**
+   * If true, applies focus styles to the tab.
+   */
   focus?: boolean;
+  /**
+   * The icon displayed in the tab.
+   */
   icon?: SubIcon;
+  /**
+   * The type of icon (e.g., "svg", "font").
+   */
   iconType?: IconType;
+  /**
+   * The position of the icon relative to the text.
+   */
   iconSide?: string;
+  /**
+   * Callback fired when the tab is clicked.
+   */
   onClick?: (value: number) => void;
+  /**
+   * Props passed to the tab's tooltip.
+   */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Tab link-name
+   * The content displayed inside the tab.
    */
   children?: string | ReactElement | ReactElement[];
 }

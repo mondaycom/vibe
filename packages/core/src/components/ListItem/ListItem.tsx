@@ -15,56 +15,51 @@ import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
   /**
-   * the ListItem element [li, div, a]
+   * The HTML element used for the list item (e.g., "li", "div", "a").
    */
   component?: ListItemElement;
   /**
-   * The textual content of the list item
+   * The textual content inside the list item.
    */
   children?: ElementContent;
   /**
-   * A class name to be passed to the list item wrapper
+   * Class name applied to the list item.
    */
   className?: string;
   /**
-   * An id to be passed to the list item wrapper
+   * The ID of the list item.
    */
   id?: string;
   /**
-   * A callback function which is being called when the item is being clicked
-   * It will be called with the following params
-   * event (DomEvent)
-   * id (the id which is being passed)
-   * onClick(event, id)
+   * Callback fired when the item is clicked.
    */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, id: string) => void;
   /**
-   * A callback function which is being called when the item is being hovered
-   * It will be called with the following params
-   * event (DomEvent)
-   * id (the id which is being passed)
-   * onHover(event, id)
+   * Callback fired when the item is hovered.
    */
   onHover?: (event: React.MouseEvent | React.FocusEvent, id: string) => void;
   /**
-   * disabled state - callback will not be called and navigation will be skipped
+   * If true, disables the item and prevents interactions.
    */
   disabled?: boolean;
   /**
-   * Selected indication
+   * If true, marks the item as selected.
    */
   selected?: boolean;
   /**
-   * The size of the list item
+   * The size of the list item.
    */
   size?: ListItemSize;
   /**
-   Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
+   * The tab index of the list item for keyboard navigation.
    */
   tabIndex?: number;
+  /**
+   * Indicates the current state of the item in a set of items.
+   */
   "aria-current"?: AriaAttributes["aria-current"];
   /**
-   * ARIA role for the list item.
+   * The ARIA role of the list item.
    */
   role?: AriaRole;
 }

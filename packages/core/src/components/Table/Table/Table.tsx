@@ -20,28 +20,70 @@ export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "re
 type Width = number | `${number}%` | `${number}px` | `${number}fr`;
 
 export interface TableColumn {
+  /**
+   * Unique identifier for the column.
+   */
   id: string;
+  /**
+   * Column title displayed in the header.
+   */
   title: string;
+  /**
+   * Additional information displayed as a tooltip.
+   */
   infoContent?: string;
+  /**
+   * Column width configuration.
+   */
   width?: Width | { min: Width; max: Width };
+  /**
+   * Icon displayed next to the column title.
+   */
   icon?: SubIcon;
+  /**
+   * Loading state type for the column when data is being fetched.
+   */
   loadingStateType?: TableLoadingStateType;
 }
 
 export interface TableProps extends VibeComponentProps {
+  /**
+   * Defines the columns of the table.
+   */
   columns: TableColumn[];
+  /**
+   * State of the data being displayed (loading or error).
+   */
   dataState?: {
     isLoading?: boolean;
     isError?: boolean;
   };
+  /**
+   * React element displayed when there is an error state.
+   */
   errorState: ReactElement;
+  /**
+   * React element displayed when there is no data.
+   */
   emptyState: ReactElement;
+  /**
+   * Custom styles for the table.
+   */
   style?: React.CSSProperties;
+  /**
+   * The child components inside the table, such as `<TableHeader />` and `<TableBody />`.
+   */
   children?:
     | ReactElement<TableHeaderProps>
     | ReactElement<TableBodyProps>
     | Array<ReactElement<TableHeaderProps> | ReactElement<TableBodyProps>>;
+  /**
+   * The row size of the table.
+   */
   size?: RowSizes;
+  /**
+   * If true, removes the table's outer border.
+   */
   withoutBorder?: boolean;
 }
 

@@ -18,29 +18,17 @@ function defineChildId(index: number, props: { id: string }, accordionId: string
 
 export interface AccordionProps extends VibeComponentProps {
   /**
-   * List of AccordionItems
+   * The content of the accordion (`AccordionItem` components).
    */
   children?: Array<ReactElement> | ReactElement;
   /**
-   * is allowed multiple opened accordion items
+   * If true, multiple accordion items can be expanded at the same time.
    */
   allowMultiple?: boolean;
   /**
-   * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc.)
-   */
-  "data-testid"?: string;
-  /**
-   * Array of initial expanded indexes
+   * An array of initially expanded item indexes.
    */
   defaultIndex?: Array<number>;
-  /**
-   * A class name to be added to the accordion container
-   */
-  className?: string;
-  /**
-   * An id to be added the accordion container.
-   */
-  id?: string;
 }
 
 const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(

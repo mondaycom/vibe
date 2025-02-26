@@ -1,11 +1,9 @@
-import React from "react";
-
 export type ModalContextProps = ModalProviderValue;
 
 export type ModalProviderValue = {
   /**
    * Unique identifier for the modal.
-   * In use to set the modal title and description IDs to be unique.
+   * Used to ensure modal title and description IDs are unique.
    */
   modalId: string;
   /**
@@ -17,19 +15,20 @@ export type ModalProviderValue = {
    */
   setDescriptionId: (id: string) => void;
   /**
-   * Passed from the Modal component, `true` by default, `false` if set by user.
+   * If true, the modal automatically focuses on open.
+   * Defaults to `true`, unless explicitly set to `false`.
    */
   autoFocus?: boolean;
 };
 
 export interface ModalProviderProps {
   /**
-   * Context value containing modal state and handlers.
+   * The context value containing modal state and handlers.
    */
   value: ModalProviderValue;
   /**
-   * Modal provider children.
-   * Should be the Modal root.
+   * The children of the modal provider.
+   * Should wrap the root of the Modal.
    */
   children: React.ReactNode;
 }

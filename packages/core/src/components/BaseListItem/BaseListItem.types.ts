@@ -3,49 +3,55 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 
 export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>, VibeComponentProps {
+  /**
+   * The value associated with the list item.
+   */
   value?: string;
   /**
-   * Primary text content of the list item
+   * The primary text content of the list item.
    */
   label: string;
   /**
-   * Size of the list item. Will influence the padding and font size.
+   * The size of the list item. Affects padding and font size.
    */
   size?: BaseListItemSizes;
   /**
-   * Indicates whether the list item is selected.
+   * If true, the list item is selected.
    */
   selected?: boolean;
   /**
-   * Indicates whether the list item is disabled.
+   * If true, the list item is disabled.
    */
   disabled?: boolean;
   /**
-   * Element to render at the start of the list item.
-   * Can be an avatar, icon, inset or a custom rendered element.
+   * Element rendered at the start of the list item.
+   * Can be an avatar, icon, inset, or a custom element.
    */
   startElement?: StartElement;
   /**
-   * Element to render at the end of the list item.
-   * Can be an icon, suffix, or a custom rendered element.
+   * Element rendered at the end of the list item.
+   * Can be an icon, suffix, or a custom element.
    */
   endElement?: EndElement;
   /**
-   * Whether item should have highlight styling
+   * If true, applies highlight styling to the item.
    */
   highlighted?: boolean;
   /**
-   * Use when there's a need to display a tooltip on the list item (e.g., explain why disabled).
+   * Props for displaying a tooltip on the list item.
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * determines the position of the tooltip according to the direction.
+   * If true, adjusts the tooltip position for right-to-left (RTL) layouts.
    */
   rtl?: boolean;
   /**
-   * ARIA role for the list item.
+   * The ARIA role of the list item.
    */
   role?: AriaRole;
+  /**
+   * The index of the list item.
+   */
   index?: number;
 }
 

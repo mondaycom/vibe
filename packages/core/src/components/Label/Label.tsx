@@ -17,15 +17,36 @@ import { LabelSizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
   /**
-   * Class name for an inner text wrapper
+   * Class name applied to the inner text wrapper.
    */
   labelClassName?: string;
+  /**
+   * The visual style of the label.
+   */
   kind?: LabelKind;
+  /**
+   * The background color of the label.
+   */
   color?: LabelColor;
+  /**
+   * The text content of the label.
+   */
   text?: string;
+  /**
+   * If true, includes a leg (small decorative extension).
+   */
   isLegIncluded?: boolean;
+  /**
+   * Callback fired when the label is clicked.
+   */
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  /**
+   * If true, triggers a celebration animation.
+   */
   celebrationAnimation?: boolean;
+  /**
+   * The size of the label.
+   */
   size?: LabelSizes;
 }
 

@@ -7,10 +7,25 @@ import styles from "./StepsDot.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface StepsDotProps extends VibeComponentProps {
+  /**
+   * Callback fired when the dot is clicked.
+   */
   onClick?: (e: React.MouseEvent) => void;
+  /**
+   * ARIA attribute to indicate the current step.
+   */
   ariaCurrent?: StepsDotAriaCurrent | boolean;
+  /**
+   * If true, marks the dot as active.
+   */
   isActive?: boolean;
+  /**
+   * The ARIA label for the dot.
+   */
   ariaLabel?: string;
+  /**
+   * The color theme of the dot.
+   */
   color?: StepsColor;
 }
 

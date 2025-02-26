@@ -33,27 +33,41 @@ import styles from "./SplitButton.module.scss";
 import { DialogTriggerEvent } from "../Dialog/Dialog.types";
 
 export interface SplitButtonProps extends ButtonProps {
-  /*
-   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+  /**
+   * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
    */
   secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /**
+   * Callback fired when the secondary dialog is shown.
+   */
   onSecondaryDialogDidShow?: () => void;
+  /**
+   * Callback fired when the secondary dialog is hidden.
+   */
   onSecondaryDialogDidHide?: () => void;
+  /**
+   * The z-index applied to the secondary dialog.
+   */
   zIndex?: number;
-  /*
-   * Class name to provide the element which wraps the popover/modal/dialog
+  /**
+   * Class name applied to the wrapper of the secondary dialog.
    */
   secondaryDialogClassName?: string;
+  /**
+   * The position of the secondary dialog.
+   */
   secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
-  /*
-    Popover Container padding size
+  /**
+   * The padding size inside the secondary dialog.
    */
   dialogPaddingSize?: (typeof DialogContentContainer.sizes)[keyof typeof DialogContentContainer.sizes];
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The CSS selector of the container where the dialog should be rendered.
    */
   dialogContainerSelector?: string;
+  /**
+   * If true, clicking inside the dialog will close it.
+   */
   shouldCloseOnClickInsideDialog?: boolean;
 }
 

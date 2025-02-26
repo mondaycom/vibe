@@ -3,32 +3,32 @@ import { IconType } from "../../../../Icon";
 
 export interface MenuItemIconProps {
   /**
-   * Icon to be displayed. Can be a string or an icon component.
+   * The icon to be displayed. Can be a string or an icon component.
    */
   icon?: SubIcon;
   /**
-   * Icon type to be used.
+   * The type of icon to be used.
    */
   type?: IconType;
   /**
    * Label for the icon, used for accessibility.
+   * @deprecated This property will be removed in the next major version.
    */
-  // TODO: [breaking] remove in next major
   label?: string;
   /**
-   * Indicates whether the icon is disabled. Disabled icons appear faded and do not respond to user interactions.
+   * If true, the icon appears disabled. Disabled icons have a faded appearance and do not respond to user interactions.
    */
   disabled?: boolean;
   /**
-   * Indicates whether the icon is selected. Selected icons have a different visual style.
+   * If true, the icon appears selected. Selected icons have a different visual style.
    */
   selected?: boolean;
   /**
-   * Background color for the icon wrapper.
+   * The background color of the icon wrapper.
    */
   backgroundColor?: string;
   /**
-   * Additional class name for the icon wrapper.
+   * Additional class name for styling the icon wrapper.
    */
   wrapperClassName?: string;
 }

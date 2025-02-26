@@ -10,20 +10,56 @@ import { ToggleSize } from "./Toggle.types";
 
 export interface ToggleProps extends VibeComponentProps {
   /**
-   * ClassName to override styles of selected toggle
+   * Class name applied when the toggle is selected.
    */
   toggleSelectedClassName?: string;
+  /**
+   * If true, the toggle is selected by default.
+   */
   isDefaultSelected?: boolean;
+  /**
+   * Controls the selected state of the toggle.
+   */
   isSelected?: boolean;
+  /**
+   * Callback fired when the toggle state changes.
+   */
   onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The value associated with the toggle.
+   */
   value?: string;
+  /**
+   * The name attribute of the toggle input.
+   */
   name?: string;
+  /**
+   * If true, disables the toggle.
+   */
   disabled?: boolean;
+  /**
+   * If true, hides the on/off labels.
+   */
   areLabelsHidden?: boolean;
+  /**
+   * The text displayed when the toggle is in the "on" position.
+   */
   onOverrideText?: string;
+  /**
+   * The text displayed when the toggle is in the "off" position.
+   */
   offOverrideText?: string;
+  /**
+   * The ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * The ID of the element controlled by the toggle.
+   */
   ariaControls?: string;
+  /**
+   * The size of the toggle.
+   */
   size?: ToggleSize;
 }
 

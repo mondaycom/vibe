@@ -6,7 +6,13 @@ import Text from "../Text/Text";
 import styles from "./ListTitle.module.scss";
 
 export interface ListTitleProps extends VibeComponentProps {
+  /**
+   * The tab index for keyboard navigation.
+   */
   tabIndex?: number;
+  /**
+   * The title text.
+   */
   children?: string;
 }
 

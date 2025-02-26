@@ -5,6 +5,9 @@ import React, { FC } from "react";
 import styles from "./AlertBannerButton.module.scss";
 
 export interface AlertBannerButtonProps extends ButtonProps {
+  /**
+   * If true, the button is displayed on a dark background.
+   */
   isDarkBackground?: boolean;
 }
 

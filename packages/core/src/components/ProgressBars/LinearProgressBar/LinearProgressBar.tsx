@@ -17,65 +17,66 @@ import styles from "./LinearProgressBar.module.scss";
 
 export interface LinearProgressBarProps extends VibeComponentProps {
   /**
-   * Determine the progress bar style.
+   * Determines the visual style of the progress bar.
    */
   barStyle?: LinearProgressBarStyle;
   /**
-   * The progress bar starting value.
+   * The minimum value of the progress bar.
    */
   min?: number;
   /**
-   * The progress bar ending value.
+   * The maximum value of the progress bar.
    */
   max?: number;
   /**
-   * The progress bar current value.
+   * The current progress value.
    */
   value?: number;
   /**
-   * The progress bar secondary value.
+   * The secondary progress value (e.g., for buffer progress).
    */
   valueSecondary?: number;
   /**
-   * If set to *true*, animations are used.
+   * If true, enables animation effects.
    */
   animated?: boolean;
   /**
-   * Set external styling to the progress bar.
+   * Class name applied to the progress bar wrapper.
    */
   className?: string;
   /**
-   * Determine the progress bar height (Supported options exposed through
+   * The size of the progress bar.
    */
   size?: LinearProgressBarSize;
   /**
-   * Show progress bar progression in percentages
+   * If true, displays the progress percentage.
    */
   indicateProgress?: boolean;
   /**
-   * Use multiple bars.
-   * ***Note:*** `value`, `valueSecondary` & `barStyle` won't be used
+   * If true, enables multiple progress bars.
+   * **Note:** `value`, `valueSecondary`, and `barStyle` will not be used.
    */
   multi?: boolean;
   /**
-   * Array of bar value objects {
-   * `value` - The progress value,
-   * `color` - hex [`#000000` ~ `#ffffff`] of the current bar
-   * }
+   * An array of bar values and colors for multi-bar mode.
    */
   multiValues?: {
     /**
-     * The progress bar current value.
+     * The progress value for a bar.
      */
     value?: number;
     /**
-     * The bar color in hex - #000000 ~ #ffffff
+     * The bar color in hex format (`#000000` - `#ffffff`).
      */
     color?: string;
   }[];
-  /** ARIA description for the progress bar */
+  /**
+   * The ARIA label for the progress bar.
+   */
   ariaLabel?: string;
-  /** Is the progress bar spread across the entire container width (width: 100%) */
+  /**
+   * If true, makes the progress bar span the full container width.
+   */
   fullWidth?: boolean;
 }
 

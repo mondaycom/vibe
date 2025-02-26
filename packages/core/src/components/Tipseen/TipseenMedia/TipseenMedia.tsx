@@ -11,6 +11,9 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 
 export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps> {
+  /**
+   * The media content displayed inside the Tipseen.
+   */
   children: ReactNode;
 }
 

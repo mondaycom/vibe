@@ -9,35 +9,35 @@ import styles from "./FormattedNumber.module.scss";
 
 export interface FormattedNumberProps extends VibeComponentProps {
   /**
-   * A numeric value to format.
+   * The numeric value to format.
    */
   value?: number | string;
   /**
-   * If included, will be added as a prefix to the number.
+   * The text displayed before the number.
    */
   prefix?: string;
   /**
-   * If included, will be added as a suffix to the number.
+   * The text displayed after the number.
    */
   suffix?: string;
   /**
-   * The text that will be shown if no value is provided.
+   * The text displayed when no value is provided.
    */
   emptyPlaceHolder?: string;
   /**
-   * Determines the number of decimal numbers (0 ~ 20).
+   * The number of decimal places to display (0 ~ 20).
    */
   decimalPrecision?: number;
   /**
-   * Format number into compact number and initial (if required).
+   * If true, formats the number into a compact notation.
    */
   compact?: boolean;
   /**
-   * Determines the number's local (Unicode BCP 47 locale identifier).
+   * The locale used for formatting (Unicode BCP 47 locale identifier).
    */
   local?: string;
   /**
-   * Determines suffix and prefix location
+   * If true, reverses the order of the prefix and suffix.
    */
   rtl?: boolean;
 }

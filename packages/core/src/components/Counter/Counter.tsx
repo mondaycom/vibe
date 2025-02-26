@@ -18,30 +18,57 @@ import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
-  /** id to pass to the element */
+  /**
+   * The ID of the counter element.
+   */
   id?: string;
-  /** element id to describe the counter accordingly */
+  /**
+   * The ID of the element describing the counter.
+   */
   ariaLabeledBy?: string;
-  /** Custom class names to pass to the component wrapper */
+  /**
+   * Class name applied to the wrapper element.
+   */
   className?: string;
-  /** Custom class names to pass to the component */
+  /**
+   * Class name applied to the counter element.
+   */
   counterClassName?: string;
-  /** The numeric value of the counter */
+  /**
+   * The numeric value displayed in the counter.
+   */
   count?: number;
-  /** Counter description */
+  /**
+   * The label of the counter for accessibility.
+   */
   ariaLabel?: string;
-  /** The size of the counter */
+  /**
+   * The size of the counter.
+   */
   size?: CounterSize;
+  /**
+   * The visual style of the counter.
+   */
   kind?: CounterType;
-  /** The color of the counter */
+  /**
+   * The color of the counter.
+   */
   color?: CounterColor;
-  /** maximum number of digits to display (see relevant story) */
+  /**
+   * The maximum number of digits displayed before truncation.
+   */
   maxDigits?: number;
-  /** Text prepended to counter value */
+  /**
+   * Text prepended to the counter value.
+   */
   prefix?: string;
-  /** Callback to be called when the counter is clicked. */
+  /**
+   * Callback fired when the counter is clicked.
+   */
   onMouseDown?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  /** Disables the component's animation */
+  /**
+   * If true, disables counter animations.
+   */
   noAnimation?: boolean;
 }
 

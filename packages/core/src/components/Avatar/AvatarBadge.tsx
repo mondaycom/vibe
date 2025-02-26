@@ -12,13 +12,25 @@ import Icon from "../Icon/Icon";
 import { SubIcon } from "../../types";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
+  /**
+   * The image source for the badge.
+   */
   src?: string;
   /**
-   * Use to provide SVG Components
+   * The icon displayed inside the badge.
    */
   icon?: SubIcon;
+  /**
+   * The tab index of the badge.
+   */
   tabIndex?: string | number;
+  /**
+   * Class name applied to the badge.
+   */
   className?: string;
+  /**
+   * The size of the badge.
+   */
   size?: AvatarSize;
 }
 

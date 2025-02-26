@@ -20,22 +20,24 @@ function defineFilledTrackProps(dimension: number, offset: number, reverse: bool
 
 export interface SliderFilledTrackProps extends VibeComponentProps {
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * Class name applied to the filled track.
    */
   className?: string;
   /**
-   * Size of filled track, according to selected value of component (Slider)
+   * The size of the filled track, based on the selected value.
    */
   dimension?: number;
   /**
-   * Offset from start of track
+   * The offset from the start of the track.
    */
   offset?: number;
   /**
-   * Start Filled Track from the end of the track
-   * (`right` for LTR and `left` for RTL, `bottom` for vertical)
+   * If true, the filled track starts from the end instead of the beginning.
    */
   reverse?: boolean;
+  /**
+   * The color of the filled track.
+   */
   color: SliderColor;
 }
 

@@ -17,15 +17,45 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
+  /**
+   * The list of steps in the multi-step indicator.
+   */
   steps?: Step[];
+  /**
+   * The visual style of the multi-step indicator.
+   */
   type?: MultiStepType;
+  /**
+   * Class name applied to each step component.
+   */
   stepComponentClassName?: string;
+  /**
+   * Class name applied to the divider between steps.
+   */
   dividerComponentClassName?: string;
+  /**
+   * The icon used for fulfilled steps.
+   */
   fulfilledStepIcon?: SubIcon;
+  /**
+   * The type of the fulfilled step icon (e.g., "svg", "font").
+   */
   fulfilledStepIconType?: "svg" | "font";
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber?: boolean;
+  /**
+   * Callback fired when a step is clicked.
+   */
   onClick?: (stepNumber: number) => void;
+  /**
+   * The placement of the step text (e.g., "horizontal", "vertical").
+   */
   textPlacement?: TextPlacement;
+  /**
+   * The size of the multi-step indicator.
+   */
   size?: MultiStepSize;
 }
 

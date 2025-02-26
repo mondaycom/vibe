@@ -16,33 +16,72 @@ import styles from "./ColorPicker.module.scss";
 import { ColorStyle } from "../../types/Colors";
 
 export interface ColorPickerProps extends VibeComponentProps {
+  /**
+   * The selected color(s).
+   */
   value?: ColorPickerValue;
+  /**
+   * Callback fired when the selected color(s) change.
+   */
   onSave?: (value: ColorPickerArrayValueOnly) => void;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
   /**
-   * Hide color icon
+   * Icon used for clearing the color selection.
    */
   NoColorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * Text displayed for the "no color" option.
+   */
   noColorText?: string;
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * If true, treats the color list as a blacklist rather than a whitelist.
+   */
   isBlackListMode?: boolean;
+  /**
+   * The list of colors available for selection.
+   */
   colorsList?: ColorPickerArrayValueOnly;
+  /**
+   * If true, allows selecting multiple colors.
+   */
   isMultiselect?: boolean;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The number of colors displayed per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
   /**
-   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
-   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   * If true, forces the component to use the provided `colorsList` without filtering.
    */
   forceUseRawColorList?: boolean;
   /**
-   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
-   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
-   *
+   * If true, displays a tooltip with the color name.
    */
   showColorNameTooltip?: boolean;
 }

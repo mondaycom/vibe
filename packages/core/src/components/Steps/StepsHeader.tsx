@@ -10,16 +10,49 @@ import Button, { ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
+  /**
+   * The type of steps header (e.g., "gallery", "numbers").
+   */
   type: StepsType;
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * Callback fired when the active step changes.
+   */
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * If true, hides the navigation buttons.
+   */
   areNavigationButtonsHidden: boolean;
+  /**
+   * Props applied to the back button.
+   */
   backButtonProps: Partial<ButtonProps>;
+  /**
+   * Props applied to the next button.
+   */
   nextButtonProps: Partial<ButtonProps>;
+  /**
+   * Props applied to the finish button.
+   */
   finishButtonProps: Partial<ButtonProps>;
+  /**
+   * If true, hides the icons in the navigation buttons.
+   */
   areButtonsIconsHidden: boolean;
+  /**
+   * The color theme of the steps header.
+   */
   color?: StepsColor;
+  /**
+   * Callback fired when the finish button is clicked.
+   */
   onFinish?: (e: React.MouseEvent) => void;
 }
 

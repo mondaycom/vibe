@@ -12,6 +12,10 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface TableBodyProps extends VibeComponentProps {
+  /**
+   * The child components inside the table body, such as `<TableRow />` elements.
+   * Can also include a virtualized list.
+   */
   children?:
     | ReactElement<TableRowProps>
     | ReactElement<TableRowProps>[]

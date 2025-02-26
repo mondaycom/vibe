@@ -14,8 +14,17 @@ import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
+  /**
+   * The text style variant.
+   */
   type?: TextType;
+  /**
+   * The font weight of the text.
+   */
   weight?: TextWeight;
+  /**
+   * The content inside the text component.
+   */
   children: ReactNode;
 }
 

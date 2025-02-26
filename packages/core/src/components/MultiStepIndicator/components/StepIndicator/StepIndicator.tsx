@@ -21,10 +21,25 @@ import { SubIcon, VibeComponentProps } from "../../../../types";
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 export interface StepCircleDisplayProps {
+  /**
+   * The status of the step (e.g., "pending", "active", "fulfilled").
+   */
   status: StepStatus;
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber: boolean;
+  /**
+   * The icon displayed when the step is fulfilled.
+   */
   fulfilledStepIcon: SubIcon;
+  /**
+   * The type of icon used (e.g., "svg", "font").
+   */
   fulfilledStepIconType: "svg" | "font";
+  /**
+   * The step number in the sequence.
+   */
   stepNumber: number;
 }
 
@@ -49,19 +64,61 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
 };
 
 export interface StepIndicatorProps extends VibeComponentProps {
+  /**
+   * The status of the step (e.g., "pending", "active", "fulfilled").
+   */
   status: StepStatus;
+  /**
+   * The main title text for the step.
+   */
   titleText: string;
+  /**
+   * The subtitle text for the step.
+   */
   subtitleText?: string;
+  /**
+   * The number of the step in the sequence.
+   */
   stepNumber?: number;
+  /**
+   * Class name applied to the step component.
+   */
   stepComponentClassName?: string;
+  /**
+   * The visual style of the step indicator.
+   */
   type?: MultiStepType;
+  /**
+   * The icon used for a fulfilled step.
+   */
   fulfilledStepIcon?: SubIcon;
+  /**
+   * The type of icon used (e.g., "svg", "font").
+   */
   fulfilledStepIconType?: "svg" | "font";
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber?: boolean;
+  /**
+   * Callback fired when the step is clicked.
+   */
   onClick?: (stepNumber: number) => void;
+  /**
+   * If true, adds a divider after the step.
+   */
   isFollowedByDivider?: boolean;
+  /**
+   * Class name applied to the step divider.
+   */
   stepDividerClassName?: string;
+  /**
+   * If true, the step indicator is displayed vertically.
+   */
   isVertical?: boolean;
+  /**
+   * The size of the step indicator.
+   */
   size?: MultiStepSize;
 }
 

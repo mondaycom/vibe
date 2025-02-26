@@ -12,22 +12,28 @@ import { camelCase } from "lodash-es";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * Class name applied to the thumb component.
    */
   className?: string;
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * The index of the thumb (used in range sliders).
    */
   index?: number;
   /**
-   * On SliderThumb move callback
+   * Callback fired when the thumb is moved.
    */
   onMove?: (event: PointerEvent) => void;
   /**
-   * Position (i.e. offset) from start of track/rail, according to value
+   * The position of the thumb, represented as an offset percentage from the start of the track.
    */
   position?: number;
+  /**
+   * The size of the slider thumb.
+   */
   size: SliderSize;
+  /**
+   * The color theme of the slider thumb.
+   */
   color: SliderColor;
 }
 

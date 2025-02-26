@@ -18,9 +18,12 @@ export type AvatarItem = {
 
 export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
-   * Array of Avatar components
+   * The list of avatars displayed in the virtualized tooltip.
    */
   avatarItems?: AvatarItem[];
+  /**
+   * Function to render each avatar item.
+   */
   avatarRenderer?: (
     item: AvatarItem,
     index: number,
@@ -28,8 +31,17 @@ export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends Vi
     type: AvatarType,
     displayAsGrid: boolean
   ) => ReactElement;
+  /**
+   * The label of the tooltip container.
+   */
   tooltipContainerAriaLabel?: string;
+  /**
+   * Ref for the tooltip content container.
+   */
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
+  /**
+   * The type of avatars in the tooltip.
+   */
   type?: AvatarType;
 }
 

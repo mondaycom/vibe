@@ -11,22 +11,22 @@ export type ModalTopActionsButtonColor =
 
 export interface ModalTopActionsProps {
   /**
-   * Action element or render function for the top-right area.
-   * When provided as a function, receives the current button color theme
+   * The action element or a function that renders an action element in the top-right area.
+   * When provided as a function, it receives the current button color theme.
    */
   renderAction?:
     | React.ReactElement<typeof MenuButton | typeof IconButton>
     | ((color?: ModalTopActionsButtonColor) => React.ReactElement<typeof MenuButton | typeof IconButton>);
   /**
-   * Color theme for the top actions
+   * The color theme for the top actions.
    */
   theme?: ModalTopActionsTheme;
   /**
-   * Accessibility label for the close button
+   * The label of the close button for accessibility.
    */
   closeButtonAriaLabel?: string;
   /**
-   * Callback fired when the close button is clicked
+   * Callback fired when the close button is clicked.
    */
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
