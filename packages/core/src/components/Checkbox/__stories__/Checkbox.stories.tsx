@@ -18,7 +18,7 @@ export default {
   title: "Components/Checkbox",
   component: Checkbox,
   decorators: metaSettings.decorators,
-  argTypes: metaSettings.argTypes,
+  argTypes: metaSettings.argTypes
 } satisfies Meta<typeof Checkbox>;
 
 export const Overview: Story = {

@@ -30,7 +30,7 @@ export default {
     ...metaSettings.argTypes,
     children: {
       description: "Breadcrumb items, each containing text and an optional icon.",
-      control: "object", // ✅ Allows users to modify children in Storybook
+      control: "object",
       table: {
         type: {
           summary: "BreadcrumbItemProps[]",

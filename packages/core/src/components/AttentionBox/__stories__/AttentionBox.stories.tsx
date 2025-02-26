@@ -29,7 +29,14 @@ export default {
     AttentionBoxLink
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -102,12 +109,10 @@ export const States = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { StoryDescription, Info, ThumbsUp, Favorite }
+        scope: { StoryDescription, ThumbsUp, Favorite }
       }
     }
-  },
-
-  name: "States"
+  }
 };
 
 export const AttentionBoxWithLink = {
@@ -145,15 +150,7 @@ export const Dismissable = {
         />
       </div>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Info }
-      }
-    }
-  },
-  name: "Dismissable "
+  }
 };
 
 export const NaturalAttentionBox = {
@@ -169,16 +166,7 @@ export const NaturalAttentionBox = {
         type="dark"
       />
     </div>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Info }
-      }
-    }
-  },
-
-  name: "Natural attention box"
+  )
 };
 
 export const AttentionBoxInsideADialogCombobox = {
@@ -246,13 +234,6 @@ export const AttentionBoxAnimation = {
         </Flex>
       </>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Info }
-      }
-    }
   },
 
   name: "Attention box inside a dialog/combobox"

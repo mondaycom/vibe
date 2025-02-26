@@ -56,6 +56,13 @@ export default {
         type: AvatarBadgePropsType
       }
     }
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
   }
 };
 
@@ -86,16 +93,7 @@ export const Size = {
       <Avatar size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
       <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
     </>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1 }
-      }
-    }
-  },
-
-  name: "Size"
+  )
 };
 
 export const Disable = {
@@ -106,16 +104,7 @@ export const Disable = {
       <Avatar size="medium" src={person1} type="img" disabled />
       <Avatar size="large" src={person1} type="img" disabled />
     </>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1 }
-      }
-    }
-  },
-
-  name: "Disable"
+  )
 };
 
 export const AvatarWithText = {
@@ -126,9 +115,7 @@ export const AvatarWithText = {
       <Avatar size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
       <Avatar size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
     </>
-  ),
-
-  name: "Avatar with text"
+  )
 };
 
 export const SquareAvatar = {
@@ -139,16 +126,7 @@ export const SquareAvatar = {
       <Avatar size="medium" type="icon" icon={WhatsNew} backgroundColor="aquamarine" square ariaLabel="Present" />
       <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />
     </>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { WhatsNew }
-      }
-    }
-  },
-
-  name: "Square avatar"
+  )
 };
 
 export const AvatarWithRightBadge = {
@@ -161,12 +139,10 @@ export const AvatarWithRightBadge = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, guest, owner }
+        scope: { guest, owner }
       }
     }
-  },
-
-  name: "Avatar with right badge"
+  }
 };
 
 export const AvatarWithLeftBadge = {
@@ -180,12 +156,10 @@ export const AvatarWithLeftBadge = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, home, minus }
+        scope: { home, minus }
       }
     }
-  },
-
-  name: "Avatar with left badge"
+  }
 };
 
 export const AvatarWithTooltip = {
@@ -222,12 +196,10 @@ export const AvatarWithTooltip = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { StoryDescription, person1 }
+        scope: { StoryDescription }
       }
     }
-  },
-
-  name: "Avatar with tooltip"
+  }
 };
 
 export const ClickableAvatar = {
@@ -244,16 +216,7 @@ export const ClickableAvatar = {
         <Counter count={count} />
       </Flex>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1 }
-      }
-    }
-  },
-
-  name: "Clickable avatar"
+  }
 };
 
 export const MultipleAvatars = {
@@ -267,10 +230,8 @@ export const MultipleAvatars = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, person2, person3 }
+        scope: { person2, person3 }
       }
     }
-  },
-
-  name: "Multiple avatars"
+  }
 };
