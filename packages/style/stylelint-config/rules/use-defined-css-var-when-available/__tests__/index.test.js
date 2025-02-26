@@ -61,7 +61,10 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     const [firstWarning, secondWarning] = warnings;
 
     expect(firstWarning.text).toBe(
-      `Expected \"16px\" to be \"var(--spacing-medium)\" (monday-ui-style/use-defined-css-var-when-available)`
+      `Expected \"16px\" to be one of vars: 
+--space-16
+--spacing-medium
+ (monday-ui-style/use-defined-css-var-when-available)`
     );
     expect(firstWarning.line).toBe(3);
     expect(firstWarning.column).toBe(15);
@@ -76,14 +79,14 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
   it("fixes values that can be replaced with single CSS vars", async () => {
     const { results } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-single-replacement.scss"),
-      config,
+      config: configWithUseRecommendation,
       fix: true
     });
     const file = results[0]._postcssResult.opts.from;
     const expectedOutputAfterFix = `
 .some-class {
   width: 16px;
-  margin-top: var(--spacing-medium);
+  margin-top: var(--space-16);
 }
 
 #id {
