@@ -11,8 +11,9 @@ import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
-import "./AttentionBox.stories.scss";
 import Button from "../../Button/Button";
+import Text from "../../Text/Text";
+import { Heading } from "../../Heading";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
@@ -40,15 +41,16 @@ export default {
 };
 
 export const Overview = {
-  render: attentionBoxTemplate.bind({}),
+  render: () => (
+    <div style={{ width: "340px" }}>
+      {attentionBoxTemplate({
+        onClose: () => {},
+        title: "Attention box title",
+        text: "Studies show that 100% of people who celebrate birthdays, will eventually die."
+      })}
+    </div>
+  ),
   name: "Overview",
-
-  args: {
-    onClose: () => {},
-    title: "Attention box title",
-    text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
-    className: "monday-storybook-attention-box_box"
-  },
   parameters: {
     docs: {
       liveEdit: {
@@ -60,49 +62,54 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex direction="column" gap="small">
+    <Flex direction="column" gap="small" align="start">
       <StoryDescription description="Primary">
-        <AttentionBox
-          title="Enabling SSO Login"
-          text="Will cause all your team lose access to the account until using the correct SSO source."
-          className="monday-storybook-attention-box_box"
-          icon={Info}
-        />
+        <div style={{ width: "340px" }}>
+          <AttentionBox
+            title="Enabling SSO Login"
+            text="Will cause all your team lose access to the account until using the correct SSO source."
+            icon={Info}
+          />
+        </div>
       </StoryDescription>
       <StoryDescription description="Success">
-        <AttentionBox
-          title="You're doing great"
-          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          type="success"
-          className="monday-storybook-attention-box_box"
-          icon={ThumbsUp}
-        />
+        <div style={{ width: "340px" }}>
+          <AttentionBox
+            title="You're doing great"
+            text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            type="success"
+            icon={ThumbsUp}
+          />
+        </div>
       </StoryDescription>
       <StoryDescription description="Danger">
-        <AttentionBox
-          title="Account low on free space"
-          text="Your account is out of free space, free some space to prevent data loss."
-          type="danger"
-          className="monday-storybook-attention-box_box"
-        />
+        <div style={{ width: "340px" }}>
+          <AttentionBox
+            title="Account low on free space"
+            text="Your account is out of free space, free some space to prevent data loss."
+            type="danger"
+          />
+        </div>
       </StoryDescription>
       <StoryDescription description="Warning">
-        <AttentionBox
-          title="Account low on free space"
-          text="Your account is out of free space, free some space to prevent data loss."
-          type="warning"
-          className="monday-storybook-attention-box_box"
-          icon={Info}
-        />
+        <div style={{ width: "340px" }}>
+          <AttentionBox
+            title="Account low on free space"
+            text="Your account is out of free space, free some space to prevent data loss."
+            type="warning"
+            icon={Info}
+          />
+        </div>
       </StoryDescription>
       <StoryDescription description="Dark">
-        <AttentionBox
-          title="What a great idea!"
-          text="You can also make this list sortable by tagging the items with tags column"
-          type="dark"
-          className="monday-storybook-attention-box_box"
-          icon={Favorite}
-        />
+        <div style={{ width: "340px" }}>
+          <AttentionBox
+            title="What a great idea!"
+            text="You can also make this list sortable by tagging the items with tags column"
+            type="dark"
+            icon={Favorite}
+          />
+        </div>
       </StoryDescription>
     </Flex>
   ),
@@ -116,17 +123,14 @@ export const States = {
 };
 
 export const AttentionBoxWithLink = {
-  render: () => {
-    return (
-      /** Classname for setting a constant width to the attention box */
-      <AttentionBox compact className="monday-storybook-attention-box--fixed-width">
-        <Flex justify="space-between" gap="xs">
-          Get your monday.com notifications
-          <AttentionBoxLink href="" text="Learn more" />
-        </Flex>
-      </AttentionBox>
-    );
-  }
+  render: () => (
+    <AttentionBox compact>
+      <Flex justify="space-between" gap="xs">
+        Get your monday.com notifications
+        <AttentionBoxLink href="" text="Learn more" />
+      </Flex>
+    </AttentionBox>
+  )
 };
 
 export const Dismissable = {
@@ -134,30 +138,30 @@ export const Dismissable = {
     const mockOnClose = useCallback(() => null, []);
 
     return (
-      <div className="monday-storybook-attention-box_row-wrapper">
-        <AttentionBox
-          title="Regular attention box"
-          text="Dismissable attention box with two lines of content."
-          onClose={mockOnClose}
-          className="monday-storybook-attention-box_dismissable"
-          icon={Info}
-        />
-        <AttentionBox
-          text="Attention box in compact mode"
-          onClose={mockOnClose}
-          compact
-          className="monday-storybook-attention-box_dismissable"
-        />
-      </div>
+      <Flex gap="large" align="start">
+        <div style={{ width: "274px" }}>
+          <AttentionBox
+            title="Regular attention box"
+            text="Dismissable attention box with two lines of content."
+            onClose={mockOnClose}
+            icon={Info}
+          />
+        </div>
+        <div style={{ width: "274px" }}>
+          <AttentionBox text="Attention box in compact mode" onClose={mockOnClose} compact />
+        </div>
+      </Flex>
     );
   }
 };
 
 export const NaturalAttentionBox = {
   render: () => (
-    <div className="monday-storybook-attention-box_wrapper">
-      <span className="monday-storybook-attention-box_title">Cross-Account Copier</span>
-      <span className="monday-storybook-attention-box_text">Copy boards and dashboards to another account</span>
+    <Flex direction="column" align="start">
+      <Heading type="h2" weight="bold">
+        Cross-Account Copier
+      </Heading>
+      <Text style={{ margin: "4px 0 10px" }}>Copy boards and dashboards to another account</Text>
       <AttentionBox
         compact
         withIconWithoutHeader
@@ -165,7 +169,7 @@ export const NaturalAttentionBox = {
         text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
         type="dark"
       />
-    </div>
+    </Flex>
   )
 };
 
@@ -174,22 +178,25 @@ export const AttentionBoxInsideADialogCombobox = {
     const mockOnClose = useCallback(() => null, []);
 
     return (
-      <DialogContentContainer className="monday-storybook-attention-box_search-bar">
-        <Search placeholder="Search by name, role, team, or email" />
-        <div className="monday-storybook-attention-box_lable">Suggested people</div>
-        <div className="monday-storybook-attention-box_search">
-          <div className="monday-storybook-attention-box_inline-container">
-            <Avatar size="medium" src={person} type="img" />
-            <span className="monday-storybook-attention-box_name">
-              May Kishon <span>(UX/UI Product Designer)</span>
-            </span>
-          </div>
-          <div className="monday-storybook-attention-box_inline-container">
-            <Icon iconSize="24" icon={Invite} className="monday-storybook-attention-box_icon" />
-            <span className="monday-storybook-attention-box_name">Invite new board member by email</span>
-          </div>
-          <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />
-        </div>
+      <DialogContentContainer style={{ width: "380px", padding: "var(--spacing-medium)" }}>
+        <Flex direction="column" gap="medium" align="initial">
+          <Search placeholder="Search by name, role, team, or email" />
+          <Text style={{ paddingInlineStart: "5px", marginTop: "4px" }}>Suggested people</Text>
+          <Flex direction="column" gap="medium" align="start">
+            <Flex gap="small">
+              <Avatar size="medium" src={person} type="img" />
+              <Flex gap="xs">
+                <Text>May Kishon </Text>
+                <Text color="secondary">(UX/UI Product Designer)</Text>
+              </Flex>
+            </Flex>
+            <Flex gap="small">
+              <Icon iconSize="24" icon={Invite} />
+              <Text>Invite new board member by email</Text>
+            </Flex>
+            <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />
+          </Flex>
+        </Flex>
       </DialogContentContainer>
     );
   },
