@@ -4,7 +4,6 @@ import Menu from "../../../Menu/Menu/Menu";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import Search from "../../../Search/Search";
 import { Calendar, Filter, Wand } from "@vibe/icons";
-import styles from "./Menu.stories.module.scss";
 import React from "react";
 
 export const TipCombobox = () => (
@@ -29,7 +28,9 @@ export const ComponentRuleSimpleActions = () => (
 
 export const ComponentRuleWithSearch = () => (
   <DialogContentContainer>
-    <Search size="small" className={styles["component-rule-search"]} />
+    <div style={{ marginBottom: "var(--sb-spacing-small)" }}>
+      <Search size="small" />
+    </div>
     <Menu>
       <MenuItem title="Item 1" icon={Calendar} />
       <MenuItem title="Item 2" icon={Wand} />
@@ -48,8 +49,8 @@ export const ComponentRuleDefaultWidth = () => (
 );
 
 export const ComponentRuleLargeWidth = () => (
-  <DialogContentContainer className={styles["component-rule-large-dialog"]}>
-    <Menu className={styles["component-rule-large-menu"]}>
+  <DialogContentContainer style={{ width: "348px" }}>
+    <Menu>
       <MenuItem title="Item 1" icon={Calendar} />
       <MenuItem title="Item 2" icon={Filter} />
     </Menu>

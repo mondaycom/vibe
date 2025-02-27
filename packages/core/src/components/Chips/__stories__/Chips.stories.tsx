@@ -12,7 +12,6 @@ import { Email } from "@vibe/icons";
 import person1 from "./assets/person1.png";
 import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
-import styles from "./Chips.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
@@ -54,10 +53,10 @@ export const ChipsWithReadOnlyState = {
 
 export const ChipsWithIcons = {
   render: () => (
-    <>
+    <Flex>
       <Chips label="Chip with left icon" leftIcon={Email} />
       <Chips label="Chip with right icon" rightIcon={Email} />
-    </>
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -71,10 +70,10 @@ export const ChipsWithIcons = {
 
 export const ChipsWithAvatars = {
   render: () => (
-    <>
+    <Flex>
       <Chips label="Chip with left avatar" leftAvatar={person1} />
       <Chips label="Chip with right avatar" rightAvatar={person1} />
-    </>
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -213,75 +212,80 @@ export const OnColor = {
 
 export const ColorfulChipsForDifferentContent = {
   render: () => (
-    <DialogContentContainer className={styles.searchBar}>
-      <div className={styles.item}>
-        <Chips label="January" color="positive" />
-      </div>
-      <Search />
-      <div className={styles.item}>
-        <Chips label="August" readOnly color="lipstick" />
-      </div>
-      <div className={styles.item}>
-        <Chips label="April" readOnly color="bubble" />
-      </div>
-      <div className={styles.item}>
-        <Chips label="March" readOnly color="egg_yolk" />
-      </div>
-    </DialogContentContainer>
+    <Flex>
+      <DialogContentContainer>
+        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--spacing-small)" }}>
+          <div>
+            <Chips label="January" color="positive" />
+          </div>
+          <Search />
+          <div>
+            <Chips label="August" readOnly color="lipstick" />
+          </div>
+          <div>
+            <Chips label="April" readOnly color="bubble" />
+          </div>
+          <div>
+            <Chips label="March" readOnly color="egg_yolk" />
+          </div>
+        </Flex>
+      </DialogContentContainer>
+    </Flex>
   ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { styles }
-      }
-    }
-  },
   name: "Colorful chips for different content"
 };
 
 export const ChipsInAPersonPickerComboBox = {
   render: () => (
-    <DialogContentContainer className={styles.searchBar}>
-      <Search placeholder="Search names, positions, or a team" />
-      <Flex align="center" justify="center">
-        <Chips label="Esther Schanler" leftAvatar={person1} />
-        <Chips label="Rotem Dekel" leftAvatar={rotem} />
-      </Flex>
-      <Text type="text2" className={styles.lable}>
-        Suggested people
-      </Text>
-      <div className={styles.search}>
-        <Flex align="center" justify="center" key="cont-1">
-          <Avatar size="small" src={person1} type="img" />
-          <Text type="text2" className={styles.name}>
-            May Kishon <span>(UX/UI Product Designer)</span>
+    <Flex>
+      <DialogContentContainer>
+        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--spacing-small)" }}>
+          <Search placeholder="Search names, positions, or a team" />
+          <Flex align="center" justify="center">
+            <Chips label="Esther Schanler" leftAvatar={person1} />
+            <Chips label="Rotem Dekel" leftAvatar={rotem} />
+          </Flex>
+          <Text style={{ paddingInlineStart: "var(--spacing-xs)", marginTop: "var(--spacing-xs)" }}>
+            Suggested people
           </Text>
+          <Flex direction="column" align="start" gap="medium">
+            <Flex align="center" justify="center" key="cont-1" gap="small">
+              <Avatar size="small" src={person1} type="img" />
+              <Flex gap="xs">
+                <Text>May Kishon </Text>
+                <Text color="secondary">(UX/UI Product Designer)</Text>
+              </Flex>
+            </Flex>
+            <Flex align="center" justify="center" key="cont-2" gap="small">
+              <Avatar size="small" backgroundColor="dark_purple" text="LC" type="text" />
+              <Flex gap="xs">
+                <Text>Liron Cohen</Text>
+                <Text color="secondary">(Customer Experience)</Text>
+              </Flex>
+            </Flex>
+            <Flex align="center" justify="center" key="cont-3" gap="small">
+              <Avatar size="small" text="AL" type="text" />
+              <Flex gap="xs">
+                <Text>Amanda Lawrence</Text>
+                <Text color="secondary">(Customer Experience Designer)</Text>
+              </Flex>
+            </Flex>
+            <Flex align="center" justify="center" key="cont-4" gap="small">
+              <Avatar size="small" text="DY" type="text" backgroundColor="peach" />
+              <Flex gap="xs">
+                <Text>Dor Yehuda</Text>
+                <Text color="secondary">(Customer Experience Designer)</Text>
+              </Flex>
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex align="center" justify="center" key="cont-2">
-          <Avatar size="small" backgroundColor="dark_purple" text="LC" type="text" />
-          <Text type="text2" className={styles.name}>
-            Liron Cohen <span>(Customer Experience)</span>
-          </Text>
-        </Flex>
-        <Flex align="center" justify="center" key="cont-3">
-          <Avatar size="small" text="AL" type="text" />
-          <Text type="text2" className={styles.name}>
-            Amanda Lawrence <span>(Customer Experience Designer)</span>
-          </Text>
-        </Flex>
-        <Flex align="center" justify="center" key="cont-4">
-          <Avatar size="small" text="DY" type="text" backgroundColor="peach" />
-          <Text type="text2" className={styles.name}>
-            Dor Yehuda <span>(Customer Experience Designer)</span>
-          </Text>
-        </Flex>
-      </div>
-    </DialogContentContainer>
+      </DialogContentContainer>
+    </Flex>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles, person1, rotem }
+        scope: { person1, rotem }
       }
     }
   },
