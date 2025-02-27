@@ -125,7 +125,7 @@ export const States = {
 export const AttentionBoxWithLink = {
   render: () => (
     <AttentionBox compact>
-      <Flex justify="space-between" gap="xs">
+      <Flex justify="space-between" gap="xs" style={{ minWidth: "320px" }}>
         Get your monday.com notifications
         <AttentionBoxLink href="" text="Learn more" />
       </Flex>
@@ -158,7 +158,7 @@ export const Dismissable = {
 export const NaturalAttentionBox = {
   render: () => (
     <Flex direction="column" align="start">
-      <Heading type="h2" weight="bold">
+      <Heading type="h3" weight="bold">
         Cross-Account Copier
       </Heading>
       <Text style={{ margin: "4px 0 10px" }}>Copy boards and dashboards to another account</Text>
@@ -191,7 +191,7 @@ export const AttentionBoxInsideADialogCombobox = {
               </Flex>
             </Flex>
             <Flex gap="small">
-              <Icon iconSize="24" icon={Invite} />
+              <Icon iconSize="32" icon={Invite} style={{ padding: "0 6px" }} />
               <Text>Invite new board member by email</Text>
             </Flex>
             <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />

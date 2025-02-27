@@ -200,26 +200,26 @@ export const Margin = {
 export const Padding = {
   render: () => (
     <>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="xs">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="xs">
         <Box backgroundColor="primaryBackgroundColor">xs</Box>
       </Box>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="small">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="small">
         <Box backgroundColor="primaryBackgroundColor">small</Box>
       </Box>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="medium">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="medium">
         <Box backgroundColor="primaryBackgroundColor">medium</Box>
       </Box>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="large">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="large">
         <Box backgroundColor="primaryBackgroundColor">large</Box>
       </Box>
       <Divider withoutMargin />
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="xl">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="xl">
         <Box backgroundColor="primaryBackgroundColor">xl</Box>
       </Box>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="xxl">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="xxl">
         <Box backgroundColor="primaryBackgroundColor">xxl</Box>
       </Box>
-      <Box style={{ backgroundColor: "var(--negative-color-selected)" }} marginBottom="medium" border padding="xxxl">
+      <Box style={{ backgroundColor: "var(--color-sky-selected)" }} marginBottom="medium" border padding="xxxl">
         <Box backgroundColor="primaryBackgroundColor">xxxl</Box>
       </Box>
     </>
