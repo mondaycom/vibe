@@ -67,6 +67,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         inputClassName={inputClassName}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
+        data-vibe-id={getTestId(ComponentDefaultTestId.TOGGLE)}
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}

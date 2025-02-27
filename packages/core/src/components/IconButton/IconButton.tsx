@@ -217,6 +217,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             ref={mergedRef}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-vibe-id={getTestId(ComponentDefaultTestId.ICON_BUTTON)}
             noSidePadding
             active={active}
             className={className}
