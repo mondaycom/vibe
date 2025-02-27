@@ -3,7 +3,6 @@ import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState
 import useMergeRef from "../../../hooks/useMergeRef";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 const COMPONENT_ID = "monday-accordion";
 
