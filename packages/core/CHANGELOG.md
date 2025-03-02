@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.29.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.2...@vibe/core@3.29.0) (2025-02-24)
+
+
+### Features
+
+* **List:** add role props ([#2771](https://github.com/mondaycom/vibe/issues/2771)) ([a079690](https://github.com/mondaycom/vibe/commit/a07969084be9088801263eac29d65aa344adf040))
+
+
+
+
+
+## [3.28.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.1...@vibe/core@3.28.2) (2025-02-19)
+
+
+### Bug Fixes
+
+* **Tipseen:** setting width more than max-width in tooltip default width has no effect ([#2770](https://github.com/mondaycom/vibe/issues/2770)) ([4dc7a38](https://github.com/mondaycom/vibe/commit/4dc7a3882046157e8f6892193eaa35d0247bf7c6))
+
+
+
+
+
+## [3.28.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.0...@vibe/core@3.28.1) (2025-02-19)
+
+
+### Bug Fixes
+
+* **VirtualizedList:** sync scroll position to handle React 18 batching ([#2769](https://github.com/mondaycom/vibe/issues/2769)) ([4eacea5](https://github.com/mondaycom/vibe/commit/4eacea54a755361798666295f5ccf915b267d416))
+
+
+
+
+
+# [3.28.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.1...@vibe/core@3.28.0) (2025-02-17)
+
+
+### Features
+
+* **Label:** Add content colors ([#2767](https://github.com/mondaycom/vibe/issues/2767)) ([6ff8036](https://github.com/mondaycom/vibe/commit/6ff803620579fbb80e8204bc35e8a94d025409ab))
+
+
+
+
+
+## [3.27.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.0...@vibe/core@3.27.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* **Dialog:** ensure event handlers are properly forwarded in DialogContentContainer ([#2762](https://github.com/mondaycom/vibe/issues/2762)) ([8a9bfbd](https://github.com/mondaycom/vibe/commit/8a9bfbd1aacf6e8fbc71b2e294ed51a654c46574))
+
+
+
+
+
+# [3.27.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.27.0) (2025-02-11)
+
+
+### Features
+
+* **Combobox:** add className for sticky header ([#2759](https://github.com/mondaycom/vibe/issues/2759)) ([63094f7](https://github.com/mondaycom/vibe/commit/63094f75ff19e08d435b3947ed86272c387cc18c))
+
+
+
+
+
+# [3.26.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.26.0) (2025-02-11)
+
+
+### Features
+
+* **Combobox:** add className for sticky header ([#2759](https://github.com/mondaycom/vibe/issues/2759)) ([63094f7](https://github.com/mondaycom/vibe/commit/63094f75ff19e08d435b3947ed86272c387cc18c))
+
+
+
+
+
 # [3.25.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.24.2...@vibe/core@3.25.0) (2025-02-09)
 
 

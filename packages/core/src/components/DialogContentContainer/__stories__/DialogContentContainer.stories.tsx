@@ -15,7 +15,14 @@ export default {
   title: "Components/DialogContentContainer",
   component: DialogContentContainer,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { DialogContentContainerExample }
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -24,6 +31,13 @@ export const Overview = {
 
   args: {
     children: <DialogContentContainerExample />
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -32,9 +46,7 @@ export const Popover = {
     <DialogContentContainer type={DialogContentContainer.types.POPOVER}>
       <DialogContentContainerExample />
     </DialogContentContainer>
-  ),
-
-  name: "Popover"
+  )
 };
 
 export const Modal = {
@@ -42,7 +54,5 @@ export const Modal = {
     <DialogContentContainer type={DialogContentContainer.types.MODAL}>
       <DialogContentContainerExample />
     </DialogContentContainer>
-  ),
-
-  name: "Modal"
+  )
 };

@@ -277,11 +277,18 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     const startScrollAnimation = useCallback(
       (item: VirtualizedListItem) => {
         const { offsetTop } = item;
+
         if (animationData.animationStartTime) {
           // animation already in progress
           animationData.scrollOffsetFinal = offsetTop;
           return;
         }
+
+        // Update the initial scroll offset with the current scroll position for react 18 batching behavior
+        if (listRef.current?.state?.scrollOffset !== null) {
+          animationData.scrollOffsetInitial = listRef.current?.state?.scrollOffset;
+        }
+
         if (animationData.scrollOffsetInitial === offsetTop) {
           // offset already equals to item offset
           onScrollToFinished && onScrollToFinished();
