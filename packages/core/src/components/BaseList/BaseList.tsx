@@ -45,7 +45,8 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
                 return (
                   <BaseListItem
                     {...itemProps}
-                    key={item.value ?? itemIndex}
+                    label={item.label as string}
+                    key={typeof item.value === "string" ? item.value : itemIndex}
                     size={size}
                     highlighted={isHighlighted}
                     selected={isSelected}

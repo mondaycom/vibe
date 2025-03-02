@@ -3,7 +3,9 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 
-export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>, VibeComponentProps {
+export interface BaseListItemProps<T = Record<string, unknown>>
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    VibeComponentProps {
   /**
    * The value associated with the list item.
    */
@@ -59,7 +61,7 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (option: BaseListItemProps) => JSX.Element;
+  optionRenderer?: (item: T) => JSX.Element;
   /**
    * Allow any additional user-defined properties dynamically
    **/

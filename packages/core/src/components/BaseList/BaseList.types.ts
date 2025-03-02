@@ -1,31 +1,32 @@
 import React, { ReactNode } from "react";
 import { VibeComponentProps } from "../../types";
 import { BaseListItemProps } from "../BaseListItem";
-import { GetItemPropsOptions, UseComboboxGetMenuPropsOptions } from "downshift";
 
-export interface BaseListProps<T = BaseListItemProps> extends React.HTMLAttributes<HTMLDivElement>, VibeComponentProps {
+export interface BaseListProps<T = BaseListItemProps>
+  extends React.HTMLAttributes<HTMLUListElement>,
+    VibeComponentProps {
   /**
    * The list of options available in the list.
    */
   options: ListGroup<T>[];
   /**
-   * The selected item of the list.
+   * The selected item in the list.
    */
   selectedItem?: T | null;
   /**
-   * The index of the highlighted item of the list.
+   * The index of the highlighted item in the list.
    */
   highlightedIndex?: number;
   /**
-   * Downshift function to get props for the menu container
-   **/
-  getMenuProps?: (options?: UseComboboxGetMenuPropsOptions, otherOptions?: any) => any;
+   * Function to get props for the menu container.
+   */
+  getMenuProps?: ((options?: any, otherOptions?: any) => Record<string, unknown>) | null;
   /**
-   * Downshift function to get props for each item
-   * */
-  getItemProps?: (options: GetItemPropsOptions<T>) => any;
+   * Function to get props for each item in the list.
+   */
+  getItemProps?: ((options: any) => Record<string, unknown>) | null;
   /**
-   * The Size of the list item.
+   * The size of the list item.
    */
   size?: BaseListSizes;
   /**
@@ -41,7 +42,7 @@ export interface BaseListProps<T = BaseListItemProps> extends React.HTMLAttribut
    */
   optionRenderer?: (item: T) => JSX.Element;
   /**
-   * Text or Function to customize the "No results" message.
+   * Text or function to customize the "No results" message.
    */
   noOptionsMessage?: string | ReactNode;
 }
