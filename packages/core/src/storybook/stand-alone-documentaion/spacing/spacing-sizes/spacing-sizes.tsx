@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, Flex } from "../../../../components";
+import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, Flex, Box } from "../../../../components";
 import { TokenName } from "../spacing-token-name/spacing-token-name";
 
 const spacingData = [
@@ -65,53 +65,56 @@ const spacingData = [
   }
 ];
 export const SpacingSizes = () => (
-  <Table
-    columns={[
-      {
-        id: "TokenName",
-        title: "Token name",
-        width: "240px"
-      },
-      {
-        id: "Value",
-        title: "Value",
-        width: "240px"
-      },
-      {
-        id: "Description",
-        title: "Description"
-      }
-    ]}
-    errorState={<div />}
-    emptyState={<div />}
-    size="large"
-  >
-    <TableHeader>
-      <TableHeaderCell title="Token name" />
-      <TableHeaderCell title="Value" />
-      <TableHeaderCell title="Description" />
-    </TableHeader>
-    <TableBody>
-      {spacingData.map(rowItem => (
-        <TableRow key={rowItem.TokenName}>
-          <TableCell>
-            <TokenName>{rowItem.TokenName}</TokenName>
-          </TableCell>
-          <TableCell>
-            <Flex gap="small">
-              <div
-                style={{
-                  backgroundColor: "#6161FF",
-                  height: "var(--sb-space-20)",
-                  width: "var(--sb-" + rowItem.TokenName + ")"
-                }}
-              ></div>
-              {rowItem.Value}
-            </Flex>
-          </TableCell>
-          <TableCell>{rowItem.Description}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
+  <Box shadow="small" rounded="big" marginTop="xl">
+    <Table
+      withoutBorder
+      columns={[
+        {
+          id: "TokenName",
+          title: "Token name",
+          width: "240px"
+        },
+        {
+          id: "Value",
+          title: "Value",
+          width: "240px"
+        },
+        {
+          id: "Description",
+          title: "Description"
+        }
+      ]}
+      errorState={<div />}
+      emptyState={<div />}
+      size="large"
+    >
+      <TableHeader>
+        <TableHeaderCell title="Token name" />
+        <TableHeaderCell title="Value" />
+        <TableHeaderCell title="Description" />
+      </TableHeader>
+      <TableBody>
+        {spacingData.map(rowItem => (
+          <TableRow key={rowItem.TokenName}>
+            <TableCell>
+              <TokenName>{rowItem.TokenName}</TokenName>
+            </TableCell>
+            <TableCell>
+              <Flex gap="small">
+                <div
+                  style={{
+                    backgroundColor: "#6161FF",
+                    height: "var(--sb-space-20)",
+                    width: "var(--sb-" + rowItem.TokenName + ")"
+                  }}
+                ></div>
+                {rowItem.Value}
+              </Flex>
+            </TableCell>
+            <TableCell>{rowItem.Description}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </Box>
 );

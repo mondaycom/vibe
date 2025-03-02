@@ -5,6 +5,7 @@ import { FlexSpacingExample, Do1, Dont1, Do2, Dont2, Do3, Dont3 } from "./assets
 import { Text } from "../../../components";
 import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import * as SpacingStories from "./spacing.stories.tsx";
+import { SpacingSizes } from "./spacing-sizes/spacing-sizes"
 import styles from "./spacing.module.scss"; // Updated to use CSS Modules
 
 <Meta of={SpacingStories} />
@@ -12,8 +13,10 @@ import styles from "./spacing.module.scss"; // Updated to use CSS Modules
 <ComponentNameDecorator withFoundationBackground>Spacing</ComponentNameDecorator>
 
 - [Overview](#overview)
-- [Spacing sizes](#spacing-sizes)
+- [The spacing scale](#the-spacing-scale)
 - [Usage and examples](#usage-and-examples)
+- [Flex spacing](#flex-spacing)
+- [Do’s and don’ts](#dos-and-donts)
 - [Up next](#up-next)
 - [Feedback](#feedback)
 
@@ -32,7 +35,7 @@ It includes both small increments for small components or detailed designs, and 
 Each spacing value has its own token.
 The tokens are used inside the components and should also be included between the components when building a layout.
 
-<Canvas of={SpacingStories.Sizes} sourceState="none" />
+<SpacingSizes></SpacingSizes>
 
 ## Applying the spacing scale
 
