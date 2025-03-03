@@ -13,6 +13,20 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "MinusSmall",
+      file: "MinusSmall.svg",
+      description: "Minus icon for time counter",
+      tags: "Minus, Small, Counter, Remove, Divider, Subtract"
+  },
+
+  {
+      name: "ClassicFolder",
+      file: "ClassicFolder.svg",
+      description: "Typically used when grouping a few items together under one subject",
+      tags: "Folder, File, Classic, Binder"
+  },
+
+  {
       name: "AlignRight",
       file: "AlignRight.svg",
       description: "Typically used to adjust the alignment of text to the right within a document or text field.",

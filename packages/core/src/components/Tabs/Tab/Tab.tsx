@@ -9,6 +9,7 @@ import { IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
+import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -26,6 +27,7 @@ export interface TabProps extends VibeComponentProps {
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * Tab link-name
    */
@@ -43,6 +45,7 @@ const Tab: FC<TabProps> = forwardRef(
       active = false,
       focus = false,
       onClick = NOOP,
+      tooltipProps = {} as TooltipProps,
       icon,
       iconType,
       iconSide = "left",
@@ -77,25 +80,27 @@ const Tab: FC<TabProps> = forwardRef(
       return [...childrenArray, iconElement];
     }
     return (
-      <li
-        ref={mergedRef}
-        key={id}
-        className={cx(styles.tabWrapper, className, {
-          [styles.active]: active,
-          [styles.disabled]: disabled,
-          [styles.tabFocusVisibleInset]: focus
-        })}
-        id={id}
-        role="tab"
-        aria-selected={active}
-        aria-disabled={disabled}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
-      >
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
-        <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
-          {renderIconAndChildren()}
-        </a>
-      </li>
+      <Tooltip {...tooltipProps} content={tooltipProps.content}>
+        <li
+          ref={mergedRef}
+          key={id}
+          className={cx(styles.tabWrapper, className, {
+            [styles.active]: active,
+            [styles.disabled]: disabled,
+            [styles.tabFocusVisibleInset]: focus
+          })}
+          id={id}
+          role="tab"
+          aria-selected={active}
+          aria-disabled={disabled}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+        >
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
+          <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
+            {renderIconAndChildren()}
+          </a>
+        </li>
+      </Tooltip>
     );
   }
 );

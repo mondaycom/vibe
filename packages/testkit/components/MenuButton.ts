@@ -1,17 +1,13 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, test } from "@playwright/test";
 import { Button } from "./Button";
 import { Menu } from "./Menu";
-import { Dialog } from "./Dialog";
 
 /**
  * Class representing a menu button that extends the Button class.
  */
 export class MenuButton extends Button {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   button: Button;
-  menu: Dialog | Menu;
+  menu: Menu;
 
   /**
    * Create a MenuButton.
@@ -20,11 +16,8 @@ export class MenuButton extends Button {
    * @param {string} elementReportName - The name for reporting purposes.
    * @param {any} menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Dialog | Menu) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Menu) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
     this.button = new Button(this.page, this.locator, elementReportName);
     this.menu = menuType;
   }
@@ -35,8 +28,10 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async selectItem(item: string): Promise<void> {
-    await this.openMenu();
-    await this.menu.selectItem(item);
+    await test.step(`Select ${item} from ${this.elementReportName}`, async () => {
+      await this.openMenu();
+      await this.menu.selectItem(item);
+    });
   }
 
   /**
@@ -44,9 +39,11 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async openMenu(): Promise<void> {
-    if (!(await this.isExpanded())) {
-      await this.button.click();
-    }
+    await test.step(`Open menu in ${this.elementReportName}`, async () => {
+      if (!(await this.isExpanded())) {
+        await this.button.click();
+      }
+    });
   }
 
   /**
@@ -54,9 +51,11 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async closeMenu(): Promise<void> {
-    if (await this.isExpanded()) {
-      await this.button.click();
-    }
+    await test.step(`Close menu in ${this.elementReportName}`, async () => {
+      if (await this.isExpanded()) {
+        await this.button.click();
+      }
+    });
   }
 
   /**
@@ -64,7 +63,10 @@ export class MenuButton extends Button {
    * @returns {Promise<boolean>} True if the menu is expanded, false otherwise.
    */
   async isExpanded(): Promise<boolean> {
-    const expanded = await this.button.getAttributeValue("aria-expanded");
-    return expanded === "true";
+    let isExpanded = false;
+    await test.step(`Check if menu is expanded in ${this.elementReportName}`, async () => {
+      isExpanded = (await this.button.getAttributeValue("aria-expanded")) === "true";
+    });
+    return isExpanded;
   }
 }

@@ -55,6 +55,13 @@ export const Overview = {
 
   args: {
     tabPanelClassName: "monday-storybook-tabs_bg-color"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -83,8 +90,13 @@ export const Default = {
       </TabPanels>
     </TabsContext>
   ),
-
-  name: "Default"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleTabContent }
+      }
+    }
+  }
 };
 
 export const Stretched = {
@@ -101,9 +113,7 @@ export const Stretched = {
         <Tab disabled>Disabled</Tab>
       </TabList>
     </div>
-  ),
-
-  name: "Stretched"
+  )
 };
 
 export const Motion = {
@@ -155,8 +165,13 @@ export const Motion = {
       </TabsContext>
     </Flex>
   ),
-
-  name: "Motion"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExampleTabContent }
+      }
+    }
+  }
 };
 
 export const BoardViewsTabs = {
@@ -168,7 +183,13 @@ export const BoardViewsTabs = {
     </TabList>
   ),
 
-  name: "Board views tabs"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Table, Chart, Calendar }
+      }
+    }
+  }
 };
 
 export const AdminSectionTabs = {
@@ -189,7 +210,5 @@ export const AdminSectionTabs = {
         </TabPanel>
       </TabPanels>
     </TabsContext>
-  ),
-
-  name: "Admin section tabs"
+  )
 };

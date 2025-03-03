@@ -22,7 +22,14 @@ const menuTemplate = (args: MenuProps) => (
 export const Overview = {
   render: menuTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const Sizes = {

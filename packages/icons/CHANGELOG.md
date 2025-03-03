@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.4.0...@vibe/icons@1.5.0) (2025-02-13)
+
+
+### Features
+
+* **Icons:** Add MinusSmall ([#2761](https://github.com/mondaycom/vibe/issues/2761)) ([df01e7f](https://github.com/mondaycom/vibe/commit/df01e7fadf94b9b337dce5cc50b4d99b834f35be))
+
+
+
+
+
+# [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.3...@vibe/icons@1.4.0) (2025-01-27)
+
+
+### Features
+
+* **Icons:** add ClassicFolder icon ([#2731](https://github.com/mondaycom/vibe/issues/2731)) ([2c33612](https://github.com/mondaycom/vibe/commit/2c336127c38c492a0b91c514c6ee293c40f8a9dd))
+* **Icons:** add new icons ([#2726](https://github.com/mondaycom/vibe/issues/2726)) ([72a2b80](https://github.com/mondaycom/vibe/commit/72a2b8045defaac5ab9c0d6889012825bbcdbf9e))
+
+
+
+
+
 ## [1.3.3](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.2...@vibe/icons@1.3.3) (2025-01-20)
 
 

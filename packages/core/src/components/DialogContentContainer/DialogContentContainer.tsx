@@ -32,7 +32,8 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       size = "small",
       children,
       style,
-      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
+      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id),
+      ...props
     }: DialogContentContainerProps,
     ref
   ) => {
@@ -53,6 +54,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
           getStyle(styles, camelCase("type--" + type)),
           getStyle(styles, camelCase("size--" + size))
         )}
+        {...props}
       >
         {children}
       </div>

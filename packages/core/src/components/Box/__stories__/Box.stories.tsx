@@ -11,7 +11,14 @@ export default {
   title: "Layout/Box",
   component: Box,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
 };
 
 const boxTemplate = (args: BoxProps) => (
@@ -24,8 +31,14 @@ const boxTemplate = (args: BoxProps) => (
 
 export const Overview = {
   render: boxTemplate.bind({}),
-
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const BackgroundColors = {
@@ -39,9 +52,7 @@ export const BackgroundColors = {
         invertedColorBackground
       </Box>
     </div>
-  ),
-
-  name: "Background colors"
+  )
 };
 
 export const TextColors = {
@@ -53,9 +64,7 @@ export const TextColors = {
       </Box>
       <Box textColor="secondaryTextColor">secondaryTextColor</Box>
     </div>
-  ),
-
-  name: "Text Colors"
+  )
 };
 
 export const Border = {
@@ -63,9 +72,7 @@ export const Border = {
     <div className={styles.boxWrapper}>
       <Box border>default</Box>
     </div>
-  ),
-
-  name: "Border"
+  )
 };
 
 export const BorderColor = {
@@ -78,9 +85,7 @@ export const BorderColor = {
         layoutBorderColor
       </Box>
     </div>
-  ),
-
-  name: "Border Color"
+  )
 };
 
 export const RoundCorners = {
@@ -96,9 +101,7 @@ export const RoundCorners = {
         big
       </Box>
     </div>
-  ),
-
-  name: "Round Corners"
+  )
 };
 
 export const Shadow = {
@@ -109,9 +112,7 @@ export const Shadow = {
       <Box shadow="medium">medium</Box>
       <Box shadow="large">large</Box>
     </div>
-  ),
-
-  name: "Shadow"
+  )
 };
 
 export const Margin = {
@@ -153,9 +154,7 @@ export const Margin = {
         </Box>
       </div>
     </div>
-  ),
-
-  name: "Margin"
+  )
 };
 
 export const Padding = {
@@ -197,9 +196,7 @@ export const Padding = {
         </Box>
       </div>
     </div>
-  ),
-
-  name: "Padding"
+  )
 };
 
 export const Disabled = {
@@ -209,7 +206,5 @@ export const Disabled = {
         disabled
       </Box>
     </div>
-  ),
-
-  name: "Disabled"
+  )
 };

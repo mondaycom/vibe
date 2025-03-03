@@ -97,4 +97,8 @@ export interface SearchProps extends VibeComponentProps {
    * Callback function that is called when a keyboard key is down.
    */
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  /**
+   * Controls the visibility of the clear icon.
+   */
+  showClearIcon?: boolean;
 }

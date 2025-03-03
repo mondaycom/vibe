@@ -8,16 +8,16 @@
   .splitSubMenuIcon {
     width: 18px;
     height: 18px;
-
-    &.disabled {
-      cursor: not-allowed;
-      color: var(--disabled-text-color);
-    }
   }
 
   .subMenuIcon,
   .splitSubMenuIcon {
     color: var(--icon-color);
+
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--disabled-text-color);
+    }
   }
 
   .splitMenuItemIconButton {

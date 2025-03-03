@@ -36,7 +36,7 @@ jobs:
       - uses: ./.github/actions/git-creds
       - uses: ./.github/actions/download-builds
       - name: Generate new versions
-        run: yarn lerna version --exact --conventional-commits --conventional-graduate --message "Publish [skip ci]" -y
+        run: yarn lerna version --exact --conventional-commits --conventional-graduate --message "Publish [skip ci]" -y --create-release github
         env:
           GH_TOKEN: ${{ secrets.VIBE_GITHUB_TOKEN }}
       - run: yarn config set registry https://registry.npmjs.org/

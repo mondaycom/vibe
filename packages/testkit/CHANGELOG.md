@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.0...@vibe/testkit@1.5.1) (2025-02-13)
+
+**Note:** Version bump only for package @vibe/testkit
+
+
+
+
+
+# [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.5.0) (2025-02-11)
+
+
+### Features
+
+* testkit - playwright should be a peer dependency ([#2758](https://github.com/mondaycom/vibe/issues/2758)) ([758cc08](https://github.com/mondaycom/vibe/commit/758cc0835576076cd8c323a24f3db8fe2a5ba812))
+
+
+
+
+
+# [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.4.0) (2025-02-11)
+
+
+### Features
+
+* testkit - playwright should be a peer dependency ([#2758](https://github.com/mondaycom/vibe/issues/2758)) ([758cc08](https://github.com/mondaycom/vibe/commit/758cc0835576076cd8c323a24f3db8fe2a5ba812))
+
+
+
+
+
+# [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.1...@vibe/testkit@1.3.0) (2025-02-05)
+
+
+### Features
+
+* Remove Dialog's testkit class ([#2756](https://github.com/mondaycom/vibe/issues/2756)) ([174a8c1](https://github.com/mondaycom/vibe/commit/174a8c1309a42004c4bc5ef0f0931a5df159f1cb))
+
+
+
+
+
 ## [1.2.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.0...@vibe/testkit@1.2.1) (2025-01-19)
 
 

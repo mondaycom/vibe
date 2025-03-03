@@ -40,6 +40,13 @@ export const Overview = {
 
   args: {
     count: 5
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -47,17 +54,19 @@ export const Sizes = {
   render: () => (
     <>
       <div className="storybook-counter_column">
-        <Counter count={5} />
-        Big
+        <Counter count={5} size="xs" />
+        XS
       </div>
       <div className="storybook-counter_column">
         <Counter count={5} size="small" />
         Small
       </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} />
+        Large
+      </div>
     </>
-  ),
-
-  name: "Sizes"
+  )
 };
 
 export const Colors = {
@@ -80,9 +89,7 @@ export const Colors = {
         Light
       </div>
     </>
-  ),
-
-  name: "Colors"
+  )
 };
 
 export const Outline = {
@@ -105,9 +112,7 @@ export const Outline = {
         Light
       </div>
     </>
-  ),
-
-  name: "Outline"
+  )
 };
 
 export const Limits = {
@@ -126,9 +131,7 @@ export const Limits = {
         Three digits limit
       </div>
     </>
-  ),
-
-  name: "Limits"
+  )
 };
 
 export const NotificationCounter = {
@@ -161,8 +164,13 @@ export const NotificationCounter = {
       </div>
     );
   },
-
-  name: "Notification counter"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Notifications }
+      }
+    }
+  }
 };
 
 export const CounterOnInboxFilters = {
@@ -179,9 +187,7 @@ export const CounterOnInboxFilters = {
         <Counter count={99} color="dark" />
       </div>
     </>
-  ),
-
-  name: "Counter on inbox filters"
+  )
 };
 
 export const CountTheNumberOfUpdates = {
@@ -200,6 +206,11 @@ export const CountTheNumberOfUpdates = {
       </div>
     </div>
   ),
-
-  name: "Count the number of updates"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { AddUpdate, Update }
+      }
+    }
+  }
 };
