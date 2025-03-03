@@ -31,6 +31,13 @@ export const Overview = {
 
   args: {
     children: "Title"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -80,9 +87,7 @@ export const TypesAndWeights = {
         </Heading>
       </Flex>
     </Flex>
-  ),
-
-  name: "Types and weights"
+  )
 };
 
 export const Colors = {
@@ -102,8 +107,13 @@ export const Colors = {
       </Heading>
     </Flex>
   ),
-
-  name: "Colors"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
 };
 
 export const Overflow = {
@@ -128,8 +138,13 @@ export const Overflow = {
       </div>
     </Flex>
   ),
-
-  name: "Overflow",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID }
+      }
+    }
+  },
   play: headingOverflowSuite
 };
 
@@ -153,6 +168,12 @@ export const BuiltInPageHeaderNotEditable = {
       </Flex>
     </div>
   ),
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles, Custom }
+      }
+    }
+  },
   name: "Built-in page header (not editable)"
 };

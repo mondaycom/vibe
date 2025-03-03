@@ -17,7 +17,14 @@ export default {
   title: "Components/BreadcrumbsBar/BreadcrumbItem",
   component: BreadcrumbItem,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Workspace }
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -27,6 +34,13 @@ export const Overview = {
   args: {
     text: "Workspace",
     icon: Workspace
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 

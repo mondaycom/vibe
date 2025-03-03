@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.29.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.2...@vibe/core@3.29.0) (2025-02-24)
+
+
+### Features
+
+* **List:** add role props ([#2771](https://github.com/mondaycom/vibe/issues/2771)) ([a079690](https://github.com/mondaycom/vibe/commit/a07969084be9088801263eac29d65aa344adf040))
+
+
+
+
+
 ## [3.28.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.1...@vibe/core@3.28.2) (2025-02-19)
 
 

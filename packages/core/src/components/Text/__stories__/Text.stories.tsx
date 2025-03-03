@@ -30,6 +30,13 @@ export const Overview = {
 
   args: {
     children: "Hi, I'm a text!"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -68,9 +75,7 @@ export const SizesAndWeights = {
         </Text>
       </Flex>
     </Flex>
-  ),
-
-  name: "Sizes and weights"
+  )
 };
 
 export const Colors = {
@@ -109,7 +114,13 @@ export const Colors = {
     </Flex>
   ),
 
-  name: "Colors"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { cx, styles }
+      }
+    }
+  }
 };
 
 export const Overflow = {
@@ -149,7 +160,13 @@ export const Overflow = {
     </Flex>
   ),
 
-  name: "Overflow",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { OVERFLOW_TEXT_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID, HeadingType }
+      }
+    }
+  },
   play: textOverflowSuite
 };
 
@@ -171,9 +188,7 @@ export const Paragraph = {
         laborum.
       </Text>
     </Flex>
-  ),
-
-  name: "Paragraph"
+  )
 };
 
 export const LinksInsideRunningText = {
@@ -235,5 +250,12 @@ export const LinksInsideRunningText = {
     </Flex>
   ),
 
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { cx, StorybookLink, styles }
+      }
+    }
+  },
   name: "Links inside running text"
 };
