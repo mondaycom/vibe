@@ -53,7 +53,7 @@ export const ChipsWithReadOnlyState = {
 
 export const ChipsWithIcons = {
   render: () => (
-    <Flex>
+    <Flex gap="medium">
       <Chips label="Chip with left icon" leftIcon={Email} />
       <Chips label="Chip with right icon" rightIcon={Email} />
     </Flex>
@@ -70,7 +70,7 @@ export const ChipsWithIcons = {
 
 export const ChipsWithAvatars = {
   render: () => (
-    <Flex>
+    <Flex gap="medium">
       <Chips label="Chip with left avatar" leftAvatar={person1} />
       <Chips label="Chip with right avatar" rightAvatar={person1} />
     </Flex>
