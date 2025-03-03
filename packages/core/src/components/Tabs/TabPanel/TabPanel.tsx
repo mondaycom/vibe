@@ -21,7 +21,7 @@ const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index
       className={cx(styles.tabPanelWrapper, className)}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
-      data-vibe-id={getTestId(ComponentDefaultTestId.TAB_PANEL)}
+      data-vibe={ComponentDefaultTestId.TAB_PANEL}
       role="tabpanel"
     >
       {children}

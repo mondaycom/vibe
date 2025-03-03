@@ -113,7 +113,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
           showColorNameTooltip={showColorNameTooltip}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
-          data-vibe-id={getTestId(ComponentDefaultTestId.COLOR_PICKER)}
+          data-vibe={ComponentDefaultTestId.COLOR_PICKER}
         />
       </DialogContentContainer>
     );

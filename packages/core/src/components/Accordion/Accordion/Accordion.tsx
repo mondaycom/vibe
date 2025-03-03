@@ -117,7 +117,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
         ref={mergedRef}
         className={cx(styles.accordion, className)}
         data-testid={dataTestId}
-        data-vibe-id={COMPONENT_ID}
+        data-vibe={COMPONENT_ID}
         id={id}
       >
         {children && renderChildElements}

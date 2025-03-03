@@ -75,7 +75,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
-      data-vibe-id={getTestId(ComponentDefaultTestId.ICON)}
+      data-vibe={ComponentDefaultTestId.ICON}
     >
       {PlaceHolder}
     </SVGComponent>

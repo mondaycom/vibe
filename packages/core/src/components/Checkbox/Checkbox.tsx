@@ -134,7 +134,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
           className={cx(styles.checkbox, checkboxClassName)}
           ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
-          data-vibe-id={getTestId(ComponentDefaultTestId.CHECKBOX)}
+          data-vibe={ComponentDefaultTestId.CHECKBOX}
         >
           <Icon
             className={styles.icon}

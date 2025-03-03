@@ -24,7 +24,7 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
     <Icon
       {...props}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)}
-      data-vibe-id={getTestId(ComponentDefaultTestId.ICON)}
+      data-vibe={ComponentDefaultTestId.ICON}
     />
   );
 }
