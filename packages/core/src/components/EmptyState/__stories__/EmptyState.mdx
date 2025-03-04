@@ -1,0 +1,126 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import EmptyState from "../EmptyState";
+import * as EmptyStateStories from "./EmptyState.stories";
+import { RelatedComponents } from "@storybook/blocks";
+import { EDITABLE_TEXT, TEXT, HEADING } from "../../../storybook/components/related-components/component-description-map";
+
+<Meta of={EmptyStateStories} />
+
+# EmptyState
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do's and don'ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+
+## Overview
+
+An empty state component communicates to users that a particular section or feature contains no data or content. It provides visual cues, prompts, and clear actions to help users understand the current state and what actions they can take.
+
+<Canvas of={EmptyStateStories.Default} />
+
+## Props
+
+<Controls />
+
+## Usage
+
+### Guidelines
+
+- Use empty states to explain why content is missing and guide users on how to proceed
+- Always include a clear description of the current state
+- Provide a primary action that helps users move forward
+- Keep the messaging friendly and constructive
+- Use appropriate imagery to reinforce the message
+- Consider using the compact layout for smaller spaces or nested components
+
+## Variants
+
+### Without Title
+
+For simpler empty states, you can omit the title while maintaining a clear description.
+
+<Canvas of={EmptyStateStories.WithoutTitle} />
+
+### Compact Layout
+
+Use the compact layout when the empty state needs to fit in a smaller space or when it's part of a larger interface.
+
+<Canvas of={EmptyStateStories.Compact} />
+
+### With Button Supporting Action
+
+When users need an alternative action, you can provide a supporting button instead of a link.
+
+<Canvas of={EmptyStateStories.WithButtonSupportingAction} />
+
+### With Custom Image
+
+Customize the visual element using React components to better match your interface.
+
+<Canvas of={EmptyStateStories.WithCustomReactNodeImage} />
+
+### With Loading State
+
+Show loading states when actions are being processed.
+
+<Canvas of={EmptyStateStories.WithDisabledActions} />
+
+## Do's and Don'ts
+
+### Do: Provide clear guidance and an action to help users resolve the empty state
+
+<EmptyState
+  title="No search results"
+  description="Try adjusting your search terms or filters to find what you're looking for."
+  mainAction={{ text: "Clear filters", kind: "secondary" }}
+/>
+
+### Don't: Use vague messaging or unhelpful actions that don't guide users
+
+<EmptyState
+  title="Empty"
+  description="No items."
+  mainAction={{ text: "OK", kind: "secondary" }}
+/>
+
+### Do: Offer clear next steps with supporting information when needed
+
+<EmptyState
+  description="Start by adding your first team member to collaborate."
+  mainAction={{ text: "Add team member", kind: "primary" }}
+  supportingAction={{ text: "Learn about teams", href: "#" }}
+/>
+
+### Don't: Provide minimal or unclear information about how to proceed
+
+<EmptyState
+  title="No team members"
+  description="Your team is empty."
+  mainAction={{ text: "Add", kind: "primary" }}
+/>
+
+## Use cases and examples
+
+### First-time User Experience
+
+Guide new users through their first interactions with your product.
+
+<Canvas of={EmptyStateStories.Default} />
+
+### Search Results
+
+Help users understand why their search returned no results and how to adjust their search.
+
+<Canvas of={EmptyStateStories.WithoutTitle} />
+
+### Data Loading
+
+Show appropriate loading states while content is being processed.
+
+<Canvas of={EmptyStateStories.WithDisabledActions} />
+
+## Related components

@@ -1,0 +1,36 @@
+.emptyState {
+  width: 100%;
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--ui-border-color);
+  background: var(--primary-background-color);
+
+  
+  &.compact {
+    padding: var(--spacing-medium);
+
+    .actions {
+      padding-top: 8px;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+  max-width: 500px;
+}
+
+.actions {
+  width: 100%;
+  padding-top: 12px;
+}
