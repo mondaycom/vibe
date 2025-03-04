@@ -4,6 +4,9 @@ import { VibeComponent } from "../../types";
 import styles from "./BaseList.module.scss";
 import { BaseListProps } from "./BaseList.types";
 import { Flex } from "../Flex";
+import { TextType } from "../Text";
+import Text from "../Text/Text";
+import cx from "classnames";
 
 const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef(
   <T extends Record<string, unknown>>(
@@ -14,13 +17,16 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
       getMenuProps,
       getItemProps,
       size = "medium",
-      withGroupDivider,
+      withGroupDivider = false,
       dir = "ltr",
       optionRenderer,
-      noOptionsMessage = "No results"
+      noOptionsMessage = "No results",
+      stickyGroupTitle = false
     }: BaseListProps<T>,
     ref: React.Ref<HTMLUListElement>
   ) => {
+    const textVariant: TextType = size === "small" ? "text2" : "text1";
+
     return (
       <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()}>
         {options.every(group => group.options?.length === 0) ? (
@@ -34,7 +40,13 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
         ) : (
           options.map((group, groupIndex) => (
             <React.Fragment key={group.label ?? groupIndex}>
-              {group.label && <li className={styles.groupTitle}>{group.label}</li>}
+              {group.label && (
+                <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
+                  <Text type={textVariant} color="inherit">
+                    {group.label}
+                  </Text>
+                </li>
+              )}
               {group.options.map((item, itemIndex) => {
                 const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
                 const isHighlighted =

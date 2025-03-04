@@ -34,6 +34,10 @@ export interface BaseListProps<T = BaseListItemProps>
    */
   withGroupDivider?: boolean;
   /**
+   * If true, makes the group title sticky.
+   */
+  stickyGroupTitle?: boolean;
+  /**
    * The text direction of the list.
    */
   dir?: BaseListDirection;

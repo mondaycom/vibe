@@ -7,10 +7,13 @@
   .groupTitle {
     color: var(--secondary-text-color);
     padding: 8px 4px 8px 4px;
-    position: sticky;
-    top: 0;
     background-color: var(--fixed-light-color);
     z-index: 2;
+
+    &.sticky {
+      position: sticky;
+      top: 0;
+    }
   }
 
   .groupDivider {
