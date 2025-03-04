@@ -225,6 +225,7 @@ exports[`RadioButton renders correctly with text 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal"
     data-testid="radio-button-label"
+    data-vibe="text"
   >
     test text
   </span>

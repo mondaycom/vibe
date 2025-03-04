@@ -30,6 +30,7 @@ Snapshot Diff:
     <div
 +     class="typography primary start multiLineEllipsis text text2Normal description"
 +     data-testid="text"
++     data-vibe="text"
 +     style="--text-clamp-lines: 2;"
 +   >
 +     description
@@ -53,6 +54,7 @@ Snapshot Diff:
 +       aria-hidden="true"
 +       class="icon icon noFocusStyle"
 +       data-testid="icon"
++       data-vibe="icon"
 +       fill="currentColor"
 +       height="24"
 +       viewBox="0 0 20 20"
@@ -82,6 +84,7 @@ exports[`ModalHeader with required props 1`] = `
     <h1
       class="typography primary start multiLineEllipsis heading h1Normal"
       data-testid="text_modal-title-id"
+      data-vibe="text"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"
     >
@@ -100,6 +103,7 @@ exports[`ModalHeader with required props 1`] = `
         aria-label="close"
         class="button sizeMedium kindTertiary colorPrimary noSidePadding"
         data-testid="icon-button"
+        data-vibe="button"
         style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
         type="button"
       >
@@ -107,6 +111,7 @@ exports[`ModalHeader with required props 1`] = `
           aria-hidden="true"
           class="icon noFocusStyle"
           data-testid="icon"
+          data-vibe="icon"
           fill="currentColor"
           height="20"
           viewBox="0 0 20 20"

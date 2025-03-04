@@ -19,6 +19,7 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
         aria-hidden={true}
         className="icon iconComponent animateIconClose"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 20 20"

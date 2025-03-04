@@ -60,6 +60,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -94,6 +95,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Ocean
             </div>
@@ -113,6 +115,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Blue
             </div>
@@ -132,6 +135,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Purple
             </div>
@@ -151,6 +155,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Red
             </div>
@@ -170,6 +175,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Orange
             </div>
@@ -189,6 +195,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
             <div
               class="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Yellow
             </div>
@@ -260,6 +267,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -338,6 +346,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="16px"
               tabindex="-1"
@@ -416,6 +425,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -494,6 +504,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -572,6 +583,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -664,6 +676,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -742,6 +755,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               aria-hidden="true"
               class="icon"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20px"
               tabindex="-1"
@@ -784,6 +798,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     1
                   </div>
@@ -809,6 +824,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     2
                   </div>
@@ -834,6 +850,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     3
                   </div>
@@ -859,6 +876,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     4
                   </div>
@@ -884,6 +902,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     5
                   </div>
@@ -909,6 +928,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     6
                   </div>
@@ -934,6 +954,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     7
                   </div>
@@ -959,6 +980,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     8
                   </div>
@@ -984,6 +1006,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     9
                   </div>
@@ -1009,6 +1032,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     10
                   </div>
@@ -1034,6 +1058,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                   <div
                     class="typography inherit start singleLineEllipsis text text2Normal"
                     data-testid="text"
+                    data-vibe="text"
                   >
                     11
                   </div>
@@ -1147,6 +1172,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1214,6 +1240,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1330,6 +1357,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1446,6 +1474,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1502,6 +1531,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
                 data-testid="text"
+                data-vibe="text"
               >
                 Primary
               </div>
@@ -1511,6 +1541,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-label="Remove"
                 className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                 data-testid="value-container-chip-close"
+                data-vibe="button"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1531,6 +1562,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-hidden={true}
                   className="icon noFocusStyle"
                   data-testid="icon"
+                  data-vibe="icon"
                   fill="currentColor"
                   height="16"
                   viewBox="0 0 20 20"
@@ -1558,6 +1590,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
                 data-testid="text"
+                data-vibe="text"
               >
                 Positive
               </div>
@@ -1567,6 +1600,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-label="Remove"
                 className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                 data-testid="value-container-chip-close"
+                data-vibe="button"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1587,6 +1621,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-hidden={true}
                   className="icon noFocusStyle"
                   data-testid="icon"
+                  data-vibe="icon"
                   fill="currentColor"
                   height="16"
                   viewBox="0 0 20 20"
@@ -1617,6 +1652,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
                   data-testid="text"
+                  data-vibe="text"
                 >
                   Negative
                 </div>
@@ -1626,6 +1662,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-label="Remove"
                   className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
+                  data-vibe="button"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1646,6 +1683,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     aria-hidden={true}
                     className="icon noFocusStyle"
                     data-testid="icon"
+                    data-vibe="icon"
                     fill="currentColor"
                     height="16"
                     viewBox="0 0 20 20"
@@ -1737,6 +1775,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1761,6 +1800,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1877,6 +1917,7 @@ exports[`Dropdown renders correctly with className 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -1920,6 +1961,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             <div
               className="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Ocean
             </div>
@@ -2001,6 +2043,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2025,6 +2068,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2141,6 +2185,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2257,6 +2302,7 @@ exports[`Dropdown renders correctly with id 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2339,6 +2385,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
                   data-testid="text"
+                  data-vibe="text"
                 >
                   Ocean
                 </div>
@@ -2348,6 +2395,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   aria-label="Remove"
                   className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
+                  data-vibe="button"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2368,6 +2416,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     aria-hidden={true}
                     className="icon noFocusStyle"
                     data-testid="icon"
+                    data-vibe="icon"
                     fill="currentColor"
                     height="16"
                     viewBox="0 0 20 20"
@@ -2459,6 +2508,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2483,6 +2533,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2543,6 +2594,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   aria-hidden={true}
                   className="icon icon left noFocusStyle"
                   data-testid="icon"
+                  data-vibe="icon"
                   fill="currentColor"
                   height="18"
                   viewBox="0 0 20 20"
@@ -2558,6 +2610,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
                   data-testid="text"
+                  data-vibe="text"
                 >
                   Ocean
                 </div>
@@ -2567,6 +2620,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   aria-label="Remove"
                   className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
+                  data-vibe="button"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2587,6 +2641,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     aria-hidden={true}
                     className="icon noFocusStyle"
                     data-testid="icon"
+                    data-vibe="icon"
                     fill="currentColor"
                     height="16"
                     viewBox="0 0 20 20"
@@ -2678,6 +2733,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2702,6 +2758,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2837,6 +2894,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -2893,6 +2951,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
                 data-testid="text"
+                data-vibe="text"
               >
                 Ocean
               </div>
@@ -2916,6 +2975,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
                   data-testid="text"
+                  data-vibe="text"
                 >
                   Blue
                 </div>
@@ -3003,6 +3063,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3059,6 +3120,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
                 data-testid="text"
+                data-vibe="text"
               >
                 Ocean
               </div>
@@ -3082,6 +3144,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
                   data-testid="text"
+                  data-vibe="text"
                 >
                   Blue
                 </div>
@@ -3120,6 +3183,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3236,6 +3300,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3352,6 +3417,7 @@ exports[`Dropdown renders correctly with options 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3468,6 +3534,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3584,6 +3651,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3710,6 +3778,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3753,6 +3822,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             <div
               className="typography inherit start singleLineEllipsis text text2Normal"
               data-testid="text"
+              data-vibe="text"
             >
               Ocean
             </div>
@@ -3834,6 +3904,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3858,6 +3929,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}
@@ -3974,6 +4046,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
             aria-hidden={true}
             className="icon"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="20px"
             tabIndex={-1}

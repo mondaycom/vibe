@@ -27,8 +27,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-        class="typography primary start text text1Normal container"
         data-testid="modal-content"
+        data-vibe="text"
       >
 +       <div
 +         class="container"
@@ -41,6 +41,7 @@ Snapshot Diff:
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
 +             data-testid="text"
++             data-vibe="text"
 +             style="--text-clamp-lines: 2;"
 +           >
 +             ModalHeader Heading
@@ -58,6 +59,7 @@ Snapshot Diff:
 +               aria-label="close"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
++               data-vibe="button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 +               type="button"
 +             >
@@ -65,6 +67,7 @@ Snapshot Diff:
 +                 aria-hidden="true"
 +                 class="icon noFocusStyle"
 +                 data-testid="icon"
++                 data-vibe="icon"
 +                 fill="currentColor"
 +                 height="20"
 +                 viewBox="0 0 20 20"
@@ -94,8 +97,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-        class="typography primary start text text1Normal container"
         data-testid="modal-content"
+        data-vibe="text"
       >
 +       <div
 +         class="container"
@@ -108,6 +111,7 @@ Snapshot Diff:
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
 +             data-testid="text"
++             data-vibe="text"
 +             style="--text-clamp-lines: 2;"
 +           >
 +             ModalHeader Heading
@@ -125,6 +129,7 @@ Snapshot Diff:
 +               aria-label="close"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
++               data-vibe="button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 +               type="button"
 +             >
@@ -132,6 +137,7 @@ Snapshot Diff:
 +                 aria-hidden="true"
 +                 class="icon noFocusStyle"
 +                 data-testid="icon"
++                 data-vibe="icon"
 +                 fill="currentColor"
 +                 height="20"
 +                 viewBox="0 0 20 20"
@@ -148,17 +154,18 @@ Snapshot Diff:
 +       <div
 +         class="typography primary start text text1Normal container"
 +         data-testid="modal-content"
++         data-vibe="text"
 +       >
           <p>
             content
-+         </p>
+          </p>
 +       </div>
 +       <div
 +         class="container"
 +       >
 +         <p>
 +           footer
-          </p>
++         </p>
 +       </div>
       </div>
     </div>
@@ -195,6 +202,7 @@ exports[`Modal with base props 1`] = `
         <h1
           class="typography primary start multiLineEllipsis heading h1Normal"
           data-testid="text_modal-id-title"
+          data-vibe="text"
           id="modal-id-title"
           style="--text-clamp-lines: 2;"
         >
@@ -213,6 +221,7 @@ exports[`Modal with base props 1`] = `
             aria-label="Close"
             class="button sizeMedium kindTertiary colorPrimary noSidePadding"
             data-testid="icon-button"
+            data-vibe="button"
             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
             type="button"
           >
@@ -220,6 +229,7 @@ exports[`Modal with base props 1`] = `
               aria-hidden="true"
               class="icon noFocusStyle"
               data-testid="icon"
+              data-vibe="icon"
               fill="currentColor"
               height="20"
               viewBox="0 0 20 20"
@@ -236,6 +246,7 @@ exports[`Modal with base props 1`] = `
     <div
       class="typography primary start text text1Normal container"
       data-testid="modal-content"
+      data-vibe="text"
     >
       <p>
         content
@@ -288,7 +299,7 @@ Snapshot Diff:
 +             aria-label="closeButtonAriaLabel"
               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
               data-testid="icon-button"
-              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              data-vibe="button"
 `;
 
 exports[`Modal with custom width 1`] = `
@@ -320,6 +331,7 @@ Snapshot Diff:
         <div
 +         class="typography primary start multiLineEllipsis text text2Normal description"
 +         data-testid="text"
++         data-vibe="text"
 +         style="--text-clamp-lines: 2;"
 +       >
 +         description

@@ -4,6 +4,7 @@ exports[`Text renders correctly with align 1`] = `
 <span
   className="typography primary center singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
 >
   text
 </span>
@@ -13,6 +14,7 @@ exports[`Text renders correctly with color 1`] = `
 <span
   className="typography secondary start singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
 >
   text
 </span>
@@ -22,6 +24,7 @@ exports[`Text renders correctly with element 1`] = `
 <p
   className="typography primary start singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
 >
   text
 </p>
@@ -31,6 +34,7 @@ exports[`Text renders correctly with element as children 1`] = `
 <span
   className="typography primary start singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
 >
   <div>
     text
@@ -42,6 +46,7 @@ exports[`Text renders correctly with empty props 1`] = `
 <span
   className="typography primary start singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
 >
   text
 </span>
@@ -51,6 +56,7 @@ exports[`Text renders correctly with html attribute 1`] = `
 <span
   className="typography primary start singleLineEllipsis"
   data-testid="text"
+  data-vibe="text"
   role="banner"
 >
   text

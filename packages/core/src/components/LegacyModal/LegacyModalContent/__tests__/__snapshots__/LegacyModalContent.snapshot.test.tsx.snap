@@ -4,6 +4,7 @@ exports[`ModalContent renders correctly with children 1`] = `
 <div
   className="typography primary start text text1Normal container"
   data-testid="modal-content"
+  data-vibe="text"
 >
   <div>
     children
@@ -15,6 +16,7 @@ exports[`ModalContent renders correctly with empty props 1`] = `
 <div
   className="typography primary start text text1Normal container"
   data-testid="modal-content"
+  data-vibe="text"
 >
   content
 </div>

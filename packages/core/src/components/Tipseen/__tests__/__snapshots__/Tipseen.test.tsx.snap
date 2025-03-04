@@ -13,6 +13,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
       data-testid="tipseen-content-dismiss"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -27,6 +28,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -54,6 +56,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
         aria-disabled="false"
         class="button sizeSmall kindPrimary colorOnPrimaryColor"
         data-testid="tipseen-content-submit"
+        data-vibe="button"
         style="color: rgba(0, 0, 0, 0);"
         type="button"
       >
@@ -105,6 +108,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
                 aria-label="Close"
                 class="tipseenCloseButton dark button sizeMedium kindTertiary colorDark noSidePadding"
                 data-testid="icon-button"
+                data-vibe="button"
                 style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
                 type="button"
               >
@@ -112,6 +116,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
                   aria-hidden="true"
                   class="icon noFocusStyle"
                   data-testid="icon"
+                  data-vibe="icon"
                   fill="currentColor"
                   height="16"
                   viewBox="0 0 20 20"
@@ -126,6 +131,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
             <p
               class="typography onInverted start text text2Normal tipseenContent"
               data-testid="text"
+              data-vibe="text"
             >
               content
             </p>
@@ -168,6 +174,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
               aria-label="Close"
               class="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
               data-testid="icon-button"
+              data-vibe="button"
               style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
               type="button"
             >
@@ -175,6 +182,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
                 aria-hidden="true"
                 class="icon noFocusStyle"
                 data-testid="icon"
+                data-vibe="icon"
                 fill="currentColor"
                 height="16"
                 viewBox="0 0 20 20"
@@ -189,6 +197,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
           <p
             class="typography onInverted start text text2Normal tipseenContent"
             data-testid="text"
+            data-vibe="text"
           >
             content
           </p>
@@ -226,6 +235,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
             <p
               class="typography onInverted start text text2Normal tipseenContent"
               data-testid="text"
+              data-vibe="text"
             >
               content
             </p>
@@ -261,6 +271,7 @@ exports[`Snapshot tests TipseenTitle should render correctly with given text 1`]
   aria-level={3}
   className="typography inherit start multiLineEllipsis text text1Bold title"
   data-testid="tipseen-title"
+  data-vibe="text"
   role="heading"
   style={
     {
