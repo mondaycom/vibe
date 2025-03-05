@@ -44,7 +44,6 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         className={className}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABS_CONTEXT, id)}
-        data-vibe={ComponentDefaultTestId.TABS_CONTEXT}
       >
         {React.Children.map(children, (child: TabsChild) => {
           if (child.type.isTabList) {
