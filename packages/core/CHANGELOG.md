@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.30.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.29.0...@vibe/core@3.30.0) (2025-03-05)
+
+
+### Features
+
+* **types:** allow dialogPaddingSize to accept inline string values (in addition to the enum) ([#2786](https://github.com/mondaycom/vibe/issues/2786)) ([167b290](https://github.com/mondaycom/vibe/commit/167b2906c1b88e4b982dfe9fec25a4ff372d8943))
+* **types:** export TableColumn type ([#2787](https://github.com/mondaycom/vibe/issues/2787)) ([dbad506](https://github.com/mondaycom/vibe/commit/dbad5068a5f23677a9fc16809225e5563312f031))
+
+
+
+
+
 # [3.29.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.2...@vibe/core@3.29.0) (2025-02-24)
 
 
