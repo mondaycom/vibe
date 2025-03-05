@@ -1,8 +1,16 @@
 import { Meta, Canvas, Controls } from "@storybook/blocks";
 import EmptyState from "../EmptyState";
 import * as EmptyStateStories from "./EmptyState.stories";
-import { RelatedComponents } from "@storybook/blocks";
-import { EDITABLE_TEXT, TEXT, HEADING } from "../../../storybook/components/related-components/component-description-map";
+import { EmptyStateTip } from "./EmptyState.stories.helpers";
+import mainActionDo from "./assets/main-action-do.png";
+import mainActionDont from "./assets/main-action-dont.png";
+import supportingDo from "./assets/supporting-do.png";
+import supportingDont from "./assets/supporting-dont.png";
+import supportingLinkDo from "./assets/supporting-link-do.png";
+import supportingLinkDont from "./assets/supporting-link-dont.png";
+import { StorybookLink } from "vibe-storybook-components";
+import styles from "./EmptyState.stories.module.scss";
+import { ALERT_BANNER, TIPSEEN, ATTENTION_BOX } from "../../../storybook/components/related-components/component-description-map";
 
 <Meta of={EmptyStateStories} />
 
@@ -11,7 +19,9 @@ import { EDITABLE_TEXT, TEXT, HEADING } from "../../../storybook/components/rela
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
-- [Variants](#variants)
+- [Actions](#actions)
+- [Typography](#typography)
+- [Layout](#layout)
 - [Do's and don'ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
@@ -28,99 +38,97 @@ An empty state component communicates to users that a particular section or feat
 
 ## Usage
 
-### Guidelines
-
-- Use empty states to explain why content is missing and guide users on how to proceed
-- Always include a clear description of the current state
-- Provide a primary action that helps users move forward
-- Keep the messaging friendly and constructive
-- Use appropriate imagery to reinforce the message
-- Consider using the compact layout for smaller spaces or nested components
-
-## Variants
-
-### Without Title
-
-For simpler empty states, you can omit the title while maintaining a clear description.
-
-<Canvas of={EmptyStateStories.WithoutTitle} />
-
-### Compact Layout
-
-Use the compact layout when the empty state needs to fit in a smaller space or when it's part of a larger interface.
-
-<Canvas of={EmptyStateStories.Compact} />
-
-### With Button Supporting Action
-
-When users need an alternative action, you can provide a supporting button instead of a link.
-
-<Canvas of={EmptyStateStories.WithButtonSupportingAction} />
-
-### With Custom Image
-
-Customize the visual element using React components to better match your interface.
-
-<Canvas of={EmptyStateStories.WithCustomReactNodeImage} />
-
-### With Loading State
-
-Show loading states when actions are being processed.
-
-<Canvas of={EmptyStateStories.WithDisabledActions} />
-
-## Do's and Don'ts
-
-### Do: Provide clear guidance and an action to help users resolve the empty state
-
-<EmptyState
-  title="No search results"
-  description="Try adjusting your search terms or filters to find what you're looking for."
-  mainAction={{ text: "Clear filters", kind: "secondary" }}
+<UsageGuidelines
+  guidelines={[
+    "Provide a clear and concise message that informs the user about the expected outcome.",
+    "Handle errors and edge cases that might occur during data loading or rendering.",
+    "Use the empty state component to provide an initial state that prevents confusion when no data is available."
+  ]}
 />
 
-### Don't: Use vague messaging or unhelpful actions that don't guide users
+<EmptyStateTip />
 
-<EmptyState
-  title="Empty"
-  description="No items."
-  mainAction={{ text: "OK", kind: "secondary" }}
-/>
+## Actions
 
-### Do: Offer clear next steps with supporting information when needed
+### Main Action
 
-<EmptyState
-  description="Start by adding your first team member to collaborate."
-  mainAction={{ text: "Add team member", kind: "primary" }}
-  supportingAction={{ text: "Learn about teams", href: "#" }}
-/>
+Designers should be able to add custom action in specific situations. Like a primary and secondary with consideration to location and layout.
 
-### Don't: Provide minimal or unclear information about how to proceed
+<Canvas of={EmptyStateStories.ActionsComparison} />
 
-<EmptyState
-  title="No team members"
-  description="Your team is empty."
-  mainAction={{ text: "Add", kind: "primary" }}
-/>
+### Link
 
-## Use cases and examples
+Links should guide users to troubleshoot the issue or learn more about how to populate the section.
+If there’s no action to the section the link can stand alone.
 
-### First-time User Experience
+<Canvas of={EmptyStateStories.WithLinkOnly} />
 
-Guide new users through their first interactions with your product.
+### Two buttons
+
+Instead of link you can use a supporting action as a button. The supporting action cannot be the only button. You should include a main action with it.
+
+<Canvas of={EmptyStateStories.WithTwoButtons} />
+
+## Typography
+
+Empty state can be with or without a title.
+
+<Canvas of={EmptyStateStories.WithAndWithoutTitleComparison} />
+
+## Layout
+
+### Default
+
+The Default layout is meant for most layouts and locations.
 
 <Canvas of={EmptyStateStories.Default} />
 
-### Search Results
+### Compact
 
-Help users understand why their search returned no results and how to adjust their search.
+Instead of link you can use a supporting action as a button. The supporting action cannot be the only button. You should include a main action with it.
 
-<Canvas of={EmptyStateStories.WithoutTitle} />
+<Canvas of={EmptyStateStories.Compact} />
 
-### Data Loading
+## Do's and Don'ts
 
-Show appropriate loading states while content is being processed.
-
-<Canvas of={EmptyStateStories.WithDisabledActions} />
+<ComponentRules
+  rules={[
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: <img src={mainActionDo} alt="Empty state with clear guidance and helpful action" style={{ maxWidth: "100%" }} />,
+        description: "Provide clear guidance and an action to help users resolve the empty state."
+      },
+      negative: {
+        component: <img src={mainActionDont} alt="Empty state with vague messaging" style={{ maxWidth: "100%" }} />,
+        description: "Don't use vague messaging or unhelpful actions that don't guide users."
+      }
+    },
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: <img src={supportingDo} alt="Empty state with clear next steps and supporting information" style={{ maxWidth: "100%" }} />,
+        description: "Offer clear next steps with supporting information when needed."
+      },
+      negative: {
+        component: <img src={supportingDont} alt="Empty state with minimal information" style={{ maxWidth: "100%" }} />,
+        description: "Don't provide minimal or unclear information about how to proceed."
+      }
+    },
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: <img src={supportingLinkDo} alt="Empty state with clear next steps and supporting information" style={{ maxWidth: "100%" }} />,
+        description: "Offer clear next steps with supporting information when needed."
+      },
+      negative: {
+        component: <img src={supportingLinkDont} alt="Empty state with minimal information" style={{ maxWidth: "100%" }} />,
+        description: "Don't provide minimal or unclear information about how to proceed."
+      }
+    }
+  ]}
+/>
 
 ## Related components
+
+<RelatedComponents componentsNames={[ALERT_BANNER, TIPSEEN, ATTENTION_BOX]} />

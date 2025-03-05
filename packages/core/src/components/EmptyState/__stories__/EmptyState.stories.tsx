@@ -2,26 +2,13 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import EmptyState from "../EmptyState";
 import { EmptyStateLayout } from "../EmptyState.types";
-import emptyStateImage from "./assets/image.png";
+import emptyStateImage from './assets/image.png';
 import { Download, Email, Update, WhatsNew } from "@vibe/icons";
+import styles from "./EmptyState.stories.module.scss";
 
 const meta: Meta<typeof EmptyState> = {
   title: "Components/EmptyState",
   component: EmptyState,
-  parameters: {
-    docs: {
-      page: null
-    }
-  },
-  argTypes: {
-    title: { control: "text" },
-    description: { control: "text" },
-    illustration: { control: "text" },
-    layout: {
-      control: { type: "select" },
-      options: Object.values(EmptyStateLayout)
-    }
-  }
 };
 
 export default meta;
@@ -29,10 +16,9 @@ type Story = StoryObj<typeof EmptyState>;
 
 export const Default: Story = {
   args: {
-    title: "The title should be short and reflect the purpose",
-    description:
-      "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
-    illustration: <img src={emptyStateImage} alt="No items found" width={280} height={280} />,
+    title: "Your favorites are empty",
+    description: "Add your boards, docs, or dashboards for a quick access.",
+    illustration: <img src={emptyStateImage} alt="No items found" width={280} height={184}/>,
     mainAction: {
       text: "Main action",
       kind: "secondary",
@@ -53,7 +39,7 @@ export const Default: Story = {
 export const WithoutTitle: Story = {
   args: {
     description: "No data available yet. Add some items to get started.",
-    illustration: <img src={emptyStateImage} alt="No data available" width={280} height={280} />,
+    illustration: <img src={emptyStateImage} alt="No data available" width={280} height={184}/>,
     mainAction: {
       text: "Add item",
       kind: "primary",
@@ -67,9 +53,9 @@ export const WithoutTitle: Story = {
 
 export const Compact: Story = {
   args: {
-    title: "No notifications",
-    description: "You're all caught up! Check back later for updates.",
-    illustration: <img src={emptyStateImage} alt="No notifications" width={280} height={280} />,
+    title: "Your favorites are empty",
+    description: "Add your boards, docs, or dashboards for a quick access.",
+    illustration: <img src={emptyStateImage} alt="No notifications" width={280} height={184}/>,
     layout: EmptyStateLayout.COMPACT,
     mainAction: {
       text: "Refresh",
@@ -85,7 +71,7 @@ export const WithButtonSupportingAction: Story = {
   args: {
     title: "No files uploaded",
     description: "Upload files to share with your team members.",
-    illustration: <img src={emptyStateImage} alt="No files uploaded" width={280} height={280} />,
+    illustration: <img src={emptyStateImage} alt="No files uploaded" width={280} height={184}/>,
     mainAction: {
       text: "Upload files",
       kind: "primary",
@@ -110,17 +96,7 @@ export const WithCustomReactNodeImage: Story = {
     title: "No messages",
     description: "Your inbox is empty. Messages from your team will appear here.",
     illustration: (
-      <div
-        style={{
-          width: "80px",
-          height: "80px",
-          borderRadius: "50%",
-          backgroundColor: "#ecedf5",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
+      <div className={styles.customIllustration}>
         <Email size="large" />
       </div>
     ),
@@ -138,7 +114,7 @@ export const WithDisabledActions: Story = {
   args: {
     title: "Processing data",
     description: "Your data is being processed. This might take a few minutes.",
-    illustration: <img src={emptyStateImage} alt="Processing data" width={280} height={280} />,
+    illustration: <img src={emptyStateImage} alt="Processing data" width={280} height={184}/>,
     mainAction: {
       text: "Refresh",
       kind: "secondary",
@@ -157,4 +133,102 @@ export const WithDisabledActions: Story = {
       }
     }
   }
+};
+
+export const ActionsComparison: Story = {
+  render: () => (
+    <div className={styles.comparisonContainer}>
+      <div className={styles.comparisonItem}>
+        <EmptyState
+          title="The title should be concise and reflect the purpose"
+          description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
+          illustration={<img src={emptyStateImage} alt="No items found" width={280} height={184}/>}
+          mainAction={{
+            text: "Main action",
+            onClick: () => {
+              alert("First view - Add item clicked");
+            }
+          }}
+        />
+      </div>
+      <div className={styles.comparisonItem}>
+        <EmptyState
+          title="The title should be concise and reflect the purpose"
+          description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
+          illustration={<img src={emptyStateImage} alt="No items found" width={280} height={184}/>}
+          mainAction={{
+            text: "Main action",
+            kind: "primary",
+            onClick: () => {
+              alert("Second view - View details clicked");
+            }
+          }}
+        />
+      </div>
+    </div>
+  )
+};
+
+export const WithLinkOnly: Story = {
+  args: {
+    title: "The title should be concise and reflect the purpose",
+    description: "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
+    supportingAction: {
+      text: "Read more",
+      href: "https://example.com/help",
+      onClick: () => {
+        alert("Help center link clicked");
+      }
+    }
+  }
+};
+
+export const WithTwoButtons: Story = {
+  args: {
+    title: "The title should be concise and reflect the purpose",
+    description: "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
+    mainAction: {
+      text: "Main action",
+      onClick: () => {
+        alert("Main action clicked");
+      }
+    },
+    supportingAction: {
+      text: "Supporting action",
+      type: "button",
+      onClick: () => {
+        alert("Supporting action clicked");
+      }
+    }
+  }
+};
+
+export const WithAndWithoutTitleComparison: Story = {
+  render: () => (
+    <div className={styles.comparisonContainer}>
+      <div className={styles.comparisonItem}>
+        <EmptyState 
+          title="Make your data visual" 
+          description="Select a Location or Country column to get started"
+          mainAction={{
+            text: "Add a column",
+            onClick: () => {
+              alert("Main action clicked");
+            }
+          }}
+        />
+      </div>
+      <div className={styles.comparisonItem}>
+        <EmptyState 
+          description="Select a Location or Country column to get started" 
+          mainAction={{
+            text: "Add a column",
+            onClick: () => {
+              alert("Main action clicked");
+            }
+          }}
+        />
+      </div>
+    </div>
+  )
 };

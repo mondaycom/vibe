@@ -36,10 +36,11 @@ const EmptyState: FC<EmptyStateProps> = ({
       <Flex direction={Flex.directions.COLUMN} align={Flex.align.CENTER} gap={Flex.gaps.XS} className={styles.content}>
         {title && (
           <Heading
-            type={isCompact ? Heading.types.H3 : Heading.types.H2}
+            type={Heading.types.H3}
             weight={Heading.weights.MEDIUM}
             className={styles.title}
             align={Heading.align.CENTER}
+            ellipsis={false}
           >
             {title}
           </Heading>
