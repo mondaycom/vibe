@@ -19072,7 +19072,7 @@
           "tsType": {
             "name": "boolean"
           },
-          "description": "Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.\nWhen \"tooltipContentByColor\" is supplied, it will override the color name tooltip."
+          "description": "Used to enable color name tooltip on each color in the component.\nWhen \"tooltipContentByColor\" is supplied, it will override the color name tooltip."
         }
       }
     }
@@ -26193,7 +26193,7 @@
           "tsType": {
             "name": "boolean"
           },
-          "description": "Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.\nWhen \"tooltipContentByColor\" is supplied, it will override the color name tooltip."
+          "description": "Used to enable color name tooltip on each color in the component.\nWhen \"tooltipContentByColor\" is supplied, it will override the color name tooltip."
         }
       }
     }
