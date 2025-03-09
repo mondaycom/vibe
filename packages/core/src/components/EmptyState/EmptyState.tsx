@@ -33,7 +33,12 @@ const EmptyState: FC<EmptyStateProps> = ({
     >
       {!!illustration && illustration}
 
-      <Flex direction={Flex.directions.COLUMN} align={Flex.align.CENTER} gap={isCompact ? Flex.gaps.SMALL : 12} className={styles.content}>
+      <Flex
+        direction={Flex.directions.COLUMN}
+        align={Flex.align.CENTER}
+        gap={isCompact ? Flex.gaps.SMALL : 12}
+        className={styles.content}
+      >
         <div>
           {title && (
             <Heading
