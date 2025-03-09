@@ -7,10 +7,6 @@
   
   &.compact {
     padding: var(--spacing-medium);
-
-    .actions {
-      padding-top: 8px;
-    }
   }
 }
 
@@ -30,5 +26,4 @@
 
 .actions {
   width: 100%;
-  padding-top: 12px;
 }

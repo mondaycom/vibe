@@ -33,53 +33,57 @@ const EmptyState: FC<EmptyStateProps> = ({
     >
       {!!illustration && illustration}
 
-      <Flex direction={Flex.directions.COLUMN} align={Flex.align.CENTER} gap={Flex.gaps.XS} className={styles.content}>
-        {title && (
-          <Heading
-            type={Heading.types.H3}
-            weight={Heading.weights.MEDIUM}
-            className={styles.title}
-            align={Heading.align.CENTER}
-            ellipsis={false}
-          >
-            {title}
-          </Heading>
-        )}
-
-        <Text
-          type={isCompact ? Text.types.TEXT3 : Text.types.TEXT2}
-          color={Text.colors.SECONDARY}
-          className={styles.description}
-          align={Text.align.CENTER}
-          ellipsis={false}
-        >
-          {description}
-        </Text>
-
-        {(mainAction || supportingAction) && (<Flex
-          direction={Flex.directions.COLUMN}
-          align={Flex.align.CENTER}
-          gap={Flex.gaps.MEDIUM}
-          className={styles.actions}
-        >
-          {mainAction && (
-            <Button
-              kind={mainAction.kind || Button.kinds.SECONDARY}
-              size={Button.sizes.MEDIUM}
-              leftIcon={mainAction.leftIcon}
-              rightIcon={mainAction.rightIcon}
-              disabled={mainAction.disabled}
-              color={mainAction.color}
-              loading={mainAction.loading}
-              onClick={mainAction.onClick}
-              className={styles.mainAction}
+      <Flex direction={Flex.directions.COLUMN} align={Flex.align.CENTER} gap={isCompact ? Flex.gaps.SMALL : 12} className={styles.content}>
+        <div>
+          {title && (
+            <Heading
+              type={Heading.types.H3}
+              weight={Heading.weights.MEDIUM}
+              className={styles.title}
+              align={Heading.align.CENTER}
+              ellipsis={false}
             >
-              {mainAction.text}
-            </Button>
+              {title}
+            </Heading>
           )}
 
-          {supportingAction && renderSupportingAction(supportingAction, isCompact)}
-        </Flex>)}
+          <Text
+            type={isCompact ? Text.types.TEXT3 : Text.types.TEXT2}
+            color={Text.colors.SECONDARY}
+            className={styles.description}
+            align={Text.align.CENTER}
+            ellipsis={false}
+          >
+            {description}
+          </Text>
+        </div>
+
+        {(mainAction || supportingAction) && (
+          <Flex
+            direction={Flex.directions.COLUMN}
+            align={Flex.align.CENTER}
+            gap={Flex.gaps.SMALL}
+            className={styles.actions}
+          >
+            {mainAction && (
+              <Button
+                kind={mainAction.kind || Button.kinds.SECONDARY}
+                size={Button.sizes.MEDIUM}
+                leftIcon={mainAction.leftIcon}
+                rightIcon={mainAction.rightIcon}
+                disabled={mainAction.disabled}
+                color={mainAction.color}
+                loading={mainAction.loading}
+                onClick={mainAction.onClick}
+                className={styles.mainAction}
+              >
+                {mainAction.text}
+              </Button>
+            )}
+
+            {supportingAction && renderSupportingAction(supportingAction, isCompact)}
+          </Flex>
+        )}
       </Flex>
     </Flex>
   );
