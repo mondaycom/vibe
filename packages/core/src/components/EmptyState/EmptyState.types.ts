@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonProps } from "@vibe/core/dist/components/Button/Button";
-import { LinkProps } from "@vibe/core/dist/components/Link/Link";
+import { ButtonProps } from "../../components/Button/Button";
+import { LinkProps } from "../../components/Link/Link";
 
 export enum EmptyStateLayout {
   DEFAULT = "default",
