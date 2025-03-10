@@ -43,7 +43,7 @@ const EmptyState: FC<EmptyStateProps> = ({
           {title && (
             <Heading
               type={Heading.types.H3}
-              weight={Heading.weights.MEDIUM}
+              weight={Heading.weights.NORMAL}
               className={styles.title}
               align={Heading.align.CENTER}
               ellipsis={false}
@@ -54,7 +54,7 @@ const EmptyState: FC<EmptyStateProps> = ({
 
           <Text
             type={isCompact ? Text.types.TEXT3 : Text.types.TEXT2}
-            color={Text.colors.SECONDARY}
+            color={Text.colors.PRIMARY}
             className={styles.description}
             align={Text.align.CENTER}
             ellipsis={false}
