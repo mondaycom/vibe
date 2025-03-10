@@ -225,13 +225,13 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindPrimary.colorFixedDark {
   background: var(--fixed-dark-color);
+  color: var(--fixed-light-color);
 }
 
 .kindPrimary.colorFixedDarkActive,
 .kindPrimary.colorFixedDark:hover,
 .kindPrimary.colorFixedDark:focus {
-  background-color: #e6e9ef;
-  backdrop-filter: brightness(85%);
+  filter: brightness(125%);
   @include focus-style-on-primary();
 }
 
