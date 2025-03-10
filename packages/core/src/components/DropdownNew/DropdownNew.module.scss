@@ -1,0 +1,35 @@
+.wrapper {
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--border-color);
+  background: var(--secondary-background-color);
+  cursor: pointer;
+  --border-color: var(--ui-border-color);
+
+  &:hover {
+    --border-color: var(--primary-text-color);
+  }
+
+  &.active {
+    --border-color: var(--primary-color);
+  }
+
+  &.disabled {
+    --border-color: var(--disabled-background-color);
+    background: var(--disabled-background-color);
+    cursor: not-allowed;
+  }
+
+  &.readOnly {
+    --border-color: var(--allgrey-background-color);
+    background: var(--allgrey-background-color);
+    cursor: default;
+  }
+
+  &.error {
+    --border-color: var(--negative-color);
+  }
+
+  .inputWrapper {
+    border: none;
+  }
+}
