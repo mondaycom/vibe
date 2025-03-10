@@ -9,8 +9,9 @@ import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vi
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";
-import styles from "./IconButton.stories.module.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import { Box } from "../../Box";
+import { Divider } from "../../Divider";
 
 type Story = StoryObj<typeof IconButton>;
 
@@ -162,26 +163,28 @@ export const Disabled: Story = {
 
 export const IconButtonAsToolbarButton: Story = {
   render: () => (
-    <Flex
-      className={styles.dashboard}
-      direction="column"
-      align="start"
+    <Box
+      border
+      rounded="medium"
       style={{
         width: "50%"
       }}
     >
-      <Flex className={styles.dashboardHeader} gap="small">
-        <Icon icon={Drag} />
-        <Text type="text1">Widget name</Text>
-        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size="small" />
+      <Flex direction="column" align="start">
+        <Flex gap="small" style={{ padding: "var(--sb-spacing-small)" }}>
+          <Icon icon={Drag} />
+          <Text type="text1">Widget name</Text>
+          <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size="small" />
+        </Flex>
+        <Divider withoutMargin />
+        <div style={{ height: "200px", width: "100%", backgroundColor: "var(--sb-primary-background-hover-color)" }} />
       </Flex>
-      <div className={styles.dashboardContent} />
-    </Flex>
+    </Box>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles, Drag, Filter }
+        scope: { Drag, Filter }
       }
     }
   },
@@ -190,33 +193,25 @@ export const IconButtonAsToolbarButton: Story = {
 
 export const IconButtonAsCloseButton: Story = {
   render: () => (
-    <>
-      <Flex
+    <Flex gap="medium" style={{ width: "100%" }}>
+      <Box
+        border
+        rounded="small"
+        paddingX="large"
         style={{
           width: "100%"
         }}
       >
-        <Flex
-          className={styles.recycleBin}
-          style={{
-            width: "100%"
-          }}
-          justify="start"
-          gap="large"
-        >
-          <Flex direction="column" className={styles.recycleBinTitleContainer} justify="center">
+        <Flex justify="start" gap="large" style={{ height: "94px" }}>
+          <Flex direction="column" justify="center" style={{ color: "var(--sb-icon-color)" }}>
             <Icon icon={Item} iconSize={40} />
-            <Text type="text1" className={styles.recycleBinTitle} id="monday-recycle-bin-title">
+            <Text type="text1" id="monday-recycle-bin-title">
               Item
             </Text>
           </Flex>
+          <Divider direction="vertical" />
           <Avatar size="large" src={person1} type="img" />
-          <Flex
-            direction="column"
-            className={styles.recycleBinContent}
-            align="start"
-            ariaLabelledby="monday-recycle-bin-title"
-          >
+          <Flex direction="column" align="start" ariaLabelledby="monday-recycle-bin-title" style={{ flexGrow: 1 }}>
             <Flex gap="xs">
               <Link withoutSpacing href="">
                 Hadas Farhi
@@ -230,22 +225,22 @@ export const IconButtonAsCloseButton: Story = {
             <Text type="text1" element="span" weight="medium">
               Tasks
             </Text>
-            <Flex gap="xs" className={styles.recycleBinSubNote}>
+            <Flex gap="xs">
               <Icon icon={Time} />
-              <span className={styles.recycleBinTimeStamp}>13m</span>
-              <span>(Available for restore in the next 1M)</span>
+              <Text weight="medium">13m</Text>
+              <Text>(Available for restore in the next 1M)</Text>
             </Flex>
           </Flex>
-          <Button className={styles.recycleBinRestoreButton}>Restore</Button>
+          <Button>Restore</Button>
         </Flex>
-      </Flex>
+      </Box>
       <IconButton icon={CloseSmall} size="small" ariaLabel="Remove from Recycle bin" />
-    </>
+    </Flex>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles, person1, Item, Time, CloseSmall }
+        scope: { person1, Item, Time, CloseSmall }
       }
     }
   },
