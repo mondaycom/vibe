@@ -1,13 +1,10 @@
 import React from "react";
 import MenuButton from "../../MenuButton/MenuButton";
 import IconButton from "../../IconButton/IconButton";
-import { ButtonColor } from "../../Button/ButtonConstants";
+import { ButtonColor } from "src/components/Button/Button.types";
 
 export type ModalTopActionsTheme = "light" | "dark";
-export type ModalTopActionsButtonColor =
-  | ButtonColor.PRIMARY
-  | ButtonColor.ON_PRIMARY_COLOR
-  | ButtonColor.ON_INVERTED_BACKGROUND;
+export type ModalTopActionsButtonColor = Extract<ButtonColor, "primary" | "fixed-light" | "fixed-dark">;
 
 export interface ModalTopActionsProps {
   /**
