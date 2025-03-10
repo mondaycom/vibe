@@ -388,7 +388,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorFixedDarkActive,
 .kindSecondary.colorFixedDark:hover,
 .kindSecondary.colorFixedDark:focus {
-  backdrop-filter: brightness(85%);
+  background-color: var(--primary-background-hover-color);
   @include focus-style-on-primary();
 }
 
@@ -535,7 +535,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorFixedDarkActive,
 .kindTertiary.colorFixedDark:hover,
 .kindTertiary.colorFixedDark:focus {
-  backdrop-filter: brightness(85%);
+  background-color: var(--primary-background-hover-color);
   @include focus-style-on-primary();
 }
 
