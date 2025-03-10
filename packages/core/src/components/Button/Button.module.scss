@@ -223,6 +223,23 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--fixed-light-color);
 }
 
+.kindPrimary.colorFixedDark {
+  background: var(--fixed-dark-color);
+}
+
+.kindPrimary.colorFixedDarkActive,
+.kindPrimary.colorFixedDark:hover,
+.kindPrimary.colorFixedDark:focus {
+  background-color: #e6e9ef;
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorFixedDark.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--fixed-dark-color);
+}
+
 .kindPrimary.colorOnInvertedBackground {
   background: var(--primary-background-color);
   color: var(--primary-text-color);
@@ -363,6 +380,18 @@ $disabled-on-primary-color-opacity: 0.5;
   @include focus-style-on-primary();
 }
 
+.kindSecondary.colorFixedDark {
+  border-color: var(--fixed-dark-color);
+  color: var(--fixed-dark-color);
+}
+
+.kindSecondary.colorFixedDarkActive,
+.kindSecondary.colorFixedDark:hover,
+.kindSecondary.colorFixedDark:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
 .kindSecondary.colorOnInvertedBackground {
   border-color: var(--text-color-on-inverted);
   color: var(--text-color-on-inverted);
@@ -383,6 +412,11 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
   color: var(--fixed-light-color);
+}
+
+.kindSecondary.colorFixedDark.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--fixed-dark-color);
 }
 
 .kindSecondary.disabled {
@@ -493,6 +527,23 @@ $disabled-on-primary-color-opacity: 0.5;
   opacity: $disabled-on-primary-color-opacity;
   color: var(--fixed-light-color);
 }
+
+.kindTertiary.colorFixedDark {
+  color: var(--fixed-dark-color);
+}
+
+.kindTertiary.colorFixedDarkActive,
+.kindTertiary.colorFixedDark:hover,
+.kindTertiary.colorFixedDark:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindTertiary.colorFixedDark.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--fixed-dark-color);
+}
+
 
 .kindTertiary.colorOnInvertedBackground {
   color: var(--text-color-on-inverted);
