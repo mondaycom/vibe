@@ -17,7 +17,8 @@ type Story = StoryObj<typeof EmptyState>;
 export const Default: Story = {
   args: {
     title: "The title should be concise and reflect the purpose",
-    description: "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
+    description:
+      "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
     illustration: <img src={emptyStateImage} alt="No items found" width={280} height={184} />,
     mainAction: {
       text: "Main action",
