@@ -11,7 +11,8 @@ import {
   BUTTON_ICON_SIZE,
   ButtonColor as ButtonColorEnum,
   ButtonInputType as ButtonInputTypeEnum,
-  ButtonType as ButtonTypeEnum
+  ButtonType as ButtonTypeEnum,
+  SMALL_BUTTON_ICON_SIZE
 } from "./ButtonConstants";
 import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
@@ -308,7 +309,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         switch (size) {
           case "xxs":
           case "xs":
-            return 16;
+            return SMALL_BUTTON_ICON_SIZE;
           default:
             return BUTTON_ICON_SIZE;
         }
