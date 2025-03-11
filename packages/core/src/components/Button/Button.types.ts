@@ -10,6 +10,7 @@ export type ButtonColor =
   | "on-primary-color"
   | "on-inverted-background"
   | "brand"
-  | "fixed-light";
+  | "fixed-light"
+  | "fixed-dark";
 
 export type ButtonSize = "xxs" | "xs" | "small" | "medium" | "large";
