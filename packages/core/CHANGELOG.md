@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.1...@vibe/core@3.31.2) (2025-03-11)
+
+
+### Bug Fixes
+
+* **Button:** change icon size in small variant to 16px ([#2792](https://github.com/mondaycom/vibe/issues/2792)) ([9ef5648](https://github.com/mondaycom/vibe/commit/9ef56488bf23039501445264dadad153cebc7352))
+* **ColorPicker:** make forceUseRawColorList and showColorNameTooltip compatible ([#2789](https://github.com/mondaycom/vibe/issues/2789)) ([39592ae](https://github.com/mondaycom/vibe/commit/39592aee0053680f43405b114d4b11341f41a0e7))
+
+
+
+
+
 ## [3.31.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.0...@vibe/core@3.31.1) (2025-03-11)
 
 
