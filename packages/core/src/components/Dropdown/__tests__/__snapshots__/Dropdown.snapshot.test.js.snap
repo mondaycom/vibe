@@ -75,7 +75,10 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       </div>
     </div>
     <div
+      aria-label="Dropdown menu"
       class="dropdownMenuWrapper withoutAnimation css-6yg65t-menu"
+      id="dropdown-menu-list-id"
+      role="listbox"
     >
       <div
         class=" css-bknh9q-Component"
@@ -757,7 +760,10 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
       </div>
     </div>
     <div
+      aria-label="Dropdown menu"
       class="dropdownMenuWrapper withoutAnimation css-6yg65t-menu"
+      id="dropdown-menu-list-id"
+      role="listbox"
     >
       <div
         class=""
