@@ -302,20 +302,19 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaPressed
     ]);
 
-    const leftIconSize = useMemo(() => {
-      if (typeof leftIcon !== "function") return;
-      return BUTTON_ICON_SIZE;
-    }, [leftIcon]);
-
-    const rightIconSize = useMemo(() => {
-      if (typeof rightIcon !== "function") return;
-      return BUTTON_ICON_SIZE;
-    }, [rightIcon]);
-
-    const successIconSize = useMemo(() => {
-      if (typeof successIcon !== "function") return;
-      return BUTTON_ICON_SIZE;
-    }, [successIcon]);
+    const iconSize = useCallback(
+      (icon: SubIcon) => {
+        if (typeof icon !== "function") return;
+        switch (size) {
+          case "xxs":
+          case "xs":
+            return 16;
+          default:
+            return BUTTON_ICON_SIZE;
+        }
+      },
+      [size]
+    );
 
     const hasRenderableChildren = useMemo(() => React.Children.toArray(children).some(Boolean), [children]);
 
@@ -326,7 +325,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             <Icon
               iconType="font"
               icon={leftIcon}
-              iconSize={leftIconSize}
+              iconSize={iconSize(leftIcon)}
               className={cx({
                 [styles.leftIcon]: hasRenderableChildren
               })}
@@ -338,7 +337,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             <Icon
               iconType="font"
               icon={rightIcon}
-              iconSize={rightIconSize}
+              iconSize={iconSize(rightIcon)}
               className={cx({
                 [styles.rightIcon]: hasRenderableChildren
               })}
@@ -347,7 +346,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           ) : null}
         </>
       ),
-      [children, hasRenderableChildren, leftIcon, leftIconSize, rightIcon, rightIconSize]
+      [children, hasRenderableChildren, iconSize, leftIcon, rightIcon]
     );
 
     if (loading) {
@@ -371,7 +370,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               <Icon
                 iconType="font"
                 icon={successIcon}
-                iconSize={successIconSize}
+                iconSize={iconSize(successIcon)}
                 className={cx({
                   [styles.leftIcon]: !!successText
                 })}
