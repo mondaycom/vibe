@@ -4,12 +4,15 @@
 .link {
   display: flex;
   align-items: center;
-  color: var(--link-color);
   @include vibe-text(text2, normal);
   @include smoothing-text;
   text-decoration: none;
   writing-mode: horizontal-tb;
   @include focus-style();
+
+  &.colorPrimary {
+    color: var(--link-color);
+  }
 
   &.colorOnPrimary {
     color: var(--text-color-on-primary);
