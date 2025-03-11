@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.0...@vibe/core@3.31.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* **Modal:** closeButtonTheme fixed color ([#2791](https://github.com/mondaycom/vibe/issues/2791)) ([977764a](https://github.com/mondaycom/vibe/commit/977764a39a0156895f8a743933c5603307012bc3))
+
+
+
+
+
 # [3.31.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.30.0...@vibe/core@3.31.0) (2025-03-11)
 
 
