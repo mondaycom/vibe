@@ -49,7 +49,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     maxDigits: counterMaxDigits = 3,
     ariaLabelItemsName: counterAriaLabelItemsName = "items",
     noAnimation,
-    dialogContainerSelector
+    dialogContainerSelector,
+    tabIndex: counterTabIndex = 0
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -144,7 +145,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
       <div tabIndex={-1} ref={focusPrevPlaceholderRef} />
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div
-        tabIndex={0}
+        tabIndex={counterTabIndex}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ref={counterContainerRef}
       >
