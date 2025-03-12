@@ -7,6 +7,7 @@ import { Flex } from "../Flex";
 import { TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
+import { Divider } from "../Divider";
 
 const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef(
   <T extends Record<string, unknown>>(
@@ -67,7 +68,7 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
                   />
                 );
               })}
-              {withGroupDivider && groupIndex < options.length - 1 && <div className={styles.groupDivider} />}
+              {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
             </React.Fragment>
           ))
         )}
