@@ -10,7 +10,7 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ButtonColor, ButtonType } from "../Button/Button.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
@@ -159,7 +159,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       switch (size) {
         case "xxs":
         case "xs":
-          return 16;
+          return SMALL_BUTTON_ICON_SIZE;
         case "small":
         case "medium":
         case "large":
