@@ -8,17 +8,10 @@
     color: var(--secondary-text-color);
     padding: 8px 4px 8px 4px;
     background-color: var(--fixed-light-color);
-    z-index: 2;
 
     &.sticky {
       position: sticky;
       top: 0;
     }
-  }
-
-  .groupDivider {
-    background: var(--layout-border-color);
-    height: 1px;
-    margin: 8px 0 8px 0;
   }
 }
