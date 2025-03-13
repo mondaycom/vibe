@@ -22,7 +22,8 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
       dir = "ltr",
       optionRenderer,
       noOptionsMessage = "No results",
-      stickyGroupTitle = false
+      stickyGroupTitle = false,
+      renderOptions = true
     }: BaseListProps<T>,
     ref: React.Ref<HTMLUListElement>
   ) => {
@@ -30,48 +31,50 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
 
     return (
       <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()}>
-        {options.every(group => group.options?.length === 0) ? (
-          typeof noOptionsMessage === "string" ? (
-            <Flex justify="center">
-              <BaseListItem label={noOptionsMessage} size={size} readOnly />
-            </Flex>
+        {renderOptions ? (
+          options.every(group => group.options?.length === 0) ? (
+            typeof noOptionsMessage === "string" ? (
+              <Flex justify="center">
+                <BaseListItem label={noOptionsMessage} size={size} readOnly />
+              </Flex>
+            ) : (
+              noOptionsMessage
+            )
           ) : (
-            noOptionsMessage
-          )
-        ) : (
-          options.map((group, groupIndex) => (
-            <React.Fragment key={group.label ?? groupIndex}>
-              {group.label && (
-                <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
-                  <Text type={textVariant} color="inherit">
-                    {group.label}
-                  </Text>
-                </li>
-              )}
-              {group.options.map((item, itemIndex) => {
-                const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
-                const isHighlighted =
-                  highlightedIndex !== undefined && highlightedIndex === item.index && !item.disabled;
-                const isSelected =
-                  selectedItem?.value !== undefined && selectedItem?.value === item.value && !item.disabled;
+            options.map((group, groupIndex) => (
+              <React.Fragment key={group.label ?? groupIndex}>
+                {group.label && (
+                  <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
+                    <Text type={textVariant} color="inherit">
+                      {group.label}
+                    </Text>
+                  </li>
+                )}
+                {group.options.map((item, itemIndex) => {
+                  const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
+                  const isHighlighted =
+                    highlightedIndex !== undefined && highlightedIndex === item.index && !item.disabled;
+                  const isSelected =
+                    selectedItem?.value !== undefined && selectedItem?.value === item.value && !item.disabled;
 
-                return (
-                  <BaseListItem
-                    {...itemProps}
-                    label={item.label as string}
-                    key={typeof item.value === "string" ? item.value : itemIndex}
-                    size={size}
-                    highlighted={isHighlighted}
-                    selected={isSelected}
-                    optionRenderer={optionRenderer}
-                    {...item}
-                  />
-                );
-              })}
-              {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-            </React.Fragment>
-          ))
-        )}
+                  return (
+                    <BaseListItem
+                      {...itemProps}
+                      label={item.label as string}
+                      key={typeof item.value === "string" ? item.value : itemIndex}
+                      size={size}
+                      highlighted={isHighlighted}
+                      selected={isSelected}
+                      optionRenderer={optionRenderer}
+                      {...item}
+                    />
+                  );
+                })}
+                {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
+              </React.Fragment>
+            ))
+          )
+        ) : null}
       </ul>
     );
   }

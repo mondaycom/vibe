@@ -49,6 +49,10 @@ export interface BaseListProps<T = BaseListItemProps>
    * Text or function to customize the "No results" message.
    */
   noOptionsMessage?: string | ReactNode;
+  /**
+   * If true, the options are rendered.
+   */
+  renderOptions?: boolean;
 }
 
 export interface ListGroup<T = BaseListItemProps> {
