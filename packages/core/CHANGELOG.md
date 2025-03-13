@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.1...@vibe/core@3.31.2) (2025-03-11)
+
+
+### Bug Fixes
+
+* **Button:** change icon size in small variant to 16px ([#2792](https://github.com/mondaycom/vibe/issues/2792)) ([9ef5648](https://github.com/mondaycom/vibe/commit/9ef56488bf23039501445264dadad153cebc7352))
+* **ColorPicker:** make forceUseRawColorList and showColorNameTooltip compatible ([#2789](https://github.com/mondaycom/vibe/issues/2789)) ([39592ae](https://github.com/mondaycom/vibe/commit/39592aee0053680f43405b114d4b11341f41a0e7))
+
+
+
+
+
+## [3.31.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.0...@vibe/core@3.31.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* **Modal:** closeButtonTheme fixed color ([#2791](https://github.com/mondaycom/vibe/issues/2791)) ([977764a](https://github.com/mondaycom/vibe/commit/977764a39a0156895f8a743933c5603307012bc3))
+
+
+
+
+
+# [3.31.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.30.0...@vibe/core@3.31.0) (2025-03-11)
+
+
+### Features
+
+* **Spacing:** add new spacing tokens ([#2768](https://github.com/mondaycom/vibe/issues/2768)) ([a21f765](https://github.com/mondaycom/vibe/commit/a21f765ef376da00b5ed0992a41da1124fbd191c))
+
+
+
+
+
+# [3.30.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.29.0...@vibe/core@3.30.0) (2025-03-05)
+
+
+### Features
+
+* **types:** allow dialogPaddingSize to accept inline string values (in addition to the enum) ([#2786](https://github.com/mondaycom/vibe/issues/2786)) ([167b290](https://github.com/mondaycom/vibe/commit/167b2906c1b88e4b982dfe9fec25a4ff372d8943))
+* **types:** export TableColumn type ([#2787](https://github.com/mondaycom/vibe/issues/2787)) ([dbad506](https://github.com/mondaycom/vibe/commit/dbad5068a5f23677a9fc16809225e5563312f031))
+
+
+
+
+
 # [3.29.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.2...@vibe/core@3.29.0) (2025-02-24)
 
 

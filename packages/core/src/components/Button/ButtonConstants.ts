@@ -20,8 +20,8 @@ export enum ButtonColor {
   ON_PRIMARY_COLOR = "on-primary-color",
   ON_INVERTED_BACKGROUND = "on-inverted-background",
   BRAND = "brand",
-  FIXED_LIGHT = "fixed-light"
-  // FIXED_DARK = "fixed-dark"
+  FIXED_LIGHT = "fixed-light",
+  FIXED_DARK = "fixed-dark"
 }
 
 export type Size = (typeof SIZES)[keyof typeof SIZES];
@@ -29,6 +29,8 @@ export type Size = (typeof SIZES)[keyof typeof SIZES];
 export const BUTTON_KIND_CLASS_NAMES = {
   PRIMARY: ""
 };
+
+export const SMALL_BUTTON_ICON_SIZE = 16;
 
 export const BUTTON_ICON_SIZE = 20;
 

@@ -83,7 +83,7 @@ describe("BaseList", () => {
     it("should display group dividers when `withGroupDivider` is true", () => {
       const { container } = renderBaseList({ options, withGroupDivider: true });
 
-      expect(container.getElementsByClassName("groupDivider").length).toBe(1);
+      expect(container.getElementsByClassName("divider").length).toBe(1);
     });
 
     it("should support a custom option renderer", () => {

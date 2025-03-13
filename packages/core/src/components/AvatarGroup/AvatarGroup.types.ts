@@ -7,6 +7,7 @@ export type AvatarGroupCounterVisualProps = {
   maxDigits?: number;
   ariaLabelItemsName?: string;
   noAnimation?: boolean;
+  tabIndex?: number;
   /**
    * Relevant only for when AvatarGroup contains a clickable avatar
    */

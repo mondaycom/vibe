@@ -3,16 +3,15 @@ import styles from "./ModalTopActions.module.scss";
 import { ModalTopActionsButtonColor, ModalTopActionsTheme, ModalTopActionsProps } from "./ModalTopActions.types";
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "@vibe/icons";
-import { ButtonColor } from "../../Button/ButtonConstants";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const colorToButtonColor: Record<ModalTopActionsTheme, ModalTopActionsButtonColor> = {
-  dark: ButtonColor.ON_INVERTED_BACKGROUND,
-  light: ButtonColor.ON_PRIMARY_COLOR
+  dark: "fixed-dark",
+  light: "fixed-light"
 };
 
 const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }: ModalTopActionsProps) => {
-  const buttonColor = colorToButtonColor[theme] || ButtonColor.PRIMARY;
+  const buttonColor = colorToButtonColor[theme] || "primary";
 
   return (
     <div className={styles.actions} data-no-autofocus={true}>
