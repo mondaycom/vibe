@@ -37,6 +37,8 @@ exports[`exports should export all components 1`] = `
   "DropdownSingleValue",
   "EditableHeading",
   "EditableText",
+  "EmptyState",
+  "EmptyStateLayout",
   "ExpandCollapse",
   "Flex",
   "FormattedNumber",
