@@ -316,6 +316,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       <TriggerElement
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
+        data-vibe={ComponentDefaultTestId.MENU_BUTTON}
         type="button"
         className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,

@@ -16,6 +16,7 @@ exports[`renders correctly with icon 1`] = `
     aria-hidden={true}
     className="icon noFocusStyle"
     data-testid="icon"
+    data-vibe="icon"
     fill="currentColor"
     height="18"
     viewBox="0 0 20 20"

@@ -4,6 +4,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -27,6 +28,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -67,6 +69,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -102,6 +105,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -127,6 +131,7 @@ exports[`Accordion renders correctly with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -150,6 +155,7 @@ exports[`Accordion renders correctly with children 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -185,6 +191,7 @@ exports[`Accordion renders correctly with children 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -220,6 +227,7 @@ exports[`Accordion renders correctly with children 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -240,6 +248,7 @@ exports[`Accordion renders correctly with className 1`] = `
 <div
   className="accordion test"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 />
 `;
 
@@ -247,6 +256,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -273,6 +283,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -293,6 +304,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -316,6 +328,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -356,6 +369,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -391,6 +405,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconClose"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -411,6 +426,7 @@ exports[`Accordion renders correctly with empty props 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 />
 `;
 
@@ -418,6 +434,7 @@ exports[`Accordion renders correctly with id 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
   id="test"
 />
 `;

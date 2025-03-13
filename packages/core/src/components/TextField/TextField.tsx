@@ -289,6 +289,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               type={type}
               id={id}
               data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
+              data-vibe={ComponentDefaultTestId.TEXT_FIELD}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}

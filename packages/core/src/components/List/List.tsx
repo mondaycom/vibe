@@ -166,6 +166,7 @@ const List: VibeComponent<ListProps> & {
       <ListContext.Provider value={{ updateFocusedItem }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+          data-vibe={ComponentDefaultTestId.LIST}
           ref={mergedRef}
           style={style}
           className={cx(styles.list, className)}

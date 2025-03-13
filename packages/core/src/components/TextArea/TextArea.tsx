@@ -71,6 +71,7 @@ const TextArea = forwardRef(
           className
         )}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_AREA, id)}
+        data-vibe={ComponentDefaultTestId.TEXT_AREA}
       >
         {label && (
           <label className={cx(styles.label, { [styles.required]: required })} htmlFor={id}>

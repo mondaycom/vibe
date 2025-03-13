@@ -165,6 +165,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
+        data-vibe={ComponentDefaultTestId.BUTTON_GROUP}
         ref={mergedRef}
       >
         <div role="group" aria-label={groupAriaLabel} className={cx(styles.buttonsContainer)} aria-disabled={disabled}>

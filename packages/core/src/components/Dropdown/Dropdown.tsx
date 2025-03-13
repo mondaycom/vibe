@@ -489,6 +489,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         tabIndex={tabIndex}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+        data-vibe={ComponentDefaultTestId.DROPDOWN}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref as React.Ref<any>}

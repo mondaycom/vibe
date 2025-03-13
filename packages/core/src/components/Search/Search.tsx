@@ -100,6 +100,7 @@ const Search = forwardRef(
         id={id}
         type={"search"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
+        data-vibe={ComponentDefaultTestId.SEARCH}
         className={cx(styles.searchWrapper, className)}
         inputClassName={styles.search}
         value={inputValue}

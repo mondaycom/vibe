@@ -20,7 +20,13 @@ export interface IconSubComponentProps {
 
 function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
   const dataTestId = props["data-testid"];
-  return <Icon {...props} data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)} />;
+  return (
+    <Icon
+      {...props}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)}
+      data-vibe={ComponentDefaultTestId.ICON}
+    />
+  );
 }
 
 export interface IconProps extends VibeComponentProps {

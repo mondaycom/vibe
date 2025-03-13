@@ -94,6 +94,7 @@ const Tab: FC<TabProps> = forwardRef(
           aria-selected={active}
           aria-disabled={disabled}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+          data-vibe={ComponentDefaultTestId.TAB}
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
           <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
