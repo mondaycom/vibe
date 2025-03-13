@@ -4,9 +4,11 @@ import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
-import { LinkIconPosition, LinkTarget } from "./Link.types";
+import { LinkColor, LinkIconPosition, LinkTarget } from "./Link.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 export interface LinkProps extends VibeComponentProps {
   /**
@@ -39,6 +41,8 @@ export interface LinkProps extends VibeComponentProps {
   inheritFontSize?: boolean;
   /** if the link is in part of other text content */
   inlineText?: boolean;
+  /** The link's color style */
+  color?: LinkColor;
 }
 
 const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
@@ -56,6 +60,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       onClick = NOOP,
       target = "_blank",
       ariaLabelDescription = "",
+      color = "primary",
       ariaDescribedby = "",
       icon = "",
       iconPosition = "start",
@@ -89,7 +94,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx(styles.link, className, {
+        className={cx(styles.link, className, getStyle(styles, camelCase("color-" + color)), {
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
         })}

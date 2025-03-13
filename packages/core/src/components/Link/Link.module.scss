@@ -10,6 +10,14 @@
   text-decoration: none;
   writing-mode: horizontal-tb;
   @include focus-style();
+
+  &.colorOnPrimary {
+    color: var(--text-color-on-primary);
+  }
+
+  &.colorOnInverted {
+    color: var(--text-color-on-inverted);
+  }
 }
 
 .link:hover .text {
