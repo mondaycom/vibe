@@ -1,7 +1,23 @@
 import React from "react";
 import { InformationBox } from "vibe-storybook-components";
 
-export const TokenInformationBox = ({ className, videoSrc, title, description, tokenInfo, tokenDescription }) => {
+interface TokenInformationBoxProps {
+  className?: string;
+  videoSrc?: string;
+  title?: string;
+  description?: string;
+  tokenInfo?: string;
+  tokenDescription?: string;
+}
+
+export const TokenInformationBox: React.FC<TokenInformationBoxProps> = ({
+  className,
+  videoSrc,
+  title,
+  description,
+  tokenInfo,
+  tokenDescription
+}) => {
   const TokenInformationBoxImg = videoSrc ? <video src={videoSrc} controls loop /> : null;
 
   return (

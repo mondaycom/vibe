@@ -4,7 +4,15 @@ import "./principle.scss";
 
 const PRINCIPLE_VISUAL_ELEMENT = `monday-storybook-principle`;
 
-export const Principle = ({ imgSrc, title, description }) => {
+interface PrincipleProps {
+  imgSrc: string;
+  title: string;
+  description: string;
+}
+
+export const Principle = ({ imgSrc, title, description }: PrincipleProps) => {
   const principleVisualElement = <img className={`${PRINCIPLE_VISUAL_ELEMENT}_visual-element`} src={imgSrc} alt="" />;
   return <InformationBox component={principleVisualElement} title={title} description={description} />;
 };
+
+export default Principle;

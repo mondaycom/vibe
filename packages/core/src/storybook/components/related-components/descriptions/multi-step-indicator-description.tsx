@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import MultiStepIndicator from "../../../../components/MultiStepIndicator/MultiStepIndicator";
+import { Step } from "../../../../components/MultiStepIndicator/MultiStep.types";
 
 export const MultiStepIndicatorDescription = () => {
   const component = useMemo(() => {
@@ -26,7 +27,7 @@ export const MultiStepIndicatorDescription = () => {
     ];
     return (
       <div style={style}>
-        <MultiStepIndicator textPlacement="vertical" steps={steps} />
+        <MultiStepIndicator textPlacement="vertical" steps={steps as Step[]} />
       </div>
     );
   }, []);
