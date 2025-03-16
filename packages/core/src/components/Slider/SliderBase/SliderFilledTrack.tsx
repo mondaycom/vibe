@@ -20,10 +20,6 @@ function defineFilledTrackProps(dimension: number, offset: number, reverse: bool
 
 export interface SliderFilledTrackProps extends VibeComponentProps {
   /**
-   * Class name applied to the filled track.
-   */
-  className?: string;
-  /**
    * The size of the filled track, based on the selected value.
    */
   dimension?: number;

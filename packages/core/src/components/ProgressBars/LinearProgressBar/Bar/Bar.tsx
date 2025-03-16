@@ -44,13 +44,9 @@ export interface BarProps extends VibeComponentProps {
    */
   color?: string;
   /**
-   * The type of the bar (e.g., "primary", "secondary").
+   * The type of the bar.
    */
   type?: BarType;
-  /**
-   * Class name applied to the bar component.
-   */
-  className?: string;
 }
 
 const Bar: FC<BarProps> = ({

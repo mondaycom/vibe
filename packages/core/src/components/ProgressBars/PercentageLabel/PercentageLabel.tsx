@@ -4,7 +4,6 @@ import styles from "./PercentageLabel.module.scss";
 export interface PercentageLabelProps {
   /**
    * The ID of the element this label is associated with.
-   * This is a replacement for the `htmlFor` attribute.
    */
   forElement: string;
   /**

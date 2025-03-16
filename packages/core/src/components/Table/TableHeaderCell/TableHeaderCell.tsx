@@ -28,9 +28,6 @@ export interface TableHeaderCellProps extends VibeComponentProps {
   infoContent?: string;
   /**
    * Current sorting state of the column.
-   * - `"asc"`: Ascending order.
-   * - `"desc"`: Descending order.
-   * - `"none"`: No sorting applied.
    */
   sortState?: "asc" | "desc" | "none";
   /**

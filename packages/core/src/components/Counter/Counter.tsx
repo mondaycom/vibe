@@ -19,17 +19,9 @@ import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
   /**
-   * The ID of the counter element.
-   */
-  id?: string;
-  /**
    * The ID of the element describing the counter.
    */
   ariaLabeledBy?: string;
-  /**
-   * Class name applied to the wrapper element.
-   */
-  className?: string;
   /**
    * Class name applied to the counter element.
    */

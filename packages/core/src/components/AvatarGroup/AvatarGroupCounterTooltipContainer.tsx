@@ -9,10 +9,6 @@ import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants"
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   /**
-   * Class name applied to the tooltip container.
-   */
-  className?: string;
-  /**
    * The type of avatars displayed in the tooltip.
    */
   type?: AvatarType;

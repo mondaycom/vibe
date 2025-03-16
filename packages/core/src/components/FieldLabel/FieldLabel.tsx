@@ -26,7 +26,7 @@ export interface FieldLabelProps extends VibeComponentProps {
    */
   labelClassName?: string;
   /**
-   * If true, displays an asterisk (*) to indicate a required field.
+   * If true, displays an asterisk to indicate a required field.
    */
   required?: boolean;
 }

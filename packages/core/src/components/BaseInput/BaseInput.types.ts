@@ -8,7 +8,7 @@ type Renderer = ReactNode | ReactNode[];
 
 export interface BaseInputProps extends BaseInputNativeInputProps, VibeComponentProps {
   /**
-   * The size of the input. Affects padding and font size.
+   * The size of the input.
    */
   size?: InputSize;
   /**

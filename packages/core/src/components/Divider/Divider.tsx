@@ -9,7 +9,7 @@ import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {
   /**
-   * The direction of the divider, either 'horizontal' or 'vertical'.
+   * The direction of the divider.
    */
   direction?: DividerDirection;
   /**

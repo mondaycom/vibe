@@ -30,8 +30,4 @@ export interface SimpleMenuItemSubMenuIconProps {
   disabled?: boolean;
 }
 
-/**
- * Props for the submenu icon in a menu item.
- * Can be either a split submenu icon or a simple submenu icon.
- */
 export type MenuItemSubMenuIconProps = SimpleMenuItemSubMenuIconProps | SplitMenuItemSubMenuIconProps;

@@ -25,10 +25,6 @@ interface BaseLegacyModalHeaderProps extends VibeComponentProps {
   // icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
   icon?: SubIcon;
   /**
-   * Class name for the wrapper
-   */
-  className?: string;
-  /**
    * Class name for the title
    */
   titleClassName?: string;
@@ -36,10 +32,6 @@ interface BaseLegacyModalHeaderProps extends VibeComponentProps {
    * closes the Modal. No need to provide it, it is being provided by the modal
    */
   closeModal?: () => void;
-  /**  /**
-   * ID for the title, needed for accessibility. No need to provide it, it is being provided by the modal
-   */
-  id?: string;
   /**
    * Class name for the description
    */

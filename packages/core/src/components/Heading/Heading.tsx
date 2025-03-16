@@ -19,7 +19,7 @@ const OVERFLOW_TOLERANCE_IN_PX = 4;
 
 export interface HeadingProps extends TypographyProps {
   /**
-   * The heading level (e.g., h1, h2, h3).
+   * The heading type.
    */
   type?: HeadingType;
   /**

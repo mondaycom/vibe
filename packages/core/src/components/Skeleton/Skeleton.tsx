@@ -16,7 +16,7 @@ import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {
   /**
-   * The type of skeleton (e.g., rectangle, circle, text).
+   * The type of skeleton.
    */
   type?: SkeletonType;
   /**

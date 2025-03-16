@@ -13,10 +13,6 @@ import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {
   /**
-   * Class name applied to the wrapping element.
-   */
-  className?: string;
-  /**
    * Class name applied to the checkbox element.
    */
   checkboxClassName?: string;
@@ -68,10 +64,6 @@ export interface CheckBoxProps extends VibeComponentProps {
    * The name of the checkbox, used for form submission.
    */
   name?: string;
-  /**
-   * The ID of the checkbox element.
-   */
-  id?: string;
   /**
    * The tab order of the checkbox.
    */

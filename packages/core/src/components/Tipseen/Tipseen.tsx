@@ -96,6 +96,7 @@ export interface TipseenProps extends VibeComponentProps {
   tooltipArrowClassName?: string;
   /**
    * Custom Popper.js modifiers.
+   * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Array<Modifier<unknown>>;
   /**

@@ -17,7 +17,7 @@ const LIST_ITEM_HEIGHT = 32;
 
 export interface VirtualizedListItemsProps extends VibeComponentProps {
   /**
-   * The list of children, which can be `ListItem` or `ListTitle` components.
+   * The list of children.
    */
   children?: React.ReactElement<ListItemProps | ListTitleProps> | React.ReactElement<ListItemProps | ListTitleProps>[];
 }

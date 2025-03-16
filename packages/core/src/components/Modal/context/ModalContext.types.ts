@@ -1,3 +1,5 @@
+import React from "react";
+
 export type ModalContextProps = ModalProviderValue;
 
 export type ModalProviderValue = {
@@ -16,7 +18,6 @@ export type ModalProviderValue = {
   setDescriptionId: (id: string) => void;
   /**
    * If true, the modal automatically focuses on open.
-   * Defaults to `true`, unless explicitly set to `false`.
    */
   autoFocus?: boolean;
 };

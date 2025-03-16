@@ -34,6 +34,7 @@ export interface DialogContentProps extends VibeComponentProps {
    * If true, the dialog is open.
    */
   isOpen?: boolean;
+  // TODO: [breaking] use type
   /**
    * The starting edge of the dialog.
    */

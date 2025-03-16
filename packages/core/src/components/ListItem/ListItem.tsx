@@ -23,14 +23,6 @@ export interface ListItemProps extends VibeComponentProps {
    */
   children?: ElementContent;
   /**
-   * Class name applied to the list item.
-   */
-  className?: string;
-  /**
-   * The ID of the list item.
-   */
-  id?: string;
-  /**
    * Callback fired when the item is clicked.
    */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, id: string) => void;

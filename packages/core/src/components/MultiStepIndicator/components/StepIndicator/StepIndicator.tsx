@@ -22,7 +22,7 @@ const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 export interface StepCircleDisplayProps {
   /**
-   * The status of the step (e.g., "pending", "active", "fulfilled").
+   * The status of the step.
    */
   status: StepStatus;
   /**
@@ -34,7 +34,7 @@ export interface StepCircleDisplayProps {
    */
   fulfilledStepIcon: SubIcon;
   /**
-   * The type of icon used (e.g., "svg", "font").
+   * The type of icon used.
    */
   fulfilledStepIconType: "svg" | "font";
   /**

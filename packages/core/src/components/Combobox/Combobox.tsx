@@ -30,10 +30,6 @@ import MenuButton from "../MenuButton/MenuButton";
 
 export interface ComboboxProps extends VibeComponentProps {
   /**
-   * Class name applied to the combobox container.
-   */
-  className?: string;
-  /**
    * Class name applied to each option item.
    */
   optionClassName?: string;
@@ -49,10 +45,6 @@ export interface ComboboxProps extends VibeComponentProps {
    * Placeholder text displayed in the search input.
    */
   placeholder?: string;
-  /**
-   * The unique ID of the combobox.
-   */
-  id?: string;
   /**
    * Message displayed when no results are found.
    */

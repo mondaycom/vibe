@@ -28,10 +28,6 @@ export interface ButtonProps extends VibeComponentProps {
    */
   children: React.ReactNode;
   /**
-   * Class name applied to the button.
-   */
-  className?: string;
-  /**
    * Class name applied when the button is active.
    */
   activeButtonClassName?: string;
@@ -52,7 +48,7 @@ export interface ButtonProps extends VibeComponentProps {
    */
   blurOnMouseUp?: boolean;
   /**
-   * The name of the button, useful for form submissions.
+   * The name of the button, for form submissions.
    */
   name?: string;
   /**
@@ -100,13 +96,13 @@ export interface ButtonProps extends VibeComponentProps {
    */
   loaderClassName?: string;
   /**
-   * If true, applies an active state to the button.
-   */
-  active?: boolean;
-  /**
    * Inline styles applied to the button.
    */
   style?: React.CSSProperties;
+  /**
+   * If true, applies an active state to the button.
+   */
+  active?: boolean;
   /**
    * If true, adds an 8px margin to the right.
    */
@@ -175,10 +171,6 @@ export interface ButtonProps extends VibeComponentProps {
    * The default text color when using `ON_PRIMARY_COLOR` kind.
    */
   defaultTextColorOnPrimaryColor?: string;
-  /**
-   * Test ID for testing purposes.
-   */
-  "data-testid"?: string;
   /**
    * If true, the focus indicator is displayed inside the button instead of around it.
    */

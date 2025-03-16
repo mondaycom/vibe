@@ -23,9 +23,9 @@ export interface MenuItemSubMenuProps extends Pick<MenuItemProps, "autoAdjustOnS
    * The function may accept an optional object with a `propagate` property, which can be used to control whether the close event should also propagate up to parent menus.
    */
   onClose?: (option?: CloseMenuOption) => void;
+  // TODO: [breaking] MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid
   /**
    * The submenu content, which should be a `Menu` component.
-   * @deprecated In the next major version, `MenuItem` will only accept a `Menu` component as a child.
    */
   children: MenuChild | MenuChild[];
   /**

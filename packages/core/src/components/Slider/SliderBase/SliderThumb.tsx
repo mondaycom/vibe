@@ -12,10 +12,6 @@ import { camelCase } from "lodash-es";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
-   * Class name applied to the thumb component.
-   */
-  className?: string;
-  /**
    * The index of the thumb (used in range sliders).
    */
   index?: number;

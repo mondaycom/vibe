@@ -3,7 +3,7 @@ import LayerContext from "./LayerContext";
 
 export interface LayerProviderType {
   /**
-   * The child elements that will have access to the layer context.
+   * The child elements.
    */
   children: ReactNode | ReactNode[];
   /**

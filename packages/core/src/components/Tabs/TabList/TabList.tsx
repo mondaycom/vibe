@@ -21,7 +21,7 @@ export interface TabListProps extends VibeComponentProps {
    */
   activeTabId?: number;
   /**
-   * The type of tab style (e.g., "Compact").
+   * The type of tab style.
    */
   tabType?: string;
   /**

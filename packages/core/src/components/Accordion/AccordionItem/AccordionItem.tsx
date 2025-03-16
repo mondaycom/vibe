@@ -29,11 +29,11 @@ export interface AccordionItemProps extends VibeComponentProps {
    */
   hideBorder?: boolean;
   /**
-   * Class name applied to the accordion header.
+   * Class name applied to the accordion item's header.
    */
   headerClassName?: string;
   /**
-   * Class name applied to the accordion content.
+   * Class name applied to the accordion item's content.
    */
   contentClassName?: string;
   /**

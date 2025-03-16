@@ -19,11 +19,11 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   children?: ReactElement<AvatarProps> | ReactElement<AvatarProps>[];
   /**
-   * The size of all avatars in the group.
+   * The size of the avatars in the group.
    */
   size?: AvatarSize;
   /**
-   * The type of all avatars in the group.
+   * The type of the avatars in the group.
    */
   type?: AvatarType;
   /**

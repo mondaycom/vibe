@@ -33,7 +33,7 @@ export interface LabelProps extends VibeComponentProps {
    */
   text?: string;
   /**
-   * If true, includes a leg (small decorative extension).
+   * If true, includes a leg (decorative extension).
    */
   isLegIncluded?: boolean;
   /**

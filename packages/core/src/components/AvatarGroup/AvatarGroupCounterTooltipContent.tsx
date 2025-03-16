@@ -10,10 +10,6 @@ import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
   /**
-   * Class name applied to the tooltip content container.
-   */
-  className?: string;
-  /**
    * The type of avatars displayed inside the tooltip.
    */
   type?: AvatarType;

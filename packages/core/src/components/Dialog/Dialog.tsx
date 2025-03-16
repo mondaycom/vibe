@@ -32,6 +32,7 @@ export interface DialogProps extends VibeComponentProps {
   position?: DialogPosition;
   /**
    * Custom Popper.js modifiers.
+   * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Modifier<any>[];
   /**
@@ -40,6 +41,8 @@ export interface DialogProps extends VibeComponentProps {
   startingEdge?: string;
   /**
    * Offset values for positioning adjustments.
+   * `main` - horizontal offset
+   * `secondary` - vertical offset
    */
   moveBy?: { main?: number; secondary?: number };
   /**
@@ -81,11 +84,11 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * Classes that prevent showing the dialog when present.
    */
-  showTriggerIgnoreClass?: string | string[];
+  showTriggerIgnoreClass?: string | Array<string>;
   /**
    * Classes that prevent hiding the dialog when present.
    */
-  hideTriggerIgnoreClass?: string | string[];
+  hideTriggerIgnoreClass?: string | Array<string>;
   /**
    * The animation type used for the dialog.
    */
@@ -167,7 +170,12 @@ export interface DialogProps extends VibeComponentProps {
    */
   disableContainerScroll?: boolean | string;
   /**
-   * If true, enables observing content resizing for the popper element.
+   * Enables the observation of content resize for the popper element.
+   * When set to `true`, a ResizeObserver is attached to the popper content,
+   * automatically triggering repositioning when the size of the content changes.
+   *
+   * This is useful for dialogs, tooltips, or popovers with dynamic content
+   * that may grow or shrink without a re-render being triggered.
    */
   observeContentResize?: boolean;
 }

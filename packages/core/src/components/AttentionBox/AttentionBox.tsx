@@ -21,7 +21,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
    */
   withIconWithoutHeader?: boolean;
   /**
-   * The type of the component.
+   * The type of the AttentionBox.
    */
   type?: AttentionBoxType;
   /**

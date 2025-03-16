@@ -6,7 +6,7 @@ import comboboxStyles from "../../Combobox.module.scss";
 
 export interface ComboboxCategoryProps {
   /**
-   * The category data including label, ID, aria label, and color.
+   * The category data.
    */
   category: IComboboxCategory;
   /**

@@ -23,10 +23,6 @@ const mapLoaderColorsToColors: Record<LoaderColors, string> = {
 
 export interface LoaderProps extends VibeComponentProps {
   /**
-   * Class name applied to the loader element.
-   */
-  className?: string;
-  /**
    * The size of the loader, either a predefined size or a custom number.
    */
   size?: LoaderSize;

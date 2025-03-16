@@ -38,7 +38,7 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
    */
   fulfilledStepIcon?: SubIcon;
   /**
-   * The type of the fulfilled step icon (e.g., "svg", "font").
+   * The type of the fulfilled step icon.
    */
   fulfilledStepIconType?: "svg" | "font";
   /**
@@ -50,7 +50,7 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
    */
   onClick?: (stepNumber: number) => void;
   /**
-   * The placement of the step text (e.g., "horizontal", "vertical").
+   * The placement of the step text.
    */
   textPlacement?: TextPlacement;
   /**

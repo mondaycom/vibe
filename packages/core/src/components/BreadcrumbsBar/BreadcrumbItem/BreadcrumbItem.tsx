@@ -37,7 +37,7 @@ export interface BreadcrumbItemProps extends VibeComponentProps {
    */
   icon?: SubIcon;
   /**
-   * If true, the text is shown.
+   * If false, the text is not shown.
    */
   showText?: boolean;
 }

@@ -33,6 +33,7 @@ export interface UseKeyEventArgs {
    * The list of keys that should trigger the event.
    */
   keys: KeyboardEvent["key"][];
+  // TODO: [breaking] change to keyboard event
   /**
    * Callback fired when a specified key is pressed.
    */

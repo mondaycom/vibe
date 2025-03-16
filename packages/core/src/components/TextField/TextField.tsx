@@ -211,7 +211,7 @@ export interface TextFieldProps extends VibeComponentProps {
    */
   secondaryTooltipContent?: string;
   /**
-   * The text direction of the input: "ltr", "rtl", or "auto".
+   * The text direction of the input.
    */
   dir?: "ltr" | "rtl" | "auto";
 }

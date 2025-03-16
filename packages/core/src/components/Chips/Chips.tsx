@@ -94,13 +94,13 @@ export interface ChipsProps extends VibeComponentProps {
    */
   allowTextSelection?: boolean;
   /**
-   * Callback fired when the chip is clicked.
-   */
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  /**
    * Callback fired when the mouse button is pressed on the chip.
    */
   onMouseDown?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  /**
+   * Callback fired when the chip is clicked.
+   */
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /**
    * The label of the chip for accessibility.
    */

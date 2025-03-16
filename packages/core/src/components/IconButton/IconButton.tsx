@@ -17,10 +17,6 @@ import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
-   * The ID of the button element.
-   */
-  id?: string;
-  /**
    * Callback fired when the button is clicked.
    */
   onClick?: (event: React.MouseEvent) => void;
@@ -29,7 +25,7 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   wrapperClassName?: string;
   /**
-   * Class name applied to the button icon.
+   * Class name applied to the icon.
    */
   iconClassName?: string;
   /**
@@ -85,7 +81,7 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   tooltipContent?: string;
   /**
-   * The button style variant.
+   * The button variant.
    */
   kind?: ButtonType;
   /**

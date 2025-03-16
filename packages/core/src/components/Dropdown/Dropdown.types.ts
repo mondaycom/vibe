@@ -231,6 +231,8 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   autoFocus?: boolean;
   /**
    * If true, enables multi-select mode.
+   * When in multi-select mode, the selected value will be an array,
+   * and it will be displayed as our [`<Chips>`](/?path=/docs/components-chips--sandbox) component.
    */
   multi?: boolean;
   /**

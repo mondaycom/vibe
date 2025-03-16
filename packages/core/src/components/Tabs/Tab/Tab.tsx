@@ -37,7 +37,7 @@ export interface TabProps extends VibeComponentProps {
    */
   icon?: SubIcon;
   /**
-   * The type of icon (e.g., "svg", "font").
+   * The type of icon.
    */
   iconType?: IconType;
   /**

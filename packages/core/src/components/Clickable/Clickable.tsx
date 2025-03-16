@@ -12,14 +12,6 @@ export interface ClickableProps extends VibeComponentProps {
    */
   elementType?: keyof JSX.IntrinsicElements | string;
   /**
-   * Class name applied to the clickable element.
-   */
-  className?: string;
-  /**
-   * The ID of the clickable element.
-   */
-  id?: string;
-  /**
    * The content inside the clickable element.
    */
   children?: React.ReactNode;
@@ -55,6 +47,7 @@ export interface ClickableProps extends VibeComponentProps {
    * If true, hides the element from assistive technologies.
    */
   ariaHidden?: boolean;
+  // TODO: [breaking] remove string type
   /**
    * Indicates the presence of a popup associated with the element.
    */
@@ -63,6 +56,7 @@ export interface ClickableProps extends VibeComponentProps {
    * If true, indicates that the associated popup is open.
    */
   ariaExpanded?: boolean;
+  // TODO: [breaking] remove string type
   /**
    * The tab order of the element.
    */
@@ -75,10 +69,6 @@ export interface ClickableProps extends VibeComponentProps {
    * Inline styles applied to the element.
    */
   style?: React.CSSProperties;
-  /**
-   * Test ID for testing purposes.
-   */
-  "data-testid"?: string;
 }
 
 const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(

@@ -82,11 +82,13 @@ export interface ColorPickerContentProps extends VibeComponentProps {
    */
   isMultiselect?: boolean;
   /**
-   * If true, forces the component to use the provided `colorsList` without filtering.
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
    */
   forceUseRawColorList?: boolean;
   /**
-   * If true, displays a tooltip with the color name.
+   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
    */
   showColorNameTooltip?: boolean;
 }

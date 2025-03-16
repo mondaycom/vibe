@@ -25,10 +25,6 @@ export interface AvatarBadgeProps extends VibeComponentProps {
    */
   tabIndex?: string | number;
   /**
-   * Class name applied to the badge.
-   */
-  className?: string;
-  /**
    * The size of the badge.
    */
   size?: AvatarSize;

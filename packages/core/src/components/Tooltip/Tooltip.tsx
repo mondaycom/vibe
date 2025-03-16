@@ -23,7 +23,6 @@ export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | Toolti
 interface TooltipWithoutChildrenProps {
   /**
    * If true, the tooltip will be rendered even if there are no children.
-   * Useful for floating tooltips like Tipseen.
    */
   forceRenderWithoutChildren: boolean;
   /**
@@ -43,6 +42,7 @@ interface TooltipWithChildrenProps {
   children: ReactElement | Array<ReactElement>;
 }
 
+// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 interface TooltipBaseProps extends VibeComponentProps {
   /**
    * The content displayed inside the tooltip.
@@ -118,6 +118,7 @@ interface TooltipBaseProps extends VibeComponentProps {
   onTooltipShow?: () => void;
   /**
    * Custom Popper.js modifiers.
+   * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Array<Modifier<unknown>>;
   /**
@@ -173,7 +174,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   dir?: "ltr" | "rtl" | "auto";
 }
-
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
 

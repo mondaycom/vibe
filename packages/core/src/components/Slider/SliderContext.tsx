@@ -35,7 +35,7 @@ export interface SliderProviderProps extends SliderProps {
      */
     postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
     /**
-     * The width of the selection indicator (e.g., TextField).
+     * The width of the selection indicator.
      */
     selectionIndicatorWidth?: string;
   };

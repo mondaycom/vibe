@@ -43,7 +43,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   scrollableClassName?: string;
   /**
-   * The orientation of the list: `"vertical"` (default) or `"horizontal"`.
+   * The orientation of the list.
    */
   layout?: VirtualizedListLayout;
   /**
@@ -55,7 +55,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement | JSX.Element;
   /**
-   * Deprecated - use `getItemSize`. Function to get the height of each item.
+   * @deprecated - use `getItemSize`.
    */
   getItemHeight?: (item: VirtualizedListItem, index: number) => number;
   /**
@@ -105,7 +105,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   onSizeUpdate?: (width: number, height: number) => void;
   /**
-   * Deprecated - use `onLayoutDirectionScrollbarVisibilityChange`.
+   * @deprecated - use `onLayoutDirectionScrollbarVisibilityChange`.
    */
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
   /**

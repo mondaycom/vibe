@@ -12,7 +12,6 @@ import { camelCase } from "lodash-es";
 export interface TableCellSkeletonProps extends VibeComponentProps {
   /**
    * The type of loading state for the skeleton.
-   * Options: `"long-text"`, `"medium-text"`, `"circle"`, `"rectangle"`.
    */
   type?: TableLoadingStateType;
   /**

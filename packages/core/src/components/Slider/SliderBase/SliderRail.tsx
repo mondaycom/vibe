@@ -10,10 +10,6 @@ import { SliderSize } from "../Slider.types";
 
 export interface SliderRailProps extends VibeComponentProps {
   /**
-   * Class name applied to the slider rail.
-   */
-  className?: string;
-  /**
    * Callback fired when the rail is clicked.
    */
   onClick?: (event: React.MouseEvent) => void;

@@ -33,17 +33,13 @@ export interface LinearProgressBarProps extends VibeComponentProps {
    */
   value?: number;
   /**
-   * The secondary progress value (e.g., for buffer progress).
+   * The secondary progress value.
    */
   valueSecondary?: number;
   /**
    * If true, enables animation effects.
    */
   animated?: boolean;
-  /**
-   * Class name applied to the progress bar wrapper.
-   */
-  className?: string;
   /**
    * The size of the progress bar.
    */
