@@ -33,9 +33,9 @@ export const ContentColorRow: React.FC<ContentColorRowProps> = ({ colorName }) =
       <ContentColorCell>
         <Text>{`--color-${colorName}`}</Text>
       </ContentColorCell>
-      <ContentColorCell style={regularStyle}> </ContentColorCell>
-      <ContentColorCell style={hoverStyle}> </ContentColorCell>
-      <ContentColorCell style={selectedStyle}> </ContentColorCell>
+      <ContentColorCell style={regularStyle} />
+      <ContentColorCell style={hoverStyle} />
+      <ContentColorCell style={selectedStyle} />
     </tr>
   );
 };
