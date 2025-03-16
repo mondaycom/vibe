@@ -25,7 +25,7 @@ export interface AvatarProps extends VibeComponentProps {
    */
   text?: string;
   /**
-   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](/?path=/docs/components-tooltip--docs).
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
