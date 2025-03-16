@@ -1,8 +1,11 @@
 import React, { ReactNode, AriaRole } from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
+import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 
-export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>, VibeComponentProps {
+export interface BaseListItemProps<T = Record<string, unknown>>
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    VibeComponentProps {
   /**
    * The value associated with the list item.
    */
@@ -12,9 +15,9 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
    */
   label: string;
   /**
-   * The size of the list item. Affects padding and font size.
+   * The Size of the list item.
    */
-  size?: BaseListItemSizes;
+  size?: BaseListSizes;
   /**
    * If true, the list item is selected.
    */
@@ -24,13 +27,15 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
    */
   disabled?: boolean;
   /**
-   * Element rendered at the start of the list item.
-   * Can be an avatar, icon, inset, or a custom element.
+   * If true, the dropdown is read-only and cannot be edited.
+   */
+  readOnly?: boolean;
+  /**
+   * Element to render at the start of the list item.
    */
   startElement?: StartElement;
   /**
-   * Element rendered at the end of the list item.
-   * Can be an icon, suffix, or a custom element.
+   * Element to render at the end of the list item.
    */
   endElement?: EndElement;
   /**
@@ -42,20 +47,26 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * If true, adjusts the tooltip position for right-to-left (RTL) layouts.
+   * Determines the position of the tooltip according to the direction.
    */
-  rtl?: boolean;
+  dir?: BaseListDirection;
   /**
    * The ARIA role of the list item.
    */
   role?: AriaRole;
   /**
-   * The index of the list item.
+   * The index of the item in the list.
    */
   index?: number;
+  /**
+   * Custom renderer for options.
+   */
+  optionRenderer?: (item: T) => JSX.Element;
+  /**
+   * Allow any additional user-defined properties dynamically
+   **/
+  [key: string]: unknown;
 }
-
-export type BaseListItemSizes = "small" | "medium" | "large";
 
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }

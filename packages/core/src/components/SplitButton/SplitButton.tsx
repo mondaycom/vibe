@@ -30,7 +30,7 @@ import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
-import { DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { DialogSize, DialogTriggerEvent } from "../Dialog";
 
 export interface SplitButtonProps extends ButtonProps {
   /**
@@ -60,7 +60,7 @@ export interface SplitButtonProps extends ButtonProps {
   /**
    * The padding size inside the secondary dialog.
    */
-  dialogPaddingSize?: (typeof DialogContentContainer.sizes)[keyof typeof DialogContentContainer.sizes];
+  dialogPaddingSize?: DialogSize;
   /**
    * The CSS selector of the container where the dialog should be rendered.
    */
@@ -88,7 +88,7 @@ const SplitButton: FC<SplitButtonProps> & {
   secondaryDialogClassName,
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
-  dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+  dialogPaddingSize = "medium",
   disabled,
   // success mode not working right now, need to fix it in different pr
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

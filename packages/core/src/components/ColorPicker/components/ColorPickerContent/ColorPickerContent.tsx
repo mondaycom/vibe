@@ -87,7 +87,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
    */
   forceUseRawColorList?: boolean;
   /**
-   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * Used to enable color name tooltip on each color in the component.
    * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
    */
   showColorNameTooltip?: boolean;
@@ -182,7 +182,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
-            showColorNameTooltip={showColorNameTooltip && !forceUseRawColorList}
+            showColorNameTooltip={showColorNameTooltip}
             id={id}
             data-testid={dataTestId}
           />

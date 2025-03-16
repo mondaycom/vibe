@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.21.1...vibe-storybook-components@0.22.0) (2025-03-11)
+
+
+### Features
+
+* **Spacing:** add new spacing tokens ([#2768](https://github.com/mondaycom/vibe/issues/2768)) ([a21f765](https://github.com/mondaycom/vibe/commit/a21f765ef376da00b5ed0992a41da1124fbd191c))
+
+
+
+
+
 ## [0.21.1](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.21.0...vibe-storybook-components@0.21.1) (2024-12-17)
 
 

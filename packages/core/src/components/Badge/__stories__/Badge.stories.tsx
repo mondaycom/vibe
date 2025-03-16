@@ -11,7 +11,8 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
-  ignoreControlsPropNamesArray: ["children"]
+  ignoreControlsPropNamesArray: ["children"],
+  actionPropsArray: ["onMouseDown"]
 });
 
 const badgeTemplate = createComponentTemplate(Badge);
@@ -29,6 +30,13 @@ export const Overview = {
 
   args: {
     children: <Button leftIcon={WhatsNew}>{"What's new"}</Button>
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -54,6 +62,13 @@ export const States = {
       </StoryDescription>
     </Flex>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, WhatsNew }
+      }
+    }
+  },
 
   name: "States"
 };
@@ -64,6 +79,13 @@ export const ButtonStory = {
       <Button leftIcon={ExternalPage}>Button</Button>
     </Badge>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExternalPage }
+      }
+    }
+  },
 
   name: "Button"
 };
@@ -74,6 +96,13 @@ export const AvatarStory = {
       <Avatar size="large" src={person} type="img" />
     </Badge>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person }
+      }
+    }
+  },
 
   name: "Avatar"
 };
@@ -92,6 +121,13 @@ export const InlineElements = {
       </Badge>
     </Flex>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { WhatsNew, ExternalPage }
+      }
+    }
+  },
 
   name: "Inline elements"
 };

@@ -8,13 +8,17 @@ import { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Checkbox>;
 
-const metaSettings = createStoryMetaSettingsDecorator({ component: Checkbox });
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: Checkbox,
+  actionPropsArray: ["onChange"]
+});
 const checkboxTemplate = createComponentTemplate(Checkbox);
 
 export default {
   title: "Components/Checkbox",
   component: Checkbox,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  argTypes: metaSettings.argTypes
 } satisfies Meta<typeof Checkbox>;
 
 export const Overview: Story = {
