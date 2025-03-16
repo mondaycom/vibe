@@ -1,5 +1,4 @@
 import React from "react";
-import cx from "classnames";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Text from "../Text";
 import Link from "../../Link/Link";
@@ -9,7 +8,7 @@ import { createComponentTemplate, StorybookLink } from "vibe-storybook-component
 import Flex from "../../Flex/Flex";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/textTestsConstants";
 import { textOverflowSuite } from "../__tests__/Text.interactions";
-import styles from "./Text.stories.module.scss";
+import Box from "../../Box/Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Text
@@ -83,44 +82,28 @@ export const Colors = {
     <Flex direction="column" align="start" gap="small">
       <Text color="primary">Primary text</Text>
       <Text color="secondary">Secondary text</Text>
-      <Text className={cx(styles.primaryBackground, styles.smallRectangle)} align="center" color="onPrimary">
-        On primary text
-      </Text>
-      <Text className={cx(styles.invertedBackground, styles.smallRectangle)} align="center" color="onInverted">
-        On inverted text
-      </Text>
-      <Text
-        element="div"
-        className={cx(styles.smallRectangle)}
-        style={{
-          backgroundColor: "black"
-        }}
-        align="center"
-        color="fixedLight"
-      >
-        Fixed light
-      </Text>
-      <Text
-        element="div"
-        className={cx(styles.smallRectangle)}
-        style={{
-          backgroundColor: "whitesmoke"
-        }}
-        align="center"
-        color="fixedDark"
-      >
-        Fixed dark
-      </Text>
+      <Box style={{ backgroundColor: "var(--primary-color)", width: "150px" }} padding="small">
+        <Text align="center" color="onPrimary">
+          On primary text
+        </Text>
+      </Box>
+      <Box style={{ width: "150px" }} backgroundColor="invertedColorBackground" padding="small">
+        <Text align="center" color="onInverted">
+          On inverted text
+        </Text>
+      </Box>
+      <Box style={{ width: "150px", backgroundColor: "black" }} padding="small">
+        <Text align="center" color="fixedLight">
+          Fixed light
+        </Text>
+      </Box>
+      <Box style={{ width: "150px", backgroundColor: "whitesmoke" }} padding="small">
+        <Text align="center" color="fixedDark">
+          Fixed dark
+        </Text>
+      </Box>
     </Flex>
-  ),
-
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { cx, styles }
-      }
-    }
-  }
+  )
 };
 
 export const Overflow = {
@@ -201,59 +184,49 @@ export const LinksInsideRunningText = {
         </StorybookLink>{" "}
         inside running text.
       </Text>
-      <Text className={cx(styles.primaryBackground, styles.mediumRectangle)} align="center" color="onPrimary">
-        This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
-          link
-        </StorybookLink>{" "}
-        inside running text on a primary color
-      </Text>
-      <Text className={cx(styles.invertedBackground, styles.mediumRectangle)} align="center" color="onInverted">
-        This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
-          link
-        </StorybookLink>{" "}
-        inside running text on an inverted color
-      </Text>
-      <Text
-        element="div"
-        ellipsis={false}
-        className={cx(styles.mediumRectangle)}
-        style={{
-          backgroundColor: "black"
-        }}
-        align="center"
-        color="fixedLight"
-      >
-        This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
-          link
-        </StorybookLink>{" "}
-        inside running text with fixed light color
-      </Text>
-      <Text
-        element="div"
-        ellipsis={false}
-        className={cx(styles.mediumRectangle)}
-        style={{
-          backgroundColor: "whitesmoke"
-        }}
-        align="center"
-        color="fixedDark"
-      >
-        This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
-          link
-        </StorybookLink>{" "}
-        inside running text with fixed dark color
-      </Text>
+      <Box style={{ backgroundColor: "var(--primary-color)", width: "420px" }} padding="small">
+        <Text align="center" color="onPrimary">
+          This is the story of a{" "}
+          <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
+            link
+          </StorybookLink>{" "}
+          inside running text on a primary color
+        </Text>
+      </Box>
+      <Box style={{ width: "420px" }} backgroundColor="invertedColorBackground" padding="small">
+        <Text align="center" color="onInverted">
+          This is the story of a{" "}
+          <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
+            link
+          </StorybookLink>{" "}
+          inside running text on an inverted color
+        </Text>
+      </Box>
+      <Box style={{ backgroundColor: "black", width: "420px" }} padding="small">
+        <Text ellipsis={false} style={{}} align="center" color="fixedLight">
+          This is the story of a{" "}
+          <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
+            link
+          </StorybookLink>{" "}
+          inside running text with fixed light color
+        </Text>
+      </Box>
+      <Box style={{ backgroundColor: "whitesmoke", width: "420px" }} padding="small">
+        <Text ellipsis={false} align="center" color="fixedDark">
+          This is the story of a{" "}
+          <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
+            link
+          </StorybookLink>{" "}
+          inside running text with fixed dark color
+        </Text>
+      </Box>
     </Flex>
   ),
 
   parameters: {
     docs: {
       liveEdit: {
-        scope: { cx, StorybookLink, styles }
+        scope: { StorybookLink }
       }
     }
   },
