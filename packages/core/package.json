@@ -253,8 +253,8 @@
   },
   "peerDependencies": {
     "moment": "^2.29.1",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": ">=16.9.0 <18.3.0",
+    "react-dom": ">=16.9.0 <18.3.0"
   },
   "sideEffects": [
     "*.scss",
