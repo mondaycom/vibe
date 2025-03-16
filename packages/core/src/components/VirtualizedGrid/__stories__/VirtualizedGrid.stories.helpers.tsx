@@ -1,15 +1,22 @@
 import React from "react";
 import { Text } from "../../Text";
 
-export const generateItems = (height = 30, width = "100%", itemsCount) => {
-  const items = [];
+interface Item {
+  value: string;
+  height: number;
+  width: string | number;
+  id: number;
+}
+
+export const generateItems = (height = 30, width: string | number = "100%", itemsCount: number): Item[] => {
+  const items: Item[] = [];
   for (let i = 0; i < itemsCount; i++) {
     items.push({ value: `Item ${i}`, height, width, id: i });
   }
   return items;
 };
 
-export const itemRenderer = (item, index, style) => {
+export const itemRenderer = (item: Item | undefined, index: number, style: React.CSSProperties) => {
   if (item) {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (

@@ -8,7 +8,7 @@ export default {
 
 export const Overview = {
   render: () => {
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
     const onClick = useCallback(() => alert("click!"), []);
 
     const clickableProps = useClickableProps(
@@ -23,7 +23,7 @@ export const Overview = {
     );
 
     return (
-      <div {...clickableProps} className="monday-storybook-use-clickable-props">
+      <div {...clickableProps} className="monday-storybook-use-clickable-props" ref={ref}>
         I act like a button
       </div>
     );

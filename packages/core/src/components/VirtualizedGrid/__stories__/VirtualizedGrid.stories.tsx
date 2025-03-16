@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import VirtualizedGrid from "../VirtualizedGrid";
+import VirtualizedGrid, { VirtualizedGridProps } from "../VirtualizedGrid";
 import Button from "../../Button/Button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 
@@ -8,11 +8,13 @@ export default {
   component: VirtualizedGrid
 };
 
-const virtualizedGridTemplate = args => {
+const ITEMS_COUNT = 100;
+
+const virtualizedGridTemplate = (args: VirtualizedGridProps) => {
   const [scrollToId, setScrollToId] = useState(null);
   const [lastScrolledId, setLastScrolledId] = useState(null);
   const [scrollToDisabled, setScrollToDisabled] = useState(false);
-  const [nextScrollToId, setNextScrollToId] = useState(args.itemsCount - 1);
+  const [nextScrollToId, setNextScrollToId] = useState(ITEMS_COUNT - 1);
   const getColumnWidth = useCallback(() => {
     return 100;
   }, []);
@@ -20,8 +22,8 @@ const virtualizedGridTemplate = args => {
     return 50;
   }, []);
   const items = useMemo(() => {
-    return generateItems(50, 100, args.itemsCount);
-  }, [args.itemsCount]);
+    return generateItems(50, 100, ITEMS_COUNT);
+  }, []);
   const onClickToScroll = useCallback(() => {
     setScrollToId(nextScrollToId);
     setLastScrolledId("");
@@ -34,16 +36,16 @@ const virtualizedGridTemplate = args => {
     setScrollToDisabled(false);
   }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
   return (
-    <div style={args.wrapperStyle}>
+    <div style={{ width: 430, height: 300, overflow: "hidden", display: "flex", alignItems: "center" }}>
       <div style={{ width: "430px", height: "100%" }}>
         <VirtualizedGrid
-          id={args.wrapperId}
           scrollToId={scrollToId}
           items={items}
           itemRenderer={itemRenderer}
           getColumnWidth={getColumnWidth}
           getRowHeight={getRowHeight}
           onScrollToFinished={onScrollToFinished}
+          {...args}
         />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -58,15 +60,5 @@ const virtualizedGridTemplate = args => {
 
 export const Overview = {
   render: virtualizedGridTemplate.bind({}),
-  name: "Overview",
-  args: {
-    wrapperStyle: {
-      width: 430,
-      height: 300,
-      overflow: "hidden",
-      display: "flex",
-      alignItems: "center"
-    },
-    itemsCount: 100
-  }
+  name: "Overview"
 };
