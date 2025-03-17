@@ -29,7 +29,7 @@ export const VirtualizedListDescription = () => {
       <VirtualizedList
         items={generateItems(30, 1000, "vertical")}
         itemRenderer={itemRenderer}
-        getItemSize={item => item.size}
+        getItemSize={item => item.height}
       />
     );
   }, []);
