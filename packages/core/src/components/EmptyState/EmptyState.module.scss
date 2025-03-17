@@ -4,26 +4,25 @@
   box-sizing: border-box;
   background: var(--primary-background-color);
 
-  
   &.compact {
     padding: var(--spacing-medium);
   }
-}
 
-.content {
-  width: 100%;
-  text-align: center;
-}
+  .content {
+    width: 100%;
+    text-align: center;
 
-.title {
-  margin: 0;
-}
+    .title {
+      margin: 0;
+    }
 
-.description {
-  margin: 0;
-  max-width: 500px;
-}
+    .description {
+      margin: 0;
+      max-width: 500px;
+    }
 
-.actions {
-  width: 100%;
+    .actions {
+      width: 100%;
+    }
+  }
 }
