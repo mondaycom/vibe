@@ -16,7 +16,7 @@ const ExampleTabContent = ({ children }: { children: string }) => (
 );
 
 export default {
-  title: "Components/Tabs/Tabs",
+  title: "Components/Tabs",
   component: Tab,
   subcomponents: {
     TabPanel,

@@ -4,7 +4,11 @@ import ColorUtils from "../../../../utils/colors-utils";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import Text from "../../../../components/Text/Text";
 
-export const ContentColorRow = ({ colorName }) => {
+interface ContentColorRowProps {
+  colorName: string;
+}
+
+export const ContentColorRow: React.FC<ContentColorRowProps> = ({ colorName }) => {
   const regularStyle = useMemo(
     () => ({
       backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.REGULAR)

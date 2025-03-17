@@ -6,7 +6,7 @@ import TipseenWizard from "../../../../components/Tipseen/TipseenWizard";
 export const TipseenDescription = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
 
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+  const onChangeActiveStep = useCallback((_e: React.MouseEvent, stepIndex: number) => {
     setActiveStepIndex(stepIndex);
   }, []);
 
@@ -34,7 +34,7 @@ export const TipseenDescription = () => {
       {
         name: "flip",
         options: {
-          fallbackPlacements: []
+          fallbackPlacements: [] as string[]
         }
       }
     ];
