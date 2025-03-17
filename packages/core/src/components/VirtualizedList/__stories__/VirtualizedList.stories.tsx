@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import VirtualizedList from "../VirtualizedList";
 import { generateItems } from "./VirtualizedList.stories.helpers";
-import { Flex } from "../../";
+import { Flex, VirtualizedListItem } from "../..";
 import styles from "./VirtualizedList.module.scss";
 
 export default {
@@ -9,8 +9,8 @@ export default {
   component: VirtualizedList
 };
 
-const virtualizedListTemplate = args => {
-  const itemRenderer = useCallback((item, index, style) => {
+const virtualizedListTemplate = (args: VirtualizedListItem) => {
+  const itemRenderer = useCallback((item: VirtualizedListItem, index: number, style: React.CSSProperties) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
@@ -21,7 +21,7 @@ const virtualizedListTemplate = args => {
             height: item.height
           }}
         >
-          {item.value}
+          {item.value as React.ReactNode}
         </div>
       </div>
     );
@@ -43,7 +43,7 @@ const virtualizedListTemplate = args => {
             {...args}
             items={generateItems(30, 1000, "vertical")}
             itemRenderer={itemRenderer}
-            getItemSize={item => item.size}
+            getItemSize={item => item.height}
           />
         </div>
       </div>
@@ -62,7 +62,7 @@ const virtualizedListTemplate = args => {
             {...args}
             items={generateItems(100, 1000, "horizontal")}
             itemRenderer={itemRenderer}
-            getItemSize={item => item.size}
+            getItemSize={item => item.width}
             layout="horizontal"
           />
         </div>
