@@ -2,7 +2,6 @@ import React from "react";
 import cn from "classnames";
 import Toast, { ToastProps } from "../Toast";
 import "./Toast.stories.scss";
-import { ToastAction, ToastType } from "../Toast.types";
 
 const ToastLineWrapper = ({ children, actions, className, type, hideIcon, closeable }: ToastProps) => {
   return (
