@@ -8,6 +8,7 @@ import Text from "../../components/Text/Text";
 import { EmptyStateProps, EmptyStateSupportingActionProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "src/helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "src/tests/test-ids-utils";
 
 const EmptyState: FC<EmptyStateProps> = ({
   className,
@@ -30,25 +31,14 @@ const EmptyState: FC<EmptyStateProps> = ({
       gap={isCompact ? "small" : "medium"}
       className={cx(styles.emptyState, getStyle(styles, layout), className)}
       id={id}
-      data-testid={dataTestId || "empty-state"}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.EMPTY_STATE, id)}
     >
       {!!illustration && illustration}
 
-      <Flex
-        direction="column"
-        align="center"
-        gap={isCompact ? "small" : 12}
-        className={styles.content}
-      >
+      <Flex direction="column" align="center" gap={isCompact ? "small" : 12} className={styles.content}>
         <div>
           {title && (
-            <Heading
-              type="h3"
-              weight="normal"
-              className={styles.title}
-              align="center"
-              ellipsis={false}
-            >
+            <Heading type="h3" weight="normal" className={styles.title} align="center" ellipsis={false}>
               {title}
             </Heading>
           )}
@@ -65,12 +55,7 @@ const EmptyState: FC<EmptyStateProps> = ({
         </div>
 
         {(mainAction || supportingAction) && (
-          <Flex
-            direction="column"
-            align="center"
-            gap="small"
-            className={styles.actions}
-          >
+          <Flex direction="column" align="center" gap="small" className={styles.actions}>
             {mainAction && (
               <Button
                 kind={mainAction.kind || "secondary"}
