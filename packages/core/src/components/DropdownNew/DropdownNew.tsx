@@ -15,6 +15,7 @@ import useDropdownCombobox from "./hooks/useDropdownCombobox";
 import { VibeComponent } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import useMergeRef from "../../hooks/useMergeRef";
 
 const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivElement> = forwardRef(
   (
@@ -41,6 +42,7 @@ const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEl
     const dropdownRef = useRef<HTMLInputElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
     const listWrapperRef = useRef<HTMLDivElement>(null);
+    const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const {
       isOpen,
@@ -68,7 +70,7 @@ const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEl
 
     return (
       <div
-        ref={ref}
+        ref={dropdownMergedRef}
         className={cx(styles.wrapper, className, {
           [styles.disabled]: disabled,
           [styles.readOnly]: readOnly,
@@ -104,7 +106,7 @@ const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEl
           style={{
             ...popoverStyles.popper,
             visibility: isOpen ? "visible" : "hidden",
-            width: dropdownRef.current?.offsetWidth
+            width: dropdownMergedRef.current?.offsetWidth
           }}
           {...popoverAttributes.popper}
           ref={listWrapperRef}
