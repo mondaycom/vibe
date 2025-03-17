@@ -44,8 +44,8 @@ export interface EmptyStateProps {
   title?: string;
   /** Required description text explaining the empty state */
   description: string;
-  /** Optional image, animation or other illustration to display */
-  illustration?: React.ReactNode;
+  /** Optional visual element like image, animation, video, or illustration to display */
+  visual?: React.ReactNode;
   /** Main action button configuration */
   mainAction?: EmptyStateMainActionProps;
   /** Supporting action (link or tertiary button) configuration */

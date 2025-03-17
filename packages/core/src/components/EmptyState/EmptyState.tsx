@@ -7,14 +7,14 @@ import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import { EmptyStateProps, EmptyStateSupportingActionProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
-import { getStyle } from "src/helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId, getTestId } from "src/tests/test-ids-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(({
   className,
   title,
   description,
-  illustration,
+  visual,
   mainAction,
   supportingAction,
   layout = "default",
@@ -34,7 +34,7 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.EMPTY_STATE, id)}
       ref={ref}
     >
-      {!!illustration && illustration}
+      {!!visual && visual}
 
       <Flex direction="column" align="center" gap={isCompact ? "small" : 12} className={styles.content}>
         <div>
@@ -79,7 +79,7 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(({
       </Flex>
     </Flex>
   );
-};
+});
 
 export default EmptyState;
 

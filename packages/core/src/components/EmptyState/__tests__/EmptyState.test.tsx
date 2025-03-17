@@ -87,13 +87,7 @@ describe("EmptyState component", () => {
   });
 
   it("renders with compact layout", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        layout="compact"
-        data-testid="compact-empty-state"
-      />
-    );
+    render(<EmptyState description="This is a description" layout="compact" data-testid="compact-empty-state" />);
 
     const emptyState = screen.getByTestId("compact-empty-state");
     expect(emptyState).toHaveClass("compact");
@@ -103,7 +97,7 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        illustration={<img src="https://example.com/image.png" alt="Empty state illustration" />}
+        visual={<img src="https://example.com/image.png" alt="Empty state illustration" />}
       />
     );
 
@@ -113,7 +107,7 @@ describe("EmptyState component", () => {
 
   it("renders with custom React node as image", () => {
     render(
-      <EmptyState description="This is a description" illustration={<div data-testid="custom-icon">Custom Icon</div>} />
+      <EmptyState description="This is a description" visual={<div data-testid="custom-icon">Custom Icon</div>} />
     );
 
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();

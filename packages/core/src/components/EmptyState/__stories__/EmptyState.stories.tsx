@@ -18,7 +18,7 @@ export const Default: Story = {
     title: "The title should be concise and reflect the purpose",
     description:
       "This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below.",
-    illustration: <img src={emptyStateImage} alt="No items found" width={280} height={184} />,
+    visual: <img src={emptyStateImage} alt="No items found" width={280} height={184} />,
     mainAction: {
       text: "Main action",
       kind: "secondary",
@@ -39,7 +39,7 @@ export const Default: Story = {
 export const WithoutTitle: Story = {
   args: {
     description: "No data available yet. Add some items to get started.",
-    illustration: <img src={emptyStateImage} alt="No data available" width={280} height={184} />,
+    visual: <img src={emptyStateImage} alt="No data available" width={280} height={184} />,
     mainAction: {
       text: "Add item",
       kind: "primary",
@@ -55,7 +55,7 @@ export const Compact: Story = {
   args: {
     title: "Your favorites are empty",
     description: "Add your boards, docs, or dashboards for a quick access.",
-    illustration: <img src={emptyStateImage} alt="No notifications" width={280} height={184} />,
+    visual: <img src={emptyStateImage} alt="No notifications" width={280} height={184} />,
     layout: "compact",
     mainAction: {
       text: "Refresh",
@@ -71,7 +71,7 @@ export const WithButtonSupportingAction: Story = {
   args: {
     title: "No files uploaded",
     description: "Upload files to share with your team members.",
-    illustration: <img src={emptyStateImage} alt="No files uploaded" width={280} height={184} />,
+    visual: <img src={emptyStateImage} alt="No files uploaded" width={280} height={184} />,
     mainAction: {
       text: "Upload files",
       kind: "primary",
@@ -95,7 +95,7 @@ export const WithCustomReactNodeImage: Story = {
   args: {
     title: "No messages",
     description: "Your inbox is empty. Messages from your team will appear here.",
-    illustration: (
+    visual: (
       <div className={styles.customIllustration}>
         <Email size="large" />
       </div>
@@ -114,7 +114,7 @@ export const WithDisabledActions: Story = {
   args: {
     title: "Processing data",
     description: "Your data is being processed. This might take a few minutes.",
-    illustration: <img src={emptyStateImage} alt="Processing data" width={280} height={184} />,
+    visual: <img src={emptyStateImage} alt="Processing data" width={280} height={184} />,
     mainAction: {
       text: "Refresh",
       kind: "secondary",
@@ -142,7 +142,7 @@ export const ActionsComparison: Story = {
         <EmptyState
           title="The title should be concise and reflect the purpose"
           description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
-          illustration={<img src={emptyStateImage} alt="No items found" width={280} height={184} />}
+          visual={<img src={emptyStateImage} alt="No items found" width={280} height={184} />}
           mainAction={{
             text: "Main action",
             onClick: () => {
@@ -155,7 +155,7 @@ export const ActionsComparison: Story = {
         <EmptyState
           title="The title should be concise and reflect the purpose"
           description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
-          illustration={<img src={emptyStateImage} alt="No items found" width={280} height={184} />}
+          visual={<img src={emptyStateImage} alt="No items found" width={280} height={184} />}
           mainAction={{
             text: "Main action",
             kind: "primary",
