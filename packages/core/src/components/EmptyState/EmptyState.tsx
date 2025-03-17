@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
 import Button from "../../components/Button/Button";
 import Link from "../../components/Link/Link";
@@ -10,7 +10,7 @@ import styles from "./EmptyState.module.scss";
 import { getStyle } from "src/helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "src/tests/test-ids-utils";
 
-const EmptyState: FC<EmptyStateProps> = ({
+const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(({
   className,
   title,
   description,
@@ -20,7 +20,7 @@ const EmptyState: FC<EmptyStateProps> = ({
   layout = "default",
   id,
   "data-testid": dataTestId
-}) => {
+}, ref) => {
   const isCompact = layout === "compact";
 
   return (
@@ -32,6 +32,7 @@ const EmptyState: FC<EmptyStateProps> = ({
       className={cx(styles.emptyState, getStyle(styles, layout), className)}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.EMPTY_STATE, id)}
+      ref={ref}
     >
       {!!illustration && illustration}
 
