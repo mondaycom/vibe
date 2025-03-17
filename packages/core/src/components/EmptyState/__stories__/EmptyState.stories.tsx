@@ -23,14 +23,14 @@ export const Default: Story = {
       text: "Main action",
       kind: "secondary",
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     },
     supportingAction: {
       text: "Read more",
       href: "#",
       onClick: () => {
-        alert("Supporting action clicked");
+        console.log("Supporting action clicked");
       }
     }
   }
@@ -45,7 +45,7 @@ export const WithoutTitle: Story = {
       kind: "primary",
       leftIcon: WhatsNew,
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     }
   }
@@ -61,7 +61,7 @@ export const Compact: Story = {
       text: "Refresh",
       kind: "secondary",
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     }
   }
@@ -77,7 +77,7 @@ export const WithButtonSupportingAction: Story = {
       kind: "primary",
       leftIcon: Update,
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     },
     supportingAction: {
@@ -85,7 +85,7 @@ export const WithButtonSupportingAction: Story = {
       text: "Import from drive",
       leftIcon: Download,
       onClick: () => {
-        alert("Supporting action clicked");
+        console.log("Supporting action clicked");
       }
     }
   }
@@ -104,7 +104,7 @@ export const WithCustomReactNodeImage: Story = {
       text: "Compose message",
       kind: "primary",
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     }
   }
@@ -121,7 +121,7 @@ export const WithDisabledActions: Story = {
       disabled: true,
       loading: true,
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     },
     supportingAction: {
@@ -129,7 +129,7 @@ export const WithDisabledActions: Story = {
       type: "button",
       disabled: true,
       onClick: () => {
-        alert("Supporting action clicked");
+        console.log("Supporting action clicked");
       }
     }
   }
@@ -146,7 +146,7 @@ export const ActionsComparison: Story = {
           mainAction={{
             text: "Main action",
             onClick: () => {
-              alert("First view - Add item clicked");
+              console.log("First view - Add item clicked");
             }
           }}
         />
@@ -160,7 +160,7 @@ export const ActionsComparison: Story = {
             text: "Main action",
             kind: "primary",
             onClick: () => {
-              alert("Second view - View details clicked");
+              console.log("Second view - View details clicked");
             }
           }}
         />
@@ -178,7 +178,7 @@ export const WithLinkOnly: Story = {
       text: "Read more",
       href: "https://example.com/help",
       onClick: () => {
-        alert("Help center link clicked");
+        console.log("Help center link clicked");
       }
     }
   }
@@ -192,14 +192,14 @@ export const WithTwoButtons: Story = {
     mainAction: {
       text: "Main action",
       onClick: () => {
-        alert("Main action clicked");
+        console.log("Main action clicked");
       }
     },
     supportingAction: {
       text: "Supporting action",
       type: "button",
       onClick: () => {
-        alert("Supporting action clicked");
+        console.log("Supporting action clicked");
       }
     }
   }
@@ -215,7 +215,7 @@ export const WithAndWithoutTitleComparison: Story = {
           mainAction={{
             text: "Add a column",
             onClick: () => {
-              alert("Main action clicked");
+              console.log("Main action clicked");
             }
           }}
         />
@@ -226,7 +226,7 @@ export const WithAndWithoutTitleComparison: Story = {
           mainAction={{
             text: "Add a column",
             onClick: () => {
-              alert("Main action clicked");
+              console.log("Main action clicked");
             }
           }}
         />

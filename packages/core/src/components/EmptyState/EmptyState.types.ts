@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonProps } from "../../components/Button/Button";
 import { LinkProps } from "../../components/Link/Link";
+import { VibeComponentProps } from "src/types";
 
 export type EmptyStateLayout = "default" | "compact";
 
@@ -37,9 +38,7 @@ export type EmptyStateSupportingActionProps =
   | EmptyStateSupportingButtonActionProps
   | EmptyStateSupportingLinkActionProps;
 
-export interface EmptyStateProps {
-  /** Custom class name to be applied to the component */
-  className?: string;
+export interface EmptyStateProps extends VibeComponentProps {
   /** Optional title for the empty state */
   title?: string;
   /** Required description text explaining the empty state */
@@ -52,8 +51,4 @@ export interface EmptyStateProps {
   supportingAction?: EmptyStateSupportingActionProps;
   /** Layout style of the empty state */
   layout?: EmptyStateLayout;
-  /** ID to be applied to the component */
-  id?: string;
-  /** Test ID for testing purposes */
-  "data-testid"?: string;
 }
