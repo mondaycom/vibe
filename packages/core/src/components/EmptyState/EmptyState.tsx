@@ -7,6 +7,7 @@ import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import { EmptyStateProps, EmptyStateSupportingActionProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
+import { getStyle } from "src/helpers/typesciptCssModulesHelper";
 
 const EmptyState: FC<EmptyStateProps> = ({
   className,
@@ -27,7 +28,7 @@ const EmptyState: FC<EmptyStateProps> = ({
       align="center"
       justify="center"
       gap={isCompact ? "small" : "medium"}
-      className={cx(styles.emptyState, styles[layout], className)}
+      className={cx(styles.emptyState, getStyle(styles, layout), className)}
       id={id}
       data-testid={dataTestId || "empty-state"}
     >
