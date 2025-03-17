@@ -9,14 +9,8 @@ export default {
   component: VirtualizedList
 };
 
-interface Item {
-  height: number;
-  value: string;
-  size: number;
-}
-
 const virtualizedListTemplate = (args: VirtualizedListItem) => {
-  const itemRenderer = useCallback((item: Item, index: number, style: React.CSSProperties) => {
+  const itemRenderer = useCallback((item: VirtualizedListItem, index: number, style: React.CSSProperties) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
@@ -27,7 +21,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             height: item.height
           }}
         >
-          {item.value}
+          {item.value as React.ReactNode}
         </div>
       </div>
     );
@@ -49,7 +43,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             {...args}
             items={generateItems(30, 1000, "vertical")}
             itemRenderer={itemRenderer}
-            getItemSize={(item: Item) => item.size}
+            getItemSize={(item: VirtualizedListItem) => item.height}
           />
         </div>
       </div>
@@ -68,7 +62,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             {...args}
             items={generateItems(100, 1000, "horizontal")}
             itemRenderer={itemRenderer}
-            getItemSize={(item: Item) => item.size}
+            getItemSize={(item: VirtualizedListItem) => item.height}
             layout="horizontal"
           />
         </div>
