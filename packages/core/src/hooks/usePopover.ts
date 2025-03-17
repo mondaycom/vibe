@@ -21,11 +21,13 @@ export default function usePopover(
   {
     isOpen,
     placement = RIGHT_START,
-    observeContentResize
+    observeContentResize,
+    offset
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
+    offset?: [number, number];
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -50,10 +52,14 @@ export default function usePopover(
             return state;
           }
         },
-        createObserveContentResizeModifier(observeContentResize)
+        createObserveContentResizeModifier(observeContentResize),
+        offset !== undefined && {
+          name: "offset",
+          options: { offset }
+        }
       ]
     };
-  }, [isOpen, placement, observeContentResize]);
+  }, [placement, observeContentResize, offset, isOpen]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 
