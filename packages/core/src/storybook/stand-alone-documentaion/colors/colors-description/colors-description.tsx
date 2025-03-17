@@ -11,10 +11,14 @@ const colorsWithBorder = new Set([
   "secondary-background-color"
 ]);
 
-export const ColorsDescription = ({ colorNames }) => {
+interface ColorsDescriptionProps {
+  colorNames: string[];
+}
+
+export const ColorsDescription: React.FC<ColorsDescriptionProps> = ({ colorNames }) => {
   const descriptions = useMemo(
     () =>
-      colorNames.map(color => (
+      colorNames.map((color: string) => (
         <ColorDescription
           key={color}
           colorName={color}

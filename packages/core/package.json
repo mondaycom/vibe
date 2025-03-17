@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.31.2",
+  "version": "3.32.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -254,8 +254,8 @@
   },
   "peerDependencies": {
     "moment": "^2.29.1",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": ">=16.9.0 <18.3.0",
+    "react-dom": ">=16.9.0 <18.3.0"
   },
   "sideEffects": [
     "*.scss",

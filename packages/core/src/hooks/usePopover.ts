@@ -53,17 +53,13 @@ export default function usePopover(
           }
         },
         createObserveContentResizeModifier(observeContentResize),
-        ...(offset !== undefined
-          ? [
-              {
-                name: "offset",
-                options: { offset }
-              }
-            ]
-          : [])
+        offset !== undefined && {
+          name: "offset",
+          options: { offset }
+        }
       ]
     };
-  }, [isOpen, placement, observeContentResize, offset]);
+  }, [placement, observeContentResize, offset, isOpen]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 

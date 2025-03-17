@@ -3,7 +3,21 @@ import { TokenInformationBox } from "../token-Information-box/token-information-
 import { Flex } from "../../../../components";
 import styles from "./easing-overview.module.scss";
 
-export const EasingOverview = ({ videoSrc, title, description, tokenInfo, tokenDescription }) => {
+interface EasingOverviewProps {
+  videoSrc: string;
+  title: string;
+  description: string;
+  tokenInfo: string;
+  tokenDescription: string;
+}
+
+export const EasingOverview: React.FC<EasingOverviewProps> = ({
+  videoSrc,
+  title,
+  description,
+  tokenInfo,
+  tokenDescription
+}) => {
   const EasingOverviewVideoSrc = <video className={styles.video} src={videoSrc} controls loop />;
 
   return (

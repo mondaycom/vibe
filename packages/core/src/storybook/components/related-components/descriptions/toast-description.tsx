@@ -11,7 +11,7 @@ export const ToastDescription = () => {
     };
     return (
       <div style={style}>
-        <ToastLineWrapper text="Message" actions={[{ type: "button", content: "Button" }]} />
+        <ToastLineWrapper actions={[{ type: "button", content: "Button" }]}>Message</ToastLineWrapper>
       </div>
     );
   }, []);

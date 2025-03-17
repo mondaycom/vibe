@@ -13,7 +13,7 @@ export const StepsDescription = () => {
     setActiveStepIndex(prevState => prevState + 1);
   }, []);
 
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+  const onChangeActiveStep = useCallback((_e: React.MouseEvent, stepIndex: number) => {
     setActiveStepIndex(stepIndex);
   }, []);
 

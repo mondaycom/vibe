@@ -2,7 +2,12 @@ import React from "react";
 import cx from "classnames";
 import classes from "./rounded-corner.module.scss";
 
-const RoundedCorner = ({ number, roundedCornerSize }) => {
+interface RoundedCornerProps {
+  number: number;
+  roundedCornerSize: string;
+}
+
+const RoundedCorner = ({ number, roundedCornerSize }: RoundedCornerProps) => {
   return (
     <div className={cx(classes["rounded-corner-component"], classes[`rounded-corner-component--${roundedCornerSize}`])}>
       {number}

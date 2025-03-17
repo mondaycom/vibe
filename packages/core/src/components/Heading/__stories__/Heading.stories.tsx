@@ -10,7 +10,7 @@ import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "@vibe/icons";
-import styles from "./Heading.stories.module.scss";
+import Box from "../../Box/Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading
@@ -99,21 +99,18 @@ export const Colors = {
       <Heading type="h2" color="secondary">
         Secondary title
       </Heading>
-      <Heading element="div" type="h2" className={styles.primaryBackground} align="center" color="onPrimary">
-        On primary title
-      </Heading>
-      <Heading element="div" type="h2" className={styles.invertedBackground} align="center" color="onInverted">
-        On inverted title
-      </Heading>
+      <Box style={{ backgroundColor: "var(--primary-color)" }} padding="small">
+        <Heading element="div" type="h2" align="center" color="onPrimary">
+          On primary title
+        </Heading>
+      </Box>
+      <Box backgroundColor="invertedColorBackground" padding="small">
+        <Heading element="div" type="h2" align="center" color="onInverted">
+          On inverted title
+        </Heading>
+      </Box>
     </Flex>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { styles }
-      }
-    }
-  }
+  )
 };
 
 export const Overflow = {
@@ -158,9 +155,11 @@ export const BuiltInPageHeaderNotEditable = {
       <Heading type="h1" id="my-work-id">
         My work
       </Heading>
-      <Divider className={styles.pageDivider} />
-      <Flex align="center" gap="small" aria-labelledby="my-work-id">
-        <Search className={styles.pageHeaderSearch} placeholder="Search" />
+      <Divider />
+      <Flex align="center" gap="small" aria-labelledby="my-work-id" style={{ marginTop: "var(--spacing-medium" }}>
+        <Box style={{ width: "146px" }}>
+          <Search placeholder="Search" />
+        </Box>
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind="tertiary">
           Customize
@@ -168,12 +167,5 @@ export const BuiltInPageHeaderNotEditable = {
       </Flex>
     </div>
   ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { styles, Custom }
-      }
-    }
-  },
   name: "Built-in page header (not editable)"
 };

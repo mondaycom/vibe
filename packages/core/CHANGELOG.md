@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.32.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.2...@vibe/core@3.32.0) (2025-03-13)
+
+
+### Bug Fixes
+
+* **Table:** fix virtualized table overflow ([#2797](https://github.com/mondaycom/vibe/issues/2797)) ([8a1f7fc](https://github.com/mondaycom/vibe/commit/8a1f7fcae39382de563833c1cfaa48a1c12039f5))
+* **TextArea:** remove border from disabled state ([#2793](https://github.com/mondaycom/vibe/issues/2793)) ([7b02ffa](https://github.com/mondaycom/vibe/commit/7b02ffab9ca436cf6a329d0fa5eddf1d0837034e))
+
+
+### Features
+
+* **AvatarGroup:** Add tabIndex prop for AvatarGroupCounter ([#2795](https://github.com/mondaycom/vibe/issues/2795)) ([c3cc979](https://github.com/mondaycom/vibe/commit/c3cc979f0afd25be658e33687b5ffc0402e674bd))
+
+
+
+
+
 ## [3.31.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.1...@vibe/core@3.31.2) (2025-03-11)
 
 
