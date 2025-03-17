@@ -43,7 +43,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             {...args}
             items={generateItems(30, 1000, "vertical")}
             itemRenderer={itemRenderer}
-            getItemSize={(item: VirtualizedListItem) => item.height}
+            getItemSize={item => item.height}
           />
         </div>
       </div>
@@ -62,7 +62,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             {...args}
             items={generateItems(100, 1000, "horizontal")}
             itemRenderer={itemRenderer}
-            getItemSize={(item: VirtualizedListItem) => item.height}
+            getItemSize={item => item.width}
             layout="horizontal"
           />
         </div>

@@ -10,7 +10,7 @@ export const generateItems = (height = 30, width: number, itemsCount: number): V
   return items;
 };
 
-export const itemRenderer = (item: VirtualizedGridItemType | undefined, index: number, style: React.CSSProperties) => {
+export const itemRenderer = (item: VirtualizedGridItemType, index: number, style: React.CSSProperties) => {
   if (item) {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
