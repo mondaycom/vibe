@@ -18,7 +18,7 @@ import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./hel
 import { getTestId } from "../../tests/test-ids-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
@@ -263,7 +263,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onBlur,
         tabIndex: disabled || ariaHidden ? -1 : tabIndex,
         "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
-        "data-vibe": ComponentDefaultTestId.BUTTON,
+        "data-vibe": ComponentVibeId.BUTTON,
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,

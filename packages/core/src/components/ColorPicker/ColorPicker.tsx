@@ -14,6 +14,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
 import { ColorStyle } from "../../types/Colors";
+import { ComponentVibeId } from "src/tests/constants";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;
@@ -113,7 +114,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
           showColorNameTooltip={showColorNameTooltip}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
-          data-vibe={ComponentDefaultTestId.COLOR_PICKER}
+          data-vibe={ComponentVibeId.COLOR_PICKER}
         />
       </DialogContentContainer>
     );

@@ -38,6 +38,7 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
+import { ComponentVibeId } from "src/tests/constants";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   sizes?: typeof BaseSizes;
@@ -489,7 +490,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         tabIndex={tabIndex}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-        data-vibe={ComponentDefaultTestId.DROPDOWN}
+        data-vibe={ComponentVibeId.DROPDOWN}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref as React.Ref<any>}

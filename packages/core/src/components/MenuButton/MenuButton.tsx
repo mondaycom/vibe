@@ -27,6 +27,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { ComponentVibeId } from "src/tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 
@@ -316,7 +317,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       <TriggerElement
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-        data-vibe={ComponentDefaultTestId.MENU_BUTTON}
+        data-vibe={ComponentVibeId.MENU_BUTTON}
         type="button"
         className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,
