@@ -23,10 +23,10 @@ const EmptyState: FC<EmptyStateProps> = ({
 
   return (
     <Flex
-      direction={Flex.directions.COLUMN}
-      align={Flex.align.CENTER}
-      justify={Flex.justify.CENTER}
-      gap={isCompact ? Flex.gaps.SMALL : Flex.gaps.MEDIUM}
+      direction="column"
+      align="center"
+      justify="center"
+      gap={isCompact ? "small" : "medium"}
       className={cx(styles.emptyState, styles[layout], className)}
       id={id}
       data-testid={dataTestId || "empty-state"}
@@ -34,18 +34,18 @@ const EmptyState: FC<EmptyStateProps> = ({
       {!!illustration && illustration}
 
       <Flex
-        direction={Flex.directions.COLUMN}
-        align={Flex.align.CENTER}
-        gap={isCompact ? Flex.gaps.SMALL : 12}
+        direction="column"
+        align="center"
+        gap={isCompact ? "small" : 12}
         className={styles.content}
       >
         <div>
           {title && (
             <Heading
-              type={Heading.types.H3}
-              weight={Heading.weights.NORMAL}
+              type="h3"
+              weight="normal"
               className={styles.title}
-              align={Heading.align.CENTER}
+              align="center"
               ellipsis={false}
             >
               {title}
@@ -53,10 +53,10 @@ const EmptyState: FC<EmptyStateProps> = ({
           )}
 
           <Text
-            type={isCompact ? Text.types.TEXT3 : Text.types.TEXT2}
-            color={Text.colors.PRIMARY}
+            type={isCompact ? "text3" : "text2"}
+            color="primary"
             className={styles.description}
-            align={Text.align.CENTER}
+            align="center"
             ellipsis={false}
           >
             {description}
@@ -65,15 +65,15 @@ const EmptyState: FC<EmptyStateProps> = ({
 
         {(mainAction || supportingAction) && (
           <Flex
-            direction={Flex.directions.COLUMN}
-            align={Flex.align.CENTER}
-            gap={Flex.gaps.SMALL}
+            direction="column"
+            align="center"
+            gap="small"
             className={styles.actions}
           >
             {mainAction && (
               <Button
-                kind={mainAction.kind || Button.kinds.SECONDARY}
-                size={Button.sizes.MEDIUM}
+                kind={mainAction.kind || "secondary"}
+                size="medium"
                 leftIcon={mainAction.leftIcon}
                 rightIcon={mainAction.rightIcon}
                 disabled={mainAction.disabled}
@@ -102,8 +102,8 @@ function renderSupportingAction(
 ): React.ReactNode {
   return supportingAction.type === "button" ? (
     <Button
-      kind={Button.kinds.TERTIARY}
-      size={isCompact ? Button.sizes.SMALL : Button.sizes.MEDIUM}
+      kind="tertiary"
+      size={isCompact ? "small" : "medium"}
       leftIcon={supportingAction.leftIcon}
       rightIcon={supportingAction.rightIcon}
       disabled={supportingAction.disabled}
