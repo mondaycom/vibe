@@ -6,7 +6,7 @@ export const TypographyDescription = () => {
   const component = useMemo(() => {
     return (
       <Flex gap="small">
-        <Heading type="h1" ellipsis={false} size="small">
+        <Heading type="h1" ellipsis={false}>
           H1
         </Heading>
         <Heading type="h2" ellipsis={false}>

@@ -4,7 +4,11 @@ import { capitalize } from "lodash-es";
 import { useMemo } from "react";
 import styles from "./shadow-example.module.scss";
 
-export const ShadowExample = ({ size }) => {
+interface ShadowExampleProps {
+  size: "xs" | "small" | "medium" | "large";
+}
+
+export const ShadowExample = ({ size }: ShadowExampleProps) => {
   const sizeName = useMemo(() => capitalize(size), [size]);
   return (
     <div className={styles.shadow}>
@@ -20,4 +24,4 @@ ShadowExample.size = {
   SMALL: "small",
   MEDIUM: "medium",
   LARGE: "large"
-};
+} as const;

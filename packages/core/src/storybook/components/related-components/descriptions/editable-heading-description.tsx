@@ -6,7 +6,7 @@ export const EditableHeadingDescription = () => {
   const component = useMemo(() => {
     return (
       <div>
-        <EditableHeading value="Hello world" type={EditableHeading.types.h3} />
+        <EditableHeading value="Hello world" />
       </div>
     );
   }, []);
