@@ -2,10 +2,7 @@ import React from "react";
 import { ButtonProps } from "../../components/Button/Button";
 import { LinkProps } from "../../components/Link/Link";
 
-export enum EmptyStateLayout {
-  DEFAULT = "default",
-  COMPACT = "compact"
-}
+export type EmptyStateLayout = "default" | "compact";
 
 export interface EmptyStateMainActionProps {
   text: string;

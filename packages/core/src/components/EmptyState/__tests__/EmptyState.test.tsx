@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import EmptyState from "../EmptyState";
-import { EmptyStateLayout } from "../EmptyState.types";
 import { Upgrade, Warning, WhatsNew } from "@vibe/icons/.";
 
 describe("EmptyState component", () => {
@@ -91,7 +90,7 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        layout={EmptyStateLayout.COMPACT}
+        layout="compact"
         data-testid="compact-empty-state"
       />
     );

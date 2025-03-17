@@ -1,7 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import EmptyState from "../EmptyState";
-import { EmptyStateLayout } from "../EmptyState.types";
 import emptyStateImage from "./assets/image.png";
 import { Download, Email, Update, WhatsNew } from "@vibe/icons";
 import styles from "./EmptyState.stories.module.scss";
@@ -57,7 +56,7 @@ export const Compact: Story = {
     title: "Your favorites are empty",
     description: "Add your boards, docs, or dashboards for a quick access.",
     illustration: <img src={emptyStateImage} alt="No notifications" width={280} height={184} />,
-    layout: EmptyStateLayout.COMPACT,
+    layout: "compact",
     mainAction: {
       text: "Refresh",
       kind: "secondary",

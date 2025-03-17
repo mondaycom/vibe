@@ -5,7 +5,7 @@ import Link from "../../components/Link/Link";
 import Flex from "../../components/Flex/Flex";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
-import { EmptyStateProps, EmptyStateLayout, EmptyStateSupportingActionProps } from "./EmptyState.types";
+import { EmptyStateProps, EmptyStateSupportingActionProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 
 const EmptyState: FC<EmptyStateProps> = ({
@@ -15,11 +15,11 @@ const EmptyState: FC<EmptyStateProps> = ({
   illustration,
   mainAction,
   supportingAction,
-  layout = EmptyStateLayout.DEFAULT,
+  layout = "default",
   id,
   "data-testid": dataTestId
 }) => {
-  const isCompact = layout === EmptyStateLayout.COMPACT;
+  const isCompact = layout === "compact";
 
   return (
     <Flex
