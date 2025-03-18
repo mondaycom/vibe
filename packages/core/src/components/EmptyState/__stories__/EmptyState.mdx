@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from "@storybook/blocks";
+import { Meta, Controls } from "@storybook/blocks";
 import EmptyState from "../EmptyState";
 import * as EmptyStateStories from "./EmptyState.stories";
 import { EmptyStateTip } from "./EmptyState.stories.helpers";
@@ -30,7 +30,7 @@ import { ALERT_BANNER, TIPSEEN, ATTENTION_BOX } from "../../../storybook/compone
 
 An empty state component is a user interface element that communicates to users that a particular section or feature contains no data or content at the moment. It often provides visual cues, prompts, or suggestions on what actions can be taken to fill the space.
 
-<Canvas of={EmptyStateStories.Default} />
+<Canvas of={EmptyStateStories.Overview} />
 
 ## Props
 
@@ -81,7 +81,7 @@ Empty state can be with or without a title.
 
 The Default layout is meant for most layouts and locations.
 
-<Canvas of={EmptyStateStories.Default} />
+<Canvas of={EmptyStateStories.Overview} />
 
 ### Compact
 
