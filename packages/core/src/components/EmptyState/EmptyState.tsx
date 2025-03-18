@@ -1,11 +1,9 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import Button from "../../components/Button/Button";
-import Link from "../../components/Link/Link";
 import Flex from "../../components/Flex/Flex";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
-import { EmptyStateProps, EmptyStateSupportingActionProps } from "./EmptyState.types";
+import { EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -61,23 +59,8 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 
           {(mainAction || supportingAction) && (
             <Flex direction="column" align="center" gap="small" className={styles.actions}>
-              {mainAction && (
-                <Button
-                  kind={mainAction.kind || "secondary"}
-                  size="medium"
-                  leftIcon={mainAction.leftIcon}
-                  rightIcon={mainAction.rightIcon}
-                  disabled={mainAction.disabled}
-                  color={mainAction.color}
-                  loading={mainAction.loading}
-                  onClick={mainAction.onClick}
-                  className={styles.mainAction}
-                >
-                  {mainAction.text}
-                </Button>
-              )}
-
-              {supportingAction && renderSupportingAction(supportingAction, isCompact)}
+              {mainAction}
+              {supportingAction}
             </Flex>
           )}
         </Flex>
@@ -87,31 +70,3 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 );
 
 export default EmptyState;
-
-function renderSupportingAction(
-  supportingAction: EmptyStateSupportingActionProps,
-  isCompact: boolean
-): React.ReactNode {
-  return supportingAction.type === "button" ? (
-    <Button
-      kind="tertiary"
-      size={isCompact ? "small" : "medium"}
-      leftIcon={supportingAction.leftIcon}
-      rightIcon={supportingAction.rightIcon}
-      disabled={supportingAction.disabled}
-      color={supportingAction.color}
-      loading={supportingAction.loading}
-      onClick={supportingAction.onClick}
-      className={styles.supportingAction}
-    >
-      {supportingAction.text}
-    </Button>
-  ) : (
-    <Link
-      href={supportingAction.href || "#"}
-      text={supportingAction.text}
-      onClick={supportingAction.onClick}
-      className={styles.supportingAction}
-    />
-  );
-}

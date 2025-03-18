@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import EmptyState from "../EmptyState";
 import { Upgrade, Warning, WhatsNew } from "@vibe/icons/.";
+import { Button } from "../../../components/Button";
+import Link from "../../../components/Link/Link";
 
 describe("EmptyState component", () => {
   const mockOnClick = jest.fn();
@@ -28,15 +30,8 @@ describe("EmptyState component", () => {
         title="Empty State Title"
         description="This is a description"
         className="custom-class"
-        mainAction={{
-          text: "Main Action",
-          onClick: mockOnClick
-        }}
-        supportingAction={{
-          text: "Read more",
-          href: "https://example.com",
-          onClick: mockOnClick
-        }}
+        mainAction={<Button onClick={mockOnClick}> Main Action</Button>}
+        supportingAction={<Link href="https://example.com" text="Read more" onClick={mockOnClick} />}
         id="custom-id"
         data-testid="custom-test-id"
       />
@@ -71,11 +66,14 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        supportingAction={{
-          type: "button",
-          text: "Secondary Action",
-          onClick: mockOnClick
-        }}
+        supportingAction={
+          <Button
+            type="button"
+            onClick={mockOnClick}
+          >
+            Secondary Action
+          </Button>
+        }
       />
     );
 
@@ -119,11 +117,14 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        mainAction={{
-          text: "Main Action",
-          kind: "primary",
-          onClick: mockOnClick
-        }}
+        mainAction={
+          <Button
+            kind="primary"
+            onClick={mockOnClick}
+          >
+            Main Action
+          </Button>
+        }
       />
     );
 
@@ -136,12 +137,16 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        mainAction={{
-          text: "Main Action",
-          leftIcon: WhatsNew,
-          rightIcon: Upgrade,
-          onClick: mockOnClick
-        }}
+        mainAction={
+          <Button
+            kind="primary"
+            leftIcon={WhatsNew}
+            rightIcon={Upgrade}
+            onClick={mockOnClick}
+          >
+            Main Action
+          </Button>
+        }
       />
     );
 
@@ -152,10 +157,13 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        supportingAction={{
-          text: "Read more",
-          onClick: mockOnClick
-        }}
+        supportingAction={
+          <Link
+            href="#"
+            text="Read more"
+            onClick={mockOnClick}
+          />
+        }
       />
     );
 
@@ -167,13 +175,16 @@ describe("EmptyState component", () => {
     render(
       <EmptyState
         description="This is a description"
-        supportingAction={{
-          type: "button",
-          text: "Secondary Action",
-          leftIcon: Warning,
-          rightIcon: WhatsNew,
-          onClick: mockOnClick
-        }}
+        supportingAction={
+          <Button
+            type="button"
+            leftIcon={Warning}
+            rightIcon={WhatsNew}
+            onClick={mockOnClick}
+          >
+            Secondary Action
+          </Button>
+        }
       />
     );
 
