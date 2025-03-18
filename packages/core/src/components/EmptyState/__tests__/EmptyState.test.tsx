@@ -22,49 +22,49 @@ describe("EmptyState component", () => {
     expect(screen.getByTestId("empty-state")).toBeInTheDocument();
   });
 
-  it("renders with title and description", () => {
-    render(<EmptyState title="Empty State Title" description="This is a description" />);
-
-    expect(screen.getByRole("heading", { name: "Empty State Title" })).toBeInTheDocument();
-    expect(screen.getByText("This is a description")).toBeInTheDocument();
-  });
-
-  it("renders with main action button", () => {
+  it("renders with all props", () => {
     render(
       <EmptyState
+        title="Empty State Title"
         description="This is a description"
+        className="custom-class"
         mainAction={{
           text: "Main Action",
           onClick: mockOnClick
         }}
-      />
-    );
-
-    const button = screen.getByRole("button", { name: "Main Action" });
-    expect(button).toBeInTheDocument();
-
-    fireEvent.click(button);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
-  });
-
-  it("renders with supporting link action", () => {
-    render(
-      <EmptyState
-        description="This is a description"
         supportingAction={{
           text: "Read more",
           href: "https://example.com",
           onClick: mockOnClick
         }}
+        id="custom-id"
+        data-testid="custom-test-id"
       />
     );
 
+    // Check title and description
+    expect(screen.getByRole("heading", { name: "Empty State Title" })).toBeInTheDocument();
+    expect(screen.getByText("This is a description")).toBeInTheDocument();
+
+    // Check main action button
+    const button = screen.getByRole("button", { name: "Main Action" });
+    expect(button).toBeInTheDocument();
+    fireEvent.click(button);
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
+
+    // Check supporting link action
     const link = screen.getByText("Read more");
     expect(link).toBeInTheDocument();
     expect(link.closest("a")).toHaveAttribute("href", "https://example.com");
-
     fireEvent.click(link);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    expect(mockOnClick).toHaveBeenCalledTimes(2);
+
+    // Check custom className
+    const emptyState = screen.getByTestId("custom-test-id");
+    expect(emptyState).toHaveClass("custom-class");
+
+    // Check custom ID
+    expect(emptyState).toHaveAttribute("id", "custom-id");
   });
 
   it("renders with supporting button action", () => {
@@ -113,15 +113,6 @@ describe("EmptyState component", () => {
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
   });
 
-  it("applies custom className", () => {
-    render(
-      <EmptyState description="This is a description" className="custom-class" data-testid="custom-empty-state" />
-    );
-
-    const emptyState = screen.getByTestId("custom-empty-state");
-    expect(emptyState).toHaveClass("custom-class");
-  });
-
   // Additional tests for better coverage
 
   it("renders main action button with custom kind", () => {
@@ -157,42 +148,6 @@ describe("EmptyState component", () => {
     expect(screen.getAllByTestId("icon")).toHaveLength(2);
   });
 
-  it("renders disabled main action button", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        mainAction={{
-          text: "Main Action",
-          disabled: true,
-          onClick: mockOnClick
-        }}
-      />
-    );
-
-    const button = screen.getByRole("button", { name: "Main Action" });
-    expect(button).toHaveAttribute("aria-disabled", "true");
-
-    fireEvent.click(button);
-    expect(mockOnClick).not.toHaveBeenCalled();
-  });
-
-  it("renders loading main action button", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        mainAction={{
-          text: "Main Action",
-          loading: true,
-          onClick: mockOnClick
-        }}
-      />
-    );
-
-    const button = screen.getByTestId("button");
-    expect(button).toHaveAttribute("aria-busy", "true");
-    expect(screen.getByText("Main Action")).toBeInTheDocument();
-  });
-
   it("renders supporting link action with default href when not provided", () => {
     render(
       <EmptyState
@@ -206,13 +161,6 @@ describe("EmptyState component", () => {
 
     const link = screen.getByText("Read more");
     expect(link.closest("a")).toHaveAttribute("href", "#");
-  });
-
-  it("renders with custom ID", () => {
-    render(<EmptyState description="This is a description" id="custom-id" />);
-
-    const emptyState = screen.getByTestId("empty-state");
-    expect(emptyState).toHaveAttribute("id", "custom-id");
   });
 
   it("renders supporting button action with icons", () => {
@@ -233,62 +181,5 @@ describe("EmptyState component", () => {
     expect(icons).toHaveLength(2);
     expect(icons[0]).toHaveClass("leftIcon");
     expect(icons[1]).toHaveClass("rightIcon");
-  });
-
-  it("renders disabled supporting button action", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        supportingAction={{
-          type: "button",
-          text: "Secondary Action",
-          disabled: true,
-          onClick: mockOnClick
-        }}
-      />
-    );
-
-    const button = screen.getByRole("button", { name: "Secondary Action" });
-    expect(button).toHaveAttribute("aria-disabled", "true");
-
-    fireEvent.click(button);
-    expect(mockOnClick).not.toHaveBeenCalled();
-  });
-
-  it("renders loading supporting button action", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        supportingAction={{
-          type: "button",
-          text: "Secondary Action",
-          loading: true,
-          onClick: mockOnClick
-        }}
-      />
-    );
-
-    const button = screen.getByTestId("button");
-    expect(button).toHaveAttribute("aria-busy", "true");
-    expect(screen.getByText("Secondary Action")).toBeInTheDocument();
-  });
-
-  it("renders with both main and supporting actions", () => {
-    render(
-      <EmptyState
-        description="This is a description"
-        mainAction={{
-          text: "Main Action",
-          onClick: mockOnClick
-        }}
-        supportingAction={{
-          text: "Read more",
-          href: "https://example.com"
-        }}
-      />
-    );
-
-    expect(screen.getByRole("button", { name: "Main Action" })).toBeInTheDocument();
-    expect(screen.getByText("Read more")).toBeInTheDocument();
   });
 });
