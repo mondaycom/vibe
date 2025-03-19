@@ -6,18 +6,18 @@ import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons"
 import { IconButton } from "../IconButton";
 import { Flex } from "../Flex";
 import { BaseList } from "../BaseList";
-import styles from "./DropdownNew.module.scss";
+import styles from "./Dropdown.module.scss";
 import { BaseListItemProps } from "../BaseListItem";
 import usePopover from "../../hooks/usePopover";
 import { Placement } from "../../hooks/popoverConstants";
-import { BaseDropdownProps } from "./DropdownNew.types";
+import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
 import { VibeComponent } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
 
-const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivElement> = forwardRef(
+const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivElement> = forwardRef(
   (
     {
       options,
@@ -133,4 +133,4 @@ const DropdownNew: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEl
   }
 );
 
-export default DropdownNew;
+export default Dropdown;

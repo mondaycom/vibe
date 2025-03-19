@@ -1,3 +1,3 @@
-export { default as BaseDropdown } from "./DropdownNew";
+export { default as DropdownNew } from "./Dropdown";
 
-export * from "./DropdownNew.types";
+export * from "./Dropdown.types";

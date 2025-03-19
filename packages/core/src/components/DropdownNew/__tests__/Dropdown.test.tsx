@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, act } from "@testing-library/react";
-import DropdownNew from "../DropdownNew";
-import { BaseDropdownProps } from "../DropdownNew.types";
+import Dropdown from "../Dropdown";
+import { BaseDropdownProps } from "../Dropdown.types";
 import { BaseListItemProps } from "../../BaseListItem";
 
 function renderDropdown<T extends BaseListItemProps>(props?: Partial<BaseDropdownProps<T>>) {
@@ -9,7 +9,7 @@ function renderDropdown<T extends BaseListItemProps>(props?: Partial<BaseDropdow
     options: [],
     ...props
   };
-  return render(<DropdownNew {...defaultProps} />);
+  return render(<Dropdown {...defaultProps} />);
 }
 
 describe("DropdownNew", () => {
