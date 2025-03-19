@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.33.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.32.0...@vibe/core@3.33.0) (2025-03-19)
+
+
+### Features
+
+* **Link:** add color variants ([#2794](https://github.com/mondaycom/vibe/issues/2794)) ([2051a60](https://github.com/mondaycom/vibe/commit/2051a60e4d50643342a47a4bde7725c37b0554b5))
+* usePopover add offset prop ([#2806](https://github.com/mondaycom/vibe/issues/2806)) ([3f8acd6](https://github.com/mondaycom/vibe/commit/3f8acd6ed846d04dca778eced8101507f8d3b69e))
+
+
+
+
+
 # [3.32.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.2...@vibe/core@3.32.0) (2025-03-13)
 
 
