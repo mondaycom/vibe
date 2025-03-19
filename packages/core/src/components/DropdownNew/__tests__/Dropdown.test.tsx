@@ -138,13 +138,7 @@ describe("DropdownNew", () => {
 
     it("should support a custom option renderer", () => {
       const customRenderer = (item: any) => {
-        return React.createElement(
-          "div",
-          {
-            "data-testid": `custom-renderer-${item.value}`
-          },
-          item.label
-        );
+        return <div data-testid={`custom-renderer-${item.value}`}>{item.label}</div>;
       };
       const { getByPlaceholderText, getByTestId } = renderDropdown({
         options,
