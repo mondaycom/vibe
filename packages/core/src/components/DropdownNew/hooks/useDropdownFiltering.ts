@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { normalizeOptions } from "../utils/dropdownUtils";
 import { BaseListItemProps } from "../../BaseListItem";
 import { ListGroup } from "../../BaseList";
+import { DropdownGroupOption } from "../Dropdown.types";
 
-function useDropdownFiltering<T extends BaseListItemProps>(options: ListGroup<T>[] | T[]) {
+function useDropdownFiltering<T extends BaseListItemProps>(options: DropdownGroupOption<T>) {
   const [filteredOptions, setFilteredOptions] = useState<ListGroup<T>[]>(() => normalizeOptions(options));
 
   useEffect(() => {

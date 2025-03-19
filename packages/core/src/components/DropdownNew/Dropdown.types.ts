@@ -2,11 +2,13 @@ import { ListGroup } from "../BaseList";
 import { BaseListItemProps } from "../BaseListItem";
 import { VibeComponentProps } from "../../types";
 
+export type DropdownGroupOption<T extends BaseListItemProps> = ListGroup<T>[] | T[];
+
 export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComponentProps {
   /**
    * The list of options available in the list.
    */
-  options: ListGroup<T>[] | T[];
+  options: DropdownGroupOption<T>;
   /**
    * If true, displays dividers between grouped options.
    */

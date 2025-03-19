@@ -3,13 +3,14 @@ import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { BaseListItemProps } from "../../BaseListItem";
 import { ListGroup } from "../../BaseList";
+import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemProps>(
-  options: ListGroup<T>[] | T[],
+  options: DropdownGroupOption<T>,
   onInputChange?: (value: string) => void,
   onOptionSelect?: (option: T) => void
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering(options);
+  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options);
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
   const {
@@ -69,7 +70,7 @@ function useDropdownCombobox<T extends BaseListItemProps>(
     getInputProps,
     getItemProps,
     reset,
-    filteredOptions
+    filteredOptions: filteredOptions as ListGroup<T>[]
   };
 }
 
