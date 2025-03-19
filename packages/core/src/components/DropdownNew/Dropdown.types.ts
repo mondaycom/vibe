@@ -1,4 +1,4 @@
-import { ListGroup } from "../BaseList/BaseList.types";
+import { ListGroup } from "../BaseList";
 import { BaseListItemProps } from "../BaseListItem";
 import { VibeComponentProps } from "../../types";
 
