@@ -1,0 +1,37 @@
+name: Bundle Size
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "packages/core/**"
+  workflow_call:
+    # This allows the workflow to be called from other workflows
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: cd packages/core && yarn build
+
+      - name: Check bundle size
+        uses: andresz1/size-limit-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: ./packages/core
