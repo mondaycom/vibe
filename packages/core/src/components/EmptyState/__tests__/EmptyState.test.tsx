@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import EmptyState from "../EmptyState";
-import { Upgrade, Warning, WhatsNew } from "@vibe/icons/.";
 import { Button } from "../../../components/Button";
 import Link from "../../../components/Link/Link";
 
@@ -109,5 +108,16 @@ describe("EmptyState component", () => {
     );
 
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
+  });
+
+  it("renders with description as a React element", () => {
+    render(
+      <EmptyState 
+        description={<span data-testid="custom-description">Custom description with <strong>formatting</strong></span>}
+      />
+    );
+
+    expect(screen.getByTestId("custom-description")).toBeInTheDocument();
+    expect(screen.getByText("formatting")).toBeInTheDocument();
   });
 });

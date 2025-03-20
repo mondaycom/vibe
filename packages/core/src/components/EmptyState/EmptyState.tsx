@@ -46,15 +46,17 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
               </Heading>
             )}
 
-            <Text
-              type={isCompact ? "text3" : "text2"}
-              color="primary"
-              className={styles.description}
-              align="center"
-              ellipsis={false}
-            >
-              {description}
-            </Text>
+            {typeof description === "string" ? (
+              <Text
+                type={isCompact ? "text3" : "text2"}
+                color="primary"
+                className={styles.description}
+                align="center"
+                ellipsis={false}
+              >
+                {description}
+              </Text>
+            ) : description}
           </>
 
           {(mainAction || supportingAction) && (
