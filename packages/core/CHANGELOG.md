@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.34.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.33.0...@vibe/core@3.34.0) (2025-03-20)
+
+
+### Features
+
+* **Tipseen:** add submitButtonIcon prop ([#2809](https://github.com/mondaycom/vibe/issues/2809)) ([471979f](https://github.com/mondaycom/vibe/commit/471979fadbd8517935a9138be2597cff5663fc01))
+
+
+
+
+
 # [3.33.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.32.0...@vibe/core@3.33.0) (2025-03-19)
 
 
