@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, forwardRef } from "react";
+import React, { useMemo, useRef, forwardRef, useState } from "react";
 import cx from "classnames";
 import { DialogContentContainer } from "../DialogContentContainer";
 import { BaseInput } from "../BaseInput";
@@ -31,8 +31,16 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       disabled,
       readOnly,
       error,
+      onBlur,
+      onChange,
+      onClear,
+      onFocus,
       onInputChange,
+      onKeyDown,
+      onMenuOpen,
+      onMenuClose,
       onOptionSelect,
+      onScroll,
       className,
       id,
       "data-testid": dataTestId
@@ -44,6 +52,8 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
     const listWrapperRef = useRef<HTMLDivElement>(null);
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
+    const [isFocused, setIsFocused] = useState(false);
+
     const {
       isOpen,
       highlightedIndex,
@@ -54,7 +64,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       getItemProps,
       reset,
       filteredOptions
-    } = useDropdownCombobox(options, onInputChange, onOptionSelect);
+    } = useDropdownCombobox(options, onChange, onInputChange, onMenuClose, onMenuOpen, onOptionSelect);
 
     const offset = useMemo(() => [0, 4] as [number, number], []);
 
@@ -75,7 +85,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
           [styles.disabled]: disabled,
           [styles.readOnly]: readOnly,
           [styles.error]: error,
-          [styles.active]: isOpen
+          [styles.active]: isFocused
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
@@ -83,7 +93,20 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
         <Flex justify="space-between" ref={triggerRef}>
           <div>
             <BaseInput
-              {...getInputProps({ placeholder: !selectedItem ? placeholder : selectedItem.label })}
+              {...getInputProps({
+                placeholder: !selectedItem ? placeholder : selectedItem?.label,
+                onFocus: e => {
+                  setIsFocused(true);
+                  onFocus?.(e);
+                },
+                onBlur: () => {
+                  setIsFocused(false);
+                  onBlur?.();
+                },
+                onKeyDown: e => {
+                  onKeyDown?.(e);
+                }
+              })}
               size={size}
               className={styles.inputWrapper}
               disabled={disabled}
@@ -92,7 +115,18 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
           </div>
           {!readOnly && (
             <Flex>
-              {selectedItem && <IconButton icon={CloseSmall} onClick={reset} size={size} />}
+              {selectedItem && (
+                <IconButton
+                  data-testid="dropdown-clear-button"
+                  icon={CloseSmall}
+                  onClick={() => {
+                    reset();
+                    onClear?.();
+                    onChange?.(null);
+                  }}
+                  size={size}
+                />
+              )}
               <IconButton
                 icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
                 {...getToggleButtonProps()}
@@ -105,8 +139,8 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
         <div
           style={{
             ...popoverStyles.popper,
-            visibility: isOpen ? "visible" : "hidden",
-            width: dropdownMergedRef.current?.offsetWidth
+            width: dropdownMergedRef.current?.offsetWidth,
+            zIndex: 2
           }}
           {...popoverAttributes.popper}
           ref={listWrapperRef}
@@ -125,6 +159,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
               optionRenderer={optionRenderer}
               noOptionsMessage={noOptionsMessage}
               renderOptions={isOpen}
+              onScroll={onScroll}
             />
           </DialogContentContainer>
         </div>

@@ -1,3 +1,4 @@
+import React from "react";
 import { ListGroup } from "../BaseList";
 import { BaseListItemProps } from "../BaseListItem";
 import { VibeComponentProps } from "../../types";
@@ -54,13 +55,45 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   error?: boolean;
   /**
-   * The function to call when the input changes.
+   * Callback fired when the dropdown loses focus.
+   */
+  onBlur?: () => void;
+  /**
+   * Callback fired when the selected value changes.
+   */
+  onChange?: (option: T | T[]) => void;
+  /**
+   * Callback fired when the clear button is clicked.
+   */
+  onClear?: () => void;
+  /**
+   * Callback fired when the dropdown gains focus.
+   */
+  onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
+  /**
+   * Callback fired when the dropdown input value changes.
    */
   onInputChange?: (input: string | null) => void;
   /**
-   * The function to call when an option is selected.
+   * Callback fired when a key is pressed inside the dropdown.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
+  /**
+   * Callback fired when the dropdown menu opens.
+   */
+  onMenuOpen?: () => void;
+  /**
+   * Callback fired when the dropdown menu closes.
+   */
+  onMenuClose?: () => void;
+  /**
+   * Callback fired when an option is selected.
    */
   onOptionSelect?: (option: T) => void;
+  /**
+   * Callback fired when scrolling inside the dropdown.
+   */
+  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
 }
 
 export type DropdownSizes = "small" | "medium" | "large";
