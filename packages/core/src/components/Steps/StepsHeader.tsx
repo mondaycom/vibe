@@ -11,7 +11,7 @@ import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
   /**
-   * The type of steps header (e.g., "gallery", "numbers").
+   * The type of steps header.
    */
   type: StepsType;
   /**

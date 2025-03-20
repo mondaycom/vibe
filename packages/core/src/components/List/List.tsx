@@ -35,7 +35,7 @@ import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
-   * The wrapping component for the list (e.g., "div", "nav", "ul", "ol").
+   * The wrapping component for the list.
    */
   component?: ListElement;
   /**

@@ -15,7 +15,7 @@ import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
   /**
-   * The HTML element used for the list item (e.g., "li", "div", "a").
+   * The HTML element used for the list item.
    */
   component?: ListItemElement;
   /**

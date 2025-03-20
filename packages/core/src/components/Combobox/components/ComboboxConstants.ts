@@ -106,7 +106,7 @@ export interface IComboboxItem {
    */
   height?: number;
   /**
-   * The type of the item (e.g., option, category, divider).
+   * The type of the item.
    */
   type?: string;
   /**
