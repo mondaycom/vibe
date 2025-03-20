@@ -18,6 +18,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -33,6 +34,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -48,6 +50,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -73,6 +76,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -88,6 +92,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -103,6 +108,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -128,6 +134,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -143,6 +150,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -158,6 +166,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -183,6 +192,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -198,6 +208,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -213,6 +224,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     <div
       className="typography primary start singleLineEllipsis text text2Normal text compact"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </div>
@@ -237,6 +249,7 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     />
   </div>
 </aside>
@@ -260,6 +273,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -284,6 +298,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -299,6 +314,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -324,6 +340,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -339,6 +356,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -354,6 +372,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     <p
       className="typography primary start text text2Normal text dismissible paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>
@@ -367,6 +386,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       aria-label="Close"
       className="closeIcon button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="icon-button"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -387,6 +407,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -418,6 +439,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       <span>
         renderer with components 
@@ -448,12 +470,14 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
+      data-vibe="icon"
       onClick={[Function]}
       role="img"
     />
     <h5
       className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
+      data-vibe="text"
     >
       Title
     </h5>
@@ -469,6 +493,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
     <p
       className="typography primary start text text2Normal text paragraph"
       data-testid="text"
+      data-vibe="text"
     >
       Text
     </p>

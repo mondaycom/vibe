@@ -101,6 +101,7 @@ exports[`Link renders correctly with icon 1`] = `
     aria-hidden={true}
     className="icon iconStart fa fa fa-star"
     data-testid="icon"
+    data-vibe="icon"
     onClick={[Function]}
     role="img"
   />
@@ -155,6 +156,7 @@ exports[`Link renders correctly with right icon 1`] = `
     aria-hidden={true}
     className="icon iconEnd fa fa fa-star"
     data-testid="icon"
+    data-vibe="icon"
     onClick={[Function]}
     role="img"
   />

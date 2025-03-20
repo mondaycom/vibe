@@ -8,7 +8,7 @@ import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ButtonColor, ButtonType } from "../Button/Button.types";
@@ -217,6 +217,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             ref={mergedRef}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-vibe={ComponentVibeId.ICON_BUTTON}
             noSidePadding
             active={active}
             className={className}

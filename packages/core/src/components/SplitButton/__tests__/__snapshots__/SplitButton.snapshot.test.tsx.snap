@@ -4,12 +4,14 @@ exports[`SplitButton renders correctly with SplitButtonMenu 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -41,6 +43,7 @@ exports[`SplitButton renders correctly with SplitButtonMenu 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -73,12 +76,14 @@ exports[`SplitButton renders correctly with custom menu 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -110,6 +115,7 @@ exports[`SplitButton renders correctly with custom menu 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -142,12 +148,14 @@ exports[`SplitButton renders correctly with disabled 1`] = `
 <div
   className="button kindPrimary colorPrimary disabled"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={true}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation disabled"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -180,6 +188,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding disabled"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -213,12 +222,14 @@ exports[`SplitButton renders correctly with left icon 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -230,6 +241,7 @@ exports[`SplitButton renders correctly with left icon 1`] = `
       aria-hidden={true}
       className="icon leftIcon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -266,6 +278,7 @@ exports[`SplitButton renders correctly with left icon 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -298,12 +311,14 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -335,6 +350,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -367,12 +383,14 @@ exports[`SplitButton renders correctly with only required props 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -404,6 +422,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -436,12 +455,14 @@ exports[`SplitButton renders correctly with right icon 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -454,6 +475,7 @@ exports[`SplitButton renders correctly with right icon 1`] = `
       aria-hidden={true}
       className="icon rightIcon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="20"
       viewBox="0 0 20 20"
@@ -489,6 +511,7 @@ exports[`SplitButton renders correctly with right icon 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -521,12 +544,14 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -558,6 +583,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -590,12 +616,14 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
 <div
   className="button kindTertiary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindTertiary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -627,6 +655,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindTertiary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -659,12 +688,14 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
+  data-vibe="split-button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
     className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
     data-testid="split-button-primary-button"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -696,6 +727,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
         aria-label="additional actions"
         className="secondaryButton button sizeMedium kindPrimary colorPrimary leftFlat preventClickAnimation noSidePadding"
         data-testid="split-button-secondary-button"
+        data-vibe="button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}

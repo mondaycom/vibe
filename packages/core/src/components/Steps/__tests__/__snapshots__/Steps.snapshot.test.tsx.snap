@@ -13,6 +13,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -46,6 +47,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -113,6 +115,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -125,6 +128,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -162,6 +166,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -175,6 +180,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -205,6 +211,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       aria-disabled={true}
       className="command backward button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -218,6 +225,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -255,6 +263,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       aria-disabled={false}
       className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -267,6 +276,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -300,6 +310,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -312,6 +323,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -349,6 +361,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -362,6 +375,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -395,6 +409,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       aria-disabled={true}
       className="command backward button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -408,6 +423,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -445,6 +461,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       aria-disabled={false}
       className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -457,6 +474,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -490,6 +508,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -502,6 +521,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     <div
       className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
+      data-vibe="text"
     >
       2 \\ 2
     </div>
@@ -510,6 +530,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -543,6 +564,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -555,6 +577,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -571,6 +594,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     <div
       className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
+      data-vibe="text"
     >
       2 \\ 2
     </div>
@@ -579,6 +603,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -592,6 +617,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -622,6 +648,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       aria-disabled={true}
       className="command backward button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -635,6 +662,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -651,6 +679,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     <div
       className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
+      data-vibe="text"
     >
       1 \\ 2
     </div>
@@ -659,6 +688,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       aria-disabled={false}
       className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -671,6 +701,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -704,6 +735,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       aria-disabled={false}
       className="command backward button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -716,6 +748,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -732,6 +765,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     <div
       className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
+      data-vibe="text"
     >
       2 \\ 2
     </div>
@@ -740,6 +774,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       aria-disabled={true}
       className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -753,6 +788,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -786,6 +822,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       aria-disabled={true}
       className="command backward button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-backward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -799,6 +836,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
         aria-hidden={true}
         className="icon icon colorPrimary disabled"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"
@@ -815,6 +853,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     <div
       className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
+      data-vibe="text"
     >
       1 \\ 2
     </div>
@@ -823,6 +862,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       aria-disabled={false}
       className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
+      data-vibe="button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -835,6 +875,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
         aria-hidden={true}
         className="icon icon colorPrimary"
         data-testid="icon"
+        data-vibe="icon"
         fill="currentColor"
         height="16"
         viewBox="0 0 20 20"

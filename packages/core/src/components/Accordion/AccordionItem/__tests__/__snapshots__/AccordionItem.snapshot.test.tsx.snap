@@ -4,6 +4,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -27,6 +28,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -54,6 +56,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className="test"
@@ -77,6 +80,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -102,6 +106,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -125,6 +130,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="36"
             viewBox="0 0 20 20"
@@ -150,6 +156,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -173,6 +180,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"
@@ -198,6 +206,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
+  data-vibe="monday-accordion"
 >
   <div
     className=""
@@ -220,6 +229,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
           <div
             className="typography primary start singleLineEllipsis text text1Normal headerContent"
             data-testid="text"
+            data-vibe="text"
           >
             Test title
           </div>
@@ -227,6 +237,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
             aria-hidden={true}
             className="icon iconComponent animateIconOpen"
             data-testid="icon"
+            data-vibe="icon"
             fill="currentColor"
             height="24"
             viewBox="0 0 20 20"

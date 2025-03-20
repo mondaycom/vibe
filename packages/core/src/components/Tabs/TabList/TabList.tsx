@@ -108,6 +108,7 @@ const TabList: FC<TabListProps> = forwardRef(
         className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
+        data-vibe={ComponentDefaultTestId.TAB_LIST}
       >
         <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}

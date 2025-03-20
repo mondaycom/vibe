@@ -15,6 +15,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   <div
     className="typography secondary start singleLineEllipsis text text2Normal title"
     data-testid="menu-title_menu-2-item-0"
+    data-vibe="text"
   >
     <label
       className="titleCaption titleCaptionBottom"
@@ -28,6 +29,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     aria-current={true}
     className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
     data-testid="menu-item_1"
+    data-vibe="text"
     id="menu-2-item-1"
     onClick={[Function]}
     role="menuitem"
@@ -43,6 +45,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     aria-current={false}
     className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
     data-testid="menu-item_2"
+    data-vibe="text"
     id="menu-2-item-2"
     onClick={[Function]}
     role="menuitem"

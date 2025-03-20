@@ -1,6 +1,8 @@
 import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { ComponentDefaultTestId } from "../../../tests/test-ids-utils";
+import { ComponentVibeId } from "src/tests/constants";
 
 export interface FontIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -40,6 +42,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         role={role}
         id={id}
         data-testid={dataTestId}
+        data-vibe={ComponentVibeId.ICON}
       >
         {isIconFunction && <Icon />}
       </span>

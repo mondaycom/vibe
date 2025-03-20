@@ -15,6 +15,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -36,6 +37,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -45,6 +47,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -65,6 +68,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
       aria-hidden={true}
       className="icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -93,6 +97,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -102,6 +107,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -122,6 +128,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
       aria-hidden={true}
       className="icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -173,6 +180,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -201,6 +209,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -210,6 +219,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
     aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -230,6 +240,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
       aria-hidden={true}
       className="icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -259,6 +270,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
     aria-hidden={true}
     className="icon icon left noFocusStyle"
     data-testid="icon"
+    data-vibe="icon"
     fill="currentColor"
     height="18"
     viewBox="0 0 20 20"
@@ -274,6 +286,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -295,6 +308,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -339,6 +353,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -355,6 +370,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
     aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -375,6 +391,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
       aria-hidden={true}
       className="icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -403,6 +420,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 2`
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     This is mandatory 
     <span>
@@ -427,6 +445,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
@@ -434,6 +453,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
     aria-hidden={true}
     className="icon icon right noFocusStyle"
     data-testid="icon"
+    data-vibe="icon"
     fill="currentColor"
     height="18"
     viewBox="0 0 20 20"
@@ -464,6 +484,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     text
   </div>
@@ -473,6 +494,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
+    data-vibe="button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -493,6 +515,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
       aria-hidden={true}
       className="icon noFocusStyle"
       data-testid="icon"
+      data-vibe="icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -521,6 +544,7 @@ exports[`Chips renders correctly renders correctly without close button 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
+    data-vibe="text"
   >
     
   </div>
