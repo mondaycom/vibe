@@ -104,7 +104,7 @@ describe("EmptyState component", () => {
 
   it("renders with custom React node as image", () => {
     render(
-      <EmptyState description="This is a description" visual={<div data-testid="custom-icon">Custom Icon</div>} />
+      <EmptyState description="This is a description" visual={<div data-testid="empty-state-visual">Custom Icon</div>} />
     );
 
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
