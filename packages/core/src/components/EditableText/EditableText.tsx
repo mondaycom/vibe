@@ -12,13 +12,15 @@ import cx from "classnames";
 
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
-   * Sets the Text type
-   * */
+   * The text style variant.
+   */
   type?: TextType;
-  /** Sets the Text weight
+  /**
+   * The font weight of the text.
    */
   weight?: TextWeight;
-  /** Enables editing multiple lines of text
+  /**
+   * If true, enables editing multiple lines of text.
    */
   multiline?: boolean;
 }

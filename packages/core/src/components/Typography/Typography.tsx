@@ -14,29 +14,35 @@ import styles from "./Typography.module.scss";
 
 export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {
   /**
-   * The element tag of the text component
+   * The HTML element tag used for the text component.
    */
   element?: string;
   /**
-   * The textual content
+   * The content inside the typography component.
    */
   children: ElementContent;
+  /**
+   * The text color.
+   */
   color?: TypographyColor;
+  /**
+   * The text alignment.
+   */
   align?: TypographyAlign;
   /**
-   * When the text is too long, cut the end of the text and display instead of it three dots (...)
+   * If true, truncates overflowing text with an ellipsis.
    */
   ellipsis?: boolean;
   /**
-   * Use this prop combined with the boolean ellipsis prop for truncate the text and add an ellipsis after a certain number of lines
+   * The maximum number of lines before truncating with an ellipsis.
    */
   maxLines?: number;
   /**
-   * All props are passed to the tooltip displayed when hovering over the text. By default, the tooltip will display when text contains an ellipsis and will show the full text
+   * Props passed to the tooltip displayed when hovering over the text.
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Hide tooltip when hovering the text, by default the tooltip swill display when text contains an ellipsis
+   * If true, disables the tooltip that appears when text is truncated.
    */
   withoutTooltip?: boolean;
 }

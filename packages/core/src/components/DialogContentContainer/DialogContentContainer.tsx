@@ -10,11 +10,29 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
 export interface DialogContentContainerProps extends VibeComponentProps {
+  /**
+   * The content inside the dialog container.
+   */
   children?: React.ReactNode;
+  /**
+   * The ID of the element that labels this dialog.
+   */
   ariaLabelledby?: string;
+  /**
+   * The ID of the element that describes this dialog.
+   */
   ariaDescribedby?: string;
+  /**
+   * The type of dialog.
+   */
   type?: DialogType;
+  /**
+   * The size of the dialog.
+   */
   size?: DialogSize;
+  /**
+   * Inline styles applied to the dialog container.
+   */
   style?: React.CSSProperties;
 }
 

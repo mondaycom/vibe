@@ -8,7 +8,13 @@ import VibeComponentProps from "../../../types/VibeComponentProps";
 import styles from "./AlertBannerText.module.scss";
 
 export interface AlertBannerTextProps extends VibeComponentProps {
+  /**
+   * The text content displayed within the alert banner.
+   */
   text: string;
+  /**
+   * If true, a left margin is applied to the alert banner text.
+   */
   marginLeft?: boolean;
 }
 

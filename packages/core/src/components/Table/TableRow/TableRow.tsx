@@ -10,10 +10,16 @@ import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuCont
 
 export interface TableRowProps extends VibeComponentProps {
   /**
-   * Does the row have a highlighted style
+   * If true, applies a highlighted style to the row.
    */
   highlighted?: boolean;
+  /**
+   * The child components inside the table row, typically `<TableCell />` elements.
+   */
   children?: React.ReactElement<TableCellProps> | React.ReactElement<TableCellProps>[];
+  /**
+   * Custom styles applied to the table row.
+   */
   style?: React.CSSProperties;
 }
 

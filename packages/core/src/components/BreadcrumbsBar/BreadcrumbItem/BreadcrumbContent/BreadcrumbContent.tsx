@@ -5,13 +5,37 @@ import cx from "classnames";
 import styles from "./BreadcrumbContent.module.scss";
 
 export interface BreadcrumbContentProps extends VibeComponentProps {
+  /**
+   * If true, the breadcrumb is clickable.
+   */
   isClickable?: boolean;
+  /**
+   * The URL the breadcrumb links to.
+   */
   link?: string;
+  /**
+   * Callback fired when the breadcrumb is clicked.
+   */
   onClick?: () => void;
+  /**
+   * The text displayed inside the breadcrumb.
+   */
   text?: string;
+  /**
+   * The icon displayed next to the text.
+   */
   icon?: SubIcon;
+  /**
+   * If true, the breadcrumb represents the current page.
+   */
   isCurrent?: boolean;
+  /**
+   * If true, the breadcrumb is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If true, the breadcrumb text is shown.
+   */
   showText?: boolean;
 }
 

@@ -15,18 +15,50 @@ import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, ColorStyle 
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
+  /**
+   * The color value of the item.
+   */
   color: ColorPickerValueOnly;
+  /**
+   * Callback fired when the color is clicked.
+   */
   onColorClicked: (color: ColorPickerValueOnly) => void;
+  /**
+   * The style applied to the color.
+   */
   colorStyle: ColorStyle;
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground: boolean;
+  /**
+   * Icon displayed inside the color item.
+   */
   ColorIndicatorIcon: SubIcon;
+  /**
+   * Icon displayed when the color is selected.
+   */
   SelectedIndicatorIcon: SubIcon;
+  /**
+   * If true, the color is marked as selected.
+   */
   isSelected: boolean;
+  /**
+   * The size of the color item.
+   */
   colorSize: ColorPickerSizes;
+  /**
+   * Tooltip content for the color item.
+   */
   tooltipContent: ElementContent;
+  /**
+   * If true, the color item is currently active.
+   */
   isActive: boolean;
+  /**
+   * The shape of the color item.
+   */
   colorShape: ColorShapes;
-  ["data-testid"]?: string;
 }
 
 const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = forwardRef(

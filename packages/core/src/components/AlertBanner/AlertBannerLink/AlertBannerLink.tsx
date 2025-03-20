@@ -6,6 +6,9 @@ import styles from "./AlertBannerLink.module.scss";
 import { AlertBannerContext } from "../AlertBannerContext";
 
 export interface AlertBannerLinkProps extends LinkProps {
+  /**
+   * If true, a left margin is applied to the link.
+   */
   marginLeft?: boolean;
 }
 

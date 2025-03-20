@@ -7,6 +7,9 @@ import cx from "classnames";
 import styles from "./TipseenTitle.module.scss";
 
 export interface TipseenTitleProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen.
+   */
   text?: string;
 }
 

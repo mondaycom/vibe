@@ -17,9 +17,21 @@ const transitionOptions = {
 const PAGE_SIZE = 18;
 const BUFFER_FROM_CURRENT_YEAR = 4;
 export interface YearPickerProps {
+  /**
+   * The currently selected date.
+   */
   selectedDate?: Moment;
+  /**
+   * Function to determine if a year should be blocked.
+   */
   isYearBlocked?: (year: number) => boolean;
+  /**
+   * Callback fired when changing the selected year.
+   */
   changeCurrentDate: (date: Moment) => void;
+  /**
+   * Test ID for testing purposes.
+   */
   "data-testid"?: string;
 }
 

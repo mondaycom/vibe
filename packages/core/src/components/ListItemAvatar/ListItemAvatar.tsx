@@ -9,10 +9,16 @@ import styles from "./ListItemAvatar.module.scss";
 
 export interface ListItemAvatarProps extends VibeComponentProps {
   /**
-   * the ListItem component [li, div, a]
+   * The HTML element used for the list item avatar (e.g., "li", "div", "a").
    */
   component?: ListItemElement;
+  /**
+   * The source URL of the avatar image.
+   */
   src?: string;
+  /**
+   * Class name applied to the avatar.
+   */
   avatarClassName?: string;
 }
 

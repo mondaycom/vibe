@@ -10,40 +10,52 @@ import styles from "./ExpandCollapse.module.scss";
 
 export interface ExpandCollapseProps extends VibeComponentProps {
   /**
-   * Component as parameter to be rendered as header
+   * Custom renderer for the header component.
    */
   headerComponentRenderer?: () => ReactElement;
   /**
-   * Class name to add to the header of the expandable
+   * Class name applied to the header.
    */
   headerClassName?: string;
   /**
-   * Class name to add to the content of the expandable
+   * Class name applied to the content.
    */
   contentClassName?: string;
   /**
-   * Class name to add to the component
+   * Class name applied to the root component.
    */
   componentClassName?: string;
   /**
-   * Header title
+   * The title displayed in the header.
    */
   title?: ElementContent;
   /**
-   * The value of the expandable section
+   * The content inside the expandable section.
    */
   children?: ElementContent;
   /**
-   * The expand icon font size
+   * The size of the expand/collapse icon.
    */
   iconSize?: number | string;
   /**
-   * Should be open or closed by default (when rendered)
+   * If true, the section is open by default when rendered.
    */
   defaultOpenState?: boolean;
+  /**
+   * Controls the open state of the section.
+   */
   open?: boolean;
+  /**
+   * Callback fired when the header is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * If true, hides the border around the component.
+   */
   hideBorder?: boolean;
+  /**
+   * If true, captures the click event on the button.
+   */
   captureOnClick?: boolean;
 }
 

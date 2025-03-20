@@ -4,11 +4,21 @@ import styles from "./TipseenImage.module.scss";
 import TipseenMedia from "./TipseenMedia/TipseenMedia";
 
 export interface TipseenImageProps {
-  // Better be required, but it might be a breaking change
+  /**
+   * The source URL of the image.
+   */
   src?: string | undefined;
-  // Better be required, but it might be a breaking change
+  /**
+   * The alternative text for the image, used for accessibility.
+   */
   alt?: string;
+  /**
+   * Class name applied to the image element.
+   */
   className?: string;
+  /**
+   * Class name applied to the TipseenMedia container.
+   */
   tipseenMediaClassName?: string;
 }
 

@@ -13,12 +13,33 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../..//helpers/typesciptCssModulesHelper";
 
 export interface StepsCommandProps extends VibeComponentProps {
+  /**
+   * If true, this button is for moving to the next step.
+   */
   isNext?: boolean;
+  /**
+   * Callback fired when the active step changes.
+   */
   onChangeActiveStep?: (e: React.MouseEvent, newStepIndex: number) => void;
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * If true, hides the navigation icon.
+   */
   isIconHidden?: boolean;
+  /**
+   * Props applied to the button.
+   */
   buttonProps?: Partial<ButtonProps>;
+  /**
+   * The color theme of the button.
+   */
   color?: StepsColor;
 }
 

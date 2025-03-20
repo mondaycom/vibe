@@ -8,8 +8,17 @@ import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./TipseenBasicContent.module.scss";
 
 export interface TipseenBasicContentProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen content.
+   */
   title?: string;
+  /**
+   * Class name applied to the title.
+   */
   titleClassName?: string;
+  /**
+   * The content inside the Tipseen.
+   */
   children?: ElementContent | ElementContent[];
 }
 

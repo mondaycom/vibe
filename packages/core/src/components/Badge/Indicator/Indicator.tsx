@@ -8,6 +8,9 @@ import { VibeComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface IndicatorProps extends VibeComponentProps {
+  /**
+   * The color of the indicator.
+   */
   color?: IndicatorColor;
 }
 

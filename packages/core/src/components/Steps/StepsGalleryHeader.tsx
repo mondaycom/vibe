@@ -7,10 +7,25 @@ import styles from "./StepsGalleryHeader.module.scss";
 import { StepsColor } from "./Steps.types";
 
 export interface StepsGalleryHeaderProps extends VibeComponentProps {
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * Callback fired when the active step changes.
+   */
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
+  /**
+   * A function to generate step descriptions for accessibility.
+   */
   stepDescriptionFunc?: (stepIndex: number) => string;
+  /**
+   * The color theme of the gallery header.
+   */
   color?: StepsColor;
 }
 

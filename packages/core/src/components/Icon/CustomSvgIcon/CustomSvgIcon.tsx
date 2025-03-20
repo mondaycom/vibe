@@ -11,15 +11,45 @@ function modifySvgCode(svg: string, color = "currentColor") {
 }
 
 export interface CustomSvgIconProps extends VibeComponentProps {
+  /**
+   * Callback fired when the icon is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * The source URL or object of the SVG icon.
+   */
   src: string | object;
+  /**
+   * The accessible label for the icon.
+   */
   ariaLabel?: string;
+  /**
+   * The tab index of the icon for keyboard navigation.
+   */
   tabIndex?: number;
+  /**
+   * The ARIA role of the icon.
+   */
   role?: AriaRole;
+  /**
+   * If true, hides the icon from screen readers.
+   */
   ariaHidden?: boolean;
+  /**
+   * If true, makes the icon clickable.
+   */
   clickable?: boolean;
+  /**
+   * If true, replaces the `fill` attribute in the SVG with `currentColor`.
+   */
   replaceToCurrentColor?: boolean;
+  /**
+   * Overrides the default color of the icon.
+   */
   customColor?: string;
+  /**
+   * Reference to the SVG element.
+   */
   ref?: Ref<SVGElement>;
 }
 

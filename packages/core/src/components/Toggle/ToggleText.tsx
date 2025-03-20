@@ -5,7 +5,13 @@ import styles from "./ToggleText.module.scss";
 import Text from "../Text/Text";
 
 export interface ToggleTextProps extends VibeComponentProps {
+  /**
+   * The text content inside the toggle.
+   */
   children: string;
+  /**
+   * If true, applies a disabled style to the text.
+   */
   disabled: boolean;
 }
 

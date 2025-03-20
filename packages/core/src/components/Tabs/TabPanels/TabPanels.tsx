@@ -12,8 +12,17 @@ import { withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
+  /**
+   * The index of the currently active tab panel.
+   */
   activeTabId?: number;
+  /**
+   * The animation direction when switching between tab panels.
+   */
   animationDirection?: TabPanelsAnimationDirection;
+  /**
+   * The child elements representing tab panels.
+   */
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
 }
 

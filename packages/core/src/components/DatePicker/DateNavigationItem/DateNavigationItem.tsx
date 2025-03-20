@@ -9,7 +9,13 @@ const ICONS = {
 };
 
 export interface DateNavigationItemProps {
+  /**
+   * The type of navigation button.
+   */
   kind: keyof typeof ICONS;
+  /**
+   * Callback fired when the button is clicked.
+   */
   onClick?: () => void;
 }
 

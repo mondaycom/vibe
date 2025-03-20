@@ -1,6 +1,6 @@
 export interface ModalFooterShadowProps {
   /**
-   * Controls the visibility of the shadow.
+   * If true, the shadow is visible.
    */
   show: boolean;
 }

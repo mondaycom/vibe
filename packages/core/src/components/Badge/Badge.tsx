@@ -20,16 +20,31 @@ import { CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
 
 export interface BadgeBaseProps extends VibeComponentProps {
+  /**
+   * The position of the badge relative to its parent.
+   */
   anchor?: BadgeAnchor;
+  /**
+   * The alignment style of the badge.
+   */
   alignment?: BadgeAlignments;
+  /**
+   * The content the badge is attached to.
+   */
   children: React.ReactNode;
 }
 
 interface CounterBadgeProps extends CounterProps {
+  /**
+   * The type of badge, set to `"counter"` for numeric values.
+   */
   type: Extract<BadgeType, "counter">;
 }
 
 interface IndicatorBadgeProps extends IndicatorProps {
+  /**
+   * The type of badge, set to `"indicator"` for a simple dot.
+   */
   type?: Extract<BadgeType, "indicator">;
 }
 

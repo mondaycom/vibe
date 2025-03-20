@@ -17,18 +17,36 @@ import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterProps extends VibeComponentProps {
   /**
-   * Array of Avatar elements
+   * The list of avatars hidden behind the counter.
    */
   counterTooltipAvatars?: ReactElement<AvatarProps>[];
   /**
-   * AvatarGroupCounterVisualProps: props for counter
+   * Props for customizing the counter appearance.
    */
   counterProps?: AvatarGroupCounterVisualProps;
+  /**
+   * Props for customizing the counter tooltip.
+   */
   counterTooltipCustomProps?: Partial<TooltipProps>;
+  /**
+   * If true, the counter tooltip uses a virtualized list for performance optimization.
+   */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * The size of the counter.
+   */
   size?: AvatarSize;
+  /**
+   * The type of the avatars in the counter.
+   */
   type?: AvatarType;
+  /**
+   * The label of the counter for accessibility.
+   */
   counterAriaLabel?: string;
+  /**
+   * If true, the counter is disabled and non-interactive.
+   */
   disabled?: boolean;
 }
 

@@ -14,12 +14,15 @@ export const LIST_ITEM_ICON_SIZE = 18;
 
 export interface ListItemIconProps extends VibeComponentProps {
   /**
-   * the ListItem component [li, div, a]
+   * The HTML element used for the list item icon (e.g., "li", "div", "a").
    */
   component?: ListItemElement;
+  /**
+   * The icon displayed inside the list item.
+   */
   icon?: SubIcon;
   /**
-   * the position of the icon inside the list item (this sets the margins of the icon)
+   * The position of the icon inside the list item, determining its margins.
    */
   margin?: ListItemIconMargin;
 }

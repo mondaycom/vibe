@@ -10,28 +10,40 @@ import styles from "./AvatarGroup.module.scss";
 import { AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 
 export interface AvatarGroupProps extends VibeComponentProps {
+  /**
+   * Class name applied to each avatar.
+   */
   avatarClassName?: string;
   /**
-   * Array of `Avatar` components
+   * The avatars displayed in the group.
    */
   children?: ReactElement<AvatarProps> | ReactElement<AvatarProps>[];
+  /**
+   * The size of the avatars in the group.
+   */
   size?: AvatarSize;
+  /**
+   * The type of the avatars in the group.
+   */
   type?: AvatarType;
+  /**
+   * The maximum number of avatars displayed before showing a counter.
+   */
   max?: number;
   /**
-   * 4 `Counter.props` for customization + ariaLabelItemsName for specifying the "items" name in aria label
+   * Props for customizing the counter display.
    */
   counterProps?: AvatarGroupCounterVisualProps;
   /**
-   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](/?path=/docs/components-tooltip--docs).
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
   /**
-   * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
+   * If true, the counter tooltip uses a virtualized list for performance optimization.
    */
   counterTooltipIsVirtualizedList?: boolean;
   /**
-   * If true, the component will be disabled and non interactive
+   * If true, the component is disabled and non-interactive.
    */
   disabled?: boolean;
 }

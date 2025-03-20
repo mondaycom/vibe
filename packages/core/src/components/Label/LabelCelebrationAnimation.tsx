@@ -7,7 +7,13 @@ const DEFAULT_BORDER_RADIUS = 4;
 const DEFAULT_STROKE_WIDTH = 1;
 
 export interface LabelCelebrationAnimationProps {
+  /**
+   * The child component that will be wrapped by the animation.
+   */
   children: React.ReactElement;
+  /**
+   * Callback fired when the celebration animation ends.
+   */
   onAnimationEnd: () => void;
 }
 

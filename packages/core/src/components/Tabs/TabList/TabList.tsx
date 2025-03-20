@@ -12,10 +12,25 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {
+  /**
+   * Callback fired when the active tab changes.
+   */
   onTabChange?: (tabId: number) => void;
+  /**
+   * The index of the currently active tab.
+   */
   activeTabId?: number;
+  /**
+   * The type of tab style.
+   */
   tabType?: string;
+  /**
+   * The size of the tab list.
+   */
   size?: string;
+  /**
+   * The child elements representing tabs.
+   */
   children?: ReactElement<TabProps>[];
 }
 

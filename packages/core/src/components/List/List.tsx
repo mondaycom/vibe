@@ -35,26 +35,35 @@ import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
-   * the wrapping component to wrap the List Items [div, nav, ul, ol]
+   * The wrapping component for the list (e.g., "div", "nav", "ul", "ol").
    */
   component?: ListElement;
   /**
-   * ARIA label string to describe to list
+   * The ARIA label describing the list.
    */
   ariaLabel?: string;
   /**
-   * ARIA described by string to reference an id to describe by
+   * The ID of an element that describes the list.
    */
   ariaDescribedBy?: string;
+  /**
+   * The ID of an element controlled by the list.
+   */
   "aria-controls"?: AriaAttributes["aria-controls"];
+  /**
+   * The child elements inside the list.
+   */
   children?: ReactElement<ListItemProps | ListTitleProps> | ReactElement<ListItemProps | ListTitleProps>[];
   /**
-   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   * If true, uses a virtualized list to render only visible items for performance optimization.
    */
   renderOnlyVisibleItems?: boolean;
+  /**
+   * Custom inline styles applied to the list.
+   */
   style?: CSSProperties;
   /**
-   * ARIA role for the list.
+   * The ARIA role of the list.
    */
   role?: AriaRole;
 }

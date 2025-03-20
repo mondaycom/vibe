@@ -4,7 +4,13 @@ import Avatar, { AvatarProps } from "../../Avatar/Avatar";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 
 export interface AvatarMenuItemProps extends VibeComponentProps {
+  /**
+   * Props passed to the avatar component.
+   */
   avatarProps?: AvatarProps;
+  /**
+   * Props passed to the menu item component.
+   */
   menuItemProps?: MenuItemProps;
 }
 

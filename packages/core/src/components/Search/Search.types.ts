@@ -6,99 +6,99 @@ import MenuButton from "../MenuButton/MenuButton";
 
 export interface SearchProps extends VibeComponentProps {
   /**
-   * Name of the icon used for the search button.
+   * The icon used for the search button.
    */
   searchIconName?: SubIcon;
   /**
-   * Name of the icon used for the clear button.
+   * The icon used for the clear button.
    */
   clearIconName?: SubIcon;
   /**
-   * Label for the clear icon button, for accessibility purposes.
+   * The label for the clear button, for accessibility purposes.
    */
   clearIconLabel?: string;
   /**
-   * Render additional action within the right section of search component.
+   * Renders an additional action button in the search input.
    */
   renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
   /**
-   * If true, hides the additional action when the user types in the search input.
+   * If true, hides the additional action button when input has text.
    */
   hideRenderActionOnInput?: boolean;
   /**
-   * The value of the search input.
+   * The current value of the search input.
    */
   value?: HTMLInputElement["value"];
   /**
-   * Placeholder text for the search input when it's empty.
+   * The placeholder text displayed when the input is empty.
    */
   placeholder?: HTMLInputElement["placeholder"];
   /**
-   * Size of the input element. Will influence also padding and font size.
+   * The size of the search input, affecting padding and font size.
    */
   size?: InputSize;
   /**
-   * If true, the search input is disabled and cannot be interacted with.
+   * If true, disables the search input.
    */
   disabled?: HTMLInputElement["disabled"];
   /**
-   * Shows a loading indicator in the search component, typically used while fetching results.
+   * If true, displays a loading indicator inside the input.
    */
   loading?: boolean;
   /**
-   * If true, the search input is automatically focused when the component mounts.
+   * If true, automatically focuses the search input on mount.
    */
   autoFocus?: HTMLInputElement["autofocus"];
   /**
-   * Configures the browser's autocomplete feature for the search input.
+   * Configures the browser's autocomplete behavior.
    */
   autoComplete?: HTMLInputElement["autocomplete"];
   /**
-   * Aria-label for the search input, important for accessibility.
+   * The ARIA label for the search input.
    */
   inputAriaLabel?: React.AriaAttributes["aria-label"];
   /**
-   * aria to be set if the popup is open.
+   * If true, indicates that a popup is open.
    */
   ariaExpanded?: React.AriaAttributes["aria-expanded"];
   /**
-   * aria to be set the sarch result popup's type.
+   * Specifies the type of popup associated with the search input.
    */
   ariaHasPopup?: React.AriaAttributes["aria-haspopup"];
   /**
-   * Rate at which search input changes are debounced.
+   * The debounce rate for input value changes.
    */
   debounceRate?: number;
   /**
-   * The id of the container element where search results are to be displayed.
+   * The ID of the container where search results are displayed.
    */
   searchResultsContainerId?: string;
   /**
-   * ARIA property that identifies the currently active item within the search results.
+   * ARIA property indicating the currently active search result.
    */
   currentAriaResultId?: React.AriaAttributes["aria-activedescendant"];
   /**
-   * Callback function that is called whenever the value of the search input changes.
+   * Callback fired when the search input value changes.
    */
   onChange?: (value: string) => void;
   /**
-   * Callback function that is called when the search input loses focus.
+   * Callback fired when the search input loses focus.
    */
   onBlur?: (event: React.FocusEvent) => void;
   /**
-   * Callback function that is called when the search input gains focus.
+   * Callback fired when the search input gains focus.
    */
   onFocus?: (event: React.FocusEvent) => void;
   /**
-   * Callback function that is called when the clear button is clicked.
+   * Callback fired when the clear button is clicked.
    */
   onClear?: () => void;
   /**
-   * Callback function that is called when a keyboard key is down.
+   * Callback fired when a key is pressed inside the input.
    */
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   /**
-   * Controls the visibility of the clear icon.
+   * If true, displays a clear button inside the search input.
    */
   showClearIcon?: boolean;
 }

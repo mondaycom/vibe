@@ -5,9 +5,21 @@ import styles from "./YearPicker.module.scss";
 const NOOP = () => {};
 
 export interface YearsListProps {
+  /**
+   * The list of years to display.
+   */
   yearsItems: number[];
+  /**
+   * Function to determine if a year should be blocked.
+   */
   isYearBlocked?: (year: number) => boolean;
+  /**
+   * Callback fired when a year is selected.
+   */
   onSelect: (year: number) => void;
+  /**
+   * The currently selected year.
+   */
   selectedYear: string;
 }
 

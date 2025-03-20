@@ -396,10 +396,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 );
 
 Button.defaultProps = {
-  className: undefined,
   name: undefined,
   style: undefined,
-  id: undefined,
   kind: "primary",
   onClick: NOOP,
   size: "medium",

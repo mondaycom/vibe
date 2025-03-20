@@ -6,8 +6,17 @@ import styles from "./StepsNumbersHeader.module.scss";
 import { StepsColor } from "./Steps.types";
 
 export interface StepsNumbersHeaderProps extends VibeComponentProps {
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * The color theme of the steps numbers header.
+   */
   color?: StepsColor;
 }
 

@@ -29,24 +29,69 @@ type ButtonGroupOption = {
 };
 
 export interface ButtonGroupProps extends VibeComponentProps {
+  /**
+   * The list of button options.
+   */
   options: Array<ButtonGroupOption>;
+  /**
+   * The currently selected button value.
+   */
   value?: ButtonValue;
+  /**
+   * Callback fired when a button is selected.
+   */
   onSelect?: (value: ButtonValue, name: string) => void;
+  /**
+   * The size of the buttons.
+   */
   size?: ButtonSize;
+  /**
+   * The style variant of the buttons.
+   */
   kind?: Extract<ButtonType, "secondary" | "tertiary">;
+  /**
+   * The name of the button group.
+   */
   name?: string;
+  /**
+   * If true, disables all buttons in the group.
+   */
   disabled?: boolean;
+  /**
+   * The label of the button group for accessibility.
+   */
   groupAriaLabel?: string;
   /**
-   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   * The position of the tooltip relative to the button.
    */
   tooltipPosition?: TooltipPositions;
+  /**
+   * The delay in milliseconds before the tooltip hides.
+   */
   tooltipHideDelay?: number;
+  /**
+   * The delay in milliseconds before the tooltip shows.
+   */
   tooltipShowDelay?: number;
+  /**
+   * CSS selector for the tooltip container.
+   */
   tooltipContainerSelector?: string;
+  /**
+   * Adjusts the tooltip position.
+   */
   tooltipMoveBy?: MoveBy;
+  /**
+   * The content inside the button group.
+   */
   children?: React.ReactNode;
+  /**
+   * If true, makes the button group take the full width of its container.
+   */
   fullWidth?: boolean;
+  /**
+   * If true, removes focus from the button after clicking.
+   */
   blurOnMouseUp?: boolean;
 }
 

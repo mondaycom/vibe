@@ -15,13 +15,28 @@ import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {
+  /**
+   * The type of skeleton.
+   */
   type?: SkeletonType;
+  /**
+   * The predefined size of the skeleton.
+   */
   size?: SkeletonSizeType;
+  /**
+   * The width of the skeleton in pixels.
+   */
   width?: number;
+  /**
+   * The height of the skeleton in pixels.
+   */
   height?: number;
+  /**
+   * Class name applied to the wrapper element.
+   */
   wrapperClassName?: string;
   /**
-   * Is the skeleton wrapper width equal to its container
+   * If true, the skeleton will take up the full width of its container.
    */
   fullWidth?: boolean;
 }

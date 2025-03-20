@@ -10,11 +10,29 @@ import useIconProps from "./hooks/useIconProps";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 
 export interface IconSubComponentProps {
+  /**
+   * Ref for the icon component.
+   */
   ref?: Ref<HTMLElement>;
+  /**
+   * The ID of the icon component.
+   */
   id?: string;
+  /**
+   * The size of the icon.
+   */
   size?: string | number;
+  /**
+   * Class name applied to the icon.
+   */
   className?: string;
+  /**
+   * Inline styles applied to the icon.
+   */
   style?: CSSProperties;
+  /**
+   * Test ID for testing purposes.
+   */
   "data-testid"?: string;
 }
 
@@ -25,37 +43,43 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
 
 export interface IconProps extends VibeComponentProps {
   /**
-   * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
+   * The icon name, component, or source URL.
    */
   icon: SubIcon;
   /**
-   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+   * The accessible label for the icon.
    */
   iconLabel?: string;
   /**
-   *  The type of the component - svg, font or custom svg (using [`react-inlinesvg`](https://github.com/gilbarbara/react-inlinesvg#readme))
+   * The type of the icon: `svg`, `font`, or `src` (external source).
    */
   iconType?: IconType;
   /**
-   * Size for font icon
+   * The size of the icon.
    */
   iconSize?: number | string;
   /**
-   * Remove focus style
+   * If true, removes focus styles from the icon.
    */
   ignoreFocusStyle?: boolean;
+  /**
+   * The tab index of the icon for keyboard navigation.
+   */
   tabindex?: number | string;
   /**
-   * Hide icon asset from screen reader. No need to set value for this prop when `clickable` is false
+   * If true, hides the icon from screen readers.
    */
   ariaHidden?: boolean;
+  /**
+   * Inline styles applied to the icon.
+   */
   style?: React.CSSProperties;
   /**
-   * When using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
+   * If true, replaces `fill` property with `currentColor` when using an `src` icon.
    */
   useCurrentColor?: boolean;
   /**
-   * Override the default color with a custom one
+   * Overrides the default color with a custom color.
    */
   customColor?: string;
 }

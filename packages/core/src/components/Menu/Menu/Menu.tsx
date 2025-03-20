@@ -23,19 +23,61 @@ import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
+  /**
+   * Size of the menu.
+   */
   size?: (typeof SIZES)[keyof typeof SIZES];
+  /**
+   * The tab index of the menu.
+   */
   tabIndex?: number;
+  /**
+   * ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * ARIA description ID.
+   */
   ariaDescribedBy?: string;
+  /**
+   * If true, the menu will automatically focus on mount.
+   */
   focusOnMount?: boolean;
+  /**
+   * Callback when a menu item gains focus.
+   */
   onItemFocus?: (index: number) => void;
+  /**
+   * Controls the visibility of the menu.
+   */
   isVisible?: boolean;
+  /**
+   * Callback triggered when the menu closes.
+   */
   onClose?: (option: CloseMenuOption) => void;
+  /**
+   * Index of the focused menu item.
+   */
   focusItemIndex?: number;
+  /**
+   * If true, this menu is a submenu.
+   */
   isSubMenu?: boolean;
+  /**
+   * If true, event listeners will be attached to the document.
+   */
   useDocumentEventListeners?: boolean;
+  /**
+   * Index of the item that should be focused when the menu mounts.
+   */
   focusItemIndexOnMount?: number;
+  /**
+   * If true, enables scrolling within the menu.
+   */
   shouldScrollMenu?: boolean;
+  /**
+   * The menu items.
+   */
   children?: ElementContent;
 }
 

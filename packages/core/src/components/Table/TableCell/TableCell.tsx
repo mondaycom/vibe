@@ -7,7 +7,13 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface TableCellProps extends VibeComponentProps {
+  /**
+   * The content inside the table cell.
+   */
   children?: React.ReactNode;
+  /**
+   * If true, makes the cell sticky (typically used for frozen columns).
+   */
   sticky?: boolean;
 }
 
