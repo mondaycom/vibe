@@ -81,9 +81,3 @@ jobs:
       - uses: ./.github/actions/download-builds
       - name: Run bundle size check
         run: cd packages/core && yarn size
-      - name: Run bundle size action
-        if: github.event_name == 'pull_request'
-        uses: andresz1/size-limit-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: ./packages/core
