@@ -97,7 +97,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                 placeholder: !selectedItem ? placeholder : selectedItem?.label,
                 onFocus: e => {
                   setIsFocused(true);
-                  onFocus?.(e); 
+                  onFocus?.(e);
                 },
                 onBlur: () => {
                   setIsFocused(false);
