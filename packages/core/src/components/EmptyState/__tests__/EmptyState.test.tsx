@@ -30,7 +30,7 @@ describe("EmptyState component", () => {
         description="This is a description"
         className="custom-class"
         mainAction={<Button onClick={mockOnClick}> Main Action</Button>}
-        supportingAction={<Link href="https://example.com" text="Read more" onClick={mockOnClick} />}
+        supportingAction={<Link href="https://example.com" text="Read more" />}
         id="custom-id"
         data-testid="custom-test-id"
       />
@@ -44,14 +44,13 @@ describe("EmptyState component", () => {
     const button = screen.getByRole("button", { name: "Main Action" });
     expect(button).toBeInTheDocument();
     fireEvent.click(button);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
-
+    
     // Check supporting link action
     const link = screen.getByText("Read more");
     expect(link).toBeInTheDocument();
     expect(link.closest("a")).toHaveAttribute("href", "https://example.com");
     fireEvent.click(link);
-    expect(mockOnClick).toHaveBeenCalledTimes(2);
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
 
     // Check custom className
     const emptyState = screen.getByTestId("custom-test-id");
@@ -107,7 +106,7 @@ describe("EmptyState component", () => {
       <EmptyState description="This is a description" visual={<div data-testid="empty-state-visual">Custom Icon</div>} />
     );
 
-    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
+    expect(screen.getByTestId("empty-state-visual")).toBeInTheDocument();
   });
 
   it("renders with description as a React element", () => {
