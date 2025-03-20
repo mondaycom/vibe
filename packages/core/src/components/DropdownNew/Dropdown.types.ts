@@ -1,3 +1,4 @@
+import React from "react";
 import { ListGroup } from "../BaseList";
 import { BaseListItemProps } from "../BaseListItem";
 import { VibeComponentProps } from "../../types";
@@ -54,9 +55,41 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   error?: boolean;
   /**
+   * The function to call when the menu is scrolled.
+   */
+  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+  /**
+   * The function to call when the dropdown is blurred.
+   */
+  onBlur?: () => void;
+  /**
+   * The function to call when the selected option is changed.
+   */
+  onChange?: (option: T | T[]) => void;
+  /**
+   * The function to call when the dropdown is cleared.
+   */
+  onClear?: () => void;
+  /**
+   * The function to call when the dropdown is focused.
+   */
+  onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
+  /**
    * The function to call when the input changes.
    */
   onInputChange?: (input: string | null) => void;
+  /**
+   * The function to call when a key is pressed in the dropdown.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
+  /**
+   * The function to call when the menu is opened.
+   */
+  onMenuOpen?: () => void;
+  /**
+   * The function to call when the menu is closed.
+   */
+  onMenuClose?: () => void;
   /**
    * The function to call when an option is selected.
    */

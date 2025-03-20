@@ -7,7 +7,10 @@ import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemProps>(
   options: DropdownGroupOption<T>,
+  onChange?: (option: T | T[]) => void,
   onInputChange?: (value: string) => void,
+  onMenuOpen?: () => void,
+  onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void
 ) {
   const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options);
@@ -25,6 +28,15 @@ function useDropdownCombobox<T extends BaseListItemProps>(
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    isItemDisabled: item => Boolean(item.disabled),
+
+    onIsOpenChange: useCallback(
+      ({ isOpen }) => {
+        isOpen ? onMenuClose?.() : onMenuOpen?.();
+      },
+      [onMenuClose, onMenuOpen]
+    ),
+
     onInputValueChange: useCallback(
       ({ inputValue }) => {
         filterOptions(inputValue || "");
@@ -38,17 +50,11 @@ function useDropdownCombobox<T extends BaseListItemProps>(
         if (selectedItem) {
           onOptionSelect?.(selectedItem);
           filterOptions("");
+          onChange?.(selectedItem);
         }
       },
-      [onOptionSelect, filterOptions]
+      [onOptionSelect, filterOptions, onChange]
     ),
-
-    onStateChange: ({ inputValue }) => {
-      if (typeof inputValue !== "string") return;
-      filterOptions(inputValue);
-    },
-
-    isItemDisabled: item => Boolean(item.disabled),
 
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {

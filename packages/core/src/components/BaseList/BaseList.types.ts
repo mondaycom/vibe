@@ -53,6 +53,10 @@ export interface BaseListProps<T = BaseListItemProps>
    * If true, the options are rendered.
    */
   renderOptions?: boolean;
+  /**
+   * Function to handle scroll events.
+   */
+  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
 }
 
 export interface ListGroup<T = BaseListItemProps> {
