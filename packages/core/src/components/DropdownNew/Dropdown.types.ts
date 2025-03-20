@@ -55,45 +55,45 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   error?: boolean;
   /**
-   * The function to call when the menu is scrolled.
-   */
-  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
-  /**
-   * The function to call when the dropdown is blurred.
+   * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;
   /**
-   * The function to call when the selected option is changed.
+   * Callback fired when the selected value changes.
    */
   onChange?: (option: T | T[]) => void;
   /**
-   * The function to call when the dropdown is cleared.
+   * Callback fired when the clear button is clicked.
    */
   onClear?: () => void;
   /**
-   * The function to call when the dropdown is focused.
+   * Callback fired when the dropdown gains focus.
    */
   onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
   /**
-   * The function to call when the input changes.
+   * Callback fired when the dropdown input value changes.
    */
   onInputChange?: (input: string | null) => void;
   /**
-   * The function to call when a key is pressed in the dropdown.
+   * Callback fired when a key is pressed inside the dropdown.
    */
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
   /**
-   * The function to call when the menu is opened.
+   * Callback fired when the dropdown menu opens.
    */
   onMenuOpen?: () => void;
   /**
-   * The function to call when the menu is closed.
+   * Callback fired when the dropdown menu closes.
    */
   onMenuClose?: () => void;
   /**
-   * The function to call when an option is selected.
+   * Callback fired when an option is selected.
    */
   onOptionSelect?: (option: T) => void;
+  /**
+   * Callback fired when scrolling inside the dropdown.
+   */
+  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
 }
 
 export type DropdownSizes = "small" | "medium" | "large";
