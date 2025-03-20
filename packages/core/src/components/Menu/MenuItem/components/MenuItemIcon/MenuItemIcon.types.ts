@@ -17,11 +17,11 @@ export interface MenuItemIconProps {
    */
   label?: string;
   /**
-   * If true, the icon appears disabled. Disabled icons have a faded appearance and do not respond to user interactions.
+   * If true, the icon appears disabled.
    */
   disabled?: boolean;
   /**
-   * If true, the icon appears selected. Selected icons have a different visual style.
+   * If true, the icon appears selected.
    */
   selected?: boolean;
   /**
