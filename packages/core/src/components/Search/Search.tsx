@@ -10,7 +10,7 @@ import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 import { SearchProps } from "./Search.types";
 import Loader from "../Loader/Loader";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(
   (

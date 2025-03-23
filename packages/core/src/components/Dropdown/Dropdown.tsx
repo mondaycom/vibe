@@ -38,7 +38,7 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   sizes?: typeof BaseSizes;

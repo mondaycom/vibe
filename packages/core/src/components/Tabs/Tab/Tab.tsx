@@ -10,7 +10,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
 import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../../tests/constants";
 
 export interface TabProps extends VibeComponentProps {
   /**

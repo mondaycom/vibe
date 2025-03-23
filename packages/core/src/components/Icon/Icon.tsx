@@ -8,7 +8,7 @@ import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;

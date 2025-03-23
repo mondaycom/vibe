@@ -7,7 +7,7 @@ import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ToggleSize } from "./Toggle.types";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {
   /**

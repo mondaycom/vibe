@@ -21,13 +21,13 @@ exports[`Checkbox renders correctly when autoFocus 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -44,7 +44,6 @@ exports[`Checkbox renders correctly when autoFocus 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -69,13 +68,13 @@ exports[`Checkbox renders correctly when checked 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -92,7 +91,6 @@ exports[`Checkbox renders correctly when checked 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -117,13 +115,13 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -140,7 +138,6 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -165,13 +162,13 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -188,7 +185,6 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -213,13 +209,13 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -236,7 +232,6 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -262,13 +257,13 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -285,7 +280,6 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -310,13 +304,13 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -333,7 +327,6 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -358,13 +351,13 @@ exports[`Checkbox renders correctly with name 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -381,7 +374,6 @@ exports[`Checkbox renders correctly with name 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -406,13 +398,13 @@ exports[`Checkbox renders correctly with props 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -429,7 +421,6 @@ exports[`Checkbox renders correctly with props 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   >
     Option 1
   </span>
@@ -456,13 +447,13 @@ exports[`Checkbox renders correctly with value 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -479,7 +470,6 @@ exports[`Checkbox renders correctly with value 1`] = `
   <span
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    data-vibe="text"
   />
 </label>
 `;
@@ -504,13 +494,13 @@ exports[`Checkbox renders correctly without label 1`] = `
   <div
     className="checkbox"
     data-testid="checkbox-checkbox"
-    data-vibe="checkbox"
+    data-vibe="Checkbox"
   >
     <svg
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
-      data-vibe="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"

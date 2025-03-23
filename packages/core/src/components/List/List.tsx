@@ -32,7 +32,7 @@ import {
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ListProps extends VibeComponentProps {
   /**

@@ -14,7 +14,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
 import { ColorStyle } from "../../types/Colors";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;

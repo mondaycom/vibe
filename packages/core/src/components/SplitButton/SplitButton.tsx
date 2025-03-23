@@ -31,7 +31,7 @@ import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
 import { DialogSize, DialogTriggerEvent } from "../Dialog";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
   /*

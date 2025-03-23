@@ -27,7 +27,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
-import { ComponentVibeId } from "src/tests/constants";
+import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 
