@@ -11,7 +11,8 @@ export default {
       type: "input",
       name: "fileName",
       message: "FileName including the suffix (including '.svg') suffix",
-      validate: input => input.endsWith(".svg") || "FileName must end with .svg"
+      validate: input => input.endsWith(".svg") || "FileName must end with .svg",
+      default: ({ iconName }) => `${iconName}.svg`
     },
     {
       type: "input",
