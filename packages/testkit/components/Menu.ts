@@ -63,7 +63,7 @@ export class Menu extends BaseElement {
   async selectItem(listItem: string): Promise<void> {
     const menuItem = new MenuItem(
       this.page,
-      this.locator.locator("[role='menuitem']").filter({ hasText: listItem }),
+      this.locator.locator("[role='menuitem']").filter({ hasText: new RegExp(`^${listItem}$`, "i") }),
       `Menu Item: ${listItem}`
     );
     await menuItem.click();
