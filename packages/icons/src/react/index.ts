@@ -264,5 +264,6 @@ export {default as Widgets} from './Widgets';
 export {default as Work} from './Work';
 export {default as Workflow} from './Workflow';
 export {default as Workspace} from './Workspace';
+export {default as WrapText} from './WrapText';
 /* tslint:enable */
 /* eslint-enable */

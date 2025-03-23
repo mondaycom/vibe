@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "WrapText",
+      file: "WrapText.svg",
+      description: "Icon for enabling the Wrap Text feature",
+      tags: "Wrap, Text, Wrapping, Text Edit, Line"
+  },
+
+  {
       name: "MinusSmall",
       file: "MinusSmall.svg",
       description: "Minus icon for time counter",
