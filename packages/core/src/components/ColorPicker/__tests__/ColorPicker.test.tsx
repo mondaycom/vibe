@@ -122,7 +122,7 @@ describe("ColorPicker", () => {
     expect(content).toBeTruthy();
   });
 
-  it("should not render tooltip with the color name if showColorNameTooltip is true and forceUseRawColorList is true", () => {
+  it("should render tooltip with the color name if showColorNameTooltip is true and forceUseRawColorList is true", () => {
     const colorName = "done-green";
     const colorNameTooltip = "Done Green";
     const colorList = [colorName];
@@ -134,7 +134,7 @@ describe("ColorPicker", () => {
     });
     jest.advanceTimersByTime(1000);
     const content = screen.queryByText(colorNameTooltip);
-    expect(content).toBeNull();
+    expect(content).toBeTruthy();
   });
 
   it("should render tooltip with tooltipContentByColor value if tooltipContentByColor of the color exist", () => {

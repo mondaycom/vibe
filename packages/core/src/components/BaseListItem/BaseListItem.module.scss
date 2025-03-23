@@ -4,13 +4,20 @@
   gap: var(--spacing-xs);
   border-radius: var(--border-radius-small);
   color: var(--primary-text-color);
+  cursor: pointer;
+  margin-bottom: 2px;
 
-  &:hover:not(.disabled),   &.highlighted  {
+  &:hover:not(.disabled):not(.readOnly), &.highlighted  {
     background-color: var(--primary-background-hover-color);
   }
 
   &.disabled {
     color: var(--disabled-text-color);
+    cursor: not-allowed;
+  }
+  
+  &.readOnly {
+    cursor: default;
   }
 
   &.selected {

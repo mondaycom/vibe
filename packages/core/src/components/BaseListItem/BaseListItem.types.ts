@@ -1,33 +1,41 @@
 import React, { ReactNode, AriaRole } from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
+import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 
-export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>, VibeComponentProps {
+export interface BaseListItemProps<T = Record<string, unknown>>
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    VibeComponentProps {
+  /**
+   * The value associated with the list item.
+   */
   value?: string;
   /**
-   * Primary text content of the list item
+   * The primary text content of the list item.
    */
   label: string;
   /**
-   * Size of the list item. Will influence the padding and font size.
+   * The Size of the list item.
    */
-  size?: BaseListItemSizes;
+  size?: BaseListSizes;
   /**
-   * Indicates whether the list item is selected.
+   * If true, the list item is selected.
    */
   selected?: boolean;
   /**
-   * Indicates whether the list item is disabled.
+   * If true, the list item is disabled.
    */
   disabled?: boolean;
   /**
+   * If true, the dropdown is read-only and cannot be edited.
+   */
+  readOnly?: boolean;
+  /**
    * Element to render at the start of the list item.
-   * Can be an avatar, icon, inset or a custom rendered element.
    */
   startElement?: StartElement;
   /**
    * Element to render at the end of the list item.
-   * Can be an icon, suffix, or a custom rendered element.
    */
   endElement?: EndElement;
   /**
@@ -35,21 +43,30 @@ export interface BaseListItemProps extends React.LiHTMLAttributes<HTMLLIElement>
    */
   highlighted?: boolean;
   /**
-   * Use when there's a need to display a tooltip on the list item (e.g., explain why disabled).
+   * Props for displaying a tooltip on the list item.
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * determines the position of the tooltip according to the direction.
+   * Determines the position of the tooltip according to the direction.
    */
-  rtl?: boolean;
+  dir?: BaseListDirection;
   /**
    * ARIA role for the list item.
    */
   role?: AriaRole;
+  /**
+   * The index of the item in the list.
+   */
   index?: number;
+  /**
+   * Custom renderer for options.
+   */
+  optionRenderer?: (item: T) => JSX.Element;
+  /**
+   * Allow any additional user-defined properties dynamically
+   **/
+  [key: string]: unknown;
 }
-
-export type BaseListItemSizes = "small" | "medium" | "large";
 
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }

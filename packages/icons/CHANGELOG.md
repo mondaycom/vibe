@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.0...@vibe/icons@1.5.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* **icons:** fix MondayLogoOutline svg ([#2808](https://github.com/mondaycom/vibe/issues/2808)) ([e97b71d](https://github.com/mondaycom/vibe/commit/e97b71db9945d83adf0084c3786fee697e6ea94d))
+
+
+
+
+
 # [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.4.0...@vibe/icons@1.5.0) (2025-02-13)
 
 
