@@ -4,7 +4,6 @@ exports[`TabList renders correctly with activeTabId 1`] = `
 <div
   className="tabsWrapper compact"
   data-testid="tab-list"
-  data-vibe="tab-list"
 >
   <ul
     className="tabsList"
@@ -16,7 +15,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -31,7 +30,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -49,7 +48,6 @@ exports[`TabList renders correctly with children 1`] = `
 <div
   className="tabsWrapper compact"
   data-testid="tab-list"
-  data-vibe="tab-list"
 >
   <ul
     className="tabsList"
@@ -61,7 +59,7 @@ exports[`TabList renders correctly with children 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -79,7 +77,6 @@ exports[`TabList renders correctly with className 1`] = `
 <div
   className="tabsWrapper test compact"
   data-testid="tab-list"
-  data-vibe="tab-list"
 >
   <ul
     className="tabsList"
@@ -91,7 +88,7 @@ exports[`TabList renders correctly with className 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -109,7 +106,6 @@ exports[`TabList renders correctly with id 1`] = `
 <div
   className="tabsWrapper compact"
   data-testid="tab-list_test"
-  data-vibe="tab-list"
   id="test"
 >
   <ul
@@ -122,7 +118,7 @@ exports[`TabList renders correctly with id 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -140,7 +136,6 @@ exports[`TabList renders correctly with size 1`] = `
 <div
   className="tabsWrapper compact"
   data-testid="tab-list"
-  data-vibe="tab-list"
 >
   <ul
     className="tabsList lg"
@@ -152,7 +147,7 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -167,7 +162,7 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -185,7 +180,6 @@ exports[`TabList renders correctly with tabType 1`] = `
 <div
   className="tabsWrapper stretched"
   data-testid="tab-list"
-  data-vibe="tab-list"
 >
   <ul
     className="tabsList"
@@ -197,7 +191,7 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -212,7 +206,7 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
-      data-vibe="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a

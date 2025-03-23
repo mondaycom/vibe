@@ -3,12 +3,10 @@
 exports[`TabsContext renders correctly with activeTabId 1`] = `
 <div
   data-testid="tabs-context"
-  data-vibe="tabs-context"
 >
   <div
     className="tabsWrapper compact"
     data-testid="tab-list"
-    data-vibe="tab-list"
   >
     <ul
       className="tabsList"
@@ -20,7 +18,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-selected={false}
         className="tabWrapper tabListTabWrapper"
         data-testid="tab"
-        data-vibe="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -35,7 +33,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
-        data-vibe="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -50,12 +48,10 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
   <div
     className="tabPanelsWrapper"
     data-testid="tab-panels"
-    data-vibe="tab-panels"
   >
     <div
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
       data-testid="tab-panel"
-      data-vibe="tab-panel"
       role="tabpanel"
     >
       Second slide
@@ -68,12 +64,10 @@ exports[`TabsContext renders correctly with className 1`] = `
 <div
   className="test"
   data-testid="tabs-context"
-  data-vibe="tabs-context"
 >
   <div
     className="tabsWrapper compact"
     data-testid="tab-list"
-    data-vibe="tab-list"
   >
     <ul
       className="tabsList"
@@ -85,7 +79,7 @@ exports[`TabsContext renders correctly with className 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
-        data-vibe="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -100,12 +94,10 @@ exports[`TabsContext renders correctly with className 1`] = `
   <div
     className="tabPanelsWrapper"
     data-testid="tab-panels"
-    data-vibe="tab-panels"
   >
     <div
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
       data-testid="tab-panel"
-      data-vibe="tab-panel"
       role="tabpanel"
     >
       First slide
@@ -117,12 +109,10 @@ exports[`TabsContext renders correctly with className 1`] = `
 exports[`TabsContext renders correctly with empty props 1`] = `
 <div
   data-testid="tabs-context"
-  data-vibe="tabs-context"
 >
   <div
     className="tabsWrapper compact"
     data-testid="tab-list"
-    data-vibe="tab-list"
   >
     <ul
       className="tabsList"
@@ -134,7 +124,7 @@ exports[`TabsContext renders correctly with empty props 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
-        data-vibe="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -149,12 +139,10 @@ exports[`TabsContext renders correctly with empty props 1`] = `
   <div
     className="tabPanelsWrapper"
     data-testid="tab-panels"
-    data-vibe="tab-panels"
   >
     <div
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
       data-testid="tab-panel"
-      data-vibe="tab-panel"
       role="tabpanel"
     >
       First slide
@@ -166,13 +154,11 @@ exports[`TabsContext renders correctly with empty props 1`] = `
 exports[`TabsContext renders correctly with id 1`] = `
 <div
   data-testid="tabs-context_test"
-  data-vibe="tabs-context"
   id="test"
 >
   <div
     className="tabsWrapper compact"
     data-testid="tab-list"
-    data-vibe="tab-list"
   >
     <ul
       className="tabsList"
@@ -184,7 +170,7 @@ exports[`TabsContext renders correctly with id 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
-        data-vibe="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -199,12 +185,10 @@ exports[`TabsContext renders correctly with id 1`] = `
   <div
     className="tabPanelsWrapper"
     data-testid="tab-panels"
-    data-vibe="tab-panels"
   >
     <div
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
       data-testid="tab-panel"
-      data-vibe="tab-panel"
       role="tabpanel"
     >
       First slide
