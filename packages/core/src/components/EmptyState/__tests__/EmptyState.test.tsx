@@ -44,11 +44,11 @@ describe("EmptyState component", () => {
     const button = screen.getByRole("button", { name: "Main Action" });
     expect(button).toBeInTheDocument();
     fireEvent.click(button);
-    
+
     // Check supporting link action
-    const link = screen.getByText("Read more");
+    const link = screen.getByRole("link", { name: "Read more" });
     expect(link).toBeInTheDocument();
-    expect(link.closest("a")).toHaveAttribute("href", "https://example.com");
+    expect(link).toHaveAttribute("href", "https://example.com");
     fireEvent.click(link);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
 
@@ -65,10 +65,7 @@ describe("EmptyState component", () => {
       <EmptyState
         description="This is a description"
         supportingAction={
-          <Button
-            type="button"
-            onClick={mockOnClick}
-          >
+          <Button type="button" onClick={mockOnClick}>
             Secondary Action
           </Button>
         }
@@ -103,7 +100,10 @@ describe("EmptyState component", () => {
 
   it("renders with custom React node as image", () => {
     render(
-      <EmptyState description="This is a description" visual={<div data-testid="empty-state-visual">Custom Icon</div>} />
+      <EmptyState
+        description="This is a description"
+        visual={<div data-testid="empty-state-visual">Custom Icon</div>}
+      />
     );
 
     expect(screen.getByTestId("empty-state-visual")).toBeInTheDocument();
@@ -111,8 +111,12 @@ describe("EmptyState component", () => {
 
   it("renders with description as a React element", () => {
     render(
-      <EmptyState 
-        description={<span data-testid="custom-description">Custom description with <strong>formatting</strong></span>}
+      <EmptyState
+        description={
+          <span data-testid="custom-description">
+            Custom description with <strong>formatting</strong>
+          </span>
+        }
       />
     );
 

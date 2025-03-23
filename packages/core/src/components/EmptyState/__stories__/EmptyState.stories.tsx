@@ -35,9 +35,7 @@ export const Overview = {
           Main Action
         </Button>
       }
-      supportingAction={
-        <Link href="#" text="Read more" />
-      }
+      supportingAction={<Link href="#" text="Read more" />}
     />
   ),
   name: "Overview",
@@ -67,9 +65,7 @@ export const Default = {
           Add your first widget
         </Button>
       }
-      supportingAction={
-        <Link href="#" text="Read more" />
-      }
+      supportingAction={<Link href="#" text="Read more" />}
     />
   ),
   name: "Overview",
@@ -121,9 +117,7 @@ export const Compact = {
           Add your first widget
         </Button>
       }
-      supportingAction={
-        <Link href="#" text="Read more" />
-      }
+      supportingAction={<Link href="#" text="Read more" />}
     />
   ),
   name: "Compact"
@@ -224,8 +218,8 @@ export const ActionsComparison = {
             onClick={() => {
               console.log("Second view - View details clicked");
             }}
-        >
-          Add favorites
+          >
+            Add favorites
           </Button>
         }
       />
@@ -239,9 +233,7 @@ export const WithLinkOnly = {
     <EmptyState
       title="This workspace is empty"
       description='To get started, click the "+" above, then click "add new board".'
-      supportingAction={  
-        <Link href="https://example.com/help" text="Read more" />
-      }
+      supportingAction={<Link href="https://example.com/help" text="Read more" />}
     />
   ),
   name: "With link only"

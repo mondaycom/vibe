@@ -56,7 +56,9 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
               >
                 {description}
               </Text>
-            ) : description}
+            ) : (
+              description
+            )}
           </>
 
           {(mainAction || supportingAction) && (
