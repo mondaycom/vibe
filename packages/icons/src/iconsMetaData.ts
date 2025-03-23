@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "PDF",
+      file: "PDF.svg",
+      description: "Represents PDF documents",
+      tags: "Document, File, Format, Portable, Reader, Download, View, Share"
+  },
+
+  {
       name: "WrapText",
       file: "WrapText.svg",
       description: "Icon for enabling the Wrap Text feature",

@@ -187,6 +187,7 @@ export {default as Open} from './Open';
 export {default as Page} from './Page';
 export {default as Paste} from './Paste';
 export {default as Pause} from './Pause';
+export {default as PDF} from './PDF';
 export {default as Person} from './Person';
 export {default as PersonRound} from './PersonRound';
 export {default as Pin} from './Pin';
