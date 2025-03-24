@@ -82,7 +82,8 @@ describe("DropdownNew", () => {
         error: true
       });
 
-      expect(container.firstChild).toHaveClass("error");
+      const wrapperDiv = container.querySelector(".wrapper");
+      expect(wrapperDiv).toHaveClass("error");
     });
 
     it("should filter options based on input value", () => {
@@ -188,6 +189,62 @@ describe("DropdownNew", () => {
         fireEvent.click(clearButton);
         expect(input).toHaveValue("");
       }
+    });
+
+    it("should show faded selected item when focused", () => {
+      const { getByPlaceholderText, container, getByText } = renderDropdown({
+        placeholder: "Select an option"
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      fireEvent.focus(input);
+
+      const selectedValue = container.querySelector(".selectedItemOverlay");
+      expect(selectedValue).toHaveClass("faded");
+    });
+
+    it("should hide selected value when typing in the input", () => {
+      const { getByPlaceholderText, getByText, queryByText } = renderDropdown();
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      fireEvent.change(input, { target: { value: "test" } });
+      expect(queryByText("Option 1")).not.toBeInTheDocument();
+    });
+
+    it("should not display indent startElement in selected value", () => {
+      const optionsWithIndent = [
+        {
+          label: "Group 1",
+          options: [
+            {
+              label: "Option 1",
+              value: "opt1",
+              index: 0,
+              startElement: { type: "indent" }
+            }
+          ]
+        }
+      ];
+
+      const { getByPlaceholderText, getByText, container } = renderDropdown({
+        options: optionsWithIndent
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      const selectedValue = container.querySelector(".selectedItemOverlay");
+      expect(selectedValue).toBeInTheDocument();
+
+      const indentElement = selectedValue.querySelector(".indent");
+      expect(indentElement).not.toBeInTheDocument();
     });
   });
 
