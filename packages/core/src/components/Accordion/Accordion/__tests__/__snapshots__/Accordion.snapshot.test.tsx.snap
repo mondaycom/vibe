@@ -4,7 +4,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 >
   <div
     className=""
@@ -131,7 +131,7 @@ exports[`Accordion renders correctly with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 >
   <div
     className=""
@@ -248,7 +248,7 @@ exports[`Accordion renders correctly with className 1`] = `
 <div
   className="accordion test"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 />
 `;
 
@@ -256,7 +256,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 >
   <div
     className=""
@@ -304,7 +304,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 >
   <div
     className=""
@@ -426,7 +426,7 @@ exports[`Accordion renders correctly with empty props 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 />
 `;
 
@@ -434,7 +434,7 @@ exports[`Accordion renders correctly with id 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
   id="test"
 />
 `;

@@ -3,6 +3,7 @@ import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState
 import useMergeRef from "../../../hooks/useMergeRef";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
+import { ComponentVibeId } from "../../../tests/constants";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -117,7 +118,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
         ref={mergedRef}
         className={cx(styles.accordion, className)}
         data-testid={dataTestId}
-        data-vibe={COMPONENT_ID}
+        data-vibe={ComponentVibeId.ACCORDION}
         id={id}
       >
         {children && renderChildElements}
