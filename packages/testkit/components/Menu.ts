@@ -29,7 +29,7 @@ export class Menu extends BaseElement {
   async getAllMenuItems(): Promise<MenuItem[]> {
     let menuItems: MenuItem[] = [];
     await test.step(`Get all menu items in ${this.elementReportName}`, async () => {
-      const menuItemsLocators = await this.locator.locator("[role='menuitem']").all();
+      const menuItemsLocators = await this.locator.getByRole("menuitem").all();
       const menuItemsPromises = menuItemsLocators.map(
         async locator => new MenuItem(this.page, locator, await locator.innerText())
       );
@@ -48,7 +48,7 @@ export class Menu extends BaseElement {
     await test.step(`Get menu item by name ${itemName} in ${this.elementReportName}`, async () => {
       menuItem = new MenuItem(
         this.page,
-        this.locator.locator("[role='menuitem']").filter({ hasText: itemName }),
+        this.locator.getByRole("menuitem").filter({ has: this.locator.getByText(itemName, { exact: true }) }),
         `Menu Item: ${itemName}`
       );
     });
@@ -61,11 +61,9 @@ export class Menu extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(listItem: string): Promise<void> {
-    const menuItem = new MenuItem(
-      this.page,
-      this.locator.locator("[role='menuitem']").filter({ hasText: new RegExp(`^${listItem}$`, "i") }),
-      `Menu Item: ${listItem}`
-    );
-    await menuItem.click();
+    await test.step(`Select menu item ${listItem} in ${this.elementReportName}`, async () => {
+      const menuItem = await this.getItemByName(listItem);
+      await menuItem?.click();
+    });
   }
 }
