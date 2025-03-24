@@ -57,6 +57,10 @@ export interface BaseListProps<T = BaseListItemProps>
    * Function to handle scroll events.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+  /**
+   * The maximum height of the list.
+   */
+  maxMenuHeight?: number;
 }
 
 export interface ListGroup<T = BaseListItemProps> {

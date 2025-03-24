@@ -55,6 +55,22 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   error?: boolean;
   /**
+   * The helper text to display below the dropdown.
+   */
+  helperText?: string;
+  /**
+   * If true, the dropdown is required.
+   */
+  required?: boolean;
+  /**
+   * The label to display above the dropdown.
+   */
+  label?: string;
+  /**
+   * The maximum height of the dropdown menu.
+   */
+  maxMenuHeight?: number;
+  /**
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;

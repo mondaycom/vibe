@@ -18,6 +18,7 @@ function useDropdownCombobox<T extends BaseListItemProps>(
 
   const {
     isOpen,
+    inputValue,
     highlightedIndex,
     selectedItem,
     getToggleButtonProps,
@@ -69,6 +70,7 @@ function useDropdownCombobox<T extends BaseListItemProps>(
 
   return {
     isOpen,
+    inputValue,
     highlightedIndex,
     selectedItem,
     getToggleButtonProps,

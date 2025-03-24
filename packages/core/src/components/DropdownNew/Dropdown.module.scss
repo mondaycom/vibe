@@ -34,4 +34,23 @@
   .inputWrapper {
     border: none;
   }
+
+  .selectedItemOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding-inline: var(--spacing-xs) 0;
+
+    &.small {
+      padding-inline: var(--spacing-small) 0;
+    } 
+
+    &.faded {
+      opacity: 0.6;
+    }
+  }
+  
 }
