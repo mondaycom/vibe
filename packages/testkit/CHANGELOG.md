@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.7.0...@vibe/testkit@1.8.0) (2025-03-24)
+
+
+### Features
+
+* **Menu:** change locator handling ([#2816](https://github.com/mondaycom/vibe/issues/2816)) ([f478cec](https://github.com/mondaycom/vibe/commit/f478cecf2c0f6976e1ff828af70c4becc9917b96))
+
+
+
+
+
 # [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.1...@vibe/testkit@1.7.0) (2025-03-23)
 
 

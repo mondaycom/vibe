@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.1...@vibe/icons@1.6.0) (2025-03-24)
+
+
+### Features
+
+* **icons:** add WrapText, PDF icons ([#2814](https://github.com/mondaycom/vibe/issues/2814)) ([2b46289](https://github.com/mondaycom/vibe/commit/2b46289634ced60ec10dd551f310b12a80ae409e))
+
+
+
+
+
 ## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.0...@vibe/icons@1.5.1) (2025-03-20)
 
 
