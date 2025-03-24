@@ -4,7 +4,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
-  data-vibe="monday-accordion"
+  data-vibe="Accordion"
 >
   <div
     className=""
