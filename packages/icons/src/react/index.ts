@@ -187,6 +187,7 @@ export {default as Open} from './Open';
 export {default as Page} from './Page';
 export {default as Paste} from './Paste';
 export {default as Pause} from './Pause';
+export {default as PDF} from './PDF';
 export {default as Person} from './Person';
 export {default as PersonRound} from './PersonRound';
 export {default as Pin} from './Pin';
@@ -264,5 +265,6 @@ export {default as Widgets} from './Widgets';
 export {default as Work} from './Work';
 export {default as Workflow} from './Workflow';
 export {default as Workspace} from './Workspace';
+export {default as WrapText} from './WrapText';
 /* tslint:enable */
 /* eslint-enable */
