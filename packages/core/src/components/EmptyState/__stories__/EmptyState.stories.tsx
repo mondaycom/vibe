@@ -15,7 +15,33 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/EmptyState",
   component: EmptyState,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    title: {
+      control: "text",
+      description: "Optional title for the empty state"
+    },
+    description: {
+      control: "text",
+      description: "Required description text explaining the empty state"
+    },
+    visual: {
+      control: "object",
+      description: "Optional visual element like image, animation, video, or illustration"
+    },
+    layout: {
+      control: "select",
+      options: ["default", "compact"],
+      description: "Layout style of the empty state"
+    },
+    mainAction: {
+      control: "object",
+      description: "Main action button configuration"
+    },
+    supportingAction: {
+      control: "object",
+      description: "Supporting action (link or tertiary button) configuration"
+    }
+  },
   decorators: metaSettings.decorators
 } satisfies Meta<typeof EmptyState>;
 
@@ -68,7 +94,7 @@ export const Default = {
       supportingAction={<Link href="#" text="Read more" />}
     />
   ),
-  name: "Overview",
+  name: "Default",
   args: {},
   parameters: {
     docs: {
@@ -302,4 +328,29 @@ export const WithAndWithoutTitleComparison = {
     </Flex>
   ),
   name: "With and without title comparison"
+};
+
+export const WithActionProps = {
+  render: () => (
+    <EmptyState
+      title="No notifications"
+      description="You're all caught up! Check back later for new notifications."
+      visual={<img src={emptyStateImage} alt="No notifications" width={280} height={184} />}
+      mainAction={{
+        kind: "secondary",
+        text: "Check notifications",
+        onClick: () => {
+          console.log("Main action clicked");
+        }
+      }}
+      supportingAction={{
+        text: "Manage notification settings",
+        href: "#",
+        onClick: () => {
+          console.log("Supporting action clicked");
+        }
+      }}
+    />
+  ),
+  name: "With action props"
 };

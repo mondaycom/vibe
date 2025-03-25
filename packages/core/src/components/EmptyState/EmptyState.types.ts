@@ -1,7 +1,7 @@
 import React from "react";
 import { LinkProps } from "../Link/Link";
 import { VibeComponentProps } from "src/types";
-import { ButtonProps } from "../Button";
+import { ButtonProps, ButtonType } from "../Button";
 
 export type EmptyStateLayout = "default" | "compact";
 
@@ -13,9 +13,22 @@ export interface EmptyStateProps extends VibeComponentProps {
   /** Optional visual element like image, animation, video, or illustration to display */
   visual?: React.ReactNode;
   /** Main action button configuration */
-  mainAction?: React.ReactElement<ButtonProps>;
+  mainAction?:
+    | React.ReactElement<ButtonProps>
+    | (Omit<ButtonProps, "kind" | "children" | "size"> & {
+        kind?: Exclude<ButtonType, "tertiary">;
+        text: string;
+      });
   /** Supporting action (link or tertiary button) configuration */
-  supportingAction?: React.ReactElement<ButtonProps | LinkProps>;
+  supportingAction?:
+    | React.ReactElement<ButtonProps | LinkProps>
+    | (Omit<ButtonProps, "kind" | "children" | "size"> & {
+        kind: "tertiary";
+        text: string;
+      })
+    | LinkProps & {
+        text: string;
+      };
   /** Layout style of the empty state */
   layout?: EmptyStateLayout;
 }

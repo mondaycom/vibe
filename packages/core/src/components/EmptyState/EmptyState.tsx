@@ -7,7 +7,8 @@ import { EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-
+import { Button } from "../Button";
+import { Link } from "../Link";
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {
@@ -63,8 +64,8 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 
           {(mainAction || supportingAction) && (
             <Flex direction="column" align="center" gap="small" className={styles.actions}>
-              {mainAction}
-              {supportingAction}
+              {renderMainAction(mainAction)}
+              {renderSupportingAction(supportingAction, isCompact)}
             </Flex>
           )}
         </Flex>
@@ -72,5 +73,34 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
     );
   }
 );
+
+function renderMainAction(mainAction: EmptyStateProps["mainAction"]) {
+  if (typeof mainAction === "object" && "text" in mainAction) {
+    return (
+      <Button kind="secondary" size="medium" {...mainAction}>
+        {mainAction.text}
+      </Button>
+    );
+  }
+
+  return mainAction;
+}
+
+function renderSupportingAction(supportingAction: EmptyStateProps["supportingAction"], isCompact: boolean) {
+  if (typeof supportingAction === "object") {
+    if ("href" in supportingAction) {
+      return <Link {...supportingAction}>{supportingAction.text}</Link>;
+    }
+    if ("text" in supportingAction) {
+      return (
+        <Button kind="tertiary" size={isCompact ? "small" : "medium"} {...supportingAction}>
+          {supportingAction.text}
+        </Button>
+      );
+    }
+  }
+
+  return supportingAction;
+}
 
 export default EmptyState;

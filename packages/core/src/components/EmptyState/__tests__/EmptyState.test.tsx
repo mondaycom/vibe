@@ -123,4 +123,53 @@ describe("EmptyState component", () => {
     expect(screen.getByTestId("custom-description")).toBeInTheDocument();
     expect(screen.getByText("formatting")).toBeInTheDocument();
   });
+
+  it("renders with actions passed as prop objects", () => {
+    const mainActionClick = jest.fn();
+    const supportingActionClick = jest.fn();
+
+    render(
+      <EmptyState
+        description="This is a description"
+        mainAction={{
+          kind: "primary",
+          text: "Main Action",
+          onClick: mainActionClick
+        }}
+        supportingAction={{
+          kind: "tertiary",
+          text: "Supporting Action",
+          onClick: supportingActionClick
+        }}
+      />
+    );
+
+    // Check main action button
+    const mainButton = screen.getByRole("button", { name: "Main Action" });
+    expect(mainButton).toBeInTheDocument();
+    fireEvent.click(mainButton);
+    expect(mainActionClick).toHaveBeenCalledTimes(1);
+
+    // Check supporting action button
+    const supportingButton = screen.getByRole("button", { name: "Supporting Action" });
+    expect(supportingButton).toBeInTheDocument();
+    fireEvent.click(supportingButton);
+    expect(supportingActionClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders with supporting action as link props", () => {
+    render(
+      <EmptyState
+        description="This is a description"
+        supportingAction={{
+          text: "Learn More",
+          href: "https://example.com"
+        }}
+      />
+    );
+
+    const link = screen.getByRole("link", { name: "Learn More" });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "https://example.com");
+  });
 });
