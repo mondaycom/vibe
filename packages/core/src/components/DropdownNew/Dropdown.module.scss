@@ -35,17 +35,16 @@
     border: none;
   }
 
-  .selectedItemOverlay {
+  .selectedItem {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    pointer-events: none;
-    padding-inline: var(--spacing-xs) 0;
+    padding-inline-start: var(--spacing-xs);
 
     &.small {
-      padding-inline: var(--spacing-small) 0;
+      padding-inline-start: var(--spacing-small);
     } 
 
     &.faded {

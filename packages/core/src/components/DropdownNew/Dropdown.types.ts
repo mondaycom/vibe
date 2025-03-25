@@ -71,6 +71,14 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   maxMenuHeight?: number;
   /**
+   * If true, the dropdown menu is open.
+   */
+  isMenuOpen?: boolean;
+  /**
+   * If true, the dropdown menu will be auto focused.
+   */
+  autoFocus?: boolean;
+  /**
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;

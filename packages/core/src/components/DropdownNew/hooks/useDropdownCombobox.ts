@@ -7,6 +7,8 @@ import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemProps>(
   options: DropdownGroupOption<T>,
+  autoFocus?: boolean,
+  isMenuOpen?: boolean,
   onChange?: (option: T | T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
@@ -30,7 +32,8 @@ function useDropdownCombobox<T extends BaseListItemProps>(
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
-
+    isOpen: isMenuOpen,
+    initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
       ({ isOpen }) => {
         isOpen ? onMenuClose?.() : onMenuOpen?.();

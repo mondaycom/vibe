@@ -37,6 +37,8 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       helperText,
       required,
       maxMenuHeight,
+      isMenuOpen,
+      autoFocus,
       onBlur,
       onChange,
       onClear,
@@ -71,7 +73,16 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       getItemProps,
       reset,
       filteredOptions
-    } = useDropdownCombobox(options, onChange, onInputChange, onMenuClose, onMenuOpen, onOptionSelect);
+    } = useDropdownCombobox(
+      options,
+      autoFocus,
+      isMenuOpen,
+      onChange,
+      onInputChange,
+      onMenuClose,
+      onMenuOpen,
+      onOptionSelect
+    );
 
     const offset = useMemo(() => [0, 4] as [number, number], []);
 
@@ -81,7 +92,8 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       {
         isOpen,
         placement: "bottom" as Placement,
-        offset
+        offset,
+        disableFlip: true
       }
     );
 
@@ -116,6 +128,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                     onKeyDown?.(e);
                   }
                 })}
+                autoFocus={autoFocus}
                 size={size}
                 className={styles.inputWrapper}
                 disabled={disabled}
@@ -123,7 +136,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
               />
               {selectedItem && !inputValue && (
                 <div
-                  className={cx(styles.selectedItemOverlay, {
+                  className={cx(styles.selectedItem, {
                     [styles.faded]: isFocused,
                     [styles.small]: size === "small"
                   })}
