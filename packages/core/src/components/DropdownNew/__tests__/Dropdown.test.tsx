@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, queryByText } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { BaseDropdownProps } from "../Dropdown.types";
 import { BaseListItemProps } from "../../BaseListItem";
