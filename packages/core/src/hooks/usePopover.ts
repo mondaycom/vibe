@@ -22,12 +22,14 @@ export default function usePopover(
     isOpen,
     placement = RIGHT_START,
     observeContentResize,
-    offset
+    offset,
+    disableFlip = false
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
     offset?: [number, number];
+    disableFlip?: boolean;
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -42,7 +44,10 @@ export default function usePopover(
     return {
       placement,
       modifiers: [
-        FLIP_MODIFIER,
+        {
+          ...FLIP_MODIFIER,
+          enabled: !disableFlip
+        },
         {
           name: "displayNone",
           enabled: true,
@@ -59,7 +64,7 @@ export default function usePopover(
         }
       ]
     };
-  }, [placement, observeContentResize, offset, isOpen]);
+  }, [placement, disableFlip, observeContentResize, offset, isOpen]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 
