@@ -27,7 +27,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
@@ -289,6 +289,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               type={type}
               id={id}
               data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
+              data-vibe={ComponentVibeId.TEXT_FIELD}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}

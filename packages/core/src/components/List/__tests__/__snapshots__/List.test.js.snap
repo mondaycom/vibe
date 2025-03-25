@@ -4,6 +4,7 @@ exports[`List renders correctly with empty props 1`] = `
 <ul
   className="list"
   data-testid="list"
+  data-vibe="List"
   id="list-1"
   role="listbox"
   tabIndex={-1}
@@ -16,6 +17,7 @@ exports[`List renders correctly with list items 1`] = `
 <ul
   className="list"
   data-testid="list"
+  data-vibe="List"
   id="list-2"
   role="listbox"
   tabIndex={-1}
@@ -53,6 +55,7 @@ exports[`List renders correctly without props 1`] = `
 <ul
   className="list"
   data-testid="list"
+  data-vibe="List"
   id="list-0"
   role="listbox"
   tabIndex={-1}

@@ -8,6 +8,7 @@ import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
@@ -20,7 +21,13 @@ export interface IconSubComponentProps {
 
 function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
   const dataTestId = props["data-testid"];
-  return <Icon {...props} data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)} />;
+  return (
+    <Icon
+      {...props}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)}
+      data-vibe={ComponentVibeId.ICON}
+    />
+  );
 }
 
 export interface IconProps extends VibeComponentProps {

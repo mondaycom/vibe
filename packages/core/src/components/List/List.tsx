@@ -32,6 +32,7 @@ import {
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ListProps extends VibeComponentProps {
   /**
@@ -166,6 +167,7 @@ const List: VibeComponent<ListProps> & {
       <ListContext.Provider value={{ updateFocusedItem }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+          data-vibe={ComponentVibeId.LIST}
           ref={mergedRef}
           style={style}
           className={cx(styles.list, className)}

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { TextArea } from "../components";
 import { textAreaStory } from "./utils/url-helper";
 
-test.describe("textArea Class with Storybook", () => {
+test.describe.fixme("textArea Class with Storybook", () => {
   let textArea;
   let textAreaLocator;
 

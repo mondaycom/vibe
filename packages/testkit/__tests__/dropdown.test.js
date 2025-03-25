@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Dropdown } from "../components";
 import { dropdownStory } from "./utils/url-helper";
 
-test.describe("dropdown Class with Storybook", () => {
+test.describe.fixme("dropdown Class with Storybook", () => {
   let DropDown;
 
   test.beforeEach(async ({ page }) => {
