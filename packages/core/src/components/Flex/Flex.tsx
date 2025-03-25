@@ -8,7 +8,7 @@ import {
   FlexGap as FlexGapEnum,
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
-import { FlexDirection, FlexJustify, FlexAlign, FlexGap } from "./Flex.types";
+import { FlexDirection, FlexJustify, FlexAlign, FlexGap, FlexShorthand } from "./Flex.types";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
@@ -23,6 +23,7 @@ export interface FlexProps extends VibeComponentProps {
   justify?: FlexJustify;
   align?: FlexAlign;
   gap?: FlexGap | number;
+  flex?: FlexShorthand;
   ariaLabel?: string;
   tabIndex?: number;
   /** onClick function - MouseEvent */
@@ -47,6 +48,7 @@ const Flex: VibeComponent<FlexProps> & {
       children,
       justify = "start",
       align = "center",
+      flex,
       gap,
       onClick,
       style,
@@ -70,7 +72,21 @@ const Flex: VibeComponent<FlexProps> & {
       return { gap: `var(--spacing-${gap})` };
     }, [gap]);
 
-    const overrideStyle = useMemo(() => ({ ...style, ...gapStyle }), [style, gapStyle]);
+    const flexStyle = useMemo(() => {
+      if (!flex) return {};
+
+      if (["string, number"].includes(typeof flex)) {
+        return { flex };
+      }
+
+      return {
+        flexGrow: flex.grow,
+        flexShrink: flex.shrink,
+        flexBasis: flex.basis
+      };
+    }, [flex]);
+
+    const overrideStyle = useMemo(() => ({ ...style, ...gapStyle, ...flexStyle }), [style, gapStyle, flexStyle]);
     const onClickProps = useMemo(() => {
       if (onClick) return { elementType, ariaLabelledby };
       return { "aria-labelledby": ariaLabelledby };

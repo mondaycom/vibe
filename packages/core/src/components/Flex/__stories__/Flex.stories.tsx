@@ -3,6 +3,7 @@ import Flex, { FlexProps } from "../Flex";
 import { Add, Filter, Person, Search, Sort } from "@vibe/icons";
 import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";
+import Box from "../../Box/Box";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Flex.stories.module.scss";
@@ -119,6 +120,72 @@ export const HorizontalSpacingBetweenItems = {
   )
 };
 
+export const HorizontalFlex = {
+  render: () => (
+    <div className={styles["story-container"]}>
+      <StoryDescription description="Equal size">
+        <Flex style={{ width: 300 }}>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="First item grows">
+        <Flex style={{ width: 300 }}>
+          <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Third item grows">
+        <Flex style={{ width: 300 }}>
+          <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>
+            <Box style={{ width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+    </div>
+  ),
+
+  name: "Horizontal layout using flex"
+};
+
 export const VerticalSpacingBetweenItems = {
   render: () => (
     <Flex
@@ -171,6 +238,77 @@ export const VerticalSpacingBetweenItems = {
       </StoryDescription>
     </Flex>
   )
+};
+
+export const VerticalFlex = {
+  render: () => (
+    <Flex
+      style={{
+        width: "100%"
+      }}
+      justify="space-around"
+    >
+      <StoryDescription description="Equal size" vertical>
+        <Flex direction="column" style={{ height: 300 }}>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="First item grows" vertical>
+        <Flex direction="column" style={{ height: 300 }}>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Third item grows" vertical>
+        <Flex direction="column" style={{ height: 300 }}>
+          <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              First
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Second
+            </Box>
+          </Flex>
+          <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
+            <Box style={{ height: "100%", width: "100%" }} border>
+              Third
+            </Box>
+          </Flex>
+        </Flex>
+      </StoryDescription>
+    </Flex>
+  ),
+
+  name: "Vertical layout using flex"
 };
 
 export const HorizontalPositions = {
