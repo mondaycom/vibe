@@ -8,12 +8,7 @@ import { createObserveContentResizeModifier } from "../components/Dialog/modifie
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
-const FLIP_MODIFIER = {
-  name: "flip",
-  options: {
-    fallbackPlacements: [RIGHT_END, LEFT_START, LEFT_END]
-  }
-};
+const DEFAULT_FALLBACK_PLACEMENTS = [RIGHT_END, LEFT_START, LEFT_END];
 
 export default function usePopover(
   referenceElement: HTMLElement,
@@ -22,12 +17,14 @@ export default function usePopover(
     isOpen,
     placement = RIGHT_START,
     observeContentResize,
-    offset
+    offset,
+    fallbackPlacements = DEFAULT_FALLBACK_PLACEMENTS
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
     offset?: [number, number];
+    fallbackPlacements?: Placement[];
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -42,7 +39,12 @@ export default function usePopover(
     return {
       placement,
       modifiers: [
-        FLIP_MODIFIER,
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements
+          }
+        },
         {
           name: "displayNone",
           enabled: true,
