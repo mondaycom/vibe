@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, queryByText } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { BaseDropdownProps } from "../Dropdown.types";
 import { BaseListItemProps } from "../../BaseListItem";
@@ -32,11 +32,12 @@ function renderDropdown<T extends BaseListItemProps>(props?: Partial<BaseDropdow
 
 describe("DropdownNew", () => {
   it("should render correctly with all props", () => {
-    const { getByPlaceholderText, getByText } = renderDropdown({
+    const { getByPlaceholderText, getByText, queryByText } = renderDropdown({
       size: "large",
       withGroupDivider: true,
       noOptionsMessage: "No options available"
     });
+    expect(queryByText("Option 1")).not.toBeInTheDocument();
 
     const input = getByPlaceholderText("Select an option");
     fireEvent.click(input);
@@ -84,6 +85,24 @@ describe("DropdownNew", () => {
 
       const wrapperDiv = container.querySelector(".wrapper");
       expect(wrapperDiv).toHaveClass("error");
+    });
+
+    it("should open menu when isMenuOpen prop is true", () => {
+      const { getByText } = renderDropdown({
+        isMenuOpen: true
+      });
+
+      expect(getByText("Option 1")).toBeVisible();
+    });
+
+    it("should focus input on mount when autoFocus is true", () => {
+      const { getByPlaceholderText, queryByText } = renderDropdown({
+        autoFocus: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      expect(document.activeElement).toBe(input);
+      expect(queryByText("Option 1")).toBeInTheDocument();
     });
 
     it("should filter options based on input value", () => {
@@ -202,7 +221,7 @@ describe("DropdownNew", () => {
 
       fireEvent.focus(input);
 
-      const selectedValue = container.querySelector(".selectedItemOverlay");
+      const selectedValue = container.querySelector(".selectedItem");
       expect(selectedValue).toHaveClass("faded");
     });
 
@@ -240,11 +259,25 @@ describe("DropdownNew", () => {
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
-      const selectedValue = container.querySelector(".selectedItemOverlay");
+      const selectedValue = container.querySelector(".selectedItem");
       expect(selectedValue).toBeInTheDocument();
 
       const indentElement = selectedValue.querySelector(".indent");
       expect(indentElement).not.toBeInTheDocument();
+    });
+
+    it("should show clear button only when clearable is true and an option is selected", () => {
+      const { getByPlaceholderText, getByText, queryByTestId } = renderDropdown({
+        clearable: true
+      });
+
+      const input2 = getByPlaceholderText("Select an option");
+
+      expect(queryByTestId("dropdown-clear-button")).not.toBeInTheDocument();
+
+      fireEvent.click(input2);
+      fireEvent.click(getByText("Option 1"));
+      expect(queryByTestId("dropdown-clear-button")).toBeInTheDocument();
     });
   });
 

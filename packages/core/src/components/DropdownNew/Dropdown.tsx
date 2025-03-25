@@ -39,6 +39,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       maxMenuHeight,
       isMenuOpen,
       autoFocus,
+      clearable = true,
       onBlur,
       onChange,
       onClear,
@@ -93,7 +94,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
         isOpen,
         placement: "bottom" as Placement,
         offset,
-        disableFlip: true
+        fallbackPlacements: ["top" as Placement]
       }
     );
 
@@ -153,7 +154,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
             </div>
             {!readOnly && (
               <Flex>
-                {selectedItem && (
+                {selectedItem && clearable && (
                   <IconButton
                     data-testid="dropdown-clear-button"
                     icon={CloseSmall}

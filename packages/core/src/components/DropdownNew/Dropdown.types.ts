@@ -79,6 +79,10 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    */
   autoFocus?: boolean;
   /**
+   * If true, the dropdown will have a clear button.
+   */
+  clearable?: boolean;
+  /**
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;
