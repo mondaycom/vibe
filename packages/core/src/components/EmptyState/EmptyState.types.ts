@@ -26,9 +26,9 @@ export interface EmptyStateProps extends VibeComponentProps {
         kind: "tertiary";
         text: string;
       })
-    | LinkProps & {
+    | (LinkProps & {
         text: string;
-      };
+      });
   /** Layout style of the empty state */
   layout?: EmptyStateLayout;
 }
