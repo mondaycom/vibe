@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.8.0...@vibe/testkit@1.9.0) (2025-03-25)
+
+
+### Features
+
+* add data-vibe attribute to components ([#2783](https://github.com/mondaycom/vibe/issues/2783)) ([e3e2043](https://github.com/mondaycom/vibe/commit/e3e2043a12f0c3d3c367261879d0accde1fdd61c))
+
+
+
+
+
 # [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.7.0...@vibe/testkit@1.8.0) (2025-03-24)
 
 
