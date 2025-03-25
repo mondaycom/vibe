@@ -151,7 +151,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
           isRequireAvailable = false;
         }
 
-        if (isRequireAvailable) {
+        if (isRequireAvailable && process.env.NODE_ENV === "test") {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const module = require("react-windowed-select");
           setWindowedMenuList(() => module.WindowedMenuList);

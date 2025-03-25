@@ -2,6 +2,7 @@ import * as path from "path";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
+import replace from "@rollup/plugin-replace";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
@@ -73,6 +74,10 @@ export default {
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
+    replace({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      preventAssignment: true
+    }),
     commonjs(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
