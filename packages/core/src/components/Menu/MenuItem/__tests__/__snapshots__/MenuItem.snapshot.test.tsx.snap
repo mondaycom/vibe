@@ -121,6 +121,7 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="18"
       viewBox="0 0 20 20"
@@ -159,6 +160,7 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
+      data-vibe="Icon"
       onClick={[Function]}
       role="img"
     />

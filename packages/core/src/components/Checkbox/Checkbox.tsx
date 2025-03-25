@@ -7,7 +7,7 @@ import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick
 import useMergeRef from "../../hooks/useMergeRef";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Text from "../Text/Text";
 import styles from "./Checkbox.module.scss";
 
@@ -134,6 +134,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
           className={cx(styles.checkbox, checkboxClassName)}
           ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+          data-vibe={ComponentVibeId.CHECKBOX}
         >
           <Icon
             className={styles.icon}

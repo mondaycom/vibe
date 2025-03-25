@@ -10,6 +10,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
 import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
+import { ComponentVibeId } from "../../../tests/constants";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -94,6 +95,7 @@ const Tab: FC<TabProps> = forwardRef(
           aria-selected={active}
           aria-disabled={disabled}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+          data-vibe={ComponentVibeId.TAB}
         >
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
           <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>

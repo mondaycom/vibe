@@ -2,7 +2,7 @@ import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { useIsMounted } from "../../../hooks/ssr/useIsMounted";
 
@@ -75,6 +75,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
+      data-vibe={ComponentVibeId.ICON}
     >
       {PlaceHolder}
     </SVGComponent>
