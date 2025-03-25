@@ -31,7 +31,7 @@ export interface DialogContentContainerProps extends VibeComponentProps {
    */
   size?: DialogSize;
   /**
-   * Inline styles applied to the dialog container.
+   * Custom styles applied to the dialog container.
    */
   style?: React.CSSProperties;
 }

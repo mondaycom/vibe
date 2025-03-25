@@ -68,7 +68,7 @@ export interface DialogContentProps extends VibeComponentProps {
    */
   showDelay?: number;
   /**
-   * Inline styles applied to the dialog container.
+   * Inline styles applied to the dialog.
    */
   styleObject?: CSSProperties;
   /**
@@ -76,7 +76,7 @@ export interface DialogContentProps extends VibeComponentProps {
    */
   isReferenceHidden?: boolean;
   /**
-   * If true, applies tooltip-specific styles to the dialog.
+   * If true, applies tooltip arrow to the dialog.
    */
   hasTooltip?: boolean;
   /**

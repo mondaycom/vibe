@@ -14,7 +14,7 @@ export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProp
    */
   type?: AvatarType;
   /**
-   * The list of avatars shown in the tooltip.
+   * The avatars shown in the tooltip.
    */
   avatars?: ReactElement<AvatarProps>[];
   /**

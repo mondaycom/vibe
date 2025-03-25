@@ -113,7 +113,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   onLayoutDirectionScrollbarVisibilityChange?: (value: boolean) => void;
   /**
-   * The role attribute applied to the list.
+   * The ARIA role attribute applied to the list.
    */
   role?: string;
   /**

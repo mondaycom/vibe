@@ -29,11 +29,11 @@ export interface AlertBannerProps extends VibeComponentProps {
    */
   isCloseHidden?: boolean;
   /**
-   * The label of the alert banner for accessibility.
+   * The ARIA label of the alert banner for accessibility.
    */
   ariaLabel?: string;
   /**
-   * The label of the close button for accessibility.
+   * The ARIA label of the close button for accessibility.
    */
   closeButtonAriaLabel?: string;
   /**

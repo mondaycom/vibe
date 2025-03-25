@@ -32,7 +32,7 @@ export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends Vi
     displayAsGrid: boolean
   ) => ReactElement;
   /**
-   * The label of the tooltip container.
+   * The ARIA label of the tooltip container.
    */
   tooltipContainerAriaLabel?: string;
   /**

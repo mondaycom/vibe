@@ -29,7 +29,7 @@ export interface AvatarProps extends VibeComponentProps {
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * The label of the avatar.
+   * The ARIA label of the avatar.
    */
   ariaLabel?: string;
   /**

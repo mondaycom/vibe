@@ -21,7 +21,7 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
    */
   avatars?: ReactElement<AvatarProps>[];
   /**
-   * Props for customizing the counter tooltip.
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
   /**

@@ -148,7 +148,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   openMenuOnClick?: boolean;
   /**
-   * If true, displays a clear button inside the dropdown.
+   * If true, displays a clear button inside the dropdown's input.
    */
   clearable?: boolean;
   /**

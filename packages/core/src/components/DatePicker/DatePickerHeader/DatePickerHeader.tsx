@@ -7,7 +7,7 @@ import Icon from "../../Icon/Icon";
 
 export interface DatePickerHeaderProps {
   /**
-   * The currently selected date.
+   * The currently shown date.
    */
   currentDate: Moment;
   /**
