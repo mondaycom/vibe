@@ -10,6 +10,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
+import { SubIcon } from "../../types";
 
 export interface TipseenContentProps extends VibeComponentProps {
   /**
@@ -37,6 +38,10 @@ export interface TipseenContentProps extends VibeComponentProps {
    */
   submitButtonText?: string;
   /**
+   * Icon to display in the submit button
+   */
+  submitButtonIcon?: SubIcon;
+  /**
    * Callback fired when the submit button is clicked.
    */
   onSubmit?: (event: React.MouseEvent) => void;
@@ -58,6 +63,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   hideDismiss = true,
   hideSubmit,
   submitButtonText = SUBMIT_BUTTON_TEXT,
+  submitButtonIcon,
   onSubmit,
   dismissButtonText = DISMISS_BUTTON_TEXT,
   onDismiss
@@ -90,6 +96,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
             size="small"
             onClick={onSubmit}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
+            leftIcon={submitButtonIcon}
           >
             {submitButtonText}
           </Button>

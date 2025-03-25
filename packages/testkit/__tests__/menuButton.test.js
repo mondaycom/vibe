@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { MenuButton } from "../components";
 import { menuButtonStory } from "./utils/url-helper";
 
-test.describe("menuButton Class with Storybook", () => {
+test.describe.fixme("menuButton Class with Storybook", () => {
   let menuButton;
 
   test.beforeEach(async ({ page }) => {

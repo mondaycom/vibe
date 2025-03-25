@@ -13,7 +13,7 @@ import { ButtonType, ButtonSize } from "../Button/Button.types";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
@@ -210,6 +210,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
+        data-vibe={ComponentVibeId.BUTTON_GROUP}
         ref={mergedRef}
       >
         <div role="group" aria-label={groupAriaLabel} className={cx(styles.buttonsContainer)} aria-disabled={disabled}>

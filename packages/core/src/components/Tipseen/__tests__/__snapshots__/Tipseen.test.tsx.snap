@@ -13,6 +13,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
       data-testid="tipseen-content-dismiss"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -27,6 +28,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -54,6 +56,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
         aria-disabled="false"
         class="button sizeSmall kindPrimary colorOnPrimaryColor"
         data-testid="tipseen-content-submit"
+        data-vibe="Button"
         style="color: rgba(0, 0, 0, 0);"
         type="button"
       >
@@ -105,6 +108,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
                 aria-label="Close"
                 class="tipseenCloseButton dark button sizeMedium kindTertiary colorDark noSidePadding"
                 data-testid="icon-button"
+                data-vibe="Button"
                 style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
                 type="button"
               >
@@ -112,6 +116,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with dark close button t
                   aria-hidden="true"
                   class="icon noFocusStyle"
                   data-testid="icon"
+                  data-vibe="Icon"
                   fill="currentColor"
                   height="16"
                   viewBox="0 0 20 20"
@@ -168,6 +173,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
               aria-label="Close"
               class="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
               data-testid="icon-button"
+              data-vibe="Button"
               style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
               type="button"
             >
@@ -175,6 +181,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
                 aria-hidden="true"
                 class="icon noFocusStyle"
                 data-testid="icon"
+                data-vibe="Icon"
                 fill="currentColor"
                 height="16"
                 viewBox="0 0 20 20"

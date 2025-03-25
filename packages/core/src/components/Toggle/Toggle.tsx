@@ -7,6 +7,7 @@ import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ToggleSize } from "./Toggle.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {
   /**
@@ -103,6 +104,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         inputClassName={inputClassName}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
+        data-vibe={ComponentVibeId.TOGGLE}
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}

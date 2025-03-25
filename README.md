@@ -46,11 +46,6 @@ Components are imported from the library's root entry:
 import { Button } from "@vibe/core";
 ```
 
-### Peer Dependencies
-
-Vibe requires React and React DOM as peer dependencies, ranging from version 16.9.0 up to 18.2.x.
-Please note that Vibe is currently not compatible with React 19.
-
 ## Ecosystem
 
 - [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
