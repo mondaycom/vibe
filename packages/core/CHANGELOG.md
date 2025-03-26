@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.36.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.35.0...@vibe/core@3.36.0) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Dropdown:** use require for test envs only ([#2807](https://github.com/mondaycom/vibe/issues/2807)) ([da66310](https://github.com/mondaycom/vibe/commit/da66310c581dfeb9f05fc41c4da66d29911479ff))
+* **MenuItem:** remove 2nd tooltip (already has tooltip on the MenuItem wrapper) ([#2820](https://github.com/mondaycom/vibe/issues/2820)) ([1f33f10](https://github.com/mondaycom/vibe/commit/1f33f10724e2f9c6c9d6399894aafaad1e241b89))
+
+
+### Features
+
+* **usePopover:** add fallbackPlacements prop ([#2819](https://github.com/mondaycom/vibe/issues/2819)) ([6f28a55](https://github.com/mondaycom/vibe/commit/6f28a55eef4e454212f31a026bf29ee028b7e35a))
+
+
+
+
+
 # [3.35.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.34.2...@vibe/core@3.35.0) (2025-03-25)
 
 
