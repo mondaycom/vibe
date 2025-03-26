@@ -7,8 +7,8 @@ import { EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { Button } from "../Button";
-import { Link } from "../Link";
+import { Button, ButtonProps } from "../Button";
+import { Link, LinkProps } from "../Link";
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {
@@ -88,12 +88,12 @@ function renderMainAction(mainAction: EmptyStateProps["mainAction"]) {
 
 function renderSupportingAction(supportingAction: EmptyStateProps["supportingAction"], isCompact: boolean) {
   if (typeof supportingAction === "object") {
-    if ("href" in supportingAction) {
-      const { text, ...linkProps } = supportingAction;
-      return <Link {...linkProps}>{text}</Link>;
+    if ("text" in supportingAction && "href" in supportingAction) {
+      const { text, ...linkProps } = supportingAction as LinkProps & { text: string };
+      return <Link text={text} {...linkProps} />;
     }
     if ("text" in supportingAction) {
-      const { text, ...buttonProps } = supportingAction;
+      const { text, ...buttonProps } = supportingAction as ButtonProps & { text: string };
       return (
         <Button kind="tertiary" size={isCompact ? "small" : "medium"} {...buttonProps}>
           {text}
