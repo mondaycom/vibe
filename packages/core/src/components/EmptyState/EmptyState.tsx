@@ -89,12 +89,14 @@ function renderMainAction(mainAction: EmptyStateProps["mainAction"]) {
 function renderSupportingAction(supportingAction: EmptyStateProps["supportingAction"], isCompact: boolean) {
   if (typeof supportingAction === "object") {
     if ("href" in supportingAction) {
-      return <Link {...supportingAction}>{supportingAction.text}</Link>;
+      const { text, ...linkProps } = supportingAction;
+      return <Link {...linkProps}>{text}</Link>;
     }
     if ("text" in supportingAction) {
+      const { text, ...buttonProps } = supportingAction;
       return (
-        <Button kind="tertiary" size={isCompact ? "small" : "medium"} {...supportingAction}>
-          {supportingAction.text}
+        <Button kind="tertiary" size={isCompact ? "small" : "medium"} {...buttonProps}>
+          {text}
         </Button>
       );
     }
