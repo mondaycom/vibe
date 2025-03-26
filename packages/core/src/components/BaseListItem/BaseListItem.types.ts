@@ -39,7 +39,7 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   endElement?: EndElement;
   /**
-   * Whether item should have highlight styling
+   * If true, applies highlight styling to the item.
    */
   highlighted?: boolean;
   /**
@@ -51,7 +51,7 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   dir?: BaseListDirection;
   /**
-   * ARIA role for the list item.
+   * The ARIA role of the list item.
    */
   role?: AriaRole;
   /**

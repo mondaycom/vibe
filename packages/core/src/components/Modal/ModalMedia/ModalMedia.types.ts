@@ -3,7 +3,7 @@ import { VibeComponentProps } from "../../../types";
 
 export interface ModalMediaProps extends VibeComponentProps {
   /**
-   * Media content to be displayed in the modal (image, video, Lottie, etc.).
+   * The media content displayed in the modal.
    */
   children: React.ReactNode;
 }

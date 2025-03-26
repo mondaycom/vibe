@@ -10,7 +10,13 @@ import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {
+  /**
+   * The caption text displayed alongside the title.
+   */
   caption?: string;
+  /**
+   * The position of the caption relative to the title.
+   */
   captionPosition?: MenuTitleCaptionPosition;
 }
 

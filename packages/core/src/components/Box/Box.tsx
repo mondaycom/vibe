@@ -29,30 +29,105 @@ import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } fr
 import styles from "./Box.module.scss";
 
 export interface BoxProps extends VibeComponentProps {
+  /**
+   * The HTML element or custom component used as the root.
+   */
   elementType?: keyof JSX.IntrinsicElements | string;
+  /**
+   * The content inside the box.
+   */
   children?: ElementContent;
+  /**
+   * If true, the box is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If true, applies a border to the box.
+   */
   border?: boolean;
+  /**
+   * The color of the border.
+   */
   borderColor?: BorderColor;
+  /**
+   * The border radius of the box.
+   */
   rounded?: RoundedSize;
+  /**
+   * The shadow style applied to the box.
+   */
   shadow?: Shadow;
+  /**
+   * The margin applied to all sides.
+   */
   margin?: BoxSize;
+  /**
+   * The horizontal margin.
+   */
   marginX?: BoxSize;
+  /**
+   * The vertical margin.
+   */
   marginY?: BoxSize;
+  /**
+   * The top margin.
+   */
   marginTop?: BoxSize;
+  /**
+   * The end (right in LTR, left in RTL) margin.
+   */
   marginEnd?: BoxSize;
+  /**
+   * The bottom margin.
+   */
   marginBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) margin.
+   */
   marginStart?: BaseBoxSize;
+  /**
+   * The padding applied to all sides.
+   */
   padding?: BaseBoxSize;
+  /**
+   * The horizontal padding.
+   */
   paddingX?: BaseBoxSize;
+  /**
+   * The vertical padding.
+   */
   paddingY?: BaseBoxSize;
+  /**
+   * The top padding.
+   */
   paddingTop?: BaseBoxSize;
+  /**
+   * The end (right in LTR, left in RTL) padding.
+   */
   paddingEnd?: BaseBoxSize;
+  /**
+   * The bottom padding.
+   */
   paddingBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) padding.
+   */
   paddingStart?: BaseBoxSize;
+  /**
+   * The background color of the box.
+   */
   backgroundColor?: BackgroundColor;
+  /**
+   * The text color inside the box.
+   */
   textColor?: BoxTextColor;
+  /**
+   * If true, the box content is scrollable.
+   */
   scrollable?: boolean;
+  /**
+   * Inline styles applied to the box.
+   */
   style?: React.CSSProperties;
 }
 

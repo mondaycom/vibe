@@ -18,5 +18,8 @@ type HorizontalPosition = {
 };
 
 export interface GridKeyboardNavigationContextType {
+  /**
+   * Callback fired when navigation moves beyond the bounds of the grid.
+   */
   onOutboundNavigation?: (ref: GridElementRef, direction: NavDirections) => void;
 }

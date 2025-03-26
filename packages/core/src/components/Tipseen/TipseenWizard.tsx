@@ -10,11 +10,17 @@ import { ButtonSize, ButtonType } from "../Button";
 const FINISH_TEXT = "Got it";
 
 export interface TipseenWizardProps extends StepsProps {
+  /**
+   * The title text displayed in the Tipseen Wizard.
+   */
   title?: string;
   /**
-   * Classname for overriding TipseenTitle styles
+   * Class name applied to the Tipseen title.
    */
   titleClassName?: string;
+  /**
+   * Callback fired when the wizard is completed.
+   */
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 

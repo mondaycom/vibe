@@ -26,18 +26,57 @@ const calculateColorTooltip = (
 };
 
 export interface ColorPickerColorsGridProps extends VibeComponentProps {
+  /**
+   * Callback fired when a color is clicked.
+   */
   onColorClicked?: (color: ColorPickerValueOnly) => void;
+  /**
+   * The list of colors to be displayed.
+   */
   colorsToRender?: ColorPickerArrayValueOnly;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * The currently selected color or colors.
+   */
   value?: string | string[];
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The number of colors per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * Custom tooltip content for specific colors.
+   */
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
+  /**
+   * If true, displays a tooltip with the color name.
+   */
   showColorNameTooltip?: boolean;
 }
 

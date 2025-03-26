@@ -25,45 +25,39 @@ import { VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 
 export interface VirtualizedGridProps extends VibeComponentProps {
   /**
-   * A list of items to be rendered
-   * {
-   *      item: ItemType,
-   *     index: number,
-   *     style: CSSProperties
-   * }[]
+   * The list of items to be rendered in the grid.
    */
   items: ItemType[];
   /**
-   * item render function
-   * returns `JSX.Element`
+   * Function that renders each item in the grid.
    */
   itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ItemType | GridChildComponentProps<ItemType>;
   /**
-   * in order to calculate the number of rows to render in the grid, the component needs the height of the row
-   * return `number`
+   * Function that returns the row height.
    */
   getRowHeight: () => number;
   /**
-   * in order to calculate the number of columns to render in the grid, the component needs the width of the column
-   * return `number`
+   * Function that returns the column width.
    */
   getColumnWidth: () => number;
   /**
-   * returns Id of an items
-   * returns `string`
+   * Function that returns the unique ID of an item.
    */
   getItemId?: (item: ItemType, index: number) => string;
   /**
-   * index of the item to scroll to
+   * The index of the item to scroll to.
    */
   scrollToId?: number;
+  /**
+   * Callback fired when the grid is scrolled.
+   */
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
   /**
-   * callback to be called when the scroll is finished
+   * Callback fired when scrolling has finished.
    */
   onScrollToFinished?: () => void;
   /**
-   * a callback that is being called when the items are rendered
+   * Callback fired when items are rendered in the grid.
    */
   onItemsRendered?: ({
     firstItemId,
@@ -80,14 +74,20 @@ export interface VirtualizedGridProps extends VibeComponentProps {
     firstItemOffsetEnd: number;
     currentOffsetTop: number;
   }) => void;
+  /**
+   * The delay (in ms) for throttling the `onItemsRendered` callback.
+   */
   onItemsRenderedThrottleMs?: number;
   /**
-   * when the grid size changes
+   * Callback fired when the grid size is updated.
    */
   onSizeUpdate?: (width: number, height: number) => void;
+  /**
+   * Callback fired when the vertical scrollbar visibility changes.
+   */
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
   /**
-   * class name to add to the component scrollable container
+   * Class name applied to the scrollable container.
    */
   scrollableClassName?: string;
 }

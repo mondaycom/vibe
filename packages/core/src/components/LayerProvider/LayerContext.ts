@@ -1,6 +1,9 @@
 import React from "react";
 
 export interface LayersContextType {
+  /**
+   * A reference to the layer container element.
+   */
   layerRef: React.RefObject<HTMLElement>;
 }
 

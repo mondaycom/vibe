@@ -28,22 +28,49 @@ const getTextPart = (
 };
 
 export interface TextWithHighlightProps extends VibeComponentProps {
-  /** Text to wrap */
+  /**
+   * The text content to display.
+   */
   text?: string;
+  /**
+   * The term to highlight within the text.
+   */
   highlightTerm?: string;
-  /** Number of highlighted parts */
+  /**
+   * The maximum number of highlighted terms allowed.
+   */
   limit?: number;
+  /**
+   * If true, the highlight search is case-insensitive.
+   */
   ignoreCase?: boolean;
-  /** Should use ellipsis */
+  /**
+   * If true, truncates overflowing text with an ellipsis.
+   */
   useEllipsis?: boolean;
-  /** Allow highlight every word as a separate term */
+  /**
+   * If true, allows splitting the highlight term into separate words.
+   */
   allowTermSplit?: boolean;
+  /**
+   * The number of lines to display before truncating with an ellipsis.
+   */
   linesToClamp?: number;
-  /** Tooltip to show when there is no overflow */
+  /**
+   * Tooltip content displayed when there is no overflow.
+   */
   nonEllipsisTooltip?: string;
-  /** HTML tag to wrap the selected text */
+  /**
+   * The HTML tag used to wrap highlighted text.
+   */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
+  /**
+   * Class name applied to the wrapping element of highlighted text.
+   */
   wrappingElementClassName?: string;
+  /**
+   * The position of the tooltip when displayed.
+   */
   tooltipPosition?: TooltipPositions;
 }
 

@@ -13,6 +13,12 @@ export enum Direction {
 }
 
 export interface RangeDate {
+  /**
+   * The start date of the range.
+   */
   startDate: Moment | null;
+  /**
+   * The end date of the range.
+   */
   endDate: Moment | null;
 }

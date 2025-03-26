@@ -13,21 +13,45 @@ import { ButtonColor } from "../Button/ButtonConstants";
 import { SubIcon } from "../../types";
 
 export interface TipseenContentProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen content.
+   */
   title?: string;
   /**
-   * Classname for overriding TipseenTitle styles
+   * Class name applied to the Tipseen title.
    */
   titleClassName?: string;
+  /**
+   * If true, hides the dismiss button.
+   */
   hideDismiss?: boolean;
+  /**
+   * The content inside the Tipseen.
+   */
   children?: ElementContent;
+  /**
+   * If true, hides the submit button.
+   */
   hideSubmit?: boolean;
+  /**
+   * The text displayed on the submit button.
+   */
   submitButtonText?: string;
   /**
    * Icon to display in the submit button
    */
   submitButtonIcon?: SubIcon;
+  /**
+   * Callback fired when the submit button is clicked.
+   */
   onSubmit?: (event: React.MouseEvent) => void;
+  /**
+   * The text displayed on the dismiss button.
+   */
   dismissButtonText?: string;
+  /**
+   * Callback fired when the dismiss button is clicked.
+   */
   onDismiss?: (event: React.MouseEvent) => void;
 }
 

@@ -14,22 +14,73 @@ import { TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
+  /**
+   * The style variant of the button.
+   */
   kind?: ButtonType;
+  /**
+   * Icon displayed on the left side of the button.
+   */
   leftIcon?: SubIcon;
+  /**
+   * Icon displayed on the right side of the button.
+   */
   rightIcon?: SubIcon;
+  /**
+   * The index of the menu item in the menu.
+   */
   index?: number;
+  /**
+   * The index of the currently active menu item.
+   */
   activeItemIndex?: number;
+  /**
+   * If true, the button is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The reason why the button is disabled, displayed as a tooltip.
+   */
   disableReason?: string;
+  /**
+   * Callback fired when the button is clicked.
+   */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /**
+   * The position of the tooltip.
+   */
   tooltipPosition?: TooltipPositions;
+  /**
+   * The delay in milliseconds before the tooltip appears.
+   */
   tooltipShowDelay?: number;
+  /**
+   * Callback to reset the open submenu index.
+   */
   resetOpenSubMenuIndex?: () => void;
+  /**
+   * Callback to open or close a submenu by index.
+   */
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
+  /**
+   * Callback to set the active item index.
+   */
   setActiveItemIndex?: (index: number) => void;
+  /**
+   * Reference to the menu container.
+   */
   menuRef?: React.RefObject<HTMLElement>;
+  /**
+   * Function to close the menu.
+   */
   closeMenu?: () => void;
+  /**
+   * If true, event listeners are added at the document level.
+   */
   useDocumentEventListeners?: boolean;
+  /**
+   * The content of the button.
+   */
   children?: ElementContent | ElementContent[];
 }
 

@@ -10,14 +10,37 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {
+  /**
+   * The image source when the type is set to `img`.
+   */
   src?: string;
+  /**
+   * The type of content displayed inside the avatar.
+   */
   type?: AvatarType;
+  /**
+   * The size of the avatar content.
+   */
   size?: AvatarSize;
+  /**
+   * The ARIA role of the content.
+   */
   role?: string;
+  /**
+   * The label of the content for accessibility.
+   */
   ariaLabel?: string;
-  /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
+  /**
+   * The icon displayed when the type is set to `icon`.
+   */
   icon?: SubIcon;
+  /**
+   * Class name applied to the text content.
+   */
   textClassName?: string;
+  /**
+   * The text displayed when the type is set to `text`.
+   */
   text?: string;
 }
 
