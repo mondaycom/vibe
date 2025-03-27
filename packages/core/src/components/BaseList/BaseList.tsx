@@ -24,14 +24,22 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
       noOptionsMessage = "No results",
       stickyGroupTitle = false,
       renderOptions = true,
-      onScroll
+      onScroll,
+      maxMenuHeight = 300
     }: BaseListProps<T>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
 
     return (
-      <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()} onScroll={onScroll}>
+      <ul
+        ref={ref}
+        dir={dir}
+        className={styles.wrapper}
+        {...getMenuProps?.()}
+        onScroll={onScroll}
+        style={{ maxHeight: maxMenuHeight }}
+      >
         {renderOptions ? (
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
