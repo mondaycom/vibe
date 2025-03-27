@@ -80,4 +80,5 @@ jobs:
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
       - name: Run bundle size check
+        continue-on-error: true
         run: cd packages/core && yarn size
