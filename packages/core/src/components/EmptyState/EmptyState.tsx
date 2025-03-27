@@ -64,7 +64,7 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 
           {(mainAction || supportingAction) && (
             <Flex direction="column" align="center" gap="small" className={styles.actions}>
-              {renderMainAction(mainAction)}
+              {renderMainAction(mainAction, isCompact)}
               {renderSupportingAction(supportingAction, isCompact)}
             </Flex>
           )}
@@ -74,10 +74,10 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   }
 );
 
-function renderMainAction(mainAction: EmptyStateProps["mainAction"]) {
+function renderMainAction(mainAction: EmptyStateProps["mainAction"], isCompact: boolean) {
   if (typeof mainAction === "object" && "text" in mainAction) {
     return (
-      <Button kind="secondary" size="medium" {...mainAction}>
+      <Button kind="secondary" size={isCompact ? "small" : "medium"} {...mainAction}>
         {mainAction.text}
       </Button>
     );
