@@ -268,6 +268,10 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   insideOverflowWithTransformContainer?: boolean;
   /**
+   * If true, uses the LayerProvider's layerRef as the menuPortalTarget and popupsContainerSelector for the dropdown's popups.
+   */
+  insideLayerContext?: boolean;
+  /**
    * Tooltip content displayed when hovering over the selected value.
    */
   tooltipContent?: string;

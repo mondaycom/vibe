@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
-import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
@@ -39,6 +39,7 @@ import {
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
+import LayerContext from "../LayerProvider/LayerContext";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   sizes?: typeof BaseSizes;
@@ -107,6 +108,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       isOptionSelected,
       insideOverflowContainer = false,
       insideOverflowWithTransformContainer = false,
+      insideLayerContext = false,
       tooltipContent = "",
       onKeyDown = NOOP,
       isLoading = false,
@@ -124,8 +126,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const controlRef = useRef();
+    const { layerRef } = useContext(LayerContext);
     const overrideMenuPortalTarget =
-      menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
+      (insideLayerContext && layerRef?.current) ||
+      menuPortalTarget ||
+      (popupsContainerSelector && document.querySelector(popupsContainerSelector));
     const overrideDefaultValue = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
@@ -345,7 +350,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector,
+        popupsContainerSelector: insideLayerContext ? layerRef?.current : popupsContainerSelector,
         size
       }),
       [
@@ -355,7 +360,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
+        layerRef,
         popupsContainerSelector,
+        insideLayerContext,
         size
       ]
     );
