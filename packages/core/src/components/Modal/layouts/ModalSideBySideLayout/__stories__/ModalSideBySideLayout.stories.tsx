@@ -179,6 +179,7 @@ export const Wizard: Story = {
               <FieldLabel labelText="Language preferences" />
               <Dropdown
                 insideOverflowWithTransformContainer
+                insideLayerContext
                 size="small"
                 placeholder={dropdownOptions[0].label}
                 options={dropdownOptions}
