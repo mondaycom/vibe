@@ -46,9 +46,10 @@ export class Menu extends BaseElement {
   async getItemByName(itemName: string): Promise<MenuItem | undefined> {
     let menuItem: MenuItem | undefined;
     await test.step(`Get menu item by name ${itemName} in ${this.elementReportName}`, async () => {
+      const menuItemLocator = this.locator.getByRole("menuitem");
       menuItem = new MenuItem(
         this.page,
-        this.locator.getByRole("menuitem").filter({ has: this.locator.getByText(itemName, { exact: true }) }),
+        menuItemLocator.filter({ has: this.page.getByText(itemName, { exact: true }) }),
         `Menu Item: ${itemName}`
       );
     });
