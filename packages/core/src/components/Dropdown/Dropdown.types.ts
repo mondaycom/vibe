@@ -268,7 +268,8 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    */
   insideOverflowWithTransformContainer?: boolean;
   /**
-   * If true, uses the LayerProvider's layerRef as the menuPortalTarget and popupsContainerSelector for the dropdown's popups.
+   * If true, renders the dropdown menu inside its parent container in case it's inside a layer provider.
+   * Use this prop when the dropdown menu is being cut off by its parent's (such as Modal, Dialog, Tooltip, etc.)overflow settings.
    */
   insideLayerContext?: boolean;
   /**
