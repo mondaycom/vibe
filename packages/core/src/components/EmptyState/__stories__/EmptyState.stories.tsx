@@ -213,7 +213,7 @@ export const ActionsComparison = {
     <Flex direction="row" gap="large">
       <EmptyState
         title="Your favorites are empty"
-        description="TAdd boards, docs, or dashboards to your favorites for quick access."
+        description="Add boards, docs, or dashboards to your favorites for quick access."
         visual={<img src={emptyStateImage} alt="No items found" width={280} height={184} />}
         mainAction={{
           kind: "secondary",
