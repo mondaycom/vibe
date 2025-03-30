@@ -1,8 +1,9 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import EmptyState from "../EmptyState";
+import { EmptyStateProps } from "../EmptyState.types";
 import emptyStateImage from "./assets/image.png";
-import { Add, Connect, Download, Update, WhatsNew } from "@vibe/icons";
+import { Download, Update } from "@vibe/icons";
 import Flex from "../../../components/Flex/Flex";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Button } from "../../Button";
@@ -46,7 +47,7 @@ export default {
 } satisfies Meta<typeof EmptyState>;
 
 export const Overview = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="The title should be concise and reflect the purpose"
       description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
@@ -64,6 +65,7 @@ export const Overview = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "Overview",
@@ -78,7 +80,7 @@ export const Overview = {
 };
 
 export const Default = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="Visualize data from multiple boards"
       description="Use charts, timelines, and other widgets to see your data clearly."
@@ -96,6 +98,7 @@ export const Default = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "Default",
@@ -110,7 +113,7 @@ export const Default = {
 };
 
 export const WithoutTitle = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       description="No data available yet. Add some items to get started."
       visual={<img src={emptyStateImage} alt="No data available" width={280} height={184} />}
@@ -127,36 +130,40 @@ export const WithoutTitle = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "Without title"
 };
 
 export const Compact = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="Visualize data from multiple boards"
       description="Use charts, timelines, and other widgets to see your data clearly."
       visual={<img src={emptyStateImage} alt="No notifications" width={280} height={184} />}
       layout="compact"
-      mainAction={
-        <Button
-          kind="secondary"
-          onClick={() => {
-            console.log("Main action clicked");
-          }}
-        >
-          Add your first widget
-        </Button>
-      }
-      supportingAction={<Link href="#" text="Read more" />}
+      mainAction={{
+        text: "Add your first widget",
+        onClick: () => {
+          console.log("Main action clicked");
+        }
+      }}
+      supportingAction={{
+        text: "Read more",
+        href: "#",
+        onClick: () => {
+          console.log("Supporting action clicked");
+        }
+      }}
+      {...args}
     />
   ),
   name: "Compact"
 };
 
 export const WithButtonSupportingAction = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="No files uploaded"
       description="Upload files to share with your team members."
@@ -176,13 +183,14 @@ export const WithButtonSupportingAction = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "With button supporting action"
 };
 
 export const WithDisabledActions = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="Processing data"
       description="Your data is being processed. This might take a few minutes."
@@ -203,13 +211,14 @@ export const WithDisabledActions = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "With disabled actions"
 };
 
 export const ActionsComparison = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <Flex direction="row" gap="large">
       <EmptyState
         title="Your favorites are empty"
@@ -234,6 +243,7 @@ export const ActionsComparison = {
             console.log("Second view - View details clicked");
           }
         }}
+        {...args}
       />
     </Flex>
   ),
@@ -241,7 +251,7 @@ export const ActionsComparison = {
 };
 
 export const WithLinkOnly = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="This workspace is empty"
       description='To get started, click the "+" above, then click "add new board".'
@@ -249,13 +259,14 @@ export const WithLinkOnly = {
         href: "https://example.com/help",
         text: "Read more"
       }}
+      {...args}
     />
   ),
   name: "With link only"
 };
 
 export const WithTwoButtons = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="This workspace is empty"
       description="Get started by choosing a board template or creating a board from scratch."
@@ -273,13 +284,14 @@ export const WithTwoButtons = {
           console.log("Supporting action clicked");
         }
       }}
+      {...args}
     />
   ),
   name: "With two buttons"
 };
 
 export const WithAndWithoutTitleComparison = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <Flex direction="row" gap="large" justify="space-between" style={{ width: "100%" }}>
       <EmptyState
         title="Create your first Gantt chart"
@@ -301,6 +313,7 @@ export const WithAndWithoutTitleComparison = {
             console.log("Main action clicked");
           }
         }}
+        {...args}
       />
     </Flex>
   ),
@@ -308,7 +321,7 @@ export const WithAndWithoutTitleComparison = {
 };
 
 export const WithActionElementProps = {
-  render: () => (
+  render: (args: EmptyStateProps) => (
     <EmptyState
       title="No notifications"
       description="You're all caught up! Check back later for new notifications."
@@ -332,6 +345,7 @@ export const WithActionElementProps = {
           }}
         />
       }
+      {...args}
     />
   ),
   name: "With action element props"

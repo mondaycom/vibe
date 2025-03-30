@@ -39,8 +39,8 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
       >
         {!!visual && visual}
 
-        <Flex direction="column" align="center" gap={isCompact ? "small" : 12} className={styles.content}>
-          <>
+        <Flex direction="column" align="center" gap={isCompact ? 12 : "medium"} className={styles.content}>
+          <Flex direction="column" align="center" gap="xs">
             {title && (
               <Heading type="h3" weight="normal" className={styles.title} align="center" ellipsis={false}>
                 {title}
@@ -60,7 +60,7 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
             ) : (
               description
             )}
-          </>
+          </Flex>
 
           {(mainAction || supportingAction) && (
             <Flex direction="column" align="center" gap="small" className={styles.actions}>
