@@ -21,6 +21,7 @@ export * from "./Divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
+export * from "./EmptyState";
 export * from "./ExpandCollapse";
 export * from "./Flex";
 export * from "./FormattedNumber";
