@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.37.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.36.0...@vibe/core@3.37.0) (2025-03-30)
+
+
+### Features
+
+* **Dropdown:** use layer context for the dropdown in case used inside Dialog or Modal ([#2824](https://github.com/mondaycom/vibe/issues/2824)) ([0beb840](https://github.com/mondaycom/vibe/commit/0beb840aea841b720a2501c56db4370af5262a4d))
+
+
+
+
+
 # [3.36.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.35.0...@vibe/core@3.36.0) (2025-03-26)
 
 
