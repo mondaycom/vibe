@@ -64,7 +64,7 @@ $layout-border-color: #d0d4e4; // Todo: TBD, should be - var(--color-ui_grey)
 
 // - Backgrounds
 $ui-background-color: $color-ui_grey;
-$backdrop-color: $color-surface;
+$backdrop-color: rgba($color-surface, 0.7);
 
 // - Shadows
 $shadow-xs-opacity: $opacity-10;

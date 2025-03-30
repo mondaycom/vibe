@@ -49,8 +49,8 @@ $theme-dark-keys: (
   brand-selected-color: $theme-dark-primary-selected-color,
   brand-selected-hover-color: $theme-dark-primary-selected-hover-color,
   text-color-on-brand: $theme-dark-text-color-on-primary,
-  color-surface: $color-surface,
-  backdrop-color: $color-surface
+  color-surface: $theme-dark-color-surface,
+  backdrop-color: $theme-dark-backdrop-color
 );
 
 // DARK THEME SHADOW MAP: dark theme's shadow color map.
