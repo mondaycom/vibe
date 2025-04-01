@@ -14,9 +14,10 @@ import { TipDevTipPopover } from "./Dropdown.stories.helpers";
 
 - [Overview](#overview)
 - [Props](#props)
+- [ARIA Roles](#aria-roles)
 - [Usage](#usage)
 - [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
+- [Do's and don'ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
@@ -36,6 +37,32 @@ import { Dropdown } from "@vibe/core";
 ## Props
 
 <PropsTable />
+
+## ARIA Roles
+
+The Dropdown component exposes the following ARIA roles and attributes for testing and accessibility:
+
+### Default Roles
+- `combobox` - The main dropdown container
+- `listbox` - The dropdown options list
+- `option` - Individual dropdown options
+
+### Additional Attributes
+- `aria-label` - Default label for the dropdown menu ("Dropdown menu")
+- `aria-expanded` - Indicates if the dropdown is open
+- `aria-haspopup` - Indicates the element has a popup
+- `aria-controls` - Links the dropdown trigger to its menu
+
+### Example Testing Code
+```jsx
+// ✅ Recommended - Using roles
+const dropdown = screen.getByRole('combobox');
+const menu = screen.getByRole('listbox');
+const option = screen.getByRole('option', { name: 'Option 1' });
+
+// For specific states
+expect(dropdown).toHaveAttribute('aria-expanded', 'true');
+```
 
 ## Usage
 
@@ -97,7 +124,7 @@ The Dropdown component supports async loading of options.
 
 <Canvas of={DropdownStories.DropdownWithTooltipsOnItems} />
 
-## Do’s and Don’ts
+## Do's and Don'ts
 
 <ComponentRules
   rules={[
