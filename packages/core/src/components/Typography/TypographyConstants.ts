@@ -8,7 +8,8 @@ export enum TypographyColor {
   ON_INVERTED = "onInverted",
   FIXED_LIGHT = "fixedLight",
   FIXED_DARK = "fixedDark",
-  INHERIT = "inherit"
+  INHERIT = "inherit",
+  ERROR = "error"
 }
 
 /**

@@ -27,6 +27,10 @@
   color: var(--secondary-text-color);
 }
 
+.secondary {
+  color: var(--color-error);
+}
+
 .onPrimary {
   color: var(--text-color-on-primary);
   a {
