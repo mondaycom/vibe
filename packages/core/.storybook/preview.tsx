@@ -110,6 +110,7 @@ const preview: Preview = {
           "Layout",
           "Text",
           "Theming",
+          "Testing",
           "Technical Patterns",
           "Accessibility",
           "Hooks"

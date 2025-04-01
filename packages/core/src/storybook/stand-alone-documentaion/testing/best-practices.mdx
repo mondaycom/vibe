@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Testing/Best Practices" />
+
+# Testing Vibe Components
+
+This guide outlines the best practices for testing components in the Vibe design system. We follow specific patterns to ensure our tests are maintainable, reliable, and consistent across the codebase.
+
+## Core Testing Philosophy
+
+Our testing strategy is built on two fundamental principles:
+
+### 1. Prefer ARIA Roles
+Use ARIA roles as your first choice for querying elements. This approach leverages the semantic structure of our components and ensures accessibility is built into our testing process.
+
+```jsx
+// ✅ Good - Using ARIA roles
+const button = screen.getByRole('button', { name: 'Save' });
+const textbox = screen.getByRole('textbox', { name: 'Email' });
+```
+
+### 2. Fall Back to data-testid
+When ARIA roles aren't available or practical, use data-testid attributes. This provides a reliable way to test components without coupling tests to text content or DOM structure.
+
+```jsx
+// ✅ Good - Using data-testid for non-semantic elements
+const wrapper = screen.getByTestId('dropdown-wrapper');
+const customElement = screen.getByTestId('custom-component');
+```
+
+### Benefits of This Approach
+
+- **Resilient Tests** - Immune to text changes and UI refactoring
+- **I18n Ready** - Tests work across different languages
+- **Accessibility Focused** - Encourages proper ARIA implementation
+- **Maintainable** - Consistent patterns across the codebase
+- **Developer Friendly** - Clear, predictable testing strategy
+
+## Additional Resources
+
+- [React Testing Library Introduction](https://testing-library.com/docs/react-testing-library/intro/)
+- [Testing Library Queries Priority](https://testing-library.com/docs/queries/about/#priority)
