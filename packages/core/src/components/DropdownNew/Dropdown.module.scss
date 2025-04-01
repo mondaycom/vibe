@@ -33,10 +33,22 @@
 
   .inputWrapper {
     border: none;
+    width: 100%;
+    background: transparent;
+
+    &.hasSelected {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+    }
   }
 
   .selectedItem {
-    position: absolute;
+    position: relative;
+    pointer-events: none;
     top: 0;
     left: 0;
     right: 0;
@@ -45,11 +57,10 @@
 
     &.small {
       padding-inline-start: var(--spacing-small);
-    } 
+    }
 
     &.faded {
       opacity: 0.6;
     }
   }
-  
 }

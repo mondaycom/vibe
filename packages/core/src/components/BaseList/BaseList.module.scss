@@ -13,4 +13,8 @@
       top: 0;
     }
   }
+
+  > li:not(:last-child) {
+    margin-bottom: 2px;
+  }
 }

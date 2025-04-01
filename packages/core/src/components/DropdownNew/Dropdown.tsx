@@ -69,6 +69,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       highlightedIndex,
       selectedItem,
       getToggleButtonProps,
+      getLabelProps,
       getMenuProps,
       getInputProps,
       getItemProps,
@@ -100,7 +101,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
 
     return (
       <div dir={dir}>
-        {label && <FieldLabel labelText={label} labelFor={id} required={required} />}
+        {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
         <div
           ref={dropdownMergedRef}
           className={cx(styles.wrapper, className, {
@@ -131,7 +132,9 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                 })}
                 autoFocus={autoFocus}
                 size={size}
-                className={styles.inputWrapper}
+                className={cx(styles.inputWrapper, {
+                  [styles.hasSelected]: selectedItem && !inputValue
+                })}
                 disabled={disabled}
                 readOnly={readOnly}
               />
@@ -146,8 +149,12 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                     label={selectedItem.label}
                     size={size}
                     readOnly
-                    {...selectedItem}
-                    startElement={selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement}
+                    itemRenderer={optionRenderer}
+                    item={{
+                      ...selectedItem,
+                      startElement:
+                        (selectedItem.startElement as any)?.type === "indent" ? undefined : selectedItem.startElement
+                    }}
                   />
                 </div>
               )}
@@ -195,7 +202,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                 withGroupDivider={withGroupDivider}
                 stickyGroupTitle={stickyGroupTitle}
                 dir={dir}
-                optionRenderer={optionRenderer}
+                itemRenderer={optionRenderer}
                 noOptionsMessage={noOptionsMessage}
                 renderOptions={isOpen}
                 onScroll={onScroll}

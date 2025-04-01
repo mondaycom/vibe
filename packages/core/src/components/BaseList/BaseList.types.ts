@@ -44,7 +44,7 @@ export interface BaseListProps<T = BaseListItemProps>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: T) => ReactNode;
   /**
    * Text or function to customize the "No results" message.
    */

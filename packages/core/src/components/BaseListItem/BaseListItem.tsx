@@ -16,16 +16,15 @@ const BaseListItem: VibeComponent<BaseListItemProps, HTMLLIElement> = forwardRef
     selected,
     disabled,
     readOnly,
-    startElement,
-    endElement,
     highlighted,
     tooltipProps = {},
     className,
     dir = "ltr",
     id,
     role = "option",
-    optionRenderer,
-    ...rest
+    itemRenderer,
+    itemProps,
+    item = {}
   } = props;
 
   const listItemClassNames = useMemo(
@@ -45,20 +44,20 @@ const BaseListItem: VibeComponent<BaseListItemProps, HTMLLIElement> = forwardRef
   );
 
   const textVariant: TextType = size === "small" ? "text2" : "text1";
-
+  const { startElement, endElement } = item;
   return (
     <Tooltip {...tooltipProps} content={tooltipProps?.content} position={dir === "rtl" ? "right" : "left"}>
-      <li id={id} ref={ref} className={listItemClassNames} role={role} {...rest}>
-        {optionRenderer ? (
-          optionRenderer({ ...props })
+      <li id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps}>
+        {itemRenderer ? (
+          itemRenderer(item)
         ) : (
           <>
-            {startElement && renderSideElement(startElement, disabled, textVariant)}
+            {startElement && renderSideElement(startElement as any, disabled, textVariant)}
             <Text type={textVariant} color="inherit">
               {label}
             </Text>
             {endElement && (
-              <div className={styles.endElement}>{renderSideElement(endElement, disabled, textVariant)}</div>
+              <div className={styles.endElement}>{renderSideElement(endElement as any, disabled, textVariant)}</div>
             )}
           </>
         )}

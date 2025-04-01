@@ -33,11 +33,11 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
   /**
    * The function to call to render an option.
    */
-  optionRenderer?: (option: T) => JSX.Element;
+  optionRenderer?: (option: T) => React.ReactNode;
   /**
    * The message to display when there are no options.
    */
-  noOptionsMessage?: string | JSX.Element;
+  noOptionsMessage?: string | React.ReactNode;
   /**
    * The placeholder to display when the dropdown is empty.
    */

@@ -7,10 +7,6 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   extends React.LiHTMLAttributes<HTMLLIElement>,
     VibeComponentProps {
   /**
-   * The value associated with the list item.
-   */
-  value?: string;
-  /**
    * The primary text content of the list item.
    */
   label: string;
@@ -30,14 +26,6 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    * If true, the dropdown is read-only and cannot be edited.
    */
   readOnly?: boolean;
-  /**
-   * Element to render at the start of the list item.
-   */
-  startElement?: StartElement;
-  /**
-   * Element to render at the end of the list item.
-   */
-  endElement?: EndElement;
   /**
    * Whether item should have highlight styling
    */
@@ -61,7 +49,15 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: T) => React.ReactNode;
+  /**
+   * The original item data that this list item represents.
+   */
+  item?: T;
+  /**
+   * Additional props to pass to the list item element.
+   */
+  itemProps?: Record<string, unknown>;
   /**
    * Allow any additional user-defined properties dynamically
    **/
