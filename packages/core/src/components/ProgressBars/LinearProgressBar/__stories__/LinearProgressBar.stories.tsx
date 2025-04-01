@@ -7,6 +7,7 @@ import Icon from "../../../Icon/Icon";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
 import "./LinearProgressBar.stories.scss";
+import Flex from "../../../Flex/Flex";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: LinearProgressBar
@@ -42,16 +43,16 @@ export const Overview = {
 
 export const Regular = {
   render: () => (
-    <div className="linear-progress-bar_column">
-      <div className="linear-progress-bar_block">
-        <LinearProgressBar className="linear-progress-bar_small-wrapper" indicateProgress value={30} size="large" />
+    <Flex direction="column" gap="large">
+      <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
+        <LinearProgressBar indicateProgress value={30} size="large" />
         With label
-      </div>
-      <div className="linear-progress-bar_block">
-        <LinearProgressBar className="linear-progress-bar_small-wrapper" value={30} size="large" />
+      </Flex>
+      <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
+        <LinearProgressBar value={30} size="large" />
         Without label
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   ),
 
   name: "Regular"
