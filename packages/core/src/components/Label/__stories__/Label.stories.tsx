@@ -124,12 +124,10 @@ export const SecondaryLabel = {
     <Flex direction="column" gap="large">
       <Box style={{ width: "300px" }}>
         <Flex align="center" gap="small">
-          <Heading type="h3" style={{ display: "inline" }}>
-            Gannt
-          </Heading>
+          <Heading type="h3">Gannt</Heading>
           <Label text="New" kind="line" />
         </Flex>
-        <Text element="p" type="text1" style={{ marginTop: "8px" }}>
+        <Text element="p" type="text1">
           Plan, track and present your projects visually using the Gannt chart
         </Text>
       </Box>
