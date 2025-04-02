@@ -213,8 +213,8 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
         </div>
         {helperText && (
           <Text
+            color={error ? "negative" : "secondary"}
             style={{
-              color: error ? "var(--negative-color)" : "var(--secondary-text-color)",
               marginTop: "var(--spacing-xs)"
             }}
           >
