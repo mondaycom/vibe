@@ -4,11 +4,29 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import { ComponentVibeId } from "../../../tests/constants";
 
 export interface FontIconProps extends VibeComponentProps {
+  /**
+   * Callback fired when the icon is clicked.
+   */
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  /**
+   * The accessible label for the icon.
+   */
   "aria-label"?: string;
+  /**
+   * The tab index of the icon for keyboard navigation.
+   */
   tabIndex?: number;
+  /**
+   * The icon name or component.
+   */
   icon?: SubIcon;
+  /**
+   * The ARIA role of the icon.
+   */
   role?: AriaRole;
+  /**
+   * If true, hides the icon from screen readers.
+   */
   "aria-hidden"?: boolean;
 }
 

@@ -3,10 +3,13 @@ import Label from "../Label";
 import Button from "../../Button/Button";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
-import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
-import "./Label.stories.scss";
+import { createComponentTemplate } from "vibe-storybook-components";
 import { useEffect, useState } from "react";
 import { Decorator, StoryObj } from "@storybook/react";
+import Flex from "../../Flex/Flex";
+import Box from "../../Box/Box";
+import Heading from "../../Heading/Heading";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Label>;
 
@@ -45,9 +48,6 @@ export const Overview = {
     text: "New"
   },
   parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    },
     docs: {
       liveEdit: {
         isEnabled: false
@@ -58,24 +58,18 @@ export const Overview = {
 
 export const Kinds = {
   render: () => (
-    <>
-      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+    <Flex style={{ marginLeft: "30px", marginTop: "10px", gap: "184px" }}>
+      <Flex direction="column" align="start" gap="large">
         <Label text="New" />
-        Fill
-      </div>
-      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Text>Fill</Text>
+      </Flex>
+      <Flex direction="column" align="start" gap="large">
         <Label text="New" kind="line" />
-        Outline
-      </div>
-    </>
+        <Text>Outline</Text>
+      </Flex>
+    </Flex>
   ),
-  name: "Kinds",
-
-  parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+  name: "Kinds"
 };
 
 export const Sizes: Story = {
@@ -86,13 +80,7 @@ export const Sizes: Story = {
     </>
   ),
   decorators: [withGrid],
-  name: "Sizes",
-
-  parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+  name: "Sizes"
 };
 
 export const Colors = {
@@ -109,13 +97,7 @@ export const Colors = {
     </>
   ),
   decorators: [withGrid],
-  name: "Colors",
-
-  parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+  name: "Colors"
 };
 
 export const Clickable = {
@@ -129,9 +111,6 @@ export const Clickable = {
   name: "Clickable",
 
   parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    },
     docs: {
       liveEdit: {
         scope: { NOOP }
@@ -142,32 +121,31 @@ export const Clickable = {
 
 export const SecondaryLabel = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-label_column-block">
-      <div className="monday-storybook-label_article">
-        <h5 className="monday-storybook-label_title">Gannt</h5>
-        <Label text="New" kind="line" />
-        <p>Plan, track and present your projects visually using the Gannt chart</p>
-      </div>
-      <div className="monday-storybook-label_article">
-        <h5 className="monday-storybook-label_title">Apps</h5>
-        <Label text="New" kind="line" />
-        <p>Enhance your dashboard with widgets built on the monday apps framework</p>
-      </div>
-    </MultipleStoryElementsWrapper>
+    <Flex direction="column" gap="large">
+      <Box style={{ width: "300px" }}>
+        <Flex align="center" gap="small">
+          <Heading type="h3">Gannt</Heading>
+          <Label text="New" kind="line" />
+        </Flex>
+        <Text element="p" type="text1">
+          Plan, track and present your projects visually using the Gannt chart
+        </Text>
+      </Box>
+      <Box style={{ width: "300px", marginTop: "8px" }}>
+        <Flex align="center" gap="small">
+          <Heading type="h3" style={{ display: "inline" }}>
+            Apps
+          </Heading>
+          <Label text="New" kind="line" />
+        </Flex>
+        <Text element="p" type="text1" style={{ marginTop: "8px" }}>
+          Enhance your dashboard with widgets built on the monday apps framework
+        </Text>
+      </Box>
+    </Flex>
   ),
 
-  name: "Secondary label",
-
-  parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    },
-    docs: {
-      liveEdit: {
-        scope: { MultipleStoryElementsWrapper }
-      }
-    }
-  }
+  name: "Secondary label"
 };
 
 export const Celebration = {

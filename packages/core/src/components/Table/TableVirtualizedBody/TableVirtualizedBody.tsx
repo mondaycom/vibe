@@ -16,10 +16,25 @@ export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
 export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
   extends VibeComponentProps {
+  /**
+   * The list of items to render in the virtualized table.
+   */
   items: T[];
+  /**
+   * Function to render a row in the table.
+   */
   rowRenderer: (item: T) => JSX.Element;
+  /**
+   * Callback function triggered on scroll.
+   */
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
+  /**
+   * The columns configuration for the table.
+   */
   columns?: TableColumn[];
+  /**
+   * Function to render the table header.
+   */
   headerRenderer?: (columns: TableColumn[]) => JSX.Element;
 }
 

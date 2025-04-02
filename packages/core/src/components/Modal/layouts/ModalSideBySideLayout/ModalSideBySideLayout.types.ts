@@ -3,7 +3,7 @@ import React from "react";
 
 export interface ModalSideBySideLayoutProps extends VibeComponentProps {
   /**
-   * Layout children in the following order:
+   * The content of the layout, structured as:
    * 1. Header content
    * 2. Main content
    * 3. Media content

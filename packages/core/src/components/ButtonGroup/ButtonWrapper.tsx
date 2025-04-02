@@ -6,14 +6,29 @@ import { MoveBy } from "../../types/MoveBy";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
 
 export interface ButtonWrapperProps extends ButtonProps {
+  /**
+   * The content of the tooltip.
+   */
   tooltipContent?: string;
   /**
-   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   * The position of the tooltip relative to the button.
    */
   tooltipPosition?: TooltipPositions;
+  /**
+   * The delay in milliseconds before the tooltip hides.
+   */
   tooltipHideDelay?: number;
+  /**
+   * The delay in milliseconds before the tooltip shows.
+   */
   tooltipShowDelay?: number;
+  /**
+   * CSS selector for the tooltip container.
+   */
   tooltipContainerSelector?: string;
+  /**
+   * Adjusts the tooltip position.
+   */
   tooltipMoveBy?: MoveBy;
 }
 

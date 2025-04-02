@@ -9,6 +9,9 @@ import { useTable } from "../context/TableContext/TableContext";
 import useMergeRef from "../../../hooks/useMergeRef";
 
 export interface TableHeaderProps extends VibeComponentProps {
+  /**
+   * The child elements inside the table header, typically `<TableHeaderCell />` components.
+   */
   children?: React.ReactElement<TableHeaderCellProps> | React.ReactElement<TableHeaderCellProps>[];
 }
 

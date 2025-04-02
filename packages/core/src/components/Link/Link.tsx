@@ -12,34 +12,60 @@ import { camelCase } from "lodash-es";
 
 export interface LinkProps extends VibeComponentProps {
   /**
-   * Class name for overriding link text styles
+   * Class name applied to the link text.
    */
   textClassName?: string;
-  /** Specifies the location (URL) of the external resource */
+  /**
+   * The URL the link points to.
+   */
   href?: string;
-  /** The link text */
+  /**
+   * The text content of the link.
+   */
   text?: string;
-  /** Defines the relationship between a linked resource and the current document */
+  /**
+   * Specifies the relationship between the current document and the linked resource.
+   */
   rel?: string;
-  /** onClick function - MouseEvent */
+  /**
+   * Callback fired when the link is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
-  /** Specifies where to open the linked document */
+  /**
+   * Specifies where to open the linked document.
+   */
   target?: LinkTarget;
-  /** Aria label description */
+  /**
+   * The ARIA label description for accessibility.
+   */
   ariaLabelDescription?: string;
-  /** Identifies the element (or elements) that describes the element on which the attribute is set. */
+  /**
+   * The ID of the element that describes this link.
+   */
   ariaDescribedby?: string;
-  /** element id to describe the counter accordingly */
+  /**
+   * The ID of the element labeling this link.
+   */
   ariaLabeledBy?: string;
-  /** Icon to add to the link element */
+  /**
+   * Icon displayed next to the link text.
+   */
   icon?: SubIcon;
-  /** the position of the icon in relation to the text */
+  /**
+   * The position of the icon relative to the text.
+   */
   iconPosition?: LinkIconPosition;
-  /** disable navigation */
+  /**
+   * If true, disables navigation when the link is clicked.
+   */
   disableNavigation?: boolean;
-  /** inherit text size */
+  /**
+   * If true, the link inherits the surrounding text's font size.
+   */
   inheritFontSize?: boolean;
-  /** if the link is in part of other text content */
+  /**
+   * If true, the link is styled to fit within inline text content.
+   */
   inlineText?: boolean;
   /** The link's color style */
   color?: LinkColor;

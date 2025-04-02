@@ -3,7 +3,7 @@ import { VibeComponentProps } from "../../../../types";
 
 export interface ModalMediaLayoutProps extends VibeComponentProps {
   /**
-   * Layout children in the following order:
+   * The content of the layout, structured as:
    * 1. Media content
    * 2. Header content
    * 3. Main content

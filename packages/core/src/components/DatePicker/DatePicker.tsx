@@ -18,31 +18,57 @@ import styles from "./DatePicker.module.scss";
 import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
-  /** set the first day of the week to display */
+  /**
+   * The first day of the week to display.
+   */
   firstDayOfWeek?: DayOfWeekShape;
-  /** current start date */
+  /**
+   * The currently selected date.
+   */
   date?: Moment;
-  /** current end date */
+  /**
+   * The end date for range selection mode.
+   */
   endDate?: Moment;
-  /** on date selected callback */
+  /**
+   * Callback fired when a date is selected.
+   */
   onPickDate?: (date: Moment | RangeDate) => void;
-  /** hide the month navigations keys */
+  /**
+   * If true, hides the navigation buttons.
+   */
   hideNavigationKeys?: boolean;
-  /** show days outside the cuurent month view */
+  /**
+   * If true, allows selecting days outside the current month.
+   */
   enableOutsideDays?: boolean;
-  /** show week number column */
+  /**
+   * If true, displays a column with week numbers.
+   */
   showWeekNumber?: boolean;
-  /** set the size of single day element */
+  /**
+   * The size of a single day cell.
+   */
   daySize?: number;
-  /** determine if day should be disabled */
+  /**
+   * Function to determine if a specific day should be disabled.
+   */
   shouldBlockDay?: (date: Moment) => boolean;
-  /** date range mode*/
+  /**
+   * If true, enables date range selection mode.
+   */
   range?: boolean;
-  /** number of month to display*/
+  /**
+   * The number of months displayed in the calendar.
+   */
   numberOfMonths?: number;
-  /** determine if year should be disabled */
+  /**
+   * Function to determine if a specific year should be disabled.
+   */
   shouldBlockYear?: (year: number) => boolean;
-  /** determine if date range should be disabled */
+  /**
+   * Function to determine if a specific date range should be disabled.
+   */
   shouldBlockRange?: (date: Moment) => boolean;
 }
 

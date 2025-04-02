@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.0...@vibe/testkit@1.9.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **testkit:** Fixing selectItem function ([#2822](https://github.com/mondaycom/vibe/issues/2822)) ([06c3dc5](https://github.com/mondaycom/vibe/commit/06c3dc5071f615abe6523d7069635156042a2b1e))
+
+
+
+
+
 # [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.8.0...@vibe/testkit@1.9.0) (2025-03-25)
 
 

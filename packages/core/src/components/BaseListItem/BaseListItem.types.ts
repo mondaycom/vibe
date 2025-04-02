@@ -39,7 +39,7 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   dir?: BaseListDirection;
   /**
-   * ARIA role for the list item.
+   * The ARIA role of the list item.
    */
   role?: AriaRole;
   /**

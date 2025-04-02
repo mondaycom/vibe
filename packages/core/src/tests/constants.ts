@@ -1,6 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  EMPTY_STATE = "empty-state",
   TRANSITION_VIEW = "transition-view",
   TEXT_AREA = "text-area",
   EDITABLE_TEXT = "editable-text",

@@ -17,21 +17,69 @@ import useMergeRef from "../../../../hooks/useMergeRef";
 import { ColorStyle } from "../../../../types/Colors";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
+  /**
+   * The selected color(s).
+   */
   value: ColorPickerValue;
+  /**
+   * Callback fired when the selected color(s) change.
+   */
   onValueChange: (value: ColorPickerArrayValueOnly) => void;
+  /**
+   * The list of colors available for selection.
+   */
   colorsList: ColorPickerArrayValueOnly;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
+  /**
+   * Icon used for clearing the color selection.
+   */
   NoColorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
+  /**
+   * Custom tooltip content for specific colors.
+   */
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
+  /**
+   * Text displayed for the "no color" option.
+   */
   noColorText?: string;
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * If true, treats the color list as a blacklist rather than a whitelist.
+   */
   isBlackListMode?: boolean;
+  /**
+   * The number of colors displayed per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * If true, allows selecting multiple colors.
+   */
   isMultiselect?: boolean;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.

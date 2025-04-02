@@ -5,6 +5,7 @@ export type TypographyColor =
   | "onInverted"
   | "fixedLight"
   | "fixedDark"
-  | "inherit";
+  | "inherit"
+  | "negative";
 
 export type TypographyAlign = "start" | "center" | "end" | "inherit";
