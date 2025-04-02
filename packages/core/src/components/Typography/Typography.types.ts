@@ -6,6 +6,6 @@ export type TypographyColor =
   | "fixedLight"
   | "fixedDark"
   | "inherit"
-  | "error";
+  | "negative";
 
 export type TypographyAlign = "start" | "center" | "end" | "inherit";

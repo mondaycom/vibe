@@ -9,7 +9,7 @@ export enum TypographyColor {
   FIXED_LIGHT = "fixedLight",
   FIXED_DARK = "fixedDark",
   INHERIT = "inherit",
-  ERROR = "error"
+  NEGATIVE = "negative"
 }
 
 /**
