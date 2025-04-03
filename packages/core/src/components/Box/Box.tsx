@@ -170,6 +170,7 @@ const Box: VibeComponent<BoxProps> & {
     return React.createElement(
       elementType,
       {
+        "data-testid": props["data-testid"],
         ref: mergedRef,
         className: cx(
           styles.box,
