@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.38.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.37.0...@vibe/core@3.38.0) (2025-04-03)
+
+
+### Bug Fixes
+
+* **Modal:** update background color to use new token ([#2830](https://github.com/mondaycom/vibe/issues/2830)) ([4cd31ee](https://github.com/mondaycom/vibe/commit/4cd31eee36e38ec37e95b08c5f116a39cb5ddd08))
+
+
+### Features
+
+* add EmptyState component ([#2790](https://github.com/mondaycom/vibe/issues/2790)) ([4b50947](https://github.com/mondaycom/vibe/commit/4b509471b02b92341ec2c9e93cf54eef9cbb1b87))
+* **Text:** add error color ([#2827](https://github.com/mondaycom/vibe/issues/2827)) ([5fcd9ff](https://github.com/mondaycom/vibe/commit/5fcd9ff067c5da8ec0ae358bdb302e47cdfd5306))
+
+
+
+
+
 # [3.37.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.36.0...@vibe/core@3.37.0) (2025-03-30)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.37.0",
+  "version": "3.38.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -92,7 +92,7 @@
     "downshift": "^9.0.8",
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.22.0",
+    "monday-ui-style": "0.23.0",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
