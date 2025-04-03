@@ -1,5 +1,14 @@
-@import "../../styles/mixins/typography";
+@import '../../styles/mixins/typography';
 
 .title {
   @include sb-title-appearance;
+
+  .anchor {
+    margin-left: var(--sb-spacing-small);
+    opacity: 0;
+  }
+
+  &:hover .anchor {
+    opacity: 1;
+  }
 }
