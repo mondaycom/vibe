@@ -130,4 +130,9 @@ describe("Box renders correctly", () => {
     const tree = renderer.create(<Box textColor="primaryTextColor" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with data-testid prop", () => {
+    const tree = renderer.create(<Box data-testid="test-id" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
