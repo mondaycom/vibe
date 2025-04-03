@@ -44,7 +44,7 @@ export interface BaseListProps<T = BaseListItemProps>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: T) => ReactNode;
   /**
    * Text or function to customize the "No results" message.
    */
@@ -57,6 +57,10 @@ export interface BaseListProps<T = BaseListItemProps>
    * Function to handle scroll events.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+  /**
+   * The maximum height of the list.
+   */
+  maxMenuHeight?: number;
 }
 
 export interface ListGroup<T = BaseListItemProps> {

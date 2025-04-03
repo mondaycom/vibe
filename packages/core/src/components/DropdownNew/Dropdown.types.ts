@@ -33,11 +33,11 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
   /**
    * The function to call to render an option.
    */
-  optionRenderer?: (option: T) => JSX.Element;
+  optionRenderer?: (option: T) => React.ReactNode;
   /**
    * The message to display when there are no options.
    */
-  noOptionsMessage?: string | JSX.Element;
+  noOptionsMessage?: string | React.ReactNode;
   /**
    * The placeholder to display when the dropdown is empty.
    */
@@ -54,6 +54,34 @@ export interface BaseDropdownProps<T extends BaseListItemProps> extends VibeComp
    * If true, the dropdown is in an error state.
    */
   error?: boolean;
+  /**
+   * The helper text to display below the dropdown.
+   */
+  helperText?: string;
+  /**
+   * If true, the dropdown is required.
+   */
+  required?: boolean;
+  /**
+   * The label to display above the dropdown.
+   */
+  label?: string;
+  /**
+   * The maximum height of the dropdown menu.
+   */
+  maxMenuHeight?: number;
+  /**
+   * If true, the dropdown menu is open.
+   */
+  isMenuOpen?: boolean;
+  /**
+   * If true, the dropdown menu will be auto focused.
+   */
+  autoFocus?: boolean;
+  /**
+   * If true, the dropdown will have a clear button.
+   */
+  clearable?: boolean;
   /**
    * Callback fired when the dropdown loses focus.
    */

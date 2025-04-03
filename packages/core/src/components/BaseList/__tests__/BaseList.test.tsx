@@ -2,9 +2,15 @@ import React from "react";
 import { render } from "@testing-library/react";
 import BaseList from "../BaseList";
 import { BaseListProps } from "../BaseList.types";
+import { BaseListItemProps } from "../../BaseListItem";
 
-function renderBaseList<T>(props?: Partial<BaseListProps<T>>) {
-  return render(<BaseList {...(props as BaseListProps<T>)} />);
+function renderBaseList<T extends BaseListItemProps>(props?: Partial<BaseListProps<T>>) {
+  const defaultProps: BaseListProps<T> = {
+    options: [],
+    ...props
+  };
+
+  return render(<BaseList {...defaultProps} />);
 }
 
 describe("BaseList", () => {
@@ -88,7 +94,7 @@ describe("BaseList", () => {
 
     it("should support a custom option renderer", () => {
       const customRenderer = (item: any) => <div data-testid={`custom-renderer-${item.value}`}>{item.label}</div>;
-      const { getByTestId } = renderBaseList({ options, optionRenderer: customRenderer });
+      const { getByTestId } = renderBaseList({ options, itemRenderer: customRenderer });
 
       expect(getByTestId("custom-renderer-opt1")).toBeInTheDocument();
       expect(getByTestId("custom-renderer-opt2")).toBeInTheDocument();

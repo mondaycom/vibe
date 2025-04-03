@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../BaseListItem/BaseListItem";
-import { VibeComponent } from "../../types";
 import styles from "./BaseList.module.scss";
 import { BaseListProps } from "./BaseList.types";
 import { Flex } from "../Flex";
@@ -8,9 +7,10 @@ import { TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 import { Divider } from "../Divider";
+import { BaseListItemProps } from "../BaseListItem";
 
-const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef(
-  <T extends Record<string, unknown>>(
+const BaseList = forwardRef(
+  <T extends BaseListItemProps>(
     {
       options,
       selectedItem,
@@ -20,18 +20,26 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
       size = "medium",
       withGroupDivider = false,
       dir = "ltr",
-      optionRenderer,
+      itemRenderer,
       noOptionsMessage = "No results",
       stickyGroupTitle = false,
       renderOptions = true,
-      onScroll
+      onScroll,
+      maxMenuHeight = 300
     }: BaseListProps<T>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
 
     return (
-      <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()} onScroll={onScroll}>
+      <ul
+        ref={ref}
+        dir={dir}
+        className={styles.wrapper}
+        {...getMenuProps?.()}
+        onScroll={onScroll}
+        style={{ maxHeight: maxMenuHeight }}
+      >
         {renderOptions ? (
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
@@ -60,14 +68,14 @@ const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef
 
                   return (
                     <BaseListItem
-                      {...itemProps}
+                      itemProps={itemProps}
                       label={item.label as string}
                       key={typeof item.value === "string" ? item.value : itemIndex}
                       size={size}
                       highlighted={isHighlighted}
                       selected={isSelected}
-                      optionRenderer={optionRenderer}
-                      {...item}
+                      itemRenderer={itemRenderer}
+                      item={item}
                     />
                   );
                 })}
