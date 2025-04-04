@@ -3,7 +3,7 @@ import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
 import { LoaderColors, LoaderSize, LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 
@@ -40,10 +40,7 @@ export interface LoaderProps extends VibeComponentProps {
   wrapperClassName?: string;
 }
 
-const Loader: VibeComponent<LoaderProps, HTMLElement> & {
-  sizes?: typeof LoaderSizesEnum;
-  colors?: typeof LoaderColorsEnum;
-} = forwardRef(
+const Loader = forwardRef(
   (
     { className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId }: LoaderProps,
     ref: ForwardedRef<HTMLDivElement>
@@ -89,7 +86,12 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Loader, {
+interface LoaderStaticProps {
+  sizes: typeof LoaderSizesEnum;
+  colors: typeof LoaderColorsEnum;
+}
+
+export default withStaticProps<LoaderProps, LoaderStaticProps>(Loader, {
   sizes: LoaderSizesEnum,
   colors: LoaderColorsEnum
 });

@@ -10,7 +10,7 @@ import {
 import { LinearProgressBarSize, LinearProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
@@ -76,13 +76,7 @@ export interface LinearProgressBarProps extends VibeComponentProps {
   fullWidth?: boolean;
 }
 
-const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
-  styles?: typeof ProgressBarStyleEnum;
-  barStyles?: typeof ProgressBarStyleEnum;
-  types?: typeof ProgressBarTypeEnum;
-  barTypes?: typeof ProgressBarTypeEnum;
-  sizes?: typeof SIZES;
-} = forwardRef(
+const LinearProgressBar = forwardRef(
   (
     {
       min = 0,
@@ -101,7 +95,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       fullWidth = false,
       "data-testid": dataTestId
     }: LinearProgressBarProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const wrapperClassName = useMemo(() => {
       return cx(
@@ -193,7 +187,15 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
   }
 );
 
-export default withStaticProps(LinearProgressBar, {
+interface LinearProgressBarStaticProps {
+  styles: typeof ProgressBarStyleEnum;
+  barStyles: typeof ProgressBarStyleEnum;
+  types: typeof ProgressBarTypeEnum;
+  barTypes: typeof ProgressBarTypeEnum;
+  sizes: typeof SIZES;
+}
+
+export default withStaticProps<LinearProgressBarProps, LinearProgressBarStaticProps>(LinearProgressBar, {
   styles: ProgressBarStyleEnum,
   barStyles: ProgressBarStyleEnum,
   types: ProgressBarTypeEnum,

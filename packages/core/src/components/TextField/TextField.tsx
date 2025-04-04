@@ -28,7 +28,7 @@ import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
 import { HiddenText } from "../HiddenText";
@@ -216,11 +216,7 @@ export interface TextFieldProps extends VibeComponentProps {
   dir?: "ltr" | "rtl" | "auto";
 }
 
-const TextField: VibeComponent<TextFieldProps, unknown> & {
-  sizes?: typeof BASE_SIZES;
-  types?: typeof TextFieldTextTypeEnum;
-  feedbacks?: typeof TextFieldFeedbackStateEnum;
-} = forwardRef(
+const TextField = forwardRef(
   (
     {
       className = "",
@@ -270,7 +266,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       secondaryTooltipContent,
       dir
     }: TextFieldProps,
-    ref
+    ref: React.ForwardedRef<unknown>
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
@@ -505,7 +501,13 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
   }
 );
 
-export default withStaticProps(TextField, {
+interface TextFieldStaticProps {
+  sizes: typeof BASE_SIZES;
+  types: typeof TextFieldTextTypeEnum;
+  feedbacks: typeof TextFieldFeedbackStateEnum;
+}
+
+export default withStaticProps<TextFieldProps, TextFieldStaticProps>(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackStateEnum,
   types: TextFieldTextTypeEnum

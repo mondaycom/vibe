@@ -5,9 +5,9 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
 import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
 import { StepsColor, StepsType } from "./Steps.types";
-import { ButtonProps } from "../Button/Button";
+import { ButtonProps } from "../Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
 
 export interface StepsProps extends VibeComponentProps {
@@ -61,7 +61,7 @@ export interface StepsProps extends VibeComponentProps {
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?: typeof StepsColorEnum } = forwardRef(
+const Steps = forwardRef(
   (
     {
       className,
@@ -80,7 +80,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
       finishButtonProps = {},
       areButtonsIconsHidden = false
     }: StepsProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -116,7 +116,12 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
   }
 );
 
-export default withStaticProps(Steps, {
+interface StepsStaticProps {
+  types: typeof StepsTypeEnum;
+  colors: typeof StepsColorEnum;
+}
+
+export default withStaticProps<StepsProps, StepsStaticProps>(Steps, {
   types: StepsTypeEnum,
   colors: StepsColorEnum
 });

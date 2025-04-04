@@ -67,10 +67,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
   entryAnimation?: boolean;
 }
 
-const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxTypeEnum;
-  iconTypes?: typeof IconTypeEnum;
-} = ({
+const AttentionBox = ({
   className,
   withIconWithoutHeader = false,
   type = "primary",
@@ -152,7 +149,12 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   );
 };
 
-export default withStaticProps(AttentionBox, {
+interface AttentionBoxStaticProps {
+  types: typeof AttentionBoxTypeEnum;
+  iconTypes: typeof IconTypeEnum;
+}
+
+export default withStaticProps<AttentionBoxProps, AttentionBoxStaticProps>(AttentionBox, {
   types: AttentionBoxTypeEnum,
   iconTypes: IconTypeEnum
 });

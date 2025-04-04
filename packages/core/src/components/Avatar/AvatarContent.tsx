@@ -6,7 +6,7 @@ import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
 import Icon from "../Icon/Icon";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {
@@ -44,10 +44,7 @@ export interface AvatarContentProps extends VibeComponentProps {
   text?: string;
 }
 
-export const AvatarContent: React.FC<AvatarContentProps> & {
-  sizes?: typeof AvatarSizeEnum;
-  types?: typeof AvatarTypeEnum;
-} = ({
+const AvatarContent = ({
   type = "text",
   src,
   icon,
@@ -104,7 +101,12 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
   }
 };
 
-Object.assign(AvatarContent, {
-  types: AvatarTypeEnum,
-  sizes: AvatarSizeEnum
+interface AvatarContentStaticProps {
+  sizes: typeof AvatarSizeEnum;
+  types: typeof AvatarTypeEnum;
+}
+
+export default withStaticProps<AvatarContentProps, AvatarContentStaticProps>(AvatarContent, {
+  sizes: AvatarSizeEnum,
+  types: AvatarTypeEnum
 });

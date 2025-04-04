@@ -7,7 +7,7 @@ import { IconType } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
+import { VibeComponentProps, SubIcon, withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface IconSubComponentProps {
@@ -91,7 +91,7 @@ export interface IconProps extends VibeComponentProps {
   customColor?: string;
 }
 
-const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum } = forwardRef(
+const Icon = forwardRef(
   (
     {
       /**
@@ -111,7 +111,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
       customColor,
       "data-testid": dataTestId
     }: IconProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
@@ -128,12 +128,9 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
       return null;
     }
 
-    // TODO: [breaking] make more accurate check
     const isFunctionType = typeof icon === "function";
-
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    // TODO: [breaking] make more accurate check
     if (iconType === "svg" || isFunctionType || typeof icon === "object") {
       return renderIcon(icon, {
         id,
@@ -173,6 +170,10 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconTypeEnum
   }
 );
 
-export default withStaticProps(Icon, {
+interface IconStaticProps {
+  type: typeof IconTypeEnum;
+}
+
+export default withStaticProps<IconProps, IconStaticProps>(Icon, {
   type: IconTypeEnum
 });

@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
+import React, { ReactElement, useEffect, useMemo, useState } from "react";
 import { SystemTheme as SystemThemeEnum, Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
 import { SystemTheme } from "./ThemeProvider.types";
 import {
@@ -39,10 +39,13 @@ export interface ThemeProviderProps {
   className?: string;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> & {
-  systemThemes?: typeof SystemThemeEnum;
-  colors?: typeof ThemeColorEnum;
-} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
+const ThemeProvider = ({
+  themeConfig,
+  children,
+  themeClassSpecifier: customThemeClassSpecifier,
+  systemTheme,
+  className
+}: ThemeProviderProps) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
@@ -104,7 +107,12 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
-export default withStaticProps(ThemeProvider, {
+interface ThemeProviderStaticProps {
+  systemThemes: typeof SystemThemeEnum;
+  colors: typeof ThemeColorEnum;
+}
+
+export default withStaticProps<ThemeProviderProps, ThemeProviderStaticProps>(ThemeProvider, {
   systemThemes: SystemThemeEnum,
   colors: ThemeColorEnum
 });

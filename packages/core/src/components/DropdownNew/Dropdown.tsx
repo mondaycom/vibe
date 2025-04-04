@@ -12,12 +12,11 @@ import usePopover from "../../hooks/usePopover";
 import { Placement } from "../../hooks/popoverConstants";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
-import { VibeComponent } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
 
-const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivElement> = forwardRef(
+const Dropdown = forwardRef(
   (
     {
       options,

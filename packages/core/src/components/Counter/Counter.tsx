@@ -4,7 +4,6 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
@@ -14,7 +13,7 @@ import {
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
 import { CounterColor, CounterSize, CounterType } from "./Counter.types";
-import { withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
@@ -64,11 +63,7 @@ export interface CounterProps extends VibeComponentProps {
   noAnimation?: boolean;
 }
 
-const Counter: React.FC<CounterProps> & {
-  sizes?: typeof CounterSizeEnum;
-  colors?: typeof CounterColorEnum;
-  kinds?: typeof CounterTypeEnum;
-} = ({
+const Counter = ({
   className,
   counterClassName,
   count = 0,
@@ -174,7 +169,13 @@ const Counter: React.FC<CounterProps> & {
   );
 };
 
-export default withStaticProps(Counter, {
+interface CounterStaticProps {
+  sizes: typeof CounterSizeEnum;
+  colors: typeof CounterColorEnum;
+  kinds: typeof CounterTypeEnum;
+}
+
+export default withStaticProps<CounterProps, CounterStaticProps>(Counter, {
   sizes: CounterSizeEnum,
   colors: CounterColorEnum,
   kinds: CounterTypeEnum
