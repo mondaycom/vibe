@@ -190,7 +190,7 @@ function aggregatorMain(): AggregatorRecord[] {
     skipAddingFilesFromTsConfig: true
   });
 
-  const packageDir = path.resolve(__dirname, "./components");
+  const packageDir = path.resolve(__dirname, "../components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
 
   const coreIndex = path.join(packageDir, "index.ts");
