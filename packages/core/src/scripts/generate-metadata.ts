@@ -8,6 +8,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Cache source files to avoid loading the same file multiple times
+const sourceFileCache = new Map<string, SourceFile>();
+
 interface AggregatorRecord {
   filePath: string;
   aggregator: "core" | "next";
@@ -76,9 +79,12 @@ function getExportedSymbolsFromDecl(decl: ExportDeclaration): string[] {
 
   const subFilePath = matchedPaths[0];
   const project = decl.getSourceFile().getProject();
-  const subSf = project.getSourceFile(subFilePath);
+
+  let subSf = sourceFileCache.get(subFilePath);
   if (!subSf) {
-    throw new Error(`Source file not found for module specifier: ${modSpec}`);
+    subSf = project.getSourceFile(subFilePath);
+    if (!subSf) throw new Error(`Source file not found for module specifier: ${modSpec}`);
+    sourceFileCache.set(subFilePath, subSf);
   }
 
   const visited = new Set<string>();
@@ -369,6 +375,7 @@ function unifyTypesWithComponents(records: AggregatorRecord[]): AggregatorRecord
 }
 
 function main() {
+  const startTime = performance.now();
   try {
     let aggregatorRecords = aggregatorMain();
     aggregatorRecords = unifyTypesWithComponents(aggregatorRecords);
@@ -380,11 +387,14 @@ function main() {
 
     const outPath = path.resolve(__dirname, "../../dist/metadata.json");
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
-
     console.log(`Done! Wrote metadata to: ${outPath}`);
   } catch (error) {
     console.error("Failed to generate documentation:", error.message);
     process.exit(1);
+  } finally {
+    const endTime = performance.now();
+    const duration = (endTime - startTime) / 1000;
+    console.log(`Execution time: ${duration.toFixed(2)} seconds`);
   }
 }
 
