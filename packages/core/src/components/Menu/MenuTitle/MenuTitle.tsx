@@ -13,7 +13,7 @@ export interface MenuTitleProps extends VibeComponentProps {
   /**
    * The caption text displayed alongside the title.
    */
-  caption?: string;
+  caption?: string | React.ReactNode;
   /**
    * The position of the caption relative to the title.
    */
