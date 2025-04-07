@@ -27,19 +27,17 @@ interface DocgenResult {
   }>;
 }
 
-interface FinalOutput {
-  files: Array<{
-    filePath: string;
-    aggregator: "core" | "next";
-    symbols: string[];
-    displayName: string;
-    description?: string;
-    import: string;
-    parentComponent?: string;
-    subComponents?: string[];
-    props: Record<string, unknown>;
-  }>;
-}
+type FinalOutput = Array<{
+  filePath: string;
+  aggregator: "core" | "next";
+  symbols: string[];
+  displayName: string;
+  description?: string;
+  import: string;
+  parentComponent?: string;
+  subComponents?: string[];
+  props: Record<string, unknown>;
+}>;
 
 function isIndexFile(filePath: string): boolean {
   return path.basename(filePath).toLowerCase() === "index.ts";
@@ -341,7 +339,7 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
     }));
   });
 
-  return { files };
+  return files;
 }
 
 /**
