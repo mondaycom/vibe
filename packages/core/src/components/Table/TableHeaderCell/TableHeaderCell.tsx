@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
@@ -44,7 +44,7 @@ export interface TableHeaderCellProps extends VibeComponentProps {
   sticky?: boolean;
 }
 
-const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = forwardRef(
+const TableHeaderCell = forwardRef(
   (
     {
       id,
@@ -58,7 +58,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
       sortButtonAriaLabel = "Sort",
       sticky
     }: TableHeaderCellProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const ariaSort = getAriaSort(sortState);

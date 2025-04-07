@@ -1,15 +1,14 @@
+import React from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
 import { AvatarSize } from "./Avatar.types";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./AvatarBadge.module.scss";
 import Icon from "../Icon/Icon";
-import { SubIcon } from "../../types";
+import { VibeComponentProps, SubIcon, withStaticProps } from "../../types";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   /**
@@ -30,9 +29,7 @@ export interface AvatarBadgeProps extends VibeComponentProps {
   size?: AvatarSize;
 }
 
-export const AvatarBadge: React.FC<AvatarBadgeProps> & {
-  sizes?: typeof AvatarSizeEnum;
-} = ({
+const AvatarBadge = ({
   src,
   icon,
   tabIndex = 0,
@@ -54,6 +51,10 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   ) : null;
 };
 
-Object.assign(AvatarBadge, {
+interface AvatarBadgeStaticProps {
+  sizes: typeof AvatarSizeEnum;
+}
+
+export default withStaticProps<AvatarBadgeProps, AvatarBadgeStaticProps>(AvatarBadge, {
   sizes: AvatarSizeEnum
 });

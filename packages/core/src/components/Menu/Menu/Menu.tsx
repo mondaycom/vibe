@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { SIZES } from "../../../constants/sizes";
+import { SIZES } from "../../../constants";
 import React, { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
@@ -12,7 +12,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../../types";
 import { CloseMenuOption, MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -81,16 +81,12 @@ export interface MenuProps extends VibeComponentProps {
   children?: ElementContent;
 }
 
-const Menu: VibeComponent<MenuProps> & {
-  isMenu?: boolean;
-  supportFocusOnMount?: boolean;
-  sizes?: typeof SIZES;
-} = forwardRef(
+const Menu = forwardRef(
   (
     {
       id,
       className,
-      size = Menu.sizes.MEDIUM,
+      size = SIZES.MEDIUM,
       tabIndex = 0,
       ariaLabel = "Menu",
       ariaDescribedBy,
@@ -106,7 +102,7 @@ const Menu: VibeComponent<MenuProps> & {
       shouldScrollMenu = false,
       "data-testid": dataTestId
     }: MenuProps,
-    forwardedRef
+    forwardedRef: React.ForwardedRef<HTMLElement>
   ) => {
     const ref = useRef(null);
     const mergedRef = useMergeRef(ref, forwardedRef);
@@ -269,6 +265,10 @@ Object.assign(Menu, {
   supportFocusOnMount: true
 });
 
-export default withStaticProps(Menu, {
+interface MenuStaticProps {
+  sizes: typeof SIZES;
+}
+
+export default withStaticProps<MenuProps, MenuStaticProps>(Menu, {
   sizes: SIZES
 });

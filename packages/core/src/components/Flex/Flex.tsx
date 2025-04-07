@@ -9,7 +9,7 @@ import {
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
 import { FlexDirection, FlexJustify, FlexAlign, FlexGap } from "./Flex.types";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, withStaticProps, VibeComponentProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
 import { camelCase } from "lodash-es";
@@ -65,12 +65,7 @@ export interface FlexProps extends VibeComponentProps {
   ariaLabelledby?: string;
 }
 
-const Flex: VibeComponent<FlexProps> & {
-  justify?: typeof FlexJustifyEnum;
-  align?: typeof FlexAlignEnum;
-  gaps?: typeof FlexGapEnum;
-  directions?: typeof FlexDirectionEnum;
-} = forwardRef(
+const Flex = forwardRef(
   (
     {
       className,
@@ -89,7 +84,7 @@ const Flex: VibeComponent<FlexProps> & {
       tabIndex,
       "data-testid": dataTestId
     }: FlexProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -138,7 +133,14 @@ const Flex: VibeComponent<FlexProps> & {
   }
 );
 
-export default withStaticProps(Flex, {
+interface FlexStaticProps {
+  justify: typeof FlexJustifyEnum;
+  align: typeof FlexAlignEnum;
+  gaps: typeof FlexGapEnum;
+  directions: typeof FlexDirectionEnum;
+}
+
+export default withStaticProps<FlexProps, FlexStaticProps>(Flex, {
   justify: FlexJustifyEnum,
   align: FlexAlignEnum,
   gaps: FlexGapEnum,

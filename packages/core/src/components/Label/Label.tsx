@@ -8,7 +8,7 @@ import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { LabelColor, LabelKind, ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
@@ -50,10 +50,7 @@ export interface LabelProps extends VibeComponentProps {
   size?: LabelSizes;
 }
 
-const Label: VibeComponent<LabelProps> & {
-  colors?: typeof LabelColorEnum;
-  kinds?: typeof LabelKindEnum;
-} = forwardRef<HTMLElement, LabelProps>(
+const Label = forwardRef<HTMLElement, LabelProps>(
   (
     {
       className,
@@ -179,7 +176,12 @@ const Label: VibeComponent<LabelProps> & {
   }
 );
 
-export default withStaticProps(Label, {
+interface LabelStaticProps {
+  colors: typeof LabelColorEnum;
+  kinds: typeof LabelKindEnum;
+}
+
+export default withStaticProps<LabelProps, LabelStaticProps>(Label, {
   colors: LabelColorEnum,
   kinds: LabelKindEnum
 });

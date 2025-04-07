@@ -18,9 +18,7 @@ export interface DividerProps extends VibeComponentProps {
   withoutMargin?: boolean;
 }
 
-const Divider: React.FC<DividerProps> & {
-  directions?: typeof DirectionTypeEnum;
-} = ({
+const Divider = ({
   className = undefined,
   withoutMargin = false,
   direction = "horizontal",
@@ -38,6 +36,10 @@ const Divider: React.FC<DividerProps> & {
   );
 };
 
-export default withStaticProps(Divider, {
+interface DividerStaticProps {
+  directions: typeof DirectionTypeEnum;
+}
+
+export default withStaticProps<DividerProps, DividerStaticProps>(Divider, {
   directions: DirectionTypeEnum
 });

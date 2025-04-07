@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./TableCell.module.scss";
 import cx from "classnames";
@@ -17,8 +17,11 @@ export interface TableCellProps extends VibeComponentProps {
   sticky?: boolean;
 }
 
-const TableCell: VibeComponent<TableCellProps, HTMLDivElement> = forwardRef(
-  ({ sticky, id, className, "data-testid": dataTestId, children }: TableCellProps, ref) => {
+const TableCell = forwardRef(
+  (
+    { sticky, id, className, "data-testid": dataTestId, children }: TableCellProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const isSingleChild = React.Children.count(children) === 1;
     const typeOfFirstChild = typeof React.Children.toArray(children)[0];
     const isFirstChildString = typeOfFirstChild === "string" || typeOfFirstChild === "number";

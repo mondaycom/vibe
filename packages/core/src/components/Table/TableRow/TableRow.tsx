@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import { TableCellProps } from "../TableCell/TableCell";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -23,8 +23,11 @@ export interface TableRowProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const TableRow: VibeComponent<TableRowProps, HTMLDivElement> = forwardRef(
-  ({ highlighted, children, style, id, className, "data-testid": dataTestId }: TableRowProps, ref) => {
+const TableRow = forwardRef(
+  (
+    { highlighted, children, style, id, className, "data-testid": dataTestId }: TableRowProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const componentRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(componentRef, ref);
     const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenu();

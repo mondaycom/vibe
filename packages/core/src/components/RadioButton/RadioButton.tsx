@@ -3,8 +3,7 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../Clickable/Clickable";
 import Text from "../Text/Text";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
@@ -72,7 +71,7 @@ export interface RadioButtonProps extends VibeComponentProps {
   noLabelAnimation?: boolean;
 }
 
-const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwardRef(
+const RadioButton = forwardRef(
   (
     {
       className,

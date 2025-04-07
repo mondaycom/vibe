@@ -183,10 +183,7 @@ export interface ComboboxProps extends VibeComponentProps {
   hideRenderActionOnInput?: boolean;
 }
 
-const Combobox: React.FC<ComboboxProps> & {
-  sizes?: typeof BASE_SIZES;
-  iconTypes?: typeof ComboboxOption.iconTypes;
-} = forwardRef(
+const Combobox = forwardRef(
   (
     {
       className = "",
@@ -231,7 +228,7 @@ const Combobox: React.FC<ComboboxProps> & {
       renderAction: RenderAction,
       hideRenderActionOnInput
     }: ComboboxProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
@@ -432,7 +429,12 @@ const Combobox: React.FC<ComboboxProps> & {
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-export default withStaticProps(Combobox, {
+interface ComboboxStaticProps {
+  sizes: typeof BASE_SIZES;
+  iconTypes: typeof ComboboxOption.iconTypes;
+}
+
+export default withStaticProps<ComboboxProps, ComboboxStaticProps>(Combobox, {
   sizes: BASE_SIZES,
   iconTypes: ComboboxOption.iconTypes
 });

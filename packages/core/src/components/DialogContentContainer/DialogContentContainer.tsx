@@ -4,8 +4,8 @@ import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
-import { DialogSize, DialogType } from "../Dialog/Dialog.types";
-import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
+import { DialogSize, DialogType } from "../Dialog";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
@@ -36,10 +36,7 @@ export interface DialogContentContainerProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
-  types?: typeof DialogTypeEnum;
-  sizes?: typeof DialogSizeEnum;
-} = forwardRef(
+const DialogContentContainer = forwardRef(
   (
     {
       id,
@@ -53,7 +50,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id),
       ...props
     }: DialogContentContainerProps,
-    ref
+    ref: React.Ref<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -80,7 +77,12 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
   }
 );
 
-export default withStaticProps(DialogContentContainer, {
+interface DialogContentContainerStaticProps {
+  types: typeof DialogTypeEnum;
+  sizes: typeof DialogSizeEnum;
+}
+
+export default withStaticProps<DialogContentContainerProps, DialogContentContainerStaticProps>(DialogContentContainer, {
   types: DialogTypeEnum,
   sizes: DialogSizeEnum
 });

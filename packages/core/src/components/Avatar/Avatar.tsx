@@ -8,8 +8,8 @@ import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colo
 import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
-import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
-import { AvatarContent } from "./AvatarContent";
+import AvatarBadge, { AvatarBadgeProps } from "./AvatarBadge";
+import AvatarContent from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
@@ -114,12 +114,7 @@ export interface AvatarProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar: React.FC<AvatarProps> & {
-  types?: typeof AvatarTypeEnum;
-  sizes?: typeof AvatarSizeEnum;
-  colors?: typeof ElementAllowedColorEnum;
-  backgroundColors?: typeof ElementAllowedColorEnum;
-} = ({
+const Avatar = ({
   id,
   type = "text",
   className,
@@ -268,7 +263,14 @@ const Avatar: React.FC<AvatarProps> & {
   );
 };
 
-export default withStaticProps(Avatar, {
+interface AvatarStaticProps {
+  types: typeof AvatarTypeEnum;
+  sizes: typeof AvatarSizeEnum;
+  colors: typeof ElementAllowedColorEnum;
+  backgroundColors: typeof ElementAllowedColorEnum;
+}
+
+export default withStaticProps<AvatarProps, AvatarStaticProps>(Avatar, {
   types: AvatarTypeEnum,
   sizes: AvatarSizeEnum,
   colors: ElementAllowedColorEnum,

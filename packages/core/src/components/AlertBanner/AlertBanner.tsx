@@ -6,13 +6,12 @@ import { CloseSmall } from "@vibe/icons";
 import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
 import { AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponent, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
 import { AlertBannerContext } from "./AlertBannerContext";
@@ -46,9 +45,7 @@ export interface AlertBannerProps extends VibeComponentProps {
   children?: ChildrenType | ChildrenType[];
 }
 
-const AlertBanner: VibeComponent<AlertBannerProps> & {
-  backgroundColors?: typeof AlertBannerBackgroundColorEnum;
-} = forwardRef(
+const AlertBanner = forwardRef(
   (
     {
       children: originalChildren,
@@ -156,4 +153,10 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
   }
 );
 
-export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColorEnum });
+interface AlertBannerStaticProps {
+  backgroundColors: typeof AlertBannerBackgroundColorEnum;
+}
+
+export default withStaticProps<AlertBannerProps, AlertBannerStaticProps>(AlertBanner, {
+  backgroundColors: AlertBannerBackgroundColorEnum
+});

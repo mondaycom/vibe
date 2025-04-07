@@ -1,8 +1,7 @@
 import React, { forwardRef, useRef, HTMLAttributes, useContext } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
@@ -47,7 +46,7 @@ export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTML
   withoutTooltip?: boolean;
 }
 
-const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
+const Typography = forwardRef(
   (
     {
       className,
@@ -64,7 +63,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       role,
       ...htmlAttributes
     }: TypographyProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const { overflowTolerance } = useContext(TypographyContext);
     const componentRef = useRef(null);

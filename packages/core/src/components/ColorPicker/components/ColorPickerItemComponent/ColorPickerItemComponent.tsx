@@ -11,7 +11,7 @@ import { ColorPickerValueOnly } from "../../ColorPicker.types";
 import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, ColorStyle } from "../../../../types";
+import { SubIcon, VibeComponentProps, ElementContent, ColorStyle } from "../../../../types";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
@@ -61,7 +61,7 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
   colorShape: ColorShapes;
 }
 
-const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = forwardRef(
+const ColorPickerItemComponent = forwardRef(
   (
     {
       color,
@@ -77,7 +77,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       colorShape,
       "data-testid": dataTestId
     }: ColorPickerItemComponentProps,
-    _ref
+    _ref: React.ForwardedRef<HTMLElement>
   ) => {
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;

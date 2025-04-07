@@ -15,7 +15,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
@@ -69,14 +69,12 @@ export interface ListProps extends VibeComponentProps {
   role?: AriaRole;
 }
 
-const List: VibeComponent<ListProps> & {
-  components?: typeof ListWrapperComponentTypeEnum;
-} = forwardRef(
+const List = forwardRef(
   (
     {
       className,
       id,
-      component = List.components.UL,
+      component = ListWrapperComponentTypeEnum.UL,
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -86,7 +84,7 @@ const List: VibeComponent<ListProps> & {
       role = "listbox",
       "data-testid": dataTestId
     }: ListProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -194,6 +192,10 @@ const List: VibeComponent<ListProps> & {
   }
 );
 
-export default withStaticProps(List, {
+interface ListStaticProps {
+  components: typeof ListWrapperComponentTypeEnum;
+}
+
+export default withStaticProps<ListProps, ListStaticProps>(List, {
   components: ListWrapperComponentTypeEnum
 });

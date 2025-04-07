@@ -11,8 +11,8 @@ import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
-import { AvatarType } from "../Avatar/Avatar.types";
-import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { AvatarType } from "../Avatar";
+import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
@@ -119,10 +119,7 @@ export interface ChipsProps extends VibeComponentProps {
   closeButtonAriaLabel?: string;
 }
 
-const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
-  colors?: typeof ElementAllowedColorEnum;
-  avatarTypes?: typeof AvatarTypeEnum;
-} = forwardRef<HTMLDivElement, ChipsProps>(
+const Chips = forwardRef(
   (
     {
       className,
@@ -153,7 +150,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       rightRenderer,
       closeButtonAriaLabel = "Remove"
     }: ChipsProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
@@ -309,7 +306,12 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Chips, {
+interface ChipsStaticProps {
+  colors: typeof ElementAllowedColorEnum;
+  avatarTypes: typeof AvatarTypeEnum;
+}
+
+export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
   colors: ElementAllowedColorEnum,
   avatarTypes: AvatarTypeEnum
 });

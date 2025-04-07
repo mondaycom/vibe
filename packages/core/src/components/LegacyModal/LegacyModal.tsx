@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
+import React, { cloneElement, ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -87,7 +87,7 @@ export interface LegacyModalProps {
   unmountOnClose?: boolean;
 }
 
-const Modal: FC<LegacyModalProps> & { width?: typeof ModalWidthEnum } = ({
+const Modal = ({
   classNames = { container: "", overlay: "", modal: "" },
   id,
   show,
@@ -201,6 +201,10 @@ const Modal: FC<LegacyModalProps> & { width?: typeof ModalWidthEnum } = ({
   return isClient() ? ReactDOM.createPortal(dialog, document.body) : null;
 };
 
-export default withStaticProps(Modal, {
+interface LegacyModalStaticProps {
+  width: typeof ModalWidthEnum;
+}
+
+export default withStaticProps<LegacyModalProps, LegacyModalStaticProps>(Modal, {
   width: ModalWidthEnum
 });

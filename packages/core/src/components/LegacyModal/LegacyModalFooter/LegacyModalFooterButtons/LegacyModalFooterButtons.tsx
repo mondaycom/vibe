@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
-import VibeComponentProps from "../../../../types/VibeComponentProps";
-import VibeComponent from "../../../../types/VibeComponent";
+import { VibeComponentProps } from "../../../../types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import Flex from "../../../Flex/Flex";
@@ -15,7 +14,7 @@ export interface LegacyModalFooterButtonsProps extends VibeComponentProps {
   onSecondaryButtonClick?: () => void;
 }
 
-const LegacyModalFooterButtons: VibeComponent<LegacyModalFooterButtonsProps> = forwardRef(
+const LegacyModalFooterButtons = forwardRef(
   (
     {
       primaryButtonText,
@@ -29,7 +28,7 @@ const LegacyModalFooterButtons: VibeComponent<LegacyModalFooterButtonsProps> = f
     }: LegacyModalFooterButtonsProps,
     // As ModalFooter does not currently forward refs
     // eslint-disable-next-line
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     return (
       <LegacyModalFooter

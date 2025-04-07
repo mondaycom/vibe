@@ -32,8 +32,7 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import { VirtualizedListItem, VirtualizedListLayout, VirtualizedListScrollDirection } from "./VirtualizedList.types";
 
@@ -142,7 +141,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   ) => void;
 }
 
-const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
+const VirtualizedList = forwardRef(
   (
     {
       className,
@@ -170,7 +169,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       style,
       "data-testid": dataTestId
     }: VirtualizedListProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     // states
     const [listHeight, setListHeight] = useState(0);

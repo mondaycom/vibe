@@ -1,15 +1,14 @@
 import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { TooltipProps } from "../Tooltip/Tooltip";
+import { TooltipProps } from "../Tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { TextType, TextWeight } from "../Text/Text.types";
-import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import { TextType, TextWeight } from "../Text";
+import { HeadingType, HeadingWeight } from "../Heading";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
@@ -84,7 +83,7 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
 
 const PADDING_OFFSET = 2;
 
-const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
+const EditableTypography = forwardRef(
   (
     {
       id,
@@ -107,7 +106,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       weight,
       multiline = false
     }: EditableTypographyProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);

@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
+import React, { forwardRef, useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPicker.types";
 import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
+import { SubIcon, VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";
-import { ColorStyle } from "../../../../types/Colors";
+import { ColorStyle } from "../../../../types";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -80,7 +80,7 @@ export interface ColorPickerColorsGridProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HTMLUListElement> = React.forwardRef(
+const ColorPickerColorsGrid = forwardRef(
   (
     {
       onColorClicked,
@@ -99,7 +99,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       id,
       "data-testid": dataTestId
     }: ColorPickerColorsGridProps,
-    ref
+    ref: React.ForwardedRef<HTMLUListElement>
   ) => {
     const getItemByIndex = useCallback((index: number) => colorsToRender[index], [colorsToRender]);
 
@@ -136,3 +136,5 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     );
   }
 );
+
+export default ColorPickerColorsGrid;

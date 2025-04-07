@@ -2,8 +2,6 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import {
@@ -18,6 +16,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { IndicatorColor } from "./Indicator/IndicatorConstants";
 import { CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
+import { VibeComponentProps, withStaticProps } from "../../types";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   /**
@@ -50,11 +49,7 @@ interface IndicatorBadgeProps extends IndicatorProps {
 
 export type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
 
-const Badge: VibeComponent<BadgeProps> & {
-  types?: typeof BadgeTypeEnum;
-  alignments?: typeof BadgeAlignmentsEnum;
-  anchors?: typeof BadgeAnchorEnum;
-} = forwardRef(
+const Badge = forwardRef(
   (
     {
       type = "indicator",
@@ -66,7 +61,7 @@ const Badge: VibeComponent<BadgeProps> & {
       children,
       ...badgeProps
     }: BadgeProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -93,8 +88,14 @@ const Badge: VibeComponent<BadgeProps> & {
   }
 );
 
-Badge.types = BadgeTypeEnum;
-Badge.alignments = BadgeAlignmentsEnum;
-Badge.anchors = BadgeAnchorEnum;
+interface BadgeStaticProps {
+  types: typeof BadgeTypeEnum;
+  alignments: typeof BadgeAlignmentsEnum;
+  anchors: typeof BadgeAnchorEnum;
+}
 
-export default Badge;
+export default withStaticProps<BadgeProps, BadgeStaticProps>(Badge, {
+  types: BadgeTypeEnum,
+  alignments: BadgeAlignmentsEnum,
+  anchors: BadgeAnchorEnum
+});

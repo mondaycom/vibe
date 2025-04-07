@@ -1,12 +1,12 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "../Text/TextConstants";
-import { TextType, TextWeight } from "../Text/Text.types";
+import { TextType, TextWeight } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 
@@ -25,10 +25,7 @@ export interface EditableTextProps extends VibeComponentProps, EditableTypograph
   multiline?: boolean;
 }
 
-const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
-  types?: typeof TextTypeEnum;
-  weights?: typeof TextWeightEnum;
-} = forwardRef(
+const EditableText = forwardRef(
   (
     {
       type = "text2",
@@ -38,7 +35,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
       multiline,
       ...editableTypographyProps
     }: EditableTextProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     return (
       <EditableTypography
@@ -57,7 +54,12 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(EditableText, {
+interface EditableTextStaticProps {
+  types: typeof TextTypeEnum;
+  weights: typeof TextWeightEnum;
+}
+
+export default withStaticProps<EditableTextProps, EditableTextStaticProps>(EditableText, {
   types: TextTypeEnum,
   weights: TextWeightEnum
 });

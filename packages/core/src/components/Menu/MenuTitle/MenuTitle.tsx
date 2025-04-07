@@ -1,5 +1,5 @@
+import React from "react";
 import cx from "classnames";
-import React, { FC } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
@@ -20,11 +20,13 @@ export interface MenuTitleProps extends VibeComponentProps {
   captionPosition?: MenuTitleCaptionPosition;
 }
 
-const MenuTitle: FC<MenuTitleProps> & {
-  positions?: typeof MenuTitleCaptionPositionEnum;
-  captionPositions?: typeof MenuTitleCaptionPositionEnum;
-  isMenuChild?: boolean;
-} = ({ className, caption = "", captionPosition = "bottom", id, "data-testid": dataTestId }: MenuTitleProps) => {
+const MenuTitle = ({
+  className,
+  caption = "",
+  captionPosition = "bottom",
+  id,
+  "data-testid": dataTestId
+}: MenuTitleProps) => {
   const renderCaptionIfNeeded = () => {
     if (caption) {
       return (
@@ -54,7 +56,12 @@ Object.assign(MenuTitle, {
   isMenuChild: true
 });
 
-export default withStaticProps(MenuTitle, {
+interface MenuTitleStaticProps {
+  positions: typeof MenuTitleCaptionPositionEnum;
+  captionPositions: typeof MenuTitleCaptionPositionEnum;
+}
+
+export default withStaticProps<MenuTitleProps, MenuTitleStaticProps>(MenuTitle, {
   positions: MenuTitleCaptionPositionEnum,
   captionPositions: MenuTitleCaptionPositionEnum
 });

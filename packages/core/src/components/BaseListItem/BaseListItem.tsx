@@ -4,12 +4,11 @@ import styles from "./BaseListItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { BaseListItemProps } from "./BaseListItem.types";
-import { VibeComponent } from "../../types";
 import { Tooltip } from "../Tooltip";
 import { TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
-const BaseListItem: VibeComponent<BaseListItemProps, HTMLLIElement> = forwardRef((props: BaseListItemProps, ref) => {
+const BaseListItem = forwardRef((props: BaseListItemProps, ref: React.ForwardedRef<HTMLLIElement>) => {
   const {
     label,
     size = "medium",

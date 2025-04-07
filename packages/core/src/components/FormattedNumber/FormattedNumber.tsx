@@ -2,8 +2,7 @@ import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./FormattedNumber.module.scss";
 
@@ -42,15 +41,12 @@ export interface FormattedNumberProps extends VibeComponentProps {
   rtl?: boolean;
 }
 
-const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
-  formatNumber?: typeof formatNumber;
-  localFallBack?: string;
-} = forwardRef(
+const FormattedNumber = forwardRef(
   (
     {
       value,
       className,
-      local = FormattedNumber.localFallBack,
+      local = formatNumberConsts.DEFAULT_LOCAL,
       prefix,
       suffix,
       emptyPlaceHolder = "N/A",
@@ -60,7 +56,7 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
       id,
       "data-testid": dataTestId
     }: FormattedNumberProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
@@ -101,9 +97,12 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
   }
 );
 
-Object.assign(FormattedNumber, {
+interface FormattedNumberStaticProps {
+  formatNumber: typeof formatNumber;
+  localFallBack: string;
+}
+
+export default withStaticProps<FormattedNumberProps, FormattedNumberStaticProps>(FormattedNumber, {
   formatNumber: formatNumber,
   localFallBack: formatNumberConsts.DEFAULT_LOCAL
 });
-
-export default FormattedNumber;

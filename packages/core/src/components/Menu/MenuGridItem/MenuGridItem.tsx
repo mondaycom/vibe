@@ -1,10 +1,10 @@
 import React, { forwardRef, ReactElement, useCallback, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
@@ -55,10 +55,7 @@ export interface MenuGridItemProps extends VibeComponentProps {
   useDocumentEventListeners?: boolean;
 }
 
-const MenuGridItem: VibeComponent<MenuGridItemProps> & {
-  isMenuChild?: boolean;
-  isSelectable?: boolean;
-} = forwardRef(
+const MenuGridItem = forwardRef(
   (
     {
       className,
@@ -76,7 +73,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       useDocumentEventListeners = false,
       "data-testid": dataTestId
     }: MenuGridItemProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);

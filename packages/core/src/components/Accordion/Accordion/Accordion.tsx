@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
 import { ComponentVibeId } from "../../../tests/constants";
 
@@ -32,7 +32,7 @@ export interface AccordionProps extends VibeComponentProps {
   defaultIndex?: Array<number>;
 }
 
-const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
+const Accordion = forwardRef(
   (
     {
       children: originalChildren = null,
@@ -42,7 +42,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
       className = "",
       id
     }: AccordionProps,
-    ref
+    ref: React.ForwardedRef<unknown>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
