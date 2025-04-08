@@ -1,11 +1,10 @@
 import { useCallback, useMemo } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { BaseListItemProps } from "../../BaseListItem";
-import { ListGroup } from "../../BaseList";
+import { BaseListItemData } from "../../BaseListItem";
 import { DropdownGroupOption } from "../Dropdown.types";
 
-function useDropdownCombobox<T extends BaseListItemProps>(
+function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   autoFocus?: boolean,
   isMenuOpen?: boolean,
@@ -83,7 +82,7 @@ function useDropdownCombobox<T extends BaseListItemProps>(
     getInputProps,
     getItemProps,
     reset,
-    filteredOptions: filteredOptions as ListGroup<T>[]
+    filteredOptions
   };
 }
 

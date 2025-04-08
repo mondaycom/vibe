@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 import { VibeComponentProps } from "../../types";
-import { BaseListItemProps } from "../BaseListItem";
+import { BaseListItemData } from "../BaseListItem";
 
-export interface BaseListProps<T = BaseListItemProps>
+export interface BaseListProps<T = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
     VibeComponentProps {
   /**
@@ -12,7 +12,7 @@ export interface BaseListProps<T = BaseListItemProps>
   /**
    * The selected item in the list.
    */
-  selectedItem?: T | null;
+  selectedItem?: BaseListItemData<T> | null;
   /**
    * The index of the highlighted item in the list.
    */
@@ -44,7 +44,7 @@ export interface BaseListProps<T = BaseListItemProps>
   /**
    * Custom renderer for options.
    */
-  itemRenderer?: (item: T) => ReactNode;
+  itemRenderer?: (item: BaseListItemData<T>) => React.ReactNode;
   /**
    * Text or function to customize the "No results" message.
    */
@@ -63,7 +63,7 @@ export interface BaseListProps<T = BaseListItemProps>
   maxMenuHeight?: number;
 }
 
-export interface ListGroup<T = BaseListItemProps> {
+export interface ListGroup<T = Record<string, unknown>> {
   /**
    * The label for the group of options.
    */
@@ -71,7 +71,7 @@ export interface ListGroup<T = BaseListItemProps> {
   /**
    * The list of options within this group.
    */
-  options: T[];
+  options: BaseListItemData<T>[];
 }
 
 export type BaseListSizes = "small" | "medium" | "large";

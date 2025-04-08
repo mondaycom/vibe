@@ -2,10 +2,9 @@ import React from "react";
 import { render } from "@testing-library/react";
 import BaseList from "../BaseList";
 import { BaseListProps } from "../BaseList.types";
-import { BaseListItemProps } from "../../BaseListItem";
 
-function renderBaseList<T extends BaseListItemProps>(props?: Partial<BaseListProps<T>>) {
-  const defaultProps: BaseListProps<T> = {
+function renderBaseList(props?: Partial<BaseListProps<any>>) {
+  const defaultProps: BaseListProps<any> = {
     options: [],
     ...props
   };
@@ -30,7 +29,6 @@ describe("BaseList", () => {
       ]
     }
   ];
-
   it("should render correctly with all props", () => {
     const { getByText } = renderBaseList({
       options,
@@ -59,7 +57,7 @@ describe("BaseList", () => {
     it("should apply the selected class to the selected item", () => {
       const { getByText } = renderBaseList({
         options,
-        selectedItem: { label: "Option 1", value: "opt1", index: 0 }
+        selectedItem: { index: 0, value: "opt1", label: "Option 1" }
       });
 
       expect(getByText("Option 1").parentNode).toHaveClass("selected");
@@ -93,17 +91,127 @@ describe("BaseList", () => {
     });
 
     it("should support a custom option renderer", () => {
-      const customRenderer = (item: any) => <div data-testid={`custom-renderer-${item.value}`}>{item.label}</div>;
-      const { getByTestId } = renderBaseList({ options, itemRenderer: customRenderer });
+      const customRenderer = (item: any) => <div data-testid="custom-renderer">Renderer - {item.label}</div>;
+      const { getByText } = renderBaseList({ options, itemRenderer: customRenderer });
 
-      expect(getByTestId("custom-renderer-opt1")).toBeInTheDocument();
-      expect(getByTestId("custom-renderer-opt2")).toBeInTheDocument();
+      expect(getByText("Renderer - Option 1")).toBeInTheDocument();
+      expect(getByText("Renderer - Option 2")).toBeInTheDocument();
     });
 
     it("should have the correct `dir` attribute", () => {
       const { container } = renderBaseList({ options, dir: "rtl" });
 
       expect(container.querySelector("ul")).toHaveAttribute("dir", "rtl");
+    });
+  });
+
+  describe("with custom type", () => {
+    it("should work without explicit type parameter", () => {
+      const simpleOptions = [
+        {
+          label: "Simple Group",
+          options: [
+            {
+              index: 0,
+              value: "simple-1",
+              label: "Simple Item",
+              customField: "custom value"
+            }
+          ]
+        }
+      ];
+
+      const { getByText } = render(<BaseList options={simpleOptions} />);
+      expect(getByText("Simple Item")).toBeInTheDocument();
+    });
+
+    it("should work with explicit type parameter", () => {
+      // Use Record<string, unknown> to satisfy constraint
+      type ExplicitType = Record<string, unknown> & {
+        id: string;
+        isActive: boolean;
+      };
+
+      const typedOptions = [
+        {
+          label: "Typed Group",
+          options: [
+            {
+              index: 0,
+              value: "typed-1",
+              label: "Typed Item",
+              id: "123",
+              isActive: true
+            }
+          ]
+        }
+      ];
+
+      const { getByText } = render(<BaseList<ExplicitType> options={typedOptions} />);
+      expect(getByText("Typed Item")).toBeInTheDocument();
+    });
+
+    it("should work with itemRenderer without explicit type", () => {
+      const simpleOptions = [
+        {
+          label: "Renderer Group",
+          options: [
+            {
+              index: 0,
+              value: "render-1",
+              label: "Renderer Item",
+              count: 42
+            }
+          ]
+        }
+      ];
+
+      const simpleRenderer = (item: any) => <div data-testid="simple-rendered">{`${item.label}: ${item.count}`}</div>;
+
+      const { getByTestId } = render(<BaseList options={simpleOptions} itemRenderer={simpleRenderer} />);
+
+      expect(getByTestId("simple-rendered")).toHaveTextContent("Renderer Item: 42");
+    });
+
+    it("should work with itemRenderer and explicit type", () => {
+      // Use Record<string, unknown> to satisfy constraint
+      type ComplexType = Record<string, unknown> & {
+        id: string;
+        metadata: {
+          version: number;
+          status: string;
+        };
+      };
+
+      const complexOptions = [
+        {
+          label: "Complex Group",
+          options: [
+            {
+              index: 0,
+              value: "complex-1",
+              label: "Complex Item",
+              id: "complex-1",
+              metadata: {
+                version: 2,
+                status: "active"
+              }
+            }
+          ]
+        }
+      ];
+
+      const typedRenderer = (item: any) => {
+        return (
+          <div data-testid="complex-rendered">
+            {`${item.label} (v${item.metadata.version}): ${item.metadata.status}`}
+          </div>
+        );
+      };
+
+      const { getByTestId } = render(<BaseList<ComplexType> options={complexOptions} itemRenderer={typedRenderer} />);
+
+      expect(getByTestId("complex-rendered")).toHaveTextContent("Complex Item (v2): active");
     });
   });
 });

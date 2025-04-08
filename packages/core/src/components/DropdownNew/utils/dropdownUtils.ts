@@ -1,7 +1,7 @@
-import { BaseListItemProps } from "../../BaseListItem";
+import { BaseListItemData } from "../../BaseListItem";
 import { ListGroup } from "../../BaseList";
 
-export function normalizeOptions<T extends BaseListItemProps>(
+export function normalizeOptions<T extends BaseListItemData>(
   options: ListGroup<T>[] | T[],
   filter?: string
 ): ListGroup<T>[] {

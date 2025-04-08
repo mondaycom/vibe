@@ -7,10 +7,9 @@ import { TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 import { Divider } from "../Divider";
-import { BaseListItemProps } from "../BaseListItem";
 
 const BaseList = forwardRef(
-  <T extends BaseListItemProps>(
+  <T extends Record<string, unknown>>(
     {
       options,
       selectedItem,
@@ -44,7 +43,7 @@ const BaseList = forwardRef(
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
               <Flex justify="center">
-                <BaseListItem label={noOptionsMessage} size={size} readOnly />
+                <BaseListItem item={{ label: noOptionsMessage }} size={size} readOnly />
               </Flex>
             ) : (
               noOptionsMessage
@@ -59,23 +58,22 @@ const BaseList = forwardRef(
                     </Text>
                   </li>
                 )}
-                {group.options.map((item, itemIndex) => {
-                  const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
+                {group.options.map((option, itemIndex) => {
+                  const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
                   const isHighlighted =
-                    highlightedIndex !== undefined && highlightedIndex === item.index && !item.disabled;
+                    highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
                   const isSelected =
-                    selectedItem?.value !== undefined && selectedItem?.value === item.value && !item.disabled;
+                    selectedItem?.value !== undefined && selectedItem?.value === option.value && !option.disabled;
 
                   return (
-                    <BaseListItem
+                    <BaseListItem<T>
                       itemProps={itemProps}
-                      label={item.label as string}
-                      key={typeof item.value === "string" ? item.value : itemIndex}
+                      key={typeof option.value === "string" ? option.value : itemIndex}
                       size={size}
                       highlighted={isHighlighted}
                       selected={isSelected}
                       itemRenderer={itemRenderer}
-                      item={item}
+                      item={option}
                     />
                   );
                 })}
@@ -89,4 +87,6 @@ const BaseList = forwardRef(
   }
 );
 
-export default BaseList;
+export default BaseList as <T extends Record<string, unknown>>(
+  props: BaseListProps<T> & { ref?: React.Ref<HTMLUListElement> }
+) => React.ReactElement;

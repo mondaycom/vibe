@@ -38,10 +38,7 @@
 
     &.hasSelected {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       cursor: pointer;
     }
   }
@@ -49,10 +46,7 @@
   .selectedItem {
     position: relative;
     pointer-events: none;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     padding-inline-start: var(--spacing-xs);
 
     &.small {

@@ -16,7 +16,7 @@ export default {
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
   tags: ["internal"]
-} satisfies Meta<typeof BaseList>;
+} as Meta<typeof BaseList>;
 
 const baseListItemTemplate = createComponentTemplate(BaseList);
 
@@ -25,10 +25,11 @@ const createOptions = (groupCount: number, optionsPerGroup: number) => {
   return Array.from({ length: groupCount }, (_, groupIndex) => ({
     label: `Group ${groupIndex + 1}`,
     options: Array.from({ length: optionsPerGroup }, (_, optionIndex) => ({
+      index: index,
+      value: `option-${index++}`,
       label: `Option ${optionIndex + 1}`,
-      index: index++,
-      startElement: { type: "avatar", value: person1 },
-      endElement: { type: "icon", value: Email }
+      startElement: { type: "avatar" as const, value: person1 },
+      endElement: { type: "icon" as const, value: Email }
     }))
   }));
 };

@@ -7,10 +7,6 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   extends React.LiHTMLAttributes<HTMLLIElement>,
     VibeComponentProps {
   /**
-   * The primary text content of the list item.
-   */
-  label: string;
-  /**
    * The Size of the list item.
    */
   size?: BaseListSizes;
@@ -18,10 +14,6 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    * If true, the list item is selected.
    */
   selected?: boolean;
-  /**
-   * If true, the list item is disabled.
-   */
-  disabled?: boolean;
   /**
    * If true, the dropdown is read-only and cannot be edited.
    */
@@ -49,20 +41,32 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   /**
    * Custom renderer for options.
    */
-  itemRenderer?: (item: T) => React.ReactNode;
-  /**
-   * The original item data that this list item represents.
-   */
-  item?: T;
+  itemRenderer?: (item: BaseListItemData<T>) => React.ReactNode;
+  item?: BaseListItemData<T>;
   /**
    * Additional props to pass to the list item element.
    */
   itemProps?: Record<string, unknown>;
-  /**
-   * Allow any additional user-defined properties dynamically
-   **/
-  [key: string]: unknown;
 }
+
+export type BaseListItemData<T = Record<string, unknown>> = T & {
+  /**
+   * The primary text content of the list item.
+   */
+  label: string;
+  /**
+   * The start element of the list item.
+   */
+  startElement?: StartElement;
+  /**
+   * The end element of the list item.
+   */
+  endElement?: EndElement;
+  /**
+   * If true, the list item is disabled.
+   */
+  disabled?: boolean;
+};
 
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }

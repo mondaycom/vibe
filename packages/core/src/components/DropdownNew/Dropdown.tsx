@@ -7,20 +7,20 @@ import { IconButton } from "../IconButton";
 import { Flex } from "../Flex";
 import { BaseList } from "../BaseList";
 import styles from "./Dropdown.module.scss";
-import { BaseListItem, BaseListItemProps } from "../BaseListItem";
+import { BaseListItem } from "../BaseListItem";
 import usePopover from "../../hooks/usePopover";
 import { Placement } from "../../hooks/popoverConstants";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
-import { VibeComponent } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import Text from "../Text/Text";
+import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
 
-const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivElement> = forwardRef(
-  (
+const Dropdown = forwardRef(
+  <T extends BaseListItemData<Record<string, unknown>>>(
     {
       options,
       size,
@@ -53,7 +53,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
       className,
       id,
       "data-testid": dataTestId
-    }: BaseDropdownProps<BaseListItemProps>,
+    }: BaseDropdownProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const dropdownRef = useRef<HTMLInputElement>(null);
@@ -114,7 +114,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         >
           <Flex justify="space-between" ref={triggerRef}>
-            <div style={{ flexGrow: 1, position: "relative" }}>
+            <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
               <BaseInput
                 {...getInputProps({
                   placeholder: !selectedItem ? placeholder : "",
@@ -146,14 +146,12 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
                   })}
                 >
                   <BaseListItem
-                    label={selectedItem.label}
                     size={size}
                     readOnly
                     itemRenderer={optionRenderer}
                     item={{
                       ...selectedItem,
-                      startElement:
-                        (selectedItem.startElement as any)?.type === "indent" ? undefined : selectedItem.startElement
+                      startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
                     }}
                   />
                 </div>
@@ -192,7 +190,7 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
             ref={listWrapperRef}
           >
             <DialogContentContainer>
-              <BaseList
+              <BaseList<T>
                 size={size}
                 options={filteredOptions}
                 selectedItem={selectedItem}
@@ -226,4 +224,6 @@ const Dropdown: VibeComponent<BaseDropdownProps<BaseListItemProps>, HTMLDivEleme
   }
 );
 
-export default Dropdown;
+export default Dropdown as <T extends BaseListItemData<Record<string, unknown>>>(
+  props: BaseDropdownProps<T> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => React.ReactElement;

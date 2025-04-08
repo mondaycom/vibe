@@ -17,16 +17,18 @@ export default {
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
   tags: ["internal"]
-} satisfies Meta<typeof BaseListItem>;
+} as Meta<typeof BaseListItem>;
 
 const baseListItemTemplate = createComponentTemplate(BaseListItem);
 
 export const Overview: Story = {
   render: baseListItemTemplate.bind({}),
   args: {
-    label: "This is a list item",
-    startElement: { type: "avatar", value: person1 },
-    endElement: { type: "icon", value: Email },
+    item: {
+      label: "This is a list item",
+      startElement: { type: "avatar" as const, value: person1 },
+      endElement: { type: "icon" as const, value: Email }
+    },
     tooltipProps: { content: "tooltip content" }
   }
 };
