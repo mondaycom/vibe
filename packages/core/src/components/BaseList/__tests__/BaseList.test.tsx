@@ -126,7 +126,6 @@ describe("BaseList", () => {
     });
 
     it("should work with explicit type parameter", () => {
-      // Use Record<string, unknown> to satisfy constraint
       type ExplicitType = Record<string, unknown> & {
         id: string;
         isActive: boolean;
@@ -174,7 +173,6 @@ describe("BaseList", () => {
     });
 
     it("should work with itemRenderer and explicit type", () => {
-      // Use Record<string, unknown> to satisfy constraint
       type ComplexType = Record<string, unknown> & {
         id: string;
         metadata: {
