@@ -18,5 +18,12 @@ export function normalizeOptions<T extends BaseListItemData>(
           };
         })
         .filter(group => group.options.length > 0)
-    : [{ label: undefined, options: (options as T[]).map(item => ({ ...item, index: indexCounter++ })) }];
+    : [
+        {
+          label: undefined,
+          options: (options as T[])
+            .filter(item => !filter || item.label.toLowerCase().includes(filter.toLowerCase()))
+            .map(item => ({ ...item, index: indexCounter++ }))
+        }
+      ];
 }

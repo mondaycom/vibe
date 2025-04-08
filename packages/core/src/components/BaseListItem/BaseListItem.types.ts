@@ -42,6 +42,9 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    * Custom renderer for options.
    */
   itemRenderer?: (item: BaseListItemData<T>) => React.ReactNode;
+  /**
+   * The original item data that this list item represents.
+   */
   item?: BaseListItemData<T>;
   /**
    * Additional props to pass to the list item element.
