@@ -8,6 +8,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   options: DropdownGroupOption<T>,
   autoFocus?: boolean,
   isMenuOpen?: boolean,
+  closeMenuOnSelect?: boolean,
   onChange?: (option: T | T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
@@ -64,7 +65,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: "" };
+          return { ...actionAndChanges.changes, inputValue: "", isOpen: !closeMenuOnSelect };
         default:
           return actionAndChanges.changes;
       }

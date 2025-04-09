@@ -70,9 +70,13 @@ export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unk
    */
   maxMenuHeight?: number;
   /**
-   * If true, the dropdown menu is open.
+   * If true, controls the menu open state.
    */
   isMenuOpen?: boolean;
+  /**
+   * If true, closes the menu when an option is selected.
+   */
+  closeMenuOnSelect?: boolean;
   /**
    * If true, the dropdown menu will be auto focused.
    */
