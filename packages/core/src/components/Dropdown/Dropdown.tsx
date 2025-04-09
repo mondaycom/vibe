@@ -518,7 +518,12 @@ export default withStaticProps(Dropdown, {
 
 function isTestEnv() {
   try {
-    return typeof require === "function" && typeof module !== "undefined" && typeof process !== "undefined" && process.env.NODE_ENV === "test";
+    return (
+      typeof require === "function" &&
+      typeof module !== "undefined" &&
+      typeof process !== "undefined" &&
+      process.env.NODE_ENV === "test"
+    );
   } catch (e) {
     return false;
   }
