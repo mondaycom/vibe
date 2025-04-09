@@ -60,9 +60,10 @@ export * from "./Tipseen";
 export * from "./Toast";
 export * from "./Toggle";
 export * from "./Tooltip";
-export * from "./Typography";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
+
+export type * from "./Typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";
