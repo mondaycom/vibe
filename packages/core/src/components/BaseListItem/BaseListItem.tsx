@@ -15,7 +15,6 @@ const BaseListItem = forwardRef(
       selected,
       readOnly,
       highlighted,
-      tooltipProps = {},
       className,
       dir = "ltr",
       id,
@@ -25,7 +24,7 @@ const BaseListItem = forwardRef(
       item = {} as BaseListItemData<T>
     } = props;
 
-    const { label = "", disabled = false, startElement, endElement } = item;
+    const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
 
     const listItemClassNames = useMemo(
       () =>

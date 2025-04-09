@@ -23,10 +23,6 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   highlighted?: boolean;
   /**
-   * Props for displaying a tooltip on the list item.
-   */
-  tooltipProps?: Partial<TooltipProps>;
-  /**
    * Determines the position of the tooltip according to the direction.
    */
   dir?: BaseListDirection;
@@ -69,6 +65,10 @@ export type BaseListItemData<T = Record<string, unknown>> = T & {
    * If true, the list item is disabled.
    */
   disabled?: boolean;
+  /**
+   * Props for displaying a tooltip on the list item.
+   */
+  tooltipProps?: Partial<TooltipProps>;
 };
 
 export type SideElement =
