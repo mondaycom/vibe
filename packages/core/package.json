@@ -83,7 +83,6 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@rollup/plugin-replace": "^6.0.2",
     "@vibe/icons": "1.6.1",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
