@@ -27,6 +27,8 @@ import {
 import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
 import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface BoxProps extends VibeComponentProps {
   /**
@@ -152,7 +154,21 @@ const Box: VibeComponent<BoxProps> & {
   backgroundColors?: typeof BackgroundColorEnum;
   textColors?: typeof BoxTextColorEnum;
 } = forwardRef(
-  ({ className, id, elementType = "div", children, disabled, border, scrollable, style, ...props }: BoxProps, ref) => {
+  (
+    {
+      className,
+      id,
+      elementType = "div",
+      children,
+      disabled,
+      border,
+      scrollable,
+      style,
+      "data-testid": dataTestId,
+      ...props
+    }: BoxProps,
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -170,7 +186,7 @@ const Box: VibeComponent<BoxProps> & {
     return React.createElement(
       elementType,
       {
-        "data-testid": props["data-testid"],
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BOX, id),
         ref: mergedRef,
         className: cx(
           styles.box,
