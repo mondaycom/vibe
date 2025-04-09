@@ -64,6 +64,6 @@ export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
-export type * from "./Typography";
+export type { TypographyColor, TypographyAlign } from "./Typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";
