@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.41.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.40.0...@vibe/core@3.41.0) (2025-04-10)
+
+
+### Features
+
+* **TextField:** validationText can be a ReactNode ([#2837](https://github.com/mondaycom/vibe/issues/2837)) ([3df905c](https://github.com/mondaycom/vibe/commit/3df905ca4ecb9bb5824b71b61bc489ad1f29cc93))
+
+
+
+
+
 # [3.40.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.39.0...@vibe/core@3.40.0) (2025-04-09)
 
 
