@@ -240,7 +240,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
-          showDelay={showDelay}
+          showDelay={0}
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           showOnDialogEnter={false}
