@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
-import Tooltip from "../../components/Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -72,6 +72,10 @@ export interface TextWithHighlightProps extends VibeComponentProps {
    * The position of the tooltip when displayed.
    */
   tooltipPosition?: TooltipPositions;
+  /**
+   * Additional props to customize the tooltip component.
+   */
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
@@ -90,6 +94,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       tooltipPosition,
       wrappingTextTag = "em",
       wrappingElementClassName,
+      tooltipProps = {},
       "data-testid": dataTestId
     }: TextWithHighlightProps,
     ref
@@ -147,7 +152,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
     if (isOverflowing || nonEllipsisTooltip) {
       const tooltipContent = isOverflowing ? text : nonEllipsisTooltip;
       return (
-        <Tooltip content={tooltipContent} position={tooltipPosition}>
+        <Tooltip content={tooltipContent} position={tooltipPosition} {...tooltipProps}>
           {Element}
         </Tooltip>
       );
