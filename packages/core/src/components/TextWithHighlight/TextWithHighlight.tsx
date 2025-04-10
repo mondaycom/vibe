@@ -70,6 +70,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   wrappingElementClassName?: string;
   /**
    * The position of the tooltip when displayed.
+   * @deprecated Use `tooltipProps.position` instead.
    */
   tooltipPosition?: TooltipPositions;
   /**
