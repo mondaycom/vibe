@@ -8,8 +8,10 @@ export type FlexGap = "xs" | "small" | "medium" | "large";
 
 export type FlexDirection = "row" | "column";
 
-export type FlexShorthand = {
-  grow?: CSSProperties["flexGrow"];
-  shrink?: CSSProperties["flexShrink"];
-  basis?: CSSProperties["flexBasis"];
-};
+export type FlexShorthand =
+  | CSSProperties["flex"]
+  | {
+      grow?: CSSProperties["flexGrow"];
+      shrink?: CSSProperties["flexShrink"];
+      basis?: CSSProperties["flexBasis"];
+    };

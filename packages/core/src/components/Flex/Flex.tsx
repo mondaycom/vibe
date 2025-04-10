@@ -112,15 +112,19 @@ const Flex: VibeComponent<FlexProps> & {
     const flexStyle = useMemo(() => {
       if (!flex) return {};
 
-      if (["string, number"].includes(typeof flex)) {
+      if (["string", "number"].includes(typeof flex)) {
         return { flex };
       }
 
-      return {
-        flexGrow: flex.grow,
-        flexShrink: flex.shrink,
-        flexBasis: flex.basis
-      };
+      if (typeof flex === "object") {
+        return {
+          flexGrow: flex.grow,
+          flexShrink: flex.shrink,
+          flexBasis: flex.basis
+        };
+      }
+
+      return {};
     }, [flex]);
 
     const overrideStyle = useMemo(() => ({ ...style, ...gapStyle, ...flexStyle }), [style, gapStyle, flexStyle]);

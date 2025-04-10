@@ -95,6 +95,44 @@ exports[`Flex renders correctly Horizontal display with flex 1`] = `
 </div>
 `;
 
+exports[`Flex renders correctly Horizontal display with flex shorthand 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  style={{}}
+>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flex": "1 0 auto",
+      }
+    }
+  >
+    1
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flex": "0 1 auto",
+      }
+    }
+  >
+    2
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "flex": "0 1 auto",
+      }
+    }
+  >
+    3
+  </div>
+</div>
+`;
+
 exports[`Flex renders correctly Horizontal display with gap 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"

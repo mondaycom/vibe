@@ -96,6 +96,18 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("with flex shorthand", () => {
+      const tree = renderer
+        .create(
+          <Flex>
+            <Flex flex="1 0 auto">1</Flex>
+            <Flex flex="0 1 auto">2</Flex>
+            <Flex flex="0 1 auto">3</Flex>
+          </Flex>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
   describe("Vertical display", () => {
     it("with children", () => {
