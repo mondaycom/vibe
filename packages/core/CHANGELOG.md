@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.42.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.41.0...@vibe/core@3.42.0) (2025-04-10)
+
+
+### Bug Fixes
+
+* **Tipseen:** prevent double delay when using showDelay ([#2839](https://github.com/mondaycom/vibe/issues/2839)) ([d53758b](https://github.com/mondaycom/vibe/commit/d53758bf7402a293faad33ea523b922b7beaae26))
+
+
+### Features
+
+* **Flex:** introduced flex prop ([#2753](https://github.com/mondaycom/vibe/issues/2753)) ([5972ab2](https://github.com/mondaycom/vibe/commit/5972ab2f7aadeb61525e580aa0ff2036187a6c97))
+* **TextWithHighlight:** add tooltipProps for additional Tooltip cust… ([#2840](https://github.com/mondaycom/vibe/issues/2840)) ([41781fd](https://github.com/mondaycom/vibe/commit/41781fd5ccc25540675e706b32aa9a825170327f))
+
+
+
+
+
 # [3.41.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.40.0...@vibe/core@3.41.0) (2025-04-10)
 
 
