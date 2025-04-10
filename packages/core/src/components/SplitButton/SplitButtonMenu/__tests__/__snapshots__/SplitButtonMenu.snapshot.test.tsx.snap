@@ -13,7 +13,7 @@ exports[`SplitButtonMenu renders correctly 1`] = `
   tabIndex={0}
 >
   <li
-    aria-current={true}
+    aria-selected={true}
     className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
     data-testid="menu-item_0"
     id="menu-item-0"
@@ -28,7 +28,7 @@ exports[`SplitButtonMenu renders correctly 1`] = `
     </div>
   </li>
   <li
-    aria-current={false}
+    aria-selected={false}
     className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
     data-testid="menu-item_1"
     id="menu-item-1"
