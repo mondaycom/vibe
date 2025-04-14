@@ -1,12 +1,14 @@
 import { useCallback, useMemo } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { BaseListItemProps } from "../../BaseListItem";
-import { ListGroup } from "../../BaseList";
+import { BaseListItemData } from "../../BaseListItem";
 import { DropdownGroupOption } from "../Dropdown.types";
 
-function useDropdownCombobox<T extends BaseListItemProps>(
+function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
+  autoFocus?: boolean,
+  isMenuOpen?: boolean,
+  closeMenuOnSelect?: boolean,
   onChange?: (option: T | T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
@@ -18,9 +20,11 @@ function useDropdownCombobox<T extends BaseListItemProps>(
 
   const {
     isOpen,
+    inputValue,
     highlightedIndex,
     selectedItem,
     getToggleButtonProps,
+    getLabelProps,
     getMenuProps,
     getInputProps,
     getItemProps,
@@ -29,7 +33,8 @@ function useDropdownCombobox<T extends BaseListItemProps>(
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
-
+    isOpen: isMenuOpen,
+    initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
       ({ isOpen }) => {
         isOpen ? onMenuClose?.() : onMenuOpen?.();
@@ -60,7 +65,7 @@ function useDropdownCombobox<T extends BaseListItemProps>(
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: "" };
+          return { ...actionAndChanges.changes, inputValue: "", isOpen: !closeMenuOnSelect };
         default:
           return actionAndChanges.changes;
       }
@@ -69,14 +74,16 @@ function useDropdownCombobox<T extends BaseListItemProps>(
 
   return {
     isOpen,
+    inputValue,
     highlightedIndex,
     selectedItem,
     getToggleButtonProps,
+    getLabelProps,
     getMenuProps,
     getInputProps,
     getItemProps,
     reset,
-    filteredOptions: filteredOptions as ListGroup<T>[]
+    filteredOptions
   };
 }
 
