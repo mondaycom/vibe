@@ -26,9 +26,9 @@ export const Overview = {
 
   args: {
     children: [
-      <BreadcrumbMenuItem key="1" text="Option 1" />,
-      <BreadcrumbMenuItem key="2" text="Option 2" />,
-      <BreadcrumbMenuItem key="3" text="Option 3" />
+      <BreadcrumbMenuItem key="1" title="Option 1" />,
+      <BreadcrumbMenuItem key="2" title="Option 2" />,
+      <BreadcrumbMenuItem key="3" title="Option 3" />
     ]
   }
 };
@@ -40,9 +40,9 @@ export const States = {
         <span>Default</span>
         <BreadcrumbsBar type="navigation">
           <BreadcrumbMenu>
-            <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
-            <BreadcrumbMenuItem text="Option 2" icon={Filter} />
-            <BreadcrumbMenuItem text="Option 3" />
+            <BreadcrumbMenuItem title="Option 1" icon={Workspace} />
+            <BreadcrumbMenuItem title="Option 2" icon={Filter} />
+            <BreadcrumbMenuItem title="Option 3" />
           </BreadcrumbMenu>
         </BreadcrumbsBar>
       </div>
@@ -59,8 +59,8 @@ export const WithLinks = {
         <span>With Links</span>
         <BreadcrumbsBar type="indication">
           <BreadcrumbMenu>
-            <BreadcrumbMenuItem text="Google" icon={Workspace} link="https://www.google.com" />
-            <BreadcrumbMenuItem text="Monday" icon={Filter} link="https://www.monday.com" />
+            <BreadcrumbMenuItem title="Google" icon={Workspace} link="https://www.google.com" />
+            <BreadcrumbMenuItem title="Monday" icon={Filter} link="https://www.monday.com" />
           </BreadcrumbMenu>
         </BreadcrumbsBar>
       </div>
