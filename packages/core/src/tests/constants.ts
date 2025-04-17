@@ -128,7 +128,8 @@ export enum ComponentDefaultTestId {
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
   TABLE_ROW = "table-row",
-  TABLE_ROW_MENU = "table-row-menu"
+  TABLE_ROW_MENU = "table-row-menu",
+  BREADCRUMB_MENU_ITEM = "breadcrumb-menu-item"
 }
 
 export enum NavigationCommand {
