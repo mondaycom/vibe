@@ -1,5 +1,4 @@
 import React from "react";
-import cx from "classnames";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import { SubIcon, VibeComponentProps } from "../../../../types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
@@ -14,7 +13,12 @@ export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   link?: string;
 }
 
-const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
+// Extend React.FC with the static property
+type BreadcrumbMenuItemType = React.FC<BreadcrumbMenuItemProps> & {
+  isMenuChild?: boolean;
+};
+
+const BreadcrumbMenuItem: BreadcrumbMenuItemType = ({
   className,
   text,
   icon,
@@ -42,5 +46,7 @@ const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
     />
   );
 };
+
+BreadcrumbMenuItem.isMenuChild = true;
 
 export default BreadcrumbMenuItem;
