@@ -1,8 +1,11 @@
 import React from "react";
 import MenuButton, { MenuButtonProps } from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
+import { VibeComponentProps } from "src/types";
 
-export interface BreadcrumbMenuProps extends MenuButtonProps {}
+export interface BreadcrumbMenuProps extends VibeComponentProps {
+  children: React.ReactNode;
+}
 
 const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
   children,
@@ -10,7 +13,7 @@ const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
 }) => {
   return (
     <MenuButton
-      size={MenuButton.sizes.SMALL}
+      size={MenuButton.sizes.XXS}
       closeMenuOnItemClick
       closeDialogOnContentClick
       {...props}
