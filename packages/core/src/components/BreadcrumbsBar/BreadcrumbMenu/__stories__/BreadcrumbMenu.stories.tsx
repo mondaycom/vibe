@@ -42,7 +42,7 @@ export const States = {
       <div className="monday-storybook-breadcrumb-menu_row-wrapper">
         <span>Default</span>
         <BreadcrumbsBar type="navigation">
-          <BreadcrumbMenu text="Menu Options" icon={Menu}>
+          <BreadcrumbMenu>
             <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
             <BreadcrumbMenuItem text="Option 2" icon={Filter} />
             <BreadcrumbMenuItem text="Option 3" />
@@ -52,7 +52,7 @@ export const States = {
       <div className="monday-storybook-breadcrumb-menu_row-wrapper">
         <span>With onClick</span>
         <BreadcrumbsBar type="navigation">
-          <BreadcrumbMenu text="Menu Options" icon={Menu}>
+          <BreadcrumbMenu>
             <BreadcrumbMenuItem
               text="Option 1"
               icon={Workspace}
@@ -73,7 +73,7 @@ export const States = {
       <div className="monday-storybook-breadcrumb-menu_row-wrapper">
         <span>Disabled</span>
         <BreadcrumbsBar type="indication">
-          <BreadcrumbMenu text="Menu Options" icon={Menu} disabled>
+          <BreadcrumbMenu>
             <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
             <BreadcrumbMenuItem text="Option 2" icon={Filter} />
           </BreadcrumbMenu>
@@ -82,7 +82,7 @@ export const States = {
       <div className="monday-storybook-breadcrumb-menu_row-wrapper">
         <span>Current</span>
         <BreadcrumbsBar type="indication">
-          <BreadcrumbMenu text="Menu Options" icon={Menu} isCurrent>
+          <BreadcrumbMenu>
             <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
             <BreadcrumbMenuItem text="Option 2" icon={Filter} />
           </BreadcrumbMenu>
@@ -100,7 +100,7 @@ export const WithLinks = {
       <div className="monday-storybook-breadcrumb-menu_row-wrapper">
         <span>With Links</span>
         <BreadcrumbsBar type="indication">
-          <BreadcrumbMenu text="Menu Options" icon={Menu}>
+          <BreadcrumbMenu>
             <BreadcrumbMenuItem text="Google" icon={Workspace} link="https://www.google.com" />
             <BreadcrumbMenuItem text="Monday" icon={Filter} link="https://www.monday.com" />
           </BreadcrumbMenu>

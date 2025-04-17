@@ -7,14 +7,6 @@ import { VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbMenu.module.scss";
 
 export interface BreadcrumbMenuProps extends VibeComponentProps {
-  /** The display text. */
-  text?: string;
-  /** Should item be disabled. */
-  disabled?: boolean;
-  /** Should be the current Item - mainly effects the item's style. */
-  isCurrent?: boolean;
-  /** An Icon component - If no icon needed then should be left empty. */
-  icon?: (() => JSX.Element) | React.ElementType;
   /** Position of the menu dialog */
   dialogPosition?: DialogPosition;
   /** Callback function to be called when the menu is shown */
@@ -27,10 +19,6 @@ export interface BreadcrumbMenuProps extends VibeComponentProps {
 
 const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
   className,
-  text = "",
-  disabled = false,
-  isCurrent = false,
-  icon,
   dialogPosition = MenuButton.dialogPositions.BOTTOM_START,
   onMenuShow,
   onMenuHide,
@@ -42,16 +30,10 @@ const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
     <li
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
-      className={cx(styles.breadcrumbMenuWrapper, className, {
-        [styles.disabled]: disabled,
-        [styles.current]: isCurrent
-      })}
+      className={cx(styles.breadcrumbMenuWrapper, className)}
     >
       <MenuButton
         size="small"
-        text={text}
-        disabled={disabled}
-        component={icon}
         dialogPosition={dialogPosition}
         onMenuShow={onMenuShow}
         onMenuHide={onMenuHide}

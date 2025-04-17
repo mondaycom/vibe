@@ -1,5 +1,5 @@
-@import "../../../styles/themes";
-@import "../../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
+@import "../../../styles/states";
 
 .breadcrumbMenuWrapper {
   display: inline-block;
