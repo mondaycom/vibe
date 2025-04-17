@@ -49,45 +49,6 @@ export const States = {
           </BreadcrumbMenu>
         </BreadcrumbsBar>
       </div>
-      <div className="monday-storybook-breadcrumb-menu_row-wrapper">
-        <span>With onClick</span>
-        <BreadcrumbsBar type="navigation">
-          <BreadcrumbMenu>
-            <BreadcrumbMenuItem
-              text="Option 1"
-              icon={Workspace}
-              onClick={() => {
-                alert("Clicked option 1");
-              }}
-            />
-            <BreadcrumbMenuItem
-              text="Option 2"
-              icon={Filter}
-              onClick={() => {
-                alert("Clicked option 2");
-              }}
-            />
-          </BreadcrumbMenu>
-        </BreadcrumbsBar>
-      </div>
-      <div className="monday-storybook-breadcrumb-menu_row-wrapper">
-        <span>Disabled</span>
-        <BreadcrumbsBar type="indication">
-          <BreadcrumbMenu>
-            <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
-            <BreadcrumbMenuItem text="Option 2" icon={Filter} />
-          </BreadcrumbMenu>
-        </BreadcrumbsBar>
-      </div>
-      <div className="monday-storybook-breadcrumb-menu_row-wrapper">
-        <span>Current</span>
-        <BreadcrumbsBar type="indication">
-          <BreadcrumbMenu>
-            <BreadcrumbMenuItem text="Option 1" icon={Workspace} />
-            <BreadcrumbMenuItem text="Option 2" icon={Filter} />
-          </BreadcrumbMenu>
-        </BreadcrumbsBar>
-      </div>
     </div>
   ),
 

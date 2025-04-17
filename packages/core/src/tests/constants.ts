@@ -49,6 +49,8 @@ export enum ComponentDefaultTestId {
   AVATAR_CONTENT = "avatar-content",
   BREADCRUMB_ITEM = "breadcrumb-item",
   BREADCRUMBS_BAR = "breadcrumbs-bar",
+  BREADCRUMB_MENU = "breadcrumb-menu",
+  BREADCRUMB_MENU_ITEM = "breadcrumb-menu-item",
   LINEAR_PROGRESS_BAR = "linear-progress-bar",
   BAR = "bar",
   BAR_PRIMARY = "bar-primary",
@@ -128,8 +130,7 @@ export enum ComponentDefaultTestId {
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
   TABLE_ROW = "table-row",
-  TABLE_ROW_MENU = "table-row-menu",
-  BREADCRUMB_MENU_ITEM = "breadcrumb-menu-item"
+  TABLE_ROW_MENU = "table-row-menu"
 }
 
 export enum NavigationCommand {

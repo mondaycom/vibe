@@ -1,11 +1,10 @@
 import React from "react";
-import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import MenuButton from "../../MenuButton/MenuButton";
 import { DialogPosition } from "../../Dialog/Dialog.types";
 import { VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbMenu.module.scss";
-
+import cx from "classnames";
 export interface BreadcrumbMenuProps extends VibeComponentProps {
   /** Position of the menu dialog */
   dialogPosition?: DialogPosition;
@@ -27,21 +26,17 @@ const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
   "data-testid": dataTestId
 }) => {
   return (
-    <li
+    <MenuButton
       id={id}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
-      className={cx(styles.breadcrumbMenuWrapper, className)}
+      size={MenuButton.sizes.MEDIUM}
+      dialogPosition={dialogPosition}
+      onMenuShow={onMenuShow}
+      onMenuHide={onMenuHide}
+      className={cx(styles.menuButton, className)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
     >
-      <MenuButton
-        size="small"
-        dialogPosition={dialogPosition}
-        onMenuShow={onMenuShow}
-        onMenuHide={onMenuHide}
-        className={styles.menuButton}
-      >
-        {children}
-      </MenuButton>
-    </li>
+      {children}
+    </MenuButton>
   );
 };
 
