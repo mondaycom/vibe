@@ -7,23 +7,10 @@ export interface BreadcrumbMenuProps extends VibeComponentProps {
   children: React.ReactNode;
 }
 
-const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
-  children,
-  ...props
-}) => {
+const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({ children, ...props }) => {
   return (
-    <MenuButton
-      size={MenuButton.sizes.XXS}
-      closeMenuOnItemClick
-      closeDialogOnContentClick
-      {...props}
-    >
-      <Menu
-        size={Menu.sizes.MEDIUM} 
-        focusOnMount 
-        focusItemIndexOnMount={0}
-        ariaLabel="Breadcrumb Menu Options"
-      >
+    <MenuButton size={MenuButton.sizes.XXS} closeMenuOnItemClick closeDialogOnContentClick {...props}>
+      <Menu size={Menu.sizes.MEDIUM} focusOnMount focusItemIndexOnMount={0} ariaLabel="Breadcrumb Menu Options">
         {children}
       </Menu>
     </MenuButton>

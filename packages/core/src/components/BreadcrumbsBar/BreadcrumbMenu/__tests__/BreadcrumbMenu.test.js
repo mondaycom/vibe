@@ -7,12 +7,10 @@ import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../
 
 jest.useFakeTimers();
 
-// Mock the MenuItem to verify the correct props are passed through
 jest.mock("../../../Menu/MenuItem/MenuItem", () => {
   return {
     __esModule: true,
     default: jest.fn(props => {
-      // Call the onClick handler immediately when rendered for testing
       if (props.onClick && props.title === "Click Test") {
         props.onClick({});
       }
@@ -41,14 +39,11 @@ describe("BreadcrumbMenu tests", () => {
       </BreadcrumbsBar>
     );
 
-    // Menu should not be visible initially
     expect(queryByText("Option 1")).toBeNull();
-    
-    // Click the menu button
+
     const menuButton = getByRole("button");
     fireEvent.click(menuButton);
 
-    // The menu should now be visible
     await waitFor(() => {
       expect(screen.getByText("Option 1")).toBeInTheDocument();
       expect(screen.getByText("Option 2")).toBeInTheDocument();
@@ -57,7 +52,7 @@ describe("BreadcrumbMenu tests", () => {
 
   it("should call onMenuShow when menu opens", async () => {
     const onMenuShowMock = jest.fn();
-    
+
     const { getByRole } = render(
       <BreadcrumbsBar type="navigation">
         <BreadcrumbMenu onMenuShow={onMenuShowMock}>
@@ -66,20 +61,17 @@ describe("BreadcrumbMenu tests", () => {
       </BreadcrumbsBar>
     );
 
-    // Click the menu button
     const menuButton = getByRole("button");
     fireEvent.click(menuButton);
 
-    // Wait for animation frame
     jest.advanceTimersByTime(100);
 
-    // The onMenuShow callback should have been called
     expect(onMenuShowMock).toHaveBeenCalled();
   });
 
   it("should call onMenuHide when menu closes", async () => {
     const onMenuHideMock = jest.fn();
-    
+
     const { getByRole } = render(
       <BreadcrumbsBar type="navigation">
         <BreadcrumbMenu onMenuHide={onMenuHideMock}>
@@ -88,56 +80,38 @@ describe("BreadcrumbMenu tests", () => {
       </BreadcrumbsBar>
     );
 
-    // Open the menu
     const menuButton = getByRole("button");
     fireEvent.click(menuButton);
-    
-    // Wait for animation frame
-    jest.advanceTimersByTime(100);
-    
-    // Close the menu by clicking outside
-    fireEvent.click(document.body);
-    
-    // Wait for animation frame
+
     jest.advanceTimersByTime(100);
 
-    // The onMenuHide callback should have been called
+    fireEvent.click(document.body);
+
+    jest.advanceTimersByTime(100);
+
     expect(onMenuHideMock).toHaveBeenCalled();
   });
 
   it("should pass onClick handlers to MenuItem", () => {
     const onClickMock = jest.fn();
-    
-    render(
-      <BreadcrumbMenuItem title="Click Test" onClick={onClickMock} />
-    );
-    
-    // Our mock will call onClick if title is "Click Test"
+
+    render(<BreadcrumbMenuItem title="Click Test" onClick={onClickMock} />);
+
     expect(onClickMock).toHaveBeenCalled();
   });
 
   it("should pass link to MenuItem", () => {
-    // Create a spy for window.open
     const originalOpen = window.open;
     window.open = jest.fn();
-    
-    // Test that link is correctly used in the click handler
+
     const onClickMock = jest.fn();
-    const mockEvent = {}; // Mock event object
-    
-    // Create a BreadcrumbMenuItem instance
+
     const { getByTestId } = render(
-      <BreadcrumbMenuItem
-        title="Link Test" 
-        onClick={onClickMock}
-        link="https://example.com"
-      />
+      <BreadcrumbMenuItem title="Link Test" onClick={onClickMock} link="https://example.com" />
     );
-    
-    // Access the mock element
+
     expect(getByTestId("menu-item-mock")).toBeInTheDocument();
-    
-    // Restore window.open
+
     window.open = originalOpen;
   });
-}); 
+});

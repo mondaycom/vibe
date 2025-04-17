@@ -6,11 +6,7 @@ export interface BreadcrumbMenuItemProps extends MenuItemProps {
   link?: string;
 }
 
-const BreadcrumbMenuItem = ({
-  link,
-  onClick,
-  ...rest
-}: BreadcrumbMenuItemProps) => {
+const BreadcrumbMenuItem = ({ link, onClick, ...rest }: BreadcrumbMenuItemProps) => {
   // Create a custom onClick handler to handle link navigation if link is provided
   const handleClick = link
     ? (event: React.MouseEvent | React.KeyboardEvent) => {
@@ -19,12 +15,7 @@ const BreadcrumbMenuItem = ({
       }
     : onClick;
 
-  return (
-    <MenuItem
-      {...rest}
-      onClick={handleClick}
-    />
-  );
+  return <MenuItem {...rest} onClick={handleClick} />;
 };
 
 export default withStaticProps(BreadcrumbMenuItem, {

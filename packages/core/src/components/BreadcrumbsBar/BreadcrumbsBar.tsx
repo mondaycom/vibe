@@ -11,7 +11,9 @@ import { BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /** The type of the bar is responsible for whether it will be navigational or for indication only  */
   type: BreadcrumbsBarType;
-  children: ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps> | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>[];
+  children:
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>[];
 }
 
 const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTypeEnum } = ({
