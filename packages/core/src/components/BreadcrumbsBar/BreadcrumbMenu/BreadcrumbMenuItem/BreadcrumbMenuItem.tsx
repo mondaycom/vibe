@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
-import { VibeComponentProps } from "../../../../types";
+import { SubIcon, VibeComponentProps } from "../../../../types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./BreadcrumbMenuItem.module.scss";
 
@@ -11,7 +11,7 @@ export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   /** Should item be disabled. */
   disabled?: boolean;
   /** Icon to display in the menu item */
-  icon?: React.ComponentType;
+  icon?: SubIcon;
   /** Callback function to be called when the item is clicked */
   onClick?: (event: React.MouseEvent) => void;
   /** Should the item be marked as selected */
@@ -31,6 +31,14 @@ const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
   id,
   "data-testid": dataTestId
 }) => {
+  // Create a custom onClick handler to handle link navigation if link is provided
+  const handleClick = link
+    ? (event: React.MouseEvent) => {
+        if (onClick) onClick(event);
+        window.open(link, "_blank");
+      }
+    : onClick;
+
   return (
     <MenuItem
       id={id}
@@ -39,9 +47,8 @@ const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
       title={text}
       disabled={disabled}
       icon={icon}
-      onClick={onClick}
+      onClick={handleClick}
       selected={selected}
-      link={link}
     />
   );
 };
