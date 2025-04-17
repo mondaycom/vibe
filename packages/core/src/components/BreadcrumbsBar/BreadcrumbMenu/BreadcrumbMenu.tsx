@@ -1,5 +1,5 @@
 import React from "react";
-import MenuButton, { MenuButtonProps } from "../../MenuButton/MenuButton";
+import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
 import { VibeComponentProps } from "src/types";
 
