@@ -2,7 +2,7 @@ import React from "react";
 import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
 import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
 import Avatar from "../../Avatar/Avatar";
-import { Board, Folder, Group, Workspace, Filter, Settings, Pin, Doc, Item } from "@vibe/icons";
+import { Board, Folder, Group, Workspace, Item } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./BreadcrumbsBar.stories.scss";
@@ -107,7 +107,7 @@ export const WithBreadcrumbMenu = {
       <BreadcrumbItem text="Board" icon={Board} />
       <BreadcrumbItem text="Group" icon={Group} />
       <BreadcrumbMenu>
-        <BreadcrumbMenuItem title="Item 1" onClick={() => alert("Filter clicked")} />
+        <BreadcrumbMenuItem title="Item 1" onClick={() => alert("Item 1 clicked")} />
         <BreadcrumbMenuItem title="Item 2" link="https://www.monday.com" />
         <BreadcrumbMenuItem title="Item 3" link="https://www.monday.com" />
       </BreadcrumbMenu>
