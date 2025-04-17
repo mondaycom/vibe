@@ -8,14 +8,10 @@ import styles from "./BreadcrumbMenuItem.module.scss";
 export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   /** The display text. */
   text: string;
-  /** Should item be disabled. */
-  disabled?: boolean;
   /** Icon to display in the menu item */
   icon?: SubIcon;
   /** Callback function to be called when the item is clicked */
   onClick?: (event: React.MouseEvent) => void;
-  /** Should the item be marked as selected */
-  selected?: boolean;
   /** Link to navigate to when item is clicked */
   link?: string;
 }
@@ -23,10 +19,8 @@ export interface BreadcrumbMenuItemProps extends VibeComponentProps {
 const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
   className,
   text,
-  disabled = false,
   icon,
   onClick,
-  selected,
   link,
   id,
   "data-testid": dataTestId
@@ -45,10 +39,8 @@ const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
       className={cx(styles.breadcrumbMenuItem, className)}
       title={text}
-      disabled={disabled}
       icon={icon}
       onClick={handleClick}
-      selected={selected}
     />
   );
 };
