@@ -4,12 +4,11 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
-import { Workspace, Filter, Menu } from "@vibe/icons";
+import { Workspace, Filter } from "@vibe/icons";
 import "./BreadcrumbMenu.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: BreadcrumbMenu,
-  iconPropNamesArray: ["icon"]
+  component: BreadcrumbMenu
 });
 
 const breadcrumbMenuTemplate = createComponentTemplate(BreadcrumbMenu);
@@ -26,8 +25,6 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    text: "Menu Options",
-    icon: Menu,
     children: [
       <BreadcrumbMenuItem key="1" text="Option 1" />,
       <BreadcrumbMenuItem key="2" text="Option 2" />,
