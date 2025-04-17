@@ -1,6 +1,6 @@
 import React from "react";
-import MenuItem from "../../../Menu/MenuItem/MenuItem";
-import { SubIcon, VibeComponentProps } from "../../../../types";
+import { MenuItem, MenuItemButton } from "../../../Menu";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../../../types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   /** The display text. */
@@ -8,30 +8,32 @@ export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   /** Icon to display in the menu item */
   icon?: SubIcon;
   /** Callback function to be called when the item is clicked */
-  onClick?: (event: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** Link to navigate to when item is clicked */
   link?: string;
+  /** Whether the item is disabled */
+  disabled?: boolean;
+  /** Whether the item is selected */
+  selected?: boolean;
 }
 
-// Extend React.FC with the static property
-type BreadcrumbMenuItemType = React.FC<BreadcrumbMenuItemProps> & {
-  isMenuChild?: boolean;
-};
-
-const BreadcrumbMenuItem: BreadcrumbMenuItemType = ({
+const BreadcrumbMenuItem = ({
   className,
   text,
   icon,
   onClick,
   link,
   id,
-  "data-testid": dataTestId
-}) => {
+  disabled = false,
+  selected = false,
+  "data-testid": dataTestId,
+  ...rest
+}: BreadcrumbMenuItemProps) => {
   // Create a custom onClick handler to handle link navigation if link is provided
   const handleClick = link
-    ? (event: React.MouseEvent) => {
+    ? (event: React.MouseEvent | React.KeyboardEvent) => {
         if (onClick) onClick(event);
-        window.open(link, "_blank");
+        if (!disabled) window.open(link, "_blank");
       }
     : onClick;
 
@@ -40,13 +42,16 @@ const BreadcrumbMenuItem: BreadcrumbMenuItemType = ({
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
       className={className}
-      title={text}
       icon={icon}
       onClick={handleClick}
+      disabled={disabled}
+      {...rest}
+      title={text}
     />
   );
 };
 
-BreadcrumbMenuItem.isMenuChild = true;
-
-export default BreadcrumbMenuItem;
+export default withStaticProps(BreadcrumbMenuItem, {
+  isMenuChild: true,
+  isSelectable: true
+});
