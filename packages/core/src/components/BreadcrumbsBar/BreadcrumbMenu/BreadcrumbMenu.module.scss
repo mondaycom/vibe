@@ -1,0 +1,23 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.breadcrumbMenuWrapper {
+  display: inline-block;
+  list-style: none;
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.current {
+    color: var(--primary-color);
+  }
+}
+
+.menuButton {
+  font-family: var(--font-family);
+  line-height: var(--font-line-height-small);
+  font-size: var(--font-size-10);
+  font-weight: 500;
+} 

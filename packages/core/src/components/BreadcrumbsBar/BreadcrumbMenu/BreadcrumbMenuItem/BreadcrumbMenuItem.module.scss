@@ -1,0 +1,8 @@
+@import "../../../../styles/themes";
+@import "../../../../styles/typography";
+
+.breadcrumbMenuItem {
+  font-family: var(--font-family);
+  font-size: var(--font-size-10);
+  padding: var(--spacing-small) var(--spacing-medium);
+} 
