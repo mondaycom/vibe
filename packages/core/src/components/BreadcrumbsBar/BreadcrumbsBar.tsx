@@ -8,6 +8,7 @@ import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
+
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /** The type of the bar is responsible for whether it will be navigational or for indication only  */
   type: BreadcrumbsBarType;
