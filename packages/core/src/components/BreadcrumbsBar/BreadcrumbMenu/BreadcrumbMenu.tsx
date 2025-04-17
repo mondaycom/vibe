@@ -5,6 +5,7 @@ import { DialogPosition } from "../../Dialog/Dialog.types";
 import { VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbMenu.module.scss";
 import cx from "classnames";
+import { Menu, MenuItem } from "../../Menu";
 export interface BreadcrumbMenuProps extends VibeComponentProps {
   /** Position of the menu dialog */
   dialogPosition?: DialogPosition;
@@ -35,7 +36,9 @@ const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
       className={cx(styles.menuButton, className)}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
     >
-      {children}
+      <Menu size={Menu.sizes.MEDIUM}>
+        {children}
+      </Menu>
     </MenuButton>
   );
 };

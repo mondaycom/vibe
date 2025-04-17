@@ -3,8 +3,6 @@ import cx from "classnames";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import { SubIcon, VibeComponentProps } from "../../../../types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
-import styles from "./BreadcrumbMenuItem.module.scss";
-
 export interface BreadcrumbMenuItemProps extends VibeComponentProps {
   /** The display text. */
   text: string;
@@ -37,7 +35,7 @@ const BreadcrumbMenuItem: React.FC<BreadcrumbMenuItemProps> = ({
     <MenuItem
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
-      className={cx(styles.breadcrumbMenuItem, className)}
+      className={className}
       title={text}
       icon={icon}
       onClick={handleClick}
