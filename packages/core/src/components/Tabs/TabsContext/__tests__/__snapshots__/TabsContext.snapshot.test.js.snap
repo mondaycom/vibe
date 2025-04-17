@@ -18,6 +18,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-selected={false}
         className="tabWrapper tabListTabWrapper"
         data-testid="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -32,6 +33,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -77,6 +79,7 @@ exports[`TabsContext renders correctly with className 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -121,6 +124,7 @@ exports[`TabsContext renders correctly with empty props 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a
@@ -166,6 +170,7 @@ exports[`TabsContext renders correctly with id 1`] = `
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
+        data-vibe="Tab"
         role="tab"
       >
         <a

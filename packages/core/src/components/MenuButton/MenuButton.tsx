@@ -7,7 +7,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
@@ -27,102 +27,142 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
-   * Control the button's selected state
+   * If true, the button is in an active state.
    */
   active?: boolean;
   /**
-   *Class name to add to the button when the dialog is open
+   * Class name applied to the button when the dialog is open.
    */
   openDialogComponentClassName?: string;
   /**
-   * Receives React Component
+   * The component used as the button icon.
    */
   component?: (() => JSX.Element) | React.ElementType;
+  /**
+   * The size of the button.
+   */
   size?: MenuButtonSize;
+  /**
+   * If true, the menu is open.
+   */
   open?: boolean;
+  /**
+   * Callback fired when the button is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * The z-index of the menu.
+   */
   zIndex?: number;
+  /**
+   * The label of the button for accessibility.
+   */
   ariaLabel?: string;
-  /*
-    Class name to provide the element which wraps the popover/modal/dialog
+  /**
+   * Class name applied to the menu dialog wrapper.
    */
   dialogClassName?: string;
   /**
-   * main - `dialogOffset.main` - main axis offset; `dialogOffset.secondary` secondary axis offset
+   * The offset of the menu relative to the button.
    */
   dialogOffset?: DialogOffset;
+  /**
+   * The padding size inside the menu dialog.
+   */
   dialogPaddingSize?: DialogSize;
+  /**
+   * The position of the menu dialog relative to the button.
+   */
   dialogPosition?: DialogPosition;
+  /**
+   * Class name ignored for dialog show trigger.
+   */
   dialogShowTriggerIgnoreClass?: string;
+  /**
+   * Class name ignored for dialog hide trigger.
+   */
   dialogHideTriggerIgnoreClass?: string;
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The container selector in which to append the dialog.
    */
   dialogContainerSelector?: string;
   /**
-   * Dialog Alignment
+   * The starting edge alignment of the menu.
    */
   startingEdge?: string;
-  /*
-    Callback function to be called when the menu is shown
+  /**
+   * Callback fired when the menu is shown.
    */
   onMenuShow?: () => void;
-  /*
-  Callback function to be called when the menu is hidden
- */
+  /**
+   * Callback fired when the menu is hidden.
+   */
   onMenuHide?: () => void;
   /**
-   * Text to be displayed after the icon
+   * The text displayed inside the button.
    */
   text?: string;
+  /**
+   * If true, the button is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The tooltip content displayed when hovering over the button.
+   */
   tooltipContent?: string;
   /**
-   Remove "Tab" key from the hide trigger
+   * If true, removes the tab key from the hide trigger.
    */
   removeTabCloseTrigger?: boolean;
   /**
-   is an array with the content of types:
-   CLICK, CLICK_OUTSIDE, ESCAPE_KEY, TAB_KEY, MOUSE_ENTER, MOUSE_LEAVE,
-   ENTER, MOUSE_DOWN, FOCUS, BLUR, CONTENT_CLICK
+   * The triggers that cause the tooltip to show or hide.
    */
   tooltipTriggers?: DialogTriggerEvent | DialogTriggerEvent[];
   /**
-   * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
+   * The position of the tooltip.
    */
   tooltipPosition?: TooltipPositions;
   /**
-   * Tooltip Element Wrapper ClassName
+   * Class name applied to the tooltip reference wrapper.
    */
   tooltipReferenceClassName?: string;
+  /**
+   * Additional props for customizing the tooltip.
+   */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * When the MenuButton is hidden hide the dialog and tooltip as well
+   * If true, hides the menu and tooltip when the button is not visible.
    */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * The content inside the menu button.
+   */
   children?: ElementContent;
   /**
-   * Specifies whether to render the component before or after the text
+   * The position of the component relative to the text.
    */
   componentPosition?: MenuButtonComponentPosition;
   /**
-   * Element to be used as the trigger element for the Menu - default is button
+   * The element used as the trigger for the menu.
    */
   triggerElement?: React.ElementType;
   /**
-   * Close the menu when an item is clicked
+   * If true, closes the menu when a menu item is clicked.
    */
   closeMenuOnItemClick?: boolean;
   /**
-   * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
+   * If true, the tooltip appears only when hovering over the trigger element, not the menu dialog.
    */
   showTooltipOnlyOnTriggerElement?: boolean;
+  /**
+   * If true, closes the menu when clicking inside the dialog.
+   */
   closeDialogOnContentClick?: boolean;
 }
 
@@ -285,7 +325,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       switch (size) {
         case "xxs":
         case "xs":
-          return 16;
+          return SMALL_BUTTON_ICON_SIZE;
         case "small":
         case "medium":
         case "large":
@@ -316,6 +356,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       <TriggerElement
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
+        data-vibe={ComponentVibeId.MENU_BUTTON}
         type="button"
         className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,

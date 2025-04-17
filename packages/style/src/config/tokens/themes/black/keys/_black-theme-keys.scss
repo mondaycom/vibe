@@ -62,6 +62,8 @@ $theme-black-layout-border-color: $color-dust;
 
 // - Backgrounds
 $theme-black-ui-background-color: $color-dust;
+$theme-black-color-surface: $color-charcoal;
+$theme-black-backdrop-color: rgba($theme-black-color-surface, 0.7);
 
 // - Shadows
 $theme-black-box-shadow-color: $color-black;

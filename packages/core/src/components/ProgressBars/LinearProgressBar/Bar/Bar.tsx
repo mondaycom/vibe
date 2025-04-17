@@ -12,30 +12,41 @@ export type BarType = "primary" | "secondary";
 
 export interface BarProps extends VibeComponentProps {
   /**
-   * Determine the progress bar style.
+   * Determines the visual style of the progress bar.
    */
   barStyle?: LinearProgressBarStyle;
   /**
-   * The progress bar starting value.
+   * The minimum value of the progress bar.
    */
   min?: number;
   /**
-   * The progress bar ending value.
+   * The maximum value of the progress bar.
    */
   max?: number;
   /**
-   * The progress bar current value.
+   * The current progress value.
    */
   value?: number;
   /**
-   * If set to *true*, animations are used.
+   * If true, enables animation effects.
    */
   animated?: boolean;
+  /**
+   * Base class name for the bar.
+   */
   baseClass?: string;
+  /**
+   * The ARIA label describing the progress bar.
+   */
   barLabelName?: string;
+  /**
+   * Custom color for the progress bar.
+   */
   color?: string;
+  /**
+   * The type of the bar.
+   */
   type?: BarType;
-  className?: string;
 }
 
 const Bar: FC<BarProps> = ({

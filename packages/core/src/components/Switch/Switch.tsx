@@ -6,18 +6,57 @@ import { MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
 
 export interface SwitchProps extends VibeComponentProps {
+  /**
+   * The name of the switch input.
+   */
   name?: string;
+  /**
+   * The value associated with the switch.
+   */
   value?: string;
+  /**
+   * The ARIA role of the switch.
+   */
   role?: string;
+  /**
+   * If true, the switch is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * The ID of the element labeling the switch.
+   */
   ariaLabelledBy?: string;
+  /**
+   * If true, the switch is checked.
+   */
   checked?: boolean;
+  /**
+   * Class name applied to the input element.
+   */
   inputClassName?: string;
+  /**
+   * Callback fired when the switch state changes.
+   */
   onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The ID of the element controlled by the switch.
+   */
   ariaControls?: string;
+  /**
+   * If true, the switch is checked by default.
+   */
   defaultChecked?: boolean;
+  /**
+   * The child component rendered inside the switch.
+   */
   children?: ReactElement<MockToggleProps>;
+  /**
+   * Class name applied to the wrapper element.
+   */
   wrapperClassName?: string;
 }
 

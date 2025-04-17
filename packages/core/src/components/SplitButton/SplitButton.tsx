@@ -30,30 +30,45 @@ import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
-import { DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { DialogSize, DialogTriggerEvent } from "../Dialog";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
-  /*
-   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+  /**
+   * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
    */
   secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /**
+   * Callback fired when the secondary dialog is shown.
+   */
   onSecondaryDialogDidShow?: () => void;
+  /**
+   * Callback fired when the secondary dialog is hidden.
+   */
   onSecondaryDialogDidHide?: () => void;
+  /**
+   * The z-index applied to the secondary dialog.
+   */
   zIndex?: number;
-  /*
-   * Class name to provide the element which wraps the popover/modal/dialog
+  /**
+   * Class name applied to the wrapper of the secondary dialog.
    */
   secondaryDialogClassName?: string;
-  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
-  /*
-    Popover Container padding size
-   */
-  dialogPaddingSize?: (typeof DialogContentContainer.sizes)[keyof typeof DialogContentContainer.sizes];
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The position of the secondary dialog.
+   */
+  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
+  /**
+   * The padding size inside the secondary dialog.
+   */
+  dialogPaddingSize?: DialogSize;
+  /**
+   * The CSS selector of the container where the dialog should be rendered.
    */
   dialogContainerSelector?: string;
+  /**
+   * If true, clicking inside the dialog will close it.
+   */
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
@@ -74,7 +89,7 @@ const SplitButton: FC<SplitButtonProps> & {
   secondaryDialogClassName,
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
-  dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+  dialogPaddingSize = "medium",
   disabled,
   // success mode not working right now, need to fix it in different pr
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -213,6 +228,7 @@ const SplitButton: FC<SplitButtonProps> & {
       ref={ref}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+      data-vibe={ComponentVibeId.SPLIT_BUTTON}
     >
       <Button
         {

@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.0...@vibe/testkit@1.9.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **testkit:** Fixing selectItem function ([#2822](https://github.com/mondaycom/vibe/issues/2822)) ([06c3dc5](https://github.com/mondaycom/vibe/commit/06c3dc5071f615abe6523d7069635156042a2b1e))
+
+
+
+
+
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.8.0...@vibe/testkit@1.9.0) (2025-03-25)
+
+
+### Features
+
+* add data-vibe attribute to components ([#2783](https://github.com/mondaycom/vibe/issues/2783)) ([e3e2043](https://github.com/mondaycom/vibe/commit/e3e2043a12f0c3d3c367261879d0accde1fdd61c))
+
+
+
+
+
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.7.0...@vibe/testkit@1.8.0) (2025-03-24)
+
+
+### Features
+
+* **Menu:** change locator handling ([#2816](https://github.com/mondaycom/vibe/issues/2816)) ([f478cec](https://github.com/mondaycom/vibe/commit/f478cecf2c0f6976e1ff828af70c4becc9917b96))
+
+
+
+
+
+# [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.1...@vibe/testkit@1.7.0) (2025-03-23)
+
+
+### Features
+
+* **Menu:** update selectItem method to be more strict ([#2813](https://github.com/mondaycom/vibe/issues/2813)) ([56a9b26](https://github.com/mondaycom/vibe/commit/56a9b26240bf657ca9166a3273a8f0352617b2ff))
+
+
+
+
+
+# [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.1...@vibe/testkit@1.6.0) (2025-03-23)
+
+
+### Features
+
+* **Menu:** update selectItem method to be more strict ([#2813](https://github.com/mondaycom/vibe/issues/2813)) ([56a9b26](https://github.com/mondaycom/vibe/commit/56a9b26240bf657ca9166a3273a8f0352617b2ff))
+
+
+
+
+
 ## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.0...@vibe/testkit@1.5.1) (2025-02-13)
 
 **Note:** Version bump only for package @vibe/testkit

@@ -27,32 +27,109 @@ import {
 import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
 import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface BoxProps extends VibeComponentProps {
+  /**
+   * The HTML element or custom component used as the root.
+   */
   elementType?: keyof JSX.IntrinsicElements | string;
+  /**
+   * The content inside the box.
+   */
   children?: ElementContent;
+  /**
+   * If true, the box is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If true, applies a border to the box.
+   */
   border?: boolean;
+  /**
+   * The color of the border.
+   */
   borderColor?: BorderColor;
+  /**
+   * The border radius of the box.
+   */
   rounded?: RoundedSize;
+  /**
+   * The shadow style applied to the box.
+   */
   shadow?: Shadow;
+  /**
+   * The margin applied to all sides.
+   */
   margin?: BoxSize;
+  /**
+   * The horizontal margin.
+   */
   marginX?: BoxSize;
+  /**
+   * The vertical margin.
+   */
   marginY?: BoxSize;
+  /**
+   * The top margin.
+   */
   marginTop?: BoxSize;
+  /**
+   * The end (right in LTR, left in RTL) margin.
+   */
   marginEnd?: BoxSize;
+  /**
+   * The bottom margin.
+   */
   marginBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) margin.
+   */
   marginStart?: BaseBoxSize;
+  /**
+   * The padding applied to all sides.
+   */
   padding?: BaseBoxSize;
+  /**
+   * The horizontal padding.
+   */
   paddingX?: BaseBoxSize;
+  /**
+   * The vertical padding.
+   */
   paddingY?: BaseBoxSize;
+  /**
+   * The top padding.
+   */
   paddingTop?: BaseBoxSize;
+  /**
+   * The end (right in LTR, left in RTL) padding.
+   */
   paddingEnd?: BaseBoxSize;
+  /**
+   * The bottom padding.
+   */
   paddingBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) padding.
+   */
   paddingStart?: BaseBoxSize;
+  /**
+   * The background color of the box.
+   */
   backgroundColor?: BackgroundColor;
+  /**
+   * The text color inside the box.
+   */
   textColor?: BoxTextColor;
+  /**
+   * If true, the box content is scrollable.
+   */
   scrollable?: boolean;
+  /**
+   * Inline styles applied to the box.
+   */
   style?: React.CSSProperties;
 }
 
@@ -77,7 +154,21 @@ const Box: VibeComponent<BoxProps> & {
   backgroundColors?: typeof BackgroundColorEnum;
   textColors?: typeof BoxTextColorEnum;
 } = forwardRef(
-  ({ className, id, elementType = "div", children, disabled, border, scrollable, style, ...props }: BoxProps, ref) => {
+  (
+    {
+      className,
+      id,
+      elementType = "div",
+      children,
+      disabled,
+      border,
+      scrollable,
+      style,
+      "data-testid": dataTestId,
+      ...props
+    }: BoxProps,
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -95,6 +186,7 @@ const Box: VibeComponent<BoxProps> & {
     return React.createElement(
       elementType,
       {
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BOX, id),
         ref: mergedRef,
         className: cx(
           styles.box,

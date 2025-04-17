@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES_VALUES } from "../../constants";
-import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
 import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
@@ -38,6 +38,8 @@ import {
   DropdownComponentProps
 } from "./Dropdown.types";
 import { VibeComponent, withStaticProps } from "../../types";
+import { ComponentVibeId } from "../../tests/constants";
+import LayerContext from "../LayerProvider/LayerContext";
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   sizes?: typeof BaseSizes;
@@ -106,6 +108,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       isOptionSelected,
       insideOverflowContainer = false,
       insideOverflowWithTransformContainer = false,
+      insideLayerContext = false,
       tooltipContent = "",
       onKeyDown = NOOP,
       isLoading = false,
@@ -123,8 +126,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const controlRef = useRef();
+    const { layerRef } = useContext(LayerContext);
     const overrideMenuPortalTarget =
-      menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
+      (insideLayerContext && layerRef?.current) ||
+      menuPortalTarget ||
+      (popupsContainerSelector && document.querySelector(popupsContainerSelector));
     const overrideDefaultValue = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
@@ -143,17 +149,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        let isRequireAvailable = false;
-        try {
-          isRequireAvailable = typeof require === "function" && typeof module !== "undefined";
-        } catch (e) {
-          isRequireAvailable = false;
-        }
-
-        if (isRequireAvailable) {
+        if (isTestEnv()) {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const module = require("react-windowed-select");
-          setWindowedMenuList(() => module.WindowedMenuList);
+          setWindowedMenuList(() => require("react-windowed-select").WindowedMenuList);
         } else {
           // Dynamically import the specific named export from react-windowed-select for SSR support
           import("react-windowed-select").then(module => {
@@ -344,7 +342,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector,
+        popupsContainerSelector: insideLayerContext ? layerRef?.current : popupsContainerSelector,
         size
       }),
       [
@@ -354,7 +352,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
+        layerRef,
         popupsContainerSelector,
+        insideLayerContext,
         size
       ]
     );
@@ -489,6 +489,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         tabIndex={tabIndex}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+        data-vibe={ComponentVibeId.DROPDOWN}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref as React.Ref<any>}
@@ -514,3 +515,16 @@ export default withStaticProps(Dropdown, {
   menuPositions: DROPDOWN_MENU_POSITION,
   createFilter: createFilter
 });
+
+function isTestEnv() {
+  try {
+    return (
+      typeof require === "function" &&
+      typeof module !== "undefined" &&
+      typeof process !== "undefined" &&
+      process.env.NODE_ENV === "test"
+    );
+  } catch (e) {
+    return false;
+  }
+}

@@ -90,7 +90,8 @@
     .textArea:hover {
       color: var(--disabled-text-color);
       background-color: var(--disabled-background-color);
-      border-color: var(--disabled-text-color);
+      border-color: transparent;
+      resize: none;
     }
 
     .helpText {

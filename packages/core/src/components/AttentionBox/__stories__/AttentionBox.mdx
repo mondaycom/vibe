@@ -1,4 +1,4 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 import AttentionBox from "../AttentionBox";
 import { Link } from "vibe-storybook-components";
 import { Info } from "@vibe/icons";
@@ -11,6 +11,8 @@ import Flex from "../../Flex/Flex";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import { TipCheckYourself } from "./AttentionBox.stories.helpers";
 import * as AttentionBoxStories from "./AttentionBox.stories";
+import { Heading } from "../../Heading";
+import Text from "../../Text/Text";
 
 <Meta of={AttentionBoxStories} />
 
@@ -76,11 +78,12 @@ There are five types of attention boxes: Primary, success, danger, warning and d
     {
       positive: {
         component: (
-          <AttentionBox
-            title="Attention box title"
-            text="Studies show that 100% of people who celebrate birthdays, will eventually die."
-            className="monday-storybook-attention-box_box"
-          />
+          <div style={{width: "340px"}}>
+              <AttentionBox
+                title="Attention box title"
+                text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+              />
+          </div>
         ),
         description: "Provide a short and brief title, and explanation related to the title."
       },
@@ -93,10 +96,10 @@ There are five types of attention boxes: Primary, success, danger, warning and d
       positive: {
         component: (
           <div>
-            <span className="monday-storybook-attention-box_title">Inbox</span>
-            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
-            <AttentionBox className="monday-storybook-attention-box_att-box" compact icon={Info}>
-              <Flex style={{ width: "100%" }} justify="space-between">
+            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
+            <AttentionBox compact icon={Info}>
+              <Flex style={{ width: "400px" }} justify="space-between">
                 Get your monday.com notifications <AttentionBoxLink href="" text="Learn more" />
               </Flex>
             </AttentionBox>
@@ -108,10 +111,10 @@ There are five types of attention boxes: Primary, success, danger, warning and d
       negative: {
         component: (
           <div>
-            <span className="monday-storybook-attention-box_title">Inbox</span>
-            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
-            <AttentionBox compact className="monday-storybook-attention-box_att-box" icon={Info}>
-              <Flex style={{ width: "100%" }} justify="space-between">
+            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
+            <AttentionBox compact icon={Info}>
+              <Flex style={{ width: "400px" }} justify="space-between">
                 7 days left on your free trial <AttentionBoxLink href="" text="Learn more" />
               </Flex>
             </AttentionBox>

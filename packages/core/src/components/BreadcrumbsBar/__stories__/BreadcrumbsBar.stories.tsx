@@ -28,8 +28,36 @@ const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
 export default {
   title: "Components/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
-  argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  argTypes: {
+    ...metaSettings.argTypes,
+    children: {
+      description: "Breadcrumb items, each containing text and an optional icon.",
+      control: "object",
+      table: {
+        type: {
+          summary: "BreadcrumbItemProps[]",
+          detail: `{
+            text: string;
+            icon?: React.ReactNode;
+          }[]`
+        },
+        defaultValue: {
+          summary: `[ { text: "Workspace", icon: <IconName /> } ]`
+        }
+      }
+    }
+  },
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      transformSource: (src: string) => {
+        return src.replace(/icon:\s*function[^{]+\{[^}]+\}/g, "icon: <Icon />");
+      },
+      liveEdit: {
+        scope: { Board, Group }
+      }
+    }
+  }
 };
 
 export const Overview = {
@@ -55,6 +83,13 @@ export const Overview = {
         icon: Group
       }
     ]
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -80,6 +115,13 @@ export const WithIcons = {
       <BreadcrumbItem text="Group" icon={Group} />
     </BreadcrumbsBar>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Workspace, Folder }
+      }
+    }
+  },
 
   name: "With icons"
 };
@@ -97,6 +139,13 @@ export const NavigatableBreadcrumbs = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person3 }
+      }
+    }
+  },
 
   name: "Navigatable breadcrumbs"
 };

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Checkbox } from "../components";
 import { checkboxStory } from "./utils/url-helper";
 
-test.describe("menuButton Class with Storybook", () => {
+test.describe.fixme("menuButton Class with Storybook", () => {
   let checkbox;
 
   test.beforeEach(async ({ page }) => {

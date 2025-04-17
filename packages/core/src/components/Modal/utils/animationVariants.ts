@@ -9,7 +9,7 @@ export const modalAnimationOverlayVariants: Variants = {
     opacity: 0
   },
   enter: {
-    opacity: 0.7,
+    opacity: 1,
     transition: {
       duration: 0.1,
       ease: enterEase

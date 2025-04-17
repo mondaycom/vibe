@@ -18,10 +18,25 @@ import { TypographyAlign, TypographyColor } from "../Typography/Typography.types
 const OVERFLOW_TOLERANCE_IN_PX = 4;
 
 export interface HeadingProps extends TypographyProps {
+  /**
+   * The heading type.
+   */
   type?: HeadingType;
+  /**
+   * The font weight of the heading.
+   */
   weight?: HeadingWeight;
+  /**
+   * The text alignment.
+   */
   align?: TypographyAlign;
+  /**
+   * The text color.
+   */
   color?: TypographyColor;
+  /**
+   * The content inside the heading.
+   */
   children: ReactNode;
 }
 

@@ -8,12 +8,7 @@ import { createObserveContentResizeModifier } from "../components/Dialog/modifie
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
-const FLIP_MODIFIER = {
-  name: "flip",
-  options: {
-    fallbackPlacements: [RIGHT_END, LEFT_START, LEFT_END]
-  }
-};
+const DEFAULT_FALLBACK_PLACEMENTS = [RIGHT_END, LEFT_START, LEFT_END];
 
 export default function usePopover(
   referenceElement: HTMLElement,
@@ -21,11 +16,15 @@ export default function usePopover(
   {
     isOpen,
     placement = RIGHT_START,
-    observeContentResize
+    observeContentResize,
+    offset,
+    fallbackPlacements = DEFAULT_FALLBACK_PLACEMENTS
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
+    offset?: [number, number];
+    fallbackPlacements?: Placement[];
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -40,7 +39,12 @@ export default function usePopover(
     return {
       placement,
       modifiers: [
-        FLIP_MODIFIER,
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements
+          }
+        },
         {
           name: "displayNone",
           enabled: true,
@@ -50,10 +54,14 @@ export default function usePopover(
             return state;
           }
         },
-        createObserveContentResizeModifier(observeContentResize)
+        createObserveContentResizeModifier(observeContentResize),
+        offset !== undefined && {
+          name: "offset",
+          options: { offset }
+        }
       ]
     };
-  }, [isOpen, placement, observeContentResize]);
+  }, [placement, observeContentResize, offset, isOpen]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 

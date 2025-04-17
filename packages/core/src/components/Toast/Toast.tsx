@@ -21,25 +21,54 @@ import IconButton from "../IconButton/IconButton";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
+  /**
+   * The actions available in the toast.
+   */
   actions?: ToastAction[];
-  /** If true, Toast is open (visible) */
+  /**
+   * If true, the toast is open (visible).
+   */
   open?: boolean;
+  /**
+   * If true, displays a loading indicator inside the toast.
+   */
   loading?: boolean;
+  /**
+   * The type of toast.
+   */
   type?: ToastType;
-  /** Possible to override the default icon */
+  /**
+   * The icon displayed in the toast.
+   */
   icon?: string | React.FC<IconSubComponentProps> | null;
-  /** If true, won't show the icon */
+  /**
+   * If true, hides the toast icon.
+   */
   hideIcon?: boolean;
-  /** The action to display */
+  /**
+   * The action element displayed in the toast.
+   */
   action?: JSX.Element;
-  /** If false, won't show the close button */
+  /**
+   * If false, hides the close button.
+   */
   closeable?: boolean;
+  /**
+   * Callback fired when the toast is closed.
+   */
   onClose?: () => void;
-  /** The number of milliseconds to wait before
-   * automatically closing the Toast
-   * (0 or null cancels this behaviour) */
+  /**
+   * The number of milliseconds before the toast automatically closes.
+   * (0 or null disables auto-close behavior).
+   */
   autoHideDuration?: number;
+  /**
+   * The content displayed inside the toast.
+   */
   children?: ReactElement | ReactElement[] | string;
+  /**
+   * The aria-label for the close button.
+   */
   closeButtonAriaLabel?: string;
 }
 

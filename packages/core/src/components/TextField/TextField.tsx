@@ -27,7 +27,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
@@ -36,65 +36,183 @@ import { HiddenText } from "../HiddenText";
 const EMPTY_OBJECT = { primary: "", secondary: "" };
 
 export interface TextFieldProps extends VibeComponentProps {
+  /**
+   * The placeholder text displayed when the input is empty.
+   */
   placeholder?: string;
-  /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
+  /**
+   * Configures the browser's autocomplete behavior.
+   */
   autoComplete?: string;
+  /**
+   * The current value of the text field.
+   */
   value?: string;
+  /**
+   * Callback fired when the text field value changes.
+   */
   onChange?: (
     value: string,
     event: React.ChangeEvent<HTMLInputElement> | Pick<React.ChangeEvent<HTMLInputElement>, "target">
   ) => void;
+  /**
+   * Callback fired when the text field loses focus.
+   */
   onBlur?: (event: React.FocusEvent) => void;
+  /**
+   * Callback fired when the text field gains focus.
+   */
   onFocus?: (event: React.FocusEvent) => void;
+  /**
+   * Callback fired when a key is pressed inside the text field.
+   */
   onKeyDown?: (event: React.KeyboardEvent) => void;
+  /**
+   * Callback fired when the mouse wheel is used inside the text field.
+   */
   onWheel?: (event: React.WheelEvent) => void;
+  /**
+   * The debounce rate for input value changes.
+   */
   debounceRate?: number;
+  /**
+   * If true, the input is automatically focused on mount.
+   */
   autoFocus?: boolean;
+  /**
+   * If true, disables the text field.
+   */
   disabled?: boolean;
+  /**
+   * If true, makes the text field read-only.
+   */
   readonly?: boolean;
+  /**
+   * A function to set a reference to the input element.
+   */
   setRef?: (node: HTMLElement) => void;
+  /**
+   * The primary icon displayed inside the text field.
+   */
   iconName?: string | React.FunctionComponent | null;
+  /**
+   * The secondary icon displayed inside the text field.
+   */
   secondaryIconName?: string | React.FunctionComponent | null;
+  /**
+   * The label displayed above the text field.
+   */
   title?: string;
-  /** SIZES is exposed on the component itself */
+  /**
+   * The size of the text field.
+   */
   size?: TextFieldSize;
-  /** Don't provide status for plain assistant text */
-  validation?: { status?: "error" | "success"; text?: string }; // TODO make common validation class?
+  /**
+   * Validation state for the text field.
+   */
+  validation?: { status?: "error" | "success"; text?: string | React.ReactNode };
+  /**
+   * Class name applied to the text field wrapper.
+   */
   wrapperClassName?: string;
+  /**
+   * Callback fired when the icon inside the text field is clicked.
+   */
   onIconClick?: (icon: string | React.FunctionComponent | null) => void;
+  /**
+   * If true, clears the input when the icon is clicked.
+   */
   clearOnIconClick?: boolean;
+  /**
+   * The icon displayed inside the label.
+   */
   labelIconName?: string | React.FunctionComponent | null;
+  /**
+   * If true, displays the character count.
+   */
   showCharCount?: boolean;
+  /**
+   * The ARIA label for the input field.
+   */
   inputAriaLabel?: string;
+  /**
+   * The ID of the container where search results are displayed.
+   */
   searchResultsContainerId?: string;
+  /**
+   * The ID of the currently active search result.
+   */
   activeDescendant?: string;
-  /**  Icon names labels for a11y */
+  /**
+   * Icon labels for accessibility.
+   */
   iconsNames?: {
     primary: string;
     secondary: string;
   };
-  /** TEXT_TYPES is exposed on the component itself */
+  /**
+   * The type of the text field.
+   */
   type?: TextFieldType;
+  /**
+   * The maximum number of characters allowed.
+   */
   maxLength?: number;
+  /**
+   * If true, allows the user to exceed the character limit set by `maxLength`.
+   */
   allowExceedingMaxLength?: boolean;
+  /**
+   * If true, trims whitespace from the input value.
+   */
   trim?: boolean;
-  /** ARIA role for container landmark */
+  /**
+   * The ARIA role of the text field.
+   */
   role?: string;
-  /** adds required to the input element */
+  /**
+   * If true, marks the input as required.
+   */
   required?: boolean;
+  /**
+   * The error message displayed when a required field is left empty.
+   */
   requiredErrorText?: string;
-  /** shows loading animation */
+  /**
+   * If true, displays a loading indicator inside the text field.
+   */
   loading?: boolean;
+  /**
+   * Test ID for the secondary icon.
+   */
   secondaryDataTestId?: string;
+  /**
+   * The tab order of the input field.
+   */
   tabIndex?: number;
+  /**
+   * The name attribute for the input field.
+   */
   name?: string;
+  /**
+   * If true, renders only an underline style for the text field.
+   */
   underline?: boolean;
   /**
-   * When true, component is controlled by an external state
+   * If true, the component is controlled by an external state.
    */
   controlled?: boolean;
+  /**
+   * Tooltip content for the primary icon.
+   */
   iconTooltipContent?: string;
+  /**
+   * Tooltip content for the secondary icon.
+   */
   secondaryTooltipContent?: string;
+  /**
+   * The text direction of the input.
+   */
   dir?: "ltr" | "rtl" | "auto";
 }
 
@@ -289,6 +407,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               type={type}
               id={id}
               data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
+              data-vibe={ComponentVibeId.TEXT_FIELD}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}

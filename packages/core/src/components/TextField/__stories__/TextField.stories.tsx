@@ -94,7 +94,7 @@ export const States: Story = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { Email, Check, CloseSmall }
+        scope: { Email, Check, CloseSmall, Duplicate }
       }
     }
   }

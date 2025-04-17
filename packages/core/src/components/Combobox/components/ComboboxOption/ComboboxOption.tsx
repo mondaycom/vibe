@@ -16,15 +16,45 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import styles from "./ComboboxOption.module.scss";
 
 export interface ComboboxOptionProps extends IComboboxOptionEvents {
+  /**
+   * The index of the option in the list.
+   */
   index?: number;
+  /**
+   * The option data containing label, icons, and other properties.
+   */
   option?: IComboboxOption;
+  /**
+   * Class name applied to the option element.
+   */
   className?: string;
+  /**
+   * If true, the option is currently active.
+   */
   isActive?: boolean;
+  /**
+   * If true, the option has visual focus.
+   */
   visualFocus?: boolean;
+  /**
+   * A reference to the scroll container.
+   */
   scrollRef?: RefObject<HTMLElement>;
+  /**
+   * The amount of offset when scrolling to the active item.
+   */
   scrollOffset?: number;
+  /**
+   * The height of each option.
+   */
   optionLineHeight?: number;
+  /**
+   * If true, scrolls to the active option when it is selected.
+   */
   shouldScrollWhenActive?: boolean;
+  /**
+   * Custom renderer for the option content.
+   */
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
 }
 

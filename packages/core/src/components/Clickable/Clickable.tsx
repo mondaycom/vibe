@@ -8,31 +8,67 @@ import styles from "./Clickable.module.scss";
 
 export interface ClickableProps extends VibeComponentProps {
   /**
-   * The type of the clickable element wrapper (for example div or span)
+   * The HTML element or custom component used as the root.
    */
   elementType?: keyof JSX.IntrinsicElements | string;
-  className?: string;
-  id?: string;
+  /**
+   * The content inside the clickable element.
+   */
   children?: React.ReactNode;
+  /**
+   * The ARIA role of the element.
+   */
   role?: AriaRole;
+  /**
+   * Callback fired when the element is clicked.
+   */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /**
+   * If true, allows text selection inside the element.
+   */
   enableTextSelection?: boolean;
+  /**
+   * Callback fired when the mouse button is pressed down on the element.
+   */
   onMouseDown?: (event: React.MouseEvent) => void;
+  /**
+   * Callback fired when the mouse enters the element.
+   */
   onMouseEnter?: (event: React.MouseEvent) => void;
+  /**
+   * Callback fired when the mouse leaves the element.
+   */
   onMouseLeave?: (event: React.MouseEvent) => void;
+  /**
+   * The label of the element for accessibility.
+   */
   ariaLabel?: string;
   /**
-   * Is the element and its content should be hidden from screen readers and other assistive technologies
+   * If true, hides the element from assistive technologies.
    */
   ariaHidden?: boolean;
   // TODO: [breaking] remove string type
+  /**
+   * Indicates the presence of a popup associated with the element.
+   */
   ariaHasPopup?: boolean | string;
+  /**
+   * If true, indicates that the associated popup is open.
+   */
   ariaExpanded?: boolean;
   // TODO: [breaking] remove string type
+  /**
+   * The tab order of the element.
+   */
   tabIndex?: string | number;
+  /**
+   * If true, the element is disabled.
+   */
   disabled?: boolean;
+  /**
+   * Inline styles applied to the element.
+   */
   style?: React.CSSProperties;
-  "data-testid"?: string;
 }
 
 const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(

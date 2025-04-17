@@ -134,10 +134,11 @@ const BaseMenuItem = forwardRef(
         ref={mergedRef}
         onClick={onClickCallback}
         role="menuitem"
-        aria-current={isActive}
+        aria-selected={isActive}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
+        withoutTooltip
       >
         {children}
         {Boolean(subMenu) && (

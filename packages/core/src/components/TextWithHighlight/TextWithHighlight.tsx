@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
-import Tooltip from "../../components/Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -28,23 +28,55 @@ const getTextPart = (
 };
 
 export interface TextWithHighlightProps extends VibeComponentProps {
-  /** Text to wrap */
+  /**
+   * The text content to display.
+   */
   text?: string;
+  /**
+   * The term to highlight within the text.
+   */
   highlightTerm?: string;
-  /** Number of highlighted parts */
+  /**
+   * The maximum number of highlighted terms allowed.
+   */
   limit?: number;
+  /**
+   * If true, the highlight search is case-insensitive.
+   */
   ignoreCase?: boolean;
-  /** Should use ellipsis */
+  /**
+   * If true, truncates overflowing text with an ellipsis.
+   */
   useEllipsis?: boolean;
-  /** Allow highlight every word as a separate term */
+  /**
+   * If true, allows splitting the highlight term into separate words.
+   */
   allowTermSplit?: boolean;
+  /**
+   * The number of lines to display before truncating with an ellipsis.
+   */
   linesToClamp?: number;
-  /** Tooltip to show when there is no overflow */
+  /**
+   * Tooltip content displayed when there is no overflow.
+   */
   nonEllipsisTooltip?: string;
-  /** HTML tag to wrap the selected text */
+  /**
+   * The HTML tag used to wrap highlighted text.
+   */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
+  /**
+   * Class name applied to the wrapping element of highlighted text.
+   */
   wrappingElementClassName?: string;
+  /**
+   * The position of the tooltip when displayed.
+   * @deprecated Use `tooltipProps.position` instead.
+   */
   tooltipPosition?: TooltipPositions;
+  /**
+   * Additional props to customize the tooltip component.
+   */
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
@@ -63,6 +95,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       tooltipPosition,
       wrappingTextTag = "em",
       wrappingElementClassName,
+      tooltipProps = {},
       "data-testid": dataTestId
     }: TextWithHighlightProps,
     ref
@@ -120,7 +153,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
     if (isOverflowing || nonEllipsisTooltip) {
       const tooltipContent = isOverflowing ? text : nonEllipsisTooltip;
       return (
-        <Tooltip content={tooltipContent} position={tooltipPosition}>
+        <Tooltip content={tooltipContent} position={tooltipPosition} {...tooltipProps}>
           {Element}
         </Tooltip>
       );

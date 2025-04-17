@@ -5,7 +5,13 @@ import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export interface TabsContextProps extends VibeComponentProps {
+  /**
+   * The index of the currently active tab.
+   */
   activeTabId?: number;
+  /**
+   * The child elements representing the tab list and tab panels.
+   */
   children?: ReactElement | ReactElement[];
 }
 

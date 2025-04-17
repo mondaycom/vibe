@@ -58,6 +58,7 @@ Snapshot Diff:
 +               aria-label="close"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
++               data-vibe="Button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 +               type="button"
 +             >
@@ -65,6 +66,7 @@ Snapshot Diff:
 +                 aria-hidden="true"
 +                 class="icon noFocusStyle"
 +                 data-testid="icon"
++                 data-vibe="Icon"
 +                 fill="currentColor"
 +                 height="20"
 +                 viewBox="0 0 20 20"
@@ -125,6 +127,7 @@ Snapshot Diff:
 +               aria-label="close"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
++               data-vibe="Button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 +               type="button"
 +             >
@@ -132,6 +135,7 @@ Snapshot Diff:
 +                 aria-hidden="true"
 +                 class="icon noFocusStyle"
 +                 data-testid="icon"
++                 data-vibe="Icon"
 +                 fill="currentColor"
 +                 height="20"
 +                 viewBox="0 0 20 20"
@@ -213,6 +217,7 @@ exports[`Modal with base props 1`] = `
             aria-label="Close"
             class="button sizeMedium kindTertiary colorPrimary noSidePadding"
             data-testid="icon-button"
+            data-vibe="Button"
             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
             type="button"
           >
@@ -220,6 +225,7 @@ exports[`Modal with base props 1`] = `
               aria-hidden="true"
               class="icon noFocusStyle"
               data-testid="icon"
+              data-vibe="Icon"
               fill="currentColor"
               height="20"
               viewBox="0 0 20 20"
@@ -288,7 +294,7 @@ Snapshot Diff:
 +             aria-label="closeButtonAriaLabel"
               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
               data-testid="icon-button"
-              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              data-vibe="Button"
 `;
 
 exports[`Modal with custom width 1`] = `

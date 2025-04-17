@@ -5,7 +5,13 @@ import styles from "./ComboboxCategory.module.scss";
 import comboboxStyles from "../../Combobox.module.scss";
 
 export interface ComboboxCategoryProps {
+  /**
+   * The category data.
+   */
   category: IComboboxCategory;
+  /**
+   * Class name applied to the category element.
+   */
   className: string;
 }
 

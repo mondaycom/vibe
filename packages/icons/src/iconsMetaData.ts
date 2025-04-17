@@ -13,6 +13,34 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "TextFormatting",
+      file: "TextFormatting.svg",
+      description: "Opens a popover for text actions",
+      tags: "Formatting, Text, Actions, Popover, Composer, Editor"
+  },
+
+  {
+      name: "Signature",
+      file: "Signature.svg",
+      description: "When signature is needed",
+      tags: "Sign, Pencil, Document, Value"
+  },
+
+  {
+      name: "PDF",
+      file: "PDF.svg",
+      description: "Represents PDF documents",
+      tags: "Document, File, Format, Portable, Reader, Download, View, Share"
+  },
+
+  {
+      name: "WrapText",
+      file: "WrapText.svg",
+      description: "Icon for enabling the Wrap Text feature",
+      tags: "Wrap, Text, Wrapping, Text Edit, Line"
+  },
+
+  {
       name: "MinusSmall",
       file: "MinusSmall.svg",
       description: "Minus icon for time counter",

@@ -6,6 +6,9 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import styles from "./DatePicker.stories.module.scss";
 import { RangeDate } from "../types";
 
+// for Chromatic check to always have the same date UI
+const MOCK_INITIAL_DATE: RangeDate = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
+
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
   actionPropsArray: ["onPickDate"]
@@ -15,11 +18,15 @@ export default {
   title: "Components/DatePicker",
   component: DatePicker,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { MOCK_INITIAL_DATE, styles }
+      }
+    }
+  }
 };
-
-// for Chromatic check to always have the same date UI
-const MOCK_INITIAL_DATE: RangeDate = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
 
 const DatePickerTemplate = (args: DatePickerProps) => {
   const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
@@ -32,7 +39,14 @@ const DatePickerTemplate = (args: DatePickerProps) => {
 
 export const Overview = {
   render: DatePickerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const SingleDay = {

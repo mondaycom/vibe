@@ -15,6 +15,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -29,6 +30,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -57,6 +59,7 @@ exports[`TabList renders correctly with children 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -85,6 +88,7 @@ exports[`TabList renders correctly with className 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -114,6 +118,7 @@ exports[`TabList renders correctly with id 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -142,6 +147,7 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -156,6 +162,7 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -184,6 +191,7 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
@@ -198,6 +206,7 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
+      data-vibe="Tab"
       role="tab"
     >
       <a
