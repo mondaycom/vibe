@@ -31,14 +31,15 @@ export default {
   argTypes: {
     ...metaSettings.argTypes,
     children: {
-      description: "Breadcrumb items, each containing text and an optional icon.",
+      description: "Breadcrumb item, each containing text and an optional icon, or a BreadcrumbMenu",
       control: "object",
       table: {
         type: {
-          summary: "BreadcrumbItemProps[]",
+          summary: "(BreadcrumbItemProps | BreadcrumbMenuProps)[]",
           detail: `{
             text: string;
             icon?: React.ReactNode;
+            children?: BreadcrumbMenuItemProps[];
           }[]`
         },
         defaultValue: {
