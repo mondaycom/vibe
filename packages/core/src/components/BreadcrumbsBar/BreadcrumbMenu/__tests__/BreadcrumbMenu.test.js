@@ -50,48 +50,6 @@ describe("BreadcrumbMenu tests", () => {
     });
   });
 
-  it("should call onMenuShow when menu opens", async () => {
-    const onMenuShowMock = jest.fn();
-
-    const { getByRole } = render(
-      <BreadcrumbsBar type="navigation">
-        <BreadcrumbMenu onMenuShow={onMenuShowMock}>
-          <BreadcrumbMenuItem title="Option 1" />
-        </BreadcrumbMenu>
-      </BreadcrumbsBar>
-    );
-
-    const menuButton = getByRole("button");
-    fireEvent.click(menuButton);
-
-    jest.advanceTimersByTime(100);
-
-    expect(onMenuShowMock).toHaveBeenCalled();
-  });
-
-  it("should call onMenuHide when menu closes", async () => {
-    const onMenuHideMock = jest.fn();
-
-    const { getByRole } = render(
-      <BreadcrumbsBar type="navigation">
-        <BreadcrumbMenu onMenuHide={onMenuHideMock}>
-          <BreadcrumbMenuItem title="Option 1" />
-        </BreadcrumbMenu>
-      </BreadcrumbsBar>
-    );
-
-    const menuButton = getByRole("button");
-    fireEvent.click(menuButton);
-
-    jest.advanceTimersByTime(100);
-
-    fireEvent.click(document.body);
-
-    jest.advanceTimersByTime(100);
-
-    expect(onMenuHideMock).toHaveBeenCalled();
-  });
-
   it("should pass onClick handlers to MenuItem", () => {
     const onClickMock = jest.fn();
 

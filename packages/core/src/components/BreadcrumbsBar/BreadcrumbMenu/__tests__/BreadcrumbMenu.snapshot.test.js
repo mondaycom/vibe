@@ -40,13 +40,18 @@ describe("BreadcrumbMenu", () => {
 
   it("renders correctly with various MenuItem props", () => {
     const onClickMock = jest.fn();
-    
+
     const tree = renderer
       .create(
         <BreadcrumbMenu>
           <BreadcrumbMenuItem title="Filter Items" icon={Filter} onClick={onClickMock} />
           <BreadcrumbMenuItem title="Documentation" icon={Work} link="https://docs.example.com" />
-          <BreadcrumbMenuItem title="Pin Dashboard" icon={Pin} onClick={onClickMock} link="https://pinned.example.com" />
+          <BreadcrumbMenuItem
+            title="Pin Dashboard"
+            icon={Pin}
+            onClick={onClickMock}
+            link="https://pinned.example.com"
+          />
         </BreadcrumbMenu>
       )
       .toJSON();
