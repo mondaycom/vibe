@@ -11,7 +11,7 @@ export interface BreadcrumbMenuProps extends VibeComponentProps {
 const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({ children, ...props }) => {
   return (
     <li className={styles.breadcrumbMenuWrapper} {...props}>
-      <MenuButton size={MenuButton.sizes.XXS} closeMenuOnItemClick removeTabCloseTrigger>
+      <MenuButton size={MenuButton.sizes.XXS} closeMenuOnItemClick>
         <Menu size={Menu.sizes.MEDIUM} focusItemIndexOnMount={0} ariaLabel="Expanded Breadcrumbs">
           {children}
         </Menu>
