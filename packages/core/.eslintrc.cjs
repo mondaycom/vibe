@@ -51,7 +51,7 @@ const commonRules = {
   "arrow-parens": "off",
   "lodash/import-scope": [2, "member"],
   "implicit-arrow-linebreak": "off",
-  "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
+  "import/no-extraneous-dependencies": ["error", { devDependencies: ["**/scripts/**/*.ts"] }]
 };
 const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest"];
 const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"];
