@@ -45,6 +45,7 @@ export enum ComponentDefaultTestId {
   ALERT_BANNER_LINK = "alert-banner-link",
   ALERT_BANNER_TEXT = "alert-banner-text",
   ATTENTION_BOX = "attention-box",
+  BOX = "box",
   AVATAR = "avatar",
   AVATAR_BADGE = "avatar-badge",
   AVATAR_CONTENT = "avatar-content",

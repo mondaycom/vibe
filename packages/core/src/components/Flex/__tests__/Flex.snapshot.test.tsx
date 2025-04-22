@@ -84,6 +84,30 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("with flex", () => {
+      const tree = renderer
+        .create(
+          <Flex>
+            <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>1</Flex>
+            <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>2</Flex>
+            <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>3</Flex>
+          </Flex>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("with flex shorthand", () => {
+      const tree = renderer
+        .create(
+          <Flex>
+            <Flex flex="1 0 auto">1</Flex>
+            <Flex flex="0 1 auto">2</Flex>
+            <Flex flex="0 1 auto">3</Flex>
+          </Flex>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
   describe("Vertical display", () => {
     it("with children", () => {
@@ -130,6 +154,18 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
+          </Flex>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("with flex", () => {
+      const tree = renderer
+        .create(
+          <Flex direction="column">
+            <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>1</Flex>
+            <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>2</Flex>
+            <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>3</Flex>
           </Flex>
         )
         .toJSON();

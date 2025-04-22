@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.1...@vibe/icons@1.7.0) (2025-04-10)
+
+
+### Features
+
+* **icons:** add TextFormatting and Signature icons ([#2838](https://github.com/mondaycom/vibe/issues/2838)) ([2844680](https://github.com/mondaycom/vibe/commit/28446808053f596396729d8bea1104f7fe7c9932))
+
+
+
+
+
+## [1.6.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.0...@vibe/icons@1.6.1) (2025-04-06)
+
+
+### Bug Fixes
+
+* **icons:** correct path for lazy types definition in package.json ([#2834](https://github.com/mondaycom/vibe/issues/2834)) ([1777b7d](https://github.com/mondaycom/vibe/commit/1777b7d03c8e74b298ea4edd6813154d9019226b))
+
+
+
+
+
 # [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.1...@vibe/icons@1.6.0) (2025-03-24)
 
 

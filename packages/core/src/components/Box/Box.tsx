@@ -27,6 +27,8 @@ import {
 import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
 import { VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface BoxProps extends VibeComponentProps {
   /**
@@ -133,7 +135,18 @@ export interface BoxProps extends VibeComponentProps {
 
 const Box = forwardRef(
   (
-    { className, id, elementType = "div", children, disabled, border, scrollable, style, ...props }: BoxProps,
+    {
+      className,
+      id,
+      elementType = "div",
+      children,
+      disabled,
+      border,
+      scrollable,
+      style,
+      "data-testid": dataTestId,
+      ...props
+    }: BoxProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
@@ -153,6 +166,7 @@ const Box = forwardRef(
     return React.createElement(
       elementType,
       {
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BOX, id),
         ref: mergedRef,
         className: cx(
           styles.box,

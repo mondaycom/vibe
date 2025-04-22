@@ -110,7 +110,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * Validation state for the text field.
    */
-  validation?: { status?: "error" | "success"; text?: string };
+  validation?: { status?: "error" | "success"; text?: string | React.ReactNode };
   /**
    * Class name applied to the text field wrapper.
    */
