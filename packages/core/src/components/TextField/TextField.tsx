@@ -356,7 +356,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [maxLength, validation, isRequiredAndEmpty, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
-    const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
+    const shouldShowExtraText =
+      showCharCount || (validation && validation.text) || (isRequiredAndEmpty && requiredErrorText);
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
