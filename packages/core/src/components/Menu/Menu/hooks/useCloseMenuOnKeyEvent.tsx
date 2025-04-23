@@ -3,7 +3,7 @@ import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { CloseMenuOption } from "../MenuConstants";
 import { keyCodes } from "../../../../constants";
 
-const KEYS = [keyCodes.ESCAPE, keyCodes.LEFT_ARROW];
+const KEYS = [keyCodes.ESCAPE, keyCodes.LEFT_ARROW, keyCodes.TAB];
 
 export default function useCloseMenuOnKeyEvent({
   hasOpenSubMenu,
@@ -20,28 +20,49 @@ export default function useCloseMenuOnKeyEvent({
   isSubMenu: boolean;
   useDocumentEventListeners: boolean;
 }) {
-  const onEscapeOrLeftArrowKey = useCallback(
+  const onKeyEvent = useCallback(
     (event: React.KeyboardEvent) => {
-      const isArrowLeftClick = event.key === keyCodes.LEFT_ARROW;
+      const key = event.key;
 
-      if (isArrowLeftClick && !isSubMenu) {
+      if (hasOpenSubMenu) return;
+
+      let propagate = false;
+      let shouldPreventDefault = false;
+
+      if (key === keyCodes.ESCAPE) {
+        propagate = true;
+        shouldPreventDefault = true;
+      } else if (key === keyCodes.LEFT_ARROW) {
+        if (isSubMenu) {
+          propagate = true;
+          shouldPreventDefault = true;
+        } else {
+          return;
+        }
+      } else if (key === keyCodes.TAB) {
+        propagate = true;
+        shouldPreventDefault = true;
+      } else {
         return;
       }
 
-      if (hasOpenSubMenu) return false;
-      onCloseMenu({ propagate: false });
-      if (onClose) {
-        onClose({ propagate: false }, isArrowLeftClick ? keyCodes.LEFT_ARROW : keyCodes.ESCAPE);
+      if (shouldPreventDefault) {
         event.preventDefault();
         event.stopPropagation();
       }
+
+      onCloseMenu({ propagate: false });
+
+      if (onClose) {
+        onClose({ propagate }, key);
+      }
     },
-    [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu]
+    [hasOpenSubMenu, isSubMenu, onCloseMenu, onClose]
   );
 
   useKeyEvent({
     keys: KEYS,
-    callback: onEscapeOrLeftArrowKey,
+    callback: onKeyEvent,
     ref: useDocumentEventListeners ? undefined : ref
   });
 }

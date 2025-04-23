@@ -25,6 +25,7 @@ import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
+import { CloseMenuOption } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { TooltipPositions } from "../Tooltip/Tooltip.types";
 import { ComponentVibeId } from "../../tests/constants";
@@ -236,14 +237,14 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     );
 
     const onMenuDidClose = useCallback(
-      (event: React.KeyboardEvent) => {
-        // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isEscapeKey = event?.key === "Escape";
-        if (isEscapeKey || closeMenuOnItemClick) {
-          // @ts-ignore
-          if (event.propagate) {
-            handleMenuClose(isEscapeKey);
-          }
+      (event: any /* CloseMenuOption or potentially other event types */) => {
+        // Check if the close event should trigger focus return
+        const shouldReturnFocus = event?.propagate === true;
+
+        if (shouldReturnFocus || closeMenuOnItemClick) {
+          // Always return focus if propagate is true (Escape, Tab, Left Arrow in submenu)
+          // Also return focus if an item was clicked and closeMenuOnItemClick is true
+          handleMenuClose(true);
         }
       },
       [closeMenuOnItemClick, handleMenuClose]
