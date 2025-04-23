@@ -242,13 +242,11 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     );
 
     const onMenuDidClose = useCallback(
-      (event: any /* CloseMenuOption or potentially other event types */) => {
-        // Check if the close event should trigger focus return
+      (event: React.KeyboardEvent) => {
+        // @ts-ignore
         const shouldReturnFocus = event?.propagate === true;
 
         if (shouldReturnFocus || closeMenuOnItemClick) {
-          // Always return focus if propagate is true (Escape, Tab, Left Arrow in submenu)
-          // Also return focus if an item was clicked and closeMenuOnItemClick is true
           handleMenuClose(true);
         }
       },
