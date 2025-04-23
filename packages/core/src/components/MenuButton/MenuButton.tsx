@@ -165,6 +165,10 @@ export interface MenuButtonProps extends VibeComponentProps {
    * If true, closes the menu when clicking inside the dialog.
    */
   closeDialogOnContentClick?: boolean;
+  /**
+   * The ARIA control of the menu button for accessibility.
+   */
+  ariaControls?: string;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -211,7 +215,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId,
-      closeDialogOnContentClick = false
+      closeDialogOnContentClick = false,
+      ariaControls
     }: MenuButtonProps,
     ref
   ) => {
@@ -367,6 +372,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
+        aria-controls={ariaControls}
         aria-label={!text && ariaLabel}
         onMouseUp={onMouseUp}
         aria-disabled={disabled}
