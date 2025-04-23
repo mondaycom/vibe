@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import Clickable from "./Clickable";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
-import { ClickableProps } from "../Clickable/Clickable";
+import { VibeComponentProps } from "../../types";
+import { ClickableProps } from "./Clickable";
 
 export interface ClickableWrapperProps extends VibeComponentProps {
   /**
@@ -19,8 +18,11 @@ export interface ClickableWrapperProps extends VibeComponentProps {
   clickableProps: ClickableProps;
 }
 
-const ClickableWrapper: VibeComponent<ClickableWrapperProps, HTMLElement> = forwardRef(
-  ({ children, isClickable = true, clickableProps = {} }: ClickableWrapperProps, ref) => {
+const ClickableWrapper = forwardRef(
+  (
+    { children, isClickable = true, clickableProps = {} }: ClickableWrapperProps,
+    ref: React.ForwardedRef<HTMLElement>
+  ) => {
     if (!isClickable) {
       return <>{children}</>;
     }

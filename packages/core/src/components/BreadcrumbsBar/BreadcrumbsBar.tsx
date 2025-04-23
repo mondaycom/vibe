@@ -1,5 +1,5 @@
+import React, { ReactElement } from "react";
 import cx from "classnames";
-import React, { FC, ReactElement } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { NavigationChevronRight } from "@vibe/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
@@ -19,7 +19,7 @@ export interface BreadcrumbBarProps extends VibeComponentProps {
   children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
 }
 
-const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTypeEnum } = ({
+const BreadcrumbsBar = ({
   className,
   children,
   type = "indication",
@@ -49,6 +49,10 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   </nav>
 );
 
-export default withStaticProps(BreadcrumbsBar, {
+interface BreadcrumbsBarStaticProps {
+  types: typeof BreadcrumbsBarTypeEnum;
+}
+
+export default withStaticProps<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
   types: BreadcrumbsBarTypeEnum
 });

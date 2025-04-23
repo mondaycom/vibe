@@ -5,7 +5,7 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { LinkColor, LinkIconPosition, LinkTarget } from "./Link.types";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
@@ -71,11 +71,7 @@ export interface LinkProps extends VibeComponentProps {
   color?: LinkColor;
 }
 
-const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
-  targets?: typeof LinkTargetEnum;
-  iconPositions?: typeof IconPositionEnum;
-  position?: typeof IconPositionEnum;
-} = forwardRef(
+const Link = forwardRef(
   (
     {
       className,
@@ -141,7 +137,13 @@ function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | n
   return <Icon className={className} icon={icon} iconType="font" />;
 }
 
-export default withStaticProps(Link, {
+interface LinkStaticProps {
+  targets: typeof LinkTargetEnum;
+  iconPositions: typeof IconPositionEnum;
+  position: typeof IconPositionEnum;
+}
+
+export default withStaticProps<LinkProps, LinkStaticProps>(Link, {
   position: IconPositionEnum,
   iconPositions: IconPositionEnum,
   targets: LinkTargetEnum

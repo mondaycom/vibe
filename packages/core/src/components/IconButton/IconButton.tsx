@@ -6,12 +6,12 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ButtonColor, ButtonType } from "../Button/Button.types";
+import { ButtonColor, ButtonType } from "../Button";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
@@ -114,11 +114,7 @@ export interface IconButtonProps extends VibeComponentProps {
   loading?: boolean;
 }
 
-const IconButton: VibeComponent<IconButtonProps> & {
-  sizes?: typeof Button.sizes;
-  kinds?: typeof Button.kinds;
-  colors?: typeof Button.colors;
-} = forwardRef(
+const IconButton = forwardRef(
   (
     {
       className,
@@ -149,7 +145,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       tabIndex,
       loading = false
     }: IconButtonProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -245,7 +241,13 @@ const IconButton: VibeComponent<IconButtonProps> & {
   }
 );
 
-export default withStaticProps(IconButton, {
+interface IconButtonStaticProps {
+  sizes: typeof Button.sizes;
+  kinds: typeof Button.kinds;
+  colors: typeof Button.colors;
+}
+
+export default withStaticProps<IconButtonProps, IconButtonStaticProps>(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
   colors: Button.colors

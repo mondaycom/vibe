@@ -51,7 +51,20 @@ const commonRules = {
   "arrow-parens": "off",
   "lodash/import-scope": [2, "member"],
   "implicit-arrow-linebreak": "off",
-  "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
+  "import/no-extraneous-dependencies": [
+    "error",
+    {
+      devDependencies: [
+        "src/scripts/**/*.ts",
+        "src/storybook/**/*",
+        "src/tests/**/*.ts",
+        "src/utils/jest-utils.js",
+        "**/__tests__/**/*.{js,ts,tsx}",
+        "**/__stories__/**/*.{js,ts,tsx}",
+        "src/components/Combobox/components/ComboboxConstants.ts"
+      ]
+    }
+  ]
 };
 const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest"];
 const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"];
