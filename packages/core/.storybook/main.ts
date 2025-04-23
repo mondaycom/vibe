@@ -54,7 +54,8 @@ const config: StorybookConfig = {
     check: true,
     checkOptions: {
       async: false
-    }
+    },
+    reactDocgen: "react-docgen-typescript"
   },
   async webpackFinal(config, { configType }) {
     if (configType === "DEVELOPMENT") {
