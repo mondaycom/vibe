@@ -60,8 +60,7 @@ const commonRules = {
         "src/tests/**/*.ts",
         "src/utils/jest-utils.js",
         "**/__tests__/**/*.{js,ts,tsx}",
-        "**/__stories__/**/*.{js,ts,tsx}",
-        "src/components/Combobox/components/ComboboxConstants.ts"
+        "**/__stories__/**/*.{js,ts,tsx}"
       ]
     }
   ]
