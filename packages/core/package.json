@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.42.0",
+  "version": "3.43.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -229,8 +229,8 @@
     "preact": "^10.8.0",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
     "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^16.14.0",
     "react-live": "^4.1.5",
     "react-resizable": "^3.0.4",
     "react-syntax-highlighter": "^15.5.0",
