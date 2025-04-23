@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.43.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.0...@vibe/core@3.43.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **Combobox:** update scrollRef type to MutableRefObject ([#2850](https://github.com/mondaycom/vibe/issues/2850)) ([d5fe720](https://github.com/mondaycom/vibe/commit/d5fe720388cde224087a44671ccd6e9e02898e9d))
+* **docs:** docgen can't handle ComponentType ([#2851](https://github.com/mondaycom/vibe/issues/2851)) ([e50beb0](https://github.com/mondaycom/vibe/commit/e50beb04ac446cdd1fefd577b5d56b9f4b447b33))
+
+
+
+
+
 # [3.43.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.42.0...@vibe/core@3.43.0) (2025-04-23)
 
 
