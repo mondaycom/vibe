@@ -46,11 +46,11 @@
       cursor: not-allowed;
     }
 
-    &.leftBorder {
+    &.startBorder {
       border-inline-start-width: 1px;
     }
 
-    &.rightBorder {
+    &.endBorder {
       border-inline-end-width: 1px;
     }
   }

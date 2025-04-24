@@ -176,8 +176,8 @@ const ButtonGroup = forwardRef(
               [styles.disabled]: disabled,
               [styles.buttonDisabled]: option.disabled,
               [styles.fullWidth]: fullWidth,
-              [styles.leftBorder]: isFirst,
-              [styles.rightBorder]: isLast || !isNextOptionActive
+              [styles.startBorder]: isFirst,
+              [styles.endBorder]: isLast || !isNextOptionActive
             })}
             activeButtonClassName={styles.activeButton}
           >
