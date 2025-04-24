@@ -5,6 +5,7 @@ exports[`BreadcrumbMenu renders correctly with custom className 1`] = `
   className="custom-class"
 >
   <button
+    aria-controls="breadcrumb-menu"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup="true"
@@ -45,6 +46,7 @@ exports[`BreadcrumbMenu renders correctly with empty props 1`] = `
   className="breadcrumbMenuWrapper"
 >
   <button
+    aria-controls="breadcrumb-menu"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup="true"
@@ -85,6 +87,7 @@ exports[`BreadcrumbMenu renders correctly with various MenuItem props 1`] = `
   className="breadcrumbMenuWrapper"
 >
   <button
+    aria-controls="breadcrumb-menu"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup="true"

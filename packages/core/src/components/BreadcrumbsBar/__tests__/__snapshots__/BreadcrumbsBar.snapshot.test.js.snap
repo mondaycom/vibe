@@ -63,6 +63,7 @@ exports[`BreadcrumbsBar renders correctly with breadcrumb menu 1`] = `
       isClickable={false}
     >
       <button
+        aria-controls="breadcrumb-menu"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup="true"
