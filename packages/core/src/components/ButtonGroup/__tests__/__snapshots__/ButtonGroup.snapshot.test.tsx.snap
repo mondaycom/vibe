@@ -15,7 +15,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText disabled startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -30,7 +30,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -45,7 +45,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -60,7 +60,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -91,7 +91,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -106,7 +106,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -121,7 +121,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -136,7 +136,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -167,7 +167,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -182,7 +182,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -197,7 +197,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -212,7 +212,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -243,7 +243,7 @@ exports[`ButtonGroup renders correctly with className 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -258,7 +258,7 @@ exports[`ButtonGroup renders correctly with className 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -273,7 +273,7 @@ exports[`ButtonGroup renders correctly with className 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -288,7 +288,7 @@ exports[`ButtonGroup renders correctly with className 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -319,7 +319,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeLarge kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -334,7 +334,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -349,7 +349,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -364,7 +364,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -395,7 +395,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -410,7 +410,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -425,7 +425,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -440,7 +440,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -471,7 +471,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText selected button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat preventClickAnimation"
+      className="button optionText selected startBorder endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -486,7 +486,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -501,7 +501,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
@@ -516,7 +516,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
       data-vibe="Button"
       onBlur={[Function]}
