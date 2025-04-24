@@ -19,6 +19,7 @@ const BreadcrumbMenu = forwardRef(
         closeMenuOnItemClick
         ariaLabel={"Hidden breadcrumbs menu"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
+        ref={ref}
       >
         <Menu
           id={"breadcrumb-menu"}
