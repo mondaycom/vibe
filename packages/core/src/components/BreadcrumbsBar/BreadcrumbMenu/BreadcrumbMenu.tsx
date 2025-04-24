@@ -15,14 +15,14 @@ const BreadcrumbMenu = forwardRef(
     <li className={styles.breadcrumbMenuWrapper} {...props}>
       <MenuButton
         id={id}
-        size={MenuButton.sizes.XXS}
+        size={"xxs"}
         closeMenuOnItemClick
         ariaLabel={"Hidden breadcrumbs menu"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
       >
         <Menu
           id={"breadcrumb-menu"}
-          size={Menu.sizes.MEDIUM}
+          size={"medium"}
           focusItemIndexOnMount={0}
           ariaLabel="Expanded breadcrumbs menu"
         >
