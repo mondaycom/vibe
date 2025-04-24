@@ -1,12 +1,14 @@
 import React from "react";
 import { MenuItem, MenuItemProps } from "../../../Menu";
 import { withStaticProps } from "../../../../types";
+import { getTestId } from "src/tests/test-ids-utils";
+import { ComponentDefaultTestId } from "src/tests/constants";
 export interface BreadcrumbMenuItemProps extends MenuItemProps {
   /** Link to navigate to when item is clicked */
   link?: string;
 }
 
-const BreadcrumbMenuItem = ({ link, onClick, ...rest }: BreadcrumbMenuItemProps) => {
+const BreadcrumbMenuItem = ({ id, "data-testid": dataTestId, link, onClick, ...rest }: BreadcrumbMenuItemProps) => {
   // Create a custom onClick handler to handle link navigation if link is provided
   const handleClick = link
     ? (event: React.MouseEvent | React.KeyboardEvent) => {
@@ -15,7 +17,14 @@ const BreadcrumbMenuItem = ({ link, onClick, ...rest }: BreadcrumbMenuItemProps)
       }
     : onClick;
 
-  return <MenuItem {...rest} onClick={handleClick} />;
+  return (
+    <MenuItem
+      id={id}
+      onClick={handleClick}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
+      {...rest}
+    />
+  );
 };
 
 export default withStaticProps(BreadcrumbMenuItem, {
