@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.44.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.1...@vibe/core@3.44.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* Fix `<ButtonGroup>` border collapse issue ([#2852](https://github.com/mondaycom/vibe/issues/2852)) ([f5eb915](https://github.com/mondaycom/vibe/commit/f5eb915f696d1b7390763cb4dea582e3fc4b3ce2))
+
+
+### Features
+
+* **BreadcrumbsBar:** adding breadcrumb menu component ([#2844](https://github.com/mondaycom/vibe/issues/2844)) ([c93f590](https://github.com/mondaycom/vibe/commit/c93f5900428eec3308855fff18c98e318a48d1f8))
+* **Menu:** accessibility improvements ([#2848](https://github.com/mondaycom/vibe/issues/2848)) ([685f9b3](https://github.com/mondaycom/vibe/commit/685f9b35e7df2755ca59dff4a4a6beb6ee629b9c))
+
+
+
+
+
 ## [3.43.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.0...@vibe/core@3.43.1) (2025-04-23)
 
 
