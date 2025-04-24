@@ -5,7 +5,7 @@ import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { Workspace, Filter } from "@vibe/icons";
-import "./BreadcrumbMenu.stories.scss";
+import { Flex } from "../../../Flex";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbMenu
@@ -35,8 +35,8 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <div className="monday-storybook-breadcrumb-menu_column-wrapper">
-      <div className="monday-storybook-breadcrumb-menu_row-wrapper">
+    <Flex direction={Flex.directions.COLUMN} gap={24}>
+      <Flex direction={Flex.directions.ROW} gap={24} align={Flex.align.CENTER}>
         <span>Default</span>
         <BreadcrumbsBar type="navigation">
           <BreadcrumbMenu>
@@ -45,8 +45,8 @@ export const States = {
             <BreadcrumbMenuItem title="Option 3" />
           </BreadcrumbMenu>
         </BreadcrumbsBar>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   ),
 
   name: "States"
@@ -54,8 +54,8 @@ export const States = {
 
 export const WithLinks = {
   render: () => (
-    <div className="monday-storybook-breadcrumb-menu_column-wrapper">
-      <div className="monday-storybook-breadcrumb-menu_row-wrapper">
+    <Flex direction={Flex.directions.COLUMN} gap={24}>
+      <Flex direction={Flex.directions.ROW} gap={24} align={Flex.align.CENTER}>
         <span>With Links</span>
         <BreadcrumbsBar type="indication">
           <BreadcrumbMenu>
@@ -63,8 +63,8 @@ export const WithLinks = {
             <BreadcrumbMenuItem title="Monday" icon={Filter} link="https://www.monday.com" />
           </BreadcrumbMenu>
         </BreadcrumbsBar>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   ),
 
   name: "With Links"
