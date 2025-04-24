@@ -16,26 +16,23 @@
 
   .button {
     border-style: solid;
-    border-top-width: 1px;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-bottom-width: 1px;
+    border-width: 1px 0;
     background-color: var(--primary-background-color);
     border-color: var(--ui-border-color);
 
-    &:first-of-type {
-      border-left-width: 1px;
-    }
+    // &:first-of-type {
+    //   border-inline-start-width: 1px;
+    // }
 
-    &:last-of-type {
-      border-right-width: 1px;
-    }
+    // &:last-of-type {
+    //   border-inline-end-width: 1px;
+    // }
 
     &.activeButton {
       background-color: var(--primary-selected-color);
       border-color: var(--primary-color);
-      border-left-width: 1px;
-      border-right-width: 1px;
+      border-inline-start-width: 1px;
+      border-inline-end-width: 1px;
 
       &:hover {
         background-color: var(--primary-selected-color);
@@ -48,11 +45,19 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
+
+    &.leftBorder {
+      border-inline-start-width: 1px;
+    }
+
+    &.rightBorder {
+      border-inline-end-width: 1px;
+    }
   }
 
-  .button:not(.activeButton) + .button {
-    border-left-width: 1px;
-  }
+  // .button:not(.activeButton) + .button {
+  //   border-inline-start-width: 1px;
+  // }
 
   .kindTertiary & {
     .button {

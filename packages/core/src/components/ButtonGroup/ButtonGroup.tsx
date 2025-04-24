@@ -138,13 +138,19 @@ const ButtonGroup = forwardRef(
       [onSelect, disabled, name]
     );
 
+    const isOptionActive = (option?: ButtonGroupOption) => option?.value === valueState;
+
     const selectedOption = useMemo(() => {
-      return options.find(option => option.value === valueState);
+      return options.find(option => isOptionActive(option));
     }, [options, valueState]);
 
     const Buttons = useMemo(() => {
       return options.map((option, index) => {
-        const isSelected = option.value === valueState;
+        const isSelected = isOptionActive(option);
+        const isFirst = index === 0;
+        const isLast = index === options.length - 1;
+        const isNextOptionActive = isOptionActive(options[index + 1]);
+
         return (
           <ButtonWrapper
             key={option.value}
@@ -169,7 +175,9 @@ const ButtonGroup = forwardRef(
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
               [styles.buttonDisabled]: option.disabled,
-              [styles.fullWidth]: fullWidth
+              [styles.fullWidth]: fullWidth,
+              [styles.leftBorder]: isFirst,
+              [styles.rightBorder]: isLast || !isNextOptionActive
             })}
             activeButtonClassName={styles.activeButton}
           >
