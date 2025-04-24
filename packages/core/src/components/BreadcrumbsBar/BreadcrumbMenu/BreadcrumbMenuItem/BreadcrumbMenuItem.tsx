@@ -2,7 +2,8 @@ import React from "react";
 import { MenuItem, MenuItemProps } from "../../../Menu";
 import { withStaticProps } from "../../../../types";
 import { getTestId } from "../../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "src/tests/constants";
+import { ComponentDefaultTestId } from "../../../../tests/constants";
+
 export interface BreadcrumbMenuItemProps extends MenuItemProps {
   /** Link to navigate to when item is clicked */
   link?: string;
