@@ -57,7 +57,7 @@ export default function useCloseMenuOnKeyEvent({
         onClose({ propagate }, key);
       }
     },
-    [hasOpenSubMenu, isSubMenu, onCloseMenu, onClose]
+    [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu]
   );
 
   useKeyEvent({

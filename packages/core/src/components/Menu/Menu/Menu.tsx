@@ -178,8 +178,7 @@ const Menu: VibeComponent<MenuProps> & {
       setActiveItemIndex: onSetActiveItemIndexCallback,
       isVisible,
       ref,
-      useDocumentEventListeners,
-      numberOfItems: children.length
+      useDocumentEventListeners
     });
     useMouseLeave({
       resetOpenSubMenuIndex,

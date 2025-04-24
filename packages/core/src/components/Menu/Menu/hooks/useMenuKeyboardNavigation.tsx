@@ -17,8 +17,7 @@ export default function useMenuKeyboardNavigation({
   setActiveItemIndex,
   isVisible,
   ref,
-  useDocumentEventListeners,
-  numberOfItems
+  useDocumentEventListeners
 }: {
   hasOpenSubMenu: boolean;
   getNextSelectableIndex: (index: number) => number;
@@ -28,7 +27,6 @@ export default function useMenuKeyboardNavigation({
   isVisible: boolean;
   ref: React.RefObject<HTMLElement>;
   useDocumentEventListeners: boolean;
-  numberOfItems: number;
 }) {
   const onArrowKeyEvent = useCallback(
     (direction: NavDirections) => {
@@ -75,11 +73,11 @@ export default function useMenuKeyboardNavigation({
 
   const onEndKey = useCallback(() => {
     if (hasOpenSubMenu) return;
-    const lastIndex = getPreviousSelectableIndex(numberOfItems);
+    const lastIndex = getPreviousSelectableIndex(0);
     if (lastIndex !== -1) {
       setActiveItemIndex(lastIndex);
     }
-  }, [hasOpenSubMenu, getPreviousSelectableIndex, setActiveItemIndex, numberOfItems]);
+  }, [hasOpenSubMenu, getPreviousSelectableIndex, setActiveItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
