@@ -30,6 +30,7 @@ import { TooltipPositions } from "../Tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
+const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
@@ -164,6 +165,10 @@ export interface MenuButtonProps extends VibeComponentProps {
    * If true, closes the menu when clicking inside the dialog.
    */
   closeDialogOnContentClick?: boolean;
+  /**
+   * The ARIA control of the menu button for accessibility.
+   */
+  ariaControls?: string;
 }
 
 const MenuButton = forwardRef(
@@ -204,7 +209,8 @@ const MenuButton = forwardRef(
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId,
-      closeDialogOnContentClick = false
+      closeDialogOnContentClick = false,
+      ariaControls
     }: MenuButtonProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -232,11 +238,11 @@ const MenuButton = forwardRef(
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isEscapeKey = event?.key === "Escape";
-        if (isEscapeKey || closeMenuOnItemClick) {
+        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum);
+        if (isCloseKey || closeMenuOnItemClick) {
           // @ts-ignore
           if (event.propagate) {
-            handleMenuClose(isEscapeKey);
+            handleMenuClose(isCloseKey);
           }
         }
       },
@@ -245,7 +251,7 @@ const MenuButton = forwardRef(
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose(hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY);
+        handleMenuClose(CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
       },
       [handleMenuClose]
     );
@@ -360,6 +366,7 @@ const MenuButton = forwardRef(
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
+        aria-controls={ariaControls}
         aria-label={!text && ariaLabel}
         onMouseUp={onMouseUp}
         aria-disabled={disabled}
