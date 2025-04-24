@@ -53,6 +53,16 @@
   .button:not(.activeButton) + .button {
     border-left-width: 1px;
   }
+
+  .kindTertiary & {
+    .button {
+      border-color: transparent;
+
+      &:first-child {
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 .optionText:not(.disabled) {
@@ -61,16 +71,6 @@
 
 .optionText:not(.disabled).selected {
   color: var(--primary-text-color);
-}
-
-.kindTertiary {
-  .button {
-    border-color: transparent;
-
-    &:first-child {
-      border-color: transparent;
-    }
-  }
 }
 
 .wrapper.disabled {
