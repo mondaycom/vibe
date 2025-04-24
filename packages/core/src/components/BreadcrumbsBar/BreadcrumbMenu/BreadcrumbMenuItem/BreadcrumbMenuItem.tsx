@@ -25,7 +25,7 @@ const BreadcrumbMenuItem: BreadcrumbMenuItemComponent = forwardRef<unknown, Brea
     const handleClick = link
       ? (event: React.MouseEvent | React.KeyboardEvent) => {
           if (onClick) onClick(event);
-          window.open(link, "_blank");
+          if (link) window.open(link);
         }
       : onClick;
 
