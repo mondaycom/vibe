@@ -25,7 +25,6 @@ import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
-import { CloseMenuOption } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { TooltipPositions } from "../Tooltip";
 import { ComponentVibeId } from "../../tests/constants";
@@ -239,7 +238,7 @@ const MenuButton = forwardRef(
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum)
+        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum);
         if (isCloseKey || closeMenuOnItemClick) {
           // @ts-ignore
           if (event.propagate) {
