@@ -7,6 +7,7 @@ import { BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
+import { BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /**
@@ -16,7 +17,9 @@ export interface BreadcrumbBarProps extends VibeComponentProps {
   /**
    * The breadcrumb items displayed in the bar.
    */
-  children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
+  children:
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>[];
 }
 
 const BreadcrumbsBar = ({

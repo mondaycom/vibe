@@ -2,6 +2,8 @@ import React from "react";
 import renderer from "react-test-renderer";
 import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem";
+import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
+import BreadcrumbMenuItem from "../BreadcrumbMenu/BreadcrumbMenuItem/BreadcrumbMenuItem";
 
 describe("BreadcrumbsBar renders correctly", () => {
   it("with empty props", () => {
@@ -22,6 +24,22 @@ describe("BreadcrumbsBar renders correctly", () => {
         <BreadcrumbsBar>
           <BreadcrumbItem text="Workspace" />
           <BreadcrumbItem text="Board" />
+        </BreadcrumbsBar>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with breadcrumb menu", () => {
+    const tree = renderer
+      .create(
+        <BreadcrumbsBar>
+          <BreadcrumbItem text="Board" />
+          <BreadcrumbMenu>
+            <BreadcrumbMenuItem title="Item 1" />
+            <BreadcrumbMenuItem title="Item 2" />
+          </BreadcrumbMenu>
+          <BreadcrumbItem text="My Item" isCurrent />
         </BreadcrumbsBar>
       )
       .toJSON();

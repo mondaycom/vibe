@@ -51,6 +51,8 @@ export enum ComponentDefaultTestId {
   AVATAR_CONTENT = "avatar-content",
   BREADCRUMB_ITEM = "breadcrumb-item",
   BREADCRUMBS_BAR = "breadcrumbs-bar",
+  BREADCRUMB_MENU = "breadcrumb-menu",
+  BREADCRUMB_MENU_ITEM = "breadcrumb-menu-item",
   LINEAR_PROGRESS_BAR = "linear-progress-bar",
   BAR = "bar",
   BAR_PRIMARY = "bar-primary",

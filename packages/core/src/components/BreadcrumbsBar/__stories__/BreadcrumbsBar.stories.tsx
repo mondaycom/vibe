@@ -2,10 +2,12 @@ import React from "react";
 import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
 import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
 import Avatar from "../../Avatar/Avatar";
-import { Board, Folder, Group, Workspace } from "@vibe/icons";
+import { Board, Folder, Group, Workspace, Item } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./BreadcrumbsBar.stories.scss";
+import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
+import BreadcrumbMenuItem from "../BreadcrumbMenu/BreadcrumbMenuItem/BreadcrumbMenuItem";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar
@@ -29,14 +31,15 @@ export default {
   argTypes: {
     ...metaSettings.argTypes,
     children: {
-      description: "Breadcrumb items, each containing text and an optional icon.",
+      description: "Breadcrumb item, each containing text and an optional icon, or a BreadcrumbMenu",
       control: "object",
       table: {
         type: {
-          summary: "BreadcrumbItemProps[]",
+          summary: "(BreadcrumbItemProps | BreadcrumbMenuProps)[]",
           detail: `{
             text: string;
             icon?: React.ReactNode;
+            children?: BreadcrumbMenuItemProps[];
           }[]`
         },
         defaultValue: {
@@ -146,4 +149,21 @@ export const NavigatableBreadcrumbs = {
   },
 
   name: "Navigatable breadcrumbs"
+};
+
+export const WithBreadcrumbMenu = {
+  render: () => (
+    <BreadcrumbsBar type="navigation">
+      <BreadcrumbItem text="Board" icon={Board} />
+      <BreadcrumbItem text="Group" icon={Group} />
+      <BreadcrumbMenu>
+        <BreadcrumbMenuItem title="Item 1" onClick={() => alert("Item 1 clicked")} />
+        <BreadcrumbMenuItem title="Item 2" link="https://www.monday.com" />
+        <BreadcrumbMenuItem title="Item 3" link="https://www.monday.com" />
+      </BreadcrumbMenu>
+      <BreadcrumbItem text="My Item" icon={Item} isCurrent />
+    </BreadcrumbsBar>
+  ),
+
+  name: "With Breadcrumb Menu"
 };
