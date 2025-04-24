@@ -37,17 +37,11 @@ import {
   CustomSingleValueProps,
   DropdownComponentProps
 } from "./Dropdown.types";
-import { VibeComponent, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
 import LayerContext from "../LayerProvider/LayerContext";
 
-const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
-  sizes?: typeof BaseSizes;
-  chipColors?: typeof DROPDOWN_CHIP_COLORS;
-  menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
-  menuPositions?: typeof DROPDOWN_MENU_POSITION;
-  createFilter?: typeof createFilter;
-} = forwardRef(
+const Dropdown = forwardRef(
   (
     {
       className,
@@ -508,12 +502,20 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Dropdown, {
+interface DropdownStaticProps {
+  sizes: typeof BaseSizes;
+  chipColors: typeof DROPDOWN_CHIP_COLORS;
+  menuPlacements: typeof DROPDOWN_MENU_PLACEMENT;
+  menuPositions: typeof DROPDOWN_MENU_POSITION;
+  createFilter: typeof createFilter;
+}
+
+export default withStaticProps<DropdownComponentProps, DropdownStaticProps>(Dropdown, {
   sizes: BaseSizes,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,
-  createFilter: createFilter
+  createFilter
 });
 
 function isTestEnv() {

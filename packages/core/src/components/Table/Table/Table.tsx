@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement, UIEventHandler, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
 import { TableHeaderProps } from "../TableHeader/TableHeader";
 import { TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
@@ -87,9 +87,7 @@ export interface TableProps extends VibeComponentProps {
   withoutBorder?: boolean;
 }
 
-const Table: VibeComponent<TableProps, HTMLDivElement> & {
-  sizes?: typeof RowSizesEnum;
-} = forwardRef(
+const Table = forwardRef(
   (
     {
       id,
@@ -104,7 +102,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
       size = "medium",
       withoutBorder
     }: TableProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const tableRootRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(ref, tableRootRef);
@@ -204,4 +202,8 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Table, { sizes: RowSizesEnum });
+interface TableStaticProps {
+  sizes: typeof RowSizesEnum;
+}
+
+export default withStaticProps<TableProps, TableStaticProps>(Table, { sizes: RowSizesEnum });

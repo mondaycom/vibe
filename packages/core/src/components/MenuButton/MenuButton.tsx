@@ -8,7 +8,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
@@ -27,7 +27,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import { CloseMenuOption } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
@@ -172,13 +172,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   ariaControls?: string;
 }
 
-const MenuButton: VibeComponent<MenuButtonProps> & {
-  sizes?: typeof MenuButtonSizeEnum;
-  paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPositionEnum;
-  hideTriggers?: typeof Dialog.hideShowTriggers;
-  componentPositions?: typeof MenuButtonComponentPositionEnum;
-} = forwardRef(
+const MenuButton = forwardRef(
   (
     {
       id,
@@ -205,7 +199,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       text,
       tooltipContent,
       tooltipProps,
-      tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
+      tooltipTriggers = ["mouseleave"],
       tooltipPosition = "right",
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
@@ -219,7 +213,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       closeDialogOnContentClick = false,
       ariaControls
     }: MenuButtonProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -430,7 +424,15 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
   }
 );
 
-export default withStaticProps(MenuButton, {
+interface MenuButtonStaticProps {
+  sizes: typeof MenuButtonSizeEnum;
+  paddingSizes: typeof DialogContentContainer.sizes;
+  dialogPositions: typeof DialogPositionEnum;
+  hideTriggers: typeof Dialog.hideShowTriggers;
+  componentPositions: typeof MenuButtonComponentPositionEnum;
+}
+
+export default withStaticProps<MenuButtonProps, MenuButtonStaticProps>(MenuButton, {
   sizes: MenuButtonSizeEnum,
   paddingSizes: DialogSizeEnum,
   dialogPositions: DialogPositionEnum,

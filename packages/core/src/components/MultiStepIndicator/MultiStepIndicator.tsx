@@ -13,7 +13,7 @@ import {
 import { MultiStepType, MultiStepSize, TextPlacement, Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
@@ -59,12 +59,7 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
   size?: MultiStepSize;
 }
 
-const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElement> & {
-  types?: typeof MultiStepTypeEnum;
-  stepStatuses?: typeof StepStatusEnum;
-  textPlacements?: typeof TextPlacementEnum;
-  sizes?: typeof SizeEnum;
-} = forwardRef(
+const MultiStepIndicator = forwardRef(
   (
     {
       className,
@@ -81,7 +76,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
       size,
       "data-testid": dataTestId
     }: MultiStepIndicatorProps,
-    ref
+    ref: React.ForwardedRef<HTMLOListElement>
   ) => {
     const finalSize = textPlacement === "vertical" ? "regular" : size;
 
@@ -172,7 +167,14 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
   }
 );
 
-export default withStaticProps(MultiStepIndicator, {
+interface MultiStepIndicatorStaticProps {
+  types: typeof MultiStepTypeEnum;
+  stepStatuses: typeof StepStatusEnum;
+  textPlacements: typeof TextPlacementEnum;
+  sizes: typeof SizeEnum;
+}
+
+export default withStaticProps<MultiStepIndicatorProps, MultiStepIndicatorStaticProps>(MultiStepIndicator, {
   types: MultiStepTypeEnum,
   stepStatuses: StepStatusEnum,
   textPlacements: TextPlacementEnum,

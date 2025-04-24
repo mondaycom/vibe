@@ -1,16 +1,16 @@
 import cx from "classnames";
-import React, { FC, useRef } from "react";
+import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { ButtonType } from "../../Button/Button.types";
+import { ButtonType } from "../../Button";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
-import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../../Tooltip";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
@@ -84,12 +84,7 @@ export interface MenuItemButtonProps extends VibeComponentProps {
   children?: ElementContent | ElementContent[];
 }
 
-const MenuItemButton: FC<MenuItemButtonProps> & {
-  kinds?: typeof Button.kinds;
-  isSelectable?: boolean;
-  isMenuChild?: boolean;
-  tooltipPositions?: typeof TooltipPositionsEnum;
-} = ({
+const MenuItemButton = ({
   className,
   kind = "primary",
   leftIcon = null,
@@ -184,7 +179,12 @@ Object.assign(MenuItemButton, {
   isMenuChild: true
 });
 
-export default withStaticProps(MenuItemButton, {
+interface MenuItemButtonStaticProps {
+  kinds: typeof Button.kinds;
+  tooltipPositions: typeof TooltipPositionsEnum;
+}
+
+export default withStaticProps<MenuItemButtonProps, MenuItemButtonStaticProps>(MenuItemButton, {
   kinds: Button.kinds,
   tooltipPositions: TooltipPositionsEnum
 });

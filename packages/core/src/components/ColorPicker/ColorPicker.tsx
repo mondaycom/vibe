@@ -9,7 +9,7 @@ import ColorPickerContent from "./components/ColorPickerContent/ColorPickerConte
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
+import { VibeComponentProps, SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
@@ -90,12 +90,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPicker: VibeComponent<ColorPickerProps> & {
-  sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyleEnum;
-  colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapesEnum;
-} = forwardRef(
+const ColorPicker = forwardRef(
   (
     {
       className,
@@ -119,7 +114,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       id,
       "data-testid": dataTestId
     }: ColorPickerProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -163,7 +158,14 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
   }
 );
 
-export default withStaticProps(ColorPicker, {
+interface ColorPickerStaticProps {
+  sizes: typeof BaseSizes;
+  colorStyles: typeof ColorStyleEnum;
+  colorSizes: typeof BaseSizes;
+  colorShapes: typeof ColorShapesEnum;
+}
+
+export default withStaticProps<ColorPickerProps, ColorPickerStaticProps>(ColorPicker, {
   sizes: BaseSizes,
   colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,

@@ -1,6 +1,6 @@
 import React, { ReactElement, ComponentProps, forwardRef } from "react";
 import cx from "classnames";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import TableRow, { TableRowProps } from "../TableRow/TableRow";
 import VirtualizedList from "../../VirtualizedList/VirtualizedList";
 import styles from "./TableBody.module.scss";
@@ -21,8 +21,8 @@ export interface TableBodyProps extends VibeComponentProps {
     | ReactElement<ComponentProps<typeof VirtualizedList>>;
 }
 
-const TableBody: VibeComponent<TableBodyProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }: TableBodyProps, ref) => {
+const TableBody = forwardRef(
+  ({ id, className, "data-testid": dataTestId, children }: TableBodyProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const { dataState, emptyState, errorState, columns } = useTable();
     const { isLoading, isError } = dataState || {};
 
