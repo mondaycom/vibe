@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
 import { VibeComponentProps } from "src/types";
@@ -9,8 +9,8 @@ import { getTestId } from "../../../tests/test-ids-utils";
 export interface BreadcrumbMenuProps extends VibeComponentProps {
   children: React.ReactNode;
 }
-
-const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({ children, id, "data-testid": dataTestId, ...props }) => {
+const BreadcrumbMenu = forwardRef(
+  ({ children, id, "data-testid": dataTestId, ...props }: BreadcrumbMenuProps, ref: React.ForwardedRef<HTMLLIElement>) => {
   return (
     <li className={styles.breadcrumbMenuWrapper} {...props}>
       <MenuButton
@@ -31,6 +31,6 @@ const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({ children, id, "data-tes
       </MenuButton>
     </li>
   );
-};
+});
 
 export default BreadcrumbMenu;
