@@ -8,20 +8,17 @@ export interface BreadcrumbMenuItemProps extends MenuItemProps {
   link?: string;
 }
 
-// Define the type for the component including static props
 interface BreadcrumbMenuItemComponent
   extends ForwardRefExoticComponent<BreadcrumbMenuItemProps & RefAttributes<unknown>> {
   isMenuChild?: boolean;
   isSelectable?: boolean;
 }
 
-// Assign the forwardRef result to a variable with the explicit type
 const BreadcrumbMenuItem: BreadcrumbMenuItemComponent = forwardRef<unknown, BreadcrumbMenuItemProps>(
   (
     { id, "data-testid": dataTestId, link, onClick, ...rest }: BreadcrumbMenuItemProps,
     ref: React.ForwardedRef<HTMLLIElement>
   ) => {
-    // Create a custom onClick handler to handle link navigation if link is provided
     const handleClick = link
       ? (event: React.MouseEvent | React.KeyboardEvent) => {
           if (onClick) onClick(event);
@@ -41,7 +38,6 @@ const BreadcrumbMenuItem: BreadcrumbMenuItemComponent = forwardRef<unknown, Brea
   }
 );
 
-// Assign static props (now allowed by the type)
 BreadcrumbMenuItem.isMenuChild = true;
 BreadcrumbMenuItem.isSelectable = true;
 
