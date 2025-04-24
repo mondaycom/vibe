@@ -243,11 +243,13 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
-        // @ts-ignore
-        const shouldReturnFocus = event?.propagate === true;
-
-        if (shouldReturnFocus || closeMenuOnItemClick) {
-          handleMenuClose(true);
+        // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
+        const isCloseKey = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY].includes(event.key as DialogTriggerEventEnum)
+        if (isCloseKey || closeMenuOnItemClick) {
+          // @ts-ignore
+          if (event.propagate) {
+            handleMenuClose(isCloseKey);
+          }
         }
       },
       [closeMenuOnItemClick, handleMenuClose]
