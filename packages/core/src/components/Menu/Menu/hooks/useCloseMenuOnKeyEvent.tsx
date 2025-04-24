@@ -32,9 +32,9 @@ export default function useCloseMenuOnKeyEvent({
       if (![keyCodes.ESCAPE, keyCodes.LEFT_ARROW, keyCodes.TAB].includes(key)) {
         return;
       }
-      
+
       onCloseMenu({ propagate: false });
-      
+
       if (onClose) {
         onClose({ propagate: false }, key);
         event.preventDefault();
