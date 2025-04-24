@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.43.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.0...@vibe/core@3.43.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **Combobox:** update scrollRef type to MutableRefObject ([#2850](https://github.com/mondaycom/vibe/issues/2850)) ([d5fe720](https://github.com/mondaycom/vibe/commit/d5fe720388cde224087a44671ccd6e9e02898e9d))
+* **docs:** docgen can't handle ComponentType ([#2851](https://github.com/mondaycom/vibe/issues/2851)) ([e50beb0](https://github.com/mondaycom/vibe/commit/e50beb04ac446cdd1fefd577b5d56b9f4b447b33))
+
+
+
+
+
+# [3.43.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.42.0...@vibe/core@3.43.0) (2025-04-23)
+
+
+### Bug Fixes
+
+* **MenuItem:** replace aria-current with aria-selected for menu items according to a11y guidelines ([#2842](https://github.com/mondaycom/vibe/issues/2842)) ([9dc6565](https://github.com/mondaycom/vibe/commit/9dc6565b89375686923ea6bb94da442ece70a457))
+* **TextField:** Don't display subTextContainer when no requiredErrorText ([#2849](https://github.com/mondaycom/vibe/issues/2849)) ([08aadc5](https://github.com/mondaycom/vibe/commit/08aadc509f18bd0fb96589b92716c9e9c897fec4))
+
+
+### Features
+
+* add metadata for LLMs ([#2833](https://github.com/mondaycom/vibe/issues/2833)) ([675f541](https://github.com/mondaycom/vibe/commit/675f54156ccd74d2bc595f4663f0748036e646d4))
+
+
+
+
+
 # [3.42.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.41.0...@vibe/core@3.42.0) (2025-04-10)
 
 

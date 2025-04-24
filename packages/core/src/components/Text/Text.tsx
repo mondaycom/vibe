@@ -2,7 +2,6 @@ import React, { forwardRef, ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import VibeComponent from "../../types/VibeComponent";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
 import {
@@ -28,12 +27,7 @@ export interface TextProps extends TypographyProps {
   children: ReactNode;
 }
 
-const Text: VibeComponent<TextProps, HTMLElement> & {
-  types?: typeof TextTypeEnum;
-  weights?: typeof TextWeightEnum;
-  colors?: typeof TypographyColorEnum;
-  align?: typeof TypographyAlignEnum;
-} = forwardRef(
+const Text = forwardRef(
   (
     {
       className,
@@ -44,7 +38,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       children,
       ...typographyProps
     }: TextProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
@@ -61,7 +55,14 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Text, {
+interface TextStaticProps {
+  types: typeof TextTypeEnum;
+  weights: typeof TextWeightEnum;
+  colors: typeof TypographyColorEnum;
+  align: typeof TypographyAlignEnum;
+}
+
+export default withStaticProps<TextProps, TextStaticProps>(Text, {
   types: TextTypeEnum,
   weights: TextWeightEnum,
   colors: TypographyColorEnum,

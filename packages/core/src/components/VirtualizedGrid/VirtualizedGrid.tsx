@@ -16,8 +16,7 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import { VibeComponent } from "../../types";
+import { VibeComponent, VibeComponentProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
@@ -92,7 +91,7 @@ export interface VirtualizedGridProps extends VibeComponentProps {
   scrollableClassName?: string;
 }
 
-const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
+const VirtualizedGrid = forwardRef(
   (
     {
       className,
@@ -112,7 +111,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       scrollableClassName,
       "data-testid": dataTestId
     }: VirtualizedGridProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     // states
     const [gridHeight, setGridHeight] = useState(0);

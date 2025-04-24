@@ -2,7 +2,7 @@ import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo,
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
@@ -158,12 +158,7 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
   "aria-label": NonNullable<AriaAttributes["aria-label"]>;
 }
 
-const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
-  iconType?: typeof Icon.type;
-  isSelectable?: boolean;
-  isMenuChild?: boolean;
-  tooltipPositions?: typeof TooltipPositionsEnum;
-} = forwardRef(
+const MenuItem = forwardRef(
   (
     {
       className,
@@ -253,7 +248,12 @@ Object.assign(MenuItem, {
   isMenuChild: true
 });
 
-export default withStaticProps(MenuItem, {
+interface MenuItemStaticProps {
+  iconType: typeof Icon.type;
+  tooltipPositions: typeof TooltipPositionsEnum;
+}
+
+export default withStaticProps<MenuItemProps | MenuItemTitleComponentProps, MenuItemStaticProps>(MenuItem, {
   iconType: Icon.type,
   tooltipPositions: TooltipPositionsEnum
 });

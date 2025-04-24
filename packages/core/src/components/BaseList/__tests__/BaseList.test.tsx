@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import BaseList from "../BaseList";
 import { BaseListProps } from "../BaseList.types";
 
-function renderBaseList<T>(props?: Partial<BaseListProps<T>>) {
+function renderBaseList<T extends Record<string, unknown>>(props?: Partial<BaseListProps<T>>) {
   return render(<BaseList {...(props as BaseListProps<T>)} />);
 }
 

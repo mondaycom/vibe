@@ -127,10 +127,7 @@ export type SliderProps = {
   selectionIndicatorWidth?: string;
 };
 
-const Slider: React.FC<SliderProps> & {
-  sizes?: typeof BASE_SIZES;
-  colors?: typeof SliderColorEnum;
-} = forwardRef(
+const Slider = forwardRef(
   (
     {
       ariaLabel,
@@ -158,7 +155,7 @@ const Slider: React.FC<SliderProps> & {
       postfix,
       selectionIndicatorWidth = "60px"
     }: SliderProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -208,7 +205,12 @@ const Slider: React.FC<SliderProps> & {
   }
 );
 
-export default withStaticProps(Slider, {
+interface SliderStaticProps {
+  sizes: typeof BASE_SIZES;
+  colors: typeof SliderColorEnum;
+}
+
+export default withStaticProps<SliderProps, SliderStaticProps>(Slider, {
   sizes: BASE_SIZES,
   colors: SliderColorEnum
 });

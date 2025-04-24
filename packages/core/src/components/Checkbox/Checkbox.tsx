@@ -1,11 +1,11 @@
-import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import cx from "classnames";
 import { isNil, noop as NOOP } from "lodash-es";
 import Icon from "../Icon/Icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Text from "../Text/Text";
@@ -70,7 +70,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
+const Checkbox = forwardRef(
   (
     {
       className,
@@ -91,7 +91,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       id,
       "data-testid": dataTestId
     }: CheckBoxProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);

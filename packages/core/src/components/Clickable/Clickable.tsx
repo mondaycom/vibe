@@ -1,8 +1,7 @@
 import cx from "classnames";
 import React, { AriaRole, forwardRef } from "react";
 import { noop as NOOP } from "lodash-es";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";
 
@@ -71,7 +70,7 @@ export interface ClickableProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
+const Clickable = forwardRef(
   (
     {
       elementType = "div",

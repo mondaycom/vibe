@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import styles from "./TableHeader.module.scss";
 import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";
@@ -15,8 +15,11 @@ export interface TableHeaderProps extends VibeComponentProps {
   children?: React.ReactElement<TableHeaderCellProps> | React.ReactElement<TableHeaderCellProps>[];
 }
 
-const TableHeader: VibeComponent<TableHeaderProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }: TableHeaderProps, ref) => {
+const TableHeader = forwardRef(
+  (
+    { id, className, "data-testid": dataTestId, children }: TableHeaderProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const { headRef, onHeadScroll, isVirtualized } = useTable();
     const mergedRef = useMergeRef(headRef, ref);
 

@@ -1,6 +1,6 @@
 import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponentProps } from "../../../types";
 import { ComponentVibeId } from "../../../tests/constants";
 
 export interface FontIconProps extends VibeComponentProps {
@@ -30,7 +30,7 @@ export interface FontIconProps extends VibeComponentProps {
   "aria-hidden"?: boolean;
 }
 
-const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
+const FontIcon = forwardRef(
   (
     {
       id,
@@ -43,7 +43,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
       "aria-hidden": ariaHidden,
       "data-testid": dataTestId
     }: FontIconProps,
-    iconRef
+    iconRef: React.ForwardedRef<HTMLElement>
   ) => {
     const isIconFunction = typeof Icon === "function";
     const iconClassName = isIconFunction ? "" : Icon;
@@ -66,4 +66,5 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
     );
   }
 );
+
 export default FontIcon;
