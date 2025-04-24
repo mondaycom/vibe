@@ -1,7 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
@@ -72,7 +72,7 @@ export interface ToastProps extends VibeComponentProps {
   closeButtonAriaLabel?: string;
 }
 
-const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: typeof ToastActionTypeEnum } = ({
+const Toast = ({
   open = false,
   loading = false,
   autoHideDuration = null,
@@ -225,7 +225,12 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
   );
 };
 
-export default withStaticProps(Toast, {
+interface ToastStaticProps {
+  types: typeof ToastTypeEnum;
+  actionTypes: typeof ToastActionTypeEnum;
+}
+
+export default withStaticProps<ToastProps, ToastStaticProps>(Toast, {
   types: ToastTypeEnum,
   actionTypes: ToastActionTypeEnum
 });

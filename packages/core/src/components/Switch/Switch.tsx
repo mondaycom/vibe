@@ -1,7 +1,7 @@
 import React, { ChangeEvent, forwardRef, ReactElement, useMemo } from "react";
 import cx from "classnames";
 import useSwitch from "../../hooks/useSwitch";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { VibeComponentProps } from "../../types";
 import { MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
 
@@ -61,7 +61,7 @@ export interface SwitchProps extends VibeComponentProps {
 }
 
 // TODO no story
-export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
+const Switch = forwardRef(
   (
     {
       id,
@@ -80,7 +80,7 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
       wrapperClassName,
       "data-testid": dataTestId
     }: SwitchProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const { onChange: overrideOnChange, isChecked: overrideChecked } = useSwitch({
       isDisabled: disabled,
@@ -122,3 +122,5 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
     );
   }
 );
+
+export default Switch;

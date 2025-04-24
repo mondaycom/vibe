@@ -1,6 +1,5 @@
 import { SubIcon } from "../../../types";
 import React from "react";
-import { MutableRef } from "preact/hooks";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
@@ -211,7 +210,7 @@ export interface IOptionItemRendererArgs extends IComboboxOptionEvents {
   /**
    * A reference to the scroll container.
    */
-  scrollRef?: MutableRef<HTMLElement>;
+  scrollRef?: React.MutableRefObject<HTMLElement>;
   /**
    * The amount of offset when scrolling to the active item.
    */

@@ -9,12 +9,12 @@ import { calculateColorPickerWidth } from "../../services/ColorPickerStyleServic
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
-} from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import { ColorPickerClearButton } from "./ColorPickerClearButton";
-import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
+} from "../../../GridKeyboardNavigationContext";
+import ColorPickerClearButton from "./ColorPickerClearButton";
+import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
+import { VibeComponentProps, SubIcon, withStaticProps } from "../../../../types";
 import useMergeRef from "../../../../hooks/useMergeRef";
-import { ColorStyle } from "../../../../types/Colors";
+import { ColorStyle } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   /**
@@ -93,12 +93,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
-  sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyleEnum;
-  colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapesEnum;
-} = forwardRef(
+const ColorPickerContent = forwardRef(
   (
     {
       className,
@@ -123,7 +118,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       id,
       "data-testid": dataTestId
     }: ColorPickerContentProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const gridRef = useRef(null);
     const mergedRef = useMergeRef(ref, gridRef);
@@ -195,7 +190,14 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
   }
 );
 
-export default withStaticProps(ColorPickerContent, {
+interface ColorPickerContentStaticProps {
+  sizes: typeof BaseSizes;
+  colorStyles: typeof ColorStyleEnum;
+  colorSizes: typeof BaseSizes;
+  colorShapes: typeof ColorShapesEnum;
+}
+
+export default withStaticProps<ColorPickerContentProps, ColorPickerContentStaticProps>(ColorPickerContent, {
   sizes: BaseSizes,
   colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,

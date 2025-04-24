@@ -4,7 +4,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 // Libraries import
-import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { ReactElement, useCallback, useMemo, useRef, useState } from "react";
 // Constants import
 import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
@@ -72,15 +72,7 @@ export interface SplitButtonProps extends ButtonProps {
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
-const SplitButton: FC<SplitButtonProps> & {
-  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
-  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
-  sizes?: typeof Button.sizes;
-  colors?: typeof Button.colors;
-  kinds?: typeof Button.kinds;
-  inputTags?: typeof Button.inputTags;
-  dialogPaddingSizes?: typeof DialogContentContainer.sizes;
-} = ({
+const SplitButton = ({
   secondaryDialogContent,
   onSecondaryDialogDidShow = NOOP,
   onSecondaryDialogDidHide = NOOP,
@@ -302,11 +294,21 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: "bottom-start",
+  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
-export default withStaticProps(SplitButton, {
+interface SplitButtonStaticProps {
+  secondaryPositions: typeof SplitButtonSecondaryContentPosition;
+  secondaryDialogPositions: typeof SplitButtonSecondaryContentPosition;
+  sizes: typeof Button.sizes;
+  colors: typeof Button.colors;
+  kinds: typeof Button.kinds;
+  inputTags: typeof Button.inputTags;
+  dialogPaddingSizes: typeof DialogContentContainer.sizes;
+}
+
+export default withStaticProps<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
   secondaryPositions: SplitButtonSecondaryContentPosition,
   secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,

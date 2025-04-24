@@ -1,8 +1,7 @@
 import React, { forwardRef, PropsWithChildren, ReactNode, useContext, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import VibeComponent from "../../../types/VibeComponent";
+import { VibeComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TipseenMedia.module.scss";
@@ -17,8 +16,8 @@ export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps>
   children: ReactNode;
 }
 
-const TipseenMedia: VibeComponent<TipseenMediaProps, HTMLElement> = forwardRef(
-  ({ className, id, "data-testid": dataTestId, children }: TipseenMediaProps, ref) => {
+const TipseenMedia = forwardRef(
+  ({ className, id, "data-testid": dataTestId, children }: TipseenMediaProps, ref: React.ForwardedRef<HTMLElement>) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const color = useContext(TipseenContext);

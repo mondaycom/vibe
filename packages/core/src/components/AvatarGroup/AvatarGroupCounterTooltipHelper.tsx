@@ -6,8 +6,8 @@ import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
-import { AvatarType } from "../Avatar/Avatar.types";
-import { ElementContent } from "src/types/ElementContent";
+import { AvatarType } from "../Avatar";
+import { ElementContent } from "../../types";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE, AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 import { keyCodes } from "../../constants";
 

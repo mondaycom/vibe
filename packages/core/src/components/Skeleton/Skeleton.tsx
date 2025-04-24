@@ -1,7 +1,7 @@
+import React from "react";
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { FC } from "react";
 import {
   SKELETON_SIZES,
   SkeletonType as SkeletonTypeEnum,
@@ -41,10 +41,7 @@ export interface SkeletonProps extends VibeComponentProps {
   fullWidth?: boolean;
 }
 
-const Skeleton: FC<SkeletonProps> & {
-  types?: typeof SkeletonTypeEnum;
-  sizes?: typeof SKELETON_SIZES;
-} = ({
+const Skeleton = ({
   type = "rectangle",
   size = "custom",
   className,
@@ -54,7 +51,7 @@ const Skeleton: FC<SkeletonProps> & {
   fullWidth = false,
   id,
   "data-testid": dataTestId
-}) => {
+}: SkeletonProps) => {
   const skeletonType = (Object.values(SkeletonTypeEnum) as string[]).includes(type) ? type : "rectangle";
 
   // Skeleton has sizes only for text type, other types support only custom size
@@ -76,7 +73,12 @@ const Skeleton: FC<SkeletonProps> & {
   );
 };
 
-export default withStaticProps(Skeleton, {
+interface SkeletonStaticProps {
+  types: typeof SkeletonTypeEnum;
+  sizes: typeof SKELETON_SIZES;
+}
+
+export default withStaticProps<SkeletonProps, SkeletonStaticProps>(Skeleton, {
   types: SkeletonTypeEnum,
   sizes: SKELETON_SIZES
 });

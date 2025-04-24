@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../BaseListItem/BaseListItem";
-import { VibeComponent } from "../../types";
 import styles from "./BaseList.module.scss";
 import { BaseListProps } from "./BaseList.types";
 import { Flex } from "../Flex";
@@ -9,7 +8,7 @@ import Text from "../Text/Text";
 import cx from "classnames";
 import { Divider } from "../Divider";
 
-const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef(
+const BaseList = forwardRef(
   <T extends Record<string, unknown>>(
     {
       options,

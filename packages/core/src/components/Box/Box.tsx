@@ -25,7 +25,7 @@ import {
   SizePrefixMapping
 } from "./BoxConstants";
 import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
-import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import { VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -133,27 +133,7 @@ export interface BoxProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const Box: VibeComponent<BoxProps> & {
-  borderColors?: typeof BorderColorEnum;
-  roundeds?: typeof RoundedEnum;
-  shadows?: typeof ShadowEnum;
-  margins?: typeof MarginEnum;
-  marginXs?: typeof MarginXEnum;
-  marginYs?: typeof MarginYEnum;
-  marginTops?: typeof MarginTopEnum;
-  marginEnds?: typeof MarginEndEnum;
-  marginBottoms?: typeof MarginBottomEnum;
-  marginStarts?: typeof MarginStartEnum;
-  paddings?: typeof PaddingEnum;
-  paddingXs?: typeof PaddingXEnum;
-  paddingYs?: typeof PaddingYEnum;
-  paddingTops?: typeof PaddingTopEnum;
-  paddingEnds?: typeof PaddingEndEnum;
-  paddingBottoms?: typeof PaddingBottomEnum;
-  paddingStarts?: typeof PaddingStartEnum;
-  backgroundColors?: typeof BackgroundColorEnum;
-  textColors?: typeof BoxTextColorEnum;
-} = forwardRef(
+const Box = forwardRef(
   (
     {
       className,
@@ -167,7 +147,7 @@ const Box: VibeComponent<BoxProps> & {
       "data-testid": dataTestId,
       ...props
     }: BoxProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -202,7 +182,29 @@ const Box: VibeComponent<BoxProps> & {
   }
 );
 
-export default withStaticProps(Box, {
+interface BoxStaticProps {
+  borderColors: typeof BorderColorEnum;
+  roundeds: typeof RoundedEnum;
+  shadows: typeof ShadowEnum;
+  margins: typeof MarginEnum;
+  marginXs: typeof MarginXEnum;
+  marginYs: typeof MarginYEnum;
+  marginTops: typeof MarginTopEnum;
+  marginEnds: typeof MarginEndEnum;
+  marginBottoms: typeof MarginBottomEnum;
+  marginStarts: typeof MarginStartEnum;
+  paddings: typeof PaddingEnum;
+  paddingXs: typeof PaddingXEnum;
+  paddingYs: typeof PaddingYEnum;
+  paddingTops: typeof PaddingTopEnum;
+  paddingEnds: typeof PaddingEndEnum;
+  paddingBottoms: typeof PaddingBottomEnum;
+  paddingStarts: typeof PaddingStartEnum;
+  backgroundColors: typeof BackgroundColorEnum;
+  textColors: typeof BoxTextColorEnum;
+}
+
+export default withStaticProps<BoxProps, BoxStaticProps>(Box, {
   borderColors: BorderColorEnum,
   roundeds: RoundedEnum,
   shadows: ShadowEnum,
