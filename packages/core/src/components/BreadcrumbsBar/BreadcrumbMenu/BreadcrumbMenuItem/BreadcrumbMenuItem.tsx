@@ -9,33 +9,37 @@ export interface BreadcrumbMenuItemProps extends MenuItemProps {
 }
 
 // Define the type for the component including static props
-interface BreadcrumbMenuItemComponent extends ForwardRefExoticComponent<BreadcrumbMenuItemProps & RefAttributes<unknown>> {
+interface BreadcrumbMenuItemComponent
+  extends ForwardRefExoticComponent<BreadcrumbMenuItemProps & RefAttributes<unknown>> {
   isMenuChild?: boolean;
   isSelectable?: boolean;
 }
 
 // Assign the forwardRef result to a variable with the explicit type
-const BreadcrumbMenuItem: BreadcrumbMenuItemComponent = 
-forwardRef<unknown, BreadcrumbMenuItemProps>(
-  ({ id, "data-testid": dataTestId, link, onClick, ...rest }: BreadcrumbMenuItemProps, ref: React.ForwardedRef<HTMLLIElement>) => {
-  // Create a custom onClick handler to handle link navigation if link is provided
-  const handleClick = link
-    ? (event: React.MouseEvent | React.KeyboardEvent) => {
-        if (onClick) onClick(event);
-        window.open(link, "_blank");
-      }
-    : onClick;
+const BreadcrumbMenuItem: BreadcrumbMenuItemComponent = forwardRef<unknown, BreadcrumbMenuItemProps>(
+  (
+    { id, "data-testid": dataTestId, link, onClick, ...rest }: BreadcrumbMenuItemProps,
+    ref: React.ForwardedRef<HTMLLIElement>
+  ) => {
+    // Create a custom onClick handler to handle link navigation if link is provided
+    const handleClick = link
+      ? (event: React.MouseEvent | React.KeyboardEvent) => {
+          if (onClick) onClick(event);
+          window.open(link, "_blank");
+        }
+      : onClick;
 
-  return (
-    <MenuItem
-      id={id}
-      onClick={handleClick}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
-      ref={ref}
-      {...rest}
-    />
-  );
-});
+    return (
+      <MenuItem
+        id={id}
+        onClick={handleClick}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU_ITEM, id)}
+        ref={ref}
+        {...rest}
+      />
+    );
+  }
+);
 
 // Assign static props (now allowed by the type)
 BreadcrumbMenuItem.isMenuChild = true;

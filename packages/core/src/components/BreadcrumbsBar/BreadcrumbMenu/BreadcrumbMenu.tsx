@@ -10,28 +10,27 @@ export interface BreadcrumbMenuProps extends VibeComponentProps {
   children: React.ReactNode;
 }
 const BreadcrumbMenu = forwardRef(
-  ({ children, id, "data-testid": dataTestId, ...props }: BreadcrumbMenuProps, ref: React.ForwardedRef<HTMLLIElement>) => {
-  return (
-    <li className={styles.breadcrumbMenuWrapper} {...props}>
-      <MenuButton
-        id={id}
-        size={"xxs"}
-        closeMenuOnItemClick
-        ariaLabel={"Hidden breadcrumbs menu"}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
-        ref={ref}
-      >
-        <Menu
-          id={"breadcrumb-menu"}
-          size={"medium"}
-          focusItemIndexOnMount={0}
-          ariaLabel="Expanded breadcrumbs menu"
+  (
+    { children, id, "data-testid": dataTestId, ...props }: BreadcrumbMenuProps,
+    ref: React.ForwardedRef<HTMLLIElement>
+  ) => {
+    return (
+      <li className={styles.breadcrumbMenuWrapper} {...props}>
+        <MenuButton
+          id={id}
+          size={"xxs"}
+          closeMenuOnItemClick
+          ariaLabel={"Hidden breadcrumbs menu"}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
+          ref={ref}
         >
-          {children}
-        </Menu>
-      </MenuButton>
-    </li>
-  );
-});
+          <Menu id={"breadcrumb-menu"} size={"medium"} focusItemIndexOnMount={0} ariaLabel="Expanded breadcrumbs menu">
+            {children}
+          </Menu>
+        </MenuButton>
+      </li>
+    );
+  }
+);
 
 export default BreadcrumbMenu;
