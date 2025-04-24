@@ -31,6 +31,7 @@ import { TooltipPositions } from "../Tooltip/Tooltip.types";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
+const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
@@ -244,7 +245,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isCloseKey = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY].includes(event.key as DialogTriggerEventEnum)
+        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum)
         if (isCloseKey || closeMenuOnItemClick) {
           // @ts-ignore
           if (event.propagate) {
@@ -257,7 +258,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose([Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY].includes(hideEvent as DialogTriggerEventEnum));
+        handleMenuClose(CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
       },
       [handleMenuClose]
     );
