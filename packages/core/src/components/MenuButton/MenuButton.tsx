@@ -255,7 +255,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose(hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY);
+        handleMenuClose([Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY].includes(hideEvent as DialogTriggerEventEnum));
       },
       [handleMenuClose]
     );

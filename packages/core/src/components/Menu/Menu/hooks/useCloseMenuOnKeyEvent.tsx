@@ -26,35 +26,19 @@ export default function useCloseMenuOnKeyEvent({
 
       if (hasOpenSubMenu) return;
 
-      let propagate = false;
-      let shouldPreventDefault = false;
-
-      if (key === keyCodes.ESCAPE) {
-        propagate = true;
-        shouldPreventDefault = true;
-      } else if (key === keyCodes.LEFT_ARROW) {
-        if (isSubMenu) {
-          propagate = true;
-          shouldPreventDefault = true;
-        } else {
-          return;
-        }
-      } else if (key === keyCodes.TAB) {
-        propagate = true;
-        shouldPreventDefault = true;
-      } else {
+      if (key === keyCodes.LEFT_ARROW && !isSubMenu) {
         return;
       }
-
-      if (shouldPreventDefault) {
+      if (![keyCodes.ESCAPE, keyCodes.LEFT_ARROW, keyCodes.TAB].includes(key)) {
+        return;
+      }
+      
+      onCloseMenu({ propagate: false });
+      
+      if (onClose) {
+        onClose({ propagate: false }, key);
         event.preventDefault();
         event.stopPropagation();
-      }
-
-      onCloseMenu({ propagate: false });
-
-      if (onClose) {
-        onClose({ propagate }, key);
       }
     },
     [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu]
