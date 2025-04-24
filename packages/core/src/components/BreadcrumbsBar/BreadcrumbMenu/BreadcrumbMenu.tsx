@@ -3,8 +3,8 @@ import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
 import { VibeComponentProps } from "src/types";
 import styles from "./BreadcrumbsMenu.module.scss";
-import { getTestId } from "src/tests/test-ids-utils";
 import { ComponentDefaultTestId } from "src/tests/constants";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface BreadcrumbMenuProps extends VibeComponentProps {
   children: React.ReactNode;
