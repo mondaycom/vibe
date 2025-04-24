@@ -17,6 +17,8 @@ export const ARROW_LEFT_KEYS = ["ArrowLeft"];
 export const SELECTION_KEYS = ["Enter", " "];
 export const ENTER_KEYS = ["Enter"];
 export const ESCAPE_KEYS = ["Escape"];
+export const END_KEYS = ["End"];
+export const HOME_KEYS = ["Home"];
 
 export default function useFullKeyboardListeners({
   ref, // the reference for the component that listens to keyboard
