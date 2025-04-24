@@ -63,7 +63,7 @@ exports[`BreadcrumbsBar renders correctly with breadcrumb menu 1`] = `
       isClickable={false}
     >
       <button
-        aria-controls="breadcrumb-menu"
+        aria-controls="breadcrumb-menu-button-menu"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup="true"
@@ -71,6 +71,7 @@ exports[`BreadcrumbsBar renders correctly with breadcrumb menu 1`] = `
         className="wrapper sizeXxs"
         data-testid="breadcrumb-menu"
         data-vibe="MenuButton"
+        id="breadcrumb-menu-button"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
