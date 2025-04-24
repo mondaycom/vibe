@@ -14,18 +14,21 @@ const BreadcrumbMenu = forwardRef(
     { children, id, "data-testid": dataTestId, ...props }: BreadcrumbMenuProps,
     ref: React.ForwardedRef<HTMLLIElement>
   ) => {
+    const menuButtonId = id || "breadcrumb-menu-button";
+    const menuId = `${menuButtonId}-menu`;
+
     return (
       <li className={styles.breadcrumbMenuWrapper} {...props}>
         <MenuButton
-          id={id}
+          id={menuButtonId}
           size={"xxs"}
           closeMenuOnItemClick
           ariaLabel={"Hidden breadcrumbs menu"}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
-          ariaControls={"breadcrumb-menu"}
+          ariaControls={menuId}
           ref={ref}
         >
-          <Menu id={"breadcrumb-menu"} size={"medium"} focusItemIndexOnMount={0} ariaLabel="Expanded breadcrumbs menu">
+          <Menu id={menuId} size={"medium"} focusItemIndexOnMount={0} ariaLabel="Expanded breadcrumbs menu">
             {children}
           </Menu>
         </MenuButton>
