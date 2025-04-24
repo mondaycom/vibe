@@ -22,6 +22,7 @@ const BreadcrumbMenu = forwardRef(
           closeMenuOnItemClick
           ariaLabel={"Hidden breadcrumbs menu"}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
+          ariaControls={"breadcrumb-menu"}
           ref={ref}
         >
           <Menu id={"breadcrumb-menu"} size={"medium"} focusItemIndexOnMount={0} ariaLabel="Expanded breadcrumbs menu">
