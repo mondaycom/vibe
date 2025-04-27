@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.44.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.0...@vibe/core@3.44.1) (2025-04-27)
+
+
+### Bug Fixes
+
+* **Combobox:** Hide option tooltip when scrolled ([#2854](https://github.com/mondaycom/vibe/issues/2854)) ([a0d9f85](https://github.com/mondaycom/vibe/commit/a0d9f8523a41b9d4402e914f335daf4333831cc2))
+* **MenuButton:** fix tab focus when menu is closing ([#2853](https://github.com/mondaycom/vibe/issues/2853)) ([4c74e15](https://github.com/mondaycom/vibe/commit/4c74e15936c1c22ca6d74dddadb605b266f57e3e))
+
+
+
+
+
 # [3.44.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.1...@vibe/core@3.44.0) (2025-04-24)
 
 
