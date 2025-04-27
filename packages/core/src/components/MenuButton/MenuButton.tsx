@@ -251,9 +251,9 @@ const MenuButton = forwardRef(
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose(CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
+        handleMenuClose(isOpen && CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
       },
-      [handleMenuClose]
+      [handleMenuClose, isOpen]
     );
 
     const onDialogDidShow = useCallback(() => {
