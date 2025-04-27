@@ -174,7 +174,7 @@ const ComboboxOption = ({
   );
 
   return (
-    <Tooltip content={tooltipContent}>
+    <Tooltip content={tooltipContent} hideWhenReferenceHidden>
       <div
         ref={ref}
         key={id || label}
