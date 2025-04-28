@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.44.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.1...@vibe/core@3.44.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ColorPicker:** fix icon alignment in color ([#2855](https://github.com/mondaycom/vibe/issues/2855)) ([77c855b](https://github.com/mondaycom/vibe/commit/77c855b3d88c7707c7c7504c76b6162bebb70133))
+
+
+
+
+
 ## [3.44.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.0...@vibe/core@3.44.1) (2025-04-27)
 
 
