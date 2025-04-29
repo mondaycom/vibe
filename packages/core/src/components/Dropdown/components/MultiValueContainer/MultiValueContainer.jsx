@@ -19,7 +19,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size } = customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size, dialogClassName } =
+    customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -133,6 +134,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
+              wrapperClassName={dialogClassName}
             >
               <Counter
                 kind="line"

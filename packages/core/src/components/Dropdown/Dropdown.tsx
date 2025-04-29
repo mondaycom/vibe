@@ -115,7 +115,8 @@ const Dropdown = forwardRef(
       "data-testid": dataTestId,
       withGroupDivider = false,
       inputValue,
-      blurInputOnSelect
+      blurInputOnSelect,
+      multiValueDialogClassName
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -337,7 +338,8 @@ const Dropdown = forwardRef(
         controlRef,
         tooltipContent,
         popupsContainerSelector: insideLayerContext ? layerRef?.current : popupsContainerSelector,
-        size
+        size,
+        dialogClassName: multiValueDialogClassName
       }),
       [
         selectedOptions,
@@ -349,7 +351,8 @@ const Dropdown = forwardRef(
         layerRef,
         popupsContainerSelector,
         insideLayerContext,
-        size
+        size,
+        multiValueDialogClassName
       ]
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
