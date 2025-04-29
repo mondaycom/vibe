@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.44.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.2...@vibe/core@3.44.3) (2025-04-29)
+
+
+### Bug Fixes
+
+* **ColorPickerContent:** add keyboard tab navigation support to ColorPickerContent's grid ([#2856](https://github.com/mondaycom/vibe/issues/2856)) ([be22cc5](https://github.com/mondaycom/vibe/commit/be22cc527a6b1342089b6cda61988aac40aa3127))
+
+
+
+
+
 ## [3.44.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.1...@vibe/core@3.44.2) (2025-04-28)
 
 
