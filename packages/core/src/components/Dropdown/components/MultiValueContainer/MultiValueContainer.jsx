@@ -89,6 +89,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
         onTouchEndCapture={e => {
           e.stopPropagation();
         }}
+        onMouseDown={e => {
+          if (e.target === e.currentTarget) {
+            e.stopPropagation();
+          }
+        }}
       >
         {showPlaceholder && (
           <div className={classes["placeholder-container"]}>
@@ -123,7 +128,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes.valueDialogContent}>
+                <DialogContentContainer
+                  className={classes.valueDialogContent}
+                  onMouseDown={e => {
+                    e.stopPropagation();
+                  }}
+                >
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
