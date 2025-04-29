@@ -78,10 +78,6 @@ export interface ColorPickerColorsGridProps extends VibeComponentProps {
    * If true, displays a tooltip with the color name.
    */
   showColorNameTooltip?: boolean;
-  /**
-   * If true, the grid element will be focusable via keyboard (tab navigation).
-   */
-  enableGridTabNavigation?: boolean;
 }
 
 const ColorPickerColorsGrid = forwardRef(
@@ -100,7 +96,6 @@ const ColorPickerColorsGrid = forwardRef(
       tooltipContentByColor,
       colorShape,
       showColorNameTooltip: showColorNameTooltip,
-      enableGridTabNavigation,
       id,
       "data-testid": dataTestId
     }: ColorPickerColorsGridProps,
@@ -114,19 +109,12 @@ const ColorPickerColorsGrid = forwardRef(
       onItemClicked: onColorClicked,
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
-      entryFocusStrategy: enableGridTabNavigation ? "first" : "directional",
+      entryFocusStrategy: "first",
       getItemByIndex
     });
 
     return (
-      <ul
-        className={styles.colorsGrid}
-        ref={ref}
-        tabIndex={enableGridTabNavigation ? 0 : -1}
-        id={id}
-        data-testid={dataTestId}
-        role="grid"
-      >
+      <ul className={styles.colorsGrid} ref={ref} tabIndex={0} id={id} data-testid={dataTestId} role="grid">
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent

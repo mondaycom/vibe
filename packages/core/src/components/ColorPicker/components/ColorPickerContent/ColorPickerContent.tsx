@@ -91,10 +91,6 @@ export interface ColorPickerContentProps extends VibeComponentProps {
    * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
    */
   showColorNameTooltip?: boolean;
-  /**
-   * If true, enables keyboard tab navigation into the colors grid (makes it focusable).
-   */
-  enableTabNavigation?: boolean;
 }
 
 const ColorPickerContent = forwardRef(
@@ -119,7 +115,6 @@ const ColorPickerContent = forwardRef(
       colorShape = "square",
       forceUseRawColorList,
       showColorNameTooltip,
-      enableTabNavigation,
       id,
       "data-testid": dataTestId
     }: ColorPickerContentProps,
@@ -183,7 +178,6 @@ const ColorPickerContent = forwardRef(
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
             showColorNameTooltip={showColorNameTooltip}
-            enableGridTabNavigation={enableTabNavigation}
             id={id}
             data-testid={dataTestId}
           />
