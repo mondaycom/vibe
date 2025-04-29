@@ -124,7 +124,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes.valueDialogContent}>
+                <DialogContentContainer
+                  className={classes.valueDialogContent}
+                  onMouseDown={e => {
+                    e.stopPropagation();
+                  }}
+                >
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
