@@ -2,6 +2,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { VibeComponentProps, ElementContent } from "../../../types";
+import { ExpandCollapseIconPosition } from "src/components/ExpandCollapse/ExpandCollapse.types";
 
 export interface AccordionItemProps extends VibeComponentProps {
   /**
@@ -16,6 +17,10 @@ export interface AccordionItemProps extends VibeComponentProps {
    * The size of the expand/collapse icon.
    */
   iconSize?: number | string;
+  /**
+   * The position of the expand/collapse icon.
+   */
+  iconPosition?: ExpandCollapseIconPosition;
   /**
    * Callback fired upon item click.
    */
@@ -53,6 +58,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       title = "",
       className = "",
       iconSize = 24,
+      iconPosition = "right",
       id,
       open,
       onClick,
@@ -78,6 +84,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       <div ref={mergedRef} className={className} id={id}>
         <ExpandCollapse
           iconSize={iconSize}
+          iconPosition={iconPosition}
           id={`expand-collapse--${id}`}
           onClick={onClickCallback}
           open={open}

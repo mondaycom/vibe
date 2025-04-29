@@ -7,6 +7,7 @@ import { DropdownChevronDown } from "@vibe/icons";
 import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
+import { ExpandCollapseIconPosition } from "./ExpandCollapse.types";
 
 export interface ExpandCollapseProps extends VibeComponentProps {
   /**
@@ -38,6 +39,10 @@ export interface ExpandCollapseProps extends VibeComponentProps {
    */
   iconSize?: number | string;
   /**
+   * The position of the icon.
+   */
+  iconPosition?: ExpandCollapseIconPosition;
+  /**
    * If true, the section is open by default when rendered.
    */
   defaultOpenState?: boolean;
@@ -68,6 +73,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       className,
       defaultOpenState = false,
       iconSize = 24,
+      iconPosition = "right",
       id = "",
       open,
       onClick = null,
@@ -99,6 +105,18 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       );
     }, [title]);
 
+    const renderIcon = () => (
+      <Icon
+        className={cx(styles.iconComponent, {
+          [styles.animateIconOpen]: isExpanded,
+          [styles.animateIconClose]: !isExpanded
+        })}
+        iconType="svg"
+        icon={DropdownChevronDown}
+        iconSize={iconSize}
+      />
+    );
+
     return (
       <div
         ref={mergedRef}
@@ -127,18 +145,11 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
+            {iconPosition === "left" && renderIcon()}
             {typeof title !== "string" || title.length !== 0
               ? renderHeader()
               : headerComponentRenderer && headerComponentRenderer()}
-            <Icon
-              className={cx(styles.iconComponent, {
-                [styles.animateIconOpen]: isExpanded,
-                [styles.animateIconClose]: !isExpanded
-              })}
-              iconType="svg"
-              icon={DropdownChevronDown}
-              iconSize={iconSize}
-            />
+            {iconPosition === "right" && renderIcon()}
           </button>
           {isExpanded && (
             <div

@@ -688,5 +688,7 @@
   "Flex.gaps.MEDIUM": "medium",
   "Flex.gaps.LARGE": "large",
   "Flex.directions.ROW": "row",
-  "Flex.directions.COLUMN": "column"
+  "Flex.directions.COLUMN": "column",
+  "ExpandCollapse.iconPositions.LEFT": "left",
+  "ExpandCollapse.iconPositions.RIGHT": "right"
 }

@@ -15,8 +15,8 @@
   @include reset-button();
   padding: var(--spacing-medium);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-small);
   cursor: pointer;
 }
 
@@ -30,6 +30,7 @@
 
 .header .headerContent {
   margin: 0;
+  flex: 1;
 }
 
 .header .iconComponent {
