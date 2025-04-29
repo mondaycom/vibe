@@ -18,6 +18,9 @@ const NO_ACTIVE_INDEX = -1;
  * @param {number} options.numberOfItemsInLine - the number of items on each line of the grid
  * @param {function} options.onItemClicked - the callback for selecting an item. It will be called when an active item is selected, for example with "Enter".
  * @param {function} options.getItemByIndex - a function which gets an index as a param, and returns the item on that index
+ * @param {"directional" | "first"} options.entryFocusStrategy - Determines how the first item is focused when entering the grid via keyboard.
+ *   - "directional": Tries to focus based on the entry direction (Tab vs Shift+Tab). This is the default.
+ *   - "first": Always focuses the first item.
  * @param {boolean=} options.focusOnMount - if true, the referenced element will be focused when mounted
  * @param {number=} options.focusItemIndexOnMount - optional item index to focus when mounted. Only works with "options.focusOnMount".
  * @param {number[]=} options.disabledIndexes - optional array of disabled indices, which will be skipped while navigating.
@@ -35,6 +38,7 @@ export default function useGridKeyboardNavigation({
   itemsCount,
   numberOfItemsInLine,
   onItemClicked, // the callback to call when an item is selected
+  entryFocusStrategy = "directional",
   getItemByIndex = (_index: number) => {},
   focusOnMount = false,
   focusItemIndexOnMount = NO_ACTIVE_INDEX,
@@ -44,6 +48,7 @@ export default function useGridKeyboardNavigation({
   itemsCount: number;
   numberOfItemsInLine: number;
   onItemClicked: (element: HTMLElement | ReactElement | void | string, index: number) => void;
+  entryFocusStrategy?: "directional" | "first";
   getItemByIndex: (index: number | void) => HTMLElement | ReactElement | void | string;
   focusOnMount?: boolean;
   focusItemIndexOnMount?: number;
@@ -92,20 +97,27 @@ export default function useGridKeyboardNavigation({
 
   const { lastNavigationDirectionRef } = useLastNavigationDirection();
   const onFocus = useCallback(() => {
-    const direction = lastNavigationDirectionRef.current;
-    if (direction) {
-      // if we did not already focused on any grid item, set focus according to the item which selected
-      if (activeIndex === -1) {
-        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-        setActiveIndex(newIndex);
-      }
+    if (activeIndex !== NO_ACTIVE_INDEX) {
       setIsUsingKeyboardNav(true);
       return;
     }
-    if (activeIndex === NO_ACTIVE_INDEX) {
-      setActiveIndex(0);
-    }
-  }, [activeIndex, itemsCount, lastNavigationDirectionRef, numberOfItemsInLine]);
+
+    const direction = lastNavigationDirectionRef.current;
+    setActiveIndex(
+      entryFocusStrategy === "directional" && direction
+        ? getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount })
+        : 0
+    );
+    setIsUsingKeyboardNav(true);
+  }, [
+    activeIndex,
+    entryFocusStrategy,
+    itemsCount,
+    lastNavigationDirectionRef,
+    numberOfItemsInLine,
+    setActiveIndex,
+    setIsUsingKeyboardNav
+  ]);
 
   const onMouseDown = useCallback(() => {
     // If the user clicked on the grid element we assume that that what will caused the focus
