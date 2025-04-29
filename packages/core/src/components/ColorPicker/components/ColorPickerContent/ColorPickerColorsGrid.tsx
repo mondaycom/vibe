@@ -109,11 +109,12 @@ const ColorPickerColorsGrid = forwardRef(
       onItemClicked: onColorClicked,
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
+      entryFocusStrategy: "first",
       getItemByIndex
     });
 
     return (
-      <ul className={styles.colorsGrid} ref={ref} tabIndex={-1} id={id} data-testid={dataTestId}>
+      <ul className={styles.colorsGrid} ref={ref} tabIndex={0} id={id} data-testid={dataTestId} role="grid">
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent
