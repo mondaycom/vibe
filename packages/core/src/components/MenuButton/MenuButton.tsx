@@ -82,13 +82,13 @@ export interface MenuButtonProps extends VibeComponentProps {
    */
   dialogPosition?: DialogPosition;
   /**
-   * Class name ignored for dialog show trigger.
+   * Classes that prevent showing the dialog when present.
    */
-  dialogShowTriggerIgnoreClass?: string;
+  dialogShowTriggerIgnoreClass?: string | Array<string>;
   /**
-   * Class name ignored for dialog hide trigger.
+   * Classes that prevent hiding the dialog when present.
    */
-  dialogHideTriggerIgnoreClass?: string;
+  dialogHideTriggerIgnoreClass?: string | Array<string>;
   /**
    * The container selector in which to append the dialog.
    */
