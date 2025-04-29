@@ -89,11 +89,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
         onTouchEndCapture={e => {
           e.stopPropagation();
         }}
-        onMouseDown={e => {
-          if (e.target === e.currentTarget) {
-            e.stopPropagation();
-          }
-        }}
       >
         {showPlaceholder && (
           <div className={classes["placeholder-container"]}>
