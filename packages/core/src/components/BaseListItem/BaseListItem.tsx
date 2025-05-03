@@ -9,21 +9,23 @@ import { TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
 const BaseListItem = forwardRef(
-  <T extends Record<string, unknown>>(props: BaseListItemProps<T>, ref: React.ForwardedRef<HTMLLIElement>) => {
-    const {
-      size = "medium",
-      selected,
-      readOnly,
-      highlighted,
+  <Item = Record<string, unknown>,>(
+    {
       className,
-      dir = "ltr",
       id,
+      size = "medium",
+      selected = false,
+      readOnly = false,
+      highlighted = false,
       role = "option",
+      index: _index,
+      dir = "auto",
       itemRenderer,
-      itemProps,
-      item = {} as BaseListItemData<T>
-    } = props;
-
+      itemProps = {},
+      item = {} as BaseListItemData<Item>
+    }: BaseListItemProps<Item>,
+    ref: React.Ref<HTMLLIElement>
+  ) => {
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
 
     const listItemClassNames = useMemo(
@@ -65,6 +67,6 @@ const BaseListItem = forwardRef(
   }
 );
 
-export default BaseListItem as <T extends Record<string, unknown>>(
-  props: BaseListItemProps<T> & { ref?: React.ForwardedRef<HTMLLIElement> }
+export default BaseListItem as <Item = Record<string, unknown>>(
+  props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLLIElement> }
 ) => React.ReactElement;

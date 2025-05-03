@@ -20,7 +20,7 @@ import Text from "../Text/Text";
 import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
 
 const Dropdown = forwardRef(
-  <T extends BaseListItemData<Record<string, unknown>>>(
+  <Item extends BaseListItemData<Record<string, unknown>>>(
     {
       options,
       size,
@@ -54,7 +54,7 @@ const Dropdown = forwardRef(
       className,
       id,
       "data-testid": dataTestId
-    }: BaseDropdownProps<T>,
+    }: BaseDropdownProps<Item>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const dropdownRef = useRef<HTMLInputElement>(null);
@@ -192,7 +192,7 @@ const Dropdown = forwardRef(
             ref={listWrapperRef}
           >
             <DialogContentContainer>
-              <BaseList<T>
+              <BaseList<Item>
                 size={size}
                 options={filteredOptions}
                 selectedItem={selectedItem}
@@ -212,12 +212,7 @@ const Dropdown = forwardRef(
           </div>
         </div>
         {helperText && (
-          <Text
-            color={error ? "negative" : "secondary"}
-            style={{
-              marginTop: "var(--spacing-xs)"
-            }}
-          >
+          <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
             {helperText}
           </Text>
         )}
@@ -226,6 +221,6 @@ const Dropdown = forwardRef(
   }
 );
 
-export default Dropdown as <T extends BaseListItemData<Record<string, unknown>>>(
-  props: BaseDropdownProps<T> & { ref?: React.ForwardedRef<HTMLDivElement> }
+export default Dropdown as <Item extends BaseListItemData<Record<string, unknown>>>(
+  props: BaseDropdownProps<Item> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => React.ReactElement;

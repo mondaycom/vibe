@@ -17,7 +17,7 @@ export default {
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators,
   tags: ["internal"]
-} as Meta<typeof BaseListItem>;
+} satisfies Meta<typeof BaseListItem>;
 
 const baseListItemTemplate = createComponentTemplate(BaseListItem);
 

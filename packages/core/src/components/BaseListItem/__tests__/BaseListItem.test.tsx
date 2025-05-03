@@ -14,7 +14,7 @@ const endElement: EndElement = {
   value: "check"
 };
 
-function renderBaseListItem(props?: Partial<BaseListItemProps>) {
+function renderBaseListItem(props?: Partial<BaseListItemProps<Record<string, unknown>>>) {
   return render(<BaseListItem {...props} />);
 }
 
@@ -157,7 +157,7 @@ describe("with type parameter scenarios", () => {
       isActive: true
     };
 
-    const { getByText } = render(<BaseListItem item={typedItem} />);
+    const { getByText } = render(<BaseListItem<ExplicitType> item={typedItem} />);
     expect(getByText("Typed Item")).toBeInTheDocument();
   });
 

@@ -9,7 +9,7 @@ import cx from "classnames";
 import { Divider } from "../Divider";
 
 const BaseList = forwardRef(
-  <T extends Record<string, unknown>>(
+  <Item extends Record<string, unknown>>(
     {
       options,
       selectedItem,
@@ -25,7 +25,7 @@ const BaseList = forwardRef(
       renderOptions = true,
       onScroll,
       maxMenuHeight = 300
-    }: BaseListProps<T>,
+    }: BaseListProps<Item>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
@@ -66,7 +66,7 @@ const BaseList = forwardRef(
                     selectedItem?.value !== undefined && selectedItem?.value === option.value && !option.disabled;
 
                   return (
-                    <BaseListItem<T>
+                    <BaseListItem<Item>
                       itemProps={itemProps}
                       key={typeof option.value === "string" ? option.value : itemIndex}
                       size={size}
@@ -87,6 +87,6 @@ const BaseList = forwardRef(
   }
 );
 
-export default BaseList as <T extends Record<string, unknown>>(
-  props: BaseListProps<T> & { ref?: React.Ref<HTMLUListElement> }
+export default BaseList as <Item extends Record<string, unknown>>(
+  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
 ) => React.ReactElement;

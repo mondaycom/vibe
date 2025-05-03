@@ -4,8 +4,8 @@ import { BaseListItemData } from "../../BaseListItem";
 import { ListGroup } from "../../BaseList";
 import { DropdownGroupOption } from "../Dropdown.types";
 
-function useDropdownFiltering<T extends BaseListItemData>(options: DropdownGroupOption<T>) {
-  const [filteredOptions, setFilteredOptions] = useState<ListGroup<T>[]>(() => normalizeOptions(options));
+function useDropdownFiltering<Item extends BaseListItemData>(options: DropdownGroupOption<Item>) {
+  const [filteredOptions, setFilteredOptions] = useState<ListGroup<Item>[]>(() => normalizeOptions(options));
   const [filterValue, setFilterValue] = useState<string>("");
 
   useEffect(() => {

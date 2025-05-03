@@ -3,12 +3,12 @@ import { ListGroup } from "../BaseList";
 import { VibeComponentProps } from "../../types";
 import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
 
-export type DropdownGroupOption<T = Record<string, unknown>> = ListGroup<T>[] | BaseListItemData<T>[];
-export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unknown>>> extends VibeComponentProps {
+export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
+export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> extends VibeComponentProps {
   /**
    * The list of options available in the list.
    */
-  options: DropdownGroupOption<T>;
+  options: DropdownGroupOption<Item>;
   /**
    * If true, displays dividers between grouped options.
    */
@@ -32,7 +32,7 @@ export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unk
   /**
    * The function to call to render an option.
    */
-  optionRenderer?: (option: BaseListItemData<T>) => React.ReactNode;
+  optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
   /**
    * The message to display when there are no options.
    */
@@ -92,7 +92,7 @@ export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unk
   /**
    * Callback fired when the selected value changes.
    */
-  onChange?: (option: BaseListItemData<T> | BaseListItemData<T>[]) => void;
+  onChange?: (option: BaseListItemData<Item> | BaseListItemData<Item>[]) => void;
   /**
    * Callback fired when the clear button is clicked.
    */
@@ -108,7 +108,7 @@ export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unk
   /**
    * Callback fired when a key is pressed inside the dropdown.
    */
-  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
   /**
    * Callback fired when the dropdown menu opens.
    */
@@ -120,7 +120,7 @@ export interface BaseDropdownProps<T extends BaseListItemData<Record<string, unk
   /**
    * Callback fired when an option is selected.
    */
-  onOptionSelect?: (option: BaseListItemData<T>) => void;
+  onOptionSelect?: (option: BaseListItemData<Item>) => void;
   /**
    * Callback fired when scrolling inside the dropdown.
    */
