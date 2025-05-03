@@ -36,6 +36,10 @@ export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = Table
    * Function to render the table header.
    */
   headerRenderer?: (columns: TableColumn[]) => JSX.Element;
+  /**
+   * Number of rows to render above/below the visible area.
+   */
+  overscanCount?: number;
 }
 
 const MemoizedRow = React.memo(
@@ -66,7 +70,8 @@ const TableVirtualizedBody = forwardRef(
       headerRenderer,
       id,
       className,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      overscanCount = 1
     }: TableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -164,6 +169,7 @@ const TableVirtualizedBody = forwardRef(
                 height={height}
                 itemCount={virtualizedWithHeader ? items.length + 1 : items.length}
                 width={width}
+                overscanCount={overscanCount}
                 onScroll={handleVirtualizedVerticalScroll}
                 outerRef={element => {
                   virtualizedListRef.current = element;
