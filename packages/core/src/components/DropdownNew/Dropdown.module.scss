@@ -57,6 +57,9 @@
       opacity: 0.6;
     }
   }
+  .popoverWrapper {
+    z-index: 2;
+  }
 }
 
 .helperText {

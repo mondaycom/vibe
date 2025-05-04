@@ -183,10 +183,10 @@ const Dropdown = forwardRef(
             )}
           </Flex>
           <div
+            className={styles.popoverWrapper}
             style={{
               ...popoverStyles.popper,
-              width: dropdownMergedRef.current?.offsetWidth,
-              zIndex: 2
+              width: dropdownMergedRef.current?.offsetWidth
             }}
             {...popoverAttributes.popper}
             ref={listWrapperRef}
