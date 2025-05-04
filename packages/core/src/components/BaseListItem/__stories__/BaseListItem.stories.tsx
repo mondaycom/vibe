@@ -26,8 +26,8 @@ export const Overview: Story = {
   args: {
     item: {
       label: "This is a list item",
-      startElement: { type: "avatar" as const, value: person1 },
-      endElement: { type: "icon" as const, value: Email },
+      startElement: { type: "avatar", value: person1 },
+      endElement: { type: "icon", value: Email },
       tooltipProps: { content: "tooltip content" }
     }
   }
