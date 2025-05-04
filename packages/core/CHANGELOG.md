@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.45.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.3...@vibe/core@3.45.0) (2025-04-29)
+
+
+### Bug Fixes
+
+* **Dropdown:** prevent the MultiValueContainer gaps from triggering open of menu ([#2858](https://github.com/mondaycom/vibe/issues/2858)) ([cd97a59](https://github.com/mondaycom/vibe/commit/cd97a59c8910785e51874dd8cd509d3644058082))
+
+
+### Features
+
+* **Dropdown:** add classname for multi value dialog ([#2857](https://github.com/mondaycom/vibe/issues/2857)) ([79c0bd7](https://github.com/mondaycom/vibe/commit/79c0bd72470943f3564a89b39f65e00f0377ef5b))
+
+
+
+
+
+## [3.44.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.2...@vibe/core@3.44.3) (2025-04-29)
+
+
+### Bug Fixes
+
+* **ColorPickerContent:** add keyboard tab navigation support to ColorPickerContent's grid ([#2856](https://github.com/mondaycom/vibe/issues/2856)) ([be22cc5](https://github.com/mondaycom/vibe/commit/be22cc527a6b1342089b6cda61988aac40aa3127))
+
+
+
+
+
 ## [3.44.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.1...@vibe/core@3.44.2) (2025-04-28)
 
 
