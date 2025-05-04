@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.46.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.45.0...@vibe/core@3.46.0) (2025-05-04)
+
+
+### Features
+
+* **MenuButton:** allow passing multiple values to dialog ignore classes ([#2859](https://github.com/mondaycom/vibe/issues/2859)) ([85f52f4](https://github.com/mondaycom/vibe/commit/85f52f4c98fbdc88e2a871779923ad42e503c320))
+
+
+
+
+
 # [3.45.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.3...@vibe/core@3.45.0) (2025-04-29)
 
 
