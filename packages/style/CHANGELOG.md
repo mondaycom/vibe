@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.23.0...monday-ui-style@0.24.0) (2025-05-04)
+
+
+### Features
+
+* **colors:** update ui-background-color ([#2860](https://github.com/mondaycom/vibe/issues/2860)) ([e4b97b2](https://github.com/mondaycom/vibe/commit/e4b97b28cdb8a0db5dfc37f6090df2372c755fd9))
+
+
+
+
+
 # [0.23.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.22.0...monday-ui-style@0.23.0) (2025-04-03)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.0...@vibe/icons@1.7.1) (2025-05-04)
+
+
+### Bug Fixes
+
+* **icons:** fix Dependency icon ([#2861](https://github.com/mondaycom/vibe/issues/2861)) ([7f5fca3](https://github.com/mondaycom/vibe/commit/7f5fca3b8d5c56a8864b301c3ec38312f43755fe))
+
+
+
+
+
 # [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.1...@vibe/icons@1.7.0) (2025-04-10)
 
 
