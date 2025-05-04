@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { VibeComponentProps, ElementContent } from "../../../types";
-import { ExpandCollapseIconPosition } from "src/components/ExpandCollapse/ExpandCollapse.types";
+import { ExpandCollapseIconPosition } from "../../ExpandCollapse/ExpandCollapse.types";
 
 export interface AccordionItemProps extends VibeComponentProps {
   /**
