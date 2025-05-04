@@ -8,7 +8,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
@@ -26,10 +26,11 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
+const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
@@ -81,13 +82,13 @@ export interface MenuButtonProps extends VibeComponentProps {
    */
   dialogPosition?: DialogPosition;
   /**
-   * Class name ignored for dialog show trigger.
+   * Classes that prevent showing the dialog when present.
    */
-  dialogShowTriggerIgnoreClass?: string;
+  dialogShowTriggerIgnoreClass?: string | Array<string>;
   /**
-   * Class name ignored for dialog hide trigger.
+   * Classes that prevent hiding the dialog when present.
    */
-  dialogHideTriggerIgnoreClass?: string;
+  dialogHideTriggerIgnoreClass?: string | Array<string>;
   /**
    * The container selector in which to append the dialog.
    */
@@ -164,15 +165,13 @@ export interface MenuButtonProps extends VibeComponentProps {
    * If true, closes the menu when clicking inside the dialog.
    */
   closeDialogOnContentClick?: boolean;
+  /**
+   * The ARIA control of the menu button for accessibility.
+   */
+  ariaControls?: string;
 }
 
-const MenuButton: VibeComponent<MenuButtonProps> & {
-  sizes?: typeof MenuButtonSizeEnum;
-  paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPositionEnum;
-  hideTriggers?: typeof Dialog.hideShowTriggers;
-  componentPositions?: typeof MenuButtonComponentPositionEnum;
-} = forwardRef(
+const MenuButton = forwardRef(
   (
     {
       id,
@@ -199,7 +198,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       text,
       tooltipContent,
       tooltipProps,
-      tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
+      tooltipTriggers = ["mouseleave"],
       tooltipPosition = "right",
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
@@ -210,9 +209,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       triggerElement: TriggerElement = "button",
       showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId,
-      closeDialogOnContentClick = false
+      closeDialogOnContentClick = false,
+      ariaControls
     }: MenuButtonProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -238,11 +238,11 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isEscapeKey = event?.key === "Escape";
-        if (isEscapeKey || closeMenuOnItemClick) {
+        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum);
+        if (isCloseKey || closeMenuOnItemClick) {
           // @ts-ignore
           if (event.propagate) {
-            handleMenuClose(isEscapeKey);
+            handleMenuClose(isCloseKey);
           }
         }
       },
@@ -251,9 +251,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose(hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY);
+        handleMenuClose(isOpen && CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
       },
-      [handleMenuClose]
+      [handleMenuClose, isOpen]
     );
 
     const onDialogDidShow = useCallback(() => {
@@ -366,6 +366,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
+        aria-controls={ariaControls}
         aria-label={!text && ariaLabel}
         onMouseUp={onMouseUp}
         aria-disabled={disabled}
@@ -422,7 +423,15 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
   }
 );
 
-export default withStaticProps(MenuButton, {
+interface MenuButtonStaticProps {
+  sizes: typeof MenuButtonSizeEnum;
+  paddingSizes: typeof DialogContentContainer.sizes;
+  dialogPositions: typeof DialogPositionEnum;
+  hideTriggers: typeof Dialog.hideShowTriggers;
+  componentPositions: typeof MenuButtonComponentPositionEnum;
+}
+
+export default withStaticProps<MenuButtonProps, MenuButtonStaticProps>(MenuButton, {
   sizes: MenuButtonSizeEnum,
   paddingSizes: DialogSizeEnum,
   dialogPositions: DialogPositionEnum,

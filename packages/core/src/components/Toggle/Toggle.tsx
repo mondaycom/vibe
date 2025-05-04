@@ -1,9 +1,9 @@
 import React, { ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
-import { Switch } from "../Switch/Switch";
+import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ToggleSize } from "./Toggle.types";
@@ -64,7 +64,7 @@ export interface ToggleProps extends VibeComponentProps {
   size?: ToggleSize;
 }
 
-const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
+const Toggle = forwardRef(
   (
     {
       id,
@@ -84,7 +84,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       size = "medium",
       "data-testid": dataTestId
     }: ToggleProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const wrapperClassName = cx(styles.wrapper);
     const inputClassName = cx(styles.toggleInput);

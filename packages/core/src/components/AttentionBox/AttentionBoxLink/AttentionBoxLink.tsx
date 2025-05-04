@@ -5,7 +5,7 @@ import cx from "classnames";
 
 export type AttentionBoxLinkProps = LinkProps;
 
-const AttentionBoxLink: React.FC<AttentionBoxLinkProps> = ({
+const AttentionBoxLink = ({
   href,
   text,
   // TODO: use Link's target default in next major
@@ -13,7 +13,7 @@ const AttentionBoxLink: React.FC<AttentionBoxLinkProps> = ({
   target = "_self",
   className,
   ...linkProps
-}) => {
+}: AttentionBoxLinkProps) => {
   return (
     <Link className={cx(styles.attentionBoxLink, className)} href={href} text={text} target={target} {...linkProps} />
   );

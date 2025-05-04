@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.46.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.45.0...@vibe/core@3.46.0) (2025-05-04)
+
+
+### Features
+
+* **MenuButton:** allow passing multiple values to dialog ignore classes ([#2859](https://github.com/mondaycom/vibe/issues/2859)) ([85f52f4](https://github.com/mondaycom/vibe/commit/85f52f4c98fbdc88e2a871779923ad42e503c320))
+
+
+
+
+
+# [3.45.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.3...@vibe/core@3.45.0) (2025-04-29)
+
+
+### Bug Fixes
+
+* **Dropdown:** prevent the MultiValueContainer gaps from triggering open of menu ([#2858](https://github.com/mondaycom/vibe/issues/2858)) ([cd97a59](https://github.com/mondaycom/vibe/commit/cd97a59c8910785e51874dd8cd509d3644058082))
+
+
+### Features
+
+* **Dropdown:** add classname for multi value dialog ([#2857](https://github.com/mondaycom/vibe/issues/2857)) ([79c0bd7](https://github.com/mondaycom/vibe/commit/79c0bd72470943f3564a89b39f65e00f0377ef5b))
+
+
+
+
+
+## [3.44.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.2...@vibe/core@3.44.3) (2025-04-29)
+
+
+### Bug Fixes
+
+* **ColorPickerContent:** add keyboard tab navigation support to ColorPickerContent's grid ([#2856](https://github.com/mondaycom/vibe/issues/2856)) ([be22cc5](https://github.com/mondaycom/vibe/commit/be22cc527a6b1342089b6cda61988aac40aa3127))
+
+
+
+
+
+## [3.44.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.1...@vibe/core@3.44.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ColorPicker:** fix icon alignment in color ([#2855](https://github.com/mondaycom/vibe/issues/2855)) ([77c855b](https://github.com/mondaycom/vibe/commit/77c855b3d88c7707c7c7504c76b6162bebb70133))
+
+
+
+
+
+## [3.44.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.0...@vibe/core@3.44.1) (2025-04-27)
+
+
+### Bug Fixes
+
+* **Combobox:** Hide option tooltip when scrolled ([#2854](https://github.com/mondaycom/vibe/issues/2854)) ([a0d9f85](https://github.com/mondaycom/vibe/commit/a0d9f8523a41b9d4402e914f335daf4333831cc2))
+* **MenuButton:** fix tab focus when menu is closing ([#2853](https://github.com/mondaycom/vibe/issues/2853)) ([4c74e15](https://github.com/mondaycom/vibe/commit/4c74e15936c1c22ca6d74dddadb605b266f57e3e))
+
+
+
+
+
+# [3.44.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.1...@vibe/core@3.44.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* Fix `<ButtonGroup>` border collapse issue ([#2852](https://github.com/mondaycom/vibe/issues/2852)) ([f5eb915](https://github.com/mondaycom/vibe/commit/f5eb915f696d1b7390763cb4dea582e3fc4b3ce2))
+
+
+### Features
+
+* **BreadcrumbsBar:** adding breadcrumb menu component ([#2844](https://github.com/mondaycom/vibe/issues/2844)) ([c93f590](https://github.com/mondaycom/vibe/commit/c93f5900428eec3308855fff18c98e318a48d1f8))
+* **Menu:** accessibility improvements ([#2848](https://github.com/mondaycom/vibe/issues/2848)) ([685f9b3](https://github.com/mondaycom/vibe/commit/685f9b35e7df2755ca59dff4a4a6beb6ee629b9c))
+
+
+
+
+
+## [3.43.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.0...@vibe/core@3.43.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **Combobox:** update scrollRef type to MutableRefObject ([#2850](https://github.com/mondaycom/vibe/issues/2850)) ([d5fe720](https://github.com/mondaycom/vibe/commit/d5fe720388cde224087a44671ccd6e9e02898e9d))
+* **docs:** docgen can't handle ComponentType ([#2851](https://github.com/mondaycom/vibe/issues/2851)) ([e50beb0](https://github.com/mondaycom/vibe/commit/e50beb04ac446cdd1fefd577b5d56b9f4b447b33))
+
+
+
+
+
+# [3.43.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.42.0...@vibe/core@3.43.0) (2025-04-23)
+
+
+### Bug Fixes
+
+* **MenuItem:** replace aria-current with aria-selected for menu items according to a11y guidelines ([#2842](https://github.com/mondaycom/vibe/issues/2842)) ([9dc6565](https://github.com/mondaycom/vibe/commit/9dc6565b89375686923ea6bb94da442ece70a457))
+* **TextField:** Don't display subTextContainer when no requiredErrorText ([#2849](https://github.com/mondaycom/vibe/issues/2849)) ([08aadc5](https://github.com/mondaycom/vibe/commit/08aadc509f18bd0fb96589b92716c9e9c897fec4))
+
+
+### Features
+
+* add metadata for LLMs ([#2833](https://github.com/mondaycom/vibe/issues/2833)) ([675f541](https://github.com/mondaycom/vibe/commit/675f54156ccd74d2bc595f4663f0748036e646d4))
+
+
+
+
+
+# [3.42.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.41.0...@vibe/core@3.42.0) (2025-04-10)
+
+
+### Bug Fixes
+
+* **Tipseen:** prevent double delay when using showDelay ([#2839](https://github.com/mondaycom/vibe/issues/2839)) ([d53758b](https://github.com/mondaycom/vibe/commit/d53758bf7402a293faad33ea523b922b7beaae26))
+
+
+### Features
+
+* **Flex:** introduced flex prop ([#2753](https://github.com/mondaycom/vibe/issues/2753)) ([5972ab2](https://github.com/mondaycom/vibe/commit/5972ab2f7aadeb61525e580aa0ff2036187a6c97))
+* **TextWithHighlight:** add tooltipProps for additional Tooltip cust… ([#2840](https://github.com/mondaycom/vibe/issues/2840)) ([41781fd](https://github.com/mondaycom/vibe/commit/41781fd5ccc25540675e706b32aa9a825170327f))
+
+
+
+
+
+# [3.41.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.40.0...@vibe/core@3.41.0) (2025-04-10)
+
+
+### Features
+
+* **TextField:** validationText can be a ReactNode ([#2837](https://github.com/mondaycom/vibe/issues/2837)) ([3df905c](https://github.com/mondaycom/vibe/commit/3df905ca4ecb9bb5824b71b61bc489ad1f29cc93))
+
+
+
+
+
+# [3.40.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.39.0...@vibe/core@3.40.0) (2025-04-09)
+
+
+### Bug Fixes
+
+* **Dropdown:** fix test env check ([#2836](https://github.com/mondaycom/vibe/issues/2836)) ([823dcfe](https://github.com/mondaycom/vibe/commit/823dcfeeeb322597163dac0e692c70dbcb2a98d2))
+
+
+### Features
+
+* add data-testid to Box ([#2831](https://github.com/mondaycom/vibe/issues/2831)) ([778312c](https://github.com/mondaycom/vibe/commit/778312cc9c5e3cab87bdffc2e18932f5b9491ccd))
+
+
+
+
+
+# [3.39.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.38.0...@vibe/core@3.39.0) (2025-04-06)
+
+
+### Bug Fixes
+
+* **EmptyState:** description should always be text2 ([#2832](https://github.com/mondaycom/vibe/issues/2832)) ([c476765](https://github.com/mondaycom/vibe/commit/c4767653cd5519f402af72c802eb38511162d958))
+
+
+### Features
+
+* **MenuTitle:** be able to provide a ReactNode ([#2835](https://github.com/mondaycom/vibe/issues/2835)) ([47448e8](https://github.com/mondaycom/vibe/commit/47448e8da9333ab4299c77e5cc82606d67b99732))
+
+
+
+
+
+# [3.38.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.37.0...@vibe/core@3.38.0) (2025-04-03)
+
+
+### Bug Fixes
+
+* **Modal:** update background color to use new token ([#2830](https://github.com/mondaycom/vibe/issues/2830)) ([4cd31ee](https://github.com/mondaycom/vibe/commit/4cd31eee36e38ec37e95b08c5f116a39cb5ddd08))
+
+
+### Features
+
+* add EmptyState component ([#2790](https://github.com/mondaycom/vibe/issues/2790)) ([4b50947](https://github.com/mondaycom/vibe/commit/4b509471b02b92341ec2c9e93cf54eef9cbb1b87))
+* **Text:** add error color ([#2827](https://github.com/mondaycom/vibe/issues/2827)) ([5fcd9ff](https://github.com/mondaycom/vibe/commit/5fcd9ff067c5da8ec0ae358bdb302e47cdfd5306))
+
+
+
+
+
 # [3.37.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.36.0...@vibe/core@3.37.0) (2025-03-30)
 
 

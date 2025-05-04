@@ -8,8 +8,7 @@ import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, Moment, RangeDate } from "./types";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
@@ -72,7 +71,7 @@ export interface DatePickerProps extends VibeComponentProps {
   shouldBlockRange?: (date: Moment) => boolean;
 }
 
-const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLDivElement, DatePickerProps>(
+const DatePicker = forwardRef(
   (
     {
       id,
@@ -92,7 +91,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       shouldBlockRange,
       "data-testid": dataTestId
     }: DatePickerProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown

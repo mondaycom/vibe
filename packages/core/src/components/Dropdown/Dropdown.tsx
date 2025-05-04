@@ -37,17 +37,11 @@ import {
   CustomSingleValueProps,
   DropdownComponentProps
 } from "./Dropdown.types";
-import { VibeComponent, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
 import LayerContext from "../LayerProvider/LayerContext";
 
-const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
-  sizes?: typeof BaseSizes;
-  chipColors?: typeof DROPDOWN_CHIP_COLORS;
-  menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
-  menuPositions?: typeof DROPDOWN_MENU_POSITION;
-  createFilter?: typeof createFilter;
-} = forwardRef(
+const Dropdown = forwardRef(
   (
     {
       className,
@@ -121,7 +115,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       "data-testid": dataTestId,
       withGroupDivider = false,
       inputValue,
-      blurInputOnSelect
+      blurInputOnSelect,
+      multiValueDialogClassName
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -149,17 +144,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        let isRequireAvailable = false;
-        try {
-          isRequireAvailable = typeof require === "function" && typeof module !== "undefined";
-        } catch (e) {
-          isRequireAvailable = false;
-        }
-
-        if (isRequireAvailable && process.env.NODE_ENV === "test") {
+        if (isTestEnv()) {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const module = require("react-windowed-select");
-          setWindowedMenuList(() => module.WindowedMenuList);
+          setWindowedMenuList(() => require("react-windowed-select").WindowedMenuList);
         } else {
           // Dynamically import the specific named export from react-windowed-select for SSR support
           import("react-windowed-select").then(module => {
@@ -351,7 +338,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         controlRef,
         tooltipContent,
         popupsContainerSelector: insideLayerContext ? layerRef?.current : popupsContainerSelector,
-        size
+        size,
+        dialogClassName: multiValueDialogClassName
       }),
       [
         selectedOptions,
@@ -363,7 +351,8 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         layerRef,
         popupsContainerSelector,
         insideLayerContext,
-        size
+        size,
+        multiValueDialogClassName
       ]
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
@@ -516,10 +505,31 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Dropdown, {
+interface DropdownStaticProps {
+  sizes: typeof BaseSizes;
+  chipColors: typeof DROPDOWN_CHIP_COLORS;
+  menuPlacements: typeof DROPDOWN_MENU_PLACEMENT;
+  menuPositions: typeof DROPDOWN_MENU_POSITION;
+  createFilter: typeof createFilter;
+}
+
+export default withStaticProps<DropdownComponentProps, DropdownStaticProps>(Dropdown, {
   sizes: BaseSizes,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,
-  createFilter: createFilter
+  createFilter
 });
+
+function isTestEnv() {
+  try {
+    return (
+      typeof require === "function" &&
+      typeof module !== "undefined" &&
+      typeof process !== "undefined" &&
+      process.env.NODE_ENV === "test"
+    );
+  } catch (e) {
+    return false;
+  }
+}

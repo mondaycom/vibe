@@ -27,7 +27,6 @@ const BaseListItem = forwardRef(
     ref: React.Ref<HTMLLIElement>
   ) => {
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
-
     const listItemClassNames = useMemo(
       () =>
         cx(

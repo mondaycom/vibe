@@ -332,6 +332,10 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
    * If true, displays dividers between grouped options.
    */
   withGroupDivider?: boolean;
+  /*
+   * Class name to be added to multi select dialog
+   */
+  multiValueDialogClassName?: string;
 }
 
 export type DropdownProps = DropdownComponentProps;

@@ -13,7 +13,7 @@ import {
   TipseenColor as TipseenColorEnum
 } from "./TipseenConstants";
 import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -127,13 +127,7 @@ export interface TipseenProps extends VibeComponentProps {
 
 export const TipseenContext = React.createContext<TipseenColor>("primary");
 
-const Tipseen: VibeComponent<TipseenProps> & {
-  closeButtonThemes?: typeof TipseenCloseButtonThemeEnum;
-  animationTypes?: typeof AnimationTypeEnum;
-  hideShowTriggers?: typeof HideShowEventEnum;
-  colors?: typeof TipseenColorEnum;
-  positions?: typeof TooltipPositionsEnum;
-} = forwardRef(
+const Tipseen = forwardRef(
   (
     {
       className,
@@ -164,7 +158,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       color: colorProp,
       "data-testid": dataTestId
     }: TipseenProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const color = colorProp ?? "inverted";
 
@@ -240,7 +234,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
-          showDelay={showDelay}
+          showDelay={0}
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           showOnDialogEnter={false}
@@ -263,7 +257,15 @@ const Tipseen: VibeComponent<TipseenProps> & {
   }
 );
 
-export default withStaticProps(Tipseen, {
+interface TipseenStaticProps {
+  closeButtonThemes: typeof TipseenCloseButtonThemeEnum;
+  animationTypes: typeof AnimationTypeEnum;
+  hideShowTriggers: typeof HideShowEventEnum;
+  colors: typeof TipseenColorEnum;
+  positions: typeof TooltipPositionsEnum;
+}
+
+export default withStaticProps<TipseenProps, TipseenStaticProps>(Tipseen, {
   closeButtonThemes: TipseenCloseButtonThemeEnum,
   animationTypes: AnimationTypeEnum,
   hideShowTriggers: HideShowEventEnum,

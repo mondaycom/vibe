@@ -31,6 +31,8 @@ jobs:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
       - uses: ./.github/actions/download-builds
+      - name: Generate core metadata
+        run: yarn lerna run --scope @vibe/core build:metadata
       - name: Generate new versions
         id: generate-versions
         run: |

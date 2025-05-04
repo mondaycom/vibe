@@ -9,13 +9,13 @@ import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { SIZES } from "../../constants";
 import { ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
-import { ButtonType, ButtonSize } from "../Button/Button.types";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ButtonType, ButtonSize } from "../Button";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { TooltipPositions } from "../Tooltip";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -95,10 +95,7 @@ export interface ButtonGroupProps extends VibeComponentProps {
   blurOnMouseUp?: boolean;
 }
 
-const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
-  sizes?: typeof SIZES;
-  kinds?: typeof ButtonTypeEnum;
-} = forwardRef(
+const ButtonGroup = forwardRef(
   (
     {
       className,
@@ -120,7 +117,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       "data-testid": dataTestId,
       fullWidth = false
     }: ButtonGroupProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const inputRef = useRef();
     const mergedRef = useMergeRef(ref, inputRef);
@@ -141,13 +138,19 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       [onSelect, disabled, name]
     );
 
+    const isOptionActive = (option?: ButtonGroupOption) => option?.value === valueState;
+
     const selectedOption = useMemo(() => {
-      return options.find(option => option.value === valueState);
+      return options.find(option => isOptionActive(option));
     }, [options, valueState]);
 
     const Buttons = useMemo(() => {
       return options.map((option, index) => {
-        const isSelected = option.value === valueState;
+        const isSelected = isOptionActive(option);
+        const isFirst = index === 0;
+        const isLast = index === options.length - 1;
+        const isNextOptionActive = isOptionActive(options[index + 1]);
+
         return (
           <ButtonWrapper
             key={option.value}
@@ -172,7 +175,9 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
               [styles.buttonDisabled]: option.disabled,
-              [styles.fullWidth]: fullWidth
+              [styles.fullWidth]: fullWidth,
+              [styles.startBorder]: isFirst,
+              [styles.endBorder]: isLast || !isNextOptionActive
             })}
             activeButtonClassName={styles.activeButton}
           >
@@ -224,4 +229,12 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(ButtonGroup, { sizes: Button.sizes, kinds: Button.kinds });
+interface ButtonGroupStaticProps {
+  sizes: typeof SIZES;
+  kinds: typeof ButtonTypeEnum;
+}
+
+export default withStaticProps<ButtonGroupProps, ButtonGroupStaticProps>(ButtonGroup, {
+  sizes: Button.sizes,
+  kinds: Button.kinds
+});

@@ -17,7 +17,7 @@ import {
 import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";
@@ -104,13 +104,7 @@ export interface ButtonProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const Button: VibeComponent<ButtonProps, unknown> & {
-  sizes?: typeof SIZES;
-  colors?: typeof ButtonColorEnum;
-  kinds?: typeof ButtonTypeEnum;
-  types?: typeof ButtonInputTypeEnum;
-  inputTags?: typeof ButtonInputTypeEnum;
-} = forwardRef<unknown, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -432,7 +426,15 @@ Button.defaultProps = {
   insetFocus: false
 };
 
-export default withStaticProps(Button, {
+interface ButtonStaticProps {
+  sizes: typeof SIZES;
+  colors: typeof ButtonColorEnum;
+  kinds: typeof ButtonTypeEnum;
+  types: typeof ButtonInputTypeEnum;
+  inputTags: typeof ButtonInputTypeEnum;
+}
+
+export default withStaticProps<ButtonProps, ButtonStaticProps>(Button, {
   sizes: SIZES,
   colors: ButtonColorEnum,
   kinds: ButtonTypeEnum,

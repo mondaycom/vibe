@@ -3,7 +3,7 @@ import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
-import { keyCodes } from "../../../../constants/keyCodes";
+import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
 import { SubIcon, withStaticProps } from "../../../../types";
 import {
@@ -58,7 +58,7 @@ export interface ComboboxOptionProps extends IComboboxOptionEvents {
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
 }
 
-const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconTypeEnum } = ({
+const ComboboxOption = ({
   index,
   option,
   className,
@@ -72,7 +72,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   optionLineHeight,
   shouldScrollWhenActive = true,
   optionRenderer = null
-}) => {
+}: ComboboxOptionProps) => {
   const {
     id,
     leftIcon,
@@ -174,7 +174,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 
   return (
-    <Tooltip content={tooltipContent}>
+    <Tooltip content={tooltipContent} hideWhenReferenceHidden>
       <div
         ref={ref}
         key={id || label}
@@ -201,4 +201,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-export default withStaticProps(ComboboxOption, { iconTypes: ComboboxOptionIconTypeEnum });
+interface ComboboxOptionStaticProps {
+  iconTypes: typeof ComboboxOptionIconTypeEnum;
+}
+
+export default withStaticProps<ComboboxOptionProps, ComboboxOptionStaticProps>(ComboboxOption, {
+  iconTypes: ComboboxOptionIconTypeEnum
+});

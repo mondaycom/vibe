@@ -1,5 +1,5 @@
+import React, { ReactElement } from "react";
 import cx from "classnames";
-import React, { FC, ReactElement } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { NavigationChevronRight } from "@vibe/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
@@ -7,6 +7,7 @@ import { BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
+import { BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /**
@@ -16,10 +17,12 @@ export interface BreadcrumbBarProps extends VibeComponentProps {
   /**
    * The breadcrumb items displayed in the bar.
    */
-  children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
+  children:
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>[];
 }
 
-const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTypeEnum } = ({
+const BreadcrumbsBar = ({
   className,
   children,
   type = "indication",
@@ -49,6 +52,10 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   </nav>
 );
 
-export default withStaticProps(BreadcrumbsBar, {
+interface BreadcrumbsBarStaticProps {
+  types: typeof BreadcrumbsBarTypeEnum;
+}
+
+export default withStaticProps<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
   types: BreadcrumbsBarTypeEnum
 });
