@@ -21,6 +21,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -73,6 +74,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -123,6 +125,7 @@ exports[`AccordionItem renders correctly with iconPosition 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="left"
           onClickCapture={[Function]}
           type="button"
         >
@@ -173,6 +176,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -223,6 +227,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
           aria-controls="expand-collapse--test-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -273,6 +278,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >

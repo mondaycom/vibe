@@ -21,6 +21,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -62,6 +63,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -98,6 +100,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -148,6 +151,7 @@ exports[`Accordion renders correctly with children 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -184,6 +188,7 @@ exports[`Accordion renders correctly with children 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -220,6 +225,7 @@ exports[`Accordion renders correctly with children 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -273,6 +279,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -321,6 +328,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="header section headerOpen"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -362,6 +370,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
@@ -398,6 +407,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
           aria-expanded={false}
           className="header section"
+          data-icon-position="right"
           onClickCapture={[Function]}
           type="button"
         >
