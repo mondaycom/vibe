@@ -2,7 +2,8 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { BaseDropdownProps } from "../Dropdown.types";
-import { BaseListItemProps } from "../../BaseListItem";
+import { BaseListItemData } from "../../BaseListItem";
+import { ListGroup } from "../../BaseList";
 
 const defaultOptions = [
   {
@@ -19,11 +20,11 @@ const defaultOptions = [
       { label: "Option 4", value: "opt4", index: 3 }
     ]
   }
-];
+] as const;
 
-function renderDropdown<T extends BaseListItemProps>(props?: Partial<BaseDropdownProps<T>>) {
-  const defaultProps: BaseDropdownProps<T> = {
-    options: defaultOptions as any,
+function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(props?: Partial<BaseDropdownProps<T>>) {
+  const defaultProps = {
+    options: props?.options ?? (defaultOptions as any),
     placeholder: "Select an option",
     ...props
   };
@@ -32,11 +33,12 @@ function renderDropdown<T extends BaseListItemProps>(props?: Partial<BaseDropdow
 
 describe("DropdownNew", () => {
   it("should render correctly with all props", () => {
-    const { getByPlaceholderText, getByText } = renderDropdown({
+    const { getByPlaceholderText, getByText, queryByText } = renderDropdown({
       size: "large",
       withGroupDivider: true,
       noOptionsMessage: "No options available"
     });
+    expect(queryByText("Option 1")).not.toBeInTheDocument();
 
     const input = getByPlaceholderText("Select an option");
     fireEvent.click(input);
@@ -82,7 +84,26 @@ describe("DropdownNew", () => {
         error: true
       });
 
-      expect(container.firstChild).toHaveClass("error");
+      const wrapperDiv = container.querySelector(".wrapper");
+      expect(wrapperDiv).toHaveClass("error");
+    });
+
+    it("should open menu when isMenuOpen prop is true", () => {
+      const { getByText } = renderDropdown({
+        isMenuOpen: true
+      });
+
+      expect(getByText("Option 1")).toBeVisible();
+    });
+
+    it("should focus input on mount when autoFocus is true", () => {
+      const { getByPlaceholderText, queryByText } = renderDropdown({
+        autoFocus: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      expect(document.activeElement).toBe(input);
+      expect(queryByText("Option 1")).toBeInTheDocument();
     });
 
     it("should filter options based on input value", () => {
@@ -188,6 +209,76 @@ describe("DropdownNew", () => {
         fireEvent.click(clearButton);
         expect(input).toHaveValue("");
       }
+    });
+
+    it("should show faded selected item when focused", () => {
+      const { getByPlaceholderText, container, getByText } = renderDropdown({
+        placeholder: "Select an option"
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      fireEvent.focus(input);
+
+      const selectedValue = container.querySelector(".selectedItem");
+      expect(selectedValue).toHaveClass("faded");
+    });
+
+    it("should hide selected value when typing in the input", () => {
+      const { getByPlaceholderText, getByText, queryByText } = renderDropdown();
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      fireEvent.change(input, { target: { value: "test" } });
+      expect(queryByText("Option 1")).not.toBeInTheDocument();
+    });
+
+    it("should not display indent startElement in selected value", () => {
+      const optionsWithIndent = [
+        {
+          label: "Group 1",
+          options: [
+            {
+              label: "Option 1",
+              value: "opt1",
+              index: 0,
+              startElement: { type: "indent" }
+            }
+          ]
+        }
+      ];
+
+      const { getByPlaceholderText, getByText, container } = renderDropdown({
+        options: optionsWithIndent
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      const selectedValue = container.querySelector(".selectedItem");
+      expect(selectedValue).toBeInTheDocument();
+
+      const indentElement = selectedValue.querySelector(".indent");
+      expect(indentElement).not.toBeInTheDocument();
+    });
+
+    it("should show clear button only when clearable is true and an option is selected", () => {
+      const { getByPlaceholderText, getByText, queryByTestId } = renderDropdown({
+        clearable: true
+      });
+
+      const input2 = getByPlaceholderText("Select an option");
+
+      expect(queryByTestId("dropdown-clear-button")).not.toBeInTheDocument();
+
+      fireEvent.click(input2);
+      fireEvent.click(getByText("Option 1"));
+      expect(queryByTestId("dropdown-clear-button")).toBeInTheDocument();
     });
   });
 
@@ -363,6 +454,158 @@ describe("DropdownNew", () => {
 
       fireEvent.blur(input);
       expect(onBlur).toHaveBeenCalled();
+    });
+  });
+
+  describe("with custom type", () => {
+    it("should work without explicit type parameter", () => {
+      type SimpleOptionType = BaseListItemData<{
+        value: string;
+      }>;
+
+      const inlineOptions: ListGroup<SimpleOptionType>[] = [
+        {
+          label: "Inline Group",
+          options: [
+            { label: "Inline Option 1", value: "inline-1" },
+            { label: "Inline Option 2", value: "inline-2", disabled: true }
+          ]
+        }
+      ];
+
+      const { getByText, getByPlaceholderText } = render(
+        <Dropdown options={inlineOptions} placeholder="Select an inline option" />
+      );
+
+      const input = getByPlaceholderText("Select an inline option");
+      fireEvent.click(input);
+
+      expect(getByText("Inline Option 1")).toBeInTheDocument();
+      expect(getByText("Inline Option 2")).toBeInTheDocument();
+    });
+
+    it("should work with explicit type parameter", () => {
+      interface InlineType extends Record<string, unknown> {
+        value: string;
+        inlineData?: string;
+      }
+
+      type InlineItemType = BaseListItemData<InlineType>;
+
+      const typedInlineOptions: ListGroup<InlineItemType>[] = [
+        {
+          label: "Typed Inline",
+          options: [
+            {
+              label: "Typed Inline 1",
+              value: "typed-inline-1",
+              inlineData: "some data"
+            },
+            {
+              label: "Typed Inline 2",
+              value: "typed-inline-2",
+              inlineData: "other data",
+              disabled: true
+            }
+          ]
+        }
+      ];
+
+      const handleChange = jest.fn();
+
+      const { getByText, getByPlaceholderText } = render(
+        <Dropdown<InlineItemType>
+          options={typedInlineOptions}
+          placeholder="Select typed inline option"
+          onChange={handleChange}
+        />
+      );
+
+      const input = getByPlaceholderText("Select typed inline option");
+      fireEvent.click(input);
+
+      expect(getByText("Typed Inline 1")).toBeInTheDocument();
+
+      fireEvent.click(getByText("Typed Inline 1"));
+      expect(handleChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          label: "Typed Inline 1",
+          value: "typed-inline-1",
+          inlineData: "some data"
+        })
+      );
+    });
+
+    it("should work with renderer without explicit type parameter", () => {
+      const inlineOptions = [
+        {
+          label: "Rendered Group",
+          options: [
+            { label: "Rendered Option 1", value: "rendered-1" },
+            { label: "Rendered Option 2", value: "rendered-2" }
+          ]
+        }
+      ];
+
+      const customRenderer = (item: any) => <div data-testid={`inline-render-${item.value}`}>Custom: {item.label}</div>;
+
+      const { getByTestId, getByPlaceholderText } = render(
+        <Dropdown options={inlineOptions} placeholder="Select rendered option" optionRenderer={customRenderer} />
+      );
+
+      const input = getByPlaceholderText("Select rendered option");
+      fireEvent.click(input);
+
+      expect(getByTestId("inline-render-rendered-1")).toBeInTheDocument();
+      expect(getByTestId("inline-render-rendered-2")).toBeInTheDocument();
+    });
+
+    it("should work with renderer and explicit type parameter", () => {
+      interface RenderedType extends Record<string, unknown> {
+        value: string;
+        icon?: string;
+      }
+
+      type RenderedItemType = BaseListItemData<RenderedType>;
+
+      const typedRenderedOptions: ListGroup<RenderedItemType>[] = [
+        {
+          label: "Typed Rendered",
+          options: [
+            {
+              label: "Rendered Type 1",
+              value: "typed-rendered-1",
+              icon: "star"
+            },
+            {
+              label: "Rendered Type 2",
+              value: "typed-rendered-2",
+              icon: "flag"
+            }
+          ]
+        }
+      ];
+
+      const typedRenderer = (item: RenderedItemType) => (
+        <div data-testid={`typed-render-${item.value}`}>
+          {item.icon && <span>{item.icon}</span>}
+          <span>{item.label}</span>
+        </div>
+      );
+
+      const { getByTestId, getByPlaceholderText } = render(
+        <Dropdown<RenderedItemType>
+          options={typedRenderedOptions}
+          placeholder="Select typed rendered option"
+          optionRenderer={typedRenderer}
+        />
+      );
+
+      const input = getByPlaceholderText("Select typed rendered option");
+      fireEvent.click(input);
+
+      expect(getByTestId("typed-render-typed-rendered-1")).toBeInTheDocument();
+      expect(getByTestId("typed-render-typed-rendered-2")).toBeInTheDocument();
     });
   });
 });

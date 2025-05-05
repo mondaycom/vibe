@@ -9,7 +9,7 @@ import cx from "classnames";
 import { Divider } from "../Divider";
 
 const BaseList = forwardRef(
-  <T extends Record<string, unknown>>(
+  <Item extends Record<string, unknown>>(
     {
       options,
       selectedItem,
@@ -19,23 +19,31 @@ const BaseList = forwardRef(
       size = "medium",
       withGroupDivider = false,
       dir = "ltr",
-      optionRenderer,
+      itemRenderer,
       noOptionsMessage = "No results",
       stickyGroupTitle = false,
       renderOptions = true,
-      onScroll
-    }: BaseListProps<T>,
+      onScroll,
+      maxMenuHeight = 300
+    }: BaseListProps<Item>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
 
     return (
-      <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()} onScroll={onScroll}>
+      <ul
+        ref={ref}
+        dir={dir}
+        className={styles.wrapper}
+        {...getMenuProps?.()}
+        onScroll={onScroll}
+        style={{ maxHeight: maxMenuHeight }}
+      >
         {renderOptions ? (
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
               <Flex justify="center">
-                <BaseListItem label={noOptionsMessage} size={size} readOnly />
+                <BaseListItem item={{ label: noOptionsMessage }} size={size} readOnly />
               </Flex>
             ) : (
               noOptionsMessage
@@ -50,23 +58,22 @@ const BaseList = forwardRef(
                     </Text>
                   </li>
                 )}
-                {group.options.map((item, itemIndex) => {
-                  const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
+                {group.options.map((option, itemIndex) => {
+                  const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
                   const isHighlighted =
-                    highlightedIndex !== undefined && highlightedIndex === item.index && !item.disabled;
+                    highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
                   const isSelected =
-                    selectedItem?.value !== undefined && selectedItem?.value === item.value && !item.disabled;
+                    selectedItem?.value !== undefined && selectedItem?.value === option.value && !option.disabled;
 
                   return (
-                    <BaseListItem
-                      {...itemProps}
-                      label={item.label as string}
-                      key={typeof item.value === "string" ? item.value : itemIndex}
+                    <BaseListItem<Item>
+                      itemProps={itemProps}
+                      key={typeof option.value === "string" ? option.value : itemIndex}
                       size={size}
                       highlighted={isHighlighted}
                       selected={isSelected}
-                      optionRenderer={optionRenderer}
-                      {...item}
+                      itemRenderer={itemRenderer}
+                      item={option}
                     />
                   );
                 })}
@@ -80,4 +87,6 @@ const BaseList = forwardRef(
   }
 );
 
-export default BaseList;
+export default BaseList as <Item extends Record<string, unknown>>(
+  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
+) => React.ReactElement;
