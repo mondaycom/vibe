@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.47.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.1...@vibe/core@3.47.0) (2025-05-05)
+
+
+### Features
+
+* **ExpandCollapse:** make icon position configurable ([#2863](https://github.com/mondaycom/vibe/issues/2863)) ([7d24e77](https://github.com/mondaycom/vibe/commit/7d24e7760aa17a2cb19f34a5fe378af49c8186f5))
+
+
+
+
+
 ## [3.46.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.0...@vibe/core@3.46.1) (2025-05-04)
 
 
