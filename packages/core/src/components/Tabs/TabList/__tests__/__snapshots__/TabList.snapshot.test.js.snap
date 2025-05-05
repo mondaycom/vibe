@@ -18,12 +18,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
     <li
       aria-disabled={false}
@@ -33,12 +36,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         Second
-      </a>
+      </button>
     </li>
   </ul>
 </div>
@@ -62,12 +68,15 @@ exports[`TabList renders correctly with children 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
   </ul>
 </div>
@@ -91,12 +100,15 @@ exports[`TabList renders correctly with className 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
   </ul>
 </div>
@@ -121,12 +133,15 @@ exports[`TabList renders correctly with id 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
   </ul>
 </div>
@@ -150,12 +165,15 @@ exports[`TabList renders correctly with size 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
     <li
       aria-disabled={false}
@@ -165,12 +183,15 @@ exports[`TabList renders correctly with size 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         Second
-      </a>
+      </button>
     </li>
   </ul>
 </div>
@@ -194,12 +215,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         First
-      </a>
+      </button>
     </li>
     <li
       aria-disabled={false}
@@ -209,12 +233,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       data-vibe="Tab"
       role="tab"
     >
-      <a
+      <button
         className="tabInner tabListTabInner"
+        disabled={false}
         onClick={[Function]}
+        tabIndex={-1}
+        type="button"
       >
         Second
-      </a>
+      </button>
     </li>
   </ul>
 </div>

@@ -48,20 +48,32 @@ function calcRawNewIndexAfterArrowNavigation({
   activeIndex,
   itemsCount,
   numberOfItemsInLine,
-  direction
+  direction,
+  circularNavigation = false
 }: {
   activeIndex: number;
   itemsCount: number;
   numberOfItemsInLine: number;
   direction: NavDirections;
+  circularNavigation?: boolean;
 }) {
   const getIndexLine = (index: number) => Math.ceil((index + 1) / numberOfItemsInLine);
 
   const horizontalChange = (isIndexIncrease: boolean) => {
-    const nextIndex = activeIndex + (isIndexIncrease ? 1 : -1);
-    if (nextIndex < 0 || itemsCount <= nextIndex) {
-      return { isOutbound: true };
+    let nextIndex = activeIndex + (isIndexIncrease ? 1 : -1);
+
+    if (nextIndex < 0 || nextIndex >= itemsCount) {
+      if (circularNavigation) {
+        if (nextIndex < 0) {
+          nextIndex = itemsCount - 1;
+        } else if (nextIndex >= itemsCount) {
+          nextIndex = 0;
+        }
+      } else {
+        return { isOutbound: true };
+      }
     }
+
     const currentLine = getIndexLine(activeIndex);
     const nextIndexLine = getIndexLine(nextIndex);
     if (currentLine !== nextIndexLine) {
@@ -96,21 +108,30 @@ export function calcActiveIndexAfterArrowNavigation({
   itemsCount,
   numberOfItemsInLine,
   direction,
-  disabledIndexes = []
+  disabledIndexes = [],
+  circularNavigation = false
 }: {
   activeIndex: number;
   itemsCount: number;
   numberOfItemsInLine: number;
   direction: NavDirections;
   disabledIndexes?: number[];
+  circularNavigation?: boolean;
 }) {
-  let result = calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction });
+  let result = calcRawNewIndexAfterArrowNavigation({
+    activeIndex,
+    itemsCount,
+    numberOfItemsInLine,
+    direction,
+    circularNavigation
+  });
   while (!result.isOutbound && disabledIndexes.includes(result.nextIndex)) {
     result = calcRawNewIndexAfterArrowNavigation({
       activeIndex: result.nextIndex,
       itemsCount,
       numberOfItemsInLine,
-      direction
+      direction,
+      circularNavigation
     });
   }
 
