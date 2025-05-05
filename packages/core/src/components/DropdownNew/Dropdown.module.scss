@@ -33,5 +33,35 @@
 
   .inputWrapper {
     border: none;
+    width: 100%;
+    background: transparent;
+
+    &.hasSelected {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
   }
+
+  .selectedItem {
+    position: relative;
+    pointer-events: none;
+    inset: 0;
+    padding-inline-start: var(--spacing-xs);
+
+    &.small {
+      padding-inline-start: var(--spacing-small);
+    }
+
+    &.faded {
+      opacity: 0.6;
+    }
+  }
+  .popoverWrapper {
+    z-index: 2;
+  }
+}
+
+.helperText {
+  margin-top: var(--spacing-xs);
 }

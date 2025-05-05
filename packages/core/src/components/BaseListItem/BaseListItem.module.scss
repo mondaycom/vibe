@@ -5,9 +5,9 @@
   border-radius: var(--border-radius-small);
   color: var(--primary-text-color);
   cursor: pointer;
-  margin-bottom: 2px;
 
-  &:hover:not(.disabled):not(.readOnly), &.highlighted  {
+  &:hover:not(.disabled):not(.readOnly),
+  &.highlighted {
     background-color: var(--primary-background-hover-color);
   }
 
@@ -15,7 +15,7 @@
     color: var(--disabled-text-color);
     cursor: not-allowed;
   }
-  
+
   &.readOnly {
     cursor: default;
   }
@@ -23,25 +23,32 @@
   &.selected {
     background-color: var(--primary-selected-color);
 
-    &:hover, &.highlighted {
+    &:hover,
+    &.highlighted {
       background-color: var(--primary-selected-hover-color);
     }
   }
 
   &.small {
-    padding: 6px 8px;
+    padding: 6px var(--space-8);
+    min-height: 32px;
+    height: 32px;
   }
 
   &.medium {
-    padding: 10px 12px;
+    padding: 10px var(--space-12);
+    min-height: 40px;
+    height: 40px;
   }
 
   &.large {
-    padding: 14px 12px;
+    padding: 14px var(--space-12);
+    min-height: 48px;
+    height: 48px;
   }
 
   .avatar,
-  .icon{
+  .icon {
     flex-shrink: 0;
   }
 

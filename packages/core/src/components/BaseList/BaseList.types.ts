@@ -1,18 +1,18 @@
 import React, { ReactNode } from "react";
 import { VibeComponentProps } from "../../types";
-import { BaseListItemProps } from "../BaseListItem";
+import { BaseListItemData } from "../BaseListItem";
 
-export interface BaseListProps<T = BaseListItemProps>
+export interface BaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
     VibeComponentProps {
   /**
    * The list of options available in the list.
    */
-  options: ListGroup<T>[];
+  options: ListGroup<Item>[];
   /**
    * The selected item in the list.
    */
-  selectedItem?: T | null;
+  selectedItem?: BaseListItemData<Item> | null;
   /**
    * The index of the highlighted item in the list.
    */
@@ -44,7 +44,7 @@ export interface BaseListProps<T = BaseListItemProps>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
   /**
    * Text or function to customize the "No results" message.
    */
@@ -57,9 +57,13 @@ export interface BaseListProps<T = BaseListItemProps>
    * Function to handle scroll events.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+  /**
+   * The maximum height of the list.
+   */
+  maxMenuHeight?: number;
 }
 
-export interface ListGroup<T = BaseListItemProps> {
+export interface ListGroup<Item = Record<string, unknown>> {
   /**
    * The label for the group of options.
    */
@@ -67,7 +71,7 @@ export interface ListGroup<T = BaseListItemProps> {
   /**
    * The list of options within this group.
    */
-  options: T[];
+  options: BaseListItemData<Item>[];
 }
 
 export type BaseListSizes = "small" | "medium" | "large";

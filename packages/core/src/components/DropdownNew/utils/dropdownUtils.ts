@@ -1,17 +1,25 @@
-import { BaseListItemProps } from "../../BaseListItem";
+import { BaseListItemData } from "../../BaseListItem";
 import { ListGroup } from "../../BaseList";
 
-export function normalizeOptions<T extends BaseListItemProps>(
-  options: ListGroup<T>[] | T[],
+export function normalizeOptions<Item extends BaseListItemData>(
+  options: ListGroup<Item>[] | BaseListItemData<Item>[],
   filter?: string
-): ListGroup<T>[] {
+): ListGroup<Item>[] {
   let indexCounter = 0;
   return Array.isArray(options) && options.some(item => "options" in item)
-    ? (options as ListGroup<T>[]).map(group => ({
-        ...group,
-        options: group.options
+    ? (options as ListGroup<Item>[]).flatMap(group => {
+        const filteredOptions = group.options
           .filter(item => !filter || item.label.toLowerCase().includes(filter.toLowerCase()))
-          .map(item => ({ ...item, index: indexCounter++ }))
-      }))
-    : [{ label: undefined, options: (options as T[]).map(item => ({ ...item, index: indexCounter++ })) }];
+          .map(item => ({ ...item, index: indexCounter++ }));
+
+        return filteredOptions.length > 0 ? [{ ...group, options: filteredOptions }] : [];
+      })
+    : [
+        {
+          label: undefined,
+          options: (options as BaseListItemData<Item>[])
+            .filter(item => !filter || item.label.toLowerCase().includes(filter.toLowerCase()))
+            .map(item => ({ ...item, index: indexCounter++ }))
+        }
+      ];
 }

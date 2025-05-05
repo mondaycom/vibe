@@ -3,17 +3,9 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 
-export interface BaseListItemProps<T = Record<string, unknown>>
+export interface BaseListItemProps<Item = Record<string, unknown>>
   extends React.LiHTMLAttributes<HTMLLIElement>,
     VibeComponentProps {
-  /**
-   * The value associated with the list item.
-   */
-  value?: string;
-  /**
-   * The primary text content of the list item.
-   */
-  label: string;
   /**
    * The Size of the list item.
    */
@@ -23,29 +15,13 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   selected?: boolean;
   /**
-   * If true, the list item is disabled.
-   */
-  disabled?: boolean;
-  /**
    * If true, the dropdown is read-only and cannot be edited.
    */
   readOnly?: boolean;
   /**
-   * Element to render at the start of the list item.
-   */
-  startElement?: StartElement;
-  /**
-   * Element to render at the end of the list item.
-   */
-  endElement?: EndElement;
-  /**
-   * If true, applies highlight styling to the item.
+   * Whether item should have highlight styling
    */
   highlighted?: boolean;
-  /**
-   * Props for displaying a tooltip on the list item.
-   */
-  tooltipProps?: Partial<TooltipProps>;
   /**
    * Determines the position of the tooltip according to the direction.
    */
@@ -61,12 +37,39 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
   /**
-   * Allow any additional user-defined properties dynamically
-   **/
-  [key: string]: unknown;
+   * The original item data that this list item represents.
+   */
+  item?: BaseListItemData<Item>;
+  /**
+   * Additional props to pass to the list item element.
+   */
+  itemProps?: Record<string, unknown>;
 }
+
+export type BaseListItemData<Item = Record<string, unknown>> = Item & {
+  /**
+   * The primary text content of the list item.
+   */
+  label: string;
+  /**
+   * The start element of the list item.
+   */
+  startElement?: StartElement;
+  /**
+   * The end element of the list item.
+   */
+  endElement?: EndElement;
+  /**
+   * If true, the list item is disabled.
+   */
+  disabled?: boolean;
+  /**
+   * Props for displaying a tooltip on the list item.
+   */
+  tooltipProps?: Partial<TooltipProps>;
+};
 
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }
