@@ -9,9 +9,12 @@ exports[`Tab renders correctly when active 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   />
 </li>
 `;
@@ -25,9 +28,12 @@ exports[`Tab renders correctly when disabled 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={true}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   />
 </li>
 `;
@@ -41,9 +47,12 @@ exports[`Tab renders correctly when focus 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   />
 </li>
 `;
@@ -57,9 +66,12 @@ exports[`Tab renders correctly when focus and active 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   />
 </li>
 `;
@@ -73,12 +85,15 @@ exports[`Tab renders correctly with className 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   >
     Tab
-  </a>
+  </button>
 </li>
 `;
 
@@ -91,9 +106,12 @@ exports[`Tab renders correctly with empty props 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   />
 </li>
 `;
@@ -107,9 +125,12 @@ exports[`Tab renders correctly with icon on left 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   >
     <svg
       aria-hidden={true}
@@ -129,7 +150,7 @@ exports[`Tab renders correctly with icon on left 1`] = `
       />
     </svg>
     Tab
-  </a>
+  </button>
 </li>
 `;
 
@@ -142,9 +163,12 @@ exports[`Tab renders correctly with icon on right 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   >
     Tab
     <svg
@@ -164,7 +188,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </a>
+  </button>
 </li>
 `;
 
@@ -178,12 +202,15 @@ exports[`Tab renders correctly with id 1`] = `
   id="test"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   >
     Tab
-  </a>
+  </button>
 </li>
 `;
 
@@ -196,11 +223,14 @@ exports[`Tab renders correctly with value 1`] = `
   data-vibe="Tab"
   role="tab"
 >
-  <a
+  <button
     className="tabInner"
+    disabled={false}
     onClick={[Function]}
+    tabIndex={-1}
+    type="button"
   >
     Tab
-  </a>
+  </button>
 </li>
 `;

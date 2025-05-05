@@ -41,6 +41,8 @@
   margin-bottom: $margin-bottom;
   cursor: pointer;
   color: var(--primary-text-color);
+  background: none;
+  border: none;
 }
 
 .tabWrapper .tabInner:focus {
