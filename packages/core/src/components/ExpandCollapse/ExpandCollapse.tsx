@@ -144,6 +144,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             onClick={!captureOnClick ? onClick || toggleExpand : undefined}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
+            data-icon-position={iconPosition}
           >
             {iconPosition === "left" && renderIcon()}
             {typeof title !== "string" || title.length !== 0
