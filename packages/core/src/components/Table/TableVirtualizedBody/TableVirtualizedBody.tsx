@@ -36,7 +36,29 @@ export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = Table
    * Function to render the table header.
    */
   headerRenderer?: (columns: TableColumn[]) => JSX.Element;
+  /**
+   * Number of rows to render above/below the visible area.
+   */
+  overscanCount?: number;
 }
+
+const MemoizedRow = React.memo(
+  <T extends TableVirtualizedRow>({
+    item,
+    rowRenderer,
+    style
+  }: {
+    item: T;
+    rowRenderer: (item: T) => JSX.Element;
+    style: React.CSSProperties;
+  }) => {
+    const element = rowRenderer(item);
+    const { width: _width, ...styleWithoutWidth } = style;
+    return React.cloneElement(element, {
+      style: { ...styleWithoutWidth, ...element.props?.style }
+    });
+  }
+);
 
 const TableVirtualizedBody = forwardRef(
   <T extends TableVirtualizedRow = TableVirtualizedRow>(
@@ -48,7 +70,8 @@ const TableVirtualizedBody = forwardRef(
       headerRenderer,
       id,
       className,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      overscanCount = 1
     }: TableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -95,19 +118,15 @@ const TableVirtualizedBody = forwardRef(
       [onScroll, virtualizedWithHeader]
     );
 
-    const itemRenderer = useCallback<ComponentType<ListChildComponentProps<TableVirtualizedRow>>>(
-      ({ index, style: { width: _width, ...style } }) => {
+    const itemRenderer = useCallback<ComponentType<ListChildComponentProps<T>>>(
+      ({ index, style }) => {
         if (virtualizedWithHeader && index === 0) {
           return null; //placeholder for virtualized with header
         }
         const currentIndex = virtualizedWithHeader ? index - 1 : index;
         const currentItem = items[currentIndex];
-        const element = rowRenderer(currentItem);
 
-        return React.cloneElement(element, {
-          style: { ...style, ...element.props?.style },
-          key: index
-        });
+        return <MemoizedRow item={currentItem} rowRenderer={rowRenderer} style={style} />;
       },
       [items, rowRenderer, virtualizedWithHeader]
     );
@@ -150,6 +169,7 @@ const TableVirtualizedBody = forwardRef(
                 height={height}
                 itemCount={virtualizedWithHeader ? items.length + 1 : items.length}
                 width={width}
+                overscanCount={overscanCount}
                 onScroll={handleVirtualizedVerticalScroll}
                 outerRef={element => {
                   virtualizedListRef.current = element;

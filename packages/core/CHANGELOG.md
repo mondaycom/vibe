@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.46.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.0...@vibe/core@3.46.1) (2025-05-04)
+
+
+### Bug Fixes
+
+* **Table:** Memoized row for optimized row rendering ([#2862](https://github.com/mondaycom/vibe/issues/2862)) ([261ca12](https://github.com/mondaycom/vibe/commit/261ca127f057e660a6efe1a239fbd3ade865230e))
+
+
+
+
+
 # [3.46.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.45.0...@vibe/core@3.46.0) (2025-05-04)
 
 
