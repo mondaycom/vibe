@@ -12,7 +12,6 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
       aria-controls="-controls"
       aria-expanded={false}
       className="header section"
-      data-icon-position="right"
       onClickCapture={[Function]}
       type="button"
     >

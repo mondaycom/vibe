@@ -138,13 +138,13 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             type="button"
             className={cx(styles.header, styles.section, headerClassName, {
               [styles.headerOpen]: isExpanded,
-              [styles.hideBorderBottom]: hideBorder
+              [styles.hideBorderBottom]: hideBorder,
+              [styles.leftIcon]: iconPosition === "left"
             })}
             onClickCapture={captureOnClick ? onClick || toggleExpand : undefined}
             onClick={!captureOnClick ? onClick || toggleExpand : undefined}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
-            data-icon-position={iconPosition}
           >
             {iconPosition === "left" && renderIcon()}
             {typeof title !== "string" || title.length !== 0
