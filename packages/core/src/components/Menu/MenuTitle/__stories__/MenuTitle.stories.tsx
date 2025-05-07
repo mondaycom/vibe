@@ -6,9 +6,6 @@ import Menu from "../../Menu/Menu";
 import Flex from "../../../Flex/Flex";
 import MenuItem from "../../MenuItem/MenuItem";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
-import { Info } from "@vibe/icons";
-import Icon from "../../../Icon/Icon";
-import Box from "../../../Box/Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuTitle
