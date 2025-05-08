@@ -164,7 +164,8 @@ export const MultiChoiceWithDifferentStates = {
       () => [
         {
           value: "Rotem",
-          label: "Rotem Dekel"
+          label: "Rotem Dekel",
+          chipCloseButtonAriaLabel: "Remove Rotem Dekel selection"
         },
         {
           value: "Hadas",
@@ -172,7 +173,8 @@ export const MultiChoiceWithDifferentStates = {
         },
         {
           value: "Netta",
-          label: "Netta Muller"
+          label: "Netta Muller",
+          chipCloseButtonAriaLabel: "Deselect Netta Muller"
         },
         {
           value: "Dor",
@@ -427,7 +429,8 @@ export const DropdownWithChipColors = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          chipColor: "negative"
+          chipColor: "negative",
+          chipCloseButtonAriaLabel: "Remove red chip for Rotem"
         },
         {
           value: "Hadas",
@@ -437,7 +440,8 @@ export const DropdownWithChipColors = {
         {
           value: "Netta",
           label: "Netta Muller",
-          chipColor: "primary"
+          chipColor: "primary",
+          chipCloseButtonAriaLabel: "Deselect Netta's chip"
         }
       ],
       []

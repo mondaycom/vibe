@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
-import { ThemeColor } from "../ThemeProviderConstants";
+import { ThemeColor, Theme } from "../ThemeProviderConstants";
 import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
 import styles from "./ThemeProvider.stories.module.scss";
+import { DropdownOption } from "../../Dropdown/Dropdown.types";
 
 export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
 
@@ -83,23 +84,33 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
 };
 
 export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
-  const dropdownOptions = [
-    { value: productTheme1, label: "Product 1" },
-    { value: productTheme2, label: "Product 2" },
-    { value: productTheme3, label: "Product 3" },
-    { value: productTheme4, label: "Product 4" }
-  ];
-  const [selectedTheme, setSelectedTheme] = useState(null);
+  const themeMap: Record<string, Theme> = useMemo(() => ({
+    [productTheme1.name]: productTheme1,
+    [productTheme2.name]: productTheme2,
+    [productTheme3.name]: productTheme3,
+    [productTheme4.name]: productTheme4
+  }), []);
+
+  const dropdownOptions: DropdownOption[] = useMemo(() => [
+    { value: productTheme1.name, label: "Product 1" },
+    { value: productTheme2.name, label: "Product 2" },
+    { value: productTheme3.name, label: "Product 3" },
+    { value: productTheme4.name, label: "Product 4" }
+  ], []);
+
+  const [selectedThemeOption, setSelectedThemeOption] = useState<DropdownOption | null>(null);
+
+  const currentThemeConfig = selectedThemeOption ? themeMap[selectedThemeOption.value as string] : undefined;
 
   return (
-    <ThemeProvider themeConfig={selectedTheme?.value}>
+    <ThemeProvider themeConfig={currentThemeConfig}>
       <Flex gap="large" align="start" wrap className={styles.productThemingContainer}>
         <Dropdown
           placeholder={"No theme selected"}
           options={dropdownOptions}
-          value={selectedTheme}
-          onClear={() => setSelectedTheme(null)}
-          onOptionSelect={(option: any) => setSelectedTheme(option)}
+          value={selectedThemeOption}
+          onClear={() => setSelectedThemeOption(null)}
+          onOptionSelect={(option: DropdownOption) => setSelectedThemeOption(option)}
           className={styles.productThemingDropdown}
         />
         <Button>Themed</Button>

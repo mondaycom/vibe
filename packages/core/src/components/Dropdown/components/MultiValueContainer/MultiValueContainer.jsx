@@ -19,8 +19,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size, dialogClassName } =
-    customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size, dialogClassName } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -73,10 +72,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
             readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
             allowTextSelection={readOnly}
             leftRenderer={option.leftRenderer}
-            rightRenderer={option.rightRenderer}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}
+            closeButtonAriaLabel={option.chipCloseButtonAriaLabel || `Remove ${option.label}`}
+            rightRenderer={option.rightRenderer}
           />
         ) : null;
       }),
@@ -124,6 +124,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
         <div>
           {isCounterShown && (
             <Dialog
+              wrapperClassName={dialogClassName}
               content={() => (
                 <DialogContentContainer
                   className={classes.valueDialogContent}
@@ -140,7 +141,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
               hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
-              wrapperClassName={dialogClassName}
             >
               <Counter
                 kind="line"

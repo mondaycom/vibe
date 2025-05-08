@@ -11,7 +11,19 @@ import {
 import React, { UIEventHandler, WheelEventHandler } from "react";
 import { VibeComponentProps } from "../../types";
 
-export type DropdownOption = any;
+export interface DropdownOption {
+  value: string | number;
+  label: string;
+  isDisabled?: boolean;
+  isFixed?: boolean;
+  chipColor?: DropdownChipColors;
+  leftIcon?: any; // Using 'any' for now, will check if a more specific type like SubIcon is available
+  leftAvatar?: string;
+  leftRenderer?: React.ReactNode;
+  rightRenderer?: React.ReactNode;
+  isMandatory?: boolean;
+  chipCloseButtonAriaLabel?: string; // New prop
+}
 
 export interface CustomSingleValueProps extends SingleValueProps<DropdownOption> {
   /**

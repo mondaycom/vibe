@@ -11,10 +11,10 @@ describe("Dropdown", () => {
   });
 
   const mockOptions = [
-    { value: "ocean", label: "Ocean", isFixed: true },
+    { value: "ocean", label: "Ocean", isFixed: true, chipCloseButtonAriaLabel: "Delete Ocean selection" },
     { value: "blue", label: "Blue", isDisabled: true },
     { value: "purple", label: "Purple" },
-    { value: "red", label: "Red", isFixed: true },
+    { value: "red", label: "Red", isFixed: true, chipCloseButtonAriaLabel: "Remove Red item" },
     { value: "orange", label: "Orange" },
     { value: "yellow", label: "Yellow" }
   ];
@@ -140,6 +140,20 @@ describe("Dropdown", () => {
       });
       expect(onOptionRemove).toBeCalledWith(mockOptions[0]);
       expect(component.chips.values).toEqual(["purple", "red"]);
+    });
+
+    it("Should have correct aria-label for chip close button", () => {
+      component.selectOption(0); // Select "Ocean" (index 0, has custom chipCloseButtonAriaLabel)
+      component.selectOption(2); // Select "Purple" (index 2, no custom chipCloseButtonAriaLabel)
+      component.render();
+
+      // Check Ocean (custom label)
+      const closeButtonOcean = component.getCloseButton(0);
+      expect(closeButtonOcean).toHaveAttribute("aria-label", mockOptions[0].chipCloseButtonAriaLabel);
+
+      // Check Purple (default label format)
+      const closeButtonPurple = component.getCloseButton(2);
+      expect(closeButtonPurple).toHaveAttribute("aria-label", `Remove ${mockOptions[2].label}`);
     });
 
     it("Should support clearing options", () => {

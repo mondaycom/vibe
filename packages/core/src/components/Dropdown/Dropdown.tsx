@@ -156,17 +156,31 @@ const Dropdown = forwardRef(
       }
     }, []);
 
-    const [selected, setSelected] = useState(overrideDefaultValue || []);
+    const [selected, setSelected] = useState<DropdownOption | DropdownOption[]>(() => {
+      const initialDefault = overrideDefaultValue;
+      if (multi) {
+        // For multi-select, ensure it's an array, default to empty array if not.
+        return Array.isArray(initialDefault) ? initialDefault : [];
+      }
+      // For single-select, it can be a single option or undefined.
+      // If initialDefault is an array (e.g. defaultValue=[option1]), take the first.
+      return Array.isArray(initialDefault) ? initialDefault[0] : initialDefault;
+    });
     const [focusedOptionId, setFocusedOptionId] = useState("");
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;
-    const selectedOptions = customValue ?? selected;
+    const selectedOptions = customValue !== undefined ? customValue : selected;
     const selectedOptionsMap = useMemo(() => {
       if (Array.isArray(selectedOptions)) {
-        return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
+        return selectedOptions.reduce((acc, option) => {
+          if (option && option.value !== undefined) { // Ensure option and option.value are valid
+            acc[option.value] = option;
+          }
+          return acc;
+        }, {} as Record<DropdownOption["value"], DropdownOption>);
       }
-      return {};
+      return {} as Record<DropdownOption["value"], DropdownOption>;
     }, [selectedOptions]);
 
     const overrideAriaLabel = useMemo(() => {
@@ -177,7 +191,9 @@ const Dropdown = forwardRef(
         }`
       );
     }, [ariaLabel, readOnly, selectedOptions, tooltipContent]);
-    const value = multi ? selectedOptions : customValue;
+    const valueForReactSelect = multi
+      ? (selectedOptions as DropdownOption[]) // In multi mode, selectedOptions should be DropdownOption[]
+      : (selectedOptions as DropdownOption | undefined); // In single mode, DropdownOption or undefined
 
     const inlineStyles = useMemo(() => {
       // We first want to get the default stylized groups (e.g. "container", "menu").
@@ -298,11 +314,11 @@ const Dropdown = forwardRef(
           {...props}
           readOnly={readOnly}
           Renderer={finalValueRenderer}
-          selectedOption={selectedOptions[0]}
+          selectedOption={props.data}
           singleValueWrapperClassName={singleValueWrapperClassName}
         />
       ),
-      [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName]
+      [finalValueRenderer, readOnly, singleValueWrapperClassName]
     );
 
     const ClearIndicator = useCallback(
@@ -313,20 +329,25 @@ const Dropdown = forwardRef(
     );
 
     const onOptionRemove = useMemo(() => {
-      return function (optionValue: number, e: React.MouseEvent | React.KeyboardEvent) {
+      return function (valueToRemove: DropdownOption["value"], e: React.MouseEvent | React.KeyboardEvent) {
         if (customOnOptionRemove) {
-          customOnOptionRemove(selectedOptionsMap[optionValue]);
+          const removedOption = selectedOptionsMap[valueToRemove];
+          if (removedOption) {
+            customOnOptionRemove(removedOption);
+          }
         }
-        const newSelectedOptions = Array.isArray(selectedOptions)
-          ? selectedOptions.filter(option => option.value !== optionValue)
-          : selectedOptions;
+
+        const currentSelectedArray = (Array.isArray(selectedOptions) ? selectedOptions : []) as DropdownOption[];
+        const newSelectedOptions = currentSelectedArray.filter(option => option.value !== valueToRemove);
 
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
-        setSelected(newSelectedOptions);
+        if (!isControlled) {
+          setSelected(newSelectedOptions);
+        }
       };
-    }, [customOnChange, customOnOptionRemove, selectedOptions, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selectedOptions, selectedOptionsMap, isControlled]);
 
     const customProps = useMemo(
       () => ({
@@ -355,33 +376,48 @@ const Dropdown = forwardRef(
         multiValueDialogClassName
       ]
     );
-    const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
+    const onChange = (valueFromReactSelect: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
       if (customOnChange) {
-        customOnChange(option, meta);
+        customOnChange(valueFromReactSelect, meta);
       }
 
       switch (meta.action) {
         case "select-option": {
-          const selectedOption = multi ? meta.option : option;
-
+          const newlySelectedOption = meta.option as DropdownOption;
           if (onOptionSelect) {
-            onOptionSelect(selectedOption);
+            onOptionSelect(newlySelectedOption);
           }
 
           if (!isControlled) {
-            setSelected([...selectedOptions, selectedOption]);
+            if (multi) {
+              const currentArray = (Array.isArray(selectedOptions) ? selectedOptions : []) as DropdownOption[];
+              setSelected([...currentArray, newlySelectedOption]);
+            } else {
+              setSelected(newlySelectedOption);
+            }
           }
           break;
         }
-
+        case "remove-value":
+        case "pop-value":
+          if (!isControlled) {
+            setSelected(Array.isArray(valueFromReactSelect) ? valueFromReactSelect : []);
+          }
+          break;
         case "clear":
           if (onClear) {
             onClear();
           }
-
           if (!isControlled) {
-            if (withMandatoryDefaultOptions) setSelected(overrideDefaultValue);
-            else setSelected([]);
+            if (withMandatoryDefaultOptions && overrideDefaultValue !== undefined) {
+              if (multi) {
+                setSelected(Array.isArray(overrideDefaultValue) ? overrideDefaultValue : []);
+              } else {
+                setSelected(Array.isArray(overrideDefaultValue) ? overrideDefaultValue[0] : overrideDefaultValue);
+              }
+            } else {
+              setSelected(multi ? [] : undefined);
+            }
           }
           break;
       }
@@ -462,7 +498,7 @@ const Dropdown = forwardRef(
         aria-details={tooltipContent}
         aria-haspopup="listbox"
         defaultValue={defaultValue}
-        value={value}
+        value={valueForReactSelect}
         onMenuOpen={onMenuOpen}
         onMenuClose={onMenuClose}
         onFocus={onFocus}
