@@ -121,10 +121,15 @@ const Tab: FC<TabProps> = forwardRef(
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
         >
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
-          <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
+          <button
+            className={cx(styles.tabInner, tabInnerClassName)}
+            onClick={() => !disabled && onClick(value)}
+            disabled={disabled}
+            type="button"
+            tabIndex={-1}
+          >
             {renderIconAndChildren()}
-          </a>
+          </button>
         </li>
       </Tooltip>
     );
