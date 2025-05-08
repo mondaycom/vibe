@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.48.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.47.0...@vibe/core@3.48.0) (2025-05-08)
+
+
+### Bug Fixes
+
+* **Dropdown:** add support for rightRenderer in multi dropdown ([#2870](https://github.com/mondaycom/vibe/issues/2870)) ([6a833c8](https://github.com/mondaycom/vibe/commit/6a833c865c6c2af45edac059d12e8f9c12b73152))
+
+
+### Features
+
+* add observeReferenceResizeModifier for dynamic reference resizing ([#2869](https://github.com/mondaycom/vibe/issues/2869)) ([5967c65](https://github.com/mondaycom/vibe/commit/5967c650f45363efcc3ad6d867c976bf6dda6d79))
+* **Chips:** add noMargin prop to remove default margin from chips ([#2871](https://github.com/mondaycom/vibe/issues/2871)) ([ab92f6c](https://github.com/mondaycom/vibe/commit/ab92f6cec2b03f99ea3cee828894c7c8f78fec2a))
+
+
+
+
+
 # [3.47.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.1...@vibe/core@3.47.0) (2025-05-05)
 
 
