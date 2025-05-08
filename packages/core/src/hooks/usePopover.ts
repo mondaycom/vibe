@@ -5,7 +5,7 @@ import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
 import { createObserveContentResizeModifier } from "../components/Dialog/modifiers/observeContentResizeModifier";
-
+import { createObserveReferenceResizeModifier } from "../components/Dialog/modifiers/observeReferenceResizeModifier";
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
 const DEFAULT_FALLBACK_PLACEMENTS = [RIGHT_END, LEFT_START, LEFT_END];
@@ -17,12 +17,14 @@ export default function usePopover(
     isOpen,
     placement = RIGHT_START,
     observeContentResize,
+    observeReferenceResize,
     offset,
     fallbackPlacements = DEFAULT_FALLBACK_PLACEMENTS
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
+    observeReferenceResize?: boolean;
     offset?: [number, number];
     fallbackPlacements?: Placement[];
   }
@@ -55,6 +57,7 @@ export default function usePopover(
           }
         },
         createObserveContentResizeModifier(observeContentResize),
+        createObserveReferenceResizeModifier(observeReferenceResize),
         offset !== undefined && {
           name: "offset",
           options: { offset }
