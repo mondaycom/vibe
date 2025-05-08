@@ -1,0 +1,30 @@
+---
+description: Search field component usage and best practices
+globs: 
+alwaysApply: false
+---
+- Use Search to show a search field to the user
+
+### Basic usage
+```jsx
+<Search placeholder="Placeholder text here" />
+```
+
+### Sizes 
+```jsx
+<>
+  <Search placeholder="Small" size="small" />
+  <Search placeholder="Medium" size="medium" />
+  <Search placeholder="Large" size="large" />
+</>
+```
+
+### With filter icon
+```jsx
+<Search
+  placeholder="Search with icon"
+  renderAction={
+    <IconButton icon={FilterIcon} ariaLabel="Filter results" size="small" />
+  }
+/>
+```

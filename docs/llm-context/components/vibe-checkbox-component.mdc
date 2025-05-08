@@ -1,0 +1,34 @@
+---
+description: Checkbox examples and usage
+globs: 
+alwaysApply: false
+---
+Checkboxes allow users to select one or more items from a set of options.
+
+### Import
+
+```jsx
+import { Checkbox } from "@vibe/core";
+```
+
+### Basic usage
+
+```jsx
+<Checkbox
+  defaultChecked
+  label="Option"
+  onChange={function noRefCheck(){}}
+/>
+```
+
+### States
+```jsx
+<>
+  <Checkbox label="Regular" />
+  <Checkbox label="Selected" checked />
+  <Checkbox label="Indeterminate" indeterminate />
+  <Checkbox label="Disabled" disabled />
+  <Checkbox label="Disabled checked" disabled checked />
+  <Checkbox label="Disabled indeterminate" disabled indeterminate />
+</>
+```

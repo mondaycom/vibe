@@ -1,0 +1,26 @@
+---
+description: Usage of TextArea component to input multiline text
+globs: 
+alwaysApply: false
+---
+A field that allows users to write multiple lines of text. Text area includes a label and a field that users can type into. It can also come with helper text.
+
+### Basic usage
+
+```jsx
+<TextArea
+  helpText="Helper text"
+  label="Text area label"
+/>
+```
+
+### States
+
+```jsx
+<>
+  <TextArea size="small" label="Success state" success />
+  <TextArea size="small" label="Error state" error />
+  <TextArea size="small" label="Disabled state" disabled />
+  <TextArea size="small" label="Read only state" readOnly />
+</>
+```

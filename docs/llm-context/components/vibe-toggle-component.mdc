@@ -1,0 +1,23 @@
+---
+description: Toggle component usage and examples
+globs: 
+alwaysApply: false
+---
+
+### Basic usage
+```jsx
+<Toggle onChange={function noRefCheck(){}} />
+```
+
+### Import 
+
+```js
+import { Toggle } from "@vibe/core";
+```
+
+### State
+
+```jsx
+  <Toggle isDefaultSelected={false} />
+  <Toggle />
+```

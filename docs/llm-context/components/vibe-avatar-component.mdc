@@ -1,0 +1,127 @@
+---
+description: Avatar component usage - to represent a person or profile
+globs: 
+alwaysApply: false
+---
+- Avatar is a graphical representation of a person through a profile picture, image, icon, or set of initials.
+- Use an avatar to help a user in the platform efficiently identify another person or a team.
+- When there is no personal photo to show, use initials.
+- If an image fails to load, fall back to the default user avatar.
+- An avatar may contain a status icon to indicate a user’s status (working from home, busy, etc.).
+- Use a tooltip or dialog when hovering over the avatar to offer more information. For example: with a person’s name.
+
+### Basic usage
+
+```jsx
+<Avatar
+  ariaLabel="Julia Martinez"
+  onClick={console.log("clicked")}
+  size="large"
+  src="https://vibe.monday.com/static/media/person1.dd0cd6ea.png"
+  type="img"
+/>
+```
+
+### Import
+
+```jsx
+import { Avatar } from "@vibe/core";
+```
+
+### Size
+
+```jsx
+<Flex gap="medium">
+  <Avatar size="xs" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" ariaLabel="Julia Martinez" />
+  <Avatar size="small" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" ariaLabel="Julia Martinez" />
+  <Avatar size="medium" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" ariaLabel="Julia Martinez" />
+  <Avatar size="large" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" ariaLabel="Julia Martinez" />
+</Flex>
+```
+
+### Disabled
+
+```jsx
+<Flex gap="medium">
+  <Avatar size="xs" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" disabled />
+  <Avatar size="small" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" disabled />
+  <Avatar size="medium" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" disabled />
+  <Avatar size="large" src={"https://vibe.monday.com/static/media/person1.dd0cd6ea.png"} type="img" disabled />
+</Flex>
+```
+
+### Avatar with text
+
+Avatar with someone's initials when an image is not available
+
+```jsx
+<Flex gap="medium">
+  <Avatar
+    size="xs"
+    type="text"
+    text="RM"
+    backgroundColor="lipstick"
+    ariaLabel="Ron Meir"
+  />
+  <Avatar
+    size="small"
+    type="text"
+    text="RM"
+    backgroundColor="lipstick"
+    ariaLabel="Ron Meir"
+  />
+  <Avatar
+    size="medium"
+    type="text"
+    text="RM"
+    backgroundColor="lipstick"
+    ariaLabel="Ron Meir"
+  />
+  <Avatar
+    size="large"
+    type="text"
+    text="RM"
+    backgroundColor="done-green"
+    ariaLabel="Ron Meir"
+  />
+</Flex>
+```
+
+### Square avatar
+
+```jsx
+<Flex gap="medium">
+  <Avatar
+    size="xs"
+    type="text"
+    text="R"
+    backgroundColor="bright-blue"
+    square
+    ariaLabel="Ron"
+  />
+  <Avatar
+    size="small"
+    type="text"
+    text="R"
+    backgroundColor="bright-blue"
+    square
+    ariaLabel="Ron"
+  />
+  <Avatar
+    size="medium"
+    type="icon"
+    icon={WhatsNew}
+    backgroundColor="aquamarine"
+    square
+    ariaLabel="Present"
+  />
+  <Avatar
+    size="large"
+    type="text"
+    text="RM"
+    backgroundColor="working_orange"
+    square
+    ariaLabel="Ron Meir"
+  />
+</Flex>
+```

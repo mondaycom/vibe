@@ -1,0 +1,13 @@
+---
+description: Link component example
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<Link
+  href="https://www.monday.com"
+  text="Read more"
+/>
+```

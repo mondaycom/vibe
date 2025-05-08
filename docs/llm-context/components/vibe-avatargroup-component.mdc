@@ -1,0 +1,391 @@
+---
+description: Usage of AvatarGroup to show multiple Avatar Components in a list
+globs: 
+alwaysApply: false
+---
+- Use AvatarGroup to display multiple avatars
+- Use the `max` prop to indicate how many avatars to show
+
+### Basic usage
+```jsx
+<AvatarGroup
+  max={3}
+  size="large"
+>
+  <Avatar
+    ariaLabel="Sophia Johnson"
+    src="https://vibe.monday.com/static/media/person2.796d616d.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Marco DiAngelo"
+    src="https://vibe.monday.com/static/media/person3.93b103c5.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Liam Caldwell"
+    src="https://vibe.monday.com/static/media/person4.5e279308.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Julia Martinez"
+    src="https://vibe.monday.com/static/media/person1.dd0cd6ea.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Sophia Johnson"
+    src="https://vibe.monday.com/static/media/person2.796d616d.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Marco DiAngelo"
+    src="https://vibe.monday.com/static/media/person3.93b103c5.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Liam Caldwell"
+    src="https://vibe.monday.com/static/media/person4.5e279308.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Julia Martinez"
+    src="https://vibe.monday.com/static/media/person1.dd0cd6ea.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Sophia Johnson"
+    src="https://vibe.monday.com/static/media/person2.796d616d.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Marco DiAngelo"
+    src="https://vibe.monday.com/static/media/person3.93b103c5.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Liam Caldwell"
+    src="https://vibe.monday.com/static/media/person4.5e279308.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Julia Martinez"
+    src="https://vibe.monday.com/static/media/person1.dd0cd6ea.png"
+    type="img"
+  />
+  <Avatar
+    ariaLabel="Mark Roytstein"
+    text="MR"
+    type="text"
+  />
+</AvatarGroup>
+```
+
+### Import
+
+```javascript
+import { AvatarGroup } from "@vibe/core";
+```
+
+### Sizes
+
+```jsx
+<Flex direction="column" gap="large" align="start">
+  <>
+    <AvatarGroup size="large" type="img" max={4}>
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+  </>
+  <>
+    <AvatarGroup size="medium" type="img" max={4}>
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+  </>
+  <>
+    <AvatarGroup size="small" type="img" max={4}>
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+  </>
+  <>
+    <AvatarGroup size="xs" type="img" max={4}>
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+  </>
+</Flex>
+```
+
+### Dark mode
+
+```jsx
+<>
+<AvatarGroup
+      size="large"
+      type="img"
+      max={4}
+      counterProps={{
+        color: "dark",
+      }}
+    >
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+    </>
+```
+
+### Clickable counter
+
+```jsx
+() => {
+  const getDummyAvatarsProps = useCallback((numItems: number) => {
+    const avatarsProps = [
+      {
+        type: Avatar.types.IMG,
+        src: person1,
+        ariaLabel: "Julia Martinez",
+      },
+      {
+        type: Avatar.types.IMG,
+        src: person2,
+        ariaLabel: "Sophia Johnson",
+      },
+      {
+        type: Avatar.types.IMG,
+        src: person3,
+        ariaLabel: "Marco DiAngelo",
+      },
+      {
+        type: Avatar.types.IMG,
+        src: person4,
+        ariaLabel: "Liam Caldwell",
+      },
+    ];
+    const result = [];
+    for (let i = 0; i < numItems; i++) {
+      result.push(avatarsProps[i % avatarsProps.length]);
+    }
+    return result;
+  }, []);
+  return (
+    <Flex>
+          <AvatarGroup size="large" max={4}>
+            {getDummyAvatarsProps(14).map((avatarProps, index) => (
+              <Avatar {...avatarProps} onClick={() => {}} id={String(index)} />
+            ))}
+          </AvatarGroup>
+        </Flex>
+  );
+}
+```
+
+### Disabled
+
+```jsx
+<AvatarGroup size="large" max={4} disabled>
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+      <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+      <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+    </AvatarGroup>
+```
+
+### Custom tooltip content
+```jsx
+<AvatarGroup
+  size="large"
+  type="img"
+  max={4}
+  counterTooltipCustomProps={{
+    content: "... and plenty more employees",
+  }}
+>
+  <Avatar src={person1} ariaLabel="Julia Martinez" />
+  <Avatar src={person2} ariaLabel="Sophia Johnson" />
+  <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+  <Avatar src={person4} ariaLabel="Liam Caldwell" />
+  <Avatar src={person1} ariaLabel="Julia Martinez" />
+  <Avatar src={person2} ariaLabel="Sophia Johnson" />
+  <Avatar src={person3} ariaLabel="Marco DiAngelo" />
+  <Avatar src={person4} ariaLabel="Liam Caldwell" />
+</AvatarGroup>
+```
+
+### Virtualised list for large amount of avatars
+```jsx
+() => {
+  const avatars = [
+    <Avatar src={person1} ariaLabel="Julia Martinez" />,
+    <Avatar src={person2} ariaLabel="Sophia Johnson" />,
+    <Avatar src={person3} ariaLabel="Marco DiAngelo" />,
+    <Avatar src={person4} ariaLabel="Liam Caldwell" />,
+  ];
+  const getDummyAvatars = (multiplier: number) => {
+    let result: typeof avatars = [];
+    for (let i = 0; i < multiplier; ++i) {
+      result = result.concat(avatars);
+    }
+    return result;
+  };
+  return (
+    <AvatarGroup
+      size="large"
+      max={4}
+      counterTooltipIsVirtualizedList
+      type="img"
+    >
+      {getDummyAvatars(334)}
+    </AvatarGroup>
+  );
+}
+```
+
+### Avatar group inside table
+
+```jsx
+<Table
+  columns={[
+    {
+      id: "name",
+      title: "Name",
+    },
+    {
+      id: "email",
+      title: "Email",
+    },
+    {
+      id: "title",
+      title: "Title",
+    },
+    {
+      id: "teams",
+      title: "Teams",
+    },
+  ]}
+  errorState={<div />}
+  emptyState={<div />}
+>
+  <TableHeader>
+    <TableHeaderCell title="Name" />
+    <TableHeaderCell title="Email" />
+    <TableHeaderCell title="Title" />
+    <TableHeaderCell title="Teams" />
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <Flex direction="row" gap="small">
+          <Avatar
+            type="img"
+            src={person1}
+            size="medium"
+            ariaLabel="Julia Martinez"
+          />
+          Julia Martinez
+        </Flex>
+      </TableCell>
+      <TableCell>julia@martinez.com</TableCell>
+      <TableCell>Developer</TableCell>
+      <TableCell>
+        <AvatarGroup
+          size="medium"
+          max={2}
+          counterProps={{
+            ariaLabelItemsName: "teams",
+          }}
+        >
+          <Avatar
+            type="text"
+            text="T1"
+            backgroundColor="peach"
+            ariaLabel="Team 1"
+          />
+          <Avatar
+            type="text"
+            text="T2"
+            backgroundColor="bubble"
+            ariaLabel="Team 2"
+          />
+          <Avatar
+            type="text"
+            text="T3"
+            backgroundColor="berry"
+            ariaLabel="Team 3"
+          />
+        </AvatarGroup>
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```

@@ -1,0 +1,48 @@
+---
+description: Tooltip boilerplate and examples to add context to a component when a user hovers on it
+globs: 
+alwaysApply: false
+---
+## Tooltip Boilerplate JSX
+
+Tooltips provide helpful information and can include detailed context about a specific component when a user hovers on it.
+
+### Import
+
+```js
+import { Tooltip } from "@vibe/core";
+```
+
+### Tooltip on IconButton
+
+```jsx
+<Tooltip content="Hidden columns">
+    <IconButton kind="secondary" size="small" icon={Hide} />
+</Tooltip>
+```
+
+### Tooltip with definition
+
+```jsx
+<Tooltip content="Item name: Bottom sheets">
+    <Button kind="secondary" size="small" leftIcon={Subitems}>
+        Subitem
+    </Button>
+</Tooltip>
+```
+
+### Tooltip with no delay
+
+```jsx
+<Tooltip immediateShowDelay={0} content="I'm a tooltip">
+    <IconButton icon={Menu} kind="secondary" size="small" />
+</Tooltip>
+```
+
+### Tooltip with 3000ms delay
+
+```jsx
+<Tooltip immediateShowDelay={3000} content="I'm a tooltip">
+    <IconButton icon={Menu} kind="secondary" size="small" />
+</Tooltip>
+```

@@ -1,0 +1,28 @@
+---
+description: Color picker examples to choose a color from a list
+globs: 
+alwaysApply: false
+---
+### Basic usage
+```jsx
+<ColorPicker onSave={function noRefCheck(){}} />
+```
+
+### multi select
+```jsx
+<ColorPicker
+  SelectedIndicatorIcon={function noRefCheck(){}}
+  isMultiselect
+  onSave={function noRefCheck(){}}
+  value="peach"
+/>
+```
+
+### circle
+
+```jsx
+<ColorPicker
+  colorShape="circle"
+  onSave={function noRefCheck(){}}
+/>
+```

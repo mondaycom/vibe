@@ -1,0 +1,39 @@
+---
+description: ExpandCollapse usage and examples for collapsible UI
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<ExpandCollapse
+  className="ExpandCollapse-stories-module_storybookExpandCollapse"
+  title="Expand collapse"
+>
+  <Text
+    maxLines={2}
+    type="text2"
+  >
+    Insert here any component that you want, here is a robot for you
+  </Text>
+  <Icon
+    icon={function noRefCheck(){}}
+    iconSize={40}
+    iconType="svg"
+  />
+</ExpandCollapse>
+```
+
+### Without borders
+
+```jsx
+<ExpandCollapse
+  hideBorder
+  title="Without borders"
+  className={styles.storybookExpandCollapse}
+>
+  <Text type="text2" maxLines={2}>
+    Insert here any component that you want
+  </Text>
+</ExpandCollapse>
+```
