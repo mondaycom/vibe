@@ -1,0 +1,143 @@
+---
+description: Slider component examples to select from a continuous range of options
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+### Sizes
+
+```jsx
+<>
+  <Slider size="small" defaultValue={12} />
+  <Slider size="medium" defaultValue={24} />
+  <Slider size="large" defaultValue={35} />
+</>
+```
+
+### Ranged
+
+```jsx
+<>
+  <Slider data-testid={"monday-ranged-slider-s"} size="small" ranged={true} />
+  <Slider
+    data-testid={"monday-ranged-slider-m"}
+    size="medium"
+    ranged={true}
+    defaultValue={[12, 55]}
+  />
+  <Slider size="large" ranged={true} defaultValue={[25, 32]} />
+</>
+```
+
+### Colors
+
+```jsx
+<>
+  <Slider color="positive" defaultValue={34} size="medium" />
+  <Slider
+    color="negative"
+    ranged={true}
+    defaultValue={[12, 55]}
+    size="medium"
+  />
+  <Slider color="primary" defaultValue={12} size="medium" />
+</>
+```
+
+### With a label
+```jsx
+<>
+  <Slider indicateSelection={true} defaultValue={12} size="small" />
+  <Slider
+    indicateSelection={true}
+    ranged={true}
+    defaultValue={[12, 55]}
+    size="small"
+  />
+  <Slider
+    // @ts-ignore
+    prefix={{
+      icon: Sound,
+    }}
+    indicateSelection={true}
+    defaultValue={70}
+    size="small"
+  />
+  <Slider
+    // @ts-ignore
+    prefix={{
+      icon: Video,
+    }}
+    // @ts-ignore
+    postfix={{
+      icon: Sound,
+    }}
+    defaultValue={45}
+    size="medium"
+  />
+  <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size="large" />
+</>
+```
+
+### Show value
+```jsx
+<>
+  <Slider
+    data-testid={"monday-slider-show-value-s"}
+    showValue={true}
+    defaultValue={12}
+    size="small"
+  />
+  <Slider
+    data-testid={"monday-slider-show-value-m"}
+    showValue={true}
+    defaultValue={55}
+    size="medium"
+  />
+  <Slider
+    data-testid={"monday-slider-show-value-l"}
+    showValue={true}
+    defaultValue={89}
+    size="large"
+  />
+</>
+```
+
+### With steps
+```jsx
+<>
+  <Slider
+    prefix="Step 10"
+    step={10}
+    indicateSelection={true}
+    defaultValue={10}
+    size="small"
+  />
+  <Slider
+    prefix="Step 2, Max: 20"
+    max={20}
+    step={2}
+    indicateSelection={true}
+    defaultValue={4}
+    size="medium"
+  />
+  <Slider
+    prefix="from 20%"
+    postfix="till 80%"
+    min={20}
+    max={80}
+    showValue={true}
+    defaultValue={62}
+    size="large"
+  />
+  <Slider
+    ranged={true}
+    indicateSelection={true}
+    min={100}
+    max={200}
+    step={10}
+    size="large"
+  />
+</>
+```

@@ -1,0 +1,77 @@
+---
+description: Usage of LinearProgressBar to show progress
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<LinearProgressBar
+  className="linear-progress-bar_small-wrapper"
+  size="large"
+  value={20}
+/>
+```
+
+### With label
+
+```jsx
+<Flex direction="column" gap="large">
+  <Flex
+    direction="column"
+    gap="small"
+    align="start"
+    style={{
+      width: "400px",
+    }}
+  >
+    <LinearProgressBar indicateProgress value={30} size="large" />
+    With label
+  </Flex>
+  <Flex
+    direction="column"
+    gap="small"
+    align="start"
+    style={{
+      width: "400px",
+    }}
+  >
+    <LinearProgressBar value={30} size="large" />
+    Without label
+  </Flex>
+</Flex>
+```
+
+### Multi color progress
+
+```jsx
+() => {
+  const multiValues = useMemo(
+    () => [
+      {
+        value: 25,
+        color: "var(--primary-color)",
+      },
+      {
+        value: 75,
+        color: "var(--warning-color)",
+      },
+      {
+        value: 100,
+        color: "var(--positive-color)",
+      },
+    ],
+    []
+  );
+  return (
+    <LinearProgressBar
+      className="linear-progress-bar_big-wrapper"
+      value={25}
+      size="large"
+      indicateProgress
+      multi
+      multiValues={multiValues}
+    />
+  );
+}
+```

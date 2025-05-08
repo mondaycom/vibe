@@ -1,0 +1,91 @@
+---
+description: Usage and examples for IconButton
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+  }}
+>
+  <IconButton icon={Bolt} kind="primary" ariaLabel="My primary IconButton" />
+  <IconButton
+    icon={Bolt}
+    kind="secondary"
+    ariaLabel="My secondary IconButton"
+  />
+  <IconButton icon={Bolt} kind="tertiary" ariaLabel="My tertiary IconButton" />
+</div>
+```
+
+### Active state
+
+```jsx
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+  }}
+>
+  <IconButton
+    icon={Doc}
+    kind="primary"
+    ariaLabel="My small active IconButton"
+    active
+  />
+  <IconButton
+    icon={Doc}
+    kind="secondary"
+    ariaLabel="My active medium IconButton"
+    active
+  />
+  <IconButton
+    icon={Doc}
+    kind="tertiary"
+    ariaLabel="My active large IconButton"
+    active
+  />
+</div>
+```
+
+### Disabled
+```jsx
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+  }}
+>
+  <IconButton
+    icon={Doc}
+    kind="primary"
+    ariaLabel="My small disabled IconButton"
+    disabled
+    disabledReason="This function is not available"
+  />
+  <IconButton
+    icon={Doc}
+    kind="secondary"
+    ariaLabel="My disabled medium IconButton"
+    disabled
+    disabledReason="This function is not available"
+  />
+  <IconButton
+    icon={Doc}
+    kind="tertiary"
+    ariaLabel="My disabled large IconButton"
+    disabled
+    disabledReason="This function is not available"
+  />
+</div>
+```

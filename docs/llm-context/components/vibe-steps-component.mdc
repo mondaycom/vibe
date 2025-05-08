@@ -1,0 +1,30 @@
+---
+description: Usage and examples of Steps component for navigation
+globs: 
+alwaysApply: false
+---
+- Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation.
+
+### Default
+
+```jsx
+  <Steps steps={steps5} activeStepIndex={2} />
+```
+
+### No navigation buttons
+
+```jsx
+<Steps
+    steps={steps5}
+    activeStepIndex={2}
+    areNavigationButtonsHidden
+    className="monday-storybook-steps_padding"
+  />
+```
+
+### With number indicator
+```jsx
+<Flex direction="column" gap="medium">
+  <Steps type="numbers" steps={steps5} activeStepIndex={2} />
+</Flex>
+```

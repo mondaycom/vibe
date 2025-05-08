@@ -1,0 +1,45 @@
+---
+description: Editable Heading usage examples and best practices
+globs: 
+alwaysApply: false
+---
+
+### Basic usage
+```jsx
+<EditableHeading
+  onChange={function noRefCheck(){}}
+  type="h1"
+  value="This heading is an editable heading"
+/>
+```
+
+### EditableHeading inherits props from Heading component
+
+```jsx
+<div className={styles.typeContainer}>
+    <EditableHeading
+      type={EditableHeading.types.H1}
+      weight={EditableHeading.weights.LIGHT}
+      value="H1 Light"
+      className={styles.editableHeading}
+    />
+    <EditableHeading
+      type={EditableHeading.types.H1}
+      weight={EditableHeading.weights.NORMAL}
+      value="H1 Normal"
+      className={styles.editableHeading}
+    />
+    <EditableHeading
+      type={EditableHeading.types.H1}
+      weight={EditableHeading.weights.MEDIUM}
+      value="H1 Medium"
+      className={styles.editableHeading}
+    />
+    <EditableHeading
+      type={EditableHeading.types.H1}
+      weight={EditableHeading.weights.BOLD}
+      value="H1 Bold"
+      className={styles.editableHeading}
+    />
+  </div>
+  ```

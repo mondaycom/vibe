@@ -1,0 +1,145 @@
+---
+description: To show loading state with the general shape of UI
+globs: 
+alwaysApply: false
+---
+## Skeleton Boilerplate JSX
+
+- Use the following boilerplate to create a new Skeleton component
+
+### ComplexExample
+
+```jsx
+<div className="rules-column">
+        <div className="rules-row">
+          <Skeleton type="circle" />
+          <Skeleton type="text" width={110} size="small" />
+        </div>
+        <div className="article">
+          <div>
+            <Skeleton />
+          </div>
+          <div className="aside">
+            <Skeleton type="text" size="h1" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" />
+            <Skeleton type="text" size="h4" width={82} />
+          </div>
+        </div>
+      </div>
+```
+
+### Shapes
+
+```jsx
+<div className="row-box">
+      <div className="column-box">
+        <Skeleton type="circle" />
+        <>Circle</>
+      </div>
+      <div className="column-box">
+        <Skeleton />
+        <>Square</>
+      </div>
+      <div className="column-box">
+        <Skeleton width={112} height={46} />
+        <>Rectangle</>
+      </div>
+    </div>
+```
+
+### Text
+
+```jsx
+<div className="row-box">
+      <div className="column-box">
+        <Skeleton type="text" size="h1" />
+        <>H1</>
+      </div>
+      <div className="column-box">
+        <Skeleton type="text" size="h2" />
+        <>H2</>
+      </div>
+      <div className="column-box">
+        <Skeleton type="text" size="small" />
+        <>Paragraph</>
+      </div>
+    </div>
+```
+
+### UpdateInTheSystem
+
+```jsx
+false);
+    const [showBlock, setSHowBlock] = useState(false);
+    const [showReload, setshowReload] = useState(true);
+
+    const onClickCallback = useCallback(() => {
+      setshowReload(false);
+      setSHowBlock(false);
+      setShowSkeleton(true);
+
+      setTimeout(() => {
+        setShowSkeleton(false);
+      }, 4000);
+
+      setTimeout(() => {
+        setSHowBlock(true);
+      }, 4000);
+    }, [setShowSkeleton, setSHowBlock]);
+
+    return (
+      <div className="row">
+        {showBlock && (
+          <div className="box">
+            <div className="main">
+              <div className="header">
+                <Avatar src={person} type="img" />
+                <h5>Hadas Farhi</h5>
+              </div>
+              <p className="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+              </p>
+            </div>
+            <div className="btn-group">
+              <Button className="btn" leftIcon={ThumbsUp} kind="secondary">
+                Like
+              </Button>
+              <Button className="btn" leftIcon={Reply} kind="secondary">
+                Reply
+              </Button>
+            </div>
+          </div>
+        )}
+        {showSkeleton && (
+          <div className="box">
+            <div className="main">
+              <div className="header">
+                <Skeleton type="circle" width={50} height={50} />
+                <Skeleton type="text" size="h5" width={110} />
+              </div>
+              <p className="text-wrapper">
+                <Skeleton type="text" size="small" width={655} />
+                <Skeleton type="text" size="small" width={680} />
+                <Skeleton type="text" size="small" width={670} />
+                <Skeleton type="text" size="small" width={675} />
+                <Skeleton type="text" size="small" width={400} />
+              </p>
+            </div>
+            <div className="btn-group-skeleton">
+              <Skeleton type="text" size="h2" width={60} />
+              <Skeleton type="text" size="h2" width={60} />
+            </div>
+          </div>
+        )}
+        <Button kind="secondary" onClick={onClickCallback}>
+          {showReload ? "Load update" : "Reload update"}
+        </Button>
+      </div>
+```
+

@@ -1,0 +1,38 @@
+---
+description: Best practices for importing and using the monday vibe package
+globs: 
+alwaysApply: false
+---
+# Best Practices for using components from the monday vibe component library
+
+You are an expert at using the monday Vibe component library in React and TypeScript. 
+
+## Install packages
+
+### Installing the component library
+
+```
+npm install @vibe/core
+```
+
+### Installing the Icon library
+
+```
+npm install @vibe/icons
+```
+
+## Import a component
+
+```typescript
+import { Button } from "@vibe/core"
+```
+
+## Import an icon
+
+```typescript
+import { Icon } from "@vibe/core"
+import { DoubleCheck } from "@vibe/icons";
+```
+
+## Component usage
+- Get additional rules & context for components in the `/components` folder

@@ -1,0 +1,162 @@
+---
+description: Usage of Dialog component that opens when its children are clicked
+globs: 
+alwaysApply: false
+---
+- Dialog components open when their children are clicked
+- Use Dialog for menus and openable UI
+
+### Basic usage
+
+Dialog next to an icon button
+```jsx
+<div className="story-padding">
+  <Dialog
+    content={<DialogContentContainer><ExampleContent /></DialogContentContainer>}
+    hideTrigger={[
+      'click'
+    ]}
+    modifiers={[
+      {
+        name: 'preventOverflow',
+        options: {
+          mainAxis: false
+        }
+      }
+    ]}
+    position="right"
+    shouldShowOnMount
+    showTrigger={[
+      'click'
+    ]}
+  >
+    <IconButton
+      active
+      icon={function noRefCheck(){}}
+      kind="secondary"
+    />
+  </Dialog>
+</div>
+```
+
+### Positions
+
+```jsx
+// for prevent dialog to move while scrolling
+() => {
+  // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
+  const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({
+    defaultChecked: false,
+  });
+  const { isChecked: checkedBottom, onChange: onChangeBottom } = useSwitch({
+    defaultChecked: false,
+  });
+  const { isChecked: checkedRight, onChange: onChangeRight } = useSwitch({
+    defaultChecked: false,
+  });
+  const { isChecked: checkedLeft, onChange: onChangeLeft } = useSwitch({
+    defaultChecked: false,
+  });
+  const modifiers = [
+    {
+      name: "preventOverflow",
+      options: {
+        mainAxis: false,
+      },
+    },
+  ];
+  return (
+    <Flex className="story-padding" gap="medium">
+      <Dialog
+        modifiers={modifiers}
+        open={checkedTop}
+        position="top"
+        showTrigger={[]}
+        hideTrigger={[]}
+        content={
+          <DialogContentContainer>
+            <ExampleContent />
+          </DialogContentContainer>
+        }
+      >
+        <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
+          Top
+        </Button>
+      </Dialog>
+      <Dialog
+        modifiers={modifiers}
+        position="bottom"
+        showTrigger={[]}
+        hideTrigger={[]}
+        open={checkedBottom}
+        content={
+          <DialogContentContainer>
+            <ExampleContent />
+          </DialogContentContainer>
+        }
+      >
+        <Button
+          kind="secondary"
+          onClick={onChangeBottom}
+          active={checkedBottom}
+        >
+          Bottom
+        </Button>
+      </Dialog>
+      <Dialog
+        modifiers={modifiers}
+        showTrigger={[]}
+        hideTrigger={[]}
+        position="right"
+        open={checkedRight}
+        content={
+          <DialogContentContainer>
+            <ExampleContent />
+          </DialogContentContainer>
+        }
+      >
+        <Button kind="secondary" onClick={onChangeRight} active={checkedRight}>
+          Right
+        </Button>
+      </Dialog>
+      <Dialog
+        modifiers={modifiers}
+        position="left"
+        showTrigger={[]}
+        hideTrigger={[]}
+        open={checkedLeft}
+        content={
+          <DialogContentContainer>
+            <ExampleContent />
+          </DialogContentContainer>
+        }
+      >
+        <Button kind="secondary" onClick={onChangeLeft} active={checkedLeft}>
+          Left
+        </Button>
+      </Dialog>
+    </Flex>
+  );
+}
+```
+
+### Show dialog on mouse entewr
+```jsx
+<Dialog
+    modifiers={modifiers}
+    showTrigger={["mouseenter"]}
+    hideTrigger={["mouseleave"]}
+    content={
+        <DialogContentContainer>
+        <ExampleContent />
+        </DialogContentContainer>
+    }
+    >
+    <div onMouseEnter={onHoverButton} onMouseLeave={onHoverButton}>
+        <Button kind="secondary" active={hoverButtonActive}>
+        On mouse enter
+        </Button>
+    </div>
+    </Dialog>
+    ```
+

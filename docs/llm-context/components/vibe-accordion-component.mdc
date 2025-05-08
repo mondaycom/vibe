@@ -1,0 +1,70 @@
+---
+description: Accordion component usage and examples
+globs: 
+alwaysApply: false
+---
+# Accordion component
+
+- Use the accordion component for expandable lists.
+- The child of `AccordionItem` is the content to be hidden or expanded. 
+
+## MultiActive
+
+```jsx
+<Accordion className="small-wrapper" allowMultiple defaultIndex={[1, 3]}>
+      <AccordionItem title="Notifications">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Setting">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Connectivity">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Integration">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Assets">
+        <div className="small-box" />
+      </AccordionItem>
+    </Accordion>
+```
+
+## SingleActive
+
+```jsx
+<Accordion className="small-wrapper" defaultIndex={[1]}>
+      <AccordionItem title="Notifications">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Setting">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Connectivity">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Integration">
+        <div className="small-box" />
+      </AccordionItem>
+      <AccordionItem title="Assets">
+        <div className="small-box" />
+      </AccordionItem>
+    </Accordion>
+```
+
+## PreferencesAccordion
+
+```jsx
+<Accordion className="wrapper" defaultIndex={[0]}>
+      <AccordionItem title="In monday">
+        <div className="checkbox-wrapper">
+          <Checkbox label="Likes my update" checked />
+          <Checkbox label="Replies to my update" />
+          <Checkbox label="Replies or likes a conversation I'm a part of" checked />
+          <Checkbox label="Subscribes me to a Board/Item/Team" checked />
+          <Checkbox label="Writes an update on an items I'm subscribed to" checked />
+        </div>
+      </AccordionItem>
+    </Accordion>
+```
+

@@ -1,0 +1,61 @@
+---
+description: Usage of Tabs component for switchable UI and tabs
+globs: 
+alwaysApply: false
+---
+## Building tabs component
+
+- Each tab panel must contain a React child
+- TabList can be stretched across the width of the whole window. Use `tabType="stretched"` prop for this.
+
+### Boilerplate for default tabs
+
+```
+<TabsContext>
+  <TabList>
+    <Tab>
+      First
+    </Tab>
+    <Tab>
+      Second
+    </Tab>
+    <Tab>
+      Third
+    </Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <div>
+        First slide
+      </div>
+    </TabPanel>
+    <TabPanel>
+      <div>
+        Second slide
+      </div>
+    </TabPanel>
+    <TabPanel>
+      <div>
+        Third slide
+      </div>
+    </TabPanel>
+  </TabPanels>
+</TabsContext>
+```
+
+### Boilerplate for stretched TabList
+
+```
+<div
+  style={{
+    width: "100%",
+  }}
+>
+  <TabList tabType="stretched">
+    <Tab>First</Tab>
+    <Tab>Second</Tab>
+    <Tab>Third</Tab>
+    <Tab disabled>Disabled</Tab>
+  </TabList>
+</div>
+```

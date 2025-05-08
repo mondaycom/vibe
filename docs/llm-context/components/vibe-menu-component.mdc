@@ -1,0 +1,106 @@
+---
+description: Menu component examples and usage
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<Menu>
+  <MenuItem title="Menu item 1" />
+  <MenuItem
+    disabled
+    title="Menu item 2"
+  />
+  <MenuItem title="Menu item 3" />
+</Menu>
+```
+
+### Import
+
+```js
+import { Menu, MenuItem, MenuDivider, MenuGridItem, MenuTitle } from "@vibe/core";
+```
+
+### Sizes
+
+```jsx
+  <Flex gap="medium">
+    <DialogContentContainer key="small">
+      <Menu size={Menu.sizes.SMALL}>
+        <MenuTitle caption="Small menu" />
+        <MenuDivider />
+        <MenuItem title="Menu item 1" />
+        <MenuItem title="Menu item 2" disabled />
+        <MenuItem title="Menu item 3" />
+      </Menu>
+    </DialogContentContainer>
+    <DialogContentContainer key="md">
+      <Menu size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Medium menu" />
+        <MenuDivider />
+        <MenuItem title="Menu item 1" />
+        <MenuItem title="Menu item 2" disabled />
+        <MenuItem title="Menu item 3" />
+      </Menu>
+    </DialogContentContainer>
+    <DialogContentContainer key="lg">
+      <Menu size={Menu.sizes.LARGE}>
+        <MenuTitle caption="Large menu" />
+        <MenuDivider />
+        <MenuItem title="Menu item 1" />
+        <MenuItem title="Menu item 2" disabled />
+        <MenuItem title="Menu item 3" />
+      </Menu>
+    </DialogContentContainer>
+  </Flex>
+```
+
+### With Icons
+
+```jsx
+<Flex>
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem icon={Email} title="Send" />
+      <MenuItem icon={Delete} title="Delete" disabled />
+      <MenuItem icon={Info} title="More info" />
+    </Menu>
+  </DialogContentContainer>
+</Flex>
+```
+
+### With sub-menu
+```jsx
+<Flex>
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu item without sub menu" icon={Activity} />
+      <MenuItem title="With Sub menu" icon={Activity}>
+        <Menu>
+          <MenuItem icon={Email} title="Send" />
+          <MenuItem icon={Delete} title="Delete" disabled />
+          <MenuItem icon={Info} title="More info" />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Another item" icon={Settings} />
+    </Menu>
+  </DialogContentContainer>
+</Flex>
+```
+
+### As Grid
+
+```jsx
+<Menu>
+  <MenuItem title="This is a menu button" />
+  <MenuTitle caption="Try keyboard navigation :)" />
+  <MenuGridItem>
+    <DummyNavigableGrid
+      itemsCount={8}
+      numberOfItemsInLine={3}
+      withoutBorder
+    />
+  </MenuGridItem>
+</Menu>
+```

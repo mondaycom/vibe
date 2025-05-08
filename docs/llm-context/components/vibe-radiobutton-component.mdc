@@ -1,0 +1,25 @@
+---
+description: Radio Button usage and examples
+globs: 
+alwaysApply: false
+---
+### Basic usage
+```jsx
+<RadioButton text="Selection" />
+```
+
+### Import
+```js
+import {RadioButton} from "@vibe/core"
+```
+
+### States: Regular, Disabled, Checked, Disabled with reason
+
+```jsx
+<>
+  <RadioButton text="Regular" />
+  <RadioButton text="Selected" checked />
+  <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
+  <RadioButton text="Disabled" checked disabled />
+</>
+```

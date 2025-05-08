@@ -1,0 +1,147 @@
+---
+description: Use a Button for a point of interaction or to call a function
+globs: 
+alwaysApply: false
+---
+## Button component
+
+- When you need to implement a Button, use the vibe/core library and choose from the following templates.  
+
+### ButtonKinds: Boilerplate
+
+```jsx
+<>
+      <Button>Primary</Button>
+      <Button kind="secondary">Secondary</Button>
+      <Button kind="tertiary">Tertiary</Button>
+    </>
+```
+
+### Sizes: Boilerplate
+
+```jsx
+<>
+      <Button size="large">Large</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="small">Small</Button>
+    </>
+```
+
+### Disabled: Boilerplate
+
+```jsx
+<>
+      <Button disabled>Primary</Button>
+      <Button kind="secondary" disabled>
+        Secondary
+      </Button>
+      <Button kind="tertiary" disabled>
+        Tertiary
+      </Button>
+    </>
+```
+
+### States: Boilerplate
+
+```jsx
+<>
+      <Button>Regular</Button>
+      <Button active>Active</Button>
+    </>
+```
+
+### PositiveAndNegative: Boilerplate
+
+```jsx
+<>
+      <Button color="positive">Positive</Button>
+      <Button color="negative">Negative</Button>
+    </>
+```
+
+### Icons: Boilerplate
+
+```jsx
+<>
+      <Button rightIcon={Calendar}>Right icon</Button>
+      <Button leftIcon={Calendar}>Left icon</Button>
+    </>
+```
+
+### LoadingState: Boilerplate
+
+```jsx
+false);
+    const onClick = useCallback(() => {
+      setLoading(true);
+    }, [setLoading]);
+    return (
+      <Button loading={loading} onClick={onClick}>
+        Click here for loading
+      </Button>
+```
+
+### SuccessState: Boilerplate
+
+```jsx
+false);
+    const onClick = useCallback(() => {
+      setSuccess(true);
+    }, [setSuccess]);
+    return (
+      <Button success={success} onClick={onClick} successIcon={Check} successText="Success">
+        Click here for success
+      </Button>
+```
+
+### OnColorStates: Boilerplate
+
+```jsx
+<>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+          Regular
+        </Text>
+        <div className="on-color-button">
+          <Button color="on-primary-color" marginRight>
+            Primary on color
+          </Button>
+          <Button color="on-primary-color" kind="secondary" marginRight>
+            Secondary on color
+          </Button>
+          <Button color="on-primary-color" kind="tertiary">
+            Tertiary on color
+          </Button>
+        </div>
+        <br />
+        <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
+          Disabled
+        </Text>
+        <div className="on-color-button">
+          <Button color="on-primary-color" disabled marginRight>
+            Primary on color
+          </Button>
+          <Button color="on-primary-color" disabled marginRight kind="secondary">
+            Secondary on color
+          </Button>
+          <Button color="on-primary-color" disabled kind="tertiary">
+            Tertiary on color
+          </Button>
+        </div>
+      </div>
+    </>
+```
+
+### AdjacentButtons: Boilerplate
+
+```jsx
+<div>
+      <Button kind="secondary" size="small" ariaLabel="decrease zoom level" rightFlat>
+        <Remove />
+      </Button>
+      <Button kind="secondary" size="small" ariaLabel="increase zoom level" leftFlat>
+        <Add />
+      </Button>
+    </div>
+```
+

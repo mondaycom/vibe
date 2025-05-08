@@ -1,0 +1,103 @@
+---
+description: Label component usage and examples to indicate an element's status
+globs: 
+alwaysApply: false
+---
+Use Label to indicate the status of an item.
+
+### Basic usage
+
+```jsx
+<Label text="New" />
+```
+
+### Colors
+
+```jsx
+<>
+  <Label text="New" />
+  <Label text="New" color="negative" />
+  <Label text="New" color="positive" />
+  <Label text="New" color="dark" />
+  <Label text="New" kind="line" />
+  <Label text="New" color="negative" kind="line" />
+  <Label text="New" color="positive" kind="line" />
+  <Label text="New" color="dark" kind="line" />
+</>
+```
+
+### Clickable
+
+```jsx
+<>
+  <Label text="New" onClick={NOOP} />
+  <Label text="New" kind="line" onClick={NOOP} />
+</>
+```
+
+### Celebration
+```jsx
+() => {
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(false);
+    }, 500);
+  }, [animate]);
+  return (
+    <>
+      <Label text="New" kind="line" celebrationAnimation={animate} />
+      <Button size="small" kind="tertiary" onClick={() => setAnimate(true)}>
+        Click to celebrate
+      </Button>
+    </>
+  );
+}
+```
+
+### USe label to create visual hierarchy
+
+```jsx
+<Flex direction="column" gap="large">
+  <Box
+    style={{
+      width: "300px",
+    }}
+  >
+    <Flex align="center" gap="small">
+      <Heading type="h3">Gannt</Heading>
+      <Label text="New" kind="line" />
+    </Flex>
+    <Text element="p" type="text1">
+      Plan, track and present your projects visually using the Gannt chart
+    </Text>
+  </Box>
+  <Box
+    style={{
+      width: "300px",
+      marginTop: "8px",
+    }}
+  >
+    <Flex align="center" gap="small">
+      <Heading
+        type="h3"
+        style={{
+          display: "inline",
+        }}
+      >
+        Apps
+      </Heading>
+      <Label text="New" kind="line" />
+    </Flex>
+    <Text
+      element="p"
+      type="text1"
+      style={{
+        marginTop: "8px",
+      }}
+    >
+      Enhance your dashboard with widgets built on the monday apps framework
+    </Text>
+  </Box>
+</Flex>
+```

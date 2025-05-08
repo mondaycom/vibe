@@ -1,0 +1,90 @@
+---
+description: TextField component usage to type single line text into
+globs: 
+alwaysApply: false
+---
+An input field includes a label and a text field users can type text into. They typically appear in forms and dialogs.
+
+### Basic usage
+
+```jsx
+<TextField
+  placeholder="Placeholder text here"
+  showCharCount
+  title="Name"
+  validation={{
+    text: 'Helper text'
+  }}
+/>
+```
+
+### Import
+
+```jsx
+import { TextField } from "@vibe/core";
+```
+
+### Sizes
+
+```jsx
+<div>
+  <TextField placeholder="Small" />
+  <TextField placeholder="Medium" size="medium" />
+  <TextField placeholder="Large" size="large" />
+</div>
+```
+
+### Validation
+
+Use validation to give feedback to the user for a case where he has provided an invalid input. The validation error should appear when the user is done typing and getting out of the input’s focus.
+
+```jsx
+<div className="monday-storybook-text-field_column-wrapper">
+  <TextField
+    placeholder="Validate me"
+    title="Name"
+    size="medium"
+    validation={{
+      status: "error",
+      text: "Validation text",
+    }}
+  />
+</div>
+```
+
+### States
+
+```jsx
+<div>
+  <div>
+    <TextField placeholder="Disabled" size="medium" disabled />
+    <TextField placeholder="With icon" iconName={Email} size="medium" />
+    <TextField
+      placeholder="With clickable icon"
+      iconTooltipContent="Copy"
+      iconName={Duplicate}
+      onIconClick={() => {}}
+      size="medium"
+    />
+  </div>
+  <div>
+    <TextField placeholder="With field label" title="Name" size="medium" />
+    <TextField
+      placeholder="Success"
+      validation={{
+        status: "success",
+      }}
+      iconName={Check}
+      size="medium"
+    />
+    <TextField
+      placeholder="Error"
+      validation={{
+        status: "error",
+      }}
+      iconName={CloseSmall}
+      size="medium"
+    />
+  </div>
+</div>
+```

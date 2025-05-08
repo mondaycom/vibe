@@ -1,0 +1,27 @@
+---
+description: EditableText component for editing inline text
+globs: 
+alwaysApply: false
+---
+
+### Basic usage
+
+```jsx
+<EditableText
+  onChange={function noRefCheck(){}}
+  type="text2"
+  value="This text is an editable text"
+/>
+```
+
+### Multiline inputs
+```jsx
+<EditableText
+  type={EditableText.types.TEXT1}
+  weight={EditableText.weights.NORMAL}
+  multiline
+  value={`This is a multiline
+here's the second line`}
+  className={styles.editableText}
+/>
+```

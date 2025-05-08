@@ -1,0 +1,138 @@
+---
+description: MultiStepIndicator component usage and examples
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<MultiStepIndicator
+  steps={[
+    {
+      key: 'FULFILLED',
+      status: 'fulfilled',
+      subtitleText: 'Subtitle',
+      titleText: 'Everything you can do with Monday'
+    },
+    {
+      key: 'PENDING',
+      status: 'pending',
+      subtitleText: 'Subtitle',
+      titleText: 'Everything you can do with Monday'
+    },
+    {
+      key: 'PENDING-2',
+      status: 'pending',
+      subtitleText: 'Subtitle',
+      titleText: 'Everything you can do with Monday'
+    }
+  ]}
+ />
+ ```
+
+ ### Colors
+
+ ```jsx
+ () => {
+  const steps: Step[] = useMemo(
+    () => [
+      {
+        key: "FULFILLED",
+        status: "fulfilled",
+        titleText: "Fulfilled title",
+        subtitleText: "Fulfilled subtitle",
+      },
+      {
+        key: "ACTIVE",
+        status: "active",
+        titleText: "Active title",
+        subtitleText: "Active subtitle",
+      },
+      {
+        key: "PENDING",
+        status: "pending",
+        titleText: "Pending title",
+        subtitleText: "Pending subtitle",
+      },
+    ],
+    []
+  );
+  return (
+    <div className="monday-storybook-multiStepIndicator_column-wrapper">
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">
+          Primary
+        </span>
+        <MultiStepIndicator steps={steps} type="primary" />
+      </div>
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">
+          Success
+        </span>
+        <MultiStepIndicator steps={steps} type="success" />
+      </div>
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">
+          Danger
+        </span>
+        <MultiStepIndicator steps={steps} type="danger" />
+      </div>
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">Dark</span>
+        <MultiStepIndicator steps={steps} type="dark" />
+      </div>
+    </div>
+  );
+}
+```
+
+### Vertical vs horizontal
+
+```jsx
+() => {
+  const steps: Step[] = useMemo(
+    () => [
+      {
+        key: "FULFILLED",
+        status: "fulfilled",
+        titleText: "Fulfilled title",
+        subtitleText: "Fulfilled subtitle",
+      },
+      {
+        key: "ACTIVE",
+        status: "active",
+        titleText: "Active title",
+        subtitleText: "Active subtitle",
+      },
+      {
+        key: "PENDING",
+        status: "pending",
+        titleText: "Pending title",
+        subtitleText: "Pending subtitle",
+      },
+    ],
+    []
+  );
+  return (
+    <div className="monday-storybook-multiStepIndicator_column-wrapper">
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">
+          Vertical
+        </span>
+        <MultiStepIndicator
+          className="monday-storybook-multiStepIndicator_size"
+          textPlacement="vertical"
+          steps={steps}
+        />
+      </div>
+      <div className="monday-storybook-multiStepIndicator_row-wrapper">
+        <span className="monday-storybook-multiStepIndicator_title">
+          Horizontal
+        </span>
+        <MultiStepIndicator steps={steps} />
+      </div>
+    </div>
+  );
+}
+```
+

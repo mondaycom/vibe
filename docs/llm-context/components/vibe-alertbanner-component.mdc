@@ -1,0 +1,80 @@
+---
+description: Use the AlertBanner component for toasts or alerts
+globs: 
+alwaysApply: false
+---
+- Use the AlertBanner as an alert or toast
+- Use one of the boilerplate templates below when creating an AlertBanner component
+
+## Types: Story
+
+```jsx
+<div className="column-wrapper big-container">
+      <AlertBanner>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor="positive">
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor="negative">
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor="warning">
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor="dark">
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+    </div>
+```
+
+## AlertBannerWithButton: Story
+
+```jsx
+<AlertBanner className="big-container">
+      <AlertBannerText text="Lorem ipsum dolor sit amet" />
+      <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
+    </AlertBanner>
+```
+
+## AlertBannerWithLink: Story
+
+```jsx
+<AlertBanner className="big-container">
+      <AlertBannerText text="Alert banner message" />
+      <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+    </AlertBanner>
+```
+
+## AlertBannerAsAnAnnouncement: Story
+
+```jsx
+<AlertBanner backgroundColor="dark" className="big-container">
+      <AlertBannerText text="Join us at Elevate 2022" />
+      <AlertBannerLink text="RSVP now" href="https://monday.com" />
+    </AlertBanner>
+```
+
+## AlertBannerAsAnOpportunityToUpgrade: Story
+
+```jsx
+<AlertBanner className="big-container">
+      <AlertBannerText text="7 days left on your monday CRM trial" />
+      <AlertBannerLink text="Upgrade now" href="https://monday.com" />
+    </AlertBanner>
+```
+
+## OverflowText: Story
+
+```jsx
+<AlertBanner className="small-container">
+      <AlertBannerText text="This is a really long alert..." />
+      <AlertBannerLink text="Call to action" href="https://monday.com" />
+    </AlertBanner>
+```
+

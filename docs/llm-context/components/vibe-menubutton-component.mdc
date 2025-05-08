@@ -1,0 +1,55 @@
+---
+description: MenuButton examples to show a selectable list of items when you click a button
+globs: 
+alwaysApply: false
+---
+- Use MenuButton to open a menu when you click a button
+
+### Basic Usage
+
+```jsx
+<MenuButton
+  onMenuHide={function noRefCheck(){}}
+  onMenuShow={function noRefCheck(){}}
+>
+  <Menu
+    id="menu"
+    size="medium"
+  >
+    <MenuItem
+      icon={function noRefCheck(){}}
+      iconType="svg"
+      onClick={function noRefCheck(){}}
+      title="The sun"
+    />
+    <MenuItem
+      icon={function noRefCheck(){}}
+      iconType="svg"
+      onClick={function noRefCheck(){}}
+      title="The moon"
+    />
+    <MenuItem
+      icon={function noRefCheck(){}}
+      iconType="svg"
+      onClick={function noRefCheck(){}}
+      title="And the stars"
+    />
+  </Menu>
+</MenuButton>
+```
+
+### Disabled
+```jsx
+<MenuButton disabled tooltipContent="This action is not available now">
+  <Menu id="menu" size={Menu.sizes.MEDIUM}>
+    <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
+    <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
+    <MenuItem
+      icon={Favorite}
+      onClick={NOOP}
+      iconType="svg"
+      title="And the stars"
+    />
+  </Menu>
+</MenuButton>
+```

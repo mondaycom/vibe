@@ -1,0 +1,55 @@
+---
+description: Breadcrumbs and BreadcrumbsBar component usage and examples
+globs: 
+alwaysApply: false
+---
+- Breadcrumbs allow users to keep track and maintain awareness of their location as they navigate through pages, folders, files, etc.
+- Breadcrumbs show users their current location relative to the information architecture and enable them to quickly move up to a parent level or previous step
+- Place breadcrumbs at the top left corner of the screen, above the page title.
+
+### Import
+```js
+import { BreadcrumbsBar, BreadcrumbItem } from "@vibe/core";
+```
+
+### Basic usage
+```jsx
+<BreadcrumbsBar>
+  <BreadcrumbItem
+    icon={Workspace}
+    text="Workspace"
+  />
+  <BreadcrumbItem
+    icon={Workspace}
+    text="Folder"
+  />
+  <BreadcrumbItem
+    icon={Workspace}
+    text="Board"
+  />
+  <BreadcrumbItem
+    icon={Document}
+    text="Group"
+  />
+</BreadcrumbsBar>
+```
+
+### With breadcrumb menu
+
+The breadcrumb menu element lets you add more layers to the breadcrumbs without taking more space. 
+
+```jsx
+<BreadcrumbsBar type="navigation">
+  <BreadcrumbItem text="Board" icon={Board} />
+  <BreadcrumbItem text="Group" icon={Group} />
+  <BreadcrumbMenu>
+    <BreadcrumbMenuItem
+      title="Item 1"
+      onClick={() => alert("Item 1 clicked")}
+    />
+    <BreadcrumbMenuItem title="Item 2" link="https://www.monday.com" />
+    <BreadcrumbMenuItem title="Item 3" link="https://www.monday.com" />
+  </BreadcrumbMenu>
+  <BreadcrumbItem text="My Item" icon={Item} isCurrent />
+</BreadcrumbsBar>
+```

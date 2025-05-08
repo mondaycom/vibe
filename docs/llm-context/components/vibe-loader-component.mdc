@@ -1,0 +1,45 @@
+---
+description: Usage of circular Loader component
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<Loader size="medium" />
+```
+
+### Import
+
+```js
+import { Loader } from "@vibe/core";
+```
+
+
+### Colors
+
+```jsx
+<Flex direction="row" gap="small">
+    <Loader size="medium" color="primary" />
+    <Loader size="medium" color="secondary" />
+    <Loader size="medium" color="dark" />
+    description="OnPrimary"
+    vertical
+    align={StoryDescription.align.START}
+  >
+    <Flex direction="row">
+      <div className="color-black">
+        <Loader size="medium" color="onPrimary" />
+      </div>
+      <div className="color-negative">
+        <Loader size="medium" color="onPrimary" />
+      </div>
+      <div className="color-positive">
+        <Loader size="medium" color="onPrimary" />
+      </div>
+      <div className="color-primary">
+        <Loader size="medium" color="onPrimary" />
+      </div>
+    </Flex>
+</Flex>
+```
