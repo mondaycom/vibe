@@ -117,6 +117,10 @@ export interface ChipsProps extends VibeComponentProps {
    * The label for the close button.
    */
   closeButtonAriaLabel?: string;
+  /**
+   * If true, removes the default margin from the chip.
+   */
+  noMargin?: boolean;
 }
 
 const Chips = forwardRef(
@@ -148,7 +152,8 @@ const Chips = forwardRef(
       showBorder = false,
       leftRenderer,
       rightRenderer,
-      closeButtonAriaLabel = "Remove"
+      closeButtonAriaLabel = "Remove",
+      noMargin = false
     }: ChipsProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -169,7 +174,8 @@ const Chips = forwardRef(
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
-      [styles.border]: showBorder
+      [styles.border]: showBorder,
+      [styles.noMargin]: noMargin
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
