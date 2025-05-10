@@ -19,7 +19,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size } = customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size, dialogClassName } =
+    customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -72,6 +73,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
             allowTextSelection={readOnly}
             leftRenderer={option.leftRenderer}
+            rightRenderer={option.rightRenderer}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}
@@ -123,7 +125,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes.valueDialogContent}>
+                <DialogContentContainer
+                  className={classes.valueDialogContent}
+                  onMouseDown={e => {
+                    e.stopPropagation();
+                  }}
+                >
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
@@ -133,6 +140,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
+              wrapperClassName={dialogClassName}
             >
               <Counter
                 kind="line"

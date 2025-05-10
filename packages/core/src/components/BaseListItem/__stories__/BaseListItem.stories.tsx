@@ -24,9 +24,11 @@ const baseListItemTemplate = createComponentTemplate(BaseListItem);
 export const Overview: Story = {
   render: baseListItemTemplate.bind({}),
   args: {
-    label: "This is a list item",
-    startElement: { type: "avatar", value: person1 },
-    endElement: { type: "icon", value: Email },
-    tooltipProps: { content: "tooltip content" }
+    item: {
+      label: "This is a list item",
+      startElement: { type: "avatar", value: person1 },
+      endElement: { type: "icon", value: Email },
+      tooltipProps: { content: "tooltip content" }
+    }
   }
 };
