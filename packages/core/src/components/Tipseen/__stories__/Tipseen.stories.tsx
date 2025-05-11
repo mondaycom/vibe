@@ -165,7 +165,7 @@ export const TipseenWithImage = {
         <Tipseen
           position="right"
           modifiers={modifiers}
-          closeButtonTheme="dark"
+          closeButtonTheme="light"
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
