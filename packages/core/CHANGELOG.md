@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.48.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.0...@vibe/core@3.48.1) (2025-05-11)
+
+
+### Bug Fixes
+
+* **Dropdown:** Fix dropdown chip width issue ([#2872](https://github.com/mondaycom/vibe/issues/2872)) ([c8c6b09](https://github.com/mondaycom/vibe/commit/c8c6b09b13584cf0e8cf4fb411c0243d155cb7e3))
+
+
+
+
+
 # [3.48.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.47.0...@vibe/core@3.48.0) (2025-05-08)
 
 
