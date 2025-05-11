@@ -9,7 +9,7 @@ import { TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
 const BaseListItem = forwardRef(
-  <Item = Record<string, unknown>,>(
+  <Item extends Record<string, unknown>>(
     {
       className,
       id,
@@ -66,6 +66,6 @@ const BaseListItem = forwardRef(
   }
 );
 
-export default BaseListItem as <Item = Record<string, unknown>>(
+export default BaseListItem as <Item extends Record<string, unknown>>(
   props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLLIElement> }
 ) => React.ReactElement;

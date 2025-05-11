@@ -41,3 +41,10 @@ console.error = function (warning) {
   }
   error.apply(console, arguments);
 };
+
+class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+global.ResizeObserver = ResizeObserver;
