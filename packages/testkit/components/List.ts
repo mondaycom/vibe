@@ -41,8 +41,9 @@ export class List extends BaseElement {
    */
   async initializeItems(): Promise<void> {
     await test.step(`Initialize ${this.elementReportName}`, async () => {
-      await this.waitForElementsGroup(this.locator.locator("li"), this.elementReportName);
-      const listElements = await this.locator.locator("li").all();
+      const listItemLocator = this.locator.locator("li");
+      await this.waitForAndVerifyElements(listItemLocator);
+      const listElements = await listItemLocator.all();
       this.items = await Promise.all(
         listElements.map(async locator => {
           const itemName = await locator.innerText();

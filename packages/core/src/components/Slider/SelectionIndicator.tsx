@@ -23,7 +23,13 @@ function parseValue(valueText: string) {
 }
 
 export interface SelectionIndicatorProps extends VibeComponentProps {
+  /**
+   * Determines whether the selection indicator is a prefix or postfix.
+   */
   kind?: InfixKind;
+  /**
+   * The key for the selection indicator (used for React key uniqueness).
+   */
   key?: InfixKind;
 }
 

@@ -7,8 +7,6 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class TextField extends BaseElement {
-  override page: Page;
-  override locator: Locator;
   /**
    * Create a TextField.
    * @param {Page} page - The Playwright page object.
@@ -17,8 +15,6 @@ export class TextField extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
   }
 
   /**
@@ -28,8 +24,26 @@ export class TextField extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} in element: ${this.elementReportName}`, async () => {
+      await this.clearText();
       await this.locator.fill(text);
     });
+  }
+
+  /**
+   * Clear the text in the input element.
+   */
+  async clearText(): Promise<void> {
+    await test.step(`Clear text in element: ${this.elementReportName}`, async () => {
+      await this.locator.fill("");
+    });
+  }
+
+  /**
+   * Get the value of the input element.
+   * @returns {Promise<string>}
+   */
+  async isEmpty(): Promise<boolean> {
+    return (await this.locator.inputValue()) === "";
   }
 
   /**

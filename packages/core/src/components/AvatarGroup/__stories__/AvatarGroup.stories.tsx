@@ -15,7 +15,6 @@ import TableHeaderCell from "../../Table/TableHeaderCell/TableHeaderCell";
 import TableBody from "../../Table/TableBody/TableBody";
 import TableRow from "../../Table/TableRow/TableRow";
 import TableCell from "../../Table/TableCell/TableCell";
-import styles from "./AvatarGroup.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup
@@ -24,12 +23,31 @@ const metaSettings = createStoryMetaSettingsDecorator({
 export default {
   title: "Components/AvatarGroup",
   component: AvatarGroup,
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    counterProps: {
+      control: "object",
+      table: {
+        type: {
+          summary: "AvatarGroupCounterVisualProps",
+          detail: `{
+    color?: "light" | "dark";
+    count?: number;
+    prefix?: string;
+    maxDigits?: number;
+    ariaLabelItemsName?: string;
+    noAnimation?: boolean;
+    dialogContainerSelector?: string;
+}`
+        }
+      }
+    }
+  },
   decorators: metaSettings.decorators,
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles, StoryDescription, person1, person2, person3 }
+        scope: { StoryDescription, person1, person2, person3, person4 }
       }
     }
   }
@@ -69,6 +87,9 @@ export const Overview: StoryObj<typeof avatarGroupTemplate> = {
       person3: window.location.origin + "/" + person3,
       person4: window.location.origin + "/" + person4
     }
+  },
+  argTypes: {
+    persons: { table: { disable: true } }
   },
   parameters: {
     docs: {
@@ -120,6 +141,24 @@ export const Size: Story = {
       </StoryDescription>
       <StoryDescription description="Small" vertical align={StoryDescription.align.START}>
         <AvatarGroup size="small" type="img" max={4}>
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+          <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
+          <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+          <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
+          <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
+        </AvatarGroup>
+      </StoryDescription>
+      <StoryDescription description="XS" vertical align={StoryDescription.align.START}>
+        <AvatarGroup size="xs" type="img" max={4}>
           <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
           <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
           <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
@@ -202,7 +241,7 @@ export const MaxAvatarsToDisplay: Story = {
     const [max, setMax] = useState(4);
 
     return (
-      <Flex direction="column" gap="medium" align="start" className={styles.sliderCountContainer}>
+      <Flex direction="column" gap="medium" align="start" style={{ width: "100%" }}>
         <Slider
           size="small"
           min={1}

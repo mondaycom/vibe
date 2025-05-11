@@ -1,58 +1,89 @@
 import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { TooltipProps } from "../Tooltip/Tooltip";
+import { TooltipProps } from "../Tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { TextType, TextWeight } from "../Text/Text.types";
-import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import { TextType, TextWeight } from "../Text";
+import { HeadingType, HeadingWeight } from "../Heading";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
-  /** Value of the text */
+  /**
+   * The current value of the text.
+   */
   value: string;
-  /** Will be called whenever the current value changes to a non-empty value */
+  /**
+   * Callback fired when the value changes.
+   */
   onChange?: (value: string) => void;
-  /** Will be called whenever the component gets clicked */
+  /**
+   * Callback fired when the component is clicked.
+   */
   onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
-  /** Disables editing mode - component will be just a typography element */
+  /**
+   * If true, the text is read-only and cannot be edited.
+   */
   readOnly?: boolean;
-  /** Shown in edit mode when the text value is empty */
+  /**
+   * Placeholder text displayed when the value is empty.
+   */
   placeholder?: string;
-  /** ARIA Label */
+  /**
+   * The label of the component for accessibility.
+   */
   ariaLabel?: string;
-  /** Controls the mode of the component (i.e. view/edit mode) */
+  /**
+   * Controls whether the component is in edit mode.
+   */
   isEditMode?: boolean;
-  /** If true, automatically select all text when entering edit mode */
+  /**
+   * If true, automatically selects all text when entering edit mode.
+   */
   autoSelectTextOnEditMode?: boolean;
-  /** Will be called when the mode of the component changes */
+  /**
+   * Callback fired when the edit mode changes.
+   */
   onEditModeChange?: (isEditMode: boolean) => void;
-  /** Override Tooltip props when needed */
+  /**
+   * Props to customize the tooltip.
+   */
   tooltipProps?: Partial<TooltipProps>;
 }
 
 export interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
-  /** A typography component that is being rendered in view mode */
+  /**
+   * The typography component used in view mode.
+   */
   component: ElementType;
-  /** Controls the style of the typography component in view mode */
+  /**
+   * Class name applied to the typography component.
+   */
   typographyClassName: string;
-  /** Shows placeholder when empty, if provided */
+  /**
+   * If true, shows the placeholder when empty.
+   */
   clearable?: boolean;
-  /** Sets the Text/Heading type */
+  /**
+   * The text or heading type.
+   */
   type?: TextType | HeadingType;
-  /** Sets the Text/Heading weight */
+  /**
+   * The text or heading weight.
+   */
   weight?: TextWeight | HeadingWeight;
-  /** Controls whether a textarea or a simple input would be rendered, allowing multi-lines */
+  /**
+   * If true, enables multi-line editing.
+   */
   multiline?: boolean;
 }
 
 const PADDING_OFFSET = 2;
 
-const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
+const EditableTypography = forwardRef(
   (
     {
       id,
@@ -75,7 +106,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       weight,
       multiline = false
     }: EditableTypographyProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);

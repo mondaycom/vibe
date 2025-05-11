@@ -1,28 +1,67 @@
 import React, { ChangeEvent, forwardRef, ReactElement, useMemo } from "react";
 import cx from "classnames";
 import useSwitch from "../../hooks/useSwitch";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { VibeComponentProps } from "../../types";
 import { MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
 
 export interface SwitchProps extends VibeComponentProps {
+  /**
+   * The name of the switch input.
+   */
   name?: string;
+  /**
+   * The value associated with the switch.
+   */
   value?: string;
+  /**
+   * The ARIA role of the switch.
+   */
   role?: string;
+  /**
+   * If true, the switch is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * The ID of the element labeling the switch.
+   */
   ariaLabelledBy?: string;
+  /**
+   * If true, the switch is checked.
+   */
   checked?: boolean;
+  /**
+   * Class name applied to the input element.
+   */
   inputClassName?: string;
+  /**
+   * Callback fired when the switch state changes.
+   */
   onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The ID of the element controlled by the switch.
+   */
   ariaControls?: string;
+  /**
+   * If true, the switch is checked by default.
+   */
   defaultChecked?: boolean;
+  /**
+   * The child component rendered inside the switch.
+   */
   children?: ReactElement<MockToggleProps>;
+  /**
+   * Class name applied to the wrapper element.
+   */
   wrapperClassName?: string;
 }
 
 // TODO no story
-export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
+const Switch = forwardRef(
   (
     {
       id,
@@ -41,7 +80,7 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
       wrapperClassName,
       "data-testid": dataTestId
     }: SwitchProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const { onChange: overrideOnChange, isChecked: overrideChecked } = useSwitch({
       isDisabled: disabled,
@@ -83,3 +122,5 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
     );
   }
 );
+
+export default Switch;

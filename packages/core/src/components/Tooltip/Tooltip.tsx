@@ -22,118 +22,155 @@ export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | Toolti
 
 interface TooltipWithoutChildrenProps {
   /**
-   * When true, the tooltip would be rendered on a Dialog without children
-   * Use case is currently for rendering Tipseen with floating prop
+   * If true, the tooltip will be rendered even if there are no children.
    */
   forceRenderWithoutChildren: boolean;
+  /**
+   * The children elements that the tooltip is attached to.
+   */
   children?: ReactElement | Array<ReactElement>;
 }
 
 interface TooltipWithChildrenProps {
+  /**
+   * If true, the tooltip will be rendered even if there are no children.
+   */
   forceRenderWithoutChildren?: boolean;
+  /**
+   * The children elements that the tooltip is attached to.
+   */
   children: ReactElement | Array<ReactElement>;
 }
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 interface TooltipBaseProps extends VibeComponentProps {
+  /**
+   * The content displayed inside the tooltip.
+   */
   content: ElementContent;
+  /**
+   * Inline styles applied to the tooltip container.
+   */
   style?: CSSProperties;
-  /** Class name for a tooltip's arrow */
+  /**
+   * Class name applied to the tooltip arrow.
+   */
   arrowClassName?: string;
   /**
-   * How much to move the dialog in relative to children
-   * main is the axis in which the position is aligned to
-   * secondary is the vertical axes to the position
+   * Offset values for positioning adjustments.
    */
   moveBy?: MoveBy;
+  /**
+   * The theme of the tooltip.
+   */
   theme?: TooltipTheme;
+  /**
+   * Function to get the container where the tooltip should be rendered.
+   */
   getContainer?: () => HTMLElement;
   /**
-   * how much delay should the Dialog wait until it should trigger the hide in MS
+   * Delay in milliseconds before hiding the tooltip.
    */
   hideDelay?: number;
   /**
-   * how much delay should the Dialog wait until it should trigger the show in MS
+   * Delay in milliseconds before showing the tooltip.
    */
   showDelay?: number;
+  /**
+   * If true, disables the slide animation of the tooltip.
+   */
   disableDialogSlide?: boolean;
+  /**
+   * The animation type used for showing/hiding the tooltip.
+   */
   animationType?: DialogAnimationType;
+  /**
+   * If true, renders the tooltip without a dialog.
+   */
   withoutDialog?: boolean;
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The CSS selector of the container where the tooltip should be rendered.
    */
   containerSelector?: string;
   /**
-   * With which delay tooltip is going to be shown
+   * Delay in milliseconds before showing the tooltip immediately.
    */
   immediateShowDelay?: number;
   /**
-   * when false, the arrow of the tooltip is hidden
+   * If false, hides the arrow of the tooltip.
    */
   tip?: boolean;
   /**
-   * Show the Dialog when the children is mounting
+   * If true, the tooltip is shown when the component mounts.
    */
   shouldShowOnMount?: boolean;
+  /**
+   * If true, hides the tooltip when the reference element is hidden.
+   */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Callback fired when the tooltip is hidden.
+   */
   onTooltipHide?: () => void;
+  /**
+   * Callback fired when the tooltip is shown.
+   */
   onTooltipShow?: () => void;
   /**
-   * PopperJS Modifiers type
+   * Custom Popper.js modifiers.
    * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Array<Modifier<unknown>>;
   /**
-   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   * The placement of the tooltip relative to the reference element.
    */
   position?: TooltipPositions;
   /**
-   * an array of hide/show trigger - Tooltip.hideShowTriggers
+   * Events that trigger showing the tooltip.
    */
   showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
-   * an array of hide/show trigger - Tooltip.hideShowTriggers
+   * Events that trigger hiding the tooltip.
    */
   hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
   /**
-   * If true, prevents open Tooltip from closing on mouseEnter and closes Tooltip, when mouse leaves it
+   * If true, prevents closing the tooltip when the mouse enters it.
    */
   showOnDialogEnter?: boolean;
   /**
-   * A Classname to be added to <span> element which wraps the children
+   * Class name applied to the reference wrapper element.
    */
   referenceWrapperClassName?: string;
   /**
-   * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
+   * If true, keyboard focus/blur events behave like mouse enter/leave.
    */
   addKeyboardHideShowTriggersByDefault?: boolean;
   /**
-   * set the state of the tooltip - open/close - controlled component
+   * If true, controls the open state of the tooltip.
    */
   open?: boolean;
   /**
-   * Overwrites z-index of the tooltip
+   * The z-index applied to the tooltip.
    */
   zIndex?: number;
   /**
-   * The title of the tooltip
+   * The title of the tooltip.
    */
   title?: string;
   /**
-   * The image of the tooltip
+   * The image displayed inside the tooltip.
    */
   image?: string;
   /**
-   * The icon of the tooltip next to the title
+   * The icon displayed next to the title.
    */
   icon?: SubIcon;
   /**
-   * Sets the max width of the Tooltip, defaults to 240px
+   * The maximum width of the tooltip.
    */
   maxWidth?: number;
   /**
-   * Sets the text direction of the tooltip: "ltr", "rtl", or "auto"
+   * The text direction of the tooltip: "ltr", "rtl", or "auto".
    */
   dir?: "ltr" | "rtl" | "auto";
 }

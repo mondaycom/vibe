@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
+import React, { forwardRef, useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPicker.types";
 import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
+import { SubIcon, VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";
-import { ColorStyle } from "../../../../types/Colors";
+import { ColorStyle } from "../../../../types";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -26,22 +26,61 @@ const calculateColorTooltip = (
 };
 
 export interface ColorPickerColorsGridProps extends VibeComponentProps {
+  /**
+   * Callback fired when a color is clicked.
+   */
   onColorClicked?: (color: ColorPickerValueOnly) => void;
+  /**
+   * The list of colors to be displayed.
+   */
   colorsToRender?: ColorPickerArrayValueOnly;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * The currently selected color or colors.
+   */
   value?: string | string[];
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The number of colors per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * Custom tooltip content for specific colors.
+   */
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
+  /**
+   * If true, displays a tooltip with the color name.
+   */
   showColorNameTooltip?: boolean;
 }
 
-export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HTMLUListElement> = React.forwardRef(
+const ColorPickerColorsGrid = forwardRef(
   (
     {
       onColorClicked,
@@ -60,7 +99,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       id,
       "data-testid": dataTestId
     }: ColorPickerColorsGridProps,
-    ref
+    ref: React.ForwardedRef<HTMLUListElement>
   ) => {
     const getItemByIndex = useCallback((index: number) => colorsToRender[index], [colorsToRender]);
 
@@ -70,11 +109,12 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       onItemClicked: onColorClicked,
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
+      entryFocusStrategy: "first",
       getItemByIndex
     });
 
     return (
-      <ul className={styles.colorsGrid} ref={ref} tabIndex={-1} id={id} data-testid={dataTestId}>
+      <ul className={styles.colorsGrid} ref={ref} tabIndex={0} id={id} data-testid={dataTestId} role="grid">
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent
@@ -97,3 +137,5 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     );
   }
 );
+
+export default ColorPickerColorsGrid;

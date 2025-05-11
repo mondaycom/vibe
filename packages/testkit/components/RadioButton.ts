@@ -2,10 +2,6 @@ import { test, Locator, Page } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 
 export class RadioButton extends BaseElement {
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
-
   /**
    * Create a RadioButton.
    * @param {Page} page - The Playwright page object.
@@ -14,9 +10,6 @@ export class RadioButton extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
   }
 
   /**

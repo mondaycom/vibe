@@ -1,4 +1,4 @@
-export { default as Table, TableProps } from "./Table/Table";
+export { default as Table, TableProps, TableColumn } from "./Table/Table";
 export { default as TableContainer } from "./TableContainer/TableContainer";
 export * from "./TableContainer/TableContainer.types";
 export { default as TableHeader, TableHeaderProps } from "./TableHeader/TableHeader";

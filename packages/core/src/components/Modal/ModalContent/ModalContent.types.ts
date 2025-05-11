@@ -3,7 +3,7 @@ import { VibeComponentProps } from "../../../types";
 
 export interface ModalContentProps extends VibeComponentProps {
   /**
-   * Main content of the modal.
+   * The main content of the modal.
    */
   children?: React.ReactNode;
 }

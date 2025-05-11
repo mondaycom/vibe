@@ -6,6 +6,9 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";
 
 export interface HiddenTextProps extends VibeComponentProps {
+  /**
+   * The text content that is hidden but available for assistive technologies.
+   */
   text: string;
 }
 

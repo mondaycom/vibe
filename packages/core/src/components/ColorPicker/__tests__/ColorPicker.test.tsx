@@ -4,7 +4,7 @@ import { render, fireEvent, act, screen } from "@testing-library/react";
 import { difference as _difference } from "lodash-es";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
-import { ColorPickerColorsGrid } from "../components/ColorPickerContent/ColorPickerColorsGrid";
+import ColorPickerColorsGrid from "../components/ColorPickerContent/ColorPickerColorsGrid";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
@@ -122,7 +122,7 @@ describe("ColorPicker", () => {
     expect(content).toBeTruthy();
   });
 
-  it("should not render tooltip with the color name if showColorNameTooltip is true and forceUseRawColorList is true", () => {
+  it("should render tooltip with the color name if showColorNameTooltip is true and forceUseRawColorList is true", () => {
     const colorName = "done-green";
     const colorNameTooltip = "Done Green";
     const colorList = [colorName];
@@ -134,7 +134,7 @@ describe("ColorPicker", () => {
     });
     jest.advanceTimersByTime(1000);
     const content = screen.queryByText(colorNameTooltip);
-    expect(content).toBeNull();
+    expect(content).toBeTruthy();
   });
 
   it("should render tooltip with tooltipContentByColor value if tooltipContentByColor of the color exist", () => {

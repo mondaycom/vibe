@@ -4,19 +4,17 @@ import styles from "./Indicator.module.scss";
 import { IndicatorColor as IndicatorColorEnum } from "./IndicatorConstants";
 import { IndicatorColor } from "./Indicator.types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { VibeComponentProps } from "../../../types";
+import { VibeComponentProps, withStaticProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface IndicatorProps extends VibeComponentProps {
+  /**
+   * The color of the indicator.
+   */
   color?: IndicatorColor;
 }
 
-const Indicator: React.FC<IndicatorProps> & { colors?: typeof IndicatorColorEnum } = ({
-  color = "notification",
-  className,
-  id,
-  "data-testid": dataTestId
-}: IndicatorProps) => {
+const Indicator = ({ color = "notification", className, id, "data-testid": dataTestId }: IndicatorProps) => {
   return (
     <div
       className={cx(styles.indicator, styles[color], className)}
@@ -25,6 +23,10 @@ const Indicator: React.FC<IndicatorProps> & { colors?: typeof IndicatorColorEnum
   );
 };
 
-Indicator.colors = IndicatorColorEnum;
+interface IndicatorStaticProps {
+  colors: typeof IndicatorColorEnum;
+}
 
-export default Indicator;
+export default withStaticProps<IndicatorProps, IndicatorStaticProps>(Indicator, {
+  colors: IndicatorColorEnum
+});

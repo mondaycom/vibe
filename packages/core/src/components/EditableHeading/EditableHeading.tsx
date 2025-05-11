@@ -1,31 +1,29 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
 import Heading from "../Heading/Heading";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
-import { HeadingType, HeadingWeight } from "../Heading/Heading.types";
+import { HeadingType, HeadingWeight } from "../Heading";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
 
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
-   * Sets the Heading type
-   * */
+   * The type of the heading element.
+   */
   type?: HeadingType;
-  /** Sets the Heading weight
+  /**
+   * The font weight of the heading.
    */
   weight?: HeadingWeight;
 }
 
-const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
-  types?: typeof HeadingTypeEnum;
-  weights?: typeof HeadingWeightEnum;
-} = forwardRef(
+const EditableHeading = forwardRef(
   (
     { type = "h1", weight = "normal", id, "data-testid": dataTestId, ...editableTypographyProps }: EditableHeadingProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     return (
       <EditableTypography
@@ -41,7 +39,12 @@ const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(EditableHeading, {
+interface EditableHeadingStaticProps {
+  types: typeof HeadingTypeEnum;
+  weights: typeof HeadingWeightEnum;
+}
+
+export default withStaticProps<EditableHeadingProps, EditableHeadingStaticProps>(EditableHeading, {
   types: HeadingTypeEnum,
   weights: HeadingWeightEnum
 });

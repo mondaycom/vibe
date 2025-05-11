@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement, UIEventHandler, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
 import { TableHeaderProps } from "../TableHeader/TableHeader";
 import { TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
@@ -20,34 +20,74 @@ export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "re
 type Width = number | `${number}%` | `${number}px` | `${number}fr`;
 
 export interface TableColumn {
+  /**
+   * Unique identifier for the column.
+   */
   id: string;
+  /**
+   * Column title displayed in the header.
+   */
   title: string;
+  /**
+   * Additional information displayed as a tooltip.
+   */
   infoContent?: string;
+  /**
+   * Column width configuration.
+   */
   width?: Width | { min: Width; max: Width };
+  /**
+   * Icon displayed next to the column title.
+   */
   icon?: SubIcon;
+  /**
+   * Loading state type for the column when data is being fetched.
+   */
   loadingStateType?: TableLoadingStateType;
 }
 
 export interface TableProps extends VibeComponentProps {
+  /**
+   * Defines the columns of the table.
+   */
   columns: TableColumn[];
+  /**
+   * State of the data being displayed (loading or error).
+   */
   dataState?: {
     isLoading?: boolean;
     isError?: boolean;
   };
+  /**
+   * React element displayed when there is an error state.
+   */
   errorState: ReactElement;
+  /**
+   * React element displayed when there is no data.
+   */
   emptyState: ReactElement;
+  /**
+   * Custom styles for the table.
+   */
   style?: React.CSSProperties;
+  /**
+   * The child components inside the table, such as `<TableHeader />` and `<TableBody />`.
+   */
   children?:
     | ReactElement<TableHeaderProps>
     | ReactElement<TableBodyProps>
     | Array<ReactElement<TableHeaderProps> | ReactElement<TableBodyProps>>;
+  /**
+   * The row size of the table.
+   */
   size?: RowSizes;
+  /**
+   * If true, removes the table's outer border.
+   */
   withoutBorder?: boolean;
 }
 
-const Table: VibeComponent<TableProps, HTMLDivElement> & {
-  sizes?: typeof RowSizesEnum;
-} = forwardRef(
+const Table = forwardRef(
   (
     {
       id,
@@ -62,7 +102,7 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
       size = "medium",
       withoutBorder
     }: TableProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const tableRootRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(ref, tableRootRef);
@@ -162,4 +202,8 @@ const Table: VibeComponent<TableProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Table, { sizes: RowSizesEnum });
+interface TableStaticProps {
+  sizes: typeof RowSizesEnum;
+}
+
+export default withStaticProps<TableProps, TableStaticProps>(Table, { sizes: RowSizesEnum });

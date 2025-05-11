@@ -23,7 +23,14 @@ export default {
     TipseenWizard
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { modifiers }
+      }
+    }
+  }
 };
 
 const tipseenTemplate = ({
@@ -60,6 +67,13 @@ export const Overview = {
     children: "Message for the user will appear here, to give more information about the feature.",
     position: "right",
     hideDismiss: false
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -174,6 +188,13 @@ export const TipseenWithImage = {
         </Tipseen>
       );
     },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { picture }
+      }
+    }
+  },
 
   name: "Tipseen with image"
 };
@@ -211,6 +232,13 @@ export const TipseenWithCustomMedia = {
         </Tipseen>
       );
     },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { video }
+      }
+    }
+  },
 
   name: "Tipseen with custom media"
 };
@@ -234,6 +262,12 @@ export const FloatingTipseen = {
       />
     );
   },
-
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { picture }
+      }
+    }
+  },
   name: "Floating Tipseen"
 };

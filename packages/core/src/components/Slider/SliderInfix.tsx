@@ -9,8 +9,7 @@ import { InfixKind } from "./Slider.types";
 
 export interface SliderInfixProps extends VibeComponentProps {
   /**
-   * kind (type/mode) of Infix prefix/postfix
-   * Infix - additional inserted by Consumer - component/string/number etc.
+   * Specifies the type of infix (prefix or postfix).
    */
   kind?: InfixKind;
 }

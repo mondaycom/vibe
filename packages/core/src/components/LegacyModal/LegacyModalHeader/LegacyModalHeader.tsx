@@ -1,18 +1,16 @@
-import React, { FC } from "react";
+import React from "react";
 import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
 import { CloseSmall } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import { SubIcon, ElementContent, VibeComponentProps } from "../../../types";
 import { NOOP } from "../../../utils/function-utils";
-import { ElementContent } from "src/types/ElementContent";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
 import Flex from "../../Flex/Flex";
 import styles from "./LegacyModalHeader.module.scss";
-import { SubIcon } from "../../../types/SubIcon";
 
 interface BaseLegacyModalHeaderProps extends VibeComponentProps {
   /**
@@ -25,10 +23,6 @@ interface BaseLegacyModalHeaderProps extends VibeComponentProps {
   // icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
   icon?: SubIcon;
   /**
-   * Class name for the wrapper
-   */
-  className?: string;
-  /**
    * Class name for the title
    */
   titleClassName?: string;
@@ -36,10 +30,6 @@ interface BaseLegacyModalHeaderProps extends VibeComponentProps {
    * closes the Modal. No need to provide it, it is being provided by the modal
    */
   closeModal?: () => void;
-  /**  /**
-   * ID for the title, needed for accessibility. No need to provide it, it is being provided by the modal
-   */
-  id?: string;
   /**
    * Class name for the description
    */
@@ -70,7 +60,7 @@ interface LegacyModalHeaderWithOnlyChildren extends BaseLegacyModalHeaderProps {
 
 export type LegacyModalHeaderProps = LegacyModalHeaderWithOnlyTitle | LegacyModalHeaderWithOnlyChildren;
 
-const LegacyModalHeader: FC<LegacyModalHeaderProps> = ({
+const LegacyModalHeader = ({
   className,
   title,
   children,
@@ -84,7 +74,7 @@ const LegacyModalHeader: FC<LegacyModalHeaderProps> = ({
   closeButtonAriaLabel = "close",
   id,
   "data-testid": dataTestId
-}) => {
+}: LegacyModalHeaderProps) => {
   return (
     <div
       className={cx(styles.container, className)}

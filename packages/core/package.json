@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.17.1",
+  "version": "3.48.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
   ],
   "exports": {
     "./package.json": "./package.json",
+    "./meta": {
+      "import": "./dist/metadata.json",
+      "default": "./dist/metadata.json"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/src/index.js",
@@ -69,6 +73,7 @@
     "build": "yarn build:esm && yarn build:esm:mock-classnames",
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
+    "build:metadata": "ts-node --esm src/scripts/generate-metadata.ts",
     "storybook": "storybook dev -p 7008",
     "build-storybook": "storybook build -o static_storybook && node .storybook/storybook-title-fix.js static_storybook",
     "deploy-storybook": "storybook-to-ghpages",
@@ -78,18 +83,20 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
-    "stylelint:fix": "yarn stylelint -- --fix"
+    "stylelint:fix": "yarn stylelint -- --fix",
+    "size": "size-limit"
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/icons": "1.3.3",
+    "@vibe/icons": "1.7.1",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
+    "downshift": "^9.0.8",
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.21.0",
+    "monday-ui-style": "0.24.0",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
@@ -128,6 +135,8 @@
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^9.0.2",
+    "@size-limit/esbuild": "^11.0.1",
+    "@size-limit/preset-big-lib": "^11.0.1",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-actions": "^7.5.3",
     "@storybook/addon-controls": "^7.5.3",
@@ -220,6 +229,7 @@
     "preact": "^10.8.0",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
+    "react-docgen-typescript": "^2.2.2",
     "react-dom": "^16.14.0",
     "react-live": "^4.1.5",
     "react-resizable": "^3.0.4",
@@ -235,6 +245,7 @@
     "rollup-plugin-typescript2": "^0.34.1",
     "sass": "^1.51.0",
     "sass-loader": "^12.4.0",
+    "size-limit": "^11.0.1",
     "snapshot-diff": "^0.9.0",
     "storybook": "^7.5.3",
     "storybook-addon-playground": "^1.9.0",
@@ -246,10 +257,11 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.3.1",
+    "ts-morph": "^25.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vibe-storybook-components": "0.21.1"
+    "vibe-storybook-components": "0.22.0"
   },
   "peerDependencies": {
     "moment": "^2.29.1",
@@ -267,5 +279,12 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
+  ],
+  "size-limit": [
+    {
+      "path": "dist/src/index.js",
+      "limit": "369 KB",
+      "gzip": true
+    }
   ]
 }

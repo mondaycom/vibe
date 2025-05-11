@@ -17,7 +17,14 @@ export default {
   title: "Components/ExpandCollapse",
   component: ExpandCollapse,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { styles }
+      }
+    }
+  }
 };
 
 const expandCollapseTemplate = createComponentTemplate(ExpandCollapse);
@@ -34,6 +41,13 @@ export const Overview = {
       <Icon iconType="svg" icon={Robot} iconSize={40} />
     ],
     className: styles.storybookExpandCollapse
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -44,9 +58,7 @@ export const OpenByDefault = {
         Insert here any component that you want
       </Text>
     </ExpandCollapse>
-  ),
-
-  name: "Open by default"
+  )
 };
 
 export const ControlledOpenState = {
@@ -67,9 +79,7 @@ export const ControlledOpenState = {
         </ExpandCollapse>
       </Flex>
     );
-  },
-
-  name: "Controlled open state"
+  }
 };
 
 export const CustomHeaderRenderer = {
@@ -88,9 +98,7 @@ export const CustomHeaderRenderer = {
         </Text>
       </ExpandCollapse>
     );
-  },
-
-  name: "Custom header renderer"
+  }
 };
 
 export const WithoutBorders = {
@@ -100,7 +108,5 @@ export const WithoutBorders = {
         Insert here any component that you want
       </Text>
     </ExpandCollapse>
-  ),
-
-  name: "Without borders"
+  )
 };

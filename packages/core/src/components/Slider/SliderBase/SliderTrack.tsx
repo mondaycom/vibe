@@ -7,9 +7,8 @@ import { SliderColor } from "../Slider.types";
 
 export interface SliderTrackProps extends VibeComponentProps {
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * The color of the slider track.
    */
-  className?: string;
   color: SliderColor;
 }
 

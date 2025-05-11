@@ -1,0 +1,27 @@
+.emptyState {
+  width: 100%;
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+  background: var(--primary-background-color);
+
+  &.compact {
+    padding: var(--spacing-medium);
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+
+    .title {
+      max-width: 500px;
+    }
+
+    .description {
+      max-width: 500px;
+    }
+
+    .actions {
+      width: 100%;
+    }
+  }
+}

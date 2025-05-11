@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
+import React, { ReactElement, useEffect, useMemo, useState } from "react";
 import { SystemTheme as SystemThemeEnum, Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
 import { SystemTheme } from "./ThemeProvider.types";
 import {
@@ -15,31 +15,37 @@ import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
   /**
-   * The theme config to apply, consists of a "name" - the name of css class that will be added to the children, which should be unique, and the object of colors overrides for each system theme.
+   * The theme configuration to apply. It consists of a `name` (a unique CSS class name added to the children)
+   * and an object of color overrides for each system theme.
    */
   themeConfig?: Theme;
   /**
-   * The children to render with the theme
+   * The children to be rendered with the applied theme.
    */
   children: ReactElement;
   /**
-   * String which adds up to theme name selector to make it more specific (in case if themeConfig.name is colliding with some other class name)
+   * A string added to the theme name selector to make it more specific, in case `themeConfig.name`
+   * collides with another class name.
    */
   themeClassSpecifier?: string;
   /**
-   * The system theme to apply to the body element on mount, if there is no theme class name on the body element already
+   * The system theme to apply to the `body` element on mount,
+   * if there is no system theme class name on the body already.
    */
   systemTheme?: SystemTheme;
   /**
-   * ClassName to add to the wrapping div
+   * Class name applied to the wrapping `div`.
    */
   className?: string;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> & {
-  systemThemes?: typeof SystemThemeEnum;
-  colors?: typeof ThemeColorEnum;
-} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
+const ThemeProvider = ({
+  themeConfig,
+  children,
+  themeClassSpecifier: customThemeClassSpecifier,
+  systemTheme,
+  className
+}: ThemeProviderProps) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
@@ -101,7 +107,12 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
-export default withStaticProps(ThemeProvider, {
+interface ThemeProviderStaticProps {
+  systemThemes: typeof SystemThemeEnum;
+  colors: typeof ThemeColorEnum;
+}
+
+export default withStaticProps<ThemeProviderProps, ThemeProviderStaticProps>(ThemeProvider, {
   systemThemes: SystemThemeEnum,
   colors: ThemeColorEnum
 });

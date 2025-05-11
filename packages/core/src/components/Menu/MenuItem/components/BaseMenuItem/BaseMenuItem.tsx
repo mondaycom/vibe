@@ -39,7 +39,8 @@ const BaseMenuItem = forwardRef(
       "data-testid": dataTestId,
       splitMenuItem = false,
       children,
-      submenuPosition = "right"
+      submenuPosition = "right",
+      autoAdjustOnSubMenuContentResize
     }: BaseMenuItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -133,10 +134,11 @@ const BaseMenuItem = forwardRef(
         ref={mergedRef}
         onClick={onClickCallback}
         role="menuitem"
-        aria-current={isActive}
+        aria-selected={isActive}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
+        withoutTooltip
       >
         {children}
         {Boolean(subMenu) && (
@@ -153,6 +155,7 @@ const BaseMenuItem = forwardRef(
               onClose={closeSubMenu}
               autoFocusOnMount={!useDocumentEventListeners}
               submenuPosition={submenuPosition}
+              autoAdjustOnSubMenuContentResize={autoAdjustOnSubMenuContentResize}
             >
               {subMenu}
             </MenuItemSubMenu>

@@ -19,7 +19,14 @@ const clickableTemplate = (args: ClickableProps) => {
 
 export const Overview = {
   render: clickableTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const States = {

@@ -15,30 +15,59 @@ import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
 
 export interface AttentionBoxProps extends VibeComponentProps {
-  className?: string;
   // TODO: [breaking] remove prop
+  /**
+   * If true, displays an icon even when no header is provided.
+   */
   withIconWithoutHeader?: boolean;
-  /** we support 5 types of attention boxes */
+  /**
+   * The type of the AttentionBox.
+   */
   type?: AttentionBoxType;
-  /** Icon classname for icon font or SVG Icon Component for SVG Type */
+  /**
+   * The icon displayed next to the title or text.
+   */
   icon?: SubIcon;
+  /**
+   * The type of the icon.
+   */
   iconType?: "svg" | "font";
+  /**
+   * The title of the component.
+   */
   title?: string;
+  /**
+   * The text content displayed inside.
+   */
   text?: string;
+  /**
+   * The content of the component.
+   */
   children?: ElementContent;
   // TODO: [breaking] remove prop
+  /**
+   * If true, the icon is not displayed.
+   */
   withoutIcon?: boolean;
+  /**
+   * Callback fired when the close button is clicked.
+   */
   onClose?: (event: React.MouseEvent) => void;
+  /**
+   * If true, renders in compact mode.
+   */
   compact?: boolean;
+  /**
+   * The label of the close button.
+   */
   closeButtonAriaLabel?: string;
-  /** Enables an entry animation when the component appears */
+  /**
+   * If true, an entry animation is applied when the component appears.
+   */
   entryAnimation?: boolean;
 }
 
-const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxTypeEnum;
-  iconTypes?: typeof IconTypeEnum;
-} = ({
+const AttentionBox = ({
   className,
   withIconWithoutHeader = false,
   type = "primary",
@@ -120,7 +149,12 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   );
 };
 
-export default withStaticProps(AttentionBox, {
+interface AttentionBoxStaticProps {
+  types: typeof AttentionBoxTypeEnum;
+  iconTypes: typeof IconTypeEnum;
+}
+
+export default withStaticProps<AttentionBoxProps, AttentionBoxStaticProps>(AttentionBox, {
   types: AttentionBoxTypeEnum,
   iconTypes: IconTypeEnum
 });

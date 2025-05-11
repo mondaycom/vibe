@@ -10,6 +10,7 @@ import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 import { SearchProps } from "./Search.types";
 import Loader from "../Loader/Loader";
+import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(
   (
@@ -38,6 +39,7 @@ const Search = forwardRef(
       className,
       ariaExpanded,
       ariaHasPopup,
+      showClearIcon = true,
       id,
       "data-testid": dataTestId
     }: SearchProps,
@@ -88,7 +90,7 @@ const Search = forwardRef(
             wrapperClassName={cx({ [styles.loader]: !inputValue && !RenderAction })}
           />
         )}
-        {inputValue && !disabled && ClearIcon}
+        {showClearIcon && inputValue && !disabled && ClearIcon}
         {!(hideRenderActionOnInput && inputValue) && RenderAction}
       </>
     );
@@ -99,6 +101,7 @@ const Search = forwardRef(
         id={id}
         type={"search"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
+        data-vibe={ComponentVibeId.SEARCH}
         className={cx(styles.searchWrapper, className)}
         inputClassName={styles.search}
         value={inputValue}

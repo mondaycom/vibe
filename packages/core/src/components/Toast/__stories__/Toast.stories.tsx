@@ -37,7 +37,14 @@ export const Overview = {
       }
     ]
   },
-  parameters: { chromatic: { pauseAnimationAtEnd: false } }
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: false },
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
 };
 
 export const DefaultWithButton = {

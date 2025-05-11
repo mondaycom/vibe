@@ -1,0 +1,16 @@
+/* eslint-disable */
+/* tslint:disable */
+import * as React from 'react';
+export interface DependencyProps extends React.SVGAttributes<SVGElement> {
+size?: string | number;
+}
+const Dependency: React.FC<DependencyProps> = ({size, ...props}) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+    <path d="M4.733 2c.505 0 1.002.11 1.464.318l.172.083c.394.204.75.478 1.053.809l.126.144c.286.346.515.74.676 1.166.182.484.273 1.002.27 1.522v4.919l.013.258c.058.597.306 1.149.691 1.562l.172.167a2.19 2.19 0 0 0 1.218.543l.222.012h4.433L13.266 11.8l-.056-.053a.755.755 0 0 1-.025-1.008.748.748 0 0 1 .996-.128l.06.047 3.497 3.009.059.057a.755.755 0 0 1-.059 1.085l-3.497 3.008-.06.048a.748.748 0 0 1-.996-.129.755.755 0 0 1 .025-1.007l.056-.053 1.94-1.67h-4.394A3.68 3.68 0 0 1 8.24 13.95l-.136-.14a4.197 4.197 0 0 1-1.102-2.641l-.006-.197V6.037a2.767 2.767 0 0 0-.098-.748l-.077-.237a2.585 2.585 0 0 0-.35-.64l-.153-.183a2.302 2.302 0 0 0-.536-.436l-.199-.103a2.092 2.092 0 0 0-.635-.174l-.217-.012H2.75A.75.75 0 0 1 2 2.752.75.75 0 0 1 2.749 2h1.984Z"
+    />
+  </svg>
+);
+Dependency.displayName = 'Dependency';
+export default Dependency;
+/* tslint:enable */
+/* eslint-enable */

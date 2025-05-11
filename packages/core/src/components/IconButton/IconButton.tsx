@@ -6,109 +6,115 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ButtonColor, ButtonType } from "../Button/Button.types";
+import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { ButtonColor, ButtonType } from "../Button";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
-   * id to be added to the element
-   */
-  id?: string;
-  /**
-   * callback function when clicking the icon button
+   * Callback fired when the button is clicked.
    */
   onClick?: (event: React.MouseEvent) => void;
   /**
-   * the class name of the button wrapper
+   * Class name applied to the button wrapper.
    */
   wrapperClassName?: string;
   /**
-   * the class name of the button icon
+   * Class name applied to the icon.
    */
   iconClassName?: string;
   /**
-   * Icon to be rendered
+   * The icon displayed inside the button.
    */
   icon?: SubIcon;
   /**
-   * element id to describe the button accordingly
-   * */
+   * The ID of the element that labels this button.
+   */
   ariaLabeledBy?: string;
   /**
-   * a11y property to be added, used for screen reader to know what kind of button it is
+   * The ARIA label for accessibility.
    */
   ariaLabel?: string;
   /**
-   * aria for a button popup
+   * If true, indicates that the button controls a popup.
    */
   ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /**
-   * a11y property to be added, used for screen reader to know if the button is expanded
+   * If true, indicates that the associated popup is open.
    */
   ariaExpanded?: boolean;
   /**
-   * aria controls - receives id for the controlled region
+   * The ID of the region controlled by the button.
    */
   ariaControls?: string;
+  /**
+   * ID of the element describing the button.
+   */
   "aria-describedby"?: AriaAttributes["aria-describedby"];
   /**
-   * a11y property to be added, used for screen reader to know if the button is hidden
+   * If true, hides the button from assistive technologies.
    */
   "aria-hidden"?: AriaAttributes["aria-hidden"];
   /**
-   * Indicates the current "pressed" state of toggle buttons
+   * Indicates the current "pressed" state of toggle buttons.
    */
   "aria-pressed"?: AriaAttributes["aria-pressed"];
   /**
-   * Size of the icon
+   * The size of the button.
    */
   size?: Size;
   /**
-   * Whether the tooltip should be displayed or not
+   * If true, hides the tooltip.
    */
   hideTooltip?: boolean;
   /**
-   * Props for Tooltip component
+   * Props for the Tooltip component.
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
+   * Tooltip content displayed on hover.
    */
   tooltipContent?: string;
   /**
-   * Kind of button - like Button
+   * The button variant.
    */
   kind?: ButtonType;
+  /**
+   * If true, the button is in an active state.
+   */
   active?: boolean;
-  /** The button's color  */
+  /**
+   * The color of the button.
+   */
   color?: ButtonColor;
   /**
-   * disabled state
+   * If true, the button is disabled.
    */
   disabled?: boolean;
   /**
-   * if disabled - this will be shown in the tooltip
+   * If disabled, this message will be displayed in the tooltip.
    */
   disabledReason?: string;
-  /** Change the focus indicator from around the button to within it */
+  /**
+   * If true, the focus indicator is displayed inside the button instead of around it.
+   */
   insetFocus?: boolean;
-  /** Specifies the tab order of an element */
+  /**
+   * The tab order of the button.
+   */
   tabIndex?: number;
-  /** Show a loader instead of the icon  */
+  /**
+   * If true, a loader replaces the icon.
+   */
   loading?: boolean;
 }
 
-const IconButton: VibeComponent<IconButtonProps> & {
-  sizes?: typeof Button.sizes;
-  kinds?: typeof Button.kinds;
-  colors?: typeof Button.colors;
-} = forwardRef(
+const IconButton = forwardRef(
   (
     {
       className,
@@ -139,7 +145,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       tabIndex,
       loading = false
     }: IconButtonProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -159,7 +165,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       switch (size) {
         case "xxs":
         case "xs":
-          return 16;
+          return SMALL_BUTTON_ICON_SIZE;
         case "small":
         case "medium":
         case "large":
@@ -217,6 +223,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             ref={mergedRef}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-vibe={ComponentVibeId.ICON_BUTTON}
             noSidePadding
             active={active}
             className={className}
@@ -234,7 +241,13 @@ const IconButton: VibeComponent<IconButtonProps> & {
   }
 );
 
-export default withStaticProps(IconButton, {
+interface IconButtonStaticProps {
+  sizes: typeof Button.sizes;
+  kinds: typeof Button.kinds;
+  colors: typeof Button.colors;
+}
+
+export default withStaticProps<IconButtonProps, IconButtonStaticProps>(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
   colors: Button.colors

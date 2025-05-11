@@ -28,33 +28,6 @@ export class BaseElement {
   }
 
   /**
-   * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
-   * @returns {Promise<void>}
-   */
-  async waitForElementsGroup(locator: Locator, elementReportName: string): Promise<void> {
-    await test.step(`Wait for ${elementReportName} items to stabilize`, async () => {
-      let previousCount = 0;
-      let stableCountTime = 0;
-      const stabilizationTimeMs = 500;
-      // eslint-disable-next-line no-constant-condition
-      while (true) {
-        const currentCount = await this.locator.locator(locator).count();
-
-        if (currentCount === previousCount) {
-          stableCountTime += 100; // Increase stable time by the check interval (100ms)
-        } else {
-          stableCountTime = 0; // Reset if the count changes
-        }
-        if (stableCountTime >= stabilizationTimeMs) {
-          break; // Break the loop if count has been stable for the desired duration
-        }
-        previousCount = currentCount;
-        await this.page.waitForTimeout(100); // Polling interval (100ms)
-      }
-    });
-  }
-
-  /**
    * Check if the element is enabled.
    * @returns {Promise<boolean>} - Returns true if the element is enabled, otherwise false.
    */
@@ -65,6 +38,26 @@ export class BaseElement {
       return isEnabled;
     });
     return isEnabled;
+  }
+
+  /**
+   * Hover the element.
+   * @returns {Promise<void>}
+   */
+  async hover(): Promise<void> {
+    await test.step(`Hover ${this.elementReportName}`, async () => {
+      await this.locator.hover();
+    });
+  }
+
+  /**
+   * Click the element.
+   * @returns {Promise<void>}
+   */
+  async click(): Promise<void> {
+    await test.step(`Click ${this.elementReportName}`, async () => {
+      await this.locator.click();
+    });
   }
 
   /**
@@ -119,6 +112,12 @@ export class BaseElement {
     });
   }
 
+  async waitForVisible(): Promise<void> {
+    await test.step(`Wait for ${this.elementReportName}`, async () => {
+      await this.locator.waitFor({ state: "visible" });
+    });
+  }
+
   async waitForAbsence(): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} to be absent`, async () => {
       await this.waitFor({ state: "detached" });
@@ -139,5 +138,56 @@ export class BaseElement {
       isVisible = await this.locator.isVisible();
     });
     return isVisible;
+  }
+
+  /**
+   * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
+   * @param {Locator} locator - The locator for the elements.
+   * @returns {Promise<void>}
+   */
+  protected async waitForAndVerifyElements(locator: Locator): Promise<void> {
+    await test.step(`Wait for ${this.elementReportName} items to stabilize and verify existence`, async () => {
+      let previousCount = 0;
+      let stableCountTime = 0;
+      const stabilizationTimeMs = 500;
+
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const currentCount = await locator.count();
+
+        // Verify we have at least one element
+        if (currentCount === 0) {
+          await this.page.waitForTimeout(100);
+          continue;
+        }
+
+        // Check if all elements are visible
+        const elements = await locator.all();
+        const visibleStates = await Promise.all(elements.map(el => el.isVisible()));
+        const allVisible = visibleStates.every(state => state === true);
+
+        if (!allVisible) {
+          await this.page.waitForTimeout(100);
+          continue;
+        }
+
+        if (currentCount === previousCount) {
+          stableCountTime += 100;
+        } else {
+          stableCountTime = 0;
+        }
+
+        if (stableCountTime >= stabilizationTimeMs) {
+          break;
+        }
+
+        previousCount = currentCount;
+        await this.page.waitForTimeout(100);
+      }
+
+      if ((await locator.count()) === 0) {
+        throw new Error(`No ${this.elementReportName} elements found after stabilization`);
+      }
+    });
   }
 }

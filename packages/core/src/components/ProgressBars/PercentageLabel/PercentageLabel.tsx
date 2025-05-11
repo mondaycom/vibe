@@ -3,11 +3,11 @@ import styles from "./PercentageLabel.module.scss";
 
 export interface PercentageLabelProps {
   /**
-   * Replacement to `htmlFor` | `for` attribute.
+   * The ID of the element this label is associated with.
    */
   forElement: string;
   /**
-   * Determine the displayed percentage.
+   * The percentage value to display.
    */
   value: number;
 }

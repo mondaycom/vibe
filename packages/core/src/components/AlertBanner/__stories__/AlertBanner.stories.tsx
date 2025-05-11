@@ -8,7 +8,8 @@ import "./AlertBanner.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: AlertBanner
+  component: AlertBanner,
+  actionPropsArray: ["onClose"]
 });
 
 const alertBannerTemplate = (args: AlertBannerProps) => {
@@ -23,6 +24,11 @@ const alertBannerTemplate = (args: AlertBannerProps) => {
 export default {
   title: "Components/AlertBanner",
   component: AlertBanner,
+  subcomponents: {
+    AlertBannerText,
+    AlertBannerLink,
+    AlertBannerButton
+  },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 } satisfies Meta<typeof AlertBanner>;

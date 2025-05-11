@@ -6,25 +6,45 @@ import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
 import Icon from "../Icon/Icon";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {
+  /**
+   * The image source when the type is set to `img`.
+   */
   src?: string;
+  /**
+   * The type of content displayed inside the avatar.
+   */
   type?: AvatarType;
+  /**
+   * The size of the avatar content.
+   */
   size?: AvatarSize;
+  /**
+   * The ARIA role of the content.
+   */
   role?: string;
+  /**
+   * The label of the content for accessibility.
+   */
   ariaLabel?: string;
-  /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
+  /**
+   * The icon displayed when the type is set to `icon`.
+   */
   icon?: SubIcon;
+  /**
+   * Class name applied to the text content.
+   */
   textClassName?: string;
+  /**
+   * The text displayed when the type is set to `text`.
+   */
   text?: string;
 }
 
-export const AvatarContent: React.FC<AvatarContentProps> & {
-  sizes?: typeof AvatarSizeEnum;
-  types?: typeof AvatarTypeEnum;
-} = ({
+const AvatarContent = ({
   type = "text",
   src,
   icon,
@@ -81,7 +101,12 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
   }
 };
 
-Object.assign(AvatarContent, {
-  types: AvatarTypeEnum,
-  sizes: AvatarSizeEnum
+interface AvatarContentStaticProps {
+  sizes: typeof AvatarSizeEnum;
+  types: typeof AvatarTypeEnum;
+}
+
+export default withStaticProps<AvatarContentProps, AvatarContentStaticProps>(AvatarContent, {
+  sizes: AvatarSizeEnum,
+  types: AvatarTypeEnum
 });

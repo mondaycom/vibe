@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import { TableCellProps } from "../TableCell/TableCell";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -10,15 +10,24 @@ import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuCont
 
 export interface TableRowProps extends VibeComponentProps {
   /**
-   * Does the row have a highlighted style
+   * If true, applies a highlighted style to the row.
    */
   highlighted?: boolean;
+  /**
+   * The child components inside the table row, typically `<TableCell />` elements.
+   */
   children?: React.ReactElement<TableCellProps> | React.ReactElement<TableCellProps>[];
+  /**
+   * Custom styles applied to the table row.
+   */
   style?: React.CSSProperties;
 }
 
-const TableRow: VibeComponent<TableRowProps, HTMLDivElement> = forwardRef(
-  ({ highlighted, children, style, id, className, "data-testid": dataTestId }: TableRowProps, ref) => {
+const TableRow = forwardRef(
+  (
+    { highlighted, children, style, id, className, "data-testid": dataTestId }: TableRowProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const componentRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(componentRef, ref);
     const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenu();

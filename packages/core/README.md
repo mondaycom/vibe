@@ -42,3 +42,13 @@ globalThis.injectedStyles = {};
 in order to have each server side render component css inserted into the injectedStyles object
 each component will insert its css string under a unique key.
 Then you can join all the values into one string and add it under a `<style>` element
+
+## Experimental Component Metadata for LLMs
+
+You can access component metadata (props, descriptions, etc.) via the `/meta` export path:
+
+```javascript
+import metadata from "@vibe/core/meta";
+```
+
+**Note:** This feature is experimental and currently intended for internal Vibe LLM efforts. The structure and content of the metadata object are subject to change without notice in future versions. We cannot guarantee stability for this feature, yet.

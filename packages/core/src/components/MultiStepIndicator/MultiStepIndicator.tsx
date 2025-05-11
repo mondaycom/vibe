@@ -13,28 +13,53 @@ import {
 import { MultiStepType, MultiStepSize, TextPlacement, Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
+  /**
+   * The list of steps in the multi-step indicator.
+   */
   steps?: Step[];
+  /**
+   * The visual style of the multi-step indicator.
+   */
   type?: MultiStepType;
+  /**
+   * Class name applied to each step component.
+   */
   stepComponentClassName?: string;
+  /**
+   * Class name applied to the divider between steps.
+   */
   dividerComponentClassName?: string;
+  /**
+   * The icon used for fulfilled steps.
+   */
   fulfilledStepIcon?: SubIcon;
+  /**
+   * The type of the fulfilled step icon.
+   */
   fulfilledStepIconType?: "svg" | "font";
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber?: boolean;
+  /**
+   * Callback fired when a step is clicked.
+   */
   onClick?: (stepNumber: number) => void;
+  /**
+   * The placement of the step text.
+   */
   textPlacement?: TextPlacement;
+  /**
+   * The size of the multi-step indicator.
+   */
   size?: MultiStepSize;
 }
 
-const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElement> & {
-  types?: typeof MultiStepTypeEnum;
-  stepStatuses?: typeof StepStatusEnum;
-  textPlacements?: typeof TextPlacementEnum;
-  sizes?: typeof SizeEnum;
-} = forwardRef(
+const MultiStepIndicator = forwardRef(
   (
     {
       className,
@@ -51,7 +76,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
       size,
       "data-testid": dataTestId
     }: MultiStepIndicatorProps,
-    ref
+    ref: React.ForwardedRef<HTMLOListElement>
   ) => {
     const finalSize = textPlacement === "vertical" ? "regular" : size;
 
@@ -142,7 +167,14 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
   }
 );
 
-export default withStaticProps(MultiStepIndicator, {
+interface MultiStepIndicatorStaticProps {
+  types: typeof MultiStepTypeEnum;
+  stepStatuses: typeof StepStatusEnum;
+  textPlacements: typeof TextPlacementEnum;
+  sizes: typeof SizeEnum;
+}
+
+export default withStaticProps<MultiStepIndicatorProps, MultiStepIndicatorStaticProps>(MultiStepIndicator, {
   types: MultiStepTypeEnum,
   stepStatuses: StepStatusEnum,
   textPlacements: TextPlacementEnum,

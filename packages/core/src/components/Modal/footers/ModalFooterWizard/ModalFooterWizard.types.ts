@@ -5,13 +5,13 @@ export interface ModalFooterWizardProps
   extends Required<Pick<ModalFooterBaseProps, "primaryButton" | "secondaryButton">>,
     VibeComponentProps {
   /**
-   * Total number of steps in the wizard.
-   * This would render the appropriate number of step indicators ("dots") in the footer.
+   * The total number of steps in the wizard.
+   * Renders the corresponding number of step indicators ("dots") in the footer.
    */
   stepCount: number;
   /**
-   * Current active step (0-based index).
-   * This would highlight the corresponding step indicator ("dot") in the footer.
+   * The current active step (0-based index).
+   * Highlights the corresponding step indicator ("dot") in the footer.
    */
   activeStep: number;
   /**

@@ -17,18 +17,36 @@ import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterProps extends VibeComponentProps {
   /**
-   * Array of Avatar elements
+   * The list of avatars hidden behind the counter.
    */
   counterTooltipAvatars?: ReactElement<AvatarProps>[];
   /**
-   * AvatarGroupCounterVisualProps: props for counter
+   * Props for customizing the counter appearance.
    */
   counterProps?: AvatarGroupCounterVisualProps;
+  /**
+   * Props for customizing the counter tooltip.
+   */
   counterTooltipCustomProps?: Partial<TooltipProps>;
+  /**
+   * If true, the counter tooltip uses a virtualized list for performance optimization.
+   */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * The size of the counter.
+   */
   size?: AvatarSize;
+  /**
+   * The type of the avatars in the counter.
+   */
   type?: AvatarType;
+  /**
+   * The label of the counter for accessibility.
+   */
   counterAriaLabel?: string;
+  /**
+   * If true, the counter is disabled and non-interactive.
+   */
   disabled?: boolean;
 }
 
@@ -49,7 +67,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     maxDigits: counterMaxDigits = 3,
     ariaLabelItemsName: counterAriaLabelItemsName = "items",
     noAnimation,
-    dialogContainerSelector
+    dialogContainerSelector,
+    tabIndex: counterTabIndex = 0
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -68,6 +87,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
         noAnimation={noAnimation}
         counterClassName={cx({ [styles.disabled]: disabled })}
+        size={size === "xs" ? "xs" : undefined}
       />
     );
   }, [
@@ -143,7 +163,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
       <div tabIndex={-1} ref={focusPrevPlaceholderRef} />
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div
-        tabIndex={0}
+        tabIndex={counterTabIndex}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ref={counterContainerRef}
       >

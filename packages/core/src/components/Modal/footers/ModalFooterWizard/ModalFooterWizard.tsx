@@ -1,11 +1,11 @@
 import React, { forwardRef } from "react";
-import cx from "classnames";
 import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalFooterWizard.module.scss";
 import { StepsGalleryHeader } from "../../../Steps/StepsGalleryHeader";
 import { ModalFooterWizardProps } from "./ModalFooterWizard.types";
+import { getPropsForButton } from "../utils/getPropsForButton";
 
 const ModalFooterWizard = forwardRef(
   (
@@ -21,10 +21,9 @@ const ModalFooterWizard = forwardRef(
     }: ModalFooterWizardProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const primary = { ...primaryButton, className: cx(primaryButton.className, styles.primary) };
-    const secondary = secondaryButton
-      ? { ...secondaryButton, className: cx(secondaryButton.className, styles.secondary) }
-      : undefined;
+    const primary = getPropsForButton(primaryButton, styles.primary);
+    const secondary = getPropsForButton(secondaryButton, styles.secondary);
+
     const steps = (
       <StepsGalleryHeader
         stepsCount={stepCount}

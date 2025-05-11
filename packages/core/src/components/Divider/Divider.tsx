@@ -8,13 +8,17 @@ import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {
+  /**
+   * The direction of the divider.
+   */
   direction?: DividerDirection;
+  /**
+   * If true, removes margin from the divider.
+   */
   withoutMargin?: boolean;
 }
 
-const Divider: React.FC<DividerProps> & {
-  directions?: typeof DirectionTypeEnum;
-} = ({
+const Divider = ({
   className = undefined,
   withoutMargin = false,
   direction = "horizontal",
@@ -32,6 +36,10 @@ const Divider: React.FC<DividerProps> & {
   );
 };
 
-export default withStaticProps(Divider, {
+interface DividerStaticProps {
+  directions: typeof DirectionTypeEnum;
+}
+
+export default withStaticProps<DividerProps, DividerStaticProps>(Divider, {
   directions: DirectionTypeEnum
 });

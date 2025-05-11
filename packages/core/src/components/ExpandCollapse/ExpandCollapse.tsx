@@ -7,43 +7,60 @@ import { DropdownChevronDown } from "@vibe/icons";
 import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
+import { ExpandCollapseIconPosition } from "./ExpandCollapse.types";
 
 export interface ExpandCollapseProps extends VibeComponentProps {
   /**
-   * Component as parameter to be rendered as header
+   * Custom renderer for the header component.
    */
   headerComponentRenderer?: () => ReactElement;
   /**
-   * Class name to add to the header of the expandable
+   * Class name applied to the header.
    */
   headerClassName?: string;
   /**
-   * Class name to add to the content of the expandable
+   * Class name applied to the content.
    */
   contentClassName?: string;
   /**
-   * Class name to add to the component
+   * Class name applied to the root component.
    */
   componentClassName?: string;
   /**
-   * Header title
+   * The title displayed in the header.
    */
   title?: ElementContent;
   /**
-   * The value of the expandable section
+   * The content inside the expandable section.
    */
   children?: ElementContent;
   /**
-   * The expand icon font size
+   * The size of the expand/collapse icon.
    */
   iconSize?: number | string;
   /**
-   * Should be open or closed by default (when rendered)
+   * The position of the icon.
+   */
+  iconPosition?: ExpandCollapseIconPosition;
+  /**
+   * If true, the section is open by default when rendered.
    */
   defaultOpenState?: boolean;
+  /**
+   * Controls the open state of the section.
+   */
   open?: boolean;
+  /**
+   * Callback fired when the header is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * If true, hides the border around the component.
+   */
   hideBorder?: boolean;
+  /**
+   * If true, captures the click event on the button.
+   */
   captureOnClick?: boolean;
 }
 
@@ -56,6 +73,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       className,
       defaultOpenState = false,
       iconSize = 24,
+      iconPosition = "right",
       id = "",
       open,
       onClick = null,
@@ -87,6 +105,18 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       );
     }, [title]);
 
+    const renderIcon = () => (
+      <Icon
+        className={cx(styles.iconComponent, {
+          [styles.animateIconOpen]: isExpanded,
+          [styles.animateIconClose]: !isExpanded
+        })}
+        iconType="svg"
+        icon={DropdownChevronDown}
+        iconSize={iconSize}
+      />
+    );
+
     return (
       <div
         ref={mergedRef}
@@ -108,25 +138,19 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             type="button"
             className={cx(styles.header, styles.section, headerClassName, {
               [styles.headerOpen]: isExpanded,
-              [styles.hideBorderBottom]: hideBorder
+              [styles.hideBorderBottom]: hideBorder,
+              [styles.leftIcon]: iconPosition === "left"
             })}
             onClickCapture={captureOnClick ? onClick || toggleExpand : undefined}
             onClick={!captureOnClick ? onClick || toggleExpand : undefined}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
+            {iconPosition === "left" && renderIcon()}
             {typeof title !== "string" || title.length !== 0
               ? renderHeader()
               : headerComponentRenderer && headerComponentRenderer()}
-            <Icon
-              className={cx(styles.iconComponent, {
-                [styles.animateIconOpen]: isExpanded,
-                [styles.animateIconClose]: !isExpanded
-              })}
-              iconType="svg"
-              icon={DropdownChevronDown}
-              iconSize={iconSize}
-            />
+            {iconPosition === "right" && renderIcon()}
           </button>
           {isExpanded && (
             <div

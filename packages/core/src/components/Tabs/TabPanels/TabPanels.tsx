@@ -1,28 +1,34 @@
 import cx from "classnames";
 import { camelCase } from "lodash-es";
-import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
+import React, { forwardRef, ReactElement, useMemo, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import VibeComponentProps from "../../../types/VibeComponentProps";
 import { TabPanelsAnimationDirection as TabPanelsAnimationDirectionEnum } from "./TabPanelsConstants";
 import { TabPanelsAnimationDirection } from "./TabPanels.types";
 import { TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { withStaticProps } from "../../../types";
+import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
+  /**
+   * The index of the currently active tab panel.
+   */
   activeTabId?: number;
+  /**
+   * The animation direction when switching between tab panels.
+   */
   animationDirection?: TabPanelsAnimationDirection;
+  /**
+   * The child elements representing tab panels.
+   */
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
 }
 
-const TabPanels: FC<TabPanelsProps> & {
-  animationDirections?: typeof TabPanelsAnimationDirectionEnum;
-} = forwardRef(
+const TabPanels = forwardRef(
   (
     { className, id, activeTabId = 0, animationDirection = "rtl", children, "data-testid": dataTestId }: TabPanelsProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -62,6 +68,10 @@ Object.assign(TabPanels, {
   isTabPanels: true
 });
 
-export default withStaticProps(TabPanels, {
+interface TabPanelsStaticProps {
+  animationDirections: typeof TabPanelsAnimationDirectionEnum;
+}
+
+export default withStaticProps<TabPanelsProps, TabPanelsStaticProps>(TabPanels, {
   animationDirections: TabPanelsAnimationDirectionEnum
 });

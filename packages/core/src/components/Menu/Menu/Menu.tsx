@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { SIZES } from "../../../constants/sizes";
+import { SIZES } from "../../../constants";
 import React, { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
@@ -12,7 +12,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../../types";
 import { CloseMenuOption, MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -23,32 +23,70 @@ import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
+  /**
+   * Size of the menu.
+   */
   size?: (typeof SIZES)[keyof typeof SIZES];
+  /**
+   * The tab index of the menu.
+   */
   tabIndex?: number;
+  /**
+   * ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * ARIA description ID.
+   */
   ariaDescribedBy?: string;
+  /**
+   * If true, the menu will automatically focus on mount.
+   */
   focusOnMount?: boolean;
+  /**
+   * Callback when a menu item gains focus.
+   */
   onItemFocus?: (index: number) => void;
+  /**
+   * Controls the visibility of the menu.
+   */
   isVisible?: boolean;
+  /**
+   * Callback triggered when the menu closes.
+   */
   onClose?: (option: CloseMenuOption) => void;
+  /**
+   * Index of the focused menu item.
+   */
   focusItemIndex?: number;
+  /**
+   * If true, this menu is a submenu.
+   */
   isSubMenu?: boolean;
+  /**
+   * If true, event listeners will be attached to the document.
+   */
   useDocumentEventListeners?: boolean;
+  /**
+   * Index of the item that should be focused when the menu mounts.
+   */
   focusItemIndexOnMount?: number;
+  /**
+   * If true, enables scrolling within the menu.
+   */
   shouldScrollMenu?: boolean;
+  /**
+   * The menu items.
+   */
   children?: ElementContent;
 }
 
-const Menu: VibeComponent<MenuProps> & {
-  isMenu?: boolean;
-  supportFocusOnMount?: boolean;
-  sizes?: typeof SIZES;
-} = forwardRef(
+const Menu = forwardRef(
   (
     {
       id,
       className,
-      size = Menu.sizes.MEDIUM,
+      size = SIZES.MEDIUM,
       tabIndex = 0,
       ariaLabel = "Menu",
       ariaDescribedBy,
@@ -64,7 +102,7 @@ const Menu: VibeComponent<MenuProps> & {
       shouldScrollMenu = false,
       "data-testid": dataTestId
     }: MenuProps,
-    forwardedRef
+    forwardedRef: React.ForwardedRef<HTMLElement>
   ) => {
     const ref = useRef(null);
     const mergedRef = useMergeRef(ref, forwardedRef);
@@ -227,6 +265,10 @@ Object.assign(Menu, {
   supportFocusOnMount: true
 });
 
-export default withStaticProps(Menu, {
+interface MenuStaticProps {
+  sizes: typeof SIZES;
+}
+
+export default withStaticProps<MenuProps, MenuStaticProps>(Menu, {
   sizes: SIZES
 });

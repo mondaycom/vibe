@@ -2,7 +2,7 @@ import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo,
 import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
@@ -14,48 +14,143 @@ import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipC
 import { SubmenuPosition } from "./MenuItem.types";
 
 export interface MenuItemProps extends VibeComponentProps {
+  /**
+   * The title of the menu item.
+   */
   title?: string;
+  /**
+   * The label displayed alongside the title.
+   */
   label?: string | React.ReactElement<typeof Label>;
+  /**
+   * The icon displayed in the menu item.
+   */
   icon?: SubIcon;
+  /**
+   * The type of icon.
+   */
   iconType?: IconType;
+  /**
+   * The background color of the icon.
+   */
   iconBackgroundColor?: string;
+  /**
+   * If true, the menu item is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The reason for disabling the item, shown in a tooltip.
+   */
   disableReason?: string;
+  /**
+   * If true, the menu item is selected.
+   */
   selected?: boolean;
+  /**
+   * Callback fired when the menu item is clicked.
+   */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /**
+   * The active item index in the menu.
+   */
   activeItemIndex?: number;
+  /**
+   * Callback to set the active item index.
+   */
   setActiveItemIndex?: (index: number) => void;
+  /**
+   * The index of the menu item.
+   */
   index?: number;
+  /**
+   * The key of the menu item.
+   */
   key?: string;
+  /**
+   * If true, the parent menu is visible.
+   */
   isParentMenuVisible?: boolean;
+  /**
+   * Callback to reset the open submenu index.
+   */
   resetOpenSubMenuIndex?: () => void;
+  /**
+   * If true, a submenu is open.
+   */
   hasOpenSubMenu?: boolean;
+  /**
+   * Callback to open or close a submenu by index.
+   */
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
+  /**
+   * If true, document event listeners are used for handling interactions.
+   */
   useDocumentEventListeners?: boolean;
+  /**
+   * The tooltip content for the menu item.
+   */
   tooltipContent?: string;
+  /**
+   * The position of the tooltip.
+   */
   tooltipPosition?: TooltipPositions;
+  /**
+   * The delay in milliseconds before the tooltip shows.
+   */
   tooltipShowDelay?: number;
+  /**
+   * Additional props for customizing the tooltip.
+   */
   tooltipProps?: Partial<TooltipProps>;
+  /**
+   * Callback fired when the mouse leaves the item.
+   */
   onMouseLeave?: (event: React.MouseEvent) => void;
+  /**
+   * Callback fired when the mouse enters the item.
+   */
   onMouseEnter?: (event: React.MouseEvent) => void;
   /**
-   * Class name which is added to div which wraps an Icon
+   * Class name applied to the icon wrapper.
    */
   iconWrapperClassName?: string;
+  /**
+   * If true, the menu item starts as selected.
+   */
   isInitialSelectedState?: boolean;
+  /**
+   * If true, the menu scrolls to ensure visibility.
+   */
   shouldScrollMenu?: boolean;
+  /**
+   * Function to close the menu with a given option.
+   */
   closeMenu?: (option: CloseMenuOption) => void;
+  /**
+   * Reference to the menu container.
+   */
   menuRef?: React.RefObject<HTMLElement>;
-  //// TODO: [breaking] MenuItem can accept only Menu element as first level child, it accepts MenuChild[] as children even though it is not valid
+  /**
+   * The submenu items, if applicable.
+   */
   children?: MenuChild | MenuChild[];
   /**
-   * Type of menu item with sub menu, which has two click/hover options-
-   *    1. click on the main menu item will trigger onClick
-   *    2. click/hover on icon button will open the sub menu
+   * If true, enables a split menu item interaction where the main area triggers an action,
+   * while the icon button opens the submenu.
    */
   splitMenuItem?: boolean;
+  /**
+   * The label of the menu item for accessibility.
+   */
   "aria-label"?: AriaAttributes["aria-label"];
+  /**
+   * The position of a submenu relative to the menu item.
+   */
   submenuPosition?: SubmenuPosition;
+  /**
+   * If true, automatically repositions the submenu when its content changes.
+   */
+  autoAdjustOnSubMenuContentResize?: boolean;
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
@@ -63,12 +158,7 @@ export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"
   "aria-label": NonNullable<AriaAttributes["aria-label"]>;
 }
 
-const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
-  iconType?: typeof Icon.type;
-  isSelectable?: boolean;
-  isMenuChild?: boolean;
-  tooltipPositions?: typeof TooltipPositionsEnum;
-} = forwardRef(
+const MenuItem = forwardRef(
   (
     {
       className,
@@ -158,7 +248,12 @@ Object.assign(MenuItem, {
   isMenuChild: true
 });
 
-export default withStaticProps(MenuItem, {
+interface MenuItemStaticProps {
+  iconType: typeof Icon.type;
+  tooltipPositions: typeof TooltipPositionsEnum;
+}
+
+export default withStaticProps<MenuItemProps | MenuItemTitleComponentProps, MenuItemStaticProps>(MenuItem, {
   iconType: Icon.type,
   tooltipPositions: TooltipPositionsEnum
 });

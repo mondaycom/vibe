@@ -8,9 +8,6 @@ import { BaseElement } from "./BaseElement";
  */
 export class Dropdown extends BaseElement {
   inputField: TextField;
-  override page: Page;
-  override locator: Locator;
-  override elementReportName: string;
   /**
    * Create a DropDown.
    * @param {Page} page - The Playwright page object.
@@ -19,10 +16,19 @@ export class Dropdown extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
-    this.inputField = new TextField(page, locator.locator("input"), "Dropdown Input Field");
+    this.inputField = new TextField(this.page, this.locator.locator("input"), "Dropdown Input Field");
+  }
+
+  /**
+   * Open the dropdown.
+   * @returns {Promise<void>}
+   */
+  async open(): Promise<void> {
+    await test.step(`Open ${this.elementReportName}`, async () => {
+      if (!(await this.isDropdownOpen())) {
+        await this.locator.click();
+      }
+    });
   }
 
   /**
@@ -32,10 +38,39 @@ export class Dropdown extends BaseElement {
    */
   async selectItem(item: string): Promise<void> {
     await test.step(`Select ${item} from ${this.elementReportName}`, async () => {
-      await this.locator.click();
+      await this.open();
       await this.inputField.setText(item);
       const dropdownItem = this.locator.getByRole("option", { name: item });
       await dropdownItem.click();
     });
+  }
+
+  /**
+   * Select multiple items from a dropdown.
+   * @param items - The values text to be selected in the dropdown.
+   * @returns {Promise<void>}
+   */
+  async selectMultipleItems(items: string[]): Promise<void> {
+    await test.step(`Select ${items} from ${this.elementReportName}`, async () => {
+      await this.open();
+      for (const item of items) {
+        await this.inputField.setText(item);
+        const dropdownItem = this.locator.getByRole("option", { name: item });
+        await dropdownItem.click();
+      }
+    });
+  }
+
+  /**
+   * Check if the dropdown is open.
+   * @returns {Promise<boolean>}
+   */
+  private async isDropdownOpen(): Promise<boolean> {
+    let isOpen = false;
+    await test.step(`Check if ${this.elementReportName} is open`, async () => {
+      const expandedAttribute = await this.inputField.getAttributeValue("aria-expanded");
+      isOpen = expandedAttribute === "true" ? true : false;
+    });
+    return isOpen;
   }
 }

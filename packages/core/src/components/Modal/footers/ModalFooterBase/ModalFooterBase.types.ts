@@ -1,12 +1,17 @@
 import { ButtonProps } from "../../../Button";
 import React from "react";
 import { VibeComponentProps } from "../../../../types";
+import { TooltipProps } from "../../../Tooltip";
 
 export interface ModalFooterActionProps extends Omit<ButtonProps, "children" | "kind" | "size"> {
   /**
-   * Text to display as the Button's content.
+   * The text displayed inside the button.
    */
   text: string;
+  /**
+   * Props for displaying a tooltip on the button.
+   */
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 export interface ModalFooterBaseProps extends VibeComponentProps {
@@ -19,7 +24,7 @@ export interface ModalFooterBaseProps extends VibeComponentProps {
    */
   secondaryButton?: ModalFooterActionProps;
   /**
-   * Additional content to render in the footer.
+   * Additional content rendered inside the footer.
    */
   renderAction?: React.ReactNode;
 }

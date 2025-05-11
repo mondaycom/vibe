@@ -9,25 +9,52 @@ import { IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
+import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
+import { ComponentVibeId } from "../../../tests/constants";
 
 export interface TabProps extends VibeComponentProps {
   /**
-   * Class name for tab link-name
+   * Class name applied to the inner tab content.
    */
   tabInnerClassName?: string;
   /**
-   * Tab index
+   * The index value of the tab.
    */
   value?: number;
+  /**
+   * If true, disables the tab.
+   */
   disabled?: boolean;
+  /**
+   * If true, marks the tab as active.
+   */
   active?: boolean;
+  /**
+   * If true, applies focus styles to the tab.
+   */
   focus?: boolean;
+  /**
+   * The icon displayed in the tab.
+   */
   icon?: SubIcon;
+  /**
+   * The type of icon.
+   */
   iconType?: IconType;
+  /**
+   * The position of the icon relative to the text.
+   */
   iconSide?: string;
+  /**
+   * Callback fired when the tab is clicked.
+   */
   onClick?: (value: number) => void;
   /**
-   * Tab link-name
+   * Props passed to the tab's tooltip.
+   */
+  tooltipProps?: Partial<TooltipProps>;
+  /**
+   * The content displayed inside the tab.
    */
   children?: string | ReactElement | ReactElement[];
 }
@@ -43,6 +70,7 @@ const Tab: FC<TabProps> = forwardRef(
       active = false,
       focus = false,
       onClick = NOOP,
+      tooltipProps = {} as TooltipProps,
       icon,
       iconType,
       iconSide = "left",
@@ -77,25 +105,28 @@ const Tab: FC<TabProps> = forwardRef(
       return [...childrenArray, iconElement];
     }
     return (
-      <li
-        ref={mergedRef}
-        key={id}
-        className={cx(styles.tabWrapper, className, {
-          [styles.active]: active,
-          [styles.disabled]: disabled,
-          [styles.tabFocusVisibleInset]: focus
-        })}
-        id={id}
-        role="tab"
-        aria-selected={active}
-        aria-disabled={disabled}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
-      >
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
-        <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
-          {renderIconAndChildren()}
-        </a>
-      </li>
+      <Tooltip {...tooltipProps} content={tooltipProps.content}>
+        <li
+          ref={mergedRef}
+          key={id}
+          className={cx(styles.tabWrapper, className, {
+            [styles.active]: active,
+            [styles.disabled]: disabled,
+            [styles.tabFocusVisibleInset]: focus
+          })}
+          id={id}
+          role="tab"
+          aria-selected={active}
+          aria-disabled={disabled}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+          data-vibe={ComponentVibeId.TAB}
+        >
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
+          <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
+            {renderIconAndChildren()}
+          </a>
+        </li>
+      </Tooltip>
     );
   }
 );

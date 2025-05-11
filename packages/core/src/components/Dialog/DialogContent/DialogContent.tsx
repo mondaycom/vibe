@@ -1,4 +1,4 @@
-import React, { cloneElement, CSSProperties, ReactElement, useCallback, useEffect, useRef } from "react";
+import React, { cloneElement, CSSProperties, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
@@ -6,7 +6,7 @@ import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponentProps } from "../../../types";
 import { keyCodes } from "../../../constants";
 import { DialogAnimationType, DialogTriggerEvent } from "../Dialog.types";
 import * as PopperJS from "@popperjs/core";
@@ -18,33 +18,82 @@ const EMPTY_OBJECT = {};
 const ESCAPE_KEYS = [keyCodes.ESCAPE];
 
 export interface DialogContentProps extends VibeComponentProps {
+  /**
+   * The content inside the dialog.
+   */
   children?: ReactElement | ReactElement[];
+  /**
+   * The placement of the dialog relative to the reference element.
+   */
   position?: PopperJS.Placement;
+  /**
+   * Class name applied to the dialog wrapper.
+   */
   wrapperClassName?: string;
+  /**
+   * If true, the dialog is open.
+   */
   isOpen?: boolean;
   // TODO: [breaking] use type
+  /**
+   * The starting edge of the dialog.
+   */
   startingEdge?: any;
+  /**
+   * The animation type used for showing/hiding the dialog.
+   */
   animationType?: DialogAnimationType;
+  /**
+   * Callback fired when the Escape key is pressed.
+   */
   onEsc?: (event: React.KeyboardEvent) => void;
+  /**
+   * Callback fired when the mouse enters the dialog.
+   */
   onMouseEnter?: (event: React.MouseEvent) => void;
+  /**
+   * Callback fired when the mouse leaves the dialog.
+   */
   onMouseLeave?: (event: React.MouseEvent) => void;
+  /**
+   * Callback fired when clicking outside the dialog.
+   */
   onClickOutside?: (event: React.MouseEvent, hideShowEvent: DialogTriggerEvent) => void;
+  /**
+   * Callback fired when clicking inside the dialog.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * Delay before showing the dialog.
+   */
   showDelay?: number;
+  /**
+   * Inline styles applied to the dialog.
+   */
   styleObject?: CSSProperties;
+  /**
+   * If true, hides the reference element when the dialog is shown.
+   */
   isReferenceHidden?: boolean;
+  /**
+   * If true, applies tooltip arrow to the dialog.
+   */
   hasTooltip?: boolean;
+  /**
+   * The CSS selector of the container where the dialog should be rendered.
+   */
   containerSelector?: string;
+  /**
+   * If true, disables scrolling in the container when the dialog is open.
+   */
   disableContainerScroll?: boolean | string;
   /**
-   * On context menu event (right click) outside of the dialog
-   * @param e
+   * Callback fired when the context menu (right-click) event occurs outside the dialog.
    */
   onContextMenu?: (e: React.MouseEvent) => void;
-  "data-testid"?: string;
 }
 
-export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
+const DialogContent = forwardRef(
   (
     {
       onEsc = NOOP,
@@ -67,7 +116,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       disableContainerScroll = false,
       "data-testid": dataTestId
     }: DialogContentProps,
-    forwardRef
+    forwardRef: React.ForwardedRef<HTMLElement>
   ) => {
     const ref = useRef(null);
     const onOutSideClick = useCallback(
@@ -149,3 +198,5 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
   }
 );
+
+export default DialogContent;

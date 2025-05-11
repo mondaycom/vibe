@@ -13,7 +13,7 @@ import {
   TipseenColor as TipseenColorEnum
 } from "./TipseenConstants";
 import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
-import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -27,55 +27,107 @@ import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipCons
 
 export interface TipseenProps extends VibeComponentProps {
   /**
-   * Classname for overriding TipseenTitle styles
+   * Class name applied to the Tipseen title.
    */
   titleClassName?: string;
+  /**
+   * The position of the Tipseen relative to the target element.
+   */
   position?: TooltipPositions;
+  /**
+   * The animation type used for showing/hiding the Tipseen.
+   */
   animationType?: DialogAnimationType;
+  /**
+   * The delay in milliseconds before hiding the Tipseen.
+   */
   hideDelay?: number;
+  /**
+   * The delay in milliseconds before showing the Tipseen.
+   */
   showDelay?: number;
+  /**
+   * The title text of the Tipseen.
+   */
   title?: string;
+  /**
+   * If true, hides the close button.
+   */
   hideCloseButton?: boolean;
+  /**
+   * The child element that triggers the Tipseen.
+   */
   children?: ReactElement;
+  /**
+   * The CSS selector of the container where the Tipseen should be rendered.
+   */
   containerSelector?: string;
+  /**
+   * Events that trigger hiding the Tipseen.
+   */
   hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
+  /**
+   * Events that trigger showing the Tipseen.
+   */
   showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
+  /**
+   * The width of the Tipseen.
+   */
   width?: number;
+  /**
+   * Offset values for positioning adjustments.
+   */
   moveBy?: MoveBy;
+  /**
+   * If true, hides the Tipseen when the reference element is hidden.
+   */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Class name applied to the reference wrapper element.
+   */
   referenceWrapperClassName?: string;
   /**
-   * when false, the arrow of the tooltip is hidden
+   * If false, hides the arrow of the Tipseen.
    */
   tip?: boolean;
-  /** Class name for a tooltip's arrow */
+  /**
+   * Class name applied to the Tipseen arrow.
+   */
   tooltipArrowClassName?: string;
   /**
-   * PopperJS Modifiers type
+   * Custom Popper.js modifiers.
    * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Array<Modifier<unknown>>;
+  /**
+   * The aria-label for the close button.
+   */
   closeAriaLabel?: string;
+  /**
+   * Callback fired when the Tipseen is closed.
+   */
   onClose?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  /**
+   * The content displayed inside the Tipseen.
+   */
   content: ElementContent;
   /**
-   * Control the color of the Tipseen close button. Dark theme can be useful while presenting bright images under the tipseen image
+   * The theme of the Tipseen close button.
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
+  /**
+   * If true, renders the Tipseen as a floating element without a reference.
+   */
   floating?: boolean;
-  /** The color of the Tipseen */
+  /**
+   * The color theme of the Tipseen.
+   */
   color?: TipseenColor;
 }
 
 export const TipseenContext = React.createContext<TipseenColor>("primary");
 
-const Tipseen: VibeComponent<TipseenProps> & {
-  closeButtonThemes?: typeof TipseenCloseButtonThemeEnum;
-  animationTypes?: typeof AnimationTypeEnum;
-  hideShowTriggers?: typeof HideShowEventEnum;
-  colors?: typeof TipseenColorEnum;
-  positions?: typeof TooltipPositionsEnum;
-} = forwardRef(
+const Tipseen = forwardRef(
   (
     {
       className,
@@ -106,7 +158,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       color: colorProp,
       "data-testid": dataTestId
     }: TipseenProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const color = colorProp ?? "inverted";
 
@@ -175,13 +227,14 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
             [styles.floating]: floating
           })}
+          maxWidth={width}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
           shouldShowOnMount={!defaultDelayOpen}
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
-          showDelay={showDelay}
+          showDelay={0}
           hideTrigger={hideTrigger}
           showTrigger={showTrigger}
           showOnDialogEnter={false}
@@ -204,7 +257,15 @@ const Tipseen: VibeComponent<TipseenProps> & {
   }
 );
 
-export default withStaticProps(Tipseen, {
+interface TipseenStaticProps {
+  closeButtonThemes: typeof TipseenCloseButtonThemeEnum;
+  animationTypes: typeof AnimationTypeEnum;
+  hideShowTriggers: typeof HideShowEventEnum;
+  colors: typeof TipseenColorEnum;
+  positions: typeof TooltipPositionsEnum;
+}
+
+export default withStaticProps<TipseenProps, TipseenStaticProps>(Tipseen, {
   closeButtonThemes: TipseenCloseButtonThemeEnum,
   animationTypes: AnimationTypeEnum,
   hideShowTriggers: HideShowEventEnum,

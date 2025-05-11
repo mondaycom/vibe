@@ -5,9 +5,10 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Text from "../Text/Text";
 import Leg from "./Leg";
-import { LabelColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
-import { LabelColor, LabelKind } from "./Label.types";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
+import { LabelColor, LabelKind, ContentColor } from "./Label.types";
+import { contentColors } from "../../utils/colors-vars-map";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
@@ -16,22 +17,40 @@ import { LabelSizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
   /**
-   * Class name for an inner text wrapper
+   * Class name applied to the inner text wrapper.
    */
   labelClassName?: string;
+  /**
+   * The visual style of the label.
+   */
   kind?: LabelKind;
+  /**
+   * The background color of the label.
+   */
   color?: LabelColor;
+  /**
+   * The text content of the label.
+   */
   text?: string;
+  /**
+   * If true, includes a leg (decorative extension).
+   */
   isLegIncluded?: boolean;
+  /**
+   * Callback fired when the label is clicked.
+   */
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  /**
+   * If true, triggers a celebration animation.
+   */
   celebrationAnimation?: boolean;
+  /**
+   * The size of the label.
+   */
   size?: LabelSizes;
 }
 
-const Label: VibeComponent<LabelProps> & {
-  colors?: typeof LabelColorEnum;
-  kinds?: typeof LabelKindEnum;
-} = forwardRef<HTMLElement, LabelProps>(
+const Label = forwardRef<HTMLElement, LabelProps>(
   (
     {
       className,
@@ -70,6 +89,12 @@ const Label: VibeComponent<LabelProps> & {
       [kind, color, isLegIncluded, labelClassName, isClickable, size]
     );
 
+    const backgroundColorStyle = useMemo(() => {
+      if (contentColors.includes(color as ContentColor)) {
+        return { backgroundColor: `var(--color-${color})` };
+      }
+    }, [color]);
+
     const onClickCallback = useCallback(
       (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         if (onClick) {
@@ -104,6 +129,7 @@ const Label: VibeComponent<LabelProps> & {
           ref={mergedRef}
         >
           <Text
+            style={backgroundColorStyle}
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
@@ -133,7 +159,8 @@ const Label: VibeComponent<LabelProps> & {
       isCelebrationAnimation,
       text,
       isLegIncluded,
-      size
+      size,
+      backgroundColorStyle
     ]);
 
     // Celebration animation is applied only for line kind
@@ -149,7 +176,12 @@ const Label: VibeComponent<LabelProps> & {
   }
 );
 
-export default withStaticProps(Label, {
+interface LabelStaticProps {
+  colors: typeof LabelColorEnum;
+  kinds: typeof LabelKindEnum;
+}
+
+export default withStaticProps<LabelProps, LabelStaticProps>(Label, {
   colors: LabelColorEnum,
   kinds: LabelKindEnum
 });

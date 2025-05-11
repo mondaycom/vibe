@@ -58,4 +58,15 @@ describe("AccordionItem renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with iconPosition", () => {
+    const tree = renderer
+      .create(
+        <Accordion defaultIndex={[0]}>
+          <AccordionItem iconPosition="left" />
+        </Accordion>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

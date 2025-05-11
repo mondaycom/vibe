@@ -8,48 +8,113 @@ import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colo
 import { ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { AvatarSize, AvatarType } from "./Avatar.types";
-import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
-import { AvatarContent } from "./AvatarContent";
+import AvatarBadge, { AvatarBadgeProps } from "./AvatarBadge";
+import AvatarContent from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Avatar.module.scss";
 
 export interface AvatarProps extends VibeComponentProps {
+  /**
+   * The image source for the avatar.
+   */
   src?: string;
+  /**
+   * The text displayed inside the avatar.
+   */
   text?: string;
+  /**
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
+   */
   tooltipProps?: Partial<TooltipProps>;
+  /**
+   * The ARIA label of the avatar.
+   */
   ariaLabel?: string;
+  /**
+   * If true, the tooltip is disabled.
+   */
   withoutTooltip?: boolean;
+  /**
+   * The icon displayed inside the avatar.
+   */
   icon?: SubIcon;
+  /**
+   * The type of the avatar.
+   */
   type?: AvatarType;
-  /** Class name for the avatar content of text type */
+  /**
+   * Class name applied to the text inside the avatar.
+   */
   textClassName?: string;
-  /** Class name for a div-wrapper of avatar content */
+  /**
+   * Class name applied to the avatar content wrapper.
+   */
   avatarContentWrapperClassName?: string;
+  /**
+   * The background color of the avatar.
+   */
   backgroundColor?: ElementAllowedColor;
+  /**
+   * A custom background color.
+   */
   customBackgroundColor?: string;
+  /**
+   * The ARIA role of the avatar.
+   */
   role?: AriaRole;
+  /**
+   * The size of the avatar.
+   */
   size?: AvatarSize;
+  /**
+   * A custom size in pixels.
+   */
   customSize?: number;
+  /**
+   * The tab index of the avatar.
+   */
   tabIndex?: number;
+  /**
+   * If true, the avatar is hidden from assistive technologies.
+   */
   ariaHidden?: boolean;
+  /**
+   * If true, the avatar is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If true, renders the avatar as a square instead of a circle.
+   */
   square?: boolean;
+  /**
+   * Props for the top-left badge.
+   */
   topLeftBadgeProps?: AvatarBadgeProps;
+  /**
+   * Props for the top-right badge.
+   */
   topRightBadgeProps?: AvatarBadgeProps;
+  /**
+   * Props for the bottom-left badge.
+   */
   bottomLeftBadgeProps?: AvatarBadgeProps;
+  /**
+   * Props for the bottom-right badge.
+   */
   bottomRightBadgeProps?: AvatarBadgeProps;
+  /**
+   * If true, removes the avatar's border.
+   */
   withoutBorder?: boolean;
+  /**
+   * Callback fired when the avatar is clicked.
+   */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar: React.FC<AvatarProps> & {
-  types?: typeof AvatarTypeEnum;
-  sizes?: typeof AvatarSizeEnum;
-  colors?: typeof ElementAllowedColorEnum;
-  backgroundColors?: typeof ElementAllowedColorEnum;
-} = ({
+const Avatar = ({
   id,
   type = "text",
   className,
@@ -198,7 +263,14 @@ const Avatar: React.FC<AvatarProps> & {
   );
 };
 
-export default withStaticProps(Avatar, {
+interface AvatarStaticProps {
+  types: typeof AvatarTypeEnum;
+  sizes: typeof AvatarSizeEnum;
+  colors: typeof ElementAllowedColorEnum;
+  backgroundColors: typeof ElementAllowedColorEnum;
+}
+
+export default withStaticProps<AvatarProps, AvatarStaticProps>(Avatar, {
   types: AvatarTypeEnum,
   sizes: AvatarSizeEnum,
   colors: ElementAllowedColorEnum,

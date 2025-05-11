@@ -1,7 +1,7 @@
+import React from "react";
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { FC } from "react";
 import {
   SKELETON_SIZES,
   SkeletonType as SkeletonTypeEnum,
@@ -15,21 +15,33 @@ import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {
+  /**
+   * The type of skeleton.
+   */
   type?: SkeletonType;
+  /**
+   * The predefined size of the skeleton.
+   */
   size?: SkeletonSizeType;
+  /**
+   * The width of the skeleton in pixels.
+   */
   width?: number;
+  /**
+   * The height of the skeleton in pixels.
+   */
   height?: number;
+  /**
+   * Class name applied to the wrapper element.
+   */
   wrapperClassName?: string;
   /**
-   * Is the skeleton wrapper width equal to its container
+   * If true, the skeleton will take up the full width of its container.
    */
   fullWidth?: boolean;
 }
 
-const Skeleton: FC<SkeletonProps> & {
-  types?: typeof SkeletonTypeEnum;
-  sizes?: typeof SKELETON_SIZES;
-} = ({
+const Skeleton = ({
   type = "rectangle",
   size = "custom",
   className,
@@ -39,7 +51,7 @@ const Skeleton: FC<SkeletonProps> & {
   fullWidth = false,
   id,
   "data-testid": dataTestId
-}) => {
+}: SkeletonProps) => {
   const skeletonType = (Object.values(SkeletonTypeEnum) as string[]).includes(type) ? type : "rectangle";
 
   // Skeleton has sizes only for text type, other types support only custom size
@@ -61,7 +73,12 @@ const Skeleton: FC<SkeletonProps> & {
   );
 };
 
-export default withStaticProps(Skeleton, {
+interface SkeletonStaticProps {
+  types: typeof SkeletonTypeEnum;
+  sizes: typeof SKELETON_SIZES;
+}
+
+export default withStaticProps<SkeletonProps, SkeletonStaticProps>(Skeleton, {
   types: SkeletonTypeEnum,
   sizes: SKELETON_SIZES
 });

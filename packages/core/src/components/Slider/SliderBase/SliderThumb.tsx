@@ -8,25 +8,28 @@ import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { SliderColor, SliderSize } from "../Slider.types";
+import { camelCase } from "lodash-es";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
-   */
-  className?: string;
-  /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * The index of the thumb (used in range sliders).
    */
   index?: number;
   /**
-   * On SliderThumb move callback
+   * Callback fired when the thumb is moved.
    */
   onMove?: (event: PointerEvent) => void;
   /**
-   * Position (i.e. offset) from start of track/rail, according to value
+   * The position of the thumb, represented as an offset percentage from the start of the track.
    */
   position?: number;
+  /**
+   * The size of the slider thumb.
+   */
   size: SliderSize;
+  /**
+   * The color theme of the slider thumb.
+   */
   color: SliderColor;
 }
 
@@ -34,7 +37,18 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
-  const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const {
+    active,
+    ariaLabel,
+    ariaLabelledby,
+    disabled,
+    dragging,
+    focused,
+    shapeTestId,
+    showValue,
+    valueLabelPosition,
+    valueLabelColor
+  } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -108,7 +122,17 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
         style={{ left: `${position}%` }}
         tabIndex={disabled ? -1 : 0}
       >
-        {showValue && <label className={styles.label}>{valueText}</label>}
+        {showValue && (
+          <label
+            className={cx(
+              styles.label,
+              getStyle(styles, camelCase("color-" + valueLabelColor)),
+              getStyle(styles, camelCase("position-" + valueLabelPosition))
+            )}
+          >
+            {valueText}
+          </label>
+        )}
       </div>
     </Tooltip>
   );

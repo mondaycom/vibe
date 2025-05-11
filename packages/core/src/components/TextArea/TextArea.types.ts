@@ -17,50 +17,55 @@ export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentPr
    */
   size?: TextAreaSize;
   /**
-   * Indicates that the textarea has passed validation successfully, controlling
-   * the visual styling to convey success.
+   * If true, applies success styling to the textarea.
    */
   success?: boolean;
   /**
-   * Indicates an error with the current value of the textarea, controlling
-   * the visual styling to convey error.
+   * If true, applies error styling to the textarea.
    */
   error?: boolean;
   /**
-   * Label text associated with the textarea element.
+   * The label associated with the textarea.
    */
   label?: string;
   /**
-   * Function to call on textarea value change.
+   * Callback fired when the textarea value changes.
    */
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   /**
-   * Help text associated with the textarea element, typically used for guidance.
+   * Help text displayed below the textarea.
    */
   helpText?: string;
   /**
-   * Accessibility label for the textarea element.
+   * The accessibility label for the textarea.
    */
   "aria-label"?: React.AriaAttributes["aria-label"];
   /**
-   * If true, the textarea can be resized vertically by the user.
+   * If true, the textarea can be resized vertically.
    */
   resize?: boolean;
   /**
-   * Placeholder text to display when the textarea is empty.
+   * The placeholder text displayed when the textarea is empty.
    */
   placeholder?: string;
   /**
-   * The allowed number of characters.
+   * The maximum number of characters allowed.
    */
   maxLength?: number;
   /**
-   * If true, the TextArea will allow the user to exceed the character limit set by maxLength.
-   * Note: Using this prop will only make sense alongside the maxLength prop.
+   * If true, allows the user to exceed the character limit set by `maxLength`.
    */
   allowExceedingMaxLength?: boolean;
   /**
-   * If true, the character count and limit will be displayed below the textarea.
+   * If true, displays the character count below the textarea.
    */
   showCharCount?: boolean;
+  /**
+   * If true, disables the textarea.
+   */
+  disabled?: boolean;
+  /**
+   * If true, makes the textarea read-only.
+   */
+  readOnly?: boolean;
 }

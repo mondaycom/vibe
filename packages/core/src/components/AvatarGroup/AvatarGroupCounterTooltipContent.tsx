@@ -9,13 +9,21 @@ import { AvatarType } from "../Avatar/Avatar.types";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
-  className?: string;
+  /**
+   * The type of avatars displayed inside the tooltip.
+   */
   type?: AvatarType;
   /**
-   * Array of Avatar components
+   * The avatars shown in the tooltip.
    */
   avatars?: ReactElement<AvatarProps>[];
+  /**
+   * If true, the tooltip uses a virtualized list for performance optimization.
+   */
   isVirtualizedList?: boolean;
+  /**
+   * Ref for the tooltip content container.
+   */
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
 }
 

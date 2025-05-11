@@ -18,7 +18,14 @@ export default {
   title: "Components/Steps",
   component: Steps,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { steps5 }
+      }
+    }
+  }
 };
 
 const NavigableStepsTemplate = (args: StepsProps) => {
@@ -55,6 +62,13 @@ export const Overview = {
 
   args: {
     steps: steps5
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
   }
 };
 
@@ -65,9 +79,7 @@ export const Types = {
       <Steps steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
     </Flex>
-  ),
-
-  name: "Types"
+  )
 };
 
 export const OnPrimary = {
@@ -83,9 +95,7 @@ export const OnPrimary = {
         className="monday-storybook-steps_padding"
       />
     </Flex>
-  ),
-
-  name: "On primary"
+  )
 };
 
 export const NavigableSteps = {
@@ -121,9 +131,7 @@ export const NavigableSteps = {
         />
       </div>
     );
-  },
-
-  name: "Navigable Steps"
+  }
 };
 
 export const StepsInsideATipseen = {
@@ -180,6 +188,11 @@ export const StepsInsideATipseen = {
       </div>
     );
   },
-
-  name: "Steps inside a tipseen"
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { modifiers }
+      }
+    }
+  }
 };

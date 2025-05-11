@@ -4,7 +4,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 // Libraries import
-import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { ReactElement, useCallback, useMemo, useRef, useState } from "react";
 // Constants import
 import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
@@ -30,42 +30,49 @@ import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
-import { DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { DialogSize, DialogTriggerEvent } from "../Dialog";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
-  /*
-   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+  /**
+   * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
    */
   secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /**
+   * Callback fired when the secondary dialog is shown.
+   */
   onSecondaryDialogDidShow?: () => void;
+  /**
+   * Callback fired when the secondary dialog is hidden.
+   */
   onSecondaryDialogDidHide?: () => void;
+  /**
+   * The z-index applied to the secondary dialog.
+   */
   zIndex?: number;
-  /*
-   * Class name to provide the element which wraps the popover/modal/dialog
+  /**
+   * Class name applied to the wrapper of the secondary dialog.
    */
   secondaryDialogClassName?: string;
-  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
-  /*
-    Popover Container padding size
-   */
-  dialogPaddingSize?: (typeof DialogContentContainer.sizes)[keyof typeof DialogContentContainer.sizes];
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The position of the secondary dialog.
+   */
+  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
+  /**
+   * The padding size inside the secondary dialog.
+   */
+  dialogPaddingSize?: DialogSize;
+  /**
+   * The CSS selector of the container where the dialog should be rendered.
    */
   dialogContainerSelector?: string;
+  /**
+   * If true, clicking inside the dialog will close it.
+   */
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
-const SplitButton: FC<SplitButtonProps> & {
-  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
-  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
-  sizes?: typeof Button.sizes;
-  colors?: typeof Button.colors;
-  kinds?: typeof Button.kinds;
-  inputTags?: typeof Button.inputTags;
-  dialogPaddingSizes?: typeof DialogContentContainer.sizes;
-} = ({
+const SplitButton = ({
   secondaryDialogContent,
   onSecondaryDialogDidShow = NOOP,
   onSecondaryDialogDidHide = NOOP,
@@ -74,7 +81,7 @@ const SplitButton: FC<SplitButtonProps> & {
   secondaryDialogClassName,
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
-  dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+  dialogPaddingSize = "medium",
   disabled,
   // success mode not working right now, need to fix it in different pr
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -213,6 +220,7 @@ const SplitButton: FC<SplitButtonProps> & {
       ref={ref}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+      data-vibe={ComponentVibeId.SPLIT_BUTTON}
     >
       <Button
         {
@@ -286,11 +294,21 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: "bottom-start",
+  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
-export default withStaticProps(SplitButton, {
+interface SplitButtonStaticProps {
+  secondaryPositions: typeof SplitButtonSecondaryContentPosition;
+  secondaryDialogPositions: typeof SplitButtonSecondaryContentPosition;
+  sizes: typeof Button.sizes;
+  colors: typeof Button.colors;
+  kinds: typeof Button.kinds;
+  inputTags: typeof Button.inputTags;
+  dialogPaddingSizes: typeof DialogContentContainer.sizes;
+}
+
+export default withStaticProps<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
   secondaryPositions: SplitButtonSecondaryContentPosition,
   secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,

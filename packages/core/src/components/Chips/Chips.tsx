@@ -11,8 +11,8 @@ import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
-import { AvatarType } from "../Avatar/Avatar.types";
-import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { AvatarType } from "../Avatar";
+import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
@@ -21,74 +21,109 @@ import styles from "./Chips.module.scss";
 const CHIPS_AVATAR_SIZE = 18;
 
 export interface ChipsProps extends VibeComponentProps {
-  label?: ElementContent;
-  disabled?: boolean;
-  readOnly?: boolean;
-  "data-testid"?: string;
   /**
-   * A React element that is positioned to the right of the text
+   * The text or content displayed inside the chip.
+   */
+  label?: ElementContent;
+  /**
+   * If true, the chip is disabled.
+   */
+  disabled?: boolean;
+  /**
+   * If true, the chip is read-only and cannot be deleted.
+   */
+  readOnly?: boolean;
+  /**
+   * A React element displayed on the right side.
    */
   rightRenderer?: ElementContent;
   /**
-   * A React element that is positioned to the left of the text
+   * A React element displayed on the left side.
    */
   leftRenderer?: ElementContent;
-  /** Icon to place on the right */
+  /**
+   * Icon displayed on the right side.
+   */
   rightIcon?: SubIcon;
-  /** Icon to place on the left */
+  /**
+   * Icon displayed on the left side.
+   */
   leftIcon?: SubIcon;
-  /** Img to place as avatar on the right */
+  /**
+   * Image URL or text for an avatar displayed on the right.
+   */
   rightAvatar?: string;
-  /** the type of right avatar */
+  /**
+   * The type of avatar displayed on the right.
+   */
   rightAvatarType?: AvatarType;
-  /** Img to place as avatar on the left */
+  /**
+   * Image URL or text for an avatar displayed on the left.
+   */
   leftAvatar?: string;
-  /** the type of left avatar */
+  /**
+   * The type of avatar displayed on the left.
+   */
   leftAvatarType?: AvatarType;
-  /** ClassName for left or right icon */
+  /**
+   * Class name applied to left or right icons.
+   */
   iconClassName?: string;
-  /** ClassName for left or right avatar */
+  /**
+   * Class name applied to left or right avatars.
+   */
   avatarClassName?: string;
+  /**
+   * The background color of the chip.
+   */
   color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
-  /** Size for font icon */
+  /**
+   * The size of the icons inside the chip.
+   */
   iconSize?: number | string;
+  /**
+   * Callback fired when the chip is deleted.
+   */
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
   /**
-   * Disables the Chip's entry animation
+   * If true, disables the chip's entry animation.
    */
   noAnimation?: boolean;
   /**
-   * Allow user to select text
+   * If true, allows the user to select text inside the chip.
    */
   allowTextSelection?: boolean;
   /**
-   * Callback function to be called when the user clicks the component.
+   * Callback fired when the mouse button is pressed on the chip.
    */
   onMouseDown?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /**
-   * Callback function to be called when the user clicks the component.
+   * Callback fired when the chip is clicked.
    */
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /**
-   * Applies when element has onClick or onMouseDown props
+   * The label of the chip for accessibility.
    */
   ariaLabel?: string;
   /**
-   * Disable click behaviors
+   * If true, disables all click behaviors.
    */
   disableClickableBehavior?: boolean;
   /**
-   * Show border, the border color is `--text-color-on-primary`, should be when the chip is a colored background like
-   * selected-color
+   * If true, displays a border around the chip.
    */
   showBorder?: boolean;
+  /**
+   * The label for the close button.
+   */
   closeButtonAriaLabel?: string;
+  /**
+   * If true, removes the default margin from the chip.
+   */
+  noMargin?: boolean;
 }
 
-const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
-  colors?: typeof ElementAllowedColorEnum;
-  avatarTypes?: typeof AvatarTypeEnum;
-} = forwardRef<HTMLDivElement, ChipsProps>(
+const Chips = forwardRef(
   (
     {
       className,
@@ -117,9 +152,10 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       showBorder = false,
       leftRenderer,
       rightRenderer,
-      closeButtonAriaLabel = "Remove"
+      closeButtonAriaLabel = "Remove",
+      noMargin = false
     }: ChipsProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
@@ -138,7 +174,8 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
-      [styles.border]: showBorder
+      [styles.border]: showBorder,
+      [styles.noMargin]: noMargin
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
@@ -275,7 +312,12 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Chips, {
+interface ChipsStaticProps {
+  colors: typeof ElementAllowedColorEnum;
+  avatarTypes: typeof AvatarTypeEnum;
+}
+
+export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
   colors: ElementAllowedColorEnum,
   avatarTypes: AvatarTypeEnum
 });

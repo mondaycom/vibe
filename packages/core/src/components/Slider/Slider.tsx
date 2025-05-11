@@ -11,7 +11,9 @@ import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
-import { SliderColor, SliderSize } from "./Slider.types";
+import { SliderColor, SliderLabelColor, SliderLabelPosition, SliderSize } from "./Slider.types";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 export type SliderProps = {
   /**
@@ -77,6 +79,14 @@ export type SliderProps = {
    */
   showValue?: boolean;
   /**
+   * Position of the `value` when `showValue` is true
+   */
+  valueLabelPosition?: SliderLabelPosition;
+  /**
+   * Color of the `value` when `showValue` is true
+   */
+  valueLabelColor?: SliderLabelColor;
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size?: SliderSize;
@@ -117,10 +127,7 @@ export type SliderProps = {
   selectionIndicatorWidth?: string;
 };
 
-const Slider: React.FC<SliderProps> & {
-  sizes?: typeof BASE_SIZES;
-  colors?: typeof SliderColorEnum;
-} = forwardRef(
+const Slider = forwardRef(
   (
     {
       ariaLabel,
@@ -136,6 +143,8 @@ const Slider: React.FC<SliderProps> & {
       ranged = false,
       step = 1,
       showValue = false,
+      valueLabelPosition = "top",
+      valueLabelColor = "primary",
       size = "small",
       value,
       defaultValue = 0,
@@ -146,7 +155,7 @@ const Slider: React.FC<SliderProps> & {
       postfix,
       selectionIndicatorWidth = "60px"
     }: SliderProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -167,6 +176,8 @@ const Slider: React.FC<SliderProps> & {
         onChange={onChange}
         ranged={ranged}
         showValue={showValue}
+        valueLabelPosition={valueLabelPosition}
+        valueLabelColor={valueLabelColor}
         size={size}
         step={step}
         value={value}
@@ -175,7 +186,12 @@ const Slider: React.FC<SliderProps> & {
         valueText={valueText}
       >
         <div
-          className={cx(styles.slider, { [styles.valueShown]: showValue }, className)}
+          className={cx(
+            styles.slider,
+            { [styles.valueShown]: showValue },
+            getStyle(styles, camelCase("position-" + valueLabelPosition)),
+            className
+          )}
           data-testid={dataTestId}
           id={id}
           ref={mergedRef}
@@ -189,7 +205,12 @@ const Slider: React.FC<SliderProps> & {
   }
 );
 
-export default withStaticProps(Slider, {
+interface SliderStaticProps {
+  sizes: typeof BASE_SIZES;
+  colors: typeof SliderColorEnum;
+}
+
+export default withStaticProps<SliderProps, SliderStaticProps>(Slider, {
   sizes: BASE_SIZES,
   colors: SliderColorEnum
 });
