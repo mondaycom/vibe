@@ -33,24 +33,14 @@ export default {
   }
 };
 
-const tipseenTemplate = ({
-  hideDismiss,
-  title,
-  children,
-  position,
-  ...otherArgs
-}: TipseenProps & TipseenContentProps) => {
+const tipseenTemplate = ({ title, children, position, ...otherArgs }: TipseenProps & TipseenContentProps) => {
   return (
     <Tipseen
       // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
       position={position}
-      content={
-        <TipseenContent hideDismiss={hideDismiss} title={title}>
-          {children}
-        </TipseenContent>
-      }
+      content={<TipseenContent title={title}>{children}</TipseenContent>}
       {...otherArgs}
     >
       <div className="monday-storybook-tipseen_container" />
@@ -65,8 +55,7 @@ export const Overview = {
   args: {
     title: "Title",
     children: "Message for the user will appear here, to give more information about the feature.",
-    position: "right",
-    hideDismiss: false
+    position: "right"
   },
   parameters: {
     docs: {
@@ -89,7 +78,7 @@ export const Colors = {
               modifiers={modifiers}
               position="right"
               content={
-                <TipseenContent title="This is a title" hideDismiss>
+                <TipseenContent title="This is a title">
                   Message for the user will appear here, to give more information about the feature.
                 </TipseenContent>
               }
@@ -103,7 +92,7 @@ export const Colors = {
               position="right"
               color="primary"
               content={
-                <TipseenContent title="This is a title" hideDismiss>
+                <TipseenContent title="This is a title">
                   Message for the user will appear here, to give more information about the feature.
                 </TipseenContent>
               }
@@ -244,7 +233,6 @@ export const TipseenWithCustomMedia = {
 };
 
 export const FloatingTipseen = {
-  // You do not have to use containerSelector, in current use this is for story only
   render: () => {
     return (
       <Tipseen
@@ -258,6 +246,7 @@ export const FloatingTipseen = {
             </TipseenContent>
           </>
         }
+        // You do not have to use containerSelector, in current use this is for story only
         containerSelector="#story--components-tipseen--floating-tipseen"
       />
     );
