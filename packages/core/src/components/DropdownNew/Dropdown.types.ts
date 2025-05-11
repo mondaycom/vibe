@@ -132,11 +132,11 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
   /**
    * Callback fired when an option is selected.
    */
-  onOptionSelect?: (option: Item) => void;
+  onOptionSelect?: (option: BaseListItemData<Item>) => void;
   /**
    * Callback fired when an option is removed in multi-select mode.
    */
-  onOptionRemove?: (option: Item) => void;
+  onOptionRemove?: (option: BaseListItemData<Item>) => void;
 
   /**
    * Callback fired when scrolling inside the dropdown.

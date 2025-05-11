@@ -207,7 +207,7 @@ const Dropdown = forwardRef(
                       renderInput={() => renderInput(true)}
                     />
                   ) : (
-                    <Flex gap="xs" wrap style={{ padding: "0 var(--space-16)" }}>
+                    <Flex gap="xs" wrap>
                       {selectedItems.map((item, index) => (
                         <Flex key={index}>
                           <div style={{ flexShrink: 0 }}>

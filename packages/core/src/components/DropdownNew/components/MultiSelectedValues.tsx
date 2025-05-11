@@ -96,5 +96,4 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   );
 }
 
-// Wrap with memo to prevent unnecessary re-renders
-export default React.memo(MultiSelectedValues);
+export default MultiSelectedValues;
