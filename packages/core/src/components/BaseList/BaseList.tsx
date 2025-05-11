@@ -12,7 +12,7 @@ const BaseList = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       options,
-      selectedItem,
+      selectedItems,
       highlightedIndex,
       getMenuProps,
       getItemProps,
@@ -63,7 +63,7 @@ const BaseList = forwardRef(
                   const isHighlighted =
                     highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
                   const isSelected =
-                    selectedItem?.value !== undefined && selectedItem?.value === option.value && !option.disabled;
+                    selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
                   return (
                     <BaseListItem<Item>

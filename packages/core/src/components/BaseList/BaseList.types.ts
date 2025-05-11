@@ -12,7 +12,7 @@ export interface BaseListProps<Item = Record<string, unknown>>
   /**
    * The selected item in the list.
    */
-  selectedItem?: BaseListItemData<Item> | null;
+  selectedItems?: BaseListItemData<Item>[] | null;
   /**
    * The index of the highlighted item in the list.
    */

@@ -57,7 +57,7 @@ describe("BaseList", () => {
     it("should apply the selected class to the selected item", () => {
       const { getByText } = renderBaseList({
         options,
-        selectedItem: { index: 0, value: "opt1", label: "Option 1" }
+        selectedItems: [{ index: 0, value: "opt1", label: "Option 1" }]
       });
 
       expect(getByText("Option 1").parentNode).toHaveClass("selected");
