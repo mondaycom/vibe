@@ -457,6 +457,120 @@ describe("DropdownNew", () => {
     });
   });
 
+  describe("multi-select mode", () => {
+    it("should render a multi-select dropdown when the multi prop is true", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      const option1 = getByText("Option 1");
+      fireEvent.click(option1);
+      expect(option1).toBeInTheDocument();
+    });
+
+    it("should allow selecting multiple items", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "opt1", label: "Option 1" })]);
+
+      fireEvent.click(getByText("Option 3"));
+      expect(onChange).toHaveBeenLastCalledWith([
+        expect.objectContaining({ value: "opt1", label: "Option 1" }),
+        expect.objectContaining({ value: "opt3", label: "Option 3" })
+      ]);
+    });
+
+    it("should render chips for selected items", () => {
+      const { getByPlaceholderText, getByText, container } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      const chipsNodeList = container.querySelectorAll(".chip-wrapper");
+      const chips = Array.from(chipsNodeList);
+      expect(chips.some((chip: Element) => chip.textContent!.includes("Option 1"))).toBe(true);
+      expect(chips.some((chip: Element) => chip.textContent!.includes("Option 3"))).toBe(true);
+    });
+
+    it("should remove an item when its chip is deleted", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+        multi: true,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      const deleteButtons = getAllByRole("button").filter(
+        button => button.getAttribute("aria-label") === "close" || button.getAttribute("data-testid")?.includes("close")
+      );
+
+      fireEvent.click(deleteButtons[0]);
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        expect.arrayContaining([expect.not.objectContaining({ value: "opt1" })])
+      );
+    });
+
+    it("should call onOptionRemove when an item is removed", () => {
+      const onOptionRemove = jest.fn();
+      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+        multi: true,
+        onOptionRemove
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+
+      const deleteButtons = getAllByRole("button").filter(button =>
+        button.getAttribute("data-testid")?.includes("close")
+      );
+      fireEvent.click(deleteButtons[0]);
+      expect(onOptionRemove).toHaveBeenCalledWith(expect.objectContaining({ value: "opt1", label: "Option 1" }));
+    });
+
+    it("should show selected chips without counter", () => {
+      const { getByPlaceholderText, getByText, queryByTestId, getByLabelText } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
+
+      expect(getByLabelText("Option 1")).toBeInTheDocument();
+      expect(getByLabelText("Option 3")).toBeInTheDocument();
+
+      expect(queryByTestId("dropdown-counter")).not.toBeInTheDocument();
+    });
+  });
+
   describe("with custom type", () => {
     it("should work without explicit type parameter", () => {
       type SimpleOptionType = BaseListItemData<{
