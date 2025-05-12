@@ -4,7 +4,7 @@ import { Chips } from "../../Chips";
 import { Flex } from "../../Flex";
 import { DialogContentContainer } from "../../DialogContentContainer";
 import Dialog from "../../Dialog/Dialog";
-import useChipsOverflow from "../../../hooks/useChipsOverflow/useChipsOverflow";
+import useItemsOverflow from "../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
 
@@ -22,12 +22,12 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
 
-  const visibleCount = useChipsOverflow({
+  const visibleCount = useItemsOverflow({
     containerRef,
     items: selectedItems,
     gap: 4,
     deductedSpaceRef,
-    chipSelector: ".chip-wrapper"
+    itemSelector: ".chip-wrapper"
   });
 
   const { hiddenItems, hiddenCount } = useMemo(() => {
