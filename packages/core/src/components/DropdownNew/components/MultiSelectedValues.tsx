@@ -90,7 +90,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
             <Chips label={`+ ${hiddenCount}`} disableClickableBehavior readOnly noMargin />
           </Dialog>
         )}
-        {renderInput && <div style={{ flexShrink: 0 }}>{renderInput()}</div>}
+        {renderInput && <div className={styles.inputWrapper}>{renderInput()}</div>}
       </Flex>
     </Flex>
   );

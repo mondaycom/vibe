@@ -1,4 +1,5 @@
-import { RefObject, useCallback, useState, useEffect, useRef } from "react";
+import { RefObject, useCallback, useState, useRef } from "react";
+import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
 
 /**
  * Custom hook that calculates how many items can fit in a container without overflowing
@@ -6,13 +7,13 @@ import { RefObject, useCallback, useState, useEffect, useRef } from "react";
 export default function useItemsOverflow<T>({
   containerRef,
   items,
-  gap = 4,
+  gap,
   deductedSpaceRef,
   itemSelector
 }: {
   containerRef: RefObject<HTMLElement>;
   items: T[];
-  gap?: number;
+  gap: number;
   deductedSpaceRef?: RefObject<HTMLElement>;
   itemSelector: string;
 }) {
@@ -22,7 +23,7 @@ export default function useItemsOverflow<T>({
   const isCalculatingRef = useRef(false);
 
   const calculateFromCachedWidths = useCallback(() => {
-    const container = containerRef.current;
+    const container = containerRef?.current;
     if (!container || !items.length) {
       setVisibleCount(items.length);
       return;
@@ -87,7 +88,7 @@ export default function useItemsOverflow<T>({
     });
   }, [containerRef, items.length, calculateFromCachedWidths, measureDeductedWidth, itemSelector]);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const resizeObserver = new ResizeObserver(() => {
@@ -108,7 +109,7 @@ export default function useItemsOverflow<T>({
     return () => resizeObserver.disconnect();
   }, [containerRef, deductedSpaceRef, measureDeductedWidth, calculateFromCachedWidths, measureAndCacheItems]);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     measureAndCacheItems();
   }, [items, measureAndCacheItems]);
 
