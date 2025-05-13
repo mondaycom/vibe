@@ -4,7 +4,7 @@
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker-app-theme) & {
-    box-shadow: 0 0 0 1px var(--layout-border-color), var(--box-shadow-small) !important;
+    box-shadow: 0 0 0 1px var(--layout-border-color), var(--box-shadow-small);
   }
 
   &.withoutAnimation {
