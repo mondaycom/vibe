@@ -201,8 +201,8 @@ const Dropdown = forwardRef(
                     <MultiSelectedValues
                       selectedItems={selectedItems}
                       onRemove={item => {
-                        removeSelectedItem(item as Item);
-                        onOptionRemove?.(item as Item);
+                        removeSelectedItem(item);
+                        onOptionRemove?.(item);
                       }}
                       renderInput={() => renderInput(true)}
                     />
@@ -211,7 +211,7 @@ const Dropdown = forwardRef(
                       {selectedItems.map((item, index) => (
                         <Flex key={index}>
                           <div style={{ flexShrink: 0 }}>
-                            <Chips label={item.label} onDelete={() => removeSelectedItem(item as Item)} noMargin />
+                            <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
                           </div>
                           {index === selectedItems.length - 1 && renderInput(true)}
                         </Flex>

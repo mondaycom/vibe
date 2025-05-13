@@ -1,8 +1,6 @@
-import { useCombobox } from "downshift";
-
 import { useMemo } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { useMultipleSelection } from "downshift";
+import { useMultipleSelection, useCombobox } from "downshift";
 import { DropdownGroupOption } from "../Dropdown.types";
 import { BaseListItemData } from "../../BaseListItem";
 
