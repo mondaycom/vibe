@@ -329,9 +329,7 @@ const menu =
       ...getFont(),
       color: getCSSVar("primary-text-color"),
       backgroundColor: getCSSVar("dialog-background-color"),
-      boxShadow: `${getCSSVar("experimental-dropdown-border-in-dark-themes", "0 0 0 0 transparent")}, ${getCSSVar(
-        "box-shadow-small"
-      )}`
+      boxShadow: getCSSVar("box-shadow-small")
     };
 
     if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
