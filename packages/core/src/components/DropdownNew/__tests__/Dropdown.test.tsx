@@ -492,7 +492,7 @@ describe("DropdownNew", () => {
     });
 
     it("should render chips for selected items", () => {
-      const { getByPlaceholderText, getByText, container } = renderDropdown({
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
@@ -502,10 +502,8 @@ describe("DropdownNew", () => {
       fireEvent.click(getByText("Option 1"));
       fireEvent.click(getByText("Option 3"));
 
-      const chipsNodeList = container.querySelectorAll(".chip-wrapper");
-      const chips = Array.from(chipsNodeList);
-      expect(chips.some((chip: Element) => chip.textContent!.includes("Option 1"))).toBe(true);
-      expect(chips.some((chip: Element) => chip.textContent!.includes("Option 3"))).toBe(true);
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
     it("should remove an item when its chip is deleted", () => {
