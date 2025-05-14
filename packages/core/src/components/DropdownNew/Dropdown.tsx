@@ -137,11 +137,12 @@ const Dropdown = forwardRef(
     );
 
     const renderInput = useCallback(
-      (isMulti = false) => (
+      () => (
         <BaseInput
           style={{ padding: "0" }}
           {...getInputProps({
-            placeholder: isMulti ? (!selectedItems?.length ? placeholder : "") : !selectedItem ? placeholder : "",
+            value: inputValue,
+            placeholder: (multi && selectedItems?.length) || (!multi && selectedItem) ? "" : placeholder,
             onFocus: e => {
               setIsFocused(true);
               onFocus?.(e);
@@ -157,7 +158,7 @@ const Dropdown = forwardRef(
           autoFocus={autoFocus}
           size={size}
           className={cx(styles.inputWrapper, {
-            [styles.hasSelected]: !isMulti && selectedItem && !inputValue
+            [styles.hasSelected]: !multi && selectedItem && !inputValue
           })}
           disabled={disabled}
           readOnly={readOnly}
@@ -175,7 +176,8 @@ const Dropdown = forwardRef(
         onFocus,
         onBlur,
         onKeyDown,
-        size
+        size,
+        multi
       ]
     );
 
@@ -204,7 +206,7 @@ const Dropdown = forwardRef(
                         removeSelectedItem(item);
                         onOptionRemove?.(item);
                       }}
-                      renderInput={() => renderInput(true)}
+                      renderInput={() => renderInput()}
                     />
                   ) : (
                     <Flex gap="xs" wrap>
@@ -213,14 +215,14 @@ const Dropdown = forwardRef(
                           <div style={{ flexShrink: 0 }}>
                             <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
                           </div>
-                          {index === selectedItems.length - 1 && renderInput(true)}
+                          {index === selectedItems.length - 1 && renderInput()}
                         </Flex>
                       ))}
                     </Flex>
                   )}
                 </>
               )}
-              {multi && selectedItems.length === 0 && renderInput(true)}
+              {multi && selectedItems.length === 0 && renderInput()}
               {!multi && renderInput()}
               {!multi && !inputValue && selectedItem && (
                 <div
