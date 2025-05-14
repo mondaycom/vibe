@@ -8,8 +8,6 @@ import { Flex } from "../Flex";
 import { BaseList } from "../BaseList";
 import styles from "./Dropdown.module.scss";
 import { BaseListItem } from "../BaseListItem";
-import usePopover from "../../hooks/usePopover";
-import { Placement } from "../../hooks/popoverConstants";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
 import useDropdownMultiCombobox from "./hooks/useDropdownMultiCombobox";
@@ -21,6 +19,9 @@ import Text from "../Text/Text";
 import { BaseListItemData } from "../BaseListItem";
 import MultiSelectedValues from "./components/MultiSelectedValues";
 import { Chips } from "../Chips";
+import Dialog from "../Dialog/Dialog";
+import * as PopperJS from "@popperjs/core";
+import { Modifier } from "react-popper";
 
 const Dropdown = forwardRef(
   <Item extends BaseListItemData<Record<string, unknown>>>(
@@ -66,7 +67,6 @@ const Dropdown = forwardRef(
   ) => {
     const dropdownRef = useRef<HTMLInputElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
-    const listWrapperRef = useRef<HTMLDivElement>(null);
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const [isFocused, setIsFocused] = useState(false);
@@ -115,19 +115,19 @@ const Dropdown = forwardRef(
     const selectedItems = multi ? multiDropdown.selectedItems : undefined;
     const removeSelectedItem = multi ? multiDropdown.removeSelectedItem : undefined;
 
-    const popoverOffset = useMemo(() => [0, 4] as [number, number], []);
-
-    const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
-      triggerRef.current,
-      listWrapperRef.current,
-      {
-        isOpen,
-        placement: "bottom" as Placement,
-        offset: popoverOffset,
-        observeContentResize: true,
-        observeReferenceResize: true,
-        fallbackPlacements: ["top" as Placement]
-      }
+    const matchWidthModifier = useMemo<Modifier<any, any>>(
+      () => ({
+        name: "matchWidth",
+        enabled: true,
+        phase: "beforeWrite",
+        requires: ["computeStyles"],
+        fn: ({ state }: { state: PopperJS.State }) => {
+          if (state.rects && state.rects.reference) {
+            state.styles.popper.width = `${state.rects.reference.width}px`;
+          }
+        }
+      }),
+      []
     );
 
     const renderInput = useCallback(
@@ -173,6 +173,133 @@ const Dropdown = forwardRef(
       ]
     );
 
+    const dialogContent = useMemo(
+      () => (
+        <DialogContentContainer>
+          <BaseList<Item>
+            size={size}
+            options={filteredOptions}
+            selectedItems={multi ? selectedItems : [selectedItem]}
+            highlightedIndex={highlightedIndex}
+            getMenuProps={getMenuProps}
+            getItemProps={listItemProps => {
+              const item = listItemProps.item;
+              const index = listItemProps.index;
+              const baseProps = getItemProps({ item, index });
+              const isSelected = multi ? selectedItems.some(i => i.id === item.id) : selectedItem?.id === item.id;
+              return { ...baseProps, selected: isSelected };
+            }}
+            withGroupDivider={withGroupDivider}
+            stickyGroupTitle={stickyGroupTitle}
+            dir={dir}
+            itemRenderer={optionRenderer}
+            noOptionsMessage={noOptionsMessage}
+            renderOptions={isOpen}
+            onScroll={onScroll}
+            maxMenuHeight={maxMenuHeight}
+          />
+        </DialogContentContainer>
+      ),
+      [
+        size,
+        filteredOptions,
+        multi,
+        selectedItems,
+        selectedItem,
+        highlightedIndex,
+        getMenuProps,
+        getItemProps,
+        withGroupDivider,
+        stickyGroupTitle,
+        dir,
+        optionRenderer,
+        noOptionsMessage,
+        isOpen,
+        onScroll,
+        maxMenuHeight
+      ]
+    );
+
+    const renderDropdownTrigger = () => {
+      return (
+        <Flex justify="space-between" ref={triggerRef} align="start">
+          <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
+            {multi && selectedItems.length > 0 && (
+              <>
+                {!multiline ? (
+                  <MultiSelectedValues
+                    selectedItems={selectedItems}
+                    onRemove={item => {
+                      removeSelectedItem(item);
+                      onOptionRemove?.(item);
+                    }}
+                    renderInput={() => renderInput()}
+                  />
+                ) : (
+                  <Flex gap="xs" wrap>
+                    {selectedItems.map((item, index) => (
+                      <Flex key={index}>
+                        <div style={{ flexShrink: 0 }}>
+                          <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
+                        </div>
+                        {index === selectedItems.length - 1 && renderInput()}
+                      </Flex>
+                    ))}
+                  </Flex>
+                )}
+              </>
+            )}
+            {multi && selectedItems.length === 0 && renderInput()}
+            {!multi && renderInput()}
+            {!multi && !inputValue && selectedItem && (
+              <div
+                className={cx(styles.selectedItem, {
+                  [styles.faded]: isFocused,
+                  [styles.small]: size === "small"
+                })}
+              >
+                <BaseListItem
+                  size={size}
+                  readOnly
+                  itemRenderer={valueRenderer}
+                  item={{
+                    ...selectedItem,
+                    startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
+                  }}
+                />
+              </div>
+            )}
+          </div>
+          {!readOnly && (
+            <Flex>
+              {(selectedItems?.length > 0 || selectedItem) && clearable && (
+                <IconButton
+                  data-testid="dropdown-clear-button"
+                  icon={CloseSmall}
+                  onClick={() => {
+                    reset();
+                    onClear?.();
+                    if (multi) {
+                      setMultiSelectedItems?.([]);
+                    } else {
+                      onChange?.(null);
+                    }
+                  }}
+                  size={size}
+                />
+              )}
+              <IconButton
+                icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
+                {...getToggleButtonProps()}
+                size={size}
+                disabled={disabled}
+              />
+            </Flex>
+          )}
+        </Flex>
+      );
+    };
+
     return (
       <div dir={dir}>
         {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
@@ -187,115 +314,24 @@ const Dropdown = forwardRef(
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         >
-          <Flex justify="space-between" ref={triggerRef} align="start">
-            <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
-              {multi && selectedItems.length > 0 && (
-                <>
-                  {!multiline ? (
-                    <MultiSelectedValues
-                      selectedItems={selectedItems}
-                      onRemove={item => {
-                        removeSelectedItem(item);
-                        onOptionRemove?.(item);
-                      }}
-                      renderInput={() => renderInput()}
-                    />
-                  ) : (
-                    <Flex gap="xs" wrap>
-                      {selectedItems.map((item, index) => (
-                        <Flex key={index}>
-                          <div style={{ flexShrink: 0 }}>
-                            <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
-                          </div>
-                          {index === selectedItems.length - 1 && renderInput()}
-                        </Flex>
-                      ))}
-                    </Flex>
-                  )}
-                </>
-              )}
-              {multi && selectedItems.length === 0 && renderInput()}
-              {!multi && renderInput()}
-              {!multi && !inputValue && selectedItem && (
-                <div
-                  className={cx(styles.selectedItem, {
-                    [styles.faded]: isFocused,
-                    [styles.small]: size === "small"
-                  })}
-                >
-                  <BaseListItem
-                    size={size}
-                    readOnly
-                    itemRenderer={valueRenderer}
-                    item={{
-                      ...selectedItem,
-                      startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
-                    }}
-                  />
-                </div>
-              )}
-            </div>
-            {!readOnly && (
-              <Flex>
-                {(selectedItems?.length > 0 || selectedItem) && clearable && (
-                  <IconButton
-                    data-testid="dropdown-clear-button"
-                    icon={CloseSmall}
-                    onClick={() => {
-                      reset();
-                      onClear?.();
-                      if (multi) {
-                        setMultiSelectedItems?.([]);
-                      } else {
-                        onChange?.(null);
-                      }
-                    }}
-                    size={size}
-                  />
-                )}
-                <IconButton
-                  icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-                  {...getToggleButtonProps()}
-                  size={size}
-                  disabled={disabled}
-                />
-              </Flex>
-            )}
-          </Flex>
-          <div
-            className={styles.popoverWrapper}
-            style={{
-              ...popoverStyles.popper,
-              width: dropdownMergedRef.current?.offsetWidth
+          <Dialog
+            open={isOpen}
+            useDerivedStateFromProps
+            position="bottom-start"
+            moveBy={{ main: 4, secondary: 0 }}
+            observeContentResize={true}
+            showTrigger={[]}
+            hideTrigger={[]}
+            onClickOutside={() => {
+              if (isOpen) {
+                reset();
+              }
             }}
-            {...popoverAttributes.popper}
-            ref={listWrapperRef}
+            modifiers={[matchWidthModifier]}
+            content={dialogContent}
           >
-            <DialogContentContainer>
-              <BaseList<Item>
-                size={size}
-                options={filteredOptions}
-                selectedItems={multi ? selectedItems : [selectedItem]}
-                highlightedIndex={highlightedIndex}
-                getMenuProps={getMenuProps}
-                getItemProps={listItemProps => {
-                  const item = listItemProps.item;
-                  const index = listItemProps.index;
-                  const baseProps = getItemProps({ item, index });
-                  const isSelected = multi ? selectedItems.some(i => i.id === item.id) : selectedItem?.id === item.id;
-                  return { ...baseProps, selected: isSelected };
-                }}
-                withGroupDivider={withGroupDivider}
-                stickyGroupTitle={stickyGroupTitle}
-                dir={dir}
-                itemRenderer={optionRenderer}
-                noOptionsMessage={noOptionsMessage}
-                renderOptions={isOpen}
-                onScroll={onScroll}
-                maxMenuHeight={maxMenuHeight}
-              />
-            </DialogContentContainer>
-          </div>
+            {renderDropdownTrigger()}
+          </Dialog>
         </div>
         {helperText && (
           <Text color={error ? "negative" : "secondary"} className={styles.helperText}>

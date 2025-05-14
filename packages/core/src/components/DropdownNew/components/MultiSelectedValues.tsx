@@ -42,9 +42,15 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   const dialogContent = useMemo(() => {
     return () => (
       <DialogContentContainer>
-        <Flex direction="column" gap="xs" align="start">
+        <Flex direction="column" gap="xs" align="start" className={styles.hiddenChipsDialog}>
           {hiddenItems.map(item => (
-            <Chips key={`dropdown-chip-${item.value}`} label={item.label} onDelete={() => onRemove(item)} noMargin />
+            <Chips
+              key={`dropdown-chip-${item.value}`}
+              label={item.label}
+              onDelete={() => onRemove(item)}
+              noMargin
+              className={styles.dialogChip}
+            />
           ))}
         </Flex>
       </DialogContentContainer>

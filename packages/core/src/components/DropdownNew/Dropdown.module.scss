@@ -6,7 +6,6 @@
   border: 1px solid var(--border-color);
   background: var(--background-color);
   cursor: pointer;
-  padding: 0 var(--space-16);
 
   &:hover {
     --border-color: var(--primary-text-color);
@@ -58,9 +57,6 @@
     &.faded {
       opacity: 0.6;
     }
-  }
-  .popoverWrapper {
-    z-index: 2;
   }
 }
 
