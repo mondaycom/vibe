@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, forwardRef, useState } from "react";
+import React, { useMemo, useRef, forwardRef, useState, useCallback } from "react";
 import cx from "classnames";
 import { DialogContentContainer } from "../DialogContentContainer";
 import { BaseInput } from "../BaseInput";
@@ -12,12 +12,15 @@ import usePopover from "../../hooks/usePopover";
 import { Placement } from "../../hooks/popoverConstants";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
+import useDropdownMultiCombobox from "./hooks/useDropdownMultiCombobox";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import Text from "../Text/Text";
-import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
+import { BaseListItemData } from "../BaseListItem";
+import MultiSelectedValues from "./components/MultiSelectedValues";
+import { Chips } from "../Chips";
 
 const Dropdown = forwardRef(
   <Item extends BaseListItemData<Record<string, unknown>>>(
@@ -26,6 +29,7 @@ const Dropdown = forwardRef(
       size,
       dir,
       optionRenderer,
+      valueRenderer,
       noOptionsMessage,
       placeholder = "",
       withGroupDivider,
@@ -50,7 +54,10 @@ const Dropdown = forwardRef(
       onMenuOpen,
       onMenuClose,
       onOptionSelect,
+      onOptionRemove,
       onScroll,
+      multi,
+      multiline,
       className,
       id,
       "data-testid": dataTestId
@@ -63,20 +70,9 @@ const Dropdown = forwardRef(
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const [isFocused, setIsFocused] = useState(false);
+    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>([]);
 
-    const {
-      isOpen,
-      inputValue,
-      highlightedIndex,
-      selectedItem,
-      getToggleButtonProps,
-      getLabelProps,
-      getMenuProps,
-      getInputProps,
-      getItemProps,
-      reset,
-      filteredOptions
-    } = useDropdownCombobox(
+    const singleDropdown = useDropdownCombobox<Item>(
       options,
       autoFocus,
       isMenuOpen,
@@ -88,7 +84,38 @@ const Dropdown = forwardRef(
       onOptionSelect
     );
 
-    const offset = useMemo(() => [0, 4] as [number, number], []);
+    const multiDropdown = useDropdownMultiCombobox<Item>(
+      options,
+      multiSelectedItems,
+      setMultiSelectedItems,
+      autoFocus,
+      onChange,
+      onInputChange,
+      onMenuClose,
+      onMenuOpen,
+      onOptionSelect
+    );
+
+    const {
+      isOpen,
+      inputValue,
+      highlightedIndex,
+      getToggleButtonProps,
+      getLabelProps,
+      getMenuProps,
+      getInputProps,
+      getItemProps,
+      reset,
+      filteredOptions
+    } = useMemo(() => {
+      return multi ? multiDropdown : singleDropdown;
+    }, [multi, multiDropdown, singleDropdown]);
+
+    const selectedItem = !multi ? singleDropdown.selectedItem : undefined;
+    const selectedItems = multi ? multiDropdown.selectedItems : undefined;
+    const removeSelectedItem = multi ? multiDropdown.removeSelectedItem : undefined;
+
+    const popoverOffset = useMemo(() => [0, 4] as [number, number], []);
 
     const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
       triggerRef.current,
@@ -96,9 +123,54 @@ const Dropdown = forwardRef(
       {
         isOpen,
         placement: "bottom" as Placement,
-        offset,
+        offset: popoverOffset,
+        observeContentResize: true,
+        observeReferenceResize: true,
         fallbackPlacements: ["top" as Placement]
       }
+    );
+
+    const renderInput = useCallback(
+      () => (
+        <BaseInput
+          style={{ padding: "0" }}
+          {...getInputProps({
+            value: inputValue,
+            placeholder: (multi && selectedItems?.length) || (!multi && selectedItem) ? "" : placeholder,
+            onFocus: e => {
+              setIsFocused(true);
+              onFocus?.(e);
+            },
+            onBlur: () => {
+              setIsFocused(false);
+              onBlur?.();
+            },
+            onKeyDown
+          })}
+          autoFocus={autoFocus}
+          size={size}
+          className={cx(styles.inputWrapper, {
+            [styles.hasSelected]: !multi && selectedItem && !inputValue
+          })}
+          disabled={disabled}
+          readOnly={readOnly}
+        />
+      ),
+      [
+        getInputProps,
+        autoFocus,
+        disabled,
+        readOnly,
+        selectedItem,
+        selectedItems,
+        inputValue,
+        placeholder,
+        onFocus,
+        onBlur,
+        onKeyDown,
+        size,
+        multi
+      ]
     );
 
     return (
@@ -115,32 +187,36 @@ const Dropdown = forwardRef(
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         >
-          <Flex justify="space-between" ref={triggerRef}>
+          <Flex justify="space-between" ref={triggerRef} align="start">
             <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
-              <BaseInput
-                {...getInputProps({
-                  placeholder: !selectedItem ? placeholder : "",
-                  onFocus: e => {
-                    setIsFocused(true);
-                    onFocus?.(e);
-                  },
-                  onBlur: () => {
-                    setIsFocused(false);
-                    onBlur?.();
-                  },
-                  onKeyDown: e => {
-                    onKeyDown?.(e);
-                  }
-                })}
-                autoFocus={autoFocus}
-                size={size}
-                className={cx(styles.inputWrapper, {
-                  [styles.hasSelected]: selectedItem && !inputValue
-                })}
-                disabled={disabled}
-                readOnly={readOnly}
-              />
-              {selectedItem && !inputValue && (
+              {multi && selectedItems.length > 0 && (
+                <>
+                  {!multiline ? (
+                    <MultiSelectedValues
+                      selectedItems={selectedItems}
+                      onRemove={item => {
+                        removeSelectedItem(item);
+                        onOptionRemove?.(item);
+                      }}
+                      renderInput={() => renderInput()}
+                    />
+                  ) : (
+                    <Flex gap="xs" wrap>
+                      {selectedItems.map((item, index) => (
+                        <Flex key={index}>
+                          <div style={{ flexShrink: 0 }}>
+                            <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
+                          </div>
+                          {index === selectedItems.length - 1 && renderInput()}
+                        </Flex>
+                      ))}
+                    </Flex>
+                  )}
+                </>
+              )}
+              {multi && selectedItems.length === 0 && renderInput()}
+              {!multi && renderInput()}
+              {!multi && !inputValue && selectedItem && (
                 <div
                   className={cx(styles.selectedItem, {
                     [styles.faded]: isFocused,
@@ -150,7 +226,7 @@ const Dropdown = forwardRef(
                   <BaseListItem
                     size={size}
                     readOnly
-                    itemRenderer={optionRenderer}
+                    itemRenderer={valueRenderer}
                     item={{
                       ...selectedItem,
                       startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
@@ -161,14 +237,18 @@ const Dropdown = forwardRef(
             </div>
             {!readOnly && (
               <Flex>
-                {selectedItem && clearable && (
+                {(selectedItems?.length > 0 || selectedItem) && clearable && (
                   <IconButton
                     data-testid="dropdown-clear-button"
                     icon={CloseSmall}
                     onClick={() => {
                       reset();
                       onClear?.();
-                      onChange?.(null);
+                      if (multi) {
+                        setMultiSelectedItems?.([]);
+                      } else {
+                        onChange?.(null);
+                      }
                     }}
                     size={size}
                   />
@@ -195,10 +275,16 @@ const Dropdown = forwardRef(
               <BaseList<Item>
                 size={size}
                 options={filteredOptions}
-                selectedItem={selectedItem}
+                selectedItems={multi ? selectedItems : [selectedItem]}
                 highlightedIndex={highlightedIndex}
                 getMenuProps={getMenuProps}
-                getItemProps={getItemProps}
+                getItemProps={listItemProps => {
+                  const item = listItemProps.item;
+                  const index = listItemProps.index;
+                  const baseProps = getItemProps({ item, index });
+                  const isSelected = multi ? selectedItems.some(i => i.id === item.id) : selectedItem?.id === item.id;
+                  return { ...baseProps, selected: isSelected };
+                }}
                 withGroupDivider={withGroupDivider}
                 stickyGroupTitle={stickyGroupTitle}
                 dir={dir}

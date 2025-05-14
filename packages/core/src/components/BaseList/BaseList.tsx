@@ -12,7 +12,7 @@ const BaseList = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       options,
-      selectedItem,
+      selectedItems,
       highlightedIndex,
       getMenuProps,
       getItemProps,
@@ -43,7 +43,7 @@ const BaseList = forwardRef(
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
               <Flex justify="center">
-                <BaseListItem item={{ label: noOptionsMessage }} size={size} readOnly />
+                <BaseListItem item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
               </Flex>
             ) : (
               noOptionsMessage
@@ -63,7 +63,7 @@ const BaseList = forwardRef(
                   const isHighlighted =
                     highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
                   const isSelected =
-                    selectedItem?.value !== undefined && selectedItem?.value === option.value && !option.disabled;
+                    selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
                   return (
                     <BaseListItem<Item>

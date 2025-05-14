@@ -6,6 +6,7 @@
   border: 1px solid var(--border-color);
   background: var(--background-color);
   cursor: pointer;
+  padding: 0 var(--space-16);
 
   &:hover {
     --border-color: var(--primary-text-color);
@@ -35,6 +36,7 @@
     border: none;
     width: 100%;
     background: transparent;
+    padding: 0;
 
     &.hasSelected {
       position: absolute;
@@ -47,10 +49,10 @@
     position: relative;
     pointer-events: none;
     inset: 0;
-    padding-inline-start: var(--spacing-xs);
+    padding-inline-start: 0;
 
     &.small {
-      padding-inline-start: var(--spacing-small);
+      padding-inline-start: 0;
     }
 
     &.faded {
