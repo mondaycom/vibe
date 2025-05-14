@@ -4,39 +4,37 @@ import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
 /**
  * Custom hook that calculates how many items can fit in a container without overflowing
  */
-export default function useItemsOverflow<T>({
+export default function useItemsOverflow({
   containerRef,
-  items,
   gap,
   deductedSpaceRef,
-  itemSelector
+  itemRefs
 }: {
   containerRef: RefObject<HTMLElement>;
-  items: T[];
   gap: number;
   deductedSpaceRef?: RefObject<HTMLElement>;
-  itemSelector: string;
+  itemRefs: RefObject<HTMLElement>[];
 }) {
-  const [visibleCount, setVisibleCount] = useState<number>(items.length);
+  const [visibleCount, setVisibleCount] = useState<number>(itemRefs.length);
   const itemWidthsRef = useRef<number[]>([]);
   const deductedWidthRef = useRef<number>(0);
   const isCalculatingRef = useRef(false);
 
   const calculateFromCachedWidths = useCallback(() => {
     const container = containerRef?.current;
-    if (!container || !items.length) {
-      setVisibleCount(items.length);
+    if (!container || !itemRefs.length) {
+      setVisibleCount(itemRefs.length);
       return;
     }
 
     const containerWidth = container.offsetWidth;
     const deductedWidth = deductedWidthRef.current;
-    const availableWidth = containerWidth - (items.length > 1 ? deductedWidth : 0);
+    const availableWidth = containerWidth - (itemRefs.length > 1 ? deductedWidth : 0);
 
     let totalItemsWidth = 0;
     let count = 0;
 
-    const maxIter = Math.min(items.length, itemWidthsRef.current.length);
+    const maxIter = Math.min(itemRefs.length, itemWidthsRef.current.length);
 
     for (let i = 0; i < maxIter; i++) {
       const itemWidth = itemWidthsRef.current[i];
@@ -50,7 +48,7 @@ export default function useItemsOverflow<T>({
       }
     }
     setVisibleCount(count);
-  }, [containerRef, items.length, gap]);
+  }, [containerRef, itemRefs, gap]);
 
   const measureDeductedWidth = useCallback(() => {
     if (deductedSpaceRef?.current) {
@@ -67,16 +65,18 @@ export default function useItemsOverflow<T>({
     requestAnimationFrame(() => {
       try {
         const container = containerRef.current;
-        if (!container || !items.length) {
-          setVisibleCount(items.length);
+        if (!container || !itemRefs.length) {
+          setVisibleCount(itemRefs.length);
           return;
         }
 
         measureDeductedWidth();
 
-        const itemElements = Array.from(container.querySelectorAll(itemSelector));
+        const itemElements = itemRefs.map(ref => ref.current).filter(el => el !== null) as HTMLElement[];
+
         if (itemElements.length === 0) {
-          setVisibleCount(items.length);
+          setVisibleCount(0);
+          itemWidthsRef.current = [];
           return;
         }
 
@@ -86,17 +86,22 @@ export default function useItemsOverflow<T>({
         isCalculatingRef.current = false;
       }
     });
-  }, [containerRef, items.length, calculateFromCachedWidths, measureDeductedWidth, itemSelector]);
+  }, [containerRef, itemRefs, calculateFromCachedWidths, measureDeductedWidth]);
 
   useIsomorphicLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const resizeObserver = new ResizeObserver(() => {
-      if (itemWidthsRef.current.length) {
-        measureDeductedWidth();
-        calculateFromCachedWidths();
+      if (itemRefs.length > 0) {
+        if (itemWidthsRef.current.length) {
+          measureDeductedWidth();
+          calculateFromCachedWidths();
+        } else {
+          measureAndCacheItems();
+        }
       } else {
-        measureAndCacheItems();
+        setVisibleCount(0);
+        itemWidthsRef.current = [];
       }
     });
 
@@ -107,11 +112,16 @@ export default function useItemsOverflow<T>({
     }
 
     return () => resizeObserver.disconnect();
-  }, [containerRef, deductedSpaceRef, measureDeductedWidth, calculateFromCachedWidths, measureAndCacheItems]);
+  }, [containerRef, deductedSpaceRef, measureDeductedWidth, calculateFromCachedWidths, measureAndCacheItems, itemRefs]);
 
   useIsomorphicLayoutEffect(() => {
-    measureAndCacheItems();
-  }, [items, measureAndCacheItems]);
+    if (itemRefs.length > 0) {
+      measureAndCacheItems();
+    } else {
+      setVisibleCount(0);
+      itemWidthsRef.current = [];
+    }
+  }, [itemRefs, measureAndCacheItems]);
 
   return visibleCount;
 }

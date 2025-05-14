@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, createRef } from "react";
 import { BaseListItemData } from "../../BaseListItem";
 import { Chips } from "../../Chips";
 import { Flex } from "../../Flex";
@@ -22,12 +22,13 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
 
+  const itemRefs = useMemo(() => selectedItems.map(() => createRef<HTMLDivElement>()), [selectedItems]);
+
   const visibleCount = useItemsOverflow({
     containerRef,
-    items: selectedItems,
+    itemRefs,
     gap: 4,
-    deductedSpaceRef,
-    itemSelector: ".chip-wrapper"
+    deductedSpaceRef
   });
 
   const { hiddenItems, hiddenCount } = useMemo(() => {
@@ -56,7 +57,8 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
       return (
         <div
           key={`dropdown-chip-${item.value}`}
-          className={cx("chip-wrapper", { [styles.hiddenChip]: !isVisible })}
+          ref={itemRefs[index]}
+          className={cx({ [styles.hiddenChip]: !isVisible })}
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
@@ -64,7 +66,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
         </div>
       );
     });
-  }, [selectedItems, visibleCount, onRemove]);
+  }, [selectedItems, visibleCount, onRemove, itemRefs]);
 
   if (!selectedItems?.length) return null;
 
