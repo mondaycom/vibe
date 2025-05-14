@@ -17,7 +17,7 @@ export const ModalSideBySideLayoutRelatedComponent = () => {
     <RelatedComponent
       component={component}
       title="Side by side modal"
-      href="/?path=/docs/feedback-modal-new-side-by-side-modal"
+      href="/?path=/docs/components-modal-new-side-by-side-modal"
       description="Two-section modal layout, ideal for referencing visuals alongside text."
     />
   );
