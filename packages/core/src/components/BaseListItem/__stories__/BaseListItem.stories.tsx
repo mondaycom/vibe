@@ -25,6 +25,7 @@ export const Overview: Story = {
   render: baseListItemTemplate.bind({}),
   args: {
     item: {
+      value: "item1",
       label: "This is a list item",
       startElement: { type: "avatar", value: person1 },
       endElement: { type: "icon", value: Email },

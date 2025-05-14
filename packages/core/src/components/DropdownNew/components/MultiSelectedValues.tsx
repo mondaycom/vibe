@@ -42,9 +42,9 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
     return () => (
       <DialogContentContainer>
         <Flex direction="column" gap="xs" align="start">
-          {hiddenItems.map((item, index) => (
+          {hiddenItems.map(item => (
             <Chips
-              key={`dropdown-chip-${index}`}
+              key={`dropdown-chip-${item.value}`}
               label={item.label}
               onDelete={() => onRemove(item)}
               disableClickableBehavior
@@ -69,9 +69,10 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
 
         return (
           <div
-            key={`dropdown-chip-${index}`}
+            key={`dropdown-chip-${item.value}`}
             className={cx("chip-wrapper", { [styles.hiddenChip]: !isVisible })}
             aria-hidden={!isVisible}
+            data-testid={`dropdown-chip-${item.value}`}
           >
             <Chips label={item.label} onDelete={() => onRemove(item)} noMargin />
           </div>
@@ -87,7 +88,14 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
             position="bottom"
             moveBy={{ main: 4 }}
           >
-            <Chips label={`+ ${hiddenCount}`} disableClickableBehavior readOnly noMargin />
+            <Chips
+              label={`+ ${hiddenCount}`}
+              disableClickableBehavior
+              readOnly
+              noMargin
+              ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
+              data-testid="dropdown-overflow-counter"
+            />
           </Dialog>
         )}
         {renderInput && <div className={styles.inputWrapper}>{renderInput()}</div>}

@@ -43,7 +43,7 @@ const BaseList = forwardRef(
           options.every(group => group.options?.length === 0) ? (
             typeof noOptionsMessage === "string" ? (
               <Flex justify="center">
-                <BaseListItem item={{ label: noOptionsMessage }} size={size} readOnly />
+                <BaseListItem item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
               </Flex>
             ) : (
               noOptionsMessage

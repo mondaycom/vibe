@@ -45,7 +45,7 @@ describe("BaseListItem", () => {
   describe("with declared props", () => {
     it("should apply the size class", () => {
       const { getByText } = renderBaseListItem({
-        item: { label },
+        item: { label, value: "item1" },
         size: "large"
       });
       expect(getByText("Default Item").parentNode).toHaveClass("large");
@@ -55,6 +55,7 @@ describe("BaseListItem", () => {
       const { getByTestId } = renderBaseListItem({
         item: {
           label,
+          value: "item1",
           startElement,
           endElement
         }
@@ -66,7 +67,7 @@ describe("BaseListItem", () => {
 
     it("should apply the selected class", () => {
       const { getByText } = renderBaseListItem({
-        item: { label },
+        item: { label, value: "item1" },
         selected: true
       });
       expect(getByText("Default Item").parentNode).toHaveClass("selected");
@@ -76,6 +77,7 @@ describe("BaseListItem", () => {
       const { getByText } = renderBaseListItem({
         item: {
           label,
+          value: "item1",
           disabled: true
         }
       });
@@ -84,7 +86,7 @@ describe("BaseListItem", () => {
 
     it("should apply the highlighted class", () => {
       const { getByText } = renderBaseListItem({
-        item: { label },
+        item: { label, value: "item1" },
         highlighted: true
       });
       expect(getByText("Default Item").parentNode).toHaveClass("highlighted");
@@ -92,7 +94,7 @@ describe("BaseListItem", () => {
 
     it("should have role option", () => {
       const { getByRole } = renderBaseListItem({
-        item: { label }
+        item: { label, value: "item1" }
       });
       expect(getByRole("option")).toBeInTheDocument();
     });
@@ -109,6 +111,7 @@ describe("with custom type", () => {
 
   const customItem: BaseListItemData<CustomItemType> = {
     id: "custom-123",
+    value: "custom-123",
     customValue: 42,
     label: "Custom Item",
     category: "Test",
@@ -138,6 +141,7 @@ describe("with type parameter scenarios", () => {
   it("should work without explicit type parameter", () => {
     const simpleItem = {
       label: "Simple Item",
+      value: "simple-123",
       customField: "custom value"
     };
 
@@ -153,6 +157,7 @@ describe("with type parameter scenarios", () => {
 
     const typedItem: BaseListItemData<ExplicitType> = {
       label: "Typed Item",
+      value: "typed-123",
       id: "123",
       isActive: true
     };

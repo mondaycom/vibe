@@ -238,7 +238,7 @@ describe("DropdownNew", () => {
     });
 
     it("should not display indent startElement in selected value", () => {
-      const optionsWithIndent = [
+      const optionsWithIndent: ListGroup<BaseListItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
           options: [
@@ -459,7 +459,7 @@ describe("DropdownNew", () => {
 
   describe("multi-select mode", () => {
     it("should render a multi-select dropdown when the multi prop is true", () => {
-      const { getByPlaceholderText, getByText } = renderDropdown({
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
@@ -468,7 +468,7 @@ describe("DropdownNew", () => {
 
       const option1 = getByText("Option 1");
       fireEvent.click(option1);
-      expect(option1).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
     });
 
     it("should allow selecting multiple items", () => {
@@ -522,7 +522,7 @@ describe("DropdownNew", () => {
       fireEvent.click(getByText("Option 3"));
 
       const deleteButtons = getAllByRole("button").filter(
-        button => button.getAttribute("aria-label") === "close" || button.getAttribute("data-testid")?.includes("close")
+        button => button.getAttribute("data-testid") === "chip-close"
       );
 
       fireEvent.click(deleteButtons[0]);
@@ -568,6 +568,41 @@ describe("DropdownNew", () => {
       expect(getByLabelText("Option 3")).toBeInTheDocument();
 
       expect(queryByTestId("dropdown-counter")).not.toBeInTheDocument();
+    });
+
+    it("should show an overflow counter when more items are selected than can be displayed", () => {
+      const manyOptionsForCounter = [
+        {
+          label: "Overflow Group",
+          options: [
+            { label: "Chip Item 1", value: "chip1" },
+            { label: "Chip Item 2", value: "chip2" },
+            { label: "Chip Item 3", value: "chip3" }
+          ]
+        }
+      ];
+
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
+        multi: true,
+        options: manyOptionsForCounter
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Chip Item 1"));
+      fireEvent.click(getByText("Chip Item 2"));
+      fireEvent.click(getByText("Chip Item 3"));
+
+      fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
+
+      const counter = getByTestId("dropdown-overflow-counter");
+      expect(counter).toBeInTheDocument();
+      expect(counter).toHaveTextContent("+ 2");
+
+      expect(getByTestId("dropdown-chip-chip1")).not.toHaveAttribute("aria-hidden", "true");
+      expect(getByTestId("dropdown-chip-chip2")).toHaveAttribute("aria-hidden", "true");
+      expect(getByTestId("dropdown-chip-chip3")).toHaveAttribute("aria-hidden", "true");
     });
   });
 

@@ -95,7 +95,7 @@ const Dropdown = forwardRef(
       multiSelectedItems,
       setMultiSelectedItems,
       autoFocus,
-      multi ? (onChange as (items: Item[]) => void) : undefined,
+      multi ? onChange : undefined,
       onInputChange,
       onMenuClose,
       onMenuOpen,
