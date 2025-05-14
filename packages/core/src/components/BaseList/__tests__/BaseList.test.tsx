@@ -63,6 +63,33 @@ describe("BaseList", () => {
       expect(getByText("Option 1").parentNode).toHaveClass("selected");
     });
 
+    it("should apply the selected class to the selected item", () => {
+      const { getByText } = renderBaseList({
+        options,
+        selectedItems: [
+          { index: 0, value: "opt1", label: "Option 1" },
+          { label: "Option 4", value: "opt4", index: 3 }
+        ]
+      });
+
+      expect(getByText("Option 1").parentNode).toHaveClass("selected");
+      expect(getByText("Option 2").parentNode).not.toHaveClass("selected");
+      expect(getByText("Option 3").parentNode).not.toHaveClass("selected");
+      expect(getByText("Option 4").parentNode).toHaveClass("selected");
+    });
+
+    it("should no apply selected class when no selected items", () => {
+      const { getByText } = renderBaseList({
+        options,
+        selectedItems: []
+      });
+
+      expect(getByText("Option 1").parentNode).not.toHaveClass("selected");
+      expect(getByText("Option 2").parentNode).not.toHaveClass("selected");
+      expect(getByText("Option 3").parentNode).not.toHaveClass("selected");
+      expect(getByText("Option 4").parentNode).not.toHaveClass("selected");
+    });
+
     it("should apply the highlighted class to the highlighted item", () => {
       const { getByText } = renderBaseList({
         options,
