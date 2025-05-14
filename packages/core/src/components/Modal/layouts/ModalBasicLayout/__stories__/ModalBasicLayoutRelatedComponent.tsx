@@ -17,7 +17,7 @@ export const ModalBasicLayoutRelatedComponent = () => {
     <RelatedComponent
       component={component}
       title="Basic modal"
-      href="/?path=/docs/feedback-modal-new-basic-modal"
+      href="/?path=/docs/components-modal-new-basic-modal"
       description="Modal for straightforward tasks, helps users focus on a single task without distractions."
     />
   );
