@@ -18,7 +18,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import Text from "../Text/Text";
-import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
+import { BaseListItemData } from "../BaseListItem";
 import MultiSelectedValues from "./components/MultiSelectedValues";
 import { Chips } from "../Chips";
 
@@ -72,18 +72,12 @@ const Dropdown = forwardRef(
     const [isFocused, setIsFocused] = useState(false);
     const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>([]);
 
-    const handleSingleChange = (selectedItem: Item | null) => {
-      if (!multi && onChange) {
-        (onChange as (item: Item | null) => void)(selectedItem);
-      }
-    };
-
     const singleDropdown = useDropdownCombobox<Item>(
       options,
       autoFocus,
       isMenuOpen,
       closeMenuOnSelect,
-      handleSingleChange,
+      onChange,
       onInputChange,
       onMenuClose,
       onMenuOpen,
@@ -95,7 +89,7 @@ const Dropdown = forwardRef(
       multiSelectedItems,
       setMultiSelectedItems,
       autoFocus,
-      multi ? onChange : undefined,
+      onChange,
       onInputChange,
       onMenuClose,
       onMenuOpen,

@@ -29,7 +29,7 @@ export default function useItemsOverflow({
 
     const containerWidth = container.offsetWidth;
     const deductedWidth = deductedWidthRef.current;
-    const availableWidth = containerWidth - (itemRefs.length > 1 ? deductedWidth : 0);
+    const availableWidth = containerWidth - deductedWidth;
 
     let totalItemsWidth = 0;
     let count = 0;
