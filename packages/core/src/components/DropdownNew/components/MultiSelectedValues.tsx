@@ -43,41 +43,34 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
       <DialogContentContainer>
         <Flex direction="column" gap="xs" align="start">
           {hiddenItems.map(item => (
-            <Chips
-              key={`dropdown-chip-${item.value}`}
-              label={item.label}
-              onDelete={() => onRemove(item)}
-              disableClickableBehavior
-              onMouseDown={e => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-              noMargin
-            />
+            <Chips key={`dropdown-chip-${item.value}`} label={item.label} onDelete={() => onRemove(item)} noMargin />
           ))}
         </Flex>
       </DialogContentContainer>
     );
   }, [hiddenItems, onRemove]);
 
+  const chipElements = useMemo(() => {
+    return selectedItems.map((item, index) => {
+      const isVisible = index < visibleCount;
+      return (
+        <div
+          key={`dropdown-chip-${item.value}`}
+          className={cx("chip-wrapper", { [styles.hiddenChip]: !isVisible })}
+          aria-hidden={!isVisible}
+          data-testid={`dropdown-chip-${item.value}`}
+        >
+          <Chips label={item.label} onDelete={() => onRemove(item)} noMargin />
+        </div>
+      );
+    });
+  }, [selectedItems, visibleCount, onRemove]);
+
   if (!selectedItems?.length) return null;
 
   return (
     <Flex align="center" wrap={false} gap="xs" ref={containerRef} className={styles.containerWrapper}>
-      {selectedItems.map((item, index) => {
-        const isVisible = index < visibleCount;
-
-        return (
-          <div
-            key={`dropdown-chip-${item.value}`}
-            className={cx("chip-wrapper", { [styles.hiddenChip]: !isVisible })}
-            aria-hidden={!isVisible}
-            data-testid={`dropdown-chip-${item.value}`}
-          >
-            <Chips label={item.label} onDelete={() => onRemove(item)} noMargin />
-          </div>
-        );
-      })}
+      {chipElements}
 
       <Flex ref={deductedSpaceRef} gap="xs">
         {hiddenCount > 0 && (
@@ -90,7 +83,6 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
           >
             <Chips
               label={`+ ${hiddenCount}`}
-              disableClickableBehavior
               readOnly
               noMargin
               ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}

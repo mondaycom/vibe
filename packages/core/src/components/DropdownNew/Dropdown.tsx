@@ -151,9 +151,7 @@ const Dropdown = forwardRef(
               setIsFocused(false);
               onBlur?.();
             },
-            onKeyDown: e => {
-              onKeyDown?.(e);
-            }
+            onKeyDown
           })}
           autoFocus={autoFocus}
           size={size}
