@@ -18,9 +18,13 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * Callback fired when an option is removed in multi-select mode. Only available when multi is true.
    */
   onOptionRemove?: (option: BaseListItemData<Item>) => void;
+  /**
+   * The function to call to render the selected value on single select mode.
+   */
+  valueRenderer?: never;
 }
 
-interface SingleSelectSpecifics {
+interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
   /**
    * If true, the dropdown allows multiple selections. Defaults to false.
    */
@@ -33,6 +37,10 @@ interface SingleSelectSpecifics {
    * Callback fired when an option is removed in multi-select mode. (Not available for single select)
    */
   onOptionRemove?: never;
+  /**
+   * The function to call to render the selected value on single select mode.
+   */
+  valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -64,10 +72,6 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The function to call to render an option.
    */
   optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
-  /**
-   * The function to call to render the selected value
-   */
-  valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
   /**
    * The message to display when there are no options.
    */
@@ -160,7 +164,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * Callback fired when scrolling inside the dropdown.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
-} & (MultiSelectSpecifics<Item> | SingleSelectSpecifics);
+} & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
 
