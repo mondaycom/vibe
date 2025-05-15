@@ -20,7 +20,6 @@ import { BaseListItemData } from "../BaseListItem";
 import MultiSelectedValues from "./components/MultiSelectedValues";
 import { Chips } from "../Chips";
 import Dialog from "../Dialog/Dialog";
-import * as PopperJS from "@popperjs/core";
 import { Modifier } from "react-popper";
 
 const Dropdown = forwardRef(
@@ -115,18 +114,20 @@ const Dropdown = forwardRef(
     const selectedItems = multi ? multiDropdown.selectedItems : undefined;
     const removeSelectedItem = multi ? multiDropdown.removeSelectedItem : undefined;
 
-    const matchWidthModifier = useMemo<Modifier<any, any>>(
-      () => ({
-        name: "matchWidth",
-        enabled: true,
-        phase: "beforeWrite",
-        requires: ["computeStyles"],
-        fn: ({ state }: { state: PopperJS.State }) => {
-          if (state.rects && state.rects.reference) {
-            state.styles.popper.width = `${state.rects.reference.width}px`;
+    const matchWidthModifier: Modifier<any>[] = useMemo(
+      () => [
+        {
+          name: "matchWidth",
+          enabled: true,
+          phase: "beforeWrite",
+          requires: ["computeStyles"],
+          fn: ({ state }) => {
+            if (state.rects && state.rects.reference) {
+              state.styles.popper.width = `${state.rects.reference.width}px`;
+            }
           }
         }
-      }),
+      ],
       []
     );
 
@@ -327,7 +328,7 @@ const Dropdown = forwardRef(
                 reset();
               }
             }}
-            modifiers={[matchWidthModifier]}
+            modifiers={matchWidthModifier}
             content={dialogContent}
           >
             {renderDropdownTrigger()}
