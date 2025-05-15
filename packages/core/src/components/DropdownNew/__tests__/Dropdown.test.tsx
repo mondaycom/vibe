@@ -755,4 +755,115 @@ describe("DropdownNew", () => {
       expect(getByTestId("typed-render-typed-rendered-2")).toBeInTheDocument();
     });
   });
+
+  describe("with filterOption prop", () => {
+    // Define a more specific type for our test options
+    type FilterTestOptionType = BaseListItemData<{
+      id: string;
+      value: string;
+    }>;
+
+    const filterTestOptions: FilterTestOptionType[] = [
+      { label: "Apple", id: "1", value: "apple" },
+      { label: "Banana", id: "2", value: "banana" },
+      { label: "Cherry", id: "3", value: "cherry" },
+      { label: "Date", id: "4", value: "date" }
+    ];
+
+    const customEvenIdFilter = (option: FilterTestOptionType, _inputValue: string) => {
+      return parseInt(option.id) % 2 === 0;
+    };
+
+    const customSubstringFilter = (option: FilterTestOptionType, inputValue: string) => {
+      return option.label.toLowerCase().includes("rr") && option.label.toLowerCase().includes(inputValue.toLowerCase());
+    };
+
+    it("should filter options using custom filterOption in single select mode", () => {
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
+        options: filterTestOptions,
+        filterOption: customEvenIdFilter,
+        placeholder: "Select fruit"
+      });
+
+      const input = getByPlaceholderText("Select fruit");
+      fireEvent.click(input);
+
+      fireEvent.change(input, { target: { value: "a" } });
+
+      expect(queryByText("Apple")).not.toBeInTheDocument();
+      expect(getByText("Banana")).toBeInTheDocument();
+      expect(queryByText("Cherry")).not.toBeInTheDocument();
+      expect(getByText("Date")).toBeInTheDocument();
+    });
+
+    it("should filter options using custom filterOption (substring) in single select mode", () => {
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
+        options: filterTestOptions,
+        filterOption: customSubstringFilter,
+        placeholder: "Select fruit"
+      });
+
+      const input = getByPlaceholderText("Select fruit");
+      fireEvent.click(input);
+      fireEvent.change(input, { target: { value: "rr" } });
+
+      expect(queryByText("Apple")).not.toBeInTheDocument();
+      expect(queryByText("Banana")).not.toBeInTheDocument();
+      expect(getByText("Cherry")).toBeInTheDocument();
+      expect(queryByText("Date")).not.toBeInTheDocument();
+    });
+
+    it("should filter options using custom filterOption in multi select mode", () => {
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
+        options: filterTestOptions,
+        filterOption: customEvenIdFilter,
+        multi: true,
+        placeholder: "Select fruits"
+      });
+
+      const input = getByPlaceholderText("Select fruits");
+      fireEvent.click(input);
+
+      fireEvent.change(input, { target: { value: "b" } });
+
+      expect(queryByText("Apple")).not.toBeInTheDocument();
+      expect(getByText("Banana")).toBeInTheDocument();
+      expect(queryByText("Cherry")).not.toBeInTheDocument();
+      expect(getByText("Date")).toBeInTheDocument();
+    });
+
+    it("should filter options using custom filterOption (substring) in multi select mode", () => {
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
+        options: filterTestOptions,
+        filterOption: customSubstringFilter,
+        multi: true,
+        placeholder: "Select fruits"
+      });
+
+      const input = getByPlaceholderText("Select fruits");
+      fireEvent.click(input);
+      fireEvent.change(input, { target: { value: "rr" } });
+
+      expect(queryByText("Apple")).not.toBeInTheDocument();
+      expect(queryByText("Banana")).not.toBeInTheDocument();
+      expect(getByText("Cherry")).toBeInTheDocument();
+      expect(queryByText("Date")).not.toBeInTheDocument();
+    });
+
+    it("should use default filter if filterOption is not provided, even with input", () => {
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
+        options: filterTestOptions,
+        placeholder: "Select fruit"
+      });
+
+      const input = getByPlaceholderText("Select fruit");
+      fireEvent.click(input);
+      fireEvent.change(input, { target: { value: "app" } });
+
+      expect(getByText("Apple")).toBeInTheDocument();
+      expect(queryByText("Banana")).not.toBeInTheDocument();
+      expect(queryByText("Cherry")).not.toBeInTheDocument();
+      expect(queryByText("Date")).not.toBeInTheDocument();
+    });
+  });
 });
