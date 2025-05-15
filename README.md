@@ -46,6 +46,16 @@ Components are imported from the library's root entry:
 import { Button } from "@vibe/core";
 ```
 
+## MCP Server
+
+Use [GitMCP](https://gitmcp.io/) to connect Vibe to your AI tools for context-aware suggestions, using the latest source code and documentation:
+
+```
+https://gitmcp.io/mondaycom/vibe
+```
+
+Follow the [setup instructions](https://gitmcp.io/mondaycom/vibe) to connect Vibe to your AI tools.
+
 ## Ecosystem
 
 - [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
