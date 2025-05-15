@@ -164,6 +164,11 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * Callback fired when scrolling inside the dropdown.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+  /**
+   * A function to customize the filtering of options.
+   * It receives an option and the current input value, and should return true if the option should be included, false otherwise.
+   */
+  filterOption?: (option: Item, inputValue: string) => boolean;
 } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
