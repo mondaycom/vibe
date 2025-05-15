@@ -28,7 +28,7 @@ function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(pro
     placeholder: "Select an option",
     ...props
   };
-  return render(<Dropdown {...defaultProps} />);
+  return render(<Dropdown {...(defaultProps as BaseDropdownProps<T>)} />);
 }
 
 describe("DropdownNew", () => {
