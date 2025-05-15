@@ -11,6 +11,7 @@ import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
 import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
+import { keyCodes } from "../../../constants";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -104,6 +105,14 @@ const Tab: FC<TabProps> = forwardRef(
 
       return [...childrenArray, iconElement];
     }
+
+    function handleKeyDown(event: React.KeyboardEvent) {
+      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+        event.preventDefault();
+        !disabled && onClick(value);
+      }
+    }
+
     return (
       <Tooltip {...tooltipProps} content={tooltipProps.content}>
         <li
@@ -120,16 +129,10 @@ const Tab: FC<TabProps> = forwardRef(
           aria-disabled={disabled}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
+          onClick={() => !disabled && onClick(value)}
+          onKeyDown={handleKeyDown}
         >
-          <button
-            className={cx(styles.tabInner, tabInnerClassName)}
-            onClick={() => !disabled && onClick(value)}
-            disabled={disabled}
-            type="button"
-            tabIndex={-1}
-          >
-            {renderIconAndChildren()}
-          </button>
+          <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
         </li>
       </Tooltip>
     );
