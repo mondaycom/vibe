@@ -48,7 +48,7 @@ import { Button } from "@vibe/core";
 
 ## MCP Server
 
-Use [GitMCP](https://gitmcp.io/) to connect Vibe to your AI tools for context-aware suggestions, powered by the latest source code, components, and documentation:
+Use [GitMCP](https://gitmcp.io/) to connect Vibe to your AI tools for context-aware suggestions, using the latest source code and documentation:
 
 ```
 https://gitmcp.io/mondaycom/vibe
