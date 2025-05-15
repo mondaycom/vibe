@@ -183,13 +183,7 @@ const Dropdown = forwardRef(
             selectedItems={multi ? selectedItems : [selectedItem]}
             highlightedIndex={highlightedIndex}
             getMenuProps={getMenuProps}
-            getItemProps={listItemProps => {
-              const item = listItemProps.item;
-              const index = listItemProps.index;
-              const baseProps = getItemProps({ item, index });
-              const isSelected = multi ? selectedItems.some(i => i.id === item.id) : selectedItem?.id === item.id;
-              return { ...baseProps, selected: isSelected };
-            }}
+            getItemProps={getItemProps}
             withGroupDivider={withGroupDivider}
             stickyGroupTitle={stickyGroupTitle}
             dir={dir}
