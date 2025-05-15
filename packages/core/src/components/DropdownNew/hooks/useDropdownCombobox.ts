@@ -13,9 +13,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
-  onOptionSelect?: (option: T) => void
+  onOptionSelect?: (option: T) => void,
+  filterOption?: (option: T, inputValue: string) => boolean
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options);
+  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options, filterOption);
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
   const {

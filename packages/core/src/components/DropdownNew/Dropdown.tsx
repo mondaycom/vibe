@@ -45,6 +45,7 @@ const Dropdown = forwardRef(
       closeMenuOnSelect = true,
       autoFocus,
       clearable = true,
+      filterOption,
       onBlur,
       onChange,
       onClear,
@@ -81,7 +82,8 @@ const Dropdown = forwardRef(
       onInputChange,
       onMenuClose,
       onMenuOpen,
-      onOptionSelect
+      onOptionSelect,
+      filterOption
     );
 
     const multiDropdown = useDropdownMultiCombobox<Item>(
@@ -93,7 +95,8 @@ const Dropdown = forwardRef(
       onInputChange,
       onMenuClose,
       onMenuOpen,
-      onOptionSelect
+      onOptionSelect,
+      filterOption
     );
 
     const {
