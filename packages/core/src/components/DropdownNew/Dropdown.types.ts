@@ -4,7 +4,38 @@ import { VibeComponentProps } from "../../types";
 import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
-export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> extends VibeComponentProps {
+
+interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
+  /**
+   * If true, the dropdown allows multiple selections.
+   */
+  multi: true;
+  /*
+   * If true, the dropdown allows multiple lines of selected items.
+   */
+  multiline?: boolean;
+  /**
+   * Callback fired when an option is removed in multi-select mode. Only available when multi is true.
+   */
+  onOptionRemove?: (option: BaseListItemData<Item>) => void;
+}
+
+interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
+  /**
+   * If true, the dropdown allows multiple selections. Defaults to false.
+   */
+  multi?: false;
+  /**
+   * If true, the dropdown allows multiple lines of selected items. (Not available for single select)
+   */
+  multiline?: never;
+  /**
+   * Callback fired when an option is removed in multi-select mode. (Not available for single select)
+   */
+  onOptionRemove?: never;
+}
+
+export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
   /**
    * The list of options available in the list.
    */
@@ -90,14 +121,6 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
    */
   clearable?: boolean;
   /**
-   * If true, the dropdown allows multiple selections.
-   */
-  multi?: boolean;
-  /*
-   * If true, the dropdown allows multiple lines of selected items.
-   */
-  multiline?: boolean;
-  /**
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;
@@ -134,15 +157,11 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
    */
   onOptionSelect?: (option: BaseListItemData<Item>) => void;
   /**
-   * Callback fired when an option is removed in multi-select mode.
-   */
-  onOptionRemove?: (option: BaseListItemData<Item>) => void;
-
-  /**
    * Callback fired when scrolling inside the dropdown.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
-}
+} & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
+
 export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
