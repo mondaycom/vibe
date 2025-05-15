@@ -32,7 +32,7 @@ import {
 ## Overview
 
 <p style={{ marginBlockEnd: "var(--sb-spacing-xxxl)" }}>
-  Modals help users focus on a single task or a piece of information by popping up and blocking the rest of the page’s
+  Modals help users focus on a single task or a piece of information by popping up and blocking the rest of the page's
   content. Modals disappear when user complete a required action or dismiss it. Use modals for quick, infrequent tasks.
   We have 3 different modal component, each one provide a different layout for a different use case:
 </p>
@@ -104,8 +104,13 @@ The Modal component provides several built-in enhancements to simplify usage and
       it is open. Focus also automatically returns to the last focused element upon closing.
     </span>,
     <span>
-      <b>Aria attributes:</b> For better screen reader support, while using the <code>ModalHeader</code> it
-      automatically sets <code>aria-labelledby</code> and <code>aria-describedby</code> on the modal.
+      <b>Aria attributes:</b> For better screen reader support, using <code>ModalHeader</code> - with simple string values for <code>title</code> and <code>description</code> props - automatically sets the necessary <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the modal.
+    </span>,
+    <span>
+      <b>Manual ARIA for complex content:</b> If you pass a <b>ReactNode</b> (e.g., a custom component) as the <code>title</code> or <code>description</code> prop to <code>ModalHeader</code>, you <b>must</b> assign a unique <code>id</code> to your primary custom element within that ReactNode. Then, pass this <code>id</code> directly to the parent <code>Modal</code> component using the <code>aria-labelledby</code> (for title) or <code>aria-describedby</code> (for description) prop. This ensures assistive technologies can correctly identify the modal's label and description. For example, if your custom title is <code>&lt;CustomTitleComponent id="my-unique-title-id" /&gt;</code>, you would pass <code>aria-labelledby="my-unique-title-id"</code> to the <code>&lt;Modal&gt;</code> component.
+    </span>,
+    <span>
+      <b>Overriding ARIA attributes:</b> Additionally, you can directly provide the <code>aria-labelledby</code> and <code>aria-describedby</code> props to the <code>Modal</code> component itself, regardless of how you use the <code>ModalHeader</code>. If provided, these props will <b>always override</b> any automatically generated values from <code>ModalHeader</code>.
     </span>
   ]}
 />

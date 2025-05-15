@@ -3,7 +3,7 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 
-export interface BaseListItemProps<Item = Record<string, unknown>>
+export interface BaseListItemProps<Item extends Record<string, unknown>>
   extends React.LiHTMLAttributes<HTMLLIElement>,
     VibeComponentProps {
   /**
@@ -49,6 +49,10 @@ export interface BaseListItemProps<Item = Record<string, unknown>>
 }
 
 export type BaseListItemData<Item = Record<string, unknown>> = Item & {
+  /**
+   * The value of the list item.
+   */
+  value: string | number;
   /**
    * The primary text content of the list item.
    */

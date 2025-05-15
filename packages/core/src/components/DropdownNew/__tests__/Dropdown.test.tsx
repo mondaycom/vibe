@@ -238,7 +238,7 @@ describe("DropdownNew", () => {
     });
 
     it("should not display indent startElement in selected value", () => {
-      const optionsWithIndent = [
+      const optionsWithIndent: ListGroup<BaseListItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
           options: [
@@ -454,6 +454,153 @@ describe("DropdownNew", () => {
 
       fireEvent.blur(input);
       expect(onBlur).toHaveBeenCalled();
+    });
+  });
+
+  describe("multi-select mode", () => {
+    it("should render a multi-select dropdown when the multi prop is true", () => {
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      const option1 = getByText("Option 1");
+      fireEvent.click(option1);
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+    });
+
+    it("should allow selecting multiple items", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "opt1", label: "Option 1" })]);
+
+      fireEvent.click(getByText("Option 3"));
+      expect(onChange).toHaveBeenLastCalledWith([
+        expect.objectContaining({ value: "opt1", label: "Option 1" }),
+        expect.objectContaining({ value: "opt3", label: "Option 3" })
+      ]);
+    });
+
+    it("should render chips for selected items", () => {
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
+    });
+
+    it("should remove an item when its chip is deleted", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+        multi: true,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      const deleteButtons = getAllByRole("button").filter(
+        button => button.getAttribute("data-testid") === "chip-close"
+      );
+
+      fireEvent.click(deleteButtons[0]);
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        expect.arrayContaining([expect.not.objectContaining({ value: "opt1" })])
+      );
+    });
+
+    it("should call onOptionRemove when an item is removed", () => {
+      const onOptionRemove = jest.fn();
+      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+        multi: true,
+        onOptionRemove
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+
+      const deleteButtons = getAllByRole("button").filter(button =>
+        button.getAttribute("data-testid")?.includes("close")
+      );
+      fireEvent.click(deleteButtons[0]);
+      expect(onOptionRemove).toHaveBeenCalledWith(expect.objectContaining({ value: "opt1", label: "Option 1" }));
+    });
+
+    it("should show selected chips without counter", () => {
+      const { getByPlaceholderText, getByText, queryByTestId, getByLabelText } = renderDropdown({
+        multi: true
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(getByText("Option 3"));
+
+      fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
+
+      expect(getByLabelText("Option 1")).toBeInTheDocument();
+      expect(getByLabelText("Option 3")).toBeInTheDocument();
+
+      expect(queryByTestId("dropdown-counter")).not.toBeInTheDocument();
+    });
+
+    it("should show an overflow counter when more items are selected than can be displayed", () => {
+      const manyOptionsForCounter = [
+        {
+          label: "Overflow Group",
+          options: [
+            { label: "Chip Item 1", value: "chip1" },
+            { label: "Chip Item 2", value: "chip2" },
+            { label: "Chip Item 3", value: "chip3" }
+          ]
+        }
+      ];
+
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
+        multi: true,
+        options: manyOptionsForCounter
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Chip Item 1"));
+      fireEvent.click(getByText("Chip Item 2"));
+      fireEvent.click(getByText("Chip Item 3"));
+
+      fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
+
+      const counter = getByTestId("dropdown-overflow-counter");
+      expect(counter).toBeInTheDocument();
+      expect(counter).toHaveTextContent("+ 2");
+
+      expect(getByTestId("dropdown-chip-chip1")).not.toHaveAttribute("aria-hidden", "true");
+      expect(getByTestId("dropdown-chip-chip2")).toHaveAttribute("aria-hidden", "true");
+      expect(getByTestId("dropdown-chip-chip3")).toHaveAttribute("aria-hidden", "true");
     });
   });
 

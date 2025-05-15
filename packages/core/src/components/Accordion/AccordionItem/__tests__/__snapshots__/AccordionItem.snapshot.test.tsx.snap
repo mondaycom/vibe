@@ -102,6 +102,56 @@ exports[`AccordionItem renders correctly with className 1`] = `
 </div>
 `;
 
+exports[`AccordionItem renders correctly with iconPosition 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+  data-vibe="Accordion"
+>
+  <div
+    className=""
+    id="monday-accordion--item-0"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      id="expand-collapse--monday-accordion--item-0"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse accordionItemExpandCollapseLast"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
+          aria-expanded={true}
+          className="header section headerOpen leftIcon"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconOpen"
+            data-testid="icon"
+            data-vibe="Icon"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+            />
+          </svg>
+        </button>
+        <div
+          className="content section animateExpandCollapseContent"
+          id="expand-collapse--monday-accordion--item-0-controls"
+          role="region"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`AccordionItem renders correctly with iconSize 1`] = `
 <div
   className="accordion"

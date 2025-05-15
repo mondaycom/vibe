@@ -23,6 +23,9 @@
     user-select: text;
     cursor: text;
   }
+  &.noMargin {
+    margin: 0;
+  }
 
   .label {
     @include ellipsis();

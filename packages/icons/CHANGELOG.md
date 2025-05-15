@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.1...@vibe/icons@1.7.2) (2025-05-13)
+
+
+### Bug Fixes
+
+* **icons:** change Subitems icon ([#2881](https://github.com/mondaycom/vibe/issues/2881)) ([0b06b9f](https://github.com/mondaycom/vibe/commit/0b06b9fb61986aa43b15963f6454062f579bb165))
+
+
+
+
+
 ## [1.7.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.0...@vibe/icons@1.7.1) (2025-05-04)
 
 

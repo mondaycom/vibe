@@ -54,6 +54,15 @@
   color: var(--text-color-on-inverted);
 }
 
+.arrow.arrow.dark,
+.arrow.arrow.primary {
+  :global(.dark-app-theme) &,
+  :global(.black-app-theme) &,
+  :global(.hacker-app-theme) & {
+    box-shadow: none;
+  }
+}
+
 .primary,
 .arrow.primary {
   background-color: var(--primary-color);

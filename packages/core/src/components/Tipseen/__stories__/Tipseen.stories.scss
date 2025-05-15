@@ -80,3 +80,7 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     background-color: var(--sb-primary-selected-color);
   }
 }
+
+#story--components-tipseen--floating-tipseen {
+  height: 400px;
+}

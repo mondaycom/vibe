@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.50.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.49.0...@vibe/core@3.50.0) (2025-05-15)
+
+
+### Features
+
+* **Dropdown, Dialog, Tooltip:** apply border color for components in darker themes ([#2880](https://github.com/mondaycom/vibe/issues/2880)) ([c25630c](https://github.com/mondaycom/vibe/commit/c25630cad4dd4836433fccff5311ec055ba96202))
+
+
+
+
+
+# [3.49.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.1...@vibe/core@3.49.0) (2025-05-13)
+
+
+### Features
+
+* **Modal:** add responsiveness for modal ([#2737](https://github.com/mondaycom/vibe/issues/2737)) ([02ef204](https://github.com/mondaycom/vibe/commit/02ef204354580b659b26deb9b4e9791c6518be9b))
+
+
+
+
+
+## [3.48.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.0...@vibe/core@3.48.1) (2025-05-11)
+
+
+### Bug Fixes
+
+* **Dropdown:** Fix dropdown chip width issue ([#2872](https://github.com/mondaycom/vibe/issues/2872)) ([c8c6b09](https://github.com/mondaycom/vibe/commit/c8c6b09b13584cf0e8cf4fb411c0243d155cb7e3))
+
+
+
+
+
+# [3.48.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.47.0...@vibe/core@3.48.0) (2025-05-08)
+
+
+### Bug Fixes
+
+* **Dropdown:** add support for rightRenderer in multi dropdown ([#2870](https://github.com/mondaycom/vibe/issues/2870)) ([6a833c8](https://github.com/mondaycom/vibe/commit/6a833c865c6c2af45edac059d12e8f9c12b73152))
+
+
+### Features
+
+* add observeReferenceResizeModifier for dynamic reference resizing ([#2869](https://github.com/mondaycom/vibe/issues/2869)) ([5967c65](https://github.com/mondaycom/vibe/commit/5967c650f45363efcc3ad6d867c976bf6dda6d79))
+* **Chips:** add noMargin prop to remove default margin from chips ([#2871](https://github.com/mondaycom/vibe/issues/2871)) ([ab92f6c](https://github.com/mondaycom/vibe/commit/ab92f6cec2b03f99ea3cee828894c7c8f78fec2a))
+
+
+
+
+
+# [3.47.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.1...@vibe/core@3.47.0) (2025-05-05)
+
+
+### Features
+
+* **ExpandCollapse:** make icon position configurable ([#2863](https://github.com/mondaycom/vibe/issues/2863)) ([7d24e77](https://github.com/mondaycom/vibe/commit/7d24e7760aa17a2cb19f34a5fe378af49c8186f5))
+
+
+
+
+
 ## [3.46.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.0...@vibe/core@3.46.1) (2025-05-04)
 
 

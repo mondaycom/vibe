@@ -34,6 +34,10 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
    */
   optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
   /**
+   * The function to call to render the selected value
+   */
+  valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  /**
    * The message to display when there are no options.
    */
   noOptionsMessage?: string | React.ReactNode;
@@ -86,6 +90,14 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
    */
   clearable?: boolean;
   /**
+   * If true, the dropdown allows multiple selections.
+   */
+  multi?: boolean;
+  /*
+   * If true, the dropdown allows multiple lines of selected items.
+   */
+  multiline?: boolean;
+  /**
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;
@@ -122,11 +134,15 @@ export interface BaseDropdownProps<Item extends BaseListItemData<Record<string, 
    */
   onOptionSelect?: (option: BaseListItemData<Item>) => void;
   /**
+   * Callback fired when an option is removed in multi-select mode.
+   */
+  onOptionRemove?: (option: BaseListItemData<Item>) => void;
+
+  /**
    * Callback fired when scrolling inside the dropdown.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
 }
-
 export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
