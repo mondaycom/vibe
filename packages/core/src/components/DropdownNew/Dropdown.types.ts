@@ -1,7 +1,7 @@
 import React from "react";
 import { ListGroup } from "../BaseList";
 import { VibeComponentProps } from "../../types";
-import { BaseListItemData } from "../BaseListItem/BaseListItem.types";
+import { BaseListItemData } from "../BaseListItem";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
@@ -20,7 +20,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   onOptionRemove?: (option: BaseListItemData<Item>) => void;
 }
 
-interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
+interface SingleSelectSpecifics {
   /**
    * If true, the dropdown allows multiple selections. Defaults to false.
    */
@@ -160,7 +160,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * Callback fired when scrolling inside the dropdown.
    */
   onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
-} & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
+} & (MultiSelectSpecifics<Item> | SingleSelectSpecifics);
 
 export type DropdownSizes = "small" | "medium" | "large";
 
