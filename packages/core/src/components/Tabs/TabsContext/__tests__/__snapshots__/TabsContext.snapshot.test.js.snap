@@ -19,17 +19,15 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         className="tabWrapper tabListTabWrapper"
         data-testid="tab"
         data-vibe="Tab"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
       >
-        <button
+        <div
           className="tabInner tabListTabInner"
-          disabled={false}
-          onClick={[Function]}
-          tabIndex={-1}
-          type="button"
         >
           First
-        </button>
+        </div>
       </li>
       <li
         aria-disabled={false}
@@ -37,17 +35,15 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
         data-vibe="Tab"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
       >
-        <button
+        <div
           className="tabInner tabListTabInner"
-          disabled={false}
-          onClick={[Function]}
-          tabIndex={-1}
-          type="button"
         >
           Second
-        </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -86,17 +82,15 @@ exports[`TabsContext renders correctly with className 1`] = `
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
         data-vibe="Tab"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
       >
-        <button
+        <div
           className="tabInner tabListTabInner"
-          disabled={false}
-          onClick={[Function]}
-          tabIndex={-1}
-          type="button"
         >
           First
-        </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -134,17 +128,15 @@ exports[`TabsContext renders correctly with empty props 1`] = `
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
         data-vibe="Tab"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
       >
-        <button
+        <div
           className="tabInner tabListTabInner"
-          disabled={false}
-          onClick={[Function]}
-          tabIndex={-1}
-          type="button"
         >
           First
-        </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -183,17 +175,15 @@ exports[`TabsContext renders correctly with id 1`] = `
         className="tabWrapper tabListTabWrapper active"
         data-testid="tab"
         data-vibe="Tab"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
       >
-        <button
+        <div
           className="tabInner tabListTabInner"
-          disabled={false}
-          onClick={[Function]}
-          tabIndex={-1}
-          type="button"
         >
           First
-        </button>
+        </div>
       </li>
     </ul>
   </div>

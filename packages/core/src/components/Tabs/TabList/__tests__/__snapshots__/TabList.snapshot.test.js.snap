@@ -16,17 +16,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -34,17 +32,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         Second
-      </button>
+      </div>
     </li>
   </ul>
 </div>
@@ -66,17 +62,15 @@ exports[`TabList renders correctly with children 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
   </ul>
 </div>
@@ -98,17 +92,15 @@ exports[`TabList renders correctly with className 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
   </ul>
 </div>
@@ -131,17 +123,15 @@ exports[`TabList renders correctly with id 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
   </ul>
 </div>
@@ -163,17 +153,15 @@ exports[`TabList renders correctly with size 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -181,17 +169,15 @@ exports[`TabList renders correctly with size 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         Second
-      </button>
+      </div>
     </li>
   </ul>
 </div>
@@ -213,17 +199,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         First
-      </button>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -231,17 +215,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <button
+      <div
         className="tabInner tabListTabInner"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
       >
         Second
-      </button>
+      </div>
     </li>
   </ul>
 </div>
