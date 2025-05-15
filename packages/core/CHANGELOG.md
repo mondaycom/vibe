@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.50.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.49.0...@vibe/core@3.50.0) (2025-05-15)
+
+
+### Features
+
+* **Dropdown, Dialog, Tooltip:** apply border color for components in darker themes ([#2880](https://github.com/mondaycom/vibe/issues/2880)) ([c25630c](https://github.com/mondaycom/vibe/commit/c25630cad4dd4836433fccff5311ec055ba96202))
+
+
+
+
+
 # [3.49.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.1...@vibe/core@3.49.0) (2025-05-13)
 
 
