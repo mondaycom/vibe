@@ -42,7 +42,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset
+    reset: downshiftReset,
+    openMenu,
+    toggleMenu,
+    closeMenu
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
@@ -63,7 +66,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       },
       [onInputChange, filterOptions]
     ),
-
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
         setCurrentSelectedItem(selectedItem || null);
@@ -74,12 +76,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         } else {
           onChange?.(null);
           filterOptions("");
-          onChange?.(selectedItem);
         }
       },
       [onOptionSelect, filterOptions, onChange]
     ),
-
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -91,6 +91,13 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     }
   });
 
+  const reset = useCallback(() => {
+    setCurrentSelectedItem(null);
+    downshiftReset();
+    filterOptions("");
+    onChange?.(null);
+  }, [downshiftReset, filterOptions, onChange]);
+
   return {
     isOpen,
     inputValue,
@@ -101,12 +108,11 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset: () => {
-      setCurrentSelectedItem(null);
-      reset();
-      filterOptions("");
-    },
-    filteredOptions
+    reset,
+    filteredOptions,
+    openMenu,
+    toggleMenu,
+    closeMenu
   };
 }
 
