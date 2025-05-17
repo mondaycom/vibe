@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { BaseListItemData } from "../../BaseListItem";
@@ -14,9 +14,22 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
-  filterOption?: (option: T, inputValue: string) => boolean
+  filterOption?: (option: T, inputValue: string) => boolean,
+  showSelectedOptions?: boolean
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options, filterOption);
+  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(null);
+
+  const memoizedSelectedItemForFiltering = useMemo(() => {
+    return currentSelectedItem ? [currentSelectedItem] : [];
+  }, [currentSelectedItem]);
+
+  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
+    options,
+    filterOption,
+    showSelectedOptions,
+    memoizedSelectedItemForFiltering
+  );
+
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
   const {
@@ -53,8 +66,13 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
 
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
+        setCurrentSelectedItem(selectedItem || null);
         if (selectedItem) {
           onOptionSelect?.(selectedItem);
+          onChange?.(selectedItem);
+          filterOptions("");
+        } else {
+          onChange?.(null);
           filterOptions("");
           onChange?.(selectedItem);
         }
@@ -83,7 +101,11 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset,
+    reset: () => {
+      setCurrentSelectedItem(null);
+      reset();
+      filterOptions("");
+    },
     filteredOptions
   };
 }

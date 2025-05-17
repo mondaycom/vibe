@@ -169,6 +169,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * It receives an option and the current input value, and should return true if the option should be included, false otherwise.
    */
   filterOption?: (option: Item, inputValue: string) => boolean;
+  /**
+   * If false, selected options will be hidden from the list. Defaults to true.
+   */
+  showSelectedOptions?: boolean;
 } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
