@@ -1,0 +1,72 @@
+---
+description: Tipseen examples to create an onboarding experience for new users
+globs: 
+alwaysApply: false
+---
+- Tipseen component creates an onboarding experience for new users
+
+### Tipseen with wizard
+
+```jsx
+const content = [
+    <div>Popover message №1 will appear here</div>,
+    <div>Popover message №2 will appear here</div>,
+    <div>Popover message №3 will appear here</div>,
+    <div>Popover message №4 will appear here</div>,
+    <div>Popover message №5 will appear here</div>,
+  ];
+  const [activeStepIndex, setActiveStepIndex] = useState(2);
+  const onChangeActiveStep = useCallback(
+    (_e: any, stepIndex: React.SetStateAction<number>) => {
+      setActiveStepIndex(stepIndex);
+    },
+    []
+  );
+  return (
+    <Tipseen
+      position="right"
+      content={
+        <TipseenWizard
+          title="This is a title"
+          steps={content}
+          activeStepIndex={activeStepIndex}
+          onChangeActiveStep={onChangeActiveStep}
+          onFinish={() => {}}
+        />
+      }
+    >
+      <div className="monday-storybook-tipseen_container" />
+    </Tipseen>
+  );
+```
+
+### Tipseen default
+
+```jsx
+<Tipseen
+    position="right"
+    content={
+    <TipseenContent title="This is a title" hideDismiss>
+        Message for the user will appear here, to give more information
+        about the feature.
+    </TipseenContent>
+    }
+>
+</Tipseen>
+```
+
+### Tipseen with color
+
+```jsx
+<Tipseen
+    position="right"
+    color="primary"
+    content={
+    <TipseenContent title="This is a title" hideDismiss>
+        Message for the user will appear here, to give more information
+        about the feature.
+    </TipseenContent>
+    }
+>
+</Tipseen>
+```

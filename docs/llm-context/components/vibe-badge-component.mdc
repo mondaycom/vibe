@@ -1,0 +1,23 @@
+---
+description: Badge component usage examples, to add indicator to a child component
+globs: 
+alwaysApply: false
+---
+The badge component adds an indicator or counter on a child component
+
+### Basic usage
+```jsx
+<Badge onMouseDown={function noRefCheck(){}}>
+  <Button leftIcon={function noRefCheck(){}}>
+    What's new
+  </Button>
+</Badge>
+```
+
+### As counter
+
+```jsx
+<Badge type="counter" count={100} maxDigits={2}>
+    <Button leftIcon={WhatsNew}>{"What's new"}</Button>
+</Badge>
+```

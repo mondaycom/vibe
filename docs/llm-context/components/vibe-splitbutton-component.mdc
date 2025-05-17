@@ -1,0 +1,37 @@
+---
+description: SplitButton usage and examples to use a button that contains a menu as well
+globs: 
+alwaysApply: false
+---
+- USe SplitButton for a button that also has a menu on it
+
+### Basic usage
+
+```jsx
+<SplitButton
+    children="Medium"
+    size="medium"
+    secondaryDialogContent={
+      <SplitButtonMenu id="split-menu">
+        <MenuItem icon={Check} title="Hey" />
+        <MenuItem icon={Announcement} title="There" />
+      </SplitButtonMenu>
+    }
+  />
+  ```
+
+### With Icon
+
+```jsx
+<SplitButton
+    leftIcon={Add}
+    secondaryDialogContent={
+      <SplitButtonMenu id="split-menu">
+        <MenuItem icon={Check} title="Hey" />
+        <MenuItem icon={Announcement} title="There" />
+      </SplitButtonMenu>
+    }
+  >
+    Left icon
+  </SplitButton>
+  ```

@@ -1,0 +1,27 @@
+---
+description: Flex component usage and examples to position sub-elements without CSS
+globs: 
+alwaysApply: false
+---
+- Flex is a style component to position sub-elements in one dimension without relying on external CSS
+
+### Basic usage of Flex
+```jsx
+<Flex onClick={function noRefCheck(){}}>
+  <Button>
+    Primary
+  </Button>
+  <Button kind="tertiary">
+    Tertiary
+  </Button>
+  <Button kind="tertiary">
+    Tertiary
+  </Button>
+</Flex>
+```
+
+### Import
+
+```js
+import { Flex } from "@vibe/core";
+```

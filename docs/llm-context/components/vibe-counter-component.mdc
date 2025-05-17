@@ -1,0 +1,121 @@
+---
+description: Counter component to display counter of related data
+globs: 
+alwaysApply: false
+---
+### Basic usage
+```jsx
+<Counter count={5} />
+```
+
+### Import
+
+```js
+import { Counter } from "@vibe/core";
+```
+
+### Colors
+
+```jsx
+<>
+  <div className="column">
+    <Counter count={5} />
+    Primary
+  </div>
+  <div className="column">
+    <Counter count={5} color="negative" />
+    Negative or notification
+  </div>
+  <div className="column">
+    <Counter count={5} color="dark" />
+    Dark
+  </div>
+  <div className="column">
+    <Counter count={5} color="light" />
+    Light
+  </div>
+</>
+```
+
+### Outline
+
+```jsx
+<>
+  <div className="column">
+    <Counter count={5} kind="line" />
+    Primary
+  </div>
+  <div className="column">
+    <Counter count={5} color="negative" kind="line" />
+    Negative or notification
+  </div>
+  <div className="column">
+    <Counter count={5} color="dark" kind="line" />
+    Dark
+  </div>
+  <div className="column">
+    <Counter count={5} color="light" kind="line" />
+    Light
+  </div>
+</>
+```
+
+### Max digits
+```jsx
+<>
+  <div className="column">
+    <Counter count={10} maxDigits={1} />
+    One digit limit
+  </div>
+  <div className="column">
+    <Counter count={100} maxDigits={2} />
+    Two digits limit
+  </div>
+  <div className="column">
+    <Counter count={1000} />
+    Three digits limit
+  </div>
+</>
+```
+
+### Counter on topics
+```jsx
+<>
+  <div>
+    <span className="a">UX Writing & microcopy Re...</span>
+    <span className="a"> Mobile Data- Iteration Plan...</span>
+    <span className="a">Q Plans.</span>
+  </div>
+  <div>
+    <Counter count={195} color="dark" />
+    <Counter count={141} color="dark" />
+    <Counter count={99} color="dark" />
+  </div>
+</>
+```
+
+### Counter on updates icon
+```jsx
+<div className="storybook-counter_icon-wrapper">
+  <Icon icon={AddUpdate} iconSize="36" />
+  <Divider />
+  <div className="storybook-counter_position">
+    <Icon icon={Update} iconSize="36" />
+    <Counter
+      count={5}
+      size="small"
+      className="storybook-counter_counter-position-bot"
+    />
+  </div>
+  <Divider />
+  <div className="storybook-counter_position">
+    <Icon icon={Update} iconSize="36" />
+    <Counter
+      count={5}
+      color="dark"
+      size="small"
+      className="storybook-counter_counter-position-bot"
+    />
+  </div>
+</div>
+```

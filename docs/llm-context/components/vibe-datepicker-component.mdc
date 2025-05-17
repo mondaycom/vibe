@@ -1,0 +1,57 @@
+---
+description: Usage of DatePicker to choose a date or date range
+globs: 
+alwaysApply: false
+---
+- Allows users to select a single date or range
+
+### Basic usage
+```jsx
+() => {
+  const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+  return (
+    <DialogContentContainer>
+      <DatePicker
+        data-testid="date-picker"
+        date={date}
+        onPickDate={(d: Moment) => setDate(d)}
+      />
+    </DialogContentContainer>
+  );
+}
+```
+
+### Date range
+```jsx
+() => {
+  const [date, setDate] = useState(MOCK_INITIAL_DATE);
+  return (
+    <DialogContentContainer>
+      <DatePicker
+        date={date.startDate}
+        endDate={date.endDate}
+        range
+        data-testid="date-picker"
+        onPickDate={(d: RangeDate) => setDate(d)}
+      />
+    </DialogContentContainer>
+  );
+}
+```
+
+### Show two months
+```jsx
+() => {
+  const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+  return (
+    <DialogContentContainer>
+      <DatePicker
+        numberOfMonths={2}
+        data-testid="date-picker"
+        date={date}
+        onPickDate={(d: Moment) => setDate(d)}
+      />
+    </DialogContentContainer>
+  );
+}
+```

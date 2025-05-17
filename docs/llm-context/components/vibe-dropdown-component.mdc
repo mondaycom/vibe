@@ -1,0 +1,221 @@
+---
+description: Dropdown component usage, to select from a list of options
+globs: 
+alwaysApply: false
+---
+Dropdown present a list of options from which a user can select one or several.
+
+### Import
+```javascript
+import { Dropdown } from "@vibe/core";
+```
+
+### Basic Dropdown
+
+```jsx
+<Dropdown
+    onBlur={console.log("onBlur")}
+    onChange={console.log("onChange")}
+    onClear={console.log("onClear")}
+    onFocus={console.log("onFocus")}
+    onInputChange={console.log("onInputChange")}
+    onKeyDown={console.log("onKeyDown")}
+    onMenuClose={console.log("onMenuClose")}
+    onMenuOpen={console.log("onMenuOpen")}
+    onOptionRemove={console.log("onOptionRemove")}
+    onOptionSelect={console.log("onOptionSelect")}
+    openMenuOnFocus={console.log("openMenuOnFocus")}
+    options={[
+      {
+        label: 'Option 1',
+        value: 1
+      },
+      {
+        label: 'Option 2',
+        value: 2
+      },
+      {
+        label: 'Option 3',
+        value: 3
+      }
+    ]}
+    placeholder="Placeholder text here"
+  />
+```
+
+### Read Only
+
+```jsx
+const options = useMemo(
+    () => [
+      {
+        value: "1",
+        label: "Option 1",
+      },
+      {
+        value: "2",
+        label: "Option 2",
+      },
+      {
+        value: "3",
+        label: "Option 3",
+      },
+    ],
+    []
+  );
+  return (
+    <Flex direction="row">
+      <Dropdown
+        defaultValue={[options[0]]}
+        options={options}
+        readOnly
+        className="dropdown-stories-styles_spacing"
+      />
+      <Dropdown
+        multi
+        defaultValue={[options[0], options[1]]}
+        options={options}
+        readOnly
+        className="dropdown-stories-styles_spacing"
+      />
+    </Flex>
+  );
+```
+
+### Dropdown sizes
+
+```jsx
+<>
+  <Dropdown
+    placeholder="Small"
+    size="small"
+    className="dropdown-stories-styles_spacing"
+  />
+  <Dropdown
+    placeholder="Medium"
+    size="medium"
+    className="dropdown-stories-styles_spacing"
+  />
+  <Dropdown
+    placeholder="Large"
+    size="large"
+    className="dropdown-stories-styles_spacing"
+  />
+</>
+```
+
+### Async loading
+
+```jsx
+() => {
+  const fetchUserOptions = async searchTerm => {
+    try {
+      const response = await fakeFetchUsers();
+      const users = await response.json();
+      return users
+        .filter(user =>
+          user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map(user => ({
+          label: user.name,
+          value: user.id,
+        }));
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+    return [];
+  };
+  return (
+    <div
+      style={{
+        width: "400px",
+      }}
+    >
+      <Dropdown
+        asyncOptions={fetchUserOptions}
+        placeholder="Async options"
+        cacheOptions
+        defaultOptions
+      />
+    </div>
+  );
+}
+```
+
+### With Icon
+
+```jsx
+() => {
+  const optionsIcons = useMemo(
+    () => [
+      {
+        value: "email",
+        label: "Email",
+        leftIcon: Email,
+      },
+      {
+        value: "attach",
+        label: "Attach",
+        leftIcon: Attach,
+      },
+    ],
+    []
+  );
+  return (
+    <Flex gap="small">
+        <div>
+          <Dropdown
+            defaultValue={[optionsIcons[0]]}
+            options={optionsIcons}
+            className="dropdown-stories-styles_with-chips"
+          />
+        </div>
+        <div>
+          <Dropdown
+            defaultValue={[optionsIcons[0]]}
+            options={optionsIcons}
+            multi
+            multiline
+            className="dropdown-stories-styles_with-chips"
+          />
+        </div>
+      </StoryDescription>
+    </Flex>
+  );
+}
+```
+
+### Dropdown with tooltip
+
+```jsx
+() => {
+  const optionsWithTooltips = useMemo(
+    () => [
+      {
+        value: "Option 1",
+        label: "Option 1",
+        tooltipProps: {
+          content: "Description for option 1",
+        },
+      },
+      {
+        value: "Option 2",
+        label: "Option 2",
+        tooltipProps: {
+          content: "Description for option 2",
+        },
+      },
+    ],
+    []
+  );
+  return (
+      <div>
+        <Dropdown
+          placeholder={"Placeholder text here"}
+          options={optionsWithTooltips}
+          className="dropdown-stories-styles_with-chips"
+        />
+      </div>
+  );
+}
+```

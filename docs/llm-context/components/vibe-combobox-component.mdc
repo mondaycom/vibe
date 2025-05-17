@@ -1,0 +1,604 @@
+---
+description: Usage of ComboBox component to show a searchable dialog with content list
+globs: 
+alwaysApply: false
+---
+- The ComboBox is a searchable dialog with content
+- Use the boilerplate below for the ComboBox
+
+### Overview
+
+```jsx
+"clicked"
+```
+
+### Default
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1"
+        },
+        {
+          id: "2",
+          label: "Option 2"
+        },
+        {
+          id: "3",
+          label: "Option 3"
+        }
+      ],
+      []
+```
+
+### ComboboxInsideADialog
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1"
+        },
+        {
+          id: "2",
+          label: "Option 2"
+        },
+        {
+          id: "3",
+          label: "Option 3"
+        },
+        {
+          id: "4",
+          label: "Option 4"
+        },
+        {
+          id: "5",
+          label: "Option 5"
+        }
+      ],
+      []
+    );
+
+    return (
+      <DialogContentContainer>
+        <Combobox options={options} placeholder="Placeholder text here" />
+      </DialogContentContainer>
+```
+
+### Sizes
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1"
+        },
+        {
+          id: "2",
+          label: "Option 2"
+        },
+        {
+          id: "3",
+          label: "Option 3"
+        },
+        {
+          id: "4",
+          label: "Option 4"
+        },
+        {
+          id: "5",
+          label: "Option 5"
+        }
+      ],
+      []
+    );
+
+    return (
+      <div className="row">
+        <DialogContentContainer>
+          <Combobox options={options} size="small" placeholder="Placeholder text here" />
+        </DialogContentContainer>
+        <DialogContentContainer>
+          <Combobox options={options} placeholder="Placeholder text here" />
+        </DialogContentContainer>
+        <DialogContentContainer>
+          <Combobox options={options} size="large" placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      </div>
+```
+
+### WithCategories
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Favorites",
+          categoryId: "favorites"
+        },
+        {
+          id: "2",
+          label: "Main workspace",
+          categoryId: "workspace"
+        },
+        {
+          id: "3",
+          label: "Client Foundations",
+          categoryId: "workspace"
+        },
+        {
+          id: "4",
+          label: "Design",
+          categoryId: "workspace"
+        },
+        {
+          id: "5",
+          label: "Marketing Cluster",
+          categoryId: "workspace"
+        },
+        {
+          id: "6",
+          label: "Mobile",
+          categoryId: "workspace"
+        }
+      ],
+      []
+    );
+
+    const categories = useMemo(
+      () => ({
+        favorites: {
+          id: "favorites",
+          label: "Favorites"
+        },
+
+        workspace: {
+          id: "Workspaces",
+          label: "Workspaces"
+        }
+      }),
+      []
+    );
+
+    return (
+      <Flex
+        gap={50}
+        style={{
+          width: "100%"
+        }}
+        justify="start"
+        align="start"
+      >
+          <DialogContentContainer
+            style={{
+              height: "200px"
+            }}
+          >
+            <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+          </DialogContentContainer>
+          <DialogContentContainer
+            style={{
+              height: "200px"
+            }}
+          >
+            <Combobox stickyCategories options={options} categories={categories} placeholder="Placeholder text here" />
+          </DialogContentContainer>
+          <DialogContentContainer
+            style={{
+              height: "200px"
+            }}
+          >
+            <Combobox
+              stickyCategories
+              options={options}
+              categories={categories}
+              withCategoriesDivider
+              placeholder="Placeholder text here"
+            />
+          </DialogContentContainer>
+      </Flex>
+```
+
+### WithIcons
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1",
+          leftIcon: Wand
+        },
+        {
+          id: "2",
+          label: "Option 2",
+          leftIcon: ThumbsUp
+        },
+        {
+          id: "3",
+          label: "Option 3",
+          leftIcon: Time
+        },
+        {
+          id: "4",
+          label: "Option 4",
+          leftIcon: Update
+        },
+        {
+          id: "5",
+          label: "Option 5",
+          leftIcon: Upgrade
+        }
+      ],
+      []
+    );
+
+    return (
+      <DialogContentContainer>
+        <Combobox options={options} placeholder="Placeholder text here" />
+      </DialogContentContainer>
+```
+
+### WithOptionRenderer
+
+```jsx
+() => [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" },
+        { id: "4", label: "Option 4" },
+        { id: "5", label: "Option 5" },
+        { id: "6", label: "Option 6" },
+        { id: "7", label: "Option 7" },
+        { id: "8", label: "Option 8" },
+        { id: "9", label: "Option 9" }
+      ],
+      []
+    );
+    const optionRenderer = (option: any) => (
+      <div>
+        <Icon icon={Person} /> I can render anything with {option.label}
+      </div>
+    );
+    return (
+      <DialogContentContainer>
+        <Combobox
+          options={options}
+          optionRenderer={optionRenderer}
+          placeholder="Placeholder text here"
+          maxOptionsWithoutScroll={3}
+        />
+      </DialogContentContainer>
+```
+
+### WithButton
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1",
+          leftIcon: Wand
+        },
+        {
+          id: "2",
+          label: "Option 2",
+          leftIcon: ThumbsUp
+        },
+        {
+          id: "3",
+          label: "Option 3",
+          leftIcon: Time
+        },
+        {
+          id: "4",
+          label: "Option 4",
+          leftIcon: Update
+        },
+        {
+          id: "5",
+          label: "Option 5",
+          leftIcon: Upgrade
+        }
+      ],
+      []
+    );
+
+    return (
+      <DialogContentContainer>
+        <Combobox options={options} placeholder="Placeholder text here" />
+        <Button kind="tertiary" className="btn" leftIcon={Edit}>
+          Edit
+        </Button>
+      </DialogContentContainer>
+```
+
+### WithCreation
+
+```jsx
+[]);
+
+    return (
+      <DialogContentContainer>
+        <Combobox
+          options={options}
+          placeholder="Type to create"
+          addNewLabel="Create new item"
+          onAddNew={() =>
+            setOptions([
+              ...options,
+              {
+                id: options.length + 1,
+                label: `Option: ${options.length + 1}`
+              }
+            ])
+          }
+        />
+      </DialogContentContainer>
+```
+
+### WithVirtualizationOptimization
+
+```jsx
+() => [
+        {
+          id: "1",
+          label: "Option 1",
+          categoryId: "Group1"
+        },
+        {
+          id: "2",
+          label: "Option 2",
+          categoryId: "Group1"
+        },
+        {
+          id: "3",
+          label: "Option 3",
+          categoryId: "Group1"
+        },
+        {
+          id: "4",
+          label: "Option 4",
+          categoryId: "Group1"
+        },
+        {
+          id: "5",
+          label: "Option 5",
+          categoryId: "Group1"
+        },
+        {
+          id: "6",
+          label: "Option 6",
+          categoryId: "Group1"
+        },
+        {
+          id: "7",
+          label: "Option 7",
+          categoryId: "Group1"
+        },
+        {
+          id: "8",
+          label: "Option 8",
+          categoryId: "Group1"
+        },
+        {
+          id: "9",
+          label: "Option 9",
+          categoryId: "Group1"
+        },
+        {
+          id: "10",
+          label: "Option 10",
+          categoryId: "Group2"
+        },
+        {
+          id: "11",
+          label: "Option 11",
+          categoryId: "Group2"
+        },
+        {
+          id: "12",
+          label: "Option 12",
+          categoryId: "Group2"
+        },
+        {
+          id: "13",
+          label: "Option 13",
+          categoryId: "Group2"
+        },
+        {
+          id: "14",
+          label: "Option 14",
+          categoryId: "Group2"
+        },
+        {
+          id: "15",
+          label: "Option 15",
+          categoryId: "Group2"
+        },
+        {
+          id: "16",
+          label: "Option 16",
+          categoryId: "Group2"
+        },
+        {
+          id: "17",
+          label: "Option 17",
+          categoryId: "Group2"
+        },
+        {
+          id: "18",
+          label: "Option 18",
+          categoryId: "Group2"
+        },
+        {
+          id: "19",
+          label: "Option 19",
+          categoryId: "Group2"
+        },
+        {
+          id: "20",
+          label: "Option 20",
+          categoryId: "Group2"
+        }
+      ],
+      []
+    );
+
+    const categories = useMemo(
+      () => ({
+        Group1: {
+          id: "Group1",
+          label: "Group 1"
+        },
+
+        Group2: {
+          id: "Group2",
+          label: "Group 2"
+        }
+      }),
+      []
+    );
+
+    return (
+      <Flex
+        gap="small"
+        style={{
+          width: "100%"
+        }}
+        justify="center"
+        align="start"
+      >
+          <div
+            style={{
+              width: "280px"
+            }}
+          >
+            <DialogContentContainer>
+              <Combobox
+                options={options}
+                renderOnlyVisibleOptions
+                placeholder="Placeholder text here"
+                maxOptionsWithoutScroll={3}
+              />
+            </DialogContentContainer>
+          </div>
+          <div
+            style={{
+              width: "280px"
+            }}
+          >
+            <DialogContentContainer>
+              <Combobox
+                options={options}
+                renderOnlyVisibleOptions
+                categories={categories}
+                placeholder="Placeholder text here"
+                maxOptionsWithoutScroll={3}
+              />
+            </DialogContentContainer>
+          </div>
+          <div
+            style={{
+              width: "280px"
+            }}
+          >
+            <DialogContentContainer>
+              <Combobox
+                stickyCategories
+                options={options}
+                renderOnlyVisibleOptions
+                categories={categories}
+                placeholder="Placeholder text here"
+                maxOptionsWithoutScroll={3}
+              />
+            </DialogContentContainer>
+          </div>
+      </Flex>
+```
+
+### LoadingState
+
+```jsx
+() => [], []);
+
+    return (
+      <DialogContentContainer>
+        <Combobox loading options={options} placeholder="Board name" />
+      </DialogContentContainer>
+```
+
+### ComboboxAsPersonPicker
+
+```jsx
+() => [
+        {
+          id: "Hadas Farhi",
+          label: "Hadas Farhi",
+          src: person1,
+          type: "img",
+          position: "(Frontend Developer)",
+          categoryId: "suggestedPeople"
+        },
+        {
+          id: "Rotem Dekel",
+          label: "Rotem Dekel",
+          src: person2,
+          type: "img",
+          position: "(Product Designer)",
+          categoryId: "suggestedPeople"
+        },
+        {
+          id: "Netta Muller",
+          label: "Netta Muller",
+          src: person3,
+          type: "img",
+          position: "(Brand Designer)",
+          categoryId: "suggestedPeople"
+        }
+      ],
+      []
+    );
+
+    const categories = useMemo(
+      () => ({
+        suggestedPeople: {
+          id: "suggestedPeople",
+          label: "Suggested people"
+        }
+      }),
+      []
+    );
+
+    return (
+      <Flex
+        style={{
+          width: "100%",
+          height: "270px"
+        }}
+        justify="center"
+        align="start"
+      >
+        <Dialog
+          content={() => (
+            <DialogContentContainer className="wrapper">
+              <Combobox
+                options={options}
+                categories={categories}
+                optionRenderer={optionRenderer}
+                size="small"
+                placeholder="Search"
+              />
+            </DialogContentContainer>
+          )}
+          tooltip
+          position="bottom"
+          open={true}
+        >
+          <div className="person-picker-mock">
+            <Avatar size="small" src={person1} type="img" />
+          </div>
+        </Dialog>
+      </Flex>
+```
+

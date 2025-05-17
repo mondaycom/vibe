@@ -1,0 +1,14 @@
+---
+description: Usage of DialogContentContainer
+globs: 
+alwaysApply: false
+---
+- The dialog content container is a style component
+- It gives the children a sense of depth
+
+### Basic usage
+```jsx
+<DialogContentContainer>
+  <DialogContentContainerExample />
+</DialogContentContainer>
+```
