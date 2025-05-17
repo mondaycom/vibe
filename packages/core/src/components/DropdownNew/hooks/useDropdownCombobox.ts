@@ -9,7 +9,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   autoFocus?: boolean,
   isMenuOpen?: boolean,
   closeMenuOnSelect?: boolean,
-  onChange?: (option: T | null) => void,
+  onChange?: (option: T | T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
