@@ -8,6 +8,15 @@ type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<s
 type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = Partial<
   Pick<
     BaseDropdownProps<Item>,
+    | "label"
+    | "required"
+    | "className"
+    | "id"
+    | "ariaLabel"
+    | "data-testid"
+    | "error"
+    | "helperText"
+    | "dir"
     | "searchable"
     | "multi"
     | "multiline"
@@ -26,7 +35,6 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
     | "inputAriaLabel"
     | "menuAriaLabel"
     | "closeMenuOnSelect"
-    | "dir"
     | "onFocus"
     | "onBlur"
     | "onKeyDown"

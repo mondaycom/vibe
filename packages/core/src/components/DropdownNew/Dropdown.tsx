@@ -1,39 +1,37 @@
 import React, { useMemo, useRef, forwardRef, useState } from "react";
-import cx from "classnames";
-import styles from "./Dropdown.module.scss";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
 import useDropdownMultiCombobox from "./hooks/useDropdownMultiCombobox";
 import useDropdownSelect from "./hooks/useDropdownSelect";
 import useDropdownMultiSelect from "./hooks/useDropdownMultiSelect";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
-import FieldLabel from "../FieldLabel/FieldLabel";
-import Text from "../Text/Text";
 import { BaseListItemData } from "../BaseListItem";
 import DropdownPopup from "./components/DropdownPopup/DropdownPopup";
+import DropdownStructure from "./components/DropdownStructure/DropdownStructure";
 import { DropdownContext } from "./context/DropdownContext";
 import { DropdownContextProps } from "./context/DropdownContext.types";
 
 const Dropdown = forwardRef(
   <Item extends BaseListItemData<Record<string, unknown>>>(
     {
+      className,
+      id,
+      "data-testid": dataTestId,
+      label,
+      required,
+      helperText,
+      error,
+      disabled,
+      readOnly,
+      dir,
       options,
       size,
-      dir,
       optionRenderer,
       valueRenderer,
       noOptionsMessage,
-      placeholder = "",
+      placeholder,
       withGroupDivider,
       stickyGroupTitle,
-      disabled,
-      readOnly,
-      error,
-      label,
-      helperText,
-      required,
       maxMenuHeight,
       isMenuOpen: isMenuOpenProp,
       closeMenuOnSelect = true,
@@ -59,15 +57,12 @@ const Dropdown = forwardRef(
       onOptionRemove,
       onScroll,
       multi,
-      multiline,
-      className,
-      id,
-      "data-testid": dataTestId
+      multiline
     }: BaseDropdownProps<Item>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const dropdownRef = useRef<HTMLInputElement>(null);
-    const dropdownMergedRef = useMergeRef(ref, dropdownRef);
+    const dropdownInternalRef = useRef<HTMLDivElement>(null);
+    const dropdownMergedRef = useMergeRef(ref, dropdownInternalRef);
 
     const [isFocused, setIsFocused] = useState(false);
     const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>((defaultValue as Item[]) ?? []);
@@ -175,6 +170,14 @@ const Dropdown = forwardRef(
       : undefined;
 
     const contextValue: DropdownContextProps<Item> = {
+      label,
+      required,
+      className,
+      id,
+      "data-testid": dataTestId,
+      ariaLabel,
+      error,
+      helperText,
       isOpen,
       inputValue: inputValue ?? null,
       highlightedIndex,
@@ -246,28 +249,9 @@ const Dropdown = forwardRef(
 
     return (
       <DropdownContext.Provider value={contextValue}>
-        <div dir={dir}>
-          {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
-          <div
-            ref={dropdownMergedRef}
-            className={cx(styles.wrapper, className, {
-              [styles.disabled]: disabled,
-              [styles.readOnly]: readOnly,
-              [styles.error]: error,
-              [styles.active]: isFocused
-            })}
-            id={id}
-            aria-label={ariaLabel}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-          >
-            <DropdownPopup />
-          </div>
-          {helperText && (
-            <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
-              {helperText}
-            </Text>
-          )}
-        </div>
+        <DropdownStructure dropdownRef={dropdownMergedRef}>
+          <DropdownPopup />
+        </DropdownStructure>
       </DropdownContext.Provider>
     );
   }
