@@ -4,9 +4,9 @@ import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {
-  AnchorListItem,
   AlphaWarning,
   DeprecatedWarning,
+  ComponentName,
   ComponentRules,
   DocFooter,
   Frame,
@@ -26,7 +26,7 @@ import {
 } from "vibe-storybook-components";
 import CanvasWrapper from "../src/storybook/components/canvas-wrapper/CanvasWrapper";
 import withGlobalStyle from "../src/storybook/decorators/withGlobalStyle/withGlobalStyle";
-import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
+import { PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
@@ -72,8 +72,8 @@ const preview: Preview = {
         Canvas: CanvasWrapper,
         Controls: PropsTable,
         PropsTable,
-        h1: ComponentNameDecorator,
-        ComponentName: ComponentNameDecorator,
+        h1: ComponentName,
+        ComponentName,
         h2: SectionName,
         h3: Title,
         p: Paragraph,
