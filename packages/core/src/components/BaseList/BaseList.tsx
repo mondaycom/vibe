@@ -14,6 +14,7 @@ const BaseList = forwardRef(
       options,
       selectedItems,
       highlightedIndex,
+      menuAriaLabel,
       getMenuProps,
       getItemProps,
       size = "medium",
@@ -35,7 +36,7 @@ const BaseList = forwardRef(
         ref={ref}
         dir={dir}
         className={styles.wrapper}
-        {...getMenuProps?.()}
+        {...getMenuProps?.({ ariaLabel: menuAriaLabel })}
         onScroll={onScroll}
         style={{ maxHeight: maxMenuHeight }}
       >

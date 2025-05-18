@@ -11,6 +11,8 @@ import { BaseListItem } from "../BaseListItem";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
 import useDropdownMultiCombobox from "./hooks/useDropdownMultiCombobox";
+import useDropdownSelect from "./hooks/useDropdownSelect";
+import useDropdownMultiSelect from "./hooks/useDropdownMultiSelect";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -46,6 +48,12 @@ const Dropdown = forwardRef(
       autoFocus,
       clearable = true,
       showSelectedOptions = false,
+      searchable = true,
+      ariaLabel,
+      inputAriaLabel,
+      menuAriaLabel,
+      defaultValue,
+      inputValue: inputValueProp,
       filterOption,
       onBlur,
       onChange,
@@ -71,13 +79,15 @@ const Dropdown = forwardRef(
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const [isFocused, setIsFocused] = useState(false);
-    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>([]);
+    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>(defaultValue as Item[]);
 
     const singleDropdown = useDropdownCombobox<Item>(
       options,
-      autoFocus,
       isMenuOpen,
+      autoFocus,
       closeMenuOnSelect,
+      defaultValue as Item,
+      inputValueProp,
       onChange,
       onInputChange,
       onMenuClose,
@@ -91,7 +101,10 @@ const Dropdown = forwardRef(
       options,
       multiSelectedItems,
       setMultiSelectedItems,
+      isMenuOpen,
       autoFocus,
+      defaultValue as Item[],
+      inputValueProp,
       onChange,
       onInputChange,
       onMenuClose,
@@ -99,6 +112,34 @@ const Dropdown = forwardRef(
       onOptionSelect,
       filterOption,
       showSelectedOptions
+    );
+
+    const singleSelect = useDropdownSelect<Item>(
+      options,
+      autoFocus,
+      isMenuOpen,
+      defaultValue as Item,
+      onChange,
+      onMenuOpen,
+      onMenuClose,
+      onOptionSelect,
+      showSelectedOptions,
+      filterOption
+    );
+
+    const multiSelect = useDropdownMultiSelect<Item>(
+      options,
+      multiSelectedItems,
+      setMultiSelectedItems,
+      isMenuOpen,
+      autoFocus,
+      defaultValue as Item[],
+      onChange,
+      onMenuOpen,
+      onMenuClose,
+      onOptionSelect,
+      showSelectedOptions,
+      filterOption
     );
 
     const {
@@ -113,12 +154,19 @@ const Dropdown = forwardRef(
       reset,
       filteredOptions
     } = useMemo(() => {
-      return multi ? multiDropdown : singleDropdown;
-    }, [multi, multiDropdown, singleDropdown]);
+      if (searchable) {
+        return multi ? multiDropdown : singleDropdown;
+      }
+      return multi ? multiSelect : singleSelect;
+    }, [searchable, multi, multiDropdown, singleDropdown, multiSelect, singleSelect]);
 
-    const selectedItem = !multi ? singleDropdown.selectedItem : undefined;
-    const selectedItems = multi ? multiDropdown.selectedItems : undefined;
-    const removeSelectedItem = multi ? multiDropdown.removeSelectedItem : undefined;
+    const selectedItem = !multi ? (searchable ? singleDropdown.selectedItem : singleSelect.selectedItem) : undefined;
+    const selectedItems = multi ? (searchable ? multiDropdown.selectedItems : multiSelect.selectedItems) : undefined;
+    const removeSelectedItem = multi
+      ? searchable
+        ? multiDropdown.removeSelectedItem
+        : multiSelect.removeSelectedItem
+      : undefined;
 
     const matchWidthModifier: Modifier<any>[] = useMemo(
       () => [
@@ -137,11 +185,13 @@ const Dropdown = forwardRef(
       []
     );
 
-    const renderInput = useCallback(
-      () => (
+    const renderInput = useCallback(() => {
+      if (!searchable) return null;
+      return (
         <BaseInput
           style={{ padding: "0" }}
           {...getInputProps({
+            ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
             value: inputValue,
             placeholder: (multi && selectedItems?.length) || (!multi && selectedItem) ? "" : placeholder,
             onFocus: e => {
@@ -162,23 +212,24 @@ const Dropdown = forwardRef(
           disabled={disabled}
           readOnly={readOnly}
         />
-      ),
-      [
-        getInputProps,
-        autoFocus,
-        disabled,
-        readOnly,
-        selectedItem,
-        selectedItems,
-        inputValue,
-        placeholder,
-        onFocus,
-        onBlur,
-        onKeyDown,
-        size,
-        multi
-      ]
-    );
+      );
+    }, [
+      getInputProps,
+      autoFocus,
+      disabled,
+      readOnly,
+      selectedItem,
+      selectedItems,
+      inputValue,
+      placeholder,
+      onFocus,
+      onBlur,
+      onKeyDown,
+      size,
+      multi,
+      searchable,
+      inputAriaLabel
+    ]);
 
     const dialogContent = useMemo(
       () => (
@@ -188,6 +239,7 @@ const Dropdown = forwardRef(
             options={filteredOptions}
             selectedItems={multi ? selectedItems : [selectedItem]}
             highlightedIndex={highlightedIndex}
+            menuAriaLabel={menuAriaLabel}
             getMenuProps={getMenuProps}
             getItemProps={getItemProps}
             withGroupDivider={withGroupDivider}
@@ -217,7 +269,8 @@ const Dropdown = forwardRef(
         noOptionsMessage,
         isOpen,
         onScroll,
-        maxMenuHeight
+        maxMenuHeight,
+        menuAriaLabel
       ]
     );
 
@@ -234,7 +287,7 @@ const Dropdown = forwardRef(
                       removeSelectedItem(item);
                       onOptionRemove?.(item);
                     }}
-                    renderInput={() => renderInput()}
+                    {...(searchable ? { renderInput: () => renderInput() } : {})}
                   />
                 ) : (
                   <Flex gap="xs" wrap>
@@ -243,15 +296,20 @@ const Dropdown = forwardRef(
                         <div style={{ flexShrink: 0 }}>
                           <Chips label={item.label} onDelete={() => removeSelectedItem(item)} noMargin />
                         </div>
-                        {index === selectedItems.length - 1 && renderInput()}
+                        {index === selectedItems.length - 1 && searchable && renderInput()}
                       </Flex>
                     ))}
                   </Flex>
                 )}
               </>
             )}
-            {multi && selectedItems.length === 0 && renderInput()}
-            {!multi && renderInput()}
+            {!searchable && !selectedItem && !selectedItems?.length && placeholder && (
+              <Text color="secondary" {...getToggleButtonProps()}>
+                {placeholder}
+              </Text>
+            )}
+            {multi && selectedItems.length === 0 && searchable && renderInput()}
+            {!multi && searchable && renderInput()}
             {!multi && !inputValue && selectedItem && (
               <div
                 className={cx(styles.selectedItem, {
@@ -313,6 +371,7 @@ const Dropdown = forwardRef(
             [styles.active]: isFocused
           })}
           id={id}
+          aria-label={ariaLabel}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         >
           <Dialog

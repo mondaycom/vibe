@@ -1,67 +1,53 @@
 import { useMemo, useCallback } from "react";
+import { useMultipleSelection, useSelect } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { useMultipleSelection, useCombobox } from "downshift";
 import { DropdownGroupOption } from "../Dropdown.types";
 import { BaseListItemData } from "../../BaseListItem";
 
-function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unknown>>>(
+function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   selectedItems: T[],
   setSelectedItems: (items: T[]) => void,
   isMenuOpen: boolean,
   autoFocus?: boolean,
   defaultValue?: T[],
-  inputValueProp?: string,
-  onChange?: (options: T[] | T) => void,
-  onInputChange?: (value: string) => void,
+  onChange?: (options: T[]) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
-  filterOption?: (option: T, inputValue: string) => boolean,
-  showSelectedOptions?: boolean
+  showSelectedOptions?: boolean,
+  filterOption?: (option: T, inputValue: string) => boolean
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
-    options,
-    filterOption,
-    showSelectedOptions,
-    selectedItems
-  );
+  const { filteredOptions } = useDropdownFiltering<T>(options, filterOption, showSelectedOptions, selectedItems);
+
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
-  const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
+
+  const { getSelectedItemProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
     selectedItems,
     initialSelectedItems: defaultValue,
-    onSelectedItemsChange: ({ selectedItems }) => {
-      setSelectedItems(selectedItems || []);
-      onChange?.(selectedItems || []);
+    onSelectedItemsChange: ({ selectedItems: newSelected }) => {
+      setSelectedItems(newSelected || []);
+      onChange?.(newSelected || []);
     }
   });
 
   const {
     isOpen,
-    inputValue,
     highlightedIndex,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps,
     getItemProps,
-    reset,
+    reset: downshiftReset,
     openMenu,
     toggleMenu,
     closeMenu
-  } = useCombobox<T>({
+  } = useSelect<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    selectedItem: null,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp,
-    onIsOpenChange: ({ isOpen }) => {
-      isOpen ? onMenuClose?.() : onMenuOpen?.();
-    },
-    onInputValueChange: ({ inputValue }) => {
-      filterOptions(inputValue || "");
-      onInputChange?.(inputValue || "");
-    },
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
       const itemWasSelected = selectedItems.some(item => item.value === newSelectedItem.value);
@@ -71,34 +57,46 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
         addSelectedItem(newSelectedItem);
       }
       onOptionSelect?.(newSelectedItem);
-      filterOptions("");
     },
     stateReducer: (state, actionAndChanges) => {
-      switch (actionAndChanges.type) {
-        case useCombobox.stateChangeTypes.InputKeyDownEnter:
-        case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: "", isOpen: true };
+      const { type, changes } = actionAndChanges;
+      switch (type) {
+        case useSelect.stateChangeTypes.ItemClick:
+          return {
+            ...changes,
+            isOpen: true
+          };
         default:
-          return actionAndChanges.changes;
+          return changes;
       }
+    },
+    onIsOpenChange: ({ isOpen }) => {
+      isOpen ? onMenuOpen?.() : onMenuClose?.();
     }
   });
 
+  const reset = useCallback(() => {
+    setSelectedItems([]);
+    downshiftReset();
+    onChange?.([]);
+  }, [setSelectedItems, downshiftReset, onChange]);
+
+  const getInputProps = () => ({});
+
   return {
     isOpen,
-    inputValue,
+    inputValue: "",
     highlightedIndex,
     selectedItems,
     getSelectedItemProps,
-    getDropdownProps,
     addSelectedItem,
+    removeSelectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getInputProps,
     getItemProps,
     reset,
-    removeSelectedItem,
     filteredOptions,
     openMenu,
     toggleMenu,
@@ -106,4 +104,4 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   };
 }
 
-export default useDropdownMultiCombobox;
+export default useDropdownMultiSelect;

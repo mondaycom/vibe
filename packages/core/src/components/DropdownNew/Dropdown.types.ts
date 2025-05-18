@@ -22,6 +22,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * The function to call to render the selected value on single select mode.
    */
   valueRenderer?: never;
+  /**
+   * The default selected values for multi-select.
+   */
+  defaultValue?: Item[];
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -41,6 +45,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * The function to call to render the selected value on single select mode.
    */
   valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  /**
+   * The default selected value for single-select.
+   */
+  defaultValue?: Item;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -104,6 +112,22 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The label to display above the dropdown.
    */
   label?: string;
+  /**
+   * The ARIA label for the dropdown.
+   */
+  ariaLabel?: string;
+  /**
+   * The ARIA label for the dropdown input.
+   */
+  inputAriaLabel?: string;
+  /**
+   * The ARIA label for the menu container.
+   */
+  menuAriaLabel?: string;
+  /**
+   * The current value of the input field.
+   */
+  inputValue?: string;
   /**
    * The maximum height of the dropdown menu.
    */
