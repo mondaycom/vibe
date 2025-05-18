@@ -11,70 +11,39 @@ import { Chips } from "../../../Chips";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 
-// The Trigger component no longer defines its own extensive props interface.
-// It will get almost everything from the DropdownContext.
-// We might add specific props later if Trigger has unique needs not covered by context.
-/*
-export interface TriggerProps {
-  // Example: a prop unique to Trigger, if any, would go here.
-  // For now, it's empty as we expect all data from context.
-}
-*/
-
 const Trigger = () => {
-  // Destructure any unique props for Trigger if they existed in TriggerProps
-  // const { uniqueTriggerProp } = props;
-
   const {
-    // State & Values from context
     isOpen,
     inputValue,
-    // highlightedIndex, // Not directly used by Trigger display logic
     selectedItem,
-    selectedItems = [], // Default to empty array from context if not already
-    // Prop Getters from context
+    selectedItems = [],
     getToggleButtonProps,
     getInputProps,
-    // Callbacks from context
-    reset, // This is Downshift's reset
-    contextOnClear, // This is the context's clear handler
-    contextOnOptionRemove, // Context's handler for removing an item
-    // Relevant props from BaseDropdownProps, now via context
+    reset,
+    contextOnClear,
+    contextOnOptionRemove,
     searchable,
     multi,
     multiline,
     disabled,
     readOnly,
     size,
-    optionRenderer: _optionRenderer, // Not used directly by Trigger itself
+    optionRenderer: _optionRenderer,
     valueRenderer,
-    // noOptionsMessage, // Not used by Trigger
     placeholder,
-    // withGroupDivider, // Not used by Trigger
-    // stickyGroupTitle, // Not used by Trigger
-    // maxMenuHeight, // Not used by Trigger
-    clearable,
     autoFocus,
     inputAriaLabel,
-    // menuAriaLabel, // Not used by Trigger
-    // closeMenuOnSelect, // Not used by Trigger
-    // dir, // Not used by Trigger
-    isFocused // This should come from context, which gets it from parent state
-    // onFocus, // Handled by getInputProps
-    // onBlur,  // Handled by getInputProps
-    // onKeyDown // Handled by getInputProps
-  } = useDropdownContext<BaseListItemData>(); // Specify Item type if needed, using BaseListItemData as default
+    isFocused,
+    clearable
+  } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (contextOnClear) {
-      console.log("contextOnClear - rivka");
       contextOnClear();
     } else {
-      // Fallback or error if contextOnClear is unexpectedly not provided
-      // Though context setup should ensure it is.
       reset();
     }
   };

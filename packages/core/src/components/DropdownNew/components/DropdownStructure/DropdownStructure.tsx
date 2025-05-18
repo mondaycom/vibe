@@ -9,24 +9,23 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 
 interface DropdownStructureProps {
-  dropdownRef: React.Ref<HTMLDivElement>; // Only ref
-  children: React.ReactNode; // and children are direct props
+  dropdownRef: React.Ref<HTMLDivElement>;
+  children: React.ReactNode;
 }
 
 const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, children }) => {
   const {
-    // Values from context that DropdownStructure now consumes
     label,
     required,
-    getLabelProps, // from context (Downshift hook result)
+    getLabelProps,
     className,
     id,
     ariaLabel,
-    "data-testid": dataTestIdFromContext, // get data-testid from context
+    "data-testid": dataTestIdFromContext,
     disabled,
     readOnly,
     error,
-    isFocused, // State from context
+    isFocused,
     helperText,
     dir
   } = useDropdownContext<BaseListItemData>();

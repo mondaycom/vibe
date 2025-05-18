@@ -1,9 +1,9 @@
 import React from "react";
-import Dialog from "../../../Dialog/Dialog"; // Corrected path
-import { matchWidthModifier } from "../../utils/dropdown-modifiers"; // Corrected path
+import Dialog from "../../../Dialog/Dialog";
+import { matchWidthModifier } from "../../utils/dropdown-modifiers";
 import { useDropdownContext } from "../../context/DropdownContext";
-import Trigger from "../Trigger/Trigger"; // Trigger is a sibling in components/
-import Menu from "../Menu/Menu"; // Menu is a sibling in components/
+import Trigger from "../Trigger/Trigger";
+import Menu from "../Menu/Menu";
 
 const DropdownPopup = () => {
   const { isOpen, reset } = useDropdownContext();
