@@ -45,22 +45,19 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
 
 export interface DropdownContextProps<Item extends BaseListItemData<Record<string, unknown>> = any>
   extends InheritedDropdownProps<Item> {
-  // === State & Values unique to context (from Downshift hooks) ===
   isOpen: boolean;
-  inputValue: string | null; // Null for select-only modes
+  inputValue: string | null;
   highlightedIndex: number | null;
-  selectedItem: Item | null | undefined; // For single select
-  selectedItems: Item[]; // For multi select, always an array
-  filteredOptions: ListGroup<Item>[]; // Derived list of options for the menu
+  selectedItem?: Item | null | undefined;
+  selectedItems?: Item[];
+  filteredOptions?: ListGroup<Item>[];
 
-  // === Prop Getters from Downshift ===
   getToggleButtonProps: PropGetter;
   getLabelProps: PropGetter;
   getMenuProps: PropGetter;
-  getInputProps: PropGetter;
+  getInputProps?: PropGetter;
   getItemProps: ItemPropGetter<Item>;
 
-  // === Callbacks unique to context (from Downshift or context-specific handlers) ===
   reset: () => void;
   contextOnClear: () => void;
   contextOnOptionRemove?: (option: Item) => void;

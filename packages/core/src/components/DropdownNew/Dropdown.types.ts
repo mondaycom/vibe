@@ -202,3 +202,8 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
 export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
+
+export type DropdownControllerProps<Item extends BaseListItemData<Record<string, unknown>>> =
+  BaseDropdownProps<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };

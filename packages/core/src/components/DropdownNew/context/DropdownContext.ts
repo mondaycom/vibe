@@ -4,13 +4,10 @@ import { BaseListItemData } from "../../BaseListItem";
 import { BaseDropdownProps, DropdownSizes } from "../Dropdown.types";
 import { DropdownContextProps } from "./DropdownContext.types"; // Import the renamed type
 
-// This will hold types for Downshift prop getters. They are quite generic.
-// We can refine them if needed, but this is a common pattern.
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
 
 export interface DropdownContextValue<Item extends BaseListItemData<Record<string, unknown>> = any> {
-  // State & Values from Downshift hooks & Dropdown props
   isOpen: boolean;
   inputValue: string | null;
   highlightedIndex: number | null;
@@ -18,14 +15,12 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
   selectedItems: Item[];
   filteredOptions: ListGroup<Item>[];
 
-  // Prop Getters from Downshift
   getToggleButtonProps: PropGetter;
   getLabelProps: PropGetter;
   getMenuProps: PropGetter;
   getInputProps: PropGetter;
   getItemProps: ItemPropGetter<Item>;
 
-  // Callbacks from Downshift & Dropdown
   reset: () => void;
   onClear?: () => void;
   onOptionSelect?: (option: Item) => void;
@@ -34,7 +29,6 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
   removeSelectedItem?: (item: Item) => void;
   setSelectedItems?: (items: Item[]) => void;
 
-  // Relevant props from BaseDropdownProps for sub-components
   searchable?: boolean;
   multi?: boolean;
   multiline?: boolean;

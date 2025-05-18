@@ -68,8 +68,10 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
       if (itemIndex > -1) {
         const newSelectedItems = [...selectedItems.slice(0, itemIndex), ...selectedItems.slice(itemIndex + 1)];
         setSelectedItems(newSelectedItems);
+        removeSelectedItem(newSelectedItem);
       } else {
         setSelectedItems([...selectedItems, newSelectedItem]);
+        addSelectedItem(newSelectedItem);
       }
       onOptionSelect?.(newSelectedItem);
       filterOptions("");
