@@ -6,10 +6,12 @@ import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
-  autoFocus?: boolean,
   isMenuOpen?: boolean,
+  autoFocus?: boolean,
   closeMenuOnSelect?: boolean,
-  onChange?: (option: T | T[]) => void,
+  defaultValue?: T,
+  inputValueProp?: string,
+  onChange?: (option: T | T[] | null) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -42,7 +44,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset: downshiftReset,
+    reset,
     openMenu,
     toggleMenu,
     closeMenu
@@ -50,6 +52,8 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
+    initialSelectedItem: defaultValue || null,
+    initialInputValue: inputValueProp,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
@@ -90,13 +94,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       }
     }
   });
-
-  const reset = useCallback(() => {
-    setCurrentSelectedItem(null);
-    downshiftReset();
-    filterOptions("");
-    onChange?.(null);
-  }, [downshiftReset, filterOptions, onChange]);
 
   return {
     isOpen,

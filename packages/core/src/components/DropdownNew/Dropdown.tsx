@@ -49,6 +49,11 @@ const Dropdown = forwardRef(
       clearable = true,
       showSelectedOptions = false,
       searchable = true,
+      ariaLabel,
+      inputAriaLabel,
+      menuAriaLabel,
+      defaultValue,
+      inputValue: inputValueProp,
       filterOption,
       onBlur,
       onChange,
@@ -74,13 +79,15 @@ const Dropdown = forwardRef(
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const [isFocused, setIsFocused] = useState(false);
-    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>([]);
+    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>(defaultValue as Item[]);
 
     const singleDropdown = useDropdownCombobox<Item>(
       options,
-      autoFocus,
       isMenuOpen,
+      autoFocus,
       closeMenuOnSelect,
+      defaultValue as Item,
+      inputValueProp,
       onChange,
       onInputChange,
       onMenuClose,
@@ -94,7 +101,10 @@ const Dropdown = forwardRef(
       options,
       multiSelectedItems,
       setMultiSelectedItems,
+      isMenuOpen,
       autoFocus,
+      defaultValue as Item[],
+      inputValueProp,
       onChange,
       onInputChange,
       onMenuClose,
@@ -108,6 +118,7 @@ const Dropdown = forwardRef(
       options,
       autoFocus,
       isMenuOpen,
+      defaultValue as Item,
       onChange,
       onMenuOpen,
       onMenuClose,
@@ -120,7 +131,9 @@ const Dropdown = forwardRef(
       options,
       multiSelectedItems,
       setMultiSelectedItems,
+      isMenuOpen,
       autoFocus,
+      defaultValue as Item[],
       onChange,
       onMenuOpen,
       onMenuClose,
@@ -178,6 +191,7 @@ const Dropdown = forwardRef(
         <BaseInput
           style={{ padding: "0" }}
           {...getInputProps({
+            ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
             value: inputValue,
             placeholder: (multi && selectedItems?.length) || (!multi && selectedItem) ? "" : placeholder,
             onFocus: e => {
@@ -213,7 +227,8 @@ const Dropdown = forwardRef(
       onKeyDown,
       size,
       multi,
-      searchable
+      searchable,
+      inputAriaLabel
     ]);
 
     const dialogContent = useMemo(
@@ -224,6 +239,7 @@ const Dropdown = forwardRef(
             options={filteredOptions}
             selectedItems={multi ? selectedItems : [selectedItem]}
             highlightedIndex={highlightedIndex}
+            menuAriaLabel={menuAriaLabel}
             getMenuProps={getMenuProps}
             getItemProps={getItemProps}
             withGroupDivider={withGroupDivider}
@@ -253,7 +269,8 @@ const Dropdown = forwardRef(
         noOptionsMessage,
         isOpen,
         onScroll,
-        maxMenuHeight
+        maxMenuHeight,
+        menuAriaLabel
       ]
     );
 
@@ -354,6 +371,7 @@ const Dropdown = forwardRef(
             [styles.active]: isFocused
           })}
           id={id}
+          aria-label={ariaLabel}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         >
           <Dialog

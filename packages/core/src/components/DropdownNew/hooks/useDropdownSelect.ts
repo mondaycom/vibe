@@ -8,6 +8,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   autoFocus?: boolean,
   isMenuOpen?: boolean,
+  defaultValue?: T,
   onChange?: (option: T | T[] | null) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -15,7 +16,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   showSelectedOptions?: boolean,
   filterOption?: (option: T, inputValue: string) => boolean
 ) {
-  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(null);
+  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
   const memoizedSelectedItemForFiltering = useMemo(() => {
     return currentSelectedItem ? [currentSelectedItem] : [];

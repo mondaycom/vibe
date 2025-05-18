@@ -8,7 +8,9 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   options: DropdownGroupOption<T>,
   selectedItems: T[],
   setSelectedItems: (items: T[]) => void,
+  isMenuOpen: boolean,
   autoFocus?: boolean,
+  defaultValue?: T[],
   onChange?: (options: T[]) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -22,6 +24,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
 
   const { getSelectedItemProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
     selectedItems,
+    initialSelectedItems: defaultValue,
     onSelectedItemsChange: ({ selectedItems: newSelected }) => {
       setSelectedItems(newSelected || []);
       onChange?.(newSelected || []);
@@ -43,6 +46,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     selectedItem: null,
+    isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;

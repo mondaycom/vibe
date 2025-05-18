@@ -8,8 +8,11 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   options: DropdownGroupOption<T>,
   selectedItems: T[],
   setSelectedItems: (items: T[]) => void,
+  isMenuOpen: boolean,
   autoFocus?: boolean,
-  onChange?: (options: T[]) => void,
+  defaultValue?: T[],
+  inputValueProp?: string,
+  onChange?: (options: T[] | T) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -24,9 +27,9 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     selectedItems
   );
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
-
   const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
     selectedItems,
+    initialSelectedItems: defaultValue,
     onSelectedItemsChange: ({ selectedItems }) => {
       setSelectedItems(selectedItems || []);
       onChange?.(selectedItems || []);
@@ -42,27 +45,25 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset: downshiftReset,
+    reset,
     openMenu,
     toggleMenu,
     closeMenu
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
-    selectedItem: null,
-    isOpen: autoFocus,
+    isOpen: isMenuOpen,
+    initialIsOpen: autoFocus,
+    initialInputValue: inputValueProp,
     onIsOpenChange: ({ isOpen }) => {
-      if (isOpen) {
-        onMenuOpen?.();
-      } else {
-        onMenuClose?.();
-      }
+      isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
     onInputValueChange: ({ inputValue }) => {
       filterOptions(inputValue || "");
       onInputChange?.(inputValue || "");
     },
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
+      console.log("newSelectedItem in combobox hook", newSelectedItem);
       if (!newSelectedItem) return;
       const itemWasSelected = selectedItems.some(item => item.value === newSelectedItem.value);
       if (itemWasSelected) {
@@ -83,13 +84,6 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
       }
     }
   });
-
-  const reset = useCallback(() => {
-    setSelectedItems([]);
-    downshiftReset();
-    filterOptions("");
-    onChange?.([]);
-  }, [setSelectedItems, downshiftReset, filterOptions, onChange]);
 
   return {
     isOpen,
