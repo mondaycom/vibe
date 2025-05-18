@@ -89,7 +89,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     getInputProps: hookGetInputProps,
     reset: hookReset,
     filteredOptions,
-    selectedItems: hookSelectedItems, // This comes from the hook, reflecting multiSelectedItemsState
+    selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem
   } = hookResult;
@@ -134,16 +134,16 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     reset: hookReset,
     contextOnClear: () => {
       hookReset();
-      setMultiSelectedItemsState([]); // Clear internal state
+      setMultiSelectedItemsState([]);
       onClear?.();
     },
     contextOnOptionRemove: (option: Item) => {
       if (hookRemoveSelectedItem) {
-        hookRemoveSelectedItem(option); // This will update internal state via the hook
+        hookRemoveSelectedItem(option);
       }
       onOptionRemove?.(option);
     },
-    addSelectedItem: hookAddSelectedItem, // This will update internal state via the hook
+    addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem,
     searchable,
     multi,

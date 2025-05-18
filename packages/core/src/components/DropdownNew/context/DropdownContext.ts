@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 import { ListGroup } from "../../BaseList";
 import { BaseListItemData } from "../../BaseListItem";
 import { BaseDropdownProps, DropdownSizes } from "../Dropdown.types";
-import { DropdownContextProps } from "./DropdownContext.types"; // Import the renamed type
+import { DropdownContextProps } from "./DropdownContext.types";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
@@ -44,7 +44,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
   maxMenuHeight?: BaseDropdownProps<Item>["maxMenuHeight"];
   clearable?: boolean;
   autoFocus?: boolean;
-  isFocused?: boolean; // If needed for styling from context
+  isFocused?: boolean;
   inputAriaLabel?: string;
   menuAriaLabel?: string;
   closeMenuOnSelect?: boolean;
@@ -58,7 +58,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
 export const DropdownContext = createContext<DropdownContextProps<any> | undefined>(undefined);
 
 export function useDropdownContext<Item extends BaseListItemData<Record<string, unknown>>>() {
-  const context = useContext(DropdownContext) as DropdownContextProps<Item>; // Cast here for specific Item type
+  const context = useContext(DropdownContext) as DropdownContextProps<Item>;
   if (context === undefined) {
     throw new Error("useDropdownContext must be used within a DropdownProvider");
   }
