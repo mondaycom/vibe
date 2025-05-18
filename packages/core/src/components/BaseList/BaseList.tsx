@@ -36,7 +36,7 @@ const BaseList = forwardRef(
         ref={ref}
         dir={dir}
         className={styles.wrapper}
-        {...getMenuProps?.({ ariaLabel: menuAriaLabel })}
+        {...getMenuProps?.({ "aria-label": menuAriaLabel })}
         onScroll={onScroll}
         style={{ maxHeight: maxMenuHeight }}
       >
