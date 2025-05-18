@@ -17,6 +17,8 @@ import { BaseListItemData } from "../BaseListItem";
 import Dialog from "../Dialog/Dialog";
 import { matchWidthModifier } from "./utils/dropdown-modifiers";
 import Trigger from "./components/Trigger/Trigger";
+import { DropdownContext } from "./context/DropdownContext";
+import { DropdownContextProps } from "./context/DropdownContext.types";
 
 const Dropdown = forwardRef(
   <Item extends BaseListItemData<Record<string, unknown>>>(
@@ -37,7 +39,7 @@ const Dropdown = forwardRef(
       helperText,
       required,
       maxMenuHeight,
-      isMenuOpen,
+      isMenuOpen: isMenuOpenProp,
       closeMenuOnSelect = true,
       autoFocus,
       clearable = true,
@@ -72,11 +74,11 @@ const Dropdown = forwardRef(
     const dropdownMergedRef = useMergeRef(ref, dropdownRef);
 
     const [isFocused, setIsFocused] = useState(false);
-    const [multiSelectedItems, setMultiSelectedItems] = useState<Item[]>((defaultValue as Item[]) ?? []);
+    const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>((defaultValue as Item[]) ?? []);
 
-    const singleDropdown = useDropdownCombobox<Item>(
+    const singleDropdownHook = useDropdownCombobox<Item>(
       options,
-      isMenuOpen,
+      isMenuOpenProp,
       autoFocus,
       closeMenuOnSelect,
       defaultValue as Item,
@@ -90,11 +92,11 @@ const Dropdown = forwardRef(
       showSelectedOptions
     );
 
-    const multiDropdown = useDropdownMultiCombobox<Item>(
+    const multiDropdownHook = useDropdownMultiCombobox<Item>(
       options,
-      multiSelectedItems,
-      setMultiSelectedItems,
-      isMenuOpen,
+      multiSelectedItemsState,
+      setMultiSelectedItemsState,
+      isMenuOpenProp,
       autoFocus,
       defaultValue as Item[],
       inputValueProp,
@@ -107,10 +109,10 @@ const Dropdown = forwardRef(
       showSelectedOptions
     );
 
-    const singleSelect = useDropdownSelect<Item>(
+    const singleSelectHook = useDropdownSelect<Item>(
       options,
       autoFocus,
-      isMenuOpen,
+      isMenuOpenProp,
       defaultValue as Item,
       onChange,
       onMenuOpen,
@@ -120,11 +122,11 @@ const Dropdown = forwardRef(
       filterOption
     );
 
-    const multiSelect = useDropdownMultiSelect<Item>(
+    const multiSelectHook = useDropdownMultiSelect<Item>(
       options,
-      multiSelectedItems,
-      setMultiSelectedItems,
-      isMenuOpen,
+      multiSelectedItemsState,
+      setMultiSelectedItemsState,
+      isMenuOpenProp,
       autoFocus,
       defaultValue as Item[],
       onChange,
@@ -134,6 +136,13 @@ const Dropdown = forwardRef(
       showSelectedOptions,
       filterOption
     );
+
+    const activeHookResult = useMemo(() => {
+      if (searchable) {
+        return multi ? multiDropdownHook : singleDropdownHook;
+      }
+      return multi ? multiSelectHook : singleSelectHook;
+    }, [searchable, multi, multiDropdownHook, singleDropdownHook, multiSelectHook, singleSelectHook]);
 
     const {
       isOpen,
@@ -146,20 +155,89 @@ const Dropdown = forwardRef(
       getItemProps,
       reset,
       filteredOptions
-    } = useMemo(() => {
-      if (searchable) {
-        return multi ? multiDropdown : singleDropdown;
-      }
-      return multi ? multiSelect : singleSelect;
-    }, [searchable, multi, multiDropdown, singleDropdown, multiSelect, singleSelect]);
+    } = activeHookResult;
 
-    const selectedItem = !multi ? (searchable ? singleDropdown.selectedItem : singleSelect.selectedItem) : undefined;
-    const selectedItems = multi ? (searchable ? multiDropdown.selectedItems : multiSelect.selectedItems) : undefined;
+    const currentSelectedItem = !multi
+      ? searchable
+        ? singleDropdownHook.selectedItem
+        : singleSelectHook.selectedItem
+      : undefined;
+    const currentSelectedItems = multi
+      ? searchable
+        ? multiDropdownHook.selectedItems
+        : multiSelectHook.selectedItems
+      : [];
+
+    const addSelectedItem = multi
+      ? searchable
+        ? multiDropdownHook.addSelectedItem
+        : multiSelectHook.addSelectedItem
+      : undefined;
     const removeSelectedItem = multi
       ? searchable
-        ? multiDropdown.removeSelectedItem
-        : multiSelect.removeSelectedItem
+        ? multiDropdownHook.removeSelectedItem
+        : multiSelectHook.removeSelectedItem
       : undefined;
+
+    const contextValue: DropdownContextProps<Item> = {
+      isOpen,
+      inputValue: inputValue ?? null,
+      highlightedIndex,
+      selectedItem: currentSelectedItem,
+      selectedItems: currentSelectedItems,
+      filteredOptions,
+      getToggleButtonProps,
+      getLabelProps,
+      getMenuProps,
+      getInputProps,
+      getItemProps,
+      reset,
+      contextOnClear: () => {
+        reset();
+        if (multi) {
+          setMultiSelectedItemsState([]);
+        }
+        onClear?.();
+      },
+      contextOnOptionRemove: (option: Item) => {
+        if (removeSelectedItem) {
+          removeSelectedItem(option);
+        }
+        onOptionRemove?.(option);
+      },
+      addSelectedItem,
+      removeSelectedItem,
+      searchable,
+      multi,
+      multiline,
+      disabled,
+      readOnly,
+      size,
+      optionRenderer,
+      valueRenderer,
+      noOptionsMessage,
+      placeholder,
+      withGroupDivider,
+      stickyGroupTitle,
+      maxMenuHeight,
+      clearable,
+      autoFocus,
+      inputAriaLabel,
+      menuAriaLabel,
+      closeMenuOnSelect,
+      dir,
+      isFocused,
+      onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
+        setIsFocused(true);
+        onFocus?.(event as any);
+      },
+      onBlur: () => {
+        setIsFocused(false);
+        onBlur?.();
+      },
+      onKeyDown,
+      onScroll
+    };
 
     const dialogContent = useMemo(
       () => (
@@ -167,7 +245,7 @@ const Dropdown = forwardRef(
           <BaseList<Item>
             size={size}
             options={filteredOptions}
-            selectedItems={multi ? selectedItems : [selectedItem]}
+            selectedItems={multi ? currentSelectedItems : currentSelectedItem ? [currentSelectedItem] : []}
             highlightedIndex={highlightedIndex}
             menuAriaLabel={menuAriaLabel}
             getMenuProps={getMenuProps}
@@ -187,9 +265,10 @@ const Dropdown = forwardRef(
         size,
         filteredOptions,
         multi,
-        selectedItems,
-        selectedItem,
+        currentSelectedItems,
+        currentSelectedItem,
         highlightedIndex,
+        menuAriaLabel,
         getMenuProps,
         getItemProps,
         withGroupDivider,
@@ -199,96 +278,52 @@ const Dropdown = forwardRef(
         noOptionsMessage,
         isOpen,
         onScroll,
-        maxMenuHeight,
-        menuAriaLabel
+        maxMenuHeight
       ]
     );
 
     return (
-      <div dir={dir}>
-        {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
-        <div
-          ref={dropdownMergedRef}
-          className={cx(styles.wrapper, className, {
-            [styles.disabled]: disabled,
-            [styles.readOnly]: readOnly,
-            [styles.error]: error,
-            [styles.active]: isFocused
-          })}
-          id={id}
-          aria-label={ariaLabel}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-        >
-          <Dialog
-            open={isOpen}
-            useDerivedStateFromProps
-            position="bottom-start"
-            moveBy={{ main: 4, secondary: 0 }}
-            observeContentResize={true}
-            showTrigger={[]}
-            hideTrigger={[]}
-            onClickOutside={() => {
-              if (isOpen) {
-                reset();
-              }
-            }}
-            modifiers={matchWidthModifier}
-            content={dialogContent}
+      <DropdownContext.Provider value={contextValue}>
+        <div dir={dir}>
+          {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
+          <div
+            ref={dropdownMergedRef}
+            className={cx(styles.wrapper, className, {
+              [styles.disabled]: disabled,
+              [styles.readOnly]: readOnly,
+              [styles.error]: error,
+              [styles.active]: isFocused
+            })}
+            id={id}
+            aria-label={ariaLabel}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
           >
-            <Trigger
-              getToggleButtonProps={getToggleButtonProps}
-              getInputProps={getInputProps}
-              isOpen={isOpen}
-              inputValue={inputValue}
-              selectedItem={selectedItem as Item | undefined | null}
-              selectedItems={selectedItems as Item[] | undefined}
-              reset={reset}
-              autoFocus={autoFocus}
-              disabled={disabled}
-              readOnly={readOnly}
-              placeholder={placeholder}
-              clearable={clearable}
-              searchable={searchable}
-              multi={multi}
-              multiline={multiline}
-              size={size}
-              isFocused={isFocused}
-              onClear={() => {
-                reset();
-                onClear?.();
-                if (multi) {
-                  setMultiSelectedItems?.([]);
-                } else {
-                  onChange?.(null);
+            <Dialog
+              open={isOpen}
+              useDerivedStateFromProps
+              position="bottom-start"
+              moveBy={{ main: 4, secondary: 0 }}
+              observeContentResize={true}
+              showTrigger={[]}
+              hideTrigger={[]}
+              onClickOutside={() => {
+                if (isOpen) {
+                  reset();
                 }
               }}
-              onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
-                setIsFocused(true);
-                onFocus?.(e);
-              }}
-              onBlur={() => {
-                setIsFocused(false);
-                onBlur?.();
-              }}
-              onKeyDown={onKeyDown}
-              onOptionRemove={(item: Item) => {
-                if (removeSelectedItem) {
-                  removeSelectedItem(item);
-                }
-                onOptionRemove?.(item);
-              }}
-              valueRenderer={valueRenderer as any}
-              inputAriaLabel={inputAriaLabel}
-              highlightedIndex={highlightedIndex}
-            />
-          </Dialog>
+              modifiers={matchWidthModifier}
+              content={dialogContent}
+            >
+              <Trigger />
+            </Dialog>
+          </div>
+          {helperText && (
+            <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
+              {helperText}
+            </Text>
+          )}
         </div>
-        {helperText && (
-          <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
-            {helperText}
-          </Text>
-        )}
-      </div>
+      </DropdownContext.Provider>
     );
   }
 );

@@ -9,81 +9,74 @@ import { BaseListItem, BaseListItemData } from "../../../BaseListItem";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import { Chips } from "../../../Chips";
 import styles from "./Trigger.module.scss";
-import { DropdownSizes } from "../../Dropdown.types";
+import { useDropdownContext } from "../../context/DropdownContext";
 
-// TODO: Import necessary Downshift prop getters and other types from a future DropdownContext
-interface TriggerDownshiftProps {
-  getToggleButtonProps: (options?: any) => any; // Simplified for now
-  getInputProps: (options?: any) => any; // Simplified for now
-  // Callbacks from context
-  reset: () => void;
-  // State from context
-  isOpen: boolean;
-  inputValue?: string;
-  highlightedIndex: number;
-  selectedItem?: BaseListItemData | null;
-  selectedItems?: BaseListItemData[];
-  // From main Dropdown props
-  autoFocus?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  placeholder?: string;
-  clearable?: boolean;
-  searchable?: boolean;
-  multi?: boolean;
-  multiline?: boolean;
-  size?: DropdownSizes;
-  isFocused?: boolean; // To manage styles
-  // Callbacks from main Dropdown props
-  onClear?: () => void;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  onOptionRemove?: (item: BaseListItemData) => void;
-  // Renderers from main Dropdown props
-  valueRenderer?: (
-    item: BaseListItemData,
-    _itemProps: Partial<React.HTMLAttributes<HTMLElement>> // itemProps often unused in simple renderers
-  ) => JSX.Element;
-  inputAriaLabel?: string;
+// The Trigger component no longer defines its own extensive props interface.
+// It will get almost everything from the DropdownContext.
+// We might add specific props later if Trigger has unique needs not covered by context.
+/*
+export interface TriggerProps {
+  // Example: a prop unique to Trigger, if any, would go here.
+  // For now, it's empty as we expect all data from context.
 }
+*/
 
-const Trigger = (props: TriggerDownshiftProps) => {
+const Trigger = () => {
+  // Destructure any unique props for Trigger if they existed in TriggerProps
+  // const { uniqueTriggerProp } = props;
+
   const {
-    getToggleButtonProps,
-    getInputProps,
+    // State & Values from context
     isOpen,
     inputValue,
+    // highlightedIndex, // Not directly used by Trigger display logic
     selectedItem,
-    selectedItems = [],
-    reset,
-    autoFocus,
-    disabled,
-    readOnly,
-    placeholder,
-    clearable,
+    selectedItems = [], // Default to empty array from context if not already
+    // Prop Getters from context
+    getToggleButtonProps,
+    getInputProps,
+    // Callbacks from context
+    reset, // This is Downshift's reset
+    contextOnClear, // This is the context's clear handler
+    contextOnOptionRemove, // Context's handler for removing an item
+    // Relevant props from BaseDropdownProps, now via context
     searchable,
     multi,
     multiline,
+    disabled,
+    readOnly,
     size,
-    isFocused,
-    onClear,
-    onFocus,
-    onBlur,
-    onKeyDown,
-    onOptionRemove,
+    optionRenderer: _optionRenderer, // Not used directly by Trigger itself
     valueRenderer,
-    inputAriaLabel
-  } = props;
+    // noOptionsMessage, // Not used by Trigger
+    placeholder,
+    // withGroupDivider, // Not used by Trigger
+    // stickyGroupTitle, // Not used by Trigger
+    // maxMenuHeight, // Not used by Trigger
+    clearable,
+    autoFocus,
+    inputAriaLabel,
+    // menuAriaLabel, // Not used by Trigger
+    // closeMenuOnSelect, // Not used by Trigger
+    // dir, // Not used by Trigger
+    isFocused // This should come from context, which gets it from parent state
+    // onFocus, // Handled by getInputProps
+    // onBlur,  // Handled by getInputProps
+    // onKeyDown // Handled by getInputProps
+  } = useDropdownContext<BaseListItemData>(); // Specify Item type if needed, using BaseListItemData as default
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
 
   const handleClear = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent a click on clear from opening/closing the dropdown
-    reset();
-    onClear?.();
-    // TODO: For multi-select, this needs to clear multiSelectedItems state (likely via context)
-    // For single-select, it needs to call onChange(null) (likely via context)
+    e.stopPropagation();
+    if (contextOnClear) {
+      console.log("contextOnClear - rivka");
+      contextOnClear();
+    } else {
+      // Fallback or error if contextOnClear is unexpectedly not provided
+      // Though context setup should ensure it is.
+      reset();
+    }
   };
 
   const renderSearchableInput = () => {
@@ -93,12 +86,9 @@ const Trigger = (props: TriggerDownshiftProps) => {
         style={{ padding: "0" }}
         {...getInputProps({
           ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
-          value: inputValue,
-          placeholder: hasSelection ? "" : placeholder,
-          onFocus,
-          onBlur,
-          onKeyDown
+          placeholder: hasSelection ? "" : placeholder
         })}
+        value={inputValue || ""}
         autoFocus={autoFocus}
         size={size}
         className={cx(styles.inputWrapper, {
@@ -110,18 +100,12 @@ const Trigger = (props: TriggerDownshiftProps) => {
     );
   };
 
-  // Downshift requires the toggle button to always be in the DOM.
-  // We will use Flex as the main wrapper and apply getToggleButtonProps to it
-  // if the dropdown is not searchable. If it IS searchable, the input itself often handles toggling.
-  // For simplicity and Downshift compliance, a primary clickable element is best.
-  // Let's refine this: the main interaction surface should get toggleButtonProps.
-
   return (
     <Flex
       justify="space-between"
       align="start"
-      className={styles.triggerWrapper} // A new class for overall trigger styling
-      {...(!searchable ? getToggleButtonProps({ disabled }) : {})}
+      className={styles.triggerWrapper}
+      {...(!searchable ? getToggleButtonProps({ disabled, onClick: (e: React.MouseEvent) => e.preventDefault() }) : {})}
     >
       <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
         {multi && hasSelection && (
@@ -130,10 +114,8 @@ const Trigger = (props: TriggerDownshiftProps) => {
               <MultiSelectedValues
                 selectedItems={selectedItems}
                 onRemove={item => {
-                  // This will eventually call a function from context to remove item
-                  onOptionRemove?.(item as BaseListItemData);
+                  contextOnOptionRemove?.(item as BaseListItemData);
                 }}
-                // Conditionally pass renderInput only if searchable, or style it to be hidden
                 {...(searchable && { renderInput: () => renderSearchableInput() })}
               />
             ) : (
@@ -144,17 +126,14 @@ const Trigger = (props: TriggerDownshiftProps) => {
                       <Chips
                         label={item.label}
                         onDelete={() => {
-                          // This will eventually call a function from context
-                          onOptionRemove?.(item as BaseListItemData);
+                          contextOnOptionRemove?.(item as BaseListItemData);
                         }}
                         noMargin
                       />
                     </div>
-                    {/* Render input after the last chip in multiline searchable mode */}
                     {index === selectedItems.length - 1 && searchable && renderSearchableInput()}
                   </Flex>
                 ))}
-                {/* If multiline and searchable but no items yet, render input */}
                 {selectedItems.length === 0 && searchable && renderSearchableInput()}
               </Flex>
             )}
@@ -162,7 +141,7 @@ const Trigger = (props: TriggerDownshiftProps) => {
         )}
 
         {!multi && !searchable && !selectedItem && placeholder && (
-          <Text color="secondary" className={styles.placeholderText}>
+          <Text color="secondary" className={styles.placeholderText} {...getToggleButtonProps({ disabled })}>
             {placeholder}
           </Text>
         )}
@@ -177,7 +156,7 @@ const Trigger = (props: TriggerDownshiftProps) => {
             })}
           >
             {valueRenderer ? (
-              valueRenderer(selectedItem, {})
+              valueRenderer(selectedItem)
             ) : (
               <BaseListItem
                 size={size}
