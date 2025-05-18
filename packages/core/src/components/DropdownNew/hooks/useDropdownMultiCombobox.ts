@@ -64,11 +64,12 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     },
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
-      const itemWasSelected = selectedItems.some(item => item.value === newSelectedItem.value);
-      if (itemWasSelected) {
-        removeSelectedItem(newSelectedItem);
+      const itemIndex = selectedItems.findIndex(item => item.value === newSelectedItem.value);
+      if (itemIndex > -1) {
+        const newSelectedItems = [...selectedItems.slice(0, itemIndex), ...selectedItems.slice(itemIndex + 1)];
+        setSelectedItems(newSelectedItems);
       } else {
-        addSelectedItem(newSelectedItem);
+        setSelectedItems([...selectedItems, newSelectedItem]);
       }
       onOptionSelect?.(newSelectedItem);
       filterOptions("");
