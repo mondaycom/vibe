@@ -12,10 +12,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import Text from "../Text/Text";
 import { BaseListItemData } from "../BaseListItem";
-import Dialog from "../Dialog/Dialog";
-import { matchWidthModifier } from "./utils/dropdown-modifiers";
-import Trigger from "./components/Trigger/Trigger";
-import Menu from "./components/Menu/Menu";
+import DropdownPopup from "./components/DropdownPopup/DropdownPopup";
 import { DropdownContext } from "./context/DropdownContext";
 import { DropdownContextProps } from "./context/DropdownContext.types";
 
@@ -263,24 +260,7 @@ const Dropdown = forwardRef(
             aria-label={ariaLabel}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
           >
-            <Dialog
-              open={isOpen}
-              useDerivedStateFromProps
-              position="bottom-start"
-              moveBy={{ main: 4, secondary: 0 }}
-              observeContentResize={true}
-              showTrigger={[]}
-              hideTrigger={[]}
-              onClickOutside={() => {
-                if (isOpen) {
-                  reset();
-                }
-              }}
-              modifiers={matchWidthModifier}
-              content={<Menu />}
-            >
-              <Trigger />
-            </Dialog>
+            <DropdownPopup />
           </div>
           {helperText && (
             <Text color={error ? "negative" : "secondary"} className={styles.helperText}>

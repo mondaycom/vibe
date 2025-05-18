@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from "react";
+import { useMemo } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { useMultipleSelection, useCombobox } from "downshift";
 import { DropdownGroupOption } from "../Dropdown.types";
