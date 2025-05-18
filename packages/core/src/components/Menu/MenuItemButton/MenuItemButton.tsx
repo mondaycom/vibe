@@ -7,7 +7,7 @@ import { ButtonType } from "../../Button";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
+import { SubIcon, VibeComponentProps, ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 import { TooltipPositions } from "../../Tooltip";
@@ -184,7 +184,7 @@ interface MenuItemButtonStaticProps {
   tooltipPositions: typeof TooltipPositionsEnum;
 }
 
-export default withStaticProps<MenuItemButtonProps, MenuItemButtonStaticProps>(MenuItemButton, {
+export default withStaticPropsWithoutForwardRef<MenuItemButtonProps, MenuItemButtonStaticProps>(MenuItemButton, {
   kinds: Button.kinds,
   tooltipPositions: TooltipPositionsEnum
 });
