@@ -1,7 +1,5 @@
 import React, { useMemo, useRef, forwardRef, useState } from "react";
 import cx from "classnames";
-import { DialogContentContainer } from "../DialogContentContainer";
-import { BaseList } from "../BaseList";
 import styles from "./Dropdown.module.scss";
 import { BaseDropdownProps } from "./Dropdown.types";
 import useDropdownCombobox from "./hooks/useDropdownCombobox";
@@ -17,6 +15,7 @@ import { BaseListItemData } from "../BaseListItem";
 import Dialog from "../Dialog/Dialog";
 import { matchWidthModifier } from "./utils/dropdown-modifiers";
 import Trigger from "./components/Trigger/Trigger";
+import Menu from "./components/Menu/Menu";
 import { DropdownContext } from "./context/DropdownContext";
 import { DropdownContextProps } from "./context/DropdownContext.types";
 
@@ -151,7 +150,6 @@ const Dropdown = forwardRef(
       getToggleButtonProps,
       getLabelProps,
       getMenuProps,
-      getInputProps,
       getItemProps,
       reset,
       filteredOptions
@@ -189,8 +187,23 @@ const Dropdown = forwardRef(
       getToggleButtonProps,
       getLabelProps,
       getMenuProps,
-      getInputProps,
       getItemProps,
+      getInputProps: (options?: any) => {
+        return activeHookResult.getInputProps({
+          ...(options || {}),
+          onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
+            setIsFocused(true);
+            onFocus?.(event as any);
+          },
+          onBlur: (_event: React.FocusEvent<HTMLInputElement>) => {
+            setIsFocused(false);
+            onBlur?.();
+          },
+          onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
+            onKeyDown?.(event);
+          }
+        });
+      },
       reset,
       contextOnClear: () => {
         reset();
@@ -227,60 +240,12 @@ const Dropdown = forwardRef(
       closeMenuOnSelect,
       dir,
       isFocused,
-      onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
-        setIsFocused(true);
-        onFocus?.(event as any);
-      },
-      onBlur: () => {
-        setIsFocused(false);
-        onBlur?.();
-      },
+      onFocus,
+      onBlur,
       onKeyDown,
-      onScroll
+      onScroll,
+      onClear
     };
-
-    const dialogContent = useMemo(
-      () => (
-        <DialogContentContainer>
-          <BaseList<Item>
-            size={size}
-            options={filteredOptions}
-            selectedItems={multi ? currentSelectedItems : currentSelectedItem ? [currentSelectedItem] : []}
-            highlightedIndex={highlightedIndex}
-            menuAriaLabel={menuAriaLabel}
-            getMenuProps={getMenuProps}
-            getItemProps={getItemProps}
-            withGroupDivider={withGroupDivider}
-            stickyGroupTitle={stickyGroupTitle}
-            dir={dir}
-            itemRenderer={optionRenderer}
-            noOptionsMessage={noOptionsMessage}
-            renderOptions={isOpen}
-            onScroll={onScroll}
-            maxMenuHeight={maxMenuHeight}
-          />
-        </DialogContentContainer>
-      ),
-      [
-        size,
-        filteredOptions,
-        multi,
-        currentSelectedItems,
-        currentSelectedItem,
-        highlightedIndex,
-        menuAriaLabel,
-        getMenuProps,
-        getItemProps,
-        withGroupDivider,
-        stickyGroupTitle,
-        dir,
-        optionRenderer,
-        noOptionsMessage,
-        isOpen,
-        onScroll,
-        maxMenuHeight
-      ]
-    );
 
     return (
       <DropdownContext.Provider value={contextValue}>
@@ -312,7 +277,7 @@ const Dropdown = forwardRef(
                 }
               }}
               modifiers={matchWidthModifier}
-              content={dialogContent}
+              content={<Menu />}
             >
               <Trigger />
             </Dialog>
