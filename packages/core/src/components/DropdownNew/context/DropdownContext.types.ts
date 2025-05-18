@@ -1,6 +1,6 @@
 import { ListGroup } from "../../BaseList";
 import { BaseListItemData } from "../../BaseListItem";
-import { BaseDropdownProps } from "../Dropdown.types"; // DropdownSizes will come via BaseDropdownProps pick or BaseDropdownProps itself
+import { BaseDropdownProps } from "../Dropdown.types";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
