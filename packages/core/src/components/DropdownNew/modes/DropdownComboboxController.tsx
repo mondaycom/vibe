@@ -58,7 +58,19 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const hookResult = useDropdownCombobox<Item>(
+  const {
+    isOpen,
+    inputValue: hookInputValue,
+    highlightedIndex,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getItemProps,
+    getInputProps: hookGetInputProps,
+    reset: hookReset,
+    filteredOptions,
+    selectedItem: hookSelectedItem
+  } = useDropdownCombobox<Item>(
     options,
     isMenuOpenProp,
     autoFocus,
@@ -73,20 +85,6 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     filterOption,
     showSelectedOptions
   );
-
-  const {
-    isOpen,
-    inputValue: hookInputValue,
-    highlightedIndex,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    getInputProps: hookGetInputProps,
-    reset: hookReset,
-    filteredOptions,
-    selectedItem: hookSelectedItem
-  } = hookResult;
 
   const contextValue: DropdownContextProps<Item> = {
     label,

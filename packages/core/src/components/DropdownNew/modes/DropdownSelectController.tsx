@@ -56,7 +56,17 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     tooltipProps
   } = props;
 
-  const hookResult = useDropdownSelect<Item>(
+  const {
+    isOpen,
+    highlightedIndex,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getItemProps,
+    reset: hookReset,
+    filteredOptions,
+    selectedItem: hookSelectedItem
+  } = useDropdownSelect<Item>(
     options,
     autoFocus,
     isMenuOpenProp,
@@ -68,18 +78,6 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     showSelectedOptions,
     filterOption
   );
-
-  const {
-    isOpen,
-    highlightedIndex,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    reset: hookReset,
-    filteredOptions,
-    selectedItem: hookSelectedItem
-  } = hookResult;
 
   const contextValue: DropdownContextProps<Item> = {
     label,

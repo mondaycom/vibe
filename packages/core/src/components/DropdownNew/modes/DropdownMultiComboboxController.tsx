@@ -22,7 +22,6 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     filterOption,
     showSelectedOptions = false,
     tooltipProps,
-
     className,
     id,
     "data-testid": dataTestId,
@@ -62,7 +61,21 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
   const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>(initialMultiSelectedItems);
   const [isFocused, setIsFocused] = useState(false);
 
-  const hookResult = useDropdownMultiCombobox<Item>(
+  const {
+    isOpen,
+    inputValue: hookInputValue,
+    highlightedIndex,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getItemProps,
+    getInputProps: hookGetInputProps,
+    reset: hookReset,
+    filteredOptions,
+    selectedItems: hookSelectedItems,
+    addSelectedItem: hookAddSelectedItem,
+    removeSelectedItem: hookRemoveSelectedItem
+  } = useDropdownMultiCombobox<Item>(
     options,
     multiSelectedItemsState,
     setMultiSelectedItemsState,
@@ -78,22 +91,6 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     filterOption,
     showSelectedOptions
   );
-
-  const {
-    isOpen,
-    inputValue: hookInputValue,
-    highlightedIndex,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    getInputProps: hookGetInputProps,
-    reset: hookReset,
-    filteredOptions,
-    selectedItems: hookSelectedItems,
-    addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
-  } = hookResult;
 
   const contextValue: DropdownContextProps<Item> = {
     label,

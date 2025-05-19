@@ -58,7 +58,19 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
   const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>(initialMultiSelectedItems);
 
-  const hookResult = useDropdownMultiSelect<Item>(
+  const {
+    isOpen,
+    highlightedIndex,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getItemProps,
+    reset: hookReset,
+    filteredOptions,
+    selectedItems: hookSelectedItems,
+    addSelectedItem: hookAddSelectedItem,
+    removeSelectedItem: hookRemoveSelectedItem
+  } = useDropdownMultiSelect<Item>(
     options,
     multiSelectedItemsState,
     setMultiSelectedItemsState,
@@ -72,20 +84,6 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     showSelectedOptions,
     filterOption
   );
-
-  const {
-    isOpen,
-    highlightedIndex,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    reset: hookReset,
-    filteredOptions,
-    selectedItems: hookSelectedItems,
-    addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
-  } = hookResult;
 
   const contextValue: DropdownContextProps<Item> = {
     label,
