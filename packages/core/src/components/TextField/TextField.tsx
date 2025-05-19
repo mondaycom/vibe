@@ -508,7 +508,7 @@ interface TextFieldStaticProps {
   feedbacks: typeof TextFieldFeedbackStateEnum;
 }
 
-export default withStaticProps<TextFieldProps, TextFieldStaticProps>(TextField, {
+export default withStaticProps<TextFieldProps, TextFieldStaticProps, unknown>(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackStateEnum,
   types: TextFieldTextTypeEnum

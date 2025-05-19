@@ -12,7 +12,7 @@ import AvatarBadge, { AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Avatar.module.scss";
 
 export interface AvatarProps extends VibeComponentProps {
@@ -270,7 +270,7 @@ interface AvatarStaticProps {
   backgroundColors: typeof ElementAllowedColorEnum;
 }
 
-export default withStaticProps<AvatarProps, AvatarStaticProps>(Avatar, {
+export default withStaticPropsWithoutForwardRef<AvatarProps, AvatarStaticProps>(Avatar, {
   types: AvatarTypeEnum,
   sizes: AvatarSizeEnum,
   colors: ElementAllowedColorEnum,

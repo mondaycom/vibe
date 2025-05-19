@@ -5,7 +5,7 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
-import { SubIcon, withStaticProps } from "../../../../types";
+import { SubIcon, withStaticPropsWithoutForwardRef } from "../../../../types";
 import {
   ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
   IComboboxOption,
@@ -205,6 +205,6 @@ interface ComboboxOptionStaticProps {
   iconTypes: typeof ComboboxOptionIconTypeEnum;
 }
 
-export default withStaticProps<ComboboxOptionProps, ComboboxOptionStaticProps>(ComboboxOption, {
+export default withStaticPropsWithoutForwardRef<ComboboxOptionProps, ComboboxOptionStaticProps>(ComboboxOption, {
   iconTypes: ComboboxOptionIconTypeEnum
 });

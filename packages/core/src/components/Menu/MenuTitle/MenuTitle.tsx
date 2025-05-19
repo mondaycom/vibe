@@ -6,7 +6,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import Text from "../../Text/Text";
 import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
 import { MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { VibeComponentProps, withStaticProps } from "../../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {
@@ -61,7 +61,7 @@ interface MenuTitleStaticProps {
   captionPositions: typeof MenuTitleCaptionPositionEnum;
 }
 
-export default withStaticProps<MenuTitleProps, MenuTitleStaticProps>(MenuTitle, {
+export default withStaticPropsWithoutForwardRef<MenuTitleProps, MenuTitleStaticProps>(MenuTitle, {
   positions: MenuTitleCaptionPositionEnum,
   captionPositions: MenuTitleCaptionPositionEnum
 });
