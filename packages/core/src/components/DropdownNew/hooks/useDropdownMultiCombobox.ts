@@ -14,9 +14,15 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
-  filterOption?: (option: T, inputValue: string) => boolean
+  filterOption?: (option: T, inputValue: string) => boolean,
+  showSelectedOptions?: boolean
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options, filterOption);
+  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
+    options,
+    filterOption,
+    showSelectedOptions,
+    selectedItems
+  );
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
   const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } = useMultipleSelection({
@@ -49,14 +55,15 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
       filterOptions(inputValue || "");
       onInputChange?.(inputValue || "");
     },
-    onSelectedItemChange: ({ selectedItem }) => {
-      if (!selectedItem) return;
-      if (!selectedItems.includes(selectedItem)) {
-        const newItems = [...selectedItems, selectedItem];
-        setSelectedItems(newItems);
-        onOptionSelect?.(selectedItem);
-        onChange?.(newItems);
+    onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
+      if (!newSelectedItem) return;
+      const itemWasSelected = selectedItems.some(item => item.value === newSelectedItem.value);
+      if (itemWasSelected) {
+        removeSelectedItem(newSelectedItem);
+      } else {
+        addSelectedItem(newSelectedItem);
       }
+      onOptionSelect?.(newSelectedItem);
       filterOptions("");
     },
     stateReducer: (state, actionAndChanges) => {

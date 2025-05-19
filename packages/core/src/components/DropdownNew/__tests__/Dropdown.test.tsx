@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { BaseDropdownProps } from "../Dropdown.types";
 import { BaseListItemData } from "../../BaseListItem";
@@ -757,7 +757,6 @@ describe("DropdownNew", () => {
   });
 
   describe("with filterOption prop", () => {
-    // Define a more specific type for our test options
     type FilterTestOptionType = BaseListItemData<{
       id: string;
       value: string;
@@ -864,6 +863,108 @@ describe("DropdownNew", () => {
       expect(queryByText("Banana")).not.toBeInTheDocument();
       expect(queryByText("Cherry")).not.toBeInTheDocument();
       expect(queryByText("Date")).not.toBeInTheDocument();
+    });
+  });
+
+  describe("with showSelectedOptions prop", () => {
+    const showSelectedTestOptions = [
+      { label: "Option Alpha", value: "alpha" },
+      { label: "Option Beta", value: "beta" },
+      { label: "Option Gamma", value: "gamma" }
+    ];
+
+    it("should hide selected option from list when showSelectedOptions is false (single select)", () => {
+      const { getByPlaceholderText, getByRole } = renderDropdown({
+        options: showSelectedTestOptions,
+        showSelectedOptions: false,
+        placeholder: "Select single"
+      });
+      const input = getByPlaceholderText("Select single");
+      fireEvent.click(input);
+
+      let listbox = getByRole("listbox");
+      expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
+
+      fireEvent.click(within(listbox).getByText("Option Beta"));
+
+      fireEvent.click(input);
+      listbox = getByRole("listbox");
+
+      expect(within(listbox).queryByText("Option Beta")).not.toBeInTheDocument();
+      expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
+    });
+
+    it("should keep selected option in list when showSelectedOptions is true (single select)", () => {
+      const { getByPlaceholderText, getByRole } = renderDropdown({
+        options: showSelectedTestOptions,
+        showSelectedOptions: true,
+        placeholder: "Select single true"
+      });
+      const input = getByPlaceholderText("Select single true");
+      fireEvent.click(input);
+      let listbox = getByRole("listbox");
+      fireEvent.click(within(listbox).getByText("Option Beta"));
+      fireEvent.click(input);
+      listbox = getByRole("listbox");
+      expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
+    });
+
+    it("should hide selected options from list when showSelectedOptions is false (multi select)", () => {
+      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+        options: showSelectedTestOptions,
+        showSelectedOptions: false,
+        multi: true,
+        placeholder: "Select multi"
+      });
+
+      const input = getByPlaceholderText("Select multi");
+      fireEvent.click(input);
+      let listbox = getByRole("listbox");
+
+      fireEvent.click(within(listbox).getByText("Option Alpha"));
+      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
+      listbox = getByRole("listbox");
+
+      expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
+
+      fireEvent.click(within(listbox).getByText("Option Gamma"));
+      expect(getByTestId("dropdown-chip-gamma")).toBeInTheDocument();
+      listbox = getByRole("listbox");
+
+      expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
+      expect(within(listbox).queryByText("Option Gamma")).not.toBeInTheDocument();
+    });
+
+    it("should keep selected options in list when showSelectedOptions is true (multi select)", () => {
+      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+        options: showSelectedTestOptions,
+        showSelectedOptions: true,
+        multi: true,
+        placeholder: "Select multi true"
+      });
+      const input = getByPlaceholderText("Select multi true");
+      fireEvent.click(input);
+      let listbox = getByRole("listbox");
+
+      fireEvent.click(within(listbox).getByText("Option Alpha"));
+      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
+      listbox = getByRole("listbox");
+      expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
+
+      fireEvent.click(within(listbox).getByText("Option Beta"));
+      expect(getByTestId("dropdown-chip-beta")).toBeInTheDocument();
+      listbox = getByRole("listbox");
+      expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
+      expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
     });
   });
 });
