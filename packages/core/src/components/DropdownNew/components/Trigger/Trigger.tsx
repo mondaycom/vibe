@@ -28,7 +28,6 @@ const Trigger = () => {
     disabled,
     readOnly,
     size,
-    optionRenderer: _optionRenderer,
     valueRenderer,
     placeholder,
     autoFocus,

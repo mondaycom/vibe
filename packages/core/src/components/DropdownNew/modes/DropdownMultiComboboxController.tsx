@@ -21,6 +21,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onOptionSelect,
     filterOption,
     showSelectedOptions = false,
+    tooltipProps,
 
     className,
     id,
@@ -169,7 +170,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onBlur,
     onKeyDown,
     onScroll,
-    onClear
+    onClear,
+    tooltipProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

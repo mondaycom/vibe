@@ -22,7 +22,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onOptionSelect,
     filterOption,
     showSelectedOptions = false,
-
+    tooltipProps,
     className,
     id,
     "data-testid": dataTestId,
@@ -159,7 +159,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onBlur,
     onKeyDown,
     onScroll,
-    onClear
+    onClear,
+    tooltipProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

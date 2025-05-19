@@ -19,6 +19,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     onOptionSelect,
     showSelectedOptions = false,
     filterOption,
+    tooltipProps,
     className,
     id,
     "data-testid": dataTestId,
@@ -142,7 +143,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     onBlur,
     onKeyDown,
     onScroll,
-    onClear
+    onClear,
+    tooltipProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

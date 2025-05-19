@@ -1,6 +1,7 @@
 import { ListGroup } from "../../BaseList";
 import { BaseListItemData } from "../../BaseListItem";
 import { BaseDropdownProps } from "../Dropdown.types";
+import { TooltipProps } from "../../Tooltip/Tooltip";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
@@ -51,6 +52,7 @@ export interface DropdownContextProps<Item extends BaseListItemData<Record<strin
   selectedItem?: Item | null | undefined;
   selectedItems?: Item[];
   filteredOptions?: ListGroup<Item>[];
+  tooltipProps?: Partial<TooltipProps>;
 
   getToggleButtonProps: PropGetter;
   getLabelProps: PropGetter;

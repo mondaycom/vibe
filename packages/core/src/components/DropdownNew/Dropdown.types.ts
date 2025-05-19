@@ -2,6 +2,7 @@ import React from "react";
 import { ListGroup } from "../BaseList";
 import { VibeComponentProps } from "../../types";
 import { BaseListItemData } from "../BaseListItem";
+import { TooltipProps } from "../Tooltip/Tooltip";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
@@ -56,6 +57,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The list of options available in the list.
    */
   options: DropdownGroupOption<Item>;
+  /**
+   * Props to be passed to the Tooltip component that wraps the dropdown.
+   */
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * If true, displays dividers between grouped options.
    */

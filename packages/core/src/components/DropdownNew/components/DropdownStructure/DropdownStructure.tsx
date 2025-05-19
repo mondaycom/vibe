@@ -7,6 +7,7 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
+import Tooltip from "../../../Tooltip/Tooltip";
 
 interface DropdownStructureProps {
   dropdownRef: React.Ref<HTMLDivElement>;
@@ -27,26 +28,33 @@ const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, chil
     error,
     isFocused,
     helperText,
-    dir
+    dir,
+    tooltipProps
   } = useDropdownContext<BaseListItemData>();
+
+  const coreDropdownElement = (
+    <div
+      ref={dropdownRef}
+      className={cx(styles.wrapper, className, {
+        [styles.disabled]: disabled,
+        [styles.readOnly]: readOnly,
+        [styles.error]: error,
+        [styles.active]: isFocused
+      })}
+      id={id}
+      aria-label={ariaLabel}
+      data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+    >
+      {children}
+    </div>
+  );
 
   return (
     <div dir={dir}>
       {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
-      <div
-        ref={dropdownRef}
-        className={cx(styles.wrapper, className, {
-          [styles.disabled]: disabled,
-          [styles.readOnly]: readOnly,
-          [styles.error]: error,
-          [styles.active]: isFocused
-        })}
-        id={id}
-        aria-label={ariaLabel}
-        data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-      >
-        {children}
-      </div>
+      <Tooltip {...tooltipProps} content={tooltipProps?.content}>
+        {coreDropdownElement}
+      </Tooltip>
       {helperText && (
         <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
           {helperText}

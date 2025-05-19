@@ -52,7 +52,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multiline,
     dropdownRef,
     inputAriaLabel: propInputAriaLabel,
-    closeMenuOnSelect: propCloseMenuOnSelect
+    closeMenuOnSelect: propCloseMenuOnSelect,
+    tooltipProps
   } = props;
 
   const hookResult = useDropdownSelect<Item>(
@@ -132,7 +133,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onBlur,
     onKeyDown,
     onScroll,
-    onClear
+    onClear,
+    tooltipProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
