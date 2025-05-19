@@ -1,0 +1,28 @@
+# CI/CD Workflows (GitHub Actions)
+
+This project uses GitHub Actions for its Continuous Integration (CI) and Continuous Deployment (CD) pipelines.
+
+## Workflow Definitions
+
+The main workflow definitions are located in the `.github/workflows/` directory. Key workflows include:
+
+- `pr.yml`: Runs checks on every Pull Request.
+- `test.yml`: A reusable workflow to run unit tests, e2e, bundle size checks, linting, etc. Gets called on PRs and Release.
+- `build-and-upload.yml`: Probably handles building artifacts and uploading them.
+- `release.yml`: Manages the release process of Vibe v3 (@vibe/core@3) for new versions.
+- `release-v2.yml`: Manages the release process of Vibe v2 (monday-ui-react-core@2) for critical bug fixes.
+- `prerelease.yml`: Handles pre-release versions.
+- `publish-storybook.yml`: Publishes new versions of Storybook. Gets called automatically after release or by calling it manually.
+- `chromatic.yml`: Creates a Chromatic build to check for visual regression testing of the library's UI components.
+
+## Custom Actions
+
+The workflows may utilize custom reusable GitHub Actions defined in the `.github/actions/` directory. These custom actions encapsulate specific steps or logic. Notable custom actions include:
+
+- `setup/`: Setting up the environment, installing dependencies.
+- `determine-lerna-since-flag/`: Calculates whether we're running on master or on a branch, to determine the "--since" flag value for lerna.
+- `check-changed-packages/`: Identifies which packages were modified in a PR to run targeted tests or builds only if changes were found.
+- `download-builds/`: Downloads build artifacts. Used in workflows that uses `build-and-upload.yml` to download the uploaded build artifact.
+- `git-creds/`: Handles Git credentials setup.
+
+When trying to understand the CI/CD process, refer to these directories and files. The YAML files in `.github/workflows/` define the triggers and jobs and reusable workflows, while the subdirectories in `.github/actions/` contain the logic for custom actions (reusable actions).
