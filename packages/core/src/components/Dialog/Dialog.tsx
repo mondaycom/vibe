@@ -296,6 +296,14 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     if (isClient()) {
       document.removeEventListener("keyup", this.closeDialogOnEscape);
     }
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = null;
+    }
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
   }
 
   static getDerivedStateFromProps(nextProps: DialogProps, state: DialogState): DialogState {
