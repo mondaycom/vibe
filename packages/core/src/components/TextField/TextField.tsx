@@ -28,7 +28,7 @@ import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
 import { HiddenText } from "../HiddenText";
@@ -508,7 +508,7 @@ interface TextFieldStaticProps {
   feedbacks: typeof TextFieldFeedbackStateEnum;
 }
 
-export default withStaticPropsWithoutForwardRef<TextFieldProps, TextFieldStaticProps>(TextField, {
+export default withStaticProps<TextFieldProps, TextFieldStaticProps, unknown>(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackStateEnum,
   types: TextFieldTextTypeEnum
