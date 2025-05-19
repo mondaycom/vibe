@@ -62,11 +62,6 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * A function that receives menu-specific props and returns a React element to be used as the custom menu content.
-   * If provided, this will be rendered instead of the default dropdown menu list.
-   */
-  menuRenderer?: (props: DropdownMenuRendererProps<Item>) => React.ReactElement;
-  /**
    * If true, displays dividers between grouped options.
    */
   withGroupDivider?: boolean;
