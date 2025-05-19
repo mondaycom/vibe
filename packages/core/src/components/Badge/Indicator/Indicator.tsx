@@ -4,7 +4,7 @@ import styles from "./Indicator.module.scss";
 import { IndicatorColor as IndicatorColorEnum } from "./IndicatorConstants";
 import { IndicatorColor } from "./Indicator.types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { VibeComponentProps, withStaticProps } from "../../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface IndicatorProps extends VibeComponentProps {
@@ -27,6 +27,6 @@ interface IndicatorStaticProps {
   colors: typeof IndicatorColorEnum;
 }
 
-export default withStaticProps<IndicatorProps, IndicatorStaticProps>(Indicator, {
+export default withStaticPropsWithoutForwardRef<IndicatorProps, IndicatorStaticProps>(Indicator, {
   colors: IndicatorColorEnum
 });

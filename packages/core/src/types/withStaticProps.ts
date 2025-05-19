@@ -4,9 +4,12 @@ type Required<T> = {
   [P in keyof T]-?: T[P];
 };
 
-type Component<P, R> = React.FC<P> | ForwardRefExoticComponent<P & RefAttributes<R>>;
-
 export const withStaticProps = <Props, StaticProps, Ref = HTMLElement>(
-  component: Component<Props, Ref>,
+  component: ForwardRefExoticComponent<Props & RefAttributes<Ref>>,
   staticProps: Required<StaticProps>
-) => Object.assign(component, staticProps) as Component<Props, Ref> & Required<StaticProps>;
+) => Object.assign(component, staticProps);
+
+export const withStaticPropsWithoutForwardRef = <Props, StaticProps>(
+  component: React.FC<Props>,
+  staticProps: Required<StaticProps>
+) => Object.assign(component, staticProps);

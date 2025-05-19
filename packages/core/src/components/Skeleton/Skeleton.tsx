@@ -11,7 +11,7 @@ import {
 
 import { SkeletonType, SkeletonSizeType } from "./Skelton.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {
@@ -78,7 +78,7 @@ interface SkeletonStaticProps {
   sizes: typeof SKELETON_SIZES;
 }
 
-export default withStaticProps<SkeletonProps, SkeletonStaticProps>(Skeleton, {
+export default withStaticPropsWithoutForwardRef<SkeletonProps, SkeletonStaticProps>(Skeleton, {
   types: SkeletonTypeEnum,
   sizes: SKELETON_SIZES
 });

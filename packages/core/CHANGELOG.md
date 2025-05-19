@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.50.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.0...@vibe/core@3.50.1) (2025-05-19)
+
+
+### Bug Fixes
+
+* **Dialog:** clear timeouts on component unmount ([#2892](https://github.com/mondaycom/vibe/issues/2892)) ([a12c654](https://github.com/mondaycom/vibe/commit/a12c6545981f77654b5397dd7798bf8afc10b472))
+* enhance props handling by filtering unnecessary properties to shorten the json ([#2890](https://github.com/mondaycom/vibe/issues/2890)) ([174ebd2](https://github.com/mondaycom/vibe/commit/174ebd291281e627758f32487347c81903da8680))
+* metadata did not include components with static props because of docgen and typescript issues ([#2889](https://github.com/mondaycom/vibe/issues/2889)) ([dc73328](https://github.com/mondaycom/vibe/commit/dc7332899924cc94a60b4dc0c2d38d983b84ab33))
+* **Table:** make row hover state immediate, robust and more reliable ([#2888](https://github.com/mondaycom/vibe/issues/2888)) ([fe41ed1](https://github.com/mondaycom/vibe/commit/fe41ed1c55b565563b7b95e19bfd473548ab2b48))
+
+
+
+
+
 # [3.50.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.49.0...@vibe/core@3.50.0) (2025-05-15)
 
 

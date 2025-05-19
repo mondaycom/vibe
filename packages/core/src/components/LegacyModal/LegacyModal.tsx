@@ -14,7 +14,7 @@ import {
   validateTitleProp
 } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./LegacyModal.module.scss";
@@ -205,6 +205,6 @@ interface LegacyModalStaticProps {
   width: typeof ModalWidthEnum;
 }
 
-export default withStaticProps<LegacyModalProps, LegacyModalStaticProps>(Modal, {
+export default withStaticPropsWithoutForwardRef<LegacyModalProps, LegacyModalStaticProps>(Modal, {
   width: ModalWidthEnum
 });
