@@ -6,21 +6,6 @@ import { TooltipProps } from "../Tooltip/Tooltip";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
-// Define props for the menuRenderer function
-export interface DropdownMenuRendererProps<Item extends BaseListItemData<Record<string, unknown>>> {
-  filteredOptions?: ListGroup<Item>[];
-  options?: DropdownGroupOption<Item>; // Consider if original options are needed too
-  getItemProps: (options: { item: Item; index: number }) => Record<string, any>;
-  getMenuProps: (options?: any) => Record<string, any>;
-  highlightedIndex: number | null;
-  // Add any other props from DropdownContext that a custom menu renderer might need
-  // For example: isOpen, selectedItem, selectedItems, size, dir, menuAriaLabel, etc.
-  // Keep it minimal to what's essential for rendering the menu content, or comprehensive like react-select
-  isOpen?: boolean;
-  noOptionsMessage?: string | React.ReactNode;
-  // Potentially even selectProps for full parity with react-select style, but might be overkill
-}
-
 interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
   /**
    * If true, the dropdown allows multiple selections.
