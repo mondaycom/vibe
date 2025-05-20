@@ -47,7 +47,6 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
-    initialSelectedItem: defaultValue,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
@@ -74,7 +73,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
     isOpen,
     inputValue: "",
     highlightedIndex,
-    selectedItem,
+    selectedItem: currentSelectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
