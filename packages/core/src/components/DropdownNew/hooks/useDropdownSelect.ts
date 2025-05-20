@@ -34,7 +34,6 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   const {
     isOpen,
     highlightedIndex,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,

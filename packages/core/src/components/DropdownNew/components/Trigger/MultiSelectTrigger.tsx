@@ -9,7 +9,6 @@ import styles from "./Trigger.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import DropdownChip from "./DropdownChip";
-import Input from "react-select/src/components/Input";
 
 const MultiSelectTrigger = () => {
   const {

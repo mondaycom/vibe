@@ -38,7 +38,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     isOpen,
     inputValue,
     highlightedIndex,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
