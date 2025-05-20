@@ -6,10 +6,12 @@ import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
-  autoFocus?: boolean,
   isMenuOpen?: boolean,
+  autoFocus?: boolean,
   closeMenuOnSelect?: boolean,
-  onChange?: (option: T | T[]) => void,
+  defaultValue?: T,
+  inputValueProp?: string,
+  onChange?: (option: T | T[] | null) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -42,11 +44,16 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset
+    reset,
+    openMenu,
+    toggleMenu,
+    closeMenu
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
+    initialSelectedItem: defaultValue || null,
+    initialInputValue: inputValueProp,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
@@ -63,7 +70,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       },
       [onInputChange, filterOptions]
     ),
-
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
         setCurrentSelectedItem(selectedItem || null);
@@ -74,12 +80,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         } else {
           onChange?.(null);
           filterOptions("");
-          onChange?.(selectedItem);
         }
       },
       [onOptionSelect, filterOptions, onChange]
     ),
-
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -106,7 +110,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       reset();
       filterOptions("");
     },
-    filteredOptions
+    filteredOptions,
+    openMenu,
+    toggleMenu,
+    closeMenu
   };
 }
 

@@ -1,0 +1,27 @@
+.inputWrapper {
+  border: none;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+
+  &.hasSelected {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+  }
+}
+
+.selectedItem {
+  position: relative;
+  pointer-events: none;
+  inset: 0;
+  padding-inline-start: 0;
+
+  &.small {
+    padding-inline-start: 0;
+  }
+
+  &.faded {
+    opacity: 0.6;
+  }
+}
