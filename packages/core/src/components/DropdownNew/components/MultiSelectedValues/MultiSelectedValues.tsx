@@ -12,12 +12,16 @@ type MultiSelectedValuesProps<Item> = {
   selectedItems: Item[];
   onRemove: (item: Item) => void;
   renderInput?: () => React.ReactNode;
+  disabled?: boolean;
+  readOnly?: boolean;
 };
 
 function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
   selectedItems,
   onRemove,
-  renderInput
+  renderInput,
+  disabled,
+  readOnly
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
@@ -68,7 +72,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
-          <Chips label={item.label} onDelete={() => onRemove(item)} noMargin />
+          <Chips label={item.label} onDelete={() => onRemove(item)} noMargin disabled={disabled} readOnly={readOnly} />
         </div>
       );
     });
