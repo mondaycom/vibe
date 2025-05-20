@@ -35,6 +35,7 @@ exports[`exports should export all components 1`] = `
   "Divider",
   "Dropdown",
   "DropdownMenu",
+  "DropdownNew",
   "DropdownOption",
   "DropdownSingleValue",
   "EditableHeading",
