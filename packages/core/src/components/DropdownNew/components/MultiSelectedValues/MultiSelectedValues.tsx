@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, createRef } from "react";
 import { BaseListItemData } from "../../../BaseListItem";
-import { Chips } from "../../../Chips";
+import { Chips, ChipsProps } from "../../../Chips";
 import { Flex } from "../../../Flex";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import Dialog from "../../../Dialog/Dialog";
@@ -14,6 +14,39 @@ type MultiSelectedValuesProps<Item> = {
   renderInput?: () => React.ReactNode;
   disabled?: boolean;
   readOnly?: boolean;
+};
+
+const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unknown>>): Partial<ChipsProps> => {
+  const chipProps: Partial<ChipsProps> = {};
+  if (item.startElement) {
+    switch (item.startElement.type) {
+      case "icon":
+        chipProps.leftIcon = item.startElement.value;
+        break;
+      case "avatar":
+        chipProps.leftAvatar = item.startElement.value;
+        break;
+      case "custom":
+        chipProps.leftRenderer = item.startElement.render();
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (item.endElement) {
+    switch (item.endElement.type) {
+      case "icon":
+        chipProps.rightIcon = item.endElement.value;
+        break;
+      case "custom":
+        chipProps.rightRenderer = item.endElement.render();
+        break;
+      default:
+        break;
+    }
+  }
+  return chipProps;
 };
 
 function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
@@ -47,36 +80,51 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
     return () => (
       <DialogContentContainer>
         <Flex direction="column" gap="xs" align="start" className={styles.hiddenChipsDialog}>
-          {hiddenItems.map(item => (
-            <Chips
-              key={`dropdown-chip-${item.value}`}
-              label={item.label}
-              onDelete={() => onRemove(item)}
-              noMargin
-              className={styles.dialogChip}
-            />
-          ))}
+          {hiddenItems.map(item => {
+            const chipSpecificProps = getChipPropsFromItemElements(item);
+            return (
+              <Chips
+                key={`dropdown-chip-dialog-${item.value}`}
+                label={item.label}
+                onDelete={() => onRemove(item)}
+                noMargin
+                className={styles.dialogChip}
+                disabled={disabled} // Assuming dialog chips also respect main disabled/readonly state
+                readOnly={readOnly}
+                {...chipSpecificProps}
+              />
+            );
+          })}
         </Flex>
       </DialogContentContainer>
     );
-  }, [hiddenItems, onRemove]);
+  }, [hiddenItems, onRemove, disabled, readOnly]);
 
   const chipElements = useMemo(() => {
     return selectedItems.map((item, index) => {
       const isVisible = index < visibleCount;
+      const chipSpecificProps = getChipPropsFromItemElements(item);
+
       return (
         <div
-          key={`dropdown-chip-${item.value}`}
+          key={`dropdown-chip-visible-${item.value}`}
           ref={itemRefs[index]}
           className={cx({ [styles.hiddenChip]: !isVisible })}
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
-          <Chips label={item.label} onDelete={() => onRemove(item)} noMargin disabled={disabled} readOnly={readOnly} />
+          <Chips
+            label={item.label}
+            onDelete={() => onRemove(item)}
+            noMargin
+            disabled={disabled}
+            readOnly={readOnly}
+            {...chipSpecificProps}
+          />
         </div>
       );
     });
-  }, [selectedItems, visibleCount, onRemove, itemRefs]);
+  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly]);
 
   if (!selectedItems?.length) return null;
 
@@ -99,6 +147,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
               noMargin
               ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
               data-testid="dropdown-overflow-counter"
+              className={styles.overflowCounter}
             />
           </Dialog>
         )}

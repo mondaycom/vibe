@@ -1,8 +1,38 @@
+.triggerWrapper {
+  flex-grow: 1;
+  position: relative;
+  min-width: 1px;
+  display: flex;
+  align-items: center;
+
+  &.small {
+    min-height: 32px;
+  }
+
+  &.medium {
+    min-height: 40px;
+  }
+
+  &.large {
+    min-height: 48px;
+  }
+}
+
 .inputWrapper {
   border: none;
   width: 100%;
   background: transparent;
-  padding: 0;
+
+  &.small {
+    height: 24px;
+    min-height: 24px;
+  }
+
+  &.multiSelected {
+    width: 48px;
+    flex-shrink: 0;
+    padding: 0 var(--space-4);
+  }
 
   &.hasSelected {
     position: absolute;
@@ -15,13 +45,30 @@
   position: relative;
   pointer-events: none;
   inset: 0;
-  padding-inline-start: 0;
+  padding-inline-start: var(--space-4);
 
   &.small {
-    padding-inline-start: 0;
+    padding-inline-start: var(--space-8);
+    min-height: 32px;
+    height: 32px;
+  }
+
+  &.medium {
+    min-height: 40px;
+    height: 40px;
+  }
+
+  &.large {
+    min-height: 48px;
+    height: 48px;
   }
 
   &.faded {
     opacity: 0.6;
   }
+}
+
+.multiWrapper {
+  padding: var(--space-4) var(--space-8);
+  width: 100%;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import FieldLabel from "../../../FieldLabel/FieldLabel";
 import Text from "../../../Text/Text";
-import styles from "../../Dropdown.module.scss";
+import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";

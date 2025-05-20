@@ -2,11 +2,13 @@ import React from "react";
 import { Flex } from "../../../Flex";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import { Chips } from "../../../Chips";
-import SearchableInput from "./SearchableInput";
+import Input from "./Input";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import cx from "classnames";
 
 const MultiSelectTrigger = () => {
   const {
@@ -14,16 +16,15 @@ const MultiSelectTrigger = () => {
     contextOnOptionRemove,
     multiline,
     disabled,
-    readOnly
+    readOnly,
+    size
   } = useDropdownContext<BaseListItemData>();
 
-  const hasSelection = selectedItems.length > 0;
-
   return (
-    <Flex justify="space-between" align="start" className={styles.triggerWrapper}>
-      <div style={{ flexGrow: 1, position: "relative", minWidth: "1px" }}>
-        {hasSelection ? (
-          <>
+    <Flex justify="space-between" align="center">
+      <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
+        {selectedItems.length > 0 ? (
+          <div className={styles.multiWrapper}>
             {!multiline ? (
               <MultiSelectedValues
                 disabled={disabled}
@@ -32,7 +33,7 @@ const MultiSelectTrigger = () => {
                 onRemove={item => {
                   contextOnOptionRemove?.(item as BaseListItemData);
                 }}
-                renderInput={() => <SearchableInput />}
+                renderInput={() => <Input inputSize="small" />}
               />
             ) : (
               <Flex gap="xs" wrap>
@@ -49,14 +50,14 @@ const MultiSelectTrigger = () => {
                         noMargin
                       />
                     </div>
-                    {index === selectedItems.length - 1 && <SearchableInput />}
+                    {index === selectedItems.length - 1 && <Input inputSize="small" />}
                   </Flex>
                 ))}
               </Flex>
             )}
-          </>
+          </div>
         ) : (
-          <SearchableInput />
+          <Input />
         )}
       </div>
       <TriggerActions />

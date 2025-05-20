@@ -22,7 +22,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     filterOption,
     dropdownRef,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -81,7 +82,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
       onOptionRemove?.(option);
     },
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    size
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
