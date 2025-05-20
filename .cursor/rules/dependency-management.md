@@ -1,0 +1,26 @@
+# Dependency Management Guidelines
+
+When managing dependencies for this monorepo, please adhere to the following principles to keep the library lean and efficient:
+
+## 1. Minimize New Dependencies
+
+Our primary goal is to avoid adding new dependencies unless they are absolutely essential. The component library should remain as lightweight as possible.
+
+## 2. Prioritize Existing Dependencies
+
+Before considering adding a new package, **always** check the relevant `package.json` file(s) within the library to see if an existing dependency can fulfill the requirement.
+
+## 3. React Version Constraints
+
+We must use latest **React 16** and latest **React DOM 16** for @vibe/core library ("packages/core") and other packages in our monorepo. Do not use or suggest versions newer than 16.x.x for these packages.
+
+## 4. Criteria for Adding New Dependencies
+
+Only suggest installing a new package if:
+
+- It is an absolute must for the functionality.
+- It would significantly simplify development or reduce a considerable amount of overhead compared to using existing tools or custom solutions.
+- The benefits clearly outweigh the cost of adding another dependency.
+- It is a very popular library and considered the best practice for the requested use case.
+
+Always justify the need for any new dependency by explaining why existing solutions are not adequate.
