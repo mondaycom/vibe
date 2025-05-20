@@ -1,3 +1,11 @@
+---
+description: This rule provides guidance on the CI/CD pipeline, GitHub Actions workflows (defined in .github/workflows/), custom actions (in .github/actions/), versioning strategies, and release processes. Use this rule if the query involves CI/CD, build/test issues, release procedures, versioning questions, or if it references files within the .github/workflows or .github/actions directories.
+globs:
+  - ".github/workflows/**"
+  - ".github/actions/**"
+alwaysApply: false
+---
+
 # CI/CD Workflows (GitHub Actions)
 
 This project uses GitHub Actions for its Continuous Integration (CI) and Continuous Deployment (CD) pipelines.

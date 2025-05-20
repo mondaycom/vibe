@@ -1,3 +1,12 @@
+---
+description: "Guides the creation and modification of Storybook files specifically within the 'packages/core' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
+globs:
+  - "packages/core/**/__stories__/**/*.stories.tsx"
+  - "packages/core/**/__stories__/**/*.mdx"
+  - "packages/core/src/storybook/**"
+alwaysApply: false
+---
+
 # Storybook Stories for @vibe/core library
 
 This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/core` library.

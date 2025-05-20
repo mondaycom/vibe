@@ -1,3 +1,11 @@
+---
+description: This rule explains the monorepo's structure, including package locations, file organization conventions, creating new packages, details on scripts (both global and package-specific), shared configurations, and the use of tools like Lerna and Yarn Workspaces. Activate this rule when your query involves creating new packages, understanding where packages are located, navigating the file structure, or inquiring about monorepo-level configurations and tooling.
+globs:
+  - "lerna.json"
+  - "package.json"
+alwaysApply: false
+---
+
 # Monorepo Navigation & Structure
 
 This project is a Lerna monorepo that utilizes Yarn Workspaces for managing packages.

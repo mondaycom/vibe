@@ -1,3 +1,11 @@
+---
+description: Provides guidelines for managing dependencies in this monorepo. Use this rule when you are considering adding a new dependency, choosing between different packages, or need to understand constraints on package versions. It emphasizes minimizing new dependencies and checking for existing solutions first.
+globs:
+  - "**/package.json"
+  - "package.json"
+alwaysApply: false
+---
+
 # Dependency Management Guidelines
 
 When managing dependencies for this monorepo, please adhere to the following principles to keep the library lean and efficient:
