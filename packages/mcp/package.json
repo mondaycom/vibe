@@ -1,6 +1,6 @@
 {
   "name": "@vibe/mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Vibe's MCP server to interact with the Vibe ecosystem",
   "repository": {
     "type": "git",
@@ -30,14 +30,11 @@
   "scripts": {
     "test": "vitest --passWithNoTests",
     "start": "tsc -p tsconfig.json -w",
-    "build": "tsc -p tsconfig.json",
-    "dev": "npm run build && node ./dist/index.js",
-    "inspect": "npm run build && npx @modelcontextprotocol/inspector mcp",
-    "generate": "node ./scripts/extract-code-samples.js"
+    "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",
-    "@vibe/core": "3.50.1",
+    "@vibe/core": "3.50.2",
     "zod": "^3.24.4"
   },
   "devDependencies": {
