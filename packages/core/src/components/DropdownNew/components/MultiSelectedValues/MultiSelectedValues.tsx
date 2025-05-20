@@ -1,12 +1,13 @@
 import React, { useRef, useMemo, createRef } from "react";
 import { BaseListItemData } from "../../../BaseListItem";
-import { Chips, ChipsProps } from "../../../Chips";
+import { Chips } from "../../../Chips";
 import { Flex } from "../../../Flex";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import Dialog from "../../../Dialog/Dialog";
 import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
+import DropdownChip from "../Trigger/DropdownChip";
 
 type MultiSelectedValuesProps<Item> = {
   selectedItems: Item[];
@@ -14,39 +15,6 @@ type MultiSelectedValuesProps<Item> = {
   renderInput?: () => React.ReactNode;
   disabled?: boolean;
   readOnly?: boolean;
-};
-
-const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unknown>>): Partial<ChipsProps> => {
-  const chipProps: Partial<ChipsProps> = {};
-  if (item.startElement) {
-    switch (item.startElement.type) {
-      case "icon":
-        chipProps.leftIcon = item.startElement.value;
-        break;
-      case "avatar":
-        chipProps.leftAvatar = item.startElement.value;
-        break;
-      case "custom":
-        chipProps.leftRenderer = item.startElement.render();
-        break;
-      default:
-        break;
-    }
-  }
-
-  if (item.endElement) {
-    switch (item.endElement.type) {
-      case "icon":
-        chipProps.rightIcon = item.endElement.value;
-        break;
-      case "custom":
-        chipProps.rightRenderer = item.endElement.render();
-        break;
-      default:
-        break;
-    }
-  }
-  return chipProps;
 };
 
 function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
@@ -81,17 +49,14 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
       <DialogContentContainer>
         <Flex direction="column" gap="xs" align="start" className={styles.hiddenChipsDialog}>
           {hiddenItems.map(item => {
-            const chipSpecificProps = getChipPropsFromItemElements(item);
             return (
-              <Chips
+              <DropdownChip
                 key={`dropdown-chip-dialog-${item.value}`}
-                label={item.label}
+                item={item}
                 onDelete={() => onRemove(item)}
-                noMargin
                 className={styles.dialogChip}
-                disabled={disabled} // Assuming dialog chips also respect main disabled/readonly state
+                disabled={disabled}
                 readOnly={readOnly}
-                {...chipSpecificProps}
               />
             );
           })}
@@ -103,7 +68,6 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   const chipElements = useMemo(() => {
     return selectedItems.map((item, index) => {
       const isVisible = index < visibleCount;
-      const chipSpecificProps = getChipPropsFromItemElements(item);
 
       return (
         <div
@@ -113,14 +77,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
-          <Chips
-            label={item.label}
-            onDelete={() => onRemove(item)}
-            noMargin
-            disabled={disabled}
-            readOnly={readOnly}
-            {...chipSpecificProps}
-          />
+          <DropdownChip item={item} onDelete={() => onRemove(item)} disabled={disabled} readOnly={readOnly} />
         </div>
       );
     });

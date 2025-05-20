@@ -1,7 +1,6 @@
 import React from "react";
 import { Flex } from "../../../Flex";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
-import { Chips } from "../../../Chips";
 import Input from "./Input";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
@@ -9,6 +8,7 @@ import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import DropdownChip from "./DropdownChip";
 
 const MultiSelectTrigger = () => {
   const {
@@ -40,14 +40,13 @@ const MultiSelectTrigger = () => {
                 {selectedItems.map((item, index) => (
                   <Flex key={String(item.id ?? item.value ?? index)}>
                     <div style={{ flexShrink: 0 }}>
-                      <Chips
-                        label={item.label}
+                      <DropdownChip
+                        item={item}
                         onDelete={() => {
                           contextOnOptionRemove?.(item as BaseListItemData);
                         }}
                         readOnly={readOnly}
                         disabled={disabled}
-                        noMargin
                       />
                     </div>
                     {index === selectedItems.length - 1 && <Input inputSize="small" />}
