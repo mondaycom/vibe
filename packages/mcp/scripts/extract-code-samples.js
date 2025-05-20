@@ -8,11 +8,39 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// TODO: Extract all stories from '../../core/src/components' folder
-const files = [
-  "../../core/src/components/Accordion/Accordion/__stories__/Accordion.stories.tsx",
-  "../../core/src/components/Button/__stories__/Button.stories.tsx"
-];
+// TODO: filter for only public components
+function getStoryFiles() {
+  const componentsDir = path.join(__dirname, "../../core/src/components");
+  const storyFiles = [];
+
+  function traverseDirectory(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      
+      if (entry.isDirectory()) {
+        if (entry.name === "__stories__") {
+          // Found stories directory, get all .stories.tsx files
+          const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
+          for (const storyEntry of storyDirEntries) {
+            if (storyEntry.isFile() && storyEntry.name.endsWith(".stories.tsx")) {
+              storyFiles.push(path.relative(__dirname, path.join(fullPath, storyEntry.name)));
+            }
+          }
+        } else {
+          // Recursively traverse other directories
+          traverseDirectory(fullPath);
+        }
+      }
+    }
+  }
+
+  traverseDirectory(componentsDir);
+  return storyFiles;
+}
+
+const files = getStoryFiles();
 
 function generateCodeForOneLiner(ast, constName) {
   let calleeCode = null;
@@ -122,7 +150,7 @@ function extractMarkdown(file) {
               }
             }
             const displayName = nameProp || storyName;
-            if (codeBlock.length > 0) {
+            if (codeBlock?.length > 0) {
               markdown += `## ${displayName}\n\n\`\`\`tsx\n${codeBlock.trim()}\n\`\`\`\n\n`;
             }
           }
