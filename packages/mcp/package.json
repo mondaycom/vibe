@@ -30,7 +30,10 @@
   "scripts": {
     "test": "vitest --passWithNoTests",
     "start": "tsc -p tsconfig.json -w",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "dev": "npm run build && node ./dist/index.js",
+    "inspect": "npm run build && npx @modelcontextprotocol/inspector mcp",
+    "generate": "node ./scripts/extract-code-samples.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",
