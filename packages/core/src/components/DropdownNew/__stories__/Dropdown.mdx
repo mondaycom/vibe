@@ -1,0 +1,148 @@
+import { Meta } from "@storybook/blocks";
+import {
+  COMBOBOX,
+  MENU,
+  SPLIT_BUTTON
+} from "../../../storybook/components/related-components/component-description-map";
+import { Dropdown } from "../../index";
+import * as DropdownStories from "./Dropdown.stories";
+import { TipDevTipPopover } from "./Dropdown.stories.helpers";
+
+<Meta of={DropdownStories} />
+
+# Dropdown New
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Dropdown present a list of options from which a user can select one or several.
+
+<Canvas of={DropdownStories.Overview} />
+
+### Import
+
+```js
+import { Dropdown } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Dropdown menus are typically used when you have 5-8 items to choose from. They're used for navigation or command menus, where an action is initiated based on the selection.",
+    "Use a consistent size of form components on the same page. For example, if you are using a medium size dropdown also use the same size text inputs, buttons, and so on.",
+    "Avoid having multiple lines of text in a dropdown. If the text is too long for one line, add an ellipsis (…).",
+    "When the menu is open, each option in the menu should be the same height as the field.",
+    "When organizing dropdown menu items, sort the list in a logical order by putting the most selected option at the top."
+  ]}
+/>
+
+## Variants
+
+### Sizes
+
+There are three sizes available: Small, Medium, and Large
+
+<Canvas of={DropdownStories.Sizes} />
+
+### Disabled
+
+<Canvas of={DropdownStories.Disabled} />
+
+### Readonly
+
+<Canvas of={DropdownStories.Readonly} />
+
+### RTL
+
+<Canvas of={DropdownStories.Rtl} />
+
+### Multi line states
+
+The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
+
+<Canvas of={DropdownStories.MultiChoiceWithDifferentStates} />
+
+### Dropdown with avatar
+
+<Canvas of={DropdownStories.DropdownWithAvatar} />
+
+### Dropdown with icon
+
+<Canvas of={DropdownStories.DropdownWithIcon} />
+
+### Dropdown with chip colors
+
+<Canvas of={DropdownStories.DropdownWithChipColors} />
+
+### Dropdown with tooltips on items
+
+<Canvas of={DropdownStories.DropdownWithTooltipsOnItems} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Dropdown
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
+            className="dropdown-stories-styles_rules-spacing"
+          />
+        ),
+        description:
+          "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
+      },
+      negative: {
+        component: (
+          <Dropdown
+            menuIsOpen
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
+            className="dropdown-stories-styles_rules-spacing"
+          />
+        ),
+        description: (
+          <>
+            Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider
+            use <StorybookLink page="Components/Combobox">Combo box</StorybookLink> instead.
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Multiple dropdown with renderers as options
+
+Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
+
+<Canvas of={DropdownStories.DropdownWithChips} />
+
+## Related components
+
+<RelatedComponents componentsNames={[COMBOBOX, SPLIT_BUTTON, MENU]} />

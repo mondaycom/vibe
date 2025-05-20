@@ -1,0 +1,43 @@
+@import "../../../styles/typography";
+
+.dropdown-stories-styles {
+  &_spacing {
+    min-width: 250px;
+    margin: 10px 20px 40px;
+  }
+
+  &_rules-spacing {
+    margin-bottom: 100px;
+    min-width: 250px;
+  }
+
+  &_big-spacing {
+    min-width: 250px;
+    margin: 0 0 130px;
+  }
+
+  &_with-chips {
+    min-width: 300px;
+    margin: 0 0 130px;
+  }
+
+  &_name {
+    padding: 0 8px;
+    font-size: 14px;
+
+    span {
+      color: var(--sb-icon-color);
+      margin-left: 4px;
+    }
+  }
+
+  &_inline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_button {
+    margin: 10px 20px 40px;
+  }
+}
