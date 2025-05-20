@@ -1,0 +1,15 @@
+---
+description: Divider component usage and examples
+globs: 
+alwaysApply: false
+---
+Line to create separation between UI elements
+
+### Basic usage
+
+```jsx
+<>
+<Divider direction="horizontal" />
+<Divider direction="vertical" />
+</>
+```

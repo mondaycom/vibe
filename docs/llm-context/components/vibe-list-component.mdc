@@ -1,0 +1,93 @@
+---
+description: List and ListItem component examples and usage
+globs: 
+alwaysApply: false
+---
+### Basic usage
+
+```jsx
+<List>
+  <ListItem onClick={function noRefCheck(){}}>
+    Board Power up
+  </ListItem>
+  <ListItem onClick={function noRefCheck(){}}>
+    Team Power up
+  </ListItem>
+  <ListItem onClick={function noRefCheck(){}}>
+    Essentials
+  </ListItem>
+</List>
+```
+
+### Import
+
+```js
+import { List, ListItem, ListTitle } from "@vibe/core";
+```
+
+### With categories
+
+```jsx
+<List>
+  <ListTitle>First category</ListTitle>
+  <ListItem>List item 1</ListItem>
+  <ListItem>List item 2</ListItem>
+  <ListTitle>Second category</ListTitle>
+  <ListItem>List item 3</ListItem>
+  <ListItem>List item 4</ListItem>
+</List>
+```
+
+### With icons
+
+```jsx
+<List>
+  <ListItem id="list-1">
+    <ListItemIcon icon={Board} />
+    List item 1
+  </ListItem>
+  <ListItem id="list-2">
+    <ListItemIcon icon={Team} />
+    List item 2
+  </ListItem>
+  <ListItem id="list-3">
+    <ListItemIcon icon={ThumbsUp} />
+    List item 3
+  </ListItem>
+</List>
+```
+
+### Virtualized list
+- Use the `renderOnlyVisibleItems` to improve performance with large lists
+- You must have a constant height and width whern using the `renderOnlyVisibleItems` prop
+
+```jsx
+<DialogContentContainer
+      style={{
+        height: "162px",
+        width: "200px",
+      }}
+    >
+    <List
+        renderOnlyVisibleItems
+        style={{
+            height: "100%",
+            width: "100%",
+        }}
+    >
+        <ListItem>List item 1</ListItem>
+        <ListItem>List item 2</ListItem>
+        <ListItem>List item 3</ListItem>
+        <ListItem>List item 4</ListItem>
+        <ListItem>List item 5</ListItem>
+        <ListItem>List item 6</ListItem>
+        <ListItem>List item 7</ListItem>
+        <ListItem>List item 8</ListItem>
+        <ListItem>List item 9</ListItem>
+        <ListItem>List item 10</ListItem>
+        <ListItem>List item 11</ListItem>
+        <ListItem>List item 12</ListItem>
+    </List>
+</DialogContentContainer>
+```
+

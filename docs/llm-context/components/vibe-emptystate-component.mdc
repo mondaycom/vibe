@@ -1,0 +1,70 @@
+---
+description: Empty State component examples for when a section or page contains no information
+globs: 
+alwaysApply: false
+---
+- The Vibe EmptyState component is used when a section or page contains no data or content at the moment. 
+
+### Basic usage
+```jsx
+<EmptyState
+  description="This optional paragraph should be use to extend the title. Keep it short and to the point. For longer texts add a link below."
+  mainAction={{
+    onClick: function noRefCheck(){},
+    text: 'Main Action'
+  }}
+  supportingAction={{
+    href: '#',
+    onClick: function noRefCheck(){},
+    text: 'Read more'
+  }}
+  title="The title should be concise and reflect the purpose"
+  visual={<img alt="No items found" height={184} src="static/media/image.58816df3.png" width={280}/>}
+/>
+```
+
+### Link
+
+```jsx
+<EmptyState
+  title="This workspace is empty"
+  description='To get started, click the "+" above, then click "add new board".'
+  supportingAction={{
+    href: "https://example.com/help",
+    text: "Read more",
+  }}
+  {...args}
+/>
+```
+
+### Compact layout
+
+```jsx
+<EmptyState
+  title="Visualize data from multiple boards"
+  description="Use charts, timelines, and other widgets to see your data clearly."
+  visual={
+    <img
+      src={emptyStateImage}
+      alt="No notifications"
+      width={280}
+      height={184}
+    />
+  }
+  layout="compact"
+  mainAction={{
+    text: "Add your first widget",
+    onClick: () => {
+      console.log("Main action clicked");
+    },
+  }}
+  supportingAction={{
+    text: "Read more",
+    href: "#",
+    onClick: () => {
+      console.log("Supporting action clicked");
+    },
+  }}
+  {...args}
+/>
+```

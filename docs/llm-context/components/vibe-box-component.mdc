@@ -1,0 +1,23 @@
+---
+description: Box component examples to wrap content
+globs: 
+alwaysApply: false
+---
+- Box is a wrapper component
+- It can be used with Vibe style keys without writing new CSS
+
+### Basic usage
+
+```jsx
+<Box
+  border
+  marginBottom="medium"
+  padding="large"
+  rounded="medium"
+  style={{
+    width: '100%'
+  }}
+>
+  Box composite component
+</Box>
+```
