@@ -31,7 +31,7 @@ const MultiSelectTrigger = () => {
                 readOnly={readOnly}
                 selectedItems={selectedItems}
                 onRemove={item => {
-                  contextOnOptionRemove?.(item as BaseListItemData);
+                  contextOnOptionRemove?.(item);
                 }}
                 renderInput={() => <Input inputSize="small" />}
               />
@@ -43,7 +43,7 @@ const MultiSelectTrigger = () => {
                       <DropdownChip
                         item={item}
                         onDelete={() => {
-                          contextOnOptionRemove?.(item as BaseListItemData);
+                          contextOnOptionRemove?.(item);
                         }}
                         readOnly={readOnly}
                         disabled={disabled}
