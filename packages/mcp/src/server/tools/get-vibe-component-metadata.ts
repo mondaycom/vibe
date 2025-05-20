@@ -8,8 +8,7 @@ const ComponentNameParamsSchema = z.object({
 
 export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSchema.shape> = {
   name: "get-vibe-component-metadata",
-  description:
-    "Get the metadata for a specific @vibe/core/next or @vibe/core component, or all components if no name is provided.",
+  description: "Get the metadata for a specific @vibe/core/next or @vibe/core component.",
   inputSchema: ComponentNameParamsSchema.shape,
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>): Promise<any> => {
     const { componentName } = input;
