@@ -28,7 +28,7 @@
     }
   },
   "scripts": {
-    "test": "vitest",
+    "test": "vitest --passWithNoTests",
     "start": "tsc -p tsconfig.json -w",
     "build": "tsc -p tsconfig.json"
   },
