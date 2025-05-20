@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex } from "../../../Flex";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
-import Input from "./Input";
+import DropdownInput from "./DropdownInput";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 import TriggerActions from "./TriggerActions";
@@ -9,6 +9,7 @@ import styles from "./Trigger.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import DropdownChip from "./DropdownChip";
+import Input from "react-select/src/components/Input";
 
 const MultiSelectTrigger = () => {
   const {
@@ -33,7 +34,7 @@ const MultiSelectTrigger = () => {
                 onRemove={item => {
                   contextOnOptionRemove?.(item);
                 }}
-                renderInput={() => <Input inputSize="small" />}
+                renderInput={() => <DropdownInput inputSize="small" />}
               />
             ) : (
               <Flex gap="xs" wrap>
@@ -49,14 +50,14 @@ const MultiSelectTrigger = () => {
                         disabled={disabled}
                       />
                     </div>
-                    {index === selectedItems.length - 1 && <Input inputSize="small" />}
+                    {index === selectedItems.length - 1 && <DropdownInput inputSize="small" />}
                   </Flex>
                 ))}
               </Flex>
             )}
           </div>
         ) : (
-          <Input />
+          <DropdownInput />
         )}
       </div>
       <TriggerActions />

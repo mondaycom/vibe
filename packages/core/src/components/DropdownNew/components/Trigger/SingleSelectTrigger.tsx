@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import { BaseListItem, BaseListItemData } from "../../../BaseListItem";
-import Input from "./Input";
+import DropdownInput from "./DropdownInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { Flex } from "../../../Flex";
@@ -15,7 +15,7 @@ const SingleSelectTrigger = () => {
   return (
     <Flex justify="space-between" align="center">
       <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
-        <Input />
+        <DropdownInput />
 
         {!inputValue && selectedItem && (
           <div

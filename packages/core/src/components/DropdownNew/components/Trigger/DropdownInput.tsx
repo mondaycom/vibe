@@ -1,23 +1,16 @@
 import React from "react";
 import cx from "classnames";
 import { BaseInput } from "../../../BaseInput";
-import { BaseInputProps } from "../../../BaseInput/BaseInput.types";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 import { Text } from "../../../Text";
 
-interface SearchableInputProps {
-  inputProps?: Partial<BaseInputProps> & { "aria-label"?: string };
-  className?: string;
-}
-
-const SearchableInput: React.FC<SearchableInputProps> = ({ inputProps = {}, className }) => {
+const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
   const {
     inputValue,
     getInputProps,
     autoFocus,
-    size,
     disabled,
     readOnly,
     placeholder,
@@ -26,6 +19,7 @@ const SearchableInput: React.FC<SearchableInputProps> = ({ inputProps = {}, clas
     selectedItems = [],
     inputAriaLabel,
     searchable,
+    size,
     getToggleButtonProps
   } = useDropdownContext<BaseListItemData>();
 
@@ -35,22 +29,18 @@ const SearchableInput: React.FC<SearchableInputProps> = ({ inputProps = {}, clas
     <>
       {searchable ? (
         <BaseInput
-          style={{ padding: "0", border: "1px solid red" }}
           {...getInputProps({
             ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
-            placeholder: hasSelection ? "" : placeholder,
-            ...inputProps
+            placeholder: hasSelection ? "" : placeholder
           })}
           value={inputValue || ""}
           autoFocus={autoFocus}
-          size={size}
-          className={cx(
-            styles.inputWrapper,
-            {
-              [styles.hasSelected]: !multi && selectedItem && !inputValue
-            },
-            className
-          )}
+          size={inputSize || size}
+          className={cx(styles.inputWrapper, {
+            [styles.hasSelected]: !multi && selectedItem && !inputValue,
+            [styles.small]: inputSize === "small",
+            [styles.multi]: multi && hasSelection
+          })}
           disabled={disabled}
           readOnly={readOnly}
         />
@@ -67,4 +57,4 @@ const SearchableInput: React.FC<SearchableInputProps> = ({ inputProps = {}, clas
   );
 };
 
-export default SearchableInput;
+export default DropdownInput;
