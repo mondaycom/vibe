@@ -52,6 +52,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     initialInputValue: inputValueProp,

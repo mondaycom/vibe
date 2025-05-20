@@ -19,41 +19,12 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onOptionSelect,
     showSelectedOptions = false,
     filterOption,
-
-    className,
-    id,
-    "data-testid": dataTestId,
-    label,
-    required,
-    helperText,
-    error,
-    disabled,
-    readOnly,
-    dir,
-    size,
-    optionRenderer,
-    valueRenderer,
-    noOptionsMessage,
-    placeholder,
-    withGroupDivider,
-    stickyGroupTitle,
-    maxMenuHeight,
     clearable = true,
     searchable = false,
-    ariaLabel,
-    menuAriaLabel,
-    onBlur,
-    onClear,
-    onFocus,
-    onKeyDown,
-    onOptionRemove,
-    onScroll,
     multi = false,
-    multiline,
     dropdownRef,
-    inputAriaLabel: propInputAriaLabel,
-    closeMenuOnSelect: propCloseMenuOnSelect,
-    tooltipProps
+    onClear,
+    onOptionRemove
   } = props;
 
   const {
@@ -80,25 +51,20 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
   );
 
   const contextValue: DropdownContextProps<Item> = {
-    label,
-    required,
-    className,
-    id,
-    "data-testid": dataTestId,
-    ariaLabel,
-    error,
-    helperText,
+    ...props,
     isOpen,
-    inputValue: null,
     highlightedIndex,
     selectedItem: hookSelectedItem,
-    selectedItems: [],
     filteredOptions,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    inputValue: null,
+    selectedItems: [],
+    addSelectedItem: undefined,
+    removeSelectedItem: undefined,
     contextOnClear: () => {
       hookReset();
       onClear?.();
@@ -106,33 +72,11 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     contextOnOptionRemove: (option: Item) => {
       onOptionRemove?.(option);
     },
-    addSelectedItem: undefined,
-    removeSelectedItem: undefined,
+    clearable,
     searchable,
     multi,
-    multiline,
-    disabled,
-    readOnly,
-    size,
-    optionRenderer,
-    valueRenderer,
-    noOptionsMessage,
-    placeholder,
-    withGroupDivider,
-    stickyGroupTitle,
-    maxMenuHeight,
-    clearable,
     autoFocus,
-    inputAriaLabel: propInputAriaLabel,
-    menuAriaLabel,
-    closeMenuOnSelect: propCloseMenuOnSelect,
-    dir,
-    onFocus,
-    onBlur,
-    onKeyDown,
-    onScroll,
-    onClear,
-    tooltipProps
+    onClear
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

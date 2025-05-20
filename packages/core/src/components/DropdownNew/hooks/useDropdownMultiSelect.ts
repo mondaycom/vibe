@@ -45,6 +45,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   } = useSelect<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    isItemDisabled: item => Boolean(item.disabled),
     selectedItem: null,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
