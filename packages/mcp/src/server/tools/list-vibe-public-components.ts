@@ -1,4 +1,4 @@
-import vibeMetadata from "@vibe/core/meta" assert { type: "json" };
+import vibeMetadata from "../../vibe-metadata.json" assert { type: "json" };
 import { getErrorMessage, MCPTool } from "../index.js";
 
 export const listVibePublicComponentsTool: MCPTool<{}> = {
@@ -8,7 +8,7 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
   inputSchema: {},
   execute: async () => {
     try {
-      const components = vibeMetadata.map(component => component.displayName);
+      const components = vibeMetadata.map((component: any) => component.displayName);
       // Remove duplicates if a component has a next version
       const uniqueComponents = [...new Set(components)];
       return {
@@ -20,8 +20,7 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
         ]
       };
     } catch (e) {
-      const errorMessage =
-        getErrorMessage(e) || `Failed to list published components`;
+      const errorMessage = getErrorMessage(e) || `Failed to list published components`;
 
       return {
         content: [
