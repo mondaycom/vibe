@@ -1,16 +1,19 @@
-.imageContainer {
-  position: relative;
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  object-fit: cover;
+}
 
-  .image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+.icon {
+  color: var(--sb-text-color);
+}
 
-  .icon {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
+.name {
+  font-size: 22px;
+}
+
+.title {
+  font-size: 16px;
+  letter-spacing: 0.36px;
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import Contributor from "./Contributor";
 import useContributors from "./useContributors";
-import Sergey from "../assets/contributors/Sergey.png";
-import Rotem from "../assets/contributors/Rotem.png";
-import Devorah from "../assets/contributors/Devorah.png";
-import Dmitry from "../assets/contributors/Dmitry.png";
-import Shay from "../assets/contributors/Shay.png";
-import Eylon from "../assets/contributors/Eylon.png";
-import Noa from "../assets/contributors/Noa.png";
-import LeanyLabs from "../assets/contributors/LeanyLabs.png";
+import Sergey from "./assets/Sergey.png";
+import Rotem from "./assets/Rotem.png";
+import Devorah from "./assets/Devorah.png";
+import Dmitry from "./assets/Dmitry.png";
+import Shay from "./assets/Shay.png";
+import Eylon from "./assets/Eylon.png";
+import Noa from "./assets/Noa.png";
+import LeanyLabs from "./assets/LeanyLabs.png";
 
 const CONTRIBUTORS = [
   {
@@ -53,27 +53,19 @@ const CONTRIBUTORS = [
   }
 ];
 
-const excludedContributors = [
-  "talkor",
-  "dependabot[bot]",
-  "SergeyRoyt",
-  "orrgottlieb",
-  "github-actions[bot]",
-  "snyk-bot",
-  "rivka-ungar",
-  "vibe-gh",
-  "YossiSaadi",
-  "shaharzil",
-  "hadasfa"
-];
+const excludedContributors = ["dependabot[bot]", "github-actions[bot]", "snyk-bot", "vibe-gh"];
 
-export default function Founders() {
+export default function Contributors() {
   const { contributors } = useContributors({
     organizationName: "mondaycom",
     packageName: "vibe",
     excludedContributors
   });
-  return [...CONTRIBUTORS, ...contributors].map((founder, index) => (
-    <Contributor key={index} name={founder.name} image={founder.image} href={founder.href} />
-  ));
+  return (
+    <div>
+      {[...CONTRIBUTORS, ...contributors].map((founder, index) => (
+        <Contributor key={index} name={founder.name} image={founder.image} href={founder.href} />
+      ))}
+    </div>
+  );
 }

@@ -1,15 +1,14 @@
 import React from "react";
 import { TeamMember } from "./TeamMember";
-import Meirav from "../assets/contributors/Meirav.png";
-import YaelRK from "../assets/contributors/YaelRK.png";
-import Shahar from "../assets/contributors/Shahar.png";
-import Yossi from "../assets/contributors/Yossi.png";
-import Talko from "../assets/contributors/Talko.png";
-import YaelB from "../assets/contributors/YaelB.png";
-import Rivka from "../assets/contributors/Rivka.png";
-import Elad from "../assets/contributors/Elad.png";
-import Dan from "../assets/contributors/Dan.png";
-
+import Meirav from "./assets/Meirav.png";
+import Yossi from "./assets/Yossi.png";
+import Rivka from "./assets/Rivka.png";
+import Elad from "./assets/Elad.png";
+import Dan from "./assets/Dan.png";
+import Naama from "./assets/Naama.png";
+import Yael from "./assets/Yael.png";
+import Talko from "./assets/Talko.png";
+import Flex from "../../../../components/Flex/Flex";
 import styles from "./Team.module.scss";
 
 const team = [
@@ -20,22 +19,10 @@ const team = [
     title: "Product Designer"
   },
   {
-    imgSrc: Shahar,
-    name: "Shahar Zilberman",
-    linkedinUrl: "https://www.linkedin.com/in/shahar-zilberman-bba046287/",
-    title: "Software Engineer"
-  },
-  {
     imgSrc: Rivka,
     name: "Rivka Ungar",
     linkedinUrl: "https://www.linkedin.com/in/rivka-ungar/",
     title: "Software Engineer"
-  },
-  {
-    imgSrc: YaelRK,
-    name: "Yael Rosen-Karen",
-    linkedinUrl: "https://www.linkedin.com/in/rosen2yael/",
-    title: "Product Designer"
   },
   {
     imgSrc: Yossi,
@@ -50,7 +37,7 @@ const team = [
     title: "Software Engineer"
   },
   {
-    imgSrc: YaelB,
+    imgSrc: Yael,
     name: "Yael Bein",
     linkedinUrl: "https://www.linkedin.com/in/yaelbein/",
     title: "Product Designer"
@@ -66,15 +53,26 @@ const team = [
     name: "Dan Fishbein",
     linkedinUrl: "https://www.linkedin.com/in/danfishbein90s/",
     title: "Product Designer"
+  },
+  {
+    imgSrc: Naama,
+    name: "Naama Yeffet",
+    linkedinUrl: "https://il.linkedin.com/in/naama-yeffet-80280a242",
+    title: "Product Designer"
   }
 ];
 
 export default function Team() {
   return (
-    <div className={styles.team}>
-      {team.map(({ imgSrc, name, linkedinUrl, title }) => (
-        <TeamMember key={name} image={imgSrc} name={name} linkedinUrl={linkedinUrl} title={title} />
-      ))}
-    </div>
+    <Flex direction="column" align="start" style={{ gap: "96px" }}>
+      <p className={styles.text}>
+        We are team of thinkers, doers, and innovators pushing the monday.com design experience forward.
+      </p>
+      <div className={styles.team}>
+        {team.map(({ imgSrc, name, linkedinUrl, title }) => (
+          <TeamMember key={name} image={imgSrc} name={name} linkedinUrl={linkedinUrl} title={title} />
+        ))}
+      </div>
+    </Flex>
   );
 }

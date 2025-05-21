@@ -1,18 +1,14 @@
-@import "~monday-ui-style/dist/mixins";
-
-$contributor-cell-min-width: $grid-auto-fit-cell-width-small;
-$contributor-grid-column-gap: var(--sb-spacing-large);
-$contributor-grid-row-gap: 50px;
-$contributor-grid-cell-array-calc: calc(20% - #{$contributor-grid-column-gap});
+.text {
+  color: var(--secondary-text-color);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.44px;
+  line-height: 140%;
+  margin: 0;
+}
 
 .team {
-  margin-top: 68px;
-  margin-bottom: 48px;
-
-  @include grid-auto-fit(
-    $grid-column-gap: $contributor-grid-column-gap,
-    $grid-row-gap: $contributor-grid-row-gap,
-    $grid-cell-min-width: $contributor-cell-min-width,
-    $grid-cell-array-calc: $contributor-grid-cell-array-calc
-  );
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
 }

@@ -1,7 +1,9 @@
 import React from "react";
-import { Flex, Text } from "../../../../components";
 import styles from "./TeamMember.module.scss";
 import { LinkedinIcon } from "./LinkedinIcon";
+import Text from "../../../../components/Text/Text";
+import Box from "../../../../components/Box/Box";
+import Flex from "../../../../components/Flex/Flex";
 
 export interface TeamMemberProps {
   image: string;
@@ -12,19 +14,19 @@ export interface TeamMemberProps {
 
 export const TeamMember = ({ image, name, title, linkedinUrl }: TeamMemberProps) => {
   return (
-    <Flex direction="column" gap="medium">
-      <div className={styles.imageContainer}>
-        <img src={image} alt={name} className={styles.image} />
-        <a href={linkedinUrl} target="_blank" rel="noreferrer">
-          <LinkedinIcon className={styles.icon} />
-        </a>
-      </div>
-      <Flex direction="column" align="center">
-        <Text type="text1" weight="medium">
-          {name}
-        </Text>
-        <Text>{title}</Text>
-      </Flex>
+    <Flex direction="column" gap="large" align="start">
+      <img src={image} alt={name} className={styles.image} />
+      <Box style={{ width: "100%" }}>
+        <Flex justify="space-between">
+          <Text type="text1" weight="medium" className={styles.name}>
+            {name}
+          </Text>
+          <a href={linkedinUrl} className={styles.icon} target="_blank" rel="noreferrer">
+            <LinkedinIcon />
+          </a>
+        </Flex>
+        <Text className={styles.title}>{title}</Text>
+      </Box>
     </Flex>
   );
 };
