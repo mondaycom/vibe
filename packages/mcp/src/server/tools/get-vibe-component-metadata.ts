@@ -1,5 +1,5 @@
 import { z } from "zod";
-import metadata from "@vibe/core/meta" assert { type: "json" };
+import metadata from "../../vibe-metadata.json" assert { type: "json" };
 import { getErrorMessage, MCPTool } from "../index.js";
 
 const ComponentNameParamsSchema = z.object({
