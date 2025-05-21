@@ -7,7 +7,7 @@ import styles from './link.module.scss';
 
 export type LinkProps = {
   className?: string;
-  children: string;
+  children: React.ReactNode | React.ReactNode[] | string;
   href: string;
   size?: LinkSize;
   withoutSpacing?: boolean;

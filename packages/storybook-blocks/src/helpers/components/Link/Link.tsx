@@ -14,7 +14,7 @@ interface LinkProps extends VibeComponentProps {
   /** Specifies the location (URL) of the external resource */
   href?: string;
   /** The link text */
-  text?: string;
+  text?: React.ReactNode | React.ReactNode[] | string;
   /** Defines the relationship between a linked resource and the current document */
   rel?: string;
   /** onClick function - MouseEvent */

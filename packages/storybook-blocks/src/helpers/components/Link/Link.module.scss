@@ -1,5 +1,5 @@
-@import "../../../styles/mixins/typography";
-@import "../../../styles/mixins/focus";
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/focus';
 
 .link {
   display: flex;
@@ -11,7 +11,7 @@
   @include sb-focus-style();
 }
 
-.link:hover .text {
+.link:hover {
   text-decoration: underline;
 }
 
