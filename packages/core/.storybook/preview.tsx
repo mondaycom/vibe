@@ -38,6 +38,8 @@ import {
 import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 import modes from "./modes";
+import Footer from "../src/storybook/components/footer/Footer";
+import StorybookTableOfContents from "../src/storybook/components/toc/TableOfContents";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -59,14 +61,17 @@ const preview: Preview = {
       canvas: {
         layout: "fullscreen"
       },
-      container: ({ children, context }: { children: any; context: any }) => (
-        <DocsContainer context={context}>
-          <Unstyled>
-            {children}
-            {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
-          </Unstyled>
-        </DocsContainer>
-      ),
+      container: ({ children, context }: { children: any; context: any }) => {
+        return (
+          <>
+            <DocsContainer context={context}>
+              <Unstyled>{children}</Unstyled>
+            </DocsContainer>
+            <Footer />
+            <StorybookTableOfContents />
+          </>
+        );
+      },
       page: DocsPage,
       components: {
         Canvas: CanvasWrapper,
