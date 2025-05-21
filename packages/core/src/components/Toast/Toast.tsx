@@ -15,7 +15,7 @@ import { ToastType, ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
 import IconButton from "../IconButton/IconButton";
 import usePrevious from "../../hooks/usePrevious";
@@ -230,7 +230,7 @@ interface ToastStaticProps {
   actionTypes: typeof ToastActionTypeEnum;
 }
 
-export default withStaticProps<ToastProps, ToastStaticProps>(Toast, {
+export default withStaticPropsWithoutForwardRef<ToastProps, ToastStaticProps>(Toast, {
   types: ToastTypeEnum,
   actionTypes: ToastActionTypeEnum
 });

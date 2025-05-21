@@ -5,7 +5,7 @@ import { NavigationChevronRight } from "@vibe/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
 import { BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
 
@@ -56,6 +56,6 @@ interface BreadcrumbsBarStaticProps {
   types: typeof BreadcrumbsBarTypeEnum;
 }
 
-export default withStaticProps<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
+export default withStaticPropsWithoutForwardRef<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
   types: BreadcrumbsBarTypeEnum
 });

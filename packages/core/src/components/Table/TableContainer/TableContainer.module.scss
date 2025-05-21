@@ -7,7 +7,7 @@
     --cell-width: 40px;
     position: absolute;
     overflow: hidden;
-    left: calc(var(--cell-width) * -1);
+    left: calc(1px - var(--cell-width));
     width: var(--cell-width);
     height: 100%;
   }

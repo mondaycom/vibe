@@ -4,7 +4,7 @@ import React from "react";
 import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
 import { DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {
@@ -40,6 +40,6 @@ interface DividerStaticProps {
   directions: typeof DirectionTypeEnum;
 }
 
-export default withStaticProps<DividerProps, DividerStaticProps>(Divider, {
+export default withStaticPropsWithoutForwardRef<DividerProps, DividerStaticProps>(Divider, {
   directions: DirectionTypeEnum
 });

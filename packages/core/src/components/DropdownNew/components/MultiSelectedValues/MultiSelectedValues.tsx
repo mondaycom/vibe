@@ -1,10 +1,10 @@
 import React, { useRef, useMemo, createRef } from "react";
-import { BaseListItemData } from "../../BaseListItem";
-import { Chips } from "../../Chips";
-import { Flex } from "../../Flex";
-import { DialogContentContainer } from "../../DialogContentContainer";
-import Dialog from "../../Dialog/Dialog";
-import useItemsOverflow from "../../../hooks/useItemsOverflow/useItemsOverflow";
+import { BaseListItemData } from "../../../BaseListItem";
+import { Chips } from "../../../Chips";
+import { Flex } from "../../../Flex";
+import { DialogContentContainer } from "../../../DialogContentContainer";
+import Dialog from "../../../Dialog/Dialog";
+import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
 
