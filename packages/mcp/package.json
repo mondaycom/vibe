@@ -23,12 +23,13 @@
   "scripts": {
     "test": "vitest --passWithNoTests",
     "start": "node dist/index.js",
-    "build": "tsc",
-    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js"
+    "build": "tsc && yarn run generate-boilerplate",
+    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js",
+    "generate-boilerplate": "node scripts/extract-code-samples.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",
-    "@vibe/core": "3.50.2",
+    "@vibe/core": "3.50.0",
     "zod": "^3.24.4"
   },
   "devDependencies": {
