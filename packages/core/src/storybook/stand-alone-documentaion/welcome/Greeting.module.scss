@@ -1,0 +1,25 @@
+.greeting {
+  transform: rotate(3deg);
+  border: 1.905px solid var(--layout-border-color);
+  border-radius: 30px;
+  margin: 150px 60px;
+  padding: 100px;
+
+  .intro {
+    color: #979799;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.52px;
+  }
+
+  .content {
+    color: var(--primary-text-color);
+    font-family: var(--title-font-family);
+    font-size: 54px;
+    line-height: 135%;
+    letter-spacing: 1.2px;
+    text-wrap: balance;
+    margin-bottom: 24px;
+  }
+}
