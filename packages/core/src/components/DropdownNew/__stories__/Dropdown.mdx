@@ -98,31 +98,35 @@ The Dropdown component supports multiple options selection in two different stat
     {
       positive: {
         component: (
-          <Dropdown
-            placeholder="Placeholder text here"
-            options={[
-              { value: 1, label: "Option 1" },
-              { value: 2, label: "Option 2" },
-              { value: 3, label: "Option 3" }
-            ]}
-            className="dropdown-stories-styles_rules-spacing"
-          />
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              placeholder="Placeholder text here"
+              options={[
+                { value: 1, label: "Option 1" },
+                { value: 2, label: "Option 2" },
+                { value: 3, label: "Option 3" }
+              ]}
+              className="dropdown-stories-styles_rules-spacing"
+            />
+          </div>
         ),
         description:
           "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
       },
       negative: {
         component: (
-          <Dropdown
-            menuIsOpen
-            placeholder="Placeholder text here"
-            options={[
-              { value: 1, label: "Option 1" },
-              { value: 2, label: "Option 2" },
-              { value: 3, label: "Option 3" }
-            ]}
-            className="dropdown-stories-styles_rules-spacing"
-          />
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              menuIsOpen
+              placeholder="Placeholder text here"
+              options={[
+                { value: 1, label: "Option 1" },
+                { value: 2, label: "Option 2" },
+                { value: 3, label: "Option 3" }
+              ]}
+              className="dropdown-stories-styles_rules-spacing"
+            />
+          </div>
         ),
         description: (
           <>

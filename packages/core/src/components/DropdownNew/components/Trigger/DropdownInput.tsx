@@ -39,7 +39,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
           className={cx(styles.inputWrapper, {
             [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
-            [styles.multi]: multi && hasSelection
+            [styles.multi]: multi && hasSelection,
+            [styles.multiSelected]: multi && hasSelection && inputSize === "small"
           })}
           disabled={disabled}
           readOnly={readOnly}

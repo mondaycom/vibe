@@ -9,7 +9,7 @@ import { OptionRenderer } from "./OptionRenderer";
 import { Attach, Email } from "@vibe/icons";
 import { Box, Button, DialogContentContainer, DropdownNew, Flex, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
-import "./Dropdown.stories.scss";
+import Heading from "../../Heading/Heading";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DropdownNew,
@@ -35,18 +35,25 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const options = [
-  { value: 1, label: "Option 1" },
-  { value: 2, label: "Option 2" },
-  { value: 3, label: "Option 3" }
-];
-
 const dropdownTemplate = (props: any) => {
-  return (
-    <div style={{ height: "150px" }}>
-      <DropdownNew options={options} {...props} />
-    </div>
-  );
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" }
+      ],
+      []
+    );
+
+    return (
+      <div style={{ height: "150px" }}>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={options} {...props} />
+        </div>
+      </div>
+    );
+  };
 };
 
 export const Overview = {
@@ -65,31 +72,29 @@ export const Overview = {
 };
 
 export const Sizes = {
-  render: () => (
-    <>
-      <DropdownNew
-        isMenuOpen
-        options={options}
-        placeholder="Small"
-        size="small"
-        className="dropdown-stories-styles_spacing"
-      />
-      <DropdownNew
-        isMenuOpen
-        options={options}
-        placeholder="Medium"
-        size="medium"
-        className="dropdown-stories-styles_spacing"
-      />
-      <DropdownNew
-        isMenuOpen
-        options={options}
-        placeholder="Large"
-        size="large"
-        className="dropdown-stories-styles_spacing"
-      />
-    </>
-  )
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" }
+      ],
+      []
+    );
+    return (
+      <>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={options} placeholder="Small" size="small" />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={options} placeholder="Medium" size="medium" />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={options} placeholder="Large" size="large" />
+        </div>
+      </>
+    );
+  }
 };
 
 export const Disabled = {
@@ -113,15 +118,13 @@ export const Disabled = {
     );
 
     return (
-      <Flex direction="row">
-        <DropdownNew defaultValue={options[0]} options={options} disabled className="dropdown-stories-styles_spacing" />
-        <DropdownNew
-          multi
-          defaultValue={[options[0], options[1]]}
-          options={options}
-          disabled
-          className="dropdown-stories-styles_spacing"
-        />
+      <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
+        <div style={{ width: "300px" }}>
+          <DropdownNew defaultValue={options[0]} options={options} disabled />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew multi defaultValue={[options[0], options[1]]} options={options} disabled />
+        </div>
       </Flex>
     );
   }
@@ -148,15 +151,13 @@ export const Readonly = {
     );
 
     return (
-      <Flex direction="row">
-        <DropdownNew defaultValue={options[0]} options={options} readOnly className="dropdown-stories-styles_spacing" />
-        <DropdownNew
-          multi
-          defaultValue={[options[0], options[1]]}
-          options={options}
-          readOnly
-          className="dropdown-stories-styles_spacing"
-        />
+      <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
+        <div style={{ width: "300px" }}>
+          <DropdownNew defaultValue={options[0]} options={options} readOnly />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew multi defaultValue={[options[0], options[1]]} options={options} readOnly />
+        </div>
       </Flex>
     );
   }
@@ -164,10 +165,14 @@ export const Readonly = {
 
 export const Rtl = {
   render: () => (
-    <>
-      <DropdownNew options={[]} placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />
-      <DropdownNew options={[]} placeholder="מימין לשמאל" className="dropdown-stories-styles_spacing" dir="rtl" />
-    </>
+    <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
+      <div style={{ width: "300px" }}>
+        <DropdownNew options={[]} placeholder="Left to right (default)" />
+      </div>
+      <div style={{ width: "300px" }}>
+        <DropdownNew options={[]} placeholder="מימין לשמאל" dir="rtl" />
+      </div>
+    </Flex>
   ),
   name: "RTL"
 };
@@ -199,33 +204,18 @@ export const MultiChoiceWithDifferentStates = {
     return (
       <Flex wrap gap="medium">
         <StoryDescription description="Single line" vertical>
-          <div
-            style={{
-              width: "400px"
-            }}
-          >
-            <DropdownNew
-              placeholder="Single line multi state"
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px", marginBottom: "50px" }}>
+            <DropdownNew placeholder="Single line multi state" defaultValue={[options[0]]} options={options} multi />
           </div>
         </StoryDescription>
         <StoryDescription description="Multiple lines" vertical>
-          <div
-            style={{
-              width: "400px"
-            }}
-          >
+          <div style={{ width: "400px", marginBottom: "50px" }}>
             <DropdownNew
               placeholder="Multiple line multi state"
               defaultValue={[options[0]]}
               options={options}
               multi
               multiline
-              className="dropdown-stories-styles_with-chips"
             />
           </div>
         </StoryDescription>
@@ -236,17 +226,12 @@ export const MultiChoiceWithDifferentStates = {
             width: 190
           }}
         >
-          <div
-            style={{
-              width: "400px"
-            }}
-          >
+          <div style={{ width: "400px", marginBottom: "50px" }}>
             <DropdownNew
               defaultValue={[options[0]]}
               options={options}
               multi
               multiline
-              className="dropdown-stories-styles_with-chips"
               // withMandatoryDefaultOptions
             />
           </div>
@@ -258,17 +243,8 @@ export const MultiChoiceWithDifferentStates = {
             width: 190
           }}
         >
-          <div
-            style={{
-              width: "400px"
-            }}
-          >
-            <DropdownNew
-              defaultValue={[...options]}
-              options={options}
-              multi
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px", marginBottom: "50px" }}>
+            <DropdownNew defaultValue={[...options]} options={options} multi />
           </div>
         </StoryDescription>
       </Flex>
@@ -318,25 +294,15 @@ export const DropdownWithAvatar = {
     );
 
     return (
-      <Flex gap="small">
+      <Flex gap="medium" style={{ margin: "30px" }}>
         <StoryDescription vertical description="Single value">
-          <div>
-            <DropdownNew
-              defaultValue={optionsAvatar[0]}
-              options={optionsAvatar}
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px" }}>
+            <DropdownNew defaultValue={optionsAvatar[0]} options={optionsAvatar} />
           </div>
         </StoryDescription>
         <StoryDescription vertical description="Multiple values">
-          <div>
-            <DropdownNew
-              defaultValue={[optionsAvatar[0]]}
-              options={optionsAvatar}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px" }}>
+            <DropdownNew defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi />
           </div>
         </StoryDescription>
       </Flex>
@@ -377,25 +343,15 @@ export const DropdownWithIcon = {
     );
 
     return (
-      <Flex gap="small">
+      <Flex gap="medium" style={{ margin: "30px" }}>
         <StoryDescription vertical description="Single value">
-          <div>
-            <DropdownNew
-              defaultValue={optionsIcons[0]}
-              options={optionsIcons}
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px", marginBottom: "70px" }}>
+            <DropdownNew defaultValue={optionsIcons[0]} options={optionsIcons} />
           </div>
         </StoryDescription>
         <StoryDescription vertical description="Multiple values">
-          <div>
-            <DropdownNew
-              defaultValue={[optionsIcons[0]]}
-              options={optionsIcons}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
+          <div style={{ width: "400px", marginBottom: "70px" }}>
+            <DropdownNew defaultValue={[optionsIcons[0]]} options={optionsIcons} multi multiline />
           </div>
         </StoryDescription>
       </Flex>
@@ -436,14 +392,8 @@ export const DropdownWithChipColors = {
 
     return (
       <StoryDescription vertical>
-        <div>
-          <DropdownNew
-            defaultValue={[optionsWithChipColors[0]]}
-            options={optionsWithChipColors}
-            multi
-            multiline
-            className="dropdown-stories-styles_with-chips"
-          />
+        <div style={{ width: "300px", margin: "30px" }}>
+          <DropdownNew defaultValue={[optionsWithChipColors[0]]} options={optionsWithChipColors} multi multiline />
         </div>
       </StoryDescription>
     );
@@ -484,12 +434,8 @@ export const DropdownWithTooltipsOnItems = {
 
     return (
       <StoryDescription vertical>
-        <div>
-          <DropdownNew
-            placeholder={"Placeholder text here"}
-            options={optionsWithTooltips}
-            className="dropdown-stories-styles_with-chips"
-          />
+        <div style={{ width: "300px", margin: "30px" }}>
+          <DropdownNew placeholder={"Placeholder text here"} options={optionsWithTooltips} />
         </div>
       </StoryDescription>
     );
@@ -540,14 +486,15 @@ export const DropdownWithChips = {
     );
 
     return (
-      <DropdownNew
-        defaultValue={[options[0]]}
-        options={options}
-        multi
-        placeholder="Dropdown with chips"
-        optionRenderer={OptionRenderer}
-        className="dropdown-stories-styles_with-chips"
-      />
+      <div style={{ width: "300px", margin: "30px" }}>
+        <DropdownNew
+          defaultValue={[options[0]]}
+          options={options}
+          multi
+          placeholder="Dropdown with chips"
+          optionRenderer={OptionRenderer}
+        />
+      </div>
     );
   },
   parameters: {
@@ -681,13 +628,10 @@ export const DropdownInsideAForm = {
 
     return (
       <div>
-        <h5 className="dropdown-stories-styles_title">Are you usually a Dark mode person?</h5>
-        <DropdownNew
-          defaultValue={options[0]}
-          placeholder="Placeholder text here"
-          options={options}
-          className="dropdown-stories-styles_big-spacing"
-        />
+        <Heading type="h3">Are you usually a Dark mode person?</Heading>
+        <div style={{ width: "300px" }}>
+          <DropdownNew defaultValue={options[0]} placeholder="Placeholder text here" options={options} />
+        </div>
       </div>
     );
   },
@@ -760,21 +704,14 @@ export const DropdownWithGroups = {
     );
 
     return (
-      <Flex gap={Flex.gaps.LARGE}>
+      <Flex gap="medium" style={{ margin: "30px" }}>
         <div>
-          <DropdownNew
-            placeholder="Groups with group title"
-            options={options}
-            className="dropdown-stories-styles_big-spacing"
-          />
+          <div style={{ width: "300px" }}>
+            <DropdownNew placeholder="Groups with group title" options={options} />
+          </div>
         </div>
-        <div>
-          <DropdownNew
-            placeholder="Groups with group divider"
-            options={optionsWithoutGroupLabel}
-            withGroupDivider
-            className="dropdown-stories-styles_big-spacing"
-          />
+        <div style={{ width: "300px" }}>
+          <DropdownNew placeholder="Groups with group divider" options={optionsWithoutGroupLabel} withGroupDivider />
         </div>
       </Flex>
     );
@@ -867,14 +804,18 @@ export const DropdownInsidePopover = {
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
           <Box marginTop="medium" marginBottom="xxl">
-            <DropdownNew placeholder="Dropdown inside DialogContentContainer" options={options} />
+            <div style={{ width: "300px" }}>
+              <DropdownNew placeholder="Dropdown inside DialogContentContainer" options={options} />
+            </div>
           </Box>
         </DialogContentContainer>
         <div>
           <Button onClick={() => setShow(true)}>Open Modal</Button>
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
-              <DropdownNew placeholder="Dropdown" options={options} />
+              <div style={{ width: "300px" }}>
+                <DropdownNew placeholder="Dropdown" options={options} />
+              </div>
             </ModalContent>
           </Modal>
         </div>
@@ -1000,17 +941,16 @@ export const DropdownValueSelection = {
 
     return (
       <Flex gap="large">
-        <DropdownNew
-          placeholder="Tab selects value"
-          options={options}
-          className="dropdown-stories-styles_big-spacing"
-        />
-        <DropdownNew
-          placeholder="Tab does not select value"
-          options={options}
-          // tabSelectsValue={false}
-          className="dropdown-stories-styles_big-spacing"
-        />
+        <div style={{ width: "300px" }}>
+          <DropdownNew placeholder="Tab selects value" options={options} />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew
+            placeholder="Tab does not select value"
+            options={options}
+            // tabSelectsValue={false}
+          />
+        </div>
       </Flex>
     );
   },
