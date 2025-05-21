@@ -1,0 +1,28 @@
+.footer {
+  background-color: var(--color-riverstone_gray);
+  padding: 140px 160px;
+
+  .footerTitles {
+    max-width: 320px;
+    flex-shrink: 0;
+  }
+
+  .title {
+    color: var(--primary-text-color);
+    font-family: var(--title-font-family);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 105%;
+    letter-spacing: -1.333px;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: var(--secondary-text-color);
+    font-family: var(--title-font-family);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.427px;
+  }
+}

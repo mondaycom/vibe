@@ -1,0 +1,36 @@
+.footerCard {
+  border-radius: 16px;
+  border: 1px solid var(--disabled-text-color);
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  width: 430px;
+  height: 245px;
+  align-items: flex-start;
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--primary-text-color);
+
+  .title {
+    margin: 0;
+  }
+
+  .description {
+    color: var(--secondary-text-color);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  .link {
+    align-self: flex-end;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: var(--allgrey-background-color);
+    mix-blend-mode: multiply;
+  }
+}
