@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import Flex from "../../Flex/Flex";
-import { ModalMediaProps } from "./ModalMedia.types";
+import { type ModalMediaProps } from "./ModalMedia.types";
 import styles from "./ModalMedia.module.scss";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./ModalHeader.module.scss";
-import { ModalHeaderProps } from "./ModalHeader.types";
+import { type ModalHeaderProps } from "./ModalHeader.types";
 import Flex from "../../Flex/Flex";
 import Heading from "../../Heading/Heading";
 import Text from "../../Text/Text";

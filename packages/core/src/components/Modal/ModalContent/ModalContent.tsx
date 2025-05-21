@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { ModalContentProps } from "./ModalContent.types";
+import { type ModalContentProps } from "./ModalContent.types";
 import { useModal } from "../context/ModalContext";
 
 const ModalContent = forwardRef(

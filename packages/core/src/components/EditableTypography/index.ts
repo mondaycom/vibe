@@ -1,1 +1,1 @@
-export { default as EditableTypography, EditableTypographyProps } from "./EditableTypography";
+export { default as EditableTypography, type EditableTypographyProps } from "./EditableTypography";

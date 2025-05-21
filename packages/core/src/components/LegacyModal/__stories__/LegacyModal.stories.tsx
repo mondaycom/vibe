@@ -3,7 +3,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import ModalContent from "../LegacyModalContent/LegacyModalContent";
 import ModalFooter from "../LegacyModalFooter/LegacyModalFooter";
 import ModalHeader from "../LegacyModalHeader/LegacyModalHeader";
-import Modal, { LegacyModalProps as ModalProps } from "../LegacyModal";
+import Modal, { type LegacyModalProps as ModalProps } from "../LegacyModal";
 import { useHelperOpenModalButton } from "./LegacyModal.stories.helpers";
 import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../LegacyModalFooter/LegacyModalFooterButtons/LegacyModalFooterButtons";

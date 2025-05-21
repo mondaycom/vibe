@@ -1,3 +1,3 @@
-export { default as MenuButton, MenuButtonProps } from "./MenuButton";
+export { default as MenuButton, type MenuButtonProps } from "./MenuButton";
 
 export * from "./MenuButton.types";

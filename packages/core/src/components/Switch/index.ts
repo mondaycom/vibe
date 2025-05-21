@@ -1,1 +1,1 @@
-export { default as Switch, SwitchProps } from "./Switch";
+export { default as Switch, type SwitchProps } from "./Switch";

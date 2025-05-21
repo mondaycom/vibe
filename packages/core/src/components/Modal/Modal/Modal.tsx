@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
-import { ModalProps } from "./Modal.types";
+import { type ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";

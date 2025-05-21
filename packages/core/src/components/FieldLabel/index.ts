@@ -1,1 +1,1 @@
-export { default as FieldLabel, FieldLabelProps } from "./FieldLabel";
+export { default as FieldLabel, type FieldLabelProps } from "./FieldLabel";
