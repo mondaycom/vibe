@@ -40,6 +40,7 @@ Each component within `packages/core/src/components/` should follow a consistent
   - Files are typically named `ComponentName.stories.tsx`.
 - **`components/`**: For more complex components, this directory can house sub-components that are only used by `ComponentName`.
 - **`hooks/`**: Custom React hooks that are specific to `ComponentName` and not intended for reuse elsewhere.
+- **`context/`**: If a component uses React Context, the context definition, provider, and consumer hook should be placed in this subdirectory (e.g., `ComponentName/context/ComponentNameContext.ts`).
 
 ### General Guidelines
 
