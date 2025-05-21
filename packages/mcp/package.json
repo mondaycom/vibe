@@ -1,6 +1,6 @@
 {
   "name": "@vibe/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vibe's MCP server to interact with the Vibe ecosystem",
   "repository": {
     "type": "git",
@@ -16,21 +16,15 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
-  },
   "scripts": {
     "test": "vitest --passWithNoTests",
-    "start": "tsc -p tsconfig.json -w",
-    "build": "tsc -p tsconfig.json"
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",

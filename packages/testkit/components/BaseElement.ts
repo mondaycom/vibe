@@ -7,10 +7,11 @@ export class BaseElement {
   page: Page;
   locator: Locator;
   elementReportName: string;
+
   /**
    * Create a BaseElement.
-   * @param {Object} page - The Playwright page object.
-   * @param {Object} locator - The locator for the element.
+   * @param {Page} page - The Playwright page object.
+   * @param {Locator} locator - The locator for the element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
@@ -21,9 +22,9 @@ export class BaseElement {
 
   /**
    * Get the locator of the element.
-   * @returns {Object} - The locator of the element.
+   * @returns {Locator} - The locator of the element.
    */
-  getLocator() {
+  getLocator(): Locator {
     return this.locator;
   }
 

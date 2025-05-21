@@ -1,5 +1,5 @@
-import vibeMetadata from "@vibe/core/meta";
-import { MCPTool } from "../index.js";
+import vibeMetadata from "@vibe/core/meta" assert { type: "json" };
+import { getErrorMessage, MCPTool } from "../index.js";
 
 export const listVibePublicComponentsTool: MCPTool<{}> = {
   name: "list-vibe-public-components",
@@ -12,12 +12,24 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
       // Remove duplicates if a component has a next version
       const uniqueComponents = [...new Set(components)];
       return {
-        content: [{ type: "text", text: JSON.stringify(uniqueComponents, null, 2) }]
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(uniqueComponents, null, 2)
+          }
+        ]
       };
     } catch (e) {
-      const message = (e instanceof Error ? e.message : e) || "Failed to get published components";
+      const errorMessage =
+        getErrorMessage(e) || `Failed to list published components`;
+
       return {
-        content: [{ type: "text", text: `Error in list-vibe-public-components: ${message}` }],
+        content: [
+          {
+            type: "text",
+            text: `Error in list-vibe-public-components: ${errorMessage}`
+          }
+        ],
         isError: true
       };
     }
