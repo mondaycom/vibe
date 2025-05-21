@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import cx from 'classnames';
 import CoreLink from '../../helpers/components/Link/Link';
 import { LinkSize, LinkTarget } from './LinkConstants';
@@ -7,7 +7,7 @@ import styles from './link.module.scss';
 
 export type LinkProps = {
   className?: string;
-  children: React.ReactNode | React.ReactNode[] | string;
+  children: ReactNode | ReactNode[] | string;
   href: string;
   size?: LinkSize;
   withoutSpacing?: boolean;

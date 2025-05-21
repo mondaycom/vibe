@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, ReactNode } from 'react';
 import Link from '../link/link';
 import { hrefTo } from '@storybook/addon-links';
 import { LinkSize } from '../link/LinkConstants';
@@ -6,7 +6,7 @@ import { withStaticProps } from '../../types';
 
 interface StorybookLinkProps {
   page: string;
-  children: React.ReactNode | React.ReactNode[] | string;
+  children: ReactNode | ReactNode[] | string;
   story?: string;
   size?: LinkSize;
   className?: string;
