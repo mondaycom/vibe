@@ -8,7 +8,7 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
   inputSchema: {},
   execute: async () => {
     try {
-      const components = vibeMetadata.map(component => component.displayName);
+      const components = vibeMetadata.map((component: any) => component.displayName);
       // Remove duplicates if a component has a next version
       const uniqueComponents = [...new Set(components)];
       return {
