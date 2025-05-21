@@ -16,7 +16,7 @@ import {
   SplitButtonSecondaryContentPosition,
   SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
-import { withStaticProps } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
 import { AnimationType, DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
@@ -308,7 +308,7 @@ interface SplitButtonStaticProps {
   dialogPaddingSizes: typeof DialogContentContainer.sizes;
 }
 
-export default withStaticProps<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
+export default withStaticPropsWithoutForwardRef<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
   secondaryPositions: SplitButtonSecondaryContentPosition,
   secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,

@@ -2,6 +2,7 @@ import React from "react";
 import { ListGroup } from "../BaseList";
 import { VibeComponentProps } from "../../types";
 import { BaseListItemData } from "../BaseListItem";
+import { TooltipProps } from "../Tooltip/Tooltip";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
@@ -22,6 +23,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * The function to call to render the selected value on single select mode.
    */
   valueRenderer?: never;
+  /**
+   * The default selected values for multi-select.
+   */
+  defaultValue?: Item[];
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -41,6 +46,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * The function to call to render the selected value on single select mode.
    */
   valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  /**
+   * The default selected value for single-select.
+   */
+  defaultValue?: Item;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -48,6 +57,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The list of options available in the list.
    */
   options: DropdownGroupOption<Item>;
+  /**
+   * Props to be passed to the Tooltip component that wraps the dropdown.
+   */
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * If true, displays dividers between grouped options.
    */
@@ -104,6 +117,22 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The label to display above the dropdown.
    */
   label?: string;
+  /**
+   * The ARIA label for the dropdown.
+   */
+  ariaLabel?: string;
+  /**
+   * The ARIA label for the dropdown input.
+   */
+  inputAriaLabel?: string;
+  /**
+   * The ARIA label for the menu container.
+   */
+  menuAriaLabel?: string;
+  /**
+   * The current value of the input field.
+   */
+  inputValue?: string;
   /**
    * The maximum height of the dropdown menu.
    */
@@ -169,8 +198,17 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * It receives an option and the current input value, and should return true if the option should be included, false otherwise.
    */
   filterOption?: (option: Item, inputValue: string) => boolean;
+  /**
+   * If false, selected options will be hidden from the list. Defaults to true.
+   */
+  showSelectedOptions?: boolean;
 } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
+
+export type DropdownControllerProps<Item extends BaseListItemData<Record<string, unknown>>> =
+  BaseDropdownProps<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };

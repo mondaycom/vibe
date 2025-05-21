@@ -13,7 +13,7 @@ import {
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
 import { CounterColor, CounterSize, CounterType } from "./Counter.types";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
@@ -175,7 +175,7 @@ interface CounterStaticProps {
   kinds: typeof CounterTypeEnum;
 }
 
-export default withStaticProps<CounterProps, CounterStaticProps>(Counter, {
+export default withStaticPropsWithoutForwardRef<CounterProps, CounterStaticProps>(Counter, {
   sizes: CounterSizeEnum,
   colors: CounterColorEnum,
   kinds: CounterTypeEnum

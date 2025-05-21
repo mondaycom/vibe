@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import path from "path";
-import { withDefaultConfig } from "react-docgen-typescript";
+import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
 import { fileURLToPath } from "url";
 
@@ -23,7 +23,7 @@ interface DocgenResult {
   components: Array<{
     displayName: string;
     description?: string;
-    props?: Record<string, unknown>;
+    props?: Props;
   }>;
 }
 
@@ -36,7 +36,7 @@ type FinalOutput = Array<{
   import: string;
   parentComponent?: string;
   subComponents?: string[];
-  props: Record<string, unknown>;
+  props: Props;
 }>;
 
 function isIndexFile(filePath: string): boolean {
@@ -326,17 +326,28 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
     const doc = docgenMap.get(agg.filePath);
     if (!doc) return [];
 
-    return doc.components.map(component => ({
-      filePath: toRelativePath(agg.filePath),
-      aggregator: agg.aggregator,
-      symbols: agg.symbols,
-      displayName: component.displayName,
-      description: component.description,
-      props: component.props,
-      import: `import { ${component.displayName} } from "@vibe/core${agg.aggregator === "next" ? "/next" : ""}"`,
-      parentComponent: getParentComponent(toRelativePath(agg.filePath)),
-      subComponents: findSubComponents(toRelativePath(agg.filePath), allFilePaths.map(toRelativePath))
-    }));
+    return doc.components.map(component => {
+      const filteredProps: Props = {};
+
+      if (component.props) {
+        for (const [propName, propData] of Object.entries(component.props)) {
+          const { parent: _parent, declarations: _declarations, ...propWithoutParentAndDeclarations } = propData;
+          filteredProps[propName] = propWithoutParentAndDeclarations;
+        }
+      }
+
+      return {
+        filePath: toRelativePath(agg.filePath),
+        aggregator: agg.aggregator,
+        symbols: agg.symbols,
+        displayName: component.displayName,
+        description: component.description,
+        props: filteredProps,
+        import: `import { ${component.displayName} } from "@vibe/core${agg.aggregator === "next" ? "/next" : ""}"`,
+        parentComponent: getParentComponent(toRelativePath(agg.filePath)),
+        subComponents: findSubComponents(toRelativePath(agg.filePath), allFilePaths.map(toRelativePath))
+      };
+    });
   });
 
   return files;

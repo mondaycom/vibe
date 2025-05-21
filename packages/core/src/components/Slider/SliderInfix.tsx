@@ -3,7 +3,7 @@ import { InfixKind as InfixKindEnum } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./SliderInfix.module.scss";
 import { InfixKind } from "./Slider.types";
 
@@ -32,6 +32,6 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKindEnum } = ({ 
   );
 };
 
-export default withStaticProps(SliderInfix, {
+export default withStaticPropsWithoutForwardRef<SliderInfixProps, { kinds: typeof InfixKindEnum }>(SliderInfix, {
   kinds: InfixKindEnum
 });

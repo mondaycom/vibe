@@ -18,6 +18,10 @@ export interface BaseListProps<Item = Record<string, unknown>>
    */
   highlightedIndex?: number;
   /**
+   * The ARIA label for the menu.
+   */
+  menuAriaLabel?: string;
+  /**
    * Function to get props for the menu container.
    */
   getMenuProps?: ((options?: any, otherOptions?: any) => Record<string, unknown>) | null;

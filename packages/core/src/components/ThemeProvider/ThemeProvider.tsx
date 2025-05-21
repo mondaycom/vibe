@@ -11,7 +11,7 @@ import {
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
-import { withStaticProps } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
 
 export interface ThemeProviderProps {
   /**
@@ -112,7 +112,7 @@ interface ThemeProviderStaticProps {
   colors: typeof ThemeColorEnum;
 }
 
-export default withStaticProps<ThemeProviderProps, ThemeProviderStaticProps>(ThemeProvider, {
+export default withStaticPropsWithoutForwardRef<ThemeProviderProps, ThemeProviderStaticProps>(ThemeProvider, {
   systemThemes: SystemThemeEnum,
   colors: ThemeColorEnum
 });

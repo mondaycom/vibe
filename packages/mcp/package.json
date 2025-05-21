@@ -1,0 +1,39 @@
+{
+  "name": "@vibe/mcp",
+  "version": "0.1.1",
+  "description": "Vibe's MCP server to interact with the Vibe ecosystem",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe/tree/main/packages/mcp#readme",
+  "author": "monday.com",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest --passWithNoTests",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.4",
+    "@vibe/core": "3.50.2",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "prettier": "^3.3.2",
+    "vitest": "^1.6.0"
+  }
+}

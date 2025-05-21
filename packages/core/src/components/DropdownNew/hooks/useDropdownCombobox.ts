@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { BaseListItemData } from "../../BaseListItem";
@@ -6,17 +6,32 @@ import { DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
-  autoFocus?: boolean,
   isMenuOpen?: boolean,
+  autoFocus?: boolean,
   closeMenuOnSelect?: boolean,
-  onChange?: (option: T | T[]) => void,
+  defaultValue?: T,
+  inputValueProp?: string,
+  onChange?: (option: T | T[] | null) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
-  filterOption?: (option: T, inputValue: string) => boolean
+  filterOption?: (option: T, inputValue: string) => boolean,
+  showSelectedOptions?: boolean
 ) {
-  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(options, filterOption);
+  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(null);
+
+  const memoizedSelectedItemForFiltering = useMemo(() => {
+    return currentSelectedItem ? [currentSelectedItem] : [];
+  }, [currentSelectedItem]);
+
+  const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
+    options,
+    filterOption,
+    showSelectedOptions,
+    memoizedSelectedItemForFiltering
+  );
+
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
   const {
@@ -29,11 +44,16 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset
+    reset,
+    openMenu,
+    toggleMenu,
+    closeMenu
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
+    initialSelectedItem: defaultValue || null,
+    initialInputValue: inputValueProp,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
@@ -50,18 +70,20 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       },
       [onInputChange, filterOptions]
     ),
-
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
+        setCurrentSelectedItem(selectedItem || null);
         if (selectedItem) {
           onOptionSelect?.(selectedItem);
-          filterOptions("");
           onChange?.(selectedItem);
+          filterOptions("");
+        } else {
+          onChange?.(null);
+          filterOptions("");
         }
       },
       [onOptionSelect, filterOptions, onChange]
     ),
-
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -83,8 +105,15 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     getMenuProps,
     getInputProps,
     getItemProps,
-    reset,
-    filteredOptions
+    reset: () => {
+      setCurrentSelectedItem(null);
+      reset();
+      filterOptions("");
+    },
+    filteredOptions,
+    openMenu,
+    toggleMenu,
+    closeMenu
   };
 }
 
