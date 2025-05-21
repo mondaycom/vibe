@@ -36,24 +36,22 @@ export default {
 };
 
 const dropdownTemplate = (props: any) => {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: 1, label: "Option 1" },
-        { value: 2, label: "Option 2" },
-        { value: 3, label: "Option 3" }
-      ],
-      []
-    );
+  const options = useMemo(
+    () => [
+      { value: 1, label: "Option 1" },
+      { value: 2, label: "Option 2" },
+      { value: 3, label: "Option 3" }
+    ],
+    []
+  );
 
-    return (
-      <div style={{ height: "150px" }}>
-        <div style={{ width: "300px" }}>
-          <DropdownNew options={options} {...props} />
-        </div>
+  return (
+    <div style={{ height: "150px" }}>
+      <div style={{ width: "300px" }}>
+        <DropdownNew options={options} {...props} />
       </div>
-    );
-  };
+    </div>
+  );
 };
 
 export const Overview = {
