@@ -23,13 +23,7 @@ export interface MCPTool<T extends ZodRawShape> {
 }
 
 export const addServerTool = (tool: MCPTool<any>) => {
-  const toolExecutionCallback = (args: z.infer<ZodObject<typeof tool.inputSchema>>): Promise<any> => {
-    return tool.execute(args).then(result => ({
-      content: [{ type: "text", text: result.content }]
-    }));
-  };
-
-  server.tool(tool.name, tool.description, tool.inputSchema, toolExecutionCallback);
+  server.tool(tool.name, tool.description, tool.inputSchema, tool.execute);
 };
 
 export const getErrorMessage = (error: unknown): string => {

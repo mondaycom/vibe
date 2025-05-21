@@ -17,7 +17,9 @@ export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSch
 
       if (componentMatches.length === 0) {
         return {
-          content: `Error in getVibeComponentMetadata: Component '${componentName}' not found.`,
+          content: [
+            { type: "text", text: `Error in getVibeComponentMetadata: Component '${componentName}' not found.` }
+          ],
           isError: true
         };
       }
@@ -27,14 +29,19 @@ export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSch
       const result = nextComponent || componentMatches[0]; // Fallback to the first match
 
       return {
-        content: JSON.stringify(result, null, 2)
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2)
+          }
+        ]
       };
     } catch (e) {
       const errorMessage =
         getErrorMessage(e) || `Failed to get metadata${componentName ? ` for ${componentName}` : ""}`;
 
       return {
-        content: `Error in getVibeComponentMetadata: ${errorMessage}`,
+        content: [{ type: "text", text: `Error in getVibeComponentMetadata: ${errorMessage}` }],
         isError: true
       };
     }
