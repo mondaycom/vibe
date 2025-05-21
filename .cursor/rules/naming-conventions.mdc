@@ -1,0 +1,94 @@
+---
+description: "Defines naming conventions for files, directories, components, props, variables, types, and CSS classes within the `@vibe/core` package (located in `packages/core/`). Ensures consistency and readability across the codebase for React components and related TypeScript/SCSS files."
+globs:
+alwaysApply: false
+---
+
+# Naming Conventions for @vibe/core
+
+This document outlines the naming conventions to be followed when developing within the `@vibe/core` library, located under `packages/core/`. Adhering to these conventions ensures consistency, readability, and maintainability across the codebase.
+
+## General Principles
+
+- **Clarity and Predictability**: Names should be clear, unambiguous, and predictable.
+- **Consistency**: Follow established patterns consistently across all files and components.
+
+## File and Directory Naming
+
+### Component Folders
+
+- Each component resides in its own directory within `packages/core/src/components/`.
+- Component directory names MUST use `PascalCase`.
+  - Example: `packages/core/src/components/MyNewComponent/`
+
+### Component Files
+
+- **Main Component File**: The main React component file MUST be named `ComponentName.tsx`, where `ComponentName` matches the directory name (`PascalCase`).
+  - Example: `packages/core/src/components/MyNewComponent/MyNewComponent.tsx`
+- **Style Files**: SCSS module files for components MUST be named `ComponentName.module.scss`.
+  - Example: `packages/core/src/components/MyNewComponent/MyNewComponent.module.scss`
+  - Refer to the styling-conventions.mdc file in the monorepo for CSS/SCSS specific conventions.
+- **Type Definitions**: TypeScript type definitions for a component MUST be placed in a separate file named `ComponentName.types.ts` and not within the main component file.
+  - Example: `packages/core/src/components/MyNewComponent/MyNewComponent.types.ts`
+- **Constants**: Files exporting constants specific to a component SHOULD be named `ComponentNameConstants.ts`.
+  - Example: `packages/core/src/components/MyNewComponent/MyNewComponentConstants.ts`
+- **Index File**: Each component directory MUST have an `index.ts` file that exports the main component and any other relevant modules (types, constants, etc.).
+  - Example: `packages/core/src/components/MyNewComponent/index.ts`
+
+### Sub-directories (within a component folder)
+
+- **Tests**: Test files SHOULD be placed in a `__tests__` subdirectory.
+  - Test files themselves typically follow the pattern `ComponentName.test.tsx`.
+- **Stories**: Storybook files SHOULD be placed in a `__stories__` subdirectory.
+  - Story files typically follow the pattern `ComponentName.stories.tsx`.
+  - Refer to the storybook-stories.mdc file in the monorepo for Storybook specific conventions.
+- **Helper/Utility Files**: Utility functions or helper components specific to a single component can be placed in a `helper` or `utils` subdirectory, or directly within the component folder if small and highly specific.
+  - File names SHOULD be `camelCase.ts` for utils/helpers or `PascalCase.ts` if they export React components.
+- **Custom Hooks**: Component-specific custom hooks SHOULD be placed in a `__hooks__` subdirectory.
+  - Hook files SHOULD follow the pattern `useHookName.ts` and use camelCase.
+  - If there's only one hook that's tightly coupled to the component, it can be placed directly in the component folder as `useHookName.ts`.
+
+### General File Naming
+
+- For general TypeScript files (e.g., hooks, utils) not specific to a single component, use `camelCase.ts` or `PascalCase.ts` if the file exports a React component.
+- Directory names for common utilities or hooks (e.g., `packages/core/src/hooks/`, `packages/core/src/utils/`) SHOULD be `camelCase`.
+
+## Code Naming Conventions
+
+### Component Names
+
+- React component names MUST use `PascalCase`.
+  - Example: `const MyNewComponent = (props) => { /* ... */ }`.
+
+### Prop Names
+
+- Prop names for React components MUST use `camelCase`.
+  - Example: `<MyNewComponent isLoading={true} userName=\"DefaultUser\" />`.
+  - For boolean props, the name SHOULD clearly indicate the positive case.
+    - Prefer prefixes like `is` or `has` for clarity (e.g., `isEnabled` or `isVisible` rather than just `enabled`).
+    - Common, unambiguous adjective props like `loading`, `active`, `open`, `checked`, or `required` are also acceptable.
+    - However, if the HTML attribute is `disabled`, using `disabled` is acceptable for consistency.
+
+### Variable and Function Names
+
+- Local variables and function names SHOULD use `camelCase`.
+  - Example: `const itemCount = 5;`.
+  - Example: `function calculateTotal() { /* ... */ }`.
+- Constants (values that do not change) SHOULD be named in `UPPER_SNAKE_CASE`.
+  - Example: `const MAX_USERS = 100;`.
+
+### Enum Names
+
+- Enum names SHOULD use `PascalCase`.
+- Enum members SHOULD use `PascalCase` or `UPPER_SNAKE_CASE` depending on the context.
+
+### Type and Interface Names
+
+- TypeScript type aliases and interface names MUST use `PascalCase`.
+  - Example: `type UserProfile = { /* ... */ };`.
+  - Example: `interface ComponentProps { /* ... */ }`.
+
+### CSS Class Names
+
+- CSS class names within `.module.scss` files MUST use `camelCase`.
+- Refer to the styling-conventions.mdc file in the monorepo for more details.
