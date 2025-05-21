@@ -4,6 +4,7 @@ globs:
   - "packages/core/src/components/**/*.module.scss"
 alwaysApply: false
 ---
+
 # Styling Conventions for @vibe/core
 
 This document outlines the rules and best practices for writing styles using SCSS Modules within the `@vibe/core` library (components located in `packages/core/src/components/`).
@@ -36,11 +37,13 @@ This document outlines the rules and best practices for writing styles using SCS
 
 - **Chrome 85+ Compatibility:** All styling **must** be compatible with Chrome version 85 and newer. Avoid using CSS features not supported by this baseline.
 - **Handling Newer CSS APIs:**
+
   - If a modern CSS API (not supported in Chrome 85) offers a simpler or more efficient way to achieve a style, you may propose a dual implementation.
   - The goal is to provide the modern styling for newer browsers while ensuring an equivalent fallback for older browsers (like Chrome 85).
   - **The visual appearance must remain consistent across all supported browsers.**
   - Clearly comment such implementations, indicating the modern API and the fallback.
   - Example:
+
     ```scss
     .myElement {
       // Fallback for older browsers

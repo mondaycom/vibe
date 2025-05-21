@@ -239,9 +239,7 @@ Brief overview of the component, its purpose, and when to use it. This can be mu
 ```tsx
 import { ComponentName } from "@vibe/core"; // Or the correct export path for the component
 ```
-````
 
-```
 
 ## Overview
 
@@ -329,9 +327,9 @@ _/}
   ]}
 />
 
-```
+````
 
-### 5.2. MDX Content Requirements:
+### 5.2. MDX Content Requirements
 
 - **Imports**:
   - The following components are globally available in MDX and **must not** be imported explicitly: `Canvas`, `Controls`, `PropsTable`, `ComponentRules`, `UsageGuidelines`, `RelatedComponent`, `RelatedComponents`, `StorybookLink`. They are automatically provided by the Storybook setup.
