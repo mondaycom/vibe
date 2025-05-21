@@ -1,6 +1,6 @@
 {
   "name": "@vibe/mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vibe's MCP server to interact with the Vibe ecosystem",
   "repository": {
     "type": "git",
@@ -31,8 +31,8 @@
     "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@vibe/core": "3.50.2",
     "@types/node": "^20.0.0",
+    "@vibe/core": "3.50.2",
     "prettier": "^3.3.2",
     "vitest": "^1.6.0"
   }
