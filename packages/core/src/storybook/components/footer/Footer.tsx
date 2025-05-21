@@ -7,12 +7,12 @@ import Title from "../../stand-alone-documentaion/welcome/Title";
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <Flex style={{ gap: "80px" }} align="start">
+      <Flex style={{ gap: "80px" }} align="start" className={styles.footerContent}>
         <div className={styles.footerTitles}>
           <Title className={styles.title}>Vibe Feedback.</Title>
           <p className={styles.subtitle}>We would love to hear your thoughts about Vibe!</p>
         </div>
-        <Flex gap="large">
+        <Flex gap="large" className={styles.footerCards} align="start" flex="1">
           <FooterCard
             title="Bug report"
             description="Report a bug on our production"

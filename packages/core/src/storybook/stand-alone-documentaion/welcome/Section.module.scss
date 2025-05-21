@@ -8,3 +8,9 @@
   font-weight: 600;
   margin-bottom: var(--sb-space-16);
 }
+
+@media screen and (max-width: 800px) {
+  .section {
+    font-size: 32px;
+  }
+}

@@ -1,5 +1,7 @@
 .sectionName {
   margin: 0;
+  position: sticky;
+  top: 0;
 }
 
 .subtitle {
@@ -7,4 +9,10 @@
   line-height: 135%;
   letter-spacing: 0.427px;
   margin-bottom: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+  .contributorsSection {
+    display: grid;
+  }
 }

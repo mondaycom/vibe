@@ -26,3 +26,22 @@
     letter-spacing: 0.427px;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    .footerContent {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding: 80px 16px;
+
+    .footerCards {
+      display: grid;
+      gap: 24px;
+    }
+  }
+}

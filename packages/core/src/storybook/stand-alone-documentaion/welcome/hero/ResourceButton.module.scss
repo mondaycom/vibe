@@ -15,3 +15,9 @@
     background-color: var(--primary-background-hover-color);
   }
 }
+
+@media screen and (max-width: 800px) {
+  .resourceButton {
+    font-size: 16px;
+  }
+}

@@ -12,10 +12,10 @@ export default function Hero() {
     <div className={styles.hero}>
       <h1 className={styles.header}>
         <Flex align="center" justify="center" gap="medium">
-          Vibe design <HeartIcon /> system
+          Vibe design <HeartIcon className={styles.heartIcon} /> system
         </Flex>
         <Flex align="center" justify="center" gap="large">
-          by <ArrowIcon /> monday.com
+          by <ArrowIcon className={styles.arrowIcon} /> monday.com
         </Flex>
       </h1>
       <p className={styles.subheader}>

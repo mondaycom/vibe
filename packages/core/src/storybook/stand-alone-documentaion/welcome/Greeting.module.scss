@@ -2,8 +2,8 @@
   transform: rotate(3deg);
   border: 1.905px solid var(--layout-border-color);
   border-radius: 30px;
-  margin: 150px 60px;
-  padding: 100px;
+  margin: 150px auto;
+  padding: 96px;
 
   .intro {
     color: #979799;
@@ -21,5 +21,49 @@
     letter-spacing: 1.2px;
     text-wrap: balance;
     margin-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .greeting {
+    max-width: 600px;
+
+    .intro {
+      font-size: 20px;
+    }
+
+    .content {
+      font-size: 44px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .greeting {
+    max-width: 400px;
+    padding: 72px;
+
+    .intro {
+      font-size: 16px;
+    }
+
+    .content {
+      font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .greeting {
+    max-width: 300px;
+    padding: 54px;
+
+    .intro {
+      font-size: 14px;
+    }
+
+    .content {
+      font-size: 22px;
+    }
   }
 }

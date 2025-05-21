@@ -4,8 +4,9 @@
   padding: 24px;
   cursor: pointer;
   display: flex;
-  width: 430px;
   height: 245px;
+  flex: 1;
+  width: 100%;
   align-items: flex-start;
   text-decoration: none;
   flex-direction: column;
