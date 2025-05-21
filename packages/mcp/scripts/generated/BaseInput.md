@@ -1,2 +1,0 @@
-# Storybook Code Examples
-

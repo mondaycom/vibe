@@ -7,10 +7,15 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const componentsDir = path.join(__dirname, "../../core/src/components");
+const outputDir = path.join(__dirname, "../dist/generated/");
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir); 
+}
+
 
 // TODO: filter for only public components
 function getStoryFiles() {
-  const componentsDir = path.join(__dirname, "../../core/src/components");
   const storyFiles = [];
 
   function traverseDirectory(dir) {
@@ -64,7 +69,7 @@ function extractMarkdown(file) {
     file
   );
   const inputFileComponentName = path.basename(inputFile).split(".")[0];
-  const outputFile = path.join(__dirname, "generated/", inputFileComponentName + ".md");
+  const outputFile = path.resolve(__dirname, outputDir, inputFileComponentName + ".md");
 
   const fileContent = fs.readFileSync(inputFile, "utf-8");
 
