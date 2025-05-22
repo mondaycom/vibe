@@ -40,6 +40,7 @@ import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit"
 import modes from "./modes";
 import Footer from "../src/storybook/components/footer/Footer";
 import StorybookTableOfContents from "../src/storybook/components/toc/TableOfContents";
+import { paintToConsole } from "./art";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -162,5 +163,7 @@ const preview: Preview = {
 
   loaders: isChromatic() && document.fonts ? [fontLoader] : []
 };
+
+paintToConsole();
 
 export default preview;
