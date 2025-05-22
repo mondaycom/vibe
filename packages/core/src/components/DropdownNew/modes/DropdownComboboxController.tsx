@@ -30,7 +30,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onBlur,
     onKeyDown,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -108,7 +109,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     clearable,
     searchable,
     multi,
-    closeMenuOnSelect
+    closeMenuOnSelect,
+    size
   };
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
 };

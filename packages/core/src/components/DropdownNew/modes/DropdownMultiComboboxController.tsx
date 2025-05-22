@@ -30,7 +30,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onBlur,
     onKeyDown,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -50,7 +51,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    getDropdownProps
   } = useDropdownMultiCombobox<Item>(
     options,
     multiSelectedItemsState,
@@ -116,7 +118,9 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     clearable,
     searchable,
     multi,
-    closeMenuOnSelect
+    closeMenuOnSelect,
+    size,
+    getDropdownProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

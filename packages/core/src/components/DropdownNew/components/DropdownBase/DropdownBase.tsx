@@ -2,19 +2,19 @@ import React from "react";
 import cx from "classnames";
 import FieldLabel from "../../../FieldLabel/FieldLabel";
 import Text from "../../../Text/Text";
-import styles from "../../Dropdown.module.scss";
+import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 import Tooltip from "../../../Tooltip/Tooltip";
 
-interface DropdownStructureProps {
+interface DropdownBaseProps {
   dropdownRef: React.Ref<HTMLDivElement>;
   children: React.ReactNode;
 }
 
-const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, children }) => {
+const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
   const {
     label,
     required,
@@ -64,4 +64,4 @@ const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, chil
   );
 };
 
-export default DropdownStructure;
+export default DropdownBase;

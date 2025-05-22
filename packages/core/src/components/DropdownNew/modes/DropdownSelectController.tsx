@@ -24,7 +24,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multi = false,
     dropdownRef,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const {
@@ -76,7 +77,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     searchable,
     multi,
     autoFocus,
-    onClear
+    onClear,
+    size
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

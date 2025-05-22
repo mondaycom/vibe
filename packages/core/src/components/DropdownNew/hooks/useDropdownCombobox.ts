@@ -19,7 +19,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean
 ) {
-  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(null);
+  const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
   const memoizedSelectedItemForFiltering = useMemo(() => {
     return currentSelectedItem ? [currentSelectedItem] : [];
@@ -38,7 +38,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     isOpen,
     inputValue,
     highlightedIndex,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
@@ -52,7 +51,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
-    initialSelectedItem: defaultValue || null,
     initialInputValue: inputValueProp,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
@@ -99,7 +97,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     isOpen,
     inputValue,
     highlightedIndex,
-    selectedItem,
+    selectedItem: currentSelectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
