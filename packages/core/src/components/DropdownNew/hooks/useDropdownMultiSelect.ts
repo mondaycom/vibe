@@ -22,7 +22,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
 
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
-  const { getSelectedItemProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
+  const { getSelectedItemProps, addSelectedItem, removeSelectedItem, getDropdownProps } = useMultipleSelection<T>({
     selectedItems,
     initialSelectedItems: defaultValue,
     onSelectedItemsChange: ({ selectedItems: newSelected }) => {
@@ -101,7 +101,8 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     filteredOptions,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    getDropdownProps
   };
 }
 

@@ -40,7 +40,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    getDropdownProps
   } = useDropdownMultiSelect<Item>(
     options,
     multiSelectedItemsState,
@@ -70,6 +71,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    getDropdownProps,
     contextOnClear: () => {
       hookReset();
       setMultiSelectedItemsState([]);
