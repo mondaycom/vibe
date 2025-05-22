@@ -20,10 +20,14 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     inputAriaLabel,
     searchable,
     size,
-    getToggleButtonProps
+    getToggleButtonProps,
+    getDropdownProps,
+    isOpen
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
+
+  const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction: isOpen }) : {};
 
   return (
     <>
@@ -31,7 +35,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
         <BaseInput
           {...getInputProps({
             ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
-            placeholder: hasSelection ? "" : placeholder
+            placeholder: hasSelection ? "" : placeholder,
+            ...multipleSelectionDropdownProps
           })}
           value={inputValue || ""}
           autoFocus={autoFocus}
@@ -48,7 +53,11 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
       ) : (
         <>
           {!hasSelection && placeholder && (
-            <Text color="secondary" className={styles.placeholderText} {...getToggleButtonProps()}>
+            <Text
+              color="secondary"
+              className={styles.placeholderText}
+              {...getToggleButtonProps(multipleSelectionDropdownProps)}
+            >
               {placeholder}
             </Text>
           )}

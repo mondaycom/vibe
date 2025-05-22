@@ -1,0 +1,158 @@
+---
+description: "This rule defines conventions for the internal structure of React components within the `@vibe/core` library (located in "packages/core" directory). Adhering to these conventions ensures consistency, readability, and maintainability across the codebase."
+globs:
+    - packages/core/src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Components Internal Structure
+
+## General Guidelines
+
+1. **Functional Components**: Always use functional components with React Hooks.
+2. **TypeScript**: All components must be written in TypeScript.
+3. **`forwardRef`**: Prefer using `React.forwardRef` for all components that might need to expose their underlying DOM element or instance to parent components. The `ref` should be typed directly on the function's second argument.
+4. **Props Typing and Destructuring**: Props must be destructured in the component function's first argument, and this argument must be explicitly typed with the component's props type.
+
+## File Structure (within the `.tsx` file)
+
+### 1. Import Order
+
+Imports should be ordered as follows:
+
+1. **React Import**: `import React, { ... } from "react";`.
+2. **Third-party Libraries**: e.g., `import cx from "classnames";`.
+3. **Vibe Libraries (@vibe)**: e.g., `import { MyIcon } from "@vibe/icons";`.
+4. **Internal Components/Hooks/Utils from the library**: e.g., `import useMergeRef from "../../hooks/useMergeRef";`.
+5. **Type Imports**: e.g., `import { MyComponentProps } from "./MyComponent.types";`.
+6. **Rest of the imports**: e.g., everything other than styles should be here.
+7. **Style Imports**: Should always be the last import. e.g., `import styles from "./MyComponent.module.scss";`.
+
+### 2. Component Definition
+
+1. **`const` Declaration**: Define components using a `const` assignment with an arrow function.
+
+   ```typescript
+   const MyComponent = React.forwardRef(...)
+   ```
+
+2. **Props**:
+
+- Props interface/type must be defined in a separate `ComponentName.types.ts` file and imported.
+- Destructure props directly in the function component's signature.
+- The destructured props object should be typed with the imported props type. Example:
+
+```typescript
+import { MyComponentProps } from "./MyComponent.types";
+
+const MyComponent = React.forwardRef(
+  ({ prop1, prop2, ...rest }: MyComponentProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+    // Component logic
+  }
+);
+```
+
+### 3. State and Hooks
+
+- **`useState`**: Use `useState` for simple local state.
+- **`useCallback` and `useMemo`**: Use `useCallback` for memoizing functions passed as props or dependencies to other hooks. Use `useMemo` for memoizing computationally expensive values.
+- **`useRef`**: Use `useRef` for accessing DOM elements or storing mutable values that don't trigger re-renders.
+
+### 4. Styling
+
+- **CSS Modules**: Import styles from `ComponentName.module.scss` as a named import. The named import should be `styles`.
+
+  ```typescript
+  import styles from "./MyComponent.module.scss";
+  ```
+
+- **`classnames` (cx)**: Use the `classnames` utility (imported as `cx`) for conditionally applying or merging CSS classes.
+
+  ```typescript
+  <div className={cx(styles.myClass, { [styles.active]: isActive }, classNameFromProps)} />
+  ```
+
+### 5. Sub-components
+
+- For complex components, it is highly encouraged to break down the UI into smaller, manageable sub-components. This improves readability, maintainability, and can also lead to performance benefits.
+- Performance can be improved by encapsulating logic, including custom hooks, within sub-components that are conditionally rendered. This avoids unnecessary hook initialization and execution in the parent component. For example, different controller sub-components with their own specific hooks are rendered based on props, preventing the parent from initializing all possible hooks.
+- Sub-components must always be defined in separate files within a `components` or feature-specific directory (e.g., `Modal/ModalHeader/ModalHeader.tsx`). Never define two components in the same `.tsx` file.
+
+### 6. Context
+
+- Utilize React Context for sharing state that needs to be accessed by many components at different levels in the component tree.
+- Define context in a `context` directory (e.g., `Modal/context/ModalContext.ts`). The file itself should typically be named `ComponentNameContext.ts` or `ComponentNameContext.tsx`.
+- Provide context value using `Provider` that is exported from `ComponentNameContext.ts` or `ComponentName.tsx`.
+
+This structure ensures that context logic is well-organized, type-safe, and easy to consume.
+
+### 7. Default Export
+
+- Export the component as a default export at the bottom of the file.
+
+  ```typescript
+  export default MyComponent;
+  ```
+
+## Boilerplate for a New Component
+
+Use this boilerplate as a starting point for creating new components:
+
+```typescript
+import React, { forwardRef, useState, useCallback, useMemo, useRef } from "react";
+import cx from "classnames";
+
+// import OtherInternalComponents from "...";
+// import useMyCustomHook from "../../hooks/useMyCustomHook";
+
+import { MyComponentProps } from "./MyComponent.types";
+import styles from "./MyComponent.module.scss";
+
+const MyComponent = forwardRef(
+  (
+    {
+      // Destructure props here
+      id,
+      className,
+      "data-testid": dataTestId
+    }: // ...other props
+    MyComponentProps,
+    ref: React.ForwardedRef<HTMLDivElement> // Adjust HTML element type
+  ) => {
+    // const internalRef = useRef<HTMLDivElement>(null); // Adjust HTML element type
+    // const mergedRef = useMergeRef(ref, internalRef); // If using useMergeRef (if internalRef is required)
+
+    // const [myState, setMyState] = useState<StateType>();
+
+    // const memoizedValue = useMemo(() => {
+    //   // ...
+    // }, [/* dependencies */]);
+
+    // const handleClick = useCallback(() => {
+    //   // ...
+    // }, [/* dependencies */]);
+
+    // useEffect(() => {
+    //   // ...
+    //   return () => {
+    //     // cleanup
+    //   };
+    // }, [/* dependencies */]);
+
+    return (
+      <div
+        ref={ref} // or mergedRef
+        id={id}
+        className={cx(styles.myComponentBaseClass, className)}
+        data-testid={dataTestId}
+      >
+        {/* Component JSX */}
+      </div>
+    );
+  }
+);
+
+export default MyComponent;
+```
+
+Remember to consult specific component files or other relevant rules like `styling-conventions.mdc` or `naming-conventions.mdc` for more detailed guidance.

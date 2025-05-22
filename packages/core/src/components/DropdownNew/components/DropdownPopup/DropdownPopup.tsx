@@ -11,7 +11,7 @@ const DropdownPopup = () => {
 
   return (
     <Dialog
-      open={isOpen}
+      open
       useDerivedStateFromProps
       position="bottom-start"
       moveBy={{ main: 4, secondary: 0 }}

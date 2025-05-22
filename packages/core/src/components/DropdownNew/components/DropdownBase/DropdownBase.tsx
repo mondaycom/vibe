@@ -9,12 +9,12 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
 import Tooltip from "../../../Tooltip/Tooltip";
 
-interface DropdownStructureProps {
+interface DropdownBaseProps {
   dropdownRef: React.Ref<HTMLDivElement>;
   children: React.ReactNode;
 }
 
-const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, children }) => {
+const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
   const {
     label,
     required,
@@ -64,4 +64,4 @@ const DropdownStructure: React.FC<DropdownStructureProps> = ({ dropdownRef, chil
   );
 };
 
-export default DropdownStructure;
+export default DropdownBase;
