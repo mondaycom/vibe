@@ -24,6 +24,7 @@ const NO_ACTIVE_INDEX = -1;
  * @param {boolean=} options.focusOnMount - if true, the referenced element will be focused when mounted
  * @param {number=} options.focusItemIndexOnMount - optional item index to focus when mounted. Only works with "options.focusOnMount".
  * @param {number[]=} options.disabledIndexes - optional array of disabled indices, which will be skipped while navigating.
+ * @param {boolean=} options.circularNavigation - if true, the navigation will wrap around the grid
  * @returns {useGridKeyboardNavigationResult}
  *
  * @typedef useGridKeyboardNavigationResult
@@ -42,7 +43,8 @@ export default function useGridKeyboardNavigation({
   getItemByIndex = (_index: number) => {},
   focusOnMount = false,
   focusItemIndexOnMount = NO_ACTIVE_INDEX,
-  disabledIndexes = []
+  disabledIndexes = [],
+  circularNavigation = false
 }: {
   ref: MutableRefObject<HTMLElement>;
   itemsCount: number;
@@ -53,6 +55,7 @@ export default function useGridKeyboardNavigation({
   focusOnMount?: boolean;
   focusItemIndexOnMount?: number;
   disabledIndexes?: number[];
+  circularNavigation?: boolean;
 }) {
   const [isInitialActiveState, setIsInitialActiveState] = useState(
     focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX
@@ -75,7 +78,8 @@ export default function useGridKeyboardNavigation({
       itemsCount,
       numberOfItemsInLine,
       direction,
-      disabledIndexes
+      disabledIndexes,
+      circularNavigation
     });
     if (isOutbound) {
       keyboardContext?.onOutboundNavigation(ref, direction);

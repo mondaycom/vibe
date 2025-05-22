@@ -100,7 +100,8 @@ const TabList: FC<TabListProps> = forwardRef(
       itemsCount: children?.length,
       getItemByIndex,
       onItemClicked: onTabClick,
-      disabledIndexes
+      disabledIndexes,
+      circularNavigation: true
     });
 
     const tabsToRender = useMemo(() => {
