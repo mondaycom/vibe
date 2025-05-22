@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Vibe Design System - Main Guidelines
+
+Vibe is the official design system for monday.com, dedicated to providing an exceptional user experience (UX) through best-in-class UI components and fostering a great developer experience (DX). The official documentation can be found at [https://vibe.monday.com](mdc:https:/vibe.monday.com).
+
+## Core Technologies & Standards:
+
+*   **React**: Components are built using React.
+    *   **Version Compatibility**: All React code must be compatible with **React version 16.14 and newer versions**.
+*   **TypeScript**: TypeScript is used extensively for robust type safety.
+    *   **No "any" Type**: The use of the `any` type is strictly discouraged. Always strive for precise and explicit type definitions.
+*   **Styling**:
+    *   **CSS Modules**: We use CSS Modules for component-specific styling to ensure encapsulation and avoid style conflicts.
+    *   **CSS Variables**: Design tokens (colors, spacing, typography, etc.) are implemented and consumed as CSS Variables, promoting consistency, theming, and maintainability.
+*   **Accessibility (a11y)**:
+    *   A primary goal is to meet **WCAG AA compliance** for all components. Accessibility considerations should be integral to component design and development.
+*   **Package Management**:
+    *   **Yarn**: Use **Yarn** for all package management operations (installing dependencies, running scripts). Ensure consistency by not using `npm` or other package managers.
+
+## Development Philosophy & Goals:
+
+*   **Exceptional User Experience**: Components should be intuitive, easy to use, and visually polished.
+*   **Best-in-Class Components**: Aim for high quality, robustness, and comprehensive feature sets for all components.
+*   **Great Developer Experience**: The system should be easy for developers to learn, use, and contribute to. This includes clear APIs, good documentation, and helpful tooling.
+
+## Component Documentation & Showcasing:
+
+*   **Storybook**: We use **Storybook version 8** for component documentation, interactive examples, and visual testing.
+    *   **Comprehensive Stories**: Each component must have thorough stories covering its various props, states, and common use cases.
+    *   **Detailed Descriptions**: Provide clear and detailed descriptions for each prop within Storybook and for each story's purpose.
+    *   **Standard Location**: Stories are typically located in a `__stories__` subdirectory alongside the component (e.g., a Button component might have stories in `[packages/core/src/components/Button/__stories__/Button.stories.tsx](mdc:packages/core/src/components/Button/__stories__/Button.stories.tsx)`).
+
+## Testing:
+
+*   **React Testing Library (RTL)**: We use RTL for testing React components.
+    *   **User-Centric Tests**: Focus tests on how users interact with components and what they experience, rather than on internal implementation details.
+    *   **Querying Best Practices**: Prioritize querying by accessible roles, labels, and text. Avoid testing implementation details such as internal state or specific CSS class names.
+
+## Key Coding Practices to Avoid:
+
+*   **Direct `window` Object Usage**: Abstract or avoid direct calls to the `window` object to ensure components are versatile and testable.
+*   **Hard-coded CSS Values**: Do not use hard-coded pixel values or specific color codes directly in CSS. Always use the defined CSS Variables (design tokens).
+*   **React Class Components**: New components should be functional components using Hooks. Consider refactoring existing class components when making significant modifications.
+*   **CSS-in-JS Libraries (for component styling)**: Prefer CSS Modules for component styling to maintain consistency.
