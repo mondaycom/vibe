@@ -253,7 +253,7 @@ function aggregatorMain(): AggregatorRecord[] {
     skipAddingFilesFromTsConfig: true
   });
 
-  const packageDir = path.resolve(__dirname, "../src/components");
+  const packageDir = path.resolve(__dirname, "../components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
 
   const coreIndex = path.join(packageDir, "index.ts");
@@ -328,7 +328,6 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
-    skipChildrenPropWithoutDoc: true, // Skip children prop for performance
     propFilter: prop => {
       if (prop.declarations !== undefined && prop.declarations.length > 0) {
         const hasPropAdditionalDescription = prop.declarations.find(declaration => {
@@ -547,7 +546,7 @@ async function main() {
     const finalJson = mergeResults(aggregatorRecords, docgenResults);
     console.log(`Final output contains ${finalJson.length} component entries`);
 
-    const outPath = path.resolve(__dirname, "../dist/metadata.json");
+    const outPath = path.resolve(__dirname, "../../dist/metadata.json");
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
     console.log(`Done! Wrote metadata to: ${outPath}`);
   } catch (error) {
