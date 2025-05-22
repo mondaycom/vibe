@@ -5,11 +5,30 @@ import path from "path";
 import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
 import { fileURLToPath } from "url";
+import crypto from "crypto";
+import { cpus } from "os";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
+
+// Optimal batch size based on CPU cores
+const CPU_COUNT = cpus().length;
+const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CPU cores as batch size for best performance
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
+// Cache for file content hashes to avoid reprocessing unchanged files
+const fileHashCache = new Map<string, string>();
+
+interface CacheEntry {
+  hash: string;
+  result: DocgenResult;
+}
+
+interface CacheFile {
+  version: string;
+  entries: Record<string, CacheEntry>;
+}
 
 interface AggregatorRecord {
   filePath: string;
@@ -41,6 +60,52 @@ type FinalOutput = Array<{
 
 function isIndexFile(filePath: string): boolean {
   return path.basename(filePath).toLowerCase() === "index.ts";
+}
+
+/**
+ * Generates a hash for a file\'s content
+ */
+function getFileHash(filePath: string): string {
+  if (fileHashCache.has(filePath)) {
+    return fileHashCache.get(filePath)!;
+  }
+
+  try {
+    const content = fs.readFileSync(filePath, "utf8");
+    const hash = crypto.createHash("md5").update(content).digest("hex");
+    fileHashCache.set(filePath, hash);
+    return hash;
+  } catch (err) {
+    console.warn(`Failed to hash file ${filePath}:`, err);
+    return "";
+  }
+}
+
+/**
+ * Loads the cache from disk
+ */
+function loadCache(): CacheFile {
+  try {
+    if (fs.existsSync(CACHE_FILE)) {
+      const cacheContent = fs.readFileSync(CACHE_FILE, "utf8");
+      return JSON.parse(cacheContent);
+    }
+  } catch (err) {
+    console.warn("Failed to load cache file:", err);
+  }
+
+  return { version: "1", entries: {} };
+}
+
+/**
+ * Saves the cache to disk
+ */
+function saveCache(cache: CacheFile): void {
+  try {
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), "utf8");
+  } catch (err) {
+    console.warn("Failed to save cache file:", err);
+  }
 }
 
 /**
@@ -188,7 +253,7 @@ function aggregatorMain(): AggregatorRecord[] {
     skipAddingFilesFromTsConfig: true
   });
 
-  const packageDir = path.resolve(__dirname, "../components");
+  const packageDir = path.resolve(__dirname, "../src/components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
 
   const coreIndex = path.join(packageDir, "index.ts");
@@ -225,11 +290,45 @@ function aggregatorMain(): AggregatorRecord[] {
 /**
  * Runs react-docgen-typescript on the provided files to extract component documentation
  */
-function runReactDocgenOnFiles(filePaths: string[]): DocgenResult[] {
+async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[]> {
+  // Load existing cache
+  const cache = loadCache();
+  const cacheEntries = cache.entries;
+
+  // Check which files need to be processed
+  const filesToProcess: string[] = [];
+  const cachedResults: DocgenResult[] = [];
+
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`File not found: ${filePath}`);
+      continue;
+    }
+
+    const fileHash = getFileHash(filePath);
+    if (!fileHash) continue;
+
+    const cacheEntry = cacheEntries[filePath];
+    if (cacheEntry && cacheEntry.hash === fileHash) {
+      // Use cached result if available and file hasn\'t changed
+      cachedResults.push(cacheEntry.result);
+    } else {
+      filesToProcess.push(filePath);
+    }
+  }
+
+  console.log(`${cachedResults.length} files loaded from cache, ${filesToProcess.length} files need processing`);
+
+  if (filesToProcess.length === 0) {
+    return cachedResults;
+  }
+
+  // Configure parser with optimized settings
   const parser = withDefaultConfig({
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
+    skipChildrenPropWithoutDoc: true, // Skip children prop for performance
     propFilter: prop => {
       if (prop.declarations !== undefined && prop.declarations.length > 0) {
         const hasPropAdditionalDescription = prop.declarations.find(declaration => {
@@ -243,27 +342,69 @@ function runReactDocgenOnFiles(filePaths: string[]): DocgenResult[] {
     }
   });
 
-  const results: DocgenResult[] = [];
-  for (const filePath of filePaths) {
-    if (!fs.existsSync(filePath)) {
-      console.warn(`File not found: ${filePath}`);
-      continue;
-    }
-    try {
-      const docgenData = parser.parse(filePath);
-      results.push({
-        filePath,
-        components: docgenData.map(c => ({
-          displayName: c.displayName,
-          description: c.description,
-          props: c.props
-        }))
-      });
-    } catch (err) {
-      console.warn(`Failed to parse component documentation for ${filePath}: ${err.message}`);
-    }
+  // Process files in batches to avoid overwhelming the system
+  const batches: string[][] = [];
+
+  for (let i = 0; i < filesToProcess.length; i += BATCH_SIZE) {
+    batches.push(filesToProcess.slice(i, i + BATCH_SIZE));
   }
-  return results;
+
+  console.log(
+    `Processing ${filesToProcess.length} files in ${batches.length} batches of up to ${BATCH_SIZE} files each (using ${CPU_COUNT} CPU cores)`
+  );
+
+  // Store new results to be added to the cache
+  const newResults: DocgenResult[] = [];
+
+  for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
+    const batch = batches[batchIndex];
+    console.log(`Processing batch ${batchIndex + 1}/${batches.length} (${batch.length} files)`);
+
+    const batchPromises = batch.map(async filePath => {
+      try {
+        const startTime = performance.now();
+        const docgenData = parser.parse(filePath);
+        const result = {
+          filePath,
+          components: docgenData.map(c => ({
+            displayName: c.displayName,
+            description: c.description,
+            props: c.props
+          }))
+        };
+
+        // Update cache
+        cacheEntries[filePath] = {
+          hash: getFileHash(filePath),
+          result
+        };
+
+        const endTime = performance.now();
+        if (endTime - startTime > 500) {
+          console.log(`Slow file: ${filePath} took ${((endTime - startTime) / 1000).toFixed(2)}s`);
+        }
+
+        return result;
+      } catch (err) {
+        console.warn(`Failed to parse component documentation for ${filePath}: ${err.message}`);
+        return null;
+      }
+    });
+
+    const batchResults = await Promise.all(batchPromises);
+
+    batchResults.forEach(result => {
+      if (result) {
+        newResults.push(result);
+      }
+    });
+  }
+
+  // Save the updated cache
+  saveCache(cache);
+
+  // Return both cached and newly processed results
+  return [...cachedResults, ...newResults];
 }
 
 /**
@@ -290,7 +431,7 @@ function findSubComponents(filePath: string, allFiles: string[]): string[] {
   const dirName = path.basename(dir);
   const fileName = path.basename(filePath, path.extname(filePath));
 
-  // Only look for sub-components if we're in a component directory
+  // Only look for sub-components if we\'re in a component directory
   if (!dirName.match(/^[A-Z]/)) return [];
 
   // Only include sub-components for the main component (the one that matches the directory name)
@@ -383,18 +524,30 @@ function unifyTypesWithComponents(records: AggregatorRecord[]): AggregatorRecord
   return newRecords;
 }
 
-function main() {
+async function main() {
   const startTime = performance.now();
   try {
+    console.log(`Starting metadata generation (using ${CPU_COUNT} CPU cores, batch size ${BATCH_SIZE})...`);
+
+    console.log("Aggregating export records...");
     let aggregatorRecords = aggregatorMain();
+    console.log(`Found ${aggregatorRecords.length} records`);
+
+    console.log("Unifying types with components...");
     aggregatorRecords = unifyTypesWithComponents(aggregatorRecords);
+    console.log(`After unification: ${aggregatorRecords.length} records`);
 
     const finalFilePaths = aggregatorRecords.map(r => r.filePath);
+    console.log(`Processing ${finalFilePaths.length} files with react-docgen-typescript...`);
 
-    const docgenResults = runReactDocgenOnFiles(finalFilePaths);
+    const docgenResults = await runReactDocgenOnFiles(finalFilePaths);
+    console.log(`Successfully processed ${docgenResults.length} files`);
+
+    console.log("Merging results...");
     const finalJson = mergeResults(aggregatorRecords, docgenResults);
+    console.log(`Final output contains ${finalJson.length} component entries`);
 
-    const outPath = path.resolve(__dirname, "../../dist/metadata.json");
+    const outPath = path.resolve(__dirname, "../dist/metadata.json");
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
     console.log(`Done! Wrote metadata to: ${outPath}`);
   } catch (error) {
