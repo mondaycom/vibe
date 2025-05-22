@@ -5,11 +5,20 @@ import path from "path";
 import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
 import { fileURLToPath } from "url";
-import crypto from "crypto";
 import { cpus } from "os";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+console.log("__dirname", __dirname);
 const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
+console.log("CACHE_FILE", CACHE_FILE);
+
+const IS_CI = process.env.CI === "true" || process.env.CI === "True";
+
+if (IS_CI) {
+  console.log(
+    "CI environment detected. For optimal performance, ensure your CI pipeline caches '.metadata-cache.json'."
+  );
+}
 
 // Optimal batch size based on CPU cores
 const CPU_COUNT = cpus().length;
@@ -17,18 +26,6 @@ const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CP
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
-// Cache for file content hashes to avoid reprocessing unchanged files
-const fileHashCache = new Map<string, string>();
-
-interface CacheEntry {
-  hash: string;
-  result: DocgenResult;
-}
-
-interface CacheFile {
-  version: string;
-  entries: Record<string, CacheEntry>;
-}
 
 interface AggregatorRecord {
   filePath: string;
@@ -60,52 +57,6 @@ type FinalOutput = Array<{
 
 function isIndexFile(filePath: string): boolean {
   return path.basename(filePath).toLowerCase() === "index.ts";
-}
-
-/**
- * Generates a hash for a file\'s content
- */
-function getFileHash(filePath: string): string {
-  if (fileHashCache.has(filePath)) {
-    return fileHashCache.get(filePath)!;
-  }
-
-  try {
-    const content = fs.readFileSync(filePath, "utf8");
-    const hash = crypto.createHash("md5").update(content).digest("hex");
-    fileHashCache.set(filePath, hash);
-    return hash;
-  } catch (err) {
-    console.warn(`Failed to hash file ${filePath}:`, err);
-    return "";
-  }
-}
-
-/**
- * Loads the cache from disk
- */
-function loadCache(): CacheFile {
-  try {
-    if (fs.existsSync(CACHE_FILE)) {
-      const cacheContent = fs.readFileSync(CACHE_FILE, "utf8");
-      return JSON.parse(cacheContent);
-    }
-  } catch (err) {
-    console.warn("Failed to load cache file:", err);
-  }
-
-  return { version: "1", entries: {} };
-}
-
-/**
- * Saves the cache to disk
- */
-function saveCache(cache: CacheFile): void {
-  try {
-    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), "utf8");
-  } catch (err) {
-    console.warn("Failed to save cache file:", err);
-  }
 }
 
 /**
@@ -291,36 +242,21 @@ function aggregatorMain(): AggregatorRecord[] {
  * Runs react-docgen-typescript on the provided files to extract component documentation
  */
 async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[]> {
-  // Load existing cache
-  const cache = loadCache();
-  const cacheEntries = cache.entries;
-
   // Check which files need to be processed
   const filesToProcess: string[] = [];
-  const cachedResults: DocgenResult[] = [];
 
   for (const filePath of filePaths) {
     if (!fs.existsSync(filePath)) {
       console.warn(`File not found: ${filePath}`);
       continue;
     }
-
-    const fileHash = getFileHash(filePath);
-    if (!fileHash) continue;
-
-    const cacheEntry = cacheEntries[filePath];
-    if (cacheEntry && cacheEntry.hash === fileHash) {
-      // Use cached result if available and file hasn\'t changed
-      cachedResults.push(cacheEntry.result);
-    } else {
-      filesToProcess.push(filePath);
-    }
+    filesToProcess.push(filePath); // Always process if file exists
   }
 
-  console.log(`${cachedResults.length} files loaded from cache, ${filesToProcess.length} files need processing`);
+  console.log(`${filesToProcess.length} files to process`);
 
   if (filesToProcess.length === 0) {
-    return cachedResults;
+    return []; // Return empty if no files to process (e.g. all paths were invalid)
   }
 
   // Configure parser with optimized settings
@@ -372,12 +308,6 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
           }))
         };
 
-        // Update cache
-        cacheEntries[filePath] = {
-          hash: getFileHash(filePath),
-          result
-        };
-
         const endTime = performance.now();
         if (endTime - startTime > 500) {
           console.log(`Slow file: ${filePath} took ${((endTime - startTime) / 1000).toFixed(2)}s`);
@@ -399,11 +329,8 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
     });
   }
 
-  // Save the updated cache
-  saveCache(cache);
-
   // Return both cached and newly processed results
-  return [...cachedResults, ...newResults];
+  return newResults;
 }
 
 /**
