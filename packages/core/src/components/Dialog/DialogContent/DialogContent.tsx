@@ -118,7 +118,8 @@ const DialogContent = forwardRef(
     }: DialogContentProps,
     forwardRef: React.ForwardedRef<HTMLElement>
   ) => {
-    const ref = useRef(null);
+    const clickOutsideRef = useRef(null);
+
     const onOutSideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
@@ -136,8 +137,8 @@ const DialogContent = forwardRef(
       [isOpen, onContextMenu]
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
-    useClickOutside({ callback: onOutSideClick, ref });
-    useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref });
+    useClickOutside({ callback: onOutSideClick, ref: clickOutsideRef });
+    useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref: clickOutsideRef });
     const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 
@@ -170,7 +171,6 @@ const DialogContent = forwardRef(
     }
     return (
       <span
-        // don't remove old classname - override from Monolith
         className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
         ref={forwardRef}
         data-testid={dataTestId}
@@ -184,7 +184,7 @@ const DialogContent = forwardRef(
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
               [styles.hasTooltip]: hasTooltip
             })}
-            ref={ref}
+            ref={clickOutsideRef}
           >
             {React.Children.toArray(children).map((child: ReactElement) => {
               return cloneElement(child, {
