@@ -1,5 +1,5 @@
-import vibeMetadata from "../../vibe-metadata.json" assert { type: "json" };
 import { getErrorMessage, MCPTool } from "../index.js";
+import { MetadataService } from "./metadata-service.js";
 
 export const listVibePublicComponentsTool: MCPTool<{}> = {
   name: "list-vibe-public-components",
@@ -8,14 +8,16 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
   inputSchema: {},
   execute: async () => {
     try {
-      const components = vibeMetadata.map((component: any) => component.displayName);
+      const allMetadata = await MetadataService.getMetadata();
+      const componentNames = allMetadata.map(component => component.displayName);
       // Remove duplicates if a component has a next version
-      const uniqueComponents = [...new Set(components)];
+      const uniqueComponentNames = [...new Set(componentNames)];
+      
       return {
         content: [
           {
             type: "text",
-            text: JSON.stringify(uniqueComponents, null, 2)
+            text: JSON.stringify(uniqueComponentNames, null, 2)
           }
         ]
       };
