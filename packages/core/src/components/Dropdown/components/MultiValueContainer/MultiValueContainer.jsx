@@ -24,6 +24,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
@@ -43,6 +44,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
   useEffect(() => {
     setIsCounterShown(hiddenOptionsCount > 0);
   }, [hiddenOptionsCount]);
+
+  const handleDialogShow = useCallback(() => {
+    setIsDialogOpen(true);
+  }, []);
+
+  const handleDialogHide = useCallback(() => {
+    setIsDialogOpen(false);
+  }, []);
 
   const onDelete = useCallback(
     option => {
@@ -141,11 +150,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
               wrapperClassName={dialogClassName}
+              onDialogDidShow={handleDialogShow}
+              onDialogDidHide={handleDialogHide}
             >
               <Counter
                 kind="line"
                 prefix="+"
                 count={hiddenOptionsCount}
+                counterClassName={cx(classes.dropdownCounter, { [classes.active]: isDialogOpen })}
                 onMouseDown={e => {
                   e.stopPropagation();
                 }}
