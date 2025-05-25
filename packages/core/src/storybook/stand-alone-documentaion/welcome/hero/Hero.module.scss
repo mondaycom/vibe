@@ -29,6 +29,28 @@
   }
 }
 
+.arrowIcon {
+  path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawSvg 2s ease-in-out forwards;
+  }
+}
+
+.heartIcon {
+  path {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: drawSvg 2s ease-in-out 1s forwards;
+  }
+}
+
+@keyframes drawSvg {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .hero {
     .header {
