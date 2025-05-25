@@ -31,7 +31,9 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onKeyDown,
     onClear,
     onOptionRemove,
-    size = "medium"
+    size = "medium",
+    readOnly,
+    disabled
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -79,6 +81,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     getInputProps: (inputOptions?: any) => {
       return hookGetInputProps!({
         ...(inputOptions || {}),
+        disabled: readOnly || disabled,
         onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(true);
           onFocus?.(event as any);

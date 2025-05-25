@@ -4,29 +4,29 @@ import { BaseListItemData } from "../../../BaseListItem";
 
 const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unknown>>): Partial<ChipsProps> => {
   const chipProps: Partial<ChipsProps> = {};
-  if (item.startElement) {
-    switch (item.startElement.type) {
+  if (item?.startElement) {
+    switch (item?.startElement?.type) {
       case "icon":
-        chipProps.leftIcon = item.startElement.value;
+        chipProps.leftIcon = item?.startElement?.value;
         break;
       case "avatar":
-        chipProps.leftAvatar = item.startElement.value;
+        chipProps.leftAvatar = item?.startElement?.value;
         break;
       case "custom":
-        chipProps.leftRenderer = item.startElement.render() as React.ReactNode;
+        chipProps.leftRenderer = item?.startElement?.render() as React.ReactNode;
         break;
       default:
         break;
     }
   }
 
-  if (item.endElement) {
-    switch (item.endElement.type) {
+  if (item?.endElement) {
+    switch (item?.endElement?.type) {
       case "icon":
-        chipProps.rightIcon = item.endElement.value;
+        chipProps.rightIcon = item?.endElement?.value;
         break;
       case "custom":
-        chipProps.rightRenderer = item.endElement.render() as React.ReactNode;
+        chipProps.rightRenderer = item?.endElement?.render() as React.ReactNode;
         break;
       default:
         break;

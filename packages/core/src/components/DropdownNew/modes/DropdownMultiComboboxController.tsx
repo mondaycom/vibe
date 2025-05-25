@@ -84,6 +84,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     getInputProps: (inputOptions?: any) => {
       return hookGetInputProps!({
         ...(inputOptions || {}),
+        disabled: props.readOnly || props.disabled,
         onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(true);
           onFocus?.(event as any);
