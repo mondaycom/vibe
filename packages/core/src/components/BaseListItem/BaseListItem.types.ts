@@ -2,6 +2,7 @@ import React, { ReactNode, AriaRole } from "react";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { TooltipProps } from "../Tooltip";
 import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
+import { ChipsProps } from "../Chips";
 
 export interface BaseListItemProps<Item extends Record<string, unknown>>
   extends React.LiHTMLAttributes<HTMLLIElement>,
@@ -73,6 +74,10 @@ export type BaseListItemData<Item = Record<string, unknown>> = Item & {
    * Props for displaying a tooltip on the list item.
    */
   tooltipProps?: Partial<TooltipProps>;
+  /**
+   * The color of the chip when displayed in multi-select mode.
+   */
+  chipColor?: ChipsProps["color"];
 };
 
 export type SideElement =

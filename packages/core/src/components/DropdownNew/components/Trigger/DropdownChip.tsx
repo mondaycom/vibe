@@ -60,6 +60,7 @@ const DropdownChip = <Item extends BaseListItemData<Record<string, unknown>>>({
       readOnly={readOnly}
       noMargin
       className={className}
+      color={item.chipColor || "primary"}
       {...chipSpecificProps}
     />
   );
