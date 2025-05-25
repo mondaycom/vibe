@@ -11,6 +11,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   isMenuOpen: boolean,
   autoFocus?: boolean,
   defaultValue?: T[],
+  value?: T[],
   inputValueProp?: string,
   onChange?: (options: T[] | T) => void,
   onInputChange?: (value: string) => void,
@@ -20,18 +21,23 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean
 ) {
+  // Use controlled value if provided, otherwise use internal state
+  const currentSelectedItems = value !== undefined ? value : selectedItems;
+
   const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
     options,
     filterOption,
     showSelectedOptions,
-    selectedItems
+    currentSelectedItems
   );
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
   const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
-    selectedItems,
+    selectedItems: currentSelectedItems,
     initialSelectedItems: defaultValue,
     onSelectedItemsChange: ({ selectedItems }) => {
-      setSelectedItems(selectedItems || []);
+      if (value === undefined) {
+        setSelectedItems(selectedItems || []);
+      }
       onChange?.(selectedItems || []);
     }
   });
@@ -65,13 +71,21 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     },
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
-      const itemIndex = selectedItems.findIndex(item => item.value === newSelectedItem.value);
+      const itemIndex = currentSelectedItems.findIndex(item => item.value === newSelectedItem.value);
       if (itemIndex > -1) {
-        const newSelectedItems = [...selectedItems.slice(0, itemIndex), ...selectedItems.slice(itemIndex + 1)];
-        setSelectedItems(newSelectedItems);
+        const newSelectedItems = [
+          ...currentSelectedItems.slice(0, itemIndex),
+          ...currentSelectedItems.slice(itemIndex + 1)
+        ];
+        if (value === undefined) {
+          setSelectedItems(newSelectedItems);
+        }
         removeSelectedItem(newSelectedItem);
       } else {
-        setSelectedItems([...selectedItems, newSelectedItem]);
+        const newSelectedItems = [...currentSelectedItems, newSelectedItem];
+        if (value === undefined) {
+          setSelectedItems(newSelectedItems);
+        }
         addSelectedItem(newSelectedItem);
       }
       onOptionSelect?.(newSelectedItem);
@@ -92,7 +106,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     isOpen,
     inputValue,
     highlightedIndex,
-    selectedItems,
+    selectedItems: currentSelectedItems,
     getSelectedItemProps,
     getDropdownProps,
     addSelectedItem,

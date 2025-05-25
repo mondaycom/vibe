@@ -345,6 +345,77 @@ describe("DropdownNew", () => {
       const dropdownChevron = container.querySelector("button[aria-expanded]");
       expect(dropdownChevron).not.toBeInTheDocument();
     });
+
+    it("should work as a controlled component with value prop in single-select mode", () => {
+      const onChange = jest.fn();
+      const { rerender, getByText } = renderDropdown({
+        searchable: false,
+        value: { label: "Option 1", value: "opt1", index: 0 },
+        onChange
+      });
+
+      expect(getByText("Option 1")).toBeInTheDocument();
+
+      rerender(
+        <Dropdown
+          options={defaultOptions as any}
+          searchable={false}
+          value={{ label: "Option 2", value: "opt2", index: 1 }}
+          onChange={onChange}
+          placeholder="Select an option"
+        />
+      );
+
+      expect(getByText("Option 2")).toBeInTheDocument();
+      expect(() => getByText("Option 1")).toThrow();
+    });
+
+    it("should work as a controlled component with value prop in multi-select mode", () => {
+      const onChange = jest.fn();
+      const { rerender, getByText } = renderDropdown({
+        multi: true,
+        searchable: false,
+        value: [
+          { label: "Option 1", value: "opt1", index: 0 },
+          { label: "Option 3", value: "opt3", index: 2 }
+        ],
+        onChange
+      });
+
+      expect(getByText("Option 1")).toBeInTheDocument();
+      expect(getByText("Option 3")).toBeInTheDocument();
+
+      rerender(
+        <Dropdown
+          options={defaultOptions as any}
+          multi
+          searchable={false}
+          value={[{ label: "Option 2", value: "opt2", index: 1 }]}
+          onChange={onChange}
+          placeholder="Select an option"
+        />
+      );
+
+      expect(getByText("Option 2")).toBeInTheDocument();
+      expect(() => getByText("Option 1")).toThrow();
+      expect(() => getByText("Option 3")).toThrow();
+    });
+
+    it("should call onChange when selecting options in controlled mode", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        value: null,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      const option1 = getByText("Option 1");
+      fireEvent.click(option1);
+
+      expect(onChange).toHaveBeenCalledWith({ label: "Option 1", value: "opt1", index: 0 });
+    });
   });
 
   describe("event handlers", () => {

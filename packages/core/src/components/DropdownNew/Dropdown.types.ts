@@ -27,6 +27,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * The default selected values for multi-select.
    */
   defaultValue?: Item[];
+  /**
+   * The controlled selected values for multi-select.
+   */
+  value?: Item[];
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -50,6 +54,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * The default selected value for single-select.
    */
   defaultValue?: Item;
+  /**
+   * The controlled selected value for single-select.
+   */
+  value?: Item;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {

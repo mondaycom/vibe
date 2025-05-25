@@ -10,6 +10,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   autoFocus?: boolean,
   closeMenuOnSelect?: boolean,
   defaultValue?: T,
+  value?: T,
   inputValueProp?: string,
   onChange?: (option: T | T[] | null) => void,
   onInputChange?: (value: string) => void,
@@ -21,9 +22,12 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
+  // Use controlled value if provided, otherwise use internal state
+  const selectedItem = value !== undefined ? value : currentSelectedItem;
+
   const memoizedSelectedItemForFiltering = useMemo(() => {
-    return currentSelectedItem ? [currentSelectedItem] : [];
-  }, [currentSelectedItem]);
+    return selectedItem ? [selectedItem] : [];
+  }, [selectedItem]);
 
   const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
     options,
@@ -52,6 +56,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
     initialInputValue: inputValueProp,
+    selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     onIsOpenChange: useCallback(
@@ -70,7 +75,9 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     ),
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
-        setCurrentSelectedItem(selectedItem || null);
+        if (value === undefined) {
+          setCurrentSelectedItem(selectedItem || null);
+        }
         if (selectedItem) {
           onOptionSelect?.(selectedItem);
           onChange?.(selectedItem);
@@ -80,7 +87,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
           filterOptions("");
         }
       },
-      [onOptionSelect, filterOptions, onChange]
+      [value, onOptionSelect, filterOptions, onChange]
     ),
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
@@ -97,14 +104,16 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     isOpen,
     inputValue,
     highlightedIndex,
-    selectedItem: currentSelectedItem,
+    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getInputProps,
     getItemProps,
     reset: () => {
-      setCurrentSelectedItem(null);
+      if (value === undefined) {
+        setCurrentSelectedItem(null);
+      }
       reset();
       filterOptions("");
     },
