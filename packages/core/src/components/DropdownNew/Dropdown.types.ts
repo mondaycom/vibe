@@ -94,6 +94,16 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    */
   optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
   /**
+   * The function to call to render the menu.
+   */
+  menuRenderer?: (props: {
+    children: React.ReactNode;
+    filteredOptions: ListGroup<Item>[];
+    selectedItem?: Item | null;
+    selectedItems?: Item[];
+    getItemProps: (options: any) => Record<string, unknown>;
+  }) => React.ReactNode;
+  /**
    * The message to display when there are no options.
    */
   noOptionsMessage?: string | React.ReactNode;
