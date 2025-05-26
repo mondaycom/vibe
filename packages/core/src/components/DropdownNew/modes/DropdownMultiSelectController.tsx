@@ -71,7 +71,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getToggleButtonProps: (toggleOptions?: any) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
-        disabled: props.readOnly || props.disabled // Disable toggle interactions when readonly or disabled
+        disabled: props.readOnly || props.disabled
       });
     },
     getLabelProps,

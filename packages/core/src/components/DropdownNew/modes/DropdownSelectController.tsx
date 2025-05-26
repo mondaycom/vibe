@@ -62,7 +62,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     getToggleButtonProps: (toggleOptions?: any) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
-        disabled: props.readOnly || props.disabled // Disable toggle interactions when readonly or disabled
+        disabled: props.readOnly || props.disabled
       });
     },
     getLabelProps,
