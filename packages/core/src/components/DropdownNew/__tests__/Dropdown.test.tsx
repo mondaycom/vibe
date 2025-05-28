@@ -79,6 +79,35 @@ describe("DropdownNew", () => {
       expect(input).toHaveAttribute("readonly");
     });
 
+    it("should prevent user interactions when readOnly is true", () => {
+      const onOptionSelect = jest.fn();
+      const onChange = jest.fn();
+      const { getByPlaceholderText, queryByText, container } = renderDropdown({
+        readOnly: true,
+        onOptionSelect,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+
+      fireEvent.click(input);
+
+      expect(queryByText("Option 1")).not.toBeInTheDocument();
+
+      fireEvent.change(input, { target: { value: "test" } });
+
+      expect(input).toHaveValue("");
+
+      expect(onOptionSelect).not.toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
+
+      const clearButton = container.querySelector('[data-testid="dropdown-clear-button"]');
+      expect(clearButton).not.toBeInTheDocument();
+
+      const dropdownChevron = container.querySelector("button[aria-expanded]");
+      expect(dropdownChevron).not.toBeInTheDocument();
+    });
+
     it("should show error state when error prop is true", () => {
       const { container } = renderDropdown({
         error: true
@@ -279,6 +308,113 @@ describe("DropdownNew", () => {
       fireEvent.click(input2);
       fireEvent.click(getByText("Option 1"));
       expect(queryByTestId("dropdown-clear-button")).toBeInTheDocument();
+    });
+
+    it("should prevent chip deletion in multi-select readonly mode", () => {
+      const onOptionRemove = jest.fn();
+      const onChange = jest.fn();
+      const { container } = renderDropdown({
+        readOnly: true,
+        multi: true,
+        defaultValue: [
+          { label: "Option 1", value: "opt1", index: 0 },
+          { label: "Option 3", value: "opt3", index: 2 }
+        ],
+        onOptionRemove,
+        onChange
+      });
+
+      // Selected chips should be visible but not deletable
+      const chips = container.querySelectorAll('[data-testid*="chip"]');
+      expect(chips.length).toBeGreaterThan(0);
+
+      // Try to find and click delete buttons on chips (should not exist in readonly mode)
+      const deleteButtons = container.querySelectorAll(
+        '[data-testid*="delete"], [aria-label*="delete"], [aria-label*="remove"]'
+      );
+      deleteButtons.forEach(button => {
+        fireEvent.click(button);
+      });
+
+      expect(onOptionRemove).not.toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
+
+      const clearButton = container.querySelector('[data-testid="dropdown-clear-button"]');
+      expect(clearButton).not.toBeInTheDocument();
+
+      const dropdownChevron = container.querySelector("button[aria-expanded]");
+      expect(dropdownChevron).not.toBeInTheDocument();
+    });
+
+    it("should work as a controlled component with value prop in single-select mode", () => {
+      const onChange = jest.fn();
+      const { rerender, getByText } = renderDropdown({
+        searchable: false,
+        value: { label: "Option 1", value: "opt1", index: 0 },
+        onChange
+      });
+
+      expect(getByText("Option 1")).toBeInTheDocument();
+
+      rerender(
+        <Dropdown
+          options={defaultOptions as any}
+          searchable={false}
+          value={{ label: "Option 2", value: "opt2", index: 1 }}
+          onChange={onChange}
+          placeholder="Select an option"
+        />
+      );
+
+      expect(getByText("Option 2")).toBeInTheDocument();
+      expect(() => getByText("Option 1")).toThrow();
+    });
+
+    it("should work as a controlled component with value prop in multi-select mode", () => {
+      const onChange = jest.fn();
+      const { rerender, getByText } = renderDropdown({
+        multi: true,
+        searchable: false,
+        value: [
+          { label: "Option 1", value: "opt1", index: 0 },
+          { label: "Option 3", value: "opt3", index: 2 }
+        ],
+        onChange
+      });
+
+      expect(getByText("Option 1")).toBeInTheDocument();
+      expect(getByText("Option 3")).toBeInTheDocument();
+
+      rerender(
+        <Dropdown
+          options={defaultOptions as any}
+          multi
+          searchable={false}
+          value={[{ label: "Option 2", value: "opt2", index: 1 }]}
+          onChange={onChange}
+          placeholder="Select an option"
+        />
+      );
+
+      expect(getByText("Option 2")).toBeInTheDocument();
+      expect(() => getByText("Option 1")).toThrow();
+      expect(() => getByText("Option 3")).toThrow();
+    });
+
+    it("should call onChange when selecting options in controlled mode", () => {
+      const onChange = jest.fn();
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        value: null,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      const option1 = getByText("Option 1");
+      fireEvent.click(option1);
+
+      expect(onChange).toHaveBeenCalledWith({ label: "Option 1", value: "opt1", index: 0 });
     });
   });
 
