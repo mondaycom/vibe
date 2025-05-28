@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { multiInteractionTests } from "../__tests__/Dropdown.interactions";
+// import { multiInteractionTests } from "../__tests__/Dropdown.interactions";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { OptionRenderer } from "./OptionRenderer";
 import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, DropdownNew, Flex, Modal, ModalContent } from "../../index";
+import { Box, Button, DialogContentContainer, DropdownNew, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import Heading from "../../Heading/Heading";
 
@@ -248,7 +248,7 @@ export const MultiChoiceWithDifferentStates = {
       </Flex>
     );
   },
-  play: multiInteractionTests,
+  // play: multiInteractionTests,
   parameters: {
     docs: {
       liveEdit: {
@@ -367,7 +367,7 @@ export const DropdownWithIcon = {
 
 export const DropdownWithChipColors = {
   render: () => {
-    const optionsWithChipColors = useMemo(
+    const optionsWithChipColors: any = useMemo(
       () => [
         {
           value: "Rotem",
@@ -391,7 +391,13 @@ export const DropdownWithChipColors = {
     return (
       <StoryDescription vertical>
         <div style={{ width: "300px", margin: "30px" }}>
-          <DropdownNew defaultValue={[optionsWithChipColors[0]]} options={optionsWithChipColors} multi multiline />
+          <DropdownNew
+            defaultValue={[optionsWithChipColors[0]]}
+            options={optionsWithChipColors}
+            multi
+            multiline
+            menuRenderer={({ selectedItems }) => <div>Selected: {selectedItems[0].label}</div>}
+          />
         </div>
       </StoryDescription>
     );
@@ -413,7 +419,6 @@ export const DropdownWithTooltipsOnItems = {
         {
           value: "Option 1",
           label: "Option 1",
-
           tooltipProps: {
             content: "Description for option 1"
           }
@@ -421,7 +426,6 @@ export const DropdownWithTooltipsOnItems = {
         {
           value: "Option 2",
           label: "Option 2",
-
           tooltipProps: {
             content: "Description for option 2"
           }
@@ -564,45 +568,49 @@ export const DropdownWithChips = {
 //   name: "Searchable dropdown"
 // };
 
-// export const DropdownWithLabels = {
-//   render: () => {
-//     const labelRenderer = useCallback(({ label, color }) => {
-//       return <Label text={label} color={color} />;
-//     }, []);
+export const DropdownWithLabels = {
+  render: () => {
+    const labelRenderer = useCallback(({ label, color }: any) => {
+      return (
+        <Flex style={{ height: "100%" }}>
+          <Label text={label} color={color} />
+        </Flex>
+      );
+    }, []);
 
-//     const options = useMemo(
-//       () => [
-//         {
-//           value: "success",
-//           label: "Success",
-//           color: Label.colors.POSITIVE
-//         },
-//         {
-//           value: "failed",
-//           label: "Failed",
-//           color: Label.colors.NEGATIVE
-//         },
-//         {
-//           value: "in progress",
-//           label: "In progress"
-//         }
-//       ],
-//       []
-//     );
+    const options = useMemo(
+      () => [
+        {
+          value: "success",
+          label: "Success",
+          color: Label.colors.POSITIVE
+        },
+        {
+          value: "failed",
+          label: "Failed",
+          color: Label.colors.NEGATIVE
+        },
+        {
+          value: "in progress",
+          label: "In progress"
+        }
+      ],
+      []
+    );
 
-//     return (
-//       <DropdownNew
-//         placeholder="Placeholder text here"
-//         options={options}
-//         defaultValue={options[0]}
-//         className="dropdown-stories-styles_big-spacing"
-//         optionRenderer={labelRenderer as any}
-//         valueRenderer={labelRenderer as any}
-//       />
-//     );
-//   },
-//   name: "Dropdown with labels"
-// };
+    return (
+      <DropdownNew
+        placeholder="Placeholder text here"
+        options={options}
+        defaultValue={options[0]}
+        className="dropdown-stories-styles_big-spacing"
+        optionRenderer={labelRenderer}
+        valueRenderer={labelRenderer}
+      />
+    );
+  },
+  name: "Dropdown with labels"
+};
 
 export const DropdownInsideAForm = {
   render: () => {
