@@ -95,12 +95,29 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
   /**
    * The function to call to render the menu.
+   * selectedItems will always be an array - for single select, use selectedItems[0] to get the selected item.
+   *
+   * @example
+   * // For single select: access the selected item via selectedItems[0]
+   * menuRenderer={({ children, selectedItems }) => (
+   *   <div>
+   *     {selectedItems[0] && <div>Selected: {selectedItems[0].label}</div>}
+   *     {children}
+   *   </div>
+   * )}
+   *
+   * // For multi select: use the full selectedItems array
+   * menuRenderer={({ children, selectedItems }) => (
+   *   <div>
+   *     <div>Selected {selectedItems.length} items</div>
+   *     {children}
+   *   </div>
+   * )}
    */
   menuRenderer?: (props: {
     children: React.ReactNode;
     filteredOptions: ListGroup<Item>[];
-    selectedItem?: Item | null;
-    selectedItems?: Item[];
+    selectedItems: Item[];
     getItemProps: (options: any) => Record<string, unknown>;
   }) => React.ReactNode;
   /**
