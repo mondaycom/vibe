@@ -13,8 +13,6 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir); 
 }
 
-
-// TODO: filter for only public components
 function getStoryFiles() {
   const storyFiles = [];
 
@@ -115,23 +113,6 @@ function extractMarkdown(file) {
                 }
               }
             });
-
-            // TODO: Delete this
-            // if (
-            //   declarator.init.properties.some(
-            //     prop =>
-            //       prop.key &&
-            //       prop.key.name === "render" &&
-            //       prop.value.type === "MemberExpression" &&
-            //       prop.value.object.name === "accordionTemplate"
-            //   )
-            // ) {
-            //   // If render is accordionTemplate.bind({})
-            //   console.log("Accordion bind"); // FIXME: This code never runs
-            //   codeBlock = accordionTemplateCode;
-            // } else 
-
-            // generate code from the render prop
             if (renderProp) {
               // If render is a function, generate its code
               if (renderProp.type == 'ArrowFunctionExpression') {
@@ -148,7 +129,7 @@ function extractMarkdown(file) {
               } else if (renderProp.type == 'CallExpression') {
                 // console.log(renderProp.callee.object.name);
                 const calleeName = renderProp.callee.object.name;
-                codeBlock = generateCodeForOneLiner(ast, calleeName) // TODO: only include this if it's valid JSX, drop if it's createComponentTemplate(Button)
+                codeBlock = generateCodeForOneLiner(ast, calleeName) 
               }
               else {
                 console.log(`${nameProp || storyName} is a ${renderProp.type}`);
