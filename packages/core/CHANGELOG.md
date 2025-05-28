@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.51.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.0...@vibe/core@3.51.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* **TextField:** display error text correctly ([#2910](https://github.com/mondaycom/vibe/issues/2910)) ([c6ecb22](https://github.com/mondaycom/vibe/commit/c6ecb22822cfb60289b87436d311f11b2b7ae194))
+
+
+
+
+
 # [3.51.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.3...@vibe/core@3.51.0) (2025-05-26)
 
 
