@@ -46,10 +46,8 @@ const dropdownTemplate = (props: any) => {
   );
 
   return (
-    <div style={{ height: "150px" }}>
-      <div style={{ width: "300px" }}>
-        <DropdownNew options={options} {...props} />
-      </div>
+    <div style={{ height: "150px", width: "300px" }}>
+      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} />
     </div>
   );
 };
@@ -210,7 +208,7 @@ export const MultiChoiceWithDifferentStates = {
           <div style={{ width: "400px", marginBottom: "50px" }}>
             <DropdownNew
               placeholder="Multiple line multi state"
-              defaultValue={[options[0]]}
+              defaultValue={[options[0], options[1], options[2]]}
               options={options}
               multi
               multiline
