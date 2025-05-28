@@ -21,6 +21,7 @@ const BaseList = forwardRef(
       withGroupDivider = false,
       dir = "ltr",
       itemRenderer,
+      menuRenderer,
       noOptionsMessage = "No results",
       stickyGroupTitle = false,
       renderOptions = true,
@@ -31,6 +32,50 @@ const BaseList = forwardRef(
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
 
+    const defaultContent = renderOptions ? (
+      options.every(group => group.options?.length === 0) ? (
+        typeof noOptionsMessage === "string" ? (
+          <Flex justify="center">
+            <BaseListItem item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
+          </Flex>
+        ) : (
+          noOptionsMessage
+        )
+      ) : (
+        options.map((group, groupIndex) => (
+          <React.Fragment key={group.label ?? groupIndex}>
+            {group.label && (
+              <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
+                <Text type={textVariant} color="inherit">
+                  {group.label}
+                </Text>
+              </li>
+            )}
+            {group.options.map((option, itemIndex) => {
+              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+              const isHighlighted =
+                highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+              const isSelected =
+                selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+
+              return (
+                <BaseListItem<Item>
+                  itemProps={itemProps}
+                  key={typeof option.value === "string" ? option.value : itemIndex}
+                  size={size}
+                  highlighted={isHighlighted}
+                  selected={isSelected}
+                  itemRenderer={itemRenderer}
+                  item={option}
+                />
+              );
+            })}
+            {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
+          </React.Fragment>
+        ))
+      )
+    ) : null;
+
     return (
       <ul
         ref={ref}
@@ -40,49 +85,14 @@ const BaseList = forwardRef(
         onScroll={onScroll}
         style={{ maxHeight: maxMenuHeight }}
       >
-        {renderOptions ? (
-          options.every(group => group.options?.length === 0) ? (
-            typeof noOptionsMessage === "string" ? (
-              <Flex justify="center">
-                <BaseListItem item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
-              </Flex>
-            ) : (
-              noOptionsMessage
-            )
-          ) : (
-            options.map((group, groupIndex) => (
-              <React.Fragment key={group.label ?? groupIndex}>
-                {group.label && (
-                  <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
-                    <Text type={textVariant} color="inherit">
-                      {group.label}
-                    </Text>
-                  </li>
-                )}
-                {group.options.map((option, itemIndex) => {
-                  const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
-                  const isHighlighted =
-                    highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
-                  const isSelected =
-                    selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
-
-                  return (
-                    <BaseListItem<Item>
-                      itemProps={itemProps}
-                      key={typeof option.value === "string" ? option.value : itemIndex}
-                      size={size}
-                      highlighted={isHighlighted}
-                      selected={isSelected}
-                      itemRenderer={itemRenderer}
-                      item={option}
-                    />
-                  );
-                })}
-                {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-              </React.Fragment>
-            ))
-          )
-        ) : null}
+        {menuRenderer && renderOptions
+          ? menuRenderer({
+              children: defaultContent,
+              filteredOptions: options,
+              selectedItem: selectedItems?.[0] || null,
+              selectedItems: selectedItems || []
+            })
+          : defaultContent}
       </ul>
     );
   }

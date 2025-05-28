@@ -14,6 +14,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
     getMenuProps,
     getItemProps,
     optionRenderer,
+    menuRenderer,
     size,
     withGroupDivider,
     stickyGroupTitle,
@@ -46,6 +47,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
         renderOptions={isOpen}
         onScroll={onScroll}
         maxMenuHeight={maxMenuHeight}
+        menuRenderer={menuRenderer}
       />
     </DialogContentContainer>
   );

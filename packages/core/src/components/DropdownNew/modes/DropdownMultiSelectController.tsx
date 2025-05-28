@@ -13,6 +13,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     isMenuOpen: isMenuOpenProp,
     autoFocus,
     defaultValue,
+    value,
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -49,6 +50,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     isMenuOpenProp,
     autoFocus,
     defaultValue as Item[],
+    value as Item[],
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -66,7 +68,12 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     selectedItems: hookSelectedItems || [],
     filteredOptions,
     clearable,
-    getToggleButtonProps,
+    getToggleButtonProps: (toggleOptions?: any) => {
+      return getToggleButtonProps({
+        ...(toggleOptions || {}),
+        disabled: props.readOnly || props.disabled
+      });
+    },
     getLabelProps,
     getMenuProps,
     getItemProps,
@@ -74,7 +81,9 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getDropdownProps,
     contextOnClear: () => {
       hookReset();
-      setMultiSelectedItemsState([]);
+      if (value === undefined) {
+        setMultiSelectedItemsState([]);
+      }
       onClear?.();
     },
     contextOnOptionRemove: (option: Item) => {
