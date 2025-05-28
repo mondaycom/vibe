@@ -50,6 +50,15 @@ export interface BaseListProps<Item = Record<string, unknown>>
    */
   itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
   /**
+   * Custom renderer for the entire menu content inside the ul element.
+   */
+  menuRenderer?: (props: {
+    children: React.ReactNode;
+    filteredOptions: ListGroup<Item>[];
+    selectedItem?: Item | null;
+    selectedItems?: Item[];
+  }) => React.ReactNode;
+  /**
    * Text or function to customize the "No results" message.
    */
   noOptionsMessage?: string | ReactNode;

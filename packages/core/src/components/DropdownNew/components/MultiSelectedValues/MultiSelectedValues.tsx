@@ -7,17 +7,22 @@ import Dialog from "../../../Dialog/Dialog";
 import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
+import DropdownChip from "../Trigger/DropdownChip";
 
 type MultiSelectedValuesProps<Item> = {
   selectedItems: Item[];
   onRemove: (item: Item) => void;
   renderInput?: () => React.ReactNode;
+  disabled?: boolean;
+  readOnly?: boolean;
 };
 
 function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
   selectedItems,
   onRemove,
-  renderInput
+  renderInput,
+  disabled,
+  readOnly
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
@@ -43,36 +48,40 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
     return () => (
       <DialogContentContainer>
         <Flex direction="column" gap="xs" align="start" className={styles.hiddenChipsDialog}>
-          {hiddenItems.map(item => (
-            <Chips
-              key={`dropdown-chip-${item.value}`}
-              label={item.label}
-              onDelete={() => onRemove(item)}
-              noMargin
-              className={styles.dialogChip}
-            />
-          ))}
+          {hiddenItems.map(item => {
+            return (
+              <DropdownChip
+                key={`dropdown-chip-dialog-${item.value}`}
+                item={item}
+                onDelete={() => onRemove(item)}
+                className={styles.dialogChip}
+                disabled={disabled}
+                readOnly={readOnly}
+              />
+            );
+          })}
         </Flex>
       </DialogContentContainer>
     );
-  }, [hiddenItems, onRemove]);
+  }, [hiddenItems, onRemove, disabled, readOnly]);
 
   const chipElements = useMemo(() => {
     return selectedItems.map((item, index) => {
       const isVisible = index < visibleCount;
+
       return (
         <div
-          key={`dropdown-chip-${item.value}`}
+          key={`dropdown-chip-visible-${item.value}`}
           ref={itemRefs[index]}
           className={cx({ [styles.hiddenChip]: !isVisible })}
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
-          <Chips label={item.label} onDelete={() => onRemove(item)} noMargin />
+          <DropdownChip item={item} onDelete={() => onRemove(item)} disabled={disabled} readOnly={readOnly} />
         </div>
       );
     });
-  }, [selectedItems, visibleCount, onRemove, itemRefs]);
+  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly]);
 
   if (!selectedItems?.length) return null;
 
@@ -95,6 +104,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
               noMargin
               ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
               data-testid="dropdown-overflow-counter"
+              className={styles.overflowCounter}
             />
           </Dialog>
         )}

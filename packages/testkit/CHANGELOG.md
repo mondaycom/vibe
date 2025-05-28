@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.1...@vibe/testkit@1.9.2) (2025-05-21)
+
+
+### Bug Fixes
+
+* drag and drop ([#2893](https://github.com/mondaycom/vibe/issues/2893)) ([d688140](https://github.com/mondaycom/vibe/commit/d688140b12be2eb8421c00b51866ca1e44de21e2))
+
+
+
+
+
 ## [1.9.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.0...@vibe/testkit@1.9.1) (2025-03-27)
 
 

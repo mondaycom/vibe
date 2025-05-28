@@ -11,6 +11,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   isMenuOpen: boolean,
   autoFocus?: boolean,
   defaultValue?: T[],
+  value?: T[],
   onChange?: (options: T[]) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -18,15 +19,19 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   showSelectedOptions?: boolean,
   filterOption?: (option: T, inputValue: string) => boolean
 ) {
-  const { filteredOptions } = useDropdownFiltering<T>(options, filterOption, showSelectedOptions, selectedItems);
+  const currentSelectedItems = value !== undefined ? value : selectedItems;
+
+  const { filteredOptions } = useDropdownFiltering<T>(options, filterOption, showSelectedOptions, currentSelectedItems);
 
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
 
-  const { getSelectedItemProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
-    selectedItems,
+  const { getSelectedItemProps, addSelectedItem, removeSelectedItem, getDropdownProps } = useMultipleSelection<T>({
+    selectedItems: currentSelectedItems,
     initialSelectedItems: defaultValue,
     onSelectedItemsChange: ({ selectedItems: newSelected }) => {
-      setSelectedItems(newSelected || []);
+      if (value === undefined) {
+        setSelectedItems(newSelected || []);
+      }
       onChange?.(newSelected || []);
     }
   });
@@ -51,7 +56,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     initialIsOpen: autoFocus,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
-      const itemWasSelected = selectedItems.some(item => item.value === newSelectedItem.value);
+      const itemWasSelected = currentSelectedItems.some(item => item.value === newSelectedItem.value);
       if (itemWasSelected) {
         removeSelectedItem(newSelectedItem);
       } else {
@@ -77,10 +82,12 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   });
 
   const reset = useCallback(() => {
-    setSelectedItems([]);
+    if (value === undefined) {
+      setSelectedItems([]);
+    }
     downshiftReset();
     onChange?.([]);
-  }, [setSelectedItems, downshiftReset, onChange]);
+  }, [value, setSelectedItems, downshiftReset, onChange]);
 
   const getInputProps = () => ({});
 
@@ -88,7 +95,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     isOpen,
     inputValue: "",
     highlightedIndex,
-    selectedItems,
+    selectedItems: currentSelectedItems,
     getSelectedItemProps,
     addSelectedItem,
     removeSelectedItem,
@@ -101,7 +108,8 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     filteredOptions,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    getDropdownProps
   };
 }
 

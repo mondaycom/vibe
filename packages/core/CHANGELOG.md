@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.51.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.0...@vibe/core@3.51.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* **TextField:** display error text correctly ([#2910](https://github.com/mondaycom/vibe/issues/2910)) ([c6ecb22](https://github.com/mondaycom/vibe/commit/c6ecb22822cfb60289b87436d311f11b2b7ae194))
+
+
+
+
+
+# [3.51.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.3...@vibe/core@3.51.0) (2025-05-26)
+
+
+### Features
+
+* **Dropdown:** add hover and active states to counter in MultiValueContainer ([#2907](https://github.com/mondaycom/vibe/issues/2907)) ([7d5d137](https://github.com/mondaycom/vibe/commit/7d5d13779ff607542cb133746f1d7da5905ac32a))
+
+
+
+
+
+## [3.50.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.2...@vibe/core@3.50.3) (2025-05-25)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
 ## [3.50.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.1...@vibe/core@3.50.2) (2025-05-20)
 
 **Note:** Version bump only for package @vibe/core

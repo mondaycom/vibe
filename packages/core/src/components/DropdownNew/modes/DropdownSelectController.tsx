@@ -13,6 +13,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     autoFocus,
     isMenuOpen: isMenuOpenProp,
     defaultValue,
+    value,
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -24,7 +25,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multi = false,
     dropdownRef,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const {
@@ -42,6 +44,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     autoFocus,
     isMenuOpenProp,
     defaultValue as Item,
+    value as Item,
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -56,7 +59,12 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     highlightedIndex,
     selectedItem: hookSelectedItem,
     filteredOptions,
-    getToggleButtonProps,
+    getToggleButtonProps: (toggleOptions?: any) => {
+      return getToggleButtonProps({
+        ...(toggleOptions || {}),
+        disabled: props.readOnly || props.disabled
+      });
+    },
     getLabelProps,
     getMenuProps,
     getItemProps,
@@ -76,7 +84,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     searchable,
     multi,
     autoFocus,
-    onClear
+    onClear,
+    size
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

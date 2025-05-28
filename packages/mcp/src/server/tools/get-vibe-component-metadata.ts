@@ -1,6 +1,6 @@
 import { z } from "zod";
-import metadata from "@vibe/core/meta" assert { type: "json" };
 import { getErrorMessage, MCPTool } from "../index.js";
+import { MetadataService } from "./metadata-service.js";
 
 const ComponentNameParamsSchema = z.object({
   componentName: z.string().describe("The name of the public Vibe component to get metadata for.")
@@ -13,7 +13,8 @@ export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSch
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>): Promise<any> => {
     const { componentName } = input;
     try {
-      const componentMatches = metadata.filter(component => component.displayName === componentName);
+      const allMetadata = await MetadataService.getMetadata();
+      const componentMatches = allMetadata.filter(component => component.displayName === componentName);
 
       if (componentMatches.length === 0) {
         return {

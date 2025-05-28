@@ -1,0 +1,89 @@
+---
+description: "Provides comprehensive guidelines for writing CSS Modules specifically for UI components within the `@vibe/core` library (under `packages/core/src/components/`). This rule covers file naming conventions (e.g., `ComponentName.module.scss`), CSS nesting, mandatory browser compatibility, strategies for adopting newer CSS APIs with fallbacks, the exclusive use of design tokens from `monday-ui-style` (via CSS custom properties like `var(--primary-text-color)`), discouraging mixin usage from `monday-ui-style`, typography best practices (using `Text`/`Heading` components instead of direct font tokens), `camelCase` class naming, and common anti-patterns like avoiding theme-specific styles directly in component SCSS. Activate this rule when working with `.module.scss` files in `packages/core/src/components/` or when styling Vibe core components."
+globs:
+  - "packages/core/src/components/**/*.module.scss"
+alwaysApply: false
+---
+
+# Styling Conventions for @vibe/core
+
+This document outlines the rules and best practices for writing styles using SCSS Modules within the `@vibe/core` library (components located in `packages/core/src/components/`).
+
+## 1. SCSS Modules Exclusivity
+
+- **Only SCSS Modules:** All component-specific styling **must** be done using SCSS Modules. Do not use global CSS files (`.css`) or plain SCSS files (`.scss`) for component styles.
+- **File Naming Convention:** SCSS Module files **must** be named after the component they style, using PascalCase, followed by the `.module.scss` extension.
+  - Example: For a component named `MyComponent`, the style file will be `MyComponent.module.scss`.
+  - This file should be co-located with its respective component (e.g., `packages/core/src/components/MyComponent/MyComponent.module.scss`).
+
+## 2. CSS Best Practices & Browser Support
+
+- **Nested CSS:** Prefer using nested CSS selectors for better readability and to scope styles effectively under the parent component class.
+
+  - Example:
+
+    ```scss
+    .myComponent {
+      // styles for the component root
+      .childElement {
+        // styles for a child
+      }
+
+      &.modifierClass {
+        // styles for a modified state
+      }
+    }
+    ```
+
+- **Chrome 85+ Compatibility:** All styling **must** be compatible with Chrome version 85 and newer. Avoid using CSS features not supported by this baseline.
+- **Handling Newer CSS APIs:**
+
+  - If a modern CSS API (not supported in Chrome 85) offers a simpler or more efficient way to achieve a style, you may propose a dual implementation.
+  - The goal is to provide the modern styling for newer browsers while ensuring an equivalent fallback for older browsers (like Chrome 85).
+  - **The visual appearance must remain consistent across all supported browsers.**
+  - Clearly comment such implementations, indicating the modern API and the fallback.
+  - Example:
+
+    ```scss
+    .myElement {
+      // Fallback for older browsers
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      // Modern API for newer browsers
+      @supports (display: grid) {
+        display: grid;
+        grid-template-rows: auto 1fr auto; // Example modern styling
+      }
+    }
+    ```
+
+## 3. Design Tokens
+
+- **Utilize Design Tokens:** Always prefer design tokens over hardcoded values (e.g., pixel values for spacing, specific hex codes for colors).
+- **Source of Tokens:** Design tokens are provided by the `monday-ui-style` package, located in the `packages/style` directory. The available tokens are defined as CSS custom properties within the theme classes (e.g., `.default-app-theme`, `.dark-app-theme`, `.black-app-theme`) in the `packages/style/dist/index.css` file. This file serves as the source of truth for all available tokens.
+  - Tokens are typically used as CSS custom properties: `var(--token-name)`.
+  - Example: `color: var(--primary-text-color);`, `margin-bottom: var(--space-8);`
+- **Semantic Usage:** Use tokens semantically. For instance, use a background color token for backgrounds, a text color token for text, and spacing tokens for margins/paddings, according to their intended purpose.
+- **Pixel Units for Non-Token Values:** When a design token is not available or suitable for a specific dimension (e.g., a unique border width, a specific icon size not covered by spacing tokens), always use pixel (`px`) units. Do not use `em`, `rem`, percentages, or other relative units for these cases unless explicitly part of a design token's definition or a well-justified, specific requirement.
+- **Prefer New Spacing System:** For layout spacing (margins, paddings, gaps, etc.), prioritize the new numeric spacing tokens (e.g., `var(--space-2)`, `var(--space-4)`, `var(--space-8)`). These should be used instead of the legacy named spacing tokens (e.g., `var(--spacing-xs)`, `var(--spacing-small)`, `var(--spacing-medium)`). Strive to use the new system in all new code or in any css code you're asked to refactor.
+
+## 4. Mixins from `monday-ui-style`
+
+- **Discourage Use of Mixins:** While some existing components might use mixins imported from `monday-ui-style` (e.g., `@import "~monday-ui-style/dist/mixins";` and usages like `@include focus-style();`), the preference is to **avoid using these mixins for new development or when refactoring existing components.**
+
+## 5. Typography
+
+- **Use Vibe Components for Typography:** Do not directly use font family, font size, font weight, or line height tokens from `monday-ui-style` within your `.module.scss` files.
+- Instead, leverage the `Text` and `Heading` components from `@vibe/core` (`packages/core/src/components/Typography/Text` and `packages/core/src/components/Typography/Heading`). These components are already configured to apply the correct typography design tokens according to supplied props.
+
+## 6. Class Naming Conventions
+
+- **camelCase for Classes:** Class names defined within SCSS Modules **must** use camelCase.
+  - Example: `.myButton`, `.tabActiveState`, `.loaderWrapper`.
+- **Clarity and Specificity:** Choose class names that are descriptive and clearly indicate the element's purpose or state. While SCSS Modules scope classes locally, clear naming aids in understanding the component's internal structure.
+
+## 7. Anti-Patterns and Considerations
+
+- **No Theme-Specific Styles in Component SCSS:** Avoid embedding theme-specific rules (e.g., using `:global(.dark-app-theme) &`) directly within a component's `.module.scss` file. This is considered an anti-pattern as components should be theme-agnostic by default, adapting to themes via design tokens.
+- **Responsiveness:** Do not implement responsive styles (e.g., using media queries, container queries) unless explicitly requested by the user or task.
+- **Focus on Maintainability:** Write styles that are maintainable. Avoid overly specific selectors that might break easily with small markup changes.

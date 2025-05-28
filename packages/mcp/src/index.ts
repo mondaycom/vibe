@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import { server, addServerTool } from "./server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { getVibeComponentMetadataTool } from "./server/tools/get-vibe-component-metadata.js";

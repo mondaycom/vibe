@@ -1,8 +1,10 @@
 import React from "react";
+import cx from "classnames";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import { BaseList } from "../../../BaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
+import styles from "./Menu.module.scss";
 
 const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
   const {
@@ -12,6 +14,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
     getMenuProps,
     getItemProps,
     optionRenderer,
+    menuRenderer,
     size,
     withGroupDivider,
     stickyGroupTitle,
@@ -27,7 +30,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
   const currentSelection = selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : [];
 
   return (
-    <DialogContentContainer>
+    <DialogContentContainer className={cx({ [styles.menuVisible]: isOpen, [styles.menuHidden]: !isOpen })}>
       <BaseList<Item>
         size={size}
         options={filteredOptions}
@@ -44,6 +47,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
         renderOptions={isOpen}
         onScroll={onScroll}
         maxMenuHeight={maxMenuHeight}
+        menuRenderer={menuRenderer}
       />
     </DialogContentContainer>
   );

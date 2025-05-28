@@ -482,7 +482,7 @@ const TextField = forwardRef(
           </div>
           {shouldShowExtraText && (
             <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
-              {validation && validation.text && (
+              {((validation && validation.text) || (isRequiredAndEmpty && requiredErrorText)) && (
                 <span className={cx(styles.subTextContainerStatus)}>
                   {isRequiredAndEmpty ? requiredErrorText : validation.text}
                 </span>
