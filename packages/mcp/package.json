@@ -22,8 +22,9 @@
     "test": "vitest --passWithNoTests",
     "start": "node dist/index.js",
     "clean": "rm -rf dist",
-    "build": "tsc",
-    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js"
+    "build": "tsc && yarn run generate-boilerplate",
+    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js",
+    "generate-boilerplate": "node scripts/extract-code-samples.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",
