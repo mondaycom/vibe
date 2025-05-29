@@ -19,18 +19,14 @@ export class IconMetadataService {
 
   static async getIconMetadata(): Promise<IconMetadata[]> {
     if (this.cachedIconMetadata) {
-      console.error("[Vibe MCP] Using cached icon metadata");
       return this.cachedIconMetadata;
     }
 
     try {
-      console.error("[Vibe MCP] Fetching icon metadata from unpkg...");
       const metadata = await this.fetchWithRetry();
-      console.error(`[Vibe MCP] Fetched ${metadata.length} icons, caching for session`);
       this.cachedIconMetadata = metadata;
       return metadata;
     } catch (error) {
-      console.error("[Vibe MCP] Failed to fetch icon metadata:", error);
       throw new Error(
         "Unable to fetch icon metadata from remote sources. Please check your internet connection and try again."
       );
@@ -52,8 +48,6 @@ export class IconMetadataService {
       // The new format is: const e="Basic",t="Platform",i="View";var o=[...];export{o as default}
       return this.parseJavaScriptModule(jsCode);
     } catch (fetchError) {
-      console.error("[Vibe MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
-
       // Fallback to curl for corporate networks
       try {
         const { stdout } = await execAsync(`curl -s -L "${this.UNPKG_URL}"`);
@@ -61,7 +55,6 @@ export class IconMetadataService {
         // Parse the JavaScript module output from curl
         return this.parseJavaScriptModule(stdout);
       } catch (curlError) {
-        console.error("[Vibe MCP] Curl fallback also failed:", curlError);
         throw fetchError; // Re-throw original fetch error
       }
     }
@@ -113,7 +106,6 @@ export class IconMetadataService {
         const result = runInContext(`(${evalCode})`, context);
         return result;
       } catch (evalError) {
-        console.error("[Vibe MCP] Failed to evaluate JavaScript array:", evalError);
         throw new Error("Unable to parse icon metadata from JavaScript module");
       }
     }
