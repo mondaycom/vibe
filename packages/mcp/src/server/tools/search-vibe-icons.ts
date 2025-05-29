@@ -5,16 +5,17 @@ import { IconMetadataService } from "./icon-metadata-service.js";
 const SearchIconsParamsSchema = z.object({
   query: z.string().optional().describe("Text to search for in icon names, descriptions, or tags"),
   category: z.string().optional().describe("Filter by category: 'Basic', 'Platform', or 'View'"),
-  limit: z.number().optional().describe("Maximum number of results to return (default: 20)")
+  limit: z.number().optional().describe("Maximum number of results to return (default: 20)"),
+  includeUsageExamples: z.boolean().optional().describe("Include React usage examples in the results (default: false)")
 });
 
 export const searchVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = {
   name: "search-vibe-icons",
   description:
-    "Search and filter Vibe icons by text query, category, or tags. Returns matching icons with their details.",
+    "Search and filter Vibe icons by text query, category, or tags. Returns matching icons with their details and optionally usage examples.",
   inputSchema: SearchIconsParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchIconsParamsSchema>): Promise<any> => {
-    const { query, category, limit = 20 } = input;
+    const { query, category, limit = 20, includeUsageExamples = false } = input;
 
     try {
       const allIcons = await IconMetadataService.getIconMetadata();
@@ -41,19 +42,37 @@ export const searchVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> 
       const limitedIcons = filteredIcons.slice(0, limit);
 
       // Format results
-      const formattedResults = limitedIcons.map(icon => ({
-        name: icon.name,
-        description: icon.description,
-        category: icon.category || [],
-        tags: icon.tags.split(", ").map(tag => tag.trim()),
-        file: icon.file
-      }));
+      const formattedResults = limitedIcons.map(icon => {
+        const baseResult = {
+          name: icon.name,
+          description: icon.description,
+          category: icon.category || [],
+          tags: icon.tags.split(", ").map(tag => tag.trim()),
+          file: icon.file
+        };
+
+        // Add usage examples if requested
+        if (includeUsageExamples) {
+          return {
+            ...baseResult,
+            importPath: "@vibe/icons",
+            usageExamples: {
+              "React Import": `import { ${icon.name} } from "@vibe/icons";`,
+              "React Usage": `<${icon.name} />`,
+              "With Props": `<${icon.name} size={24} color="var(--primary-color)" />`
+            }
+          };
+        }
+
+        return baseResult;
+      });
 
       const result = {
         searchParams: {
           query: query || null,
           category: category || null,
-          limit
+          limit,
+          includeUsageExamples
         },
         totalFound: filteredIcons.length,
         showing: limitedIcons.length,

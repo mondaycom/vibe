@@ -48,8 +48,7 @@ Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in you
 #### Icon Tools
 
 - `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags.
-- `get-vibe-icon-details`: Get detailed information about a specific Vibe icon including description, tags, category, and usage examples.
-- `search-vibe-icons`: Search and filter Vibe icons by text query, category, or tags. Supports filtering by categories ('Basic', 'Platform', 'View') and limiting results.
+- `search-vibe-icons`: Search and filter Vibe icons by text query, category, or tags. Supports filtering by categories ('Basic', 'Platform', 'View'), limiting results, and optionally including React usage examples.
 
 ## Status
 
