@@ -13,7 +13,7 @@ interface IconMetadata {
 }
 
 export class IconMetadataService {
-  private static readonly UNPKG_URL = "https://unpkg.com/@vibe/icons@latest/dist/metadata.json";
+  private static readonly UNPKG_URL = "https://unpkg.com/@vibe/icons@latest/dist/iconsMetaData.js";
   private static cachedIconMetadata: IconMetadata[] | null = null;
 
   static async getIconMetadata(): Promise<IconMetadata[]> {
@@ -45,14 +45,30 @@ export class IconMetadataService {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      return await response.json();
+      const jsCode = await response.text();
+
+      // Extract the icon data from the JavaScript module
+      // The file exports a default array, so we need to parse it
+      const match = jsCode.match(/var o=(\[.*?\]);export\{o as default\}/s);
+      if (!match) {
+        throw new Error("Unable to parse icon metadata from JavaScript module");
+      }
+
+      return JSON.parse(match[1]);
     } catch (fetchError) {
       console.error("[Vibe MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
 
       // Fallback to curl for corporate networks
       try {
         const { stdout } = await execAsync(`curl -s -L "${this.UNPKG_URL}"`);
-        return JSON.parse(stdout);
+
+        // Parse the JavaScript module output from curl
+        const match = stdout.match(/var o=(\[.*?\]);export\{o as default\}/s);
+        if (!match) {
+          throw new Error("Unable to parse icon metadata from JavaScript module (curl)");
+        }
+
+        return JSON.parse(match[1]);
       } catch (curlError) {
         console.error("[Vibe MCP] Curl fallback also failed:", curlError);
         throw fetchError; // Re-throw original fetch error
