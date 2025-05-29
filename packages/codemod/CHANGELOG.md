@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.0.1...@vibe/codemod@1.1.0) (2025-05-29)
+
+
+### Features
+
+* **codemod:** add --yes option to skip confirmation prompts ([#2912](https://github.com/mondaycom/vibe/issues/2912)) ([277d1c7](https://github.com/mondaycom/vibe/commit/277d1c706702447b7b8507d7bda4cabb279bce41))
+
+
+
+
+
 ## [1.0.1](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.0.0...@vibe/codemod@1.0.1) (2025-01-20)
 
 

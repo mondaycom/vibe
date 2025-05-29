@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.51.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.1...@vibe/core@3.51.2) (2025-05-29)
+
+
+### Bug Fixes
+
+* **Tabs:** add circular keyboard navigation ([#2867](https://github.com/mondaycom/vibe/issues/2867)) ([29a98c2](https://github.com/mondaycom/vibe/commit/29a98c2a26cd8592815b76d2e71db05fe6842af4))
+
+
+
+
+
 ## [3.51.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.0...@vibe/core@3.51.1) (2025-05-28)
 
 

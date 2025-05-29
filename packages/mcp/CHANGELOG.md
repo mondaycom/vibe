@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.3...@vibe/mcp@0.2.0) (2025-05-29)
+
+
+### Features
+
+* **mcp:** Add "Get component boilerplate" tool ([#2901](https://github.com/mondaycom/vibe/issues/2901)) ([fc6d43e](https://github.com/mondaycom/vibe/commit/fc6d43eb33acbbb89f2eeed4f0e7bd20889e5f63))
+* **mcp:** add tool for icons  ([#2911](https://github.com/mondaycom/vibe/issues/2911)) ([ce4e817](https://github.com/mondaycom/vibe/commit/ce4e817bd06be874572c35efd5e2d9108808aea5))
+
+
+
+
+
 ## [0.1.3](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.2...@vibe/mcp@0.1.3) (2025-05-25)
 
 
