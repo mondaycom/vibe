@@ -45,10 +45,9 @@ Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in you
 - `get-vibe-component-metadata`: Returns metadata for a specific Vibe component (or all components if no name is provided).
 - `list-vibe-public-components`: Get a list of all public @vibe/core & @vibe/core/next components names.
 
-#### Icon Tools
+#### Icon Tool
 
-- `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags.
-- `search-vibe-icons`: Search and filter Vibe icons by text query, category, or tags. Supports filtering by categories ('Basic', 'Platform', 'View'), limiting results, and optionally including React usage examples.
+- `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags. Supports optional filtering by text query, category, or tags, limiting results, and including React usage examples.
 
 ## Status
 
