@@ -1,6 +1,6 @@
 # @vibe/mcp
 
-A Model Context Protocol (MCP) server for the Vibe Design System, enabling LLMs and other MCP clients to interact with Vibe component metadata.
+A Model Context Protocol (MCP) server for the Vibe Design System, enabling LLMs and other MCP clients to interact with Vibe component metadata and icon information.
 
 ## Usage
 
@@ -40,8 +40,15 @@ Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in you
 
 ### Tools
 
+#### Component Tools
+
 - `get-vibe-component-metadata`: Returns metadata for a specific Vibe component (or all components if no name is provided).
 - `list-vibe-public-components`: Get a list of all public @vibe/core & @vibe/core/next components names.
+
+#### Icon Tools
+
+- `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags.
+- `search-vibe-icons`: Search and filter Vibe icons by text query, category, or tags. Supports filtering by categories ('Basic', 'Platform', 'View'), limiting results, and optionally including React usage examples.
 
 ## Status
 
