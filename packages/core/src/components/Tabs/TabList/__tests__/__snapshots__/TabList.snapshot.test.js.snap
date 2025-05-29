@@ -16,14 +16,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -31,14 +32,15 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         Second
-      </a>
+      </div>
     </li>
   </ul>
 </div>
@@ -60,14 +62,15 @@ exports[`TabList renders correctly with children 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
   </ul>
 </div>
@@ -89,14 +92,15 @@ exports[`TabList renders correctly with className 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
   </ul>
 </div>
@@ -119,14 +123,15 @@ exports[`TabList renders correctly with id 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
   </ul>
 </div>
@@ -148,14 +153,15 @@ exports[`TabList renders correctly with size 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -163,14 +169,15 @@ exports[`TabList renders correctly with size 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         Second
-      </a>
+      </div>
     </li>
   </ul>
 </div>
@@ -192,14 +199,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         First
-      </a>
+      </div>
     </li>
     <li
       aria-disabled={false}
@@ -207,14 +215,15 @@ exports[`TabList renders correctly with tabType 1`] = `
       className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       data-vibe="Tab"
+      onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
     >
-      <a
+      <div
         className="tabInner tabListTabInner"
-        onClick={[Function]}
       >
         Second
-      </a>
+      </div>
     </li>
   </ul>
 </div>
