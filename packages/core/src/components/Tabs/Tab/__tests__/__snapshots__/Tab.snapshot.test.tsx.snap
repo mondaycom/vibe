@@ -7,11 +7,12 @@ exports[`Tab renders correctly when active 1`] = `
   className="tabWrapper active"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   />
 </li>
 `;
@@ -23,11 +24,12 @@ exports[`Tab renders correctly when disabled 1`] = `
   className="tabWrapper disabled"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   />
 </li>
 `;
@@ -39,11 +41,12 @@ exports[`Tab renders correctly when focus 1`] = `
   className="tabWrapper tabFocusVisibleInset"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   />
 </li>
 `;
@@ -55,11 +58,12 @@ exports[`Tab renders correctly when focus and active 1`] = `
   className="tabWrapper active tabFocusVisibleInset"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   />
 </li>
 `;
@@ -71,14 +75,15 @@ exports[`Tab renders correctly with className 1`] = `
   className="tabWrapper test"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   >
     Tab
-  </a>
+  </div>
 </li>
 `;
 
@@ -89,11 +94,12 @@ exports[`Tab renders correctly with empty props 1`] = `
   className="tabWrapper"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   />
 </li>
 `;
@@ -105,11 +111,12 @@ exports[`Tab renders correctly with icon on left 1`] = `
   className="tabWrapper"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -129,7 +136,7 @@ exports[`Tab renders correctly with icon on left 1`] = `
       />
     </svg>
     Tab
-  </a>
+  </div>
 </li>
 `;
 
@@ -140,11 +147,12 @@ exports[`Tab renders correctly with icon on right 1`] = `
   className="tabWrapper"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   >
     Tab
     <svg
@@ -164,7 +172,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </a>
+  </div>
 </li>
 `;
 
@@ -176,14 +184,15 @@ exports[`Tab renders correctly with id 1`] = `
   data-testid="tab_test"
   data-vibe="Tab"
   id="test"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   >
     Tab
-  </a>
+  </div>
 </li>
 `;
 
@@ -194,13 +203,14 @@ exports[`Tab renders correctly with value 1`] = `
   className="tabWrapper"
   data-testid="tab"
   data-vibe="Tab"
+  onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
 >
-  <a
+  <div
     className="tabInner"
-    onClick={[Function]}
   >
     Tab
-  </a>
+  </div>
 </li>
 `;
