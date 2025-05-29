@@ -43,6 +43,12 @@ const argv = yargs(hideBin(process.argv))
     description: "Enable verbose mode (logs to a file)",
     default: false
   })
+  .option("yes", {
+    alias: "y",
+    type: "boolean",
+    description: "Skip confirmation prompts (auto-proceed with dirty git)",
+    default: false
+  })
   .help().argv;
 
 async function runWizard() {
@@ -129,10 +135,14 @@ async function main() {
       )
     );
 
-    const proceed = readlineSync.question("Do you want to proceed anyway? (y/N) ");
-    if (proceed.toLowerCase() !== "y") {
-      console.log("Operation cancelled.");
-      process.exit(1);
+    if (argv.yes) {
+      console.log(chalk.blue("Auto-proceeding due to --yes flag..."));
+    } else {
+      const proceed = readlineSync.question("Do you want to proceed anyway? (y/N) ");
+      if (proceed.toLowerCase() !== "y") {
+        console.log("Operation cancelled.");
+        process.exit(1);
+      }
     }
   }
 

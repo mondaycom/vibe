@@ -58,6 +58,16 @@ npx @vibe/codemod [options]
   npx @vibe/codemod --verbose
   ```
 
+### `--yes` (alias: `-y`)
+
+- **Description**: Skip confirmation prompts and auto-proceed when Git working directory is not clean.
+- **Default**: `false`
+- **Example**:
+
+  ```bash
+  npx @vibe/codemod --yes
+  ```
+
 ## Included Migrations
 
 The following migrations are included in this CLI:
