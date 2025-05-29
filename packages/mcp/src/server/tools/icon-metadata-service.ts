@@ -114,21 +114,7 @@ export class IconMetadataService {
         return result;
       } catch (evalError) {
         console.error("[Vibe MCP] Failed to evaluate JavaScript array:", evalError);
-        // Fall back to old parsing method
-      }
-    }
-
-    // Try the old format: var o=([...]);export{o as default}
-    const oldFormatMatch = jsCode.match(/var o=(\[.*?\]);export\{o as default\}/s);
-    if (oldFormatMatch) {
-      try {
-        // Use vm.runInContext for old format too
-        const context = createContext({});
-        const result = runInContext(`(${oldFormatMatch[1]})`, context);
-        return result;
-      } catch (evalError) {
-        // Fall back to JSON.parse for old format
-        return JSON.parse(oldFormatMatch[1]);
+        throw new Error("Unable to parse icon metadata from JavaScript module");
       }
     }
 
