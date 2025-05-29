@@ -27,7 +27,7 @@ function getStoryFiles() {
           // Found stories directory, get all .stories.tsx files
           const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
           for (const storyEntry of storyDirEntries) {
-            if (storyEntry.isFile() && storyEntry.name.endsWith(".stories.tsx")) {
+            if (storyEntry.isFile() && (storyEntry.name.endsWith(".stories.tsx") || storyEntry.name.endsWith(".stories.js"))) {
               storyFiles.push(path.relative(__dirname, path.join(fullPath, storyEntry.name)));
             }
           }
@@ -51,7 +51,7 @@ function generateCodeForOneLiner(ast, constName) {
     VariableDeclarator(path) {
       if (path.node.id.name === constName) {
         if (path.node.init?.callee?.name !== 'createComponentTemplate') {
-          calleeCode = generate.default(path.node).code;
+          calleeCode = "const " + generate.default(path.node).code;
         } else {
           return calleeCode = ""
         }

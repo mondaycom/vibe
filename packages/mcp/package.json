@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",
-    "@vibe/core": "3.50.0",
     "zod": "^3.24.4"
   },
   "devDependencies": {
