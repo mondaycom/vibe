@@ -4,11 +4,13 @@ import { server, addServerTool } from "./server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { getVibeComponentMetadataTool } from "./server/tools/get-vibe-component-metadata.js";
 import { listVibePublicComponentsTool } from "./server/tools/list-vibe-public-components.js";
+import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
 
 async function main() {
   const transport = new StdioServerTransport();
   addServerTool(getVibeComponentMetadataTool);
   addServerTool(listVibePublicComponentsTool);
+  addServerTool(listVibeIconsTool);
   await server.connect(transport);
 }
 
