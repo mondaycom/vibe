@@ -2,9 +2,15 @@ import React from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
 import { IconButton } from "../../../IconButton";
 import { Flex } from "../../../Flex";
-import styles from "./Trigger.module.scss"; // Assuming styles for actionsWrapper are here
+import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
+
+const sizeMap = {
+  large: "medium",
+  medium: "small",
+  small: "xs"
+} as const;
 
 const TriggerActions = () => {
   const {
@@ -22,6 +28,7 @@ const TriggerActions = () => {
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
+  const iconButtonSize = sizeMap[size] || "small";
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -39,12 +46,12 @@ const TriggerActions = () => {
   return (
     <Flex className={styles.actionsWrapper}>
       {hasSelection && clearable && !disabled && (
-        <IconButton data-testid="dropdown-clear-button" icon={CloseSmall} onClick={handleClear} size={size} />
+        <IconButton data-testid="dropdown-clear-button" icon={CloseSmall} onClick={handleClear} size={iconButtonSize} />
       )}
       <IconButton
         icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
         {...getToggleButtonProps({ disabled })}
-        size={size}
+        size={iconButtonSize}
         disabled={disabled}
       />
     </Flex>
