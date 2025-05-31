@@ -1,5 +1,12 @@
-@import "../../styles/mixins/typography";
+@import '../../styles/mixins/typography';
 
 .title {
-  @include sb-title-appearance;
+  margin-bottom: var(--sb-space-8);
+  font-family: var(--sb-title-font-family);
+  @include sb-basic-text;
+  font-size: var(--sb-h3-font-size);
+  line-height: 24px;
+  letter-spacing: -0.1px;
+  text-align: left;
+  font-weight: 600;
 }
