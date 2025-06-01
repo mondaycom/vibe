@@ -5,7 +5,7 @@ import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
 import { ButtonSize } from "../Button.types";
 
-jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
+vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 describe("Button renders correctly", () => {
   it("renders correctly with empty props", () => {

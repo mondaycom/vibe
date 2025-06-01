@@ -9,24 +9,24 @@ describe("useFocusGridItemByActiveStatus", () => {
   beforeEach(() => {
     element = document.createElement("div");
     document.body.appendChild(element);
-    jest.spyOn(element, "blur");
-    jest.spyOn(element, "focus");
+    vi.spyOn(element, "blur");
+    vi.spyOn(element, "focus");
 
     childElement = document.createElement("input");
     element.appendChild(childElement);
-    jest.spyOn(childElement, "focus");
+    vi.spyOn(childElement, "focus");
 
     wrapperRef = { current: element };
     childRef = { current: childElement };
 
-    jest.spyOn(useLastNavigationDirectionModule, "useLastNavigationDirection");
+    vi.spyOn(useLastNavigationDirectionModule, "useLastNavigationDirection");
   });
 
   afterEach(() => {
     element.remove();
     childElement.remove();
     cleanup();
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it("it should blur the wrapper element if index != activeItemIndex", () => {

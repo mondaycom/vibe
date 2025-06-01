@@ -39,7 +39,7 @@ describe("BreadcrumbMenu", () => {
   });
 
   it("renders correctly with various MenuItem props", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
 
     const tree = renderer
       .create(

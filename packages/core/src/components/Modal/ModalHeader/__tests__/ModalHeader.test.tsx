@@ -5,10 +5,10 @@ import { Text as TextIcon } from "@vibe/icons";
 import { useModal } from "../../context/ModalContext";
 import { ModalContextProps } from "../../context/ModalContext.types";
 
-jest.mock("../../context/ModalContext", () => ({
-  useModal: jest.fn()
+vi.mock("../../context/ModalContext", () => ({
+  useModal: vi.fn()
 }));
-const useModalMocked = jest.mocked(useModal);
+const useModalMocked = vi.mocked(useModal);
 
 describe("ModalHeader", () => {
   const title = "Test Modal Header";
@@ -16,8 +16,8 @@ describe("ModalHeader", () => {
 
   const useModalMockedReturnedValue: ModalContextProps = {
     modalId: "modal-id",
-    setTitleId: jest.fn(),
-    setDescriptionId: jest.fn()
+    setTitleId: vi.fn(),
+    setDescriptionId: vi.fn()
   };
 
   beforeEach(() => {

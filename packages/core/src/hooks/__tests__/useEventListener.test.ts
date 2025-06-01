@@ -4,10 +4,10 @@ import useEventListener from "../useEventListener";
 
 describe("useEventListener", () => {
   let element: HTMLElement;
-  let callbackStub: jest.Mock;
+  let callbackStub: vi.Mock;
   describe("click", () => {
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -43,7 +43,7 @@ describe("useEventListener", () => {
     const customEventName = "testEvent";
     const differentEventName = "testEvent-different";
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>

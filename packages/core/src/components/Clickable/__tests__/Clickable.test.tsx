@@ -16,7 +16,7 @@ describe("Clickable tests", () => {
   });
 
   it("should call the onClick callback when clicked", () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { getByTestId } = renderComponent({ onClick });
     const component = getByTestId(defaultTestId);
     fireEvent.click(component);
@@ -24,7 +24,7 @@ describe("Clickable tests", () => {
   });
 
   it("should call the onClick callback when focused and enter pressed", () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { getByTestId } = renderComponent({ onClick });
     const component = getByTestId(defaultTestId);
     component.focus();
@@ -33,7 +33,7 @@ describe("Clickable tests", () => {
   });
 
   it("should call the onClick callback when focused and space pressed", () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { getByTestId } = renderComponent({ onClick });
     const component = getByTestId(defaultTestId);
     component.focus();

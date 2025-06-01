@@ -10,7 +10,7 @@ const renderComponent = (props: ToastProps) => {
 
 describe("Toast tests", () => {
   it("calls onClose when click on close button", () => {
-    const onCloseMock = jest.fn();
+    const onCloseMock = vi.fn();
     const toast = renderComponent({
       open: true,
       onClose: onCloseMock
@@ -25,18 +25,18 @@ describe("Toast tests", () => {
   });
 
   it("calls onClose after 1S when autoHideDuration=1000", () => {
-    const onCloseMock = jest.fn();
+    const onCloseMock = vi.fn();
     renderComponent({
       onClose: onCloseMock,
       autoHideDuration: 1000,
       open: true
     });
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     expect(onCloseMock.mock.calls.length).toHaveBeenCalledTimes;
   });
 
   it("calls onClick when clicking on attached button to the toast", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     renderComponent({
       open: true,
       actions: [{ type: "button", key: 1, content: "Button", onClick: onClickMock }]

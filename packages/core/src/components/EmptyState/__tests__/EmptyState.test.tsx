@@ -5,10 +5,10 @@ import { Button } from "../../../components/Button";
 import Link from "../../../components/Link/Link";
 
 describe("EmptyState component", () => {
-  const mockOnClick = jest.fn();
+  const mockOnClick = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("renders with required props only", () => {
@@ -125,8 +125,8 @@ describe("EmptyState component", () => {
   });
 
   it("renders with actions passed as prop objects", () => {
-    const mainActionClick = jest.fn();
-    const supportingActionClick = jest.fn();
+    const mainActionClick = vi.fn();
+    const supportingActionClick = vi.fn();
 
     render(
       <EmptyState

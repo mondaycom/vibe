@@ -10,11 +10,11 @@ function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, 
 
 describe("Combobox tests", () => {
   beforeEach(() => {
-    jest.useFakeTimers("modern");
+    vi.useFakeTimers("modern");
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     cleanup();
   });
 
@@ -26,14 +26,14 @@ describe("Combobox tests", () => {
     ];
 
     it("should call item on click callback func when onClick", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
 
       clickValueCheckCallback(getByLabelText, onClickMock, "Yellow", "yellow");
     });
 
     it("should call callback func when onOptionHover", () => {
-      const onMouseOverMock = jest.fn();
+      const onMouseOverMock = vi.fn();
       const { getByLabelText } = render(<Combobox onOptionHover={onMouseOverMock} options={mockOptions} />);
 
       fireEvent.mouseOver(getByLabelText("Yellow"));
@@ -41,7 +41,7 @@ describe("Combobox tests", () => {
     });
 
     it("should call callback func when onOptionLeave", () => {
-      const onMouseLeaveMock = jest.fn();
+      const onMouseLeaveMock = vi.fn();
       const { getByLabelText } = render(<Combobox onOptionLeave={onMouseLeaveMock} options={mockOptions} />);
 
       fireEvent.mouseLeave(getByLabelText("Yellow"));
@@ -49,7 +49,7 @@ describe("Combobox tests", () => {
     });
 
     it("should call callback func when noResultsRenderer", async () => {
-      const noResRendereMock = jest.fn();
+      const noResRendereMock = vi.fn();
       const { getByLabelText } = render(<Combobox noResultsRenderer={noResRendereMock} options={mockOptions} />);
       const input = getByLabelText("Search for content");
       expect(noResRendereMock.mock.calls.length).toBe(0);
@@ -79,7 +79,7 @@ describe("Combobox tests", () => {
     });
 
     it("should call onAddNew func when add new", async () => {
-      const onAddMock = jest.fn();
+      const onAddMock = vi.fn();
 
       const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
       const input = getByLabelText("Search for content");
@@ -92,7 +92,7 @@ describe("Combobox tests", () => {
     });
 
     it("should not call onClick for disabled option", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
 
       fireEvent.click(getByLabelText("Red"));
@@ -100,7 +100,7 @@ describe("Combobox tests", () => {
     });
 
     it("should NOT trigger hover event on disabled options", () => {
-      const onHoverMock = jest.fn();
+      const onHoverMock = vi.fn();
       const { getByLabelText } = render(<Combobox onOptionHover={onHoverMock} options={mockOptions} />);
 
       fireEvent.mouseOver(getByLabelText("Red"));
@@ -125,7 +125,7 @@ describe("Combobox tests", () => {
     };
 
     it("Should trigger the on click callback on the correct item with regular categories", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(<Combobox onClick={onClickMock} options={options} categories={categories} />);
       clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
       clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);
@@ -135,7 +135,7 @@ describe("Combobox tests", () => {
     });
 
     it("Should trigger the on click callback on the correct item with divided categories", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(
         <Combobox onClick={onClickMock} options={options} categories={categories} withCategoriesDivider />
       );

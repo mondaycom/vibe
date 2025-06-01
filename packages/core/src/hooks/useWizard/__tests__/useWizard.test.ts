@@ -65,7 +65,7 @@ describe("useWizard", () => {
   });
 
   it("should call onStepChange when step changes", () => {
-    const onStepChange = jest.fn();
+    const onStepChange = vi.fn();
     const { result } = renderHook(() => useWizard({ stepCount: 3, onStepChange }));
     act(() => {
       result.current.next();
@@ -74,7 +74,7 @@ describe("useWizard", () => {
   });
 
   it("should call onFinish when reaching the last step and calling next", () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { result } = renderHook(() => useWizard({ stepCount: 3, onFinish }));
     act(() => {
       result.current.goToStep(2);
@@ -86,7 +86,7 @@ describe("useWizard", () => {
   });
 
   it("should not call onStepChange when reaching the last step and calling next", () => {
-    const onStepChange = jest.fn();
+    const onStepChange = vi.fn();
     const { result } = renderHook(() => useWizard({ stepCount: 3, onStepChange }));
     act(() => {
       result.current.goToStep(2);

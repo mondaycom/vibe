@@ -14,7 +14,7 @@ describe("avatar", () => {
   });
 
   it("onClick callback should be called after clicking the element", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
     const { getByTestId } = renderComponent({ onClick: onClickCallback });
     const component = getByTestId(ComponentDefaultTestId.CLICKABLE);
     fireEvent.click(component);

@@ -17,14 +17,14 @@ describe("useMenuGridItemNavContext", () => {
   afterEach(() => {
     element.remove();
     cleanup();
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   describe("onOutboundNavigation", () => {
     const outBoundingElement = document.createElement("span");
 
     it("should call the parent GridKeyboardNavigationContext", () => {
-      const mockedInnerUseContext = { onOutboundNavigation: jest.fn() };
+      const mockedInnerUseContext = { onOutboundNavigation: vi.fn() };
       const { result } = renderHookForTest({ mockedInnerUseContext });
 
       result.current.onOutboundNavigation(outBoundingElement, NavDirections.UP);
@@ -33,8 +33,8 @@ describe("useMenuGridItemNavContext", () => {
     });
 
     it("should set the previous item as active when navigating up", () => {
-      const getPreviousSelectableIndex = jest.fn().mockReturnValue(10);
-      const setActiveItemIndex = jest.fn();
+      const getPreviousSelectableIndex = vi.fn().mockReturnValue(10);
+      const setActiveItemIndex = vi.fn();
       const { result } = renderHookForTest({ activeItemIndex: 15, getPreviousSelectableIndex, setActiveItemIndex });
 
       result.current.onOutboundNavigation(outBoundingElement, NavDirections.UP);
@@ -46,8 +46,8 @@ describe("useMenuGridItemNavContext", () => {
     });
 
     it("should set the next item as active when navigating down", () => {
-      const getNextSelectableIndex = jest.fn().mockReturnValue(20);
-      const setActiveItemIndex = jest.fn();
+      const getNextSelectableIndex = vi.fn().mockReturnValue(20);
+      const setActiveItemIndex = vi.fn();
       const { result } = renderHookForTest({ activeItemIndex: 15, getNextSelectableIndex, setActiveItemIndex });
 
       result.current.onOutboundNavigation(outBoundingElement, NavDirections.DOWN);
@@ -59,8 +59,8 @@ describe("useMenuGridItemNavContext", () => {
     });
 
     it("should do nothing when not under a sub menu and pressing left", () => {
-      const setActiveItemIndex = jest.fn();
-      const closeMenu = jest.fn();
+      const setActiveItemIndex = vi.fn();
+      const closeMenu = vi.fn();
       const { result } = renderHookForTest({ setActiveItemIndex, closeMenu });
 
       result.current.onOutboundNavigation(outBoundingElement, NavDirections.LEFT);
@@ -70,7 +70,7 @@ describe("useMenuGridItemNavContext", () => {
     });
 
     it("should close the sub menu and pressing left", () => {
-      const closeMenu = jest.fn();
+      const closeMenu = vi.fn();
       const { result } = renderHookForTest({ closeMenu, isUnderSubMenu: true });
 
       result.current.onOutboundNavigation(outBoundingElement, NavDirections.LEFT);
@@ -79,13 +79,13 @@ describe("useMenuGridItemNavContext", () => {
     });
 
     function renderHookForTest({
-      setActiveItemIndex = jest.fn(),
-      getNextSelectableIndex = jest.fn(),
-      getPreviousSelectableIndex = jest.fn(),
+      setActiveItemIndex = vi.fn(),
+      getNextSelectableIndex = vi.fn(),
+      getPreviousSelectableIndex = vi.fn(),
       activeItemIndex = 0,
       isUnderSubMenu = false,
-      closeMenu = jest.fn(),
-      mockedInnerUseContext = { onOutboundNavigation: jest.fn() }
+      closeMenu = vi.fn(),
+      mockedInnerUseContext = { onOutboundNavigation: vi.fn() }
     }) {
       jest
         .spyOn(GridKeyboardNavigationContextModule, "useGridKeyboardNavigationContext")

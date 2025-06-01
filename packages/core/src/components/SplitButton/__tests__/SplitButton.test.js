@@ -8,7 +8,7 @@ import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import { getTestId } from "../../../tests/test-ids-utils";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 const text = "Click Me!";
 const className = "test-class";
@@ -69,20 +69,20 @@ describe("SplitButton tests", () => {
 
   describe("callbacks", () => {
     it("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
-      const onSecondaryDialogDidShow = jest.fn();
+      const onSecondaryDialogDidShow = vi.fn();
       const splitButtonComponent = renderComponent({
         onSecondaryDialogDidShow
       });
       const arrowButton = getSecondaryButton(splitButtonComponent);
       act(() => {
         fireEvent.click(arrowButton);
-        jest.advanceTimersByTime(1000);
+        vi.advanceTimersByTime(1000);
       });
       expect(onSecondaryDialogDidShow.mock.calls.length).toBe(1);
     });
 
     it("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
-      const onSecondaryDialogDidHideMock = jest.fn();
+      const onSecondaryDialogDidHideMock = vi.fn();
       const splitButtonComponent = renderComponent({
         onSecondaryDialogDidHide: onSecondaryDialogDidHideMock
       });
@@ -90,15 +90,15 @@ describe("SplitButton tests", () => {
 
       act(() => {
         fireEvent.click(arrowButton);
-        jest.advanceTimersByTime(1000);
+        vi.advanceTimersByTime(1000);
         fireEvent.click(arrowButton);
-        jest.advanceTimersByTime(1000);
+        vi.advanceTimersByTime(1000);
       });
       expect(onSecondaryDialogDidHideMock.mock.calls.length).toBe(1);
     });
 
     it("does call onClick when click on primaryButton", () => {
-      const primaryButtonOnClick = jest.fn();
+      const primaryButtonOnClick = vi.fn();
       const splitButtonComponent = renderComponent({ onClick: primaryButtonOnClick });
       const primaryButton = getPrimaryButton(splitButtonComponent);
       act(() => {
@@ -108,7 +108,7 @@ describe("SplitButton tests", () => {
     });
 
     it("doesn't call onClick when click on secondaryButton", () => {
-      const primaryButtonOnClick = jest.fn();
+      const primaryButtonOnClick = vi.fn();
       const splitButtonComponent = renderComponent({ onClick: primaryButtonOnClick });
       const arrowButton = getSecondaryButton(splitButtonComponent);
       act(() => {
@@ -120,7 +120,7 @@ describe("SplitButton tests", () => {
 
   describe("keyboard accessibility", () => {
     it("does call onClick when enter pressed on primaryButton", () => {
-      const primaryButtonOnClick = jest.fn();
+      const primaryButtonOnClick = vi.fn();
       const splitButtonComponent = renderComponent({ onClick: primaryButtonOnClick });
       const primaryButton = getPrimaryButton(splitButtonComponent);
       act(() => {

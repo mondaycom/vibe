@@ -4,13 +4,13 @@ import { snapshotDiff } from "../../../utils/jest-utils";
 import { Sound } from "@vibe/icons";
 import { renderSliderForSnapshots } from "./sliderTestUtils";
 
-jest.mock("../../Icon/Icon", () => {
+vi.mock("../../Icon/Icon", () => {
   return ({ icon, ...rest }) => {
     return <div data-testid="mock-icon">{JSON.stringify({ ...rest, icon: icon && icon.displayName })}</div>;
   };
 });
 
-jest.mock("../../TextField/TextField", () => {
+vi.mock("../../TextField/TextField", () => {
   const TextField = props => {
     return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   };

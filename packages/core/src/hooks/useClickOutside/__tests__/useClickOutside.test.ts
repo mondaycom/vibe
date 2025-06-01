@@ -4,10 +4,10 @@ import useClickOutside from "../index";
 
 describe("useClickOutside", () => {
   let element: HTMLElement;
-  let callbackStub: jest.Mock;
+  let callbackStub: vi.Mock;
 
   beforeEach(() => {
-    callbackStub = jest.fn();
+    callbackStub = vi.fn();
     element = document.createElement("div");
     document.body.appendChild(element);
     renderHook(() => useClickOutside({ ref: { current: element }, callback: callbackStub }));
@@ -63,7 +63,7 @@ describe("useClickOutside", () => {
     });
 
     it("should call the callback for override when passing eventName parameter", () => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>

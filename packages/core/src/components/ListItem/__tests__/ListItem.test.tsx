@@ -29,10 +29,10 @@ it("renders correctly with selected and disabled", () => {
 });
 
 describe("BDD List Item", () => {
-  let onClick: jest.Mock<any, any>;
+  let onClick: vi.Mock<any, any>;
   const itemText = "My item";
   beforeEach(() => {
-    onClick = jest.fn();
+    onClick = vi.fn();
   });
   it("should call onClick", () => {
     const { getByText } = render(

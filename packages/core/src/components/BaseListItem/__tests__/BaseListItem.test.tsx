@@ -124,7 +124,7 @@ describe("with custom type", () => {
   });
 
   it("should pass custom type properties to itemRenderer", () => {
-    const mockRenderer = jest.fn((item: BaseListItemData<CustomItemType>) => {
+    const mockRenderer = vi.fn((item: BaseListItemData<CustomItemType>) => {
       const { id, customValue, label } = item;
       return <div data-testid="custom-rendered">{`${label} (${id}): ${customValue}`}</div>;
     });

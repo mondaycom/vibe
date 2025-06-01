@@ -5,11 +5,11 @@ import { ChangeEvent } from "react";
 describe("useDebounceEvent", () => {
   const delay = 0;
   const initialStateValue = "";
-  let onChangeCallbackStub: jest.Mock;
+  let onChangeCallbackStub: vi.Mock;
   let hookResult: RenderHookResult<unknown, UseDebounceResult>;
 
   beforeEach(() => {
-    onChangeCallbackStub = jest.fn();
+    onChangeCallbackStub = vi.fn();
     hookResult = renderHook(() =>
       useDebounceEvent({
         delay,
@@ -95,7 +95,7 @@ describe("useDebounceEvent", () => {
     const additionalDelay = 200;
 
     beforeEach(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       hookResult = renderHook(() =>
         useDebounceEvent({
@@ -107,7 +107,7 @@ describe("useDebounceEvent", () => {
     });
 
     afterEach(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it("should not call the onChange immediately ", () => {
@@ -125,7 +125,7 @@ describe("useDebounceEvent", () => {
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      jest.advanceTimersByTime(additionalDelay - 1);
+      vi.advanceTimersByTime(additionalDelay - 1);
 
       expect(onChangeCallbackStub.mock.calls.length).toEqual(0);
     });
@@ -137,7 +137,7 @@ describe("useDebounceEvent", () => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
 
       expect(onChangeCallbackStub.mock.calls.length).toEqual(1);
     });

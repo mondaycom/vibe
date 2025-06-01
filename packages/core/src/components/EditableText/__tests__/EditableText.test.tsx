@@ -64,7 +64,7 @@ describe("EditableText", () => {
 
   describe("event handling", () => {
     describe("onClick", () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       it("should call onClick when clicking on an editable component", () => {
         render(<EditableText value="Editable test" onClick={onClick} />);
 
@@ -85,7 +85,7 @@ describe("EditableText", () => {
     });
 
     describe("onChange", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       it("should call onChange with new value when changed in an editable component", async () => {
         const value = "Editable test";
         const newValue = "New Editable test";
@@ -194,7 +194,7 @@ describe("EditableText", () => {
     });
 
     describe("onEditModeChange", () => {
-      const onEditModeChange = jest.fn();
+      const onEditModeChange = vi.fn();
       it("should call onEditModeChange with true when enter edit mode", async () => {
         const value = "Editable test";
         render(<EditableText value={value} onEditModeChange={onEditModeChange} />);
@@ -226,8 +226,8 @@ describe("EditableText", () => {
 
   describe("event bubbling and propagation", () => {
     it("should prevent Enter key press from propagating outside EditableText", () => {
-      const onChange = jest.fn();
-      const externalKeyHandler = jest.fn();
+      const onChange = vi.fn();
+      const externalKeyHandler = vi.fn();
 
       render(
         <div onKeyDown={externalKeyHandler} data-testid="external-container">
@@ -247,9 +247,9 @@ describe("EditableText", () => {
     });
 
     it("should prevent Esc key press from propagating outside EditableText", () => {
-      const onChange = jest.fn();
-      const onEditModeChange = jest.fn();
-      const externalKeyHandler = jest.fn();
+      const onChange = vi.fn();
+      const onEditModeChange = vi.fn();
+      const externalKeyHandler = vi.fn();
 
       render(
         <div onKeyDown={externalKeyHandler} data-testid="external-container">
@@ -272,7 +272,7 @@ describe("EditableText", () => {
 
   describe("with placeholder", () => {
     it("should show a placeholder if provided and input is empty", async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const placeholderText = "Placeholder text";
       const value = "Editable test";
       render(<EditableText value={value} placeholder={placeholderText} onChange={onChange} />);

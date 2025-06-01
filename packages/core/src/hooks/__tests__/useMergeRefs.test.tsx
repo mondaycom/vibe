@@ -59,12 +59,12 @@ describe("useMergeRefs", () => {
   });
 
   describe("call event listeners based on refs", () => {
-    let innerRefCallbackStub: jest.Mock;
-    let outerRefCallbackStub: jest.Mock;
+    let innerRefCallbackStub: vi.Mock;
+    let outerRefCallbackStub: vi.Mock;
 
     beforeEach(() => {
-      innerRefCallbackStub = jest.fn();
-      outerRefCallbackStub = jest.fn();
+      innerRefCallbackStub = vi.fn();
+      outerRefCallbackStub = vi.fn();
 
       Component = forwardRef((props, ref) => {
         internalRef = useRef();

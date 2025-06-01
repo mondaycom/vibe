@@ -13,15 +13,15 @@ describe("RadioButton tests", () => {
   const option3Value = "3";
   const option3Text = "Option 3";
 
-  let onChangeMock1: jest.Mock;
-  let onChangeMock2: jest.Mock;
-  let onChangeMock3: jest.Mock;
+  let onChangeMock1: vi.Mock;
+  let onChangeMock2: vi.Mock;
+  let onChangeMock3: vi.Mock;
 
   describe("With one of the radio buttons is checked by default", () => {
     beforeEach(() => {
-      onChangeMock1 = jest.fn();
-      onChangeMock2 = jest.fn();
-      onChangeMock3 = jest.fn();
+      onChangeMock1 = vi.fn();
+      onChangeMock2 = vi.fn();
+      onChangeMock3 = vi.fn();
 
       render(
         <form name={formName}>

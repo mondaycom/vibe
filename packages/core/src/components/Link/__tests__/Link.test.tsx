@@ -7,10 +7,10 @@ describe("Link", () => {
   const text = "Read More";
   const href = "https://www.monday.com";
 
-  let onClickMock: jest.Mock;
+  let onClickMock: vi.Mock;
 
   beforeEach(() => {
-    onClickMock = jest.fn();
+    onClickMock = vi.fn();
     render(<Link text={text} onClick={onClickMock} href={href} ariaLabelDescription={ariaLabel} />);
   });
 

@@ -30,7 +30,7 @@ describe("Snapshots", () => {
   });
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 const itemName = "My item";
 
 const renderComponent = ({ ...props } = {}) => {
@@ -39,7 +39,7 @@ const renderComponent = ({ ...props } = {}) => {
 
 describe.skip("<MenuItemButton />", () => {
   it("calls onClick when clicking on the menu item", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const menuItemComponent = renderComponent({
       onClick: onClickMock
     });
@@ -48,11 +48,11 @@ describe.skip("<MenuItemButton />", () => {
 
     act(() => {
       fireEvent.mouseOver(item);
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       fireEvent.click(item);
     });
 
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     expect(onClickMock.mock.calls.length).toBe(1);
   });
 });

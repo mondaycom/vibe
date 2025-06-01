@@ -15,14 +15,14 @@ describe("TextField tests", () => {
   beforeEach(() => {
     cleanup();
     ref = {};
-    onChangeStub = jest.fn();
-    jest.useFakeTimers("modern");
+    onChangeStub = vi.fn();
+    vi.useFakeTimers("modern");
     inputComponent = render(
       <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} ref={ref} />
     );
   });
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it("on input mutate should call the callback stub with the value", () => {
@@ -79,7 +79,7 @@ describe("TextField tests", () => {
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     userEvent.type(input, value);
     expect(onChangeStub).not.toHaveBeenCalled();
-    jest.advanceTimersByTime(debounceTime + 1);
+    vi.advanceTimersByTime(debounceTime + 1);
     await waitFor(
       () =>
         expect(onChangeStub).toHaveBeenCalledWith(

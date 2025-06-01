@@ -61,7 +61,7 @@ describe("GridKeyboardNavigationContext", () => {
     it("should call the upper context's onOutboundNavigation if there is no element in that direction", () => {
       const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NavDirections.UP;
-      const fakeUpperContext = { onOutboundNavigation: jest.fn() };
+      const fakeUpperContext = { onOutboundNavigation: vi.fn() };
       const { result } = renderHookWithContext(positions, fakeUpperContext);
 
       result.current.onOutboundNavigation(ref2, keyboardDirection);
@@ -135,8 +135,8 @@ describe("GridKeyboardNavigationContext", () => {
     const element = document.createElement("div");
     element.id = id;
     document.body.appendChild(element);
-    jest.spyOn(element, "blur");
-    jest.spyOn(element, "focus");
+    vi.spyOn(element, "blur");
+    vi.spyOn(element, "focus");
     return { current: element };
   }
 });

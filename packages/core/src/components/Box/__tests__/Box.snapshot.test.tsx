@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Box from "../Box";
 
-jest.mock("../Box.module.scss", () => ({
+vi.mock("../Box.module.scss", () => ({
   box: "box",
   border: "border",
   borderColorUiBorderColor: "uiBorderColor",
