@@ -1,5 +1,7 @@
-import fs from "fs";
-import path from "path";
+import { exec } from "child_process";
+import { promisify } from "util";
+
+const execAsync = promisify(exec);
 
 interface TokenData {
   [theme: string]: {
@@ -15,8 +17,8 @@ interface TokenInfo {
 }
 
 export class TokenService {
+  private static readonly UNPKG_URL = "https://unpkg.com/@vibe/style@latest/dist/colors.json";
   private static cachedTokens: TokenInfo[] | null = null;
-  private static readonly COLORS_JSON_PATH = path.join(process.cwd(), "packages/style/dist/colors.json");
 
   static async getTokens(): Promise<TokenInfo[]> {
     if (this.cachedTokens) {
@@ -25,40 +27,61 @@ export class TokenService {
     }
 
     try {
-      console.error("[Vibe MCP] Loading tokens from colors.json...");
-      const tokens = await this.loadTokensFromFile();
-      console.error(`[Vibe MCP] Loaded ${tokens.length} tokens, caching for session`);
+      console.error("[Vibe MCP] Fetching tokens from unpkg...");
+      const tokens = await this.fetchFromUnpkg();
+      console.error(`[Vibe MCP] Fetched ${tokens.length} tokens, caching for session`);
       this.cachedTokens = tokens;
       return tokens;
     } catch (error) {
-      console.error("[Vibe MCP] Failed to load tokens:", error);
+      console.error("[Vibe MCP] Failed to fetch tokens:", error);
       console.error("[Vibe MCP] Returning empty array as fallback");
       return [];
     }
   }
 
-  private static async loadTokensFromFile(): Promise<TokenInfo[]> {
+  private static async fetchFromUnpkg(): Promise<TokenInfo[]> {
+    return await this.fetchWithRetry();
+  }
+
+  private static async fetchWithRetry(): Promise<TokenInfo[]> {
+    // Try native fetch first
     try {
-      const fileContent = fs.readFileSync(this.COLORS_JSON_PATH, "utf-8");
-      const tokenData: TokenData = JSON.parse(fileContent);
-
-      const tokens: TokenInfo[] = [];
-
-      for (const [theme, themeTokens] of Object.entries(tokenData)) {
-        for (const [tokenName, tokenValue] of Object.entries(themeTokens)) {
-          tokens.push({
-            name: tokenName,
-            value: tokenValue,
-            theme: theme,
-            category: this.categorizeToken(tokenName)
-          });
-        }
+      const response = await fetch(this.UNPKG_URL);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
+      const tokensData: TokenData = await response.json();
+      return this.processTokensData(tokensData);
+    } catch (fetchError) {
+      console.error("[Vibe MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
 
-      return tokens;
-    } catch (error) {
-      throw new Error(`Failed to read or parse colors.json: ${error}`);
+      // Fallback to curl
+      try {
+        const { stdout } = await execAsync(`curl -s "${this.UNPKG_URL}"`);
+        const tokensData: TokenData = JSON.parse(stdout);
+        return this.processTokensData(tokensData);
+      } catch (curlError) {
+        console.error(`[Vibe MCP] Curl fallback also failed: ${curlError}`);
+        throw fetchError; // Re-throw the original fetch error
+      }
     }
+  }
+
+  private static processTokensData(tokensData: TokenData): TokenInfo[] {
+    const tokens: TokenInfo[] = [];
+
+    for (const [theme, themeTokens] of Object.entries(tokensData)) {
+      for (const [tokenName, tokenValue] of Object.entries(themeTokens)) {
+        tokens.push({
+          name: tokenName,
+          value: tokenValue,
+          theme,
+          category: this.categorizeToken(tokenName)
+        });
+      }
+    }
+
+    return tokens;
   }
 
   private static categorizeToken(tokenName: string): string {
@@ -87,7 +110,6 @@ export class TokenService {
     if (tokenName.includes("color") || tokenName.includes("background") || tokenName.includes("surface")) {
       return "color";
     }
-
     return "other";
   }
 
