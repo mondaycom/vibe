@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "NotificationChecked",
+      file: "NotificationChecked.svg",
+      description: "Represents active notification",
+      tags: "Notification, Bell, Checkmark, Alert, Timeline"
+  },
+
+  {
       name: "TextFormatting",
       file: "TextFormatting.svg",
       description: "Opens a popover for text actions",
