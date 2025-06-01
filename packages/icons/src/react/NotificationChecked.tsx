@@ -1,0 +1,16 @@
+/* eslint-disable */
+/* tslint:disable */
+import * as React from 'react';
+export interface NotificationCheckedProps extends React.SVGAttributes<SVGElement> {
+size?: string | number;
+}
+const NotificationChecked: React.FC<NotificationCheckedProps> = ({size, ...props}) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+    <path d="M10 2.05a.75.75 0 0 1 .75.75v.81a5.83 5.83 0 0 1 5.172 5.792c0 2.339.251 3.653.474 4.356.111.35.213.54.269.629a.69.69 0 0 0 .039.056.75.75 0 0 1-.515 1.296h-3.236a.75.75 0 0 1-.03.196A2.945 2.945 0 0 1 10.1 18.05a2.938 2.938 0 0 1-2.821-2.115.752.752 0 0 1-.03-.196H4a.75.75 0 0 1-.601-1.2 1.726 1.726 0 0 0 .09-.158c.074-.146.185-.4.3-.79.23-.779.476-2.102.476-4.189A5.829 5.829 0 0 1 9.25 3.635V2.8a.75.75 0 0 1 .75-.75ZM8.807 15.74a1.445 1.445 0 0 0 1.294.81 1.438 1.438 0 0 0 1.295-.81H8.807Zm1.287-10.667a4.329 4.329 0 0 0-4.329 4.33c0 2.202-.26 3.672-.538 4.614a8.216 8.216 0 0 1-.07.222h9.817l-.008-.027c-.284-.897-.543-2.377-.543-4.81a4.329 4.329 0 0 0-4.329-4.329Zm1.807 3.345a.75.75 0 0 1 1.056 1.056l-.052.056-3.125 3.125a.75.75 0 0 1-.946.094l-.115-.094-1.25-1.25-.051-.056a.75.75 0 0 1 1.055-1.056l.057.052.72.72 2.594-2.595.057-.052Z"
+    />
+  </svg>
+);
+NotificationChecked.displayName = 'NotificationChecked';
+export default NotificationChecked;
+/* tslint:enable */
+/* eslint-enable */

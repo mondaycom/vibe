@@ -179,6 +179,7 @@ export {default as NewTab} from './NewTab';
 export {default as Night} from './Night';
 export {default as NoColor} from './NoColor';
 export {default as Note} from './Note';
+export {default as NotificationChecked} from './NotificationChecked';
 export {default as Notifications} from './Notifications';
 export {default as NotificationsMuted} from './NotificationsMuted';
 export {default as Numbers} from './Numbers';
