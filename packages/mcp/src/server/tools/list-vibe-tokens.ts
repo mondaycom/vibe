@@ -12,14 +12,17 @@ const ListTokensParamsSchema = z.object({
     .string()
     .optional()
     .describe("Filter by theme: 'light-app-theme', 'dark-app-theme', 'black-app-theme', or 'hacker-app-theme'"),
-  limit: z.number().optional().describe("Maximum number of results to return (default: 50)"),
+  limit: z
+    .number()
+    .optional()
+    .describe("Maximum number of results to return (default: 50 when filtering, unlimited when no filters applied)"),
   includeUsageExamples: z.boolean().optional().describe("Include CSS usage examples in the results (default: false)")
 });
 
 export const listVibeTokensTool: MCPTool<typeof ListTokensParamsSchema.shape> = {
   name: "list-vibe-tokens",
   description:
-    "Get a list of all available Vibe design tokens from the @vibe/style package. Supports optional filtering by text query, category, or theme. Returns token names, values, themes, and categories, with optional usage examples.",
+    "Get a list of all available Vibe design tokens from the @vibe/style package. When called without parameters, returns ALL tokens. Supports optional filtering by text query, category, or theme. Returns token names, values, themes, and categories, with optional usage examples.",
   inputSchema: ListTokensParamsSchema.shape,
   execute: async (input: z.infer<typeof ListTokensParamsSchema>): Promise<any> => {
     const { query, category, theme, limit, includeUsageExamples = false } = input;
@@ -47,7 +50,8 @@ export const listVibeTokensTool: MCPTool<typeof ListTokensParamsSchema.shape> = 
         );
       }
 
-      const shouldApplyLimit = query || category || theme || limit !== undefined;
+      const hasFilters = query || category || theme;
+      const shouldApplyLimit = hasFilters || limit !== undefined;
       const effectiveLimit = shouldApplyLimit ? limit || 50 : filteredTokens.length;
       const limitedTokens = filteredTokens.slice(0, effectiveLimit);
 
