@@ -10,10 +10,10 @@ import { SIZES } from "../../../constants/sizes";
  */
 
 /** example for external library
- jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
+ vi.mock("react-transition-group", () => {
+  const FakeTransition = vi.fn(({ children }) => children);
+  const FakeSwitchTransition = vi.fn(({ children }) => children);
+  const FakeCSSTransition = vi.fn(({ children }) => children);
 
   // We return here the instance of the mock / stub library object content
   return {
@@ -25,7 +25,7 @@ import { SIZES } from "../../../constants/sizes";
  * */
 
 /** example for internal component
-jest.mock("../../Button/Button", () => {
+vi.mock("../../Button/Button", () => {
   // We return here the instance of the mock / stub component
   return ({ onClick }) => (
     <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />

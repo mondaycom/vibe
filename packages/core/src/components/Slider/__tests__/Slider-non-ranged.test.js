@@ -4,9 +4,9 @@ import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../utils/jest-utils";
 import { renderSliderInNonRangeMode } from "./sliderTestUtils";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-jest.mock("../../TextField/TextField", () => {
+vi.mock("../../TextField/TextField", () => {
   return props => {
     return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   };
@@ -25,7 +25,7 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode();
       before = asFragment().firstChild;
       userEvent.hover(elThumb);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -37,10 +37,10 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode();
       userEvent.hover(elThumb);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       before = asFragment().firstChild;
       userEvent.unhover(elThumb);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -53,7 +53,7 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
       const { asFragment } = await renderSliderInNonRangeMode();
       before = asFragment().firstChild;
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -67,7 +67,7 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
       elThumb.focus();
       before = asFragment().firstChild;
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -140,11 +140,11 @@ describe("c. Non-ranged Slider Key Events", () => {
         step: 10
       });
       elThumb.focus();
-      // jest.advanceTimersByTime(999);
+      // vi.advanceTimersByTime(999);
       before = asFragment().firstChild;
       await userEvent.keyboard("{arrowright}");
       await userEvent.keyboard("{arrowright}");
-      // jest.advanceTimersByTime(999);
+      // vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();

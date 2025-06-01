@@ -6,12 +6,12 @@ import { TableRowMenuContext } from "../../context/TableRowMenuContext/TableRowM
 import { RowSizes } from "../TableConsts";
 
 export function mockUseTable() {
-  jest.mock("../../context/TableContext/TableContext", () => ({
+  vi.mock("../../context/TableContext/TableContext", () => ({
     __esModule: true,
-    ...jest.requireActual("../../context/TableContext/TableContext")
+    ...vi.requireActual("../../context/TableContext/TableContext")
   }));
 
-  jest.spyOn(TableContextModule, "useTable").mockImplementation(
+  vi.spyOn(TableContextModule, "useTable").mockImplementation(
     () =>
       ({
         columns: [],
@@ -20,35 +20,35 @@ export function mockUseTable() {
         size: RowSizes.MEDIUM,
         tableRootRef: { current: null },
         isVirtualized: false,
-        markTableAsVirtualized: jest.fn(),
+        markTableAsVirtualized: vi.fn(),
         isScrolled: false,
-        setIsScrolled: jest.fn(),
+        setIsScrolled: vi.fn(),
         headRef: { current: null },
-        onHeadScroll: jest.fn(),
+        onHeadScroll: vi.fn(),
         virtualizedListRef: { current: null },
-        onVirtualizedListScroll: jest.fn()
+        onVirtualizedListScroll: vi.fn()
       } satisfies TableContext)
   );
 }
 
 export function mockUseTableRowMenu() {
-  jest.mock("../../context/TableRowMenuContext/TableRowMenuContext", () => ({
+  vi.mock("../../context/TableRowMenuContext/TableRowMenuContext", () => ({
     __esModule: true,
-    ...jest.requireActual("../../context/TableRowMenuContext/TableRowMenuContext")
+    ...vi.requireActual("../../context/TableRowMenuContext/TableRowMenuContext")
   }));
 
-  jest.spyOn(TableRowMenuContextModule, "useTableRowMenu").mockImplementation(
+  vi.spyOn(TableRowMenuContextModule, "useTableRowMenu").mockImplementation(
     () =>
       ({
         hoveredRowId: null,
-        resetHoveredRow: jest.fn(),
-        onMouseOverRow: jest.fn(),
-        onMouseLeaveRow: jest.fn(),
-        onMouseOverRowMenu: jest.fn(),
-        onMouseLeaveRowMenu: jest.fn(),
+        resetHoveredRow: vi.fn(),
+        onMouseOverRow: vi.fn(),
+        onMouseLeaveRow: vi.fn(),
+        onMouseOverRowMenu: vi.fn(),
+        onMouseLeaveRowMenu: vi.fn(),
         menuButtonPosition: 0,
-        setTableMenuShown: jest.fn(),
-        setTableMenuHidden: jest.fn()
+        setTableMenuShown: vi.fn(),
+        setTableMenuHidden: vi.fn()
       } satisfies TableRowMenuContext)
   );
 }

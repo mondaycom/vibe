@@ -7,10 +7,10 @@ import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 import renderer from "react-test-renderer";
 import TipseenTitle from "../TipseenTitle";
 
-jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
+vi.mock("react-transition-group", () => {
+  const FakeTransition = vi.fn(({ children }) => children);
+  const FakeSwitchTransition = vi.fn(({ children }) => children);
+  const FakeCSSTransition = vi.fn(({ children }) => children);
   return {
     CSSTransition: FakeCSSTransition,
     Transition: FakeTransition,
@@ -18,7 +18,7 @@ jest.mock("react-transition-group", () => {
   };
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 const tipseenMockChildren = <div className="monday-storybook-tipseen_container" />;
 
@@ -87,7 +87,7 @@ describe("Snapshot tests", () => {
 describe("Integration Tests", () => {
   describe("Tipseen tests", () => {
     it("call onClose function when click on close button", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(
         <Tipseen content="content" onClose={onClickMock}>
           <div />
@@ -103,7 +103,7 @@ describe("Integration Tests", () => {
 
   describe("Tipseen content tests", () => {
     it("call onDismiss function when click on dismiss button", () => {
-      const onDismissMock = jest.fn();
+      const onDismissMock = vi.fn();
       const { getByText } = render(
         <TipseenContent hideDismiss={false} onDismiss={onDismissMock}>
           content
@@ -118,7 +118,7 @@ describe("Integration Tests", () => {
     });
 
     it("call onSubmit function when click on dismiss button", () => {
-      const onSubmitMock = jest.fn();
+      const onSubmitMock = vi.fn();
       const { getByText } = render(<TipseenContent onSubmit={onSubmitMock}>content</TipseenContent>);
       const submitButton = getByText(SUBMIT_BUTTON_TEXT);
 

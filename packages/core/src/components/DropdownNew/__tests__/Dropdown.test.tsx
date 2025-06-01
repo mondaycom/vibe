@@ -184,7 +184,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onInputChange when input value changes", () => {
-      const onInputChange = jest.fn();
+      const onInputChange = vi.fn();
       const { getByPlaceholderText } = renderDropdown({
         onInputChange,
         placeholder: "Select an option"
@@ -197,7 +197,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onOptionSelect when an option is selected", () => {
-      const onOptionSelect = jest.fn();
+      const onOptionSelect = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         onOptionSelect,
         placeholder: "Select an option"
@@ -211,7 +211,7 @@ describe("DropdownNew", () => {
     });
 
     it("should not allow selection of disabled options", () => {
-      const onOptionSelect = jest.fn();
+      const onOptionSelect = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         onOptionSelect,
         placeholder: "Select an option"
@@ -420,7 +420,7 @@ describe("DropdownNew", () => {
 
   describe("event handlers", () => {
     it("should call onFocus when input is focused", () => {
-      const onFocus = jest.fn();
+      const onFocus = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onFocus });
 
       const input = getByPlaceholderText("Select an option");
@@ -430,7 +430,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onBlur when input loses focus", () => {
-      const onBlur = jest.fn();
+      const onBlur = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onBlur });
 
       const input = getByPlaceholderText("Select an option");
@@ -441,7 +441,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onChange when an option is selected", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({ onChange });
 
       const input = getByPlaceholderText("Select an option");
@@ -459,8 +459,8 @@ describe("DropdownNew", () => {
     });
 
     it("should call onClear when clear button is clicked", () => {
-      const onClear = jest.fn();
-      const onChange = jest.fn();
+      const onClear = vi.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({ onClear, onChange });
 
       const input = getByPlaceholderText("Select an option");
@@ -476,7 +476,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onKeyDown when a key is pressed", () => {
-      const onKeyDown = jest.fn();
+      const onKeyDown = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onKeyDown });
 
       const input = getByPlaceholderText("Select an option");
@@ -486,7 +486,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onMenuOpen when dropdown is opened", () => {
-      const onMenuOpen = jest.fn();
+      const onMenuOpen = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onMenuOpen });
 
       const input = getByPlaceholderText("Select an option");
@@ -496,8 +496,8 @@ describe("DropdownNew", () => {
     });
 
     it("should call onMenuClose when dropdown is closed", () => {
-      const onMenuOpen = jest.fn();
-      const onMenuClose = jest.fn();
+      const onMenuOpen = vi.fn();
+      const onMenuClose = vi.fn();
       const { getByPlaceholderText, getByRole } = renderDropdown({ onMenuClose, onMenuOpen });
 
       const input = getByPlaceholderText("Select an option");
@@ -513,7 +513,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onScroll when list is scrolled", () => {
-      const onScroll = jest.fn();
+      const onScroll = vi.fn();
       const manyOptions = [
         {
           label: "Group 1",
@@ -540,13 +540,13 @@ describe("DropdownNew", () => {
     });
 
     it("should handle the complete interaction flow", () => {
-      const onFocus = jest.fn();
-      const onBlur = jest.fn();
-      const onMenuOpen = jest.fn();
-      const onMenuClose = jest.fn();
-      const onInputChange = jest.fn();
-      const onChange = jest.fn();
-      const onOptionSelect = jest.fn();
+      const onFocus = vi.fn();
+      const onBlur = vi.fn();
+      const onMenuOpen = vi.fn();
+      const onMenuClose = vi.fn();
+      const onInputChange = vi.fn();
+      const onChange = vi.fn();
+      const onOptionSelect = vi.fn();
 
       const { getByPlaceholderText, getByRole, getByText } = renderDropdown({
         onFocus,
@@ -608,7 +608,7 @@ describe("DropdownNew", () => {
     });
 
     it("should allow selecting multiple items", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         multi: true,
         onChange
@@ -643,7 +643,7 @@ describe("DropdownNew", () => {
     });
 
     it("should remove an item when its chip is deleted", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
         multi: true,
         onChange
@@ -667,7 +667,7 @@ describe("DropdownNew", () => {
     });
 
     it("should call onOptionRemove when an item is removed", () => {
-      const onOptionRemove = jest.fn();
+      const onOptionRemove = vi.fn();
       const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
         multi: true,
         onOptionRemove
@@ -794,7 +794,7 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const handleChange = jest.fn();
+      const handleChange = vi.fn();
 
       const { getByText, getByPlaceholderText } = render(
         <Dropdown<InlineItemType>

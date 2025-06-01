@@ -3,8 +3,8 @@ import useSetFocus from "../index";
 
 describe("useSetFocus", () => {
   let element;
-  const focusCallback = jest.fn();
-  const blurCallback = jest.fn();
+  const focusCallback = vi.fn();
+  const blurCallback = vi.fn();
 
   afterEach(() => {
     element.remove();

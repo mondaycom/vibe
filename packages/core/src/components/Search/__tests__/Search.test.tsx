@@ -54,7 +54,7 @@ describe("Search", () => {
   });
 
   it("should trigger onChange with the correct value when typing without debounce", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByRole } = renderSearch({ onChange, debounceRate: 0 });
     userEvent.type(getByRole("searchbox"), "Hello, World!");
     expect(onChange).toHaveBeenCalledTimes("Hello, World!".length);
@@ -62,7 +62,7 @@ describe("Search", () => {
   });
 
   it("should trigger onClear when the user press the clear button", () => {
-    const onClear = jest.fn();
+    const onClear = vi.fn();
     const { getByRole, getByLabelText } = renderSearch({ value: "Test" });
     userEvent.type(getByRole("searchbox"), "Hello, World!");
     userEvent.click(getByLabelText("Clear"));
@@ -70,15 +70,15 @@ describe("Search", () => {
   });
 
   it("should debounce the onChange call", () => {
-    jest.useFakeTimers();
-    const onChange = jest.fn();
+    vi.useFakeTimers();
+    const onChange = vi.fn();
 
     const { getByRole } = renderSearch({ onChange, debounceRate: 100 });
     userEvent.type(getByRole("searchbox"), "Hello");
     expect(onChange).not.toHaveBeenCalled();
-    jest.advanceTimersByTime(100);
+    vi.advanceTimersByTime(100);
     expect(onChange).toHaveBeenCalledWith("Hello");
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it("should respect the autoFocus prop", () => {
@@ -150,8 +150,8 @@ describe("Search", () => {
 
   describe("interactions", () => {
     it("should handle focus and blur events", () => {
-      const onFocus = jest.fn();
-      const onBlur = jest.fn();
+      const onFocus = vi.fn();
+      const onBlur = vi.fn();
       const { getByRole } = renderSearch({ onFocus, onBlur });
       const input = getByRole("searchbox");
       userEvent.click(input);
@@ -161,7 +161,7 @@ describe("Search", () => {
     });
 
     it("should call onKeyDown when Enter key is pressed", () => {
-      const onKeyDown = jest.fn();
+      const onKeyDown = vi.fn();
       const { getByRole } = renderSearch({ onKeyDown });
       const input = getByRole("searchbox");
       userEvent.click(input);
@@ -170,7 +170,7 @@ describe("Search", () => {
     });
 
     it("should not call onKeyDown when input is disabled", () => {
-      const onKeyDown = jest.fn();
+      const onKeyDown = vi.fn();
       const { getByRole } = renderSearch({ onKeyDown, disabled: true });
       const input = getByRole("searchbox");
       userEvent.click(input);
@@ -179,7 +179,7 @@ describe("Search", () => {
     });
 
     it("should call onKeyDown for each character when input is typed with content", () => {
-      const onKeyDown = jest.fn();
+      const onKeyDown = vi.fn();
       const string = "Hello, World!";
       const { getByRole } = renderSearch({ onKeyDown });
       const input = getByRole("searchbox");

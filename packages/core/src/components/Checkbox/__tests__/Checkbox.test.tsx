@@ -2,9 +2,9 @@ import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import Checkbox from "../Checkbox";
 
-jest.mock("../../../utils/user-agent-utils", () => {
+vi.mock("../../../utils/user-agent-utils", () => {
   return {
-    isFirefox: jest.fn()
+    isFirefox: vi.fn()
   };
 });
 
@@ -30,15 +30,15 @@ type RenderHelper = {
   checkbox1Name: string;
   option1Value: string;
   option1Text: string;
-  onChangeMock1: jest.MockedFunction<MockedFunction>;
+  onChangeMock1: vi.MockedFunction<MockedFunction>;
   checkbox2Name: string;
   option2Text: string;
   option2Value: string;
-  onChangeMock2: jest.MockedFunction<MockedFunction>;
+  onChangeMock2: vi.MockedFunction<MockedFunction>;
   checkbox3Name: string;
   option3Text: string;
   option3Value: string;
-  onChangeMock3: jest.MockedFunction<MockedFunction>;
+  onChangeMock3: vi.MockedFunction<MockedFunction>;
   defaultChecked?: boolean;
   autoFocus?: boolean;
 };
@@ -105,15 +105,15 @@ describe("Checkbox tests", () => {
     option3Text
   } = createCheckboxesVariables();
 
-  let onChangeMock1: jest.MockedFunction<MockedFunction>,
-    onChangeMock2: jest.MockedFunction<MockedFunction>,
-    onChangeMock3: jest.MockedFunction<MockedFunction>;
+  let onChangeMock1: vi.MockedFunction<MockedFunction>,
+    onChangeMock2: vi.MockedFunction<MockedFunction>,
+    onChangeMock3: vi.MockedFunction<MockedFunction>;
 
   describe("regular checkbox tests with default checked", () => {
     beforeEach(() => {
-      onChangeMock1 = jest.fn();
-      onChangeMock2 = jest.fn();
-      onChangeMock3 = jest.fn();
+      onChangeMock1 = vi.fn();
+      onChangeMock2 = vi.fn();
+      onChangeMock3 = vi.fn();
 
       renderCheckboxes({
         formName,
@@ -230,29 +230,29 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      jest.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn().mockImplementation(() => true)
+          isFirefox: vi.fn().mockImplementation(() => true)
         };
       });
     });
 
     afterAll(() => {
-      jest.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn()
+          isFirefox: vi.fn()
         };
       });
     });
 
-    let onChangeMock1: jest.MockedFunction<MockedFunction>,
-      onChangeMock2: jest.MockedFunction<MockedFunction>,
-      onChangeMock3: jest.MockedFunction<MockedFunction>;
+    let onChangeMock1: vi.MockedFunction<MockedFunction>,
+      onChangeMock2: vi.MockedFunction<MockedFunction>,
+      onChangeMock3: vi.MockedFunction<MockedFunction>;
 
     beforeEach(() => {
-      onChangeMock1 = jest.fn();
-      onChangeMock2 = jest.fn();
-      onChangeMock3 = jest.fn();
+      onChangeMock1 = vi.fn();
+      onChangeMock2 = vi.fn();
+      onChangeMock3 = vi.fn();
       renderCheckboxes({
         formName,
         onChangeMock1,

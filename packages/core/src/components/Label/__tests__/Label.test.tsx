@@ -10,14 +10,14 @@ describe("Label", () => {
 
   describe("Clickable", () => {
     it("should call onClick callback when label is clicked", () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       render(<Label text="Clickable Label" onClick={onClick} />);
       fireEvent.click(screen.getByTestId(defaultTestId));
       expect(onClick).toBeCalled();
     });
 
     it("should call onClick callback when label is clicked with the enter key", () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       render(<Label text="Clickable Label" onClick={onClick} />);
       screen.getByTestId(defaultTestId).focus();
       userEvent.type(screen.getByTestId(defaultTestId), "{enter}");
@@ -25,7 +25,7 @@ describe("Label", () => {
     });
 
     it("should call onClick callback when label is clicked with the space key", () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       render(<Label text="Clickable Label" onClick={onClick} />);
       screen.getByTestId(defaultTestId).focus();
       userEvent.type(screen.getByTestId(defaultTestId), "{space}");

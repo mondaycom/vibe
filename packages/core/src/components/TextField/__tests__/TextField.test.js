@@ -11,8 +11,8 @@ describe("TextField Tests", () => {
   beforeEach(() => {
     cleanup();
     ref = { current: null };
-    onChangeStub = jest.fn();
-    jest.useFakeTimers("modern");
+    onChangeStub = vi.fn();
+    vi.useFakeTimers("modern");
     act(() => {
       inputComponent = render(
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />
@@ -20,7 +20,7 @@ describe("TextField Tests", () => {
     });
   });
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     cleanup();
   });
 
@@ -87,7 +87,7 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    jest.advanceTimersByTime(debounceTime + 1);
+    vi.advanceTimersByTime(debounceTime + 1);
     expect(onChangeStub.mock.calls.length).toEqual(1);
   });
 
@@ -341,7 +341,7 @@ describe("TextField Tests", () => {
 
   describe("controlled", () => {
     it("should call onChange with the new value when controlled is true", () => {
-      const handleChange = jest.fn();
+      const handleChange = vi.fn();
       render(<TextField placeholder="Enter text" onChange={handleChange} value="value" controlled />);
 
       const input = screen.getByPlaceholderText("Enter text");

@@ -11,13 +11,13 @@ it("renders correctly with empty props", () => {
   expect(tree).toMatchSnapshot();
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe("ColorPicker", () => {
   it("Should call onSave with color clicked value", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
 
     const { getByLabelText } = render(
       <ColorPicker
@@ -41,7 +41,7 @@ describe("ColorPicker", () => {
   it("Should call onSave with multiselect colors clicked values", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
 
     const { getByLabelText } = render(
       <ColorPicker
@@ -117,7 +117,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const content = screen.getByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -132,7 +132,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const content = screen.queryByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -156,7 +156,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const contentByName = screen.queryByText(colorNameTooltip);
     const expected = screen.getByText(contentByColorTooltip);
 
