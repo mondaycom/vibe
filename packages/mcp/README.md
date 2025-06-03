@@ -44,27 +44,15 @@ Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in you
 
 - `get-vibe-component-metadata`: Returns metadata for a specific Vibe component (or all components if no name is provided).
 - `list-vibe-public-components`: Get a list of all public @vibe/core & @vibe/core/next components names.
+- `get-vibe-component-examples`: Get React usage examples for Vibe components. Returns implementation examples and patterns for specific components or all components if none specified.
 
 #### Icon Tool
 
 - `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags. Supports optional filtering by text query, category, or tags, limiting results, and including React usage examples.
 
-#### Migration
+#### Migration Tool
 
-- `v3-migration`: Analyzes a project for Vibe 2 to Vibe 3 migration requirements based on the official migration guide. Performs detailed analysis of your project and generates migration commands using tsx and jsx file extensions.
-
-  **Parameters:**
-
-  - `projectPath` (string): Path to the project directory to analyze for migration
-
-  **Features:**
-
-  - **Prominent Step-by-Step Guidance**: Clear visual steps with emojis, progress tracking, and completion indicators
-  - **Dependency Analysis**: Analyzes package.json for Vibe package dependencies and migration status
-  - **Code Scanning**: Scans TypeScript/JavaScript files for problematic imports and component usage
-  - **Breaking Change Detection**: Identifies removed components and components with breaking changes
-  - **Priority-based Recommendations**: Provides specific recommendations with step indicators and customized commands
-  - **Enhanced Final Steps**: Prominent celebration, formatting guidance, and GitHub star request to ensure complete migration workflow
+- `v3-migration`: Evaluates your project for Vibe 2 to Vibe 3 migration needs according to the official migration guide. Conducts comprehensive project analysis, identifies breaking changes, and generates the necessary migration commands to resolve them.
 
 ## Status
 
