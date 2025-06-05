@@ -14,7 +14,6 @@ export { default as GithubContributorsList } from './github-contributors-list/gi
 export { default as InformationBox } from './information-box/information-box';
 export { default as InformationBoxTitle } from './information-box-title/information-box-title';
 export { default as Link } from './link/link';
-export { default as LinkComponent } from './link-component/link-component';
 export { default as MultipleStoryElementsWrapper } from './multiple-story-elements-wrapper/multiple-story-elements-wrapper';
 export { default as Paragraph } from './paragraph/paragraph';
 export { default as RelatedComponent } from './related-component/related-component';

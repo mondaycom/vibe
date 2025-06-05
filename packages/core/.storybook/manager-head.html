@@ -11,9 +11,13 @@
   }
 </script>
 <style>
+  :root {
+    --vibe-brand-color: #ff5a85;
+  }
+
   body {
     font-family: "Figtree", sans-serif;
-    background: #f9f9f9 !important;
+    background: none !important;
     font-size: 14px;
   }
 
@@ -74,7 +78,7 @@
   }
   #storybook-explorer-menu [data-selected="true"] a,
   #storybook-explorer-menu [data-selected="true"] a svg {
-    color: #5034ff;
+    color: var(--vibe-brand-color);
   }
 
   /* Removes node-type icons */
@@ -133,8 +137,16 @@
     color: #32333861;
   }
 
-  /* Removes content<->sidebar border */
+  /* Left sidebar border */
   div[role="main"] > div {
+    box-shadow: none !important;
+    border-left: 1px solid var(--sb-layout-border-color);
+    border-radius: 0;
+  }
+
+  /* Top border */
+  div[role="main"] > div > div > div > div {
+    border-bottom: 1px solid var(--sb-layout-border-color);
     box-shadow: none !important;
   }
 
