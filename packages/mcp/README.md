@@ -19,7 +19,7 @@ Or manually update your Cursor configuration file at `~/.cursor/mcp.json` (creat
   "mcpServers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["-y", "@vibe/mcp"]
     }
   }
 }
@@ -34,7 +34,7 @@ Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in you
   "servers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["-y", "@vibe/mcp"]
     }
   }
 }
