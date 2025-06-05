@@ -12,7 +12,7 @@ Connect your AI client to the MCP server by following the instructions below.
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=vibe&config=eyJjb21tYW5kIjoibnB4IC15IEB2aWJlL21jcCJ9)
 
-Or manually update your Cursor configuration file at `~/.cursor/mcp.json` (create it if it doesn't exist):
+Or manually update your Cursor MCP configuration file at `~/.cursor/mcp.json` (create it if it doesn't exist):
 
 ```json
 {
@@ -27,7 +27,11 @@ Or manually update your Cursor configuration file at `~/.cursor/mcp.json` (creat
 
 #### VSCode
 
-Create or update your VSCode MCP configuration file at `.vscode/mcp.json` in your project:
+Paste this in your browser:
+```cli
+vscode://mcp-server/add?config=%7B%22name%22%3A%22vibe%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40vibe%2Fmcp%22%5D%7D
+```
+or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (create it if it doesn't exist):
 
 ```json
 {
