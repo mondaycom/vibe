@@ -196,7 +196,7 @@ exports[`TabList renders correctly with stretchedUnderline 1`] = `
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active stretchedUnderline"
       data-testid="tab"
       data-vibe="Tab"
       onClick={[Function]}
@@ -212,7 +212,7 @@ exports[`TabList renders correctly with stretchedUnderline 1`] = `
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper stretchedUnderline"
       data-testid="tab"
       data-vibe="Tab"
       onClick={[Function]}
