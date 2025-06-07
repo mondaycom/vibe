@@ -29,6 +29,10 @@ export interface TabListProps extends VibeComponentProps {
    */
   size?: string;
   /**
+   * If true, Sets an E2E underline under the whole tabs component.
+   */
+  stretchedUnderline?: boolean;
+  /**
    * The child elements representing tabs.
    */
   children?: ReactElement<TabProps>[];
@@ -43,6 +47,7 @@ const TabList: FC<TabListProps> = forwardRef(
       activeTabId = 0,
       tabType = "Compact",
       size,
+      stretchedUnderline = false,
       children,
       "data-testid": dataTestId
     },
@@ -111,17 +116,20 @@ const TabList: FC<TabListProps> = forwardRef(
           active: activeTabState === index,
           focus: focusIndex === index,
           onClick: onSelectionAction,
+          stretchedUnderline,
           className: cx(styles.tabListTabWrapper, child.props.className),
           tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
         });
       });
       return childrenToRender;
-    }, [children, activeTabState, focusIndex, onSelectionAction]);
+    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline]);
 
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
+        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))], {
+          [styles.stretchedUnderline]: stretchedUnderline
+        })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
