@@ -6,6 +6,8 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
   className="chips disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": undefined,
@@ -27,6 +29,8 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--negative-color-selected)",
@@ -86,6 +90,8 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -145,6 +151,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -189,6 +197,8 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -255,6 +265,8 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -293,6 +305,8 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -337,6 +351,8 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -403,6 +419,8 @@ exports[`Chips renders correctly renders correctly with right custom renderer 2`
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -427,6 +445,8 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -465,6 +485,8 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -524,6 +546,8 @@ exports[`Chips renders correctly renders correctly without close button 1`] = `
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
