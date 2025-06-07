@@ -1,4 +1,4 @@
-import React, { forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -13,7 +13,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { AvatarType } from "../Avatar";
 import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
-import useHover from "../../hooks/useHover/useHover";
+
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
@@ -165,10 +165,12 @@ const Chips = forwardRef(
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
-    const [hoverRef, isHovered] = useHover<HTMLDivElement>();
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
     const { isFocused } = useSetFocus({ ref: componentRef });
 
-    const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef, hoverRef);
+    const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
 
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
@@ -231,9 +233,11 @@ const Chips = forwardRef(
     const wrapperProps = hasClickableWrapper
       ? {
           ...clickableProps,
-          ref: clickableProps.ref as RefObject<HTMLDivElement>,
+          ref: mergedRef,
           className: clickableClassName,
-          style: backgroundColorStyle
+          style: backgroundColorStyle,
+          onMouseEnter: handleMouseEnter,
+          onMouseLeave: handleMouseLeave
         }
       : {
           className: overrideClassName,
@@ -243,7 +247,9 @@ const Chips = forwardRef(
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": componentDataTestId
+          "data-testid": componentDataTestId,
+          onMouseEnter: handleMouseEnter,
+          onMouseLeave: handleMouseLeave
         };
 
     const leftAvatarProps = leftAvatarType === "text" ? { text: leftAvatar } : { src: leftAvatar };
