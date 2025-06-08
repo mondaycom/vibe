@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.52.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.3...@vibe/core@3.52.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* **Chips:** fix hover state ([#2924](https://github.com/mondaycom/vibe/issues/2924)) ([6eed661](https://github.com/mondaycom/vibe/commit/6eed66131e62ba7f1a5e7db608c0f86fb184271e))
+
+
+### Features
+
+* **tabs:** added stretchedUnderline prop ([#2923](https://github.com/mondaycom/vibe/issues/2923)) ([6f971ee](https://github.com/mondaycom/vibe/commit/6f971eec4d095919002eaea237e96c7132883c74))
+
+
+
+
+
 ## [3.51.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.2...@vibe/core@3.51.3) (2025-06-01)
 
 **Note:** Version bump only for package @vibe/core

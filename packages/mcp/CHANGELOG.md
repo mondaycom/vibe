@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.2...@vibe/mcp@0.3.0) (2025-06-08)
+
+
+### Features
+
+* **mcp:** add v3 migration tool ([#2916](https://github.com/mondaycom/vibe/issues/2916)) ([62b6d40](https://github.com/mondaycom/vibe/commit/62b6d403e5165b689245fd3300d1792110daf96f))
+
+
+
+
+
 ## [0.2.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.1...@vibe/mcp@0.2.2) (2025-06-02)
 
 
