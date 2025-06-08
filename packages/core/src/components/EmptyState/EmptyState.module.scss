@@ -1,0 +1,9 @@
+.emptyState {
+  padding: var(--space-24);
+  gap: var(--space-16);
+  
+  &.compact {
+    padding: var(--space-16);
+    gap: var(--space-8);
+  }
+} 

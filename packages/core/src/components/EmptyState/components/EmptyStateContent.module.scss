@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+  
+  &.compact {
+    margin-bottom: var(--space-8);
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+} 

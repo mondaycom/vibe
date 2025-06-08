@@ -1,0 +1,151 @@
+import { Meta } from "@storybook/blocks";
+import * as EmptyStateStories from "./EmptyState.stories";
+import EmptyState from "./EmptyState";
+
+<Meta of={EmptyStateStories} />
+
+# EmptyState
+
+EmptyState is a generic, reusable UI component to communicate "no data" or "empty" scenarios. It centers optional decorative visuals, an optional title, a required description, and up to two actions (primary and secondary) to guide users toward the next steps.
+
+## Import path
+
+```tsx
+import { EmptyState } from "@vibe/core"; 
+```
+
+## Overview
+
+<Canvas of={EmptyStateStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Provide a clear description to explain why the state is empty.",
+    "Use the visual slot to add contextual illustrations or animations.",
+    "Include primary and/or secondary actions to guide users toward next steps.",
+    "Use the compact variant for tight or constrained layouts.",
+  ]}
+/>
+
+## Variants
+
+### Visual Illustration
+
+Demonstrates how to add a decorative visual to the empty state.
+
+<Canvas of={EmptyStateStories.WithVisual} />
+
+### Title Only
+
+Showcases only the title and description, without visual or actions.
+
+<Canvas of={EmptyStateStories.WithTitle} />
+
+### Actions
+
+Demonstrates primary and secondary actions to prompt user interactions.
+
+<Canvas of={EmptyStateStories.WithBothActions} />
+
+### Compact Layout
+
+A reduced spacing variant suitable for tight layouts.
+
+<Canvas of={EmptyStateStories.Compact} />
+
+### Loading State
+
+Displays a primary action in a loading state.
+
+<Canvas of={EmptyStateStories.LoadingState} />
+
+### Disabled Actions
+
+Shows both actions disabled when interaction is not available.
+
+<Canvas of={EmptyStateStories.DisabledState} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <EmptyState
+            description="No notifications"
+            primaryAction={{ text: "View Notifications", href: "#" }}
+          />
+        ),
+        description:
+          "Include a clear call-to-action to guide users out of the empty state.",
+      },
+      negative: {
+        component: <EmptyState description="No notifications" />,
+        description:
+          "Avoid leaving the empty state without any actionable next steps.",
+      },
+    },
+    {
+      positive: {
+        component: (
+          <EmptyState
+            visual={
+              <div
+                style={{
+                  width: "64px",
+                  height: "64px",
+                  backgroundColor: "#f0f0f0",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px"
+                }}
+              >
+                📭
+              </div>
+            }
+            description="No results"
+          />
+        ),
+        description:
+          "Use decorative visuals to provide context and reduce cognitive load.",
+      },
+      negative: {
+        component: <EmptyState description="No results" />,
+        description:
+          "Do not rely solely on text; visuals help communicate the empty state more effectively.",
+      },
+    },
+    {
+      positive: {
+        component: (
+          <EmptyState
+            compact
+            description="Compact layout example"
+            primaryAction={{ text: "Retry", href: "#" }}
+          />
+        ),
+        description:
+          "Use the compact variant in space-constrained layouts for a tighter appearance.",
+      },
+      negative: {
+        component: (
+          <EmptyState
+            description="Standard layout example"
+            primaryAction={{ text: "Retry", href: "#" }}
+          />
+        ),
+        description:
+          "Avoid using the standard spacing when the layout requires tighter spacing.",
+      },
+    },
+  ]}
+/> 
