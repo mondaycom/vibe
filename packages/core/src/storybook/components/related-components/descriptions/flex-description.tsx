@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import { Flex, Button } from "../../../../components";
+import { Flex, Box } from "../../../../components";
 
 export const FlexDescription = () => {
   const component = useMemo(() => {
     return (
       <Flex gap="small">
-        <Button>Primary</Button>
-        <Button kind="tertiary">Tertiary</Button>
-        <Button kind="tertiary">Tertiary</Button>
+        <Box style={{ width: "50px", height: "50px" }} border />
+        <Box style={{ width: "50px", height: "50px" }} border />
+        <Box style={{ width: "50px", height: "50px" }} border />
       </Flex>
     );
   }, []);
