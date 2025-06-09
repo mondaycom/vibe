@@ -1,0 +1,153 @@
+---
+description: "Provides a systematic, research-driven workflow for implementing new Vibe components - for the @vibe/core library (located in "packages/core") - from initial research through final validation. Emphasizes studying existing patterns, following established conventions, and systematic progression through types, component implementation, styling, testing, and documentation to ensure consistency and quality."
+globs:
+alwaysApply: false
+---
+
+# New Component Implementation Workflow
+
+**Purpose**: Provides a systematic approach to implementing new Vibe components, ensuring consistency, efficiency, and adherence to project standards.
+
+## Pre-Implementation Research Phase
+
+### Study Similar Components
+
+Before writing any code, examine 2-3 existing components that share similar functionality or patterns. For example:
+
+- For informational components: [AttentionBox.tsx](mdc:packages/core/src/components/AttentionBox/AttentionBox.tsx), [AlertBanner.tsx](mdc:packages/core/src/components/AlertBanner/AlertBanner.tsx)
+- For action-oriented components: [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx), [SplitButton.tsx](mdc:packages/core/src/components/SplitButton/SplitButton.tsx)
+- For layout components: [Flex.tsx](mdc:packages/core/src/components/Flex/Flex.tsx), [Box.tsx](mdc:packages/core/src/components/Box/Box.tsx)
+
+**Reference**: [component-internal-structure](mdc:.cursor/rules/component-internal-structure.mdc) for detailed component structure patterns and conventions.
+
+### Identify Dependencies
+
+Research the exact APIs of Vibe components you'll integrate with:
+
+- **Typography**: [Text.tsx](mdc:packages/core/src/components/Text/Text.tsx), [Heading.tsx](mdc:packages/core/src/components/Heading/Heading.tsx)
+- **Actions**: [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx), [Link.tsx](mdc:packages/core/src/components/Link/Link.tsx)
+- **Layout**: [Flex.tsx](mdc:packages/core/src/components/Flex/Flex.tsx)
+- Check component types files (e.g., [Button.types.ts](mdc:packages/core/src/components/Button/Button.types.ts)) for available props
+
+**Reference**: [dependency-management](mdc:.cursor/rules/dependency-management.mdc) for guidelines on choosing and managing dependencies.
+
+### Understand Project Structure
+
+- Base types: [VibeComponentProps.ts](mdc:packages/core/src/types/VibeComponentProps.ts)
+- Test utilities: [test-ids-utils.ts](mdc:packages/core/src/tests/test-ids-utils.ts)
+- Constants: [constants.ts](mdc:packages/core/src/tests/constants.ts)
+- Design tokens: Check existing SCSS files for available CSS custom properties
+
+**Reference**: [monorepo-structure](mdc:.cursor/rules/monorepo-structure.mdc) for understanding the overall project organization and [file-structures](mdc:.cursor/rules/file-structures.mdc) for specific file organization patterns.
+
+## Implementation Order
+
+### 1. Types First (`ComponentName.types.ts`)
+
+- Extend [VibeComponentProps.ts](mdc:packages/core/src/types/VibeComponentProps.ts)
+- Define clear interfaces before implementation
+- Use `ReactNode` for flexible content props
+- Follow existing patterns from similar components
+
+**Reference**: [naming-conventions](mdc:.cursor/rules/naming-conventions.mdc) for proper naming patterns for types and interfaces.
+
+### 2. Core Component (`ComponentName.tsx`)
+
+- Use `forwardRef` pattern. For example following [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx)
+- Import from established Vibe components
+- Follow existing test ID patterns from [constants.ts](mdc:packages/core/src/tests/constants.ts)
+- Use CSS Modules for styling
+
+**References**:
+
+- [component-internal-structure](mdc:.cursor/rules/component-internal-structure.mdc) for detailed component structure conventions
+- [accessibility-guidelines](mdc:.cursor/rules/accessibility-guidelines.mdc) for ensuring proper accessibility implementation
+- [react-context](mdc:.cursor/rules/react-context.mdc) if your component needs to use or provide React Context
+- [naming-conventions](mdc:.cursor/rules/naming-conventions.mdc) for component and prop naming patterns
+
+### 3. Styles (`ComponentName.module.scss`)
+
+- NEVER Import anything inside the module scss file
+- Use established design tokens and spacing variables
+
+**Reference**: [styling-conventions](mdc:.cursor/rules/styling-conventions.mdc) for comprehensive CSS Modules guidelines, design token usage, and styling best practices.
+
+### 4. Index Exports (`index.ts`)
+
+- On the same root directory of the component (e.g., `packages/core/src/components/MyComponent/index.ts`)
+- Export both component and types
+- Follow pattern: `export { default as ComponentName } from "./ComponentName"`
+
+**Reference**: [file-structures](mdc:.cursor/rules/file-structures.mdc) for export patterns and file organization conventions.
+
+### 5. Add to Global Exports
+
+- Update [components/index.ts](mdc:packages/core/src/components/index.ts) in alphabetical order
+- Add test IDs to [constants.ts](mdc:packages/core/src/tests/constants.ts) enum
+- Add to `ComponentVibeId` enum if needed
+
+**References**:
+
+- [file-structures](mdc:.cursor/rules/file-structures.mdc) for global export patterns
+- [monorepo-structure](mdc:.cursor/rules/monorepo-structure.mdc) for understanding where and how to add global exports
+
+### 6. Tests (`__tests__/ComponentName.test.tsx`)
+
+- Follow testing patterns from similar components
+- Test actual component behavior, not assumptions
+- Check for proper test ID assignments
+- Verify accessibility attributes (e.g., `aria-hidden`, `aria-disabled`)
+
+**Reference**:
+
+- [accessibility-guidelines](mdc:.cursor/rules/accessibility-guidelines.mdc) for comprehensive accessibility testing requirements and patterns.
+
+### 7. Stories (`__stories__/ComponentName.stories.tsx`)
+
+- Create comprehensive examples covering all variants
+
+**Reference**: [storybook-stories](mdc:.cursor/rules/storybook-stories.mdc) for detailed Storybook conventions, story structure, and MDX documentation requirements.
+
+## Validation and Quality Phase
+
+### Development Validation
+
+1. **TypeScript Check**
+2. **Test Suite**: `yarn test src/components/ComponentName/`
+3. **Lint and Format**: `yarn prettier --write src/components/ComponentName/` then `yarn lint src/components/ComponentName/ --fix`
+
+### Integration Verification
+
+- Verify component exports work by importing in test file
+- Check that all test IDs are properly defined in [constants.ts](mdc:packages/core/src/tests/constants.ts)
+- Ensure component follows established Vibe patterns
+
+## Key Principles
+
+### Research-Driven Development
+
+- **Don't Guess APIs**: Always check actual component implementations
+- **Study Patterns**: Look at how similar components handle similar problems
+- **Understand Context**: Review existing test patterns and story structures
+
+### Systematic Progression
+
+- **Follow Order**: Complete each phase before moving to next
+- **Validate Early**: Run TypeScript and tests frequently
+- **Defer Formatting**: Focus on functionality first, format as final step
+
+### Quality Standards
+
+- **Test Real Behavior**: Verify actual DOM output and accessibility attributes
+- **Follow Conventions**: Use established patterns for file structure and naming
+- **Integrate Properly**: Ensure component works within the existing Vibe ecosystem
+
+## Common Pitfalls to Avoid
+
+1. **API Assumptions**: Don't assume component APIs (e.g., Link uses `text` prop, not children)
+2. **Premature Formatting**: Don't interrupt development flow with linting - batch it at the end
+3. **Test Assumptions**: Test actual behavior (disabled buttons may use `aria-disabled` vs `disabled`)
+4. **Missing Integration**: Forgetting to add exports to main index files or test constants
+5. **Design Token Guessing**: Check existing SCSS files for available CSS custom properties
+
+This workflow ensures consistent, high-quality component implementation that integrates seamlessly with the Vibe design system.
