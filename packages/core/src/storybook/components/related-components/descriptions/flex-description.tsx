@@ -6,9 +6,8 @@ export const FlexDescription = () => {
   const component = useMemo(() => {
     return (
       <Flex gap="small">
-        <Box style={{ width: "50px", height: "50px" }} border />
-        <Box style={{ width: "50px", height: "50px" }} border />
-        <Box style={{ width: "50px", height: "50px" }} border />
+        <Box padding="small" border />
+        <Box padding="small" border />
       </Flex>
     );
   }, []);
