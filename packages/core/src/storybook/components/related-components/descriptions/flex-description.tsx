@@ -6,8 +6,9 @@ export const FlexDescription = () => {
   const component = useMemo(() => {
     return (
       <Flex gap="small">
-        <Box padding="small" border />
-        <Box padding="small" border />
+        <Box padding="large" border />
+        <Box padding="large" border />
+        <Box padding="large" border />
       </Flex>
     );
   }, []);
