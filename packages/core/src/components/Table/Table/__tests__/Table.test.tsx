@@ -76,7 +76,7 @@ describe("Table", () => {
     });
 
     afterEach(() => {
-      jest.restoreAllMocks();
+      vi.restoreAllMocks();
     });
 
     it("should render without a highlight state", () => {
@@ -213,7 +213,7 @@ describe("Table", () => {
       ["none", "none"]
     ])("Sort", (sortState: TableHeaderCellProps["sortState"], ariaSort) => {
       it(`Should apply aria-sort to header element (${sortState}, ${ariaSort}) when onSortClicked is defined`, () => {
-        const onSortClicked = jest.fn();
+        const onSortClicked = vi.fn();
         const { getByRole } = render(
           <TableHeaderCell title="Title" sortState={sortState} onSortClicked={onSortClicked} />
         );

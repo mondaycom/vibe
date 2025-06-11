@@ -5,12 +5,12 @@ import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-jest.mock("../../../Menu/MenuItem/MenuItem", () => {
+vi.mock("../../../Menu/MenuItem/MenuItem", () => {
   return {
     __esModule: true,
-    default: jest.fn(props => {
+    default: vi.fn(props => {
       if (props.onClick && props.title === "Click Test") {
         props.onClick({});
       }
@@ -26,7 +26,7 @@ describe("BreadcrumbMenu tests", () => {
 
   afterEach(() => {
     restoreRequestAnimationFrameMock();
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should open menu when clicked", async () => {
@@ -51,7 +51,7 @@ describe("BreadcrumbMenu tests", () => {
   });
 
   it("should pass onClick handlers to MenuItem", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
 
     render(<BreadcrumbMenuItem title="Click Test" onClick={onClickMock} />);
 
@@ -60,9 +60,9 @@ describe("BreadcrumbMenu tests", () => {
 
   it("should pass link to MenuItem", () => {
     const originalOpen = window.open;
-    window.open = jest.fn();
+    window.open = vi.fn();
 
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
 
     const { getByTestId } = render(
       <BreadcrumbMenuItem title="Link Test" onClick={onClickMock} link="https://example.com" />

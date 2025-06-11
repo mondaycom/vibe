@@ -19,7 +19,7 @@ describe("MultiStepIndicator tests", () => {
       }
     ];
 
-    const stepClickMock = jest.fn();
+    const stepClickMock = vi.fn();
 
     const multiStepIndicatorComponent = render(
       <MultiStepIndicator type="success" steps={exampleSteps} onClick={stepClickMock} />

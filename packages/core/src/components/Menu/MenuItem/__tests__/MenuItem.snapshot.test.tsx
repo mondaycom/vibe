@@ -40,4 +40,4 @@ describe("Snapshots", () => {
   });
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();

@@ -4,11 +4,11 @@ import useKeyEvent from "../useKeyEvent";
 
 describe("useKeyEvent", () => {
   let element: HTMLElement;
-  let callbackStub: jest.Mock;
+  let callbackStub: vi.Mock;
   describe("single key", () => {
     const keys = ["Enter"];
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -58,7 +58,7 @@ describe("useKeyEvent", () => {
   describe("single key with ALT modifier", () => {
     const keys = ["Enter"];
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -112,7 +112,7 @@ describe("useKeyEvent", () => {
   describe("single key with CTRL_OR_META modifier", () => {
     const keys = ["Enter"];
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -187,7 +187,7 @@ describe("useKeyEvent", () => {
   describe("multiple keys", () => {
     const keys = ["Enter", "Esc", "Escape"];
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() => {

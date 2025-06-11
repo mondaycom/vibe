@@ -2,15 +2,15 @@ import ReactDOM from "react-dom";
 
 Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: vi.fn().mockImplementation(query => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(), // Deprecated
-    removeListener: jest.fn(), // Deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
+    addListener: vi.fn(), // Deprecated
+    removeListener: vi.fn(), // Deprecated
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn()
   }))
 });
 
@@ -19,13 +19,13 @@ const { testing } = process.env;
 const TESTING_STORYBOOK = testing === "storybook";
 
 if (TESTING_STORYBOOK) {
-  jest.mock("react-transition-group", () => {
-    const FakeTransition = jest.fn(({ children }) => children);
-    const FakeCSSTransition = jest.fn(props => (props.in ? <FakeTransition>{props.children}</FakeTransition> : null));
+  vi.mock("react-transition-group", () => {
+    const FakeTransition = vi.fn(({ children }) => children);
+    const FakeCSSTransition = vi.fn(props => (props.in ? <FakeTransition>{props.children}</FakeTransition> : null));
     return { CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition };
   });
-  jest.mock("consolidated-events", () => {
-    return { addEventListener: jest.fn() };
+  vi.mock("consolidated-events", () => {
+    return { addEventListener: vi.fn() };
   });
 }
 

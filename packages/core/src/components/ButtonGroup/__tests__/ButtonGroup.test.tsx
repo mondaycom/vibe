@@ -9,11 +9,11 @@ describe("ButtonGroup tests", () => {
     { value: 3, text: "Gamma" },
     { value: 4, text: "Delta" }
   ];
-  let onSelectMock: jest.Mock;
+  let onSelectMock: vi.Mock;
   let label: string;
 
   beforeEach(() => {
-    onSelectMock = jest.fn();
+    onSelectMock = vi.fn();
     label = "label";
     render(<ButtonGroup options={option} onSelect={onSelectMock} groupAriaLabel={label} />);
   });

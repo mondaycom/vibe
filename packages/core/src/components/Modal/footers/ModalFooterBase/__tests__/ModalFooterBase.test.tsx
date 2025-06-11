@@ -5,12 +5,12 @@ import ModalFooterBase from "../ModalFooterBase";
 describe("ModalFooterBase", () => {
   const primaryButton = {
     text: "Save",
-    onClick: jest.fn()
+    onClick: vi.fn()
   };
 
   const secondaryButton = {
     text: "Cancel",
-    onClick: jest.fn()
+    onClick: vi.fn()
   };
 
   it("renders the primary button with the correct text", () => {
