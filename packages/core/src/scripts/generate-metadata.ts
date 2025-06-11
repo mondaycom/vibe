@@ -2,26 +2,30 @@
 
 import fs from "fs";
 import path from "path";
-import { cpus } from "os";
-import { fileURLToPath } from "url";
 import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
+import { fileURLToPath } from "url";
+import { cpus } from "os";
 
-// Configuration constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const IS_CI = process.env.CI === "true" || process.env.CI === "True";
-const CPU_COUNT = cpus().length;
-const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Optimal batch size based on CPU cores
+console.log("__dirname", __dirname);
+const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
+console.log("CACHE_FILE", CACHE_FILE);
 
-// Display CI information
+const IS_CI = process.env.CI === "true" || process.env.CI === "True";
+
 if (IS_CI) {
-  console.log("CI environment detected. Processing components for metadata generation...");
+  console.log(
+    "CI environment detected. For optimal performance, ensure your CI pipeline caches '.metadata-cache.json'."
+  );
 }
+
+// Optimal batch size based on CPU cores
+const CPU_COUNT = cpus().length;
+const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CPU cores as batch size for best performance
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
-
-// Type definitions
 interface AggregatorRecord {
   filePath: string;
   aggregator: "core" | "next";
@@ -50,17 +54,8 @@ type FinalOutput = Array<{
   props: Props;
 }>;
 
-// Utility functions
 function isIndexFile(filePath: string): boolean {
   return path.basename(filePath).toLowerCase() === "index.ts";
-}
-
-function toRelativePath(filePath: string): string {
-  const srcIndex = filePath.indexOf("/src/");
-  if (srcIndex === -1) {
-    throw new Error(`File path does not contain /src/: ${filePath}`);
-  }
-  return filePath.slice(srcIndex + 1); // +1 to remove the leading slash
 }
 
 /**
@@ -144,6 +139,14 @@ function expandAllExportedSymbols(sf: SourceFile, visited: Set<string>): string[
   }
 
   return Array.from(new Set(results));
+}
+
+function toRelativePath(filePath: string): string {
+  const srcIndex = filePath.indexOf("/src/");
+  if (srcIndex === -1) {
+    throw new Error(`File path does not contain /src/: ${filePath}`);
+  }
+  return filePath.slice(srcIndex + 1); // +1 to remove the leading slash
 }
 
 /**
@@ -424,7 +427,7 @@ function findSubComponents(filePath: string, allFiles: string[]): string[] {
   const dirName = path.basename(dir);
   const fileName = path.basename(filePath, path.extname(filePath));
 
-  // Only look for sub-components if we're in a component directory
+  // Only look for sub-components if we\'re in a component directory
   if (!dirName.match(/^[A-Z]/)) return [];
 
   // Only include sub-components for the main component (the one that matches the directory name)
