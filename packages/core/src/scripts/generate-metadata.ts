@@ -2,31 +2,26 @@
 
 import fs from "fs";
 import path from "path";
+import { cpus } from "os";
+import { fileURLToPath } from "url";
 import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
-import { fileURLToPath } from "url";
-import { cpus } from "os";
 
+// Configuration constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-console.log("__dirname", __dirname);
-const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
-console.log("CACHE_FILE", CACHE_FILE);
-
 const IS_CI = process.env.CI === "true" || process.env.CI === "True";
-
-if (IS_CI) {
-  console.log(
-    "CI environment detected. For optimal performance, ensure your CI pipeline caches '.metadata-cache.json'."
-  );
-}
-
-// Optimal batch size based on CPU cores
 const CPU_COUNT = cpus().length;
-const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CPU cores as batch size for best performance
+const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Optimal batch size based on CPU cores
+
+// Display CI information
+if (IS_CI) {
+  console.log("CI environment detected. Processing components for metadata generation...");
+}
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
 
+// Type definitions
 interface AggregatorRecord {
   filePath: string;
   aggregator: "core" | "next";
@@ -55,8 +50,17 @@ type FinalOutput = Array<{
   props: Props;
 }>;
 
+// Utility functions
 function isIndexFile(filePath: string): boolean {
   return path.basename(filePath).toLowerCase() === "index.ts";
+}
+
+function toRelativePath(filePath: string): string {
+  const srcIndex = filePath.indexOf("/src/");
+  if (srcIndex === -1) {
+    throw new Error(`File path does not contain /src/: ${filePath}`);
+  }
+  return filePath.slice(srcIndex + 1); // +1 to remove the leading slash
 }
 
 /**
@@ -140,14 +144,6 @@ function expandAllExportedSymbols(sf: SourceFile, visited: Set<string>): string[
   }
 
   return Array.from(new Set(results));
-}
-
-function toRelativePath(filePath: string): string {
-  const srcIndex = filePath.indexOf("/src/");
-  if (srcIndex === -1) {
-    throw new Error(`File path does not contain /src/: ${filePath}`);
-  }
-  return filePath.slice(srcIndex + 1); // +1 to remove the leading slash
 }
 
 /**
@@ -239,6 +235,48 @@ function aggregatorMain(): AggregatorRecord[] {
 }
 
 /**
+ * Creates a synthetic component entry for HOC-wrapped components that react-docgen-typescript can't detect
+ */
+function createSyntheticComponentFromHOC(filePath: string, fileContent: string): any {
+  const fileName = path.basename(filePath, path.extname(filePath));
+
+  // Try multiple patterns to find the component declaration
+  const componentPatterns = [
+    /const\s+(\w+)\s*=\s*\(\{/, // const ComponentName = ({
+    /const\s+(\w+)\s*=\s*\(/, // const ComponentName = (
+    /const\s+(\w+)\s*:\s*React\.FC/, // const ComponentName: React.FC
+    /function\s+(\w+)\s*\(/, // function ComponentName(
+    /const\s+(\w+)\s*=\s*React\.forwardRef/ // const ComponentName = React.forwardRef
+  ];
+
+  let componentName = fileName; // Default fallback
+  for (const pattern of componentPatterns) {
+    const match = fileContent.match(pattern);
+    if (match) {
+      componentName = match[1];
+      break;
+    }
+  }
+
+  // Check if Props interface/type exists
+  const interfaceMatch = fileContent.match(new RegExp(`(export\\s+)?interface\\s+${componentName}Props\\s*`, "s"));
+  const typeMatch = fileContent.match(new RegExp(`(export\\s+)?type\\s+${componentName}Props\\s*=`, "s"));
+
+  if (interfaceMatch || typeMatch) {
+    return {
+      displayName: componentName,
+      description: `Component wrapped with withStaticPropsWithoutForwardRef`,
+      props: {},
+      filePath: filePath,
+      methods: [],
+      tags: {}
+    };
+  }
+
+  return null;
+}
+
+/**
  * Runs react-docgen-typescript on the provided files to extract component documentation
  */
 async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[]> {
@@ -320,47 +358,11 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
 
         let docgenData = parser.parse(filePath);
 
-        // If no components found but file has HOC, try to manually extract the component
+        // Handle HOC-wrapped components that react-docgen-typescript can't detect
         if (docgenData.length === 0 && hasHOC) {
-          // Try to manually extract component info from HOC files
-          const fileName = path.basename(filePath, path.extname(filePath));
-
-          // Try multiple patterns to find the component declaration
-          let componentName = fileName; // Default fallback
-          const componentPatterns = [
-            /const\s+(\w+)\s*=\s*\(\{/, // const ComponentName = ({
-            /const\s+(\w+)\s*=\s*\(/, // const ComponentName = (
-            /const\s+(\w+)\s*:\s*React\.FC/, // const ComponentName: React.FC
-            /function\s+(\w+)\s*\(/, // function ComponentName(
-            /const\s+(\w+)\s*=\s*React\.forwardRef/ // const ComponentName = React.forwardRef
-          ];
-
-          for (const pattern of componentPatterns) {
-            const match = fileContent.match(pattern);
-            if (match) {
-              componentName = match[1];
-              break;
-            }
-          }
-
-          // Try to extract interface/type definition
-          const interfaceMatch = fileContent.match(
-            new RegExp(`(export\\s+)?interface\\s+${componentName}Props\\s*`, "s")
-          );
-          const typeMatch = fileContent.match(new RegExp(`(export\\s+)?type\\s+${componentName}Props\\s*=`, "s"));
-
-          if (interfaceMatch || typeMatch) {
-            // Create a synthetic component entry with required ComponentDoc properties
-            docgenData = [
-              {
-                displayName: componentName,
-                description: `Component wrapped with withStaticPropsWithoutForwardRef`,
-                props: {},
-                filePath: filePath,
-                methods: [],
-                tags: {}
-              }
-            ];
+          const syntheticComponent = createSyntheticComponentFromHOC(filePath, fileContent);
+          if (syntheticComponent) {
+            docgenData = [syntheticComponent];
           }
         }
 
@@ -422,7 +424,7 @@ function findSubComponents(filePath: string, allFiles: string[]): string[] {
   const dirName = path.basename(dir);
   const fileName = path.basename(filePath, path.extname(filePath));
 
-  // Only look for sub-components if we\'re in a component directory
+  // Only look for sub-components if we're in a component directory
   if (!dirName.match(/^[A-Z]/)) return [];
 
   // Only include sub-components for the main component (the one that matches the directory name)
