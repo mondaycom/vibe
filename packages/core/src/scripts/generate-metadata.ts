@@ -26,6 +26,7 @@ const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CP
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
+
 interface AggregatorRecord {
   filePath: string;
   aggregator: "core" | "next";
@@ -238,48 +239,6 @@ function aggregatorMain(): AggregatorRecord[] {
 }
 
 /**
- * Creates a synthetic component entry for HOC-wrapped components that react-docgen-typescript can't detect
- */
-function createSyntheticComponentFromHOC(filePath: string, fileContent: string): any {
-  const fileName = path.basename(filePath, path.extname(filePath));
-
-  // Try multiple patterns to find the component declaration
-  const componentPatterns = [
-    /const\s+(\w+)\s*=\s*\(\{/, // const ComponentName = ({
-    /const\s+(\w+)\s*=\s*\(/, // const ComponentName = (
-    /const\s+(\w+)\s*:\s*React\.FC/, // const ComponentName: React.FC
-    /function\s+(\w+)\s*\(/, // function ComponentName(
-    /const\s+(\w+)\s*=\s*React\.forwardRef/ // const ComponentName = React.forwardRef
-  ];
-
-  let componentName = fileName; // Default fallback
-  for (const pattern of componentPatterns) {
-    const match = fileContent.match(pattern);
-    if (match) {
-      componentName = match[1];
-      break;
-    }
-  }
-
-  // Check if Props interface/type exists
-  const interfaceMatch = fileContent.match(new RegExp(`(export\\s+)?interface\\s+${componentName}Props\\s*`, "s"));
-  const typeMatch = fileContent.match(new RegExp(`(export\\s+)?type\\s+${componentName}Props\\s*=`, "s"));
-
-  if (interfaceMatch || typeMatch) {
-    return {
-      displayName: componentName,
-      description: `Component wrapped with withStaticPropsWithoutForwardRef`,
-      props: {},
-      filePath: filePath,
-      methods: [],
-      tags: {}
-    };
-  }
-
-  return null;
-}
-
-/**
  * Runs react-docgen-typescript on the provided files to extract component documentation
  */
 async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[]> {
@@ -305,14 +264,8 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
-    // Skip files that don't contain React components to improve performance
-    skipChildrenPropWithoutDoc: false,
-    // Be more aggressive in finding components to handle HOC patterns
-    shouldExtractValuesFromUnion: true,
     propFilter: prop => {
-      // Be more inclusive to catch props from HOC-wrapped components
       if (prop.declarations !== undefined && prop.declarations.length > 0) {
-        // Include props from the current file (not node_modules)
         const hasPropAdditionalDescription = prop.declarations.find(declaration => {
           return !declaration.fileName.includes("node_modules");
         });
@@ -321,17 +274,6 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
       }
 
       return true;
-    },
-    componentNameResolver: (exp, source) => {
-      // Handle default exports, which are often HOC-wrapped components
-      if (exp.getName() === "default") {
-        // Extract component name from the filename
-        const fileName = path.basename(source.fileName, path.extname(source.fileName));
-        if (fileName && fileName !== "index") {
-          return fileName;
-        }
-      }
-      return undefined;
     }
   });
 
@@ -356,19 +298,7 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
     const batchPromises = batch.map(async filePath => {
       try {
         const startTime = performance.now();
-        const fileContent = fs.readFileSync(filePath, "utf-8");
-        const hasHOC = fileContent.includes("withStaticPropsWithoutForwardRef");
-
-        let docgenData = parser.parse(filePath);
-
-        // Handle HOC-wrapped components that react-docgen-typescript can't detect
-        if (docgenData.length === 0 && hasHOC) {
-          const syntheticComponent = createSyntheticComponentFromHOC(filePath, fileContent);
-          if (syntheticComponent) {
-            docgenData = [syntheticComponent];
-          }
-        }
-
+        const docgenData = parser.parse(filePath);
         const result = {
           filePath,
           components: docgenData.map(c => ({
