@@ -37,3 +37,7 @@
   padding-bottom: 5px;
   pointer-events: none;
 }
+
+.tabsWrapper.stretchedUnderline {
+  border-bottom: 2px solid var(--ui-background-color);
+}

@@ -159,33 +159,31 @@ export const StepsInsideATipseen = {
     }, []);
 
     return (
-      <div className="monday-storybook-steps_block">
-        <Tipseen
-          position="left"
-          modifiers={modifiers}
-          animationType="opacity-and-slide"
-          content={
-            <TipseenWizard
-              title="This is a title"
-              steps={steps}
-              onChangeActiveStep={onChangeActiveStep}
-              activeStepIndex={activeStepIndex}
-              backButtonProps={{
-                size: "small",
-                onClick: stepPrev
-              }}
-              nextButtonProps={{
-                kind: "primary",
-                size: "small",
-                onClick: stepNext
-              }}
-              onFinish={() => {}}
-            />
-          }
-        >
-          <div className="monday-storybook-steps_container" />
-        </Tipseen>
-      </div>
+      <Tipseen
+        position="right"
+        modifiers={modifiers}
+        animationType="opacity-and-slide"
+        content={
+          <TipseenWizard
+            title="This is a title"
+            steps={steps}
+            onChangeActiveStep={onChangeActiveStep}
+            activeStepIndex={activeStepIndex}
+            backButtonProps={{
+              size: "small",
+              onClick: stepPrev
+            }}
+            nextButtonProps={{
+              kind: "primary",
+              size: "small",
+              onClick: stepNext
+            }}
+            onFinish={() => {}}
+          />
+        }
+      >
+        <div className="monday-storybook-steps_container" />
+      </Tipseen>
     );
   },
   parameters: {

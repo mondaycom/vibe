@@ -72,4 +72,16 @@ describe("TabList renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with stretchedUnderline", () => {
+    const tree = renderer
+      .create(
+        <TabList stretchedUnderline>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+        </TabList>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

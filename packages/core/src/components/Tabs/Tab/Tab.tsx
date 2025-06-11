@@ -35,6 +35,10 @@ export interface TabProps extends VibeComponentProps {
    */
   focus?: boolean;
   /**
+   * If true, hides the individual tab border when using stretched underline.
+   */
+  stretchedUnderline?: boolean;
+  /**
    * The icon displayed in the tab.
    */
   icon?: SubIcon;
@@ -70,6 +74,7 @@ const Tab: FC<TabProps> = forwardRef(
       disabled = false,
       active = false,
       focus = false,
+      stretchedUnderline = false,
       onClick = NOOP,
       tooltipProps = {} as TooltipProps,
       icon,
@@ -121,7 +126,8 @@ const Tab: FC<TabProps> = forwardRef(
           className={cx(styles.tabWrapper, className, {
             [styles.active]: active,
             [styles.disabled]: disabled,
-            [styles.tabFocusVisibleInset]: focus
+            [styles.tabFocusVisibleInset]: focus,
+            [styles.stretchedUnderline]: stretchedUnderline
           })}
           id={id}
           role="tab"
