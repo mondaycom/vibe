@@ -8,7 +8,7 @@ import { BoundingBox, Coordinates, MouseButton, WheelScrollPixels } from "./type
  * @param {number} delay - The delay between each key press (default: 100)
  * @returns {Promise<void>}
  */
-export const pressKey = async (page: Page, key: string, delay: number = 100): Promise<void> => {
+export const pressKey = async (page: Page, key: string, delay = 100): Promise<void> => {
   await test.step(`Pressing key ${key}`, async () => {
     await page.keyboard.press(key, { delay });
   });
@@ -21,7 +21,7 @@ export const pressKey = async (page: Page, key: string, delay: number = 100): Pr
  * @param {number} delay - The delay between each key typing (default: 100)
  * @returns {Promise<void>}
  */
-export const typeText = async (page: Page, text: string, delay: number = 100): Promise<void> => {
+export const typeText = async (page: Page, text: string, delay = 100): Promise<void> => {
   await test.step(`Typing text ${text}`, async () => {
     await page.keyboard.type(text, { delay });
   });
@@ -34,7 +34,7 @@ export const typeText = async (page: Page, text: string, delay: number = 100): P
  * @param {number} steps - The number of steps to take when moving (default: 1)
  * @returns {Promise<void>}
  */
-export const mouseMove = async (page: Page, boundingBox: BoundingBox, steps: number = 1): Promise<void> => {
+export const mouseMove = async (page: Page, boundingBox: BoundingBox, steps = 1): Promise<void> => {
   await test.step(`Moving mouse to ${boundingBox.x}, ${boundingBox.y}`, async () => {
     await page.mouse.move(boundingBox.x + boundingBox.width / 2, boundingBox.y + boundingBox.height / 2, { steps });
   });
@@ -47,7 +47,7 @@ export const mouseMove = async (page: Page, boundingBox: BoundingBox, steps: num
  * @param {number} clickCount - The number of clicks to perform (default: 1)
  * @returns {Promise<void>}
  */
-export const mouseDown = async (page: Page, button: MouseButton = "left", clickCount: number = 1): Promise<void> => {
+export const mouseDown = async (page: Page, button: MouseButton = "left", clickCount = 1): Promise<void> => {
   await test.step(`Mouse down ${button} ${clickCount} times`, async () => {
     await page.mouse.down({ button, clickCount });
   });
@@ -60,7 +60,7 @@ export const mouseDown = async (page: Page, button: MouseButton = "left", clickC
  * @param {number} clickCount - The number of clicks to perform (default: 1)
  * @returns {Promise<void>}
  */
-export const mouseUp = async (page: Page, button: MouseButton = "left", clickCount: number = 1): Promise<void> => {
+export const mouseUp = async (page: Page, button: MouseButton = "left", clickCount = 1): Promise<void> => {
   await test.step(`Mouse up ${button} ${clickCount} times`, async () => {
     await page.mouse.up({ button, clickCount });
   });
@@ -78,7 +78,7 @@ export const dragAndDrop = async (
   page: Page,
   sourceLocator: Locator,
   targetLocator: Locator,
-  steps: number = 5
+  steps = 5
 ): Promise<void> => {
   await test.step(`Dragging and dropping ${sourceLocator.toString()} to ${targetLocator.toString()}`, async () => {
     const sourceBox = await sourceLocator.boundingBox();
@@ -119,7 +119,7 @@ export const mouseDoubleClick = async (
   page: Page,
   coordinates: Coordinates,
   button: MouseButton = "left",
-  delay: number = 100
+  delay = 100
 ): Promise<void> => {
   await test.step(`Double clicking ${coordinates.x}, ${coordinates.y}`, async () => {
     await page.mouse.dblclick(coordinates.x, coordinates.y, { button, delay });
@@ -139,8 +139,8 @@ export const mouseClick = async (
   page: Page,
   coordinates: Coordinates,
   button: MouseButton = "left",
-  delay: number = 100,
-  clickCount: number = 1
+  delay = 100,
+  clickCount = 1
 ): Promise<void> => {
   await test.step(`Clicking ${coordinates.x}, ${coordinates.y}`, async () => {
     await page.mouse.click(coordinates.x, coordinates.y, { button, clickCount, delay });
