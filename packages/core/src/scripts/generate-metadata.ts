@@ -264,33 +264,14 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
-    // Skip files that don't contain React components to improve performance
-    skipChildrenPropWithoutDoc: false,
-    // Be more aggressive in finding components to handle HOC patterns
-    shouldExtractValuesFromUnion: true,
     propFilter: prop => {
-      // Be more inclusive to catch props from HOC-wrapped components
       if (prop.declarations !== undefined && prop.declarations.length > 0) {
-        // Include props from the current file (not node_modules)
         const hasPropAdditionalDescription = prop.declarations.find(declaration => {
           return !declaration.fileName.includes("node_modules");
         });
-
         return Boolean(hasPropAdditionalDescription);
       }
-
       return true;
-    },
-    componentNameResolver: (exp, source) => {
-      // Handle default exports, which are often HOC-wrapped components
-      if (exp.getName() === "default") {
-        // Extract component name from the filename
-        const fileName = path.basename(source.fileName, path.extname(source.fileName));
-        if (fileName && fileName !== "index") {
-          return fileName;
-        }
-      }
-      return undefined;
     }
   });
 
@@ -320,45 +301,49 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
 
         let docgenData = parser.parse(filePath);
 
-        // If no components found but file has HOC, try to manually extract the component
+        // Handle HOC-wrapped components that docgen couldn't detect
         if (docgenData.length === 0 && hasHOC) {
-          console.log(`Debug: Attempting manual HOC parsing for: ${path.relative(process.cwd(), filePath)}`);
-
-          // Try to manually extract component info from HOC files
           const fileName = path.basename(filePath, path.extname(filePath));
 
-          // Try multiple patterns to find the component declaration
-          let componentName = fileName; // Default fallback
+          // Find the component declaration
           const componentPatterns = [
-            /const\s+(\w+)\s*=\s*\(\{/, // const ComponentName = ({
-            /const\s+(\w+)\s*=\s*\(/, // const ComponentName = (
-            /const\s+(\w+)\s*:\s*React\.FC/, // const ComponentName: React.FC
-            /function\s+(\w+)\s*\(/, // function ComponentName(
-            /const\s+(\w+)\s*=\s*React\.forwardRef/ // const ComponentName = React.forwardRef
+            /const\s+(\w+)\s*=\s*\(\{/,
+            /const\s+(\w+)\s*=\s*\(/,
+            /const\s+(\w+)\s*:\s*React\.FC/,
+            /function\s+(\w+)\s*\(/,
+            /const\s+(\w+)\s*=\s*React\.forwardRef/
           ];
 
+          let componentName = fileName;
           for (const pattern of componentPatterns) {
             const match = fileContent.match(pattern);
             if (match) {
               componentName = match[1];
-              console.log(`Debug: Found component ${componentName} using pattern ${pattern}`);
               break;
             }
           }
 
-          // Try to extract interface/type definition
-          const interfaceMatch = fileContent.match(
-            new RegExp(`(export\\s+)?interface\\s+${componentName}Props\\s*`, "s")
-          );
-          const typeMatch = fileContent.match(new RegExp(`(export\\s+)?type\\s+${componentName}Props\\s*=`, "s"));
+          // Find the Props interface/type with fallback naming patterns
+          const possibleNames = [
+            `${componentName}Props`,
+            `${fileName}Props`,
+            // Handle known special cases
+            componentName === "Modal" ? "LegacyModalProps" : null,
+            componentName === "BreadcrumbsBar" ? "BreadcrumbBarProps" : null
+          ].filter(Boolean);
 
-          console.log(
-            `Debug: Looking for ${componentName}Props interface/type in ${path.relative(process.cwd(), filePath)}`
-          );
-          console.log(`Debug: Interface match: ${!!interfaceMatch}, Type match: ${!!typeMatch}`);
+          let hasPropsDefinition = false;
+          for (const name of possibleNames) {
+            const interfaceMatch = fileContent.match(new RegExp(`(export\\s+)?interface\\s+${name}\\s*`, "s"));
+            const typeMatch = fileContent.match(new RegExp(`(export\\s+)?type\\s+${name}\\s*=`, "s"));
 
-          if (interfaceMatch || typeMatch) {
-            // Create a synthetic component entry with required ComponentDoc properties
+            if (interfaceMatch || typeMatch) {
+              hasPropsDefinition = true;
+              break;
+            }
+          }
+
+          if (hasPropsDefinition) {
             docgenData = [
               {
                 displayName: componentName,
@@ -369,19 +354,7 @@ async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[
                 tags: {}
               }
             ];
-            console.log(`Debug: Created synthetic component entry for ${componentName}`);
-          } else {
-            console.log(`Debug: No Props interface/type found for ${componentName}`);
           }
-        }
-
-        if (hasHOC && docgenData.length > 0) {
-          console.log(
-            `Debug: Found ${docgenData.length} components in HOC file: ${path.relative(
-              process.cwd(),
-              filePath
-            )} - ${docgenData.map(c => c.displayName).join(", ")}`
-          );
         }
 
         const result = {
