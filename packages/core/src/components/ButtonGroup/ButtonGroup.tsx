@@ -171,6 +171,7 @@ const ButtonGroup = forwardRef(
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
             blurOnMouseUp={blurOnMouseUp}
+            fullWidth={fullWidth}
             className={cx(styles.button, styles.optionText, {
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
@@ -218,7 +219,12 @@ const ButtonGroup = forwardRef(
         data-vibe={ComponentVibeId.BUTTON_GROUP}
         ref={mergedRef}
       >
-        <div role="group" aria-label={groupAriaLabel} className={cx(styles.buttonsContainer)} aria-disabled={disabled}>
+        <div
+          role="group"
+          aria-label={groupAriaLabel}
+          className={cx(styles.buttonsContainer, { [styles.fullWidth]: fullWidth })}
+          aria-disabled={disabled}
+        >
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (
