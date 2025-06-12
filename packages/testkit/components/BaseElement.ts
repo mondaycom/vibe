@@ -101,8 +101,11 @@ export class BaseElement {
   async getText(): Promise<string | undefined> {
     let text: string | undefined;
     await test.step(`Get text of ${this.elementReportName}`, async () => {
-      text = await this.locator.innerText();
-      return text;
+      text =
+        (await this.locator.innerText()) ||
+        (await this.locator.textContent()) ||
+        (await this.getAttributeValue("value")) ||
+        undefined;
     });
     return text;
   }

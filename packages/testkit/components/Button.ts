@@ -25,12 +25,4 @@ export class Button extends BaseElement {
       await this.locator.click();
     });
   }
-
-  /**
-   * Get the text content of the button.
-   * @returns {Promise<string>}
-   */
-  async getText(): Promise<string> {
-    return (await this.locator.textContent()) || "";
-  }
 }
