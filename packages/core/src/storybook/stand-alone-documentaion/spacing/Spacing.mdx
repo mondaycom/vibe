@@ -1,26 +1,15 @@
-import { Canvas, Meta, Source } from "@storybook/blocks";
-import { ComponentNameDecorator } from "../../components";
+import { Meta, Source } from "@storybook/blocks";
 import { Frame } from "vibe-storybook-components";
 import { FlexSpacingExample, Do1, Dont1, Do2, Dont2, Do3, Dont3 } from "./assets";
 import { Text } from "../../../components";
 import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import * as SpacingStories from "./spacing.stories.tsx";
-import { SpacingSizes } from "./spacing-sizes/spacing-sizes"
-import styles from "./spacing.module.scss"; // Updated to use CSS Modules
+import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
+import styles from "./spacing.module.scss";
 
 <Meta of={SpacingStories} />
 
-<ComponentNameDecorator withFoundationBackground>Spacing</ComponentNameDecorator>
-
-- [Overview](#overview)
-- [The spacing scale](#the-spacing-scale)
-- [Usage and examples](#usage-and-examples)
-- [Flex spacing](#flex-spacing)
-- [Do’s and don’ts](#dos-and-donts)
-- [Up next](#up-next)
-- [Feedback](#feedback)
-
-## Overview
+# Spacing
 
 A spacing scale is a foundational part of a design system,
 providing a set of consistent spacing values for margins, padding, and gaps.
@@ -52,7 +41,10 @@ The tokens are used inside the components and should also be included between th
 
 ## Code example
 
-<Source language="css" dark code={`
+<Source
+  language="css"
+  dark
+  code={`
   margin: var(--space-8);
 margin: var(--space-8) var(--space-4);
 margin: var(--space-32) 0 var(--space-16) 0;
