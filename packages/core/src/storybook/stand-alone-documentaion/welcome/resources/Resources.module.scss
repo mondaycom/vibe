@@ -9,15 +9,15 @@
   }
 
   &.fadeLeft:not(.fadeRight) {
-    mask-image: linear-gradient(to right, transparent 0px, black 24px, black 100%);
+    mask-image: linear-gradient(to right, transparent 0px, black 120px, black 100%);
   }
 
   &.fadeRight:not(.fadeLeft) {
-    mask-image: linear-gradient(to right, black 0%, black calc(100% - 24px), transparent 100%);
+    mask-image: linear-gradient(to right, black 0%, black calc(100% - 120px), transparent 100%);
   }
 
   &.fadeLeft.fadeRight {
-    mask-image: linear-gradient(to right, transparent 0px, black 24px, black calc(100% - 24px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0px, black 120px, black calc(100% - 120px), transparent 100%);
   }
 }
 

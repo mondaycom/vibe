@@ -5,14 +5,9 @@
 }
 
 .subtitle {
-  font-size: 22px;
-  line-height: 135%;
-  letter-spacing: 0.427px;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.4px;
   margin-bottom: 32px;
-}
-
-@media screen and (max-width: 1200px) {
-  .contributorsSection {
-    display: grid;
-  }
+  color: var(--sb-secondary-text-color);
 }

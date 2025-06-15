@@ -7,17 +7,11 @@
   border: 2px solid var(--sb-primary-text-color);
   border-radius: 40px;
   color: var(--sb-primary-text-color);
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
   cursor: pointer;
 
   &:hover {
     background-color: var(--sb-primary-background-hover-color);
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .resourceButton {
-    font-size: 16px;
   }
 }

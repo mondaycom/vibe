@@ -1,10 +1,10 @@
 .footerCard {
   border-radius: 16px;
-  border: 1px solid var(--sb-disabled-text-color);
+  border: 1px solid var(--disabled-text-color);
   padding: 24px;
   cursor: pointer;
   display: flex;
-  height: 245px;
+  height: 200px;
   flex: 1;
   width: 100%;
   align-items: flex-start;
@@ -16,11 +16,12 @@
   .title {
     margin: 0;
     letter-spacing: normal;
+    font-size: 22px;
   }
 
   .description {
     color: var(--sb-secondary-text-color);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 140%;
   }

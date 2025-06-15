@@ -1,9 +1,10 @@
 .greeting {
   transform: rotate(3deg);
   border: 1.905px solid var(--sb-layout-border-color);
+  max-width: 920px;
   border-radius: 30px;
-  margin: 150px auto;
-  padding: 96px;
+  margin: 130px 80px;
+  padding: 72px 72px 48px 72px;
 
   .intro {
     color: #979799;
@@ -16,54 +17,9 @@
   .content {
     color: var(--sb-primary-text-color);
     font-family: var(--sb-title-font-family);
-    font-size: 54px;
+    font-size: 34px;
     line-height: 135%;
-    letter-spacing: 1.2px;
-    text-wrap: balance;
+    letter-spacing: 0.68px;
     margin-bottom: 24px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .greeting {
-    max-width: 600px;
-
-    .intro {
-      font-size: 20px;
-    }
-
-    .content {
-      font-size: 44px;
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .greeting {
-    max-width: 400px;
-    padding: 72px;
-
-    .intro {
-      font-size: 16px;
-    }
-
-    .content {
-      font-size: 32px;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .greeting {
-    max-width: 300px;
-    padding: 54px;
-
-    .intro {
-      font-size: 14px;
-    }
-
-    .content {
-      font-size: 22px;
-    }
   }
 }

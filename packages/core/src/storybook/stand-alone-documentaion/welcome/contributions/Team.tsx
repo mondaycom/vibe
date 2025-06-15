@@ -64,9 +64,10 @@ const team = [
 
 export default function Team() {
   return (
-    <Flex direction="column" align="start" style={{ gap: "96px" }}>
+    <Flex direction="column" align="start" style={{ gap: "42px" }}>
       <p className={styles.text}>
-        We are team of thinkers, doers, and innovators pushing the monday.com design experience forward.
+        A team of thinkers, doers, and innovators
+        <br /> pushing the monday.com design experience forward.
       </p>
       <div className={styles.team}>
         {team.map(({ imgSrc, name, linkedinUrl, title }) => (

@@ -7,6 +7,7 @@ import CirclesIcon from "./icons/CirclesIcon";
 import LineIcon from "./icons/LineIcon";
 import AsteriskIcon from "./icons/AsteriskIcon";
 import useResizeObserver from "../../../../hooks/useResizeObserver";
+import cx from "classnames";
 
 export default function Resources() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -48,9 +49,10 @@ export default function Resources() {
   return (
     <div
       ref={scrollRef}
-      className={`${styles.resourcesScroll} ${showLeftFade ? styles.fadeLeft : ""} ${
-        showRightFade ? styles.fadeRight : ""
-      }`}
+      className={cx(styles.resourcesScroll, {
+        [styles.fadeLeft]: showLeftFade,
+        [styles.fadeRight]: showRightFade
+      })}
     >
       <div className={styles.resources}>
         <Card

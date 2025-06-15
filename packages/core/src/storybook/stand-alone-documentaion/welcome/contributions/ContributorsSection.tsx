@@ -7,7 +7,7 @@ import Section from "../Section";
 
 export default function ContributorsSection() {
   return (
-    <Flex align="start" style={{ gap: "80px" }} className={styles.contributorsSection}>
+    <Flex align="start" style={{ gap: "200px" }} className={styles.contributorsSection}>
       <Section className={styles.sectionName}>Our Contributors</Section>
       <div>
         <div className={styles.subtitle}>Founders</div>

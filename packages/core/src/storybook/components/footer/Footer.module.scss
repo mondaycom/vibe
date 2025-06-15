@@ -1,6 +1,7 @@
 .footer {
-  background-color: var(--sb-color-riverstone_gray);
-  padding: 140px 160px;
+  background-color: var(--color-riverstone_gray);
+  padding: 80px 180px;
+  gap: 80px;
 
   .footerTitles {
     max-width: 320px;
@@ -10,7 +11,7 @@
   .title {
     color: var(--sb-primary-text-color);
     font-family: var(--sb-title-font-family);
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 600;
     line-height: 105%;
     letter-spacing: -1.333px;
@@ -20,28 +21,29 @@
   .subtitle {
     color: var(--sb-secondary-text-color);
     font-family: var(--sb-title-font-family);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 140%;
     letter-spacing: 0.427px;
+    margin: 12px 0 0 0;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1160px) {
   .footer {
+    padding: 88px 80px;
+
+    .footerTitles {
+      max-width: 100%;
+    }
+
     .footerContent {
       flex-direction: column;
+      gap: 40px;
     }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .footer {
-    padding: 80px 16px;
 
     .footerCards {
-      display: grid;
-      gap: 24px;
+      width: 100%;
     }
   }
 }

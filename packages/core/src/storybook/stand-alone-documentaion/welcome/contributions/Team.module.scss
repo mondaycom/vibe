@@ -15,8 +15,8 @@
 
 .team {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
-  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(max(200px, calc((100% - 160px) / 4)), 1fr));
+  gap: 40px;
   max-width: 100%;
 
   img {
