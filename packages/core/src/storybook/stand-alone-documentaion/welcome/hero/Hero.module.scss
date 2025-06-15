@@ -8,7 +8,7 @@
   .header {
     color: #121212;
     text-align: center;
-    font-family: var(--title-font-family);
+    font-family: var(--sb-title-font-family);
     font-weight: 400;
     font-size: 90px;
     line-height: 110%;
@@ -19,7 +19,7 @@
   }
 
   .subheader {
-    color: var(--secondary-text-color);
+    color: var(--sb-secondary-text-color);
     text-align: center;
     font-size: 32px;
     font-style: normal;
@@ -27,7 +27,7 @@
     line-height: 135%;
     letter-spacing: 0.48px;
     width: 80%;
-    margin: var(--spacing-large) 0;
+    margin: var(--sb-spacing-large) 0;
     -webkit-font-smoothing: var(--font-smoothing-webkit);
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
   }

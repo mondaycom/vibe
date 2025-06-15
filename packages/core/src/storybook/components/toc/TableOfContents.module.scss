@@ -4,8 +4,8 @@
   top: 85px;
   z-index: 1000;
   border-radius: 12px;
-  background-color: var(--primary-background-color);
-  border: 1px solid var(--layout-border-color);
+  background-color: var(--sb-primary-background-color);
+  border: 1px solid var(--sb-layout-border-color);
 
   .button {
     border-radius: 8px;
@@ -25,7 +25,7 @@
   }
 
   .header {
-    color: var(--secondary-text-color);
+    color: var(--sb-secondary-text-color);
     padding: 4px 8px;
     font-size: 14px;
     font-weight: 600;
@@ -43,7 +43,7 @@
   .listItem {
     padding: 4px 8px;
     margin: 4px 0;
-    color: var(--secondary-text-color);
+    color: var(--sb-secondary-text-color);
     border-radius: 4px;
     font-size: 14px;
     line-height: 20px;
@@ -51,12 +51,12 @@
 
     &.active {
       font-weight: 600;
-      background-color: var(--primary-background-hover-color);
-      color: var(--primary-text-color);
+      background-color: var(--sb-primary-background-hover-color);
+      color: var(--sb-primary-text-color);
     }
 
     &:hover {
-      background-color: var(--primary-background-hover-color);
+      background-color: var(--sb-primary-background-hover-color);
     }
   }
 }

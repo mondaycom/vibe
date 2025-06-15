@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--color-riverstone_gray);
+  background-color: var(--sb-color-riverstone_gray);
   padding: 140px 160px;
 
   .footerTitles {
@@ -8,8 +8,8 @@
   }
 
   .title {
-    color: var(--primary-text-color);
-    font-family: var(--title-font-family);
+    color: var(--sb-primary-text-color);
+    font-family: var(--sb-title-font-family);
     font-size: 40px;
     font-weight: 600;
     line-height: 105%;
@@ -18,8 +18,8 @@
   }
 
   .subtitle {
-    color: var(--secondary-text-color);
-    font-family: var(--title-font-family);
+    color: var(--sb-secondary-text-color);
+    font-family: var(--sb-title-font-family);
     font-size: 22px;
     font-weight: 400;
     line-height: 140%;

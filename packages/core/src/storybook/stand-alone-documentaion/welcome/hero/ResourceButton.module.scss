@@ -4,15 +4,15 @@
   gap: 10px;
   padding: 8px 14px;
   background: none;
-  border: 2px solid var(--primary-text-color);
+  border: 2px solid var(--sb-primary-text-color);
   border-radius: 40px;
-  color: var(--primary-text-color);
+  color: var(--sb-primary-text-color);
   font-size: 22px;
   text-decoration: none;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--primary-background-hover-color);
+    background-color: var(--sb-primary-background-hover-color);
   }
 }
 

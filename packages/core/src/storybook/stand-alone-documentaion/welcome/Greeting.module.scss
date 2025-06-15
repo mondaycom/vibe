@@ -1,6 +1,6 @@
 .greeting {
   transform: rotate(3deg);
-  border: 1.905px solid var(--layout-border-color);
+  border: 1.905px solid var(--sb-layout-border-color);
   border-radius: 30px;
   margin: 150px auto;
   padding: 96px;
@@ -14,8 +14,8 @@
   }
 
   .content {
-    color: var(--primary-text-color);
-    font-family: var(--title-font-family);
+    color: var(--sb-primary-text-color);
+    font-family: var(--sb-title-font-family);
     font-size: 54px;
     line-height: 135%;
     letter-spacing: 1.2px;
