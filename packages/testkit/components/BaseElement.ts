@@ -53,11 +53,12 @@ export class BaseElement {
 
   /**
    * Click the element.
+   * @param {boolean} force - If true, click the element even if it is not visible or enabled.
    * @returns {Promise<void>}
    */
-  async click(): Promise<void> {
+  async click(force: boolean = false): Promise<void> {
     await test.step(`Click ${this.elementReportName}`, async () => {
-      await this.locator.click();
+      await this.locator.click({ force });
     });
   }
 
@@ -71,41 +72,41 @@ export class BaseElement {
     });
   }
 
-  async getAttributeValue(
-    attributeName: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    options: any = { timeout: 10000, pollInterval: 500 }
-  ): Promise<string | null> {
+  /**
+   * Get the value of an attribute of the element.
+   * @param {string} attributeName - The name of the attribute.
+   * @param {number} timeout - The timeout in milliseconds.
+   * @returns {Promise<string | null>} - The value of the attribute.
+   */
+  async getAttributeValue(attributeName: string, timeout: number = 30000): Promise<string | null> {
     let attributeValue = null;
 
     await test.step(`Get attribute ${attributeName} of ${this.elementReportName}`, async () => {
-      const startTime = Date.now();
-
-      while (Date.now() - startTime < options.timeout) {
-        attributeValue = await this.locator.getAttribute(attributeName);
-
-        if (attributeValue !== null) {
-          break;
-        }
-        while (Date.now() - startTime < options.timeout) {
-          await new Promise(resolve => setTimeout(resolve, options.pollInterval));
-        }
-        if (attributeValue === null) {
-          throw new Error(`Attribute ${attributeName} did not exist after ${options.timeout} ms`);
-        }
-      }
+      attributeValue = await this.locator.getAttribute(attributeName, { timeout });
     });
+
     return attributeValue;
   }
 
   async getText(): Promise<string | undefined> {
     let text: string | undefined;
     await test.step(`Get text of ${this.elementReportName}`, async () => {
-      text =
-        (await this.locator.innerText()) ||
-        (await this.locator.textContent()) ||
-        (await this.getAttributeValue("value")) ||
-        undefined;
+      const innerText = await this.locator.innerText();
+      if (innerText !== null && innerText !== undefined) {
+        text = innerText;
+        return;
+      }
+      const textContent = await this.locator.textContent();
+      if (textContent !== null && textContent !== undefined) {
+        text = textContent;
+        return;
+      }
+      const valueAttr = await this.getAttributeValue("value");
+      if (valueAttr !== null && valueAttr !== undefined) {
+        text = valueAttr;
+        return;
+      }
+      text = undefined;
     });
     return text;
   }
