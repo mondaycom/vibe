@@ -37,7 +37,7 @@ export default {
 
 export const Overview = {
   render: alertBannerTemplate.bind({}),
-  name: "Overview"[]';'
+  name: "Overview"
 };
 
 type Story = StoryObj<typeof AlertBanner>;
