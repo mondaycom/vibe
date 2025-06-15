@@ -6,7 +6,6 @@ import CircleIcon from "./icons/CircleIcon";
 import CirclesIcon from "./icons/CirclesIcon";
 import LineIcon from "./icons/LineIcon";
 import AsteriskIcon from "./icons/AsteriskIcon";
-import useResizeObserver from "../../../../hooks/useResizeObserver";
 import cx from "classnames";
 
 export default function Resources() {
@@ -26,12 +25,6 @@ export default function Resources() {
     setShowLeftFade(hasOverflow && canScrollLeft);
     setShowRightFade(hasOverflow && canScrollRight);
   }, []);
-
-  useResizeObserver({
-    ref: scrollRef,
-    callback: updateFadeState,
-    debounceTime: 100
-  });
 
   useEffect(() => {
     const element = scrollRef.current;
