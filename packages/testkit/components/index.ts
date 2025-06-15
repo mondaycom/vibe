@@ -21,3 +21,4 @@ export * from "./Text";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./Toggle";
+export * from "./Toast";
