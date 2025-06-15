@@ -1,8 +1,29 @@
+.resourcesScroll {
+  overflow-x: auto;
+  margin-top: 42px;
+  margin-bottom: 160px;
+  mask-image: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.fadeLeft:not(.fadeRight) {
+    mask-image: linear-gradient(to right, transparent 0px, black 24px, black 100%);
+  }
+
+  &.fadeRight:not(.fadeLeft) {
+    mask-image: linear-gradient(to right, black 0%, black calc(100% - 24px), transparent 100%);
+  }
+
+  &.fadeLeft.fadeRight {
+    mask-image: linear-gradient(to right, transparent 0px, black 24px, black calc(100% - 24px), transparent 100%);
+  }
+}
+
 .resources {
   display: flex;
   align-items: center;
-  overflow-x: auto;
   gap: 24px;
-  margin-top: 42px;
-  margin-bottom: 160px;
+  min-width: max-content;
 }
