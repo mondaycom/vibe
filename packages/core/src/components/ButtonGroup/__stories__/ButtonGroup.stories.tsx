@@ -2,9 +2,9 @@ import React from "react";
 import ButtonGroup from "../ButtonGroup";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import "./ButtonGroup.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Text from "../../Text/Text";
+import Flex from "../../Flex/Flex";
 
 type Story = StoryObj<typeof ButtonGroup>;
 
@@ -169,8 +169,8 @@ export const DisabledSingeButton: Story = {
 
 export const Size: Story = {
   render: () => (
-    <>
-      <div className="monday-storybook-button-group_column">
+    <Flex gap={60}>
+      <Flex direction="column" gap={16} align="start">
         <Text type={Text.types.TEXT1}>Medium</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
@@ -183,8 +183,8 @@ export const Size: Story = {
             { value: 4, text: "Delta" }
           ]}
         />
-      </div>
-      <div className="monday-storybook-button-group_column">
+      </Flex>
+      <Flex direction="column" gap={16} align="start">
         <Text type={Text.types.TEXT1}>Small</Text>
         <ButtonGroup
           groupAriaLabel="button group aria label"
@@ -197,14 +197,14 @@ export const Size: Story = {
             { value: 4, text: "Delta" }
           ]}
         />
-      </div>
-    </>
+      </Flex>
+    </Flex>
   )
 };
 
 export const ButtonGroupInSettings: Story = {
   render: () => (
-    <div className="monday-storybook-button-group_column">
+    <Flex direction="column" gap={16} align="start">
       <Text type={Text.types.TEXT1}>Function</Text>
       <ButtonGroup
         groupAriaLabel="button group aria label"
@@ -229,7 +229,7 @@ export const ButtonGroupInSettings: Story = {
           }
         ]}
       />
-    </div>
+    </Flex>
   ),
   name: "Button group in settings"
 };
@@ -256,7 +256,7 @@ export const ButtonGroupAsToggle: Story = {
 
 export const FullWidthButtonGroup: Story = {
   render: () => (
-    <div className="monday-storybook-button-group-full-width">
+    <div style={{ width: "100%" }}>
       <ButtonGroup
         groupAriaLabel="Full Width Button Group"
         fullWidth
