@@ -204,7 +204,7 @@ export const Size: Story = {
 
 export const ButtonGroupInSettings: Story = {
   render: () => (
-    <Flex direction="column" gap={16}>
+    <Flex direction="column" gap={16} align="start">
       <Text type={Text.types.TEXT1}>Function</Text>
       <ButtonGroup
         groupAriaLabel="button group aria label"
