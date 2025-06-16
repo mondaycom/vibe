@@ -53,12 +53,11 @@ export class BaseElement {
 
   /**
    * Click the element.
-   * @param {boolean} force - If true, click the element even if it is not visible or enabled.
    * @returns {Promise<void>}
    */
-  async click(force: boolean = false): Promise<void> {
+  async click(): Promise<void> {
     await test.step(`Click ${this.elementReportName}`, async () => {
-      await this.locator.click({ force });
+      await this.locator.click();
     });
   }
 
