@@ -194,4 +194,14 @@ export class BaseElement {
       }
     });
   }
+
+  /**
+   * Remove focus from the element.
+   * @returns {Promise<void>}
+   */
+  async removeFocus(): Promise<void> {
+    await test.step(`Remove focus from ${this.elementReportName}`, async () => {
+      await this.page.locator("body").click();
+    });
+  }
 }
