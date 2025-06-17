@@ -27,30 +27,6 @@ export class Steps extends BaseElement {
   }
 
   /**
-   * Get the back button element.
-   * @returns {Button} The back button element.
-   */
-  getBackButton(): Button {
-    return this.backButton;
-  }
-
-  /**
-   * Get the next button element.
-   * @returns {Button} The next button element.
-   */
-  getNextButton(): Button {
-    return this.nextButton;
-  }
-
-  /**
-   * Get the finish button element.
-   * @returns {Button} The finish button element.
-   */
-  getFinishButton(): Button {
-    return this.finishButton;
-  }
-
-  /**
    * Click the back button to go to the previous step.
    * @returns {Promise<void>}
    */
