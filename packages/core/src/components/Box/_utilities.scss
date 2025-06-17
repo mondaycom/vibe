@@ -3,6 +3,7 @@
 @use "sass:list";
 @import "~monday-ui-style/dist/functions";
 
+/*  stylelint-disable scss/at-if-no-null */
 $utility-spacing-vars: (
   0: 0,
   xs: var(--spacing-xs),
@@ -259,3 +260,4 @@ $utilities-modules: (
     }
   }
 }
+/*  stylelint-enable scss/at-if-no-null */
