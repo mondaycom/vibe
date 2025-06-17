@@ -3,7 +3,7 @@ import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
 
 /**
- * Class representing a Steps element.
+ * Class representing a Steps component.
  * Extends the BaseElement class.
  * Provides methods to interact with all Steps component functionality including navigation buttons,
  * step indicators, and step content.
