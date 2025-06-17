@@ -1,0 +1,26 @@
+:root {
+  --motion-duration-70ms: 70ms;
+  --motion-duration-100ms: 100ms;
+  --motion-duration-150ms: 150ms;
+  --motion-duration-250ms: 250ms;
+  --motion-duration-400ms: 400ms;
+
+  // Duration
+  --motion-productive-short: var(--motion-duration-70ms);
+  --motion-productive-medium: var(--motion-duration-100ms);
+  --motion-productive-long: var(--motion-duration-150ms);
+
+  // Easing
+  --motion-easing-in: cubic-bezier(0, 0, 0.35, 1);
+  --motion-easing-out: cubic-bezier(0.4, 0, 1, 1);
+  --motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-easing-in-elastic: cubic-bezier(0, 0, 0.2, 1.4);
+
+  --motion-expressive-short: var(--motion-duration-250ms);
+  --motion-expressive-long: var(--motion-duration-400ms);
+  --motion-timing-enter: var(--motion-easing-in);
+  --motion-timing-exit: var(--motion-easing-out);
+  --motion-timing-transition: var(--motion-easing-in-out);
+  --motion-timing-emphasize: var(--motion-easing-in-elastic);
+  --expand-animation-timing: var(--motion-timing-enter);
+}
