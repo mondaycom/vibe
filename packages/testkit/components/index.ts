@@ -18,6 +18,7 @@ export * from "./Text";
 export * from "./TextField";
 export * from "./Toggle";
 export * from "./Search";
+export * from "./Steps";
 export * from "./MenuButton";
 export * from "./RadioButton";
 export * from "./IconButton";
