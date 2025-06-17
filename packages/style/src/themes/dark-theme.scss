@@ -9,6 +9,7 @@
   --primary-highlighted-color: var(--color-tyrian_blue);
   --primary-surface-color: #181b34;
   --primary-text-color: var(--color-snow);
+  --primary-text-color-rgb: 213, 216, 223;
 
   --text-color-on-inverted: var(--color-mud_black);
 
@@ -25,7 +26,7 @@
   --allgrey-background-color: var(--color-graphite);
   --inverted-color-background: var(--color-snow_white);
 
-  --disabled-text-color: rgba(var(--color-primary-text-color), var(--disabled-component-opacity));
+  --disabled-text-color: rgba(var(--primary-text-color-rgb), var(--disabled-component-opacity));
   --disabled-background-color: var(--color-silver_muted);
 
   --positive-color: var(--color-positive-color);
@@ -127,6 +128,10 @@
 
   --color-surface: #292f4c;
   --color-surface-rgb: 41, 47, 76;
+
+  --color-snow_white: #ffffff;
+  --color-wolf_gray: #c3c6d4;
+  --color-jaco_gray: #9699a6;
 
   // Content colors
 

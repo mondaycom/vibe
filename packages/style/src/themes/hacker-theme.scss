@@ -9,6 +9,7 @@
   --primary-highlighted-color: var(--color-downriver);
   --primary-surface-color: #111111;
   --primary-text-color: var(--color-snow);
+  --primary-text-color-rgb: 213, 216, 223;
 
   --text-color-on-inverted: var(--color-mud_black);
 
@@ -115,6 +116,27 @@
 
   --color-error: var(--color-red-fluorescent);
   --color-success: var(--color-green-grotesque);
+
+  // Referenced colors that need definition
+  --color-snow_white: #ffffff;
+  --color-mud_black: #323338;
+  --color-snow: #d5d8df;
+  --color-jaco_gray: #9699a6;
+  --color-graphite: #30324e;
+  --color-silver: #4b4e69;
+  --color-fog: #797e93;
+  --color-black: #000000;
+  --color-buster_blue: #404b69;
+  --color-dust-muted: #3a3a3a;
+  --color-black-disabled-text-color: rgba(var(--primary-text-color-rgb), 0.38);
+  --color-positive-color-hover: #007038;
+  --color-negative-color-hover: #b63546;
+  --color-desert: #eaaa15;
+  --color-brass: #503e02;
+  --color-aztec_gold: #402f00;
+  --color-maroon_red: #642830;
+  --color-disabled-text-color: rgba(var(--primary-text-color-rgb), 0.38);
+  --color-disabled-background-color: #3a3a3a;
 
   // Content colors
 

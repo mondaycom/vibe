@@ -9,6 +9,7 @@
   --primary-highlighted-color: var(--color-downriver);
   --primary-surface-color: #111111;
   --primary-text-color: var(--color-smog);
+  --primary-text-color-rgb: 238, 238, 238;
 
   --text-color-on-primary: var(--color-snow_white);
   --text-color-on-inverted: var(--color-vanta);
@@ -25,7 +26,7 @@
   --allgrey-background-color: var(--color-night);
   --inverted-color-background: var(--color-smog);
 
-  --disabled-text-color: rgba(var(--color-primary-text-color), var(--disabled-component-opacity));
+  --disabled-text-color: rgba(var(--primary-text-color-rgb), var(--disabled-component-opacity));
   --disabled-background-color: var(--color-dust-muted);
 
   --positive-color: var(--color-positive-color);
@@ -59,6 +60,32 @@
   --color-smog: #eeeeee;
   --color-dust-muted: #3a3a3a;
 
+  --color-black: #000000;
+  --color-snow_white: #ffffff;
+  --color-wolf_gray: #c3c6d4;
+  --color-ocean_blue: #133774;
+  --color-deep_blue: #0d2e65;
+  --color-downriver: #0d2753;
+  --color-basic_blue: #0073ea;
+  --color-dark_blue: #0060b9;
+  --color-jaco_gray: #9699a6;
+  --color-arctic_blue: #69a7ef;
+  --color-midnight: #181b34;
+  --color-silver: #4b4e69;
+  --color-buster_blue: #404b69;
+  --color-positive-color: #00854d;
+  --color-positive-color-hover: #007038;
+  --color-negative-color: #d83a52;
+  --color-negative-color-hover: #b63546;
+  --color-forest_green: #025231;
+  --color-darker_green: #194733;
+  --color-maroon_red: #642830;
+  --color-amber_red: #5a2027;
+  --color-egg_yolk: #ffcb00;
+  --color-desert: #eaaa15;
+  --color-brass: #503e02;
+  --color-aztec_gold: #402f00;
+
   --backdrop-color: rgba(var(--color-surface-rgb), 0.7);
   --color-backdrop-color: rgba(var(--color-surface-rgb), 0.7);
 
@@ -70,10 +97,10 @@
 
   --box-shadow-color: var(--color-black);
 
-  --box-shadow-xs: var(--shadow-size-xs) var(--color-box-shadow-color);
-  --box-shadow-small: var(--shadow-size-small) var(--color-box-shadow-color);
-  --box-shadow-medium: var(--shadow-size-medium) var(--color-box-shadow-color);
-  --box-shadow-large: var(--shadow-size-large) var(--color-box-shadow-color);
+  --box-shadow-xs: var(--shadow-size-xs) var(--box-shadow-color);
+  --box-shadow-small: var(--shadow-size-small) var(--box-shadow-color);
+  --box-shadow-medium: var(--shadow-size-medium) var(--box-shadow-color);
+  --box-shadow-large: var(--shadow-size-large) var(--box-shadow-color);
 
   --primary-on-secondary-color: var(--color-basic_blue);
   --primary-hover-on-secondary-color: var(--color-dark_blue);
@@ -110,7 +137,7 @@
 
   // Content colors
 
-  --color-grass-green-hover: #116846;
+  --color-grass_green-hover: #116846;
   --color-grass_green-selected: #0a482e;
 
   --color-done-green-hover: #0f9b63;
