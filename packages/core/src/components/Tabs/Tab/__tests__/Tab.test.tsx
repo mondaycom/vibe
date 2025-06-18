@@ -3,9 +3,9 @@ import { render, fireEvent, screen, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Tab, { TabProps } from "../Tab";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-const onClickMock = jest.fn();
+const onClickMock = vi.fn();
 const text = "tab";
 
 const renderComponent = (props: TabProps = {}) => {
@@ -39,13 +39,13 @@ describe("Tab tests", () => {
       act(() => {
         fireEvent.mouseEnter(component);
       });
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       const content = screen.getByText(tooltipContent);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
       });
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
     });
   });
 });

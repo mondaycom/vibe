@@ -2,10 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Tooltip from "../Tooltip";
 
-jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
+vi.mock("react-transition-group", () => {
+  const FakeTransition = vi.fn(({ children }) => children);
+  const FakeSwitchTransition = vi.fn(({ children }) => children);
+  const FakeCSSTransition = vi.fn(({ children }) => children);
   return {
     CSSTransition: FakeCSSTransition,
     Transition: FakeTransition,
@@ -13,7 +13,7 @@ jest.mock("react-transition-group", () => {
   };
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe("Tooltip renders correctly", () => {
   it("with theme", () => {

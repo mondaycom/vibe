@@ -4,10 +4,10 @@ import Accordion from "../../Accordion/Accordion";
 import AccordionItem from "../AccordionItem";
 
 describe("AccordionItem tests", () => {
-  let onClickMock: jest.Mock;
+  let onClickMock: vi.Mock;
 
   beforeEach(() => {
-    onClickMock = jest.fn();
+    onClickMock = vi.fn();
     render(
       <Accordion>
         <AccordionItem onClick={onClickMock} />
