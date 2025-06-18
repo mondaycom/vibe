@@ -77,7 +77,7 @@ export class BaseElement {
    * @param {number} timeout - The timeout in milliseconds.
    * @returns {Promise<string | null>} - The value of the attribute.
    */
-  async getAttributeValue(attributeName: string, timeout: number = 30000): Promise<string | null> {
+  async getAttributeValue(attributeName: string, timeout = 30000): Promise<string | null> {
     let attributeValue = null;
 
     await test.step(`Get attribute ${attributeName} of ${this.elementReportName}`, async () => {
