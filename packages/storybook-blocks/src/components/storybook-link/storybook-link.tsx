@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, ReactNode } from 'react';
 import Link from '../link/link';
 import { hrefTo } from '@storybook/addon-links';
 import { LinkSize } from '../link/LinkConstants';
@@ -6,12 +6,19 @@ import { withStaticProps } from '../../types';
 
 interface StorybookLinkProps {
   page: string;
-  children: string;
+  children: ReactNode | ReactNode[] | string;
   story?: string;
   size?: LinkSize;
+  className?: string;
 }
 
-const StorybookLink: FC<StorybookLinkProps> & { sizes?: typeof LinkSize } = ({ page, story = '', children, size }) => {
+const StorybookLink: FC<StorybookLinkProps> & { sizes?: typeof LinkSize } = ({
+  page,
+  story = '',
+  children,
+  size,
+  className,
+}) => {
   const [url, setUrl] = useState('');
 
   useEffect(() => {
@@ -23,7 +30,7 @@ const StorybookLink: FC<StorybookLinkProps> & { sizes?: typeof LinkSize } = ({ p
   }, [page, story]);
 
   return (
-    <Link href={url} target={Link.targets.TOP} withoutSpacing size={size}>
+    <Link href={url} target={Link.targets.TOP} withoutSpacing size={size} className={className}>
       {children}
     </Link>
   );
