@@ -96,7 +96,7 @@ export class Steps extends BaseElement {
    * Get all step dots (for gallery type steps).
    * @returns {Promise<Locator[]>} An array of step dot locators.
    */
-  async getStepDots(): Promise<Locator[]> {
+  private async getStepDots(): Promise<Locator[]> {
     let stepDots: Locator[] = [];
     await test.step(`Get all step dots in ${this.elementReportName}`, async () => {
       const dotsContainer = this.locator.locator('[role="group"]');
