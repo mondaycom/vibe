@@ -15,6 +15,7 @@ export * from "./Modal";
 export * from "./RadioButton";
 export * from "./Search";
 export * from "./SplitButton";
+export * from "./Steps";
 export * from "./Tab";
 export * from "./TabList";
 export * from "./Text";
