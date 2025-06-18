@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
+
+
+### Bug Fixes
+
+* **ButtonGroup:** fix tooltips in fullWidth layout ([#2931](https://github.com/mondaycom/vibe/issues/2931)) ([6a37195](https://github.com/mondaycom/vibe/commit/6a37195ae83524de34dbd3edda6bd0089119a7a4))
+
+
+
+
+
 ## [3.52.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.0...@vibe/core@3.52.1) (2025-06-11)
 
 
