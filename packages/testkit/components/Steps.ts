@@ -60,12 +60,20 @@ export class Steps extends BaseElement {
    * Check if the next button is enabled.
    * @returns {Promise<boolean>} True if the next button is enabled.
    */
-  async isNextButtonEnabled(): Promise<boolean> {
+  async isForwardButtonEnabled(): Promise<boolean> {
     let isEnabled = false;
     await test.step(`Check if next button is enabled in ${this.elementReportName}`, async () => {
       isEnabled = await this.forwardButton.isEnabled();
     });
     return isEnabled;
+  }
+
+  async isForwardButtonVisible(): Promise<boolean> {
+    let isVisible = false;
+    await test.step(`Check if forward button is visible in ${this.elementReportName}`, async () => {
+      isVisible = await this.forwardButton.isVisible();
+    });
+    return isVisible;
   }
 
   /**
@@ -214,7 +222,7 @@ export class Steps extends BaseElement {
       await this.waitForStepsToLoad();
 
       // Keep clicking next until we reach the end
-      while (await this.isNextButtonEnabled()) {
+      while (await this.isForwardButtonVisible()) {
         await this.goToNextStep();
         await this.page.waitForTimeout(100); // Small delay for step transition
       }
