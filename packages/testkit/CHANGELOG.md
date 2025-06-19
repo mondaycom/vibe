@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.10.0...@vibe/testkit@1.11.0) (2025-06-19)
+
+
+### Features
+
+* **testkit:** common actions improvements ([#2930](https://github.com/mondaycom/vibe/issues/2930)) ([c0eb7be](https://github.com/mondaycom/vibe/commit/c0eb7be7aed6f78901e0011faefe0bb04e2d7cd9))
+
+
+
+
+
 # [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.2...@vibe/testkit@1.10.0) (2025-06-18)
 
 
