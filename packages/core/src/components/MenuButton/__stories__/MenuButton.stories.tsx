@@ -1,7 +1,6 @@
-import MenuButton from "../MenuButton";
+import MenuButton, { MenuButtonProps } from "../MenuButton";
 import { noop as NOOP } from "lodash-es";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate } from "vibe-storybook-components";
 import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";
 import React, { useRef } from "react";
@@ -23,19 +22,16 @@ export default {
   decorators: metaSettings.decorators
 } satisfies Meta<typeof MenuButton>;
 
-const menuButtonTemplate = createComponentTemplate(MenuButton);
-
 export const Overview: Story = {
-  render: menuButtonTemplate.bind({}),
-  args: {
-    children: (
+  render: (args: MenuButtonProps) => (
+    <MenuButton {...args}>
       <Menu id="menu" size={Menu.sizes.MEDIUM}>
         <MenuItem icon={Sun} onClick={NOOP} iconType="svg" title="The sun" />
         <MenuItem icon={Moon} onClick={NOOP} iconType="svg" title="The moon" />
         <MenuItem icon={Favorite} onClick={NOOP} iconType="svg" title="And the stars" />
       </Menu>
-    )
-  },
+    </MenuButton>
+  ),
   parameters: {
     docs: {
       liveEdit: {
