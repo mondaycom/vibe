@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { generateWidth } from "../tableHelpers";
 
 describe("tableHelpers", () => {
@@ -22,11 +23,11 @@ describe("tableHelpers", () => {
       expect(generateWidth({ min: 50, max: 75 })).toBe("minmax(50px, 75px)");
     });
 
-    it("should handle minmax with different units", () => {
+    it("should handle minmax with nu units", () => {
       expect(generateWidth({ min: 50, max: "75%" })).toBe("minmax(50px, 75%)");
     });
 
-    it("should handle minmax with different units", () => {
+    it("should handle minmax with percentage units", () => {
       expect(generateWidth({ min: "50%", max: "75%" })).toBe("minmax(50%, 75%)");
     });
 

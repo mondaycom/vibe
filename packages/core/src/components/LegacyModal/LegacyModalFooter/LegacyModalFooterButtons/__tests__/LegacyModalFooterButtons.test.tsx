@@ -1,3 +1,4 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
 import ModalFooterButtons, {
@@ -18,8 +19,8 @@ describe("ModalFooterButtons", () => {
 
   describe("onClick handlers", () => {
     it("should call onPrimaryButtonClick after click confirm", () => {
-      const onPrimaryButtonClick = jest.fn();
-      const onSecondaryButtonClick = jest.fn();
+      const onPrimaryButtonClick = vi.fn();
+      const onSecondaryButtonClick = vi.fn();
       const modalFooterComponent = renderComponent({
         primaryButtonText: PRIMARY_BUTTON_TEXT,
         secondaryButtonText: SECONDARY_BUTTON_TEXT,
@@ -32,8 +33,8 @@ describe("ModalFooterButtons", () => {
     });
 
     it("should call onSecondaryButtonClick after click cancel", () => {
-      const onPrimaryButtonClick = jest.fn();
-      const onSecondaryButtonClick = jest.fn();
+      const onPrimaryButtonClick = vi.fn();
+      const onSecondaryButtonClick = vi.fn();
       const modalFooterComponent = renderComponent({
         primaryButtonText: PRIMARY_BUTTON_TEXT,
         secondaryButtonText: SECONDARY_BUTTON_TEXT,
@@ -46,8 +47,8 @@ describe("ModalFooterButtons", () => {
     });
 
     it("should not call onPrimaryButtonClick after click confirm when primary button is disabled", () => {
-      const onPrimaryButtonClick = jest.fn();
-      const onSecondaryButtonClick = jest.fn();
+      const onPrimaryButtonClick = vi.fn();
+      const onSecondaryButtonClick = vi.fn();
       const modalFooterComponent = renderComponent({
         primaryButtonText: PRIMARY_BUTTON_TEXT,
         secondaryButtonText: SECONDARY_BUTTON_TEXT,

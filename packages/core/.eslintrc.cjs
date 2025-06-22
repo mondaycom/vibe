@@ -57,16 +57,26 @@ const commonRules = {
       devDependencies: [
         "src/scripts/**/*.ts",
         "src/storybook/**/*",
-        "src/tests/**/*.ts",
         "src/utils/jest-utils.js",
-        "**/__tests__/**/*.{js,ts,tsx}",
-        "**/__stories__/**/*.{js,ts,tsx}"
+        "**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "**/__stories__/**/*.{js,jsx,ts,tsx}",
+        "**/*.test.{js,jsx,ts,tsx}",
+        "**/*.spec.{js,jsx,ts,tsx}",
+        "**/*.snapshot.test.{js,jsx,ts,tsx}",
+        "src/tests/**/*.{js,jsx,ts,tsx}",
+        "vitest.config.ts",
+        "jest.config.ts"
       ]
     }
   ]
 };
-const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest"];
-const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"];
+const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest", "vitest"];
+const commonExtends = [
+  "plugin:react/recommended",
+  "plugin:react-hooks/recommended",
+  "plugin:prettier/recommended",
+  "plugin:vitest/recommended"
+];
 
 module.exports = {
   overrides: [

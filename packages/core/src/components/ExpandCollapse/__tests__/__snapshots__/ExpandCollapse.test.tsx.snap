@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ExpandCollapse renders correctly with empty props 1`] = `
+exports[`ExpandCollapse > renders correctly with empty props 1`] = `
 <div
   data-testid="expand-collapse"
   id=""

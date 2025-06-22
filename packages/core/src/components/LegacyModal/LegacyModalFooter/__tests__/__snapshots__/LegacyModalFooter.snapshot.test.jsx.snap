@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModalFooter > with className 1`] = `
+"Snapshot Diff:
+- Default Render
++ Current Render: {"className":"className"}
+
+@@ --- --- @@
+  <div
+-   class="container"
++   class="container className"
+  >
+    <div>
+      footer content"
+`;
+
+exports[`ModalFooter > with required props 1`] = `
+<div
+  class="container"
+>
+  <div>
+    footer content
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TextField renders correctly when disabled 1`] = `
+exports[`TextField renders correctly > when disabled 1`] = `
 <div
   aria-busy={false}
   className="textField disabled"
@@ -63,7 +63,7 @@ exports[`TextField renders correctly when disabled 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly when loading 1`] = `
+exports[`TextField renders correctly > when loading 1`] = `
 <div
   aria-busy={true}
   className="textField"
@@ -155,7 +155,7 @@ exports[`TextField renders correctly when loading 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly when readonly 1`] = `
+exports[`TextField renders correctly > when readonly 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -218,7 +218,7 @@ exports[`TextField renders correctly when readonly 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly when required 1`] = `
+exports[`TextField renders correctly > when required 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -281,7 +281,7 @@ exports[`TextField renders correctly when required 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with another type 1`] = `
+exports[`TextField renders correctly > with another type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -344,7 +344,7 @@ exports[`TextField renders correctly with another type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with className 1`] = `
+exports[`TextField renders correctly > with className 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -407,70 +407,7 @@ exports[`TextField renders correctly with className 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with className 2`] = `
-<div
-  aria-busy={false}
-  className="textField"
-  role=""
->
-  <div
-    className="labelWrapper"
-  >
-    <div
-      className="inputWrapper wrapperSizeSmall"
-    >
-      <input
-        aria-activedescendant=""
-        aria-invalid={false}
-        aria-label=""
-        aria-owns=""
-        aria-required={false}
-        autoComplete="off"
-        className="testClassName input"
-        data-testid="text-field_input"
-        data-vibe="TextField"
-        disabled={false}
-        id="input"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onWheel={[Function]}
-        placeholder=""
-        readOnly={false}
-        required={false}
-        role=""
-        type="text"
-        value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TextField renders correctly with date type 1`] = `
+exports[`TextField renders correctly > with date type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -533,7 +470,7 @@ exports[`TextField renders correctly with date type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with date-time type 1`] = `
+exports[`TextField renders correctly > with date-time type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -596,7 +533,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with email type 1`] = `
+exports[`TextField renders correctly > with email type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -659,7 +596,7 @@ exports[`TextField renders correctly with email type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with icon 1`] = `
+exports[`TextField renders correctly > with icon 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -731,7 +668,7 @@ exports[`TextField renders correctly with icon 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with iconsNames 1`] = `
+exports[`TextField renders correctly > with iconsNames 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -796,7 +733,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with id 1`] = `
+exports[`TextField renders correctly > with id 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -859,7 +796,7 @@ exports[`TextField renders correctly with id 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with labelIconName 1`] = `
+exports[`TextField renders correctly > with labelIconName 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -922,7 +859,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with large size 1`] = `
+exports[`TextField renders correctly > with large size 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -985,7 +922,7 @@ exports[`TextField renders correctly with large size 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with placeholder 1`] = `
+exports[`TextField renders correctly > with placeholder 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1048,7 +985,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with role 1`] = `
+exports[`TextField renders correctly > with role 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1111,7 +1048,7 @@ exports[`TextField renders correctly with role 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with secondaryIconName 1`] = `
+exports[`TextField renders correctly > with secondaryIconName 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1183,7 +1120,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with showCharCount 1`] = `
+exports[`TextField renders correctly > with showCharCount 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1264,7 +1201,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with tel type 1`] = `
+exports[`TextField renders correctly > with tel type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1327,7 +1264,7 @@ exports[`TextField renders correctly with tel type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with url type 1`] = `
+exports[`TextField renders correctly > with url type 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1390,7 +1327,7 @@ exports[`TextField renders correctly with url type 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with validation 1`] = `
+exports[`TextField renders correctly > with validation 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1463,7 +1400,7 @@ exports[`TextField renders correctly with validation 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with value 1`] = `
+exports[`TextField renders correctly > with value 1`] = `
 <div
   aria-busy={false}
   className="textField"
@@ -1526,7 +1463,7 @@ exports[`TextField renders correctly with value 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly with wrapperClassName 1`] = `
+exports[`TextField renders correctly > with wrapperClassName 1`] = `
 <div
   aria-busy={false}
   className="textField testClassName"

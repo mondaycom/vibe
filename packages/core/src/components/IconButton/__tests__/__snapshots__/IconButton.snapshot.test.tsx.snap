@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`IconButton renders correctly with 1`] = `
+exports[`IconButton renders correctly > with 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -43,7 +43,7 @@ exports[`IconButton renders correctly with 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with active 1`] = `
+exports[`IconButton renders correctly > with active 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -86,7 +86,7 @@ exports[`IconButton renders correctly with active 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with aria label 1`] = `
+exports[`IconButton renders correctly > with aria label 1`] = `
 <span
   className="referenceWrapper"
   onBlur={[Function]}
@@ -142,7 +142,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
 </span>
 `;
 
-exports[`IconButton renders correctly with disabled 1`] = `
+exports[`IconButton renders correctly > with disabled 1`] = `
 <button
   aria-busy={false}
   aria-disabled={true}
@@ -186,7 +186,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with empty props 1`] = `
+exports[`IconButton renders correctly > with empty props 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -229,7 +229,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with id 1`] = `
+exports[`IconButton renders correctly > with id 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -273,7 +273,7 @@ exports[`IconButton renders correctly with id 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with size - large 1`] = `
+exports[`IconButton renders correctly > with size - large 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -316,7 +316,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with size - medium 1`] = `
+exports[`IconButton renders correctly > with size - medium 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -359,7 +359,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with size - small 1`] = `
+exports[`IconButton renders correctly > with size - small 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -402,7 +402,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with size - xs 1`] = `
+exports[`IconButton renders correctly > with size - xs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -445,7 +445,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 </button>
 `;
 
-exports[`IconButton renders correctly with size - xxs 1`] = `
+exports[`IconButton renders correctly > with size - xxs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}

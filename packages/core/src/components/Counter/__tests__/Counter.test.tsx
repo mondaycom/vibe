@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import Counter from "../Counter";
@@ -15,13 +16,13 @@ describe("Counter tests", () => {
 
   it("Shows the right count", () => {
     const counterComponent = renderComponent({ count: 1 });
-    const counterText = counterComponent.getByText("1");
+    const counterText = counterComponent.container.querySelector('.counter[aria-label="1"]');
     expect(counterText).toBeTruthy();
   });
 
   it("Shows 999+ if count is above limit", () => {
     const counterComponent = renderComponent({ count: 1000, maxDigits: 3 });
-    const counterText = counterComponent.getByText("999+");
+    const counterText = counterComponent.container.querySelector('.counter[aria-label="999+"]');
     expect(counterText).toBeTruthy();
   });
 

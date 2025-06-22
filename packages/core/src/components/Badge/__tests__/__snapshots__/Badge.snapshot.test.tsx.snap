@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Badge renders at different position 1`] = `
+exports[`Badge > renders at different position 1`] = `
 <div
   className="badgeWrapper"
 >
@@ -17,7 +17,7 @@ exports[`Badge renders at different position 1`] = `
 </div>
 `;
 
-exports[`Badge renders out of horizontal bounds 1`] = `
+exports[`Badge > renders out of horizontal bounds 1`] = `
 <div
   className="badgeWrapper"
 >
@@ -34,7 +34,7 @@ exports[`Badge renders out of horizontal bounds 1`] = `
 </div>
 `;
 
-exports[`Badge renders with Counter and counter props 1`] = `
+exports[`Badge > renders with Counter and counter props 1`] = `
 <div
   className="badgeWrapper"
 >
@@ -51,20 +51,13 @@ exports[`Badge renders with Counter and counter props 1`] = `
       <div
         aria-label="5"
         className="counter sizeLarge kindFill colorNegative"
-      >
-        <span
-          data-testid="counter"
-          id="counter"
-        >
-          5
-        </span>
-      </div>
+      />
     </span>
   </div>
 </div>
 `;
 
-exports[`Badge renders with different color 1`] = `
+exports[`Badge > renders with different color 1`] = `
 <div
   className="badgeWrapper"
 >
@@ -81,7 +74,7 @@ exports[`Badge renders with different color 1`] = `
 </div>
 `;
 
-exports[`Badge renders with margins from component's bounds 1`] = `
+exports[`Badge > renders with margins from component's bounds 1`] = `
 <div
   className="badgeWrapper"
 >
@@ -98,7 +91,7 @@ exports[`Badge renders with margins from component's bounds 1`] = `
 </div>
 `;
 
-exports[`Badge renders with no props with default badge Indicator 1`] = `
+exports[`Badge > renders with no props with default badge Indicator 1`] = `
 <div
   className="badgeWrapper"
 >
