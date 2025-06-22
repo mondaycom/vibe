@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react";
 import Link, { LinkProps } from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
-import "./Link.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,
