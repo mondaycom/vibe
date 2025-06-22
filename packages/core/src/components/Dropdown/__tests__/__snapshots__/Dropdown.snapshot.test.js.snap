@@ -1505,6 +1505,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               id="primary"
               onClick={[Function]}
               onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 {
                   "backgroundColor": "var(--primary-selected-color)",
@@ -1563,6 +1565,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               id="positive"
               onClick={[Function]}
               onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 {
                   "backgroundColor": "var(--positive-color-selected)",
@@ -1624,6 +1628,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 id="negative"
                 onClick={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   {
                     "backgroundColor": "var(--negative-color-selected)",
@@ -2332,6 +2338,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 id="ocean"
                 onClick={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",
@@ -2562,6 +2570,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 id="ocean"
                 onClick={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",
@@ -2919,6 +2929,8 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
               id="ocean"
               onClick={[Function]}
               onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 {
                   "backgroundColor": undefined,
@@ -2942,6 +2954,8 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 id="blue"
                 onClick={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   {
                     "backgroundColor": undefined,
@@ -3086,6 +3100,8 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               id="ocean"
               onClick={[Function]}
               onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 {
                   "backgroundColor": "var(--primary-selected-color)",
@@ -3109,6 +3125,8 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
                 id="blue"
                 onClick={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",

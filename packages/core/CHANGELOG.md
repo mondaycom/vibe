@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
+
+
+### Bug Fixes
+
+* **ButtonGroup:** fix tooltips in fullWidth layout ([#2931](https://github.com/mondaycom/vibe/issues/2931)) ([6a37195](https://github.com/mondaycom/vibe/commit/6a37195ae83524de34dbd3edda6bd0089119a7a4))
+
+
+
+
+
+## [3.52.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.0...@vibe/core@3.52.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* **metadata:** include components withStaticPropsWithoutForwardRef ([#2929](https://github.com/mondaycom/vibe/issues/2929)) ([9e5d351](https://github.com/mondaycom/vibe/commit/9e5d3517f6b87ee2b9238f73f76c41d31496124e))
+
+
+
+
+
+# [3.52.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.3...@vibe/core@3.52.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* **Chips:** fix hover state ([#2924](https://github.com/mondaycom/vibe/issues/2924)) ([6eed661](https://github.com/mondaycom/vibe/commit/6eed66131e62ba7f1a5e7db608c0f86fb184271e))
+
+
+### Features
+
+* **tabs:** added stretchedUnderline prop ([#2923](https://github.com/mondaycom/vibe/issues/2923)) ([6f971ee](https://github.com/mondaycom/vibe/commit/6f971eec4d095919002eaea237e96c7132883c74))
+
+
+
+
+
+## [3.51.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.2...@vibe/core@3.51.3) (2025-06-01)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.51.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.1...@vibe/core@3.51.2) (2025-05-29)
+
+
+### Bug Fixes
+
+* **Tabs:** add circular keyboard navigation ([#2867](https://github.com/mondaycom/vibe/issues/2867)) ([29a98c2](https://github.com/mondaycom/vibe/commit/29a98c2a26cd8592815b76d2e71db05fe6842af4))
+
+
+
+
+
+## [3.51.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.0...@vibe/core@3.51.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* **TextField:** display error text correctly ([#2910](https://github.com/mondaycom/vibe/issues/2910)) ([c6ecb22](https://github.com/mondaycom/vibe/commit/c6ecb22822cfb60289b87436d311f11b2b7ae194))
+
+
+
+
+
 # [3.51.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.3...@vibe/core@3.51.0) (2025-05-26)
 
 

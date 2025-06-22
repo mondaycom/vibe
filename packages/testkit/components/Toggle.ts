@@ -6,14 +6,19 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class Toggle extends BaseElement {
+  private inputLocator: Locator;
+  private buttonLocator: Locator;
+
   /**
-   * Create a Toggle.
+   * Create a Toggle with a wrapper element that contains the input and button elements.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the Toggle element.
+   * @param {Locator} locator - The locator for the wrapper element that contains the input and button elements.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
+    this.inputLocator = locator.locator("label > input");
+    this.buttonLocator = locator.locator("label > div");
   }
 
   /**
@@ -26,7 +31,7 @@ export class Toggle extends BaseElement {
       const currentState = await this.isOn();
 
       if (currentState !== isToCheck) {
-        await this.locator.click();
+        await this.buttonLocator.click();
       }
     });
   }
@@ -36,7 +41,16 @@ export class Toggle extends BaseElement {
    * @returns {Promise<boolean>} True if the toggle is on, false otherwise.
    */
   async isOn(): Promise<boolean> {
-    const isSelectedAttribute = await this.locator.getAttribute("aria-checked");
+    let isSelectedAttribute: string | null = null;
+
+    await test.step(`Check if ${this.elementReportName} is on`, async () => {
+      isSelectedAttribute = await this.inputLocator.getAttribute("aria-checked", { timeout: 30000 });
+
+      if (isSelectedAttribute === null) {
+        throw new Error(`Attribute aria-checked did not exist after 30000 ms`);
+      }
+    });
+
     return isSelectedAttribute === "true";
   }
 }

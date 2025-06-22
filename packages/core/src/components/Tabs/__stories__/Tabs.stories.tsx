@@ -116,6 +116,19 @@ export const Stretched = {
   )
 };
 
+export const StretchedUnderline = {
+  render: () => (
+    <div style={{ width: "100%" }}>
+      <TabList stretchedUnderline>
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+    </div>
+  )
+};
+
 export const Motion = {
   render: () => (
     <Flex direction="column" gap="medium">

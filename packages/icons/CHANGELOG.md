@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.2...@vibe/icons@1.8.0) (2025-06-01)
+
+
+### Features
+
+* **icons:** add NotificationChecked ([#2915](https://github.com/mondaycom/vibe/issues/2915)) ([c4f27a8](https://github.com/mondaycom/vibe/commit/c4f27a803212ca2cdd5a592394b967b6895fa72d))
+
+
+
+
+
 ## [1.7.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.1...@vibe/icons@1.7.2) (2025-05-13)
 
 
