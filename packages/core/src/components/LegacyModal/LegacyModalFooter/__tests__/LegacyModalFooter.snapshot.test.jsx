@@ -1,36 +1,24 @@
-import { afterEach, beforeAll, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import ModalFooter from "../LegacyModalFooter";
-import { cleanup, render } from "@testing-library/react";
-import { snapshotDiff } from "../../../../utils/jest-utils";
+import { render } from "@testing-library/react";
 
-async function renderModalFooter(props) {
-  const { asFragment } = render(
-    <ModalFooter id="modal-title-id" title={"Default title"} {...props}>
-      <div>footer content</div>
-    </ModalFooter>
-  );
-  return asFragment().firstChild;
-}
-
-describe("ModalFooter", () => {
-  let defaultRender;
-  beforeAll(async () => {
-    defaultRender = await renderModalFooter();
-    cleanup();
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
+describe("ModalFooter renders correctly", () => {
   it("with required props", () => {
-    expect(defaultRender).toMatchSnapshot();
+    const { container } = render(
+      <ModalFooter id="modal-title-id" title="Default title">
+        <div>footer content</div>
+      </ModalFooter>
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("with className", async () => {
-    const props = { className: "className" };
-    const currentRender = await renderModalFooter(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with className", () => {
+    const { container } = render(
+      <ModalFooter id="modal-title-id" title="Default title" className="className">
+        <div>footer content</div>
+      </ModalFooter>
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

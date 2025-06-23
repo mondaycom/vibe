@@ -1,9 +1,8 @@
-import { afterEach, beforeAll, describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import React from "react";
 import Modal from "../LegacyModal";
 import { ModalContent, ModalFooter, ModalHeader } from "../../../components";
-import { cleanup, render } from "@testing-library/react";
-import { snapshotDiff } from "../../../utils/jest-utils";
+import { render } from "@testing-library/react";
 
 const baseProps = {
   id: "modal-id",
@@ -15,109 +14,94 @@ const baseProps = {
 const content = <p>content</p>;
 const footerContent = <p>footer</p>;
 
-const withContent = props => {
-  return { content, ...props };
-};
-
-async function renderModal(props = {}) {
-  const { content, ...rest } = props;
-  const { asFragment } = render(
-    <Modal {...baseProps} {...rest}>
-      {content}
-    </Modal>
-  );
-  return asFragment().firstChild;
-}
-
-describe("Modal", () => {
-  let defaultRender;
-  beforeAll(async () => {
-    defaultRender = await renderModal({ content });
-    cleanup();
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
+describe("Modal renders correctly", () => {
   it("with base props", () => {
-    expect(defaultRender).toMatchSnapshot();
+    const { baseElement } = render(<Modal {...baseProps}>{content}</Modal>);
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with Header", async () => {
-    const props = {
-      content: (
-        <>
-          <ModalHeader title={"ModalHeader Heading"} />
-          {content}
-        </>
-      )
-    };
-
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with Header", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps}>
+        <ModalHeader title="ModalHeader Heading" />
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with Footer", async () => {
-    const props = {
-      content: (
-        <>
-          {content}
-          <ModalFooter>{footerContent}</ModalFooter>
-        </>
-      )
-    };
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with Footer", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps}>
+        {content}
+        <ModalFooter>{footerContent}</ModalFooter>
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with description", async () => {
-    const props = withContent({ description: "description" });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with description", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} description="description">
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with alertDialog", async () => {
-    const props = withContent({ isAlertDialog: true });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with alertDialog", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} isAlertDialog={true}>
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with closeButtonAriaLabel", async () => {
-    const props = withContent({ closeButtonAriaLabel: "closeButtonAriaLabel" });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with closeButtonAriaLabel", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} closeButtonAriaLabel="closeButtonAriaLabel">
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with full width", async () => {
-    const props = withContent({ width: "full-width" });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with full width", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} width="full-width">
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with custom width", async () => {
-    const props = withContent({ width: "720px" });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with custom width", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} width="720px">
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with class names", async () => {
-    const props = withContent({ classNames: { container: "container", overlay: "overlay", modal: "modal" } });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with class names", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps} classNames={{ container: "container", overlay: "overlay", modal: "modal" }}>
+        {content}
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it("with all parts", async () => {
-    const props = {
-      content: (
-        <>
-          <ModalHeader title={"ModalHeader Heading"} />
-          <ModalContent>{content}</ModalContent>
-          <ModalFooter>{footerContent}</ModalFooter>
-        </>
-      )
-    };
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with all parts", () => {
+    const { baseElement } = render(
+      <Modal {...baseProps}>
+        <ModalHeader title="ModalHeader Heading" />
+        <ModalContent>{content}</ModalContent>
+        <ModalFooter>{footerContent}</ModalFooter>
+      </Modal>
+    );
+    expect(baseElement).toMatchSnapshot();
   });
 });

@@ -57,7 +57,6 @@ const commonRules = {
       devDependencies: [
         "src/scripts/**/*.ts",
         "src/storybook/**/*",
-        "src/utils/jest-utils.js",
         "**/__tests__/**/*.{js,jsx,ts,tsx}",
         "**/__stories__/**/*.{js,jsx,ts,tsx}",
         "**/*.test.{js,jsx,ts,tsx}",

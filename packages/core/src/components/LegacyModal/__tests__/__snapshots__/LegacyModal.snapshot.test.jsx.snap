@@ -1,353 +1,902 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal > with Footer 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
-
-@@ --- --- @@
-        <p>
-          content
-        </p>
-+       <div
-+         class="container"
-+       >
-+         <p>
-+           footer
-+         </p>
-+       </div>
-      </div>
-    </div>
-  </div>"
-`;
-
-exports[`Modal > with Header 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
-
-@@ --- --- @@
-        class="typography primary start text text1Normal container"
-        data-testid="modal-content"
-      >
-+       <div
-+         class="container"
-+         data-testid="modal-header"
-+       >
-+         <div
-+           class="container directionRow justifyStart alignStart"
-+           style="gap: var(--spacing-small);"
-+         >
-+           <h1
-+             class="typography primary start multiLineEllipsis heading h1Normal"
-+             data-testid="text"
-+             style="--text-clamp-lines: 2;"
-+           >
-+             ModalHeader Heading
-+           </h1>
-+         </div>
-+         <div
-+           class="closeButton"
-+         >
-+           <span
-+             class="referenceWrapper"
-+           >
-+             <button
-+               aria-busy="false"
-+               aria-disabled="false"
-+               aria-label="close"
-+               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
-+               data-testid="icon-button"
-+               data-vibe="Button"
-+               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
-+               type="button"
-+             >
-+               <svg
-+                 aria-hidden="true"
-+                 class="icon noFocusStyle"
-+                 data-testid="icon"
-+                 data-vibe="Icon"
-+                 fill="currentColor"
-+                 height="20"
-+                 viewBox="0 0 20 20"
-+                 width="20"
-+               >
-+                 <path
-+                   d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
-+                 />
-+               </svg>
-+             </button>
-+           </span>
-+         </div>
-+       </div>
-        <p>
-          content
-        </p>"
-`;
-
-exports[`Modal > with alertDialog 1`] = `
-"Snapshot Diff:
-Compared values have no visual difference."
-`;
-
-exports[`Modal > with all parts 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
-
-@@ --- --- @@
-        class="typography primary start text text1Normal container"
-        data-testid="modal-content"
-      >
-+       <div
-+         class="container"
-+         data-testid="modal-header"
-+       >
-+         <div
-+           class="container directionRow justifyStart alignStart"
-+           style="gap: var(--spacing-small);"
-+         >
-+           <h1
-+             class="typography primary start multiLineEllipsis heading h1Normal"
-+             data-testid="text"
-+             style="--text-clamp-lines: 2;"
-+           >
-+             ModalHeader Heading
-+           </h1>
-+         </div>
-+         <div
-+           class="closeButton"
-+         >
-+           <span
-+             class="referenceWrapper"
-+           >
-+             <button
-+               aria-busy="false"
-+               aria-disabled="false"
-+               aria-label="close"
-+               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
-+               data-testid="icon-button"
-+               data-vibe="Button"
-+               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
-+               type="button"
-+             >
-+               <svg
-+                 aria-hidden="true"
-+                 class="icon noFocusStyle"
-+                 data-testid="icon"
-+                 data-vibe="Icon"
-+                 fill="currentColor"
-+                 height="20"
-+                 viewBox="0 0 20 20"
-+                 width="20"
-+               >
-+                 <path
-+                   d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
-+                 />
-+               </svg>
-+             </button>
-+           </span>
-+         </div>
-+       </div>
-+       <div
-+         class="typography primary start text text1Normal container"
-+         data-testid="modal-content"
-+       >
-          <p>
-            content
-+         </p>
-+       </div>
-+       <div
-+         class="container"
-+       >
-+         <p>
-+           footer
-          </p>
-+       </div>
-      </div>
-    </div>
-  </div>"
-`;
-
-exports[`Modal > with base props 1`] = `
-<div
-  aria-labelledby="modal-id-title"
-  aria-modal="true"
-  class="container"
-  data-testid="monday-dialog-container_modal-id"
-  id="modal-id"
-  role="dialog"
-  style="--monday-modal-z-index: 10000;"
-  tabindex="-1"
+exports[`Modal renders correctly > with Footer 1`] = `
+<body
+  style="overflow: hidden;"
 >
-  <div
-    class="overlay"
-    data-testid="monday-modal-overlay"
-  />
-  <div
-    class="dialog default"
-    role="document"
-  >
-    <div
-      class="container"
-      data-testid="modal-header_modal-id-title"
-    >
-      <div
-        class="container directionRow justifyStart alignStart"
-        style="gap: var(--spacing-small);"
-      >
-        <h1
-          class="typography primary start multiLineEllipsis heading h1Normal"
-          data-testid="text_modal-id-title"
-          id="modal-id-title"
-          style="--text-clamp-lines: 2;"
-        >
-          Modal Heading
-        </h1>
-      </div>
-      <div
-        class="closeButton"
-      >
-        <span
-          class="referenceWrapper"
-        >
-          <button
-            aria-busy="false"
-            aria-disabled="false"
-            aria-label="Close"
-            class="button sizeMedium kindTertiary colorPrimary noSidePadding"
-            data-testid="icon-button"
-            data-vibe="Button"
-            style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="icon noFocusStyle"
-              data-testid="icon"
-              data-vibe="Icon"
-              fill="currentColor"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-            >
-              <path
-                d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
-              />
-            </svg>
-          </button>
-        </span>
-      </div>
-    </div>
-    <div
-      class="typography primary start text text1Normal container"
-      data-testid="modal-content"
-    >
-      <p>
-        content
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Modal > with class names 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"classNames":{"container":"container","overlay":"overlay","modal":"modal"}}
-
-@@ --- --- @@
+  <div />
   <div
     aria-labelledby="modal-id-title"
     aria-modal="true"
--   class="container"
-+   class="container container"
+    class="container"
     data-testid="monday-dialog-container_modal-id"
     id="modal-id"
     role="dialog"
-@@ --- --- @@
+    style="--monday-modal-z-index: 10000;"
     tabindex="-1"
   >
     <div
--     class="overlay"
-+     class="overlay overlay"
+      class="overlay"
       data-testid="monday-modal-overlay"
     />
     <div
--     class="dialog default"
-+     class="dialog modal default"
+      class="dialog default"
       role="document"
     >
-      <div"
-`;
-
-exports[`Modal > with closeButtonAriaLabel 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"closeButtonAriaLabel":"closeButtonAriaLabel"}
-
-@@ --- --- @@
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
             <button
               aria-busy="false"
               aria-disabled="false"
--             aria-label="Close"
-+             aria-label="closeButtonAriaLabel"
+              aria-label="Close"
               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
               data-testid="icon-button"
-              data-vibe="Button""
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+      <div
+        class="container"
+      >
+        <p>
+          footer
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 `;
 
-exports[`Modal > with custom width 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"720px"}
-
-@@ --- --- @@
+exports[`Modal renders correctly > with Header 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
       data-testid="monday-modal-overlay"
     />
     <div
--     class="dialog default"
-+     class="dialog"
+      class="dialog default"
       role="document"
-+     style="width: 720px;"
     >
       <div
-        class="container""
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            ModalHeader Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 `;
 
-exports[`Modal > with description 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
+exports[`Modal renders correctly > with alertDialog 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-@@ --- --- @@
+exports[`Modal renders correctly > with all parts 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            ModalHeader Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+      <div
+        class="container"
+      >
+        <p>
+          footer
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders correctly > with base props 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders correctly > with class names 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog modal default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders correctly > with closeButtonAriaLabel 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="closeButtonAriaLabel"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders correctly > with custom width 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog"
+      role="document"
+      style="width: 720px;"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders correctly > with description 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+      class="dialog default"
+      role="document"
+    >
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
           </h1>
         </div>
         <div
-+         class="typography primary start multiLineEllipsis text text2Normal description"
-+         data-testid="text"
-+         style="--text-clamp-lines: 2;"
-+       >
-+         description
-+       </div>
-+       <div
+          class="typography primary start multiLineEllipsis text text2Normal description"
+          data-testid="text"
+          style="--text-clamp-lines: 2;"
+        >
+          description
+        </div>
+        <div
           class="closeButton"
         >
-          <span"
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 `;
 
-exports[`Modal > with full width 1`] = `
-"Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"full-width"}
-
-@@ --- --- @@
+exports[`Modal renders correctly > with full width 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+    class="container"
+    data-testid="monday-dialog-container_modal-id"
+    id="modal-id"
+    role="dialog"
+    style="--monday-modal-z-index: 10000;"
+    tabindex="-1"
+  >
+    <div
+      class="overlay"
       data-testid="monday-modal-overlay"
     />
     <div
--     class="dialog default"
-+     class="dialog full"
+      class="dialog full"
       role="document"
     >
-      <div"
+      <div
+        class="container"
+        data-testid="modal-header_modal-id-title"
+      >
+        <div
+          class="container directionRow justifyStart alignStart"
+          style="gap: var(--spacing-small);"
+        >
+          <h1
+            class="typography primary start multiLineEllipsis heading h1Normal"
+            data-testid="text_modal-id-title"
+            id="modal-id-title"
+            style="--text-clamp-lines: 2;"
+          >
+            Modal Heading
+          </h1>
+        </div>
+        
+        <div
+          class="closeButton"
+        >
+          <span
+            class="referenceWrapper"
+          >
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+              aria-label="Close"
+              class="button sizeMedium kindTertiary colorPrimary noSidePadding"
+              data-testid="icon-button"
+              data-vibe="Button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon noFocusStyle"
+                data-testid="icon"
+                data-vibe="Icon"
+                fill="currentColor"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="typography primary start text text1Normal container"
+        data-testid="modal-content"
+      >
+        <p>
+          content
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 `;

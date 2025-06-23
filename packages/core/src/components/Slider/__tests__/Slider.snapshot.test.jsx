@@ -1,7 +1,5 @@
-import { vi, afterEach, beforeAll, describe, it, expect } from "vitest";
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { cleanup } from "@testing-library/react";
-import { snapshotDiff } from "../../../utils/jest-utils";
 import { Sound } from "@vibe/icons";
 import { renderSliderForSnapshots } from "./sliderTestUtils.jsx";
 
@@ -17,123 +15,100 @@ vi.mock("../../TextField/TextField", () => ({
   }
 }));
 
-describe("Slider Render", () => {
-  let defaultRender;
-  beforeAll(async () => {
-    defaultRender = await renderSliderForSnapshots();
-    cleanup();
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
+describe("Slider renders correctly", () => {
   it("01. with empty props", async () => {
-    expect(defaultRender).toMatchSnapshot();
+    const render = await renderSliderForSnapshots();
+    expect(render).toMatchSnapshot();
   });
 
   it("02. with ariaLabel", async () => {
-    const props = { ariaLabel: "My Slider" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ ariaLabel: "My Slider" });
+    expect(render).toMatchSnapshot();
   });
 
   it("03. with ariaLabelledby", async () => {
-    const props = { ariaLabelledby: "id-of-the-custom-label" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ ariaLabelledby: "id-of-the-custom-label" });
+    expect(render).toMatchSnapshot();
   });
 
   it("04. with custom className", async () => {
-    const props = { className: "slide-me" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ className: "slide-me" });
+    expect(render).toMatchSnapshot();
   });
 
   it("05. with id and data-testid", async () => {
-    const props = { id: "my-slider", "data-testid": "my-slider" };
-    const currentRender = await renderSliderForSnapshots(props, "my-slider__thumb-0");
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots(
+      { id: "my-slider", "data-testid": "my-slider" },
+      "my-slider__thumb-0"
+    );
+    expect(render).toMatchSnapshot();
   });
 
   it("06. with disabled", async () => {
-    const props = { disabled: true };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ disabled: true });
+    expect(render).toMatchSnapshot();
   });
 
   it("07. with color", async () => {
-    const props = { color: "positive" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ color: "positive" });
+    expect(render).toMatchSnapshot();
   });
 
   it(`08. with size`, async () => {
-    const props = { size: "large" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ size: "large" });
+    expect(render).toMatchSnapshot();
   });
 
   it(`09. with min, max, and step`, async () => {
-    const props = { min: 10, max: 20, step: 2 };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ min: 10, max: 20, step: 2 });
+    expect(render).toMatchSnapshot();
   });
 
   it(`10. with showValue`, async () => {
-    const props = { showValue: true };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ showValue: true });
+    expect(render).toMatchSnapshot();
   });
 
   it(`11. with valueFormatter`, async () => {
-    const props = { valueFormatter: value => `--${value}GB--` };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ valueFormatter: value => `--${value}GB--` });
+    expect(render).toMatchSnapshot();
   });
 
   it(`12. with value (controlled component)`, async () => {
-    const props = { value: 12 };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ value: 12 });
+    expect(render).toMatchSnapshot();
   });
 
   it(`13. with value, valueText (controlled component)`, async () => {
-    const props = { value: 15, valueText: "15kg" };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ value: 15, valueText: "15kg" });
+    expect(render).toMatchSnapshot();
   });
 
   it(`14. with indicateSelection`, async () => {
-    const props = { indicateSelection: true };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ indicateSelection: true });
+    expect(render).toMatchSnapshot();
   });
 
   it(`15. with prefix (string) and postfix (Icon)`, async () => {
-    const props = { prefix: "Vol", postfix: { icon: Sound } };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender)).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ prefix: "Vol", postfix: { icon: Sound } });
+    expect(render).toMatchSnapshot();
   });
 
   it(`16. with prefix (custom) and postfix (render-props)`, async () => {
-    const props = {
+    const render = await renderSliderForSnapshots({
       prefix: <div>Custom component</div>,
       postfix: (value, valueText) => `Render Props result: ${valueText} (${value})`
-    };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender)).toMatchSnapshot();
+    });
+    expect(render).toMatchSnapshot();
   });
 
   it(`17. with ranged (ranged slider)`, async () => {
-    const props = { ranged: true };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ ranged: true });
+    expect(render).toMatchSnapshot();
   });
 
   it(`18. ranged slider with options`, async () => {
-    const props = { defaultValue: [20, 30], min: 10, max: 50, ranged: true, step: 2 };
-    const currentRender = await renderSliderForSnapshots(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+    const render = await renderSliderForSnapshots({ defaultValue: [20, 30], min: 10, max: 50, ranged: true, step: 2 });
+    expect(render).toMatchSnapshot();
   });
 });

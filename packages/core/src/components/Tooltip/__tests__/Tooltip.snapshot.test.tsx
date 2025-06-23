@@ -3,41 +3,28 @@ import React from "react";
 import { render } from "@testing-library/react";
 import Tooltip from "../Tooltip";
 
-vi.mock("react-transition-group", () => {
-  const FakeTransition = vi.fn(({ children }) => children);
-  const FakeSwitchTransition = vi.fn(({ children }) => children);
-  const FakeCSSTransition = vi.fn(({ children }) => children);
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
-
-vi.useFakeTimers();
-
 describe("Tooltip renders correctly", () => {
   it("with theme", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip shouldShowOnMount content="test" theme="primary">
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("with position", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip shouldShowOnMount content="test" position="left">
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("with withoutDialog", () => {
     const { container } = render(
-      <Tooltip shouldShowOnMount withoutDialog content="test">
+      <Tooltip withoutDialog content="test">
         <div />
       </Tooltip>
     );
@@ -45,38 +32,38 @@ describe("Tooltip renders correctly", () => {
   });
 
   it("without arrow", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip tip={false} content="test" shouldShowOnMount>
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("with hideWhenReferenceHidden", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip hideWhenReferenceHidden content="test" shouldShowOnMount>
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("with style", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip style={{ width: "200px" }} content="test" shouldShowOnMount>
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("with data-testid", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Tooltip data-testid="test" content="test" shouldShowOnMount>
         <div />
       </Tooltip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

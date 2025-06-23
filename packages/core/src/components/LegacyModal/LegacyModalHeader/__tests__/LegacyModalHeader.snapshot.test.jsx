@@ -1,50 +1,36 @@
-import { afterEach, beforeAll, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import ModalHeader from "../LegacyModalHeader";
 import { Settings } from "@vibe/icons";
-import { cleanup, render } from "@testing-library/react";
-import { snapshotDiff } from "../../../../utils/jest-utils";
+import { render } from "@testing-library/react";
 
-async function renderModalHeader(props) {
-  const { asFragment } = render(<ModalHeader id="modal-title-id" title={"Default title"} {...props} />);
-  return asFragment().firstChild;
-}
-
-describe("ModalHeader", () => {
-  let defaultRender;
-  beforeAll(async () => {
-    defaultRender = await renderModalHeader();
-    cleanup();
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
+describe("ModalHeader renders correctly", () => {
   it("with required props", () => {
-    expect(defaultRender).toMatchSnapshot();
+    const { container } = render(<ModalHeader id="modal-title-id" title="Default title" />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("with description", async () => {
-    const props = { description: "description" };
-    const currentRender = await renderModalHeader(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with description", () => {
+    const { container } = render(<ModalHeader id="modal-title-id" title="Default title" description="description" />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("with icon", async () => {
-    const props = { icon: Settings };
-    const currentRender = await renderModalHeader(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with icon", () => {
+    const { container } = render(<ModalHeader id="modal-title-id" title="Default title" icon={Settings} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("with classNames", async () => {
-    const props = {
-      className: "className",
-      descriptionClassName: "descriptionClassName",
-      iconClassName: "iconClassName",
-      titleClassName: "titleClassName"
-    };
-    const currentRender = await renderModalHeader(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  it("with classNames", () => {
+    const { container } = render(
+      <ModalHeader
+        id="modal-title-id"
+        title="Default title"
+        className="className"
+        descriptionClassName="descriptionClassName"
+        iconClassName="iconClassName"
+        titleClassName="titleClassName"
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

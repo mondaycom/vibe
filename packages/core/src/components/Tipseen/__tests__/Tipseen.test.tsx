@@ -8,17 +8,6 @@ import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 import renderer from "react-test-renderer";
 import TipseenTitle from "../TipseenTitle";
 
-vi.mock("react-transition-group", () => {
-  const FakeTransition = vi.fn(({ children }) => children);
-  const FakeSwitchTransition = vi.fn(({ children }) => children);
-  const FakeCSSTransition = vi.fn(({ children }) => children);
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
-
 const tipseenMockChildren = <div className="monday-storybook-tipseen_container" />;
 
 describe("Snapshot tests", () => {
