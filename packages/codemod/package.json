@@ -31,8 +31,8 @@
   "devDependencies": {
     "@types/jscodeshift": "^0.11.11",
     "@types/readline-sync": "^1.4.8",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
     "eslint-plugin-prettier": "^5.1.3",
     "plop": "^4.0.1",
