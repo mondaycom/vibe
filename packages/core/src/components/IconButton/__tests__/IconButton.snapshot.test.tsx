@@ -25,6 +25,16 @@ describe("IconButton renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it(`with size - xs`, () => {
+    const tree = renderer.create(<IconButton size="xs" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`with size - medium`, () => {
+    const tree = renderer.create(<IconButton size="medium" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   Object.values(SIZES).forEach(size => {
     it(`with size - ${size}`, () => {
       const tree = renderer.create(<IconButton size={size} />).toJSON();

@@ -1,5 +1,4 @@
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { render, fireEvent, act, cleanup } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 

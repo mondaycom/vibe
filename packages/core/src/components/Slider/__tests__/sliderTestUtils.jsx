@@ -1,13 +1,8 @@
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { render, screen } from "@testing-library/react";
 import Slider from "../Slider";
 
 export const SLIDER_LABEL = "my-slider";
-
-export function renderSlider(props = {}) {
-  return render(<Slider {...props} />);
-}
 
 export async function renderSliderInNonRangeMode(props = {}) {
   const renderResult = render(<Slider ariaLabel={SLIDER_LABEL} defaultValue={20} {...props} />);
@@ -26,7 +21,7 @@ export async function renderSliderInRangeMode(props = {}) {
 }
 
 export async function renderSliderForSnapshots(props, dataTestId = "monday-slider__thumb-0") {
-  const { asFragment } = renderSlider(props);
+  const { asFragment } = render(<Slider {...props} />);
   // noinspection JSCheckFunctionSignatures
   await screen.findByTestId(dataTestId);
   return asFragment().firstChild;

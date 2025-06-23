@@ -23,7 +23,7 @@ describe("tableHelpers", () => {
       expect(generateWidth({ min: 50, max: 75 })).toBe("minmax(50px, 75px)");
     });
 
-    it("should handle minmax with nu units", () => {
+    it("should handle minmax with numeric units", () => {
       expect(generateWidth({ min: 50, max: "75%" })).toBe("minmax(50px, 75%)");
     });
 
