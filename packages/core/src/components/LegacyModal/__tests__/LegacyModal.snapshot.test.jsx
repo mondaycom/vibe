@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import Modal from "../LegacyModal";
 import { ModalContent, ModalFooter, ModalHeader } from "../../../components";

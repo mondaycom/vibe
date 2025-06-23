@@ -1,4 +1,4 @@
-import { vi, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import Tooltip from "../Tooltip";
