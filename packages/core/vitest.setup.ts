@@ -25,18 +25,23 @@ Object.defineProperty(window, "matchMedia", {
 // Mock ReactDOM createPortal
 (ReactDOM.createPortal as any) = (node: React.ReactNode) => node;
 
+// Mock react-transition-group for all tests to ensure components render properly
+vi.mock("react-transition-group", () => {
+  const FakeTransition = vi.fn(({ children }: { children: React.ReactNode }) => children);
+  const FakeCSSTransition = vi.fn((props: { children: React.ReactNode }) => props.children);
+  const FakeSwitchTransition = vi.fn(({ children }: { children: React.ReactNode }) => children);
+  return {
+    CSSTransition: FakeCSSTransition,
+    Transition: FakeTransition,
+    SwitchTransition: FakeSwitchTransition
+  };
+});
+
 // Conditional mocking for Storybook testing
 const { testing } = process.env;
 const TESTING_STORYBOOK = testing === "storybook";
 
 if (TESTING_STORYBOOK) {
-  vi.mock("react-transition-group", () => {
-    const FakeTransition = vi.fn(({ children }: { children: React.ReactNode }) => children);
-    const FakeCSSTransition = vi.fn((props: { in: boolean; children: React.ReactNode }) =>
-      props.in ? React.createElement(FakeTransition, { children: props.children }) : null
-    );
-    return { CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition };
-  });
   vi.mock("consolidated-events", () => {
     return { addEventListener: vi.fn() };
   });

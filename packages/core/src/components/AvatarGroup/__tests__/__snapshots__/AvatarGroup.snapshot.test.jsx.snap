@@ -71,7 +71,14 @@ exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
       <div
         aria-label="1"
         className="counter sizeLarge kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}
@@ -160,7 +167,14 @@ exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabe
       <div
         aria-label="1"
         className="counter sizeLarge kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}
@@ -248,7 +262,14 @@ exports[`AvatarGroup renders correctly > renders correctly with counter default-
       <div
         aria-label="1"
         className="counter sizeLarge kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}
@@ -328,7 +349,14 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter t
       <div
         aria-label="1"
         className="counter sizeLarge kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}
@@ -527,7 +555,14 @@ exports[`AvatarGroup renders correctly > renders correctly with large size 1`] =
       <div
         aria-label="1"
         className="counter sizeLarge kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}
@@ -607,7 +642,14 @@ exports[`AvatarGroup renders correctly > renders correctly with xs size 1`] = `
       <div
         aria-label="1"
         className="counter sizeXs kindFill colorLight"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +1
+        </span>
+      </div>
     </span>
     <div
       tabIndex={-1}

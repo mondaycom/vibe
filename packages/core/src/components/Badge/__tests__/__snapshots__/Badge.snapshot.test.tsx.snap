@@ -51,7 +51,14 @@ exports[`Badge > renders with Counter and counter props 1`] = `
       <div
         aria-label="5"
         className="counter sizeLarge kindFill colorNegative"
-      />
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          5
+        </span>
+      </div>
     </span>
   </div>
 </div>
