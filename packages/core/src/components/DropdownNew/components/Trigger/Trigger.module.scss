@@ -84,8 +84,4 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-
-  &.small {
-    padding-inline-start: var(--space-8);
-  }
 }
