@@ -178,20 +178,20 @@ export const MultiChoiceWithDifferentStates = {
     const options = useMemo(
       () => [
         {
-          value: "Rotem",
-          label: "Rotem Dekel"
+          value: "Julia",
+          label: "Julia Martinez"
         },
         {
-          value: "Hadas",
-          label: "Hadas Farhi"
+          value: "Sophia",
+          label: "Sophia Johnson"
         },
         {
-          value: "Netta",
-          label: "Netta Muller"
+          value: "Marco",
+          label: "Marco DiAngelo"
         },
         {
-          value: "Dor",
-          label: "Dor Yehuda"
+          value: "Liam",
+          label: "Liam Caldwell"
         }
       ],
       []
@@ -200,12 +200,12 @@ export const MultiChoiceWithDifferentStates = {
     return (
       <Flex wrap gap="medium">
         <StoryDescription description="Single line" vertical>
-          <div style={{ width: "400px", marginBottom: "50px" }}>
+          <div style={{ width: "450px", marginBottom: "50px" }}>
             <DropdownNew placeholder="Single line multi state" defaultValue={[options[0]]} options={options} multi />
           </div>
         </StoryDescription>
         <StoryDescription description="Multiple lines" vertical>
-          <div style={{ width: "400px", marginBottom: "50px" }}>
+          <div style={{ width: "450px", marginBottom: "50px" }}>
             <DropdownNew
               placeholder="Multiple line multi state"
               defaultValue={[options[0], options[1], options[2]]}
@@ -222,7 +222,7 @@ export const MultiChoiceWithDifferentStates = {
             width: 190
           }}
         >
-          <div style={{ width: "400px", marginBottom: "50px" }}>
+          <div style={{ width: "450px", marginBottom: "50px" }}>
             <DropdownNew
               defaultValue={[options[0]]}
               options={options}
@@ -239,7 +239,7 @@ export const MultiChoiceWithDifferentStates = {
             width: 190
           }}
         >
-          <div style={{ width: "400px", marginBottom: "50px" }}>
+          <div style={{ width: "450px", marginBottom: "50px" }}>
             <DropdownNew defaultValue={[...options]} options={options} multi />
           </div>
         </StoryDescription>
@@ -262,24 +262,24 @@ export const DropdownWithAvatar = {
     const optionsAvatar: any = useMemo(
       () => [
         {
-          value: "Rotem",
-          label: "Rotem Dekel",
+          value: "Julia",
+          label: "Julia Martinez",
           startElement: {
             type: "avatar",
             value: person1
           }
         },
         {
-          value: "Hadas",
-          label: "Hadas Farhi",
+          value: "Sophia",
+          label: "Sophia Johnson",
           startElement: {
             type: "avatar",
             value: person2
           }
         },
         {
-          value: "Netta",
-          label: "Netta Muller",
+          value: "Marco",
+          label: "Marco DiAngelo",
           startElement: {
             type: "avatar",
             value: person3
@@ -368,18 +368,18 @@ export const DropdownWithChipColors = {
     const optionsWithChipColors: any = useMemo(
       () => [
         {
-          value: "Rotem",
-          label: "Rotem Dekel",
+          value: "Julia",
+          label: "Julia Martinez",
           chipColor: "negative"
         },
         {
-          value: "Hadas",
-          label: "Hadas Farhi",
+          value: "Sophia",
+          label: "Sophia Johnson",
           chipColor: "positive"
         },
         {
-          value: "Netta",
-          label: "Netta Muller",
+          value: "Marco",
+          label: "Marco DiAngelo",
           chipColor: "primary"
         }
       ],
@@ -455,17 +455,17 @@ export const DropdownWithChips = {
     const options = useMemo(
       () => [
         {
-          value: "Dor Yehuda",
-          label: "Hadas Farhi",
+          value: "Liam Caldwell",
+          label: "Sophia Johnson",
           src: person1,
           type: "img",
           size: "small",
-          name: "Dor Yehuda",
+          name: "Liam Caldwell",
           position: "(Full Stack Developer)"
         },
         {
           value: "No",
-          label: "Rotem Dekel",
+          label: "Julia Martinez",
           src: person3,
           type: "img",
           size: "small",
@@ -474,11 +474,11 @@ export const DropdownWithChips = {
         },
         {
           value: "Yes",
-          label: "Netta Muller",
+          label: "Marco DiAngelo",
           src: person2,
           type: "img",
           size: "small",
-          name: "Netta Muller",
+          name: "Marco DiAngelo",
           position: "(Brand Designer)"
         }
       ],
@@ -507,65 +507,6 @@ export const DropdownWithChips = {
   name: "Dropdown with chips"
 };
 
-// export const SearchableDropdown = {
-//   render: () => {
-//     const [searchValue, setSearchValue] = useState("");
-
-//     const allOptions = useMemo(
-//       () => [
-//         {
-//           value: "Red",
-//           label: "Red"
-//         },
-//         {
-//           value: "Orange",
-//           label: "Orange"
-//         },
-//         {
-//           value: "Yellow",
-//           label: "Yellow"
-//         },
-//         {
-//           value: "Green",
-//           label: "Green"
-//         },
-//         {
-//           value: "Blue",
-//           label: "Blue"
-//         },
-//         {
-//           value: "Indigo",
-//           label: "Indigo"
-//         },
-//         {
-//           value: "Violet",
-//           label: "Violet"
-//         }
-//       ],
-//       []
-//     );
-
-//     const options = useMemo(() => {
-//       if (!searchValue) return allOptions;
-
-//       return allOptions.filter(option => option.label.toLowerCase().includes(searchValue.toLowerCase()));
-//     }, [allOptions, searchValue]);
-
-//     const onInputChange = value => setSearchValue(value);
-
-//     return (
-//       <DropdownNew
-//         options={options}
-//         multi
-//         placeholder="Select colors"
-//         className="dropdown-stories-styles_with-chips"
-//         onInputChange={onInputChange}
-//       />
-//     );
-//   },
-//   name: "Searchable dropdown"
-// };
-
 export const DropdownWithLabels = {
   render: () => {
     const labelRenderer = useCallback(({ label, color }: any) => {
@@ -581,12 +522,12 @@ export const DropdownWithLabels = {
         {
           value: "success",
           label: "Success",
-          color: Label.colors.POSITIVE
+          color: "positive"
         },
         {
           value: "failed",
           label: "Failed",
-          color: Label.colors.NEGATIVE
+          color: "negative"
         },
         {
           value: "in progress",
