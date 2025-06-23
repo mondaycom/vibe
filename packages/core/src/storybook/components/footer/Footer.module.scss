@@ -6,13 +6,14 @@
   .footerTitles {
     max-width: 320px;
     flex-shrink: 0;
+    margin-right: 80px;
   }
 
   .title {
     color: var(--sb-primary-text-color);
     font-family: var(--sb-title-font-family);
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 105%;
     letter-spacing: -1.333px;
     margin: 0;

@@ -1,10 +1,10 @@
-.greeting {
+.letter {
   transform: rotate(3deg);
-  border: 1.905px solid var(--sb-layout-border-color);
+  border: 2px solid var(--sb-layout-border-color);
   max-width: 920px;
   border-radius: 30px;
   margin: 130px 80px;
-  padding: 72px 72px 48px 72px;
+  padding: 80px 72px 48px 72px;
 
   .intro {
     color: #979799;
@@ -20,6 +20,6 @@
     font-size: 34px;
     line-height: 135%;
     letter-spacing: 0.68px;
-    margin-bottom: 24px;
+    margin: 40px 0;
   }
 }

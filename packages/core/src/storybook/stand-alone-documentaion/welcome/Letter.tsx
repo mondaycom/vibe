@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./Greeting.module.scss";
+import styles from "./Letter.module.scss";
 import Flex from "../../../components/Flex/Flex";
 import ThankYouSVG from "./ThankYouSVG";
 
-export default function Greeting() {
+export default function Letter() {
   return (
     <Flex justify="center" style={{ width: "100%" }}>
-      <Flex className={styles.greeting} gap="small" direction="column" align="start">
+      <Flex className={styles.letter} direction="column" align="start">
         <div className={styles.intro}>To our dearest contributors,</div>
         <div className={styles.content}>
           We want to thank everyone who contributes daily to monday Design Foundations. As an open-source design

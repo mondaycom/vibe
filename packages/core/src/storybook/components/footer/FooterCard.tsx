@@ -17,7 +17,7 @@ export default function FooterCard({
 }) {
   return (
     <a href={href} className={styles.footerCard} target="_blank" rel="noreferrer noopener">
-      <Flex style={{ gap: "22px" }} direction="column" align="start">
+      <Flex gap="medium" direction="column" align="start">
         <Title className={styles.title}>{title}</Title>
         <div className={styles.description}>{description}</div>
       </Flex>

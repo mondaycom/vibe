@@ -15,8 +15,8 @@ export const TeamMember = ({ image, name, title, linkedinUrl }: TeamMemberProps)
   return (
     <Flex direction="column" gap="large" align="start">
       <img src={image} alt={name} className={styles.image} />
-      <div style={{ width: "100%" }}>
-        <Flex justify="space-between">
+      <Flex className={styles.content} direction="column" align="start">
+        <Flex justify="space-between" style={{ width: "100%" }}>
           <Text type="text1" weight="medium" className={styles.name}>
             {name}
           </Text>
@@ -25,7 +25,7 @@ export const TeamMember = ({ image, name, title, linkedinUrl }: TeamMemberProps)
           </a>
         </Flex>
         <Text className={styles.title}>{title}</Text>
-      </div>
+      </Flex>
     </Flex>
   );
 };

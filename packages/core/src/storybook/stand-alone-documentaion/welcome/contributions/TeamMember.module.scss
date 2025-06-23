@@ -1,19 +1,25 @@
+.content {
+  width: 100%;
+  gap: 6px;
+
+  .icon {
+    color: var(--sb-text-color);
+  }
+
+  .name {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  .title {
+    font-size: 16px;
+    letter-spacing: 0.36px;
+  }
+}
+
 .image {
   width: 200px;
   height: 200px;
   border-radius: 24px;
   object-fit: cover;
-}
-
-.icon {
-  color: var(--sb-text-color);
-}
-
-.name {
-  font-size: 22px;
-}
-
-.title {
-  font-size: 16px;
-  letter-spacing: 0.36px;
 }

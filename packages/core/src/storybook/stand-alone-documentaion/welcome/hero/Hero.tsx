@@ -19,7 +19,8 @@ export default function Hero() {
         </Flex>
       </h1>
       <p className={styles.subheader}>
-        Foundations, components, patterns and processes are what experiences are made of.
+        Foundations, components, patterns and processes <br />
+        are what experiences are made of.
       </p>
       <Flex gap="small">
         <ResourceButton
