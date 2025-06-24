@@ -85,4 +85,8 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  &.disabled {
+    color: var(--disabled-text-color);
+  }
 }

@@ -55,8 +55,11 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
           {!hasSelection && placeholder && (
             <Text
               color="secondary"
-              className={styles.placeholderText}
+              className={cx(styles.placeholderText, {
+                [styles.disabled]: !!disabled
+              })}
               {...getToggleButtonProps(multipleSelectionDropdownProps)}
+              type={size === "small" ? "text2" : "text1"}
             >
               {placeholder}
             </Text>
