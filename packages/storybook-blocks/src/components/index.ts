@@ -1,7 +1,6 @@
 export { default as AlphaWarning } from './alpha-warning/alpha-warning';
 export { default as AnchorListItem } from './anchor-list-item/anchor-list-item';
 export { default as ColorDescription } from './color-description/color-description';
-export { default as ComponentDescription } from './component-description/component-description';
 export { default as ComponentName } from './component-name/component-name';
 export { default as ComponentRules } from './component-rules/component-rules';
 export { default as DeprecatedWarning } from './deprecated-warning/deprecated-warning';
