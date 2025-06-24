@@ -13,6 +13,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipHeading, TipLink } from "./Text.stories.helpers";
 import * as TextStories from "./Text.stories";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 <Meta of={TextStories} />
 
@@ -149,13 +150,7 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Box
-            rounded="small"
-            padding="medium"
-            backgroundColor="primaryBackgroundColor"
-            shadow="small"
-            style={{ width: "60%" }}
-          >
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
             <Flex gap="small" align="start">
               <Box style={{ flexShrink: 0 }}>
                 <Icon icon={Link} />
@@ -169,7 +164,7 @@ A Text component with a link skin can be used to create a link within running te
                 </Text>
               </Flex>
             </Flex>
-          </Box>
+          </DialogContentContainer>
         ),
         description: "Use text3 for section titles, short captions, and labels."
       },
@@ -186,13 +181,7 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Box
-            rounded="small"
-            padding="medium"
-            backgroundColor="primaryBackgroundColor"
-            shadow="small"
-            style={{ width: "60%" }}
-          >
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
             <Flex gap="small" align="start">
               <Box style={{ flexShrink: 0 }}>
                 <Icon icon={Link} />
@@ -206,7 +195,7 @@ A Text component with a link skin can be used to create a link within running te
                 </Text>
               </Flex>
             </Flex>
-          </Box>
+          </DialogContentContainer>
         ),
         description: "Use only normal and medium weights for text3."
       },
