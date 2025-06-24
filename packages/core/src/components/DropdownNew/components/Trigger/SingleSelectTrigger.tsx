@@ -14,7 +14,10 @@ const SingleSelectTrigger = () => {
 
   return (
     <Flex justify="space-between" align="center">
-      <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
+      <div
+        className={cx(styles.triggerWrapper, getStyle(styles, size))}
+        {...(!searchable ? getToggleButtonProps() : {})}
+      >
         <DropdownInput />
 
         {!inputValue && selectedItem && (
@@ -26,7 +29,7 @@ const SingleSelectTrigger = () => {
               },
               getStyle(styles, size)
             )}
-            {...getToggleButtonProps()}
+            {...(searchable ? getToggleButtonProps() : {})}
           >
             {valueRenderer ? (
               valueRenderer(selectedItem)
