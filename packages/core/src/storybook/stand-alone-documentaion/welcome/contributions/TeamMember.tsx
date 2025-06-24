@@ -13,7 +13,7 @@ export interface TeamMemberProps {
 
 export const TeamMember = ({ image, name, title, linkedinUrl }: TeamMemberProps) => {
   return (
-    <Flex direction="column" gap="large" align="start">
+    <Flex className={styles.teamMember} direction="column" gap="large" align="start">
       <img src={image} alt={name} className={styles.image} />
       <Flex className={styles.content} direction="column" align="start">
         <Flex justify="space-between" style={{ width: "100%" }}>

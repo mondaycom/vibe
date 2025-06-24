@@ -1,25 +1,33 @@
-.content {
-  width: 100%;
-  gap: 6px;
+.teamMember {
+  .content {
+    width: 100%;
+    gap: 6px;
 
-  .icon {
-    color: var(--sb-text-color);
+    .icon {
+      color: var(--sb-text-color);
+    }
+
+    .name {
+      font-size: 22px;
+      line-height: normal;
+    }
+
+    .title {
+      font-size: 16px;
+      letter-spacing: 0.36px;
+    }
   }
 
-  .name {
-    font-size: 22px;
-    line-height: normal;
+  .image {
+    width: 200px;
+    height: 200px;
+    border-radius: 24px;
+    object-fit: cover;
   }
 
-  .title {
-    font-size: 16px;
-    letter-spacing: 0.36px;
+  &:hover {
+    .name {
+      text-decoration: underline;
+    }
   }
-}
-
-.image {
-  width: 200px;
-  height: 200px;
-  border-radius: 24px;
-  object-fit: cover;
 }
