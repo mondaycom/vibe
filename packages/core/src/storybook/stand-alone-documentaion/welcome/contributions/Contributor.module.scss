@@ -7,6 +7,10 @@
   text-decoration: none;
   vertical-align: middle;
 
+  &:hover {
+    background-color: var(--sb-primary-background-hover-color);
+  }
+
   .image {
     width: 24px;
     height: 24px;
