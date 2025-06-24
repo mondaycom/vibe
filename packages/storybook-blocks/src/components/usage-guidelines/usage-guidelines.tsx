@@ -11,15 +11,14 @@ const UsageGuidelines: React.FC<UsageGuidelinesProps> = ({ guidelines = [] }) =>
     () =>
       guidelines.map((guideline, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <span id={index.toString()} key={index} className={styles.usageGuideline}>
-          <span className={styles.icon}>✦</span>
-          <span>{guideline}</span>
-        </span>
+        <li key={index} className={styles.usageGuideline}>
+          {guideline}
+        </li>
       )),
     [guidelines],
   );
 
-  return <article className={styles.usageGuidelines}>{guidelinesElements}</article>;
+  return <ul className={styles.usageGuidelines}>{guidelinesElements}</ul>;
 };
 
 export default UsageGuidelines;
