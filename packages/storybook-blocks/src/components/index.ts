@@ -4,7 +4,6 @@ export { default as ColorDescription } from './color-description/color-descripti
 export { default as ComponentName } from './component-name/component-name';
 export { default as ComponentRules } from './component-rules/component-rules';
 export { default as DeprecatedWarning } from './deprecated-warning/deprecated-warning';
-export { default as DocFooter } from './doc-footer/doc-footer';
 export { default as Frame } from './frame/frame';
 export { default as FunctionArgument } from './function-arguments/function-argument';
 export { default as FunctionArguments } from './function-arguments/function-arguments';

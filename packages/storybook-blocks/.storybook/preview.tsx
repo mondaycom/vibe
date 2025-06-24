@@ -4,7 +4,6 @@ import {
   AnchorListItem,
   ComponentName,
   ComponentRules,
-  DocFooter,
   Frame,
   FunctionArgument,
   FunctionArguments,
@@ -31,10 +30,7 @@ const preview: Preview = {
       },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
-          <Unstyled>
-            {children}
-            {<DocFooter feedbackFormLink="// TODO add feedbackFormLink" />}
-          </Unstyled>
+          <Unstyled>{children}</Unstyled>
         </DocsContainer>
       ),
       page: DocsPage,

@@ -8,7 +8,6 @@ import {
   DeprecatedWarning,
   ComponentName,
   ComponentRules,
-  DocFooter,
   Frame,
   FunctionArgument,
   FunctionArguments,
