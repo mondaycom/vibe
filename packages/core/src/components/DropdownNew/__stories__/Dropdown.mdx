@@ -57,39 +57,19 @@ There are three sizes available: Small, Medium, and Large
 
 <Canvas of={DropdownStories.Sizes} />
 
-### Disabled
+### States
 
-<Canvas of={DropdownStories.Disabled} />
+<Canvas of={DropdownStories.States} />
 
-### Readonly
+### Multi-select
 
-<Canvas of={DropdownStories.Readonly} />
+The Dropdown component supports multi select option that display as chips. The selected items can be shown in either a single line (with additional option for hidden list), or multiple line. This mode also supports all standard dropdown states.
 
-### RTL
+<Canvas of={DropdownStories.MultiSelect} />
 
-<Canvas of={DropdownStories.Rtl} />
+### Dropdown with icon or avatar
 
-### Multi line states
-
-The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
-
-<Canvas of={DropdownStories.MultiChoiceWithDifferentStates} />
-
-### Dropdown with avatar
-
-<Canvas of={DropdownStories.DropdownWithAvatar} />
-
-### Dropdown with icon
-
-<Canvas of={DropdownStories.DropdownWithIcon} />
-
-### Dropdown with chip colors
-
-<Canvas of={DropdownStories.DropdownWithChipColors} />
-
-### Dropdown with tooltips on items
-
-<Canvas of={DropdownStories.DropdownWithTooltipsOnItems} />
+<Canvas of={DropdownStories.DropdownWithIconOrAvatar} />
 
 ## Do’s and Don’ts
 
@@ -141,11 +121,33 @@ The Dropdown component supports multiple options selection in two different stat
 
 ## Use cases and examples
 
-### Multiple dropdown with renderers as options
+### Searchable dropdown
 
-Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
+The dropdown can also function as a search for a specific item within the list.
 
-<Canvas of={DropdownStories.DropdownWithChips} />
+<Canvas of={DropdownStories.Searchable} />
+
+### Dropdown with groups
+
+Dropdown menu can be organized into groups, either with titled sections or dividers. Group titles can be configured to remain sticky or non-sticky.
+
+<Canvas of={DropdownStories.DropdownWithGroups} />
+
+### Dropdown item with elements
+
+The dropdown item can contain start element or end element. This are the options:
+
+<Canvas of={DropdownStories.DropdownItemWithElements} />
+
+### Show selected items
+
+You can choose to display selected items within the dropdown list, so users can easily see both available and already-selected options in one view.
+
+<Canvas of={DropdownStories.DropdownShowSelectedItems} />
+
+### Dropdown with tooltips
+
+<Canvas of={DropdownStories.DropdownWithTooltips} />
 
 ## Related components
 

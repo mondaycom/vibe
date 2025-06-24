@@ -1,15 +1,13 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-// import { multiInteractionTests } from "../__tests__/Dropdown.interactions";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import { OptionRenderer } from "./OptionRenderer";
 import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, DropdownNew, Flex, Label, Modal, ModalContent } from "../../index";
+import { Box, Button, DialogContentContainer, DropdownNew, Flex, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
-import Heading from "../../Heading/Heading";
+import { Text } from "../../Text";
+import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DropdownNew,
@@ -80,132 +78,82 @@ export const Sizes = {
     return (
       <>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Small" size="small" />
+          <DropdownNew options={options} placeholder="Placeholder text here" size="large" />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Medium" size="medium" />
+          <DropdownNew options={options} placeholder="Placeholder text here" size="medium" />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Large" size="large" />
+          <DropdownNew options={options} placeholder="Placeholder text here" size="small" />
         </div>
       </>
     );
   }
 };
 
-export const Disabled = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        {
-          value: "1",
-          label: "Option 1"
-        },
-        {
-          value: "2",
-          label: "Option 2"
-        },
-        {
-          value: "3",
-          label: "Option 3"
-        }
-      ],
-      []
-    );
-
-    return (
-      <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
-        <div style={{ width: "300px" }}>
-          <DropdownNew defaultValue={options[0]} options={options} disabled />
-        </div>
-        <div style={{ width: "300px" }}>
-          <DropdownNew multi defaultValue={[options[0], options[1]]} options={options} disabled />
-        </div>
-      </Flex>
-    );
-  }
-};
-
-export const Readonly = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        {
-          value: "1",
-          label: "Option 1"
-        },
-        {
-          value: "2",
-          label: "Option 2"
-        },
-        {
-          value: "3",
-          label: "Option 3"
-        }
-      ],
-      []
-    );
-
-    return (
-      <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
-        <div style={{ width: "300px" }}>
-          <DropdownNew defaultValue={options[0]} options={options} readOnly />
-        </div>
-        <div style={{ width: "300px" }}>
-          <DropdownNew multi defaultValue={[options[0], options[1]]} options={options} readOnly />
-        </div>
-      </Flex>
-    );
-  }
-};
-
-export const Rtl = {
+export const States = {
   render: () => (
-    <Flex direction="row" gap="medium" style={{ margin: "30px" }}>
-      <div style={{ width: "300px" }}>
-        <DropdownNew options={[]} placeholder="Left to right (default)" />
-      </div>
-      <div style={{ width: "300px" }}>
-        <DropdownNew options={[]} placeholder="מימין לשמאל" dir="rtl" />
-      </div>
+    <Flex direction="row" gap="medium">
+      <Flex direction="column" gap="medium">
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={[]} placeholder="Default" />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={[]} placeholder="Disabled" disabled />
+        </div>
+      </Flex>
+      <Flex direction="column" gap="medium">
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={[]} placeholder="Error" error />
+        </div>
+        <div style={{ width: "300px" }}>
+          <DropdownNew options={[]} placeholder="Readonly" readOnly />
+        </div>
+      </Flex>
     </Flex>
-  ),
-  name: "RTL"
+  )
 };
 
-export const MultiChoiceWithDifferentStates = {
+export const MultiSelect = {
   render: () => {
     const options = useMemo(
       () => [
         {
-          value: "Julia",
-          label: "Julia Martinez"
+          value: "1",
+          label: "Option 1"
         },
         {
-          value: "Sophia",
-          label: "Sophia Johnson"
+          value: "2",
+          label: "Option 2"
         },
         {
-          value: "Marco",
-          label: "Marco DiAngelo"
+          value: "3",
+          label: "Option 3"
         },
         {
-          value: "Liam",
-          label: "Liam Caldwell"
+          value: "4",
+          label: "Option 4"
         }
       ],
       []
     );
 
     return (
-      <Flex wrap gap="medium">
-        <StoryDescription description="Single line" vertical>
-          <div style={{ width: "450px", marginBottom: "50px" }}>
-            <DropdownNew placeholder="Single line multi state" defaultValue={[options[0]]} options={options} multi />
+      <Flex gap="large" align="start" justify="start">
+        <Flex direction="column" gap="medium">
+          <Text>Single line with hidden options</Text>
+          <div style={{ width: "350px", marginBottom: "50px" }}>
+            <DropdownNew
+              placeholder="Single line multi state"
+              defaultValue={[options[0], options[1], options[2]]}
+              options={options}
+              multi
+            />
           </div>
-        </StoryDescription>
-        <StoryDescription description="Multiple lines" vertical>
-          <div style={{ width: "450px", marginBottom: "50px" }}>
+        </Flex>
+        <Flex direction="column" gap="medium">
+          <Text>Multiple lines</Text>
+          <div style={{ width: "350px", marginBottom: "50px" }}>
             <DropdownNew
               placeholder="Multiple line multi state"
               defaultValue={[options[0], options[1], options[2]]}
@@ -214,51 +162,35 @@ export const MultiChoiceWithDifferentStates = {
               multiline
             />
           </div>
-        </StoryDescription>
-        <StoryDescription
-          description="Mandatory default values"
-          vertical
-          headerStyle={{
-            width: 190
-          }}
-        >
-          <div style={{ width: "450px", marginBottom: "50px" }}>
-            <DropdownNew
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              multiline
-              // withMandatoryDefaultOptions
-            />
-          </div>
-        </StoryDescription>
-        <StoryDescription
-          description="Hidden options list"
-          vertical
-          headerStyle={{
-            width: 190
-          }}
-        >
-          <div style={{ width: "450px", marginBottom: "50px" }}>
-            <DropdownNew defaultValue={[...options]} options={options} multi />
-          </div>
-        </StoryDescription>
+        </Flex>
       </Flex>
     );
-  },
-  // play: multiInteractionTests,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
-  },
-  name: "Multi-choice with different states"
+  }
 };
 
-export const DropdownWithAvatar = {
+export const DropdownWithIconOrAvatar = {
   render: () => {
+    const optionsIcons: any = useMemo(
+      () => [
+        {
+          value: "email",
+          label: "Email",
+          startElement: {
+            type: "icon",
+            value: Email
+          }
+        },
+        {
+          value: "attach",
+          label: "Attach",
+          startElement: {
+            type: "icon",
+            value: Attach
+          }
+        }
+      ],
+      []
+    );
     const optionsAvatar: any = useMemo(
       () => [
         {
@@ -290,48 +222,147 @@ export const DropdownWithAvatar = {
     );
 
     return (
-      <Flex gap="medium" style={{ margin: "30px" }}>
-        <StoryDescription vertical description="Single value">
-          <div style={{ width: "400px" }}>
+      <Flex gap="large" align="start" justify="start">
+        <Flex direction="column" gap="medium">
+          <Text>Single value</Text>
+          <div style={{ width: "350px", marginBottom: "10px" }}>
+            <DropdownNew defaultValue={optionsIcons[0]} options={optionsIcons} />
+          </div>
+          <div style={{ width: "350px", marginBottom: "10px" }}>
             <DropdownNew defaultValue={optionsAvatar[0]} options={optionsAvatar} />
           </div>
-        </StoryDescription>
-        <StoryDescription vertical description="Multiple values">
-          <div style={{ width: "400px" }}>
+        </Flex>
+        <Flex direction="column" gap="medium">
+          <Text>Multiple values</Text>
+          <div style={{ width: "350px", marginBottom: "10px" }}>
+            <DropdownNew defaultValue={[optionsIcons[0]]} options={optionsIcons} multi />
+          </div>
+          <div style={{ width: "350px", marginBottom: "10px" }}>
             <DropdownNew defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi />
           </div>
-        </StoryDescription>
+        </Flex>
       </Flex>
     );
   },
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, person2, person3, StoryDescription }
+        scope: { person1, person2, person3 }
       }
     }
-  },
-  name: "Dropdown with avatar"
+  }
 };
 
-export const DropdownWithIcon = {
+export const Searchable = {
   render: () => {
-    const optionsIcons: any = useMemo(
+    const options = useMemo(
+      () =>
+        Array.from({ length: 10 }, (_, i) => ({
+          value: `Option ${i + 1}`,
+          label: `Option ${i + 1}`
+        })),
+      []
+    );
+
+    return (
+      <div style={{ width: "300px" }}>
+        <DropdownNew placeholder={"Searchable for an item"} options={options} searchable maxMenuHeight={170} />
+      </div>
+    );
+  }
+};
+
+export const DropdownWithGroups = {
+  render: () => {
+    const options = useMemo(
+      () =>
+        Array.from({ length: 2 }, (_, groupIndex) => ({
+          label: `Group ${groupIndex + 1}`,
+          options: Array.from({ length: 6 }, (_, optionIndex) => ({
+            value: `${groupIndex * 2 + optionIndex + 1}`,
+            label: `Option ${groupIndex * 2 + optionIndex + 1}`
+          }))
+        })),
+      []
+    );
+
+    const optionsWithoutGroupLabel = useMemo(
+      () =>
+        Array.from({ length: 2 }, (_, groupIndex) => ({
+          options: Array.from({ length: 6 }, (_, optionIndex) => ({
+            value: `${groupIndex * 2 + optionIndex + 1}`,
+            label: `Option ${groupIndex * 2 + optionIndex + 1}`
+          }))
+        })),
+      []
+    );
+
+    return (
+      <Flex gap="medium" align="start" justify="start">
+        <Flex direction="column" gap="medium">
+          <Text>Group by divider</Text>
+          <div style={{ width: "300px" }}>
+            <DropdownNew placeholder="Groups with group title" options={optionsWithoutGroupLabel} withGroupDivider />
+          </div>
+        </Flex>
+        <Flex direction="column" gap="medium">
+          <Text>Group by category title</Text>
+          <div style={{ width: "300px" }}>
+            <DropdownNew placeholder="Groups with group title" options={options} />
+          </div>
+        </Flex>
+        <Flex direction="column" gap="medium">
+          <Text>Group by category title sticky</Text>
+          <div style={{ width: "300px" }}>
+            <DropdownNew placeholder="Groups with group title" options={options} stickyGroupTitle />
+          </div>
+        </Flex>
+      </Flex>
+    );
+  }
+};
+
+export const DropdownItemWithElements = {
+  render: () => {
+    const options: BaseListItemData<Record<string, unknown>>[] = useMemo(
       () => [
         {
-          value: "email",
-          label: "Email",
+          value: "icon",
+          label: "Label with icon",
           startElement: {
             type: "icon",
             value: Email
           }
         },
         {
-          value: "attach",
-          label: "Attach",
+          value: "avatar",
+          label: "Label with avatar",
           startElement: {
+            type: "avatar",
+            value: person1
+          }
+        },
+        {
+          value: "indent",
+          label: "Label with indent",
+          startElement: {
+            type: "indent"
+          }
+        },
+        {
+          value: "endIcon",
+          label: "Label with end icon",
+          endElement: {
             type: "icon",
-            value: Attach
+            value: Email
+          }
+        },
+        {
+          value: "hintText",
+          label: "Label with hint text",
+          endElement: {
+            type: "suffix",
+            value: "Hint text"
           }
         }
       ],
@@ -339,396 +370,70 @@ export const DropdownWithIcon = {
     );
 
     return (
-      <Flex gap="medium" style={{ margin: "30px" }}>
-        <StoryDescription vertical description="Single value">
-          <div style={{ width: "400px", marginBottom: "70px" }}>
-            <DropdownNew defaultValue={optionsIcons[0]} options={optionsIcons} />
-          </div>
-        </StoryDescription>
-        <StoryDescription vertical description="Multiple values">
-          <div style={{ width: "400px", marginBottom: "70px" }}>
-            <DropdownNew defaultValue={[optionsIcons[0]]} options={optionsIcons} multi multiline />
-          </div>
-        </StoryDescription>
-      </Flex>
+      <div style={{ width: "300px" }}>
+        <DropdownNew placeholder={"Placeholder text here"} options={options} label="Label" required />
+      </div>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Email, Attach, StoryDescription }
-      }
-    }
-  },
-  name: "Dropdown with icon"
+  }
 };
 
-export const DropdownWithChipColors = {
-  render: () => {
-    const optionsWithChipColors: any = useMemo(
-      () => [
-        {
-          value: "Julia",
-          label: "Julia Martinez",
-          chipColor: "negative"
-        },
-        {
-          value: "Sophia",
-          label: "Sophia Johnson",
-          chipColor: "positive"
-        },
-        {
-          value: "Marco",
-          label: "Marco DiAngelo",
-          chipColor: "primary"
-        }
-      ],
-      []
-    );
-
-    return (
-      <StoryDescription vertical>
-        <div style={{ width: "300px", margin: "30px" }}>
-          <DropdownNew
-            defaultValue={[optionsWithChipColors[0]]}
-            options={optionsWithChipColors}
-            multi
-            multiline
-            menuRenderer={({ selectedItems }) => <div>Selected: {selectedItems[0].label}</div>}
-          />
-        </div>
-      </StoryDescription>
-    );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
-  },
-  name: "Dropdown with chip colors"
-};
-
-export const DropdownWithTooltipsOnItems = {
-  render: () => {
-    const optionsWithTooltips = useMemo(
-      () => [
-        {
-          value: "Option 1",
-          label: "Option 1",
-          tooltipProps: {
-            content: "Description for option 1"
-          }
-        },
-        {
-          value: "Option 2",
-          label: "Option 2",
-          tooltipProps: {
-            content: "Description for option 2"
-          }
-        }
-      ],
-      []
-    );
-
-    return (
-      <StoryDescription vertical>
-        <div style={{ width: "300px", margin: "30px" }}>
-          <DropdownNew placeholder={"Placeholder text here"} options={optionsWithTooltips} />
-        </div>
-      </StoryDescription>
-    );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
-  },
-  name: "Dropdown with tooltips on items"
-};
-
-export const DropdownWithChips = {
+export const DropdownShowSelectedItems = {
   render: () => {
     const options = useMemo(
-      () => [
-        {
-          value: "Liam Caldwell",
-          label: "Sophia Johnson",
-          src: person1,
-          type: "img",
-          size: "small",
-          name: "Liam Caldwell",
-          position: "(Full Stack Developer)"
-        },
-        {
-          value: "No",
-          label: "Julia Martinez",
-          src: person3,
-          type: "img",
-          size: "small",
-          name: "Rotem Dekel",
-          position: "(Product Designer)"
-        },
-        {
-          value: "Yes",
-          label: "Marco DiAngelo",
-          src: person2,
-          type: "img",
-          size: "small",
-          name: "Marco DiAngelo",
-          position: "(Brand Designer)"
-        }
-      ],
+      () =>
+        Array.from({ length: 10 }, (_, i) => ({
+          value: `Option ${i + 1}`,
+          label: `Option ${i + 1}`
+        })),
       []
     );
 
     return (
-      <div style={{ width: "300px", margin: "30px" }}>
+      <div style={{ width: "300px" }}>
         <DropdownNew
-          defaultValue={[options[0]]}
+          placeholder={"Placeholder text here"}
           options={options}
+          defaultValue={[options[0], options[2], options[3]]}
+          label="Label"
+          required
           multi
-          placeholder="Dropdown with chips"
-          optionRenderer={OptionRenderer}
+          showSelectedOptions
         />
       </div>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { person1, person2, person3, OptionRenderer }
-      }
-    }
-  },
-  name: "Dropdown with chips"
+  }
 };
 
-export const DropdownWithLabels = {
+export const DropdownWithTooltips = {
   render: () => {
-    const labelRenderer = useCallback(({ label, color }: any) => {
-      return (
-        <Flex style={{ height: "100%" }}>
-          <Label text={label} color={color} />
-        </Flex>
-      );
-    }, []);
-
-    const options = useMemo(
-      () => [
-        {
-          value: "success",
-          label: "Success",
-          color: "positive"
-        },
-        {
-          value: "failed",
-          label: "Failed",
-          color: "negative"
-        },
-        {
-          value: "in progress",
-          label: "In progress"
-        }
-      ],
+    const optionsWithTooltips = useMemo(
+      () =>
+        Array.from({ length: 2 }, (_, i) => ({
+          value: `Option ${i + 1}`,
+          label: `Option ${i + 1}`,
+          tooltipProps: {
+            content: `Description for option ${i + 1}`
+          }
+        })),
       []
     );
 
     return (
-      <DropdownNew
-        placeholder="Placeholder text here"
-        options={options}
-        defaultValue={options[0]}
-        className="dropdown-stories-styles_big-spacing"
-        optionRenderer={labelRenderer}
-        valueRenderer={labelRenderer}
-      />
-    );
-  },
-  name: "Dropdown with labels"
-};
-
-export const DropdownInsideAForm = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        {
-          value: "Sometimes",
-          label: "Sometimes"
-        },
-        {
-          value: "No",
-          label: "No"
-        },
-        {
-          value: "Yes",
-          label: "Yes"
-        }
-      ],
-      []
-    );
-
-    return (
-      <div>
-        <Heading type="h3">Are you usually a Dark mode person?</Heading>
-        <div style={{ width: "300px" }}>
-          <DropdownNew defaultValue={options[0]} placeholder="Placeholder text here" options={options} />
-        </div>
+      <div style={{ width: "300px" }}>
+        <DropdownNew placeholder={"Placeholder text here"} options={optionsWithTooltips} />
       </div>
     );
-  },
-  name: "Dropdown inside a form"
-};
-
-export const DropdownWithGroups = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        {
-          label: "Group 1",
-          options: [
-            {
-              value: "1",
-              label: "Option 1"
-            },
-            {
-              value: "2",
-              label: "Option 2"
-            }
-          ]
-        },
-        {
-          label: "Group 2",
-
-          options: [
-            {
-              value: "3",
-              label: "Option 3"
-            },
-            {
-              value: "4",
-              label: "Option 4"
-            }
-          ]
-        }
-      ],
-      []
-    );
-
-    const optionsWithoutGroupLabel = useMemo(
-      () => [
-        {
-          options: [
-            {
-              value: "1",
-              label: "Option 1"
-            },
-            {
-              value: "2",
-              label: "Option 2"
-            }
-          ]
-        },
-        {
-          options: [
-            {
-              value: "3",
-              label: "Option 3"
-            },
-            {
-              value: "4",
-              label: "Option 4"
-            }
-          ]
-        }
-      ],
-      []
-    );
-
-    return (
-      <Flex gap="medium" style={{ margin: "30px" }}>
-        <div>
-          <div style={{ width: "300px" }}>
-            <DropdownNew placeholder="Groups with group title" options={options} />
-          </div>
-        </div>
-        <div style={{ width: "300px" }}>
-          <DropdownNew placeholder="Groups with group divider" options={optionsWithoutGroupLabel} withGroupDivider />
-        </div>
-      </Flex>
-    );
-  },
-  name: "Dropdown with groups"
+  }
 };
 
 export const DropdownInsidePopover = {
   render: () => {
     const options = useMemo(
-      () => [
-        {
-          value: "1",
-          label: "Option 1"
-        },
-        {
-          value: "2",
-          label: "Option 2"
-        },
-        {
-          value: "3",
-          label: "Option 3"
-        },
-        {
-          value: "4",
-          label: "Option 4"
-        },
-        {
-          value: "5",
-          label: "Option 5"
-        },
-        {
-          value: "6",
-          label: "Option 6"
-        },
-        {
-          value: "7",
-          label: "Option 7"
-        },
-        {
-          value: "8",
-          label: "Option 8"
-        },
-        {
-          value: "9",
-          label: "Option 9"
-        },
-        {
-          value: "10",
-          label: "Option 10"
-        },
-        {
-          value: "11",
-          label: "Option 11"
-        },
-        {
-          value: "12",
-          label: "Option 12"
-        },
-        {
-          value: "13",
-          label: "Option 13"
-        },
-        {
-          value: "14",
-          label: "Option 14"
-        },
-        {
-          value: "15",
-          label: "Option 15"
-        }
-      ],
+      () =>
+        Array.from({ length: 15 }, (_, i) => ({
+          value: `${i + 1}`,
+          label: `Option ${i + 1}`
+        })),
       []
     );
 
@@ -775,129 +480,4 @@ export const DropdownInsidePopover = {
     }
   },
   name: "Dropdown inside popover"
-};
-
-// export const DropdownWithLoading = {
-//   render: () => {
-//     const [isLoading, setIsLoading] = useState(false);
-
-//     const options = useMemo(
-//       () => [
-//         {
-//           value: "1",
-//           label: "Option 1"
-//         },
-//         {
-//           value: "2",
-//           label: "Option 2"
-//         },
-//         {
-//           value: "3",
-//           label: "Option 3"
-//         }
-//       ],
-//       []
-//     );
-
-//     const loadingOnInputChange = useCallback(() => {
-//       setIsLoading(true);
-
-//       setTimeout(() => {
-//         setIsLoading(false);
-//       }, 1000);
-//     }, []);
-
-//     return (
-//       <DropdownNew
-//         placeholder={"Type to start loading"}
-//         options={options}
-//         // isLoading={isLoading}
-//         // loadingMessage={() => "Loading options..."}
-//         className="dropdown-stories-styles_big-spacing"
-//         onInputChange={loadingOnInputChange}
-//       />
-//     );
-//   },
-//   name: "Dropdown with loading"
-// };
-
-// export const DropdownWithRef = {
-//   render: () => {
-//     const ref = useRef();
-
-//     const options = useMemo(
-//       () => [
-//         {
-//           value: "1",
-//           label: "Option 1"
-//         },
-//         {
-//           value: "2",
-//           label: "Option 2"
-//         },
-//         {
-//           value: "3",
-//           label: "Option 3"
-//         }
-//       ],
-//       []
-//     );
-
-//     const focusDropdownInput = useCallback(() => {
-//       ref.current?.select.focus();
-//     }, [ref]);
-
-//     return (
-//       <Flex direction="row">
-//         <DropdownNew
-//           placeholder="Dropdown with ref"
-//           options={options}
-//           ref={ref}
-//           className="dropdown-stories-styles_spacing"
-//         />
-//         <Button onClick={focusDropdownInput} className="dropdown-stories-styles_button">
-//           Focus dropdown input
-//         </Button>
-//       </Flex>
-//     );
-//   },
-//   name: "Dropdown with ref"
-// };
-
-export const DropdownValueSelection = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        {
-          value: "1",
-          label: "Option 1"
-        },
-        {
-          value: "2",
-          label: "Option 2"
-        },
-        {
-          value: "3",
-          label: "Option 3"
-        }
-      ],
-      []
-    );
-
-    return (
-      <Flex gap="large">
-        <div style={{ width: "300px" }}>
-          <DropdownNew placeholder="Tab selects value" options={options} />
-        </div>
-        <div style={{ width: "300px" }}>
-          <DropdownNew
-            placeholder="Tab does not select value"
-            options={options}
-            // tabSelectsValue={false}
-          />
-        </div>
-      </Flex>
-    );
-  },
-  name: "Dropdown value selection"
 };
