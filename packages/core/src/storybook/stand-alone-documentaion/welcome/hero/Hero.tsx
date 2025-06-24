@@ -14,7 +14,7 @@ export default function Hero() {
         <Flex align="center" justify="center" gap="medium">
           Vibe design <HeartIcon className={styles.heartIcon} /> system
         </Flex>
-        <Flex align="center" justify="center" gap="large">
+        <Flex align="center" justify="center" gap="medium">
           by <ArrowIcon className={styles.arrowIcon} /> monday.com
         </Flex>
       </h1>
