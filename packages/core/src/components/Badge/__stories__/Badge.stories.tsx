@@ -7,7 +7,7 @@ import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
@@ -42,30 +42,25 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex
-      gap="large"
-      style={{
-        flex: 1
-      }}
-      justify="start"
-      align="start"
-    >
-      <StoryDescription description="Indicator" vertical align={StoryDescription.align.START}>
+    <Flex gap="large" justify="start" align="start">
+      <Flex direction="column" gap="medium" align="start">
+        Indicator
         <Badge>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>
-      </StoryDescription>
-      <StoryDescription description="Counter" vertical align={StoryDescription.align.START}>
+      </Flex>
+      <Flex direction="column" gap="medium" align="start">
+        Counter
         <Badge type="counter" count={100} maxDigits={2}>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>
-      </StoryDescription>
+      </Flex>
     </Flex>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { StoryDescription, WhatsNew }
+        scope: { WhatsNew }
       }
     }
   },
