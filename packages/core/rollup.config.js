@@ -10,7 +10,6 @@ import autoprefixer from "autoprefixer";
 import { sha256 } from "js-sha256";
 import * as fs from "fs";
 import ejs from "ejs";
-import copy from "rollup-plugin-copy";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
@@ -69,7 +68,8 @@ export default {
     index: path.join(SRC_PATH, "index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
-    next: path.join(SRC_PATH, "components/next.ts")
+    next: path.join(SRC_PATH, "components/next.ts"),
+    tokens: path.join(SRC_PATH, "tokens/index.ts")
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
@@ -120,15 +120,6 @@ export default {
             ? generateCssModulesMockName(name)
             : generateCssModulesScopedName(name, filename, css)
       }
-    }),
-    copy({
-      targets: [
-        {
-          src: "../../node_modules/monday-ui-style/dist/index.min.css",
-          dest: "dist/tokens",
-          rename: () => "tokens.css"
-        }
-      ]
     })
   ]
 };
