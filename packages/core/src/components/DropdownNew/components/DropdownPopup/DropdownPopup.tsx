@@ -2,15 +2,16 @@ import React from "react";
 import Dialog from "../../../Dialog/Dialog";
 import { matchWidthModifier } from "../../utils/dropdown-modifiers";
 import { useDropdownContext } from "../../context/DropdownContext";
-import Trigger from "../Trigger/Trigger";
 import Menu from "../Menu/Menu";
+import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
+import MultiSelectTrigger from "../Trigger/MultiSelectTrigger";
 
 const DropdownPopup = () => {
-  const { isOpen, reset } = useDropdownContext();
+  const { isOpen, reset, multi } = useDropdownContext();
 
   return (
     <Dialog
-      open={isOpen}
+      open
       useDerivedStateFromProps
       position="bottom-start"
       moveBy={{ main: 4, secondary: 0 }}
@@ -25,7 +26,7 @@ const DropdownPopup = () => {
       modifiers={matchWidthModifier}
       content={<Menu />}
     >
-      <Trigger />
+      {multi ? <MultiSelectTrigger /> : <SingleSelectTrigger />}
     </Dialog>
   );
 };

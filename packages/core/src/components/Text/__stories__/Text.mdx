@@ -4,6 +4,7 @@ import Text from "../Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
+import Box from "../../Box/Box";
 import { Link } from "@vibe/icons";
 import {
   EDITABLE_HEADING,
@@ -12,7 +13,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipHeading, TipLink } from "./Text.stories.helpers";
 import * as TextStories from "./Text.stories";
-import styles from "./Text.stories.module.scss";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 <Meta of={TextStories} />
 
@@ -139,17 +140,21 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
-            <Flex style={{ width: "90%" }} gap="small">
-              <Icon icon={Link} />
-              <Text color="secondary" maxLines={3} type="text3">
-                Section title in text3
-              </Text>
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
+            <Flex gap="small" align="start">
+              <Box style={{ flexShrink: 0 }}>
+                <Icon icon={Link} />
+              </Box>
+              <Flex direction="column" gap="small" align="start" justify="start">
+                <Text color="secondary" maxLines={3} type="text3">
+                  Section title in text3
+                </Text>
+                <Text maxLines={3} type="text1">
+                  Short info explanation about the feature will come here.
+                </Text>
+              </Flex>
             </Flex>
-            <Text className={styles.textBoxContent} maxLines={3} type="text1">
-              Short info explanation about the feature will come here.
-            </Text>
-          </Flex>
+          </DialogContentContainer>
         ),
         description: "Use text3 for section titles, short captions, and labels."
       },
@@ -166,17 +171,21 @@ A Text component with a link skin can be used to create a link within running te
     {
       positive: {
         component: (
-          <Flex direction="column" align="start" gap="xs" className={styles.textBoxContainer}>
-            <Flex style={{ width: "90%" }} gap="small">
-              <Icon icon={Link} />
-              <Text color="secondary" maxLines={3} type="text3">
-                Section title in text3
-              </Text>
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
+            <Flex gap="small" align="start">
+              <Box style={{ flexShrink: 0 }}>
+                <Icon icon={Link} />
+              </Box>
+              <Flex direction="column" gap="small" align="start" justify="start">
+                <Text color="secondary" maxLines={3} type="text3">
+                  Section title in text3
+                </Text>
+                <Text maxLines={3} type="text1">
+                  Short info explanation about the feature will come here.
+                </Text>
+              </Flex>
             </Flex>
-            <Text className={styles.textBoxContent} maxLines={3} type="text1">
-              Short info explanation about the feature will come here.
-            </Text>
-          </Flex>
+          </DialogContentContainer>
         ),
         description: "Use only normal and medium weights for text3."
       },

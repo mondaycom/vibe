@@ -1,12 +1,26 @@
-#!/usr/bin/env ts-node
-
 import fs from "fs";
 import path from "path";
 import { withDefaultConfig, Props } from "react-docgen-typescript";
 import { ExportDeclaration, Project, SourceFile } from "ts-morph";
 import { fileURLToPath } from "url";
+import { cpus } from "os";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+console.log("__dirname", __dirname);
+const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
+console.log("CACHE_FILE", CACHE_FILE);
+
+const IS_CI = process.env.CI === "true" || process.env.CI === "True";
+
+if (IS_CI) {
+  console.log(
+    "CI environment detected. For optimal performance, ensure your CI pipeline caches '.metadata-cache.json'."
+  );
+}
+
+// Optimal batch size based on CPU cores
+const CPU_COUNT = cpus().length;
+const BATCH_SIZE = Math.max(30, Math.ceil(CPU_COUNT * 4)); // Use at least 4x CPU cores as batch size for best performance
 
 // Cache source files to avoid loading the same file multiple times
 const sourceFileCache = new Map<string, SourceFile>();
@@ -225,7 +239,25 @@ function aggregatorMain(): AggregatorRecord[] {
 /**
  * Runs react-docgen-typescript on the provided files to extract component documentation
  */
-function runReactDocgenOnFiles(filePaths: string[]): DocgenResult[] {
+async function runReactDocgenOnFiles(filePaths: string[]): Promise<DocgenResult[]> {
+  // Check which files need to be processed
+  const filesToProcess: string[] = [];
+
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`File not found: ${filePath}`);
+      continue;
+    }
+    filesToProcess.push(filePath); // Always process if file exists
+  }
+
+  console.log(`${filesToProcess.length} files to process`);
+
+  if (filesToProcess.length === 0) {
+    return []; // Return empty if no files to process (e.g. all paths were invalid)
+  }
+
+  // Configure parser with optimized settings
   const parser = withDefaultConfig({
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
@@ -243,27 +275,60 @@ function runReactDocgenOnFiles(filePaths: string[]): DocgenResult[] {
     }
   });
 
-  const results: DocgenResult[] = [];
-  for (const filePath of filePaths) {
-    if (!fs.existsSync(filePath)) {
-      console.warn(`File not found: ${filePath}`);
-      continue;
-    }
-    try {
-      const docgenData = parser.parse(filePath);
-      results.push({
-        filePath,
-        components: docgenData.map(c => ({
-          displayName: c.displayName,
-          description: c.description,
-          props: c.props
-        }))
-      });
-    } catch (err) {
-      console.warn(`Failed to parse component documentation for ${filePath}: ${err.message}`);
-    }
+  // Process files in batches to avoid overwhelming the system
+  const batches: string[][] = [];
+
+  for (let i = 0; i < filesToProcess.length; i += BATCH_SIZE) {
+    batches.push(filesToProcess.slice(i, i + BATCH_SIZE));
   }
-  return results;
+
+  console.log(
+    `Processing ${filesToProcess.length} files in ${batches.length} batches of up to ${BATCH_SIZE} files each (using ${CPU_COUNT} CPU cores)`
+  );
+
+  // Store new results to be added to the cache
+  const newResults: DocgenResult[] = [];
+
+  for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
+    const batch = batches[batchIndex];
+    console.log(`Processing batch ${batchIndex + 1}/${batches.length} (${batch.length} files)`);
+
+    const batchPromises = batch.map(async filePath => {
+      try {
+        const startTime = performance.now();
+        const docgenData = parser.parse(filePath);
+        const result = {
+          filePath,
+          components: docgenData.map(c => ({
+            displayName: c.displayName,
+            description: c.description,
+            props: c.props
+          }))
+        };
+
+        const endTime = performance.now();
+        if (endTime - startTime > 500) {
+          console.log(`Slow file: ${filePath} took ${((endTime - startTime) / 1000).toFixed(2)}s`);
+        }
+
+        return result;
+      } catch (err) {
+        console.warn(`Failed to parse component documentation for ${filePath}: ${err.message}`);
+        return null;
+      }
+    });
+
+    const batchResults = await Promise.all(batchPromises);
+
+    batchResults.forEach(result => {
+      if (result) {
+        newResults.push(result);
+      }
+    });
+  }
+
+  // Return both cached and newly processed results
+  return newResults;
 }
 
 /**
@@ -290,7 +355,7 @@ function findSubComponents(filePath: string, allFiles: string[]): string[] {
   const dirName = path.basename(dir);
   const fileName = path.basename(filePath, path.extname(filePath));
 
-  // Only look for sub-components if we're in a component directory
+  // Only look for sub-components if we\'re in a component directory
   if (!dirName.match(/^[A-Z]/)) return [];
 
   // Only include sub-components for the main component (the one that matches the directory name)
@@ -383,16 +448,28 @@ function unifyTypesWithComponents(records: AggregatorRecord[]): AggregatorRecord
   return newRecords;
 }
 
-function main() {
+async function main() {
   const startTime = performance.now();
   try {
+    console.log(`Starting metadata generation (using ${CPU_COUNT} CPU cores, batch size ${BATCH_SIZE})...`);
+
+    console.log("Aggregating export records...");
     let aggregatorRecords = aggregatorMain();
+    console.log(`Found ${aggregatorRecords.length} records`);
+
+    console.log("Unifying types with components...");
     aggregatorRecords = unifyTypesWithComponents(aggregatorRecords);
+    console.log(`After unification: ${aggregatorRecords.length} records`);
 
     const finalFilePaths = aggregatorRecords.map(r => r.filePath);
+    console.log(`Processing ${finalFilePaths.length} files with react-docgen-typescript...`);
 
-    const docgenResults = runReactDocgenOnFiles(finalFilePaths);
+    const docgenResults = await runReactDocgenOnFiles(finalFilePaths);
+    console.log(`Successfully processed ${docgenResults.length} files`);
+
+    console.log("Merging results...");
     const finalJson = mergeResults(aggregatorRecords, docgenResults);
+    console.log(`Final output contains ${finalJson.length} component entries`);
 
     const outPath = path.resolve(__dirname, "../../dist/metadata.json");
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");

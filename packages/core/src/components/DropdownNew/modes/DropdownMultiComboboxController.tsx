@@ -13,6 +13,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     isMenuOpen: isMenuOpenProp,
     autoFocus,
     defaultValue,
+    value,
     inputValue: inputValueProp,
     onChange,
     onInputChange,
@@ -30,7 +31,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onBlur,
     onKeyDown,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -50,7 +52,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    getDropdownProps
   } = useDropdownMultiCombobox<Item>(
     options,
     multiSelectedItemsState,
@@ -58,6 +61,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     isMenuOpenProp,
     autoFocus,
     defaultValue as Item[],
+    value as Item[],
     inputValueProp,
     onChange,
     onInputChange,
@@ -82,6 +86,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     getInputProps: (inputOptions?: any) => {
       return hookGetInputProps!({
         ...(inputOptions || {}),
+        disabled: props.readOnly || props.disabled,
         onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(true);
           onFocus?.(event as any);
@@ -101,7 +106,9 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     reset: hookReset,
     contextOnClear: () => {
       hookReset();
-      setMultiSelectedItemsState([]);
+      if (value === undefined) {
+        setMultiSelectedItemsState([]);
+      }
       onClear?.();
     },
     contextOnOptionRemove: (option: Item) => {
@@ -116,7 +123,9 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     clearable,
     searchable,
     multi,
-    closeMenuOnSelect
+    closeMenuOnSelect,
+    size,
+    getDropdownProps
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

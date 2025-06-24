@@ -44,7 +44,7 @@ export default {
             }
             console.log(lintStdout);
 
-            exec("yarn build:react-icons", (buildErr, buildStdout) => {
+            exec("yarn build", (buildErr, buildStdout) => {
               if (buildErr) {
                 console.error(buildErr);
                 reject(buildErr);

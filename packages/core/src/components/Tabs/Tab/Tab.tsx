@@ -11,6 +11,7 @@ import styles from "./Tab.module.scss";
 import { SubIcon } from "../../../types/SubIcon";
 import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
+import { keyCodes } from "../../../constants";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -33,6 +34,10 @@ export interface TabProps extends VibeComponentProps {
    * If true, applies focus styles to the tab.
    */
   focus?: boolean;
+  /**
+   * If true, hides the individual tab border when using stretched underline.
+   */
+  stretchedUnderline?: boolean;
   /**
    * The icon displayed in the tab.
    */
@@ -69,6 +74,7 @@ const Tab: FC<TabProps> = forwardRef(
       disabled = false,
       active = false,
       focus = false,
+      stretchedUnderline = false,
       onClick = NOOP,
       tooltipProps = {} as TooltipProps,
       icon,
@@ -104,6 +110,14 @@ const Tab: FC<TabProps> = forwardRef(
 
       return [...childrenArray, iconElement];
     }
+
+    function handleKeyDown(event: React.KeyboardEvent) {
+      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+        event.preventDefault();
+        !disabled && onClick(value);
+      }
+    }
+
     return (
       <Tooltip {...tooltipProps} content={tooltipProps.content}>
         <li
@@ -112,7 +126,8 @@ const Tab: FC<TabProps> = forwardRef(
           className={cx(styles.tabWrapper, className, {
             [styles.active]: active,
             [styles.disabled]: disabled,
-            [styles.tabFocusVisibleInset]: focus
+            [styles.tabFocusVisibleInset]: focus,
+            [styles.stretchedUnderline]: stretchedUnderline
           })}
           id={id}
           role="tab"
@@ -120,11 +135,10 @@ const Tab: FC<TabProps> = forwardRef(
           aria-disabled={disabled}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
+          onClick={() => !disabled && onClick(value)}
+          onKeyDown={handleKeyDown}
         >
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
-          <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
-            {renderIconAndChildren()}
-          </a>
+          <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
         </li>
       </Tooltip>
     );

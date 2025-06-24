@@ -9,6 +9,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   autoFocus?: boolean,
   isMenuOpen?: boolean,
   defaultValue?: T,
+  value?: T,
   onChange?: (option: T | T[] | null) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -18,9 +19,11 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
+  const selectedItem = value !== undefined ? value : currentSelectedItem;
+
   const memoizedSelectedItemForFiltering = useMemo(() => {
-    return currentSelectedItem ? [currentSelectedItem] : [];
-  }, [currentSelectedItem]);
+    return selectedItem ? [selectedItem] : [];
+  }, [selectedItem]);
 
   const { filteredOptions } = useDropdownFiltering<T>(
     options,
@@ -34,7 +37,6 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   const {
     isOpen,
     highlightedIndex,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
@@ -49,8 +51,11 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
+    selectedItem: selectedItem,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
-      setCurrentSelectedItem(newSelectedItem || null);
+      if (value === undefined) {
+        setCurrentSelectedItem(newSelectedItem || null);
+      }
       if (newSelectedItem) {
         onOptionSelect?.(newSelectedItem);
       }
@@ -62,7 +67,9 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   });
 
   const reset = () => {
-    setCurrentSelectedItem(null);
+    if (value === undefined) {
+      setCurrentSelectedItem(null);
+    }
     downshiftReset();
     onChange?.(null);
   };

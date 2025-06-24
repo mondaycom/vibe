@@ -3,37 +3,37 @@ import Accordion, { AccordionProps } from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import Checkbox from "../../../Checkbox/Checkbox";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/Accordion.interactions";
-import "./Accordion.stories.scss";
+import Flex from "../../../Flex/Flex";
 
 const accordionTemplate = (args: AccordionProps) => {
   return (
-    <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]} {...args}>
+    <Accordion defaultIndex={[1]} {...args}>
       <AccordionItem title="Notifications">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Setting">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Info">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Profile">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Permissions">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Security">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Connectivity">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Integration">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Assets">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
   );
@@ -55,7 +55,15 @@ export default {
     defaultIndex: {
       control: false
     }
-  }
+  },
+
+  decorators: [
+    (Story: React.ComponentType) => (
+      <div style={{ width: "300px" }}>
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Overview = {
@@ -73,21 +81,21 @@ export const Overview = {
 
 export const MultiActive = {
   render: () => (
-    <Accordion className="monday-storybook-accordion_small-wrapepr" allowMultiple defaultIndex={[1, 3]}>
+    <Accordion allowMultiple defaultIndex={[1, 3]}>
       <AccordionItem title="Notifications">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Setting">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Connectivity">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Integration">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Assets">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
   ),
@@ -98,21 +106,21 @@ export const MultiActive = {
 
 export const SingleActive = {
   render: () => (
-    <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]}>
+    <Accordion defaultIndex={[1]}>
       <AccordionItem title="Notifications">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Setting">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Connectivity">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Integration">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
       <AccordionItem title="Assets">
-        <div className="monday-storybook-accordion_small-box" />
+        <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
   ),
@@ -123,18 +131,25 @@ export const SingleActive = {
 
 export const PreferencesAccordion = {
   render: () => (
-    <Accordion className="monday-storybook-accordion_wrapper" defaultIndex={[0]}>
+    <Accordion defaultIndex={[0]}>
       <AccordionItem title="In monday">
-        <div className="monday-storybook-accordion_checkbox-wrapper">
+        <Flex direction="column" gap={20} align="start">
           <Checkbox label="Likes my update" checked />
           <Checkbox label="Replies to my update" />
           <Checkbox label="Replies or likes a conversation I'm a part of" checked />
           <Checkbox label="Subscribes me to a Board/Item/Team" checked />
           <Checkbox label="Writes an update on an items I'm subscribed to" checked />
-        </div>
+        </Flex>
       </AccordionItem>
     </Accordion>
   ),
 
-  name: "Preferences Accordion"
+  name: "Preferences Accordion",
+  decorators: [
+    (Story: React.ComponentType) => (
+      <div style={{ width: "600px" }}>
+        <Story />
+      </div>
+    )
+  ]
 };

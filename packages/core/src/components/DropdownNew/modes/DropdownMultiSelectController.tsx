@@ -13,15 +13,18 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     isMenuOpen: isMenuOpenProp,
     autoFocus,
     defaultValue,
+    value,
     onChange,
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
+    clearable = true,
     showSelectedOptions = false,
     filterOption,
     dropdownRef,
     onClear,
-    onOptionRemove
+    onOptionRemove,
+    size = "medium"
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -38,7 +41,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    getDropdownProps
   } = useDropdownMultiSelect<Item>(
     options,
     multiSelectedItemsState,
@@ -46,6 +50,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     isMenuOpenProp,
     autoFocus,
     defaultValue as Item[],
+    value as Item[],
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -62,14 +67,23 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     selectedItem: undefined,
     selectedItems: hookSelectedItems || [],
     filteredOptions,
-    getToggleButtonProps,
+    clearable,
+    getToggleButtonProps: (toggleOptions?: any) => {
+      return getToggleButtonProps({
+        ...(toggleOptions || {}),
+        disabled: props.readOnly || props.disabled
+      });
+    },
     getLabelProps,
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    getDropdownProps,
     contextOnClear: () => {
       hookReset();
-      setMultiSelectedItemsState([]);
+      if (value === undefined) {
+        setMultiSelectedItemsState([]);
+      }
       onClear?.();
     },
     contextOnOptionRemove: (option: Item) => {
@@ -79,7 +93,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
       onOptionRemove?.(option);
     },
     addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem
+    removeSelectedItem: hookRemoveSelectedItem,
+    size
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

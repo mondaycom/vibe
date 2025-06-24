@@ -16,9 +16,9 @@ const metaSettings = createStoryMetaSettingsDecorator({
 const flexTemplate = (args: FlexProps) => {
   return (
     <Flex {...args}>
-      <Button>Primary</Button>
-      <Button kind="tertiary">Tertiary</Button>
-      <Button kind="tertiary">Tertiary</Button>
+      <Box padding="large" border />
+      <Box padding="large" border />
+      <Box padding="large" border />
     </Flex>
   );
 };
@@ -55,16 +55,16 @@ export const Directions = {
     <div className={styles["story-container"]}>
       <StoryDescription description="Horizontal">
         <Flex>
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Vertical">
         <Flex direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
     </div>
@@ -76,44 +76,44 @@ export const HorizontalSpacingBetweenItems = {
     <div className={styles["story-container"]}>
       <StoryDescription description="No spacing between items">
         <Flex>
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items">
         <Flex gap="xs">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items">
         <Flex gap="small">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items">
         <Flex gap="medium">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items">
         <Flex gap="large">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Custom spacing between items">
         <Flex gap={32}>
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
     </div>
@@ -126,17 +126,17 @@ export const HorizontalFlex = {
       <StoryDescription description="Equal size">
         <Flex style={{ width: 300 }}>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Third
             </Box>
           </Flex>
@@ -145,17 +145,17 @@ export const HorizontalFlex = {
       <StoryDescription description="First item grows">
         <Flex style={{ width: 300 }}>
           <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Third
             </Box>
           </Flex>
@@ -164,17 +164,17 @@ export const HorizontalFlex = {
       <StoryDescription description="Third item grows">
         <Flex style={{ width: 300 }}>
           <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 0, basis: "auto" }}>
-            <Box style={{ width: "100%" }} border>
+            <Box padding="medium" style={{ width: "100%" }} border>
               Third
             </Box>
           </Flex>
@@ -262,44 +262,44 @@ export const VerticalSpacingBetweenItems = {
     >
       <StoryDescription description="No spacing between items" vertical>
         <Flex direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Extra small spacing between items" vertical>
         <Flex gap="xs" direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Small spacing between items" vertical>
         <Flex gap="small" direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items" vertical>
         <Flex gap="medium" direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items" vertical>
         <Flex gap="large" direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Custom spacing between items" vertical>
         <Flex gap={32} direction="column">
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
     </Flex>
@@ -317,17 +317,17 @@ export const VerticalFlex = {
       <StoryDescription description="Equal size" vertical>
         <Flex direction="column" style={{ height: 300 }}>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Third
             </Box>
           </Flex>
@@ -336,17 +336,17 @@ export const VerticalFlex = {
       <StoryDescription description="First item grows" vertical>
         <Flex direction="column" style={{ height: 300 }}>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Third
             </Box>
           </Flex>
@@ -355,17 +355,17 @@ export const VerticalFlex = {
       <StoryDescription description="Third item grows" vertical>
         <Flex direction="column" style={{ height: 300 }}>
           <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               First
             </Box>
           </Flex>
           <Flex flex={{ grow: 0, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Second
             </Box>
           </Flex>
           <Flex flex={{ grow: 1, shrink: 1, basis: "auto" }}>
-            <Box style={{ height: "100%", width: "100%" }} border>
+            <Box style={{ height: "100%", width: "100%" }} padding="medium" border>
               Third
             </Box>
           </Flex>
@@ -463,9 +463,9 @@ export const HorizontalPositions = {
             width: "100%"
           }}
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position">
@@ -475,9 +475,9 @@ export const HorizontalPositions = {
             width: "100%"
           }}
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position">
@@ -487,9 +487,9 @@ export const HorizontalPositions = {
             width: "100%"
           }}
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position">
@@ -499,9 +499,9 @@ export const HorizontalPositions = {
             width: "100%"
           }}
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position">
@@ -511,9 +511,9 @@ export const HorizontalPositions = {
             width: "100%"
           }}
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
     </div>
@@ -536,9 +536,9 @@ export const VerticalPositions = {
           }}
           direction="column"
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
@@ -549,9 +549,9 @@ export const VerticalPositions = {
           }}
           direction="column"
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position" vertical>
@@ -562,9 +562,9 @@ export const VerticalPositions = {
           }}
           direction="column"
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position" vertical>
@@ -575,9 +575,9 @@ export const VerticalPositions = {
           }}
           direction="column"
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position" vertical>
@@ -588,9 +588,9 @@ export const VerticalPositions = {
           }}
           direction="column"
         >
-          <Button>Primary</Button>
-          <Button kind="tertiary">Tertiary</Button>
-          <Button kind="tertiary">Tertiary</Button>
+          <Box padding="large" border />
+          <Box padding="large" border />
+          <Box padding="large" border />
         </Flex>
       </StoryDescription>
     </Flex>

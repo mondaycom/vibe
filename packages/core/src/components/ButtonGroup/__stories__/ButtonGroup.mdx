@@ -5,6 +5,7 @@ import { BREADCRUBMS, BUTTON, TABS } from "../../../storybook/components/related
 import Desktop from "./assets/Desktop";
 import { TipCheckYourself } from "./ButtonGroup.stories.helpers";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
+import Flex from "../../Flex/Flex";
 
 <Meta of={ButtonGroupStories} />
 
@@ -109,7 +110,7 @@ import { ButtonGroup } from "@vibe/core";
     {
       positive: {
         component: (
-          <div className="monday-storybook-button-group_column">
+          <Flex direction="column" gap={16}>
             <ButtonGroup
               groupAriaLabel="button group aria label"
               size={ButtonGroup.sizes.MEDIUM}
@@ -137,7 +138,7 @@ import { ButtonGroup } from "@vibe/core";
                 { value: 2, text: "Mobile", leftIcon: Mobile }
               ]}
             />
-          </div>
+          </Flex>
         ),
         description: "Always use buttons with a consistent style: Icons, text or icon with text."
       },

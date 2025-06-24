@@ -4,7 +4,6 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { Add, Calendar, Check, Remove } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
-import "./Button.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
 import Text from "../../Text/Text";
 
@@ -153,7 +152,7 @@ export const OnColorStates: Story = {
         <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
           Regular
         </Text>
-        <div className="monday-storybook-button_on-color-button">
+        <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button color="on-primary-color" marginRight>
             Primary on color
           </Button>
@@ -168,7 +167,7 @@ export const OnColorStates: Story = {
         <Text type={Text.types.TEXT1} style={{ marginBottom: "var(--sb-spacing-small)" }}>
           Disabled
         </Text>
-        <div className="monday-storybook-button_on-color-button">
+        <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button color="on-primary-color" disabled marginRight>
             Primary on color
           </Button>

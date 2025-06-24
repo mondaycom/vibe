@@ -60,3 +60,14 @@
     flex-shrink: 0;
   }
 }
+
+.dropdownCounter {
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
+  }
+}
