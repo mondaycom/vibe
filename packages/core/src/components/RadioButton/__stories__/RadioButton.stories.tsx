@@ -3,8 +3,8 @@ import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
 import { clickRadioButtonPlaySuite, controlRadioButtonPlaySuite } from "./RadioButton.stories.interactions";
-import "./RadioButton.stories.scss";
 import Button from "../../Button/Button";
+import { Flex } from "../../../components/Flex";
 
 const radioButtonTemplate = createComponentTemplate(RadioButton);
 
@@ -29,23 +29,23 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <>
+    <Flex gap="medium">
       <RadioButton text="Regular" />
       <RadioButton text="Selected" checked />
       <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
       <RadioButton text="Disabled" checked disabled />
-    </>
+    </Flex>
   )
 };
 
 export const RadioButtonInItemsList = {
   render: () => (
-    <div className="monday-storybook-radio-buttons_wrapper-column">
+    <Flex direction="column" gap="medium" align="start">
       <div>Inbox view options</div>
       <RadioButton text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
       <RadioButton text="I was mentioned" name="radio-buttons-group-4" />
       <RadioButton text="All updates" name="radio-buttons-group-4" />
-    </div>
+    </Flex>
   ),
   play: clickRadioButtonPlaySuite,
   name: "Radio button in items list"
@@ -60,7 +60,7 @@ export const ControlledRadioButtons = {
     const onChange = useCallback(() => {}, []);
 
     return (
-      <div className="monday-storybook-radio-buttons_wrapper-column">
+      <Flex direction="column" gap="medium" align="start">
         <div>Controlled radio buttons</div>
         <Button kind="secondary" onClick={onClickCB}>{`Select next radio button (Radio ${
           ((selectedIndex + 1) % 3) + 1
@@ -68,7 +68,7 @@ export const ControlledRadioButtons = {
         <RadioButton text="Radio 1" name="radio-buttons-group-5" checked={selectedIndex === 0} onSelect={onChange} />
         <RadioButton text="Radio 2" name="radio-buttons-group-5" checked={selectedIndex === 1} onSelect={onChange} />
         <RadioButton text="Radio 3" name="radio-buttons-group-5" checked={selectedIndex === 2} onSelect={onChange} />
-      </div>
+      </Flex>
     );
   },
   play: controlRadioButtonPlaySuite,
