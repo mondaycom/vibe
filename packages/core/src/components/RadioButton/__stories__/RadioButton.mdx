@@ -1,5 +1,7 @@
 import { Meta } from "@storybook/blocks";
 import RadioButton from "../RadioButton";
+import Flex from "../../Flex/Flex";
+import Box from "../../Box/Box";
 import { CHECKBOX, DROPDOWN, TOGGLE } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { TipDropdown } from "./RadioButton.stories.helpers";
@@ -62,18 +64,26 @@ Radio buttons have 3 states: regular, selected, and disabled.
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
-            <RadioButton text="Item 1" name="radio-buttons-group-1" />
-            <RadioButton text="Item 2" name="radio-buttons-group-1" defaultChecked />
+          <DialogContentContainer>
+            <Box margin="small" style={{ width: "200px" }}>
+              <Flex direction="column" gap="medium" align="start">
+                <RadioButton text="Item 1" name="radio-buttons-group-1" />
+                <RadioButton text="Item 2" name="radio-buttons-group-1" defaultChecked />
+              </Flex>
+            </Box>
           </DialogContentContainer>
         ),
         description: "Use radio buttons when only one item can be selected from a list."
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
-            <RadioButton text="Item 1" checked />
-            <RadioButton text="Item 2" checked />
+          <DialogContentContainer>
+            <Box margin="small" style={{ width: "200px" }}>
+              <Flex direction="column" gap="medium" align="start">
+                <RadioButton text="Item 1" checked />
+                <RadioButton text="Item 2" checked />
+              </Flex>
+            </Box>
           </DialogContentContainer>
         ),
         description: (
@@ -87,20 +97,28 @@ Radio buttons have 3 states: regular, selected, and disabled.
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
-            <RadioButton text="Item 1" name="radio-buttons-group-2" defaultChecked />
-            <RadioButton text="Item 2" name="radio-buttons-group-2" />
-            <RadioButton text="Item 3" name="radio-buttons-group-2" />
+          <DialogContentContainer>
+            <Box margin="small" style={{ width: "200px" }}>
+              <Flex direction="column" gap="medium" align="start">
+                <RadioButton text="Item 1" name="radio-buttons-group-2" defaultChecked />
+                <RadioButton text="Item 2" name="radio-buttons-group-2" />
+                <RadioButton text="Item 3" name="radio-buttons-group-2" />
+              </Flex>
+            </Box>
           </DialogContentContainer>
         ),
         description: "Mark the first item as selected, and make sure it’s the most common or popular action."
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
-            <RadioButton text="Item 1" name="radio-buttons-group-3" />
-            <RadioButton text="Item 2" name="radio-buttons-group-3" />
-            <RadioButton text="Item 3" name="radio-buttons-group-3" />
+          <DialogContentContainer>
+            <Box margin="small" style={{ width: "200px" }}>
+              <Flex direction="column" gap="medium" align="start">
+                <RadioButton text="Item 1" name="radio-buttons-group-3" />
+                <RadioButton text="Item 2" name="radio-buttons-group-3" />
+                <RadioButton text="Item 3" name="radio-buttons-group-3" />
+              </Flex>
+            </Box>
           </DialogContentContainer>
         ),
         description: (
