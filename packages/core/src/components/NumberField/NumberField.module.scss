@@ -1,6 +1,14 @@
 .numberField {
   width: 100%;
 
+  .leftIcon {
+    color: var(--icon-color);
+  }
+
+  .input {
+    padding-inline-end: var(--spacing-small);
+  }
+
   .infoText {
     color: var(--secondary-text-color);
   }

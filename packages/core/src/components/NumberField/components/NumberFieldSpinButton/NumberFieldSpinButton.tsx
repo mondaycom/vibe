@@ -25,6 +25,7 @@ const NumberFieldSpinButton = ({
       <IconButton
         aria-hidden
         ariaLabel="Increase"
+        hideTooltip
         ariaControls={inputId}
         tabIndex={-1}
         onClick={onIncrement}
@@ -35,6 +36,7 @@ const NumberFieldSpinButton = ({
       <IconButton
         aria-hidden
         ariaLabel="Decrease"
+        hideTooltip
         ariaControls={inputId}
         tabIndex={-1}
         onClick={onDecrement}

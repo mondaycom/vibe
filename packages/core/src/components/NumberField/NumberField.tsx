@@ -70,7 +70,7 @@ const NumberField = forwardRef(
 
     const renderedLeftIcon = useMemo(() => {
       if (!leftIcon) return null;
-      return <Icon icon={leftIcon} />;
+      return <Icon icon={leftIcon} className={styles.leftIcon} />;
     }, [leftIcon]);
 
     return (
@@ -92,6 +92,7 @@ const NumberField = forwardRef(
         {label && <FieldLabel labelText={label} required={required} labelFor={id} />}
         <BaseInput
           {...inputProps}
+          className={styles.input}
           data-testid={dataTestId}
           ref={ref}
           id={id}
