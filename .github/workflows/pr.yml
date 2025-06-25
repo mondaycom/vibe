@@ -14,8 +14,9 @@ jobs:
   test:
     name: Test
     needs: build
-    if: ${{ needs.build.outputs.has_changes == 'true' }}
     uses: ./.github/workflows/test.yml
+    with:
+      has_changes: ${{ needs.build.outputs.has_changes }}
     secrets:
       npm_token: ${{ secrets.npm_token }}
 

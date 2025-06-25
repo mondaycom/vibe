@@ -5,12 +5,18 @@ name: Test & Lint
 
 on:
   workflow_call:
+    inputs:
+      has_changes:
+        description: Whether there are any changes in the monorepo.
+        type: string
+        required: true
     secrets:
       npm_token:
         required: true
 
 jobs:
   checks:
+    if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -41,6 +47,7 @@ jobs:
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
 
   e2e:
+    if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
