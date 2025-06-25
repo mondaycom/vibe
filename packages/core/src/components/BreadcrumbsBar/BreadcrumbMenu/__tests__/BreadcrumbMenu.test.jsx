@@ -7,6 +7,8 @@ import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
+vi.useFakeTimers();
+
 vi.mock("../../../Menu/MenuItem/MenuItem", () => {
   return {
     __esModule: true,
@@ -21,12 +23,10 @@ vi.mock("../../../Menu/MenuItem/MenuItem", () => {
 
 describe("BreadcrumbMenu tests", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
     mockRequestAnimationFrame();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
     restoreRequestAnimationFrameMock();
     vi.clearAllMocks();
   });
@@ -50,14 +50,10 @@ describe("BreadcrumbMenu tests", () => {
       vi.runAllTimers();
     });
 
-    // Wait for the menu to appear
-    await waitFor(
-      () => {
-        expect(screen.getByText("Option 1")).toBeInTheDocument();
-        expect(screen.getByText("Option 2")).toBeInTheDocument();
-      },
-      { timeout: 1000 }
-    );
+    await waitFor(() => {
+      expect(screen.getByText("Option 1")).toBeInTheDocument();
+      expect(screen.getByText("Option 2")).toBeInTheDocument();
+    });
   });
 
   it("should pass onClick handlers to MenuItem", () => {

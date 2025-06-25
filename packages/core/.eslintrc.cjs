@@ -63,13 +63,12 @@ const commonRules = {
         "**/*.spec.{js,jsx,ts,tsx}",
         "**/*.snapshot.test.{js,jsx,ts,tsx}",
         "src/tests/**/*.{js,jsx,ts,tsx}",
-        "vitest.config.ts",
-        "jest.config.ts"
+        "vitest.config.ts"
       ]
     }
   ]
 };
-const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest", "vitest"];
+const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "vitest"];
 const commonExtends = [
   "plugin:react/recommended",
   "plugin:react-hooks/recommended",
@@ -80,11 +79,7 @@ const commonExtends = [
 module.exports = {
   overrides: [
     {
-      files: ["*.test.js", "jest.init.js"],
-      env: {
-        jest: true,
-        "jest/globals": true
-      }
+      files: ["*.test.js"]
     },
     {
       files: [
@@ -140,9 +135,6 @@ module.exports = {
     es2021: true
   },
   settings: {
-    jest: {
-      version: 29
-    },
     react: {
       version: "detect"
     }

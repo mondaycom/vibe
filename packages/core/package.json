@@ -217,7 +217,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest-axe": "^8.0.0",
     "js-sha256": "^0.9.0",
-    "jsdom": "^24.1.0",
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
     "mini-css-extract-plugin": "^2.4.5",

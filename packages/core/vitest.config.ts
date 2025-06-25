@@ -34,10 +34,5 @@ export default defineConfig({
         "**/*.setup.*"
       ]
     }
-  },
-  resolve: {
-    alias: {
-      "~monday-ui-style": resolve(__dirname, "../../packages/style/src")
-    }
   }
 });

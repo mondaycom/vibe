@@ -41,15 +41,9 @@ const renderComponent = ({ ...props } = {}) => {
   );
 };
 
+vi.useFakeTimers();
+
 describe("SplitButton tests", () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
   it("opens the secondary content dialog on click", async () => {
     const splitButtonComponent = renderComponent();
     const arrowButton = getSecondaryButton(splitButtonComponent);
@@ -96,16 +90,11 @@ describe("SplitButton tests", () => {
       });
       const arrowButton = getSecondaryButton(splitButtonComponent);
 
-      // First click to show dialog
       act(() => {
         fireEvent.click(arrowButton);
-        vi.runAllTimers();
+        vi.advanceTimersByTime(1000);
       });
 
-      // Wait for dialog to be shown
-      await screen.findByText(secondaryContentText);
-
-      // Second click to hide dialog
       act(() => {
         fireEvent.click(arrowButton);
         vi.runAllTimers();
@@ -155,7 +144,7 @@ describe("SplitButton tests", () => {
         userEvent.keyboard(ENTER_KEY);
         vi.runAllTimers();
       });
-      const expectedSecondaryDialog = await screen.findByText(secondaryContentText, {}, { timeout: 10000 });
+      const expectedSecondaryDialog = await screen.findByText(secondaryContentText, {});
       expect(expectedSecondaryDialog).toBeTruthy();
     });
   });
@@ -169,30 +158,18 @@ describe("SplitButton tests", () => {
       act(() => {
         arrowButton.focus();
         userEvent.keyboard(ENTER_KEY);
-        vi.runAllTimers();
       });
+      vi.runAllTimers();
       let menu;
-      await waitFor(
-        async () => {
-          menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
-          expect(menu).toBeTruthy();
-        },
-        { timeout: 10000 }
-      );
+      await waitFor(async () => {
+        menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
+        expect(menu).toBeTruthy();
+      });
 
-      // Check if aria-activedescendant is set, but don't fail if it's not
-      const ariaActiveDescendant = menu.getAttribute("aria-activedescendant");
-      if (ariaActiveDescendant) {
-        expect(ariaActiveDescendant).toBe(`${splitMenuId}-item-0`);
-      }
-
-      // Check if first menu item exists and can be found
       const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}_0`;
-      const firstMenuItem = splitButtonComponent.queryByTestId(firstMenuItemId);
-      if (firstMenuItem) {
-        // Only check focus if the element exists
-        expect(firstMenuItem).toBeInTheDocument();
-      }
+      await waitFor(() => {
+        expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();
+      });
     });
   });
 });

@@ -57,7 +57,7 @@ describe("Combobox tests", () => {
       expect(noResRendereMock.mock.calls.length).toBe(0);
       fireEvent.change(input, { target: { value: "No text in option" } });
       vi.runAllTimers();
-      await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1), { timeout: 10000 });
+      await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
     });
 
     it("should display no results message", async () => {
@@ -66,7 +66,7 @@ describe("Combobox tests", () => {
       const input = getByLabelText("Search for content");
       fireEvent.change(input, { target: { value: "No text in option" } });
       vi.runAllTimers();
-      await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node), { timeout: 10000 });
+      await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
     });
 
     it("should support default filter", async () => {
@@ -90,13 +90,10 @@ describe("Combobox tests", () => {
       fireEvent.change(input, { target: { value: "No text in option" } });
       vi.runAllTimers();
 
-      await waitFor(
-        () => {
-          fireEvent.click(screen.getByText("Add new"));
-          expect(onAddMock.mock.calls.length).toBe(1);
-        },
-        { timeout: 10000 }
-      );
+      await waitFor(() => {
+        fireEvent.click(screen.getByText("Add new"));
+        expect(onAddMock.mock.calls.length).toBe(1);
+      });
     });
 
     it("should not call onClick for disabled option", () => {
