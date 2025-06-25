@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./Hero.module.scss";
-import HeartIcon from "./icons/HeartIcon";
-import ArrowIcon from "./icons/ArrowIcon";
 import FigmaIcon from "./icons/FigmaIcon";
 import GitHubIcon from "./icons/GitHubIcon";
 import ResourceButton from "./ResourceButton";
@@ -12,10 +10,10 @@ export default function Hero() {
     <div className={styles.hero}>
       <h1 className={styles.header}>
         <Flex align="center" justify="center" gap="medium">
-          Vibe design <HeartIcon className={styles.heartIcon} /> system
+          Vibe design system
         </Flex>
         <Flex align="center" justify="center" gap="medium">
-          by <ArrowIcon className={styles.arrowIcon} /> monday.com
+          by monday.com
         </Flex>
       </h1>
       <p className={styles.subheader}>

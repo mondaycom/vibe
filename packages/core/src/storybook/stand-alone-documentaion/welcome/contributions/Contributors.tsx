@@ -9,12 +9,21 @@ import Shay from "./assets/Shay.png";
 import Eylon from "./assets/Eylon.png";
 import Noa from "./assets/Noa.png";
 import LeanyLabs from "./assets/LeanyLabs.png";
+import Meytal from "./assets/Meytal.png";
+import Hadas from "./assets/Hadas.png";
 
 const CONTRIBUTORS = [
   {
-    name: "Rotem Dekel",
-    href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/",
-    image: Rotem
+    name: "Meytal Badichi",
+    href: "https://www.linkedin.com/in/meytal-badichi-561439125/",
+    image: Meytal,
+    tooltip: "Product Designer"
+  },
+  {
+    name: "Hadas Farhi",
+    href: "https://www.linkedin.com/in/hadasfarhi/",
+    image: Hadas,
+    tooltip: "Software Engineer"
   },
   {
     name: "Sergey Roytman",
@@ -22,24 +31,29 @@ const CONTRIBUTORS = [
     image: Sergey
   },
   {
-    name: "Devorah Friedman",
-    href: "mailto:devorahfr@monday.com",
-    image: Devorah
-  },
-  {
     name: "Dmitry Kogan",
     href: "mailto:dimako@monday.com",
     image: Dmitry
   },
   {
-    name: "Shay Cohen",
-    href: "mailto:shay@monday.com",
-    image: Shay
-  },
-  {
     name: "Eylon Goren",
     href: "mailto:eylon@monday.com",
     image: Eylon
+  },
+  {
+    name: "Rotem Dekel",
+    href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/",
+    image: Rotem
+  },
+  {
+    name: "Devorah Friedman",
+    href: "mailto:devorahfr@monday.com",
+    image: Devorah
+  },
+  {
+    name: "Shay Cohen",
+    href: "mailto:shay@monday.com",
+    image: Shay
   },
   {
     name: "Noa Fenko",

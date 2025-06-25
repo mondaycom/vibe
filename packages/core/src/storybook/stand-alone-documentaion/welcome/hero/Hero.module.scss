@@ -9,10 +9,9 @@
     color: #121212;
     text-align: center;
     font-family: var(--sb-title-font-family);
-    font-weight: 400;
-    font-size: 90px;
+    font-weight: 600;
+    font-size: 56px;
     line-height: 110%;
-    letter-spacing: -4.56px;
     margin: 0;
     -webkit-font-smoothing: var(--font-smoothing-webkit);
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
@@ -20,48 +19,12 @@
 
   .subheader {
     text-align: center;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 140%;
     letter-spacing: 0.48px;
     margin: var(--sb-spacing-large) 0;
     -webkit-font-smoothing: var(--font-smoothing-webkit);
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
-  }
-}
-
-.arrowIcon {
-  path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawSvg 2s ease-in-out forwards;
-  }
-}
-
-.heartIcon {
-  path {
-    stroke-dasharray: 800;
-    stroke-dashoffset: 800;
-    animation: drawSvg 2s ease-in-out 0.8s forwards;
-  }
-}
-
-@keyframes drawSvg {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@media screen and (max-width: 1160px) {
-  .hero {
-    .header {
-      font-size: 80px;
-      letter-spacing: -2.88px;
-    }
-
-    .subheader {
-      font-size: 24px;
-    }
   }
 }

@@ -8,20 +8,16 @@ import Dan from "./assets/Dan.png";
 import Naama from "./assets/Naama.png";
 import Yael from "./assets/Yael.png";
 import Talko from "./assets/Talko.png";
+import Anna from "./assets/Anna.png";
+import Orr from "./assets/Orr.png";
 import Flex from "../../../../components/Flex/Flex";
 import styles from "./Team.module.scss";
 
 const team = [
   {
-    imgSrc: Meirav,
-    name: "Meirav Ron",
-    linkedinUrl: "https://www.linkedin.com/in/meirav-ron-1903b0197/",
-    title: "Product Designer"
-  },
-  {
-    imgSrc: Rivka,
-    name: "Rivka Ungar",
-    linkedinUrl: "https://www.linkedin.com/in/rivka-ungar/",
+    imgSrc: Orr,
+    name: "Orr Gottlieb",
+    linkedinUrl: "https://www.linkedin.com/in/orrgottlieb/",
     title: "Software Engineer"
   },
   {
@@ -37,15 +33,28 @@ const team = [
     title: "Software Engineer"
   },
   {
-    imgSrc: Yael,
-    name: "Yael Bein",
-    linkedinUrl: "https://www.linkedin.com/in/yaelbein/",
+    imgSrc: Rivka,
+    name: "Rivka Ungar",
+    linkedinUrl: "https://www.linkedin.com/in/rivka-ungar/",
+    title: "Software Engineer"
+  },
+  {
+    imgSrc: Meirav,
+    name: "Meirav Ron",
+    linkedinUrl: "https://www.linkedin.com/in/meirav-ron-1903b0197/",
     title: "Product Designer"
   },
   {
     imgSrc: Elad,
     name: "Elad Mizrahi",
     linkedinUrl: "https://www.linkedin.com/in/elad-mizrahi/",
+    title: "Product Designer"
+  },
+
+  {
+    imgSrc: Yael,
+    name: "Yael Bein",
+    linkedinUrl: "https://www.linkedin.com/in/yaelbein/",
     title: "Product Designer"
   },
   {
@@ -57,7 +66,13 @@ const team = [
   {
     imgSrc: Naama,
     name: "Naama Yeffet",
-    linkedinUrl: "https://il.linkedin.com/in/naama-yeffet-80280a242",
+    linkedinUrl: "https://il.linkedin.com/in/naama-yeffet-80280a242/",
+    title: "Product Designer"
+  },
+  {
+    imgSrc: Anna,
+    name: "Anna Hyatt",
+    linkedinUrl: "https://www.linkedin.com/in/anna-hyatt-design/",
     title: "Product Designer"
   }
 ];
