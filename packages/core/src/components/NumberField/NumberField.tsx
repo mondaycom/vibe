@@ -89,7 +89,7 @@ const NumberField = forwardRef(
           className
         )}
       >
-        {label && <FieldLabel labelText={label} required={required} labelFor={id} />}
+        {label && <FieldLabel className={styles.label} labelText={label} required={required} labelFor={id} />}
         <BaseInput
           {...inputProps}
           className={styles.input}
