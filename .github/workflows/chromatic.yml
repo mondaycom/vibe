@@ -27,6 +27,7 @@ jobs:
         with:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/download-builds
+        if: ${{ needs.build.outputs.has_changes == 'true' }}
       - name: Publish to Chromatic
         uses: chromaui/action@v11
         with:
