@@ -1,0 +1,25 @@
+.numberField {
+  width: 100%;
+
+  .infoText {
+    color: var(--secondary-text-color);
+  }
+
+  &.disabled {
+    .infoText {
+      color: var(--disabled-text-color);
+    }
+  }
+
+  &.success {
+    .infoText {
+      color: var(--color-success);
+    }
+  }
+
+  &.error {
+    .infoText {
+      color: var(--color-error);
+    }
+  }
+}
