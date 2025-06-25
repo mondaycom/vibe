@@ -2,12 +2,12 @@ import { renderHook } from "@testing-library/react-hooks";
 import useDisableScroll from "..";
 
 describe("useDisableScroll", () => {
-  let addEventListenerSpy: jest.SpyInstance;
-  let removeEventListenerSpy: jest.SpyInstance;
+  let addEventListenerSpy: vi.SpyInstance;
+  let removeEventListenerSpy: vi.SpyInstance;
 
   beforeEach(() => {
-    addEventListenerSpy = jest.spyOn(document.body, "addEventListener");
-    removeEventListenerSpy = jest.spyOn(document.body, "removeEventListener");
+    addEventListenerSpy = vi.spyOn(document.body, "addEventListener");
+    removeEventListenerSpy = vi.spyOn(document.body, "removeEventListener");
   });
 
   afterEach(() => {

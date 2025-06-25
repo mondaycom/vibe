@@ -66,8 +66,8 @@ describe("<Button />", () => {
     let buttonComponent;
 
     beforeEach(() => {
-      clickActionStub = jest.fn();
-      onMouseDownStub = jest.fn();
+      clickActionStub = vi.fn();
+      onMouseDownStub = vi.fn();
       buttonComponent = render(
         <Button onClick={clickActionStub} onMouseDown={onMouseDownStub}>
           {text}
@@ -145,7 +145,7 @@ describe("<Button />", () => {
   });
 
   it("should call on blur", () => {
-    const onBlur = jest.fn();
+    const onBlur = vi.fn();
     const { getByText } = render(<Button onBlur={onBlur}>{text}</Button>);
     const button = getByText(text);
     fireEvent.blur(button);
@@ -153,7 +153,7 @@ describe("<Button />", () => {
   });
 
   it("should call do blur on mouseup", () => {
-    const onBlur = jest.fn();
+    const onBlur = vi.fn();
     const { getByText } = render(
       <Button onBlur={onBlur} blurOnMouseUp={false}>
         {text}
@@ -166,7 +166,7 @@ describe("<Button />", () => {
   });
 
   it("should call on focus", () => {
-    const onFocus = jest.fn();
+    const onFocus = vi.fn();
     const { getByText } = render(<Button onFocus={onFocus}>{text}</Button>);
     const button = getByText(text);
     fireEvent.focus(button);
@@ -174,7 +174,7 @@ describe("<Button />", () => {
   });
 
   describe("mouse down", () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     it("should call the click callback when clicked", () => {
       const { getByText } = render(<Button onClick={onClick}>{text}</Button>);
       fireEvent.mouseDown(getByText(text));
@@ -182,7 +182,7 @@ describe("<Button />", () => {
     });
 
     it("should call mouse down callback", () => {
-      const onMouseDown = jest.fn();
+      const onMouseDown = vi.fn();
       const { getByText } = render(
         <Button onClick={onClick} onMouseDown={onMouseDown}>
           {text}
@@ -196,7 +196,7 @@ describe("<Button />", () => {
   describe("a11y", () => {
     it("Aria label should be connected to the button", () => {
       const ariaLabel = "Icon Name";
-      const onClick = jest.fn();
+      const onClick = vi.fn();
       const { getByLabelText } = render(
         <Button ariaLabel={ariaLabel} onClick={onClick}>
           {text}

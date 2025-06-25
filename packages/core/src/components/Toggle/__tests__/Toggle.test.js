@@ -48,7 +48,7 @@ describe("Toggle tests", () => {
     });
 
     it("should click on toggle trigger on change event with the right parameters", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isDefaultSelected onChange={onClickMock} />
@@ -62,7 +62,7 @@ describe("Toggle tests", () => {
   });
 
   it("should click on toggle trigger on change event with the right parameters - controlerd state", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const { getByRole } = render(
       <form name={formName}>
         <Toggle isSelected onChange={onClickMock} />

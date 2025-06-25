@@ -3,11 +3,11 @@ import React from "react";
 
 describe("Dropdown", () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   const mockOptions = [
@@ -82,7 +82,7 @@ describe("Dropdown", () => {
   describe("ref forwarding", () => {
     let component;
     const ref = React.createRef();
-    const onFocus = jest.fn();
+    const onFocus = vi.fn();
 
     beforeEach(() => {
       component = new DropdownDriver().withOptions().withValue(mockOptions[0]).withRef(ref).withOnFocus(onFocus);
@@ -100,9 +100,9 @@ describe("Dropdown", () => {
 
   describe("multi", () => {
     let component;
-    const onChange = jest.fn();
-    const onClear = jest.fn();
-    const onOptionRemove = jest.fn();
+    const onChange = vi.fn();
+    const onClear = vi.fn();
+    const onOptionRemove = vi.fn();
 
     beforeEach(() => {
       component = new DropdownDriver()

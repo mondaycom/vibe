@@ -4,9 +4,9 @@ import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../utils/jest-utils";
 import { renderSliderInRangeMode } from "./sliderTestUtils";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-jest.mock("../../TextField/TextField", () => {
+vi.mock("../../TextField/TextField", () => {
   return props => {
     return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   };
@@ -25,7 +25,7 @@ describe("b. Ranges Slider Active/Inactive", () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
       userEvent.hover(elThumbStart);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe("b. Ranges Slider Active/Inactive", () => {
       const { asFragment, elThumbEnd } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
       userEvent.hover(elThumbEnd);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -50,10 +50,10 @@ describe("b. Ranges Slider Active/Inactive", () => {
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode();
       userEvent.hover(elThumbStart);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       before = asFragment().firstChild;
       userEvent.unhover(elThumbStart);
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -66,7 +66,7 @@ describe("b. Ranges Slider Active/Inactive", () => {
       const { asFragment } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -78,10 +78,10 @@ describe("b. Ranges Slider Active/Inactive", () => {
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode();
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       before = asFragment().firstChild;
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
@@ -95,7 +95,7 @@ describe("b. Ranges Slider Active/Inactive", () => {
       elThumbEnd.focus();
       before = asFragment().firstChild;
       userEvent.tab();
-      jest.advanceTimersByTime(999);
+      vi.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();
