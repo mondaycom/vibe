@@ -4850,7 +4850,7 @@
   resolved "https://registry.npmjs.org/@storybook/theming/-/theming-8.6.14.tgz#78c6dc878f705de70c67f2b2d08b8313b985d81a"
   integrity sha512-r4y+LsiB37V5hzpQo+BM10PaCsp7YlZ0YcZzQP1OCkPlYXmUAFy2VvDKaFRpD8IeNPKug2u4iFm/laDEbs03dg==
 
-"@storybook/types@7.6.20":
+"@storybook/types@7.6.20", "@storybook/types@^7.5.0":
   version "7.6.20"
   resolved "https://registry.npmjs.org/@storybook/types/-/types-7.6.20.tgz#b8d62b30914b35e6750b1f4937da532432f02890"
   integrity sha512-GncdY3x0LpbhmUAAJwXYtJDUQEwfF175gsjH0/fxPkxPoV7Sef9TM41jQLJW/5+6TnZoCZP/+aJZTJtq3ni23Q==
