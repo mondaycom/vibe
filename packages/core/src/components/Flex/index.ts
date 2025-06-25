@@ -1,1 +1,1 @@
-export { default as Flex, FlexProps } from "./Flex";
+export { default as Flex, type FlexProps } from "./Flex";

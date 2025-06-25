@@ -1,4 +1,4 @@
-import { userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/test";
 import { resetFocus } from "../../../../__tests__/interactions-helper";
 import {
   getByRole,

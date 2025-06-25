@@ -1,8 +1,7 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, cleanup, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import EditableText from "../EditableText";
-import { within } from "@storybook/testing-library";
 
 describe("EditableText", () => {
   afterEach(() => {
