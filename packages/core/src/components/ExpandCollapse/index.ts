@@ -1,1 +1,1 @@
-export { default as ExpandCollapse, ExpandCollapseProps } from "./ExpandCollapse";
+export { default as ExpandCollapse, type ExpandCollapseProps } from "./ExpandCollapse";

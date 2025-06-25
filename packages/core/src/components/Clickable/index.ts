@@ -1,1 +1,1 @@
-export { default as Clickable, ClickableProps } from "./Clickable";
+export { default as Clickable, type ClickableProps } from "./Clickable";

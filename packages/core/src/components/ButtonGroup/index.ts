@@ -1,1 +1,1 @@
-export { default as ButtonGroup, ButtonGroupProps } from "./ButtonGroup";
+export { default as ButtonGroup, type ButtonGroupProps } from "./ButtonGroup";

@@ -1,1 +1,1 @@
-export { default as ListTitle, ListTitleProps } from "./ListTitle";
+export { default as ListTitle, type ListTitleProps } from "./ListTitle";
