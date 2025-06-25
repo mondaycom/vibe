@@ -84,39 +84,52 @@ The NumberField supports comprehensive validation with dynamic feedback. Use `al
     {
       positive: {
         component: (
-          <NumberField value={10} onChange={() => {}} label="Age" min={0} max={120} infoText="Enter your age" />
+          <div style={{ width: "80%" }}>
+            <NumberField value={25} onChange={() => {}} label="Age" min={0} max={120} infoText="Enter your age" />
+          </div>
         ),
         description:
           "Provide specific, descriptive labels and helpful context with explanatory helper text to clarify the expected input."
       },
       negative: {
-        component: <NumberField value={10} onChange={() => {}} aria-label="Number input" />,
+        component: (
+          <div style={{ width: "80%" }}>
+            <NumberField value={25} label="Number" onChange={() => {}} infoText="Enter a value" />
+          </div>
+        ),
         description: "Avoid generic labels like 'Number' or 'Value'. The label should be specific about what the user needs to enter."
       }
     },
     {
       positive: {
         component: (
-          <NumberField
-            value={-5}
-            onChange={() => {}}
-            label="Temperature"
-            error={true}
-            infoText="Temperature cannot be negative"
-            min={0}
-            allowOutOfBounds
-          />
+          <div style={{ width: "80%" }}>
+            <NumberField
+              value={-5}
+              onChange={() => {}}
+              label="Temperature (°C)"
+              error
+              infoText="Temperature cannot be negative"
+              min={0}
+              allowOutOfBounds
+            />
+          </div>
         ),
         description:
           "When input is invalid, provide immediate visual feedback but allow the user to see and correct their entry."
       },
       negative: {
-        component: <NumberField value={5} onChange={() => {}} label="Quantity" error={true} min={0} />,
+        component: (
+          <div style={{ width: "80%" }}>
+            <NumberField value={-5} onChange={() => {}} label="Temperature (°C)" error min={0} allowOutOfBounds />
+          </div>
+        ),
         description:
           "Don't show an error state without a clear explanation. Always provide a helpful message that guides the user to a valid input."
       }
     }
-  ]}
+
+]}
 />
 
 ## Related components
