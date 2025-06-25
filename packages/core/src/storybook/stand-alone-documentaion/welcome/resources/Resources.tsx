@@ -40,45 +40,48 @@ export default function Resources() {
   }, [updateFadeState]);
 
   return (
-    <div
-      ref={scrollRef}
-      className={cx(styles.resourcesScroll, {
-        [styles.fadeLeft]: showLeftFade,
-        [styles.fadeRight]: showRightFade
-      })}
-    >
-      <div className={styles.resources}>
-        <Card
-          icon={<HeartIcon />}
-          title="Foundations"
-          description="Foundations inform the basis of any great user interface."
-          page="Foundations/Accessibility"
-        />
-        <Card
-          icon={<CircleIcon />}
-          title="Components"
-          description="Components are reusable building blocks."
-          page="Components/Accordion"
-        />
-        <Card
-          icon={<CirclesIcon />}
-          title="Patterns"
-          description="A UI pattern is one step up from a component. "
-          page=""
-        />
-        <Card
-          icon={<LineIcon />}
-          title="Processes"
-          description="Processes outline the design workflows and methods"
-          page=""
-        />
-        <Card
-          icon={<AsteriskIcon />}
-          title="Other resources"
-          description="Internal tools and utils that streamline our daily workflows"
-          page=""
-        />
+    <>
+      <p className={styles.text}>The materials monday.com experience is made of.</p>
+      <div
+        ref={scrollRef}
+        className={cx(styles.resourcesScroll, {
+          [styles.fadeLeft]: showLeftFade,
+          [styles.fadeRight]: showRightFade
+        })}
+      >
+        <div className={styles.resources}>
+          <Card
+            icon={<HeartIcon />}
+            title="Foundations"
+            description="Foundations inform the basis of any great user interface."
+            page="Foundations/Accessibility"
+          />
+          <Card
+            icon={<CircleIcon />}
+            title="Components"
+            description="Components are reusable building blocks."
+            page="Components/Accordion"
+          />
+          <Card
+            icon={<CirclesIcon />}
+            title="Patterns"
+            description="A UI pattern is one step up from a component. "
+            page=""
+          />
+          <Card
+            icon={<LineIcon />}
+            title="Processes"
+            description="Processes outline the design workflows and methods"
+            page=""
+          />
+          <Card
+            icon={<AsteriskIcon />}
+            title="Other resources"
+            description="Internal tools and utils that streamline our daily workflows"
+            page=""
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
