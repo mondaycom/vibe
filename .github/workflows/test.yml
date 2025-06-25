@@ -47,6 +47,7 @@ jobs:
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
 
   e2e:
+    name: E2E Tests
     if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -74,6 +75,7 @@ jobs:
 
   bundle-size:
     name: Bundle Size
+    if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
