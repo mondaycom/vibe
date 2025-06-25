@@ -16,8 +16,7 @@ on:
 
 jobs:
   checks:
-    name: "Test / ${{ matrix.name }}"
-    if: ${{ inputs.has_changes == 'true' }}
+    name: ${{ matrix.name }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -40,7 +39,9 @@ jobs:
       - id: determine-since-flag
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
+        if: ${{ inputs.has_changes == 'true' }}
       - name: Run ${{ matrix.name }}
+        if: ${{ inputs.has_changes == 'true' }}
         shell: bash
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
