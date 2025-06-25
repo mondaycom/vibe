@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Add } from "@vibe/icons";
+import { TextBig } from "@vibe/icons";
 import NumberField from "../NumberField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
@@ -24,95 +24,22 @@ export const Overview: Story = {
   render: args => {
     const [value, setValue] = useState(args.value || 0);
     return <NumberField {...args} value={value} onChange={newValue => setValue(newValue)} />;
-  }
-};
-
-export const ErrorState: Story = {
-  render: () => {
-    const [value, setValue] = useState(-5);
-    return (
-      <NumberField
-        id="quantity-error"
-        value={value}
-        onChange={newValue => setValue(newValue)}
-        label="Quantity"
-        error
-        infoText="Value must be 0 or greater"
-        min={0}
-      />
-    );
-  }
-};
-
-export const SuccessState: Story = {
-  render: () => {
-    const [value, setValue] = useState(10);
-    return (
-      <NumberField
-        id="quantity-success"
-        value={value}
-        onChange={newValue => setValue(newValue)}
-        label="Quantity"
-        success
-        infoText="Looks good!"
-      />
-    );
-  }
-};
-
-export const DisabledState: Story = {
-  render: () => (
-    <NumberField
-      id="quantity-disabled"
-      value={5}
-      onChange={() => {}}
-      label="Quantity"
-      disabled
-      infoText="Cannot edit when disabled"
-    />
-  )
-};
-
-export const ReadOnlyState: Story = {
-  render: () => (
-    <NumberField
-      id="answer-readonly"
-      value={42}
-      onChange={() => {}}
-      label="Answer"
-      readOnly
-      infoText="Read-only field"
-    />
-  )
-};
-
-export const WithIcon: Story = {
-  render: () => {
-    const [value, setValue] = useState(1);
-    return (
-      <NumberField
-        id="rating-with-icon"
-        value={value}
-        onChange={newValue => setValue(newValue)}
-        label="Rating"
-        leftIcon={Add}
-      />
-    );
-  }
-};
-
-export const WithInfoText: Story = {
-  render: () => {
-    const [value, setValue] = useState(100);
-    return (
-      <NumberField
-        id="points-with-info"
-        value={value}
-        onChange={newValue => setValue(newValue)}
-        label="Points"
-        infoText="You are doing great!"
-      />
-    );
+  },
+  decorators: [
+    Story => {
+      return (
+        <div style={{ width: 300 }}>
+          <Story />
+        </div>
+      );
+    }
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        enabled: false
+      }
+    }
   }
 };
 
@@ -128,5 +55,109 @@ export const Sizes: Story = {
         <NumberField id="size-small" value={valueS} onChange={setValueS} label="Small" size="small" />
       </Flex>
     );
+  }
+};
+
+export const States: Story = {
+  render: () => {
+    const [successValue, setSuccessValue] = useState(10);
+    const [errorValue, setErrorValue] = useState(5);
+
+    return (
+      <Flex direction="column" gap="medium" align="start">
+        <NumberField
+          id="success-state"
+          value={successValue}
+          onChange={setSuccessValue}
+          label="Success State"
+          success
+          infoText="This is a success message"
+        />
+        <NumberField
+          id="error-state"
+          value={errorValue}
+          onChange={setErrorValue}
+          label="Error State"
+          error
+          infoText="This is an error message"
+        />
+        <NumberField
+          id="readonly-state"
+          value={42}
+          onChange={() => {}}
+          label="Read Only State"
+          readOnly
+          infoText="Read-only field"
+        />
+        <NumberField
+          id="disabled-state"
+          value={5}
+          onChange={() => {}}
+          label="Disabled State"
+          disabled
+          infoText="Cannot edit when disabled"
+        />
+      </Flex>
+    );
+  }
+};
+
+export const Validation: Story = {
+  render: () => {
+    const [value, setValue] = useState(50);
+    const [isValid, setIsValid] = useState(true);
+
+    const handleChange = (newValue: number) => {
+      setValue(newValue);
+    };
+
+    const handleValidityChange = (valid: boolean) => {
+      setIsValid(valid);
+    };
+
+    return (
+      <Flex direction="column" gap="medium" align="start" style={{ width: 300 }}>
+        <NumberField
+          id="validation-example"
+          value={value}
+          onChange={handleChange}
+          onValidityChange={handleValidityChange}
+          label="Validation Example (Range: 0-100)"
+          min={0}
+          max={100}
+          allowOutOfBounds
+          success={isValid}
+          error={!isValid}
+          infoText={isValid ? "Value is within valid range!" : "Value is outside the valid range (0-100)"}
+        />
+      </Flex>
+    );
+  }
+};
+
+export const Variants: Story = {
+  render: () => {
+    const [iconValue, setIconValue] = useState(1);
+    const [infoValue, setInfoValue] = useState(100);
+
+    return (
+      <Flex direction="column" gap="medium" align="start">
+        <NumberField id="with-icon" value={iconValue} onChange={setIconValue} label="With Icon" leftIcon={TextBig} />
+        <NumberField
+          id="with-info"
+          value={infoValue}
+          onChange={setInfoValue}
+          label="With Info Text"
+          infoText="You are doing great!"
+        />
+      </Flex>
+    );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { TextBig }
+      }
+    }
   }
 };
