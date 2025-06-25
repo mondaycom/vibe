@@ -16,6 +16,7 @@ on:
 
 jobs:
   checks:
+    name: "Test / ${{ matrix.name }}"
     if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     strategy:
@@ -28,7 +29,6 @@ jobs:
             command: "lint"
           - name: "Stylelint"
             command: "stylelint"
-    name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
         with:
