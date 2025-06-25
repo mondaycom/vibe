@@ -1,0 +1,122 @@
+import { Meta } from "@storybook/blocks";
+import * as NumberFieldStories from "./NumberField.stories";
+import NumberField from "../NumberField";
+
+<Meta of={NumberFieldStories} />
+
+# NumberField
+
+The `NumberField` component provides an accessible, strictly numeric input with built-in vertical stepper controls for incrementing or decrementing values. It supports controlled usage, custom sizing, min/max clamping, and visual feedback states (error, positive, disabled, read-only).
+
+## Import path 
+
+```tsx
+import { NumberField } from "@vibe/core";
+```
+
+## Overview
+
+<Canvas of={NumberFieldStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Always pass both `value` and `onChange` props to use the component in controlled mode.",
+    "Use `min`, `max`, and `step` to enforce value boundaries and configure stepping behavior.",
+    "Provide a visible `label` or `aria-label` to ensure accessibility when no label is rendered.",
+    "Leverage `error` and `positive` props to represent validation feedback, noting that `error` takes priority over `positive`.",
+    "Apply `disabled` or `readOnly` states to prevent user interaction when necessary."
+  ]}
+/>
+
+## Variants
+
+### Error State
+
+Demonstrates validation feedback when the value is out of bounds.
+
+<Canvas of={NumberFieldStories.ErrorState} />
+
+### Success State
+
+Shows a success state with positive feedback text.
+
+<Canvas of={NumberFieldStories.SuccessState} />
+
+### Disabled State
+
+Illustrates the disabled appearance and behavior.
+
+<Canvas of={NumberFieldStories.DisabledState} />
+
+### Read-Only State
+
+Renders the field in a non-editable, read-only style.
+
+<Canvas of={NumberFieldStories.ReadOnlyState} />
+
+### With Icon
+
+Displays a left-side icon using the `leftIcon` prop.
+
+<Canvas of={NumberFieldStories.WithIcon} />
+
+### With Info Text
+
+Includes helper text beneath the input for guidance.
+
+<Canvas of={NumberFieldStories.WithInfoText} />
+
+### Size Variants
+
+Compares the large, medium, and small sizes.
+
+<Canvas of={NumberFieldStories.Sizes} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <NumberField
+            value={5}
+            onChange={() => {}}
+            label="Quantity"
+          />
+        ),
+        description:
+          "Use `NumberField` as a fully controlled component by always providing both `value` and `onChange` props."
+      },
+      negative: {
+        component: <div>Invalid NumberField</div>,
+        description:
+          "Do not omit required props like `value` or `onChange`; uncontrolled usage is not supported."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <NumberField
+            value={10}
+            onChange={() => {}}
+            aria-label="Age"
+          />
+        ),
+        description:
+          "Provide a visible `label` or an `aria-label` when no label is rendered to ensure accessibility."
+      },
+      negative: {
+        component: <></>,
+        description:
+          "Avoid rendering the component without any accessible label, which breaks screen reader support."
+      }
+    }
+  ]}
+/>
