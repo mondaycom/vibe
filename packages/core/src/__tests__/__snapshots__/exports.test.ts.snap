@@ -71,6 +71,7 @@ exports[`exports should export all components 1`] = `
   "ModalFooterButtons",
   "ModalHeader",
   "MultiStepIndicator",
+  "NumberField",
   "RadioButton",
   "Search",
   "Skeleton",
