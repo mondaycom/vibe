@@ -13,19 +13,22 @@
   justify-content: space-between;
   color: var(--sb-primary-text-color);
 
-  .title {
-    margin: 0;
-    letter-spacing: normal;
-    font-size: 22px;
-  }
+  .content {
+    gap: 12px;
 
-  .description {
-    color: var(--sb-secondary-text-color);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%;
-  }
+    .title {
+      margin: 0;
+      letter-spacing: normal;
+      font-size: 22px;
+    }
 
+    .description {
+      color: var(--sb-secondary-text-color);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
   .link {
     align-self: flex-end;
     font-size: 22px;

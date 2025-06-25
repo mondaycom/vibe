@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./FooterCard.module.scss";
 import Flex from "../../../components/Flex/Flex";
-import { Connect } from "@vibe/icons";
+import ArrowIcon from "./ArrowIcon";
 import Title from "../../stand-alone-documentaion/welcome/Title";
 
 export default function FooterCard({
@@ -17,12 +17,12 @@ export default function FooterCard({
 }) {
   return (
     <a href={href} className={styles.footerCard} target="_blank" rel="noreferrer noopener">
-      <Flex gap="medium" direction="column" align="start">
+      <Flex className={styles.content} direction="column" align="start">
         <Title className={styles.title}>{title}</Title>
         <div className={styles.description}>{description}</div>
       </Flex>
       <Flex className={styles.link} align="center" gap="small">
-        {linkText} <Connect />
+        {linkText} <ArrowIcon />
       </Flex>
     </a>
   );
