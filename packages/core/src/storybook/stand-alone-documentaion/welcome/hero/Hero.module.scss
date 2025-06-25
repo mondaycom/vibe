@@ -28,16 +28,3 @@
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
   }
 }
-
-@media screen and (max-width: 1160px) {
-  .hero {
-    .header {
-      font-size: 80px;
-      letter-spacing: -2.88px;
-    }
-
-    .subheader {
-      font-size: 24px;
-    }
-  }
-}
