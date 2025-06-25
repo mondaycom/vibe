@@ -1,10 +1,15 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "@vibe/icons";
 
-jest.mock("../../Icon/Icon", () => ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>);
-jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
+vi.mock("../../Icon/Icon", () => ({
+  default: ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>
+}));
+vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
+  default: () => <div data-testid="custom-icon-mock" />
+}));
 
 const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";

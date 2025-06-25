@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snapshots renders correctly with children 1`] = `
+exports[`Snapshots > renders correctly with children 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium dummy-class-name"
@@ -57,7 +57,7 @@ exports[`Snapshots renders correctly with children 1`] = `
 </ul>
 `;
 
-exports[`Snapshots renders correctly with custom class name 1`] = `
+exports[`Snapshots > renders correctly with custom class name 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium dummy-class-name"
@@ -71,7 +71,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 />
 `;
 
-exports[`Snapshots renders correctly with empty props 1`] = `
+exports[`Snapshots > renders correctly with empty props 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium"

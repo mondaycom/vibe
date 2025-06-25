@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import { isMenuChildSelectable } from "../utils";
 import MenuItem from "../../../MenuItem/MenuItem";

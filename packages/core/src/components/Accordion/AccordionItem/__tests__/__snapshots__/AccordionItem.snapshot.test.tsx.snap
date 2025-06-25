@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AccordionItem renders correctly with children 1`] = `
+exports[`AccordionItem renders correctly > with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -52,7 +52,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
 </div>
 `;
 
-exports[`AccordionItem renders correctly with className 1`] = `
+exports[`AccordionItem renders correctly > with className 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -102,7 +102,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
 </div>
 `;
 
-exports[`AccordionItem renders correctly with iconPosition 1`] = `
+exports[`AccordionItem renders correctly > with iconPosition 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -152,7 +152,7 @@ exports[`AccordionItem renders correctly with iconPosition 1`] = `
 </div>
 `;
 
-exports[`AccordionItem renders correctly with iconSize 1`] = `
+exports[`AccordionItem renders correctly > with iconSize 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -202,7 +202,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
 </div>
 `;
 
-exports[`AccordionItem renders correctly with id 1`] = `
+exports[`AccordionItem renders correctly > with id 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -252,7 +252,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
 </div>
 `;
 
-exports[`AccordionItem renders correctly with title 1`] = `
+exports[`AccordionItem renders correctly > with title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"

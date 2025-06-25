@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Flex renders correctly Horizontal display with align 1`] = `
+exports[`Flex renders correctly > Horizontal display > with align 1`] = `
 <div
   className="container directionRow justifyStart alignEnd"
   style={{}}
@@ -17,24 +17,7 @@ exports[`Flex renders correctly Horizontal display with align 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with align 2`] = `
-<div
-  className="container directionRow justifyStart alignEnd"
-  style={{}}
->
-  <div>
-    1
-  </div>
-  <div>
-    2
-  </div>
-  <div>
-    3
-  </div>
-</div>
-`;
-
-exports[`Flex renders correctly Horizontal display with children 1`] = `
+exports[`Flex renders correctly > Horizontal display > with children 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   style={{}}
@@ -51,7 +34,7 @@ exports[`Flex renders correctly Horizontal display with children 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with flex 1`] = `
+exports[`Flex renders correctly > Horizontal display > with flex 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   style={{}}
@@ -95,7 +78,7 @@ exports[`Flex renders correctly Horizontal display with flex 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with flex shorthand 1`] = `
+exports[`Flex renders correctly > Horizontal display > with flex shorthand 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   style={{}}
@@ -133,7 +116,7 @@ exports[`Flex renders correctly Horizontal display with flex shorthand 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with gap 1`] = `
+exports[`Flex renders correctly > Horizontal display > with gap 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   style={
@@ -154,7 +137,7 @@ exports[`Flex renders correctly Horizontal display with gap 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with justify 1`] = `
+exports[`Flex renders correctly > Horizontal display > with justify 1`] = `
 <div
   className="container directionRow justifySpaceBetween alignCenter"
   style={{}}
@@ -171,7 +154,7 @@ exports[`Flex renders correctly Horizontal display with justify 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Horizontal display with wrap 1`] = `
+exports[`Flex renders correctly > Horizontal display > with wrap 1`] = `
 <div
   className="container directionRow justifyStart alignCenter wrap"
   style={{}}
@@ -188,7 +171,7 @@ exports[`Flex renders correctly Horizontal display with wrap 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Vertical display with align 1`] = `
+exports[`Flex renders correctly > Vertical display > with align 1`] = `
 <div
   className="container directionColumn justifyStart alignEnd"
   style={{}}
@@ -205,7 +188,7 @@ exports[`Flex renders correctly Vertical display with align 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Vertical display with children 1`] = `
+exports[`Flex renders correctly > Vertical display > with children 1`] = `
 <div
   className="container directionColumn justifyStart alignCenter"
   style={{}}
@@ -222,7 +205,7 @@ exports[`Flex renders correctly Vertical display with children 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Vertical display with flex 1`] = `
+exports[`Flex renders correctly > Vertical display > with flex 1`] = `
 <div
   className="container directionColumn justifyStart alignCenter"
   style={{}}
@@ -266,7 +249,7 @@ exports[`Flex renders correctly Vertical display with flex 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Vertical display with justify 1`] = `
+exports[`Flex renders correctly > Vertical display > with justify 1`] = `
 <div
   className="container directionColumn justifySpaceBetween alignCenter"
   style={{}}
@@ -283,7 +266,7 @@ exports[`Flex renders correctly Vertical display with justify 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly Vertical display with wrap 1`] = `
+exports[`Flex renders correctly > Vertical display > with wrap 1`] = `
 <div
   className="container directionColumn justifyStart alignCenter wrap"
   style={{}}
@@ -300,7 +283,7 @@ exports[`Flex renders correctly Vertical display with wrap 1`] = `
 </div>
 `;
 
-exports[`Flex renders correctly with data-testid 1`] = `
+exports[`Flex renders correctly > with data-testid 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   data-testid="test"
@@ -308,7 +291,7 @@ exports[`Flex renders correctly with data-testid 1`] = `
 />
 `;
 
-exports[`Flex renders correctly with empty props 1`] = `
+exports[`Flex renders correctly > with empty props 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
   style={{}}

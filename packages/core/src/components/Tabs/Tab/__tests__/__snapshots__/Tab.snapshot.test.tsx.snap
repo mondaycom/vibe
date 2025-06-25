@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tab renders correctly when active 1`] = `
+exports[`Tab renders correctly > when active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
@@ -17,7 +17,7 @@ exports[`Tab renders correctly when active 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly when disabled 1`] = `
+exports[`Tab renders correctly > when disabled 1`] = `
 <li
   aria-disabled={true}
   aria-selected={false}
@@ -34,7 +34,7 @@ exports[`Tab renders correctly when disabled 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly when focus 1`] = `
+exports[`Tab renders correctly > when focus 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -51,7 +51,7 @@ exports[`Tab renders correctly when focus 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly when focus and active 1`] = `
+exports[`Tab renders correctly > when focus and active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
@@ -68,7 +68,7 @@ exports[`Tab renders correctly when focus and active 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with className 1`] = `
+exports[`Tab renders correctly > with className 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -87,7 +87,7 @@ exports[`Tab renders correctly with className 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with empty props 1`] = `
+exports[`Tab renders correctly > with empty props 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -104,7 +104,7 @@ exports[`Tab renders correctly with empty props 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with icon on left 1`] = `
+exports[`Tab renders correctly > with icon on left 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -140,7 +140,7 @@ exports[`Tab renders correctly with icon on left 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with icon on right 1`] = `
+exports[`Tab renders correctly > with icon on right 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -176,7 +176,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with id 1`] = `
+exports[`Tab renders correctly > with id 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
@@ -196,7 +196,7 @@ exports[`Tab renders correctly with id 1`] = `
 </li>
 `;
 
-exports[`Tab renders correctly with value 1`] = `
+exports[`Tab renders correctly > with value 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
