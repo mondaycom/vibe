@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./TeamMember.module.scss";
-import { LinkedinIcon } from "./LinkedinIcon";
 import Text from "../../../../components/Text/Text";
 import Flex from "../../../../components/Flex/Flex";
 
