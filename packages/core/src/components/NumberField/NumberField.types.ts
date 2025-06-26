@@ -4,7 +4,23 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 
 type NumberFieldNativeInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "size" | "value" | "onChange" | "disabled" | "readOnly" | "id"
+  | "size"
+  | "value"
+  | "onChange"
+  | "disabled"
+  | "readOnly"
+  | "id"
+  | "type"
+  | "inputMode"
+  | "role"
+  | "aria-valuenow"
+  | "aria-valuemin"
+  | "aria-valuemax"
+  | "aria-required"
+  | "aria-invalid"
+  | "min"
+  | "max"
+  | "step"
 >;
 
 interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<VibeComponentProps, "id"> {
