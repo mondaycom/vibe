@@ -19,15 +19,25 @@
         "message": "Mixin name should be in kebab-case (e.g. @mixin my-mixin)"
       }
     ],
+    "scss/comment-no-empty": true,
+
     "max-nesting-depth": [
       3,
       {
         "ignore": ["pseudo-classes"]
       }
     ],
+
     "declaration-no-important": true,
     "property-no-vendor-prefix": true,
-    "declaration-block-no-duplicate-properties": true
+    "declaration-block-no-duplicate-properties": true,
+    "selector-max-id": 0,
+    "selector-max-compound-selectors": 3,
+    "shorthand-property-no-redundant-values": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "number-leading-zero": "always",
+    "at-rule-no-vendor-prefix": true
   },
   "overrides": [
     {
