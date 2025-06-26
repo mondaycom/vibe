@@ -1,3 +1,58 @@
 {
-  "extends": "../../.stylelintrc.json"
+  "extends": "../../.stylelintrc.json",
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Selector should be in kebab-case (e.g. .my-selector)"
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Variable name should be in kebab-case (e.g. $my-variable)"
+      }
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Mixin name should be in kebab-case (e.g. @mixin my-mixin)"
+      }
+    ],
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": ["pseudo-classes"]
+      }
+    ],
+    "declaration-no-important": true,
+    "property-no-vendor-prefix": true,
+    "declaration-block-no-duplicate-properties": true
+  },
+  "overrides": [
+    {
+      "files": ["src/mixins/_common.scss", "src/internal-mixins/_utilities.scss"],
+      "rules": {
+        "declaration-no-important": null
+      }
+    },
+    {
+      "files": ["src/internal-mixins/_utilities.scss"],
+      "rules": {
+        "max-nesting-depth": null
+      }
+    },
+    {
+      "files": ["src/Themes/_hacker-theme.scss"],
+      "rules": {
+        "selector-class-pattern": null
+      }
+    },
+    {
+      "files": ["src/config/tokens/**/*.scss"],
+      "rules": {
+        "scss/dollar-variable-pattern": null
+      }
+    }
+  ]
 }
