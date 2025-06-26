@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Chips from "../Chips";
@@ -60,7 +61,7 @@ describe("Chips renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with right custom renderer", () => {
+  it("renders correctly with a custom label", () => {
     const tree = renderer
       .create(
         <Chips

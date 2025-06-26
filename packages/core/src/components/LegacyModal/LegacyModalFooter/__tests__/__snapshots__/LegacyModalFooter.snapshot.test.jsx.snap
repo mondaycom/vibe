@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModalFooter renders correctly > with className 1`] = `
+<div
+  class="container className"
+>
+  <div>
+    footer content
+  </div>
+</div>
+`;
+
+exports[`ModalFooter renders correctly > with required props 1`] = `
+<div
+  class="container"
+>
+  <div>
+    footer content
+  </div>
+</div>
+`;

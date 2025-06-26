@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React, { createRef } from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -8,24 +9,22 @@ import {
   restoreRequestAnimationFrameMock
 } from "../../../../../../tests/__tests__/test-utils";
 
-jest.mock("../../MenuItemSubMenu/MenuItemSubMenu", () => {
-  const { forwardRef } = jest.requireActual("react");
-  return {
-    __esModule: true,
-    default: forwardRef(({ children }: { children: React.ReactElement }, _ref: React.ForwardedRef<HTMLElement>) => (
-      <div data-testid="menu-item-sub-menu">{children}</div>
-    ))
-  };
-});
-jest.mock("../../MenuItemSubMenuIcon/MenuItemSubMenuIcon", () => {
-  const { forwardRef } = jest.requireActual("react");
-  return {
-    __esModule: true,
-    default: forwardRef(() => <div data-testid="menu-item-sub-menu-icon">Sub Menu Icon</div>)
-  };
-});
-jest.mock("../../../hooks/useMenuItemMouseEvents");
-const mockUseMenuItemMouseEvents = jest.mocked(useMenuItemMouseEvents);
+vi.mock("../../MenuItemSubMenu/MenuItemSubMenu", () => ({
+  __esModule: true,
+  default: React.forwardRef(({ children }: { children: React.ReactElement }, _ref: React.ForwardedRef<HTMLElement>) =>
+    React.createElement("div", { "data-testid": "menu-item-sub-menu" }, children)
+  )
+}));
+
+vi.mock("../../MenuItemSubMenuIcon/MenuItemSubMenuIcon", () => ({
+  __esModule: true,
+  default: React.forwardRef(() =>
+    React.createElement("div", { "data-testid": "menu-item-sub-menu-icon" }, "Sub Menu Icon")
+  )
+}));
+
+vi.mock("../../../hooks/useMenuItemMouseEvents");
+const mockUseMenuItemMouseEvents = vi.mocked(useMenuItemMouseEvents);
 
 describe("BaseMenuItem", () => {
   it("should render correctly with provided props", () => {
@@ -40,8 +39,8 @@ describe("BaseMenuItem", () => {
   });
 
   it("should handle click events and call onClick prop", () => {
-    const mockOnClick = jest.fn();
-    const mockCloseMenu = jest.fn();
+    const mockOnClick = vi.fn();
+    const mockCloseMenu = vi.fn();
 
     mockUseMenuItemMouseEvents.mockReturnValueOnce(true);
     mockRequestAnimationFrame();
@@ -49,8 +48,8 @@ describe("BaseMenuItem", () => {
     render(
       <BaseMenuItem
         onClick={mockOnClick}
-        setActiveItemIndex={jest.fn()}
-        setSubMenuIsOpenByIndex={jest.fn()}
+        setActiveItemIndex={vi.fn()}
+        setSubMenuIsOpenByIndex={vi.fn()}
         closeMenu={mockCloseMenu}
         activeItemIndex={0}
         index={0}
@@ -65,8 +64,8 @@ describe("BaseMenuItem", () => {
   });
 
   it("should trigger onMouseEnter and onMouseLeave events", () => {
-    const mockOnMouseEnter = jest.fn();
-    const mockOnMouseLeave = jest.fn();
+    const mockOnMouseEnter = vi.fn();
+    const mockOnMouseLeave = vi.fn();
 
     const { getByText } = render(
       <BaseMenuItem onMouseEnter={mockOnMouseEnter} onMouseLeave={mockOnMouseLeave}>

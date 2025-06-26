@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect, Mock } from "vitest";
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import AlertBanner from "../AlertBanner";
@@ -12,10 +13,10 @@ describe("<AlertBanner />", () => {
   });
 
   describe("on close", () => {
-    let onCloseStub: jest.Mock;
+    let onCloseStub: Mock;
 
     beforeEach(() => {
-      onCloseStub = jest.fn();
+      onCloseStub = vi.fn();
       render(
         <AlertBanner onClose={onCloseStub}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />

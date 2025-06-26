@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
@@ -14,13 +15,13 @@ function renderDialogOnMount(dialogProps: DialogProps) {
 describe("Dialog tests", () => {
   describe("Callbacks", () => {
     it("should call onClickOutside callback when click outside", async () => {
-      const onClickOutsideMock = jest.fn();
+      const onClickOutsideMock = vi.fn();
       renderVisibleDialogOnMount({ onClickOutside: onClickOutsideMock, content: <div>Dialog</div> });
       userEvent.click(document.body);
       expect(onClickOutsideMock).toBeCalled();
     });
     it("should not call onClickOutside callback when clicking inside the dialog", async () => {
-      const onClickOutsideMock = jest.fn();
+      const onClickOutsideMock = vi.fn();
       renderVisibleDialogOnMount({ onClickOutside: onClickOutsideMock, content: <div>Dialog</div> });
       const dialog = await screen.findByText("Dialog");
       userEvent.click(dialog);
