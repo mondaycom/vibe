@@ -1,13 +1,14 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
+import { vi, describe, it, expect, afterEach } from "vitest";
 import NumberFieldSpinButton from "../NumberFieldSpinButton";
 
 describe("NumberFieldSpinButton", () => {
-  const mockOnIncrement = jest.fn();
-  const mockOnDecrement = jest.fn();
+  const mockOnIncrement = vi.fn();
+  const mockOnDecrement = vi.fn();
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should call onIncrement when the up button is clicked", () => {

@@ -1,14 +1,15 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
+import { vi, describe, it, expect, beforeEach } from "vitest";
 import NumberField from "../NumberField";
 import { WhatsNew } from "@vibe/icons";
 
 describe("NumberField", () => {
-  const mockOnChange = jest.fn();
-  const mockOnValidityChange = jest.fn();
+  const mockOnChange = vi.fn();
+  const mockOnValidityChange = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("Integration tests", () => {

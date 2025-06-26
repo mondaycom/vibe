@@ -1,13 +1,12 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import useNumberFieldState from "../useNumberFieldState";
+import { vi, describe, it, expect } from "vitest";
+import useNumberFieldState, { UseNumberFieldStateProps } from "../useNumberFieldState";
 
 describe("useNumberFieldState", () => {
-  type HookProps = Parameters<typeof useNumberFieldState>[0];
-
-  const setup = (props: Partial<HookProps> = {}) => {
-    const onChange = jest.fn();
-    const onValidityChange = jest.fn();
-    const defaultProps: HookProps = {
+  const setup = (props: Partial<UseNumberFieldStateProps> = {}) => {
+    const onChange = vi.fn();
+    const onValidityChange = vi.fn();
+    const defaultProps: UseNumberFieldStateProps = {
       value: null,
       step: 1,
       onChange,
@@ -15,7 +14,7 @@ describe("useNumberFieldState", () => {
       ...props
     };
 
-    const { result, rerender } = renderHook(p => useNumberFieldState(p), {
+    const { result, rerender } = renderHook((p: UseNumberFieldStateProps) => useNumberFieldState(p), {
       initialProps: defaultProps
     });
 

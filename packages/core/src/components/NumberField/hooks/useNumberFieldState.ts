@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { NumberFieldProps } from "../NumberField.types";
 import { calculateSteppedValue } from "../utils/calc-value";
 
-type UseNumberFieldStateProps = Pick<
+export type UseNumberFieldStateProps = Pick<
   NumberFieldProps,
   "value" | "onChange" | "min" | "max" | "step" | "disabled" | "readOnly" | "allowOutOfBounds" | "onValidityChange"
 >;

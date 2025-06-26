@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { NumberFieldProps } from "../NumberField.types";
 import { calculateSteppedValue } from "../utils/calc-value";
 
-type UseSpinButtonHandlersProps = Pick<
+export type UseSpinButtonHandlersProps = Pick<
   NumberFieldProps,
   "onChange" | "value" | "step" | "min" | "max" | "allowOutOfBounds" | "readOnly"
 >;

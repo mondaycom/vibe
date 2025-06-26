@@ -1,17 +1,18 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import useSpinButtonHandlers from "../useSpinButtonHandlers";
+import { vi, describe, it, expect } from "vitest";
+import useSpinButtonHandlers, { UseSpinButtonHandlersProps } from "../useSpinButtonHandlers";
 
 describe("useSpinButtonHandlers", () => {
-  const setup = (props: Partial<Parameters<typeof useSpinButtonHandlers>[0]>) => {
-    const onChange = jest.fn();
-    const defaultProps = {
+  const setup = (props: Partial<UseSpinButtonHandlersProps>) => {
+    const onChange = vi.fn();
+    const defaultProps: UseSpinButtonHandlersProps = {
       value: 0,
       step: 1,
       ...props,
       onChange
     };
 
-    const { result, rerender } = renderHook(p => useSpinButtonHandlers(p), {
+    const { result, rerender } = renderHook((p: UseSpinButtonHandlersProps) => useSpinButtonHandlers(p), {
       initialProps: defaultProps
     });
     return { result, rerender, onChange };
