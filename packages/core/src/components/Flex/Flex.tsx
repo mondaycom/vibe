@@ -64,6 +64,10 @@ export interface FlexProps extends VibeComponentProps {
    */
   onClick?: (event: React.MouseEvent) => void;
   /**
+   * Callback fired when the mouse button is pressed on the flex container.
+   */
+  onMouseDown?: (event: React.MouseEvent) => void;
+  /**
    * ID of the element describing the flex container.
    */
   ariaLabelledby?: string;
@@ -83,6 +87,7 @@ const Flex = forwardRef(
       flex,
       gap,
       onClick,
+      onMouseDown,
       style,
       ariaLabelledby,
       ariaLabel,
@@ -147,6 +152,7 @@ const Flex = forwardRef(
         )}
         tabIndex={tabIndex}
         onClick={onClick}
+        onMouseDown={onMouseDown}
         style={overrideStyle}
         aria-label={ariaLabel}
       >

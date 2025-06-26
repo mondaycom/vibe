@@ -133,6 +133,7 @@ exports[`exports > should export all components 1`] = `
   "ModalProps",
   "MultiStepIndicator",
   "MultiStepIndicatorProps",
+  "NumberField",
   "RadioButton",
   "RadioButtonProps",
   "Search",

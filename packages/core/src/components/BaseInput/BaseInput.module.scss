@@ -65,6 +65,7 @@
       border: none;
       pointer-events: none;
       background-color: var(--disabled-background-color);
+      color: var(--disabled-text-color);
 
       .input {
         background-color: var(--disabled-background-color);

@@ -22,6 +22,7 @@ import { ToastDescription } from "./descriptions/toast-description";
 import { MultiStepIndicatorDescription } from "./descriptions/multi-step-indicator-description";
 import { TipseenDescription } from "./descriptions/tipseen-description";
 import { TextFieldDescription } from "./descriptions/text-field-description";
+import { NumberFieldDescription } from "./descriptions/number-field-description";
 import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
 import { StepsDescription } from "./descriptions/steps-description";
@@ -88,6 +89,7 @@ export const MODAL_BASIC_LAYOUT = "modal-basic-layout";
 export const MODAL_SIDE_BY_SIDE_LAYOUT = "modal-side-by-side-layout";
 export const MODAL_MEDIA_LAYOUT = "modal-media-layout";
 export const TEXT_FIELD = "text-field";
+export const NUMBER_FIELD = "number-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
 export const AVATAR = "avatar";
@@ -150,6 +152,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [MULTI_STEP_INDICATOR, <MultiStepIndicatorDescription />],
   [TIPSEEN, <TipseenDescription />],
   [TEXT_FIELD, <TextFieldDescription />],
+  [NUMBER_FIELD, <NumberFieldDescription />],
   [SEARCH, <SearchDescription />],
   [COMBOBOX, <ComboboxDescription />],
   [AVATAR, <AvatarDescription />],
