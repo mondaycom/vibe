@@ -1,1 +1,2 @@
 dist/**/*.scss
+**/__tests__/**/*.scss
