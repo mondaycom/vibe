@@ -13,42 +13,40 @@ const SingleSelectTrigger = () => {
     useDropdownContext<BaseListItemData>();
 
   return (
-    <Flex justify="space-between" align="center">
-      <div
-        className={cx(styles.triggerWrapper, getStyle(styles, size))}
-        {...(!searchable ? getToggleButtonProps() : {})}
-      >
-        <DropdownInput />
+    <div {...(!searchable ? getToggleButtonProps() : {})}>
+      <Flex justify="space-between" align="center">
+        <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
+          <DropdownInput />
 
-        {!inputValue && selectedItem && (
-          <div
-            className={cx(
-              styles.selectedItem,
-              {
-                [styles.faded]: isFocused && searchable
-              },
-              getStyle(styles, size)
-            )}
-            {...(searchable ? getToggleButtonProps() : {})}
-          >
-            {valueRenderer ? (
-              valueRenderer(selectedItem)
-            ) : (
-              <BaseListItem
-                size={size}
-                readOnly
-                item={{
-                  ...selectedItem,
-                  disabled,
-                  startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
-                }}
-              />
-            )}
-          </div>
-        )}
-      </div>
-      <TriggerActions />
-    </Flex>
+          {!inputValue && selectedItem && (
+            <div
+              className={cx(
+                styles.selectedItem,
+                {
+                  [styles.faded]: isFocused && searchable
+                },
+                getStyle(styles, size)
+              )}
+            >
+              {valueRenderer ? (
+                valueRenderer(selectedItem)
+              ) : (
+                <BaseListItem
+                  size={size}
+                  readOnly
+                  item={{
+                    ...selectedItem,
+                    disabled,
+                    startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
+                  }}
+                />
+              )}
+            </div>
+          )}
+        </div>
+        <TriggerActions />
+      </Flex>
+    </div>
   );
 };
 

@@ -112,6 +112,10 @@ export interface IconButtonProps extends VibeComponentProps {
    * If true, a loader replaces the icon.
    */
   loading?: boolean;
+  /**
+   * If true, the icon is hidden.
+   */
+  ariaHidden?: boolean;
 }
 
 const IconButton = forwardRef(

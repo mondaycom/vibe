@@ -19,6 +19,7 @@ const TriggerActions = () => {
     reset,
     contextOnClear,
     size,
+    searchable,
     disabled,
     clearable,
     readOnly,
@@ -46,13 +47,21 @@ const TriggerActions = () => {
   return (
     <Flex className={styles.actionsWrapper}>
       {hasSelection && clearable && !disabled && (
-        <IconButton data-testid="dropdown-clear-button" icon={CloseSmall} onClick={handleClear} size={iconButtonSize} />
+        <IconButton
+          data-testid="dropdown-clear-button"
+          icon={CloseSmall}
+          onClick={handleClear}
+          size={iconButtonSize}
+          ariaLabel="Clear selection"
+        />
       )}
       <IconButton
         icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-        {...getToggleButtonProps({ disabled })}
+        {...(searchable ? getToggleButtonProps({ disabled }) : {})}
         size={iconButtonSize}
         disabled={disabled}
+        ariaHidden
+        tabIndex={-1}
       />
     </Flex>
   );

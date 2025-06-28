@@ -23,49 +23,48 @@ const MultiSelectTrigger = () => {
   } = useDropdownContext<BaseListItemData>();
 
   return (
-    <Flex justify="space-between" align="center">
-      <div
-        className={cx(styles.triggerWrapper, getStyle(styles, size))}
-        {...(!searchable ? getToggleButtonProps() : {})}
-      >
-        {selectedItems.length > 0 ? (
-          <div className={styles.multiWrapper}>
-            {!multiline ? (
-              <MultiSelectedValues
-                disabled={disabled}
-                readOnly={readOnly}
-                selectedItems={selectedItems}
-                onRemove={item => {
-                  contextOnOptionRemove?.(item);
-                }}
-                renderInput={() => <DropdownInput inputSize="small" />}
-              />
-            ) : (
-              <Flex gap="xs" wrap>
-                {selectedItems.map((item, index) => (
-                  <Flex key={String(item.id ?? item.value ?? index)}>
-                    <div style={{ flexShrink: 0 }}>
-                      <DropdownChip
-                        item={item}
-                        onDelete={() => {
-                          contextOnOptionRemove?.(item);
-                        }}
-                        readOnly={readOnly}
-                        disabled={disabled}
-                      />
-                    </div>
-                    {index === selectedItems.length - 1 && <DropdownInput inputSize="small" />}
-                  </Flex>
-                ))}
-              </Flex>
-            )}
-          </div>
-        ) : (
-          <DropdownInput />
-        )}
-      </div>
-      <TriggerActions />
-    </Flex>
+    <div {...(!searchable ? getToggleButtonProps() : {})}>
+      <Flex justify="space-between" align="center">
+        <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
+          {selectedItems.length > 0 ? (
+            <div className={styles.multiWrapper}>
+              {!multiline ? (
+                <MultiSelectedValues
+                  disabled={disabled}
+                  readOnly={readOnly}
+                  selectedItems={selectedItems}
+                  onRemove={item => {
+                    contextOnOptionRemove?.(item);
+                  }}
+                  renderInput={() => <DropdownInput inputSize="small" />}
+                />
+              ) : (
+                <Flex gap="xs" wrap>
+                  {selectedItems.map((item, index) => (
+                    <Flex key={String(item.id ?? item.value ?? index)}>
+                      <div style={{ flexShrink: 0 }}>
+                        <DropdownChip
+                          item={item}
+                          onDelete={() => {
+                            contextOnOptionRemove?.(item);
+                          }}
+                          readOnly={readOnly}
+                          disabled={disabled}
+                        />
+                      </div>
+                      {index === selectedItems.length - 1 && <DropdownInput inputSize="small" />}
+                    </Flex>
+                  ))}
+                </Flex>
+              )}
+            </div>
+          ) : (
+            <DropdownInput />
+          )}
+        </div>
+        <TriggerActions />
+      </Flex>
+    </div>
   );
 };
 

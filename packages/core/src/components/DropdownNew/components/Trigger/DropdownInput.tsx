@@ -20,7 +20,6 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     inputAriaLabel,
     searchable,
     size,
-    getToggleButtonProps,
     getDropdownProps,
     isOpen
   } = useDropdownContext<BaseListItemData>();
@@ -58,7 +57,6 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
               className={cx(styles.placeholderText, {
                 [styles.disabled]: !!disabled
               })}
-              {...getToggleButtonProps(multipleSelectionDropdownProps)}
               type={size === "small" ? "text2" : "text1"}
             >
               {placeholder}
