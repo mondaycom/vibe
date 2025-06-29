@@ -45,7 +45,7 @@ const dropdownTemplate = (props: any) => {
 
   return (
     <div style={{ height: "150px", width: "300px" }}>
-      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} readOnly />
+      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} />
     </div>
   );
 };
