@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ModalContent renders correctly with children 1`] = `
+exports[`ModalContent renders correctly > with children 1`] = `
 <div
   className="typography primary start text text1Normal container"
   data-testid="modal-content"
@@ -11,7 +11,7 @@ exports[`ModalContent renders correctly with children 1`] = `
 </div>
 `;
 
-exports[`ModalContent renders correctly with empty props 1`] = `
+exports[`ModalContent renders correctly > with empty props 1`] = `
 <div
   className="typography primary start text text1Normal container"
   data-testid="modal-content"

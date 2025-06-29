@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Counter from "../Counter";
@@ -28,7 +29,7 @@ describe("Counter renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with count above limit", () => {
+  it("with count above limit and max digits", () => {
     const tree = renderer.create(<Counter maxDigits={4} count={1050} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

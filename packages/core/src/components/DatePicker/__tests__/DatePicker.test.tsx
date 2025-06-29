@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect, MockInstance } from "vitest";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import DatePicker from "../DatePicker";
@@ -18,10 +19,10 @@ export function getNextWeekFirstDayElement(pivotElement: HTMLElement) {
 }
 
 describe("DatePicker", () => {
-  let dateNowSpy: jest.SpyInstance;
+  let dateNowSpy: MockInstance;
 
   beforeEach(() => {
-    dateNowSpy = jest.spyOn(Date, "now").mockImplementation(() => new Date("2023-05-01").getTime());
+    dateNowSpy = vi.spyOn(Date, "now").mockImplementation(() => new Date("2023-05-01").getTime());
   });
 
   afterEach(() => {
@@ -29,7 +30,7 @@ describe("DatePicker", () => {
   });
 
   it("should call onPickDate date clicked value", () => {
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
     const { container } = render(
       <DatePicker
         onPickDate={() => {

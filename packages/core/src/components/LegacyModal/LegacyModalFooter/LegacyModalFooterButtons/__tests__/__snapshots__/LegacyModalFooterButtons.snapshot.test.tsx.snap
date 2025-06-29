@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ModalFooterButtons should render correctly 1`] = `
+exports[`ModalFooterButtons > should render correctly 1`] = `
 <div
   className="container"
 >
@@ -46,7 +46,7 @@ exports[`ModalFooterButtons should render correctly 1`] = `
 </div>
 `;
 
-exports[`ModalFooterButtons should render correctly with disabled primary 1`] = `
+exports[`ModalFooterButtons > should render correctly with disabled primary 1`] = `
 <div
   className="container"
 >
@@ -93,7 +93,7 @@ exports[`ModalFooterButtons should render correctly with disabled primary 1`] = 
 </div>
 `;
 
-exports[`ModalFooterButtons should render correctly with no tertiary 1`] = `
+exports[`ModalFooterButtons > should render correctly with no tertiary 1`] = `
 <div
   className="container"
 >

@@ -1,3 +1,4 @@
+import { beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import FormattedNumber from "../FormattedNumber";
@@ -22,7 +23,7 @@ describe("FormattedNumber Tests", () => {
       expect(getByText("N/A")).toBeTruthy();
     });
 
-    it("invalid value - mixed content", () => {
+    it("should render emptyPlaceHolder if provided", () => {
       const emptyPlaceHolderText = "Test";
       const { getByText } = render(<FormattedNumber id="test" emptyPlaceHolder={emptyPlaceHolderText} />);
       expect(getByText(emptyPlaceHolderText)).toBeTruthy();

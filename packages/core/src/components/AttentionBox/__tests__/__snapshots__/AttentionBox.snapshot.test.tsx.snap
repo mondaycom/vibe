@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AttentionBox renders correctly renders correctly 1`] = `
+exports[`AttentionBox renders correctly > renders correctly 1`] = `
 <aside
   className="attentionBox typePrimary dummy-class-name"
   data-testid="attention-box"
@@ -56,7 +56,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly className 1`] = `
+exports[`AttentionBox renders correctly > renders correctly className 1`] = `
 <aside
   className="attentionBox typePrimary test-classNmae"
   data-testid="attention-box"
@@ -112,7 +112,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
+exports[`AttentionBox renders correctly > renders correctly dark type 1`] = `
 <aside
   className="attentionBox typeDark"
   data-testid="attention-box"
@@ -168,7 +168,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
+exports[`AttentionBox renders correctly > renders correctly when compact 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -224,7 +224,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly with empty props 1`] = `
+exports[`AttentionBox renders correctly > renders correctly with empty props 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -246,7 +246,7 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly with empty title prop 1`] = `
+exports[`AttentionBox renders correctly > renders correctly with empty title prop 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -271,7 +271,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
+exports[`AttentionBox renders correctly > renders correctly with no icon 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -310,7 +310,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
+exports[`AttentionBox renders correctly > renders correctly with onClose 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -408,7 +408,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
+exports[`AttentionBox renders correctly > renders correctly with renderer 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
@@ -437,7 +437,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 </aside>
 `;
 
-exports[`AttentionBox renders correctly renders with icon font type 1`] = `
+exports[`AttentionBox renders correctly > renders with icon font type 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
