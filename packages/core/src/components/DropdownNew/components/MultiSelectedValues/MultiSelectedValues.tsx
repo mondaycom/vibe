@@ -91,23 +91,41 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
 
       <Flex ref={deductedSpaceRef} gap="xs">
         {hiddenCount > 0 && (
-          <Dialog
-            content={dialogContent}
-            showTrigger="click"
-            hideTrigger="clickoutside"
-            position="bottom"
-            moveBy={{ main: 4 }}
+          <div
+            onClick={e => {
+              e.stopPropagation();
+            }}
+            onMouseDown={e => {
+              e.stopPropagation();
+            }}
           >
-            <Chips
-              label={`+ ${hiddenCount}`}
-              readOnly
-              noMargin
-              ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
-              data-testid="dropdown-overflow-counter"
-              className={styles.overflowCounter}
-              onClick={() => {}}
-            />
-          </Dialog>
+            <Dialog
+              content={dialogContent}
+              showTrigger="click"
+              hideTrigger="clickoutside"
+              position="bottom"
+              moveBy={{ main: 4 }}
+              hideWhenReferenceHidden
+              addKeyboardHideShowTriggersByDefault
+            >
+              <Chips
+                label={`+ ${hiddenCount}`}
+                readOnly
+                noMargin
+                ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
+                data-testid="dropdown-overflow-counter"
+                className={styles.overflowCounter}
+                onClick={() => {
+                  // Keep empty onclick for accessibility (keyboard support)
+                  // Don't stop propagation here - let it bubble to Dialog
+                }}
+                onMouseDown={e => {
+                  // Only prevent default here, let it bubble for Dialog to handle
+                  e.preventDefault();
+                }}
+              />
+            </Dialog>
+          </div>
         )}
         {renderInput && <div className={styles.inputWrapper}>{renderInput()}</div>}
       </Flex>

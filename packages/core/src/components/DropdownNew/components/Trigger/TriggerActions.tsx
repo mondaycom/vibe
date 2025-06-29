@@ -45,25 +45,31 @@ const TriggerActions = () => {
   }
 
   return (
-    <Flex className={styles.actionsWrapper}>
-      {hasSelection && clearable && !disabled && (
+    <div
+      onKeyDown={e => {
+        e.stopPropagation();
+      }}
+    >
+      <Flex className={styles.actionsWrapper}>
+        {hasSelection && clearable && !disabled && (
+          <IconButton
+            data-testid="dropdown-clear-button"
+            icon={CloseSmall}
+            onClick={handleClear}
+            size={iconButtonSize}
+            ariaLabel="Clear selection"
+          />
+        )}
         <IconButton
-          data-testid="dropdown-clear-button"
-          icon={CloseSmall}
-          onClick={handleClear}
+          icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
           size={iconButtonSize}
-          ariaLabel="Clear selection"
+          disabled={disabled}
+          ariaHidden
+          tabIndex={-1}
+          {...(searchable ? getToggleButtonProps() : {})}
         />
-      )}
-      <IconButton
-        icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-        size={iconButtonSize}
-        disabled={disabled}
-        ariaHidden
-        tabIndex={-1}
-        {...(searchable ? getToggleButtonProps() : {})}
-      />
-    </Flex>
+      </Flex>
+    </div>
   );
 };
 
