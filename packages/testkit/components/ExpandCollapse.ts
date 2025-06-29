@@ -197,25 +197,6 @@ export class ExpandCollapse extends BaseElement {
   }
 
   /**
-   * Click on a button within the content area by its text.
-   * @param {string} buttonText - The text of the button to click.
-   * @returns {Promise<void>}
-   */
-  async clickButtonInContent(buttonText: string): Promise<void> {
-    await test.step(`Click button "${buttonText}" in ${this.elementReportName} content`, async () => {
-      // Ensure the component is expanded first
-      await this.expand();
-
-      // Wait for content to be visible
-      await this.contentLocator.waitFor({ state: "visible" });
-
-      // Find and click the button
-      const buttonLocator = this.contentLocator.locator("button").filter({ hasText: buttonText });
-      await buttonLocator.click();
-    });
-  }
-
-  /**
    * Click on a link within the content area by its text.
    * @param {string} linkText - The text of the link to click.
    * @returns {Promise<void>}
@@ -232,33 +213,5 @@ export class ExpandCollapse extends BaseElement {
       const linkLocator = this.contentLocator.locator("a").filter({ hasText: linkText });
       await linkLocator.click();
     });
-  }
-
-  /**
-   * Get all clickable items within the content area.
-   * @returns {Promise<BaseElement[]>} Array of clickable elements wrapped in BaseElement.
-   */
-  async getAllClickableItems(): Promise<BaseElement[]> {
-    let clickableItems: BaseElement[] = [];
-    await test.step(`Get all clickable items in ${this.elementReportName} content`, async () => {
-      // Ensure the component is expanded first
-      await this.expand();
-
-      // Wait for content to be visible
-      await this.contentLocator.waitFor({ state: "visible" });
-
-      // Find all clickable elements
-      const clickableLocators = await this.contentLocator
-        .locator("button, a, [role='button'], [role='menuitem'], li[role='option'], li[tabindex]")
-        .all();
-
-      clickableItems = await Promise.all(
-        clickableLocators.map(async (locator, index) => {
-          const text = await locator.innerText().catch(() => `Clickable item ${index + 1}`);
-          return new BaseElement(this.page, locator, `${this.elementReportName} clickable item: ${text}`);
-        })
-      );
-    });
-    return clickableItems;
   }
 }
