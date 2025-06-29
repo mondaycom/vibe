@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TextArea from "../TextArea";
@@ -55,7 +56,7 @@ describe("TextArea", () => {
   });
 
   it("should handle value updates correctly", () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { rerender } = render(<TextArea value="initial" onChange={handleChange} />);
     expect(screen.getByRole("textbox")).toHaveValue("initial");
 
@@ -67,7 +68,7 @@ describe("TextArea", () => {
   });
 
   it("should call onChange when typing in the TextArea", () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<TextArea onChange={handleChange} />);
 
     const input = screen.getByRole("textbox");
@@ -107,7 +108,7 @@ describe("TextArea", () => {
       expect(screen.queryByText("0/")).not.toBeInTheDocument();
     });
 
-    it("it only shows character count with showCharCount and no MaxLength", () => {
+    it("only shows character count with showCharCount and no MaxLength", () => {
       render(<TextArea showCharCount />);
       expect(screen.queryByText("0")).toBeInTheDocument();
     });
@@ -118,7 +119,7 @@ describe("TextArea", () => {
     });
 
     it("should prevent typing when character limit is reached", () => {
-      const handleChange = jest.fn();
+      const handleChange = vi.fn();
       render(<TextArea showCharCount maxLength={5} allowExceedingMaxLength={false} onChange={handleChange} />);
 
       const charCount = screen.getByText("0/5");

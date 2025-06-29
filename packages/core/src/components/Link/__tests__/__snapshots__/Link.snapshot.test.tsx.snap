@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link renders correctly with ariaDescribedby 1`] = `
+exports[`Link renders correctly > with ariaDescribedby 1`] = `
 <a
   aria-describedby="aria described by"
   aria-label=""
@@ -21,7 +21,7 @@ exports[`Link renders correctly with ariaDescribedby 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with ariaLabelDescription 1`] = `
+exports[`Link renders correctly > with ariaLabelDescription 1`] = `
 <a
   aria-describedby=""
   aria-label="arialabel link"
@@ -42,7 +42,7 @@ exports[`Link renders correctly with ariaLabelDescription 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with ariaLabeledBy 1`] = `
+exports[`Link renders correctly > with ariaLabeledBy 1`] = `
 <a
   aria-describedby=""
   aria-label=""
@@ -63,7 +63,7 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with className 1`] = `
+exports[`Link renders correctly > with className 1`] = `
 <a
   aria-describedby=""
   aria-label=""
@@ -84,7 +84,7 @@ exports[`Link renders correctly with className 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with icon 1`] = `
+exports[`Link renders correctly > with icon 1`] = `
 <a
   aria-describedby=""
   aria-label=""
@@ -113,7 +113,7 @@ exports[`Link renders correctly with icon 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with id 1`] = `
+exports[`Link renders correctly > with id 1`] = `
 <a
   aria-describedby=""
   aria-label=""
@@ -134,7 +134,7 @@ exports[`Link renders correctly with id 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with right icon 1`] = `
+exports[`Link renders correctly > with right icon 1`] = `
 <a
   aria-describedby=""
   aria-label=""
@@ -163,7 +163,7 @@ exports[`Link renders correctly with right icon 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with text 1`] = `
+exports[`Link renders correctly > with text 1`] = `
 <a
   aria-describedby=""
   aria-label=""

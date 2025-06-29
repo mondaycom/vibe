@@ -326,7 +326,6 @@ _/}
     }
   ]}
 />
-
 ````
 
 ### 5.2. MDX Content Requirements
@@ -344,5 +343,15 @@ _/}
 - **Usage Section**: **Must** include a section titled "Usage" that utilizes the globally available `<UsageGuidelines />` component. This component takes a `guidelines` prop, which is an array of strings, as shown in the template.
 - **Variants**: Showcase other important stories using the globally available `<Canvas of={ComponentStories.StoryName} />` component. Each example should have a descriptive sub-heading (`###`) and a brief explanation of the use case.
 - **Do's and Don'ts**: This section **must** use the globally available `<ComponentRules />` component. Refer to the template in section 5.1 for the required structure. This involves providing a `rules` array, where each rule object has `positive` and `negative` aspects. Each aspect requires a `description` (string) and a `component` (JSX element). If a visual example for the `component` is not available, use an empty JSX element (e.g., `<></>`) or a simple textual placeholder (e.g., `<div>Do this</div>`).
+  - This section is crucial for communicating best practices to **designers and product managers**, not just developers. When writing the descriptions, follow these principles:
+    - **Focus on the Why, Not the How:** Explain the user experience principle or design best practice. Avoid implementation details.
+    - **Speak in Plain Language:** Use clear, non-technical language. Avoid jargon and prop names.
+    - **Be Specific and Actionable:** Provide clear, actionable advice that a designer can use when creating mockups or specifications.
+
+    **Bad Example (Developer-Focused):**
+    > "Use the `infoText` prop to add helpful context."
+
+    **Good Example (Designer-Focused):**
+    > "Provide supplementary helper text to guide the user on the expected input and its format."
 
 By following these rules, we can ensure that the Storybook for `@vibe/core` is consistent, maintainable, and provides maximum value to its consumers.

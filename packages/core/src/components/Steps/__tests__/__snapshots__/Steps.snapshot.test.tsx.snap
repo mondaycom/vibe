@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Steps with gallery type renders correctly when hide navigations icons 1`] = `
+exports[`Steps > with gallery type renders correctly > when hide navigations icons 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -65,7 +65,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
 </div>
 `;
 
-exports[`Steps with gallery type renders correctly when navigation buttons are hidden 1`] = `
+exports[`Steps > with gallery type renders correctly > when navigation buttons are hidden 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -99,7 +99,7 @@ exports[`Steps with gallery type renders correctly when navigation buttons are h
 </div>
 `;
 
-exports[`Steps with gallery type renders correctly when steps content is on top 1`] = `
+exports[`Steps > with gallery type renders correctly > when steps content is on top 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -198,7 +198,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
 </div>
 `;
 
-exports[`Steps with gallery type renders correctly when viewing first step 1`] = `
+exports[`Steps > with gallery type renders correctly > when viewing first step 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -297,7 +297,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
 </div>
 `;
 
-exports[`Steps with gallery type renders correctly when viewing last step 1`] = `
+exports[`Steps > with gallery type renders correctly > when viewing last step 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -396,7 +396,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
 </div>
 `;
 
-exports[`Steps with gallery type renders correctly with regular props 1`] = `
+exports[`Steps > with gallery type renders correctly > with regular props 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -495,7 +495,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
 </div>
 `;
 
-exports[`Steps with numeric type renders correctly when hide navigations icons 1`] = `
+exports[`Steps > with numeric type renders correctly > when hide navigations icons 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -547,7 +547,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
 </div>
 `;
 
-exports[`Steps with numeric type renders correctly when steps content is on top 1`] = `
+exports[`Steps > with numeric type renders correctly > when steps content is on top 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -633,7 +633,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
 </div>
 `;
 
-exports[`Steps with numeric type renders correctly when viewing first step 1`] = `
+exports[`Steps > with numeric type renders correctly > when viewing first step 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -719,7 +719,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
 </div>
 `;
 
-exports[`Steps with numeric type renders correctly when viewing last step 1`] = `
+exports[`Steps > with numeric type renders correctly > when viewing last step 1`] = `
 <div
   className="steps"
   data-testid="steps"
@@ -805,7 +805,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
 </div>
 `;
 
-exports[`Steps with numeric type renders correctly with regular props 1`] = `
+exports[`Steps > with numeric type renders correctly > with regular props 1`] = `
 <div
   className="steps"
   data-testid="steps"

@@ -86,7 +86,14 @@ export default function Team() {
       </p>
       <div className={styles.team}>
         {team.map(({ imgSrc, name, linkedinUrl, title }) => (
-          <TeamMember key={name} image={imgSrc} name={name} linkedinUrl={linkedinUrl} title={title} />
+          <TeamMember
+            key={name}
+            image={imgSrc}
+            name={name}
+            linkedinUrl={linkedinUrl}
+            title={title}
+            className={styles.teamItem}
+          />
         ))}
       </div>
     </Flex>

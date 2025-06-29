@@ -1,3 +1,4 @@
+import { vi, beforeEach, describe, it, expect, Mock } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { fireEvent, render } from "@testing-library/react";
@@ -29,10 +30,10 @@ it("renders correctly with selected and disabled", () => {
 });
 
 describe("BDD List Item", () => {
-  let onClick: jest.Mock<any, any>;
+  let onClick: Mock;
   const itemText = "My item";
   beforeEach(() => {
-    onClick = jest.fn();
+    onClick = vi.fn();
   });
   it("should call onClick", () => {
     const { getByText } = render(
@@ -67,7 +68,7 @@ describe("BDD List Item", () => {
     expect(onClick.mock.calls.length).toBe(1);
   });
 
-  it("should call onClick", () => {
+  it("should not call onClick if disabled", () => {
     const { getByText } = render(
       <ListItem data-testid="list-item" disabled onClick={onClick}>
         {itemText}

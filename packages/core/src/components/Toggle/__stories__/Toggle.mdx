@@ -8,7 +8,7 @@ import {
 import { ComponentRules, Link, UsageGuidelines } from "vibe-storybook-components";
 import { TipOtherComponents } from "./Toggle.stories.helpers";
 import * as ToggleStories from "./Toggle.stories";
-import "./Toggle.stories.scss";
+import Flex from "../../Flex/Flex";
 
 <Meta of={ToggleStories} />
 
@@ -67,17 +67,17 @@ Toggle appear in 2 sizes: small and medium.
     {
       positive: {
         component: (
-          <div className="monday-storybook-toggle_row">
+          <Flex gap="large">
             Dark mode <Toggle />
-          </div>
+          </Flex>
         ),
         description: "Use toggle only for on and off actions. We recommend not to change these lables values."
       },
       negative: {
         component: (
-          <div className="monday-storybook-toggle_row">
+          <Flex gap="large">
             Theme <Toggle offOverrideText="Light mode" onOverrideText="Dark mode" />
-          </div>
+          </Flex>
         ),
         description: (
           <>
@@ -95,10 +95,10 @@ Toggle appear in 2 sizes: small and medium.
       },
       negative: {
         component: (
-          <div className="monday-storybook-toggle_column">
+          <Flex direction="column" gap="medium" align="start">
             <Toggle offOverrideText="" />
             <Toggle areLabelsHidden />
-          </div>
+          </Flex>
         ),
         description: "Don’t remove toggle labels, since users would not know what state it represents. "
       }

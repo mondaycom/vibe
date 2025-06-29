@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AlertBanner should render correctly with background color 1`] = `
+exports[`AlertBanner > should render correctly with background color 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner positive"
@@ -55,7 +55,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly with hidden close button 1`] = `
+exports[`AlertBanner > should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
@@ -71,7 +71,7 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly with props 1`] = `
+exports[`AlertBanner > should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
@@ -143,7 +143,7 @@ exports[`AlertBanner should render correctly with props 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly without props 1`] = `
+exports[`AlertBanner > should render correctly without props 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
@@ -198,7 +198,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with multiple elements 1`] = `
+exports[`AlertBanner > should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
@@ -337,7 +337,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with text and button 1`] = `
+exports[`AlertBanner > should render with correctly with text and button 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
@@ -433,7 +433,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with text and link 1`] = `
+exports[`AlertBanner > should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"

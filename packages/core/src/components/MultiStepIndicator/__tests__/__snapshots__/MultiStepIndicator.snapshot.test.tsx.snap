@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MultiStepIndicator renders correctly with className 1`] = `
+exports[`MultiStepIndicator renders correctly > with className 1`] = `
 <ol
   className="wrapper test"
   data-testid="multi-step-indicator"
@@ -191,7 +191,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`] = `
+exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -382,14 +382,14 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with empty props 1`] = `
+exports[`MultiStepIndicator renders correctly > with empty props 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
 />
 `;
 
-exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
+exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -580,7 +580,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 1`] = `
+exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumber 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -755,7 +755,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
+exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -931,7 +931,7 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with mode compact textPlacement vertical 1`] = `
+exports[`MultiStepIndicator renders correctly > with mode compact textPlacement vertical 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -1122,7 +1122,7 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = `
+exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -1313,7 +1313,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with steps 1`] = `
+exports[`MultiStepIndicator renders correctly > with steps 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"
@@ -1504,7 +1504,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
 </ol>
 `;
 
-exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = `
+exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] = `
 <ol
   className="wrapper"
   data-testid="multi-step-indicator"

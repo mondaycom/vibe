@@ -17,7 +17,6 @@ jobs:
   publish-chromatic:
     name: Publish Chromatic
     needs: build
-    if: ${{ needs.build.outputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +27,7 @@ jobs:
         with:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/download-builds
+        if: ${{ needs.build.outputs.has_changes == 'true' }}
       - name: Publish to Chromatic
         uses: chromaui/action@v11
         with:
@@ -36,3 +36,4 @@ jobs:
           workingDir: packages/core
           exitOnceUploaded: true
           onlyChanged: false
+          skip: ${{ needs.build.outputs.has_changes == 'false' }}
