@@ -95,6 +95,9 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
             onClick={e => {
               e.stopPropagation();
             }}
+            onKeyDown={e => {
+              e.stopPropagation();
+            }}
             onMouseDown={e => {
               e.stopPropagation();
             }}
@@ -102,7 +105,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
             <Dialog
               content={dialogContent}
               showTrigger={["click", "enter"]}
-              hideTrigger="clickoutside"
+              hideTrigger={["clickoutside", "enter"]}
               position="bottom"
               moveBy={{ main: 4 }}
               hideWhenReferenceHidden
