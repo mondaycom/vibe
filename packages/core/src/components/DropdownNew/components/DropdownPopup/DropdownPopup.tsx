@@ -7,7 +7,7 @@ import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
 import MultiSelectTrigger from "../Trigger/MultiSelectTrigger";
 
 const DropdownPopup = () => {
-  const { isOpen, reset, multi } = useDropdownContext();
+  const { multi } = useDropdownContext();
 
   return (
     <Dialog
@@ -18,11 +18,6 @@ const DropdownPopup = () => {
       observeContentResize={true}
       showTrigger={[]}
       hideTrigger={[]}
-      onClickOutside={() => {
-        if (isOpen) {
-          reset();
-        }
-      }}
       modifiers={matchWidthModifier}
       content={<Menu />}
     >

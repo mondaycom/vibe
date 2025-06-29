@@ -12,7 +12,7 @@ const Dropdown = forwardRef(
     dropdownProps: BaseDropdownProps<Item>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const isSearchable = dropdownProps.searchable === undefined ? true : dropdownProps.searchable;
+    const isSearchable = dropdownProps.searchable === undefined ? false : dropdownProps.searchable;
     const isMulti = dropdownProps.multi || false;
 
     const dropdownInternalRef = useRef<HTMLDivElement>(null);
