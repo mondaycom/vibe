@@ -101,7 +101,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
           >
             <Dialog
               content={dialogContent}
-              showTrigger="click"
+              showTrigger={["click", "enter"]}
               hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: 4 }}
