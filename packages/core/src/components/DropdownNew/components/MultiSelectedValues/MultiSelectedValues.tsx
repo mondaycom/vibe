@@ -115,12 +115,8 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
                 ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
                 data-testid="dropdown-overflow-counter"
                 className={styles.overflowCounter}
-                onClick={() => {
-                  // Keep empty onclick for accessibility (keyboard support)
-                  // Don't stop propagation here - let it bubble to Dialog
-                }}
+                onClick={() => {}}
                 onMouseDown={e => {
-                  // Only prevent default here, let it bubble for Dialog to handle
                   e.preventDefault();
                 }}
               />
