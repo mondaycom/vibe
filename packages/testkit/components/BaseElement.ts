@@ -93,12 +93,12 @@ export class BaseElement {
    */
   async getText(): Promise<string | undefined> {
     return await test.step(`Get text of ${this.elementReportName}`, async () => {
-      const candidates = [
+      const texts = [
         await this.locator.innerText(),
         await this.locator.textContent(),
         await this.getAttributeValue("value")
       ];
-      const result = candidates.find(text => text !== null && text !== undefined && text !== "");
+      const result = texts.find(text => text !== null && text !== undefined && text !== "");
       return result === null ? undefined : result;
     });
   }
