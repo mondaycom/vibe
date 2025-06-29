@@ -45,7 +45,7 @@ const dropdownTemplate = (props: any) => {
 
   return (
     <div style={{ height: "150px", width: "300px" }}>
-      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} />
+      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} readOnly />
     </div>
   );
 };
@@ -53,8 +53,7 @@ const dropdownTemplate = (props: any) => {
 export const Overview = {
   render: dropdownTemplate.bind({}),
   args: {
-    placeholder: "Placeholder text here",
-    className: "dropdown-stories-styles_spacing"
+    placeholder: "Placeholder text here"
   },
   parameters: {
     docs: {
@@ -278,7 +277,7 @@ export const DropdownWithGroups = {
       () =>
         Array.from({ length: 2 }, (_, groupIndex) => ({
           label: `Group ${groupIndex + 1}`,
-          options: Array.from({ length: 6 }, (_, optionIndex) => ({
+          options: Array.from({ length: 3 }, (_, optionIndex) => ({
             value: `${groupIndex * 2 + optionIndex + 1}`,
             label: `Option ${groupIndex * 2 + optionIndex + 1}`
           }))
@@ -289,7 +288,7 @@ export const DropdownWithGroups = {
     const optionsWithoutGroupLabel = useMemo(
       () =>
         Array.from({ length: 2 }, (_, groupIndex) => ({
-          options: Array.from({ length: 6 }, (_, optionIndex) => ({
+          options: Array.from({ length: 2 }, (_, optionIndex) => ({
             value: `${groupIndex * 2 + optionIndex + 1}`,
             label: `Option ${groupIndex * 2 + optionIndex + 1}`
           }))
@@ -302,19 +301,29 @@ export const DropdownWithGroups = {
         <Flex direction="column" gap="medium">
           <Text>Group by divider</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew placeholder="Groups with group title" options={optionsWithoutGroupLabel} withGroupDivider />
+            <DropdownNew
+              placeholder="Group by divider"
+              options={optionsWithoutGroupLabel}
+              withGroupDivider
+              maxMenuHeight={170}
+            />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Group by category title</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew placeholder="Groups with group title" options={options} />
+            <DropdownNew placeholder="Group by category title" options={options} maxMenuHeight={170} />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Group by category title sticky</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew placeholder="Groups with group title" options={options} stickyGroupTitle />
+            <DropdownNew
+              placeholder="Group by category title sticky"
+              options={options}
+              stickyGroupTitle
+              maxMenuHeight={170}
+            />
           </div>
         </Flex>
       </Flex>
