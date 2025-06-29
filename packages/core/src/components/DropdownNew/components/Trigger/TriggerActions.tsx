@@ -23,7 +23,9 @@ const TriggerActions = () => {
     readOnly,
     multi,
     selectedItem,
-    selectedItems = []
+    selectedItems = [],
+    searchable,
+    getToggleButtonProps
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -59,6 +61,7 @@ const TriggerActions = () => {
         disabled={disabled}
         ariaHidden
         tabIndex={-1}
+        {...(searchable ? getToggleButtonProps() : {})}
       />
     </Flex>
   );

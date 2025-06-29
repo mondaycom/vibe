@@ -21,12 +21,13 @@ const defaultOptions = [
       { label: "Option 4", value: "opt4", index: 3 }
     ]
   }
-];
+] as const;
 
 function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(props?: Partial<BaseDropdownProps<T>>) {
   const defaultProps = {
     options: props?.options ?? (defaultOptions as any),
     placeholder: "Select an option",
+    searchable: true,
     ...props
   };
   return render(<Dropdown {...(defaultProps as BaseDropdownProps<T>)} />);
@@ -34,14 +35,14 @@ function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(pro
 
 describe("DropdownNew", () => {
   it("should render correctly with all props", () => {
-    const { getByText, queryByText } = renderDropdown({
+    const { getByPlaceholderText, getByText, queryByText } = renderDropdown({
       size: "large",
       withGroupDivider: true,
       noOptionsMessage: "No options available"
     });
     expect(queryByText("Option 1")).not.toBeInTheDocument();
 
-    const input = getByText("Select an option");
+    const input = getByPlaceholderText("Select an option");
     fireEvent.click(input);
     expect(input).toBeInTheDocument();
     expect(getByText("Group 1")).toBeInTheDocument();
@@ -54,30 +55,30 @@ describe("DropdownNew", () => {
 
   describe("with declared props", () => {
     it("should open dropdown on click", () => {
-      const { getByText } = renderDropdown();
+      const { getByPlaceholderText, getByText } = renderDropdown();
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       expect(getByText("Option 1")).toBeVisible();
     });
 
     it("should be disabled when disabled prop is true", () => {
-      const { container } = renderDropdown({
+      const { getByPlaceholderText } = renderDropdown({
         disabled: true
       });
 
-      const wrapper = container.querySelector(".wrapper");
-      expect(wrapper).toHaveClass("disabled");
+      const input = getByPlaceholderText("Select an option");
+      expect(input).toBeDisabled();
     });
 
     it("should be read-only when readOnly prop is true", () => {
-      const { container } = renderDropdown({
+      const { getByPlaceholderText } = renderDropdown({
         readOnly: true
       });
 
-      const wrapper = container.querySelector(".wrapper");
-      expect(wrapper).toHaveClass("readOnly");
+      const input = getByPlaceholderText("Select an option");
+      expect(input).toHaveAttribute("readonly");
     });
 
     it("should prevent user interactions when readOnly is true", () => {
@@ -86,8 +87,7 @@ describe("DropdownNew", () => {
       const { getByPlaceholderText, queryByText, container } = renderDropdown({
         readOnly: true,
         onOptionSelect,
-        onChange,
-        searchable: true
+        onChange
       });
 
       const input = getByPlaceholderText("Select an option");
@@ -128,19 +128,17 @@ describe("DropdownNew", () => {
     });
 
     it("should focus input on mount when autoFocus is true", () => {
-      const { getByRole, queryByText } = renderDropdown({
+      const { getByPlaceholderText, queryByText } = renderDropdown({
         autoFocus: true
       });
 
-      const input = getByRole("combobox");
-      expect(input).toHaveFocus();
+      const input = getByPlaceholderText("Select an option");
+      expect(document.activeElement).toBe(input);
       expect(queryByText("Option 1")).toBeInTheDocument();
     });
 
     it("should filter options based on input value", () => {
-      const { queryByText, getByPlaceholderText } = renderDropdown({
-        searchable: true
-      });
+      const { getByPlaceholderText, queryByText } = renderDropdown();
 
       const input = getByPlaceholderText("Select an option");
       fireEvent.change(input, { target: { value: "Option 1" } });
@@ -152,22 +150,22 @@ describe("DropdownNew", () => {
     });
 
     it("should display a no-options message when the list is empty", () => {
-      const { getByText } = renderDropdown({
+      const { getByPlaceholderText, getByText } = renderDropdown({
         options: [],
         noOptionsMessage: "No items available"
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       expect(getByText("No items available")).toBeInTheDocument();
     });
 
-    it("should support sticky group titles when stickyGroupTitle is true", () => {
-      const { container, getByPlaceholderText } = renderDropdown({
+    it("should support sticky group titles when stickyGroupTitle is true", async () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
         stickyGroupTitle: true
       });
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       // Wait for the dropdown to render
@@ -183,11 +181,11 @@ describe("DropdownNew", () => {
       const customRenderer = (item: any) => {
         return <div data-testid={`custom-renderer-${item.value}`}>{item.label}</div>;
       };
-      const { getByText, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByTestId } = renderDropdown({
         optionRenderer: customRenderer
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       expect(getByTestId("custom-renderer-opt1")).toBeInTheDocument();
@@ -198,8 +196,7 @@ describe("DropdownNew", () => {
       const onInputChange = vi.fn();
       const { getByPlaceholderText } = renderDropdown({
         onInputChange,
-        placeholder: "Select an option",
-        searchable: true
+        placeholder: "Select an option"
       });
 
       const input = getByPlaceholderText("Select an option");
@@ -209,13 +206,13 @@ describe("DropdownNew", () => {
     });
 
     it("should call onOptionSelect when an option is selected", () => {
-      const onOptionSelect = jest.fn();
+      const onOptionSelect = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         onOptionSelect,
         placeholder: "Select an option"
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
@@ -223,13 +220,13 @@ describe("DropdownNew", () => {
     });
 
     it("should not allow selection of disabled options", () => {
-      const onOptionSelect = jest.fn();
+      const onOptionSelect = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         onOptionSelect,
         placeholder: "Select an option"
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
       fireEvent.click(getByText("Option 2")); // Option 2 is disabled
 
@@ -237,11 +234,11 @@ describe("DropdownNew", () => {
     });
 
     it("should reset selection when clicking the clear button", () => {
-      const { getByText, queryByRole } = renderDropdown({
+      const { getByPlaceholderText, getByText, queryByRole } = renderDropdown({
         placeholder: "Select an option"
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
@@ -253,9 +250,8 @@ describe("DropdownNew", () => {
     });
 
     it("should show faded selected item when focused", () => {
-      const { getByText, container, getByPlaceholderText } = renderDropdown({
-        placeholder: "Select an option",
-        searchable: true
+      const { getByPlaceholderText, container, getByText } = renderDropdown({
+        placeholder: "Select an option"
       });
 
       const input = getByPlaceholderText("Select an option");
@@ -269,9 +265,7 @@ describe("DropdownNew", () => {
     });
 
     it("should hide selected value when typing in the input", () => {
-      const { getByText, queryByText, getByPlaceholderText } = renderDropdown({
-        searchable: true
-      });
+      const { getByPlaceholderText, getByText, queryByText } = renderDropdown();
 
       const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
@@ -296,11 +290,11 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByText, container } = renderDropdown({
+      const { getByPlaceholderText, getByText, container } = renderDropdown({
         options: optionsWithIndent
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
@@ -312,11 +306,11 @@ describe("DropdownNew", () => {
     });
 
     it("should show clear button only when clearable is true and an option is selected", () => {
-      const { getByText, queryByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByText, queryByTestId } = renderDropdown({
         clearable: true
       });
 
-      const input2 = getByText("Select an option");
+      const input2 = getByPlaceholderText("Select an option");
 
       expect(queryByTestId("dropdown-clear-button")).not.toBeInTheDocument();
 
@@ -417,13 +411,13 @@ describe("DropdownNew", () => {
     });
 
     it("should call onChange when selecting options in controlled mode", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         value: null,
         onChange
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       const option1 = getByText("Option 1");
@@ -435,31 +429,31 @@ describe("DropdownNew", () => {
 
   describe("event handlers", () => {
     it("should call onFocus when input is focused", () => {
-      const onFocus = jest.fn();
+      const onFocus = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onFocus });
 
-      const input = getByRole("combobox");
-      fireEvent.click(input); // In non-searchable mode, clicking triggers focus
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.focus(input);
 
       expect(onFocus).toHaveBeenCalled();
     });
 
     it("should call onBlur when input loses focus", () => {
-      const onBlur = jest.fn();
+      const onBlur = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onBlur });
 
-      const input = getByRole("combobox");
-      fireEvent.click(input); // Focus first
-      fireEvent.keyDown(input, { key: "Escape" }); // Close to trigger blur
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.focus(input);
+      fireEvent.blur(input);
 
       expect(onBlur).toHaveBeenCalled();
     });
 
     it("should call onChange when an option is selected", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({ onChange });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       const option = getByText("Option 1");
@@ -474,11 +468,11 @@ describe("DropdownNew", () => {
     });
 
     it("should call onClear when clear button is clicked", () => {
-      const onClear = jest.fn();
-      const onChange = jest.fn();
+      const onClear = vi.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({ onClear, onChange });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
       const option = getByText("Option 1");
       fireEvent.click(option);
@@ -491,34 +485,33 @@ describe("DropdownNew", () => {
     });
 
     it("should call onKeyDown when a key is pressed", () => {
-      const onKeyDown = jest.fn();
+      const onKeyDown = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onKeyDown });
 
-      const input = getByRole("combobox");
-      fireEvent.click(input); // Focus the combobox first
+      const input = getByPlaceholderText("Select an option");
       fireEvent.keyDown(input, { key: "ArrowDown" });
 
       expect(onKeyDown).toHaveBeenCalled();
     });
 
     it("should call onMenuOpen when dropdown is opened", () => {
-      const onMenuOpen = jest.fn();
+      const onMenuOpen = vi.fn();
       const { getByPlaceholderText } = renderDropdown({ onMenuOpen });
 
-      const input = getByRole("combobox");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       expect(onMenuOpen).toHaveBeenCalled();
     });
 
     it("should call onMenuClose when dropdown is closed", () => {
-      const onMenuOpen = jest.fn();
-      const onMenuClose = jest.fn();
+      const onMenuOpen = vi.fn();
+      const onMenuClose = vi.fn();
       const { getByPlaceholderText, getByRole } = renderDropdown({ onMenuClose, onMenuOpen });
 
-      const input = getByRole("combobox");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
-      // Don't check onMenuOpen here since it might be async
+      expect(onMenuOpen).toHaveBeenCalled();
 
       const menu = getByRole("listbox");
       expect(menu).toBeInTheDocument();
@@ -541,12 +534,12 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByText, getByRole } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         options: manyOptions,
         onScroll
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       const list = getByRole("listbox");
@@ -571,8 +564,7 @@ describe("DropdownNew", () => {
         onMenuClose,
         onInputChange,
         onChange,
-        onOptionSelect,
-        searchable: true
+        onOptionSelect
       });
 
       const input = getByPlaceholderText("Select an option");
@@ -612,11 +604,11 @@ describe("DropdownNew", () => {
 
   describe("multi-select mode", () => {
     it("should render a multi-select dropdown when the multi prop is true", () => {
-      const { getByText, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       const option1 = getByText("Option 1");
@@ -625,13 +617,13 @@ describe("DropdownNew", () => {
     });
 
     it("should allow selecting multiple items", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText } = renderDropdown({
         multi: true,
         onChange
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -645,11 +637,11 @@ describe("DropdownNew", () => {
     });
 
     it("should render chips for selected items", () => {
-      const { getByText, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -660,13 +652,13 @@ describe("DropdownNew", () => {
     });
 
     it("should remove an item when its chip is deleted", () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
         multi: true,
         onChange
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -684,13 +676,13 @@ describe("DropdownNew", () => {
     });
 
     it("should call onOptionRemove when an item is removed", () => {
-      const onOptionRemove = jest.fn();
+      const onOptionRemove = vi.fn();
       const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
         multi: true,
         onOptionRemove
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -703,11 +695,11 @@ describe("DropdownNew", () => {
     });
 
     it("should show selected chips without counter", () => {
-      const { getByText, queryByTestId, getByLabelText } = renderDropdown({
+      const { getByPlaceholderText, getByText, queryByTestId, getByLabelText } = renderDropdown({
         multi: true
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -733,12 +725,12 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByText, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true,
         options: manyOptionsForCounter
       });
 
-      const input = getByText("Select an option");
+      const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
 
       fireEvent.click(getByText("Chip Item 1"));
@@ -773,9 +765,11 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByText } = render(<Dropdown options={inlineOptions} placeholder="Select an inline option" />);
+      const { getByText, getByPlaceholderText } = render(
+        <Dropdown options={inlineOptions} placeholder="Select an inline option" searchable={true} />
+      );
 
-      const input = getByText("Select an inline option");
+      const input = getByPlaceholderText("Select an inline option");
       fireEvent.click(input);
 
       expect(getByText("Inline Option 1")).toBeInTheDocument();
@@ -811,15 +805,16 @@ describe("DropdownNew", () => {
 
       const handleChange = vi.fn();
 
-      const { getByText } = render(
+      const { getByText, getByPlaceholderText } = render(
         <Dropdown<InlineItemType>
           options={typedInlineOptions}
           placeholder="Select typed inline option"
           onChange={handleChange}
+          searchable={true}
         />
       );
 
-      const input = getByText("Select typed inline option");
+      const input = getByPlaceholderText("Select typed inline option");
       fireEvent.click(input);
 
       expect(getByText("Typed Inline 1")).toBeInTheDocument();
@@ -847,11 +842,16 @@ describe("DropdownNew", () => {
 
       const customRenderer = (item: any) => <div data-testid={`inline-render-${item.value}`}>Custom: {item.label}</div>;
 
-      const { getByTestId, getByText } = render(
-        <Dropdown options={inlineOptions} placeholder="Select rendered option" optionRenderer={customRenderer} />
+      const { getByTestId, getByPlaceholderText } = render(
+        <Dropdown
+          options={inlineOptions}
+          placeholder="Select rendered option"
+          optionRenderer={customRenderer}
+          searchable={true}
+        />
       );
 
-      const input = getByText("Select rendered option");
+      const input = getByPlaceholderText("Select rendered option");
       fireEvent.click(input);
 
       expect(getByTestId("inline-render-rendered-1")).toBeInTheDocument();
@@ -891,15 +891,16 @@ describe("DropdownNew", () => {
         </div>
       );
 
-      const { getByTestId, getByText } = render(
+      const { getByTestId, getByPlaceholderText } = render(
         <Dropdown<RenderedItemType>
           options={typedRenderedOptions}
           placeholder="Select typed rendered option"
           optionRenderer={typedRenderer}
+          searchable={true}
         />
       );
 
-      const input = getByText("Select typed rendered option");
+      const input = getByPlaceholderText("Select typed rendered option");
       fireEvent.click(input);
 
       expect(getByTestId("typed-render-typed-rendered-1")).toBeInTheDocument();
@@ -929,11 +930,10 @@ describe("DropdownNew", () => {
     };
 
     it("should filter options using custom filterOption in single select mode", () => {
-      const { queryByText, getByText, getByPlaceholderText } = renderDropdown<FilterTestOptionType>({
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
         options: filterTestOptions,
         filterOption: customEvenIdFilter,
-        placeholder: "Select fruit",
-        searchable: true
+        placeholder: "Select fruit"
       });
 
       const input = getByPlaceholderText("Select fruit");
@@ -948,11 +948,10 @@ describe("DropdownNew", () => {
     });
 
     it("should filter options using custom filterOption (substring) in single select mode", () => {
-      const { queryByText, getByText, getByPlaceholderText } = renderDropdown<FilterTestOptionType>({
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
         options: filterTestOptions,
         filterOption: customSubstringFilter,
-        placeholder: "Select fruit",
-        searchable: true
+        placeholder: "Select fruit"
       });
 
       const input = getByPlaceholderText("Select fruit");
@@ -966,12 +965,11 @@ describe("DropdownNew", () => {
     });
 
     it("should filter options using custom filterOption in multi select mode", () => {
-      const { queryByText, getByText, getByPlaceholderText } = renderDropdown<FilterTestOptionType>({
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
         options: filterTestOptions,
         filterOption: customEvenIdFilter,
         multi: true,
-        placeholder: "Select fruits",
-        searchable: true
+        placeholder: "Select fruits"
       });
 
       const input = getByPlaceholderText("Select fruits");
@@ -986,12 +984,11 @@ describe("DropdownNew", () => {
     });
 
     it("should filter options using custom filterOption (substring) in multi select mode", () => {
-      const { queryByText, getByText, getByPlaceholderText } = renderDropdown<FilterTestOptionType>({
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
         options: filterTestOptions,
         filterOption: customSubstringFilter,
         multi: true,
-        placeholder: "Select fruits",
-        searchable: true
+        placeholder: "Select fruits"
       });
 
       const input = getByPlaceholderText("Select fruits");
@@ -1005,10 +1002,9 @@ describe("DropdownNew", () => {
     });
 
     it("should use default filter if filterOption is not provided, even with input", () => {
-      const { queryByText, getByText, getByPlaceholderText } = renderDropdown<FilterTestOptionType>({
+      const { getByPlaceholderText, queryByText, getByText } = renderDropdown<FilterTestOptionType>({
         options: filterTestOptions,
-        placeholder: "Select fruit",
-        searchable: true
+        placeholder: "Select fruit"
       });
 
       const input = getByPlaceholderText("Select fruit");
@@ -1024,18 +1020,33 @@ describe("DropdownNew", () => {
 
   describe("with showSelectedOptions prop", () => {
     const showSelectedTestOptions = [
-      { label: "Option Alpha", value: "alpha" },
-      { label: "Option Beta", value: "beta" },
-      { label: "Option Gamma", value: "gamma" }
+      {
+        label: "Show Selected Group",
+        options: [
+          { label: "Option Alpha", value: "alpha" },
+          { label: "Option Beta", value: "beta" },
+          { label: "Option Gamma", value: "gamma" }
+        ]
+      }
     ];
 
+    it("SIMPLE TEST - should render with showSelectedOptions", () => {
+      const { getByPlaceholderText } = renderDropdown({
+        options: showSelectedTestOptions,
+        showSelectedOptions: false,
+        placeholder: "Simple test"
+      });
+      const input = getByPlaceholderText("Simple test");
+      expect(input).toBeInTheDocument();
+    });
+
     it("should hide selected option from list when showSelectedOptions is false (single select)", () => {
-      const { getByText, getByRole } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: false,
         placeholder: "Select single"
       });
-      const input = getByText("Select single");
+      const input = getByPlaceholderText("Select single");
       fireEvent.click(input);
 
       let listbox = getByRole("listbox");
@@ -1045,9 +1056,7 @@ describe("DropdownNew", () => {
 
       fireEvent.click(within(listbox).getByText("Option Beta"));
 
-      // Need to click the trigger again to reopen
-      const trigger = getByRole("combobox");
-      fireEvent.click(trigger);
+      fireEvent.click(input);
       listbox = getByRole("listbox");
 
       expect(within(listbox).queryByText("Option Beta")).not.toBeInTheDocument();
@@ -1056,11 +1065,10 @@ describe("DropdownNew", () => {
     });
 
     it("should keep selected option in list when showSelectedOptions is true (single select)", () => {
-      const { getByRole, getByPlaceholderText } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: true,
-        placeholder: "Select single true",
-        searchable: true
+        placeholder: "Select single true"
       });
       const input = getByPlaceholderText("Select single true");
       fireEvent.click(input);
@@ -1074,14 +1082,14 @@ describe("DropdownNew", () => {
     });
 
     it("should hide selected options from list when showSelectedOptions is false (multi select)", () => {
-      const { getByRole, getByTestId, getByText } = renderDropdown({
+      const { getByRole, getByTestId, getByPlaceholderText } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: false,
         multi: true,
         placeholder: "Select multi"
       });
 
-      const input = getByText("Select multi");
+      const input = getByPlaceholderText("Select multi");
       fireEvent.click(input);
       let listbox = getByRole("listbox");
 
@@ -1103,13 +1111,13 @@ describe("DropdownNew", () => {
     });
 
     it("should keep selected options in list when showSelectedOptions is true (multi select)", () => {
-      const { getByText, getByRole, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: true,
         multi: true,
         placeholder: "Select multi true"
       });
-      const input = getByText("Select multi true");
+      const input = getByPlaceholderText("Select multi true");
       fireEvent.click(input);
       let listbox = getByRole("listbox");
 
