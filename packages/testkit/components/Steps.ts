@@ -10,8 +10,7 @@ import { Button } from "./Button";
  */
 export class Steps extends BaseElement {
   private backButton: Button;
-  private nextButton: Button;
-  private finishButton: Button;
+  private forwardButton: Button;
 
   /**
    * Create a Steps element.
@@ -21,9 +20,8 @@ export class Steps extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.backButton = new Button(page, this.locator.getByTestId("steps-backward-command"), "Steps back button");
-    this.nextButton = new Button(page, this.locator.getByTestId("steps-forward-command"), "Steps next button");
-    this.finishButton = new Button(page, this.locator.getByRole("button", { name: "Finish" }), "Steps finish button");
+    this.backButton = new Button(page, this.locator.locator("button").first(), "Steps back button");
+    this.forwardButton = new Button(page, this.locator.locator("button").last(), "Steps forward button");
   }
 
   /**
@@ -42,17 +40,7 @@ export class Steps extends BaseElement {
    */
   async goToNextStep(): Promise<void> {
     await test.step(`Go to next step in ${this.elementReportName}`, async () => {
-      await this.nextButton.click();
-    });
-  }
-
-  /**
-   * Click the finish button to complete the steps.
-   * @returns {Promise<void>}
-   */
-  async finish(): Promise<void> {
-    await test.step(`Finish steps in ${this.elementReportName}`, async () => {
-      await this.finishButton.click();
+      await this.forwardButton.click();
     });
   }
 
@@ -72,22 +60,18 @@ export class Steps extends BaseElement {
    * Check if the next button is enabled.
    * @returns {Promise<boolean>} True if the next button is enabled.
    */
-  async isNextButtonEnabled(): Promise<boolean> {
+  async isForwardButtonEnabled(): Promise<boolean> {
     let isEnabled = false;
     await test.step(`Check if next button is enabled in ${this.elementReportName}`, async () => {
-      isEnabled = await this.nextButton.isEnabled();
+      isEnabled = await this.forwardButton.isEnabled();
     });
     return isEnabled;
   }
 
-  /**
-   * Check if the finish button is visible.
-   * @returns {Promise<boolean>} True if the finish button is visible.
-   */
-  async isFinishButtonVisible(): Promise<boolean> {
+  async isForwardButtonVisible(): Promise<boolean> {
     let isVisible = false;
-    await test.step(`Check if finish button is visible in ${this.elementReportName}`, async () => {
-      isVisible = await this.finishButton.isVisible();
+    await test.step(`Check if forward button is visible in ${this.elementReportName}`, async () => {
+      isVisible = await this.forwardButton.isVisible();
     });
     return isVisible;
   }
@@ -238,7 +222,7 @@ export class Steps extends BaseElement {
       await this.waitForStepsToLoad();
 
       // Keep clicking next until we reach the end
-      while (await this.isNextButtonEnabled()) {
+      while (await this.isForwardButtonVisible()) {
         await this.goToNextStep();
         await this.page.waitForTimeout(100); // Small delay for step transition
       }
