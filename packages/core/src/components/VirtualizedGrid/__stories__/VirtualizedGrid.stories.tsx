@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import VirtualizedGrid, { VirtualizedGridProps } from "../VirtualizedGrid";
 import Button from "../../Button/Button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
+import Flex from "../../Flex/Flex";
 
 export default {
   title: "Components/VirtualizedGrid",
@@ -36,7 +37,7 @@ const virtualizedGridTemplate = (args: VirtualizedGridProps) => {
     setScrollToDisabled(false);
   }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
   return (
-    <div style={{ width: 430, height: 300, overflow: "hidden", display: "flex", alignItems: "center" }}>
+    <Flex align="center" style={{ width: 430, height: 300, overflow: "hidden" }}>
       <div style={{ width: "430px", height: "100%" }}>
         <VirtualizedGrid
           scrollToId={scrollToId}
@@ -48,13 +49,13 @@ const virtualizedGridTemplate = (args: VirtualizedGridProps) => {
           {...args}
         />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Flex direction="column" align="center">
         <Button size="medium" kind="primary" onClick={onClickToScroll} disabled={scrollToDisabled}>
           {`Scroll to Item ${nextScrollToId}`}
         </Button>
         <div style={{ marginTop: 16, opacity: lastScrolledId ? 1 : 0 }}>{`Scrolled to Item ${lastScrolledId}`}</div>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 
