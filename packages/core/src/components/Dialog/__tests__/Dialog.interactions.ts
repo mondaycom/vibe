@@ -8,7 +8,7 @@ import {
   CLICK_OUTSIDE_DIALOG_BUTTON
 } from "./DialogDataTestIds";
 import { Canvas, getByTestId, interactionSuite } from "../../../tests/interactions-utils";
-import { userEvent, fireEvent, waitFor } from "@storybook/testing-library";
+import { userEvent, fireEvent, waitFor } from "@storybook/test";
 
 const isDialogHiddenAfterClickOutside = createTestIfDialogHiddenAfterTrigger(CLICK_OUTSIDE_DIALOG, () =>
   userEvent.click(getDialogContainer())

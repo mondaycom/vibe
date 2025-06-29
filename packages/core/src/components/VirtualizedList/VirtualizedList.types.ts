@@ -6,4 +6,7 @@ export type VirtualizedListItem = {
   offsetTop?: number;
 };
 
-export { Layout as VirtualizedListLayout, ScrollDirection as VirtualizedListScrollDirection } from "react-window";
+export {
+  type Layout as VirtualizedListLayout,
+  type ScrollDirection as VirtualizedListScrollDirection
+} from "react-window";

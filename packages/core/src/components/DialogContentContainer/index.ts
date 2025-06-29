@@ -1,1 +1,1 @@
-export { default as DialogContentContainer, DialogContentContainerProps } from "./DialogContentContainer";
+export { default as DialogContentContainer, type DialogContentContainerProps } from "./DialogContentContainer";
