@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
@@ -10,7 +11,7 @@ const renderComponent = (props: ToastProps) => {
 
 describe("Toast tests", () => {
   it("calls onClose when click on close button", () => {
-    const onCloseMock = jest.fn();
+    const onCloseMock = vi.fn();
     const toast = renderComponent({
       open: true,
       onClose: onCloseMock
@@ -25,22 +26,34 @@ describe("Toast tests", () => {
   });
 
   it("calls onClose after 1S when autoHideDuration=1000", () => {
-    const onCloseMock = jest.fn();
+    const onCloseMock = vi.fn();
+    vi.useFakeTimers();
     renderComponent({
       onClose: onCloseMock,
       autoHideDuration: 1000,
       open: true
     });
-    jest.useFakeTimers();
-    expect(onCloseMock.mock.calls.length).toHaveBeenCalledTimes;
+
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+
+    expect(onCloseMock).toHaveBeenCalledOnce();
+    vi.useRealTimers();
   });
 
   it("calls onClick when clicking on attached button to the toast", () => {
-    const onClickMock = jest.fn();
-    renderComponent({
+    const onClickMock = vi.fn();
+    const toast = renderComponent({
       open: true,
       actions: [{ type: "button", key: 1, content: "Button", onClick: onClickMock }]
     });
-    expect(onClickMock.mock.calls.length).toHaveBeenCalledTimes;
+
+    const button = toast.getByText("Button");
+    act(() => {
+      fireEvent.click(button);
+    });
+
+    expect(onClickMock).toHaveBeenCalledOnce();
   });
 });

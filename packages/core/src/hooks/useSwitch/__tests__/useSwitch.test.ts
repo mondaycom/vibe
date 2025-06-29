@@ -1,3 +1,4 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import { act, cleanup, renderHook, RenderResult } from "@testing-library/react-hooks";
 import useSwitch, { UseSwitchProps } from "../index";
 import { ChangeEvent } from "react";
@@ -60,7 +61,7 @@ describe("useSwitch", () => {
   });
 
   describe("onChange", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     it("should not call onChange on initial rendering", () => {
       renderHookForTest({ defaultChecked: true, onChange });

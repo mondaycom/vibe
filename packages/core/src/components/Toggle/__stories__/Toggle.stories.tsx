@@ -2,8 +2,9 @@ import React from "react";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import "./Toggle.stories.scss";
 import { Meta, StoryObj } from "@storybook/react";
+import Flex from "../../Flex/Flex";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Toggle>;
 
@@ -34,10 +35,10 @@ export const Overview: Story = {
 
 export const States: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
+    <Flex direction="column" gap="medium">
       <Toggle isDefaultSelected={false} />
       <Toggle />
-    </MultipleStoryElementsWrapper>
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -50,10 +51,10 @@ export const States: Story = {
 
 export const Size: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_row">
+    <Flex gap="large">
       <Toggle size="medium" />
       <Toggle size="small" />
-    </MultipleStoryElementsWrapper>
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -66,10 +67,10 @@ export const Size: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
+    <Flex direction="column" gap="large">
       <Toggle isDefaultSelected={false} disabled />
       <Toggle disabled />
-    </MultipleStoryElementsWrapper>
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -82,10 +83,10 @@ export const Disabled: Story = {
 
 export const TurnOnOffAnAutomation: Story = {
   render: () => (
-    <>
-      <h5>Board automations</h5>
+    <Flex gap="medium">
+      <Text>Board automations</Text>
       <Toggle />
-    </>
+    </Flex>
   ),
   name: "Turn on/ off an automation"
 };

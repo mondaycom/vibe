@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MenuButton renders correctly with .dummy-class-name 1`] = `
+exports[`MenuButton > renders correctly with .dummy-class-name 1`] = `
 <button
   aria-disabled={false}
   aria-expanded={false}
@@ -36,7 +36,7 @@ exports[`MenuButton renders correctly with .dummy-class-name 1`] = `
 </button>
 `;
 
-exports[`MenuButton renders correctly with Bolt Icon 1`] = `
+exports[`MenuButton > renders correctly with Bolt Icon 1`] = `
 <button
   aria-disabled={false}
   aria-expanded={false}
@@ -79,7 +79,7 @@ exports[`MenuButton renders correctly with Bolt Icon 1`] = `
 </button>
 `;
 
-exports[`MenuButton renders correctly with Button triggerElement 1`] = `
+exports[`MenuButton > renders correctly with Button triggerElement 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
@@ -97,7 +97,7 @@ exports[`MenuButton renders correctly with Button triggerElement 1`] = `
 </button>
 `;
 
-exports[`MenuButton renders correctly with a default Menu icon at the end 1`] = `
+exports[`MenuButton > renders correctly with a default Menu icon at the end 1`] = `
 <button
   aria-disabled={false}
   aria-expanded={false}
@@ -138,7 +138,7 @@ exports[`MenuButton renders correctly with a default Menu icon at the end 1`] = 
 </button>
 `;
 
-exports[`MenuButton renders correctly with empty props 1`] = `
+exports[`MenuButton > renders correctly with empty props 1`] = `
 <button
   aria-disabled={false}
   aria-expanded={false}
@@ -174,7 +174,7 @@ exports[`MenuButton renders correctly with empty props 1`] = `
 </button>
 `;
 
-exports[`MenuButton renders correctly with showTooltipOnlyOnTriggerElement and tooltip content 1`] = `
+exports[`MenuButton > renders correctly with showTooltipOnlyOnTriggerElement and tooltip content 1`] = `
 <span
   className=""
   onBlur={[Function]}
@@ -222,7 +222,7 @@ exports[`MenuButton renders correctly with showTooltipOnlyOnTriggerElement and t
 </span>
 `;
 
-exports[`MenuButton renders correctly with showTooltipOnlyOnTriggerElement and without tooltip content 1`] = `
+exports[`MenuButton > renders correctly with showTooltipOnlyOnTriggerElement and without tooltip content 1`] = `
 <span
   className=""
   onBlur={[Function]}
@@ -262,7 +262,7 @@ exports[`MenuButton renders correctly with showTooltipOnlyOnTriggerElement and w
 </span>
 `;
 
-exports[`MenuButton renders correctly with size Large 1`] = `
+exports[`MenuButton > renders correctly with size Large 1`] = `
 <button
   aria-disabled={false}
   aria-expanded={false}
@@ -298,7 +298,7 @@ exports[`MenuButton renders correctly with size Large 1`] = `
 </button>
 `;
 
-exports[`MenuButton renders correctly with tooltip content 1`] = `
+exports[`MenuButton > renders correctly with tooltip content 1`] = `
 <span
   className=""
   onBlur={[Function]}

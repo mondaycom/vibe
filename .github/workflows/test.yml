@@ -5,12 +5,18 @@ name: Test & Lint
 
 on:
   workflow_call:
+    inputs:
+      has_changes:
+        description: Whether there are any changes in the monorepo.
+        type: string
+        required: true
     secrets:
       npm_token:
         required: true
 
 jobs:
   checks:
+    name: ${{ matrix.name }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,7 +28,6 @@ jobs:
             command: "lint"
           - name: "Stylelint"
             command: "stylelint"
-    name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,13 +39,17 @@ jobs:
       - id: determine-since-flag
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
+        if: ${{ inputs.has_changes == 'true' }}
       - name: Run ${{ matrix.name }}
+        if: ${{ inputs.has_changes == 'true' }}
         shell: bash
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
 
   e2e:
+    name: E2E Tests
+    if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -67,6 +76,7 @@ jobs:
 
   bundle-size:
     name: Bundle Size
+    if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

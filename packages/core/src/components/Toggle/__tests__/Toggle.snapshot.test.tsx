@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Toggle from "../Toggle";
@@ -8,12 +9,12 @@ describe("Toggle renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly when selection defined by default selected (on) ", () => {
+  it("renders correctly when selection defined by default selected (on)", () => {
     const tree = renderer.create(<Toggle className="dummy-class-name" isDefaultSelected />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly when selection defined by default selected (off) ", () => {
+  it("renders correctly when selection defined by default selected (off)", () => {
     const tree = renderer.create(<Toggle className="dummy-class-name" isDefaultSelected={false} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

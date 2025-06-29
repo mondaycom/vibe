@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonGroup tests snapshots should render ButtonGroup with full width 1`] = `
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with full width 1`] = `
 <div
   class="buttonGroup kindSecondary"
   data-testid="button-group"
@@ -72,7 +72,7 @@ exports[`ButtonGroup tests snapshots should render ButtonGroup with full width 1
 </div>
 `;
 
-exports[`ButtonGroup tests snapshots should render ButtonGroup with tooltips on all options 1`] = `
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with tooltips on all options 1`] = `
 <div
   class="buttonGroup kindSecondary"
   data-testid="button-group"
@@ -144,7 +144,7 @@ exports[`ButtonGroup tests snapshots should render ButtonGroup with tooltips on 
 </div>
 `;
 
-exports[`ButtonGroup tests snapshots should render ButtonGroup with tooltips on some options 1`] = `
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with tooltips on some options 1`] = `
 <div
   class="buttonGroup kindSecondary"
   data-testid="button-group"
@@ -208,7 +208,7 @@ exports[`ButtonGroup tests snapshots should render ButtonGroup with tooltips on 
 </div>
 `;
 
-exports[`ButtonGroup tests snapshots should render ButtonGroup without tooltips 1`] = `
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup without tooltips 1`] = `
 <div
   class="buttonGroup kindSecondary"
   data-testid="button-group"

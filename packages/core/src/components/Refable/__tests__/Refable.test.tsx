@@ -1,3 +1,4 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
@@ -15,7 +16,7 @@ describe("Refable", () => {
   });
 
   it("should be able to render an intractable single JSX element", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
 
     const { getAllByTestId } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
@@ -33,7 +34,7 @@ describe("Refable", () => {
   });
 
   it("should be able to render multiple intractable JSX elements", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
 
     const { getAllByTestId } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
@@ -53,7 +54,7 @@ describe("Refable", () => {
   });
 
   it("should be able to render an intractable function component", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
     const InlineComponent = () => {
       return <div>test</div>;
     };
@@ -71,7 +72,7 @@ describe("Refable", () => {
   });
 
   it("should wrap a function component with a span", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
     const InlineComponent = () => {
       return <div>test</div>;
     };

@@ -1,8 +1,9 @@
+import { describe, it, expect } from "vitest";
 import { calculatePageStep } from "../SliderHelpers";
 
 describe("Check calculatePageStep helper", () => {
   // table: expected, min, max, step
-  test.each([
+  it.each([
     // calculated pageStep less than step - slider step big enough
     [1, 0, 8, 1],
     [2, 1, 10, 2],

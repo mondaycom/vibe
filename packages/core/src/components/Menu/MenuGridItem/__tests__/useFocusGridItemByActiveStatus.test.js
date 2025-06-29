@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import { cleanup, renderHook } from "@testing-library/react-hooks";
 import { useFocusGridItemByActiveStatus } from "../useFocusGridItemByActiveStatus";
 
@@ -9,33 +10,33 @@ describe("useFocusGridItemByActiveStatus", () => {
   beforeEach(() => {
     element = document.createElement("div");
     document.body.appendChild(element);
-    jest.spyOn(element, "blur");
-    jest.spyOn(element, "focus");
+    vi.spyOn(element, "blur");
+    vi.spyOn(element, "focus");
 
     childElement = document.createElement("input");
     element.appendChild(childElement);
-    jest.spyOn(childElement, "focus");
+    vi.spyOn(childElement, "focus");
 
     wrapperRef = { current: element };
     childRef = { current: childElement };
 
-    jest.spyOn(useLastNavigationDirectionModule, "useLastNavigationDirection");
+    vi.spyOn(useLastNavigationDirectionModule, "useLastNavigationDirection");
   });
 
   afterEach(() => {
     element.remove();
     childElement.remove();
     cleanup();
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
-  it("it should blur the wrapper element if index != activeItemIndex", () => {
+  it("should blur the wrapper element if index != activeItemIndex", () => {
     renderHook(() => useFocusGridItemByActiveStatus({ index: 0, activeItemIndex: 1, wrapperRef, childRef }));
 
     expect(element.blur).toHaveBeenCalledTimes(1);
   });
 
-  it("it should do nothing if useDocumentEventListeners and index != activeItemIndex", () => {
+  it("should do nothing if useDocumentEventListeners and index != activeItemIndex", () => {
     renderHook(() =>
       useFocusGridItemByActiveStatus({
         index: 0,
@@ -50,7 +51,7 @@ describe("useFocusGridItemByActiveStatus", () => {
     expect(element.focus).not.toHaveBeenCalled();
   });
 
-  it("it should blur the wrapper element if activeItemIndex changes from the given index to a different one", () => {
+  it("should blur the wrapper element if activeItemIndex changes from the given index to a different one", () => {
     const props = { index: 0, activeItemIndex: 0, wrapperRef, childRef };
     const { rerender } = renderHook(() => useFocusGridItemByActiveStatus(props));
     expect(element.blur).not.toBeCalled();

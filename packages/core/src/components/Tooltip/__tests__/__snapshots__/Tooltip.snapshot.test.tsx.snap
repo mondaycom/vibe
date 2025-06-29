@@ -1,343 +1,218 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tooltip renders correctly with data-testid 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > with data-testid 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
+    class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="test"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent top hasTooltip"
+      class="contentComponent top hasTooltip expandAppear expandAppearActive"
     >
       <div
-        className="tooltip dark"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        class="tooltip dark"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
       <div
-        className="arrow arrow dark"
+        class="arrow arrow dark"
         data-placement="top"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
+        style="position: absolute;"
       />
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;
 
-exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > with hideWhenReferenceHidden 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={null}
+    class="monday-style-dialog-content-wrapper contentWrapper"
     data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent top hasTooltip"
+      class="contentComponent top hasTooltip expandAppear expandAppearActive"
     >
       <div
-        className="tooltip dark"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        class="tooltip dark"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
       <div
-        className="arrow arrow dark"
+        class="arrow arrow dark"
         data-placement="top"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
+        style="position: absolute;"
       />
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;
 
-exports[`Tooltip renders correctly with position 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > with position 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
+    class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent left hasTooltip"
+      class="contentComponent left hasTooltip expandAppear expandAppearActive"
     >
       <div
-        className="tooltip dark"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        class="tooltip dark"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
       <div
-        className="arrow arrow dark"
+        class="arrow arrow dark"
         data-placement="left"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
+        style="position: absolute;"
       />
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;
 
-exports[`Tooltip renders correctly with style 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > with style 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
+    class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent top hasTooltip"
+      class="contentComponent top hasTooltip expandAppear expandAppearActive"
     >
       <div
-        className="tooltip dark"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "width": "200px",
-          }
-        }
+        class="tooltip dark"
+        style="width: 200px;"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
       <div
-        className="arrow arrow dark"
+        class="arrow arrow dark"
         data-placement="top"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
+        style="position: absolute;"
       />
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;
 
-exports[`Tooltip renders correctly with theme 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > with theme 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
+    class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent top hasTooltip"
+      class="contentComponent top hasTooltip expandAppear expandAppearActive"
     >
       <div
-        className="tooltip primary"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        class="tooltip primary"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
       <div
-        className="arrow arrow primary"
+        class="arrow arrow primary"
         data-placement="top"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          {
-            "position": "absolute",
-          }
-        }
+        style="position: absolute;"
       />
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;
 
-exports[`Tooltip renders correctly with withoutDialog 1`] = `
+exports[`Tooltip renders correctly > with withoutDialog 1`] = `
 <div
-  className="tooltip dark"
+  class="tooltip dark"
 >
   <div
-    className="content"
+    class="content"
   >
     test
   </div>
 </div>
 `;
 
-exports[`Tooltip renders correctly without arrow 1`] = `
-[
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />,
+exports[`Tooltip renders correctly > without arrow 1`] = `
+<body>
+  <div>
+    <div
+      class=""
+    />
+  </div>
   <span
-    className="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden={false}
+    class="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden="false"
     data-testid="tooltip"
-    onClickCapture={[Function]}
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
-      className="contentComponent top"
+      class="contentComponent top expandAppear expandAppearActive"
     >
       <div
-        className="tooltip dark"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        class="tooltip dark"
       >
         <div
-          className="content"
+          class="content"
         >
           test
         </div>
       </div>
     </div>
-  </span>,
-]
+  </span>
+</body>
 `;

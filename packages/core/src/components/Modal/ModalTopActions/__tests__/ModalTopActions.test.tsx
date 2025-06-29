@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
@@ -16,7 +17,7 @@ describe("ModalTopActions", () => {
   });
 
   it("calls onClose when the close button is clicked", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
 
     const { getByLabelText } = render(
       <ModalTopActions onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel} />
@@ -33,14 +34,14 @@ describe("ModalTopActions", () => {
   });
 
   it("renders the action button using the renderAction prop as a function", () => {
-    const renderAction = jest.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
+    const renderAction = vi.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
     const { getByTestId } = render(<ModalTopActions renderAction={renderAction} />);
 
     expect(within(getByTestId("extra-action")).getByTestId("icon")).toBeInTheDocument();
   });
 
   it("calls renderAction with correct color argument", () => {
-    const renderAction = jest.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
+    const renderAction = vi.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
     render(<ModalTopActions theme="dark" renderAction={renderAction} />);
 
     expect(renderAction).toHaveBeenCalledWith(ButtonColor.FIXED_DARK);
