@@ -87,27 +87,20 @@ export class BaseElement {
     return attributeValue;
   }
 
+  /**
+   * Get the text of the element.
+   * @returns {Promise<string | undefined>} - The text of the element.
+   */
   async getText(): Promise<string | undefined> {
-    let text: string | undefined;
-    await test.step(`Get text of ${this.elementReportName}`, async () => {
-      const innerText = await this.locator.innerText();
-      if (innerText !== null && innerText !== undefined) {
-        text = innerText;
-        return;
-      }
-      const textContent = await this.locator.textContent();
-      if (textContent !== null && textContent !== undefined) {
-        text = textContent;
-        return;
-      }
-      const valueAttr = await this.getAttributeValue("value");
-      if (valueAttr !== null && valueAttr !== undefined) {
-        text = valueAttr;
-        return;
-      }
-      text = undefined;
+    return await test.step(`Get text of ${this.elementReportName}`, async () => {
+      const candidates = [
+        await this.locator.innerText(),
+        await this.locator.textContent(),
+        await this.getAttributeValue("value")
+      ];
+      const result = candidates.find(text => text !== null && text !== undefined && text !== "");
+      return result === null ? undefined : result;
     });
-    return text;
   }
 
   async waitFor(options = {}): Promise<void> {
