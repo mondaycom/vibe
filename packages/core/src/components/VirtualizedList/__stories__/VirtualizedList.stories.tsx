@@ -15,6 +15,8 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
     return (
       <div key={index} style={style}>
         <Flex
+          align="center"
+          justify="center"
           style={{
             backgroundColor,
             height: item.height
