@@ -32,6 +32,7 @@ const SingleSelectTrigger = () => {
                 valueRenderer(selectedItem)
               ) : (
                 <BaseListItem
+                  component="div"
                   size={size}
                   readOnly
                   item={{

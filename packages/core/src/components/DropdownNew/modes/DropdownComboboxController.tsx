@@ -39,6 +39,13 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
 
   const [isFocused, setIsFocused] = useState(false);
 
+  const handleOptionSelect = (item: Item | null) => {
+    onOptionSelect?.(item);
+    if (item) {
+      setIsFocused(false);
+    }
+  };
+
   const {
     isOpen,
     inputValue: hookInputValue,
@@ -63,7 +70,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onInputChange,
     onMenuClose,
     onMenuOpen,
-    onOptionSelect,
+    handleOptionSelect,
     filterOption,
     showSelectedOptions
   );
