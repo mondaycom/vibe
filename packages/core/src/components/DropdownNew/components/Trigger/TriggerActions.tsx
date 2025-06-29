@@ -15,11 +15,9 @@ const sizeMap = {
 const TriggerActions = () => {
   const {
     isOpen,
-    getToggleButtonProps,
     reset,
     contextOnClear,
     size,
-    searchable,
     disabled,
     clearable,
     readOnly,
@@ -57,7 +55,6 @@ const TriggerActions = () => {
       )}
       <IconButton
         icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-        {...(searchable ? getToggleButtonProps({ disabled }) : {})}
         size={iconButtonSize}
         disabled={disabled}
         ariaHidden

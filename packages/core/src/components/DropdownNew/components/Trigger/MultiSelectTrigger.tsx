@@ -18,12 +18,11 @@ const MultiSelectTrigger = () => {
     disabled,
     readOnly,
     size,
-    getToggleButtonProps,
-    searchable
+    getToggleButtonProps
   } = useDropdownContext<BaseListItemData>();
 
   return (
-    <div {...(!searchable ? getToggleButtonProps() : {})}>
+    <div {...getToggleButtonProps()}>
       <Flex justify="space-between" align="center">
         <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
           {selectedItems.length > 0 ? (
