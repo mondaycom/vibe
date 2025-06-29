@@ -1,8 +1,10 @@
 .footer {
+  display: flex;
   background-color: var(--color-riverstone_gray);
   padding: 80px 0;
 
   .footerContent {
+    flex: 1;
     max-width: 1200px;
     min-width: 640px;
     margin: 0 120px;
@@ -38,7 +40,7 @@
 @media screen and (max-width: 1160px) {
   .footer {
     .footerContent {
-      margin: 0 20px;
+      margin: 0 80px;
     }
 
     .footerTitles {
