@@ -1,0 +1,17 @@
+.resourceButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: none;
+  border: 2px solid var(--sb-primary-text-color);
+  border-radius: 40px;
+  color: var(--sb-primary-text-color);
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--sb-primary-background-hover-color);
+  }
+}
