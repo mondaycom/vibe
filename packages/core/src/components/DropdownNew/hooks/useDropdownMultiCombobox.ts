@@ -61,7 +61,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp,
+    initialInputValue: inputValueProp || "",
     onIsOpenChange: ({ isOpen }) => {
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
