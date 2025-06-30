@@ -29,11 +29,25 @@ export interface FieldLabelProps extends VibeComponentProps {
    * If true, displays an asterisk to indicate a required field.
    */
   required?: boolean;
+  /**
+   * The HTML for attribute of the associated input element.
+   */
+  htmlFor?: string;
 }
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
-    { className, icon = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "", required = false },
+    {
+      className,
+      icon = "",
+      labelText = "",
+      labelFor = "",
+      iconClassName = "",
+      labelClassName = "",
+      required = false,
+      id = "",
+      htmlFor = ""
+    },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
     if (!labelText) {
@@ -43,7 +57,12 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
     return (
       <section className={cx(styles.labelComponentWrapper, className)}>
         <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} iconType="font" />
-        <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>
+        <label
+          id={id}
+          htmlFor={labelFor || htmlFor}
+          ref={ref}
+          className={cx(styles.labelComponentText, labelClassName)}
+        >
           {labelText}
           {required && <span className={styles.required}> *</span>}
         </label>
