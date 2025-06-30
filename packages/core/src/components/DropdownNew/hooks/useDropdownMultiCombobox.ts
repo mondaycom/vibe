@@ -13,7 +13,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   defaultValue?: T[],
   value?: T[],
   inputValueProp?: string,
-  onChange?: (options: T[] | T) => void,
+  onChange?: (options: T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
