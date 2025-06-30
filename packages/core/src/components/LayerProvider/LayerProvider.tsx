@@ -9,7 +9,7 @@ export interface LayerProviderType {
   /**
    * A reference to the layer container element.
    */
-  layerRef: RefObject<HTMLElement> | null;
+  layerRef: RefObject<HTMLElement | null> | null;
 }
 
 const LayerProvider: FC<LayerProviderType> = ({ children, layerRef }) => {

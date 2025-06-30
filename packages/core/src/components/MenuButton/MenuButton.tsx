@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState, type JSX } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { isForwardRef } from "react-is";
@@ -378,7 +378,7 @@ const MenuButton = forwardRef(
       </TriggerElement>
     );
 
-    const dialogNode = (dialogChildren: React.ReactElement) => (
+    const dialogNode = (dialogChildren: React.ReactElement<any>) => (
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
@@ -402,7 +402,7 @@ const MenuButton = forwardRef(
       </Dialog>
     );
 
-    const tooltipNode = (tooltipChildren: React.ReactElement) => (
+    const tooltipNode = (tooltipChildren: React.ReactElement<any>) => (
       <Tooltip
         content={tooltipContent}
         position={tooltipPosition}

@@ -8,7 +8,7 @@ import {
   OptionTypeBase,
   SingleValueProps
 } from "react-select";
-import React, { UIEventHandler, WheelEventHandler } from "react";
+import React, { UIEventHandler, WheelEventHandler, type JSX } from "react";
 import { VibeComponentProps } from "../../types";
 
 export type DropdownOption = any;
@@ -168,7 +168,7 @@ export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptio
   /**
    * Custom renderer for the dropdown menu.
    */
-  menuRenderer?: React.ReactElement | ((props: CustomMenuProps) => React.ReactElement);
+  menuRenderer?: React.ReactElement<any> | ((props: CustomMenuProps) => React.ReactElement<any>);
   /**
    * The placement of the dropdown menu relative to the input.
    */

@@ -16,7 +16,7 @@ export interface SliderRailProps extends VibeComponentProps {
   /**
    * The child elements inside the slider rail.
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
   /**
    * The size of the slider rail.
    */

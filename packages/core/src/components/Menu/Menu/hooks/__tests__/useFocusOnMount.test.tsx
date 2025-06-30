@@ -13,7 +13,7 @@ function renderHookWithProps(props: Partial<UseFocusOnMountProps>) {
   return renderHook(() =>
     useFocusOnMount({
       focusItemIndexOnMount: -1,
-      focusChildOnMount: {} as ReactElement,
+      focusChildOnMount: {} as ReactElement<any>,
       getNextSelectableIndex: vi.fn(),
       updateActiveItemIndex: vi.fn(),
       setIsInitialFocusSet: vi.fn(),

@@ -7,7 +7,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./LegacyModalContent.module.scss";
 
 export interface LegacyModalContentProps extends VibeComponentProps {
-  children: ReactElement | ReactElement[] | string;
+  children: ReactElement<any> | ReactElement<any>[] | string;
 }
 
 const LegacyModalContent: FC<LegacyModalContentProps> = ({ className, id, "data-testid": dataTestId, children }) => {

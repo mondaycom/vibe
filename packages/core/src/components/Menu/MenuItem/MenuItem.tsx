@@ -129,7 +129,7 @@ export interface MenuItemProps extends VibeComponentProps {
   /**
    * Reference to the menu container.
    */
-  menuRef?: React.RefObject<HTMLElement>;
+  menuRef?: React.RefObject<HTMLElement | null>;
   /**
    * The submenu items, if applicable.
    */
@@ -154,7 +154,7 @@ export interface MenuItemProps extends VibeComponentProps {
 }
 
 export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
-  title: ReactElement;
+  title: ReactElement<any>;
   "aria-label": NonNullable<AriaAttributes["aria-label"]>;
 }
 
@@ -182,7 +182,7 @@ const MenuItem = forwardRef(
     }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
-    const titleRef = useRef();
+    const titleRef = useRef(undefined);
 
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);

@@ -14,7 +14,7 @@ const getAddons = () => {
     },
     "@storybook/addon-themes",
     "@storybook/preset-scss",
-    "storybook-addon-playground",
+    // "storybook-addon-playground", // Temporarily disabled for React 19 compatibility
     "@chromatic-com/storybook",
     "@storybook/addon-storysource",
     {

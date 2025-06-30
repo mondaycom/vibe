@@ -76,16 +76,16 @@ export type SliderContextInfix = {
   prefix?:
     | { icon: IconType }
     | string
-    | ((value: number | number[], valueText: string | string[]) => ReactElement)
-    | ReactElement;
+    | ((value: number | number[], valueText: string | string[]) => ReactElement<any>)
+    | ReactElement<any>;
   /**
    * Options for postfix/end/finishing element. Same as prefix element.
    */
   postfix?:
     | { icon: IconType }
     | string
-    | ((value: number | number[], valueText: string | string[]) => ReactElement)
-    | ReactElement;
+    | ((value: number | number[], valueText: string | string[]) => ReactElement<any>)
+    | ReactElement<any>;
   /**
    * Width of SelectionIndicator (i.e. TextField)
    */

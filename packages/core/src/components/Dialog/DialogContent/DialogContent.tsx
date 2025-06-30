@@ -1,10 +1,9 @@
-import React, { cloneElement, CSSProperties, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
+import React, { CSSProperties, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
-import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
-import { chainFunctions, NOOP } from "../../../utils/function-utils";
+import { NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { VibeComponentProps } from "../../../types";
 import { keyCodes } from "../../../constants";
@@ -21,7 +20,7 @@ export interface DialogContentProps extends VibeComponentProps {
   /**
    * The content inside the dialog.
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
   /**
    * The placement of the dialog relative to the reference element.
    */
@@ -119,6 +118,7 @@ const DialogContent = forwardRef(
     forwardRef: React.ForwardedRef<HTMLElement>
   ) => {
     const ref = useRef(null);
+    const nodeRef = useRef<HTMLDivElement>(null);
     const onOutSideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
@@ -151,7 +151,7 @@ const DialogContent = forwardRef(
       }
     }, [disableContainerScroll, disableScroll, enableScroll, isOpen]);
 
-    const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
+    const transitionOptions: { classNames?: any } = { classNames: undefined };
 
     switch (animationType) {
       case "expand":
@@ -178,20 +178,23 @@ const DialogContent = forwardRef(
         onClickCapture={onClick}
         data-popper-reference-hidden={isReferenceHidden}
       >
-        <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
+        <CSSTransition
+          classNames={transitionOptions.classNames}
+          nodeRef={nodeRef}
+          in={isOpen}
+          appear={!!animationType}
+          timeout={showDelay}
+        >
           <div
             className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
               [styles.hasTooltip]: hasTooltip
             })}
-            ref={ref}
+            ref={nodeRef}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
-            {React.Children.toArray(children).map((child: ReactElement) => {
-              return cloneElement(child, {
-                onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
-                onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])
-              });
-            })}
+            {children}
           </div>
         </CSSTransition>
       </span>

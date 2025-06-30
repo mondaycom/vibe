@@ -11,7 +11,7 @@ const defaultIconProps = {
   ignoreFocusStyle: true
 };
 
-export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], ReactElement, CSSProperties] {
+export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], ReactElement<any>, CSSProperties] {
   const isPostfix = kind === "postfix";
   const { prefix, postfix, indicateSelection, selectionIndicatorWidth } = useSliderInfix();
   const { ranged, value, valueText } = useSliderSelection();

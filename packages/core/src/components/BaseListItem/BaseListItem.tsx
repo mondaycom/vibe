@@ -68,4 +68,4 @@ const BaseListItem = forwardRef(
 
 export default BaseListItem as <Item extends Record<string, unknown>>(
   props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLLIElement> }
-) => React.ReactElement;
+) => React.ReactElement<any>;

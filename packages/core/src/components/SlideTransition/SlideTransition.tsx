@@ -8,6 +8,7 @@ import styles from "./SlideTransition.module.scss";
 const SlideTransition = forwardRef(
   ({ direction, style, children, className }: SlideTransitionProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     return (
+      // @ts-ignore - React 19 compatibility issue with framer motion types
       <motion.div
         ref={ref}
         custom={direction}

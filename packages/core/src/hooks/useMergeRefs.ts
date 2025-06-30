@@ -1,4 +1,4 @@
-import { LegacyRef, MutableRefObject, useMemo } from "react";
+import { Ref, MutableRefObject, useMemo } from "react";
 
 /*
  * const Component = React.forwardRef((props, ref) => {
@@ -14,7 +14,7 @@ import { LegacyRef, MutableRefObject, useMemo } from "react";
  * @deprecated - for internal usage - use `useMergeRef` hook instead
  * @param refs
  */
-export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<MutableRefObject<T> | LegacyRef<T>> }) {
+export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<MutableRefObject<T> | Ref<T>> }) {
   return useMemo(() => {
     if (refs.every(ref => ref === null)) return null;
 
@@ -26,7 +26,7 @@ export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<Mutab
   }, [refs]);
 }
 
-function assignRef(ref: MutableRefObject<any> | LegacyRef<any>, value: HTMLElement) {
+function assignRef(ref: MutableRefObject<any> | Ref<any>, value: HTMLElement) {
   if (ref === null) return;
 
   if (typeof ref === "function") {

@@ -22,7 +22,7 @@ export interface ThemeProviderProps {
   /**
    * The children to be rendered with the applied theme.
    */
-  children: ReactElement;
+  children: ReactElement<any>;
   /**
    * A string added to the theme name selector to make it more specific, in case `themeConfig.name`
    * collides with another class name.

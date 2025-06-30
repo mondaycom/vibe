@@ -10,7 +10,7 @@ export interface LabelCelebrationAnimationProps {
   /**
    * The child component that will be wrapped by the animation.
    */
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
   /**
    * Callback fired when the celebration animation ends.
    */
@@ -18,8 +18,8 @@ export interface LabelCelebrationAnimationProps {
 }
 
 function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebrationAnimationProps) {
-  const wrapperRef = useRef<HTMLDivElement>();
-  const childRef = useRef<HTMLDivElement>();
+  const wrapperRef = useRef<HTMLDivElement>(undefined);
+  const childRef = useRef<HTMLDivElement>(undefined);
 
   const [path, setPath] = useState<string>();
 
@@ -46,8 +46,8 @@ function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebratio
 
   const ChildComponentWithRef = forwardRef((_props, ref) =>
     cloneElement(children, {
-      ref
-    })
+      ref: ref as React.Ref<HTMLElement>
+    } as any)
   );
 
   return (

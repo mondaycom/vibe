@@ -1,7 +1,7 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
 import { ComponentDefaultTestId } from "../../../tests/constants";

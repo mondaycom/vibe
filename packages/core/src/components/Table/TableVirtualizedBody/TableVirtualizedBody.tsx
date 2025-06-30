@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
+import React, { ComponentType, forwardRef, useCallback, useEffect, useMemo, type JSX } from "react";
 import { VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
@@ -174,8 +174,9 @@ const TableVirtualizedBody = forwardRef(
                 outerRef={element => {
                   virtualizedListRef.current = element;
                 }}
-                innerElementType={memoizedInnerElementType}
+                innerElementType={memoizedInnerElementType as any}
               >
+                {/* @ts-ignore - React 19 compatibility issue with react-window types */}
                 {itemRenderer}
               </List>
             )}

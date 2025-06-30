@@ -56,7 +56,7 @@ export const modalAnimationCenterPopVariants: Variants = {
 };
 
 export const modalAnimationAnchorPopVariants: Variants = {
-  initial: (anchorElementRef: RefObject<HTMLElement>) => {
+  initial: (anchorElementRef: RefObject<HTMLElement | null>) => {
     const anchorRect = anchorElementRef.current.getBoundingClientRect();
     const anchorCenterX = anchorRect.left + anchorRect.width / 2;
     const anchorCenterY = anchorRect.top + anchorRect.height / 2;
@@ -86,7 +86,7 @@ export const modalAnimationAnchorPopVariants: Variants = {
       times: [0, 0.4, 1]
     }
   },
-  exit: (anchorElementRef: RefObject<HTMLElement>) => {
+  exit: (anchorElementRef: RefObject<HTMLElement | null>) => {
     const anchorRect = anchorElementRef.current.getBoundingClientRect();
     const anchorCenterX = anchorRect.left + anchorRect.width / 2;
     const anchorCenterY = anchorRect.top + anchorRect.height / 2;

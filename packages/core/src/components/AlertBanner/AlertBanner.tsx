@@ -73,10 +73,10 @@ const AlertBanner = forwardRef(
       return isDarkBackground ? "onInverted" : "onPrimary";
     }, [isDarkBackground, isFixedColor]);
     const children = useMemo(() => {
-      const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
+      const allChildren = React.Children.toArray(originalChildren) as ReactElement<any>[];
       const filteredChildren = allChildren.filter(
         (
-          child: ReactElement & {
+          child: ReactElement<any> & {
             type: Record<string, unknown>;
           }
         ) => {
@@ -91,7 +91,7 @@ const AlertBanner = forwardRef(
 
       return filteredChildren.map((child, index) => {
         return React.cloneElement(child, {
-          ...child?.props,
+          ...(child.props as any),
           marginLeft: index > 0,
           isDarkBackground
         });
@@ -113,7 +113,7 @@ const AlertBanner = forwardRef(
           <div className={cx(styles.content)}>
             {children.map(
               (
-                child: ReactElement & {
+                child: ReactElement<any> & {
                   type: Record<string, unknown>;
                 },
                 index

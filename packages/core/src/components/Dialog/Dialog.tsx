@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { PureComponent, ReactElement } from "react";
+import React, { PureComponent, ReactElement, type JSX } from "react";
 import { createPortal } from "react-dom";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import { isFunction } from "lodash-es";
@@ -160,7 +160,7 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * The element to position the dialog beside.
    */
-  children?: ReactElement | ReactElement[] | string;
+  children?: ReactElement<any> | ReactElement<any>[] | string;
   /**
    * If true, keyboard focus/blur events behave like mouse enter/leave.
    */

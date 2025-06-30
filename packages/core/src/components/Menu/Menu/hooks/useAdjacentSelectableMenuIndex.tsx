@@ -1,7 +1,7 @@
 import { ReactElement, useCallback } from "react";
 import { isMenuChildSelectable } from "../utils/utils";
 
-export const useAdjacentSelectableMenuIndex = ({ children }: { children: ReactElement[] }) => {
+export const useAdjacentSelectableMenuIndex = ({ children }: { children: ReactElement<any>[] }) => {
   const getNextSelectableIndex = useCallback(
     (currentActiveItemIndex: number) => {
       let newIndex;

@@ -1,4 +1,4 @@
-import React, { CSSProperties, MutableRefObject, useMemo } from "react";
+import React, { CSSProperties, MutableRefObject, useMemo, type JSX } from "react";
 import cx from "classnames";
 import ComboboxOption from "../components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "../components/ComboboxCategory/ComboboxCategory";

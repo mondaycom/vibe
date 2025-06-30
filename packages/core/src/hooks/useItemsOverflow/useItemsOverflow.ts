@@ -10,10 +10,10 @@ export default function useItemsOverflow({
   deductedSpaceRef,
   itemRefs
 }: {
-  containerRef: RefObject<HTMLElement>;
+  containerRef: RefObject<HTMLElement | null>;
   gap: number;
-  deductedSpaceRef?: RefObject<HTMLElement>;
-  itemRefs: RefObject<HTMLElement>[];
+  deductedSpaceRef?: RefObject<HTMLElement | null>;
+  itemRefs: RefObject<HTMLElement | null>[];
 }) {
   const [visibleCount, setVisibleCount] = useState<number>(itemRefs.length);
   const itemWidthsRef = useRef<number[]>([]);

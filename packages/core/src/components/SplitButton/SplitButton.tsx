@@ -37,7 +37,7 @@ export interface SplitButtonProps extends ButtonProps {
   /**
    * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
    */
-  secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  secondaryDialogContent?: ReactElement<any> | (() => string | ReactElement<any>);
   /**
    * Callback fired when the secondary dialog is shown.
    */
@@ -78,7 +78,7 @@ const SplitButton = ({
   onSecondaryDialogDidHide = NOOP,
   shouldCloseOnClickInsideDialog,
   zIndex = null,
-  secondaryDialogClassName,
+  secondaryDialogClassName = "",
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
   dialogPaddingSize = "medium",
@@ -286,16 +286,6 @@ const SplitButton = ({
       </div>
     </div>
   );
-};
-
-SplitButton.defaultProps = {
-  ...Button.defaultProps,
-  onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP,
-  zIndex: null,
-  secondaryDialogClassName: "",
-  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
 interface SplitButtonStaticProps {

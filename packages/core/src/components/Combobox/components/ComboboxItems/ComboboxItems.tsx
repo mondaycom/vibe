@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
+import React, { CSSProperties, forwardRef, RefObject, useCallback, useMemo, useRef, type JSX } from "react";
 import cx from "classnames";
 import { comboboxItemRenderer } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
@@ -97,9 +97,9 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
       stickyCategories,
       id
     },
-    ref: RefObject<HTMLDivElement>
+    ref: RefObject<HTMLDivElement | null>
   ) => {
-    const activeCategoryId = useRef<string>();
+    const activeCategoryId = useRef<string>(undefined);
     const style = useMemo(() => {
       if (maxOptionsWithoutScroll) {
         // Adding 0.5 to show next option to indicate scroll is available

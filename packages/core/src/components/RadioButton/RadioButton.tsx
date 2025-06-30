@@ -101,7 +101,7 @@ const RadioButton = forwardRef(
     }: RadioButtonProps,
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
-    const inputRef = useRef<HTMLInputElement | null>();
+    const inputRef = useRef<HTMLInputElement | null>(undefined);
     const mergedRef = useMergeRef(ref, inputRef);
 
     const onChildClick = useCallback(() => {

@@ -14,14 +14,14 @@ export default function useMenuItemMouseEvents({
   splitMenuItemIconButtonRef,
   splitMenuItem = false
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   resetOpenSubMenuIndex: () => void;
   setSubMenuIsOpenByIndex: (index: number, isOpen: boolean) => void;
   isActive: boolean;
   setActiveItemIndex: (index: number) => void;
   index: number;
   hasChildren: boolean;
-  splitMenuItemIconButtonRef?: React.RefObject<HTMLElement>;
+  splitMenuItemIconButtonRef?: React.RefObject<HTMLElement | null>;
   splitMenuItem?: boolean;
 }) {
   const isMouseEnter = useIsMouseEnter({ ref });

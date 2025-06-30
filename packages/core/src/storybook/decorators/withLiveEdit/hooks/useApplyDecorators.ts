@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { StoryContext, Decorator } from "@storybook/react";
 
-const useApplyDecorators = (decorators: Decorator[], component: React.ReactElement, context: StoryContext) => {
+const useApplyDecorators = (decorators: Decorator[], component: React.ReactElement<any>, context: StoryContext) => {
   return useMemo(() => {
     let decoratedComponent = () => component;
 
     // recursively apply decorators to the component
     decorators.forEach(decorator => {
       const currentComponent = decoratedComponent;
-      decoratedComponent = () => decorator(currentComponent, context);
+      decoratedComponent = () => decorator(currentComponent as any, context);
     });
 
     return decoratedComponent();

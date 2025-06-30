@@ -30,7 +30,7 @@ export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends Vi
     style: CSSProperties,
     type: AvatarType,
     displayAsGrid: boolean
-  ) => ReactElement;
+  ) => ReactElement<any>;
   /**
    * The ARIA label of the tooltip container.
    */

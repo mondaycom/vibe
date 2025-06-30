@@ -11,8 +11,9 @@ import {
 
 vi.mock("../../MenuItemSubMenu/MenuItemSubMenu", () => ({
   __esModule: true,
-  default: React.forwardRef(({ children }: { children: React.ReactElement }, _ref: React.ForwardedRef<HTMLElement>) =>
-    React.createElement("div", { "data-testid": "menu-item-sub-menu" }, children)
+  default: React.forwardRef(
+    ({ children }: { children: React.ReactElement<any> }, _ref: React.ForwardedRef<HTMLElement>) =>
+      React.createElement("div", { "data-testid": "menu-item-sub-menu" }, children)
   )
 }));
 

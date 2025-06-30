@@ -11,7 +11,7 @@ export default function useMouseLeave({
 }: {
   resetOpenSubMenuIndex: () => void;
   hasOpenSubMenu: boolean;
-  ref: React.RefObject<HTMLElement>;
+  ref: React.RefObject<HTMLElement | null>;
   setActiveItemIndex: (index: number) => void;
 }) {
   const isMouseEnter = useIsMouseEnter({ ref });

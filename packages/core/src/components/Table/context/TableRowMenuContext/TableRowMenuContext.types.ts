@@ -12,11 +12,11 @@ export interface TableRowMenuContext extends Pick<TableRowMenuProviderValue, "re
 }
 
 export interface TableRowMenuProviderValue {
-  tableRootRef: React.RefObject<HTMLDivElement>;
-  hoveredRowRef: React.RefObject<HTMLDivElement>;
+  tableRootRef: React.RefObject<HTMLDivElement | null>;
+  hoveredRowRef: React.RefObject<HTMLDivElement | null>;
   isMenuOpen: boolean;
   resetHoveredRow: () => void;
-  setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => void;
+  setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement | null>) => void;
   setIsMenuOpen: (isOpen: boolean) => void;
 }
 

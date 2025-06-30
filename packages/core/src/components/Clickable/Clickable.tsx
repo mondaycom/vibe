@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { AriaRole, forwardRef } from "react";
+import React, { AriaRole, forwardRef, type JSX } from "react";
 import { noop as NOOP } from "lodash-es";
 import { VibeComponentProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";

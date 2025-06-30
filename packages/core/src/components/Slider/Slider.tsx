@@ -116,11 +116,11 @@ export type SliderProps = {
    *  - Or it can be an object for Label (Icon, Heading - and other components)
    *  - Or it can be Render Props Function witch are getting value and valueText
    */
-  prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
+  prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement<any>;
   /**
    * Options for postfix/end/finishing element. Same as prefix element.
    */
-  postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
+  postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement<any>;
   /**
    * Width of SelectionIndicator (i.e. TextField)
    */

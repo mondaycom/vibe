@@ -9,7 +9,7 @@ export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderPr
   const isMenuHovered = useRef(false);
 
   const onMouseOverRow = useCallback(
-    (rowRef: React.RefObject<HTMLDivElement>) => {
+    (rowRef: React.RefObject<HTMLDivElement | null>) => {
       if (isMenuOpen) return;
 
       setHoveredRowRef(rowRef);

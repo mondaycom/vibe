@@ -15,7 +15,7 @@ export default function useCloseMenuOnKeyEvent({
 }: {
   hasOpenSubMenu: boolean;
   onCloseMenu: (option: CloseMenuOption) => void;
-  ref: React.RefObject<HTMLElement>;
+  ref: React.RefObject<HTMLElement | null>;
   onClose: (option: CloseMenuOption, key?: string) => void;
   isSubMenu: boolean;
   useDocumentEventListeners: boolean;

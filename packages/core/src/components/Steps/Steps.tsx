@@ -26,7 +26,7 @@ export interface StepsProps extends VibeComponentProps {
   /**
    * The list of steps in the steps component.
    */
-  steps?: ReactElement[];
+  steps?: ReactElement<any>[];
   /**
    * The visual style of the steps component.
    */

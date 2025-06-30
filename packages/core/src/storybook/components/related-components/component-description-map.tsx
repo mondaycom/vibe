@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type JSX } from "react";
 
 /* eslint-disable react/jsx-key */
 import { SplitButtonDescription } from "./descriptions/split-button-description";

@@ -9,7 +9,7 @@ export interface TabPanelProps extends VibeComponentProps {
   /**
    * The content inside the tab panel.
    */
-  children?: ReactElement | ReactElement[] | string;
+  children?: ReactElement<any> | ReactElement<any>[] | string;
   /**
    * The index of the tab panel.
    */

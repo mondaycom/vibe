@@ -30,7 +30,7 @@ export default function useMenuItemKeyboardEvents({
   shouldShowSubMenu: boolean;
   setSubMenuIsOpenByIndex: (index: number, isOpen: boolean) => void;
   setActiveItemIndex: (index: number) => void;
-  menuRef: React.RefObject<HTMLElement>;
+  menuRef: React.RefObject<HTMLElement | null>;
   isMouseEnter: boolean;
   closeMenu: (option: CloseMenuOption) => void;
   useDocumentEventListeners: boolean;

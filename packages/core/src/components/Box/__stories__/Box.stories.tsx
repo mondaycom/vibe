@@ -11,18 +11,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
 //TODO remove when remove the flex class from the stories
 metaSettings.decorators = [
   ...(metaSettings.decorators || []),
-  (Story: StoryFn) => (
-    <div style={{ width: "100%" }}>
-      <Story />
-    </div>
-  )
+  (Story: StoryFn, context: any) => <div style={{ width: "100%" }}>{Story({}, context)}</div>
 ];
 export default {
   title: "Layout/Box",
   component: Box,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} as any;
 
 const boxTemplate = (args: BoxProps) => (
   <Box border rounded="medium" padding="large" marginBottom="medium" {...args} style={{ width: "100%" }}>

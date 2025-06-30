@@ -76,7 +76,7 @@ export interface LegacyModalProps {
   /**
    *  Dialog content
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
   /**
    * z-index attribute of the container
    */
@@ -104,8 +104,8 @@ const Modal = ({
   unmountOnClose = true,
   "data-testid": dataTestId
 }: LegacyModalProps) => {
-  const childrenArray: ReactElement[] = useMemo(
-    () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
+  const childrenArray: ReactElement<any>[] = useMemo(
+    () => (children ? (React.Children.toArray(children) as ReactElement<any>[]) : []),
     [children]
   );
   validateTitleProp(title, childrenArray);
@@ -137,7 +137,7 @@ const Modal = ({
     const { id } = attr.title;
     const header = childrenArray.find(isModalHeader);
     if (header) {
-      return cloneElement(header, { id, closeModal: onClose });
+      return cloneElement(header, { id, closeModal: onClose } as any);
     }
     return (
       <ModalHeader

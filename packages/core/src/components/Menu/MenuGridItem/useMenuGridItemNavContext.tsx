@@ -29,7 +29,7 @@ export const useMenuGridItemNavContext = ({
   const innerKeyboardContext = useGridKeyboardNavigationContext([], wrapperRef);
   const keyboardContext = useMemo(
     () => ({
-      onOutboundNavigation: (elementRef: React.RefObject<HTMLElement>, direction: NavDirections) => {
+      onOutboundNavigation: (elementRef: React.RefObject<HTMLElement | null>, direction: NavDirections) => {
         innerKeyboardContext.onOutboundNavigation(elementRef, direction);
 
         switch (direction) {

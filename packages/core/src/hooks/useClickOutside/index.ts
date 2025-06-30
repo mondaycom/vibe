@@ -9,7 +9,7 @@ export default function useClickOutside({
   ignoreClasses,
   eventName = "click"
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   callback: GenericEventCallback;
   ignoreClasses?: string[];
   eventName?: keyof HTMLElementEventMap | string;

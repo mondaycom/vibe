@@ -1,6 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { forwardRef, useMemo, useRef } from "react";
+import React, { forwardRef, useMemo, useRef, type JSX } from "react";
 import Tooltip, { TooltipProps } from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";

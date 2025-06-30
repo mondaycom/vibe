@@ -61,11 +61,11 @@ export interface TableProps extends VibeComponentProps {
   /**
    * React element displayed when there is an error state.
    */
-  errorState: ReactElement;
+  errorState: ReactElement<any>;
   /**
    * React element displayed when there is no data.
    */
-  emptyState: ReactElement;
+  emptyState: ReactElement<any>;
   /**
    * Custom styles for the table.
    */
@@ -108,7 +108,7 @@ const Table = forwardRef(
     const mergedRef = useMergeRef(ref, tableRootRef);
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [hoveredRowRef, setHoveredRowRef] = useState<React.RefObject<HTMLDivElement>>(null);
+    const [hoveredRowRef, setHoveredRowRef] = useState<React.RefObject<HTMLDivElement | null>>(null);
 
     const resetHoveredRow = useCallback(() => {
       setIsMenuOpen(false);
@@ -168,7 +168,7 @@ const Table = forwardRef(
         hoveredRowRef,
         isMenuOpen,
         resetHoveredRow,
-        setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => setHoveredRowRef(rowRef),
+        setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement | null>) => setHoveredRowRef(rowRef),
         setIsMenuOpen: (isOpen: boolean) => setIsMenuOpen(isOpen)
       }),
       [hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef]

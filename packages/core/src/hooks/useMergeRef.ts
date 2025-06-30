@@ -13,7 +13,7 @@ import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
  * Returns a single ref callback that merges multiple ref callbacks - internal replacement for `useMergeRefs` hook
  * @param refs
  */
-function useMergeRef<T>(...refs: (RefObject<T> | ForwardedRef<T> | null)[]): RefObject<T> {
+function useMergeRef<T>(...refs: (RefObject<T | null> | ForwardedRef<T> | null)[]): RefObject<T | null> {
   const mergedRef = useRef<T>(null);
 
   useIsomorphicLayoutEffect(() => {

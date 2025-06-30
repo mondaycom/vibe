@@ -57,7 +57,7 @@ export interface TipseenProps extends VibeComponentProps {
   /**
    * The child element that triggers the Tipseen.
    */
-  children?: ReactElement;
+  children?: ReactElement<any>;
   /**
    * The CSS selector of the container where the Tipseen should be rendered.
    */

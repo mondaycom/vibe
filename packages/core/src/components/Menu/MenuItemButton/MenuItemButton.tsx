@@ -69,7 +69,7 @@ export interface MenuItemButtonProps extends VibeComponentProps {
   /**
    * Reference to the menu container.
    */
-  menuRef?: React.RefObject<HTMLElement>;
+  menuRef?: React.RefObject<HTMLElement | null>;
   /**
    * Function to close the menu.
    */

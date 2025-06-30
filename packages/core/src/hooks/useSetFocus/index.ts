@@ -8,7 +8,7 @@ export default function useSetFocus({
   focusCallback,
   blurCallback
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   focusCallback?: () => void;
   blurCallback?: () => void;
 }) {

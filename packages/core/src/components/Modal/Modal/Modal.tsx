@@ -143,11 +143,13 @@ const Modal = forwardRef(
                       animate="enter"
                       exit="exit"
                       data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                      // @ts-ignore - React 19 compatibility issue with framer motion types
                       className={styles.overlay}
                       onClick={onBackdropClick}
                       aria-hidden
                     />
                     <RemoveScroll forwardProps ref={modalMergedRef}>
+                      {/* @ts-ignore - React 19 compatibility issue with framer motion types */}
                       <motion.div
                         variants={modalAnimationVariants}
                         initial="exit"

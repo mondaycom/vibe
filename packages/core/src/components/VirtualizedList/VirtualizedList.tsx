@@ -3,13 +3,14 @@ import React, {
   CSSProperties,
   ForwardedRef,
   forwardRef,
-  LegacyRef,
+  Ref,
   ReactElement,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-  useState
+  useState,
+  type JSX
 } from "react";
 import { noop as NOOP } from "lodash-es";
 import {
@@ -52,7 +53,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   /**
    * Function to render each item in the list.
    */
-  itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement | JSX.Element;
+  itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement<any> | JSX.Element;
   /**
    * @deprecated - use `getItemSize`.
    */
@@ -147,7 +148,7 @@ const VirtualizedList = forwardRef(
       className,
       id,
       items = [],
-      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item as ReactElement,
+      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item as ReactElement<any>,
       getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
       getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
@@ -405,7 +406,7 @@ const VirtualizedList = forwardRef(
             updateListSize(width, height);
             return (
               <List
-                ref={mergedListRef as unknown as LegacyRef<VariableSizeList<unknown>>}
+                ref={mergedListRef as unknown as Ref<VariableSizeList<unknown>>}
                 height={height}
                 width={width}
                 itemCount={items.length}

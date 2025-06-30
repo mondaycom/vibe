@@ -22,10 +22,10 @@ export function useTooltipContentTabNavigation({
   isKeyboardTooltipVisible,
   setIsKeyboardTooltipVisible
 }: {
-  counterContainerRef: RefObject<HTMLDivElement>;
-  tooltipContentContainerRef: RefObject<HTMLElement>;
-  focusPrevPlaceholderRef: RefObject<HTMLDivElement>;
-  focusNextPlaceholderRef: RefObject<HTMLDivElement>;
+  counterContainerRef: RefObject<HTMLDivElement | null>;
+  tooltipContentContainerRef: RefObject<HTMLElement | null>;
+  focusPrevPlaceholderRef: RefObject<HTMLDivElement | null>;
+  focusNextPlaceholderRef: RefObject<HTMLDivElement | null>;
   isKeyboardTooltipVisible: boolean;
   setIsKeyboardTooltipVisible: (value: boolean) => void;
 }) {

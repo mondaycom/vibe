@@ -2,7 +2,7 @@ import { useCallback, useState, RefObject } from "react";
 import useEventListener from "./useEventListener";
 
 // TODO can be replaced with useIsMouseOver
-export default function useIsMouseEnter({ ref }: { ref: RefObject<HTMLElement> }) {
+export default function useIsMouseEnter({ ref }: { ref: RefObject<HTMLElement | null> }) {
   const [isHovered, setIsHover] = useState<boolean>(false);
 
   const setHovered = useCallback(

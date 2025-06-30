@@ -12,7 +12,7 @@ export interface MenuGridItemProps extends VibeComponentProps {
   /**
    * The content of the menu grid item.
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
   /**
    * If true, keyboard navigation will skip this item. This prop is also passed to the child.
    */
@@ -77,7 +77,7 @@ const MenuGridItem = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
-    const childRef = useRef();
+    const childRef = useRef(undefined);
 
     const child = children && React.Children.only(children);
     if (!child) {
@@ -128,7 +128,7 @@ const MenuGridItem = forwardRef(
       >
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           {React.cloneElement(child, {
-            ...child?.props,
+            ...(child.props as any),
             disabled,
             ref: childRef
           })}

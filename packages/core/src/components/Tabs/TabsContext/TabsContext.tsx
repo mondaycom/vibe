@@ -12,10 +12,10 @@ export interface TabsContextProps extends VibeComponentProps {
   /**
    * The child elements representing the tab list and tab panels.
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
 }
 
-type TabsChild = ReactElement & {
+type TabsChild = ReactElement<any> & {
   type: Record<string, unknown>;
 };
 
@@ -53,16 +53,16 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
       >
         {React.Children.map(children, (child: TabsChild) => {
           if (child.type.isTabList) {
-            const originalOnTabChange = child.props.onTabChange;
+            const originalOnTabChange = (child.props as any).onTabChange;
             const onTabChange = (tabId: number) => {
               onTabClick(tabId);
               originalOnTabChange?.(tabId);
             };
-            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange });
+            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange } as any);
           }
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
-            return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection });
+            return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection } as any);
           }
           return child;
         })}

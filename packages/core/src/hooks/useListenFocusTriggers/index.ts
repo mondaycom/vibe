@@ -6,7 +6,7 @@ export default function useListenFocusTriggers({
   onFocusByKeyboard,
   onFocusByMouse
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   onFocusByKeyboard?: (event: FocusEvent) => void;
   onFocusByMouse?: (event: FocusEvent) => void;
 }) {

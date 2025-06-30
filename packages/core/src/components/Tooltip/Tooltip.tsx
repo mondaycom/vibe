@@ -28,7 +28,7 @@ interface TooltipWithoutChildrenProps {
   /**
    * The children elements that the tooltip is attached to.
    */
-  children?: ReactElement | Array<ReactElement>;
+  children?: ReactElement<any> | Array<ReactElement<any>>;
 }
 
 interface TooltipWithChildrenProps {
@@ -39,7 +39,7 @@ interface TooltipWithChildrenProps {
   /**
    * The children elements that the tooltip is attached to.
    */
-  children: ReactElement | Array<ReactElement>;
+  children: ReactElement<any> | Array<ReactElement<any>>;
 }
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS

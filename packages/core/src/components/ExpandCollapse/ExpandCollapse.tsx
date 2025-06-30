@@ -13,7 +13,7 @@ export interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * Custom renderer for the header component.
    */
-  headerComponentRenderer?: () => ReactElement;
+  headerComponentRenderer?: () => ReactElement<any>;
   /**
    * Class name applied to the header.
    */

@@ -15,7 +15,7 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
   /**
    * The counter element and focus placeholders.
    */
-  children?: ReactElement[];
+  children?: ReactElement<any>[];
   /**
    * The list of avatars displayed inside the tooltip.
    */
@@ -31,15 +31,15 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
   /**
    * Ref for the element before the tooltip content, used for keyboard navigation.
    */
-  focusPrevPlaceholderRef?: RefObject<HTMLDivElement>;
+  focusPrevPlaceholderRef?: RefObject<HTMLDivElement | null>;
   /**
    * Ref for the element after the tooltip content, used for keyboard navigation.
    */
-  focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
+  focusNextPlaceholderRef?: RefObject<HTMLDivElement | null>;
   /**
    * Ref for the counter container element.
    */
-  counterContainerRef?: RefObject<HTMLDivElement>;
+  counterContainerRef?: RefObject<HTMLDivElement | null>;
 }
 
 const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({

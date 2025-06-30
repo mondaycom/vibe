@@ -98,7 +98,7 @@ const TabList: FC<TabListProps> = forwardRef(
 
     const getItemByIndex = useCallback((index: number): ReactElement<TabProps> => children[index], [children]);
     const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
-    const ulRef = useRef();
+    const ulRef = useRef(undefined);
     const { activeIndex: focusIndex, onSelectionAction } = useGridKeyboardNavigation({
       ref: ulRef,
       numberOfItemsInLine: children?.length,

@@ -8,8 +8,8 @@ export const useFocusGridItemByActiveStatus = ({
   activeItemIndex,
   useDocumentEventListeners = false
 }: {
-  wrapperRef: React.RefObject<HTMLElement>;
-  childRef: React.RefObject<HTMLElement>;
+  wrapperRef: React.RefObject<HTMLElement | null>;
+  childRef: React.RefObject<HTMLElement | null>;
   index: number;
   activeItemIndex: number;
   useDocumentEventListeners?: boolean;

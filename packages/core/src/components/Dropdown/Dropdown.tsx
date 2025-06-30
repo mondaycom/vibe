@@ -120,7 +120,7 @@ const Dropdown = forwardRef(
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const controlRef = useRef();
+    const controlRef = useRef<HTMLElement | null>(null);
     const { layerRef } = useContext(LayerContext);
     const overrideMenuPortalTarget =
       (insideLayerContext && layerRef?.current) ||
@@ -387,9 +387,8 @@ const Dropdown = forwardRef(
       }
     };
 
-    let DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
+    let DropDownComponent: any = asyncOptions ? AsyncSelect : Select;
 
-    // @ts-expect-error - We need to check if the default export is available
     DropDownComponent = DropDownComponent.default || DropDownComponent;
 
     const asyncAdditions = {

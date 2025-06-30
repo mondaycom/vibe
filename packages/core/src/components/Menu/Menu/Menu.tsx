@@ -131,7 +131,7 @@ const Menu = forwardRef(
 
         const activeChild = children[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
-          ? activeChild?.props?.id || `${overrideId}-item-${index}`
+          ? (activeChild?.props as any)?.id || `${overrideId}-item-${index}`
           : undefined;
         if (ariaActiveDescendant) {
           ref?.current?.setAttribute("aria-activedescendant", ariaActiveDescendant);
@@ -164,7 +164,7 @@ const Menu = forwardRef(
     useCloseMenuOnKeyEvent({ hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners });
 
     const { getNextSelectableIndex, getPreviousSelectableIndex } = useAdjacentSelectableMenuIndex({
-      children: children as ReactElement[]
+      children: children as ReactElement<any>[]
     });
     useMenuKeyboardNavigation({
       hasOpenSubMenu,
@@ -184,7 +184,7 @@ const Menu = forwardRef(
     });
     useFocusOnMount({
       focusItemIndexOnMount,
-      focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
+      focusChildOnMount: children[focusItemIndexOnMount] as ReactElement<any>,
       getNextSelectableIndex,
       updateActiveItemIndex,
       setIsInitialFocusSet: setIsInitialSelectedState
@@ -234,7 +234,7 @@ const Menu = forwardRef(
           React.Children.map(children, (child, index) => {
             return React.isValidElement(child)
               ? React.cloneElement(child, {
-                  ...child?.props,
+                  ...(child?.props as any),
                   activeItemIndex,
                   index,
                   setActiveItemIndex: updateActiveItemIndex,

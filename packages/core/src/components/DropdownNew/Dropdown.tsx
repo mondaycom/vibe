@@ -31,4 +31,4 @@ const Dropdown = forwardRef(
 
 export default Dropdown as <Item extends BaseListItemData<Record<string, unknown>>>(
   props: BaseDropdownProps<Item> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => React.ReactElement;
+) => React.ReactElement<any>;

@@ -65,7 +65,7 @@ export interface ModalProps extends VibeComponentProps {
   /**
    * Reference to an element that triggered the modal, used for animations.
    */
-  anchorElementRef?: React.RefObject<HTMLElement>;
+  anchorElementRef?: React.RefObject<HTMLElement | null>;
   /**
    * When true, prevents closing the modal when clicking the overlay ("click-outside") or pressing ESC.
    */

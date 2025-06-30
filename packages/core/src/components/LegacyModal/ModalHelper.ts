@@ -15,11 +15,11 @@ export enum ModalWidth {
 // the type A11yDialog is not exported from a11y-dialog, so mocking it with any for now
 export type A11yDialogType = any;
 
-export const isModalHeader = (child: ReactElement) => child.type === ModalHeader;
-export const isModalContent = (child: ReactElement) => child.type === ModalContent;
-export const isModalFooter = (child: ReactElement) =>
+export const isModalHeader = (child: ReactElement<any>) => child.type === ModalHeader;
+export const isModalContent = (child: ReactElement<any>) => child.type === ModalContent;
+export const isModalFooter = (child: ReactElement<any>) =>
   [ModalFooter, ModalFooterButtons].some(component => child.type === component);
-export const validateTitleProp = (title: string, childrenArray: ReactElement[]) => {
+export const validateTitleProp = (title: string, childrenArray: ReactElement<any>[]) => {
   const hasHeaderComponent = childrenArray.some(isModalHeader);
   if (hasHeaderComponent) return;
 

@@ -23,7 +23,7 @@ interface DummyNavigableGridProps {
 export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwardRef(
   (
     { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = false, disabledIndexes = [], withoutBorder = false },
-    ref: RefObject<HTMLDivElement>
+    ref: RefObject<HTMLDivElement | null>
   ) => {
     const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
     const items = useMemo(() => range(itemsCount).map(num => `${itemPrefix} ${num}`), [itemPrefix, itemsCount]);
@@ -67,7 +67,7 @@ interface LayoutWithInnerKeyboardNavigationProps {
 }
 
 export const LayoutWithInnerKeyboardNavigation = forwardRef<HTMLDivElement, LayoutWithInnerKeyboardNavigationProps>(
-  ({ id, itemPrefix }, ref: RefObject<HTMLDivElement>) => {
+  ({ id, itemPrefix }, ref: RefObject<HTMLDivElement | null>) => {
     const leftElRef = useRef(null);
     const rightElRef = useRef(null);
     const bottomElRef = useRef(null);

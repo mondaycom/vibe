@@ -28,13 +28,13 @@ import withGlobalStyle from "../src/storybook/decorators/withGlobalStyle/withGlo
 import { PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
-import { generateAutocompletion } from "storybook-addon-playground";
-import {
-  playgroundVibeComponents,
-  playgroundReactCommonHooks,
-  introCode
-} from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
-import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
+// import { generateAutocompletion } from "storybook-addon-playground"; // Temporarily disabled for React 19
+// import {
+//   playgroundVibeComponents,
+//   playgroundReactCommonHooks,
+//   introCode
+// } from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
+// import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 import modes from "./modes";
 import Footer from "../src/storybook/components/footer/Footer";
@@ -106,7 +106,7 @@ const preview: Preview = {
           "Welcome",
           "Getting Started",
           "Catalog",
-          "Playground",
+          // "Playground",
           "Changelog",
           "Migration Guide",
           "Contributing",
@@ -120,16 +120,16 @@ const preview: Preview = {
           "Hooks"
         ]
       }
-    },
-    playground: {
-      storyId: "playground",
-      components: {
-        ...playgroundVibeComponents,
-        ...playgroundReactCommonHooks
-      },
-      introCode,
-      autocompletions: generateAutocompletion(reactDocgenOutput)
     }
+    // playground: {
+    //   storyId: "playground",
+    //   components: {
+    //     ...playgroundVibeComponents,
+    //     ...playgroundReactCommonHooks
+    //   },
+    //   introCode,
+    //   autocompletions: generateAutocompletion(reactDocgenOutput)
+    // }
   },
   decorators: [
     withLiveEdit,

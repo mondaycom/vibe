@@ -143,14 +143,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ariaExpanded,
       ariaControls,
       "aria-describedby": ariaDescribedBy,
-      "aria-hidden": ariaHidden,
+      "aria-hidden": ariaHidden = false,
       "aria-pressed": ariaPressed,
       blurOnMouseUp,
       "data-testid": dataTestId,
       insetFocus,
       tabIndex
     }: ButtonProps,
-    ref
+    ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, buttonRef);
@@ -389,42 +389,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-
-Button.defaultProps = {
-  name: undefined,
-  style: undefined,
-  kind: "primary",
-  onClick: NOOP,
-  size: "medium",
-  color: "primary",
-  disabled: false,
-  rightIcon: null,
-  leftIcon: null,
-  success: false,
-  successText: "",
-  successIcon: null,
-  loading: false,
-  loaderClassName: undefined,
-  active: false,
-  marginRight: false,
-  marginLeft: false,
-  type: "button",
-  onMouseDown: NOOP,
-  rightFlat: false,
-  leftFlat: false,
-  preventClickAnimation: false,
-  noSidePadding: false,
-  onFocus: NOOP,
-  onBlur: NOOP,
-  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
-  ariaHasPopup: undefined,
-  blurOnMouseUp: true,
-  ariaExpanded: undefined,
-  ariaControls: undefined,
-  ariaLabel: undefined,
-  ariaLabeledBy: undefined,
-  insetFocus: false
-};
 
 interface ButtonStaticProps {
   sizes: typeof SIZES;

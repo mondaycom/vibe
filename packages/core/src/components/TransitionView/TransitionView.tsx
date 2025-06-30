@@ -19,7 +19,7 @@ const TransitionView = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TRANSITION_VIEW, id)}
         ref={ref}
       >
-        <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
+        <AnimatePresence initial={false} custom={direction} mode="wait">
           <SlideTransition key={activeStep} direction={direction}>
             {children[activeStep]}
           </SlideTransition>

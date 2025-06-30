@@ -53,7 +53,7 @@ export interface UseKeyEventArgs {
   /**
    * The element reference to listen for key events on.
    */
-  ref?: RefObject<HTMLElement | Document>;
+  ref?: RefObject<HTMLElement | Document | null>;
   /**
    * If true, prevents fallback to listening on the document when no ref is provided.
    */

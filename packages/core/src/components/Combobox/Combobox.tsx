@@ -1,6 +1,6 @@
 import { camelCase } from "lodash-es";
 import cx from "classnames";
-import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
+import React, { useRef, useState, forwardRef, useMemo, useCallback, type JSX } from "react";
 import { isFunction, noop as NOOP } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -172,7 +172,7 @@ export interface ComboboxProps extends VibeComponentProps {
   /**
    * Ref for the search input element.
    */
-  searchInputRef?: React.RefObject<HTMLInputElement>;
+  searchInputRef?: React.RefObject<HTMLInputElement | null>;
   /**
    * Additional action button inside the search input.
    */

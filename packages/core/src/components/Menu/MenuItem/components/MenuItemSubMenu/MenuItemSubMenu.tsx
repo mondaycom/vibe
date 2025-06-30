@@ -57,7 +57,7 @@ const MenuItemSubMenu = ({
       {subMenu && open && (
         <DialogContentContainer>
           {React.cloneElement(subMenu, {
-            ...subMenu?.props,
+            ...(subMenu?.props as any),
             isVisible: open,
             isSubMenu: true,
             onClose,

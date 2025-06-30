@@ -25,7 +25,7 @@ export default function useMenuKeyboardNavigation({
   activeItemIndex: number;
   setActiveItemIndex: (index: number) => void;
   isVisible: boolean;
-  ref: React.RefObject<HTMLElement>;
+  ref: React.RefObject<HTMLElement | null>;
   useDocumentEventListeners: boolean;
 }) {
   const onArrowKeyEvent = useCallback(

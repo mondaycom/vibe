@@ -21,7 +21,7 @@ export interface AccordionProps extends VibeComponentProps {
   /**
    * The content of the accordion (`AccordionItem` components).
    */
-  children?: Array<ReactElement> | ReactElement;
+  children?: Array<ReactElement<any>> | ReactElement<any>;
   /**
    * If true, multiple accordion items can be expanded at the same time.
    */
@@ -84,7 +84,7 @@ const Accordion = forwardRef(
     );
 
     const renderChildElements = useMemo(() => {
-      return React.Children.map(children, (child: ReactElement, itemIndex) => {
+      return React.Children.map(children, (child: ReactElement<any>, itemIndex) => {
         const originalProps = { ...child?.props };
         const childId = defineChildId(itemIndex, originalProps, id);
         return React.cloneElement(child, {

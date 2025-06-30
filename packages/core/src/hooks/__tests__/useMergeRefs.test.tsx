@@ -68,7 +68,7 @@ describe("useMergeRefs", () => {
       outerRefCallbackStub = vi.fn();
 
       Component = forwardRef((props, ref) => {
-        internalRef = useRef();
+        internalRef = useRef(undefined);
 
         const mergedRef = useMergeRefs({ refs: [ref, internalRef] });
 

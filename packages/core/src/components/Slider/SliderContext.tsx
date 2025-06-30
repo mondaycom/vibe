@@ -14,7 +14,7 @@ export interface SliderProviderProps extends SliderProps {
   /**
    * The child elements inside the slider provider.
    */
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement<any> | ReactElement<any>[];
   /**
    * Configuration options for prefix, postfix, and selection indicator.
    */
@@ -29,11 +29,11 @@ export interface SliderProviderProps extends SliderProps {
      * - An object with an icon.
      * - A function that receives the value and valueText.
      */
-    prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
+    prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement<any>;
     /**
      * Configuration for the postfix (end) element, similar to prefix.
      */
-    postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
+    postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement<any>;
     /**
      * The width of the selection indicator.
      */

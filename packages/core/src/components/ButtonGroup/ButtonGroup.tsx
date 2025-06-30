@@ -119,7 +119,7 @@ const ButtonGroup = forwardRef(
     }: ButtonGroupProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const inputRef = useRef();
+    const inputRef = useRef(undefined);
     const mergedRef = useMergeRef(ref, inputRef);
 
     const [valueState, setValueState] = useState(value);

@@ -1,7 +1,7 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";

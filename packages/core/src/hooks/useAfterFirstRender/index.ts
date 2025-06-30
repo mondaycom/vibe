@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef } from "react";
 
-export default function useAfterFirstRender(): RefObject<boolean> {
+export default function useAfterFirstRender(): RefObject<boolean | null> {
   const isAfterFirstRender = useRef(false);
 
   useEffect(() => {

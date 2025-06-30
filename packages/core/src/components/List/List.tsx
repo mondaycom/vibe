@@ -144,7 +144,7 @@ const List = forwardRef(
     }, [updateFocusedItem]);
 
     const overrideChildren = useMemo(() => {
-      let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
+      let override: ReactElement<any> | ReactElement<any>[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {

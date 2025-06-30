@@ -19,7 +19,7 @@ export default function useIsOverflowing({
   /**
    * The ref of the element to check for overflow.
    */
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   /**
    * Whether to ignore height overflow.
    */

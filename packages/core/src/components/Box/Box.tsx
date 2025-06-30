@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, type JSX } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";

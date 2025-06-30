@@ -4,7 +4,7 @@ import { isMenuChildSelectable } from "../utils/utils";
 
 export interface UseFocusOnMountProps {
   focusItemIndexOnMount: number;
-  focusChildOnMount: ReactElement;
+  focusChildOnMount: ReactElement<any>;
   getNextSelectableIndex: (index: number) => number | null;
   updateActiveItemIndex: (index: number) => void;
   setIsInitialFocusSet: (state: boolean) => void;

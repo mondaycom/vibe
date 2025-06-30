@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { RefObject, useCallback, useEffect, useMemo, useRef, type JSX } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
@@ -39,7 +39,7 @@ export interface ComboboxOptionProps extends IComboboxOptionEvents {
   /**
    * A reference to the scroll container.
    */
-  scrollRef?: RefObject<HTMLElement>;
+  scrollRef?: RefObject<HTMLElement | null>;
   /**
    * The amount of offset when scrolling to the active item.
    */
@@ -89,7 +89,7 @@ const ComboboxOption = ({
   let { tooltipContent } = option;
 
   const ref = useRef(null);
-  const labelRef = useRef();
+  const labelRef = useRef(undefined);
 
   const isOptionOverflowing = useIsOverflowing({ ref: labelRef });
 

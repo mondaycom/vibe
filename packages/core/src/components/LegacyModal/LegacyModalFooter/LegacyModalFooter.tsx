@@ -4,7 +4,7 @@ import VibeComponentProps from "../../../types/VibeComponentProps";
 import styles from "./LegacyModalFooter.module.scss";
 
 export interface LegacyModalFooterProps extends VibeComponentProps {
-  children: ReactElement | ReactElement[] | string;
+  children: ReactElement<any> | ReactElement<any>[] | string;
 }
 
 const LegacyModalFooter: FC<LegacyModalFooterProps> = ({ className, children }) => {

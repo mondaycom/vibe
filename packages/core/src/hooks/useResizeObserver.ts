@@ -8,7 +8,7 @@ export default function useResizeObserver({
   callback,
   debounceTime = 200
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   callback: ResizeCallback;
   debounceTime?: number;
 }) {

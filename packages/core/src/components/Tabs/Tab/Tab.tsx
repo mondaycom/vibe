@@ -61,7 +61,7 @@ export interface TabProps extends VibeComponentProps {
   /**
    * The content displayed inside the tab.
    */
-  children?: string | ReactElement | ReactElement[];
+  children?: string | ReactElement<any> | ReactElement<any>[];
 }
 
 const Tab: FC<TabProps> = forwardRef(

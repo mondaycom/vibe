@@ -1,5 +1,5 @@
 import { SubIcon } from "../../../types";
-import React from "react";
+import React, { type JSX } from "react";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";

@@ -12,7 +12,7 @@ function useElementsOverflowingIndex({
   resizeDebounceTime,
   ignoreLast
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   children: ReactNode;
   paddingSize: number;
   resizeDebounceTime: number;
