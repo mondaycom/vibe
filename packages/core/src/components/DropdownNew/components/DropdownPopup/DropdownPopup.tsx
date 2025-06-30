@@ -20,6 +20,7 @@ const DropdownPopup = () => {
       hideTrigger={[]}
       modifiers={matchWidthModifier}
       content={<Menu />}
+      referenceWrapperElement="div"
     >
       {multi ? <MultiSelectTrigger /> : <SingleSelectTrigger />}
     </Dialog>
