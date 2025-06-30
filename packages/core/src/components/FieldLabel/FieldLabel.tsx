@@ -33,6 +33,10 @@ export interface FieldLabelProps extends VibeComponentProps {
    * The HTML for attribute of the associated input element.
    */
   htmlFor?: string;
+  /**
+   * The direction of the label.
+   */
+  dir?: "ltr" | "rtl" | "auto";
 }
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
@@ -45,7 +49,8 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
       labelClassName = "",
       required = false,
       id = "",
-      htmlFor = ""
+      htmlFor = "",
+      dir = "auto"
     },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
@@ -54,7 +59,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
     }
 
     return (
-      <section className={cx(styles.labelComponentWrapper)}>
+      <section className={cx(styles.labelComponentWrapper)} dir={dir}>
         <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} iconType="font" />
         <label
           id={id}
