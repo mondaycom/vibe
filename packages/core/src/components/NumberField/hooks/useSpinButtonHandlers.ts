@@ -5,7 +5,9 @@ import { calculateSteppedValue } from "../utils/calc-value";
 export type UseSpinButtonHandlersProps = Pick<
   NumberFieldProps,
   "onChange" | "value" | "step" | "min" | "max" | "allowOutOfBounds" | "readOnly"
->;
+> & {
+  inputRef: React.RefObject<HTMLInputElement>;
+};
 
 const useSpinButtonHandlers = ({
   onChange,
@@ -14,15 +16,17 @@ const useSpinButtonHandlers = ({
   min,
   max,
   allowOutOfBounds,
-  readOnly
+  readOnly,
+  inputRef
 }: UseSpinButtonHandlersProps) => {
   const handleStep = useCallback(
     (direction: number, event: React.MouseEvent | React.KeyboardEvent) => {
       if (readOnly) return;
       const newValue = calculateSteppedValue({ value, direction, step, min, max, allowOutOfBounds });
       onChange(newValue, event);
+      inputRef.current?.focus();
     },
-    [value, step, min, max, onChange, allowOutOfBounds, readOnly]
+    [value, step, min, max, onChange, allowOutOfBounds, readOnly, inputRef]
   );
 
   const onIncrement = useCallback(

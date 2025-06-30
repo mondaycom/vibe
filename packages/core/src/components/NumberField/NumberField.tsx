@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import { NumberFieldProps } from "./NumberField.types";
 import useNumberFieldState from "./hooks/useNumberFieldState";
@@ -10,6 +10,7 @@ import Icon from "../Icon/Icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
 import Flex from "../Flex/Flex";
+import useMergeRef from "../../hooks/useMergeRef";
 
 const NumberField = forwardRef(
   (
@@ -37,8 +38,11 @@ const NumberField = forwardRef(
       onValidityChange,
       ...inputProps
     }: NumberFieldProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const mergedRef = useMergeRef<HTMLInputElement>(ref, inputRef);
+
     const {
       inputValue,
       numericValue,
@@ -65,7 +69,8 @@ const NumberField = forwardRef(
       min,
       max,
       allowOutOfBounds,
-      readOnly
+      readOnly,
+      inputRef
     });
 
     const renderedLeftIcon = useMemo(() => {
@@ -94,7 +99,7 @@ const NumberField = forwardRef(
           {...inputProps}
           className={styles.input}
           data-testid={dataTestId}
-          ref={ref}
+          ref={mergedRef}
           id={id}
           value={inputValue}
           onChange={handleChange}

@@ -1,6 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { vi, describe, it, expect } from "vitest";
 import useSpinButtonHandlers, { UseSpinButtonHandlersProps } from "../useSpinButtonHandlers";
+import { createRef } from "react";
 
 describe("useSpinButtonHandlers", () => {
   const setup = (props: Partial<UseSpinButtonHandlersProps>) => {
@@ -8,6 +9,7 @@ describe("useSpinButtonHandlers", () => {
     const defaultProps: UseSpinButtonHandlersProps = {
       value: 0,
       step: 1,
+      inputRef: createRef<HTMLInputElement>(),
       ...props,
       onChange
     };
