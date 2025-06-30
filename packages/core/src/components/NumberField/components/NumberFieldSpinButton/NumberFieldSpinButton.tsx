@@ -1,8 +1,11 @@
 import React from "react";
+import cx from "classnames";
 import { NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
 import IconButton from "../../../IconButton/IconButton";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import Flex from "../../../Flex/Flex";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import styles from "./NumberFieldSpinButton.module.scss";
 
 const NumberFieldSpinButton = ({
   inputId,
@@ -13,7 +16,8 @@ const NumberFieldSpinButton = ({
   isAtMin,
   isAtMax
 }: NumberFieldSpinButtonProps) => {
-  const iconButtonSize = size === "small" ? IconButton.sizes.XXXS : IconButton.sizes.XXS;
+  const iconButtonClassName = cx(styles.spinButton, getStyle(styles, size));
+  const iconClassName = styles.icon;
 
   const handleMouseDown = (event: React.MouseEvent) => {
     // to prevent `IconButton`s from stealing focus
@@ -29,7 +33,9 @@ const NumberFieldSpinButton = ({
         tabIndex={-1}
         onClick={onIncrement}
         disabled={disabled || isAtMax}
-        size={iconButtonSize}
+        size={null}
+        className={iconButtonClassName}
+        iconClassName={iconClassName}
         icon={DropdownChevronUp}
       />
       <IconButton
@@ -39,7 +45,9 @@ const NumberFieldSpinButton = ({
         tabIndex={-1}
         onClick={onDecrement}
         disabled={disabled || isAtMin}
-        size={iconButtonSize}
+        size={null}
+        className={iconButtonClassName}
+        iconClassName={iconClassName}
         icon={DropdownChevronDown}
       />
     </Flex>
