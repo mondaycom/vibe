@@ -44,24 +44,23 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
       id={id}
       aria-label={ariaLabel}
       data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-      dir={dir}
     >
       {children}
     </div>
   );
 
   return (
-    <>
-      {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} dir={dir} />}
+    <div dir={dir} className={styles.outerWrapper}>
+      {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
       <Tooltip {...tooltipProps} content={tooltipProps?.content}>
         {coreDropdownElement}
       </Tooltip>
       {helperText && (
-        <Text color={error ? "negative" : "secondary"} className={styles.helperText} dir={dir}>
+        <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
           {helperText}
         </Text>
       )}
-    </>
+    </div>
   );
 };
 
