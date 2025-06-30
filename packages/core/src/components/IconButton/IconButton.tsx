@@ -5,7 +5,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import { AddSmall } from "@vibe/icons";
-import { getWidthHeight, Size, ICON_BUTTON_SIZES, XXXS_BUTTON_ICON_SIZE } from "./services/IconButton-helpers";
+import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
@@ -163,8 +163,6 @@ const IconButton = forwardRef(
 
     const iconSize = useMemo(() => {
       switch (size) {
-        case "xxxs":
-          return XXXS_BUTTON_ICON_SIZE;
         case "xxs":
         case "xs":
           return SMALL_BUTTON_ICON_SIZE;
@@ -244,13 +242,13 @@ const IconButton = forwardRef(
 );
 
 interface IconButtonStaticProps {
-  sizes: typeof ICON_BUTTON_SIZES;
+  sizes: typeof Button.sizes;
   kinds: typeof Button.kinds;
   colors: typeof Button.colors;
 }
 
 export default withStaticProps<IconButtonProps, IconButtonStaticProps>(IconButton, {
-  sizes: ICON_BUTTON_SIZES,
+  sizes: Button.sizes,
   kinds: Button.kinds,
   colors: Button.colors
 });
