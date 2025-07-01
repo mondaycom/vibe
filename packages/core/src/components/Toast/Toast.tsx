@@ -1,7 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { ReactElement, useCallback, useEffect, useMemo, useRef, type JSX } from "react";
 import { CSSTransition } from "react-transition-group";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
@@ -65,7 +65,7 @@ export interface ToastProps extends VibeComponentProps {
   /**
    * The content displayed inside the toast.
    */
-  children?: ReactElement | ReactElement[] | string;
+  children?: ReactElement<any> | ReactElement<any>[] | string;
   /**
    * The aria-label for the close button.
    */
@@ -90,6 +90,7 @@ const Toast = ({
   "data-testid": dataTestId
 }: ToastProps) => {
   const ref = useRef(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
   const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
@@ -133,7 +134,7 @@ const Toast = ({
   }, [onClose]);
 
   /* Timer */
-  const timerAutoHide = useRef<NodeJS.Timeout>();
+  const timerAutoHide = useRef<NodeJS.Timeout>(undefined);
   const setAutoHideTimer = useCallback(
     (duration: number) => {
       if (!onClose || duration == null) {
@@ -179,11 +180,13 @@ const Toast = ({
   return (
     <CSSTransition
       in={open}
+      nodeRef={nodeRef}
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
       timeout={400}
       unmountOnExit
     >
       <Text
+        ref={nodeRef}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type="text2"
@@ -192,7 +195,6 @@ const Toast = ({
         className={classNames}
         role="alert"
         aria-live="polite"
-        ref={ref}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align="center" gap="large" className={styles.content}>
