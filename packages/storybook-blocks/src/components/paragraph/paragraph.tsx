@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import cx from 'classnames';
 import { ElementContent } from '../../types';
-import './paragraph.module.scss';
+import styles from './paragraph.module.scss';
 
 type ParagraphProps = {
   children: ElementContent;
@@ -9,7 +9,7 @@ type ParagraphProps = {
 };
 
 const Paragraph: FC<ParagraphProps> = ({ children, className }) => (
-  <p className={cx('vibe-sb-comps-paragraph', className)}>{children}</p>
+  <p className={cx(styles.paragraph, className)}>{children}</p>
 );
 
 export default Paragraph;

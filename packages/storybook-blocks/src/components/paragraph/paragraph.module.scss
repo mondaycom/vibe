@@ -1,5 +1,6 @@
-@import "../../styles/mixins/typography";
+@import '../../styles/mixins/typography';
 
 .paragraph {
   @include sb-content-text;
+  // line-height: 1.5;
 }

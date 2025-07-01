@@ -7,10 +7,6 @@ type ComponentNameProps = {
   className: string;
 };
 
-/**
- * ComponentName is a component that displays the name of the component.
- * Use className prop to give it some kind of background - image or color.
- */
 const ComponentName: FC<ComponentNameProps> = ({ children, className }) => (
   <h1 className={cx(styles.componentName, className)}>{children}</h1>
 );
