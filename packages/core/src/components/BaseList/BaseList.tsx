@@ -67,6 +67,7 @@ const BaseList = forwardRef(
                   selected={isSelected}
                   itemRenderer={itemRenderer}
                   item={option}
+                  role="option"
                 />
               );
             })}

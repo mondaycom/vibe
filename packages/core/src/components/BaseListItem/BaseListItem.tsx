@@ -18,7 +18,7 @@ const BaseListItem = forwardRef(
       selected = false,
       readOnly = false,
       highlighted = false,
-      role = "option",
+      role,
       index: _index,
       dir = "auto",
       itemRenderer,
