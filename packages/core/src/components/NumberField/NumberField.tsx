@@ -97,7 +97,6 @@ const NumberField = forwardRef(
         {label && <FieldLabel className={styles.label} labelText={label} required={required} labelFor={id} />}
         <BaseInput
           {...inputProps}
-          className={styles.input}
           data-testid={dataTestId}
           ref={mergedRef}
           id={id}
