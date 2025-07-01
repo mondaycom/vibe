@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.0...@vibe/testkit@1.11.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* getText function in testkit ([#2959](https://github.com/mondaycom/vibe/issues/2959)) ([57b9437](https://github.com/mondaycom/vibe/commit/57b9437836594e0b485931164f94448e1c813e78))
+
+
+
+
+
 # [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.10.0...@vibe/testkit@1.11.0) (2025-06-19)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.53.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.2...@vibe/core@3.53.0) (2025-07-01)
+
+
+### Features
+
+* **Dialog, Refable:** add support for customizable wrapper element type in Dialog and Refable components ([#2961](https://github.com/mondaycom/vibe/issues/2961)) ([b4d7729](https://github.com/mondaycom/vibe/commit/b4d7729c8bf482b93fdc6af5d6c41099605bd21a))
+* **FieldLabel:** add htmlFor prop and id support for improved accessibility ([#2958](https://github.com/mondaycom/vibe/issues/2958)) ([7d18194](https://github.com/mondaycom/vibe/commit/7d181949c72fe6293fa155dd0600720afb01b68d))
+
+
+
+
+
 ## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
 
 
