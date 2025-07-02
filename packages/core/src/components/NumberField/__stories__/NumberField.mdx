@@ -43,11 +43,21 @@ import { NumberField } from "@vibe/core";
   guidelines={[
     "Always pass both `value` and `onChange` props to use the component in controlled mode.",
     "Use `min`, `max`, and `step` to enforce value boundaries and configure stepping behavior.",
-    "Provide a visible `label` or `aria-label` to ensure accessibility when no label is rendered.",
     "Use `allowOutOfBounds` when you want to allow users to enter invalid values and handle validation externally.",
     "Leverage validation states (`error`, `success`) with `infoText` to provide clear feedback to users.",
     "Apply `disabled` or `readOnly` states to prevent user interaction when necessary.",
     "Use `step` to control increment/decrement granularity - defaults to 1 for whole numbers."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is highly recommended for all instances to ensure the best accessibility."
+    "Always provide a visible `label` or an `aria-label` to ensure the input's purpose is clear to all users.",
+    "When using `label` or `infoText`, you must also provide an `id`. This is crucial, as it allows screen readers to correctly associate the input with its label and description.",
+    "Providing an `id` also automatically links the Increment and Decrement buttons to the input via the `aria-controls` attribute, further improving the experience for users of assistive technologies."
   ]}
 />
 
