@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "ScheduledSend",
+      file: "ScheduledSend.svg",
+      description: "Used for sending scheduled messages",
+      tags: "Scheduled, Send, Time, Notification, Message"
+  },
+
+  {
       name: "NotificationChecked",
       file: "NotificationChecked.svg",
       description: "Represents active notification",
