@@ -82,9 +82,13 @@ const NumberField = forwardRef(
       return infoText && id ? `${id}-info-text` : undefined;
     }, [infoText, id]);
 
+    const labelId = useMemo(() => {
+      return label && id ? `${id}-label` : undefined;
+    }, [label, id]);
+
     return (
       <Flex direction="column" align="stretch" gap="xs" className={cx(styles.numberField, className)}>
-        <FieldLabel className={styles.label} labelText={label} required={required} labelFor={id} />
+        <FieldLabel id={labelId} className={styles.label} labelText={label} required={required} labelFor={id} />
         <BaseInput
           {...inputProps}
           data-testid={dataTestId}
@@ -102,6 +106,7 @@ const NumberField = forwardRef(
           aria-valuemax={max}
           aria-required={required}
           aria-label={ariaLabel || label}
+          aria-labelledby={labelId}
           aria-describedby={infoTextId}
           disabled={disabled}
           readOnly={readOnly}
