@@ -1,6 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import type { SubIcon } from "../../types";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { FormElementProps } from "../../types/FormElement";
 
 type NumberFieldNativeInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -46,10 +47,6 @@ interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<VibeCom
    */
   placeholder?: string;
   /**
-   * Informational text to display below the input.
-   */
-  infoText?: string;
-  /**
    * If true, the input will be in an error state.
    */
   error?: boolean;
@@ -87,28 +84,6 @@ interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<VibeCom
   leftIcon?: SubIcon;
 }
 
-type NumberFieldLabelProps =
-  | {
-      /**
-       * The label for the input.
-       */
-      label: string;
-      /**
-       * The id of the input.
-       * Required when `label` is provided for accessibility reasons.
-       * Also automatically adds aria-controls to the input's Increment and Decrement buttons when supplied.
-       */
-      id: string;
-    }
-  | {
-      label?: never;
-      /**
-       * The id of the input.
-       * Automatically adds aria-controls to the input's Increment and Decrement buttons when supplied.
-       */
-      id?: string;
-    };
-
 type NumberFieldValidityChangeProps =
   | {
       /**
@@ -129,4 +104,4 @@ type NumberFieldValidityChangeProps =
       onValidityChange?: (isValid: boolean) => void;
     };
 
-export type NumberFieldProps = NumberFieldBaseProps & NumberFieldLabelProps & NumberFieldValidityChangeProps;
+export type NumberFieldProps = NumberFieldBaseProps & FormElementProps & NumberFieldValidityChangeProps;

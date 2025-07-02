@@ -29,21 +29,17 @@ describe("NumberField", () => {
       expect(getByText("Age")).toBeInTheDocument();
     });
 
-    it("should render info text", () => {
-      const { getByText } = render(
+    it("should render info text and connect it via aria-describedby", () => {
+      const { getByText, getByLabelText } = render(
         <NumberField label="Age" id="age" infoText="Enter your age" value={null} onChange={mockOnChange} />
       );
-      expect(getByText("Enter your age")).toBeInTheDocument();
-    });
+      const infoTextElement = getByText("Enter your age");
+      expect(infoTextElement).toBeInTheDocument();
 
-    it("should apply error state styling", () => {
-      const { container } = render(<NumberField error value={0} onChange={mockOnChange} />);
-      expect(container.firstChild).toHaveClass("error");
-    });
-
-    it("should apply success state styling", () => {
-      const { container } = render(<NumberField success value={0} onChange={mockOnChange} />);
-      expect(container.firstChild).toHaveClass("success");
+      const inputElement = getByLabelText("Age");
+      const infoTextId = infoTextElement.getAttribute("id");
+      expect(infoTextId).toBe("age-info-text");
+      expect(inputElement).toHaveAttribute("aria-describedby", infoTextId);
     });
 
     it("should handle basic number input changes", () => {

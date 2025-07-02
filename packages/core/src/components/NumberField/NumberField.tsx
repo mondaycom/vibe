@@ -5,7 +5,7 @@ import useNumberFieldState from "./hooks/useNumberFieldState";
 import useSpinButtonHandlers from "./hooks/useSpinButtonHandlers";
 import BaseInput from "../BaseInput/BaseInput";
 import FieldLabel from "../FieldLabel/FieldLabel";
-import Text from "../Text/Text";
+import InfoText from "../InfoText/InfoText";
 import Icon from "../Icon/Icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
@@ -78,23 +78,13 @@ const NumberField = forwardRef(
       return <Icon icon={leftIcon} className={styles.leftIcon} />;
     }, [leftIcon]);
 
+    const infoTextId = useMemo(() => {
+      return infoText && id ? `${id}-info-text` : undefined;
+    }, [infoText, id]);
+
     return (
-      <Flex
-        direction="column"
-        align="stretch"
-        gap="xs"
-        className={cx(
-          styles.numberField,
-          {
-            [styles.error]: error,
-            [styles.success]: success,
-            [styles.disabled]: disabled,
-            [styles.readOnly]: readOnly
-          },
-          className
-        )}
-      >
-        {label && <FieldLabel className={styles.label} labelText={label} required={required} labelFor={id} />}
+      <Flex direction="column" align="stretch" gap="xs" className={cx(styles.numberField, className)}>
+        <FieldLabel className={styles.label} labelText={label} required={required} labelFor={id} />
         <BaseInput
           {...inputProps}
           data-testid={dataTestId}
@@ -112,6 +102,7 @@ const NumberField = forwardRef(
           aria-valuemax={max}
           aria-required={required}
           aria-label={ariaLabel || label}
+          aria-describedby={infoTextId}
           disabled={disabled}
           readOnly={readOnly}
           size={size}
@@ -130,11 +121,14 @@ const NumberField = forwardRef(
             />
           }
         />
-        {infoText && (
-          <Text type={Text.types.TEXT2} className={styles.infoText}>
-            {infoText}
-          </Text>
-        )}
+        <InfoText
+          id={infoTextId}
+          text={infoText}
+          error={error}
+          success={success}
+          disabled={disabled}
+          readOnly={readOnly}
+        />
       </Flex>
     );
   }
