@@ -1,1 +1,1 @@
-export { default as ListItemAvatar, ListItemAvatarProps } from "./ListItemAvatar";
+export { default as ListItemAvatar, type ListItemAvatarProps } from "./ListItemAvatar";

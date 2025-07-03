@@ -27,6 +27,10 @@ export interface DialogProps extends VibeComponentProps {
    */
   referenceWrapperClassName?: string;
   /**
+   * The wrapper element type to use for React components. Defaults to "span".
+   */
+  referenceWrapperElement?: "span" | "div";
+  /**
    * The placement of the dialog relative to the reference element.
    */
   position?: DialogPosition;
@@ -536,6 +540,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       tooltip,
       tooltipClassName,
       referenceWrapperClassName,
+      referenceWrapperElement,
       zIndex,
       hideWhenReferenceHidden,
       disableContainerScroll,
@@ -560,6 +565,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
             return (
               <Refable
                 className={cx(referenceWrapperClassName)}
+                wrapperElement={referenceWrapperElement}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}

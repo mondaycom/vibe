@@ -1,7 +1,7 @@
-export { default as ColorPicker, ColorPickerProps } from "./ColorPicker";
+export { default as ColorPicker, type ColorPickerProps } from "./ColorPicker";
 export {
   default as ColorPickerContent,
-  ColorPickerContentProps
+  type ColorPickerContentProps
 } from "./components/ColorPickerContent/ColorPickerContent";
 
 export * from "./ColorPicker.types";

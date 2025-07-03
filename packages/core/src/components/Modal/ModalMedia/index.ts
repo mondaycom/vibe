@@ -1,2 +1,2 @@
 export { default as ModalMedia } from "./ModalMedia";
-export { ModalMediaProps } from "./ModalMedia.types";
+export { type ModalMediaProps } from "./ModalMedia.types";

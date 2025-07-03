@@ -1,4 +1,4 @@
-import { userEvent } from "@storybook/testing-library";
+import { userEvent } from "@storybook/test";
 
 export async function resetFocus() {
   const focusTrap = document.querySelector("[data-testid=focusTrap]");

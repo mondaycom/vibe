@@ -1,1 +1,1 @@
-export { default as EditableHeading, EditableHeadingProps } from "./EditableHeading";
+export { default as EditableHeading, type EditableHeadingProps } from "./EditableHeading";
