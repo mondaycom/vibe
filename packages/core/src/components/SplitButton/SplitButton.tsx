@@ -78,7 +78,7 @@ const SplitButton = ({
   onSecondaryDialogDidHide = NOOP,
   shouldCloseOnClickInsideDialog,
   zIndex = null,
-  secondaryDialogClassName,
+  secondaryDialogClassName = "",
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
   dialogPaddingSize = "medium",
@@ -87,8 +87,8 @@ const SplitButton = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   success,
   loading,
-  kind,
-  color,
+  kind = "primary",
+  color = "primary",
   className,
   leftIcon,
   rightIcon,
@@ -286,16 +286,6 @@ const SplitButton = ({
       </div>
     </div>
   );
-};
-
-SplitButton.defaultProps = {
-  ...Button.defaultProps,
-  onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP,
-  zIndex: null,
-  secondaryDialogClassName: "",
-  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
 interface SplitButtonStaticProps {
