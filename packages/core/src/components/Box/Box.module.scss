@@ -1,9 +1,6 @@
 // Monday ui styles dependencies
-@import "~monday-ui-style/src/common";
 @import "~monday-ui-style/dist/mixins";
-
-// Utilities map
-@import "../../styles/utilities/utilities-settings";
+@import "./utilities";
 
 .box {
   overflow: hidden;
