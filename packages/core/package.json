@@ -45,7 +45,11 @@
       "import": "./dist/src/components/next.js",
       "default": "./dist/src/components/next.js"
     },
-    "./tokens": "./dist/tokens/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/src/tokens/tokens.js",
+      "default": "./dist/src/tokens/tokens.js"
+    },
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames/src/index.js",
       "default": "./dist/mocked_classnames/src/index.js"
@@ -61,6 +65,9 @@
       ],
       "next": [
         "./dist/components/next.d.ts"
+      ],
+      "tokens": [
+        "./dist/tokens/index.d.ts"
       ]
     }
   },
@@ -237,7 +244,6 @@
     "remark-gfm": "^3.0.1",
     "resolve-url-loader": "^5.0.0",
     "rollup": "^2.79.1",
-    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
