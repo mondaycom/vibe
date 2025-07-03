@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.53.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.0...@vibe/core@3.53.1) (2025-07-03)
+
+
+### Bug Fixes
+
+* **icons:** update DropdownChevronDown and DropdownChevronUp ([#2965](https://github.com/mondaycom/vibe/issues/2965)) ([57d9704](https://github.com/mondaycom/vibe/commit/57d9704f04a643884a43bb3274228b3daa52412e))
+
+
+
+
+
 # [3.53.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.2...@vibe/core@3.53.0) (2025-07-01)
 
 
