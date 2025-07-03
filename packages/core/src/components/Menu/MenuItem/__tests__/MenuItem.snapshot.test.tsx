@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
@@ -40,4 +41,4 @@ describe("Snapshots", () => {
   });
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();

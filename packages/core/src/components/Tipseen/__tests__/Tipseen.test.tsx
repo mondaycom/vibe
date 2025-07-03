@@ -1,3 +1,4 @@
+import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
@@ -7,22 +8,17 @@ import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 import renderer from "react-test-renderer";
 import TipseenTitle from "../TipseenTitle";
 
-jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
-
-jest.useFakeTimers();
-
 const tipseenMockChildren = <div className="monday-storybook-tipseen_container" />;
 
 describe("Snapshot tests", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   describe("TipseenTitle", () => {
     it("should render null without text", () => {
       const tree = renderer.create(<TipseenTitle />).toJSON();
@@ -74,20 +70,31 @@ describe("Snapshot tests", () => {
       });
       expect(asFragment()).toMatchSnapshot();
     });
-    it("renders correctly with floating variation", async () => {
+    it("renders correctly with floating variation", () => {
       const { container } = render(<Tipseen content="content" floating />);
-      await waitFor(() => {
-        expect(container.firstChild).toBeTruthy();
+
+      // Run timers to ensure any async operations complete
+      act(() => {
+        vi.runAllTimers();
       });
+
       expect(container.firstChild).toMatchSnapshot();
     });
   });
 });
 
 describe("Integration Tests", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   describe("Tipseen tests", () => {
     it("call onClose function when click on close button", () => {
-      const onClickMock = jest.fn();
+      const onClickMock = vi.fn();
       const { getByLabelText } = render(
         <Tipseen content="content" onClose={onClickMock}>
           <div />
@@ -103,7 +110,7 @@ describe("Integration Tests", () => {
 
   describe("Tipseen content tests", () => {
     it("call onDismiss function when click on dismiss button", () => {
-      const onDismissMock = jest.fn();
+      const onDismissMock = vi.fn();
       const { getByText } = render(
         <TipseenContent hideDismiss={false} onDismiss={onDismissMock}>
           content
@@ -118,7 +125,7 @@ describe("Integration Tests", () => {
     });
 
     it("call onSubmit function when click on dismiss button", () => {
-      const onSubmitMock = jest.fn();
+      const onSubmitMock = vi.fn();
       const { getByText } = render(<TipseenContent onSubmit={onSubmitMock}>content</TipseenContent>);
       const submitButton = getByText(SUBMIT_BUTTON_TEXT);
 

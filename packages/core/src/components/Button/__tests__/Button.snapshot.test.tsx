@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { noop as NOOP } from "lodash-es";
@@ -5,7 +6,9 @@ import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
 import { ButtonSize } from "../Button.types";
 
-jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
+vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
+  default: () => <div data-testid="custom-icon-mock" />
+}));
 
 describe("Button renders correctly", () => {
   it("renders correctly with empty props", () => {

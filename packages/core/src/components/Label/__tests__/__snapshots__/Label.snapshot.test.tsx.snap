@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Label renders correctly fill dark 1`] = `
+exports[`Label renders correctly > fill > dark 1`] = `
 <span
   className=""
   data-testid="label"
@@ -22,7 +22,7 @@ exports[`Label renders correctly fill dark 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly fill negative 1`] = `
+exports[`Label renders correctly > fill > negative 1`] = `
 <span
   className=""
   data-testid="label"
@@ -44,7 +44,7 @@ exports[`Label renders correctly fill negative 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly fill positive 1`] = `
+exports[`Label renders correctly > fill > positive 1`] = `
 <span
   className=""
   data-testid="label"
@@ -66,7 +66,7 @@ exports[`Label renders correctly fill positive 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly fill primary 1`] = `
+exports[`Label renders correctly > fill > primary 1`] = `
 <span
   className=""
   data-testid="label"
@@ -88,7 +88,7 @@ exports[`Label renders correctly fill primary 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line dark 1`] = `
+exports[`Label renders correctly > line > dark 1`] = `
 <span
   className=""
   data-testid="label"
@@ -110,7 +110,7 @@ exports[`Label renders correctly line dark 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line negative 1`] = `
+exports[`Label renders correctly > line > negative 1`] = `
 <span
   className=""
   data-testid="label"
@@ -132,7 +132,7 @@ exports[`Label renders correctly line negative 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line positive 1`] = `
+exports[`Label renders correctly > line > positive 1`] = `
 <span
   className=""
   data-testid="label"
@@ -154,7 +154,7 @@ exports[`Label renders correctly line positive 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line primary 1`] = `
+exports[`Label renders correctly > line > primary 1`] = `
 <span
   className=""
   data-testid="label"
@@ -176,7 +176,7 @@ exports[`Label renders correctly line primary 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line with className 1`] = `
+exports[`Label renders correctly > line > with className 1`] = `
 <span
   className="test"
   data-testid="label"
@@ -198,7 +198,7 @@ exports[`Label renders correctly line with className 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line with leg 1`] = `
+exports[`Label renders correctly > line > with leg 1`] = `
 <span
   className=""
   data-testid="label"
@@ -233,7 +233,7 @@ exports[`Label renders correctly line with leg 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly line without animation 1`] = `
+exports[`Label renders correctly > line > without animation 1`] = `
 <span
   className=""
   data-testid="label"
@@ -255,7 +255,7 @@ exports[`Label renders correctly line without animation 1`] = `
 </span>
 `;
 
-exports[`Label renders correctly with empty props 1`] = `
+exports[`Label renders correctly > with empty props 1`] = `
 <span
   className=""
   data-testid="label"

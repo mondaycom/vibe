@@ -1,3 +1,4 @@
+import { it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import DialogContentContainer from "../DialogContentContainer";

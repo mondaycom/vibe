@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect, Mock } from "vitest";
 import React, { forwardRef, useRef, useEffect, RefObject, createRef } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
 import useMergeRefs from "../useMergeRefs";
@@ -59,12 +60,12 @@ describe("useMergeRefs", () => {
   });
 
   describe("call event listeners based on refs", () => {
-    let innerRefCallbackStub: jest.Mock;
-    let outerRefCallbackStub: jest.Mock;
+    let innerRefCallbackStub: Mock;
+    let outerRefCallbackStub: Mock;
 
     beforeEach(() => {
-      innerRefCallbackStub = jest.fn();
-      outerRefCallbackStub = jest.fn();
+      innerRefCallbackStub = vi.fn();
+      outerRefCallbackStub = vi.fn();
 
       Component = forwardRef((props, ref) => {
         internalRef = useRef();
@@ -108,7 +109,7 @@ describe("useMergeRefs", () => {
       });
     });
 
-    it("it should call both listeners if ref prop was passed and element has been clicked", () => {
+    it("should call both listeners if ref prop was passed and element has been clicked", () => {
       const propRef = createRef<HTMLElement>();
       render(<Component ref={propRef} />);
       propRef.current.addEventListener("click", outerRefCallbackStub);
@@ -123,7 +124,7 @@ describe("useMergeRefs", () => {
       });
     });
 
-    it("it should not call any listener if ref prop was passed and element has not been clicked", () => {
+    it("should not call any listener if ref prop was passed and element has not been clicked", () => {
       const propRef = createRef<HTMLElement>();
       render(<Component ref={propRef} />);
       propRef.current.addEventListener("click", outerRefCallbackStub);

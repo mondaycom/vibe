@@ -1,3 +1,4 @@
+import { afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import EditableHeading from "../EditableHeading";
