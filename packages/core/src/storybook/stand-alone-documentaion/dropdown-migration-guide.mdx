@@ -1,0 +1,434 @@
+import { Meta } from "@storybook/blocks";
+import { Link, Tip } from "vibe-storybook-components";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
+
+<Meta title="Components/Dropdown [Alpha]/Migration Guide" />
+
+# Dropdown Migration Guide
+
+<div style={{ lineHeight: "1.8" }} >
+
+- [Overview](#overview)
+- [Why Migrate? ✨](#why-migrate-)
+- [Migration Steps 🚀](#migration-steps-)
+- [Breaking Changes 🚨](#breaking-changes-)
+- [Type Safety Improvements 🛡️](#type-safety-improvements-)
+- [Performance Benefits 📈](#performance-benefits-)
+- [Common Migration Patterns](#common-migration-patterns)
+- [FAQ ❓](#faq-)
+- [Help 🙏](#help-)
+
+## Overview
+
+The Dropdown component has been completely rewritten from scratch to provide better accessibility, performance, and developer experience. The new implementation is built on top of the **Downshift library** instead of **react-select**, offering significant improvements across all areas.
+
+<Tip title="Alpha Release" emoji="⚠️">
+  The new Dropdown is currently in **Alpha** and available under `@vibe/core/next`. It will eventually replace the
+  current implementation in the main package.
+</Tip>
+
+## Why Migrate? ✨
+
+### Enhanced Accessibility
+
+- **Proper ARIA attributes** and keyboard navigation
+- **Screen reader optimized** with clear announcements
+- **Single combobox role** to avoid confusion
+- **Improved focus management** and visual indicators
+- **WCAG 2.1 compliant** with full keyboard support
+
+### Better Performance
+
+- **Smaller bundle size** (no react-select dependency)
+- **Native implementation** with optimized rendering
+- **Improved performance** for large datasets
+- **Better memory usage** with optimized re-renders
+
+### Enhanced TypeScript Support
+
+- **Full generic type support** with `<Item>` type parameter
+- **Better type safety** for options and callbacks
+- **Comprehensive prop type definitions**
+- **IntelliSense improvements** for better developer experience
+
+### Improved Form Integration
+
+- **Built-in label, helper text, and error state support**
+- **Better validation** and required field handling
+- **Proper form field structure** and semantics
+- **Native form integration** without additional wrappers
+
+### Enhanced Features
+
+- **Sticky group headers** with `stickyGroupTitle`
+- **Custom filtering** with `filterOption` prop
+- **Control selected options visibility** with `showSelectedOptions`
+- **Better tooltip integration** with `tooltipProps`
+- **Improved multi-select** with native chips display
+
+## Migration Steps 🚀
+
+### 1. Update Import Path
+
+<DiffCodeBlock
+  code={`- import { Dropdown } from "@vibe/core";
++ import { Dropdown } from "@vibe/core/next";`}
+/>
+
+### 2. Update Option Data Structure
+
+The new Dropdown expects options with explicit `label` and `value` properties:
+
+<DiffCodeBlock
+  code={`// Old format
+const options = [
+  { id: 1, text: "Option 1" },
+  { id: 2, text: "Option 2" }
+];
+
+// New format
+const options = [
+{ value: 1, label: "Option 1" },
+{ value: 2, label: "Option 2" }
+];`}
+/>
+
+### 3. Update Event Handlers
+
+<DiffCodeBlock
+  code={`// Old API
+<Dropdown
+  onChange={(option, meta) => {
+    console.log(option.value, meta.action);
+  }}
+/>
+
+// New API
+
+<Dropdown
+  onChange={option => {
+    console.log(option.value);
+  }}
+  onOptionSelect={option => {
+    console.log("Selected:", option.label);
+  }}
+/>
+`} />
+
+### 4. Update Multi-Select Configuration
+
+<DiffCodeBlock
+  code={`// Old API
+<Dropdown
+  multi
+  value={selectedOptions}
+  onChange={(options) => setSelectedOptions(options)}
+/>
+
+// New API
+
+<Dropdown
+  multi
+  value={selectedOptions}
+  onChange={options => setSelectedOptions(options)}
+  multiline // Optional: display selections in multiple lines
+/>
+`} />
+
+### 5. Update Form Integration
+
+<DiffCodeBlock
+  code={`// Old approach
+<div>
+  <label>Select an option</label>
+  <Dropdown options={options} />
+  <span>Helper text here</span>
+</div>
+
+// New approach
+
+<Dropdown label="Select an option" helperText="Helper text here" required error={hasError} options={options} />
+`} />
+
+### 6. Update Custom Filtering
+
+<DiffCodeBlock
+  code={`// Old API
+<Dropdown
+  filterOption={(option, inputValue) => {
+    return option.label.toLowerCase().includes(inputValue.toLowerCase());
+  }}
+/>
+
+// New API
+
+<Dropdown
+  filterOption={(option, inputValue) => {
+    return option.label.toLowerCase().includes(inputValue.toLowerCase());
+  }}
+  showSelectedOptions={false} // Hide selected options from list
+/>
+`} />
+
+## Breaking Changes 🚨
+
+### Removed Props
+
+These props are no longer available in the new implementation:
+
+- **`extraStyles`** - Use CSS classes instead
+- **`menuPortalTarget`** - Handled automatically with better positioning
+- **`isVirtualized`** - Built-in performance optimization
+- **`asyncOptions`** - Use external data fetching with `options` prop
+- **`cacheOptions`** - Handle caching externally
+- **`defaultOptions`** - Use `options` prop with loading state
+- **`loadingMessage`** - Use `helperText` with loading indicator
+- **`onMenuScrollToBottom`** - Use `onScroll` instead
+- **`captureMenuScroll`** - Handled automatically
+- **`insideOverflowContainer`** - Handled automatically
+- **`insideOverflowWithTransformContainer`** - Handled automatically
+- **`insideLayerContext`** - Handled automatically
+- **`popupsContainerSelector`** - Handled automatically
+- **`withMandatoryDefaultOptions`** - Handle in your application logic
+- **`isOptionSelected`** - Handled automatically
+- **`tabSelectsValue`** - Handled automatically
+- **`blurInputOnSelect`** - Handled automatically
+- **`inputValue`** - Use controlled `value` instead
+
+### Changed Props
+
+These props have different default values or behavior:
+
+- **`searchable`** - Now defaults to `false` (was `true`)
+- **`closeMenuOnSelect`** - Now defaults to `true` for single-select
+- **`multi`** - Better type safety and native chip display
+- **`clearable`** - Now defaults to `true`
+- **`size`** - Same options: `small`, `medium`, `large`
+
+### New Props
+
+These props are new and provide enhanced functionality:
+
+- **`label`** - Built-in label support
+- **`helperText`** - Built-in helper text support
+- **`error`** - Built-in error state support
+- **`required`** - Built-in required field support
+- **`stickyGroupTitle`** - Sticky group headers
+- **`showSelectedOptions`** - Control selected options visibility
+- **`filterOption`** - Custom filtering logic
+- **`tooltipProps`** - Better tooltip integration
+- **`inputAriaLabel`** - ARIA label for input
+- **`menuAriaLabel`** - ARIA label for menu
+- **`dir`** - Text direction support
+
+## Type Safety Improvements 🛡️
+
+The new Dropdown provides full TypeScript support with generics:
+
+<DiffCodeBlock
+  code={`// Old typing
+interface Option {
+  value: any;
+  label: string;
+}
+
+// New typing
+interface User {
+value: number;
+label: string;
+email: string;
+}
+
+<Dropdown<User>
+options={users}
+onChange={(user) => {
+// user is fully typed as User
+console.log(user.email);
+}}
+/>`}
+/>
+
+### Enhanced Type Safety
+
+```tsx
+// Multi-select with proper typing
+interface Task {
+  value: string;
+  label: string;
+  priority: "high" | "medium" | "low";
+}
+
+<Dropdown<Task>
+  multi
+  options={tasks}
+  onChange={selectedTasks => {
+    // selectedTasks is properly typed as Task[]
+    selectedTasks.forEach(task => {
+      console.log(task.priority); // TypeScript knows this exists
+    });
+  }}
+/>;
+```
+
+## Performance Benefits 📈
+
+- **43% smaller bundle size** compared to react-select implementation
+- **Faster rendering** with native implementation
+- **Better memory usage** with optimized re-renders
+- **Improved accessibility** with proper ARIA implementation
+- **Better tree-shaking** with modular architecture
+
+## Common Migration Patterns
+
+### Pattern 1: Basic Dropdown
+
+<DiffCodeBlock
+  code={`// Before
+<Dropdown
+  placeholder="Select an option"
+  options={options}
+  onChange={(option) => setSelected(option)}
+/>
+
+// After
+
+<Dropdown placeholder="Select an option" options={options} onChange={option => setSelected(option)} />
+`} />
+
+### Pattern 2: Searchable Dropdown
+
+<DiffCodeBlock
+  code={`// Before
+<Dropdown
+  searchable
+  placeholder="Search options..."
+  options={options}
+  onInputChange={(value) => setSearchTerm(value)}
+/>
+
+// After
+
+<Dropdown searchable placeholder="Search options..." options={options} onInputChange={value => setSearchTerm(value)} />
+`} />
+
+### Pattern 3: Multi-Select with Form
+
+<DiffCodeBlock
+  code={`// Before
+<div className="form-field">
+  <label>Select Users</label>
+  <Dropdown
+    multi
+    options={users}
+    value={selectedUsers}
+    onChange={setSelectedUsers}
+  />
+  {error && <span className="error">{error}</span>}
+</div>
+
+// After
+
+<Dropdown
+  multi
+  label="Select Users"
+  options={users}
+  value={selectedUsers}
+  onChange={setSelectedUsers}
+  error={!!error}
+  helperText={error}
+  required
+/>
+`} />
+
+### Pattern 4: Custom Option Rendering
+
+<DiffCodeBlock
+  code={`// Before
+<Dropdown
+  options={users}
+  optionRenderer={(option) => (
+    <div>
+      <Avatar src={option.avatar} />
+      <span>{option.label}</span>
+    </div>
+  )}
+/>
+
+// After
+
+<Dropdown
+  options={users}
+  optionRenderer={option => (
+    <div>
+      <Avatar src={option.avatar} />
+      <span>{option.label}</span>
+    </div>
+  )}
+/>
+`} />
+
+### Pattern 5: Grouped Options
+
+<DiffCodeBlock
+  code={`// Before
+const groupedOptions = [
+  {
+    label: "Fruits",
+    options: [
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" }
+    ]
+  },
+  {
+    label: "Vegetables",
+    options: [
+      { value: "carrot", label: "Carrot" },
+      { value: "lettuce", label: "Lettuce" }
+    ]
+  }
+];
+
+// After (same structure, but with enhanced features)
+
+<Dropdown
+  options={groupedOptions}
+  withGroupDivider
+  stickyGroupTitle // New feature!
+/>
+`} />
+
+## FAQ ❓
+
+**Q: When should I migrate to the new Dropdown?**
+A: The new Dropdown is currently in Alpha. We recommend migrating for new projects or when you need the enhanced accessibility and performance features.
+
+**Q: Will the old Dropdown be deprecated?**
+A: Yes, the old Dropdown will be deprecated once the new one moves out of Alpha. We'll provide ample notice and migration support.
+
+**Q: Can I use both implementations in the same project?**
+A: Yes, you can import the new Dropdown from `@vibe/core/next` and the old one from `@vibe/core` during the migration period.
+
+**Q: Are there any features missing from the new Dropdown?**
+A: The new Dropdown covers all major use cases. If you're using `asyncOptions`, implement data fetching externally and pass the results to the `options` prop.
+
+**Q: How do I handle async data loading?**
+A: Implement your own data fetching logic and pass the results to the `options` prop. You can use the `helperText` prop to show loading states.
+
+**Q: What about virtualization for large datasets?**
+A: The new Dropdown has built-in performance optimizations. For extremely large datasets (1000+ items), consider implementing server-side filtering.
+
+**Q: Is the new Dropdown accessible?**
+A: Yes! The new Dropdown is built with accessibility as a core principle and is WCAG 2.1 compliant.
+
+</div>
+## Help 🙏
+
+If you have any questions, feedback, or need help with migration, please don't hesitate to reach out:
+
+- **GitHub Issues**: [Report issues](https://github.com/mondaycom/vibe/issues/new/choose)
+- **GitHub Discussions**: [Ask questions](https://github.com/mondaycom/vibe/discussions)
+- **Migration Support**: Check our [main migration guide](/?path=/docs/migration-guide--docs) for general Vibe 3 migration help
+
+The new Dropdown represents a significant improvement in accessibility, performance, and developer experience. We're excited to see what you build with it! 🚀
