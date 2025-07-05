@@ -5,8 +5,12 @@ import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
 import { ChipsProps } from "../Chips";
 
 export interface BaseListItemProps<Item extends Record<string, unknown>>
-  extends React.LiHTMLAttributes<HTMLLIElement>,
+  extends Omit<React.HTMLAttributes<HTMLElement>, "role">,
     VibeComponentProps {
+  /**
+   * The HTML element to render. Defaults to "li".
+   */
+  component?: keyof JSX.IntrinsicElements;
   /**
    * The Size of the list item.
    */
@@ -53,7 +57,7 @@ export type BaseListItemData<Item = Record<string, unknown>> = Item & {
   /**
    * The value of the list item.
    */
-  value: string | number;
+  value: string | number | Date;
   /**
    * The primary text content of the list item.
    */

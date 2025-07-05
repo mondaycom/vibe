@@ -51,7 +51,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     autoFocus,
     defaultValue as Item[],
     value as Item[],
-    onChange,
+    onChange as (options: Item[]) => void,
     onMenuOpen,
     onMenuClose,
     onOptionSelect,

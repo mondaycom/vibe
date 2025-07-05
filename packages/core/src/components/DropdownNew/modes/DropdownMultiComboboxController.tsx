@@ -63,7 +63,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     defaultValue as Item[],
     value as Item[],
     inputValueProp,
-    onChange,
+    onChange as (options: Item[]) => void,
     onInputChange,
     onMenuClose,
     onMenuOpen,

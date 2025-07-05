@@ -20,7 +20,6 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     inputAriaLabel,
     searchable,
     size,
-    getToggleButtonProps,
     getDropdownProps,
     isOpen
   } = useDropdownContext<BaseListItemData>();
@@ -44,7 +43,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
           className={cx(styles.inputWrapper, {
             [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
-            [styles.multi]: multi && hasSelection
+            [styles.multi]: multi && hasSelection,
+            [styles.multiSelected]: multi && hasSelection && inputSize === "small"
           })}
           disabled={disabled}
           readOnly={readOnly}
@@ -54,8 +54,10 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
           {!hasSelection && placeholder && (
             <Text
               color="secondary"
-              className={styles.placeholderText}
-              {...getToggleButtonProps(multipleSelectionDropdownProps)}
+              className={cx(styles.placeholderText, {
+                [styles.disabled]: !!disabled
+              })}
+              type={size === "small" ? "text2" : "text1"}
             >
               {placeholder}
             </Text>

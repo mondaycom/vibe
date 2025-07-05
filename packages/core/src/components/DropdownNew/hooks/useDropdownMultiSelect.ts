@@ -56,9 +56,9 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     initialIsOpen: autoFocus,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
-      const itemWasSelected = currentSelectedItems.some(item => item.value === newSelectedItem.value);
-      if (itemWasSelected) {
-        removeSelectedItem(newSelectedItem);
+      const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
+      if (existingItem) {
+        removeSelectedItem(existingItem);
       } else {
         addSelectedItem(newSelectedItem);
       }
