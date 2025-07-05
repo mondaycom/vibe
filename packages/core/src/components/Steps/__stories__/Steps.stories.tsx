@@ -5,7 +5,6 @@ import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
 import { modifiers } from "./Steps.stories.helpers";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./Steps.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
@@ -77,23 +76,21 @@ export const Types = {
     <Flex direction="column" gap="medium">
       <Steps type="numbers" steps={steps5} activeStepIndex={2} />
       <Steps steps={steps5} activeStepIndex={2} />
-      <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
+      <div style={{ padding: "15px 103px 20px" }}>
+        <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden />
+      </div>
     </Flex>
   )
 };
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction="column" gap="medium" className="monday-storybook-steps_color">
+    <Flex direction="column" gap="medium">
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
-      <Steps
-        steps={steps5}
-        activeStepIndex={2}
-        color="on-primary-color"
-        areNavigationButtonsHidden
-        className="monday-storybook-steps_padding"
-      />
+      <div style={{ padding: "15px 103px 20px" }}>
+        <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" areNavigationButtonsHidden />
+      </div>
     </Flex>
   )
 };
@@ -182,7 +179,7 @@ export const StepsInsideATipseen = {
           />
         }
       >
-        <div className="monday-storybook-steps_container" />
+        <div style={{ width: "10px", height: "150px" }} />
       </Tipseen>
     );
   },
