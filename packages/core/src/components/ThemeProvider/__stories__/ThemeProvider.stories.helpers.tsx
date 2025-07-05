@@ -103,7 +103,9 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
           />
         </div>
         <Button>Themed</Button>
-        <Button color="brand">Themed branded</Button>
+        <div className="brand-colors">
+          <Button color="brand">Themed branded</Button>
+        </div>
       </Flex>
     </ThemeProvider>
   );
@@ -128,7 +130,9 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
     >
       <Flex gap="large" direction="row">
         <Button>Themed</Button>
-        <Button>Themed by custom class</Button>
+        <div className={"custom-class"}>
+          <Button>Themed by custom class</Button>
+        </div>
       </Flex>
     </ThemeProvider>
   );
