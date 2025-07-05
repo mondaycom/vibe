@@ -64,7 +64,6 @@ export * from "./Tooltip";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
-export * from "./DropdownNew";
 
 export type { TypographyColor, TypographyAlign } from "./Typography";
 

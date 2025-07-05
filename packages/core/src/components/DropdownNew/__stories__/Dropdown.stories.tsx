@@ -1,16 +1,20 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { Meta, StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, DropdownNew, Flex, Modal, ModalContent } from "../../index";
+import { Box, Button, DialogContentContainer, Flex, Modal, ModalContent } from "../../index";
+import { Dropdown } from "../../DropdownNew";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import { Text } from "../../Text";
 import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
 
+type Story = StoryObj<typeof Dropdown>;
+
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: DropdownNew,
+  component: Dropdown,
   actionPropsArray: [
     "onMenuOpen",
     "onMenuClose",
@@ -26,12 +30,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   ]
 });
 
-export default {
-  title: "Components/DropdownNew",
-  component: DropdownNew,
+const meta: Meta<typeof Dropdown> = {
+  title: "Components/Dropdown [Alpha]",
+  component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 };
+
+export default meta;
 
 const dropdownTemplate = (props: any) => {
   const options = useMemo(
@@ -45,12 +51,12 @@ const dropdownTemplate = (props: any) => {
 
   return (
     <div style={{ height: "150px", width: "300px" }}>
-      <DropdownNew options={options} label="Label" helperText="Helper text" {...props} />
+      <Dropdown options={options} label="Label" helperText="Helper text" {...props} />
     </div>
   );
 };
 
-export const Overview = {
+export const Overview: Story = {
   render: dropdownTemplate.bind({}),
   args: {
     placeholder: "Placeholder text here"
@@ -64,7 +70,7 @@ export const Overview = {
   }
 };
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => {
     const options = useMemo(
       () => [
@@ -77,43 +83,43 @@ export const Sizes = {
     return (
       <>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Placeholder text here" size="large" />
+          <Dropdown options={options} placeholder="Placeholder text here" size="large" />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Placeholder text here" size="medium" />
+          <Dropdown options={options} placeholder="Placeholder text here" size="medium" />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={options} placeholder="Placeholder text here" size="small" />
+          <Dropdown options={options} placeholder="Placeholder text here" size="small" />
         </div>
       </>
     );
   }
 };
 
-export const States = {
+export const States: Story = {
   render: () => (
     <Flex direction="row" gap="medium">
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <DropdownNew options={[]} placeholder="Default" />
+          <Dropdown options={[]} placeholder="Default" />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={[]} placeholder="Disabled" disabled />
+          <Dropdown options={[]} placeholder="Disabled" disabled />
         </div>
       </Flex>
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <DropdownNew options={[]} placeholder="Error" error />
+          <Dropdown options={[]} placeholder="Error" error />
         </div>
         <div style={{ width: "300px" }}>
-          <DropdownNew options={[]} placeholder="Readonly" readOnly />
+          <Dropdown options={[]} placeholder="Readonly" readOnly />
         </div>
       </Flex>
     </Flex>
   )
 };
 
-export const MultiSelect = {
+export const MultiSelect: Story = {
   render: () => {
     const options = useMemo(
       () => [
@@ -142,7 +148,7 @@ export const MultiSelect = {
         <Flex direction="column" gap="medium">
           <Text>Single line with hidden options</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
-            <DropdownNew
+            <Dropdown
               placeholder="Single line multi state"
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
@@ -153,7 +159,7 @@ export const MultiSelect = {
         <Flex direction="column" gap="medium">
           <Text>Multiple lines</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
-            <DropdownNew
+            <Dropdown
               placeholder="Multiple line multi state"
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
@@ -167,7 +173,7 @@ export const MultiSelect = {
   }
 };
 
-export const DropdownWithIconOrAvatar = {
+export const DropdownWithIconOrAvatar: Story = {
   render: () => {
     const optionsIcons: any = useMemo(
       () => [
@@ -225,19 +231,19 @@ export const DropdownWithIconOrAvatar = {
         <Flex direction="column" gap="medium">
           <Text>Single value</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <DropdownNew defaultValue={optionsIcons[0]} options={optionsIcons} />
+            <Dropdown defaultValue={optionsIcons[0]} options={optionsIcons} />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <DropdownNew defaultValue={optionsAvatar[0]} options={optionsAvatar} />
+            <Dropdown defaultValue={optionsAvatar[0]} options={optionsAvatar} />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Multiple values</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <DropdownNew defaultValue={[optionsIcons[0]]} options={optionsIcons} multi />
+            <Dropdown defaultValue={[optionsIcons[0]]} options={optionsIcons} multi />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <DropdownNew defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi />
+            <Dropdown defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi />
           </div>
         </Flex>
       </Flex>
@@ -252,7 +258,7 @@ export const DropdownWithIconOrAvatar = {
   }
 };
 
-export const Searchable = {
+export const Searchable: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -265,13 +271,13 @@ export const Searchable = {
 
     return (
       <div style={{ width: "300px" }}>
-        <DropdownNew placeholder={"Searchable for an item"} options={options} searchable maxMenuHeight={170} />
+        <Dropdown placeholder={"Searchable for an item"} options={options} searchable maxMenuHeight={170} />
       </div>
     );
   }
 };
 
-export const DropdownWithGroups = {
+export const DropdownWithGroups: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -301,7 +307,7 @@ export const DropdownWithGroups = {
         <Flex direction="column" gap="medium">
           <Text>Group by divider</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew
+            <Dropdown
               placeholder="Group by divider"
               options={optionsWithoutGroupLabel}
               withGroupDivider
@@ -312,13 +318,13 @@ export const DropdownWithGroups = {
         <Flex direction="column" gap="medium">
           <Text>Group by category title</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew placeholder="Group by category title" options={options} maxMenuHeight={170} />
+            <Dropdown placeholder="Group by category title" options={options} maxMenuHeight={170} />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Group by category title sticky</Text>
           <div style={{ width: "300px" }}>
-            <DropdownNew
+            <Dropdown
               placeholder="Group by category title sticky"
               options={options}
               stickyGroupTitle
@@ -331,7 +337,7 @@ export const DropdownWithGroups = {
   }
 };
 
-export const DropdownItemWithElements = {
+export const DropdownItemWithElements: Story = {
   render: () => {
     const options: BaseListItemData<Record<string, unknown>>[] = useMemo(
       () => [
@@ -380,13 +386,13 @@ export const DropdownItemWithElements = {
 
     return (
       <div style={{ width: "300px" }}>
-        <DropdownNew placeholder={"Placeholder text here"} options={options} label="Label" required />
+        <Dropdown placeholder={"Placeholder text here"} options={options} label="Label" required />
       </div>
     );
   }
 };
 
-export const DropdownShowSelectedItems = {
+export const DropdownShowSelectedItems: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -399,7 +405,7 @@ export const DropdownShowSelectedItems = {
 
     return (
       <div style={{ width: "300px" }}>
-        <DropdownNew
+        <Dropdown
           placeholder={"Placeholder text here"}
           options={options}
           defaultValue={[options[0], options[2], options[3]]}
@@ -413,7 +419,7 @@ export const DropdownShowSelectedItems = {
   }
 };
 
-export const DropdownWithTooltips = {
+export const DropdownWithTooltips: Story = {
   render: () => {
     const optionsWithTooltips = useMemo(
       () =>
@@ -429,13 +435,13 @@ export const DropdownWithTooltips = {
 
     return (
       <div style={{ width: "300px" }}>
-        <DropdownNew placeholder={"Placeholder text here"} options={optionsWithTooltips} />
+        <Dropdown placeholder={"Placeholder text here"} options={optionsWithTooltips} />
       </div>
     );
   }
 };
 
-export const DropdownInsidePopover = {
+export const DropdownInsidePopover: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -464,7 +470,7 @@ export const DropdownInsidePopover = {
           <ModalExampleContent />
           <Box marginTop="medium" marginBottom="xxl">
             <div style={{ width: "300px" }}>
-              <DropdownNew placeholder="Dropdown inside DialogContentContainer" options={options} />
+              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} />
             </div>
           </Box>
         </DialogContentContainer>
@@ -473,7 +479,7 @@ export const DropdownInsidePopover = {
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
               <div style={{ width: "300px" }}>
-                <DropdownNew placeholder="Dropdown" options={options} />
+                <Dropdown placeholder="Dropdown" options={options} />
               </div>
             </ModalContent>
           </Modal>
