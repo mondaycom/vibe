@@ -25,7 +25,7 @@ const TriggerActions = () => {
     selectedItem,
     selectedItems = [],
     searchable,
-    getToggleButtonProps
+    toggleMenu
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -64,9 +64,9 @@ const TriggerActions = () => {
           icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
           size={iconButtonSize}
           disabled={disabled}
-          ariaHidden
-          tabIndex={-1}
-          {...(searchable ? getToggleButtonProps() : {})}
+          onClick={() => {
+            toggleMenu();
+          }}
         />
       </Flex>
     </div>

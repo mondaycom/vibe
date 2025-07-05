@@ -59,12 +59,9 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    onIsOpenChange: useCallback(
-      ({ isOpen }) => {
-        isOpen ? onMenuClose?.() : onMenuOpen?.();
-      },
-      [onMenuClose, onMenuOpen]
-    ),
+    onIsOpenChange: ({ isOpen }) => {
+      isOpen ? onMenuClose?.() : onMenuOpen?.();
+    },
 
     onInputValueChange: useCallback(
       ({ inputValue }) => {

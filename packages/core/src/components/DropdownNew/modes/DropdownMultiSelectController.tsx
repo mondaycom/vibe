@@ -38,6 +38,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    toggleMenu,
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
@@ -94,7 +95,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     },
     addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem,
-    size
+    size,
+    toggleMenu
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
