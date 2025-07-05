@@ -85,7 +85,11 @@ export const Types = {
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction="column" gap="medium">
+    <Flex
+      direction="column"
+      gap="medium"
+      style={{ padding: "var(--sb-spacing-small)", backgroundColor: "var(--sb-primary-color)" }}
+    >
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
       <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
       <div style={{ padding: "15px 103px 20px" }}>
