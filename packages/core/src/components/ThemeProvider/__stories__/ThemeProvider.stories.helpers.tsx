@@ -7,7 +7,6 @@ import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./pr
 import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
 import { ThemeColor } from "../ThemeProviderConstants";
 import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
-import styles from "./ThemeProvider.stories.module.scss";
 
 export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
 
@@ -93,19 +92,18 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 
   return (
     <ThemeProvider themeConfig={selectedTheme?.value}>
-      <Flex gap="large" align="start" wrap className={styles.productThemingContainer}>
-        <Dropdown
-          placeholder={"No theme selected"}
-          options={dropdownOptions}
-          value={selectedTheme}
-          onClear={() => setSelectedTheme(null)}
-          onOptionSelect={(option: any) => setSelectedTheme(option)}
-          className={styles.productThemingDropdown}
-        />
-        <Button>Themed</Button>
-        <div className="brand-colors">
-          <Button color="brand">Themed branded</Button>
+      <Flex gap="large" align="start" wrap style={{ height: "200px" }}>
+        <div style={{ width: "250px" }}>
+          <Dropdown
+            placeholder={"No theme selected"}
+            options={dropdownOptions}
+            value={selectedTheme}
+            onClear={() => setSelectedTheme(null)}
+            onOptionSelect={(option: any) => setSelectedTheme(option)}
+          />
         </div>
+        <Button>Themed</Button>
+        <Button color="brand">Themed branded</Button>
       </Flex>
     </ThemeProvider>
   );
@@ -130,9 +128,7 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
     >
       <Flex gap="large" direction="row">
         <Button>Themed</Button>
-        <div className={"custom-class"}>
-          <Button>Themed by custom class</Button>
-        </div>
+        <Button>Themed by custom class</Button>
       </Flex>
     </ThemeProvider>
   );
