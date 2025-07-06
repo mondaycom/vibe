@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.8.0...@vibe/icons@1.9.0) (2025-07-03)
+
+
+### Bug Fixes
+
+* **icons:** update DropdownChevronDown and DropdownChevronUp ([#2965](https://github.com/mondaycom/vibe/issues/2965)) ([57d9704](https://github.com/mondaycom/vibe/commit/57d9704f04a643884a43bb3274228b3daa52412e))
+
+
+### Features
+
+* **icons:** add ScheduledSend icon ([#2964](https://github.com/mondaycom/vibe/issues/2964)) ([1488c40](https://github.com/mondaycom/vibe/commit/1488c406b74269490e355525aae41532af63433e))
+
+
+
+
+
 # [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.2...@vibe/icons@1.8.0) (2025-06-01)
 
 
