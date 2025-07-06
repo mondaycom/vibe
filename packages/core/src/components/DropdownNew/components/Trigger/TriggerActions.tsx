@@ -24,7 +24,6 @@ const TriggerActions = () => {
     multi,
     selectedItem,
     selectedItems = [],
-    searchable,
     toggleMenu
   } = useDropdownContext<BaseListItemData>();
 
