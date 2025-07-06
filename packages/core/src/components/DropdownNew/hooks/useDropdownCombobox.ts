@@ -37,7 +37,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   );
 
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
-  console.log("inputValueProp", inputValueProp);
   const {
     isOpen,
     inputValue,
