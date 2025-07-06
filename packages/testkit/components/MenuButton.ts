@@ -1,36 +1,28 @@
 import { Page, Locator, test } from "@playwright/test";
-import { Button } from "./Button";
-import { Menu } from "./Menu";
+import { BaseElement } from "./BaseElement";
 
 /**
- * Class representing a menu button that extends the Button class.
+ * Class representing a MenuButton element.
+ * Extends the BaseElement class.
  */
-export class MenuButton extends Button {
-  button: Button;
-  menu: Menu;
-
+export class MenuButton extends BaseElement {
   /**
-   * Create a MenuButton.
+   * Create a MenuButton element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the MenuButton element.
    * @param {string} elementReportName - The name for reporting purposes.
-   * @param {any} menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType: Menu) {
+  constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.button = new Button(this.page, this.locator, elementReportName);
-    this.menu = menuType;
   }
 
   /**
-   * Select an item from the menu.
-   * @param {string} item - The item to select.
-   * @returns {Promise<void>}
+   * Check if the menu is expanded.
+   * @returns {Promise<boolean>} True if the menu is expanded, false otherwise.
    */
-  async selectItem(item: string): Promise<void> {
-    await test.step(`Select ${item} from ${this.elementReportName}`, async () => {
-      await this.openMenu();
-      await this.menu.selectItem(item);
+  private async isExpanded(): Promise<boolean> {
+    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
+      return (await this.getAttributeValue("aria-expanded")) === "true";
     });
   }
 
@@ -39,9 +31,9 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async openMenu(): Promise<void> {
-    await test.step(`Open menu in ${this.elementReportName}`, async () => {
+    await test.step(`Open menu for ${this.getElementReportName()}`, async () => {
       if (!(await this.isExpanded())) {
-        await this.button.click();
+        await this.click();
       }
     });
   }
@@ -51,22 +43,10 @@ export class MenuButton extends Button {
    * @returns {Promise<void>}
    */
   async closeMenu(): Promise<void> {
-    await test.step(`Close menu in ${this.elementReportName}`, async () => {
+    await test.step(`Close menu for ${this.getElementReportName()}`, async () => {
       if (await this.isExpanded()) {
-        await this.button.click();
+        await this.click();
       }
     });
-  }
-
-  /**
-   * Check if the menu is expanded.
-   * @returns {Promise<boolean>} True if the menu is expanded, false otherwise.
-   */
-  async isExpanded(): Promise<boolean> {
-    let isExpanded = false;
-    await test.step(`Check if menu is expanded in ${this.elementReportName}`, async () => {
-      isExpanded = (await this.button.getAttributeValue("aria-expanded")) === "true";
-    });
-    return isExpanded;
   }
 }

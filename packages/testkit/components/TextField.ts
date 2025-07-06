@@ -1,5 +1,4 @@
 import { Page, Locator, test } from "@playwright/test";
-import { pressKey } from "../utils/common-actions";
 import { BaseElement } from "./BaseElement";
 
 /**
@@ -8,7 +7,7 @@ import { BaseElement } from "./BaseElement";
  */
 export class TextField extends BaseElement {
   /**
-   * Create a TextField.
+   * Create a TextField element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the TextField element.
    * @param {string} elementReportName - The name for reporting purposes.
@@ -23,9 +22,9 @@ export class TextField extends BaseElement {
    * @returns {Promise<void>}
    */
   async setText(text: string): Promise<void> {
-    await test.step(`Set text: ${text} in element: ${this.elementReportName}`, async () => {
+    await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
       await this.clearText();
-      await this.locator.fill(text);
+      await this.getLocator().fill(text);
     });
   }
 
@@ -33,8 +32,8 @@ export class TextField extends BaseElement {
    * Clear the text in the input element.
    */
   async clearText(): Promise<void> {
-    await test.step(`Clear text in element: ${this.elementReportName}`, async () => {
-      await this.locator.fill("");
+    await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
+      await this.getLocator().clear();
     });
   }
 
@@ -43,14 +42,8 @@ export class TextField extends BaseElement {
    * @returns {Promise<string>}
    */
   async isEmpty(): Promise<boolean> {
-    return (await this.locator.inputValue()) === "";
-  }
-
-  /**
-   * Exit the edit mode by pressing the Escape key.
-   * @returns {Promise<void>}
-   */
-  async exitEditMode(): Promise<void> {
-    await pressKey(this.page, "Escape");
+    return await test.step(`Check if text field is empty for ${this.getElementReportName()}`, async () => {
+      return (await this.getLocator().inputValue()) === "";
+    });
   }
 }

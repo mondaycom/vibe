@@ -1,33 +1,47 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { Search } from "./Search";
 import { ListItem } from "./ListItem";
+import { TextField } from "./TextField";
 
+/**
+ * Class representing a Combobox element.
+ * Extends the BaseElement class.
+ */
 export class Combobox extends BaseElement {
-  private searchInput: Search;
+  private searchField: TextField;
+
   /**
-   * Create a Combobox.
+   * Create a Combobox element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the Combobox element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.searchInput = new Search(page, this.locator.locator("[role='search']"), `${elementReportName} Search Input`);
+    this.searchField = new TextField(page, locator.locator("[role='search']"), `${elementReportName} - Search Field`);
   }
 
   /**
-   * Select an item from the combobox.
-   * @param {string} item - The name of the item to select.
+   * Get a combobox item by option.
+   * @param {string} option - The name of the option to get the combobox item for.
+   * @returns {Promise<ListItem>} The combobox item.
+   */
+  private async getComboboxItemByOption(option: string): Promise<ListItem> {
+    return await test.step(`Get combobox item by option ${option} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(this.getPage(), this.getLocator().getByText(option), option);
+    });
+  }
+
+  /**
+   * Select an option from the combobox.
+   * @param {string} option - The name of the option to select.
    * @returns {Promise<void>}
    */
-  async selectItem(item: string): Promise<void> {
-    await this.searchInput.setText(item);
-    const comboBoxItem = new ListItem(
-      this.page,
-      this.locator.locator(`[role='listbox']:has-text("${item}")`),
-      `Select Combobox Item: ${item}`
-    );
-    await comboBoxItem.click();
+  async selectOption(option: string): Promise<void> {
+    await test.step(`Select option ${option} for ${this.getElementReportName()}`, async () => {
+      await this.searchField.setText(option);
+      const comboBoxItem = await this.getComboboxItemByOption(option);
+      await comboBoxItem.click();
+    });
   }
 }

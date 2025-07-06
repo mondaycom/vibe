@@ -3,68 +3,41 @@ import { MenuItem } from "./MenuItem";
 import { BaseElement } from "./BaseElement";
 
 /**
- * Class representing a List element.
+ * Class representing a Menu element.
  * Extends the BaseElement class.
  */
 export class Menu extends BaseElement {
-  private items: MenuItem[];
-  private itemsInitialized: boolean;
-
   /**
-   * Create a Menu.
+   * Create a Menu element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the List element.
+   * @param {Locator} locator - The locator for the Menu element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.items = [];
-    this.itemsInitialized = false;
-  }
-
-  /**
-   * Get all menu items.
-   * @returns {Promise<MenuItem[]>} An array of MenuItem objects.
-   */
-  async getAllMenuItems(): Promise<MenuItem[]> {
-    let menuItems: MenuItem[] = [];
-    await test.step(`Get all menu items in ${this.elementReportName}`, async () => {
-      const menuItemsLocators = await this.locator.getByRole("menuitem").all();
-      const menuItemsPromises = menuItemsLocators.map(
-        async locator => new MenuItem(this.page, locator, await locator.innerText())
-      );
-      menuItems = await Promise.all(menuItemsPromises);
-    });
-    return menuItems;
   }
 
   /**
    * Get a menu item by its name.
    * @param {string} itemName - The name of the item to retrieve.
-   * @returns {ListItem | undefined} The list item with the specified name or undefined if not found.
+   * @returns {Promise<MenuItem>} The menu item with the specified name.
    */
-  async getItemByName(itemName: string): Promise<MenuItem | undefined> {
-    let menuItem: MenuItem | undefined;
-    await test.step(`Get menu item by name ${itemName} in ${this.elementReportName}`, async () => {
-      const menuItemLocator = this.locator.getByRole("menuitem");
-      menuItem = new MenuItem(
-        this.page,
-        menuItemLocator.filter({ has: this.page.getByText(itemName, { exact: true }) }),
-        `Menu Item: ${itemName}`
-      );
+  private async getMenuItemByName(itemName: string): Promise<MenuItem> {
+    return await test.step(`Get menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      return new MenuItem(this.getPage(), this.getLocator().getByRole("menuitem", { name: itemName }), itemName);
     });
-    return menuItem;
   }
 
   /**
-   * Select a menu item.
-   * @param {string} listItem - The name of the item to select.
+   * Click a menu item by its name.
+   * @param {string} itemName - The name of the item to click.
    * @returns {Promise<void>}
    */
-  async selectItem(listItem: string): Promise<void> {
-    await test.step(`Select menu item ${listItem} in ${this.elementReportName}`, async () => {
-      const menuItem = await this.getItemByName(listItem);
-      await menuItem?.click();
+  async clickMenuItemByName(itemName: string): Promise<void> {
+    await test.step(`Click menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      const menuItem = await this.getMenuItemByName(itemName);
+      await menuItem.hover();
+      await menuItem.click();
     });
   }
 }

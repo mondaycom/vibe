@@ -1,48 +1,85 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, test } from "@playwright/test";
+import { BaseElement } from "./BaseElement";
+import { Text } from "./Text";
+import { Button } from "./Button";
 import { IconButton } from "./IconButton";
-import { pressKey } from "../utils/common-actions";
 
 /**
- * Class representing a Modal
+ * Class representing a Modal element.
+ * Extends the BaseElement class.
  */
-export class Modal {
-  page: Page;
-  locator: Locator;
-  elementReportName: string;
-  closeModalButton: IconButton;
+export class Modal extends BaseElement {
+  private modalHeader: Text;
+  private modalContent: Text;
+  private cancelButton: Button;
+  private confirmButton: Button;
+  private xButton: IconButton;
 
   /**
-   * Create a Modal.
+   * Create a Modal element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the MenuButton element.
+   * @param {Locator} locator - The locator for the Modal element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
-    this.closeModalButton = new IconButton(
-      this.page,
-      this.locator.getByTestId("close-modal-button"),
-      elementReportName
+    super(page, locator, elementReportName);
+    this.modalHeader = new Text(page, locator.getByTestId("modal-header"), `${elementReportName} - Modal Header`);
+    this.modalContent = new Text(page, locator.getByTestId("modal-content"), `${elementReportName} - Modal Content`);
+    this.cancelButton = new Button(
+      page,
+      locator.getByTestId("modal-footer").getByText("Cancel"),
+      `${elementReportName} - Close Button`
     );
+    this.confirmButton = new Button(
+      page,
+      locator.getByTestId("modal-footer").getByText("Confirm"),
+      `${elementReportName} - Confirm Button`
+    );
+    this.xButton = new IconButton(page, locator.getByTestId("modal-close-button"), `${elementReportName} - X Button`);
   }
 
   /**
-   * Close the modal.
+   * Click the X button.
    */
-  async closeModal(): Promise<void> {
-    if (await this.closeModalButton.isVisible()) {
-      await this.closeModalButton.click();
-    } else {
-      await pressKey(this.page, "Escape");
-    }
+  async clickXButton(): Promise<void> {
+    await test.step(`Click X button for ${this.getElementReportName()}`, async () => {
+      await this.xButton.click();
+    });
   }
 
   /**
-   * Check if the modal is visible.
+   * Click the Cancel button.
    */
-  async isVisible(): Promise<boolean> {
-    return await this.locator.isVisible();
+  async clickCancelButton(): Promise<void> {
+    await test.step(`Click Cancel button for ${this.getElementReportName()}`, async () => {
+      await this.cancelButton.click();
+    });
+  }
+
+  /**
+   * Click the Confirm button.
+   */
+  async clickConfirmButton(): Promise<void> {
+    await test.step(`Click Confirm button for ${this.getElementReportName()}`, async () => {
+      await this.confirmButton.click();
+    });
+  }
+
+  /**
+   * Get the modal header text.
+   */
+  async getModalHeaderText(): Promise<string> {
+    return await test.step(`Get modal header text for ${this.getElementReportName()}`, async () => {
+      return await this.modalHeader.getText();
+    });
+  }
+
+  /**
+   * Get the modal content text.
+   */
+  async getModalContentText(): Promise<string> {
+    return await test.step(`Get modal content text for ${this.getElementReportName()}`, async () => {
+      return await this.modalContent.getText();
+    });
   }
 }

@@ -1,85 +1,49 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
-import { Loader } from "./Loader";
+import { Text } from "./Text";
 
+/**
+ * Class representing a Toast element.
+ * Extends the BaseElement class.
+ */
 export class Toast extends BaseElement {
+  private content: Text;
   private closeButton: Button;
-  private loader: Loader;
-  private actionButtons: Button;
-  private linkButton: Button;
+
+  /**
+   * Create a Toast element.
+   * @param {Page} page - The Playwright page object.
+   * @param {Locator} locator - The locator for the Toast element.
+   * @param {string} elementReportName - The name for reporting purposes.
+   */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
+    this.content = new Text(page, locator.getByTestId("toast-content"), `${elementReportName} - Content`);
     this.closeButton = new Button(
-      this.page,
-      this.locator.locator('button[class*="closeButton"]'),
-      "Toast Close Button"
+      page,
+      locator.getByTestId("toast-close-button"),
+      `${elementReportName} - Close Button`
     );
-    this.actionButtons = new Button(
-      this.page,
-      this.locator.locator('button[class*="actionButton"]'),
-      "Toast Action Button"
-    );
-    this.linkButton = new Button(this.page, this.locator.locator('[class*="actionLink"]'), "Toast Action Link");
-    this.loader = new Loader(this.page, this.locator.locator('[class*="loaderContainer"]'), "Toast Content");
   }
 
   /**
-   * Get the content text of the toast
-   * @returns {Promise<string | undefined>} The content text
+   * Get the content of the toast.
+   * @returns {Promise<string>} The content of the toast.
    */
-  async getContent(): Promise<string | undefined> {
-    return test.step(`Get content from toast: ${this.elementReportName}`, async () => {
-      return this.getText();
+  async getContent(): Promise<string> {
+    return await test.step(`Get content from toast: ${this.getElementReportName()}`, async () => {
+      return this.content.getText();
     });
   }
 
   /**
-   * Click the close button of the toast
+   * Click the close button of the toast.
    * @returns {Promise<void>}
    */
-  async close(): Promise<void> {
-    await test.step(`Close toast: ${this.elementReportName}`, async () => {
+  async clickCloseButton(): Promise<void> {
+    await test.step(`Click close button for ${this.getElementReportName()}`, async () => {
       await this.closeButton.click();
-    });
-  }
-
-  /**
-   * Check if the toast has a close button
-   * @returns {Promise<boolean>} True if close button exists
-   */
-  async hasCloseButton(): Promise<boolean> {
-    return test.step(`Check if toast has close button: ${this.elementReportName}`, async () => {
-      return (await this.closeButton.locator.count()) > 0;
-    });
-  }
-
-  /**
-   * Get the type of the toast
-   * @returns {Promise<string | null>} The toast type (normal, positive, negative, warning, dark)
-   */
-  async getType(): Promise<string | null> {
-    return test.step(`Get toast type: ${this.elementReportName}`, async () => {
-      const classList = await this.getAttributeValue("class");
-      if (!classList) return null;
-
-      const types = ["normal", "positive", "negative", "warning", "dark"];
-      for (const type of types) {
-        if (classList.includes(`type${type.charAt(0).toUpperCase() + type.slice(1)}`)) {
-          return type;
-        }
-      }
-      return "normal";
-    });
-  }
-
-  /**
-   * Check if the toast is in loading state
-   * @returns {Promise<boolean>} True if toast is loading
-   */
-  async isLoading(): Promise<boolean> {
-    return test.step(`Check if toast is loading: ${this.elementReportName}`, async () => {
-      return (await this.loader.locator.count()) > 0;
     });
   }
 }
