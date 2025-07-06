@@ -137,10 +137,10 @@ export class ExpandCollapse extends BaseElement {
   async waitForExpanded(): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} to be expanded`, async () => {
       await this.headerButtonLocator.waitFor({ state: "visible" });
-      await this.page.waitForFunction(() => {
-        const element = document.querySelector(`[aria-expanded]`);
-        return element && element.getAttribute("aria-expanded") === "true";
-      });
+      // Poll until the component is expanded
+      while (!(await this.isExpanded())) {
+        await this.page.waitForTimeout(100);
+      }
     });
   }
 
@@ -151,10 +151,10 @@ export class ExpandCollapse extends BaseElement {
   async waitForCollapsed(): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} to be collapsed`, async () => {
       await this.headerButtonLocator.waitFor({ state: "visible" });
-      await this.page.waitForFunction(() => {
-        const element = document.querySelector(`[aria-expanded]`);
-        return element && element.getAttribute("aria-expanded") === "false";
-      });
+      // Poll until the component is collapsed
+      while (await this.isExpanded()) {
+        await this.page.waitForTimeout(100);
+      }
     });
   }
 
