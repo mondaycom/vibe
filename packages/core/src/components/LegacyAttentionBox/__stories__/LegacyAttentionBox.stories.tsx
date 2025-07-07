@@ -10,7 +10,7 @@ import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
-import AttentionBoxLink from "../AttentionBoxLink/LegacyAttentionBoxLink";
+import AttentionBoxLink from "../LegacyAttentionBoxLink/LegacyAttentionBoxLink";
 import Button from "../../Button/Button";
 import Text from "../../Text/Text";
 import { Heading } from "../../Heading";

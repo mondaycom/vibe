@@ -2,6 +2,6 @@ export { default as AttentionBox, LegacyAttentionBoxProps as AttentionBoxProps }
 export {
   default as AttentionBoxLink,
   LegacyAttentionBoxLinkProps as AttentionBoxLinkProps
-} from "./AttentionBoxLink/LegacyAttentionBoxLink";
+} from "./LegacyAttentionBoxLink/LegacyAttentionBoxLink";
 
 export * from "./LegacyAttentionBox.types";
