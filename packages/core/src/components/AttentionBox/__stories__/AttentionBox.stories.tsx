@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Robot } from "@vibe/icons";
 import Button from "../../Button/Button";
 import AttentionBox from "../AttentionBox";
+import { AttentionBoxProps } from "src/components/LegacyAttentionBox";
 
 type Story = StoryObj<typeof AttentionBox>;
 
@@ -12,7 +13,10 @@ export default {
 } satisfies Meta<typeof AttentionBox>;
 
 export const Overview: Story = {
-  render: args => <AttentionBox title="Attention Required" text="Please review this information carefully." {...args} />
+  render: (args: Partial<AttentionBoxProps>) => (
+    // @ts-expect-error - title is not allowed when compact is true, but we want to allow all combinations of props in the overview story
+    <AttentionBox title="Attention Required" text="Please review this information carefully." {...args} />
+  )
 };
 
 export const SuccessVariant: Story = {

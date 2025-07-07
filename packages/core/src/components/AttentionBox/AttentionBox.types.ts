@@ -33,18 +33,18 @@ export type AttentionBoxCompactMultilineProps =
   | { compact?: false; multiline?: never }
   | { compact: true; multiline?: boolean };
 
+// Compact/Title logic - title not allowed when compact is true
+export type AttentionBoxCompactTitleProps = { compact?: false; title?: string } | { compact: true; title?: never };
+
 export type AttentionBoxProps = VibeComponentProps &
   AttentionBoxIconProps &
   AttentionBoxCompactMultilineProps &
+  AttentionBoxCompactTitleProps &
   AttentionBoxActionLinkProps & {
     /**
      * The variant type of the attention box
      */
     type?: AttentionBoxType;
-    /**
-     * The title text (only shown in default mode, not compact)
-     */
-    title?: string;
     /**
      * The main text content
      */

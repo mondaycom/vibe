@@ -25,13 +25,6 @@ describe("AttentionBox", () => {
       expect(screen.getByText("Test text")).toBeInTheDocument();
     });
 
-    it("renders in compact mode without title", () => {
-      render(<AttentionBox compact title="Test Title" text="Test text" />);
-
-      expect(screen.queryByText("Test Title")).not.toBeInTheDocument();
-      expect(screen.getByText("Test text")).toBeInTheDocument();
-    });
-
     it("renders all variant types with correct class styling", () => {
       const variants: AttentionBoxType[] = ["primary", "success", "danger", "warning", "dark"];
 
