@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { VibeComponentProps, SubIcon } from "../../types";
+import { IconType } from "../Icon/Icon.types";
 import { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
 import { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
 
@@ -12,7 +13,7 @@ export type AttentionBoxRole = "alert" | "status";
 
 // Shared props for both compact and default layouts
 export interface AttentionBoxLayoutSharedProps
-  extends Pick<AttentionBoxProps, "icon" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
+  extends Pick<AttentionBoxProps, "icon" | "iconType" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
   content: React.ReactNode;
   isLinkInline: boolean;
 }
@@ -45,6 +46,10 @@ export type AttentionBoxProps = VibeComponentProps &
      * The variant type of the attention box
      */
     type?: AttentionBoxType;
+    /**
+     * The type of the icon
+     */
+    iconType?: IconType;
     /**
      * The main text content
      */

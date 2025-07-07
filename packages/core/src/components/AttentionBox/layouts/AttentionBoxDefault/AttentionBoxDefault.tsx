@@ -14,6 +14,7 @@ export type AttentionBoxDefaultProps = AttentionBoxLayoutSharedProps & Pick<Atte
 const AttentionBoxDefault = ({
   title,
   icon,
+  iconType,
   onClose,
   closeButtonAriaLabel = "Close",
   action,
@@ -26,7 +27,7 @@ const AttentionBoxDefault = ({
     <Flex align="start" direction="column" gap="xs" className={styles.content}>
       <Flex className={styles.titleSection}>
         <Flex gap="xs" flex="1" className={styles.titleLeft}>
-          <AttentionBoxLeadingIcon icon={icon} />
+          <AttentionBoxLeadingIcon icon={icon} iconType={iconType} />
           {title && (
             <Text type="text1" weight="medium" color="inherit">
               {title}

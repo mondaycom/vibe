@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Robot } from "@vibe/icons";
 import Button from "../../Button/Button";
 import AttentionBox from "../AttentionBox";
-import { AttentionBoxProps } from "src/components/LegacyAttentionBox";
+import { AttentionBoxProps } from "../AttentionBox.types";
 
 type Story = StoryObj<typeof AttentionBox>;
 

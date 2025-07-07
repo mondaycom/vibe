@@ -13,6 +13,7 @@ export type AttentionBoxCompactProps = AttentionBoxLayoutSharedProps & Pick<Atte
 const AttentionBoxCompact = ({
   multiline = false,
   icon,
+  iconType,
   onClose,
   closeButtonAriaLabel = "Close",
   action,
@@ -36,7 +37,7 @@ const AttentionBoxCompact = ({
   return (
     <Flex gap="large" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
-        <AttentionBoxLeadingIcon icon={icon} />
+        <AttentionBoxLeadingIcon icon={icon} iconType={iconType} />
         {multiline ? <div>{contentElement}</div> : contentElement}
       </Flex>
       {action && <AttentionBoxButton {...action} />}

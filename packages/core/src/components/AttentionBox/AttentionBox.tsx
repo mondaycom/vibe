@@ -16,6 +16,7 @@ const AttentionBox = forwardRef(
       title,
       animate = true,
       icon,
+      iconType = "svg",
       hideIcon = false,
       type = "primary",
       children,
@@ -61,6 +62,7 @@ const AttentionBox = forwardRef(
       link,
       // overridden props
       icon: displayIcon,
+      iconType,
       // custom props
       content,
       isLinkInline
