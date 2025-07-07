@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./AttentionBoxLink.module.scss";
+import styles from "./LegacyAttentionBoxLink.module.scss";
 import Link, { LinkProps } from "../../Link/Link";
 import cx from "classnames";
 
-export type AttentionBoxLinkProps = LinkProps;
+export type LegacyAttentionBoxLinkProps = LinkProps;
 
-const AttentionBoxLink = ({
+const LegacyAttentionBoxLink = ({
   href,
   text,
   // TODO: use Link's target default in next major
@@ -13,10 +13,14 @@ const AttentionBoxLink = ({
   target = "_self",
   className,
   ...linkProps
-}: AttentionBoxLinkProps) => {
+}: LegacyAttentionBoxLinkProps) => {
   return (
     <Link className={cx(styles.attentionBoxLink, className)} href={href} text={text} target={target} {...linkProps} />
   );
 };
 
-export default AttentionBoxLink;
+Object.assign(LegacyAttentionBoxLink, {
+  displayName: "AttentionBoxLink"
+});
+
+export default LegacyAttentionBoxLink;

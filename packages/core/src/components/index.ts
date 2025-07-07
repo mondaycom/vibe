@@ -1,6 +1,6 @@
 export * from "./Accordion";
 export * from "./AlertBanner";
-export * from "./AttentionBox";
+export * from "./LegacyAttentionBox";
 export * from "./Avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import AttentionBox from "../AttentionBox";
+import AttentionBox from "../LegacyAttentionBox";
 
 describe("AttentionBox renders correctly", () => {
   it("renders correctly", () => {
