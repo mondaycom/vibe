@@ -1,0 +1,7 @@
+.closeButton {
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+} 

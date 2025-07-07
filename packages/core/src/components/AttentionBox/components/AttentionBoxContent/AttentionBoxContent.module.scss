@@ -1,0 +1,9 @@
+.multilineText {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.spacing::before {
+  content: " ";
+  white-space: pre;
+}
