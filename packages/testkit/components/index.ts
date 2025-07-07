@@ -20,7 +20,6 @@ export * from "./RadioButton";
 export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Tabs";
-export * from "./Text";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./Toast";

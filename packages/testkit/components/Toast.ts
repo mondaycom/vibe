@@ -1,14 +1,13 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
-import { Text } from "./Text";
 
 /**
  * Class representing a Toast element.
  * Extends the BaseElement class.
  */
 export class Toast extends BaseElement {
-  private content: Text;
+  private content: BaseElement;
   private closeButton: Button;
 
   /**
@@ -19,7 +18,7 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.content = new Text(page, locator.getByTestId("toast-content"), `${elementReportName} - Content`);
+    this.content = new BaseElement(page, locator.getByTestId("toast-content"), `${elementReportName} - Content`);
     this.closeButton = new Button(
       page,
       locator.getByTestId("toast-close-button"),
@@ -33,7 +32,7 @@ export class Toast extends BaseElement {
    */
   async getContent(): Promise<string> {
     return await test.step(`Get content from toast: ${this.getElementReportName()}`, async () => {
-      return this.content.getText();
+      return await this.content.getText();
     });
   }
 

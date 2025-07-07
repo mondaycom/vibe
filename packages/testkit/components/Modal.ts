@@ -1,6 +1,5 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { Text } from "./Text";
 import { Button } from "./Button";
 import { IconButton } from "./IconButton";
 
@@ -9,8 +8,8 @@ import { IconButton } from "./IconButton";
  * Extends the BaseElement class.
  */
 export class Modal extends BaseElement {
-  private modalHeader: Text;
-  private modalContent: Text;
+  private modalHeader: BaseElement;
+  private modalContent: BaseElement;
   private cancelButton: Button;
   private confirmButton: Button;
   private xButton: IconButton;
@@ -23,8 +22,16 @@ export class Modal extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.modalHeader = new Text(page, locator.getByTestId("modal-header"), `${elementReportName} - Modal Header`);
-    this.modalContent = new Text(page, locator.getByTestId("modal-content"), `${elementReportName} - Modal Content`);
+    this.modalHeader = new BaseElement(
+      page,
+      locator.getByTestId("modal-header"),
+      `${elementReportName} - Modal Header`
+    );
+    this.modalContent = new BaseElement(
+      page,
+      locator.getByTestId("modal-content"),
+      `${elementReportName} - Modal Content`
+    );
     this.cancelButton = new Button(
       page,
       locator.getByTestId("modal-footer").getByText("Cancel"),

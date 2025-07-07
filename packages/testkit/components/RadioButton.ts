@@ -1,6 +1,5 @@
 import { test, Locator, Page } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { Text } from "./Text";
 import { TextField } from "./TextField";
 
 /**
@@ -9,7 +8,7 @@ import { TextField } from "./TextField";
  */
 export class RadioButton extends BaseElement {
   private radioButton: TextField;
-  private label: Text;
+  private label: BaseElement;
 
   /**
    * Create a RadioButton element.
@@ -24,7 +23,7 @@ export class RadioButton extends BaseElement {
       locator.locator("input[type='radio']"),
       `${elementReportName} - Radio Button`
     );
-    this.label = new Text(page, locator.getByTestId("radio-button-label"), `${elementReportName} - Label`);
+    this.label = new BaseElement(page, locator.getByTestId("radio-button-label"), `${elementReportName} - Label`);
   }
 
   /**

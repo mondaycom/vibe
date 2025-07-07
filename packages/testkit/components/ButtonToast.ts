@@ -4,7 +4,7 @@ import { Toast } from "./Toast";
 
 /**
  * Class representing a ButtonToast element.
- * Extends the BaseElement class.
+ * Extends the Toast class.
  */
 export class ButtonToast extends Toast {
   private button: Button;

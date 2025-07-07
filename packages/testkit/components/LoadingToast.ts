@@ -1,11 +1,11 @@
 import { Page, Locator } from "@playwright/test";
-import { BaseElement } from "./BaseElement";
+import { Toast } from "./Toast";
 
 /**
  * Class representing a LoadingToast element.
- * Extends the BaseElement class.
+ * Extends the Toast class.
  */
-export class LoadingToast extends BaseElement {
+export class LoadingToast extends Toast {
   /**
    * Create a LoadingToast element.
    * @param {Page} page - The Playwright page object.

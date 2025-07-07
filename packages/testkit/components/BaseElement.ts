@@ -118,14 +118,15 @@ export class BaseElement {
   /**
    * Get the value of an attribute of the element.
    * @param {string} attributeName - The name of the attribute.
+   * @param {number} timeout - The timeout for the attribute value. Defaults to 30 seconds.
    * @returns {Promise<string | null>} - The value of the attribute.
    */
-  async getAttributeValue(attributeName: string): Promise<string> {
+  async getAttributeValue(attributeName: string, timeout: number = this.DEFAULT_TIMEOUT): Promise<string> {
     return await test.step(`Get attribute ${attributeName} of ${this.getElementReportName()}`, async () => {
-      const attributeValue = await this.getLocator().getAttribute(attributeName, { timeout: this.DEFAULT_TIMEOUT });
+      const attributeValue = await this.getLocator().getAttribute(attributeName, { timeout });
 
       if (attributeValue === null || attributeValue === undefined) {
-        throw new Error(`Could not retrieve attribute ${attributeName} for ${this.getElementReportName()}`);
+        return "";
       }
       return attributeValue;
     });
@@ -133,41 +134,45 @@ export class BaseElement {
 
   /**
    * Wait for the element to be visible.
+   * @param {number} timeout - The timeout for the element to be visible. Defaults to 30 seconds.
    * @returns {Promise<void>}
    */
-  async waitForElementToBeVisible(): Promise<void> {
+  async waitForElementToBeVisible(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
     await test.step(`Wait for ${this.getElementReportName()} to be visible`, async () => {
-      await this.getLocator().waitFor({ state: "visible", timeout: this.DEFAULT_TIMEOUT });
+      await this.getLocator().waitFor({ state: "visible", timeout });
     });
   }
 
   /**
    * Wait for the element to be hidden.
+   * @param {number} timeout - The timeout for the element to be hidden. Defaults to 30 seconds.
    * @returns {Promise<void>}
    */
-  async waitForElementToBeHidden(): Promise<void> {
+  async waitForElementToBeHidden(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
     await test.step(`Wait for ${this.getElementReportName()} to be hidden`, async () => {
-      await this.getLocator().waitFor({ state: "hidden", timeout: this.DEFAULT_TIMEOUT });
+      await this.getLocator().waitFor({ state: "hidden", timeout });
     });
   }
 
   /**
    * Wait for the element to be absent.
+   * @param {number} timeout - The timeout for the element to be absent. Defaults to 30 seconds.
    * @returns {Promise<void>}
    */
-  async waitForElementToBeDetached(): Promise<void> {
+  async waitForElementToBeDetached(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
     await test.step(`Wait for ${this.getElementReportName()} to be absent`, async () => {
-      await this.getLocator().waitFor({ state: "detached", timeout: this.DEFAULT_TIMEOUT });
+      await this.getLocator().waitFor({ state: "detached", timeout });
     });
   }
 
   /**
    * Wait for the element to be attached.
+   * @param {number} timeout - The timeout for the element to be attached. Defaults to 30 seconds.
    * @returns {Promise<void>}
    */
-  async waitForElementToBeAttached(): Promise<void> {
+  async waitForElementToBeAttached(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
     await test.step(`Wait for ${this.getElementReportName()} to be attached`, async () => {
-      await this.getLocator().waitFor({ state: "attached", timeout: this.DEFAULT_TIMEOUT });
+      await this.getLocator().waitFor({ state: "attached", timeout });
     });
   }
 
@@ -183,21 +188,45 @@ export class BaseElement {
 
   /**
    * Check if the element is enabled.
+   * @param {number} timeout - The timeout for the element to be enabled. Defaults to 30 seconds.
    * @returns {Promise<boolean>} - Returns true if the element is enabled, otherwise false.
    */
-  async isEnabled(): Promise<boolean> {
+  async isEnabled(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
     return await test.step(`Check if ${this.getElementReportName()} is enabled`, async () => {
-      return await this.getLocator().isEnabled({ timeout: this.DEFAULT_TIMEOUT });
+      return await this.getLocator().isEnabled({ timeout });
+    });
+  }
+
+  /**
+   * Check if the element is disabled.
+   * @param {number} timeout - The timeout for the element to be disabled. Defaults to 30 seconds.
+   * @returns {Promise<boolean>} - Returns true if the element is disabled, otherwise false.
+   */
+  async isDisabled(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
+    return await test.step(`Check if ${this.getElementReportName()} is disabled`, async () => {
+      return await this.getLocator().isDisabled({ timeout });
     });
   }
 
   /**
    * Check if the element is visible.
+   * @param {number} timeout - The timeout for the element to be visible. Defaults to 30 seconds.
    * @returns {Promise<boolean>} - Returns true if the element is visible, otherwise false.
    */
-  async isVisible(): Promise<boolean> {
+  async isVisible(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
     return await test.step(`Check if ${this.getElementReportName()} is visible`, async () => {
-      return await this.getLocator().isVisible({ timeout: this.DEFAULT_TIMEOUT });
+      return await this.getLocator().isVisible({ timeout });
+    });
+  }
+
+  /**
+   * Check if the element is hidden.
+   * @param {number} timeout - The timeout for the element to be hidden. Defaults to 30 seconds.
+   * @returns {Promise<boolean>} - Returns true if the element is hidden, otherwise false.
+   */
+  async isHidden(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
+    return await test.step(`Check if ${this.getElementReportName()} is hidden`, async () => {
+      return await this.getLocator().isHidden({ timeout });
     });
   }
 
