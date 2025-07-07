@@ -61,7 +61,7 @@ export type AttentionBoxProps = VibeComponentProps &
     /**
      * Callback when the close button is clicked
      */
-    onClose?: () => void;
+    onClose?: (event: React.MouseEvent) => void;
     /**
      * Custom aria label for the close button
      */

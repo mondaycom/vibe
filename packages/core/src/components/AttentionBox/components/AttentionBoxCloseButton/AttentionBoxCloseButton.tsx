@@ -4,7 +4,7 @@ import { CloseSmall } from "@vibe/icons";
 import styles from "./AttentionBoxCloseButton.module.scss";
 
 export interface AttentionBoxCloseButtonProps {
-  onClose?: () => void;
+  onClose?: (event: React.MouseEvent) => void;
   closeButtonAriaLabel?: string;
 }
 
