@@ -22,7 +22,6 @@ const AttentionBoxDefault = ({
   content,
   isLinkInline
 }: AttentionBoxDefaultProps) => {
-  const shouldRenderActionsSection = action || (link && !isLinkInline);
   return (
     <Flex align="start" direction="column" gap="xs" className={styles.content}>
       <Flex className={styles.titleSection}>
@@ -43,10 +42,12 @@ const AttentionBoxDefault = ({
         </div>
       )}
 
-      {shouldRenderActionsSection && (
-        <Flex justify={action ? "end" : "start"} className={styles.actionSection}>
-          {action ? <AttentionBoxButton {...action} /> : <AttentionBoxLink {...link} inlineText={false} />}
+      {action ? (
+        <Flex justify="end" className={styles.actionSection}>
+          <AttentionBoxButton {...action} />
         </Flex>
+      ) : (
+        link && !isLinkInline && <AttentionBoxLink {...link} inlineText={false} />
       )}
     </Flex>
   );
