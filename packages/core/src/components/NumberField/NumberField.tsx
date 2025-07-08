@@ -78,6 +78,20 @@ const NumberField = forwardRef(
       return <Icon icon={leftIcon} className={styles.leftIcon} />;
     }, [leftIcon]);
 
+    const renderedRightIcon = useMemo(() => {
+      return (
+        <NumberFieldSpinButton
+          inputId={id}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+          disabled={disabled || readOnly}
+          size={size}
+          isAtMin={isAtMin}
+          isAtMax={isAtMax}
+        />
+      );
+    }, [id, onIncrement, onDecrement, disabled, readOnly, size, isAtMin, isAtMax]);
+
     const infoTextId = useMemo(() => {
       return infoText && id ? `${id}-info-text` : undefined;
     }, [infoText, id]);
@@ -114,17 +128,7 @@ const NumberField = forwardRef(
           error={error}
           success={success}
           renderLeft={renderedLeftIcon}
-          renderRight={
-            <NumberFieldSpinButton
-              inputId={id}
-              onIncrement={onIncrement}
-              onDecrement={onDecrement}
-              disabled={disabled || readOnly}
-              size={size}
-              isAtMin={isAtMin}
-              isAtMax={isAtMax}
-            />
-          }
+          renderRight={renderedRightIcon}
         />
         <InfoText
           id={infoTextId}
