@@ -20,7 +20,7 @@ const InfoText = forwardRef(
           [styles.disabled]: disabled,
           [styles.readOnly]: readOnly
         })}
-        type={Text.types.TEXT2}
+        type="text2"
       >
         {text}
       </Text>
