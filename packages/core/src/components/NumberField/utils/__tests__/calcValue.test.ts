@@ -1,4 +1,4 @@
-import { calculateSteppedValue } from "../calc-value";
+import { calculateSteppedValue } from "../calcValue";
 
 describe("calculateSteppedValue", () => {
   it("should increment the value by the step", () => {
