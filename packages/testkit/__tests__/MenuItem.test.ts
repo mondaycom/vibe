@@ -1,160 +1,81 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { MenuItem } from "../components/MenuItem";
 import { menuItemStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let menuItem: MenuItem;
+const menuItemLocator = 'li[role="menuitem"]';
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - MenuItem", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(menuItemStory);
+    frame = page.frameLocator(frameLocator);
+    menuItem = new MenuItem(page, frame.locator(menuItemLocator), "Menu Item");
+    await page.reload();
+    await menuItem.waitForElementToBeVisible();
   });
 
-  test("should be enabled by default", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should be enabled by default", async () => {
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should be visible by default", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should be visible by default", async () => {
     expect(await menuItem.isVisible()).toBe(true);
   });
 
-  test("should be clickable", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should be clickable", async () => {
     await menuItem.click();
-
-    // Verify component is still functional
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should handle multiple clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Click multiple times
+  test("should handle multiple clicks", async () => {
     await menuItem.click();
     await menuItem.click();
     await menuItem.click();
-
-    // Verify component is still functional
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should handle rapid clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Perform rapid clicks
-    await menuItem.click();
-    await menuItem.click();
-    await menuItem.click();
-
-    // Verify component is still functional
-    expect(await menuItem.isEnabled()).toBe(true);
-  });
-
-  test("should be hoverable", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should be hoverable", async () => {
     await menuItem.hover();
-
-    // Verify component is still functional
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should have proper text content", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should have proper text content", async () => {
     const text = await menuItem.getText();
-    expect(text).toBeTruthy();
+    expect.soft(text).toBe("Menu item");
+    expect.soft(text).toBeTruthy();
     expect(text.length).toBeGreaterThan(0);
   });
 
-  test("should handle focus operations", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Focus the menu item using the underlying locator
-    await menuItem.getLocator().focus();
-
-    // Verify component is still functional
+  test("should maintain enabled state after interactions", async () => {
+    await menuItem.hover();
+    await menuItem.click();
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should maintain enabled state after interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Interact with the menu item
+  test("should maintain visibility after interactions", async () => {
     await menuItem.hover();
     await menuItem.click();
-
-    // Should still be enabled
-    expect(await menuItem.isEnabled()).toBe(true);
-  });
-
-  test("should maintain visibility after interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Interact with the menu item
-    await menuItem.hover();
-    await menuItem.click();
-
-    // Should still be visible
     expect(await menuItem.isVisible()).toBe(true);
   });
 
-  test("should handle keyboard interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Focus first using the underlying locator
-    await menuItem.getLocator().focus();
-
-    // Press Enter or Space (both should work for menu items)
-    await page.keyboard.press("Enter");
-    await page.keyboard.press("Space");
-
-    // Verify component is still functional
-    expect(await menuItem.isEnabled()).toBe(true);
-  });
-
-  test("should have proper role attribute", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
-    // Should have menuitem role or proper aria attributes
-    try {
-      const role = await menuItem.getAttributeValue("role");
-      expect(role).toBe("menuitem");
-    } catch (error) {
-      // If role attribute doesn't exist, it might be a native menu item element
-      // This is also acceptable behavior
-    }
-  });
-
-  test("should scroll into view when needed", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should scroll into view when needed", async () => {
     await menuItem.scrollIntoView();
-
-    // Verify component is still functional
     expect(await menuItem.isEnabled()).toBe(true);
   });
 
-  test("should count elements correctly", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const menuItem = new MenuItem(page, frame.locator('[data-testid="menu-item"]'), "Menu Item");
-
+  test("should count elements correctly", async () => {
     const count = await menuItem.countElements();
     expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test("should handle attribute retrieval", async () => {
+    const className = await menuItem.getAttributeValue("class");
+    expect(className).toContain("BaseMenuItem-module");
+  });
+
+  test("should check if menu item is enabled by default", async () => {
+    expect(await menuItem.isDisabled()).toBe(false);
   });
 });

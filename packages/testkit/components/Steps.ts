@@ -31,64 +31,6 @@ export class Steps extends BaseElement {
   }
 
   /**
-   * Click the back button.
-   */
-  async clickBackButton(): Promise<void> {
-    await test.step(`Click back button for ${this.getElementReportName()}`, async () => {
-      await this.backButton.click();
-    });
-  }
-
-  /**
-   * Click the next button.
-   */
-  async clickNextButton(): Promise<void> {
-    await test.step(`Click next button for ${this.getElementReportName()}`, async () => {
-      await this.nextButton.click();
-    });
-  }
-
-  /**
-   * Check if the back button is enabled.
-   * @returns {Promise<boolean>} True if the back button is enabled.
-   */
-  async isBackButtonEnabled(): Promise<boolean> {
-    return await test.step(`Check if back button is enabled for ${this.getElementReportName()}`, async () => {
-      return await this.backButton.isEnabled();
-    });
-  }
-
-  /**
-   * Check if the next button is enabled.
-   * @returns {Promise<boolean>} True if the next button is enabled.
-   */
-  async isNextButtonEnabled(): Promise<boolean> {
-    return await test.step(`Check if next button is enabled for ${this.getElementReportName()}`, async () => {
-      return await this.nextButton.isEnabled();
-    });
-  }
-
-  /**
-   * Check if the back button is visible.
-   * @returns {Promise<boolean>} True if the back button is visible.
-   */
-  async isBackButtonVisible(): Promise<boolean> {
-    return await test.step(`Check if back button is visible for ${this.getElementReportName()}`, async () => {
-      return await this.backButton.isVisible();
-    });
-  }
-
-  /**
-   * Check if the next button is visible.
-   * @returns {Promise<boolean>} True if the next button is visible.
-   */
-  async isNextButtonVisible(): Promise<boolean> {
-    return await test.step(`Check if next button is visible for ${this.getElementReportName()}`, async () => {
-      return await this.nextButton.isVisible();
-    });
-  }
-
-  /**
    * Get a step by its index.
    * @param {number} index - The index of the step to retrieve.
    * @returns {Promise<Button>} The step with the specified index.
@@ -117,6 +59,35 @@ export class Steps extends BaseElement {
   }
 
   /**
+   * Get the number of steps.
+   * @returns {Promise<number>} The number of steps.
+   */
+  private async getNumberOfSteps(): Promise<number> {
+    return await test.step(`Get number of steps for ${this.getElementReportName()}`, async () => {
+      const steps = await this.getAllSteps();
+      return steps.length;
+    });
+  }
+
+  /**
+   * Click the back button.
+   */
+  async clickBackButton(): Promise<void> {
+    await test.step(`Click back button for ${this.getElementReportName()}`, async () => {
+      await this.backButton.click();
+    });
+  }
+
+  /**
+   * Click the next button.
+   */
+  async clickNextButton(): Promise<void> {
+    await test.step(`Click next button for ${this.getElementReportName()}`, async () => {
+      await this.nextButton.click();
+    });
+  }
+
+  /**
    * Click a step by its index.
    * @param {number} index - The index of the step to click.
    * @returns {Promise<void>}
@@ -135,27 +106,23 @@ export class Steps extends BaseElement {
   async getActiveStepIndex(): Promise<number> {
     return await test.step(`Get current step index for ${this.getElementReportName()}`, async () => {
       const steps = await this.getAllSteps();
-      return steps.findIndex(async step => (await step.getAttributeValue("aria-current")) === "step");
+      let activeStepIndex = -1;
+      for (const step of steps) {
+        if ((await step.getAttributeValue("aria-current")) === "step") {
+          activeStepIndex = steps.indexOf(step);
+          break;
+        }
+      }
+      return activeStepIndex;
     });
   }
 
   /**
-   * Get the number of steps.
-   * @returns {Promise<number>} The number of steps.
-   */
-  async getNumberOfSteps(): Promise<number> {
-    return await test.step(`Get number of steps for ${this.getElementReportName()}`, async () => {
-      const steps = await this.getAllSteps();
-      return steps.length;
-    });
-  }
-
-  /**
-   * Check if a step is active.
+   * Check if a step is active by index.
    * @param {number} stepIndex - The index of the step to check.
    * @returns {Promise<boolean>} True if the step is active.
    */
-  async isStepActive(stepIndex: number): Promise<boolean> {
+  async isStepActiveByIndex(stepIndex: number): Promise<boolean> {
     return await test.step(`Check if step ${stepIndex} is active for ${this.getElementReportName()}`, async () => {
       const step = await this.getStepByIndex(stepIndex);
       return (await step.getAttributeValue("aria-current")) === "step";

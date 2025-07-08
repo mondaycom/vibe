@@ -75,6 +75,8 @@ export class Dropdown extends BaseElement {
     await test.step(`Open dropdown for ${this.getElementReportName()}`, async () => {
       if (!(await this.isOpen())) {
         await this.click();
+        // Wait for the dropdown to open
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
@@ -87,6 +89,8 @@ export class Dropdown extends BaseElement {
     await test.step(`Close dropdown for ${this.getElementReportName()}`, async () => {
       if (await this.isOpen()) {
         await this.click();
+        // Wait for the dropdown to close
+        await this.getPage().waitForTimeout(200);
       }
     });
   }

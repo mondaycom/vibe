@@ -29,6 +29,21 @@ export class List extends BaseElement {
   }
 
   /**
+   * Get a list item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<ListItem>} The list item with the specified index.
+   */
+  private async getListItemByIndex(index: number): Promise<ListItem> {
+    return await test.step(`Get list item by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(
+        this.getPage(),
+        this.getLocator().getByRole("option").nth(index),
+        `${this.getElementReportName()} - List Item ${index}`
+      );
+    });
+  }
+
+  /**
    * Click a list item by its name.
    * @param {string} itemName - The name of the item to click.
    * @returns {Promise<void>}
@@ -37,6 +52,30 @@ export class List extends BaseElement {
     await test.step(`Click list item by name ${itemName} for ${this.getElementReportName()}`, async () => {
       const listItem = await this.getListItemByName(itemName);
       await listItem.click();
+    });
+  }
+
+  /**
+   * Check if a list item is disabled.
+   * @param {string} itemName - The name of the item to check.
+   * @returns {Promise<boolean>} True if the item is disabled, false otherwise.
+   */
+  async isListItemDisabled(itemName: string): Promise<boolean> {
+    return await test.step(`Check if list item ${itemName} is disabled for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getListItemByName(itemName);
+      return await listItem.isDisabled();
+    });
+  }
+
+  /**
+   * Get the text of a list item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<string>} The text of the list item with the specified index.
+   */
+  async getListItemTextByIndex(index: number): Promise<string> {
+    return await test.step(`Get list item text by index ${index} for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getListItemByIndex(index);
+      return await listItem.getText();
     });
   }
 }

@@ -1,218 +1,109 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { Steps } from "../components";
 import { stepsStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let steps: Steps;
+const stepsLocator = 'div[data-testid="steps"]';
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - Steps", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(stepsStory);
+    frame = page.frameLocator(frameLocator);
+    steps = new Steps(page, frame.locator(stepsLocator), "Steps");
+    await page.reload();
+    await steps.waitForElementToBeVisible();
   });
 
-  test("Steps should be able to click back button", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
+  test("should be clickable when back button is enabled", async () => {
     await steps.clickBackButton();
-    // Test passes if no error is thrown
-  });
-
-  test("Steps should be able to click next button", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    await steps.clickNextButton();
-    // Test passes if no error is thrown
-  });
-
-  test("Steps should return back button enabled state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const isEnabled = await steps.isBackButtonEnabled();
-    expect(typeof isEnabled).toBe("boolean");
-  });
-
-  test("Steps should return next button enabled state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const isEnabled = await steps.isNextButtonEnabled();
-    expect(typeof isEnabled).toBe("boolean");
-  });
-
-  test("Steps should return back button visible state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const isVisible = await steps.isBackButtonVisible();
-    expect(typeof isVisible).toBe("boolean");
-  });
-
-  test("Steps should return next button visible state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const isVisible = await steps.isNextButtonVisible();
-    expect(typeof isVisible).toBe("boolean");
-  });
-
-  test("Steps should be able to click step by index", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    await steps.clickStepByIndex(0);
-    expect(await steps.isStepActive(0)).toBe(true);
-  });
-
-  test("Steps should return active step index", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const activeIndex = await steps.getActiveStepIndex();
-    expect(typeof activeIndex).toBe("number");
-    expect(activeIndex).toBeGreaterThanOrEqual(0);
-  });
-
-  test("Steps should return number of steps", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const numberOfSteps = await steps.getNumberOfSteps();
-    expect(typeof numberOfSteps).toBe("number");
-    expect(numberOfSteps).toBeGreaterThan(0);
-  });
-
-  test("Steps should correctly identify active step", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    // Click on first step
-    await steps.clickStepByIndex(0);
-    expect(await steps.isStepActive(0)).toBe(true);
-  });
-
-  test("Steps should be able to go to first step", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    await steps.goToFirstStep();
-    expect(await steps.isStepActive(0)).toBe(true);
-  });
-
-  test("Steps should be able to go to last step", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    await steps.goToLastStep();
-    const numberOfSteps = await steps.getNumberOfSteps();
-    expect(await steps.isStepActive(numberOfSteps - 1)).toBe(true);
-  });
-
-  test("Steps should handle step navigation correctly", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const numberOfSteps = await steps.getNumberOfSteps();
-
-    // Navigate through all steps
-    for (let i = 0; i < numberOfSteps; i++) {
-      await steps.clickStepByIndex(i);
-      expect(await steps.isStepActive(i)).toBe(true);
-    }
-  });
-
-  test("Steps should maintain single active step", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    // Click on first step
-    await steps.clickStepByIndex(0);
-    expect(await steps.isStepActive(0)).toBe(true);
-
-    // Click on second step
-    await steps.clickStepByIndex(1);
-    expect(await steps.isStepActive(1)).toBe(true);
-
-    // First step should no longer be active
-    expect(await steps.isStepActive(0)).toBe(false);
-  });
-
-  test("Steps should handle back and next button navigation", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    // Go to first step
-    await steps.goToFirstStep();
-
-    // Click next button
-    await steps.clickNextButton();
-
-    // Click back button
-    await steps.clickBackButton();
-
-    // Should be back to first step
-    expect(await steps.isStepActive(0)).toBe(true);
-  });
-
-  test("Steps should be enabled by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
     expect(await steps.isEnabled()).toBe(true);
   });
 
-  test("Steps should be visible by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
+  test("should be clickable when next button is enabled", async () => {
+    await steps.clickNextButton();
+    expect(await steps.isEnabled()).toBe(true);
+  });
 
+  test("should be able to click step by index", async () => {
+    await steps.clickStepByIndex(1);
+    expect(await steps.isStepActiveByIndex(1)).toBe(true);
+  });
+
+  test("should be able to go to first step", async () => {
+    await steps.goToFirstStep();
+    expect(await steps.isStepActiveByIndex(0)).toBe(true);
+  });
+
+  test("should be able to go to last step", async () => {
+    await steps.goToLastStep();
+    expect(await steps.isStepActiveByIndex(4)).toBe(true);
+  });
+
+  test("should handle step navigation correctly", async () => {
+    await steps.clickStepByIndex(0);
+    expect(await steps.isStepActiveByIndex(0)).toBe(true);
+    await steps.clickStepByIndex(1);
+    expect(await steps.isStepActiveByIndex(1)).toBe(true);
+    await steps.clickStepByIndex(2);
+    expect(await steps.isStepActiveByIndex(2)).toBe(true);
+    await steps.clickStepByIndex(3);
+    expect(await steps.isStepActiveByIndex(3)).toBe(true);
+    await steps.clickStepByIndex(4);
+    expect(await steps.isStepActiveByIndex(4)).toBe(true);
+  });
+
+  test("should handle back and next button navigation", async () => {
+    await steps.goToFirstStep();
+    await steps.clickNextButton();
+    await steps.clickBackButton();
+    expect(await steps.isStepActiveByIndex(0)).toBe(true);
+  });
+
+  test("Steps should be enabled by default", async () => {
+    expect(await steps.isEnabled()).toBe(true);
+  });
+
+  test("Steps should be visible by default", async () => {
     expect(await steps.isVisible()).toBe(true);
   });
 
-  test("Steps should have correct text content", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const text = await steps.getText();
-    expect(typeof text).toBe("string");
-  });
-
-  test("Steps should handle rapid step changes", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const numberOfSteps = await steps.getNumberOfSteps();
-
-    // Rapidly click through steps
-    for (let i = 0; i < numberOfSteps; i++) {
-      await steps.clickStepByIndex(i);
-    }
-
-    // Last step should be active
-    expect(await steps.isStepActive(numberOfSteps - 1)).toBe(true);
-  });
-
-  test("Steps should handle go to first and last step operations", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    const numberOfSteps = await steps.getNumberOfSteps();
-
-    // Go to last step
+  test("should handle go to first and last step operations", async () => {
     await steps.goToLastStep();
-    expect(await steps.isStepActive(numberOfSteps - 1)).toBe(true);
-
-    // Go to first step
+    expect(await steps.isStepActiveByIndex(4)).toBe(true);
     await steps.goToFirstStep();
-    expect(await steps.isStepActive(0)).toBe(true);
+    expect(await steps.isStepActiveByIndex(0)).toBe(true);
   });
 
-  test("Steps should correctly report active step index", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const steps = new Steps(page, frame.locator('[data-testid="steps"]'), "Steps");
-
-    // Click on step 2 (index 1)
+  test("should correctly report active step index", async () => {
     await steps.clickStepByIndex(1);
-
     const activeIndex = await steps.getActiveStepIndex();
     expect(activeIndex).toBe(1);
+  });
+
+  test("should correctly report active step index after each step change", async () => {
+    await steps.clickStepByIndex(1);
+    let activeIndex = await steps.getActiveStepIndex();
+    expect.soft(activeIndex).toBe(1);
+    await steps.clickStepByIndex(2);
+    activeIndex = await steps.getActiveStepIndex();
+    expect.soft(activeIndex).toBe(2);
+    await steps.clickStepByIndex(3);
+    activeIndex = await steps.getActiveStepIndex();
+    expect.soft(activeIndex).toBe(3);
+    await steps.clickStepByIndex(4);
+    activeIndex = await steps.getActiveStepIndex();
+    expect(activeIndex).toBe(4);
+  });
+
+  test("should count elements correctly", async () => {
+    const count = await steps.countElements();
+    expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test("should handle attribute retrieval", async () => {
+    const className = await steps.getAttributeValue("class");
+    expect(className).toContain("Steps-module");
   });
 });

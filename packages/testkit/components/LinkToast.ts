@@ -1,6 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { Button } from "./Button";
 import { Toast } from "./Toast";
+import { BaseElement } from "./BaseElement";
 
 /**
  * Class representing a LinkToast element.
@@ -8,6 +9,7 @@ import { Toast } from "./Toast";
  */
 export class LinkToast extends Toast {
   private link: Button;
+  private linkText: BaseElement;
 
   /**
    * Create a LinkToast element.
@@ -18,6 +20,7 @@ export class LinkToast extends Toast {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
     this.link = new Button(page, locator.getByTestId("toast-link"), `${elementReportName} - Link`);
+    this.linkText = new BaseElement(page, this.link.getLocator().locator("span"), `${elementReportName} - Link Text`);
   }
 
   /**
@@ -27,6 +30,16 @@ export class LinkToast extends Toast {
   async clickLink(): Promise<void> {
     await test.step(`Click link for ${this.getElementReportName()}`, async () => {
       await this.link.click();
+    });
+  }
+
+  /**
+   * Get the text of the link.
+   * @returns {Promise<string>} The text of the link.
+   */
+  async getLinkText(): Promise<string> {
+    return await test.step(`Get link text for ${this.getElementReportName()}`, async () => {
+      return await this.linkText.getText();
     });
   }
 }

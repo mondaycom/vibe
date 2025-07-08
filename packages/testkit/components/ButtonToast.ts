@@ -29,4 +29,14 @@ export class ButtonToast extends Toast {
       await this.button.click();
     });
   }
+
+  /**
+   * Get the text of the button.
+   * @returns {Promise<string>} The text of the button.
+   */
+  async getButtonText(): Promise<string> {
+    return await test.step(`Get button text for ${this.getElementReportName()}`, async () => {
+      return await this.button.getText();
+    });
+  }
 }

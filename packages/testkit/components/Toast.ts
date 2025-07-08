@@ -18,7 +18,11 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.content = new BaseElement(page, locator.getByTestId("toast-content"), `${elementReportName} - Content`);
+    this.content = new BaseElement(
+      page,
+      locator.locator("div[data-testid='toast-content'] > span"),
+      `${elementReportName} - Content`
+    );
     this.closeButton = new Button(
       page,
       locator.getByTestId("toast-close-button"),

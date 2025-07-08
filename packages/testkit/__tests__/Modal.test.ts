@@ -1,139 +1,78 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { Modal } from "../components";
 import { modalStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let modal: Modal;
+const modalLocator = "#modal-basic";
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - Modal", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(modalStory);
+    frame = page.frameLocator(frameLocator);
+    modal = new Modal(page, frame.locator(modalLocator), "Modal");
+    await page.reload();
+    await modal.waitForElementToBeVisible();
   });
 
-  test("Modal should be able to click X button", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("Modal should be able to click X button", async () => {
     await modal.clickXButton();
-    // Verify modal is closed
     expect(await modal.isVisible()).toBe(false);
   });
 
-  test("Modal should be able to click Cancel button", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("Modal should be able to click Cancel button", async () => {
     await modal.clickCancelButton();
-    // Verify modal is closed
     expect(await modal.isVisible()).toBe(false);
   });
 
-  test("Modal should be able to click Confirm button", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("Modal should be able to click Confirm button", async () => {
     await modal.clickConfirmButton();
-    // Verify modal is closed
     expect(await modal.isVisible()).toBe(false);
   });
 
-  test("Modal should return header text", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("Modal should return header text", async () => {
     const headerText = await modal.getModalHeaderText();
-    expect(headerText).toBeTruthy();
+    expect.soft(headerText).toBe("Modal title");
+    expect.soft(headerText).toBeTruthy();
     expect(typeof headerText).toBe("string");
   });
 
-  test("Modal should return content text", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
+  test("Modal should return subtitle text", async () => {
+    const subtitleText = await modal.getModalSubtitleText();
+    const normalizedText = subtitleText.replace(/\s+/g, " ").trim();
+    expect.soft(normalizedText).toBe("Modal subtitle, can come with icon and link.");
+    expect.soft(subtitleText).toBeTruthy();
+    expect(typeof subtitleText).toBe("string");
+  });
 
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("Modal should return content text", async () => {
     const contentText = await modal.getModalContentText();
-    expect(contentText).toBeTruthy();
+    expect
+      .soft(contentText)
+      .toBe(
+        "Modal content will appear here, you can custom it however you want, according to the user needs. Please make sure that the content is clear for completing the relevant task."
+      );
+    expect.soft(contentText).toBeTruthy();
     expect(typeof contentText).toBe("string");
   });
 
-  test("Modal should be visible when opened", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
+  test("should be visible by default", async () => {
     expect(await modal.isVisible()).toBe(true);
   });
 
-  test("Modal should have correct text content", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
-    const text = await modal.getText();
-    expect(typeof text).toBe("string");
+  test("should be hoverable", async () => {
+    await modal.hover();
+    expect(await modal.isVisible()).toBe(true);
   });
 
-  test("Modal buttons should be enabled", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
-    // Check that the modal is enabled (we can't directly check buttons, but we can check the modal)
-    expect(await modal.isEnabled()).toBe(true);
+  test("should count elements correctly", async () => {
+    const count = await modal.countElements();
+    expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test("Modal should handle multiple button clicks", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-
-    // Test X button
-    await frame.locator('button:has-text("Open Modal")').click();
-    let modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-    await modal.clickXButton();
-
-    // Test Cancel button
-    await frame.locator('button:has-text("Open Modal")').click();
-    modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-    await modal.clickCancelButton();
-
-    // Test Confirm button
-    await frame.locator('button:has-text("Open Modal")').click();
-    modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-    await modal.clickConfirmButton();
-  });
-
-  test("Modal should retrieve both header and content text correctly", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    // First open the modal
-    await frame.locator('button:has-text("Open Modal")').click();
-
-    const modal = new Modal(page, frame.locator('[data-testid="modal"]'), "Modal");
-
-    const headerText = await modal.getModalHeaderText();
-    const contentText = await modal.getModalContentText();
-
-    expect(headerText).toBeTruthy();
-    expect(contentText).toBeTruthy();
-    expect(typeof headerText).toBe("string");
-    expect(typeof contentText).toBe("string");
-
-    // They should be different texts
-    expect(headerText).not.toBe(contentText);
+  test("should handle attribute retrieval", async () => {
+    const className = await modal.getAttributeValue("class");
+    expect(className).toContain("Modal-module");
   });
 });

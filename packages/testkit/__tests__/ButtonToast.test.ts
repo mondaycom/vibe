@@ -36,6 +36,13 @@ test.describe("Storybook - Unit Tests - ButtonToast", () => {
     expect(content.length).toBeGreaterThan(0);
   });
 
+  test("should get button text", async () => {
+    const buttonText = await buttonToast.getButtonText();
+    expect.soft(buttonText).toBe("Button");
+    expect.soft(buttonText).toBeTruthy();
+    expect(buttonText.length).toBeGreaterThan(0);
+  });
+
   test("should click close button", async () => {
     await buttonToast.clickCloseButton();
     expect(await buttonToast.isEnabled()).toBe(true);

@@ -9,6 +9,7 @@ import { IconButton } from "./IconButton";
  */
 export class Modal extends BaseElement {
   private modalHeader: BaseElement;
+  private subtitle: BaseElement;
   private modalContent: BaseElement;
   private cancelButton: Button;
   private confirmButton: Button;
@@ -24,8 +25,13 @@ export class Modal extends BaseElement {
     super(page, locator, elementReportName);
     this.modalHeader = new BaseElement(
       page,
-      locator.getByTestId("modal-header"),
+      locator.getByTestId("text_modal-basic_label"),
       `${elementReportName} - Modal Header`
+    );
+    this.subtitle = new BaseElement(
+      page,
+      locator.locator("#modal-basic_desc"),
+      `${elementReportName} - Modal Subtitle`
     );
     this.modalContent = new BaseElement(
       page,
@@ -51,6 +57,8 @@ export class Modal extends BaseElement {
   async clickXButton(): Promise<void> {
     await test.step(`Click X button for ${this.getElementReportName()}`, async () => {
       await this.xButton.click();
+      // Wait for the modal to close
+      await this.getPage().waitForTimeout(200);
     });
   }
 
@@ -60,6 +68,8 @@ export class Modal extends BaseElement {
   async clickCancelButton(): Promise<void> {
     await test.step(`Click Cancel button for ${this.getElementReportName()}`, async () => {
       await this.cancelButton.click();
+      // Wait for the modal to close
+      await this.getPage().waitForTimeout(200);
     });
   }
 
@@ -69,6 +79,8 @@ export class Modal extends BaseElement {
   async clickConfirmButton(): Promise<void> {
     await test.step(`Click Confirm button for ${this.getElementReportName()}`, async () => {
       await this.confirmButton.click();
+      // Wait for the modal to close
+      await this.getPage().waitForTimeout(200);
     });
   }
 
@@ -78,6 +90,15 @@ export class Modal extends BaseElement {
   async getModalHeaderText(): Promise<string> {
     return await test.step(`Get modal header text for ${this.getElementReportName()}`, async () => {
       return await this.modalHeader.getText();
+    });
+  }
+
+  /**
+   * Get the modal subtitle text.
+   */
+  async getModalSubtitleText(): Promise<string> {
+    return await test.step(`Get modal subtitle text for ${this.getElementReportName()}`, async () => {
+      return await this.subtitle.getText();
     });
   }
 

@@ -29,6 +29,17 @@ export class Menu extends BaseElement {
   }
 
   /**
+   * Get a menu item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<MenuItem>} The menu item with the specified index.
+   */
+  private async getMenuItemByIndex(index: number): Promise<MenuItem> {
+    return await test.step(`Get menu item by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new MenuItem(this.getPage(), this.getLocator().getByRole("menuitem").nth(index), `Menu item ${index}`);
+    });
+  }
+
+  /**
    * Click a menu item by its name.
    * @param {string} itemName - The name of the item to click.
    * @returns {Promise<void>}
@@ -38,6 +49,30 @@ export class Menu extends BaseElement {
       const menuItem = await this.getMenuItemByName(itemName);
       await menuItem.hover();
       await menuItem.click();
+    });
+  }
+
+  /**
+   * Check if a menu item is disabled.
+   * @param {string} itemName - The name of the item to check.
+   * @returns {Promise<boolean>} True if the menu item is disabled, false otherwise.
+   */
+  async isMenuItemDisabled(itemName: string): Promise<boolean> {
+    return await test.step(`Check if menu item is disabled for ${itemName} for ${this.getElementReportName()}`, async () => {
+      const menuItem = await this.getMenuItemByName(itemName);
+      return (await menuItem.getComputedStyle("cursor")) === "not-allowed";
+    });
+  }
+
+  /**
+   * Get the name of a menu item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<string>} The name of the menu item with the specified index.
+   */
+  async getMenuItemNameByIndex(index: number): Promise<string> {
+    return await test.step(`Get menu item name by index ${index} for ${this.getElementReportName()}`, async () => {
+      const menuItem = await this.getMenuItemByIndex(index);
+      return await menuItem.getText();
     });
   }
 }

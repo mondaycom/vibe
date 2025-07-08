@@ -42,6 +42,21 @@ export class Tabs extends BaseElement {
   }
 
   /**
+   * Get a tab by its index.
+   * @param {number} index - The index of the tab to retrieve.
+   * @returns {Promise<ListItem>} The tab with the specified index.
+   */
+  private async getTabByIndex(index: number): Promise<ListItem> {
+    return await test.step(`Get tab by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(
+        this.getPage(),
+        this.getLocator().getByRole("tab").nth(index),
+        `${this.getElementReportName()} - Tab ${index}`
+      );
+    });
+  }
+
+  /**
    * Select a tab by its name.
    * @param {string} tabName - The name of the tab to select.
    * @returns {Promise<void>}
@@ -57,11 +72,23 @@ export class Tabs extends BaseElement {
    * Get the name of the selected tab.
    * @returns {Promise<string>} The name of the selected tab.
    */
-  async getSelectedTabName(): Promise<string | undefined> {
+  async getSelectedTabName(): Promise<string> {
     return await test.step(`Get selected tab name for ${this.getElementReportName()}`, async () => {
       const tabs = await this.getAllTabs();
-      const selectedTab = tabs.find(async tab => (await tab.getAttributeValue("aria-selected")) === "true");
-      return selectedTab?.getText();
+      let selectedTab: ListItem | null = null;
+
+      for (const tab of tabs) {
+        if ((await tab.getAttributeValue("aria-selected")) === "true") {
+          selectedTab = tab;
+          break;
+        }
+      }
+
+      if (!selectedTab) {
+        throw new Error("No selected tab found");
+      }
+
+      return await selectedTab.getText();
     });
   }
 
@@ -74,6 +101,18 @@ export class Tabs extends BaseElement {
     return await test.step(`Check if tab ${tabName} is selected for ${this.getElementReportName()}`, async () => {
       const tab = await this.getTabByName(tabName);
       return (await tab.getAttributeValue("aria-selected")) === "true";
+    });
+  }
+
+  /**
+   * Get the name of a tab by its index.
+   * @param {number} index - The index of the tab to retrieve.
+   * @returns {Promise<string>} The name of the tab with the specified index.
+   */
+  async getTabNameByIndex(index: number): Promise<string> {
+    return await test.step(`Get tab name by index ${index} for ${this.getElementReportName()}`, async () => {
+      const tab = await this.getTabByIndex(index);
+      return await tab.getText();
     });
   }
 }

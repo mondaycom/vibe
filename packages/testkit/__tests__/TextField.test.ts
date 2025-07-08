@@ -1,139 +1,123 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { TextField } from "../components";
 import { textfieldStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let textField: TextField;
+const textFieldLocator = ".monday-storybook-text-field_size";
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - TextField", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(textfieldStory);
+    frame = page.frameLocator(frameLocator);
+    textField = new TextField(page, frame.locator(textFieldLocator), "TextField");
+    await page.reload();
+    await textField.waitForElementToBeVisible();
   });
 
-  test("TextField should be initially empty", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should be initially empty", async () => {
     expect(await textField.isEmpty()).toBe(true);
   });
 
-  test("TextField should be able to set text", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should be able to set text", async () => {
     const testText = "Hello World";
     await textField.setText(testText);
-
-    expect(await textField.isEmpty()).toBe(false);
-    // Verify the text is set by checking the input value
-    expect(await textField.getLocator().inputValue()).toBe(testText);
+    expect.soft(await textField.isEmpty()).toBe(false);
+    expect(await textField.getText()).toBe(testText);
   });
 
-  test("TextField should be able to clear text", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
-    // First set some text
+  test("should be able to clear text", async () => {
     await textField.setText("Some text");
-    expect(await textField.isEmpty()).toBe(false);
-
-    // Then clear it
+    expect.soft(await textField.isEmpty()).toBe(false);
     await textField.clearText();
     expect(await textField.isEmpty()).toBe(true);
   });
 
-  test("TextField should correctly identify empty state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
-    // Initially empty
-    expect(await textField.isEmpty()).toBe(true);
-
-    // Set text
+  test("should correctly identify empty state", async () => {
+    expect.soft(await textField.isEmpty()).toBe(true);
     await textField.setText("Not empty");
-    expect(await textField.isEmpty()).toBe(false);
-
-    // Clear text
+    expect.soft(await textField.isEmpty()).toBe(false);
     await textField.clearText();
     expect(await textField.isEmpty()).toBe(true);
   });
 
-  test("TextField should handle multiple text changes", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
-    // Set first text
+  test("should handle multiple text changes", async () => {
     await textField.setText("First text");
-    expect(await textField.getLocator().inputValue()).toBe("First text");
-
-    // Set second text (should replace the first)
+    expect.soft(await textField.getText()).toBe("First text");
     await textField.setText("Second text");
-    expect(await textField.getLocator().inputValue()).toBe("Second text");
-
-    // Clear text
+    expect.soft(await textField.getText()).toBe("Second text");
     await textField.clearText();
     expect(await textField.isEmpty()).toBe(true);
   });
 
-  test("TextField should handle empty string input", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
-    // Set empty string
+  test("should handle empty string input", async () => {
     await textField.setText("");
     expect(await textField.isEmpty()).toBe(true);
   });
 
-  test("TextField should handle special characters", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should handle special characters", async () => {
     const specialText = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
     await textField.setText(specialText);
-
-    expect(await textField.isEmpty()).toBe(false);
-    expect(await textField.getLocator().inputValue()).toBe(specialText);
+    expect.soft(await textField.isEmpty()).toBe(false);
+    expect(await textField.getText()).toBe(specialText);
   });
 
-  test("TextField should handle numbers", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should handle numbers", async () => {
     const numberText = "123456789";
     await textField.setText(numberText);
-
-    expect(await textField.isEmpty()).toBe(false);
-    expect(await textField.getLocator().inputValue()).toBe(numberText);
+    expect.soft(await textField.isEmpty()).toBe(false);
+    expect(await textField.getText()).toBe(numberText);
   });
 
-  test("TextField should handle long text", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should handle long text", async () => {
     const longText =
       "This is a very long text that contains many characters and words to test the TextField component's ability to handle longer input values without any issues.";
     await textField.setText(longText);
-
-    expect(await textField.isEmpty()).toBe(false);
-    expect(await textField.getLocator().inputValue()).toBe(longText);
+    expect.soft(await textField.isEmpty()).toBe(false);
+    expect(await textField.getText()).toBe(longText);
   });
 
-  test("TextField should be enabled by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should be enabled by default", async () => {
     expect(await textField.isEnabled()).toBe(true);
   });
 
-  test("TextField should be visible by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
-
+  test("should be visible by default", async () => {
     expect(await textField.isVisible()).toBe(true);
   });
 
-  test("TextField should have correct text content", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const textField = new TextField(page, frame.locator('[data-testid="text-field"]'), "TextField");
+  test("should be able to get label", async () => {
+    expect(await textField.getLabel()).toBe("Name");
+  });
 
-    const text = await textField.getText();
-    expect(typeof text).toBe("string");
+  test("should be able to get helper text", async () => {
+    expect(await textField.getHelperText()).toBe("Helper text");
+  });
+
+  test("should be able to get character count", async () => {
+    expect(await textField.getCharacterCount()).toBe("0");
+  });
+
+  test("should be able to count characters", async () => {
+    await textField.setText("Hello World");
+    expect(await textField.getCharacterCount()).toBe("11");
+  });
+
+  test("should count elements correctly", async () => {
+    const count = await textField.countElements();
+    expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test("should handle attribute retrieval", async () => {
+    const className = await textField.getAttributeValue("class");
+    expect(className).toContain("TextField-module");
+  });
+
+  test("should be able to check if text field is empty", async () => {
+    expect(await textField.isEmpty()).toBe(true);
+    await textField.setText("Hello World");
+    expect(await textField.isEmpty()).toBe(false);
+    await textField.clearText();
+    expect(await textField.isEmpty()).toBe(true);
   });
 });

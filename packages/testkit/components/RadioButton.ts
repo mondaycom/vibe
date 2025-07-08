@@ -1,13 +1,11 @@
 import { test, Locator, Page } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { TextField } from "./TextField";
 
 /**
  * Class representing a RadioButton element.
  * Extends the BaseElement class.
  */
 export class RadioButton extends BaseElement {
-  private radioButton: TextField;
   private label: BaseElement;
 
   /**
@@ -18,11 +16,6 @@ export class RadioButton extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.radioButton = new TextField(
-      page,
-      locator.locator("input[type='radio']"),
-      `${elementReportName} - Radio Button`
-    );
     this.label = new BaseElement(page, locator.getByTestId("radio-button-label"), `${elementReportName} - Label`);
   }
 
@@ -32,7 +25,9 @@ export class RadioButton extends BaseElement {
    */
   async check(): Promise<void> {
     await test.step(`Check radio button for ${this.getElementReportName()}`, async () => {
-      await this.radioButton.getLocator().check();
+      if (!(await this.isChecked())) {
+        await this.getLocator().check();
+      }
     });
   }
 
@@ -42,7 +37,9 @@ export class RadioButton extends BaseElement {
    */
   async uncheck(): Promise<void> {
     await test.step(`Uncheck radio button for ${this.getElementReportName()}`, async () => {
-      await this.radioButton.getLocator().uncheck();
+      if (await this.isChecked()) {
+        await this.getLocator().uncheck();
+      }
     });
   }
 
@@ -52,7 +49,7 @@ export class RadioButton extends BaseElement {
    */
   async isChecked(): Promise<boolean> {
     return await test.step(`Check if radio button is checked for ${this.getElementReportName()}`, async () => {
-      return await this.radioButton.getLocator().isChecked();
+      return await this.getLocator().isChecked();
     });
   }
 

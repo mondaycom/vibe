@@ -1,161 +1,66 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { Toggle } from "../components";
 import { toggleStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let toggle: Toggle;
+const toggleLocator = ".Toggle-module_wrapper";
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - Toggle", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(toggleStory);
+    frame = page.frameLocator(frameLocator);
+    toggle = new Toggle(page, frame.locator(toggleLocator), "Toggle");
+    await page.reload();
+    await toggle.waitForElementToBeVisible();
   });
 
-  test("Toggle should be initially off", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    expect(await toggle.isOn()).toBe(false);
+  test("should be initially on", async () => {
+    expect(await toggle.isOn()).toBe(true);
   });
 
-  test("Toggle should be able to turn on", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
+  test("should be able to turn on", async () => {
+    await toggle.set(false);
     await toggle.set(true);
     expect(await toggle.isOn()).toBe(true);
   });
 
-  test("Toggle should be able to turn off", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // First turn on
+  test("should be able to turn off", async () => {
+    await toggle.set(false);
+    expect.soft(await toggle.isOn()).toBe(false);
     await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Then turn off
+    expect.soft(await toggle.isOn()).toBe(true);
     await toggle.set(false);
     expect(await toggle.isOn()).toBe(false);
   });
 
-  test("Toggle should maintain state when set to same value", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Turn on
+  test("should maintain state when set to same value", async () => {
     await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Set to true again (should remain on)
+    expect.soft(await toggle.isOn()).toBe(true);
     await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Turn off
+    expect.soft(await toggle.isOn()).toBe(true);
     await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
-
-    // Set to false again (should remain off)
+    expect.soft(await toggle.isOn()).toBe(false);
     await toggle.set(false);
     expect(await toggle.isOn()).toBe(false);
   });
 
-  test("Toggle should handle multiple state changes", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Initial state
-    expect(await toggle.isOn()).toBe(false);
-
-    // Turn on
-    await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Turn off
-    await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
-
-    // Turn on again
-    await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Turn off again
-    await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
-  });
-
-  test("Toggle should handle rapid state changes", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Rapid state changes
-    await toggle.set(true);
-    await toggle.set(false);
-    await toggle.set(true);
-    await toggle.set(false);
-    await toggle.set(true);
-
-    // Final state should be on
-    expect(await toggle.isOn()).toBe(true);
-  });
-
-  test("Toggle should be enabled by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
+  test("should be enabled by default", async () => {
     expect(await toggle.isEnabled()).toBe(true);
   });
 
-  test("Toggle should be visible by default", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
+  test("should be visible by default", async () => {
     expect(await toggle.isVisible()).toBe(true);
   });
 
-  test("Toggle should have correct text content", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    const text = await toggle.getText();
-    expect(typeof text).toBe("string");
+  test("should count elements correctly", async () => {
+    const count = await toggle.countElements();
+    expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test("Toggle state should be consistent", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Turn on and verify multiple times
-    await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Turn off and verify multiple times
-    await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
-    expect(await toggle.isOn()).toBe(false);
-  });
-
-  test("Toggle should handle boolean values correctly", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Explicitly test boolean true
-    await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Explicitly test boolean false
-    await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
-  });
-
-  test("Toggle should toggle correctly from any initial state", async ({ page }) => {
-    const frame = page.frameLocator("[id='storybook-preview-iframe']");
-    const toggle = new Toggle(page, frame.locator('[data-testid="toggle"]'), "Toggle");
-
-    // Test from off state
-    expect(await toggle.isOn()).toBe(false);
-    await toggle.set(true);
-    expect(await toggle.isOn()).toBe(true);
-
-    // Test from on state
-    await toggle.set(false);
-    expect(await toggle.isOn()).toBe(false);
+  test("should handle attribute retrieval", async () => {
+    const className = await toggle.getAttributeValue("class");
+    expect(className).toContain("Toggle-module");
   });
 });

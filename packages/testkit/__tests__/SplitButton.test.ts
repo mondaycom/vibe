@@ -1,246 +1,118 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, FrameLocator } from "@playwright/test";
 import { SplitButton } from "../components/SplitButton";
 import { splitButtonStory } from "./utils/url-helper";
+
+let frame: FrameLocator;
+let splitButton: SplitButton;
+const splitButtonLocator = 'div[data-testid="split-button"]';
+const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - SplitButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(splitButtonStory);
+    frame = page.frameLocator(frameLocator);
+    splitButton = new SplitButton(page, frame.locator(splitButtonLocator), "Split Button");
+    await page.reload();
+    await splitButton.waitForElementToBeVisible();
   });
 
-  test("should be enabled by default", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should be enabled by default", async () => {
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should be visible by default", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should be visible by default", async () => {
     expect(await splitButton.isVisible()).toBe(true);
   });
 
-  test("should click primary button", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should click primary button", async () => {
     await splitButton.clickPrimaryButton();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should click secondary button", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should click secondary button", async () => {
     await splitButton.clickSecondaryButton();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should handle multiple primary button clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Click primary button multiple times
+  test("should handle multiple primary button clicks", async () => {
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should handle multiple secondary button clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Click secondary button multiple times
+  test("should handle multiple secondary button clicks", async () => {
     await splitButton.clickSecondaryButton();
     await splitButton.clickSecondaryButton();
     await splitButton.clickSecondaryButton();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should handle alternating button clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Alternate between primary and secondary buttons
+  test("should handle alternating button clicks", async () => {
     await splitButton.clickPrimaryButton();
     await splitButton.clickSecondaryButton();
     await splitButton.clickPrimaryButton();
     await splitButton.clickSecondaryButton();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should handle rapid button clicks", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Perform rapid clicks
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-    await splitButton.clickPrimaryButton();
-
-    // Verify component is still functional
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should be hoverable", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should be hoverable", async () => {
     await splitButton.hover();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should have proper text content", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    const text = await splitButton.getText();
-    expect(text).toBeTruthy();
+  test("should get primary button text", async () => {
+    const text = await splitButton.getPrimaryButtonText();
+    expect.soft(text).toBe("Button");
+    expect.soft(text).toBeTruthy();
     expect(text.length).toBeGreaterThan(0);
   });
 
-  test("should be clickable as a whole", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Click the split button element itself
-    await splitButton.click();
-
-    // Verify component is still functional
+  test("should maintain enabled state after interactions", async () => {
+    await splitButton.clickPrimaryButton();
+    await splitButton.clickSecondaryButton();
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should maintain enabled state after interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Interact with both buttons
+  test("should maintain visibility after interactions", async () => {
     await splitButton.clickPrimaryButton();
     await splitButton.clickSecondaryButton();
-
-    // Should still be enabled
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should maintain visibility after interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Interact with both buttons
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-
-    // Should still be visible
     expect(await splitButton.isVisible()).toBe(true);
   });
 
-  test("should handle focus operations", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Focus the split button using the underlying locator
-    await splitButton.getLocator().focus();
-
-    // Verify component is still functional
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should handle keyboard interactions", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Focus first using the underlying locator
-    await splitButton.getLocator().focus();
-
-    // Press Enter or Space (should work for the focused part)
-    await page.keyboard.press("Enter");
-    await page.keyboard.press("Space");
-
-    // Verify component is still functional
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should scroll into view when needed", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should scroll into view when needed", async () => {
     await splitButton.scrollIntoView();
-
-    // Verify component is still functional
     expect(await splitButton.isEnabled()).toBe(true);
   });
 
-  test("should count elements correctly", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
+  test("should count elements correctly", async () => {
     const count = await splitButton.countElements();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test("should handle attribute retrieval", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Try to get common attributes
-    try {
-      const className = await splitButton.getAttributeValue("class");
-      expect(className).toBeTruthy();
-    } catch (error) {
-      // If class attribute doesn't exist, it's acceptable
-    }
+  test("should handle attribute retrieval", async () => {
+    const className = await splitButton.getAttributeValue("class");
+    expect(className).toContain("SplitButton-module");
   });
 
-  test("should handle waiting for visibility states", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Wait for split button to be visible
+  test("should handle waiting for visibility states", async () => {
     await splitButton.waitForElementToBeVisible();
-
-    // Should be visible after waiting
     expect(await splitButton.isVisible()).toBe(true);
   });
 
-  test("should handle removing focus", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Focus first, then remove focus
-    await splitButton.getLocator().focus();
-    await splitButton.removeFocusFromElement();
-
-    // Verify component is still functional
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should handle complex interaction sequences", async ({ page }) => {
-    const frame = page.frameLocator('[title="storybook-preview-iframe"]');
-    const splitButton = new SplitButton(page, frame.locator('[data-testid="split-button"]'), "Split Button");
-
-    // Complex sequence: hover, click primary, hover, click secondary, click primary again
-    await splitButton.hover();
-    await splitButton.clickPrimaryButton();
-    await splitButton.hover();
+  test("should open secondary button menu", async () => {
+    if (await splitButton.isSecondaryButtonMenuExpanded()) {
+      await splitButton.clickSecondaryButton();
+    }
     await splitButton.clickSecondaryButton();
-    await splitButton.clickPrimaryButton();
+    expect(await splitButton.isSecondaryButtonMenuExpanded()).toBe(true);
+  });
 
-    // Should still be functional
-    expect(await splitButton.isEnabled()).toBe(true);
-    expect(await splitButton.isVisible()).toBe(true);
+  test("should close secondary button menu", async () => {
+    if (!(await splitButton.isSecondaryButtonMenuExpanded())) {
+      await splitButton.clickSecondaryButton();
+    }
+    await splitButton.clickSecondaryButton();
+    expect(await splitButton.isSecondaryButtonMenuExpanded()).toBe(false);
   });
 });

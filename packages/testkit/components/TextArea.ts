@@ -9,8 +9,11 @@ import { TextField } from "./TextField";
  * Extends the BaseElement class.
  */
 export class TextArea extends BaseElement {
-  private textAreaWrapper: Button;
-  private textAreaInput: TextField;
+  private wrapper: Button;
+  private input: TextField;
+  private label: BaseElement;
+  private helperText: BaseElement;
+
   /**
    * Create a TextArea element.
    * @param {Page} page - The Playwright page object.
@@ -19,18 +22,10 @@ export class TextArea extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.textAreaWrapper = new Button(page, locator, `${elementReportName} - Wrapper`);
-    this.textAreaInput = new TextField(page, locator.locator("textarea"), `${elementReportName} - Input`);
-  }
-
-  /**
-   * Exit the edit mode by pressing the Escape key.
-   * @returns {Promise<void>}
-   */
-  private async exitEditMode(): Promise<void> {
-    await test.step(`Exit edit mode for ${this.getElementReportName()}`, async () => {
-      await pressKey(this.getPage(), "Escape");
-    });
+    this.wrapper = new Button(page, locator, `${elementReportName} - Wrapper`);
+    this.input = new TextField(page, locator.locator("textarea"), `${elementReportName} - Input`);
+    this.label = new BaseElement(page, locator.locator("label"), `${elementReportName} - Label`);
+    this.helperText = new BaseElement(page, locator.locator("div > div"), `${elementReportName} - Helper Text`);
   }
 
   /**
@@ -40,10 +35,61 @@ export class TextArea extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
-      await this.textAreaWrapper.click();
-      await this.textAreaInput.waitForElementToBeVisible();
-      await this.textAreaInput.setText(text);
-      await this.exitEditMode();
+      await this.clearText();
+      await this.wrapper.click();
+      await this.input.waitForElementToBeVisible();
+      await this.input.setText(text);
+      await pressKey(this.getPage(), "Escape");
+    });
+  }
+
+  /**
+   * Clear the text from the text area.
+   * @returns {Promise<void>}
+   */
+  async clearText(): Promise<void> {
+    await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
+      await this.input.clearText();
+    });
+  }
+
+  /**
+   * Get the text from the text area.
+   * @returns {Promise<string>} The text from the text area.
+   */
+  async getText(): Promise<string> {
+    return await test.step(`Get text for ${this.getElementReportName()}`, async () => {
+      return await this.input.getLocator().inputValue();
+    });
+  }
+
+  /**
+   * Check if the text area is empty.
+   * @returns {Promise<boolean>} True if the text area is empty.
+   */
+  async isEmpty(): Promise<boolean> {
+    return await test.step(`Check if text area is empty for ${this.getElementReportName()}`, async () => {
+      return await this.input.isEmpty();
+    });
+  }
+
+  /**
+   * Get the label from the text area.
+   * @returns {Promise<string>} The label from the text area.
+   */
+  async getLabel(): Promise<string> {
+    return await test.step(`Get label for ${this.getElementReportName()}`, async () => {
+      return await this.label.getText();
+    });
+  }
+
+  /**
+   * Get the helper text from the text area.
+   * @returns {Promise<string>} The helper text from the text area.
+   */
+  async getHelperText(): Promise<string> {
+    return await test.step(`Get helper text for ${this.getElementReportName()}`, async () => {
+      return await this.helperText.getText();
     });
   }
 }

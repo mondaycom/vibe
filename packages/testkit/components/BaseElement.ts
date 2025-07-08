@@ -124,7 +124,6 @@ export class BaseElement {
   async getAttributeValue(attributeName: string, timeout: number = this.DEFAULT_TIMEOUT): Promise<string> {
     return await test.step(`Get attribute ${attributeName} of ${this.getElementReportName()}`, async () => {
       const attributeValue = await this.getLocator().getAttribute(attributeName, { timeout });
-
       if (attributeValue === null || attributeValue === undefined) {
         return "";
       }
@@ -237,6 +236,20 @@ export class BaseElement {
   async removeFocusFromElement(): Promise<void> {
     await test.step(`Remove focus from ${this.getElementReportName()}`, async () => {
       await this.getPage().locator("body").click();
+    });
+  }
+
+  /**
+   * Get the computed style of an element.
+   * @param {string} property - The property to get the computed style of.
+   * @returns {Promise<string>} - The computed style of the element.
+   */
+  async getComputedStyle(property: string): Promise<string> {
+    return await test.step(`Get computed style of ${property} for ${this.getElementReportName()}`, async () => {
+      return await this.getLocator().evaluate(
+        (el, property) => window.getComputedStyle(el).getPropertyValue(property),
+        property
+      );
     });
   }
 }

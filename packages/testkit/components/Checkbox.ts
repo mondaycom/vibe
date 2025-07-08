@@ -28,7 +28,9 @@ export class Checkbox extends BaseElement {
    */
   async check(): Promise<void> {
     await test.step(`Check checkbox for ${this.getElementReportName()}`, async () => {
-      await this.checkbox.getLocator().check();
+      if (!(await this.isChecked())) {
+        await this.checkbox.getLocator().check();
+      }
     });
   }
 
@@ -38,7 +40,9 @@ export class Checkbox extends BaseElement {
    */
   async uncheck(): Promise<void> {
     await test.step(`Uncheck checkbox for ${this.getElementReportName()}`, async () => {
-      await this.checkbox.getLocator().uncheck();
+      if (await this.isChecked()) {
+        await this.checkbox.getLocator().uncheck();
+      }
     });
   }
 

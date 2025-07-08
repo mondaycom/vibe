@@ -45,6 +45,24 @@ export class SplitButton extends BaseElement {
   async clickSecondaryButton(): Promise<void> {
     await test.step(`Click secondary button for ${this.getElementReportName()}`, async () => {
       await this.secondaryButton.click();
+      // Wait for the menu to open/close
+      await this.getPage().waitForTimeout(100);
     });
+  }
+
+  /**
+   * Get the text of the primary button.
+   * @returns {Promise<string>} The text of the primary button.
+   */
+  async getPrimaryButtonText(): Promise<string> {
+    return await this.primaryButton.getText();
+  }
+
+  /**
+   * Check if the secondary button menu is expanded.
+   * @returns {Promise<boolean>} True if the secondary button menu is expanded, false otherwise.
+   */
+  async isSecondaryButtonMenuExpanded(): Promise<boolean> {
+    return (await this.secondaryButton.getAttributeValue("aria-expanded")) === "true";
   }
 }

@@ -20,7 +20,7 @@ export class MenuButton extends BaseElement {
    * Check if the menu is expanded.
    * @returns {Promise<boolean>} True if the menu is expanded, false otherwise.
    */
-  private async isExpanded(): Promise<boolean> {
+  async isExpanded(): Promise<boolean> {
     return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
       return (await this.getAttributeValue("aria-expanded")) === "true";
     });
@@ -34,6 +34,8 @@ export class MenuButton extends BaseElement {
     await test.step(`Open menu for ${this.getElementReportName()}`, async () => {
       if (!(await this.isExpanded())) {
         await this.click();
+        // Wait for the menu to open
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
@@ -46,6 +48,8 @@ export class MenuButton extends BaseElement {
     await test.step(`Close menu for ${this.getElementReportName()}`, async () => {
       if (await this.isExpanded()) {
         await this.click();
+        // Wait for the menu to close
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
