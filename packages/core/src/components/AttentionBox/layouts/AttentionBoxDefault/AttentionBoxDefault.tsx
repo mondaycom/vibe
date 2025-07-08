@@ -29,7 +29,7 @@ const AttentionBoxDefault = ({
         <Flex gap="xs" flex="1" className={styles.titleLeft}>
           <AttentionBoxLeadingIcon icon={icon} iconType={iconType} />
           {title && (
-            <Text type="text1" weight="medium" color="inherit">
+            <Text type="text1" weight="medium">
               {title}
             </Text>
           )}

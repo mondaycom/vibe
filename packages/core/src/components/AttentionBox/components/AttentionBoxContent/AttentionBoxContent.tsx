@@ -26,13 +26,7 @@ const AttentionBoxContent = ({
   if (link && isLinkInline) {
     return (
       <>
-        <Text
-          type="text2"
-          color="inherit"
-          className={cx({ [styles.multilineText]: multiline })}
-          ellipsis={!multiline}
-          element="span"
-        >
+        <Text type="text2" className={cx({ [styles.multilineText]: multiline })} ellipsis={!multiline} element="span">
           {content}
         </Text>
         <span className={cx({ [styles.spacing]: !compact || multiline })}>
@@ -43,7 +37,7 @@ const AttentionBoxContent = ({
   }
 
   return (
-    <Text type="text2" color="inherit" className={cx({ [styles.multilineText]: multiline })}>
+    <Text type="text2" className={cx({ [styles.multilineText]: multiline })}>
       {content}
     </Text>
   );
