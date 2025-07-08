@@ -240,7 +240,7 @@ export const MultilineWithLinkAndAction: Story = {
 
 export const MultilineWithLinkActionAndClose: Story = {
   render: () => (
-    <div style={{ width: 400 }}>
+    <div style={{ width: 550 }}>
       <AttentionBox
         onClose={() => alert("Close clicked")}
         compact
