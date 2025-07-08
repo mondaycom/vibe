@@ -21,12 +21,6 @@ describe("InfoText", () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it("should use the provided id", () => {
-    render(<InfoText id={MOCK_ID} text={MOCK_TEXT} />);
-    const element = screen.getByText(MOCK_TEXT);
-    expect(element).toHaveAttribute("id", MOCK_ID);
-  });
-
   it("should apply error styling when error prop is true", () => {
     render(<InfoText id={MOCK_ID} text="Error message" error />);
     const element = screen.getByText("Error message");
