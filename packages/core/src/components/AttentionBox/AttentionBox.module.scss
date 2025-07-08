@@ -5,7 +5,7 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(-4px);
-  transition: opacity 200ms var(--motion-easing-in-out), transform 200ms var(--motion-easing-in-out);
+  transition: opacity 200ms var(--motion-timing-transition), transform 200ms var(--motion-timing-transition);
 
   &.animate {
     opacity: 1;
