@@ -23,17 +23,13 @@ type Story = StoryObj<typeof NumberField>;
 export const Overview: Story = {
   render: args => {
     const [value, setValue] = useState(args.value || 0);
-    return <NumberField {...args} value={value} onChange={newValue => setValue(newValue)} />;
+    return (
+      <div style={{ width: 300 }}>
+        <NumberField {...args} value={value} onChange={newValue => setValue(newValue)} />
+      </div>
+    );
   },
-  decorators: [
-    Story => {
-      return (
-        <div style={{ width: 300 }}>
-          <Story />
-        </div>
-      );
-    }
-  ],
+  decorators: [],
   parameters: {
     docs: {
       liveEdit: {
