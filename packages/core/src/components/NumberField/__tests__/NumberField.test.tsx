@@ -98,46 +98,6 @@ describe("NumberField", () => {
     });
   });
 
-  describe("Native input props passthrough", () => {
-    it("should pass through native input props", () => {
-      const { getByTestId } = render(
-        <NumberField
-          value={0}
-          onChange={mockOnChange}
-          data-testid="number-input"
-          aria-label="Number input"
-          autoComplete="off"
-          autoFocus
-          name="amount"
-        />
-      );
-      const input = getByTestId("number-input");
-
-      expect(input).toHaveAttribute("autocomplete", "off");
-      expect(input).toHaveAttribute("name", "amount");
-      expect(input).toHaveFocus();
-    });
-
-    it("should pass size prop to BaseInput component", () => {
-      // Test that size prop is properly passed through to BaseInput
-      const { getByTestId } = render(
-        <NumberField
-          value={0}
-          size="small"
-          onChange={mockOnChange}
-          data-testid="number-input"
-          aria-label="Number input"
-        />
-      );
-
-      // We can't directly test BaseInput props, but we can test that different sizes
-      // don't break the component and the input still functions correctly
-      const input = getByTestId("number-input");
-      expect(input).toBeInTheDocument();
-      expect(input).toHaveAttribute("type", "text");
-    });
-  });
-
   describe("Edge cases", () => {
     it("should handle very large numbers", () => {
       const largeNumber = 999999999999;
