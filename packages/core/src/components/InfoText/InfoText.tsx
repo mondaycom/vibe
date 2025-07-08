@@ -28,6 +28,4 @@ const InfoText = forwardRef(
   }
 );
 
-InfoText.displayName = "InfoText";
-
 export default InfoText;
