@@ -1,4 +1,8 @@
 .icon {
   color: var(--icon-color);
   flex-shrink: 0;
+
+  &.compactMultiline {
+    align-self: flex-start;
+  }
 }

@@ -37,7 +37,7 @@ const AttentionBoxCompact = ({
   return (
     <Flex gap="large" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
-        <AttentionBoxLeadingIcon icon={icon} iconType={iconType} />
+        <AttentionBoxLeadingIcon icon={icon} iconType={iconType} compact multiline={multiline} />
         {multiline ? <div>{contentElement}</div> : contentElement}
       </Flex>
       {action && <AttentionBoxButton {...action} />}
