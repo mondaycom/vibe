@@ -1,17 +1,18 @@
 import { Locator, Page, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { ListItem } from "./ListItem";
-import { TextField } from "./TextField";
 import { IconButton } from "./IconButton";
+import { Text } from "./Text";
+import { Search } from "./Search";
 
 /**
  * Class representing a Combobox element.
  * Extends the BaseElement class.
  */
 export class Combobox extends BaseElement {
-  private searchField: TextField;
+  private searchField: Search;
   private clearSearchIconButton: IconButton;
-  private noResultsText: BaseElement;
+  private noResultsText: Text;
 
   /**
    * Create a Combobox element.
@@ -21,17 +22,13 @@ export class Combobox extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.searchField = new TextField(
-      page,
-      locator.getByTestId("search_combobox-search"),
-      `${elementReportName} - Search Field`
-    );
+    this.searchField = new Search(page, locator, `${elementReportName} - Search Field`);
     this.clearSearchIconButton = new IconButton(
       page,
       locator.getByTestId("clean-search-button_combobox-search"),
       `${elementReportName} - Clear Search Icon Button`
     );
-    this.noResultsText = new BaseElement(
+    this.noResultsText = new Text(
       page,
       locator.locator("span", { hasText: "No results found" }),
       `${elementReportName} - No Results Found Text`

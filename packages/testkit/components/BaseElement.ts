@@ -252,4 +252,24 @@ export class BaseElement {
       );
     });
   }
+
+  /**
+   * Check if the element is expanded.
+   * @returns {Promise<boolean>} True if the element is expanded, false otherwise.
+   */
+  async isExpanded(): Promise<boolean> {
+    return await test.step(`Check if ${this.getElementReportName()} is expanded`, async () => {
+      return (await this.getAttributeValue("aria-expanded")) === "true";
+    });
+  }
+
+  /**
+   * Check if the element is checked.
+   * @returns {Promise<boolean>} True if the element is checked, false otherwise.
+   */
+  async isChecked(): Promise<boolean> {
+    return await test.step(`Check if ${this.getElementReportName()} is checked`, async () => {
+      return (await this.getAttributeValue("aria-checked")) === "true";
+    });
+  }
 }

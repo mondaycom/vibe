@@ -3,6 +3,7 @@ import { pressKey } from "../utils/common-actions";
 import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
 import { TextField } from "./TextField";
+import { Text } from "./Text";
 
 /**
  * Class representing a TextArea element.
@@ -10,9 +11,9 @@ import { TextField } from "./TextField";
  */
 export class TextArea extends BaseElement {
   private wrapper: Button;
-  private input: TextField;
-  private label: BaseElement;
-  private helperText: BaseElement;
+  private input: Text;
+  private label: Text;
+  private helperText: Text;
 
   /**
    * Create a TextArea element.
@@ -23,9 +24,9 @@ export class TextArea extends BaseElement {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
     this.wrapper = new Button(page, locator, `${elementReportName} - Wrapper`);
-    this.input = new TextField(page, locator.locator("textarea"), `${elementReportName} - Input`);
-    this.label = new BaseElement(page, locator.locator("label"), `${elementReportName} - Label`);
-    this.helperText = new BaseElement(page, locator.locator("div > div"), `${elementReportName} - Helper Text`);
+    this.input = new Text(page, locator.locator("textarea"), `${elementReportName} - Input`);
+    this.label = new Text(page, locator.locator("label"), `${elementReportName} - Label`);
+    this.helperText = new Text(page, locator.locator("div > div"), `${elementReportName} - Helper Text`);
   }
 
   /**
@@ -38,7 +39,7 @@ export class TextArea extends BaseElement {
       await this.clearText();
       await this.wrapper.click();
       await this.input.waitForElementToBeVisible();
-      await this.input.setText(text);
+      await this.input.getLocator().fill(text);
       await pressKey(this.getPage(), "Escape");
     });
   }
@@ -49,7 +50,7 @@ export class TextArea extends BaseElement {
    */
   async clearText(): Promise<void> {
     await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
-      await this.input.clearText();
+      await this.input.getLocator().clear();
     });
   }
 
@@ -69,7 +70,7 @@ export class TextArea extends BaseElement {
    */
   async isEmpty(): Promise<boolean> {
     return await test.step(`Check if text area is empty for ${this.getElementReportName()}`, async () => {
-      return await this.input.isEmpty();
+      return (await this.input.getLocator().inputValue()) === "";
     });
   }
 

@@ -3,6 +3,7 @@ import { TextField } from "./TextField";
 import { BaseElement } from "./BaseElement";
 import { ListItem } from "./ListItem";
 import { IconButton } from "./IconButton";
+import { Text } from "./Text";
 
 /**
  * Class representing a Dropdown element.
@@ -10,10 +11,10 @@ import { IconButton } from "./IconButton";
  */
 export class Dropdown extends BaseElement {
   private inputField: TextField;
-  private inputValue: BaseElement;
+  private inputValue: Text;
   private clearSelectionIconButton: IconButton;
-  private noOptionsText: BaseElement;
-  private placeholderText: BaseElement;
+  private noOptionsText: Text;
+  private placeholderText: Text;
 
   /**
    * Create a Dropdown element.
@@ -23,8 +24,8 @@ export class Dropdown extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.inputField = new TextField(page, locator.locator("input"), `${elementReportName} - Input Field`);
-    this.inputValue = new BaseElement(
+    this.inputField = new TextField(page, locator, `${elementReportName} - Input Field`);
+    this.inputValue = new Text(
       page,
       locator.getByTestId("dropdown-option-content").getByTestId("text"),
       `${elementReportName} - Input Value`
@@ -34,12 +35,12 @@ export class Dropdown extends BaseElement {
       locator.locator(".clear-indicator"),
       `${elementReportName} - Clear Selection Icon Button`
     );
-    this.noOptionsText = new BaseElement(
+    this.noOptionsText = new Text(
       page,
       locator.locator("div").filter({ hasText: "No options" }).first(),
       `${elementReportName} - No Options Text`
     );
-    this.placeholderText = new BaseElement(
+    this.placeholderText = new Text(
       page,
       locator.locator("div[class*='placeholder']"),
       `${elementReportName} - Placeholder Text`
@@ -59,11 +60,11 @@ export class Dropdown extends BaseElement {
 
   /**
    * Check if the dropdown is open.
-   * @returns {Promise<boolean>}
+   * @returns {Promise<boolean>} True if the dropdown is open, false otherwise.
    */
   async isOpen(): Promise<boolean> {
     return await test.step(`Check if dropdown is open for ${this.getElementReportName()}`, async () => {
-      return (await this.inputField.getAttributeValue("aria-expanded")) === "true";
+      return await this.inputField.isExpanded();
     });
   }
 
@@ -220,6 +221,16 @@ export class Dropdown extends BaseElement {
   async waitForPlaceholderTextToBeVisible(): Promise<void> {
     await test.step(`Wait for placeholder text to be visible for ${this.getElementReportName()}`, async () => {
       await this.placeholderText.waitForElementToBeVisible();
+    });
+  }
+
+  /**
+   * Get the placeholder text.
+   * @returns {Promise<string>} The placeholder text.
+   */
+  async getPlaceholderText(): Promise<string> {
+    return await test.step(`Get placeholder text for ${this.getElementReportName()}`, async () => {
+      return await this.placeholderText.getText();
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { TextField } from "./TextField";
+import { Text } from "./Text";
 
 /**
  * Class representing a Checkbox element.
@@ -8,7 +9,7 @@ import { TextField } from "./TextField";
  */
 export class Checkbox extends BaseElement {
   private checkbox: TextField;
-  private label: BaseElement;
+  private label: Text;
 
   /**
    * Create a Checkbox element.
@@ -19,7 +20,7 @@ export class Checkbox extends BaseElement {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
     this.checkbox = new TextField(page, locator.getByTestId("checkbox-checkbox"), `${elementReportName} - Checkbox`);
-    this.label = new BaseElement(page, locator.getByTestId("checkbox-label"), `${elementReportName} - Label`);
+    this.label = new Text(page, locator.getByTestId("checkbox-label"), `${elementReportName} - Label`);
   }
 
   /**

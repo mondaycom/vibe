@@ -97,4 +97,9 @@ test.describe("Storybook - Unit Tests - Dropdown", () => {
     await dropdown.search("Option 1");
     expect(await dropdown.isNoOptionsTextHidden()).toBe(true);
   });
+
+  test("should get placeholder text", async () => {
+    const placeholderText = await dropdown.getPlaceholderText();
+    expect(placeholderText).toBe("Placeholder text here");
+  });
 });

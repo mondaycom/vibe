@@ -17,16 +17,6 @@ export class MenuButton extends BaseElement {
   }
 
   /**
-   * Check if the menu is expanded.
-   * @returns {Promise<boolean>} True if the menu is expanded, false otherwise.
-   */
-  async isExpanded(): Promise<boolean> {
-    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
-      return (await this.getAttributeValue("aria-expanded")) === "true";
-    });
-  }
-
-  /**
    * Open the menu if it is not already expanded.
    * @returns {Promise<void>}
    */

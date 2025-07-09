@@ -16,6 +16,7 @@ export const menuItemStory = "/?path=/story/components-menu-menuitem--overview";
 export const menuButtonStory = "/?path=/story/components-menubutton--overview";
 export const modalStory = "/?path=/story/components-modal-new-basic-modal--overview";
 export const radioButtonStory = "/?path=/story/components-radiobutton--overview";
+export const searchStory = "/?path=/story/components-search--overview";
 export const splitButtonStory = "/?path=/story/components-splitbutton--overview";
 export const stepsStory = "/?path=/story/components-steps--overview";
 export const tabsStory = "/?path=/story/components-tabs--overview";

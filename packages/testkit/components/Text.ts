@@ -1,4 +1,4 @@
-import { Page, Locator, test } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 
 /**

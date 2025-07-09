@@ -19,7 +19,7 @@ export class Toggle extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.input = new TextField(page, locator.locator("input[data-testid='toggle']"), `${elementReportName} - Input`);
+    this.input = new TextField(page, locator, `${elementReportName} - Input`);
     this.button = new Button(page, locator.locator("div[data-testid='toggle']"), `${elementReportName} - Button`);
   }
 
@@ -42,7 +42,7 @@ export class Toggle extends BaseElement {
    */
   async isOn(): Promise<boolean> {
     return await test.step(`Check if toggle is on for ${this.getElementReportName()}`, async () => {
-      return (await this.input.getAttributeValue("aria-checked")) === "true";
+      return await this.input.isChecked();
     });
   }
 }

@@ -17,6 +17,7 @@ export * from "./MenuButton";
 export * from "./MenuItem";
 export * from "./Modal";
 export * from "./RadioButton";
+export * from "./Search";
 export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Tabs";

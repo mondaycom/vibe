@@ -1,13 +1,14 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
+import { Text } from "./Text";
 
 /**
  * Class representing a Toast element.
  * Extends the BaseElement class.
  */
 export class Toast extends BaseElement {
-  private content: BaseElement;
+  private content: Text;
   private closeButton: Button;
 
   /**
@@ -18,7 +19,7 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.content = new BaseElement(
+    this.content = new Text(
       page,
       locator.locator("div[data-testid='toast-content'] > span"),
       `${elementReportName} - Content`

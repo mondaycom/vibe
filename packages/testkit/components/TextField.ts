@@ -1,15 +1,16 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
+import { Text } from "./Text";
 
 /**
  * Class representing a TextField element.
  * Extends the BaseElement class.
  */
 export class TextField extends BaseElement {
-  private label: BaseElement;
-  private input: BaseElement;
-  private helperText: BaseElement;
-  private characterCount: BaseElement;
+  private label: Text;
+  private input: Text;
+  private helperText: Text;
+  private characterCount: Text;
 
   /**
    * Create a TextField element.
@@ -19,14 +20,14 @@ export class TextField extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.label = new BaseElement(page, locator.locator("section >label"), `${elementReportName} - Label`);
-    this.input = new BaseElement(page, locator.locator("input"), `${elementReportName} - Input`);
-    this.helperText = new BaseElement(
+    this.label = new Text(page, locator.locator("section > label"), `${elementReportName} - Label`);
+    this.input = new Text(page, locator.locator("input"), `${elementReportName} - Input`);
+    this.helperText = new Text(
       page,
       locator.locator("div[data-testid='text'] > span").first(),
       `${elementReportName} - Helper Text`
     );
-    this.characterCount = new BaseElement(
+    this.characterCount = new Text(
       page,
       locator.locator("div[data-testid='text'] > span").last(),
       `${elementReportName} - Character Count`
@@ -101,6 +102,36 @@ export class TextField extends BaseElement {
   async getCharacterCount(): Promise<string> {
     return await test.step(`Get character count for ${this.getElementReportName()}`, async () => {
       return (await this.characterCount.getText()).split("\n")[0];
+    });
+  }
+
+  /**
+   * Check if the text field is expanded.
+   * @returns {Promise<boolean>} True if the text field is expanded, false otherwise.
+   */
+  async isExpanded(): Promise<boolean> {
+    return await test.step(`Check if text field is expanded for ${this.getElementReportName()}`, async () => {
+      return await this.input.isExpanded();
+    });
+  }
+
+  /**
+   * Check if the text field is checked.
+   * @returns {Promise<boolean>} True if the text field is checked, false otherwise.
+   */
+  async isChecked(): Promise<boolean> {
+    return await test.step(`Check if text field is checked for ${this.getElementReportName()}`, async () => {
+      return await this.input.isChecked();
+    });
+  }
+
+  /**
+   * Get the placeholder text from the text field.
+   * @returns {Promise<string>} The placeholder text from the text field.
+   */
+  async getPlaceholderText(): Promise<string> {
+    return await test.step(`Get placeholder text for ${this.getElementReportName()}`, async () => {
+      return await this.input.getAttributeValue("placeholder");
     });
   }
 }

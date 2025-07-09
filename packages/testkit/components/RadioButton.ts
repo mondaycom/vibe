@@ -1,12 +1,13 @@
 import { test, Locator, Page } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
+import { Text } from "./Text";
 
 /**
  * Class representing a RadioButton element.
  * Extends the BaseElement class.
  */
 export class RadioButton extends BaseElement {
-  private label: BaseElement;
+  private label: Text;
 
   /**
    * Create a RadioButton element.
@@ -16,7 +17,7 @@ export class RadioButton extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.label = new BaseElement(page, locator.getByTestId("radio-button-label"), `${elementReportName} - Label`);
+    this.label = new Text(page, locator.getByTestId("radio-button-label"), `${elementReportName} - Label`);
   }
 
   /**
