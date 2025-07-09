@@ -7,7 +7,7 @@ import postcss from "postcss";
 import postcssCustomProperties from "postcss-custom-properties";
 
 const CSS_FILE = path.join(__dirname, "../dist/index.css");
-const OUTPUT_FILE = path.join(__dirname, "../src/files/colors.json");
+const OUTPUT_FILE = path.join(__dirname, "../src/files/tokens.json");
 
 interface ThemeColors {
   [key: string]: string;
