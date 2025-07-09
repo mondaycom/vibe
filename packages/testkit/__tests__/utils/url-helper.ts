@@ -19,6 +19,7 @@ export const radioButtonStory = "/?path=/story/components-radiobutton--overview"
 export const splitButtonStory = "/?path=/story/components-splitbutton--overview";
 export const stepsStory = "/?path=/story/components-steps--overview";
 export const tabsStory = "/?path=/story/components-tabs--overview";
+export const textStory = "/?path=/story/text-text--overview";
 export const textAreaStory = "/?path=/story/components-textarea--overview";
 export const textfieldStory = "/?path=/story/components-textfield--overview";
 export const toggleStory = "/?path=/story/components-toggle--overview";
