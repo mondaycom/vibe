@@ -22,11 +22,9 @@ const useNumberFieldState = ({
 
   useEffect(() => {
     const controlledValueStr = controlledValue === null ? "" : String(controlledValue);
-    if (controlledValue !== parseFloat(inputValue)) {
-      setInputValue(controlledValueStr);
-    }
-    // We only want to sync when the controlled value changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setInputValue(prevInputValue =>
+      controlledValue !== parseFloat(prevInputValue) ? controlledValueStr : prevInputValue
+    );
   }, [controlledValue]);
 
   const handleChange = useCallback(
