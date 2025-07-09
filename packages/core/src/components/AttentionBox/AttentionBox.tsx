@@ -31,15 +31,6 @@ const AttentionBox = forwardRef(
     }: AttentionBoxProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const [shouldAnimate, setShouldAnimate] = useState(false);
-
-    useEffect(() => {
-      if (!animate) return;
-
-      const timer = setTimeout(() => setShouldAnimate(true), 50);
-      return () => clearTimeout(timer);
-    }, [animate]);
-
     const role: AttentionBoxRole = type === "danger" ? "alert" : "status";
     const displayIcon = resolveAttentionBoxIcon(icon, hideIcon, type);
     const isLinkInline = !!action || (link && "inlineText" in link && link.inlineText);
@@ -49,8 +40,7 @@ const AttentionBox = forwardRef(
       styles.attention,
       styles[type],
       {
-        [styles.animate]: animate && shouldAnimate,
-        [styles.noAnimation]: !animate
+        [styles.animate]: animate
       },
       className
     );

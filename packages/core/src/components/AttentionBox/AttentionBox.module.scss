@@ -1,21 +1,25 @@
+@keyframes attentionBoxAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .attention {
   border-radius: var(--border-radius-medium);
   padding: var(--space-12) var(--space-16);
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity 200ms var(--motion-timing-transition), transform 200ms var(--motion-timing-transition);
 
   &.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &.noAnimation {
-    opacity: 1;
-    transform: translateY(0);
-    transition: none;
+    animation: attentionBoxAnimation 200ms var(--motion-timing-transition);
   }
 
   &.primary {
