@@ -28,7 +28,6 @@ const AttentionBoxCompact = ({
         link={isLinkInline ? link : undefined}
         isLinkInline={isLinkInline}
         multiline={multiline}
-        compact
       />
     ),
     [content, isLinkInline, link, multiline]
@@ -42,7 +41,12 @@ const AttentionBoxCompact = ({
       </Flex>
       {action && <AttentionBoxButton {...action} />}
       {link && !isLinkInline && <AttentionBoxLink {...link} inlineText={false} />}
-      <AttentionBoxCloseButton onClose={onClose} closeButtonAriaLabel={closeButtonAriaLabel} />
+      <AttentionBoxCloseButton
+        onClose={onClose}
+        closeButtonAriaLabel={closeButtonAriaLabel}
+        compact
+        multiline={multiline}
+      />
     </Flex>
   );
 };

@@ -9,37 +9,30 @@ export interface AttentionBoxContentProps {
   link?: AttentionBoxLinkProps;
   isLinkInline?: boolean;
   multiline?: boolean;
-  compact?: boolean;
 }
 
-const AttentionBoxContent = ({
-  content,
-  link,
-  isLinkInline = false,
-  multiline = false,
-  compact
-}: AttentionBoxContentProps) => {
+const AttentionBoxContent = ({ content, link, isLinkInline = false, multiline = false }: AttentionBoxContentProps) => {
   if (!content) {
     return null;
   }
 
-  if (link && isLinkInline) {
-    return (
-      <>
-        <Text type="text2" className={cx({ [styles.multilineText]: multiline })} ellipsis={!multiline} element="span">
-          {content}
-        </Text>
-        <span className={cx({ [styles.spacing]: !compact || multiline })}>
-          <AttentionBoxLink {...link} inlineText />
-        </span>
-      </>
-    );
-  }
-
   return (
-    <Text type="text2" className={cx({ [styles.multilineText]: multiline })}>
-      {content}
-    </Text>
+    <>
+      <Text
+        type="text2"
+        className={cx(styles.text, { [styles.multilineText]: multiline })}
+        ellipsis={!multiline}
+        element="p"
+      >
+        {content}
+      </Text>
+      {link && isLinkInline && (
+        <>
+          {" "}
+          <AttentionBoxLink {...link} inlineText />
+        </>
+      )}
+    </>
   );
 };
 
