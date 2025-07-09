@@ -123,7 +123,7 @@ export const WithIcons = {
 
 export const NavigatableBreadcrumbs = {
   render: () => (
-    <Flex gap={12} style={{ padding: "var(--space-8) var(--space-12)", width: 320 }}>
+    <Flex gap="small">
       <Avatar size="medium" src={person3} type="img" />
       <div className={styles.list}>
         <Text type="text1" weight="medium">
