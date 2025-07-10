@@ -4,11 +4,8 @@ import AttentionBox from "../../../../components/AttentionBox/AttentionBox";
 
 export const AttentionBoxDescription = () => {
   const component = useMemo(() => {
-    const style = {
-      width: "90%"
-    };
     return (
-      <div style={style}>
+      <div style={{ width: "90%" }}>
         <AttentionBox
           title="Attention box title"
           text="Studies show that 100% of people who celebrate birthdays, will die."
@@ -20,7 +17,7 @@ export const AttentionBoxDescription = () => {
     <RelatedComponent
       component={component}
       title="AttentionBox"
-      href="/?path=/docs/components-attentionbox--docs"
+      href="/?path=/docs/components-attentionbox-new--docs"
       description="Displays content classification."
     />
   );
