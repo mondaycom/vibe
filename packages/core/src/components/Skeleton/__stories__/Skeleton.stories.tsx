@@ -4,31 +4,27 @@ import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";
 import { Reply, ThumbsUp } from "@vibe/icons";
-import "./Skeleton.stories.scss";
 import { Flex } from "../../Flex";
+import { Box } from "../../Box";
+import { Text } from "../../Text";
 
 export default {
   title: "Components/Skeleton",
   component: Skeleton
 };
 
-const skeletonTemplate = (args: SkeletonProps) => {
-  return (
+export const Overview = {
+  render: (args: SkeletonProps) => (
     <Flex direction="column" gap="small">
       <Skeleton {...args} />
       <Skeleton {...args} />
       <Skeleton {...args} />
     </Flex>
-  );
-};
-
-export const Overview = {
-  render: skeletonTemplate.bind({}),
+  ),
   args: {
     size: "h1",
     type: "text"
   },
-  name: "Overview",
   parameters: {
     docs: {
       liveEdit: {
@@ -38,82 +34,77 @@ export const Overview = {
   }
 };
 
+export const Shapes = {
+  render: () => (
+    <Flex align="end" gap="large">
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton type="circle" />
+        <>Circle</>
+      </Flex>
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton />
+        <>Square</>
+      </Flex>
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton width={112} height={46} />
+        <>Rectangle</>
+      </Flex>
+    </Flex>
+  )
+};
+
+export const TextSkeleton = {
+  render: () => (
+    <Flex align="end" gap="large">
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton type="text" size="h1" />
+        <>H1</>
+      </Flex>
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton type="text" size="h2" />
+        <>H2</>
+      </Flex>
+      <Flex direction="column" align="stretch" gap="large">
+        <Skeleton type="text" size="small" />
+        <>Paragraph</>
+      </Flex>
+    </Flex>
+  ),
+  name: "Text"
+};
+
 export const ComplexExample = {
   render: () => {
     return (
-      <div className="monday-storybook-skeleton_rules-column">
-        <div className="monday-storybook-skeleton_rules-row">
+      <Flex align="stretch" direction="column" gap="small">
+        <Flex gap="small">
           <Skeleton type="circle" />
           <Skeleton type="text" width={110} size="small" />
-        </div>
-        <div className="monday-storybook-skeleton_article">
-          <div>
-            <Skeleton />
-          </div>
-          <div className="monday-storybook-skeleton_aside">
+        </Flex>
+        <Flex align="stretch" gap="medium">
+          <Skeleton />
+          <Flex align="stretch" direction="column" gap="small">
             <Skeleton type="text" size="h1" />
             <Skeleton type="text" size="h4" />
             <Skeleton type="text" size="h4" />
             <Skeleton type="text" size="h4" />
             <Skeleton type="text" size="h4" width={82} />
-          </div>
-        </div>
-      </div>
+          </Flex>
+        </Flex>
+      </Flex>
     );
   }
-};
-
-export const Shapes = {
-  render: () => (
-    <div className="monday-storybook-skeleton_row-box">
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type="circle" />
-        <>Circle</>
-      </div>
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton />
-        <>Square</>
-      </div>
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton width={112} height={46} />
-        <>Rectangle</>
-      </div>
-    </div>
-  ),
-
-  name: "Shapes"
-};
-
-export const Text = {
-  render: () => (
-    <div className="monday-storybook-skeleton_row-box">
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type="text" size="h1" />
-        <>H1</>
-      </div>
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type="text" size="h2" />
-        <>H2</>
-      </div>
-      <div className="monday-storybook-skeleton_column-box">
-        <Skeleton type="text" size="small" />
-        <>Paragraph</>
-      </div>
-    </div>
-  ),
-
-  name: "Text"
 };
 
 export const UpdateInTheSystem = {
   render: () => {
     const [showSkeleton, setShowSkeleton] = useState(false);
-    const [showBlock, setSHowBlock] = useState(false);
-    const [showReload, setshowReload] = useState(true);
+    const [showBlock, setShowBlock] = useState(false);
+    const [showReload, setShowReload] = useState(true);
 
     const onClickCallback = useCallback(() => {
-      setshowReload(false);
-      setSHowBlock(false);
+      setShowReload(false);
+      setShowBlock(false);
       setShowSkeleton(true);
 
       setTimeout(() => {
@@ -121,62 +112,85 @@ export const UpdateInTheSystem = {
       }, 4000);
 
       setTimeout(() => {
-        setSHowBlock(true);
+        setShowBlock(true);
       }, 4000);
-    }, [setShowSkeleton, setSHowBlock]);
+    }, []);
 
     return (
-      <div className="monday-storybook-skeleton_row">
+      <Flex direction="column" gap="large" flex="1">
         {showBlock && (
-          <div className="monday-storybook-skeleton_box">
-            <div className="monday-storybook-skeleton_main">
-              <div className="monday-storybook-skeleton_header">
+          <Box border>
+            <Flex direction="column" align="start" gap="medium" style={{ width: "730px", padding: "16px" }}>
+              <Flex gap="small">
                 <Avatar src={person} type="img" />
-                <h5>Hadas Farhi</h5>
-              </div>
-              <p className="monday-storybook-skeleton_text">
+                <Text weight="bold">Julia Martinez</Text>
+              </Flex>
+              <Text type="text1" element="p">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div className="monday-storybook-skeleton_btn-group">
-              <Button className="monday-storybook-skeleton_btn" leftIcon={ThumbsUp} kind="secondary">
+              </Text>
+            </Flex>
+            <Flex style={{ marginTop: "var(--space-24)", width: "100%" }}>
+              <Button
+                style={{
+                  flexGrow: 1,
+                  flexShrink: 1,
+                  borderBottom: "none",
+                  borderRight: "none",
+                  borderLeft: "none"
+                }}
+                leftIcon={ThumbsUp}
+                kind="secondary"
+              >
                 Like
               </Button>
-              <Button className="monday-storybook-skeleton_btn" leftIcon={Reply} kind="secondary">
+              <Button
+                style={{
+                  flexGrow: 1,
+                  flexShrink: 1,
+                  borderBottom: "none",
+                  borderRight: "none"
+                }}
+                leftIcon={Reply}
+                kind="secondary"
+              >
                 Reply
               </Button>
-            </div>
-          </div>
+            </Flex>
+          </Box>
         )}
         {showSkeleton && (
-          <div className="monday-storybook-skeleton_box">
-            <div className="monday-storybook-skeleton_main">
-              <div className="monday-storybook-skeleton_header">
+          <Box border>
+            <Flex direction="column" align="stretch" gap="medium" style={{ width: "730px", padding: "16px" }}>
+              <Flex align="center" gap="small">
                 <Skeleton type="circle" width={50} height={50} />
                 <Skeleton type="text" size="h5" width={110} />
-              </div>
-              <p className="monday-storybook-skeleton_text-wrapper">
+              </Flex>
+              <Flex direction="column" align="stretch" gap="small">
                 <Skeleton type="text" size="small" width={655} />
                 <Skeleton type="text" size="small" width={680} />
                 <Skeleton type="text" size="small" width={670} />
                 <Skeleton type="text" size="small" width={675} />
                 <Skeleton type="text" size="small" width={400} />
-              </p>
-            </div>
-            <div className="monday-storybook-skeleton_btn-group-skeleton">
+              </Flex>
+            </Flex>
+            <Flex
+              justify="center"
+              gap={300}
+              style={{ marginTop: "var(--space-24)", width: "100%", paddingBlock: "var(--space-8)" }}
+            >
               <Skeleton type="text" size="h2" width={60} />
               <Skeleton type="text" size="h2" width={60} />
-            </div>
-          </div>
+            </Flex>
+          </Box>
         )}
         <Button kind="secondary" onClick={onClickCallback}>
           {showReload ? "Load update" : "Reload update"}
         </Button>
-      </div>
+      </Flex>
     );
   },
 
