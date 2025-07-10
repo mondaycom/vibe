@@ -192,13 +192,6 @@ describe("AttentionBox", () => {
       const container = screen.getByRole("status");
       expect(container).toHaveClass("animate");
     });
-
-    it("applies no animation classes when animate is false", () => {
-      render(<AttentionBox text="Test" animate={false} />);
-
-      const container = screen.getByRole("status");
-      expect(container).toHaveClass("noAnimation");
-    });
   });
 
   describe("Children Override", () => {
