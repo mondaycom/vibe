@@ -63,6 +63,7 @@ export interface DropdownContextProps<Item extends BaseListItemData<Record<strin
   getDropdownProps?: PropGetter;
 
   reset: () => void;
+  toggleMenu: () => void;
   contextOnClear: () => void;
   contextOnOptionRemove?: (option: Item) => void;
 

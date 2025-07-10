@@ -37,6 +37,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    toggleMenu,
     filteredOptions,
     selectedItem: hookSelectedItem
   } = useDropdownSelect<Item>(
@@ -85,7 +86,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multi,
     autoFocus,
     onClear,
-    size
+    size,
+    toggleMenu
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

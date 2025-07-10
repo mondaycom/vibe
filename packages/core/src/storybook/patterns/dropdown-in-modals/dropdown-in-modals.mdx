@@ -1,4 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks";
+import { Link, Tip } from "vibe-storybook-components";
 import { ComponentNameDecorator } from "../../components";
 import {
   DIALOG,
@@ -11,6 +12,12 @@ import { TipKnowIssue } from "./dropdown-in-modals.stories.helpers";
 <Meta of={DropdownInModalsStories} />
 
 <ComponentNameDecorator withFoundationBackground>Display dropdowns inside pop-overs</ComponentNameDecorator>
+
+<Tip title="New Dropdown Available" emoji="🚀">
+  Consider using the new <Link href="/?path=/docs/components-dropdown-alpha--docs">Dropdown component</Link> which
+  handles pop-overs automatically without requiring these workarounds. It's built with better accessibility and
+  performance.
+</Tip>
 
 ## Problem description
 

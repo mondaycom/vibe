@@ -23,6 +23,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
   getDropdownProps?: PropGetter;
 
   reset: () => void;
+  toggleMenu: () => void;
   onClear?: () => void;
   onOptionSelect?: (option: Item) => void;
   onOptionRemove?: (option: Item) => void;

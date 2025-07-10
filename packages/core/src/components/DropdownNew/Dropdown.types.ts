@@ -31,6 +31,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * The controlled selected values for multi-select.
    */
   value?: Item[];
+  /**
+   * Callback fired when the selected values change in multi-select mode.
+   */
+  onChange?: (options: BaseListItemData<Item>[]) => void;
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -58,6 +62,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * The controlled selected value for single-select.
    */
   value?: Item;
+  /**
+   * Callback fired when the selected value changes in single-select mode.
+   */
+  onChange?: (option: BaseListItemData<Item>) => void;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -174,10 +182,6 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * Callback fired when the dropdown loses focus.
    */
   onBlur?: () => void;
-  /**
-   * Callback fired when the selected value changes.
-   */
-  onChange?: (option: BaseListItemData<Item> | BaseListItemData<Item>[]) => void;
   /**
    * Callback fired when the clear button is clicked.
    */

@@ -95,7 +95,8 @@ describe("BaseListItem", () => {
 
     it("should have role option", () => {
       const { getByRole } = renderBaseListItem({
-        item: { label, value: "item1" }
+        item: { label, value: "item1" },
+        role: "option"
       });
       expect(getByRole("option")).toBeInTheDocument();
     });
