@@ -39,15 +39,15 @@ export const Shapes = {
     <Flex align="end" gap="large">
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton type="circle" />
-        <>Circle</>
+        <Text type="text1">Circle</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton />
-        <>Square</>
+        <Text type="text1">Square</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton width={112} height={46} />
-        <>Rectangle</>
+        <Text type="text1">Rectangle</Text>
       </Flex>
     </Flex>
   )
