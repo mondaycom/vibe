@@ -1,10 +1,10 @@
 import React from "react";
-import { createComponentTemplate, VerticalStories } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Slider from "../Slider";
 import Chips from "../../Chips/Chips";
 import { Sound, Video } from "@vibe/icons";
-import "./Slider.stories.scss";
+import Flex from "../../Flex/Flex";
 
 const argTypes = createStoryMetaSettingsDecorator({
   component: Slider
@@ -31,21 +31,21 @@ export const Overview = {
 
 export const Sizes = {
   render: () => (
-    <>
+    <Flex gap="medium" flex="1">
       <Slider size="small" defaultValue={12} />
       <Slider size="medium" defaultValue={24} />
       <Slider size="large" defaultValue={35} />
-    </>
+    </Flex>
   )
 };
 
 export const Ranged = {
   render: () => (
-    <>
+    <Flex gap="medium" flex="1">
       <Slider data-testid={"monday-ranged-slider-s"} size="small" ranged={true} />
       <Slider data-testid={"monday-ranged-slider-m"} size="medium" ranged={true} defaultValue={[12, 55]} />
       <Slider size="large" ranged={true} defaultValue={[25, 32]} />
-    </>
+    </Flex>
   )
 
   // TODO storybook 7 migration: interactive test isn't working correctly
@@ -54,27 +54,27 @@ export const Ranged = {
 
 export const Colors = {
   render: () => (
-    <>
+    <Flex gap="medium" flex="1">
       <Slider color="positive" defaultValue={34} size="medium" />
       <Slider color="negative" ranged={true} defaultValue={[12, 55]} size="medium" />
       <Slider color="primary" defaultValue={12} size="medium" />
-    </>
+    </Flex>
   )
 };
 
 export const Disabled = {
   render: () => (
-    <>
+    <Flex gap="medium" flex="1">
       <Slider disabled={true} defaultValue={24} color="positive" size="medium" />
       <Slider disabled={true} color="negative" size="medium" />
       <Slider disabled={true} ranged={true} defaultValue={[12, 55]} color="primary" size="medium" />
-    </>
+    </Flex>
   )
 };
 
 export const WithLabels = {
   render: () => (
-    <>
+    <Flex direction="column" gap="large" style={{ width: "500px" }}>
       <Slider indicateSelection={true} defaultValue={12} size="small" />
       <Slider indicateSelection={true} ranged={true} defaultValue={[12, 55]} size="small" />
       <Slider
@@ -93,9 +93,8 @@ export const WithLabels = {
         size="medium"
       />
       <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size="large" />
-    </>
+    </Flex>
   ),
-  decorators: [VerticalStories],
   parameters: {
     docs: {
       liveEdit: {
@@ -107,11 +106,11 @@ export const WithLabels = {
 
 export const ShowValue = {
   render: () => (
-    <>
+    <Flex gap="medium" flex="1">
       <Slider data-testid={"monday-slider-show-value-s"} showValue={true} defaultValue={12} size="small" />
       <Slider data-testid={"monday-slider-show-value-m"} showValue={true} defaultValue={55} size="medium" />
       <Slider data-testid={"monday-slider-show-value-l"} showValue={true} defaultValue={89} size="large" />
-    </>
+    </Flex>
   )
 
   // TODO storybook 7 migration: interactive test isn't working correctly
@@ -120,21 +119,20 @@ export const ShowValue = {
 
 export const LimitsSteps = {
   render: () => (
-    <>
+    <Flex direction="column" gap="large" style={{ width: "500px" }}>
       <Slider prefix="Step 10" step={10} indicateSelection={true} defaultValue={10} size="small" />
       <Slider prefix="Step 2, Max: 20" max={20} step={2} indicateSelection={true} defaultValue={4} size="medium" />
       <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} defaultValue={62} size="large" />
       <Slider ranged={true} indicateSelection={true} min={100} max={200} step={10} size="large" />
-    </>
+    </Flex>
   ),
 
-  name: "Limits, Steps",
-  decorators: [VerticalStories]
+  name: "Limits, Steps"
 };
 
 export const Customisation = {
   render: () => (
-    <>
+    <Flex direction="column" gap="large" style={{ width: "500px" }}>
       <Slider
         id="my-app-slider"
         data-testid={"my-app-slider"}
@@ -177,7 +175,6 @@ export const Customisation = {
         }}
         size="medium"
       />
-    </>
-  ),
-  decorators: [VerticalStories]
+    </Flex>
+  )
 };
