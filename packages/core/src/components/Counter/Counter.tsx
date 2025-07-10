@@ -82,6 +82,7 @@ const Counter = ({
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
 
   const setCountChangedAnimationActive = useCallback(() => {
     setCountChangeAnimationState(true);
@@ -146,6 +147,7 @@ const Counter = ({
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={countText}
+              nodeRef={nodeRef}
               classNames={{
                 enter: styles.fadeEnter,
                 enterActive: styles.fadeEnterActive,
@@ -158,7 +160,11 @@ const Counter = ({
                 node.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+              <span
+                ref={nodeRef}
+                id={counterId}
+                data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}
+              >
                 {prefix + countText}
               </span>
             </CSSTransition>
