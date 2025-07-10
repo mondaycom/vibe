@@ -58,15 +58,15 @@ export const TextSkeleton = {
     <Flex align="end" gap="large">
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton type="text" size="h1" />
-        <>H1</>
+        <Text type="text1">H1</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton type="text" size="h2" />
-        <>H2</>
+        <Text type="text1">H2</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
         <Skeleton type="text" size="small" />
-        <>Paragraph</>
+        <Text type="text1">Paragraph</Text>
       </Flex>
     </Flex>
   ),
