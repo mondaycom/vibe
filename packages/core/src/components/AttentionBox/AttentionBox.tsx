@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
 import { AttentionBoxProps, AttentionBoxRole } from "./AttentionBox.types";
 import AttentionBoxDefault from "./layouts/AttentionBoxDefault/AttentionBoxDefault";
