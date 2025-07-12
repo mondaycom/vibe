@@ -78,4 +78,16 @@ export class List extends BaseElement {
       return await listItem.getText();
     });
   }
+
+  /**
+   * Click a list item by its index.
+   * @param {number} index - The index of the item to click.
+   * @returns {Promise<void>}
+   */
+  async clickListItemByIndex(index: number): Promise<void> {
+    await test.step(`Click list item by index ${index} for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getListItemByIndex(index);
+      await listItem.click();
+    });
+  }
 }

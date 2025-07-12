@@ -34,7 +34,7 @@ test.describe("Storybook - Unit Tests - List", () => {
     expect(alertText).toBe("On click!");
   });
 
-  test("should handle multiple list item clicks", async ({ page }) => {
+  test("should handle multiple list item clicks by name", async ({ page }) => {
     let alertText: string | null = null;
     page.on("dialog", async (dialog: Dialog) => {
       alertText = dialog.message();
@@ -43,6 +43,28 @@ test.describe("Storybook - Unit Tests - List", () => {
     await list.clickListItemByName("Board Power up");
     expect.soft(alertText).toBe("On click!");
     await list.clickListItemByName("Team Power up");
+    expect(alertText).toBe("On click!");
+  });
+
+  test("should click list item by index", async ({ page }) => {
+    let alertText: string | null = null;
+    page.on("dialog", async (dialog: Dialog) => {
+      alertText = dialog.message();
+      await dialog.accept();
+    });
+    await list.clickListItemByIndex(0);
+    expect(alertText).toBe("On click!");
+  });
+
+  test("should handle multiple list item clicks by index", async ({ page }) => {
+    let alertText: string | null = null;
+    page.on("dialog", async (dialog: Dialog) => {
+      alertText = dialog.message();
+      await dialog.accept();
+    });
+    await list.clickListItemByIndex(0);
+    expect.soft(alertText).toBe("On click!");
+    await list.clickListItemByIndex(1);
     expect(alertText).toBe("On click!");
   });
 
