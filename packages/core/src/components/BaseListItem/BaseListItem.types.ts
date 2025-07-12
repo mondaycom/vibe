@@ -57,7 +57,7 @@ export type BaseListItemData<Item = Record<string, unknown>> = Item & {
   /**
    * The value of the list item.
    */
-  value: string | number | Date;
+  value: string | number;
   /**
    * The primary text content of the list item.
    */

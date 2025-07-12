@@ -10,6 +10,7 @@ import { Dropdown } from "../../DropdownNew";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import { Text } from "../../Text";
 import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
+import { BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -39,7 +40,7 @@ const meta: Meta<typeof Dropdown> = {
 
 export default meta;
 
-const dropdownTemplate = (props: any) => {
+const dropdownTemplate = (props: BaseDropdownProps<any>) => {
   const options = useMemo(
     () => [
       { value: 1, label: "Option 1" },

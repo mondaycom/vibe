@@ -1030,16 +1030,6 @@ describe("DropdownNew", () => {
       }
     ];
 
-    it("SIMPLE TEST - should render with showSelectedOptions", () => {
-      const { getByPlaceholderText } = renderDropdown({
-        options: showSelectedTestOptions,
-        showSelectedOptions: false,
-        placeholder: "Simple test"
-      });
-      const input = getByPlaceholderText("Simple test");
-      expect(input).toBeInTheDocument();
-    });
-
     it("should hide selected option from list when showSelectedOptions is false (single select)", () => {
       const { getByPlaceholderText, getByRole } = renderDropdown({
         options: showSelectedTestOptions,

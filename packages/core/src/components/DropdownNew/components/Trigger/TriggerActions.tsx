@@ -24,7 +24,8 @@ const TriggerActions = () => {
     multi,
     selectedItem,
     selectedItems = [],
-    toggleMenu
+    toggleMenu,
+    getMenuProps
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -63,6 +64,8 @@ const TriggerActions = () => {
           icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
           size={iconButtonSize}
           disabled={disabled}
+          ariaControls={getMenuProps().id}
+          ariaExpanded={isOpen}
           onClick={() => {
             toggleMenu();
           }}

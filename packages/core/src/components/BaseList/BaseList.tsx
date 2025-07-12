@@ -34,13 +34,15 @@ const BaseList = forwardRef(
 
     const defaultContent = renderOptions ? (
       options.every(group => group.options?.length === 0) ? (
-        typeof noOptionsMessage === "string" ? (
-          <Flex justify="center">
-            <BaseListItem item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
-          </Flex>
-        ) : (
-          noOptionsMessage
-        )
+        <div role="status">
+          {typeof noOptionsMessage === "string" ? (
+            <Flex justify="center">
+              <BaseListItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
+            </Flex>
+          ) : (
+            noOptionsMessage
+          )}
+        </div>
       ) : (
         options.map((group, groupIndex) => (
           <React.Fragment key={group.label ?? groupIndex}>
