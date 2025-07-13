@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownCombobox from "../hooks/useDropdownCombobox";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownComboboxController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownSingleControllerProps<Item>
 ) => {
   const {
     options,
@@ -31,7 +31,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onBlur,
     onKeyDown,
     onClear,
-    onOptionRemove,
+
     size = "medium",
     readOnly,
     disabled
@@ -64,8 +64,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     isMenuOpenProp,
     autoFocus,
     closeMenuOnSelect,
-    defaultValue as Item,
-    value as Item,
+    defaultValue,
+    value,
     inputValueProp,
     onChange,
     onInputChange,
@@ -113,9 +113,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
       hookReset();
       onClear?.();
     },
-    contextOnOptionRemove: (option: Item) => {
-      onOptionRemove?.(option);
-    },
+    contextOnOptionRemove: () => {},
     addSelectedItem: undefined,
     removeSelectedItem: undefined,
     isFocused,

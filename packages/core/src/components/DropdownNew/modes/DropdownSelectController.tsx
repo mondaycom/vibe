@@ -1,12 +1,12 @@
 import React from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownSelect from "../hooks/useDropdownSelect";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownSelectController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownSingleControllerProps<Item>
 ) => {
   const {
     options,
@@ -25,7 +25,6 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multi = false,
     dropdownRef,
     onClear,
-    onOptionRemove,
     size = "medium"
   } = props;
 
@@ -44,8 +43,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     options,
     autoFocus,
     isMenuOpenProp,
-    defaultValue as Item,
-    value as Item,
+    defaultValue,
+    value,
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -78,9 +77,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
       hookReset();
       onClear?.();
     },
-    contextOnOptionRemove: (option: Item) => {
-      onOptionRemove?.(option);
-    },
+    contextOnOptionRemove: () => {},
     clearable,
     searchable,
     multi,

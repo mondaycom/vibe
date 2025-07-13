@@ -1,5 +1,5 @@
 import React, { useRef, forwardRef } from "react";
-import { BaseDropdownProps } from "./Dropdown.types";
+import { BaseDropdownProps, DropdownMultiControllerProps, DropdownSingleControllerProps } from "./Dropdown.types";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BaseListItemData } from "../BaseListItem";
 import DropdownComboboxController from "./modes/DropdownComboboxController";
@@ -13,22 +13,38 @@ const Dropdown = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const isSearchable = dropdownProps.searchable === undefined ? false : dropdownProps.searchable;
-    const isMulti = dropdownProps.multi || false;
 
     const dropdownInternalRef = useRef<HTMLDivElement>(null);
     const dropdownMergedRef = useMergeRef(ref, dropdownInternalRef);
 
-    let ControllerComponent;
-
-    if (isSearchable) {
-      ControllerComponent = isMulti ? DropdownMultiComboboxController : DropdownComboboxController;
-    } else {
-      ControllerComponent = isMulti ? DropdownMultiSelectController : DropdownSelectController;
+    if (isMultiType(dropdownProps)) {
+      return isSearchable ? (
+        <DropdownMultiComboboxController {...dropdownProps} dropdownRef={dropdownMergedRef} />
+      ) : (
+        <DropdownMultiSelectController {...dropdownProps} dropdownRef={dropdownMergedRef} />
+      );
     }
-    return <ControllerComponent {...dropdownProps} dropdownRef={dropdownMergedRef} />;
+
+    if (isSingleType(dropdownProps)) {
+      return isSearchable ? (
+        <DropdownComboboxController {...dropdownProps} dropdownRef={dropdownMergedRef} />
+      ) : (
+        <DropdownSelectController {...dropdownProps} dropdownRef={dropdownMergedRef} />
+      );
+    }
+
+    return null;
   }
 );
 
 export default Dropdown as <Item extends BaseListItemData<Record<string, unknown>>>(
   props: BaseDropdownProps<Item> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => React.ReactElement;
+
+function isMultiType(dropdownProps: BaseDropdownProps<any>): dropdownProps is DropdownMultiControllerProps<any> {
+  return dropdownProps.multi;
+}
+
+function isSingleType(dropdownProps: BaseDropdownProps<any>): dropdownProps is DropdownSingleControllerProps<any> {
+  return !dropdownProps.multi;
+}

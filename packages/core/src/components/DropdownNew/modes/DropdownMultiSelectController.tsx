@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiSelect from "../hooks/useDropdownMultiSelect";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownMultiSelectController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownMultiControllerProps<Item>
 ) => {
   const {
     options,
@@ -50,9 +50,9 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     setMultiSelectedItemsState,
     isMenuOpenProp,
     autoFocus,
-    defaultValue as Item[],
-    value as Item[],
-    onChange as (options: Item[]) => void,
+    defaultValue,
+    value,
+    onChange,
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
