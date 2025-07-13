@@ -351,8 +351,8 @@ export const Animation: Story = {
                   />
                 </Box>
                 <Text ellipsis={false}>
-                  Here's a sneak peek at how it works. The entry animation is an integral part of the experience we
-                  provide. It's up to you to ensure that the surrounding layout shifts downward smoothly when the
+                  {"Here's"} a sneak peek at how it works. The entry animation is an integral part of the experience we
+                  provide. {"It's"} up to you to ensure that the surrounding layout shifts downward smoothly when the
                   Attention Box enters the view.
                 </Text>
               </Flex>
