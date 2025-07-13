@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Robot } from "@vibe/icons";
-import Button from "../../Button/Button";
-import AttentionBox from "../AttentionBox";
+import { Info, Invite } from "@vibe/icons";
+import { Button } from "../../Button";
+import { AttentionBox } from "..";
 import { AttentionBoxProps } from "../AttentionBox.types";
+import { Flex } from "../../Flex";
+import { Heading } from "../../Heading";
+import { Text } from "../../Text";
+import { DialogContentContainer } from "../../DialogContentContainer";
+import { Search } from "../../Search";
+import { Avatar } from "../../Avatar";
+import { Icon } from "../../Icon";
+import { Box } from "../../Box";
+import { Skeleton } from "../../Skeleton";
+import person from "./assets/person.png";
+import contentImage from "./assets/content-image.png";
 
 type Story = StoryObj<typeof AttentionBox>;
 
@@ -13,146 +24,175 @@ export default {
 } satisfies Meta<typeof AttentionBox>;
 
 export const Overview: Story = {
-  render: (args: Partial<AttentionBoxProps>) => (
-    // @ts-expect-error - title is not allowed when compact is true, but we want to allow all combinations of props in the overview story
-    <AttentionBox title="Attention Required" text="Please review this information carefully." {...args} />
+  render: (args: AttentionBoxProps) => <AttentionBox {...args} />,
+  args: {
+    title: "Attention box title",
+    text: "Will cause your team to lose access to the account until using the correct SSO source."
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
+};
+
+export const Types: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "240px 1fr",
+        columnGap: "var(--space-16)",
+        rowGap: "var(--space-24)",
+        alignItems: "start"
+      }}
+    >
+      <Flex align="start" direction="column" gap="xs">
+        <Text type="text1" weight="bold">
+          Primary
+        </Text>
+        <Text ellipsis={false}>Default variant</Text>
+      </Flex>
+      <AttentionBox
+        title="Heads up!"
+        text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
+      />
+      <Flex align="start" direction="column" gap="xs">
+        <Text type="text1" weight="bold">
+          Success
+        </Text>
+        <Text ellipsis={false}>Illustrates successful state</Text>
+      </Flex>
+      <AttentionBox
+        type="success"
+        title="You're doing great"
+        text="Your changes were saved successfully. You can continue working without needing to revisit this section."
+      />
+      <Flex align="start" direction="column" gap="xs">
+        <Text type="text1" weight="bold">
+          Danger
+        </Text>
+        <Text ellipsis={false}>Illustrates error or destructive information</Text>
+      </Flex>
+      <AttentionBox
+        type="danger"
+        title="Account low on free space"
+        text="Your account is out of free space, free some space to prevent data loss."
+      />
+      <Flex align="start" direction="column" gap="xs">
+        <Text type="text1" weight="bold">
+          Warning
+        </Text>
+        <Text ellipsis={false}>Indicates cautionary messages</Text>
+      </Flex>
+      <AttentionBox
+        type="warning"
+        title="Caution!"
+        text="Make sure to review before continuing. Some actions may be irreversible or affect other areas."
+      />
+      <Flex align="start" direction="column" gap="xs">
+        <Text type="text1" weight="bold">
+          Dark
+        </Text>
+        <Text ellipsis={false}>Displays a dark-themed attention box for neutral or custom contexts</Text>
+      </Flex>
+      <AttentionBox
+        type="dark"
+        title="Note in dark mode for emphasis"
+        text="Use this style when you want to have a more subtle visual emphasis."
+      />
+    </div>
   )
 };
 
-export const SuccessVariant: Story = {
-  render: () => <AttentionBox type="success" title="Success" text="Operation completed successfully." />
-};
-
-export const DangerVariant: Story = {
-  render: () => <AttentionBox type="danger" title="Error" text="There was a problem processing your request." />
-};
-
-export const WarningVariant: Story = {
-  render: () => <AttentionBox type="warning" title="Warning" text="Please double-check your input before proceeding." />
-};
-
-export const DarkVariant: Story = {
-  render: () => <AttentionBox type="dark" title="Note" text="This is a neutral informational message." />
-};
-
 export const CompactSingleLine: Story = {
-  render: () => <AttentionBox compact text="Compact attention message." />
+  render: () => (
+    <div style={{ width: 330 }}>
+      <AttentionBox compact text="Compact attention message." onClose={() => {}} />
+    </div>
+  )
 };
 
 export const CompactMultiline: Story = {
   render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "160px 1fr",
+        columnGap: "var(--space-16)",
+        rowGap: "var(--space-24)",
+        alignItems: "start"
+      }}
+    >
+      <Text type="text1" weight="bold">
+        No CTA
+      </Text>
+      <AttentionBox
+        compact
+        multiline
+        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+      />
+      <Text type="text1" weight="bold">
+        With Link CTA
+      </Text>
+      <AttentionBox
+        compact
+        multiline
+        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+        link={{ href: "#", text: "Read more" }}
+      />
+      <Text type="text1" weight="bold">
+        With Button CTA
+      </Text>
+      <AttentionBox
+        compact
+        multiline
+        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+        action={{ text: "Button", onClick: () => {} }}
+      />
+    </div>
+  )
+};
+
+export const ActionAndInlineLink: Story = {
+  render: () => (
     <AttentionBox
       compact
       multiline
-      text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+      text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode. It provides additional context to the user before prompting them to take further action."
+      action={{ text: "Button", onClick: () => {} }}
+      link={{ href: "#", text: "Read more" }}
+      onClose={() => {}}
     />
   )
 };
-
-export const WithActionAndLink: Story = {
-  render: () => (
-    <div style={{ width: 315 }}>
-      <AttentionBox
-        onClose={() => {}}
-        type="primary"
-        title="Action Required"
-        text="You need to update your profile information."
-        link={{ href: "/profile", text: "Profile Settings" }}
-        action={{ text: "Update", onClick: () => alert("Update clicked") }}
-      />
-    </div>
-  )
-};
-
-export const LinkInlineDefault: Story = {
-  render: () => (
-    <AttentionBox
-      type="primary"
-      title="Link Inline"
-      text="This message has an inline link."
-      link={{ href: "/settings", text: "Settings", inlineText: true }}
-    />
-  )
-};
-
-export const LinkBlockDefault: Story = {
-  render: () => (
-    <AttentionBox
-      type="primary"
-      title="Link Block"
-      text="This message has a block link."
-      link={{ href: "/settings", text: "Settings", inlineText: false }}
-    />
-  )
-};
-
-export const CompactWithInlineLink: Story = {
-  render: () => (
-    <AttentionBox
-      compact
-      text="Compact message with inline link."
-      link={{ href: "/settings", text: "Settings", inlineText: true }}
-    />
-  )
-};
-
-export const CompactWithBlockLink: Story = {
-  render: () => (
-    <div style={{ width: 515 }}>
-      <AttentionBox
-        compact
-        text="Compact message with block link."
-        link={{ href: "/settings", text: "Settings", inlineText: false }}
-      />
-    </div>
-  )
-};
-
-export const CompactWithBlockLinkAndCloseButton: Story = {
-  render: () => (
-    <div style={{ width: 515 }}>
-      <AttentionBox
-        onClose={() => {}}
-        compact
-        text="Compact message with block link."
-        link={{ href: "/settings", text: "Settings", inlineText: false }}
-      />
-    </div>
-  )
-};
-
-export const CompactWithActionAndLink: Story = {
-  render: () => (
-    <div style={{ width: "300px" }}>
-      <AttentionBox
-        compact
-        text="Compact message with action and link. Link is forced inline when action exists."
-        link={{ href: "/settings", text: "Settings" }}
-        action={{ text: "Action", onClick: () => alert("Action clicked") }}
-      />
-    </div>
-  )
-};
-
-export const CompactWithActionAndLinkAndCloseButton: Story = {
-  render: () => (
-    <div style={{ width: "300px" }}>
-      <AttentionBox
-        onClose={() => {}}
-        compact
-        text="Compact message with action and link. Link is forced inline when action exists."
-        link={{ href: "/settings", text: "Settings" }}
-        action={{ text: "Action", onClick: () => alert("Action clicked") }}
-      />
-    </div>
-  )
-};
+// export const WithActionAndLink: Story = {
+//   render: () => (
+//     <div style={{ width: 315 }}>
+//       <AttentionBox
+//         onClose={() => {}}
+//         type="primary"
+//         title="Action Required"
+//         text="You need to update your profile information."
+//         link={{ href: "/profile", text: "Profile Settings" }}
+//         action={{ text: "Update", onClick: () => alert("Update clicked") }}
+//       />
+//     </div>
+//   )
+// };
 
 export const Dismissible: Story = {
   render: () => {
     const [visible, setVisible] = useState(true);
     return visible ? (
-      <AttentionBox onClose={() => setVisible(false)} title="Notice" text="This message can be dismissed." />
+      <AttentionBox
+        compact
+        text="You need to update your profile information."
+        link={{ href: "#", text: "Profile Settings", inlineText: true }}
+        onClose={() => setVisible(false)}
+      />
     ) : (
       <Button onClick={() => setVisible(true)}>Show AttentionBox</Button>
     );
@@ -160,107 +200,173 @@ export const Dismissible: Story = {
 };
 
 export const NoAnimation: Story = {
-  render: () => <AttentionBox animate={false} title="Static Box" text="This box did not animate on entry." />
-};
-
-export const WithCustomIcon: Story = {
   render: () => (
-    <AttentionBox title="Custom Icon" text="This box uses a custom icon instead of the default." icon={Robot} />
+    <AttentionBox
+      animate={false}
+      title="Static Box"
+      text="This box did not animate on entry. It appeared immediately without any transition or motion effect, allowing the content to display instantly. This can be useful in cases where animation might be distracting or unnecessary."
+      onClose={() => {}}
+    />
   )
 };
 
-export const HiddenIcon: Story = {
-  render: () => <AttentionBox title="No Icon" text="This box has no icon displayed." hideIcon />
-};
-
-export const MultilineDefault: Story = {
+export const NaturalAttentionBox: Story = {
   render: () => (
-    <div style={{ width: 400 }}>
+    <Flex direction="column" align="start" gap="small" style={{ width: "100%" }}>
+      <Heading type="h3" weight="bold">
+        Cross-Account Copier
+      </Heading>
+      <Text>Copy boards and dashboards to another account</Text>
       <AttentionBox
         compact
-        multiline
-        text="This is a longer message that demonstrates multiline content in the AttentionBox component. It contains multiple sentences to show how the text wraps and displays across several lines."
+        text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
+        type="dark"
+        icon={Info}
       />
-    </div>
-  )
+    </Flex>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info }
+      }
+    }
+  }
 };
 
-export const MultilineWithBlockLink: Story = {
-  render: () => (
-    <div style={{ width: 400 }}>
-      <AttentionBox
-        compact
-        multiline
-        text="This is a longer message that demonstrates multiline content with a block link. The link will appear below the text content."
-        link={{ href: "/settings", text: "Go to Settings", inlineText: false }}
-      />
-    </div>
-  )
+export const AttentionBoxInsideADialogCombobox: Story = {
+  render: () => {
+    return (
+      <DialogContentContainer style={{ padding: 0 }}>
+        <Box style={{ width: 380 }} padding="medium">
+          <Flex direction="column" gap="medium" align="stretch">
+            <Search placeholder="Search by name, role, team, or email" />
+            <Text>Suggested people</Text>
+            <Flex direction="column" gap="medium" align="start">
+              <Flex gap="small">
+                <Avatar size="medium" src={person} type="img" />
+                <Flex gap="xs">
+                  <Text element="span">Julia Martinez </Text>
+                  <Text color="secondary" element="span">
+                    (UX/UI Product Designer)
+                  </Text>
+                </Flex>
+              </Flex>
+              <Flex gap="small">
+                <Icon iconSize="32" icon={Invite} />
+                <Text>Invite new board member by email</Text>
+              </Flex>
+              <AttentionBox text="Hold ⌘ to select more than one person or team" compact multiline onClose={() => {}} />
+            </Flex>
+          </Flex>
+        </Box>
+      </DialogContentContainer>
+    );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person, Invite }
+      }
+    }
+  }
 };
 
-export const MultilineWithInlineLink: Story = {
-  render: () => (
-    <div style={{ width: 400 }}>
-      <AttentionBox
-        compact
-        multiline
-        text="This is a longer message that demonstrates multiline content with an inline link. The link will appear within the text content."
-        link={{ href: "/settings", text: "settings page", inlineText: true }}
-      />
-    </div>
-  )
-};
+export const Animation: Story = {
+  render: () => {
+    type Stage = "button" | "skeleton" | "content" | "attention";
+    const [stage, setStage] = useState<Stage>("button");
 
-export const MultilineWithAction: Story = {
-  render: () => (
-    <div style={{ width: 400 }}>
-      <AttentionBox
-        compact
-        multiline
-        text="This is a longer message that demonstrates multiline content with an action button. The action button will appear at the bottom right."
-        action={{ text: "Take Action", onClick: () => alert("Action clicked") }}
-      />
-    </div>
-  )
-};
+    const onClick = useCallback(() => {
+      setStage("skeleton");
 
-export const MultilineWithLinkAndAction: Story = {
-  render: () => (
-    <div style={{ width: 400 }}>
-      <AttentionBox
-        compact
-        multiline
-        text="This is a longer message that demonstrates multiline content with both a link and an action button. The link appears inline when an action is present."
-        link={{ href: "/settings", text: "settings page" }}
-        action={{ text: "Take Action", onClick: () => alert("Action clicked") }}
-      />
-    </div>
-  )
-};
+      setTimeout(() => {
+        setStage("content");
+      }, 2000);
+    }, []);
 
-export const MultilineWithLinkActionAndClose: Story = {
-  render: () => (
-    <div style={{ width: 550 }}>
-      <AttentionBox
-        onClose={() => alert("Close clicked")}
-        compact
-        multiline
-        text="This is a longer message that demonstrates multiline content with a link, action button, and close button. All elements are present to show the complete layout."
-        link={{ href: "/settings", text: "settings page" }}
-        action={{ text: "Take Action", onClick: () => alert("Action clicked") }}
-      />
-    </div>
-  )
-};
+    useEffect(() => {
+      if (stage === "content") {
+        setTimeout(() => {
+          setStage("attention");
+        }, 200);
+      }
+    }, [stage]);
 
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <AttentionBox type="primary" title="Primary" text="Primary attention message." />
-      <AttentionBox type="success" title="Success" text="Success attention message." />
-      <AttentionBox type="danger" title="Danger" text="Danger attention message." />
-      <AttentionBox type="warning" title="Warning" text="Warning attention message." />
-      <AttentionBox type="dark" title="Dark" text="Dark attention message." />
-    </div>
-  )
+    const reset = useCallback(() => {
+      setStage("button");
+    }, []);
+
+    return (
+      <Flex align="start" direction="column" gap="medium" style={{ width: "100%", minHeight: 260 }}>
+        {/* Button Stage */}
+        {stage === "button" && (
+          <Button onClick={onClick} kind="secondary">
+            Entry animation
+          </Button>
+        )}
+
+        {/* Skeleton Stage */}
+        {stage === "skeleton" && (
+          <Flex align="start" direction="column" gap="medium" style={{ width: "100%" }}>
+            <Skeleton type="text" size="h2" fullWidth />
+            <Flex align="start" gap="medium" style={{ width: "100%" }}>
+              <Skeleton width={150} height={150} />
+              <Flex direction="column" align="stretch" gap="small" style={{ width: "100%" }}>
+                <Skeleton type="text" size="h1" fullWidth />
+                <Skeleton type="text" size="small" fullWidth />
+                <Skeleton type="text" size="small" fullWidth />
+                <Skeleton type="text" size="small" fullWidth />
+                <Skeleton type="text" size="small" width={200} />
+              </Flex>
+            </Flex>
+          </Flex>
+        )}
+
+        {/* Content Stage */}
+        {(stage === "content" || stage === "attention") && (
+          <Flex align="start" direction="column" gap="medium" style={{ width: "100%" }}>
+            {stage === "attention" && (
+              <AttentionBox
+                compact
+                icon={Info}
+                text="Here’s something you might want to know. This message gives you helpful context without requiring immediate action."
+                onClose={reset}
+              />
+            )}
+
+            {/* Main Content */}
+            <Flex align="start" direction="column" gap="medium" style={{ width: "100%" }}>
+              <Heading type="h3">Entry animation</Heading>
+              <Flex align="stretch" gap="medium" style={{ width: "100%" }}>
+                <Box style={{ width: 150, height: 150, flexShrink: 0 }} rounded="small">
+                  <img
+                    src={contentImage}
+                    alt="Image placeholder"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover"
+                    }}
+                  />
+                </Box>
+                <Text ellipsis={false}>
+                  Here's a sneak peek at how it works. The entry animation is an integral part of the experience we
+                  provide. It's up to you to ensure that the surrounding layout shifts downward smoothly when the
+                  Attention Box enters the view.
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+        )}
+      </Flex>
+    );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Info, contentImage }
+      }
+    }
+  }
 };
