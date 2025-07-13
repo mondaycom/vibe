@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { withLive } from "react-live";
 import styles from "./LivePreview.module.scss";
 
@@ -12,23 +12,36 @@ interface LivePreview {
 
 const LivePreview: React.FC<LivePreview> = ({ live = {} }) => {
   const { error, element: Element } = live;
-  const [lastGoodElement, setLastGoodElement] = useState<typeof Element | null>(null);
+  const [LastGoodElement, setLastGoodElement] = useState<typeof Element | null>(null);
+  const errorRef = useRef(error);
+
+  useEffect(() => {
+    errorRef.current = error;
+  }, [error]);
 
   useEffect(() => {
     if (Element && !error) {
-      setLastGoodElement(() => Element);
+      const timeoutId = setTimeout(() => {
+        if (!errorRef.current) {
+          setLastGoodElement(() => Element);
+        }
+      }, 10); // just enough for react-live to catch runtime errors
+
+      return () => clearTimeout(timeoutId);
     }
   }, [Element, error]);
 
-  const ElementToRender = lastGoodElement || Element;
-
   return (
     <>
-      {ElementToRender && <ElementToRender />}
-      {error && (
-        <div className={styles.overlay}>
-          <pre className={styles.errorMessage}>{error}</pre>
-        </div>
+      {error ? (
+        <>
+          {LastGoodElement && <LastGoodElement />}
+          <div className={styles.overlay}>
+            <pre className={styles.errorMessage}>{error}</pre>
+          </div>
+        </>
+      ) : (
+        Element && <Element />
       )}
     </>
   );
