@@ -8,28 +8,15 @@ import styles from "./AttentionBoxLeadingIcon.module.scss";
 export interface AttentionBoxLeadingIconProps {
   icon?: SubIcon;
   iconType?: IconType;
-  compact?: boolean;
-  multiline?: boolean;
+  className?: string;
 }
 
-const AttentionBoxLeadingIcon = ({
-  icon,
-  iconType = "svg",
-  compact = false,
-  multiline = false
-}: AttentionBoxLeadingIconProps) => {
+const AttentionBoxLeadingIcon = ({ icon, iconType = "svg", className }: AttentionBoxLeadingIconProps) => {
   if (!icon) {
     return null;
   }
 
-  return (
-    <Icon
-      icon={icon}
-      iconType={iconType}
-      iconSize={20}
-      className={cx(styles.icon, { [styles.compactMultiline]: compact && multiline })}
-    />
-  );
+  return <Icon icon={icon} iconType={iconType} iconSize={20} className={cx(styles.icon, className)} />;
 };
 
 export default AttentionBoxLeadingIcon;
