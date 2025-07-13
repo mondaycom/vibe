@@ -34,19 +34,14 @@ const AttentionBoxCompact = ({
   );
 
   return (
-    <Flex gap="large" className={styles.container}>
+    <Flex align={multiline ? "start" : "center"} gap="large" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
-        <AttentionBoxLeadingIcon icon={icon} iconType={iconType} compact multiline={multiline} />
+        <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.leadingIcon} />
         {multiline ? <div>{contentElement}</div> : contentElement}
       </Flex>
       {action && <AttentionBoxButton {...action} />}
       {link && !isLinkInline && <AttentionBoxLink {...link} inlineText={false} />}
-      <AttentionBoxCloseButton
-        onClose={onClose}
-        closeButtonAriaLabel={closeButtonAriaLabel}
-        compact
-        multiline={multiline}
-      />
+      <AttentionBoxCloseButton onClose={onClose} closeButtonAriaLabel={closeButtonAriaLabel} />
     </Flex>
   );
 };
