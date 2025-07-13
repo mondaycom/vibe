@@ -229,7 +229,18 @@ export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
 
-export type DropdownControllerProps<Item extends BaseListItemData<Record<string, unknown>>> =
-  BaseDropdownProps<Item> & {
+export type DropdownMultiControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof MultiSelectSpecifics<Item>
+> &
+  MultiSelectSpecifics<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };
+
+export type DropdownSingleControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof SingleSelectSpecifics<Item>
+> &
+  SingleSelectSpecifics<Item> & {
     dropdownRef: React.Ref<HTMLDivElement>;
   };
