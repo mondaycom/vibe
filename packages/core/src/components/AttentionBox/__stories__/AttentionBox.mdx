@@ -1,32 +1,43 @@
 import { Meta } from "@storybook/blocks";
-import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import AttentionBox from "../AttentionBox";
+import { Link } from "vibe-storybook-components";
+import { Info } from "@vibe/icons";
 import {
   ALERT_BANNER,
   TOAST,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
+import Flex from "../../Flex/Flex";
+import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
+import { TipCheckYourself } from "./AttentionBox.stories.helpers";
 import * as AttentionBoxStories from "./AttentionBox.stories";
-import AttentionBox from "../AttentionBox";
-import { TipCheckYourself } from "./AttentionBox.stories.helpers.tsx";
-import { Box } from "../../Box";
 import { Heading } from "../../Heading";
-import { Text } from "../../Text";
+import Text from "../../Text/Text";
 
 <Meta of={AttentionBoxStories} />
 
-# AttentionBox
+# Attention Box
 
-The Attention Box component communicates important, contextually relevant information as close as possible to the content it’s about. It alerts, informs, or guides users about crucial actions, warnings, or system states inline with user workflows.
-
-## Import path
-
-```tsx
-import { AttentionBox } from "@vibe/core/next";
-```
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
 
 ## Overview
 
+Attention box lets users know important information within content areas, as close as possible to the content it’s about. An optional smooth entrance animation can be used to enhance visibility.
+
 <Canvas of={AttentionBoxStories.Overview} />
+
+### Import
+
+```js
+import { AttentionBox, AttentionBoxLink } from "@vibe/core";
+```
 
 ## Props
 
@@ -36,10 +47,9 @@ import { AttentionBox } from "@vibe/core/next";
 
 <UsageGuidelines
   guidelines={[
-    "Use AttentionBox to surface inline alerts and important messages within workflow contexts.",
-    "Choose the appropriate variant (primary, success, danger, warning, dark) to match the message semantics.",
-    "Enable compact mode for space-constrained layouts, and enable multiline only when wrapping is needed.",
-    "Provide a clear title in default mode and include actionable elements like links or buttons for follow-up."
+    "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
+    "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
+    "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
   ]}
 />
 
@@ -47,164 +57,76 @@ import { AttentionBox } from "@vibe/core/next";
 
 ## Variants
 
-### Types
+### States
 
-There are five types of attention boxes: Primary, success, danger, warning and dark (neutral).
+There are five types of attention boxes: Primary, success, danger, warning and dark (natural).
 
-<Canvas of={AttentionBoxStories.Types} />
+<Canvas of={AttentionBoxStories.States} />
 
-### Compact Single Line
+### Attention box with link
 
-Displays a compact, single-line Attention Box. Its width automatically adjusts to match the width of its parent element.
+<Canvas of={AttentionBoxStories.AttentionBoxWithLink} />
 
-<Canvas of={AttentionBoxStories.CompactSingleLine} />
+### Dismissable
 
-### Compact Multiline
+<Canvas of={AttentionBoxStories.Dismissable} />
 
-The Compact Attention Box supports multi-line text wrapping, allowing for clearer messaging in limited space and improved accessibility.
-You may include a <b>single action</b> - either a <b>link</b> or a <b>button</b> - to guide user attention more effectively. Only one action is supported to maintain visual simplicity and clarity.
-
-<Canvas of={AttentionBoxStories.CompactMultiline} />
-
-### Action and Inline Link
-
-To include an additional link, use an inline text link within the message content.
-
-<Canvas of={AttentionBoxStories.ActionAndInlineLink} />
-
-### Dismissible
-
-The Attention Box may be configured to be dismissible or not, depending on the use case.
-
-<Canvas of={AttentionBoxStories.Dismissible} />
-
-### No Animation
-
-Shows the attention box rendered without entry animation.
-
-<Canvas of={AttentionBoxStories.NoAnimation} />
-
-## Do's and Don'ts
+## Do’s and Don’ts
 
 <ComponentRules
   rules={[
     {
       positive: {
         component: (
-          <Box style={{ width: "90%", marginRight: 0 }}>
-            <AttentionBox
-              title="Birthday/death rate"
-              text="Studies show that 100% of people who celebrate birthdays, will eventually die."
-            />
-          </Box>
+          <div style={{width: "340px"}}>
+              <AttentionBox
+                title="Attention box title"
+                text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+              />
+          </div>
         ),
         description: "Provide a short and brief title, and explanation related to the title."
       },
       negative: {
-        component: (
-          <div style={{ width: "90%", marginRight: 0 }}>
-            <AttentionBox title="Birthday/death rate" />
-          </div>
-        ),
+        component: <AttentionBox title="Attention box title" />,
         description: "Don’t use only a title to explain something."
       }
     },
     {
       positive: {
         component: (
-          <Box style={{ width: "90%", marginRight: 0 }}>
-            <Box marginBottom="medium">
-              <Heading type="h1" weight="bold">
-                Inbox
-              </Heading>
-              <Text>Catch up on updates from all your boards.</Text>
-            </Box>
-            <AttentionBox
-              compact
-              hideIcon
-              text="Get your monday.com notifications"
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </Box>
+          <div>
+            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
+            <AttentionBox compact icon={Info}>
+              <Flex style={{ width: "400px" }} justify="space-between">
+                Get your monday.com notifications <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
+          </div>
         ),
         description:
           "Use when you are speaking directly to a piece of content and the notification can be positioned close to the content."
       },
       negative: {
         component: (
-          <Box style={{ width: "90%", marginRight: 0 }}>
-            <Box marginBottom="medium">
-              <Heading type="h1" weight="bold">
-                Inbox
-              </Heading>
-              <Text>Catch up on updates from all your boards.</Text>
-            </Box>
-            <AttentionBox
-              compact
-              hideIcon
-              text="7 days left on your free trial"
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </Box>
+          <div>
+            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
+            <AttentionBox compact icon={Info}>
+              <Flex style={{ width: "400px" }} justify="space-between">
+                7 days left on your free trial <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
+          </div>
         ),
         description: (
           <>
-            Don't use when a message applies at a system level, does not apply to a specific piece of content, or needs
+            Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs
             to alert all users. On those cases, use{" "}
-            <StorybookLink page="Components/AlertBanner">Alert Banner.</StorybookLink>
+            <StorybookLink page="Components/AlertBanner">Alert banner.</StorybookLink>
           </>
         )
-      }
-    },
-    {
-      positive: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              compact
-              type="warning"
-              text="Low memory."
-              link={{ href: "#", text: "Learn more", inlineText: true }}
-            />
-          </div>
-        ),
-        description: "Include a clear, concise title in default mode to immediately convey the message context."
-      },
-      negative: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox compact type="warning" text="Low memory." link={{ href: "#", text: "Learn more" }} />
-          </div>
-        ),
-        description:
-          "Avoid using an action-style link when the content is minimal. Use an inline text link instead for better clarity and visual balance."
-      }
-    },
-    {
-      positive: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              compact
-              multiline
-              text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </div>
-        ),
-        description: "Use multiline compact variant with text wrapping."
-      },
-      negative: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              compact
-              text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </div>
-        ),
-        description: "Don't force single-line compact mode for long messages that require full readability."
       }
     }
   ]}
@@ -228,7 +150,7 @@ Provides contextual and related information.
 
 The Attention box component consist of enter animation prop to increase user attention. Is highly recommended to use a 200ms delay before the attention box entry motion once the page is fully loaded.
 
-<Canvas of={AttentionBoxStories.Animation} />
+<Canvas of={AttentionBoxStories.AttentionBoxAnimation} />
 
 ## Related components
 

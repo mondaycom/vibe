@@ -1,45 +1,100 @@
-@keyframes attentionBoxAnimation {
+@keyframes entryAnimation {
   0% {
-    opacity: 0;
     transform: translateY(-10px);
+    opacity: 0;
   }
   50% {
     opacity: 1;
   }
   100% {
+    transform: translateX(0);
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.attention {
-  width: 100%;
-  border-radius: var(--border-radius-medium);
-  padding: var(--space-12) var(--space-16);
+.attentionBox {
   position: relative;
-  overflow: hidden;
+  padding: 12px var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  width: fit-content;
+  max-width: 100%;
+  height: fit-content;
 
-  &.animate {
-    animation: attentionBoxAnimation 200ms var(--motion-timing-transition);
+  &.entryAnimation {
+    animation: entryAnimation 200ms cubic-bezier(0.00, 0.00, 0.40, 1.00) forwards;
   }
 
-  &.primary {
-    background-color: var(--primary-selected-color);
+  // Overriding on primary icon color should be with bigger specificity than the original color
+  & .closeIconWrapper .closeIcon {
+    color: var(--primary-text-color);
   }
 
-  &.success {
-    background-color: var(--positive-color-selected);
+  .icon {
+    flex-shrink: 0;
+  }
+}
+
+.title {
+  margin: 0;
+  padding-right: var(--spacing-xl);
+}
+
+.text,
+.titleContainer {
+  color: var(--primary-text-color);
+}
+
+.typePrimary {
+  color: var(--primary-text-color);
+  background-color: var(--primary-selected-color);
+}
+
+.typeDanger {
+  background-color: var(--negative-color-selected);
+}
+
+.typeSuccess {
+  background-color: var(--positive-color-selected);
+}
+
+.typeDark {
+  background-color: var(--ui-background-color);
+  color: var(--primary-text-color);
+}
+
+.typeWarning {
+  background-color: var(--warning-color-selected);
+  color: var(--primary-text-color);
+}
+
+.titleContainer {
+  margin-bottom: var(--spacing-xs);
+}
+
+.titleContainer:empty {
+  margin-bottom: 0;
+}
+
+.closeIconWrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.closeIconCompact {
+  top: calc(50% - 16px);
+}
+
+.text {
+  &.compact {
+    flex: 1;
+
+    &.dismissible {
+      padding-right: var(--spacing-xl);
+    }
   }
 
-  &.danger {
-    background-color: var(--negative-color-selected);
-  }
-
-  &.warning {
-    background-color: var(--warning-color-selected);
-  }
-
-  &.dark {
-    background-color: var(--ui-background-color);
+  &.paragraph {
+    margin: 0 var(--spacing-medium) 0 0;
   }
 }
