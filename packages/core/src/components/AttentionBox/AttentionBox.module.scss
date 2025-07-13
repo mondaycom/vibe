@@ -13,6 +13,7 @@
 }
 
 .attention {
+  width: 100%;
   border-radius: var(--border-radius-medium);
   padding: var(--space-12) var(--space-16);
   position: relative;
@@ -39,6 +40,6 @@
   }
 
   &.dark {
-    background-color: var(--ui-border-color);
+    background-color: var(--ui-background-color);
   }
 }
