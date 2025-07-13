@@ -9,7 +9,6 @@ import {
   TABS
 } from "../../../storybook/components/related-components/component-description-map";
 import { Filter, Add } from "@vibe/icons";
-import classes from "./List.stories.module.scss";
 import Divider from "../../Divider/Divider";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Link, Tip } from "vibe-storybook-components";
@@ -89,7 +88,7 @@ better user experience.
     {
       positive: {
         component: (
-          <div className={classes["leftpane-workspaces-section"]}>
+          <div>
             <List>
               <ListItem>
                 <ListItemIcon icon={Add} />
