@@ -20,6 +20,10 @@ import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialo
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
+import FocusLock from "react-focus-lock";
+
+// @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
+const FocusLockComponent = (FocusLock.default || FocusLock) as typeof FocusLock;
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -182,6 +186,11 @@ export interface DialogProps extends VibeComponentProps {
    * that may grow or shrink without a re-render being triggered.
    */
   observeContentResize?: boolean;
+  /**
+   * If true, the dialog content will attempt to focus itself when opened.
+   * The focus will be typically set on the dialog's main content wrapper.
+   */
+  autoFocus?: boolean;
 }
 
 export interface DialogState {
@@ -229,7 +238,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false,
-    observeContentResize: false
+    observeContentResize: false,
+    autoFocus: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -547,7 +557,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       containerSelector,
       observeContentResize,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      autoFocus
     } = this.props;
     const { preventAnimation } = this.state;
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.DIALOG, id);
@@ -637,37 +648,43 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                 }
 
                 return (
-                  <DialogContent
-                    data-testid={overrideDataTestId}
-                    isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
-                    onMouseEnter={this.onDialogEnter}
-                    onMouseLeave={this.onDialogLeave}
-                    onClickOutside={this.onClickOutside}
-                    onContextMenu={this.onContextMenu}
-                    onEsc={this.onEsc}
-                    animationType={animationTypeCalculated}
-                    position={placement}
-                    wrapperClassName={wrapperClassName}
-                    startingEdge={startingEdge}
-                    isOpen={this.isShown()}
-                    showDelay={showDelay}
-                    styleObject={style}
-                    ref={ref}
-                    onClick={this.onContentClick}
-                    hasTooltip={!!tooltip}
-                    containerSelector={containerSelector}
-                    disableContainerScroll={disableContainerScroll}
+                  <FocusLockComponent
+                    disabled={!this.isShown()}
+                    returnFocus
+                    autoFocus={autoFocus}
                   >
-                    {contentRendered}
-                    {tooltip && (
-                      <div
-                        style={arrowProps.style}
-                        ref={arrowProps.ref}
-                        className={cx(styles.arrow, tooltipClassName)}
-                        data-placement={placement}
-                      />
-                    )}
-                  </DialogContent>
+                    <DialogContent
+                      data-testid={overrideDataTestId}
+                      isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
+                      onMouseEnter={this.onDialogEnter}
+                      onMouseLeave={this.onDialogLeave}
+                      onClickOutside={this.onClickOutside}
+                      onContextMenu={this.onContextMenu}
+                      onEsc={this.onEsc}
+                      animationType={animationTypeCalculated}
+                      position={placement}
+                      wrapperClassName={wrapperClassName}
+                      startingEdge={startingEdge}
+                      isOpen={this.isShown()}
+                      showDelay={showDelay}
+                      styleObject={style}
+                      ref={ref}
+                      onClick={this.onContentClick}
+                      hasTooltip={!!tooltip}
+                      containerSelector={containerSelector}
+                      disableContainerScroll={disableContainerScroll}
+                    >
+                      {contentRendered}
+                      {tooltip && (
+                        <div
+                          style={arrowProps.style}
+                          ref={arrowProps.ref}
+                          className={cx(styles.arrow, tooltipClassName)}
+                          data-placement={placement}
+                        />
+                      )}
+                    </DialogContent>
+                  </FocusLockComponent>
                 );
               }}
             </Popper>,

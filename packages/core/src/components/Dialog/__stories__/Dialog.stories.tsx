@@ -554,6 +554,57 @@ export const ControlledDialog = {
   name: "Controlled Dialog"
 };
 
+export const AutoFocusDialog = {
+  render: () => {
+    const { isChecked: isOpen, onChange: setIsOpen } = useSwitch({
+      defaultChecked: false
+    });
+
+    // For preventing dialog from moving while scrolling in stories
+    const modifiers = [
+      {
+        name: "preventOverflow",
+        options: {
+          mainAxis: false
+        }
+      }
+    ];
+
+    return (
+      <div className="monday-storybook-dialog--story-padding">
+        <Button
+          onClick={() => setIsOpen((prev: boolean) => !prev)}
+          style={{ marginBottom: "16px" }}
+        >
+          {isOpen ? "Close" : "Open"} Dialog with AutoFocus
+        </Button>
+        <Dialog
+          open={isOpen}
+          autoFocus // The new prop
+          showTrigger={[]} // Manually controlled by open prop
+          hideTrigger={[]} // Manually controlled
+          onClickOutside={() => setIsOpen(false)}
+          position="right"
+          modifiers={modifiers}
+          content={
+            <DialogContentContainer>
+              <div style={{ padding: "16px", width: "300px" }}>
+                <p>This dialog should be focused on open.</p>
+                <input type="text" placeholder="Try tabbing..." style={{ margin: "8px 0" }} />
+                <Button onClick={() => setIsOpen(false)}>Close me</Button>
+              </div>
+            </DialogContentContainer>
+          }
+        >
+          {/* Reference element (hidden, as dialog is controlled by button above) */}
+          <div />
+        </Dialog>
+      </div>
+    );
+  },
+  name: "AutoFocus Dialog"
+};
+
 export const DialogWithTooltip = {
   // for prevent dialog to move while scrolling
   render: () => {
