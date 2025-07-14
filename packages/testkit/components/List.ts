@@ -22,7 +22,7 @@ export class List extends BaseElement {
    * @param {string} itemName - The name of the item to retrieve.
    * @returns {Promise<ListItem>} The list item with the specified name.
    */
-  private async getListItemByName(itemName: string): Promise<ListItem> {
+  async getItemByName(itemName: string): Promise<ListItem> {
     return await test.step(`Get list item by name ${itemName} for ${this.getElementReportName()}`, async () => {
       return new ListItem(this.getPage(), this.getLocator().getByText(`${itemName}`), itemName);
     });
@@ -33,7 +33,7 @@ export class List extends BaseElement {
    * @param {number} index - The index of the item to retrieve.
    * @returns {Promise<ListItem>} The list item with the specified index.
    */
-  private async getListItemByIndex(index: number): Promise<ListItem> {
+  async getItemByIndex(index: number): Promise<ListItem> {
     return await test.step(`Get list item by index ${index} for ${this.getElementReportName()}`, async () => {
       return new ListItem(
         this.getPage(),
@@ -48,9 +48,10 @@ export class List extends BaseElement {
    * @param {string} itemName - The name of the item to click.
    * @returns {Promise<void>}
    */
-  async clickListItemByName(itemName: string): Promise<void> {
+  async selectItem(itemName: string): Promise<void> {
     await test.step(`Click list item by name ${itemName} for ${this.getElementReportName()}`, async () => {
-      const listItem = await this.getListItemByName(itemName);
+      const listItem = await this.getItemByName(itemName);
+      await listItem.scrollIntoView();
       await listItem.click();
     });
   }
@@ -60,9 +61,9 @@ export class List extends BaseElement {
    * @param {string} itemName - The name of the item to check.
    * @returns {Promise<boolean>} True if the item is disabled, false otherwise.
    */
-  async isListItemDisabled(itemName: string): Promise<boolean> {
+  async isItemDisabled(itemName: string): Promise<boolean> {
     return await test.step(`Check if list item ${itemName} is disabled for ${this.getElementReportName()}`, async () => {
-      const listItem = await this.getListItemByName(itemName);
+      const listItem = await this.getItemByName(itemName);
       return await listItem.isDisabled();
     });
   }
@@ -72,9 +73,9 @@ export class List extends BaseElement {
    * @param {number} index - The index of the item to retrieve.
    * @returns {Promise<string>} The text of the list item with the specified index.
    */
-  async getListItemTextByIndex(index: number): Promise<string> {
+  async getItemTextByIndex(index: number): Promise<string> {
     return await test.step(`Get list item text by index ${index} for ${this.getElementReportName()}`, async () => {
-      const listItem = await this.getListItemByIndex(index);
+      const listItem = await this.getItemByIndex(index);
       return await listItem.getText();
     });
   }
@@ -84,9 +85,9 @@ export class List extends BaseElement {
    * @param {number} index - The index of the item to click.
    * @returns {Promise<void>}
    */
-  async clickListItemByIndex(index: number): Promise<void> {
+  async clickItemByIndex(index: number): Promise<void> {
     await test.step(`Click list item by index ${index} for ${this.getElementReportName()}`, async () => {
-      const listItem = await this.getListItemByIndex(index);
+      const listItem = await this.getItemByIndex(index);
       await listItem.click();
     });
   }

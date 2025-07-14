@@ -21,14 +21,14 @@ test.describe("Storybook - Unit Tests - Checkbox", () => {
   });
 
   test("Checkbox should be able to be unchecked", async () => {
-    await checkbox.uncheck();
+    await checkbox.setUnchecked();
     expect(await checkbox.isChecked()).toBe(false);
   });
 
   test("Checkbox should be able to be checked after being unchecked", async () => {
-    await checkbox.uncheck();
+    await checkbox.setUnchecked();
     expect.soft(await checkbox.isChecked()).toBe(false);
-    await checkbox.check();
+    await checkbox.setChecked();
     expect(await checkbox.isChecked()).toBe(true);
   });
 
@@ -41,11 +41,11 @@ test.describe("Storybook - Unit Tests - Checkbox", () => {
 
   test("Checkbox should toggle correctly with multiple check/uncheck operations", async () => {
     expect.soft(await checkbox.isChecked()).toBe(true);
-    await checkbox.uncheck();
+    await checkbox.setUnchecked();
     expect.soft(await checkbox.isChecked()).toBe(false);
-    await checkbox.check();
+    await checkbox.setChecked();
     expect.soft(await checkbox.isChecked()).toBe(true);
-    await checkbox.uncheck();
+    await checkbox.setUnchecked();
     expect(await checkbox.isChecked()).toBe(false);
   });
 

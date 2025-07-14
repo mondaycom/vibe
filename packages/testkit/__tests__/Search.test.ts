@@ -30,7 +30,7 @@ test.describe("Storybook - Unit Tests - Search", () => {
   test("should be able to clear text", async () => {
     await search.setText("Some text");
     expect.soft(await search.isEmpty()).toBe(false);
-    await search.clearText();
+    await search.clear();
     expect(await search.isEmpty()).toBe(true);
   });
 
@@ -38,7 +38,7 @@ test.describe("Storybook - Unit Tests - Search", () => {
     expect.soft(await search.isEmpty()).toBe(true);
     await search.setText("Not empty");
     expect.soft(await search.isEmpty()).toBe(false);
-    await search.clearText();
+    await search.clear();
     expect(await search.isEmpty()).toBe(true);
   });
 
@@ -47,7 +47,7 @@ test.describe("Storybook - Unit Tests - Search", () => {
     expect.soft(await search.getText()).toBe("First text");
     await search.setText("Second text");
     expect.soft(await search.getText()).toBe("Second text");
-    await search.clearText();
+    await search.clear();
     expect(await search.isEmpty()).toBe(true);
   });
 

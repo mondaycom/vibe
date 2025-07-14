@@ -1,19 +1,35 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
+import { Menu } from "./Menu";
 
 /**
  * Class representing a MenuButton element.
  * Extends the BaseElement class.
  */
 export class MenuButton extends BaseElement {
+  private menu: Menu;
+
   /**
    * Create a MenuButton element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the MenuButton element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menu: Menu) {
     super(page, locator, elementReportName);
+    this.menu = menu;
+  }
+
+  /**
+   * Select an item from the menu.
+   * @param {string} itemName - The name of the item to select.
+   * @returns {Promise<void>}
+   */
+  async selectItem(itemName: string): Promise<void> {
+    await test.step(`Select menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      await this.openMenu();
+      await this.menu.selectItem(itemName);
+    });
   }
 
   /**
@@ -41,6 +57,16 @@ export class MenuButton extends BaseElement {
         // Wait for the menu to close
         await this.getPage().waitForTimeout(200);
       }
+    });
+  }
+
+  /**
+   * Check if the secondary button menu is expanded.
+   * @returns {Promise<boolean>} True if the secondary button menu is expanded, false otherwise.
+   */
+  async isMenuExpanded(): Promise<boolean> {
+    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
+      return await this.isExpanded();
     });
   }
 }

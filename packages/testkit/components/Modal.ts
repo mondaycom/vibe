@@ -3,6 +3,7 @@ import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
 import { IconButton } from "./IconButton";
 import { Text } from "./Text";
+import { pressKey } from "utils/common-actions";
 
 /**
  * Class representing a Modal element.
@@ -45,9 +46,25 @@ export class Modal extends BaseElement {
   }
 
   /**
+   * Close the modal.
+   * @returns {Promise<void>}
+   */
+  async closeModal(): Promise<void> {
+    await test.step(`Close modal for ${this.getElementReportName()}`, async () => {
+      if (await this.cancelButton.isVisible()) {
+        await this.clickCancelButton();
+      } else if (await this.xButton.isVisible()) {
+        await this.clickXButton();
+      } else {
+        await pressKey(this.getPage(), "Escape");
+      }
+    });
+  }
+
+  /**
    * Click the X button.
    */
-  async clickXButton(): Promise<void> {
+  private async clickXButton(): Promise<void> {
     await test.step(`Click X button for ${this.getElementReportName()}`, async () => {
       await this.xButton.click();
       // Wait for the modal to close
@@ -58,7 +75,7 @@ export class Modal extends BaseElement {
   /**
    * Click the Cancel button.
    */
-  async clickCancelButton(): Promise<void> {
+  private async clickCancelButton(): Promise<void> {
     await test.step(`Click Cancel button for ${this.getElementReportName()}`, async () => {
       await this.cancelButton.click();
       // Wait for the modal to close

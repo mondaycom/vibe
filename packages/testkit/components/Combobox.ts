@@ -40,21 +40,21 @@ export class Combobox extends BaseElement {
    * @param {string} option - The name of the option to get the combobox item for.
    * @returns {Promise<ListItem>} The combobox item.
    */
-  private async getComboboxItemByOption(option: string): Promise<ListItem> {
+  async getComboboxItemByOption(option: string): Promise<ListItem> {
     return await test.step(`Get combobox item by option ${option} for ${this.getElementReportName()}`, async () => {
       return new ListItem(this.getPage(), this.getLocator().getByText(option), option);
     });
   }
 
   /**
-   * Select an option from the combobox.
-   * @param {string} option - The name of the option to select.
+   * Select an item from the combobox.
+   * @param {string} item - The name of the item to select.
    * @returns {Promise<void>}
    */
-  async selectOption(option: string): Promise<void> {
-    await test.step(`Select option ${option} for ${this.getElementReportName()}`, async () => {
-      await this.search(option);
-      const comboBoxItem = await this.getComboboxItemByOption(option);
+  async selectItem(item: string): Promise<void> {
+    await test.step(`Select item ${item} for ${this.getElementReportName()}`, async () => {
+      await this.search(item);
+      const comboBoxItem = await this.getComboboxItemByOption(item);
       await comboBoxItem.click();
     });
   }
@@ -114,12 +114,12 @@ export class Combobox extends BaseElement {
 
   /**
    * Check if the search result is visible.
-   * @param {string} option - The name of the option to check if the search result is visible for.
+   * @param {string} item - The name of the item to check if the search result is visible for.
    * @returns {Promise<boolean>} True if the search result is visible, false otherwise.
    */
-  async isSearchResultVisible(option: string): Promise<boolean> {
-    return await test.step(`Check if search result is visible for ${option} for ${this.getElementReportName()}`, async () => {
-      return (await this.getComboboxItemByOption(option)).isVisible(2000);
+  async isSearchResultVisible(item: string): Promise<boolean> {
+    return await test.step(`Check if search result is visible for ${item} for ${this.getElementReportName()}`, async () => {
+      return (await this.getComboboxItemByOption(item)).isVisible(2000);
     });
   }
 }

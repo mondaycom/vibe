@@ -1,6 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Text } from "./Text";
+import { pressKey } from "utils/common-actions";
 
 /**
  * Class representing a TextField element.
@@ -132,6 +133,16 @@ export class TextField extends BaseElement {
   async getPlaceholderText(): Promise<string> {
     return await test.step(`Get placeholder text for ${this.getElementReportName()}`, async () => {
       return await this.input.getAttributeValue("placeholder");
+    });
+  }
+
+  /**
+   * Exit the edit mode by pressing the Escape key.
+   * @returns {Promise<void>}
+   */
+  async exitEditMode(): Promise<void> {
+    await test.step("Exit edit mode", async () => {
+      await pressKey(this.getPage(), "Escape");
     });
   }
 }

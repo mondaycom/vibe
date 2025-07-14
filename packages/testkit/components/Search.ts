@@ -2,6 +2,9 @@ import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { TextField } from "./TextField";
 import { IconButton } from "./IconButton";
+import { Button } from "./Button";
+import { Menu } from "./Menu";
+import { MenuButton } from "./MenuButton";
 
 /**
  * Class representing a Search element.
@@ -10,6 +13,7 @@ import { IconButton } from "./IconButton";
 export class Search extends BaseElement {
   private input: TextField;
   private clearSearchIconButton: IconButton;
+  private filterButton: Button | undefined;
 
   /**
    * Create a Search element.
@@ -17,14 +21,22 @@ export class Search extends BaseElement {
    * @param {Locator} locator - The locator for the Search element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string) {
+  constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu) {
     super(page, locator, elementReportName);
     this.input = new TextField(page, locator, `${elementReportName} - Input`);
     this.clearSearchIconButton = new IconButton(
       page,
-      locator.locator("button[data-testid='clean-search-button']"),
+      locator.locator("[aria-label='Clear']"),
       `${elementReportName} - Clear Search Icon Button`
     );
+    if (filterMenuType) {
+      this.filterButton = new MenuButton(
+        this.getPage(),
+        this.getLocator().locator("[aria-label='Filters']").nth(1),
+        "Filter Button",
+        filterMenuType
+      );
+    }
   }
 
   /**
@@ -41,7 +53,7 @@ export class Search extends BaseElement {
   /**
    * Clear the text in the search field.
    */
-  async clearText(): Promise<void> {
+  async clear(): Promise<void> {
     await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
       await this.input.clearText();
     });

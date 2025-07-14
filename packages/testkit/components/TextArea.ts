@@ -40,7 +40,7 @@ export class TextArea extends BaseElement {
       await this.wrapper.click();
       await this.input.waitForElementToBeVisible();
       await this.input.getLocator().fill(text);
-      await pressKey(this.getPage(), "Escape");
+      await this.exitEditMode();
     });
   }
 
@@ -91,6 +91,16 @@ export class TextArea extends BaseElement {
   async getHelperText(): Promise<string> {
     return await test.step(`Get helper text for ${this.getElementReportName()}`, async () => {
       return await this.helperText.getText();
+    });
+  }
+
+  /**
+   * Exit the edit mode by pressing the Escape key.
+   * @returns {Promise<void>}
+   */
+  async exitEditMode(): Promise<void> {
+    await test.step("Exit edit mode", async () => {
+      await pressKey(this.getPage(), "Escape");
     });
   }
 }

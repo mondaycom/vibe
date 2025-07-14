@@ -22,7 +22,7 @@ test.describe("Storybook - Unit Tests - Combobox", () => {
       alertText = dialog.message();
       await dialog.accept();
     });
-    await combobox.selectOption("Option 1");
+    await combobox.selectItem("Option 1");
     expect(alertText).toBe("clicked");
   });
 

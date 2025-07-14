@@ -1,6 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Button } from "./Button";
+import { Menu } from "./Menu";
 
 /**
  * Class representing a SplitButton element.
@@ -9,6 +10,7 @@ import { Button } from "./Button";
 export class SplitButton extends BaseElement {
   private primaryButton: Button;
   private secondaryButton: Button;
+  private menu: Menu;
 
   /**
    * Create a SplitButton element.
@@ -16,7 +18,7 @@ export class SplitButton extends BaseElement {
    * @param {Locator} locator - The locator for the SplitButton element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menu: Menu) {
     super(page, locator, elementReportName);
     this.primaryButton = new Button(
       page,
@@ -28,6 +30,19 @@ export class SplitButton extends BaseElement {
       locator.getByTestId("split-button-secondary-button"),
       `${elementReportName} - Secondary Button`
     );
+    this.menu = menu;
+  }
+
+  /**
+   * Select an item from the menu.
+   * @param {string} itemName - The name of the item to select.
+   * @returns {Promise<void>}
+   */
+  async selectItem(itemName: string): Promise<void> {
+    await test.step(`Select item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      await this.clickSecondaryButton();
+      await this.menu.selectItem(itemName);
+    });
   }
 
   /**
@@ -55,14 +70,18 @@ export class SplitButton extends BaseElement {
    * @returns {Promise<string>} The text of the primary button.
    */
   async getPrimaryButtonText(): Promise<string> {
-    return await this.primaryButton.getText();
+    return await test.step(`Get primary button text for ${this.getElementReportName()}`, async () => {
+      return await this.primaryButton.getText();
+    });
   }
 
   /**
    * Check if the secondary button menu is expanded.
    * @returns {Promise<boolean>} True if the secondary button menu is expanded, false otherwise.
    */
-  async isSecondaryButtonMenuExpanded(): Promise<boolean> {
-    return (await this.secondaryButton.getAttributeValue("aria-expanded")) === "true";
+  async isMenuExpanded(): Promise<boolean> {
+    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
+      return await this.secondaryButton.isExpanded();
+    });
   }
 }

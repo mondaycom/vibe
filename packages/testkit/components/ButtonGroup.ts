@@ -18,16 +18,28 @@ export class ButtonGroup extends BaseElement {
   }
 
   /**
+   * Get all buttons.
+   * @returns {Promise<Button[]>} An array of buttons.
+   */
+  async getAllButtons(): Promise<Button[]> {
+    return await test.step(`Get all buttons for ${this.getElementReportName()}`, async () => {
+      return (await this.getLocator().locator("button").all()).map(
+        (button, index) => new Button(this.getPage(), button, `Button ${index + 1}`)
+      );
+    });
+  }
+
+  /**
    * Get a button by its name.
    * @param {string} buttonName - The name of the button to get.
    * @returns {Promise<Button>} The button object.
    */
-  private async getButtonByName(buttonName: string): Promise<Button> {
+  async getButtonByName(buttonName: string): Promise<Button> {
     return await test.step(`Get button by name ${buttonName} for ${this.getElementReportName()}`, async () => {
       return new Button(
         this.getPage(),
-        this.getLocator().locator("button[data-testid='button']").filter({ hasText: buttonName }),
-        buttonName
+        this.getLocator().locator("button").filter({ hasText: buttonName }),
+        `Button: ${buttonName}`
       );
     });
   }
@@ -62,12 +74,7 @@ export class ButtonGroup extends BaseElement {
    */
   async getSelectedButtonName(): Promise<string> {
     return await test.step(`Get selected button name for ${this.getElementReportName()}`, async () => {
-      let buttons: Button[] = [];
-
-      // Convert locators to buttons
-      (await this.getLocator().locator("button[data-testid='button']").all()).forEach(async (buttonLocator, index) => {
-        buttons.push(new Button(this.getPage(), buttonLocator, `Button ${index + 1}`));
-      });
+      const buttons = await this.getAllButtons();
 
       // Find the selected button
       for (const button of buttons) {

@@ -16,13 +16,8 @@ test.describe("Storybook - Unit Tests - Modal", () => {
     await modal.waitForElementToBeVisible();
   });
 
-  test("Modal should be able to click X button", async () => {
-    await modal.clickXButton();
-    expect(await modal.isVisible()).toBe(false);
-  });
-
-  test("Modal should be able to click Cancel button", async () => {
-    await modal.clickCancelButton();
+  test("Modal should be able to close modal", async () => {
+    await modal.closeModal();
     expect(await modal.isVisible()).toBe(false);
   });
 

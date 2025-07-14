@@ -8,7 +8,7 @@ import { Button } from "./Button";
  */
 export class Steps extends BaseElement {
   private backButton: Button;
-  private nextButton: Button;
+  private forwardButton: Button;
 
   /**
    * Create a Steps element.
@@ -20,13 +20,13 @@ export class Steps extends BaseElement {
     super(page, locator, elementReportName);
     this.backButton = new Button(
       page,
-      this.getLocator().getByTestId("steps-backward-command"),
+      this.getLocator().locator("button").first(),
       `${elementReportName} - Back Button`
     );
-    this.nextButton = new Button(
+    this.forwardButton = new Button(
       page,
-      this.getLocator().getByTestId("steps-forward-command"),
-      `${elementReportName} - Next Button`
+      this.getLocator().locator("button").last(),
+      `${elementReportName} - Forward Button`
     );
   }
 
@@ -35,7 +35,7 @@ export class Steps extends BaseElement {
    * @param {number} index - The index of the step to retrieve.
    * @returns {Promise<Button>} The step with the specified index.
    */
-  private async getStepByIndex(index: number): Promise<Button> {
+  async getStepByIndex(index: number): Promise<Button> {
     return await test.step(`Get step by index ${index} for ${this.getElementReportName()}`, async () => {
       return new Button(
         this.getPage(),
@@ -46,10 +46,10 @@ export class Steps extends BaseElement {
   }
 
   /**
-   * Get all steps.
-   * @returns {Promise<Button[]>} An array of steps.
+   * Get all step dots.
+   * @returns {Promise<Button[]>} An array of step dots.
    */
-  private async getAllSteps(): Promise<Button[]> {
+  async getStepDots(): Promise<Button[]> {
     return await test.step(`Get all steps for ${this.getElementReportName()}`, async () => {
       const steps = await this.getLocator().getByRole("group").locator("button").all();
       return steps.map(
@@ -59,53 +59,93 @@ export class Steps extends BaseElement {
   }
 
   /**
-   * Get the number of steps.
-   * @returns {Promise<number>} The number of steps.
+   * Go to the previous step.
    */
-  private async getNumberOfSteps(): Promise<number> {
-    return await test.step(`Get number of steps for ${this.getElementReportName()}`, async () => {
-      const steps = await this.getAllSteps();
-      return steps.length;
-    });
-  }
-
-  /**
-   * Click the back button.
-   */
-  async clickBackButton(): Promise<void> {
+  async goToPreviousStep(): Promise<void> {
     await test.step(`Click back button for ${this.getElementReportName()}`, async () => {
       await this.backButton.click();
     });
   }
 
   /**
-   * Click the next button.
+   * Go to the next step.
    */
-  async clickNextButton(): Promise<void> {
+  async goToNextStep(): Promise<void> {
     await test.step(`Click next button for ${this.getElementReportName()}`, async () => {
-      await this.nextButton.click();
+      await this.forwardButton.click();
     });
   }
 
   /**
-   * Click a step by its index.
-   * @param {number} index - The index of the step to click.
+   * Check if the back button is enabled.
+   * @returns {Promise<boolean>} True if the back button is enabled, false otherwise.
+   */
+  async isBackButtonEnabled(): Promise<boolean> {
+    return await test.step(`Check if back button is enabled for ${this.getElementReportName()}`, async () => {
+      return await this.backButton.isEnabled();
+    });
+  }
+
+  /**
+   * Check if the forward button is enabled.
+   * @returns {Promise<boolean>} True if the forward button is enabled, false otherwise.
+   */
+  async isForwardButtonEnabled(): Promise<boolean> {
+    return await test.step(`Check if forward button is enabled for ${this.getElementReportName()}`, async () => {
+      return await this.forwardButton.isEnabled();
+    });
+  }
+
+  /**
+   * Check if the back button is visible.
+   * @returns {Promise<boolean>} True if the back button is visible, false otherwise.
+   */
+  async isBackButtonVisible(): Promise<boolean> {
+    return await test.step(`Check if back button is visible for ${this.getElementReportName()}`, async () => {
+      return await this.backButton.isVisible();
+    });
+  }
+
+  /**
+   * Check if the forward button is visible.
+   * @returns {Promise<boolean>} True if the forward button is visible, false otherwise.
+   */
+  async isForwardButtonVisible(): Promise<boolean> {
+    return await test.step(`Check if forward button is visible for ${this.getElementReportName()}`, async () => {
+      return await this.forwardButton.isVisible();
+    });
+  }
+
+  /**
+   * Get the number of steps.
+   * @returns {Promise<number>} The number of steps.
+   */
+  async getTotalStepsCount(): Promise<number> {
+    return await test.step(`Get number of steps for ${this.getElementReportName()}`, async () => {
+      const steps = await this.getStepDots();
+      return steps.length;
+    });
+  }
+
+  /**
+   * Click a step dot by its index.
+   * @param {number} stepIndex - The index of the step dot to click.
    * @returns {Promise<void>}
    */
-  async clickStepByIndex(index: number): Promise<void> {
-    await test.step(`Click button by index ${index} for ${this.getElementReportName()}`, async () => {
-      const step = await this.getStepByIndex(index);
+  async clickStepDot(stepIndex: number): Promise<void> {
+    await test.step(`Click step dot by index ${stepIndex} for ${this.getElementReportName()}`, async () => {
+      const step = await this.getStepByIndex(stepIndex);
       await step.click();
     });
   }
 
   /**
-   * Get the active step index.
-   * @returns {Promise<number>} The active step index.
+   * Get the active step dot index.
+   * @returns {Promise<number>} The active step dot index.
    */
-  async getActiveStepIndex(): Promise<number> {
-    return await test.step(`Get current step index for ${this.getElementReportName()}`, async () => {
-      const steps = await this.getAllSteps();
+  async getActiveStepDotIndex(): Promise<number> {
+    return await test.step(`Get active step dot index for ${this.getElementReportName()}`, async () => {
+      const steps = await this.getStepDots();
       let activeStepIndex = -1;
       for (const step of steps) {
         if ((await step.getAttributeValue("aria-current")) === "step") {
@@ -118,35 +158,60 @@ export class Steps extends BaseElement {
   }
 
   /**
-   * Check if a step is active by index.
-   * @param {number} stepIndex - The index of the step to check.
-   * @returns {Promise<boolean>} True if the step is active.
+   * Check if a step dot is active.
+   * @param {number} stepIndex - The index of the step dot to check.
+   * @returns {Promise<boolean>} True if the step dot is active.
    */
-  async isStepActiveByIndex(stepIndex: number): Promise<boolean> {
-    return await test.step(`Check if step ${stepIndex} is active for ${this.getElementReportName()}`, async () => {
+  async isStepDotActive(stepIndex: number): Promise<boolean> {
+    return await test.step(`Check if step dot ${stepIndex} is active for ${this.getElementReportName()}`, async () => {
       const step = await this.getStepByIndex(stepIndex);
       return (await step.getAttributeValue("aria-current")) === "step";
     });
   }
 
   /**
-   * Go to the first step.
+   * Navigate to the first step.
    * @returns {Promise<void>}
    */
-  async goToFirstStep(): Promise<void> {
-    await test.step(`Go to first step for ${this.getElementReportName()}`, async () => {
-      await this.clickStepByIndex(0);
+  async navigateToBeginning(): Promise<void> {
+    await test.step(`Navigate to first step for ${this.getElementReportName()}`, async () => {
+      await this.clickStepDot(0);
     });
   }
 
   /**
-   * Go to the last step.
+   * Navigate to the last step.
    * @returns {Promise<void>}
    */
-  async goToLastStep(): Promise<void> {
-    await test.step(`Go to last step for ${this.getElementReportName()}`, async () => {
-      const numberOfSteps = await this.getNumberOfSteps();
-      await this.clickStepByIndex(numberOfSteps - 1);
+  async navigateToEnd(): Promise<void> {
+    await test.step(`Navigate to last step for ${this.getElementReportName()}`, async () => {
+      const numberOfSteps = await this.getTotalStepsCount();
+      await this.clickStepDot(numberOfSteps - 1);
+    });
+  }
+
+  /**
+   * Get the current step content.
+   * @returns {Promise<BaseElement>} The current step content.
+   */
+  async getCurrentStepContent(): Promise<BaseElement> {
+    return await test.step(`Get current step content for ${this.getElementReportName()}`, async () => {
+      const locatorsToAvoid = this.getLocator()
+        .locator('.header, [data-testid*="steps-forward-command"], [data-testid*="steps-backward-command"]')
+        .first();
+
+      const stepContent = this.getLocator().locator("> *").filter({ hasNot: locatorsToAvoid });
+      return new BaseElement(this.getPage(), stepContent, `${this.getElementReportName()} - Step Content`);
+    });
+  }
+
+  /**
+   * Wait for the steps to load.
+   * @returns {Promise<void>}
+   */
+  async waitForStepsToLoad(): Promise<void> {
+    await test.step(`Wait for steps to load for ${this.getElementReportName()}`, async () => {
+      await this.waitForElementToBeVisible();
     });
   }
 }

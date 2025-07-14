@@ -21,7 +21,7 @@ test.describe("Storybook - Unit Tests - RadioButton", () => {
   });
 
   test("should be able to be checked", async () => {
-    await radioButton.check();
+    await radioButton.select();
     expect(await radioButton.isChecked()).toBe(true);
   });
 

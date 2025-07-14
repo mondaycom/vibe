@@ -30,7 +30,7 @@ test.describe("Storybook - Unit Tests - List", () => {
       alertText = dialog.message();
       await dialog.accept();
     });
-    await list.clickListItemByName("Board Power up");
+    await list.selectItem("Board Power up");
     expect(alertText).toBe("On click!");
   });
 
@@ -40,9 +40,9 @@ test.describe("Storybook - Unit Tests - List", () => {
       alertText = dialog.message();
       await dialog.accept();
     });
-    await list.clickListItemByName("Board Power up");
+    await list.selectItem("Board Power up");
     expect.soft(alertText).toBe("On click!");
-    await list.clickListItemByName("Team Power up");
+    await list.selectItem("Team Power up");
     expect(alertText).toBe("On click!");
   });
 
@@ -52,7 +52,7 @@ test.describe("Storybook - Unit Tests - List", () => {
       alertText = dialog.message();
       await dialog.accept();
     });
-    await list.clickListItemByIndex(0);
+    await list.clickItemByIndex(0);
     expect(alertText).toBe("On click!");
   });
 
@@ -62,9 +62,9 @@ test.describe("Storybook - Unit Tests - List", () => {
       alertText = dialog.message();
       await dialog.accept();
     });
-    await list.clickListItemByIndex(0);
+    await list.clickItemByIndex(0);
     expect.soft(alertText).toBe("On click!");
-    await list.clickListItemByIndex(1);
+    await list.clickItemByIndex(1);
     expect(alertText).toBe("On click!");
   });
 
@@ -84,20 +84,20 @@ test.describe("Storybook - Unit Tests - List", () => {
   });
 
   test("should check if list items are enabled by default", async () => {
-    const isDisabled = await list.isListItemDisabled("Board Power up");
+    const isDisabled = await list.isItemDisabled("Board Power up");
     expect.soft(isDisabled).toBe(false);
-    const isDisabled2 = await list.isListItemDisabled("Team Power up");
+    const isDisabled2 = await list.isItemDisabled("Team Power up");
     expect.soft(isDisabled2).toBe(false);
-    const isDisabled3 = await list.isListItemDisabled("Essentials");
+    const isDisabled3 = await list.isItemDisabled("Essentials");
     expect(isDisabled3).toBe(false);
   });
 
   test("should get list item text by index", async () => {
-    const text = await list.getListItemTextByIndex(0);
+    const text = await list.getItemTextByIndex(0);
     expect.soft(text).toBe("Board Power up");
-    const text2 = await list.getListItemTextByIndex(1);
+    const text2 = await list.getItemTextByIndex(1);
     expect.soft(text2).toBe("Team Power up");
-    const text3 = await list.getListItemTextByIndex(2);
+    const text3 = await list.getItemTextByIndex(2);
     expect(text3).toBe("Essentials");
   });
 });

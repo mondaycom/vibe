@@ -22,7 +22,7 @@ export class Tabs extends BaseElement {
    * @param {string} tabName - The name of the tab to retrieve.
    * @returns {Promise<ListItem>} The tab with the specified name.
    */
-  private async getTabByName(tabName: string): Promise<ListItem> {
+  async getTabByName(tabName: string): Promise<ListItem> {
     return await test.step(`Get tab by name ${tabName} for ${this.getElementReportName()}`, async () => {
       return new ListItem(this.getPage(), this.getLocator().getByRole("tab", { name: tabName }), tabName);
     });
@@ -32,7 +32,7 @@ export class Tabs extends BaseElement {
    * Get all tabs.
    * @returns {Promise<ListItem[]>} An array of tabs.
    */
-  private async getAllTabs(): Promise<ListItem[]> {
+  async getAllTabs(): Promise<ListItem[]> {
     return await test.step(`Get all tabs for ${this.getElementReportName()}`, async () => {
       const tabs = await this.getLocator().getByRole("tab").all();
       return tabs.map(
@@ -46,7 +46,7 @@ export class Tabs extends BaseElement {
    * @param {number} index - The index of the tab to retrieve.
    * @returns {Promise<ListItem>} The tab with the specified index.
    */
-  private async getTabByIndex(index: number): Promise<ListItem> {
+  async getTabByIndex(index: number): Promise<ListItem> {
     return await test.step(`Get tab by index ${index} for ${this.getElementReportName()}`, async () => {
       return new ListItem(
         this.getPage(),

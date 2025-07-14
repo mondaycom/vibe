@@ -20,33 +20,33 @@ test.describe("Storybook - Unit Tests - Dropdown", () => {
 
   test("should be able to open", async () => {
     await dropdown.open();
-    const isOpen = await dropdown.isOpen();
+    const isOpen = await dropdown.isDropdownOpen();
     expect(isOpen).toBe(true);
   });
 
   test("should be able to select a single option", async () => {
-    await dropdown.selectOption("Option 1");
-    expect.soft(await dropdown.isOptionSelected("Option 1")).toBe(true);
+    await dropdown.selectItem("Option 1");
+    expect.soft(await dropdown.isItemSelected("Option 1")).toBe(true);
     const selectedOption = await dropdown.getInputFieldValue();
     expect(selectedOption).toBe("Option 1");
   });
 
   test("should be able to select multiple options", async () => {
     const options = ["Option 1", "Option 2"];
-    await dropdown.selectMultipleOptions(options);
-    expect(await dropdown.isOptionSelected("Option 2")).toBe(true);
+    await dropdown.selectMultipleItems(options);
+    expect(await dropdown.isItemSelected("Option 2")).toBe(true);
   });
 
   test("should correctly identify selected options", async () => {
     let inputFieldValue = await dropdown.getInputFieldValue();
     expect.soft(inputFieldValue).toBe("");
-    await dropdown.selectOption("Option 1");
-    expect.soft(await dropdown.isOptionSelected("Option 1")).toBe(true);
+    await dropdown.selectItem("Option 1");
+    expect.soft(await dropdown.isItemSelected("Option 1")).toBe(true);
     inputFieldValue = await dropdown.getInputFieldValue();
     expect.soft(inputFieldValue).toBe("Option 1");
     await dropdown.clearSelection();
-    await dropdown.selectOption("Option 2");
-    expect.soft(await dropdown.isOptionSelected("Option 2")).toBe(true);
+    await dropdown.selectItem("Option 2");
+    expect.soft(await dropdown.isItemSelected("Option 2")).toBe(true);
     inputFieldValue = await dropdown.getInputFieldValue();
     expect(inputFieldValue).toBe("Option 2");
   });
@@ -60,13 +60,13 @@ test.describe("Storybook - Unit Tests - Dropdown", () => {
   });
 
   test("should handle empty option selection gracefully", async () => {
-    await dropdown.selectMultipleOptions([]);
+    await dropdown.selectMultipleItems([]);
   });
 
   test("should handle single option in multiple selection", async () => {
     const options = ["Option 1"];
-    await dropdown.selectMultipleOptions(options);
-    expect.soft(await dropdown.isOptionSelected("Option 1")).toBe(true);
+    await dropdown.selectMultipleItems(options);
+    expect.soft(await dropdown.isItemSelected("Option 1")).toBe(true);
     const inputFieldValue = await dropdown.getInputFieldValue();
     expect(inputFieldValue).toBe("Option 1");
   });
@@ -90,12 +90,12 @@ test.describe("Storybook - Unit Tests - Dropdown", () => {
 
   test("should show no results text when searching for non-existent option", async () => {
     await dropdown.search("Non-existent Option");
-    expect(await dropdown.isNoOptionsTextVisible()).toBe(true);
+    expect(await dropdown.isNoItemsTextVisible()).toBe(true);
   });
 
   test("should not show no results text when searching for valid option", async () => {
     await dropdown.search("Option 1");
-    expect(await dropdown.isNoOptionsTextHidden()).toBe(true);
+    expect(await dropdown.isNoItemsTextHidden()).toBe(true);
   });
 
   test("should get placeholder text", async () => {

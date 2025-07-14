@@ -19,11 +19,23 @@ export class ColorPicker extends BaseElement {
   }
 
   /**
+   * Get all color picker items.
+   * @returns {Promise<ListItem[]>} An array of color picker items.
+   */
+  async getAllColorPickerItems(): Promise<ListItem[]> {
+    return await test.step(`Get all color picker items for ${this.getElementReportName()}`, async () => {
+      return (await this.getLocator().locator("li").all()).map(
+        (listItem, index) => new ListItem(this.getPage(), listItem, `Color Picker Item ${index + 1}`)
+      );
+    });
+  }
+
+  /**
    * Get a color picker item by color.
    * @param {ColorPickerColor} color - The color to get the color picker item for.
    * @returns {Promise<ListItem>} The color picker item.
    */
-  private async getColorPickerItemByColor(color: ColorPickerColor): Promise<ListItem> {
+  async getColorPickerItemByColor(color: ColorPickerColor): Promise<ListItem> {
     return await test.step(`Get color picker item by color ${color} for ${this.getElementReportName()}`, async () => {
       return new ListItem(this.getPage(), this.getLocator().getByTestId(`color-picker-item_${color}`), color);
     });
@@ -59,12 +71,7 @@ export class ColorPicker extends BaseElement {
    */
   async getSelectedColor(): Promise<string> {
     return await test.step(`Get selected color for ${this.getElementReportName()}`, async () => {
-      let listItems: ListItem[] = [];
-
-      // Convert locators to list items
-      (await this.getLocator().locator("li").all()).forEach(async (listItemLocator, index) => {
-        listItems.push(new ListItem(this.getPage(), listItemLocator, `ListItem ${index + 1}`));
-      });
+      const listItems = await this.getAllColorPickerItems();
 
       // Find the selected color
       for (const listItem of listItems) {

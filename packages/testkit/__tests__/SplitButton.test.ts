@@ -1,17 +1,20 @@
 import { test, expect, FrameLocator } from "@playwright/test";
 import { SplitButton } from "../components/SplitButton";
 import { splitButtonStory } from "./utils/url-helper";
+import { Menu } from "../components/Menu";
 
 let frame: FrameLocator;
 let splitButton: SplitButton;
 const splitButtonLocator = 'div[data-testid="split-button"]';
+const menuLocator = 'ul[role="menu"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - SplitButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(splitButtonStory);
     frame = page.frameLocator(frameLocator);
-    splitButton = new SplitButton(page, frame.locator(splitButtonLocator), "Split Button");
+    const menu = new Menu(page, frame.locator(menuLocator), "Menu");
+    splitButton = new SplitButton(page, frame.locator(splitButtonLocator), "Split Button", menu);
     await page.reload();
     await splitButton.waitForElementToBeVisible();
   });
@@ -101,18 +104,18 @@ test.describe("Storybook - Unit Tests - SplitButton", () => {
   });
 
   test("should open secondary button menu", async () => {
-    if (await splitButton.isSecondaryButtonMenuExpanded()) {
+    if (await splitButton.isMenuExpanded()) {
       await splitButton.clickSecondaryButton();
     }
     await splitButton.clickSecondaryButton();
-    expect(await splitButton.isSecondaryButtonMenuExpanded()).toBe(true);
+    expect(await splitButton.isMenuExpanded()).toBe(true);
   });
 
   test("should close secondary button menu", async () => {
-    if (!(await splitButton.isSecondaryButtonMenuExpanded())) {
+    if (!(await splitButton.isMenuExpanded())) {
       await splitButton.clickSecondaryButton();
     }
     await splitButton.clickSecondaryButton();
-    expect(await splitButton.isSecondaryButtonMenuExpanded()).toBe(false);
+    expect(await splitButton.isMenuExpanded()).toBe(false);
   });
 });

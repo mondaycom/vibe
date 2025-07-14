@@ -13,7 +13,7 @@ export class Dropdown extends BaseElement {
   private inputField: TextField;
   private inputValue: Text;
   private clearSelectionIconButton: IconButton;
-  private noOptionsText: Text;
+  private noItemsText: Text;
   private placeholderText: Text;
 
   /**
@@ -35,10 +35,10 @@ export class Dropdown extends BaseElement {
       locator.locator(".clear-indicator"),
       `${elementReportName} - Clear Selection Icon Button`
     );
-    this.noOptionsText = new Text(
+    this.noItemsText = new Text(
       page,
       locator.locator("div").filter({ hasText: "No options" }).first(),
-      `${elementReportName} - No Options Text`
+      `${elementReportName} - No Items Text`
     );
     this.placeholderText = new Text(
       page,
@@ -48,13 +48,13 @@ export class Dropdown extends BaseElement {
   }
 
   /**
-   * Get a dropdown item by option.
-   * @param {string} option - The name of the option to get the dropdown item for.
+   * Get a dropdown item by item.
+   * @param {string} item - The name of the item to get the dropdown item for.
    * @returns {Promise<ListItem>} The dropdown item.
    */
-  private async getDropdownItemByOption(option: string): Promise<ListItem> {
-    return await test.step(`Get dropdown item by option ${option} for ${this.getElementReportName()}`, async () => {
-      return new ListItem(this.getPage(), this.getLocator().getByRole("option", { name: option }), option);
+  async getDropdownItemByItem(item: string): Promise<ListItem> {
+    return await test.step(`Get dropdown item by item ${item} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(this.getPage(), this.getLocator().getByRole("option", { name: item }), item);
     });
   }
 
@@ -62,7 +62,7 @@ export class Dropdown extends BaseElement {
    * Check if the dropdown is open.
    * @returns {Promise<boolean>} True if the dropdown is open, false otherwise.
    */
-  async isOpen(): Promise<boolean> {
+  async isDropdownOpen(): Promise<boolean> {
     return await test.step(`Check if dropdown is open for ${this.getElementReportName()}`, async () => {
       return await this.inputField.isExpanded();
     });
@@ -74,7 +74,7 @@ export class Dropdown extends BaseElement {
    */
   async open(): Promise<void> {
     await test.step(`Open dropdown for ${this.getElementReportName()}`, async () => {
-      if (!(await this.isOpen())) {
+      if (!(await this.isDropdownOpen())) {
         await this.click();
         // Wait for the dropdown to open
         await this.getPage().waitForTimeout(200);
@@ -88,7 +88,7 @@ export class Dropdown extends BaseElement {
    */
   async close(): Promise<void> {
     await test.step(`Close dropdown for ${this.getElementReportName()}`, async () => {
-      if (await this.isOpen()) {
+      if (await this.isDropdownOpen()) {
         await this.click();
         // Wait for the dropdown to close
         await this.getPage().waitForTimeout(200);
@@ -97,53 +97,53 @@ export class Dropdown extends BaseElement {
   }
 
   /**
-   * Select an option from a dropdown.
-   * @param {string} option - The value text to be selected in the dropdown.
+   * Select an item from a dropdown.
+   * @param {string} item - The value text to be selected in the dropdown.
    * @returns {Promise<void>}
    */
-  async selectOption(option: string): Promise<void> {
-    await test.step(`Select option ${option} for ${this.getElementReportName()}`, async () => {
+  async selectItem(item: string): Promise<void> {
+    await test.step(`Select item ${item} for ${this.getElementReportName()}`, async () => {
       await this.open();
-      await this.search(option);
-      const listItem = await this.getDropdownItemByOption(option);
+      await this.search(item);
+      const listItem = await this.getDropdownItemByItem(item);
       await listItem.click();
     });
   }
 
   /**
-   * Search for an option in the dropdown.
-   * @param {string} option - The value text to be searched in the dropdown.
+   * Search for an item in the dropdown.
+   * @param {string} item - The value text to be searched in the dropdown.
    * @returns {Promise<void>}
    */
-  async search(option: string): Promise<void> {
-    await test.step(`Search for ${option} for ${this.getElementReportName()}`, async () => {
-      await this.inputField.setText(option);
+  async search(item: string): Promise<void> {
+    await test.step(`Search for ${item} for ${this.getElementReportName()}`, async () => {
+      await this.inputField.setText(item);
       await this.placeholderText.waitForElementToBeHidden();
     });
   }
 
   /**
-   * Select multiple options from a dropdown.
-   * @param options - The values text to be selected in the dropdown.
+   * Select multiple items from a dropdown.
+   * @param items - The values text to be selected in the dropdown.
    * @returns {Promise<void>}
    */
-  async selectMultipleOptions(options: string[]): Promise<void> {
-    await test.step(`Select multiple options ${options} for ${this.getElementReportName()}`, async () => {
+  async selectMultipleItems(items: string[]): Promise<void> {
+    await test.step(`Select multiple items ${items} for ${this.getElementReportName()}`, async () => {
       await this.open();
-      for (const option of options) {
-        await this.selectOption(option);
+      for (const item of items) {
+        await this.selectItem(item);
       }
     });
   }
 
   /**
-   * Check if an option is selected.
-   * @param {string} option - The name of the option to check if it is selected.
-   * @returns {Promise<boolean>} True if the option is selected, false otherwise.
+   * Check if an item is selected.
+   * @param {string} item - The name of the item to check if it is selected.
+   * @returns {Promise<boolean>} True if the item is selected, false otherwise.
    */
-  async isOptionSelected(option: string): Promise<boolean> {
-    return await test.step(`Check if option ${option} is selected for ${this.getElementReportName()}`, async () => {
-      return (await this.getInputFieldValue()) === option;
+  async isItemSelected(item: string): Promise<boolean> {
+    return await test.step(`Check if item ${item} is selected for ${this.getElementReportName()}`, async () => {
+      return (await this.getInputFieldValue()) === item;
     });
   }
 
@@ -173,34 +173,34 @@ export class Dropdown extends BaseElement {
 
   /**
    * Check if the search result is visible.
-   * @param {string} option - The name of the option to check if it is visible.
+   * @param {string} item - The name of the item to check if it is visible.
    * @returns {Promise<boolean>} True if the search result is visible, false otherwise.
    */
-  async isSearchResultVisible(option: string): Promise<boolean> {
-    return await test.step(`Check if search result is visible for ${option} for ${this.getElementReportName()}`, async () => {
-      return (await this.getDropdownItemByOption(option)).isVisible(2000);
+  async isSearchResultVisible(item: string): Promise<boolean> {
+    return await test.step(`Check if search result is visible for ${item} for ${this.getElementReportName()}`, async () => {
+      return (await this.getDropdownItemByItem(item)).isVisible(2000);
     });
   }
 
   /**
-   * Check if the no options text is visible.
-   * @returns {Promise<boolean>} True if the no options text is visible, false otherwise.
+   * Check if the no items text is visible.
+   * @returns {Promise<boolean>} True if the no items text is visible, false otherwise.
    */
-  async isNoOptionsTextVisible(): Promise<boolean> {
-    return await test.step(`Check if no options text is visible for ${this.getElementReportName()}`, async () => {
-      await this.noOptionsText.waitForElementToBeVisible();
-      return await this.noOptionsText.isVisible();
+  async isNoItemsTextVisible(): Promise<boolean> {
+    return await test.step(`Check if no items text is visible for ${this.getElementReportName()}`, async () => {
+      await this.noItemsText.waitForElementToBeVisible();
+      return await this.noItemsText.isVisible();
     });
   }
 
   /**
-   * Check if the no options text is hidden.
-   * @returns {Promise<boolean>} True if the no options text is hidden, false otherwise.
+   * Check if the no items text is hidden.
+   * @returns {Promise<boolean>} True if the no items text is hidden, false otherwise.
    */
-  async isNoOptionsTextHidden(): Promise<boolean> {
-    return await test.step(`Check if no options text is hidden for ${this.getElementReportName()}`, async () => {
-      await this.noOptionsText.waitForElementToBeHidden();
-      return await this.noOptionsText.isHidden();
+  async isNoItemsTextHidden(): Promise<boolean> {
+    return await test.step(`Check if no items text is hidden for ${this.getElementReportName()}`, async () => {
+      await this.noItemsText.waitForElementToBeHidden();
+      return await this.noItemsText.isHidden();
     });
   }
 
