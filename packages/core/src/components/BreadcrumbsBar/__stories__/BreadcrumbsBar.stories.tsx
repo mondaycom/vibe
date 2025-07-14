@@ -5,25 +5,15 @@ import Avatar from "../../Avatar/Avatar";
 import { Board, Folder, Group, Workspace, Item } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./BreadcrumbsBar.stories.scss";
+import styles from "./BreadcrumbsBar.stories.module.scss";
 import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenu/BreadcrumbMenuItem/BreadcrumbMenuItem";
+import { Flex } from "../../Flex";
+import { Text } from "../../Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar
 });
-
-const breadcrumbsBarTemplate = (args: BreadcrumbBarProps) => {
-  return (
-    <BreadcrumbsBar {...args}>
-      {args.children &&
-        // @ts-ignore
-        args.children.map((item: BreadcrumbItemProps) => (
-          <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />
-        ))}
-    </BreadcrumbsBar>
-  );
-};
 
 export default {
   title: "Components/BreadcrumbsBar/BreadcrumbsBar",
@@ -55,16 +45,21 @@ export default {
         return src.replace(/icon:\s*function[^{]+\{[^}]+\}/g, "icon: <Icon />");
       },
       liveEdit: {
-        scope: { Board, Group }
+        scope: { Board, Group, Item }
       }
     }
   }
 };
 
 export const Overview = {
-  render: breadcrumbsBarTemplate.bind({}),
-  name: "Overview",
-
+  render: (args: BreadcrumbBarProps) => (
+    <BreadcrumbsBar {...args}>
+      {args.children &&
+        (args.children as BreadcrumbItemProps[]).map(item => (
+          <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />
+        ))}
+    </BreadcrumbsBar>
+  ),
   args: {
     children: [
       {
@@ -103,7 +98,6 @@ export const TextOnly = {
       <BreadcrumbItem text="Group" />
     </BreadcrumbsBar>
   ),
-
   name: "Text only"
 };
 
@@ -129,21 +123,23 @@ export const WithIcons = {
 
 export const NavigatableBreadcrumbs = {
   render: () => (
-    <div className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+    <Flex gap="small">
       <Avatar size="medium" src={person3} type="img" />
-      <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
-        <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+      <div className={styles.list}>
+        <Text type="text1" weight="medium">
+          Rotem Dekel
+        </Text>
         <BreadcrumbsBar type="navigation">
           <BreadcrumbItem text="User research" icon={Board} />
           <BreadcrumbItem text="Video sessions" icon={Group} />
         </BreadcrumbsBar>
       </div>
-    </div>
+    </Flex>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person3 }
+        scope: { styles, person3 }
       }
     }
   },
@@ -163,7 +159,5 @@ export const WithBreadcrumbMenu = {
       </BreadcrumbMenu>
       <BreadcrumbItem text="My Item" icon={Item} isCurrent />
     </BreadcrumbsBar>
-  ),
-
-  name: "With Breadcrumb Menu"
+  )
 };

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import VirtualizedList from "../VirtualizedList";
 import { generateItems } from "./VirtualizedList.stories.helpers";
 import { Flex, VirtualizedListItem } from "../..";
-import styles from "./VirtualizedList.module.scss";
+import Heading from "../../Heading/Heading";
 
 export default {
   title: "Components/VirtualizedList",
@@ -14,31 +14,31 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
-        <div
-          className={styles.virtualizedListItem}
+        <Flex
+          align="center"
+          justify="center"
           style={{
             backgroundColor,
             height: item.height
           }}
         >
           {item.value as React.ReactNode}
-        </div>
+        </Flex>
       </div>
     );
   }, []);
   return (
     <Flex align="start" gap="large" style={{ width: "100%" }} direction="row">
-      <div
+      <Flex
+        align="center"
         style={{
           width: 330,
           height: 300,
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center"
+          overflow: "hidden"
         }}
       >
         <div style={{ width: 200, height: "100%" }}>
-          <h3>Vertical List</h3>
+          <Heading type="h3">Vertical List</Heading>
           <VirtualizedList
             {...args}
             items={generateItems(30, 1000, "vertical")}
@@ -46,18 +46,17 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             getItemSize={item => item.height}
           />
         </div>
-      </div>
-      <div
+      </Flex>
+      <Flex
+        align="center"
         style={{
           flexGrow: 1,
           height: 300,
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center"
+          overflow: "hidden"
         }}
       >
         <div style={{ height: "100%", width: "100%" }}>
-          <h3>Horizontal List</h3>
+          <Heading type="h3">Horizontal List</Heading>
           <VirtualizedList
             {...args}
             items={generateItems(100, 1000, "horizontal")}
@@ -66,7 +65,7 @@ const virtualizedListTemplate = (args: VirtualizedListItem) => {
             layout="horizontal"
           />
         </div>
-      </div>
+      </Flex>
     </Flex>
   );
 };
