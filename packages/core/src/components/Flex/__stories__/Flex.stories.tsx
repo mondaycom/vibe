@@ -6,7 +6,6 @@ import Chips from "../../Chips/Chips";
 import Box from "../../Box/Box";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import styles from "./Flex.stories.module.scss";
 import { Text } from "../../Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -32,7 +31,7 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles, StoryDescription }
+        scope: { StoryDescription }
       }
     }
   }
@@ -709,13 +708,13 @@ export const SupportMultiLinesLayout = {
       }}
       gap="small"
     >
-      <Chips className={styles["flex-chip"]} label="Chip 1" />
-      <Chips className={styles["flex-chip"]} label="Chip 2" />
-      <Chips className={styles["flex-chip"]} label="Chip 3" />
-      <Chips className={styles["flex-chip"]} label="Chip 4" />
-      <Chips className={styles["flex-chip"]} label="Chip 5" />
-      <Chips className={styles["flex-chip"]} label="Chip 6" />
-      <Chips className={styles["flex-chip"]} label="Chip 7" />
+      <Chips noMargin label="Chip 1" />
+      <Chips noMargin label="Chip 2" />
+      <Chips noMargin label="Chip 3" />
+      <Chips noMargin label="Chip 4" />
+      <Chips noMargin label="Chip 5" />
+      <Chips noMargin label="Chip 6" />
+      <Chips noMargin label="Chip 7" />
     </Flex>
   )
 };
