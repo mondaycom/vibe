@@ -6,6 +6,7 @@ export * from "./Checkbox";
 export * from "./ColorPicker";
 export * from "./Combobox";
 export * from "./Dropdown";
+export * from "./ExpandCollapse";
 export * from "./IconButton";
 export * from "./LinkToast";
 export * from "./List";

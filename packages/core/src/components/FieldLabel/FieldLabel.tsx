@@ -38,6 +38,7 @@ export interface FieldLabelProps extends VibeComponentProps {
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
     {
+      className,
       icon = "",
       labelText = "",
       labelFor = "",
@@ -54,7 +55,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
     }
 
     return (
-      <section className={cx(styles.labelComponentWrapper)}>
+      <section className={cx(styles.labelComponentWrapper, className)}>
         <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} iconType="font" />
         <label
           id={id}
