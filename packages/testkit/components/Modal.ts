@@ -33,12 +33,12 @@ export class Modal extends BaseElement {
     this.modalContent = new Text(page, locator.getByTestId("modal-content"), `${elementReportName} - Modal Content`);
     this.cancelButton = new Button(
       page,
-      locator.getByTestId("modal-footer").getByText("Cancel"),
-      `${elementReportName} - Close Button`
+      locator.getByTestId("modal-footer").locator("button").first(),
+      `${elementReportName} - Cancel Button`
     );
     this.confirmButton = new Button(
       page,
-      locator.getByTestId("modal-footer").getByText("Confirm"),
+      locator.getByTestId("modal-footer").locator("button").last(),
       `${elementReportName} - Confirm Button`
     );
     this.xButton = new IconButton(page, locator.getByTestId("modal-close-button"), `${elementReportName} - X Button`);
