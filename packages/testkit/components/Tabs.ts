@@ -78,7 +78,7 @@ export class Tabs extends BaseElement {
       let selectedTab: ListItem | null = null;
 
       for (const tab of tabs) {
-        if ((await tab.getAttributeValue("aria-selected")) === "true") {
+        if (await tab.isSelected()) {
           selectedTab = tab;
           break;
         }
@@ -100,7 +100,7 @@ export class Tabs extends BaseElement {
   async isTabSelected(tabName: string): Promise<boolean> {
     return await test.step(`Check if tab ${tabName} is selected for ${this.getElementReportName()}`, async () => {
       const tab = await this.getTabByName(tabName);
-      return (await tab.getAttributeValue("aria-selected")) === "true";
+      return await tab.isSelected();
     });
   }
 

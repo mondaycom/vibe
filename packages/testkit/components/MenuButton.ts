@@ -69,4 +69,16 @@ export class MenuButton extends BaseElement {
       return await this.isExpanded();
     });
   }
+
+  /**
+   * Select a sub menu item.
+   * @param {string} rootItem - The name of the root item.
+   * @param {string} subItem - The name of the sub item.
+   * @returns {Promise<void>}
+   */
+  async selectSubItem(rootItem: string, subItem: string): Promise<void> {
+    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.getElementReportName()}`, async () => {
+      await this.menu.selectSubItem(rootItem, subItem);
+    });
+  }
 }

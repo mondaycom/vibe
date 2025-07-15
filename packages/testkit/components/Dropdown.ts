@@ -3,7 +3,6 @@ import { TextField } from "./TextField";
 import { BaseElement } from "./BaseElement";
 import { ListItem } from "./ListItem";
 import { IconButton } from "./IconButton";
-import { Text } from "./Text";
 
 /**
  * Class representing a Dropdown element.
@@ -11,10 +10,7 @@ import { Text } from "./Text";
  */
 export class Dropdown extends BaseElement {
   private inputField: TextField;
-  private inputValue: Text;
   private clearSelectionIconButton: IconButton;
-  private noItemsText: Text;
-  private placeholderText: Text;
 
   /**
    * Create a Dropdown element.
@@ -24,26 +20,11 @@ export class Dropdown extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.inputField = new TextField(page, locator, `${elementReportName} - Input Field`);
-    this.inputValue = new Text(
-      page,
-      locator.getByTestId("dropdown-option-content").getByTestId("text"),
-      `${elementReportName} - Input Value`
-    );
+    this.inputField = new TextField(page, locator.locator("input"), `${elementReportName} - Input Field`);
     this.clearSelectionIconButton = new IconButton(
       page,
       locator.locator(".clear-indicator"),
       `${elementReportName} - Clear Selection Icon Button`
-    );
-    this.noItemsText = new Text(
-      page,
-      locator.locator("div").filter({ hasText: "No options" }).first(),
-      `${elementReportName} - No Items Text`
-    );
-    this.placeholderText = new Text(
-      page,
-      locator.locator("div[class*='placeholder']"),
-      `${elementReportName} - Placeholder Text`
     );
   }
 
@@ -118,7 +99,6 @@ export class Dropdown extends BaseElement {
   async search(item: string): Promise<void> {
     await test.step(`Search for ${item} for ${this.getElementReportName()}`, async () => {
       await this.inputField.setText(item);
-      await this.placeholderText.waitForElementToBeHidden();
     });
   }
 
@@ -137,100 +117,12 @@ export class Dropdown extends BaseElement {
   }
 
   /**
-   * Check if an item is selected.
-   * @param {string} item - The name of the item to check if it is selected.
-   * @returns {Promise<boolean>} True if the item is selected, false otherwise.
-   */
-  async isItemSelected(item: string): Promise<boolean> {
-    return await test.step(`Check if item ${item} is selected for ${this.getElementReportName()}`, async () => {
-      return (await this.getInputFieldValue()) === item;
-    });
-  }
-
-  /**
-   * Get the input field value.
-   * @returns {Promise<string>} The input field value.
-   */
-  async getInputFieldValue(): Promise<string> {
-    return await test.step(`Get input field value for ${this.getElementReportName()}`, async () => {
-      if (await this.isPlaceholderTextVisible()) {
-        return "";
-      }
-      await this.inputValue.waitForElementToBeVisible();
-      return await this.inputValue.getText();
-    });
-  }
-
-  /**
    * Clear the selection.
    * @returns {Promise<void>}
    */
   async clearSelection(): Promise<void> {
     await test.step(`Clear selection for ${this.getElementReportName()}`, async () => {
       await this.clearSelectionIconButton.click();
-    });
-  }
-
-  /**
-   * Check if the search result is visible.
-   * @param {string} item - The name of the item to check if it is visible.
-   * @returns {Promise<boolean>} True if the search result is visible, false otherwise.
-   */
-  async isSearchResultVisible(item: string): Promise<boolean> {
-    return await test.step(`Check if search result is visible for ${item} for ${this.getElementReportName()}`, async () => {
-      return (await this.getDropdownItemByItem(item)).isVisible(2000);
-    });
-  }
-
-  /**
-   * Check if the no items text is visible.
-   * @returns {Promise<boolean>} True if the no items text is visible, false otherwise.
-   */
-  async isNoItemsTextVisible(): Promise<boolean> {
-    return await test.step(`Check if no items text is visible for ${this.getElementReportName()}`, async () => {
-      await this.noItemsText.waitForElementToBeVisible();
-      return await this.noItemsText.isVisible();
-    });
-  }
-
-  /**
-   * Check if the no items text is hidden.
-   * @returns {Promise<boolean>} True if the no items text is hidden, false otherwise.
-   */
-  async isNoItemsTextHidden(): Promise<boolean> {
-    return await test.step(`Check if no items text is hidden for ${this.getElementReportName()}`, async () => {
-      await this.noItemsText.waitForElementToBeHidden();
-      return await this.noItemsText.isHidden();
-    });
-  }
-
-  /**
-   * Check if the placeholder text is visible.
-   * @returns {Promise<boolean>} True if the placeholder text is visible, false otherwise.
-   */
-  async isPlaceholderTextVisible(): Promise<boolean> {
-    return await test.step(`Check if placeholder text is visible for ${this.getElementReportName()}`, async () => {
-      return await this.placeholderText.isVisible();
-    });
-  }
-
-  /**
-   * Wait for the placeholder text to be visible.
-   * @returns {Promise<void>}
-   */
-  async waitForPlaceholderTextToBeVisible(): Promise<void> {
-    await test.step(`Wait for placeholder text to be visible for ${this.getElementReportName()}`, async () => {
-      await this.placeholderText.waitForElementToBeVisible();
-    });
-  }
-
-  /**
-   * Get the placeholder text.
-   * @returns {Promise<string>} The placeholder text.
-   */
-  async getPlaceholderText(): Promise<string> {
-    return await test.step(`Get placeholder text for ${this.getElementReportName()}`, async () => {
-      return await this.placeholderText.getText();
     });
   }
 }

@@ -23,7 +23,7 @@ export class Search extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu) {
     super(page, locator, elementReportName);
-    this.input = new TextField(page, locator, `${elementReportName} - Input`);
+    this.input = new TextField(page, locator.locator("[type='search']"), `${elementReportName} - Input`);
     this.clearSearchIconButton = new IconButton(
       page,
       locator.locator("[aria-label='Clear']"),
@@ -76,16 +76,6 @@ export class Search extends BaseElement {
   async isEmpty(): Promise<boolean> {
     return await test.step(`Check if search field is empty for ${this.getElementReportName()}`, async () => {
       return await this.input.isEmpty();
-    });
-  }
-
-  /**
-   * Get the placeholder text from the search field.
-   * @returns {Promise<string>} The placeholder text from the search field.
-   */
-  async getPlaceholderText(): Promise<string> {
-    return await test.step(`Get placeholder for ${this.getElementReportName()}`, async () => {
-      return await this.input.getPlaceholderText();
     });
   }
 

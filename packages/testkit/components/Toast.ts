@@ -1,6 +1,5 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { Text } from "./Text";
 import { IconButton } from "./IconButton";
 import { Link } from "./Link";
 import { Loader } from "./Loader";
@@ -11,7 +10,6 @@ import { Button } from "./Button";
  * Extends the BaseElement class.
  */
 export class Toast extends BaseElement {
-  private content: Text;
   private closeButton: IconButton;
   private link: Link;
   private loader: Loader;
@@ -25,25 +23,10 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.content = new Text(
-      page,
-      locator.locator("div[data-testid='toast-content'] > span"),
-      `${elementReportName} - Content`
-    );
     this.closeButton = new IconButton(page, locator.locator("button").last(), `${elementReportName} - Close Button`);
     this.link = new Link(page, locator.locator("a"), `${elementReportName} - Link`);
-    this.loader = new Loader(page, locator.locator("div[title='loading']"), `${elementReportName} - Loader`);
+    this.loader = new Loader(page, locator.getByRole("alert"), `${elementReportName} - Loader`);
     this.button = new Button(page, locator.locator("button").first(), `${elementReportName} - Button`);
-  }
-
-  /**
-   * Get the content of the toast.
-   * @returns {Promise<string>} The content of the toast.
-   */
-  async getContent(): Promise<string> {
-    return await test.step(`Get content from toast: ${this.getElementReportName()}`, async () => {
-      return await this.content.getText();
-    });
   }
 
   /**

@@ -1,8 +1,6 @@
 import { Locator, Page, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { ListItem } from "./ListItem";
-import { IconButton } from "./IconButton";
-import { Text } from "./Text";
 import { Search } from "./Search";
 
 /**
@@ -11,8 +9,6 @@ import { Search } from "./Search";
  */
 export class Combobox extends BaseElement {
   private searchField: Search;
-  private clearSearchIconButton: IconButton;
-  private noResultsText: Text;
 
   /**
    * Create a Combobox element.
@@ -23,16 +19,6 @@ export class Combobox extends BaseElement {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
     this.searchField = new Search(page, locator, `${elementReportName} - Search Field`);
-    this.clearSearchIconButton = new IconButton(
-      page,
-      locator.getByTestId("clean-search-button_combobox-search"),
-      `${elementReportName} - Clear Search Icon Button`
-    );
-    this.noResultsText = new Text(
-      page,
-      locator.locator("span", { hasText: "No results found" }),
-      `${elementReportName} - No Results Found Text`
-    );
   }
 
   /**
@@ -76,29 +62,7 @@ export class Combobox extends BaseElement {
    */
   async clearSearch(): Promise<void> {
     await test.step(`Clear search for ${this.getElementReportName()}`, async () => {
-      await this.clearSearchIconButton.click();
-    });
-  }
-
-  /**
-   * Check if the no results text is visible.
-   * @returns {Promise<boolean>} True if the no results text is visible, false otherwise.
-   */
-  async isNoResultsTextVisible(): Promise<boolean> {
-    return await test.step(`Check if no results text is visible for ${this.getElementReportName()}`, async () => {
-      await this.noResultsText.waitForElementToBeVisible();
-      return await this.noResultsText.isVisible();
-    });
-  }
-
-  /**
-   * Check if the no results text is hidden.
-   * @returns {Promise<boolean>} True if the no results text is hidden, false otherwise.
-   */
-  async isNoResultsTextHidden(): Promise<boolean> {
-    return await test.step(`Check if no results text is hidden for ${this.getElementReportName()}`, async () => {
-      await this.noResultsText.waitForElementToBeHidden();
-      return await this.noResultsText.isHidden();
+      await this.searchField.clickClearSearchButton();
     });
   }
 

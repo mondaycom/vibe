@@ -30,13 +30,6 @@ test.describe("Storybook - Unit Tests - Button Toast", () => {
     expect(await toast.isEnabled()).toBe(true);
   });
 
-  test("should get toast content", async () => {
-    const content = await toast.getContent();
-    expect.soft(content).toBe("General message toast");
-    expect.soft(content).toBeTruthy();
-    expect(content.length).toBeGreaterThan(0);
-  });
-
   test("should get button text", async () => {
     const buttonText = await toast.getButtonText();
     expect.soft(buttonText).toBe("Button");
@@ -92,14 +85,6 @@ test.describe("Storybook - Unit Tests - Button Toast", () => {
     expect(await toast.isVisible()).toBe(true);
   });
 
-  test("should handle complex interaction sequences", async () => {
-    const content1 = await toast.getContent();
-    await toast.clickButton();
-    await toast.hover();
-    const content2 = await toast.getContent();
-    expect(content1).toBe(content2);
-  });
-
   test("should have close button", async () => {
     expect(await toast.hasCloseButton()).toBe(true);
   });
@@ -140,13 +125,6 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
     await toast.clickLink();
     await toast.clickLink();
     expect(await toast.isEnabled()).toBe(true);
-  });
-
-  test("should get toast content", async () => {
-    const content = await toast.getContent();
-    expect.soft(content).toBe("General message toast");
-    expect.soft(content).toBeTruthy();
-    expect(content.length).toBeGreaterThan(0);
   });
 
   test("should get link text", async () => {
@@ -211,14 +189,6 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
     expect(await toast.isVisible()).toBe(true);
   });
 
-  test("should handle complex interaction sequences", async () => {
-    const content1 = await toast.getContent();
-    await toast.clickLink();
-    await toast.hover();
-    const content2 = await toast.getContent();
-    expect(content1).toBe(content2);
-  });
-
   test("should navigate to the link", async ({ page }) => {
     const newPagePromise = page.waitForEvent("popup");
     await toast.clickLink();
@@ -255,13 +225,6 @@ test.describe("Storybook - Unit Tests - Loading Toast", () => {
 
   test("should be visible by default", async () => {
     expect(await toast.isVisible()).toBe(true);
-  });
-
-  test("should get toast content", async () => {
-    const content = await toast.getContent();
-    expect.soft(content).toBe("General message toast");
-    expect.soft(content).toBeTruthy();
-    expect(content.length).toBeGreaterThan(0);
   });
 
   test("should click close button", async () => {

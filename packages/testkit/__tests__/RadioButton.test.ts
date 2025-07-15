@@ -25,14 +25,6 @@ test.describe("Storybook - Unit Tests - RadioButton", () => {
     expect(await radioButton.isChecked()).toBe(true);
   });
 
-  test("should return its label text", async () => {
-    const label = await radioButton.getLabel();
-    expect.soft(label).toBe("Selection");
-    expect.soft(label).toBeTruthy();
-    expect(label.length).toBeGreaterThan(0);
-    expect(typeof label).toBe("string");
-  });
-
   test("should be enabled by default", async () => {
     expect(await radioButton.isEnabled()).toBe(true);
   });

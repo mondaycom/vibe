@@ -59,16 +59,6 @@ test.describe("Storybook - Unit Tests - Combobox", () => {
     expect(searchInputValue).toBe("");
   });
 
-  test("should show no results text when searching for non-existent option", async () => {
-    await combobox.search("Non-existent Option");
-    expect(await combobox.isNoResultsTextVisible()).toBe(true);
-  });
-
-  test("should not show no results text when searching for valid option", async () => {
-    await combobox.search("Option 1");
-    expect(await combobox.isNoResultsTextHidden()).toBe(true);
-  });
-
   test("should handle empty search", async () => {
     await combobox.search("");
     const searchInputValue = await combobox.getSearchInputValue();

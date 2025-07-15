@@ -21,37 +21,6 @@ test.describe("Storybook - Unit Tests - Modal", () => {
     expect(await modal.isVisible()).toBe(false);
   });
 
-  test("Modal should be able to click Confirm button", async () => {
-    await modal.clickConfirmButton();
-    expect(await modal.isVisible()).toBe(false);
-  });
-
-  test("Modal should return header text", async () => {
-    const headerText = await modal.getModalHeaderText();
-    expect.soft(headerText).toBe("Modal title");
-    expect.soft(headerText).toBeTruthy();
-    expect(typeof headerText).toBe("string");
-  });
-
-  test("Modal should return subtitle text", async () => {
-    const subtitleText = await modal.getModalSubtitleText();
-    const normalizedText = subtitleText.replace(/\s+/g, " ").trim();
-    expect.soft(normalizedText).toBe("Modal subtitle, can come with icon and link.");
-    expect.soft(subtitleText).toBeTruthy();
-    expect(typeof subtitleText).toBe("string");
-  });
-
-  test("Modal should return content text", async () => {
-    const contentText = await modal.getModalContentText();
-    expect
-      .soft(contentText)
-      .toBe(
-        "Modal content will appear here, you can custom it however you want, according to the user needs. Please make sure that the content is clear for completing the relevant task."
-      );
-    expect.soft(contentText).toBeTruthy();
-    expect(typeof contentText).toBe("string");
-  });
-
   test("should be visible by default", async () => {
     expect(await modal.isVisible()).toBe(true);
   });

@@ -272,4 +272,14 @@ export class BaseElement {
       return (await this.getAttributeValue("aria-checked")) === "true";
     });
   }
+
+  /**
+   * Check if the element is selected.
+   * @returns {Promise<boolean>} True if the element is selected, false otherwise.
+   */
+  async isSelected(): Promise<boolean> {
+    return await test.step(`Check if ${this.getElementReportName()} is selected`, async () => {
+      return (await this.getAttributeValue("aria-selected")) === "true";
+    });
+  }
 }

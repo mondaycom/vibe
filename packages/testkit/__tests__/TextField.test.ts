@@ -4,7 +4,7 @@ import { textfieldStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let textField: TextField;
-const textFieldLocator = ".monday-storybook-text-field_size";
+const textFieldLocator = "#input";
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Storybook - Unit Tests - TextField", () => {
@@ -84,23 +84,6 @@ test.describe("Storybook - Unit Tests - TextField", () => {
 
   test("should be visible by default", async () => {
     expect(await textField.isVisible()).toBe(true);
-  });
-
-  test("should be able to get label", async () => {
-    expect(await textField.getLabel()).toBe("Name");
-  });
-
-  test("should be able to get helper text", async () => {
-    expect(await textField.getHelperText()).toBe("Helper text");
-  });
-
-  test("should be able to get character count", async () => {
-    expect(await textField.getCharacterCount()).toBe("0");
-  });
-
-  test("should be able to count characters", async () => {
-    await textField.setText("Hello World");
-    expect(await textField.getCharacterCount()).toBe("11");
   });
 
   test("should count elements correctly", async () => {

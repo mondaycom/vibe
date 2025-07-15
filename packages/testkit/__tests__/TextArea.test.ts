@@ -97,12 +97,4 @@ test.describe("Storybook - Unit Tests - TextArea", () => {
     await textArea.clearText();
     expect(await textArea.isEmpty()).toBe(true);
   });
-
-  test("should be able to get label", async () => {
-    expect(await textArea.getLabel()).toBe("Text area label");
-  });
-
-  test("should be able to get helper text", async () => {
-    expect(await textArea.getHelperText()).toBe("Helper text");
-  });
 });

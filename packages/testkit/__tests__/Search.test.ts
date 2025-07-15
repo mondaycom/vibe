@@ -86,11 +86,6 @@ test.describe("Storybook - Unit Tests - Search", () => {
     expect(await search.isVisible()).toBe(true);
   });
 
-  test("should get placeholder text", async () => {
-    const placeholderText = await search.getPlaceholderText();
-    expect(placeholderText).toBe("Placeholder text here");
-  });
-
   test("should count elements correctly", async () => {
     const count = await search.countElements();
     expect(count).toBeGreaterThanOrEqual(1);
