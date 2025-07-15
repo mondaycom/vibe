@@ -41,6 +41,7 @@ export * from "./ListTitle";
 export * from "./Loader";
 export * from "./Menu";
 export * from "./MenuButton";
+export * from "./NumberField";
 export * from "./LegacyModal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";

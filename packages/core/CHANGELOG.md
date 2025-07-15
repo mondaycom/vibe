@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.54.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.1...@vibe/core@3.54.2) (2025-07-15)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.54.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.0...@vibe/core@3.54.1) (2025-07-13)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.54.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.1...@vibe/core@3.54.0) (2025-07-09)
+
+
+### Features
+
+* **NumberField:** add a new NumberField component ([#2950](https://github.com/mondaycom/vibe/issues/2950)) ([e3693f7](https://github.com/mondaycom/vibe/commit/e3693f72d5bc73576515d8743800a3c6a8f3f07d))
+
+
+
+
+
 ## [3.53.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.0...@vibe/core@3.53.1) (2025-07-03)
 
 

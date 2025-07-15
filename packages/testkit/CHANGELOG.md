@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.2...@vibe/testkit@1.12.0) (2025-07-13)
+
+
+### Features
+
+* **testkit:** Add expand collapse component ([#2960](https://github.com/mondaycom/vibe/issues/2960)) ([9c701b1](https://github.com/mondaycom/vibe/commit/9c701b1e9536d551b3b060a03182db7ca3fae68e))
+
+
+
+
+
 ## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.1...@vibe/testkit@1.11.2) (2025-07-03)
 
 

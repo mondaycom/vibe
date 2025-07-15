@@ -33,22 +33,22 @@ describe("Skeleton renders correctly", () => {
 
   describe("renders correctly when circle", () => {
     it("with empty props", () => {
-      const tree = renderer.create(<Skeleton type={Skeleton.types.CIRCLE} />).toJSON();
+      const tree = renderer.create(<Skeleton type="circle" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with fixed height", () => {
-      const tree = renderer.create(<Skeleton type={Skeleton.types.CIRCLE} height={100} />).toJSON();
+      const tree = renderer.create(<Skeleton type="circle" height={100} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with fixed width", () => {
-      const tree = renderer.create(<Skeleton type={Skeleton.types.CIRCLE} width={100} />).toJSON();
+      const tree = renderer.create(<Skeleton type="circle" width={100} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("with fixed height and width", () => {
-      const tree = renderer.create(<Skeleton type={Skeleton.types.CIRCLE} width={100} height={100} />).toJSON();
+      const tree = renderer.create(<Skeleton type="circle" width={100} height={100} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
