@@ -3,8 +3,14 @@ import styles from "./AttentionBoxLink.module.scss";
 import Link, { LinkProps } from "../../Link/Link";
 import cx from "classnames";
 
+/**
+ * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ */
 export type AttentionBoxLinkProps = LinkProps;
 
+/**
+ * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ */
 const AttentionBoxLink = ({
   href,
   text,

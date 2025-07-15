@@ -14,6 +14,9 @@ import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
 
+/**
+ * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ */
 export interface AttentionBoxProps extends VibeComponentProps {
   // TODO: [breaking] remove prop
   /**
@@ -67,6 +70,9 @@ export interface AttentionBoxProps extends VibeComponentProps {
   entryAnimation?: boolean;
 }
 
+/**
+ * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ */
 const AttentionBox = ({
   className,
   withIconWithoutHeader = false,
