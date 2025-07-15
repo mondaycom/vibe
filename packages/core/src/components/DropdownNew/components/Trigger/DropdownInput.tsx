@@ -21,7 +21,9 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     searchable,
     size,
     getDropdownProps,
-    isOpen
+    isOpen,
+    getLabelProps,
+    label
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
@@ -33,7 +35,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
       {searchable ? (
         <BaseInput
           {...getInputProps({
-            ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
+            "aria-labelledby": label ? getLabelProps().id : undefined,
+            "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
             placeholder: hasSelection ? "" : placeholder,
             ...multipleSelectionDropdownProps
           })}
