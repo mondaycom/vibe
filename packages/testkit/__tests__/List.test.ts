@@ -100,4 +100,13 @@ test.describe("Storybook - Unit Tests - List", () => {
     const text3 = await list.getItemTextByIndex(2);
     expect(text3).toBe("Essentials");
   });
+
+  test("should get list item name by index", async () => {
+    const name = await list.getItemTextByIndex(0);
+    expect.soft(name).toBe("Board Power up");
+    const name2 = await list.getItemTextByIndex(1);
+    expect.soft(name2).toBe("Team Power up");
+    const name3 = await list.getItemTextByIndex(2);
+    expect(name3).toBe("Essentials");
+  });
 });

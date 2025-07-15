@@ -25,13 +25,13 @@ test.describe("Storybook - Unit Tests - Menu", () => {
   });
 
   test("should click menu item by name", async () => {
-    await menu.clickMenuItemByName("Item 1");
+    await menu.selectItem("Item 1");
     expect(await menu.isEnabled()).toBe(true);
   });
 
   test("should handle clicking multiple menu items", async () => {
-    await menu.clickMenuItemByName("Item 1");
-    await menu.clickMenuItemByName("Item 2");
+    await menu.selectItem("Item 1");
+    await menu.selectItem("Item 2");
     expect.soft(await menu.isEnabled()).toBe(true);
     expect(await menu.isVisible()).toBe(true);
   });
