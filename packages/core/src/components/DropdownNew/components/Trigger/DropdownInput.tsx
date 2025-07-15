@@ -9,7 +9,6 @@ import { Text } from "../../../Text";
 const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
   const {
     inputValue,
-    getInputProps,
     autoFocus,
     disabled,
     readOnly,
@@ -20,10 +19,11 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     inputAriaLabel,
     searchable,
     size,
-    getDropdownProps,
+    label,
     isOpen,
+    getDropdownProps,
     getLabelProps,
-    label
+    getInputProps
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
@@ -40,6 +40,7 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
             placeholder: hasSelection ? "" : placeholder,
             ...multipleSelectionDropdownProps
           })}
+          inputRole="combobox"
           value={inputValue || ""}
           autoFocus={autoFocus}
           size={inputSize || size}

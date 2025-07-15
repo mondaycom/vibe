@@ -66,6 +66,7 @@ const TriggerActions = () => {
           disabled={disabled}
           ariaControls={getMenuProps().id}
           ariaExpanded={isOpen}
+          ariaLabel={isOpen ? "Close menu" : "Open menu"}
           onClick={() => {
             toggleMenu();
           }}
