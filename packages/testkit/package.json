@@ -25,7 +25,8 @@
     "directory": "packages/testkit"
   },
   "scripts": {
-    "test": "npx playwright test",
+    "pre:test": "yarn playwright install",
+    "test": "yarn pre:test && npx playwright test",
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
