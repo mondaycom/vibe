@@ -1,7 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { ReactElement, useCallback, useEffect, useMemo, useRef, type JSX } from "react";
+import React, { ReactElement, useCallback, useEffect, useMemo, useRef, JSX } from "react";
 import { CSSTransition } from "react-transition-group";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
@@ -65,7 +65,7 @@ export interface ToastProps extends VibeComponentProps {
   /**
    * The content displayed inside the toast.
    */
-  children?: ReactElement<any> | ReactElement<any>[] | string;
+  children?: ReactElement | ReactElement[] | string;
   /**
    * The aria-label for the close button.
    */
@@ -134,7 +134,7 @@ const Toast = ({
   }, [onClose]);
 
   /* Timer */
-  const timerAutoHide = useRef<NodeJS.Timeout>(undefined);
+  const timerAutoHide = useRef<NodeJS.Timeout>();
   const setAutoHideTimer = useCallback(
     (duration: number) => {
       if (!onClose || duration == null) {
