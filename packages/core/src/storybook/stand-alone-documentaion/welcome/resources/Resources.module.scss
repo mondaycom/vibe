@@ -1,0 +1,18 @@
+.resources {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: stretch;
+  margin-top: 42px;
+  margin-bottom: 160px;
+  flex-flow: wrap;
+}
+
+.text {
+  color: var(--sb-secondary-text-color);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.44px;
+  line-height: 140%;
+  margin: 0;
+}
