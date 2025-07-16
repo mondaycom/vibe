@@ -2,6 +2,7 @@ import { Meta } from "@storybook/blocks";
 import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
 import Avatar from "../../Avatar/Avatar";
+import Text from "../../Text/Text";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
@@ -12,6 +13,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipCheckYourself } from "./BreadcrumbsBar.stories.helpers";
 import * as BreadcrumbsBarStories from "./BreadcrumbsBar.stories";
+import styles from "./BreadcrumbsBar.stories.module.scss";
 
 <Meta of={BreadcrumbsBarStories} />
 
@@ -101,10 +103,18 @@ import { BreadcrumbsBar } from "@vibe/core";
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+          <DialogContentContainer
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--space-12)"
+            }}
+          >
             <Avatar size="medium" src={person3} type="img" />
-            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
-              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+            <div className={styles.list}>
+              <Text type="text1" weight="medium">
+                Rotem Dekel
+              </Text>
               <BreadcrumbsBar type="navigation">
                 <BreadcrumbItem text="User research" icon={Board} />
                 <BreadcrumbItem text="Video sessions" icon={Group} />
@@ -116,10 +126,18 @@ import { BreadcrumbsBar } from "@vibe/core";
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+          <DialogContentContainer
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--space-12)"
+            }}
+          >
             <Avatar size="medium" src={person3} type="img" />
-            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
-              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+            <div className={styles.list}>
+              <Text type="text1" weight="medium">
+                Rotem Dekel
+              </Text>
               <BreadcrumbsBar type="navigation">
                 <BreadcrumbItem text="User research" icon={Board} />
               </BreadcrumbsBar>
