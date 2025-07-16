@@ -45,11 +45,11 @@ test.describe("Storybook - Unit Tests - Tabs", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await tabs.isEnabled()).toBe(true);
+    await expect(tabs.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await tabs.isVisible()).toBe(true);
+    await expect(tabs.getLocator()).toBeVisible();
   });
 
   test("should get tab name by index", async () => {

@@ -17,21 +17,21 @@ test.describe("Storybook - Unit Tests - Loader", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await loader.isEnabled()).toBe(true);
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await loader.isVisible()).toBe(true);
+    await expect(loader.getLocator()).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await loader.hover();
-    expect(await loader.isEnabled()).toBe(true);
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should scroll into view when needed", async () => {
     await loader.scrollIntoView();
-    expect(await loader.isEnabled()).toBe(true);
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -46,6 +46,6 @@ test.describe("Storybook - Unit Tests - Loader", () => {
 
   test("should handle waiting for visibility states", async () => {
     await loader.waitForElementToBeVisible();
-    expect(await loader.isVisible()).toBe(true);
+    await expect(loader.getLocator()).toBeVisible();
   });
 });

@@ -79,11 +79,11 @@ test.describe("Storybook - Unit Tests - Search", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await search.isEnabled()).toBe(true);
+    await expect(search.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await search.isVisible()).toBe(true);
+    await expect(search.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

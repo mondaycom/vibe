@@ -17,28 +17,28 @@ test.describe("Storybook - Unit Tests - Menu", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await menu.isEnabled()).toBe(true);
+    await expect(menu.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await menu.isVisible()).toBe(true);
+    await expect(menu.getLocator()).toBeVisible();
   });
 
   test("should click menu item by name", async () => {
     await menu.selectItem("Item 1");
-    expect(await menu.isEnabled()).toBe(true);
+    await expect(menu.getLocator()).toBeEnabled();
   });
 
   test("should handle clicking multiple menu items", async () => {
     await menu.selectItem("Item 1");
     await menu.selectItem("Item 2");
-    expect.soft(await menu.isEnabled()).toBe(true);
-    expect(await menu.isVisible()).toBe(true);
+    await expect.soft(menu.getLocator()).toBeEnabled();
+    await expect(menu.getLocator()).toBeVisible();
   });
 
   test("should handle hover operations", async () => {
     await menu.hover();
-    expect(await menu.isVisible()).toBe(true);
+    await expect(menu.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

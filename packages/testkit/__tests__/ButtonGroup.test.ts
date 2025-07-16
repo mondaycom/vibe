@@ -48,11 +48,11 @@ test.describe("Storybook - Unit Tests - ButtonGroup", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await buttonGroup.isEnabled()).toBe(true);
+    await expect(buttonGroup.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await buttonGroup.isVisible()).toBe(true);
+    await expect(buttonGroup.getLocator()).toBeVisible();
   });
 
   test("should handle button clicks in sequence", async () => {

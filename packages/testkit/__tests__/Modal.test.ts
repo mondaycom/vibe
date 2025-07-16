@@ -18,16 +18,16 @@ test.describe("Storybook - Unit Tests - Modal", () => {
 
   test("Modal should be able to close modal", async () => {
     await modal.closeModal();
-    expect(await modal.isVisible()).toBe(false);
+    await expect(modal.getLocator()).toBeHidden();
   });
 
   test("should be visible by default", async () => {
-    expect(await modal.isVisible()).toBe(true);
+    await expect(modal.getLocator()).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await modal.hover();
-    expect(await modal.isVisible()).toBe(true);
+    await expect(modal.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

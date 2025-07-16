@@ -66,11 +66,11 @@ test.describe("Storybook - Unit Tests - TextArea", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await textArea.isEnabled()).toBe(true);
+    await expect(textArea.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await textArea.isVisible()).toBe(true);
+    await expect(textArea.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

@@ -17,11 +17,11 @@ test.describe("Storybook - Unit Tests - List", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await list.isEnabled()).toBe(true);
+    await expect(list.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await list.isVisible()).toBe(true);
+    await expect(list.getLocator()).toBeVisible();
   });
 
   test("should click list item by name", async ({ page }) => {
@@ -68,9 +68,9 @@ test.describe("Storybook - Unit Tests - List", () => {
     expect(alertText).toBe("On click!");
   });
 
-  test("should handle hover operations", async ({ page }) => {
+  test("should handle hover operations", async () => {
     await list.hover();
-    expect(await list.isEnabled()).toBe(true);
+    await expect(list.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {

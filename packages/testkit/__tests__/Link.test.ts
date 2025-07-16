@@ -17,21 +17,21 @@ test.describe("Storybook - Unit Tests - Link", () => {
   });
 
   test("should be visible by default", async () => {
-    expect(await link.isVisible()).toBe(true);
+    await expect(link.getLocator()).toBeVisible();
   });
 
   test("should be enabled by default", async () => {
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await link.hover();
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should scroll into view when needed", async () => {
     await link.scrollIntoView();
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -46,14 +46,14 @@ test.describe("Storybook - Unit Tests - Link", () => {
 
   test("should click the link", async () => {
     await link.click();
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple link clicks", async () => {
     await link.click();
     await link.click();
     await link.click();
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should get link text", async () => {
@@ -80,7 +80,7 @@ test.describe("Storybook - Unit Tests - Link", () => {
 
   test("should handle waiting for visibility states", async () => {
     await link.waitForElementToBeVisible();
-    expect(await link.isVisible()).toBe(true);
+    await expect(link.getLocator()).toBeVisible();
   });
 
   test("should handle complex interaction sequences", async () => {
@@ -94,12 +94,12 @@ test.describe("Storybook - Unit Tests - Link", () => {
   test("should maintain enabled state after interactions", async () => {
     await link.click();
     await link.hover();
-    expect(await link.isEnabled()).toBe(true);
+    await expect(link.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after link interactions", async () => {
     await link.click();
     await link.hover();
-    expect(await link.isVisible()).toBe(true);
+    await expect(link.getLocator()).toBeVisible();
   });
 });

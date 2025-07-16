@@ -36,8 +36,34 @@ export class SplitButton extends BaseElement {
    */
   async selectItem(itemName: string): Promise<void> {
     await test.step(`Select item by name ${itemName} for ${this.getElementReportName()}`, async () => {
-      await this.clickSecondaryButton();
+      await this.openMenu();
       await this.menu.selectItem(itemName);
+    });
+  }
+
+  /**
+   * Open the secondary button menu.
+   */
+  async openMenu(): Promise<void> {
+    await test.step(`Open menu for ${this.getElementReportName()}`, async () => {
+      if (!(await this.isMenuExpanded())) {
+        await this.secondaryButton.click();
+        // Wait for the menu to open
+        await this.getPage().waitForTimeout(100);
+      }
+    });
+  }
+
+  /**
+   * Close the secondary button menu.
+   */
+  async closeMenu(): Promise<void> {
+    await test.step(`Close menu for ${this.getElementReportName()}`, async () => {
+      if (await this.isMenuExpanded()) {
+        await this.secondaryButton.click();
+        // Wait for the menu to close
+        await this.getPage().waitForTimeout(100);
+      }
     });
   }
 
@@ -47,17 +73,6 @@ export class SplitButton extends BaseElement {
   async clickPrimaryButton(): Promise<void> {
     await test.step(`Click primary button for ${this.getElementReportName()}`, async () => {
       await this.primaryButton.click();
-    });
-  }
-
-  /**
-   * Click the secondary button.
-   */
-  async clickSecondaryButton(): Promise<void> {
-    await test.step(`Click secondary button for ${this.getElementReportName()}`, async () => {
-      await this.secondaryButton.click();
-      // Wait for the menu to open/close
-      await this.getPage().waitForTimeout(100);
     });
   }
 

@@ -18,16 +18,16 @@ test.describe("Storybook - Unit Tests - Button Toast", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should click the button", async () => {
     await toast.clickButton();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should get button text", async () => {
@@ -39,35 +39,35 @@ test.describe("Storybook - Unit Tests - Button Toast", () => {
 
   test("should click close button", async () => {
     await toast.close();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should handle combination of button and close button clicks", async () => {
     await toast.clickButton();
     await toast.close();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await toast.hover();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain enabled state after interactions", async () => {
     await toast.clickButton();
     await toast.hover();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after button interactions", async () => {
     await toast.clickButton();
     await toast.hover();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should maintain visibility after scrolling", async () => {
     await toast.scrollIntoView();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {
@@ -82,7 +82,7 @@ test.describe("Storybook - Unit Tests - Button Toast", () => {
 
   test("should handle waiting for visibility states", async () => {
     await toast.waitForElementToBeVisible();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should have close button", async () => {
@@ -108,23 +108,23 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should click the link", async () => {
     await toast.clickLink();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple link clicks", async () => {
     await toast.clickLink();
     await toast.clickLink();
     await toast.clickLink();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should get link text", async () => {
@@ -143,35 +143,35 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
 
   test("should click close button", async () => {
     await toast.close();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should handle combination of link and close button clicks", async () => {
     await toast.clickLink();
     await toast.close();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await toast.hover();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain enabled state after interactions", async () => {
     await toast.clickLink();
     await toast.hover();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after link interactions", async () => {
     await toast.clickLink();
     await toast.hover();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await toast.scrollIntoView();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -186,7 +186,7 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
 
   test("should handle waiting for visibility states", async () => {
     await toast.waitForElementToBeVisible();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should navigate to the link", async ({ page }) => {
@@ -220,38 +220,38 @@ test.describe("Storybook - Unit Tests - Loading Toast", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should click close button", async () => {
     await toast.close();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await toast.hover();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain enabled state after interactions", async () => {
     await toast.hover();
     await toast.click();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await toast.hover();
     await toast.click();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await toast.scrollIntoView();
-    expect(await toast.isEnabled()).toBe(true);
+    await expect(toast.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -266,7 +266,7 @@ test.describe("Storybook - Unit Tests - Loading Toast", () => {
 
   test("should handle waiting for visibility states", async () => {
     await toast.waitForElementToBeVisible();
-    expect(await toast.isVisible()).toBe(true);
+    await expect(toast.getLocator()).toBeVisible();
   });
 
   test("should have close button", async () => {

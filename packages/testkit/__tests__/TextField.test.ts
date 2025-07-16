@@ -79,11 +79,11 @@ test.describe("Storybook - Unit Tests - TextField", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await textField.isEnabled()).toBe(true);
+    await expect(textField.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await textField.isVisible()).toBe(true);
+    await expect(textField.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

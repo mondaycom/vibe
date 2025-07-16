@@ -1,7 +1,6 @@
 import { Locator, Page, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 import { Menu } from "./Menu";
-import { Button } from "./Button";
 
 /**
  * Class representing an IconButton element.

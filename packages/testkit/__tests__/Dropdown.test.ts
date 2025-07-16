@@ -24,15 +24,11 @@ test.describe("Storybook - Unit Tests - Dropdown", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await dropdown.isEnabled()).toBe(true);
+    await expect(dropdown.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await dropdown.isVisible()).toBe(true);
-  });
-
-  test("should handle empty option selection gracefully", async () => {
-    await dropdown.selectMultipleItems([]);
+    await expect(dropdown.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

@@ -17,21 +17,21 @@ test.describe("Storybook - Unit Tests - ExpandCollapse", () => {
   });
 
   test("should be visible by default", async () => {
-    expect(await expandCollapse.isVisible()).toBe(true);
+    await expect(expandCollapse.getLocator()).toBeVisible();
   });
 
   test("should be enabled by default", async () => {
-    expect(await expandCollapse.isEnabled()).toBe(true);
+    await expect(expandCollapse.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await expandCollapse.hover();
-    expect(await expandCollapse.isEnabled()).toBe(true);
+    await expect(expandCollapse.getLocator()).toBeEnabled();
   });
 
   test("should scroll into view when needed", async () => {
     await expandCollapse.scrollIntoView();
-    expect(await expandCollapse.isEnabled()).toBe(true);
+    await expect(expandCollapse.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -68,7 +68,7 @@ test.describe("Storybook - Unit Tests - ExpandCollapse", () => {
   test("should get content element", async () => {
     await expandCollapse.expand();
     const contentElement = expandCollapse.getContentElement();
-    expect(await contentElement.isVisible()).toBe(true);
+    await expect(contentElement.getLocator()).toBeVisible();
   });
 
   test("should toggle the expand collapse", async () => {

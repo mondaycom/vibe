@@ -17,29 +17,29 @@ test.describe("Storybook - Unit Tests - Button", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await button.isEnabled()).toBe(true);
+    await expect(button.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should be clickable", async () => {
     await button.click();
-    expect(await button.isEnabled()).toBe(true);
+    await expect(button.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple clicks", async () => {
     await button.click();
     await button.click();
     await button.click();
-    expect.soft(await button.isEnabled()).toBe(true);
-    expect(await button.isVisible()).toBe(true);
+    await expect.soft(button.getLocator()).toBeEnabled();
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await button.hover();
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should have proper text content", async () => {
@@ -52,18 +52,18 @@ test.describe("Storybook - Unit Tests - Button", () => {
   test("should maintain enabled state after interactions", async () => {
     await button.hover();
     await button.click();
-    expect(await button.isEnabled()).toBe(true);
+    await expect(button.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await button.hover();
     await button.click();
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await button.scrollIntoView();
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {
@@ -78,11 +78,11 @@ test.describe("Storybook - Unit Tests - Button", () => {
 
   test("should handle waiting for visibility states", async () => {
     await button.waitForElementToBeVisible();
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 
   test("should handle waiting for element attachment", async () => {
     await button.waitForElementToBeAttached();
-    expect(await button.isVisible()).toBe(true);
+    await expect(button.getLocator()).toBeVisible();
   });
 });

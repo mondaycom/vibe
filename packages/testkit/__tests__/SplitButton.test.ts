@@ -20,48 +20,28 @@ test.describe("Storybook - Unit Tests - SplitButton", () => {
   });
 
   test("should be enabled by default", async () => {
-    expect(await splitButton.isEnabled()).toBe(true);
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    expect(await splitButton.isVisible()).toBe(true);
+    await expect(splitButton.getLocator()).toBeVisible();
   });
 
   test("should click primary button", async () => {
     await splitButton.clickPrimaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should click secondary button", async () => {
-    await splitButton.clickSecondaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple primary button clicks", async () => {
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should handle multiple secondary button clicks", async () => {
-    await splitButton.clickSecondaryButton();
-    await splitButton.clickSecondaryButton();
-    await splitButton.clickSecondaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should handle alternating button clicks", async () => {
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await splitButton.hover();
-    expect(await splitButton.isEnabled()).toBe(true);
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should get primary button text", async () => {
@@ -71,21 +51,9 @@ test.describe("Storybook - Unit Tests - SplitButton", () => {
     expect(text.length).toBeGreaterThan(0);
   });
 
-  test("should maintain enabled state after interactions", async () => {
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-    expect(await splitButton.isEnabled()).toBe(true);
-  });
-
-  test("should maintain visibility after interactions", async () => {
-    await splitButton.clickPrimaryButton();
-    await splitButton.clickSecondaryButton();
-    expect(await splitButton.isVisible()).toBe(true);
-  });
-
   test("should scroll into view when needed", async () => {
     await splitButton.scrollIntoView();
-    expect(await splitButton.isEnabled()).toBe(true);
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -100,22 +68,16 @@ test.describe("Storybook - Unit Tests - SplitButton", () => {
 
   test("should handle waiting for visibility states", async () => {
     await splitButton.waitForElementToBeVisible();
-    expect(await splitButton.isVisible()).toBe(true);
+    await expect(splitButton.getLocator()).toBeVisible();
   });
 
   test("should open secondary button menu", async () => {
-    if (await splitButton.isMenuExpanded()) {
-      await splitButton.clickSecondaryButton();
-    }
-    await splitButton.clickSecondaryButton();
+    await splitButton.openMenu();
     expect(await splitButton.isMenuExpanded()).toBe(true);
   });
 
   test("should close secondary button menu", async () => {
-    if (!(await splitButton.isMenuExpanded())) {
-      await splitButton.clickSecondaryButton();
-    }
-    await splitButton.clickSecondaryButton();
+    await splitButton.closeMenu();
     expect(await splitButton.isMenuExpanded()).toBe(false);
   });
 });
