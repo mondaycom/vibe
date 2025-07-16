@@ -210,6 +210,7 @@ export {default as Retry} from './Retry';
 export {default as Robot} from './Robot';
 export {default as Rotate} from './Rotate';
 export {default as ScheduledEmail} from './ScheduledEmail';
+export {default as ScheduledSend} from './ScheduledSend';
 export {default as Search} from './Search';
 export {default as Security} from './Security';
 export {default as Send} from './Send';

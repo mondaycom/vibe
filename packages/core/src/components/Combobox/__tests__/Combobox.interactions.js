@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { queryByText } from "@storybook/testing-library";
+import { queryByText } from "@storybook/test";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 import {
   getByLabelText,

@@ -4,8 +4,8 @@ export default create({
   base: "light",
   brandImage: "/logo.svg",
   brandUrl: "https://vibe.monday.com",
-  barTextColor: "var(--sb-primary-text-color)",
-  barSelectedColor: "var(--sb-primary-text-color)",
-  barHoverColor: "var(--sb-primary-text-color)",
+  barTextColor: "#323338",
+  barSelectedColor: "#323338",
+  barHoverColor: "#323338",
   brandTitle: "Vibe Design System"
 });

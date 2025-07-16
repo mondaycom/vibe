@@ -1,2 +1,2 @@
-export { default as VirtualizedGrid, VirtualizedGridProps } from "./VirtualizedGrid";
+export { default as VirtualizedGrid, type VirtualizedGridProps } from "./VirtualizedGrid";
 export * from "./VirtualizedGrid.types";

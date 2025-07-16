@@ -1,4 +1,4 @@
-import { userEvent, waitFor } from "@storybook/testing-library";
+import { userEvent, waitFor } from "@storybook/test";
 import {
   getByRole,
   getByText,

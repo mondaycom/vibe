@@ -1,3 +1,3 @@
-export { default as Steps, StepsProps } from "./Steps";
+export { default as Steps, type StepsProps } from "./Steps";
 
 export * from "./Steps.types";

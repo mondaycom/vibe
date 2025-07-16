@@ -1,3 +1,3 @@
-export { default as MultiStepIndicator, MultiStepIndicatorProps } from "./MultiStepIndicator";
+export { default as MultiStepIndicator, type MultiStepIndicatorProps } from "./MultiStepIndicator";
 
 export * from "./MultiStep.types";
