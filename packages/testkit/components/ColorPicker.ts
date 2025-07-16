@@ -1,7 +1,7 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { ContentColorByName } from "../../core/src/utils/colors-vars-map";
 import { ListItem } from "./ListItem";
+import { ColorPickerColor } from "../utils/enums";
 
 /**
  * Class representing a ColorPicker element.
@@ -35,7 +35,7 @@ export class ColorPicker extends BaseElement {
    * @param {ColorPickerColor} color - The color to get the color picker item for.
    * @returns {Promise<ListItem>} The color picker item.
    */
-  async getColorPickerItemByColor(color: ContentColorByName): Promise<ListItem> {
+  async getColorPickerItemByColor(color: ColorPickerColor): Promise<ListItem> {
     return await test.step(`Get color picker item by color ${color} for ${this.getElementReportName()}`, async () => {
       return new ListItem(this.getPage(), this.getLocator().getByTestId(`color-picker-item_${color}`), color);
     });
@@ -46,7 +46,7 @@ export class ColorPicker extends BaseElement {
    * @param {ColorPickerColor} color - The color to select.
    * @returns {Promise<void>}
    */
-  async selectColor(color: ContentColorByName): Promise<void> {
+  async selectColor(color: ColorPickerColor): Promise<void> {
     await test.step(`Select color ${color} for ${this.getElementReportName()}`, async () => {
       const colorItem = await this.getColorPickerItemByColor(color);
       await colorItem.click();
@@ -58,7 +58,7 @@ export class ColorPicker extends BaseElement {
    * @param {ColorPickerColor} color - The color to check.
    * @returns {Promise<boolean>} True if the color is selected, false otherwise.
    */
-  async isColorSelected(color: ContentColorByName): Promise<boolean> {
+  async isColorSelected(color: ColorPickerColor): Promise<boolean> {
     return await test.step(`Check if color ${color} is selected for ${this.getElementReportName()}`, async () => {
       const colorItem = await this.getColorPickerItemByColor(color);
       return (await colorItem.getAttributeValue("class")).includes("selectedColor");

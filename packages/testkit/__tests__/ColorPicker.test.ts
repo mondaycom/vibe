@@ -1,7 +1,7 @@
 import { test, expect, FrameLocator } from "@playwright/test";
 import { ColorPicker } from "../components";
 import { colorPickerStory } from "./utils/url-helper";
-import { ContentColorByName } from "../../core/src/utils/colors-vars-map";
+import { ColorPickerColor } from "../utils/enums";
 
 let frame: FrameLocator;
 let colorPicker: ColorPicker;
@@ -18,32 +18,32 @@ test.describe("Storybook - Unit Tests - ColorPicker", () => {
   });
 
   test("should be able to select a color", async () => {
-    await colorPicker.selectColor(ContentColorByName.STUCK_RED);
-    expect(await colorPicker.isColorSelected(ContentColorByName.STUCK_RED)).toBe(true);
+    await colorPicker.selectColor(ColorPickerColor.STUCK_RED);
+    expect(await colorPicker.isColorSelected(ColorPickerColor.STUCK_RED)).toBe(true);
   });
 
   test("should return selected color", async () => {
-    await colorPicker.selectColor(ContentColorByName.GRASS_GREEN);
+    await colorPicker.selectColor(ColorPickerColor.GRASS_GREEN);
     const selectedColor = await colorPicker.getSelectedColor();
-    expect(selectedColor).toBe(ContentColorByName.GRASS_GREEN);
+    expect(selectedColor).toBe(ColorPickerColor.GRASS_GREEN);
   });
 
   test("should handle color selection changes", async () => {
-    await colorPicker.selectColor(ContentColorByName.STUCK_RED);
-    expect.soft(await colorPicker.isColorSelected(ContentColorByName.STUCK_RED)).toBe(true);
-    expect.soft(await colorPicker.getSelectedColor()).toBe(ContentColorByName.STUCK_RED);
-    await colorPicker.selectColor(ContentColorByName.BRIGHT_BLUE);
-    expect.soft(await colorPicker.isColorSelected(ContentColorByName.BRIGHT_BLUE)).toBe(true);
-    expect.soft(await colorPicker.getSelectedColor()).toBe(ContentColorByName.BRIGHT_BLUE);
-    expect(await colorPicker.isColorSelected(ContentColorByName.STUCK_RED)).toBe(false);
+    await colorPicker.selectColor(ColorPickerColor.STUCK_RED);
+    expect.soft(await colorPicker.isColorSelected(ColorPickerColor.STUCK_RED)).toBe(true);
+    expect.soft(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.STUCK_RED);
+    await colorPicker.selectColor(ColorPickerColor.BRIGHT_BLUE);
+    expect.soft(await colorPicker.isColorSelected(ColorPickerColor.BRIGHT_BLUE)).toBe(true);
+    expect.soft(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.BRIGHT_BLUE);
+    expect(await colorPicker.isColorSelected(ColorPickerColor.STUCK_RED)).toBe(false);
   });
 
   test("should handle multiple color selections", async () => {
     const colors = [
-      ContentColorByName.STUCK_RED,
-      ContentColorByName.GRASS_GREEN,
-      ContentColorByName.BRIGHT_BLUE,
-      ContentColorByName.EGG_YOLK
+      ColorPickerColor.STUCK_RED,
+      ColorPickerColor.GRASS_GREEN,
+      ColorPickerColor.BRIGHT_BLUE,
+      ColorPickerColor.EGG_YOLK
     ];
 
     for (const color of colors) {
@@ -62,17 +62,17 @@ test.describe("Storybook - Unit Tests - ColorPicker", () => {
   });
 
   test("should handle color selection sequence", async () => {
-    await colorPicker.selectColor(ContentColorByName.STUCK_RED);
-    expect(await colorPicker.getSelectedColor()).toBe(ContentColorByName.STUCK_RED);
+    await colorPicker.selectColor(ColorPickerColor.STUCK_RED);
+    expect(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.STUCK_RED);
 
-    await colorPicker.selectColor(ContentColorByName.GRASS_GREEN);
-    expect(await colorPicker.getSelectedColor()).toBe(ContentColorByName.GRASS_GREEN);
+    await colorPicker.selectColor(ColorPickerColor.GRASS_GREEN);
+    expect(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.GRASS_GREEN);
 
-    await colorPicker.selectColor(ContentColorByName.BRIGHT_BLUE);
-    expect(await colorPicker.getSelectedColor()).toBe(ContentColorByName.BRIGHT_BLUE);
+    await colorPicker.selectColor(ColorPickerColor.BRIGHT_BLUE);
+    expect(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.BRIGHT_BLUE);
 
-    await colorPicker.selectColor(ContentColorByName.STUCK_RED);
-    expect(await colorPicker.getSelectedColor()).toBe(ContentColorByName.STUCK_RED);
+    await colorPicker.selectColor(ColorPickerColor.STUCK_RED);
+    expect(await colorPicker.getSelectedColor()).toBe(ColorPickerColor.STUCK_RED);
   });
 
   test("should count elements correctly", async () => {
