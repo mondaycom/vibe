@@ -145,7 +145,7 @@ export const MultiSelect: Story = {
     );
 
     return (
-      <Flex gap="large" align="start" justify="start" wrap>
+      <Flex gap="large" align="start" justify="start">
         <Flex direction="column" gap="medium">
           <Text>Single line with hidden options</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
@@ -166,31 +166,6 @@ export const MultiSelect: Story = {
               options={options}
               multi
               multiline
-            />
-          </div>
-        </Flex>
-        <Flex direction="column" gap="medium">
-          <Text>Single line with hidden options - Searchable</Text>
-          <div style={{ width: "350px", marginBottom: "50px" }}>
-            <Dropdown
-              placeholder="Single line multi state"
-              defaultValue={[options[0], options[1], options[2]]}
-              options={options}
-              multi
-              searchable
-            />
-          </div>
-        </Flex>
-        <Flex direction="column" gap="medium">
-          <Text>Multiple lines - Searchable</Text>
-          <div style={{ width: "350px", marginBottom: "50px" }}>
-            <Dropdown
-              placeholder="Multiple line multi state"
-              defaultValue={[options[0], options[1], options[2]]}
-              options={options}
-              multi
-              multiline
-              searchable
             />
           </div>
         </Flex>
