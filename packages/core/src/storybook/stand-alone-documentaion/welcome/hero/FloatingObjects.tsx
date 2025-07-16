@@ -103,106 +103,108 @@ function FloatingObject({
 
 export default function FloatingObjects() {
   return (
-    <div className={styles.floatingObjects}>
-      <FloatingObject top={0} left={20} distance={35} direction="toward" smoothing={50} scrollSpeed={-0.6}>
-        <HeroAbstractFluidShape />
-      </FloatingObject>
+    <div className={styles.floatingObjectsWrapper}>
+      <div className={styles.floatingObjects}>
+        <FloatingObject top={0} left={20} distance={35} direction="toward" smoothing={50} scrollSpeed={-0.6}>
+          <HeroAbstractFluidShape />
+        </FloatingObject>
 
-      <FloatingObject
-        top={0}
-        right={30}
-        distance={20}
-        direction="toward"
-        smoothing={10}
-        scrollSpeed={-0.4}
-        rotation={-30}
-      >
-        <HeroHeartShape />
-      </FloatingObject>
+        <FloatingObject
+          top={0}
+          right={30}
+          distance={20}
+          direction="toward"
+          smoothing={10}
+          scrollSpeed={-0.4}
+          rotation={-30}
+        >
+          <HeroHeartShape />
+        </FloatingObject>
 
-      <FloatingObject bottom={0} right={35} distance={50} direction="toward" smoothing={40} scrollSpeed={-0.8}>
-        <HeroCloverShape />
-      </FloatingObject>
+        <FloatingObject bottom={0} right={35} distance={50} direction="toward" smoothing={40} scrollSpeed={-0.8}>
+          <HeroCloverShape />
+        </FloatingObject>
 
-      <FloatingObject bottom={5} left={25} distance={20} direction="toward" smoothing={50} scrollSpeed={-0.6}>
-        <HeroCircleShape />
-      </FloatingObject>
+        <FloatingObject bottom={5} left={25} distance={20} direction="toward" smoothing={50} scrollSpeed={-0.6}>
+          <HeroCircleShape />
+        </FloatingObject>
 
-      <FloatingObject
-        top={40}
-        left={12}
-        distance={20}
-        direction="toward"
-        smoothing={60}
-        scrollSpeed={-0.5}
-        rotation={60}
-      >
-        <HeroCloverShapeGreen />
-      </FloatingObject>
+        <FloatingObject
+          top={40}
+          left={12}
+          distance={20}
+          direction="toward"
+          smoothing={60}
+          scrollSpeed={-0.5}
+          rotation={60}
+        >
+          <HeroCloverShapeGreen />
+        </FloatingObject>
 
-      <FloatingObject
-        top={65}
-        right={15}
-        distance={25}
-        direction="toward"
-        smoothing={30}
-        scrollSpeed={-0.45}
-        rotation={45}
-      >
-        <HeroArrowCrossShape />
-      </FloatingObject>
+        <FloatingObject
+          top={65}
+          right={15}
+          distance={25}
+          direction="toward"
+          smoothing={30}
+          scrollSpeed={-0.45}
+          rotation={45}
+        >
+          <HeroArrowCrossShape />
+        </FloatingObject>
 
-      <FloatingObject top={50} right={0} distance={40} direction="toward" smoothing={70} scrollSpeed={-0.7}>
-        <HeroCircleShapeTeal />
-      </FloatingObject>
+        <FloatingObject top={50} right={0} distance={40} direction="toward" smoothing={70} scrollSpeed={-0.7}>
+          <HeroCircleShapeTeal />
+        </FloatingObject>
 
-      <FloatingObject
-        top={30}
-        right={10}
-        distance={30}
-        direction="toward"
-        smoothing={25}
-        scrollSpeed={-0.6}
-        rotation={30}
-      >
-        <HeroAbstractFluidShape />
-      </FloatingObject>
+        <FloatingObject
+          top={30}
+          right={10}
+          distance={30}
+          direction="toward"
+          smoothing={25}
+          scrollSpeed={-0.6}
+          rotation={30}
+        >
+          <HeroAbstractFluidShape />
+        </FloatingObject>
 
-      <FloatingObject
-        bottom={5}
-        left={5}
-        distance={18}
-        direction="toward"
-        smoothing={35}
-        scrollSpeed={-0.4}
-        rotation={30}
-      >
-        <HeroHeartShape />
-      </FloatingObject>
+        <FloatingObject
+          bottom={5}
+          left={5}
+          distance={18}
+          direction="toward"
+          smoothing={35}
+          scrollSpeed={-0.4}
+          rotation={30}
+        >
+          <HeroHeartShape />
+        </FloatingObject>
 
-      <FloatingObject
-        top={2}
-        right={3}
-        distance={20}
-        direction="toward"
-        smoothing={30}
-        scrollSpeed={-0.5}
-        rotation={20}
-      >
-        <HeroCloverShapeGreen />
-      </FloatingObject>
+        <FloatingObject
+          top={2}
+          right={3}
+          distance={20}
+          direction="toward"
+          smoothing={30}
+          scrollSpeed={-0.5}
+          rotation={20}
+        >
+          <HeroCloverShapeGreen />
+        </FloatingObject>
 
-      <FloatingObject
-        top={10}
-        left={0}
-        distance={25}
-        direction="toward"
-        smoothing={10}
-        scrollSpeed={-0.45}
-        rotation={15}
-      >
-        <HeroArrowCrossShape />
-      </FloatingObject>
+        <FloatingObject
+          top={10}
+          left={0}
+          distance={25}
+          direction="toward"
+          smoothing={10}
+          scrollSpeed={-0.45}
+          rotation={15}
+        >
+          <HeroArrowCrossShape />
+        </FloatingObject>
+      </div>
     </div>
   );
 }

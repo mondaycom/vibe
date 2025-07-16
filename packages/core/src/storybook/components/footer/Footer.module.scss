@@ -39,22 +39,24 @@
 }
 
 @media screen and (max-width: 1676px) {
-  .footer {
-    .footerContent {
-      margin: 0 80px;
-    }
+  .footer .footerContent {
+    max-width: 900px;
+    margin: 0 80px;
+    flex-direction: column;
+    gap: 50px;
+  }
 
-    .footerTitles {
-      max-width: 100%;
-    }
+  .footer .footerTitles {
+    max-width: 100%;
+  }
 
-    .footerContent {
-      flex-direction: column;
-      gap: 50px;
-    }
+  .footer .footerCards {
+    width: 100%;
+  }
+}
 
-    .footerCards {
-      width: 100%;
-    }
+@media screen and (max-width: 956px) {
+  .footer .footerContent {
+    margin: 0 120px;
   }
 }
