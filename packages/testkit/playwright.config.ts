@@ -5,9 +5,17 @@ import path from "path";
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  fullyParallel: false,
-  workers: 1,
-  reporter: [["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }]],
+  fullyParallel: true,
+  workers: 6,
+  reporter: [
+    ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
+    [
+      "list",
+      {
+        printSteps: true
+      }
+    ]
+  ],
 
   // Run your local dev server before starting the tests
   webServer: {
