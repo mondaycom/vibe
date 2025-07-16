@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
@@ -19,7 +20,7 @@ describe("MultiStepIndicator tests", () => {
       }
     ];
 
-    const stepClickMock = jest.fn();
+    const stepClickMock = vi.fn();
 
     const multiStepIndicatorComponent = render(
       <MultiStepIndicator type="success" steps={exampleSteps} onClick={stepClickMock} />

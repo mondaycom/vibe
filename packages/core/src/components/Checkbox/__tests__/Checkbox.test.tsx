@@ -1,10 +1,11 @@
+import { vi, beforeEach, afterEach, beforeAll, afterAll, describe, it, expect, Mock } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import Checkbox from "../Checkbox";
 
-jest.mock("../../../utils/user-agent-utils", () => {
+vi.mock("../../../utils/user-agent-utils", () => {
   return {
-    isFirefox: jest.fn()
+    isFirefox: vi.fn()
   };
 });
 
@@ -23,22 +24,20 @@ function createCheckboxesVariables() {
   };
 }
 
-type MockedFunction = (...args: unknown[]) => void;
-
 type RenderHelper = {
   formName: string;
   checkbox1Name: string;
   option1Value: string;
   option1Text: string;
-  onChangeMock1: jest.MockedFunction<MockedFunction>;
+  onChangeMock1: Mock;
   checkbox2Name: string;
   option2Text: string;
   option2Value: string;
-  onChangeMock2: jest.MockedFunction<MockedFunction>;
+  onChangeMock2: Mock;
   checkbox3Name: string;
   option3Text: string;
   option3Value: string;
-  onChangeMock3: jest.MockedFunction<MockedFunction>;
+  onChangeMock3: Mock;
   defaultChecked?: boolean;
   autoFocus?: boolean;
 };
@@ -105,15 +104,13 @@ describe("Checkbox tests", () => {
     option3Text
   } = createCheckboxesVariables();
 
-  let onChangeMock1: jest.MockedFunction<MockedFunction>,
-    onChangeMock2: jest.MockedFunction<MockedFunction>,
-    onChangeMock3: jest.MockedFunction<MockedFunction>;
+  let onChangeMock1: Mock, onChangeMock2: Mock, onChangeMock3: Mock;
 
   describe("regular checkbox tests with default checked", () => {
     beforeEach(() => {
-      onChangeMock1 = jest.fn();
-      onChangeMock2 = jest.fn();
-      onChangeMock3 = jest.fn();
+      onChangeMock1 = vi.fn();
+      onChangeMock2 = vi.fn();
+      onChangeMock3 = vi.fn();
 
       renderCheckboxes({
         formName,
@@ -146,6 +143,7 @@ describe("Checkbox tests", () => {
       expect(option3.checked).toBeFalsy();
     });
 
+    // eslint-disable-next-line vitest/expect-expect
     it("should unselect 1st option", () => {
       testUnselectFirstOption(option1Text, option2Text, option3Text);
     });
@@ -230,29 +228,27 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      jest.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn().mockImplementation(() => true)
+          isFirefox: vi.fn().mockImplementation(() => true)
         };
       });
     });
 
     afterAll(() => {
-      jest.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn()
+          isFirefox: vi.fn()
         };
       });
     });
 
-    let onChangeMock1: jest.MockedFunction<MockedFunction>,
-      onChangeMock2: jest.MockedFunction<MockedFunction>,
-      onChangeMock3: jest.MockedFunction<MockedFunction>;
+    let onChangeMock1: Mock, onChangeMock2: Mock, onChangeMock3: Mock;
 
     beforeEach(() => {
-      onChangeMock1 = jest.fn();
-      onChangeMock2 = jest.fn();
-      onChangeMock3 = jest.fn();
+      onChangeMock1 = vi.fn();
+      onChangeMock2 = vi.fn();
+      onChangeMock3 = vi.fn();
       renderCheckboxes({
         formName,
         onChangeMock1,
@@ -271,6 +267,7 @@ describe("Checkbox tests", () => {
       });
     });
 
+    // eslint-disable-next-line vitest/expect-expect
     it("should unselect  1st option (with firefox browser - check workaround for known firefox bug", () => {
       testUnselectFirstOption(option1Text, option2Text, option3Text, { shiftKey: true });
     });

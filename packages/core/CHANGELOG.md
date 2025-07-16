@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.54.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.1...@vibe/core@3.54.2) (2025-07-15)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.54.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.0...@vibe/core@3.54.1) (2025-07-13)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.54.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.1...@vibe/core@3.54.0) (2025-07-09)
+
+
+### Features
+
+* **NumberField:** add a new NumberField component ([#2950](https://github.com/mondaycom/vibe/issues/2950)) ([e3693f7](https://github.com/mondaycom/vibe/commit/e3693f72d5bc73576515d8743800a3c6a8f3f07d))
+
+
+
+
+
+## [3.53.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.0...@vibe/core@3.53.1) (2025-07-03)
+
+
+### Bug Fixes
+
+* **icons:** update DropdownChevronDown and DropdownChevronUp ([#2965](https://github.com/mondaycom/vibe/issues/2965)) ([57d9704](https://github.com/mondaycom/vibe/commit/57d9704f04a643884a43bb3274228b3daa52412e))
+
+
+
+
+
+# [3.53.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.2...@vibe/core@3.53.0) (2025-07-01)
+
+
+### Features
+
+* **Dialog, Refable:** add support for customizable wrapper element type in Dialog and Refable components ([#2961](https://github.com/mondaycom/vibe/issues/2961)) ([b4d7729](https://github.com/mondaycom/vibe/commit/b4d7729c8bf482b93fdc6af5d6c41099605bd21a))
+* **FieldLabel:** add htmlFor prop and id support for improved accessibility ([#2958](https://github.com/mondaycom/vibe/issues/2958)) ([7d18194](https://github.com/mondaycom/vibe/commit/7d181949c72fe6293fa155dd0600720afb01b68d))
+
+
+
+
+
+## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
+
+
+### Bug Fixes
+
+* **ButtonGroup:** fix tooltips in fullWidth layout ([#2931](https://github.com/mondaycom/vibe/issues/2931)) ([6a37195](https://github.com/mondaycom/vibe/commit/6a37195ae83524de34dbd3edda6bd0089119a7a4))
+
+
+
+
+
+## [3.52.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.0...@vibe/core@3.52.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* **metadata:** include components withStaticPropsWithoutForwardRef ([#2929](https://github.com/mondaycom/vibe/issues/2929)) ([9e5d351](https://github.com/mondaycom/vibe/commit/9e5d3517f6b87ee2b9238f73f76c41d31496124e))
+
+
+
+
+
 # [3.52.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.3...@vibe/core@3.52.0) (2025-06-08)
 
 

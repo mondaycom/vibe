@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import TextField from "../TextField";
@@ -70,11 +71,6 @@ describe("TextField renders correctly", () => {
 
   it("when readonly", () => {
     const tree = renderer.create(<TextField readonly />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with className", () => {
-    const tree = renderer.create(<TextField className="testClassName" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

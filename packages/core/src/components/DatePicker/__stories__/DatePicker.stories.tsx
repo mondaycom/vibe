@@ -3,7 +3,6 @@ import moment, { Moment } from "moment";
 import DatePicker, { DatePickerProps } from "../DatePicker";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import styles from "./DatePicker.stories.module.scss";
 import { RangeDate } from "../types";
 
 // for Chromatic check to always have the same date UI
@@ -22,7 +21,7 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { MOCK_INITIAL_DATE, styles }
+        scope: { MOCK_INITIAL_DATE }
       }
     }
   }
@@ -31,7 +30,7 @@ export default {
 const DatePickerTemplate = (args: DatePickerProps) => {
   const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
   return (
-    <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+    <DialogContentContainer>
       <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} {...args} />
     </DialogContentContainer>
   );
@@ -54,7 +53,7 @@ export const SingleDay = {
     const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
 
     return (
-      <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+      <DialogContentContainer>
         <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
       </DialogContentContainer>
     );
@@ -68,7 +67,7 @@ export const DateRange = {
     const [date, setDate] = useState(MOCK_INITIAL_DATE);
 
     return (
-      <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+      <DialogContentContainer>
         <DatePicker
           date={date.startDate}
           endDate={date.endDate}
@@ -88,7 +87,7 @@ export const NumberOfMonths = {
     const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
 
     return (
-      <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+      <DialogContentContainer>
         <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
       </DialogContentContainer>
     );

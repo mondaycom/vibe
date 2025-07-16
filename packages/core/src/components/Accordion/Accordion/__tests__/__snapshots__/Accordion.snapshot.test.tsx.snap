@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion renders correctly with allowMultiple 1`] = `
+exports[`Accordion renders correctly > with allowMultiple 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -35,7 +35,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -76,7 +76,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -112,7 +112,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -127,7 +127,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
 </div>
 `;
 
-exports[`Accordion renders correctly with children 1`] = `
+exports[`Accordion renders correctly > with children 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -162,7 +162,7 @@ exports[`Accordion renders correctly with children 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -198,7 +198,7 @@ exports[`Accordion renders correctly with children 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -234,7 +234,7 @@ exports[`Accordion renders correctly with children 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -244,7 +244,7 @@ exports[`Accordion renders correctly with children 1`] = `
 </div>
 `;
 
-exports[`Accordion renders correctly with className 1`] = `
+exports[`Accordion renders correctly > with className 1`] = `
 <div
   className="accordion test"
   data-testid="monday-accordion"
@@ -252,7 +252,7 @@ exports[`Accordion renders correctly with className 1`] = `
 />
 `;
 
-exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
+exports[`Accordion renders correctly > with custom AccordionItem title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -290,7 +290,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -300,7 +300,7 @@ exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
 </div>
 `;
 
-exports[`Accordion renders correctly with defaultIndex prop 1`] = `
+exports[`Accordion renders correctly > with defaultIndex prop 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -335,7 +335,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -376,7 +376,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -412,7 +412,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             width="24"
           >
             <path
-              d="M9.442 12.762a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.158.77.77 0 0 0-1.116 0L10 11.027 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.158l4.21 4.363Z"
+              d="M9.442 12.76a.77.77 0 0 0 1.116 0l4.21-4.363a.84.84 0 0 0 0-1.157.77.77 0 0 0-1.116 0L10 11.025 6.348 7.24a.77.77 0 0 0-1.117 0 .84.84 0 0 0 0 1.157l4.21 4.363Z"
             />
           </svg>
         </button>
@@ -422,7 +422,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
 </div>
 `;
 
-exports[`Accordion renders correctly with empty props 1`] = `
+exports[`Accordion renders correctly > with empty props 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"
@@ -430,7 +430,7 @@ exports[`Accordion renders correctly with empty props 1`] = `
 />
 `;
 
-exports[`Accordion renders correctly with id 1`] = `
+exports[`Accordion renders correctly > with id 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"

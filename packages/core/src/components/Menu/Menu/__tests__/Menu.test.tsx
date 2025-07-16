@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { cleanup, fireEvent, render } from "@testing-library/react";
@@ -42,12 +43,12 @@ describe("Snapshots", () => {
   });
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 const menuTitleCaption = "Title";
 const menuItem1Name = "My item 1";
 const menuItem1Id = "menu-item-1";
-const menuItem1OnClickMock = jest.fn();
-const menuItem2OnClickMock = jest.fn();
+const menuItem1OnClickMock = vi.fn();
+const menuItem2OnClickMock = vi.fn();
 const menuItem2Name = "My item 2";
 const menuItem2Id = "menu-item-2";
 
@@ -74,11 +75,11 @@ describe.skip("<Menu />", () => {
 
     act(() => {
       fireEvent.mouseOver(menuItem);
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       fireEvent.click(menuItem);
     });
 
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
     expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
   });
@@ -89,11 +90,11 @@ describe.skip("<Menu />", () => {
 
     act(() => {
       fireEvent.mouseOver(menuItem);
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       fireEvent.keyUp(menuItem, { key: "Enter" });
     });
 
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
     expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
   });
@@ -104,11 +105,11 @@ describe.skip("<Menu />", () => {
 
     act(() => {
       fireEvent.keyUp(menuElement, { key: "ArrowDown" });
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       fireEvent.keyUp(menuElement, { key: "Enter" });
     });
 
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
     expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
   });
@@ -121,11 +122,11 @@ describe.skip("<Menu />", () => {
 
     act(() => {
       fireEvent.mouseOver(menuItem);
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       fireEvent.click(menuItem);
     });
 
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     expect(menuComponent).toHaveAttribute("aria-activedescendant", menuItem1Id);
   });
 });

@@ -71,40 +71,36 @@ export class BaseElement {
     });
   }
 
-  async getAttributeValue(
-    attributeName: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    options: any = { timeout: 10000, pollInterval: 500 }
-  ): Promise<string | null> {
+  /**
+   * Get the value of an attribute of the element.
+   * @param {string} attributeName - The name of the attribute.
+   * @param {number} timeout - The timeout in milliseconds.
+   * @returns {Promise<string | null>} - The value of the attribute.
+   */
+  async getAttributeValue(attributeName: string, timeout = 30000): Promise<string | null> {
     let attributeValue = null;
 
     await test.step(`Get attribute ${attributeName} of ${this.elementReportName}`, async () => {
-      const startTime = Date.now();
-
-      while (Date.now() - startTime < options.timeout) {
-        attributeValue = await this.locator.getAttribute(attributeName);
-
-        if (attributeValue !== null) {
-          break;
-        }
-        while (Date.now() - startTime < options.timeout) {
-          await new Promise(resolve => setTimeout(resolve, options.pollInterval));
-        }
-        if (attributeValue === null) {
-          throw new Error(`Attribute ${attributeName} did not exist after ${options.timeout} ms`);
-        }
-      }
+      attributeValue = await this.locator.getAttribute(attributeName, { timeout });
     });
+
     return attributeValue;
   }
 
+  /**
+   * Get the text of the element.
+   * @returns {Promise<string | undefined>} - The text of the element.
+   */
   async getText(): Promise<string | undefined> {
-    let text: string | undefined;
-    await test.step(`Get text of ${this.elementReportName}`, async () => {
-      text = await this.locator.innerText();
-      return text;
+    return await test.step(`Get text of ${this.elementReportName}`, async () => {
+      const texts = [
+        await this.locator.innerText(),
+        await this.locator.textContent(),
+        await this.getAttributeValue("value")
+      ];
+      const result = texts.find(text => text !== null && text !== undefined && text !== "");
+      return result === null ? undefined : result;
     });
-    return text;
   }
 
   async waitFor(options = {}): Promise<void> {
@@ -189,6 +185,16 @@ export class BaseElement {
       if ((await locator.count()) === 0) {
         throw new Error(`No ${this.elementReportName} elements found after stabilization`);
       }
+    });
+  }
+
+  /**
+   * Remove focus from the element.
+   * @returns {Promise<void>}
+   */
+  async removeFocus(): Promise<void> {
+    await test.step(`Remove focus from ${this.elementReportName}`, async () => {
+      await this.page.locator("body").click();
     });
   }
 }

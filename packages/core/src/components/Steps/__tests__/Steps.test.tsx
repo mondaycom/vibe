@@ -1,10 +1,11 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Steps, { StepsProps } from "../Steps";
 import { NEXT_TEXT, BACK_TEXT } from "../StepsConstants";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 const stepsContent = [
   <div key="first" data-testid="first-step">
@@ -20,7 +21,7 @@ const renderComponent = (props: StepsProps) => {
 
 describe("Steps tests", () => {
   it("call onChangeIndexCallback when click on go back button and it does not disable", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
       activeStepIndex: stepsContent.length - 1
@@ -34,7 +35,7 @@ describe("Steps tests", () => {
   });
 
   it("call onChangeIndexCallback when click on go forward button and it does not disable", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
       activeStepIndex: 0
@@ -49,7 +50,7 @@ describe("Steps tests", () => {
   });
 
   it("does not call onChangeIndexCallback when click on back button and when in first page", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
       activeStepIndex: 0
@@ -64,7 +65,7 @@ describe("Steps tests", () => {
   });
 
   it("does not call onChangeIndexCallback when click on next button when in last page", () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
       activeStepIndex: stepsContent.length - 1

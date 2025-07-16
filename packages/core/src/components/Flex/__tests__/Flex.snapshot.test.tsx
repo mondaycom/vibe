@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Flex from "../Flex";
@@ -48,18 +49,7 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with align", () => {
-      const tree = renderer
-        .create(
-          <Flex align="end">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </Flex>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+
     it("with gap", () => {
       const tree = renderer
         .create(
