@@ -20,7 +20,7 @@
   .title {
     color: var(--sb-primary-text-color);
     font-family: var(--sb-title-font-family);
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 105%;
     letter-spacing: -1.333px;
@@ -30,7 +30,7 @@
   .subtitle {
     color: var(--sb-secondary-text-color);
     font-family: var(--sb-title-font-family);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 140%;
     letter-spacing: 0.427px;
@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1676px) {
   .footer {
     .footerContent {
       margin: 0 80px;
@@ -50,7 +50,7 @@
 
     .footerContent {
       flex-direction: column;
-      gap: 40px;
+      gap: 50px;
     }
 
     .footerCards {

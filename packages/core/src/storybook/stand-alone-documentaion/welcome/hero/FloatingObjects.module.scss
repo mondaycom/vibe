@@ -1,0 +1,19 @@
+.floatingObjects {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+
+  @media (max-width: 1676px) {
+    width: 120%;
+  }
+}
+
+.object {
+  z-index: 3;
+  position: absolute;
+}

@@ -6,7 +6,7 @@
 
 .text {
   color: var(--sb-secondary-text-color);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.44px;
   line-height: 140%;
@@ -14,24 +14,19 @@
 }
 
 .team {
-  --team-gap: 40px;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max(200px, calc((100% - (3 * var(--team-gap))) / 4)), 1fr));
-  gap: var(--team-gap);
-  max-width: 100%;
-
-  @media screen and (min-width: 1440px) {
-    --team-gap: 64px;
-  }
-
-  .teamItem {
-    height: 100%;
-  }
+  grid-template-columns: repeat(5, 96px);
+  justify-content: space-between;
+  width: 100%;
+  gap: 60px 48px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media screen and (max-width: 1676px) {
+    grid-template-columns: repeat(4, 96px);
   }
 }

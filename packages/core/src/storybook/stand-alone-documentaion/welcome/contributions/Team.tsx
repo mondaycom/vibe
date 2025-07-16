@@ -10,8 +10,11 @@ import Yael from "./assets/Yael.png";
 import Talko from "./assets/Talko.png";
 import Anna from "./assets/Anna.png";
 import Orr from "./assets/Orr.png";
+import Ron from "./assets/Ron.png";
 import Flex from "../../../../components/Flex/Flex";
 import styles from "./Team.module.scss";
+import Section from "../Section";
+import EntranceAnimation from "../EntranceAnimation";
 
 const team = [
   {
@@ -74,28 +77,41 @@ const team = [
     name: "Anna Hyatt",
     linkedinUrl: "https://www.linkedin.com/in/anna-hyatt-design/",
     title: "Product Designer"
+  },
+  {
+    imgSrc: Ron,
+    name: "Ron Yakar",
+    linkedinUrl: "https://www.linkedin.com/in/ronyakar",
+    title: "UX Writer"
   }
 ];
 
 export default function Team() {
   return (
-    <Flex direction="column" align="start" style={{ gap: "42px" }}>
-      <p className={styles.text}>
-        A team of thinkers, doers, and innovators
-        <br /> pushing the monday.com design experience forward.
-      </p>
-      <div className={styles.team}>
-        {team.map(({ imgSrc, name, linkedinUrl, title }) => (
-          <TeamMember
-            key={name}
-            image={imgSrc}
-            name={name}
-            linkedinUrl={linkedinUrl}
-            title={title}
-            className={styles.teamItem}
-          />
-        ))}
-      </div>
-    </Flex>
+    <>
+      <EntranceAnimation>
+        <Section>Our platform builders</Section>
+      </EntranceAnimation>
+      <EntranceAnimation>
+        <Flex direction="column" align="start" style={{ gap: "42px" }}>
+          <p className={styles.text}>
+            A team of thinkers, doers, and innovators
+            <br /> pushing the monday.com design experience forward.
+          </p>
+          <div className={styles.team}>
+            {team.map(({ imgSrc, name, linkedinUrl, title }) => (
+              <TeamMember
+                key={name}
+                image={imgSrc}
+                name={name}
+                linkedinUrl={linkedinUrl}
+                title={title}
+                className={styles.teamItem}
+              />
+            ))}
+          </div>
+        </Flex>
+      </EntranceAnimation>
+    </>
   );
 }
