@@ -2,7 +2,12 @@ import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/initialize.js";
-import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
+import {
+  DayOfWeekShape,
+  DayPickerRangeController,
+  DayPickerSingleDateController,
+  type DayPickerPhrases
+} from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
@@ -58,6 +63,10 @@ export interface DatePickerProps extends VibeComponentProps {
    */
   range?: boolean;
   /**
+   * Custom phrases for accessibility and aria-labels.
+   */
+  phrases?: DayPickerPhrases;
+  /**
    * The number of months displayed in the calendar.
    */
   numberOfMonths?: number;
@@ -89,7 +98,8 @@ const DatePicker = forwardRef(
       enableOutsideDays = false,
       showWeekNumber = false,
       shouldBlockRange,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      phrases
     }: DatePickerProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -171,6 +181,8 @@ const DatePicker = forwardRef(
       setFocusedInput(focusedInput || FocusInput.startDate);
     }, []);
 
+    const mergedPhrases = { ...DayPickerRangeController.defaultProps.phrases, ...phrases };
+
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
@@ -185,6 +197,7 @@ const DatePicker = forwardRef(
       >
         {range ? (
           <DayPickerRangeController
+            phrases={mergedPhrases}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
@@ -206,6 +219,7 @@ const DatePicker = forwardRef(
           />
         ) : (
           <DayPickerSingleDateController
+            phrases={mergedPhrases}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
