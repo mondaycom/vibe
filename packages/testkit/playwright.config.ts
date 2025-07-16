@@ -1,6 +1,15 @@
 import { defineConfig } from "@playwright/test";
 import path from "path";
 
+const listReporter = [
+  "list",
+  {
+    printSteps: true
+  }
+] as const;
+
+const githubReporter = ["github"] as const;
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -9,12 +18,7 @@ export default defineConfig({
   workers: 6,
   reporter: [
     ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
-    [
-      "list",
-      {
-        printSteps: true
-      }
-    ]
+    process.env.CI ? githubReporter : listReporter
   ],
 
   // Run your local dev server before starting the tests
