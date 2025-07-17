@@ -1,16 +1,16 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
-import { ListItem } from "./ListItem";
+import { Tab } from "./Tab";
 
 /**
- * Class representing a Tabs element.
+ * Class representing a TabList element.
  * Extends the BaseElement class.
  */
-export class Tabs extends BaseElement {
+export class TabList extends BaseElement {
   /**
-   * Create a Tabs element.
+   * Create a TabList element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the Tabs element.
+   * @param {Locator} locator - The locator for the TabList element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
@@ -20,35 +20,33 @@ export class Tabs extends BaseElement {
   /**
    * Get a tab by its name.
    * @param {string} tabName - The name of the tab to retrieve.
-   * @returns {Promise<ListItem>} The tab with the specified name.
+   * @returns {Promise<Tab>} The tab with the specified name.
    */
-  async getTabByName(tabName: string): Promise<ListItem> {
+  async getTabByName(tabName: string): Promise<Tab> {
     return await test.step(`Get tab by name ${tabName} for ${this.getElementReportName()}`, async () => {
-      return new ListItem(this.getPage(), this.getLocator().getByRole("tab", { name: tabName }), tabName);
+      return new Tab(this.getPage(), this.getLocator().getByRole("tab", { name: tabName }), tabName);
     });
   }
 
   /**
    * Get all tabs.
-   * @returns {Promise<ListItem[]>} An array of tabs.
+   * @returns {Promise<Tab[]>} An array of tabs.
    */
-  async getAllTabs(): Promise<ListItem[]> {
+  async getAllTabs(): Promise<Tab[]> {
     return await test.step(`Get all tabs for ${this.getElementReportName()}`, async () => {
       const tabs = await this.getLocator().getByRole("tab").all();
-      return tabs.map(
-        (tab, index) => new ListItem(this.getPage(), tab, `${this.getElementReportName()} - Tab ${index}`)
-      );
+      return tabs.map((tab, index) => new Tab(this.getPage(), tab, `${this.getElementReportName()} - Tab ${index}`));
     });
   }
 
   /**
    * Get a tab by its index.
    * @param {number} index - The index of the tab to retrieve.
-   * @returns {Promise<ListItem>} The tab with the specified index.
+   * @returns {Promise<Tab>} The tab with the specified index.
    */
-  async getTabByIndex(index: number): Promise<ListItem> {
+  async getTabByIndex(index: number): Promise<Tab> {
     return await test.step(`Get tab by index ${index} for ${this.getElementReportName()}`, async () => {
-      return new ListItem(
+      return new Tab(
         this.getPage(),
         this.getLocator().getByRole("tab").nth(index),
         `${this.getElementReportName()} - Tab ${index}`
@@ -75,7 +73,7 @@ export class Tabs extends BaseElement {
   async getSelectedTabName(): Promise<string> {
     return await test.step(`Get selected tab name for ${this.getElementReportName()}`, async () => {
       const tabs = await this.getAllTabs();
-      let selectedTab: ListItem | null = null;
+      let selectedTab: Tab | null = null;
 
       for (const tab of tabs) {
         if (await tab.isSelected()) {
