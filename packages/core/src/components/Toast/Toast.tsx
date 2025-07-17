@@ -1,7 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { ReactElement, useCallback, useEffect, useMemo, useRef, JSX } from "react";
+import React, { ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
