@@ -49,7 +49,7 @@ const BaseListItem = forwardRef(
 
     return (
       <Tooltip {...tooltipProps} content={tooltipProps?.content} position={dir === "rtl" ? "right" : "left"}>
-        <Element id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps}>
+        <Element id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps} aria-selected={selected}>
           {itemRenderer ? (
             itemRenderer(item)
           ) : (
