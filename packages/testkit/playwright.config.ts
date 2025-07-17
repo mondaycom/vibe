@@ -44,14 +44,12 @@ export default defineConfig({
   // Reporter to use
   reporter: [
     ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
-    process.env.CI
-      ? ["github"]
-      : [
-          "list",
-          {
-            printSteps: true
-          }
-        ]
+    [
+      "list",
+      {
+        printSteps: true
+      }
+    ]
   ],
 
   // Web server to use
