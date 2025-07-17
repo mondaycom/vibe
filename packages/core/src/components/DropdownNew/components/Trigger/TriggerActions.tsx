@@ -67,6 +67,7 @@ const TriggerActions = () => {
           ariaControls={getMenuProps().id}
           ariaExpanded={isOpen}
           ariaLabeledBy={getMenuProps().id}
+          tabIndex={-1}
           onClick={() => {
             toggleMenu();
           }}
