@@ -1,22 +1,52 @@
 import { Page, Locator, test } from "@playwright/test";
 import { TextField } from "./TextField";
 import { BaseElement } from "./BaseElement";
+import { ListItem } from "./ListItem";
+import { IconButton } from "./IconButton";
 
 /**
- * Class representing a DropDown element.
+ * Class representing a Dropdown element.
  * Extends the BaseElement class.
  */
 export class Dropdown extends BaseElement {
-  inputField: TextField;
+  private inputField: TextField;
+  private clearSelectionIconButton: IconButton;
+
   /**
-   * Create a DropDown.
+   * Create a Dropdown element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the DropDown element.
+   * @param {Locator} locator - The locator for the Dropdown element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.inputField = new TextField(this.page, this.locator.locator("input"), "Dropdown Input Field");
+    this.inputField = new TextField(page, locator.locator("input"), `${elementReportName} - Input Field`);
+    this.clearSelectionIconButton = new IconButton(
+      page,
+      locator.locator(".clear-indicator"),
+      `${elementReportName} - Clear Selection Icon Button`
+    );
+  }
+
+  /**
+   * Get a dropdown item by item.
+   * @param {string} item - The name of the item to get the dropdown item for.
+   * @returns {Promise<ListItem>} The dropdown item.
+   */
+  async getDropdownItemByItem(item: string): Promise<ListItem> {
+    return await test.step(`Get dropdown item by item ${item} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(this.getPage(), this.getLocator().getByRole("option", { name: item }), item);
+    });
+  }
+
+  /**
+   * Check if the dropdown is open.
+   * @returns {Promise<boolean>} True if the dropdown is open, false otherwise.
+   */
+  async isDropdownOpen(): Promise<boolean> {
+    return await test.step(`Check if dropdown is open for ${this.getElementReportName()}`, async () => {
+      return await this.inputField.isExpanded();
+    });
   }
 
   /**
@@ -24,9 +54,25 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async open(): Promise<void> {
-    await test.step(`Open ${this.elementReportName}`, async () => {
+    await test.step(`Open dropdown for ${this.getElementReportName()}`, async () => {
       if (!(await this.isDropdownOpen())) {
-        await this.locator.click();
+        await this.click();
+        // Wait for the dropdown to open
+        await this.getPage().waitForTimeout(200);
+      }
+    });
+  }
+
+  /**
+   * Close the dropdown.
+   * @returns {Promise<void>}
+   */
+  async close(): Promise<void> {
+    await test.step(`Close dropdown for ${this.getElementReportName()}`, async () => {
+      if (await this.isDropdownOpen()) {
+        await this.click();
+        // Wait for the dropdown to close
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
@@ -37,11 +83,22 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(item: string): Promise<void> {
-    await test.step(`Select ${item} from ${this.elementReportName}`, async () => {
+    await test.step(`Select item ${item} for ${this.getElementReportName()}`, async () => {
       await this.open();
+      await this.search(item);
+      const listItem = await this.getDropdownItemByItem(item);
+      await listItem.click();
+    });
+  }
+
+  /**
+   * Search for an item in the dropdown.
+   * @param {string} item - The value text to be searched in the dropdown.
+   * @returns {Promise<void>}
+   */
+  async search(item: string): Promise<void> {
+    await test.step(`Search for ${item} for ${this.getElementReportName()}`, async () => {
       await this.inputField.setText(item);
-      const dropdownItem = this.locator.getByRole("option", { name: item });
-      await dropdownItem.click();
     });
   }
 
@@ -51,26 +108,21 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectMultipleItems(items: string[]): Promise<void> {
-    await test.step(`Select ${items} from ${this.elementReportName}`, async () => {
+    await test.step(`Select multiple items ${items} for ${this.getElementReportName()}`, async () => {
       await this.open();
       for (const item of items) {
-        await this.inputField.setText(item);
-        const dropdownItem = this.locator.getByRole("option", { name: item });
-        await dropdownItem.click();
+        await this.selectItem(item);
       }
     });
   }
 
   /**
-   * Check if the dropdown is open.
-   * @returns {Promise<boolean>}
+   * Clear the selection.
+   * @returns {Promise<void>}
    */
-  private async isDropdownOpen(): Promise<boolean> {
-    let isOpen = false;
-    await test.step(`Check if ${this.elementReportName} is open`, async () => {
-      const expandedAttribute = await this.inputField.getAttributeValue("aria-expanded");
-      isOpen = expandedAttribute === "true" ? true : false;
+  async clearSelection(): Promise<void> {
+    await test.step(`Clear selection for ${this.getElementReportName()}`, async () => {
+      await this.clearSelectionIconButton.click();
     });
-    return isOpen;
   }
 }

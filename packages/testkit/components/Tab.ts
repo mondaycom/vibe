@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 
 /**
@@ -7,7 +7,7 @@ import { BaseElement } from "./BaseElement";
  */
 export class Tab extends BaseElement {
   /**
-   * Create a Tab.
+   * Create a Tab element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the Tab element.
    * @param {string} elementReportName - The name for reporting purposes.

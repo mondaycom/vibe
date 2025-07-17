@@ -1,24 +1,30 @@
 import { Page, Locator, test } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
+import { Button } from "./Button";
+import { Link } from "./Link";
 
 /**
  * Class representing an ExpandCollapse element.
  * Extends the BaseElement class.
  */
 export class ExpandCollapse extends BaseElement {
-  private headerButtonLocator: Locator;
-  private contentLocator: Locator;
+  private headerButton: Button;
+  private content: BaseElement;
 
   /**
-   * Create an ExpandCollapse.
+   * Create an ExpandCollapse element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the ExpandCollapse element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.headerButtonLocator = locator.locator("button[aria-expanded]");
-    this.contentLocator = locator.locator("[role='region']");
+    this.headerButton = new Button(
+      page,
+      locator.locator("button[aria-expanded]"),
+      `${elementReportName} - Header Button`
+    );
+    this.content = new BaseElement(page, locator.locator("[role='region']"), `${elementReportName} - Content`);
   }
 
   /**
@@ -26,8 +32,8 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async toggle(): Promise<void> {
-    await test.step(`Toggle ${this.elementReportName}`, async () => {
-      await this.headerButtonLocator.click();
+    await test.step(`Toggle ${this.getElementReportName()}`, async () => {
+      await this.headerButton.click();
     });
   }
 
@@ -36,10 +42,9 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async expand(): Promise<void> {
-    await test.step(`Expand ${this.elementReportName}`, async () => {
-      const isExpanded = await this.isExpanded();
-      if (!isExpanded) {
-        await this.headerButtonLocator.click();
+    await test.step(`Expand ${this.getElementReportName()}`, async () => {
+      if (await this.isCollapsed()) {
+        await this.headerButton.click();
       }
     });
   }
@@ -49,30 +54,11 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async collapse(): Promise<void> {
-    await test.step(`Collapse ${this.elementReportName}`, async () => {
-      const isExpanded = await this.isExpanded();
-      if (isExpanded) {
-        await this.headerButtonLocator.click();
+    await test.step(`Collapse ${this.getElementReportName()}`, async () => {
+      if (!(await this.isCollapsed())) {
+        await this.headerButton.click();
       }
     });
-  }
-
-  /**
-   * Check if the component is expanded.
-   * @returns {Promise<boolean>} True if expanded, false if collapsed.
-   */
-  async isExpanded(): Promise<boolean> {
-    let isExpandedAttribute: string | null = null;
-
-    await test.step(`Check if ${this.elementReportName} is expanded`, async () => {
-      isExpandedAttribute = await this.headerButtonLocator.getAttribute("aria-expanded", { timeout: 30000 });
-
-      if (isExpandedAttribute === null) {
-        throw new Error(`Attribute aria-expanded did not exist after 30000 ms`);
-      }
-    });
-
-    return isExpandedAttribute === "true";
   }
 
   /**
@@ -80,8 +66,9 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<boolean>} True if collapsed, false if expanded.
    */
   async isCollapsed(): Promise<boolean> {
-    const expanded = await this.isExpanded();
-    return !expanded;
+    return await test.step(`Check if ${this.getElementReportName()} is collapsed`, async () => {
+      return !(await this.headerButton.isExpanded());
+    });
   }
 
   /**
@@ -89,11 +76,9 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<string>} The header text content.
    */
   async getHeaderText(): Promise<string> {
-    let headerText = "";
-    await test.step(`Get header text of ${this.elementReportName}`, async () => {
-      headerText = await this.headerButtonLocator.innerText();
+    return await test.step(`Get header text of ${this.getElementReportName()}`, async () => {
+      return await this.headerButton.getText();
     });
-    return headerText;
   }
 
   /**
@@ -101,11 +86,9 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<boolean>} True if content is visible, false otherwise.
    */
   async isContentVisible(): Promise<boolean> {
-    let isVisible = false;
-    await test.step(`Check if content of ${this.elementReportName} is visible`, async () => {
-      isVisible = await this.contentLocator.isVisible();
+    return await test.step(`Check if content of ${this.getElementReportName()} is visible`, async () => {
+      return await this.content.isVisible();
     });
-    return isVisible;
   }
 
   /**
@@ -113,7 +96,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {BaseElement} The content element wrapped in BaseElement.
    */
   getContentElement(): BaseElement {
-    return new BaseElement(this.page, this.contentLocator, `${this.elementReportName} content`);
+    return new BaseElement(this.getPage(), this.content.getLocator(), `content of ${this.getElementReportName()}`);
   }
 
   /**
@@ -121,40 +104,9 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<string>} The content text.
    */
   async getContentText(): Promise<string> {
-    let contentText = "";
-    await test.step(`Get content text of ${this.elementReportName}`, async () => {
-      // Wait for content to be visible before getting text
-      await this.contentLocator.waitFor({ state: "visible" });
-      contentText = await this.contentLocator.innerText();
-    });
-    return contentText;
-  }
-
-  /**
-   * Wait for the component to be expanded.
-   * @returns {Promise<void>}
-   */
-  async waitForExpanded(): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be expanded`, async () => {
-      await this.headerButtonLocator.waitFor({ state: "visible" });
-      // Poll until the component is expanded
-      while (!(await this.isExpanded())) {
-        await this.page.waitForTimeout(100);
-      }
-    });
-  }
-
-  /**
-   * Wait for the component to be collapsed.
-   * @returns {Promise<void>}
-   */
-  async waitForCollapsed(): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be collapsed`, async () => {
-      await this.headerButtonLocator.waitFor({ state: "visible" });
-      // Poll until the component is collapsed
-      while (await this.isExpanded()) {
-        await this.page.waitForTimeout(100);
-      }
+    return await test.step(`Get content text of ${this.getElementReportName()}`, async () => {
+      await this.content.waitForElementToBeVisible();
+      return await this.content.getText();
     });
   }
 
@@ -164,16 +116,20 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickItemByText(itemText: string): Promise<void> {
-    await test.step(`Click item "${itemText}" in ${this.elementReportName} content`, async () => {
+    await test.step(`Click item "${itemText}" in ${this.getElementReportName()} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
       // Wait for content to be visible
-      await this.contentLocator.waitFor({ state: "visible" });
+      await this.content.waitForElementToBeVisible();
 
       // Find and click the item
-      const itemLocator = this.contentLocator.getByText(itemText, { exact: false });
-      await itemLocator.click();
+      const item = new BaseElement(
+        this.getPage(),
+        this.content.getLocator().getByText(itemText, { exact: false }),
+        `item "${itemText}" in ${this.getElementReportName()} content`
+      );
+      await item.click();
     });
   }
 
@@ -183,16 +139,20 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickItemByExactText(itemText: string): Promise<void> {
-    await test.step(`Click item with exact text "${itemText}" in ${this.elementReportName} content`, async () => {
+    await test.step(`Click item with exact text "${itemText}" in ${this.getElementReportName()} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
       // Wait for content to be visible
-      await this.contentLocator.waitFor({ state: "visible" });
+      await this.content.waitForElementToBeVisible();
 
       // Find and click the item with exact text match
-      const itemLocator = this.contentLocator.getByText(itemText, { exact: true });
-      await itemLocator.click();
+      const item = new BaseElement(
+        this.getPage(),
+        this.content.getLocator().getByText(itemText, { exact: true }),
+        `item with exact text "${itemText}" in ${this.getElementReportName()} content`
+      );
+      await item.click();
     });
   }
 
@@ -202,16 +162,20 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickLinkInContent(linkText: string): Promise<void> {
-    await test.step(`Click link "${linkText}" in ${this.elementReportName} content`, async () => {
+    await test.step(`Click link "${linkText}" in ${this.getElementReportName()} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
       // Wait for content to be visible
-      await this.contentLocator.waitFor({ state: "visible" });
+      await this.content.waitForElementToBeVisible();
 
       // Find and click the link
-      const linkLocator = this.contentLocator.locator("a").filter({ hasText: linkText });
-      await linkLocator.click();
+      const link = new Link(
+        this.getPage(),
+        this.content.getLocator().locator("a").filter({ hasText: linkText }),
+        `link "${linkText}" in ${this.getElementReportName()} content`
+      );
+      await link.click();
     });
   }
 }

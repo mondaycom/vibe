@@ -1,48 +1,42 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, test } from "@playwright/test";
+import { BaseElement } from "./BaseElement";
 import { IconButton } from "./IconButton";
-import { pressKey } from "../utils/common-actions";
 
 /**
- * Class representing a Modal
+ * Class representing a Modal element.
+ * Extends the BaseElement class.
  */
-export class Modal {
-  page: Page;
-  locator: Locator;
-  elementReportName: string;
-  closeModalButton: IconButton;
+export class Modal extends BaseElement {
+  private closeModalButton: IconButton;
 
   /**
-   * Create a Modal.
+   * Create a Modal element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the MenuButton element.
+   * @param {Locator} locator - The locator for the Modal element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
-    this.page = page;
-    this.locator = locator;
-    this.elementReportName = elementReportName;
+    super(page, locator, elementReportName);
     this.closeModalButton = new IconButton(
-      this.page,
-      this.locator.getByTestId("close-modal-button"),
-      elementReportName
+      page,
+      locator.getByTestId("modal-close-button"),
+      `${elementReportName} - X Button`
     );
   }
 
   /**
    * Close the modal.
+   * @returns {Promise<void>}
    */
   async closeModal(): Promise<void> {
-    if (await this.closeModalButton.isVisible()) {
-      await this.closeModalButton.click();
-    } else {
-      await pressKey(this.page, "Escape");
-    }
-  }
-
-  /**
-   * Check if the modal is visible.
-   */
-  async isVisible(): Promise<boolean> {
-    return await this.locator.isVisible();
+    await test.step(`Close modal for ${this.getElementReportName()}`, async () => {
+      if (await this.closeModalButton.isVisible()) {
+        await this.closeModalButton.click();
+      } else {
+        await this.getPage().keyboard.press("Escape");
+      }
+      // Wait for the modal to close
+      await this.getPage().waitForTimeout(200);
+    });
   }
 }

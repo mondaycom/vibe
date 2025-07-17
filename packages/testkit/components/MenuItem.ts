@@ -1,4 +1,4 @@
-import { Page, Locator, test } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { BaseElement } from "./BaseElement";
 
 /**
@@ -7,23 +7,12 @@ import { BaseElement } from "./BaseElement";
  */
 export class MenuItem extends BaseElement {
   /**
-   * Create a MenuItem.
+   * Create a MenuItem element.
    * @param {Page} page - The Playwright page object.
-   * @param {Locator} locator - The locator for the ListItem element.
+   * @param {Locator} locator - The locator for the MenuItem element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-  }
-
-  /**
-   * Click the MenuItem element.
-   * @returns {Promise<void>}
-   */
-  async click(): Promise<void> {
-    await test.step(`Click ${this.elementReportName}`, async () => {
-      await this.locator.hover();
-      await this.locator.click();
-    });
   }
 }

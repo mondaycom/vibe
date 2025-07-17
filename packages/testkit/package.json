@@ -25,7 +25,8 @@
     "directory": "packages/testkit"
   },
   "scripts": {
-    "test:e2e": "npx playwright test",
+    "test:all": "npx playwright test",
+    "test:changed": "node scripts/run-changed-tests.js",
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",

@@ -7,74 +7,88 @@ import { BaseElement } from "./BaseElement";
  * Extends the BaseElement class.
  */
 export class List extends BaseElement {
-  private items: ListItem[]; // Correct TypeScript array declaration
-  private itemsInitialized: boolean;
-
   /**
-   * Create a List.
+   * Create a List element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the List element.
    * @param {string} elementReportName - The name for reporting purposes.
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.items = [];
-    this.itemsInitialized = false;
-  }
-
-  /**
-   * Initialize list items if they are not already initialized.
-   * @returns {Promise<void>}
-   */
-  async initializeItemsIfNeeded(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName} if needed`, async () => {
-      if (!this.itemsInitialized) {
-        await this.initializeItems();
-        this.itemsInitialized = true;
-      }
-    });
-  }
-
-  /**
-   * Initialize the list items by locating all list elements.
-   * @returns {Promise<void>}
-   */
-  async initializeItems(): Promise<void> {
-    await test.step(`Initialize ${this.elementReportName}`, async () => {
-      const listItemLocator = this.locator.locator("li");
-      await this.waitForAndVerifyElements(listItemLocator);
-      const listElements = await listItemLocator.all();
-      this.items = await Promise.all(
-        listElements.map(async locator => {
-          const itemName = await locator.innerText();
-          return new ListItem(this.page, locator, `List Item: ${itemName}`);
-        })
-      );
-    });
   }
 
   /**
    * Get a list item by its name.
    * @param {string} itemName - The name of the item to retrieve.
-   * @returns {ListItem | undefined} The list item with the specified name or undefined if not found.
+   * @returns {Promise<ListItem>} The list item with the specified name.
    */
-  getItemByName(itemName: string): ListItem | undefined {
-    return this.items.find(item => item.elementReportName.includes(itemName));
+  async getItemByName(itemName: string): Promise<ListItem> {
+    return await test.step(`Get list item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(this.getPage(), this.getLocator().getByText(`${itemName}`), itemName);
+    });
   }
 
   /**
-   * Select a list item.
-   * @param {string} listItem - The name of the item to select.
+   * Get a list item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<ListItem>} The list item with the specified index.
+   */
+  async getItemByIndex(index: number): Promise<ListItem> {
+    return await test.step(`Get list item by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(
+        this.getPage(),
+        this.getLocator().getByRole("option").nth(index),
+        `${this.getElementReportName()} - List Item ${index}`
+      );
+    });
+  }
+
+  /**
+   * Click a list item by its name.
+   * @param {string} itemName - The name of the item to click.
    * @returns {Promise<void>}
    */
-  async selectItem(listItem: string): Promise<void> {
-    await this.initializeItemsIfNeeded();
-    let item = this.getItemByName(listItem);
-    if (!item) {
-      // If the item is not in the initialized list, create it dynamically
-      item = new ListItem(this.page, this.locator.getByText(`${listItem}`), `List Item: ${listItem}`);
-    }
-    await item.scrollIntoView();
-    await item.click();
+  async selectItem(itemName: string): Promise<void> {
+    await test.step(`Click list item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getItemByName(itemName);
+      await listItem.scrollIntoView();
+      await listItem.click();
+    });
+  }
+
+  /**
+   * Check if a list item is disabled.
+   * @param {string} itemName - The name of the item to check.
+   * @returns {Promise<boolean>} True if the item is disabled, false otherwise.
+   */
+  async isItemDisabled(itemName: string): Promise<boolean> {
+    return await test.step(`Check if list item ${itemName} is disabled for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getItemByName(itemName);
+      return await listItem.isDisabled();
+    });
+  }
+
+  /**
+   * Get the text of a list item by its index.
+   * @param {number} index - The index of the item to retrieve.
+   * @returns {Promise<string>} The text of the list item with the specified index.
+   */
+  async getItemTextByIndex(index: number): Promise<string> {
+    return await test.step(`Get list item text by index ${index} for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getItemByIndex(index);
+      return await listItem.getText();
+    });
+  }
+
+  /**
+   * Click a list item by its index.
+   * @param {number} index - The index of the item to click.
+   * @returns {Promise<void>}
+   */
+  async clickItemByIndex(index: number): Promise<void> {
+    await test.step(`Click list item by index ${index} for ${this.getElementReportName()}`, async () => {
+      const listItem = await this.getItemByIndex(index);
+      await listItem.click();
+    });
   }
 }
