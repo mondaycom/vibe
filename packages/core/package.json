@@ -97,7 +97,6 @@
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
     "monday-ui-style": "0.24.0",
-    "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
     "react-inlinesvg": "^4.1.3",
