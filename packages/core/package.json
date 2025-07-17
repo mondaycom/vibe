@@ -45,7 +45,11 @@
       "import": "./dist/src/components/next.js",
       "default": "./dist/src/components/next.js"
     },
-    "./tokens": "./dist/tokens/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens/tokens.d.ts",
+      "import": "./dist/tokens/tokens.css",
+      "default": "./dist/tokens/tokens.css"
+    },
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames/src/index.js",
       "default": "./dist/mocked_classnames/src/index.js"
@@ -61,6 +65,9 @@
       ],
       "next": [
         "./dist/components/next.d.ts"
+      ],
+      "tokens": [
+        "./dist/tokens/tokens.d.ts"
       ]
     }
   },

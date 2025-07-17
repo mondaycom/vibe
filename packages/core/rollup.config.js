@@ -127,6 +127,10 @@ export default {
           src: "../../node_modules/monday-ui-style/dist/index.min.css",
           dest: "dist/tokens",
           rename: () => "tokens.css"
+        },
+        {
+          src: "types/tokens.d.ts",
+          dest: "dist/tokens"
         }
       ]
     })
