@@ -3,7 +3,7 @@ import path from "path";
 
 // Optimize worker count based on environment
 const getWorkerCount = () => {
-  return process.env.WORKERS && process.env.CI ? parseInt(process.env.WORKERS) : "50%";
+  return process.env.WORKERS && process.env.CI ? process.env.WORKERS : "50%";
 };
 
 // Optimize test timeout based on environment
@@ -35,8 +35,13 @@ const getGlobalTimeout = () => {
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  // Run tests in parallel
   fullyParallel: true,
+
+  // Number of workers to use
   workers: getWorkerCount(),
+
+  // Reporter to use
   reporter: [
     ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
     process.env.CI
@@ -49,6 +54,7 @@ export default defineConfig({
         ]
   ],
 
+  // Web server to use
   webServer: {
     command: "yarn start-server",
     url: "http://127.0.0.1:7008",
@@ -58,6 +64,7 @@ export default defineConfig({
     stderr: "pipe"
   },
 
+  // Test configuration
   use: {
     headless: true,
     baseURL: "http://127.0.0.1:7008",
@@ -70,9 +77,12 @@ export default defineConfig({
     }
   },
 
+  // Timeout for tests
   timeout: getTestTimeout(),
 
+  // Retries for tests
   retries: getRetriesCount(),
 
+  // Global timeout for whole test suites
   globalTimeout: getGlobalTimeout()
 });
