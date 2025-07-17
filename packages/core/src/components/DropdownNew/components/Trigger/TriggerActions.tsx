@@ -57,7 +57,7 @@ const TriggerActions = () => {
             icon={CloseSmall}
             onClick={handleClear}
             size={iconButtonSize}
-            ariaLabel="Clear selection"
+            ariaLabeledBy={getMenuProps().id}
           />
         )}
         <IconButton
@@ -66,7 +66,7 @@ const TriggerActions = () => {
           disabled={disabled}
           ariaControls={getMenuProps().id}
           ariaExpanded={isOpen}
-          ariaLabel={isOpen ? "Close menu" : "Open menu"}
+          ariaLabeledBy={getMenuProps().id}
           onClick={() => {
             toggleMenu();
           }}
