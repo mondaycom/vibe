@@ -82,6 +82,10 @@ function runTests(testFiles) {
   console.log(`Running ${testFiles.length} test files for changed components:`);
   testFiles.forEach(file => console.log(`  - ${path.basename(file)}`));
 
+  // Run pre:test setup before executing tests
+  console.log("\nRunning pre-test setup...");
+  execSync("yarn pre:test", { stdio: "inherit" });
+
   // Run specific test files instead of using grep pattern
   const testFileArgs = testFiles.map(file => path.relative(process.cwd(), file)).join(" ");
   const command = `npx playwright test ${testFileArgs}`;

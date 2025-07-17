@@ -1,21 +1,6 @@
 import { defineConfig } from "@playwright/test";
 import path from "path";
 
-// Optimize reporters based on environment
-const getReporters = (): any[] => {
-  return [
-    ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
-    process.env.CI
-      ? ["github"]
-      : [
-          "list",
-          {
-            printSteps: true
-          }
-        ]
-  ];
-};
-
 // Optimize worker count based on environment
 const getWorkerCount = () => {
   return process.env.WORKERS && process.env.CI ? parseInt(process.env.WORKERS) : "50%";
@@ -52,7 +37,17 @@ const getGlobalTimeout = () => {
 export default defineConfig({
   fullyParallel: true,
   workers: getWorkerCount(),
-  reporter: getReporters(),
+  reporter: [
+    ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
+    process.env.CI
+      ? ["github"]
+      : [
+          "list",
+          {
+            printSteps: true
+          }
+        ]
+  ],
 
   webServer: {
     command: "yarn start-server",
