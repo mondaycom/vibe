@@ -7,7 +7,7 @@ let text: Text;
 const textLocator = 'div[data-testid="text"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Text", () => {
+test.describe("Testkit - Unit Tests - Text", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(textStory);
     frame = page.frameLocator(frameLocator);

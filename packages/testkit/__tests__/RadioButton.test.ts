@@ -7,7 +7,7 @@ let radioButton: RadioButton;
 const radioButtonLocator = 'label[data-testid="radio-button"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - RadioButton", () => {
+test.describe("Testkit - Unit Tests - RadioButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(radioButtonStory);
     frame = page.frameLocator(frameLocator);

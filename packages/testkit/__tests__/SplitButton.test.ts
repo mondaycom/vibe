@@ -9,7 +9,7 @@ const splitButtonLocator = 'div[data-testid="split-button"]';
 const menuLocator = 'ul[role="menu"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - SplitButton", () => {
+test.describe("Testkit - Unit Tests - SplitButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(splitButtonStory);
     frame = page.frameLocator(frameLocator);

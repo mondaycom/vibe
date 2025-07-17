@@ -8,7 +8,7 @@ let colorPicker: ColorPicker;
 const colorPickerLocator = 'div[data-testid="dialog-content-container"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - ColorPicker", () => {
+test.describe("Testkit - Unit Tests - ColorPicker", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(colorPickerStory);
     frame = page.frameLocator(frameLocator);

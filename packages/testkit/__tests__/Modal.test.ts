@@ -7,7 +7,7 @@ let modal: Modal;
 const modalLocator = "#modal-basic";
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Modal", () => {
+test.describe("Testkit - Unit Tests - Modal", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(modalStory);
     frame = page.frameLocator(frameLocator);

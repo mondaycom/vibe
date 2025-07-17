@@ -23,7 +23,7 @@ jobs:
       matrix:
         include:
           - name: "Test"
-            command: "test:changed"
+            command: "test"
           - name: "Lint"
             command: "lint"
           - name: "Stylelint"
@@ -48,6 +48,33 @@ jobs:
           CI: true
           WORKERS: "50%"
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
+
+  testkit-tests:
+    name: Testkit Unit Tests
+    if: ${{ inputs.has_changes == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - id: determine-since-flag
+        uses: ./.github/actions/determine-lerna-since-flag
+      - uses: ./.github/actions/download-builds
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run Unit Tests
+        run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: test-results
+          path: |
+            packages/testkit/reports
+            packages/testkit/test-results
 
   bundle-size:
     name: Bundle Size

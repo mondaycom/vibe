@@ -9,7 +9,7 @@ const menuButtonLocator = 'button[data-testid="menu-button"]';
 const menuLocator = 'ul[role="menu"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - MenuButton", () => {
+test.describe("Testkit - Unit Tests - MenuButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(menuButtonStory);
     frame = page.frameLocator(frameLocator);

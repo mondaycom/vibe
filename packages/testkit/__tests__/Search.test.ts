@@ -7,7 +7,7 @@ let search: Search;
 const searchLocator = "div[role='search']";
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Search", () => {
+test.describe("Testkit - Unit Tests - Search", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(searchStory);
     frame = page.frameLocator(frameLocator);

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { execSync } = require("child_process");
+const { execSync, execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -82,16 +82,11 @@ function runTests(testFiles) {
   console.log(`Running ${testFiles.length} test files for changed components:`);
   testFiles.forEach(file => console.log(`  - ${path.basename(file)}`));
 
-  // Run pre:test setup before executing tests
-  console.log("\nRunning pre-test setup...");
-  execSync("yarn pre:test", { stdio: "inherit" });
+  const testFileArgs = testFiles.map(file => path.relative(process.cwd(), file));
+  const testFileNames = testFileArgs.map(file => path.basename(file));
 
-  // Run specific test files instead of using grep pattern
-  const testFileArgs = testFiles.map(file => path.relative(process.cwd(), file)).join(" ");
-  const command = `npx playwright test ${testFileArgs}`;
-
-  console.log(`\nExecuting: ${command}`);
-  execSync(command, { stdio: "inherit" });
+  console.log(`\nExecuting: npx playwright test`, testFileNames);
+  execFileSync("npx", ["playwright", "test", ...testFileArgs], { stdio: "inherit" });
 }
 
 // Main execution

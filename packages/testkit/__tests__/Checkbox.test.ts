@@ -7,7 +7,7 @@ let checkbox: Checkbox;
 const checkboxLocator = 'label[data-testid="checkbox"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Checkbox", () => {
+test.describe("Testkit - Unit Tests - Checkbox", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(checkboxStory);
     frame = page.frameLocator(frameLocator);

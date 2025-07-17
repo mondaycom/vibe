@@ -7,7 +7,7 @@ let list: List;
 const listLocator = 'ul[data-testid="list"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - List", () => {
+test.describe("Testkit - Unit Tests - List", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(listStory);
     frame = page.frameLocator(frameLocator);

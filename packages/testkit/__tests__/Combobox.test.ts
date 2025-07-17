@@ -7,7 +7,7 @@ let combobox: Combobox;
 const comboboxLocator = 'div[data-testid="combobox"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Combobox", () => {
+test.describe("Testkit - Unit Tests - Combobox", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(comboboxStory);
     frame = page.frameLocator(frameLocator);

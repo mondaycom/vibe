@@ -7,7 +7,7 @@ let toggle: Toggle;
 const toggleLocator = ".Toggle-module_wrapper";
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Toggle", () => {
+test.describe("Testkit - Unit Tests - Toggle", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(toggleStory);
     frame = page.frameLocator(frameLocator);

@@ -7,7 +7,7 @@ let loader: Loader;
 const loaderLocator = 'div[data-testid="loader"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Loader", () => {
+test.describe("Testkit - Unit Tests - Loader", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(loaderStory);
     frame = page.frameLocator(frameLocator);

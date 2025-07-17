@@ -7,7 +7,7 @@ let dropdown: Dropdown;
 const dropdownLocator = "#dropdown-menu-id";
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Dropdown", () => {
+test.describe("Testkit - Unit Tests - Dropdown", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(dropdownStory);
     frame = page.frameLocator(frameLocator);

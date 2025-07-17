@@ -7,7 +7,7 @@ let link: Link;
 const linkLocator = 'a[data-testid="link"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Link", () => {
+test.describe("Testkit - Unit Tests - Link", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(linkStory);
     frame = page.frameLocator(frameLocator);

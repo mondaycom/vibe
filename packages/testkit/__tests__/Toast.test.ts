@@ -5,7 +5,7 @@ import { Toast } from "../components/Toast";
 const toastLocator = 'div[data-testid="toast"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Button Toast", () => {
+test.describe("Testkit - Unit Tests - Button Toast", () => {
   let frame: FrameLocator;
   let toast: Toast;
 

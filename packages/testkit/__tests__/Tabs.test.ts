@@ -7,7 +7,7 @@ let tabs: Tabs;
 const tabsLocator = 'ul[role="tablist"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Tabs", () => {
+test.describe("Testkit - Unit Tests - Tabs", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(tabsStory);
     frame = page.frameLocator(frameLocator);

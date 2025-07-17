@@ -7,7 +7,7 @@ let textField: TextField;
 const textFieldLocator = "#input";
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - TextField", () => {
+test.describe("Testkit - Unit Tests - TextField", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(textfieldStory);
     frame = page.frameLocator(frameLocator);

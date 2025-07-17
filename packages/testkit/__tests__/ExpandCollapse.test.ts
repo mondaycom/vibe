@@ -7,7 +7,7 @@ let expandCollapse: ExpandCollapse;
 const expandCollapseLocator = 'div[data-testid="expand-collapse"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - ExpandCollapse", () => {
+test.describe("Testkit - Unit Tests - ExpandCollapse", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(expandCollapseStory);
     frame = page.frameLocator(frameLocator);

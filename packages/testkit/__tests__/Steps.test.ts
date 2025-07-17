@@ -7,7 +7,7 @@ let steps: Steps;
 const stepsLocator = 'div[data-testid="steps"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - Steps", () => {
+test.describe("Testkit - Unit Tests - Steps", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(stepsStory);
     frame = page.frameLocator(frameLocator);

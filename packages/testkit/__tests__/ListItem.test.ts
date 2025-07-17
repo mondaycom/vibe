@@ -7,7 +7,7 @@ let listItem: ListItem;
 const listItemLocator = 'div[role="option"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - ListItem", () => {
+test.describe("Testkit - Unit Tests - ListItem", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(listItemStory);
     frame = page.frameLocator(frameLocator);

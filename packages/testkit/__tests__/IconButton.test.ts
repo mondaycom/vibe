@@ -7,7 +7,7 @@ let iconButton: IconButton;
 const iconButtonLocator = 'button[data-testid="icon-button"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
-test.describe("Storybook - Unit Tests - IconButton", () => {
+test.describe("Testkit - Unit Tests - IconButton", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(iconButtonStory);
     frame = page.frameLocator(frameLocator);
