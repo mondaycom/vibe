@@ -26,7 +26,8 @@
   },
   "scripts": {
     "pre:test": "yarn playwright install",
-    "test": "yarn pre:test && npx playwright test",
+    "test:all": "yarn pre:test && npx playwright test",
+    "test:changed": "yarn pre:test && node scripts/run-changed-tests.js",
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
