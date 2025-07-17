@@ -5,7 +5,7 @@ import {
   MENU,
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
-import { Dropdown } from "../../index";
+import { Dropdown } from "../index";
 import * as DropdownStories from "./Dropdown.stories";
 
 <Meta of={DropdownStories} />
@@ -96,7 +96,6 @@ The Dropdown component supports multi select option that display as chips. The s
                 { value: 2, label: "Option 2" },
                 { value: 3, label: "Option 3" }
               ]}
-              className="dropdown-stories-styles_rules-spacing"
             />
           </div>
         ),
@@ -107,14 +106,12 @@ The Dropdown component supports multi select option that display as chips. The s
         component: (
           <div style={{ width: "300px" }}>
             <Dropdown
-              menuIsOpen
               placeholder="Placeholder text here"
               options={[
                 { value: 1, label: "Option 1" },
                 { value: 2, label: "Option 2" },
                 { value: 3, label: "Option 3" }
               ]}
-              className="dropdown-stories-styles_rules-spacing"
             />
           </div>
         ),
