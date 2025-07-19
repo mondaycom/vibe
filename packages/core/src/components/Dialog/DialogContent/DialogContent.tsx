@@ -118,7 +118,7 @@ const DialogContent = forwardRef(
     }: DialogContentProps,
     forwardRef: React.ForwardedRef<HTMLElement>
   ) => {
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
     const onOutSideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
@@ -178,7 +178,13 @@ const DialogContent = forwardRef(
         onClickCapture={onClick}
         data-popper-reference-hidden={isReferenceHidden}
       >
-        <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
+        <CSSTransition
+          classNames={transitionOptions.classNames}
+          nodeRef={ref}
+          in={isOpen}
+          appear={!!animationType}
+          timeout={showDelay}
+        >
           <div
             className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
