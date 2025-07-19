@@ -26,9 +26,9 @@ export default {
   }
 };
 
-const tabsTemplate = ({ ...args }) => {
-  return (
-    <TabsContext {...args}>
+export const Overview = {
+  render: () => (
+    <TabsContext>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -46,16 +46,8 @@ const tabsTemplate = ({ ...args }) => {
         </TabPanel>
       </TabPanels>
     </TabsContext>
-  );
-};
-
-export const Overview = {
-  render: tabsTemplate.bind({}),
+  ),
   name: "Overview",
-
-  args: {
-    tabPanelClassName: "monday-storybook-tabs_bg-color"
-  },
   parameters: {
     docs: {
       liveEdit: {
