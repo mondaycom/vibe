@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ExpandCollapse from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Flex, Icon, Text } from "../../index";
+import { Icon, Text } from "../../index";
 import Heading from "../../Heading/Heading";
 import { Robot } from "@vibe/icons";
 
