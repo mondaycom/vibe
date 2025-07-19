@@ -55,6 +55,7 @@ const DropdownChip = <Item extends BaseListItemData<Record<string, unknown>>>({
   return (
     <Chips
       label={item.label}
+      closeButtonAriaLabel={`Remove ${item.label}`}
       onDelete={onDelete}
       disabled={disabled}
       readOnly={readOnly}

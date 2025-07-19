@@ -27,6 +27,7 @@ function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(pro
   const defaultProps = {
     options: props?.options ?? (defaultOptions as any),
     placeholder: "Select an option",
+    searchable: true,
     ...props
   };
   return render(<Dropdown {...(defaultProps as BaseDropdownProps<T>)} />);
@@ -765,7 +766,7 @@ describe("DropdownNew", () => {
       ];
 
       const { getByText, getByPlaceholderText } = render(
-        <Dropdown options={inlineOptions} placeholder="Select an inline option" />
+        <Dropdown options={inlineOptions} placeholder="Select an inline option" searchable={true} />
       );
 
       const input = getByPlaceholderText("Select an inline option");
@@ -809,6 +810,7 @@ describe("DropdownNew", () => {
           options={typedInlineOptions}
           placeholder="Select typed inline option"
           onChange={handleChange}
+          searchable={true}
         />
       );
 
@@ -841,7 +843,12 @@ describe("DropdownNew", () => {
       const customRenderer = (item: any) => <div data-testid={`inline-render-${item.value}`}>Custom: {item.label}</div>;
 
       const { getByTestId, getByPlaceholderText } = render(
-        <Dropdown options={inlineOptions} placeholder="Select rendered option" optionRenderer={customRenderer} />
+        <Dropdown
+          options={inlineOptions}
+          placeholder="Select rendered option"
+          optionRenderer={customRenderer}
+          searchable={true}
+        />
       );
 
       const input = getByPlaceholderText("Select rendered option");
@@ -889,6 +896,7 @@ describe("DropdownNew", () => {
           options={typedRenderedOptions}
           placeholder="Select typed rendered option"
           optionRenderer={typedRenderer}
+          searchable={true}
         />
       );
 
@@ -1012,9 +1020,14 @@ describe("DropdownNew", () => {
 
   describe("with showSelectedOptions prop", () => {
     const showSelectedTestOptions = [
-      { label: "Option Alpha", value: "alpha" },
-      { label: "Option Beta", value: "beta" },
-      { label: "Option Gamma", value: "gamma" }
+      {
+        label: "Show Selected Group",
+        options: [
+          { label: "Option Alpha", value: "alpha" },
+          { label: "Option Beta", value: "beta" },
+          { label: "Option Gamma", value: "gamma" }
+        ]
+      }
     ];
 
     it("should hide selected option from list when showSelectedOptions is false (single select)", () => {
@@ -1059,7 +1072,7 @@ describe("DropdownNew", () => {
     });
 
     it("should hide selected options from list when showSelectedOptions is false (multi select)", () => {
-      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+      const { getByRole, getByTestId, getByPlaceholderText } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: false,
         multi: true,

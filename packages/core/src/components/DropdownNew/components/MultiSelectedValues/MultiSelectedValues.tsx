@@ -91,22 +91,42 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
 
       <Flex ref={deductedSpaceRef} gap="xs">
         {hiddenCount > 0 && (
-          <Dialog
-            content={dialogContent}
-            showTrigger="click"
-            hideTrigger="clickoutside"
-            position="bottom"
-            moveBy={{ main: 4 }}
+          <div
+            onClick={e => {
+              e.stopPropagation();
+            }}
+            onKeyDown={e => {
+              e.stopPropagation();
+            }}
+            onMouseDown={e => {
+              e.stopPropagation();
+            }}
           >
-            <Chips
-              label={`+ ${hiddenCount}`}
-              readOnly
-              noMargin
-              ariaLabel={`${hiddenCount} items are visible out of ${selectedItems.length}`}
-              data-testid="dropdown-overflow-counter"
-              className={styles.overflowCounter}
-            />
-          </Dialog>
+            <Dialog
+              content={dialogContent}
+              showTrigger={["click", "enter"]}
+              hideTrigger={["clickoutside", "enter"]}
+              position="bottom"
+              moveBy={{ main: 4 }}
+              hideWhenReferenceHidden
+              addKeyboardHideShowTriggersByDefault
+            >
+              <Chips
+                label={`+ ${hiddenCount}`}
+                readOnly
+                noMargin
+                ariaLabel={`+${hiddenCount}. ${selectedItems.length - hiddenCount} items are visible out of ${
+                  selectedItems.length
+                }`}
+                data-testid="dropdown-overflow-counter"
+                className={styles.overflowCounter}
+                onClick={() => {}}
+                onMouseDown={e => {
+                  e.preventDefault();
+                }}
+              />
+            </Dialog>
+          </div>
         )}
         {renderInput && <div className={styles.inputWrapper}>{renderInput()}</div>}
       </Flex>

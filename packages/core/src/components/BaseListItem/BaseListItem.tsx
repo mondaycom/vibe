@@ -13,18 +13,19 @@ const BaseListItem = forwardRef(
     {
       className,
       id,
+      component = "li",
       size = "medium",
       selected = false,
       readOnly = false,
       highlighted = false,
-      role = "option",
+      role,
       index: _index,
       dir = "auto",
       itemRenderer,
       itemProps = {},
       item = {} as BaseListItemData<Item>
     }: BaseListItemProps<Item>,
-    ref: React.Ref<HTMLLIElement>
+    ref: React.Ref<HTMLElement>
   ) => {
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
     const listItemClassNames = useMemo(
@@ -44,9 +45,11 @@ const BaseListItem = forwardRef(
     );
 
     const textVariant: TextType = size === "small" ? "text2" : "text1";
+    const Element = component as React.ElementType;
+
     return (
       <Tooltip {...tooltipProps} content={tooltipProps?.content} position={dir === "rtl" ? "right" : "left"}>
-        <li id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps}>
+        <Element id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps} aria-selected={selected}>
           {itemRenderer ? (
             itemRenderer(item)
           ) : (
@@ -60,12 +63,12 @@ const BaseListItem = forwardRef(
               )}
             </>
           )}
-        </li>
+        </Element>
       </Tooltip>
     );
   }
 );
 
 export default BaseListItem as <Item extends Record<string, unknown>>(
-  props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLLIElement> }
+  props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLElement> }
 ) => React.ReactElement;

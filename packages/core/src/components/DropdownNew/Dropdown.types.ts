@@ -31,6 +31,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * The controlled selected values for multi-select.
    */
   value?: Item[];
+  /**
+   * Callback fired when the selected values change in multi-select mode.
+   */
+  onChange?: (options: BaseListItemData<Item>[]) => void;
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -58,6 +62,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * The controlled selected value for single-select.
    */
   value?: Item;
+  /**
+   * Callback fired when the selected value changes in single-select mode.
+   */
+  onChange?: (option: BaseListItemData<Item>) => void;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -175,10 +183,6 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    */
   onBlur?: () => void;
   /**
-   * Callback fired when the selected value changes.
-   */
-  onChange?: (option: BaseListItemData<Item> | BaseListItemData<Item>[]) => void;
-  /**
    * Callback fired when the clear button is clicked.
    */
   onClear?: () => void;
@@ -225,7 +229,18 @@ export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
 
-export type DropdownControllerProps<Item extends BaseListItemData<Record<string, unknown>>> =
-  BaseDropdownProps<Item> & {
+export type DropdownMultiControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof MultiSelectSpecifics<Item>
+> &
+  MultiSelectSpecifics<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };
+
+export type DropdownSingleControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof SingleSelectSpecifics<Item>
+> &
+  SingleSelectSpecifics<Item> & {
     dropdownRef: React.Ref<HTMLDivElement>;
   };
