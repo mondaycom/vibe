@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Dialog from "../../../../../components/Dialog/Dialog";
 import DialogContentContainer from "../../../../../components/DialogContentContainer/DialogContentContainer";
-import { ExampleContent } from "../../../../../components/Dialog/__stories__/helpers";
 import IconButton from "../../../../../components/IconButton/IconButton";
+import { Flex, Skeleton } from "../../../../../components";
 import { Info } from "@vibe/icons";
 import styles from "./dialog-description.module.scss";
 
@@ -30,7 +30,20 @@ export const DialogDescription = () => {
           moveBy={{ main: 2, secondary: 0 }}
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >

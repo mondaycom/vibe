@@ -1,7 +1,7 @@
 import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Dialog, DialogContentContainer, Flex, IconButton } from "../../../components";
-import { ExampleContent } from "./helpers";
+import { Skeleton } from "../../../components";
 import { Info } from "@vibe/icons";
 import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions";
 import {
@@ -11,7 +11,6 @@ import {
   HIDE_TRIGGERS_CONTAINER
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
-import "./Dialog.stories.scss";
 import { HideShowEvent } from "../DialogConstants";
 import { DialogProps } from "../Dialog";
 
@@ -43,7 +42,7 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useSwitch, ExampleContent }
+        scope: { useSwitch }
       }
     }
   }
@@ -66,7 +65,7 @@ const dialogTemplate = ({
     }
   ];
   return (
-    <div className="monday-storybook-dialog--story-padding">
+    <div style={{ padding: "80px var(--sb-spacing-small)" }}>
       <Dialog
         modifiers={modifiers}
         shouldShowOnMount={shouldShowOnMount}
@@ -76,7 +75,20 @@ const dialogTemplate = ({
         position={position || "right"}
         content={
           <DialogContentContainer>
-            <ExampleContent />
+            <Flex
+              direction="column"
+              align="start"
+              gap="small"
+              style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+            >
+              <Skeleton type="text" size="h1" fullWidth />
+              {Array.from({ length: 3 }, (_value, index: number) => (
+                <Flex key={index} gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              ))}
+            </Flex>
           </DialogContentContainer>
         }
       >
@@ -127,7 +139,7 @@ export const Positions = {
       ];
 
       return (
-        <Flex className="monday-storybook-dialog--story-padding" gap="medium">
+        <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
           <Dialog
             modifiers={modifiers}
             open={checkedTop}
@@ -136,7 +148,20 @@ export const Positions = {
             hideTrigger={[]}
             content={
               <DialogContentContainer>
-                <ExampleContent />
+                <Flex
+                  direction="column"
+                  align="start"
+                  gap="small"
+                  style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+                >
+                  <Skeleton type="text" size="h1" fullWidth />
+                  {Array.from({ length: 3 }, (_value, index: number) => (
+                    <Flex key={index} gap="small" style={{ width: "100%" }}>
+                      <Skeleton type="circle" width={20} height={20} />
+                      <Skeleton type="text" size="small" fullWidth />
+                    </Flex>
+                  ))}
+                </Flex>
               </DialogContentContainer>
             }
           >
@@ -152,7 +177,20 @@ export const Positions = {
             open={checkedBottom}
             content={
               <DialogContentContainer>
-                <ExampleContent />
+                <Flex
+                  direction="column"
+                  align="start"
+                  gap="small"
+                  style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+                >
+                  <Skeleton type="text" size="h1" fullWidth />
+                  {Array.from({ length: 3 }, (_value, index: number) => (
+                    <Flex key={index} gap="small" style={{ width: "100%" }}>
+                      <Skeleton type="circle" width={20} height={20} />
+                      <Skeleton type="text" size="small" fullWidth />
+                    </Flex>
+                  ))}
+                </Flex>
               </DialogContentContainer>
             }
           >
@@ -168,7 +206,20 @@ export const Positions = {
             open={checkedRight}
             content={
               <DialogContentContainer>
-                <ExampleContent />
+                <Flex
+                  direction="column"
+                  align="start"
+                  gap="small"
+                  style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+                >
+                  <Skeleton type="text" size="h1" fullWidth />
+                  {Array.from({ length: 3 }, (_value, index: number) => (
+                    <Flex key={index} gap="small" style={{ width: "100%" }}>
+                      <Skeleton type="circle" width={20} height={20} />
+                      <Skeleton type="text" size="small" fullWidth />
+                    </Flex>
+                  ))}
+                </Flex>
               </DialogContentContainer>
             }
           >
@@ -184,7 +235,20 @@ export const Positions = {
             open={checkedLeft}
             content={
               <DialogContentContainer>
-                <ExampleContent />
+                <Flex
+                  direction="column"
+                  align="start"
+                  gap="small"
+                  style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+                >
+                  <Skeleton type="text" size="h1" fullWidth />
+                  {Array.from({ length: 3 }, (_value, index: number) => (
+                    <Flex key={index} gap="small" style={{ width: "100%" }}>
+                      <Skeleton type="circle" width={20} height={20} />
+                      <Skeleton type="text" size="small" fullWidth />
+                    </Flex>
+                  ))}
+                </Flex>
               </DialogContentContainer>
             }
           >
@@ -223,14 +287,27 @@ export const ShowTriggers = {
     ];
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
+      <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
         <Dialog
           modifiers={modifiers}
           showTrigger={["click"]}
           hideTrigger={["click"]}
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -244,7 +321,20 @@ export const ShowTriggers = {
           hideTrigger={["mouseleave"]}
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -260,7 +350,20 @@ export const ShowTriggers = {
           hideTrigger={["blur"]}
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -276,7 +379,20 @@ export const ShowTriggers = {
           position="right"
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -338,7 +454,7 @@ export const HideTriggers = {
       <Flex
         data-testid={HIDE_TRIGGERS_CONTAINER}
         id={HIDE_TRIGGERS_CONTAINER}
-        className="monday-storybook-dialog_hide-triggers-story"
+        style={{ paddingInline: "var(--sb-spacing-small)" }}
         wrap
         direction="column"
         justify="start"
@@ -354,7 +470,18 @@ export const HideTriggers = {
           hideTrigger={["clickoutside"]}
           content={
             <DialogContentContainer data-testid={CLICK_OUTSIDE_DIALOG}>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -378,7 +505,18 @@ export const HideTriggers = {
           hideTrigger={["click"]}
           content={
             <DialogContentContainer>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -401,7 +539,18 @@ export const HideTriggers = {
           hideTrigger={["blur"]}
           content={
             <DialogContentContainer>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -425,7 +574,18 @@ export const HideTriggers = {
           onContentClick={switchContentClickActive}
           content={
             <DialogContentContainer>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -450,7 +610,18 @@ export const HideTriggers = {
           onDialogDidShow={switchMouseLeaveActive}
           content={
             <DialogContentContainer>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -476,7 +647,18 @@ export const HideTriggers = {
           onDialogDidShow={switchContextMenuActive}
           content={
             <DialogContentContainer data-testid={CONTEXT_MENU_DIALOG}>
-              <ExampleContent rowsCount={1} />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                <Flex gap="small" style={{ width: "100%" }}>
+                  <Skeleton type="circle" width={20} height={20} />
+                  <Skeleton type="text" size="small" fullWidth />
+                </Flex>
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -567,7 +749,7 @@ export const DialogWithTooltip = {
     ];
 
     return (
-      <div className="monday-storybook-dialog--story-padding">
+      <div style={{ padding: "80px var(--sb-spacing-small)" }}>
         <Dialog
           tooltip
           modifiers={modifiers}
@@ -577,7 +759,20 @@ export const DialogWithTooltip = {
           position="right"
           content={
             <DialogContentContainer>
-              <ExampleContent />
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
             </DialogContentContainer>
           }
         >
@@ -605,7 +800,7 @@ export const DisableScrollWhenDialogOpen = {
     });
 
     return (
-      <Flex className="monday-storybook-dialog--story-padding" gap="medium">
+      <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
         <div
           className={"scrollable"}
           style={{
@@ -628,7 +823,20 @@ export const DisableScrollWhenDialogOpen = {
               disableContainerScroll
               content={
                 <DialogContentContainer>
-                  <ExampleContent />
+                  <Flex
+                    direction="column"
+                    align="start"
+                    gap="small"
+                    style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+                  >
+                    <Skeleton type="text" size="h1" fullWidth />
+                    {Array.from({ length: 3 }, (_value, index: number) => (
+                      <Flex key={index} gap="small" style={{ width: "100%" }}>
+                        <Skeleton type="circle" width={20} height={20} />
+                        <Skeleton type="text" size="small" fullWidth />
+                      </Flex>
+                    ))}
+                  </Flex>
                 </DialogContentContainer>
               }
             >
