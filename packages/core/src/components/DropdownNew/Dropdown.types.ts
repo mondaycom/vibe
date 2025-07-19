@@ -223,6 +223,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * If false, selected options will be hidden from the list. Defaults to true.
    */
   showSelectedOptions?: boolean;
+  /**
+   * The class name to be applied to the menu wrapper.
+   */
+  menuWrapperClassName?: string;
 } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";

@@ -24,13 +24,16 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
     onScroll,
     menuAriaLabel,
     selectedItem,
-    selectedItems
+    selectedItems,
+    menuWrapperClassName
   } = useDropdownContext<Item>();
 
   const currentSelection = selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : [];
 
   return (
-    <DialogContentContainer className={cx({ [styles.menuVisible]: isOpen, [styles.menuHidden]: !isOpen })}>
+    <DialogContentContainer
+      className={cx({ [styles.menuVisible]: isOpen, [styles.menuHidden]: !isOpen }, menuWrapperClassName)}
+    >
       <BaseList<Item>
         size={size}
         options={filteredOptions}

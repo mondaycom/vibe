@@ -37,6 +37,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
     | "inputAriaLabel"
     | "menuAriaLabel"
     | "closeMenuOnSelect"
+    | "menuWrapperClassName"
     | "onFocus"
     | "onBlur"
     | "onKeyDown"
