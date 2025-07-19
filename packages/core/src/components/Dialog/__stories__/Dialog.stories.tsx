@@ -48,58 +48,47 @@ export default {
   }
 };
 
-const dialogTemplate = ({
-  showTrigger,
-  hideTrigger,
-  shouldShowOnMount = true,
-  position,
-  ...dialogProps
-}: DialogProps) => {
-  // for prevent dialog to move while scrolling
-  const modifiers = [
-    {
-      name: "preventOverflow",
-      options: {
-        mainAxis: false
-      }
-    }
-  ];
-  return (
-    <div style={{ padding: "80px var(--sb-spacing-small)" }}>
-      <Dialog
-        modifiers={modifiers}
-        shouldShowOnMount={shouldShowOnMount}
-        {...dialogProps}
-        showTrigger={showTrigger || ["click"]}
-        hideTrigger={hideTrigger || ["click"]}
-        position={position || "right"}
-        content={
-          <DialogContentContainer>
-            <Flex
-              direction="column"
-              align="start"
-              gap="small"
-              style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
-            >
-              <Skeleton type="text" size="h1" fullWidth />
-              {Array.from({ length: 3 }, (_value, index: number) => (
-                <Flex key={index} gap="small" style={{ width: "100%" }}>
-                  <Skeleton type="circle" width={20} height={20} />
-                  <Skeleton type="text" size="small" fullWidth />
-                </Flex>
-              ))}
-            </Flex>
-          </DialogContentContainer>
-        }
-      >
-        <IconButton icon={Info} active kind="secondary" />
-      </Dialog>
-    </div>
-  );
-};
-
 export const Overview = {
-  render: dialogTemplate.bind({}),
+  render: () => {
+    return (
+      <div style={{ padding: "80px var(--sb-spacing-small)" }}>
+        <Dialog
+          modifiers={[
+            {
+              name: "preventOverflow",
+              options: {
+                mainAxis: false
+              }
+            }
+          ]}
+          shouldShowOnMount
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
+          position={"right"}
+          content={
+            <DialogContentContainer>
+              <Flex
+                direction="column"
+                align="start"
+                gap="small"
+                style={{ width: "150px", padding: "var(--sb-spacing-small)" }}
+              >
+                <Skeleton type="text" size="h1" fullWidth />
+                {Array.from({ length: 3 }, (_value, index: number) => (
+                  <Flex key={index} gap="small" style={{ width: "100%" }}>
+                    <Skeleton type="circle" width={20} height={20} />
+                    <Skeleton type="text" size="small" fullWidth />
+                  </Flex>
+                ))}
+              </Flex>
+            </DialogContentContainer>
+          }
+        >
+          <IconButton icon={Info} active kind="secondary" />
+        </Dialog>
+      </div>
+    );
+  },
   name: "Overview",
   parameters: {
     docs: {
