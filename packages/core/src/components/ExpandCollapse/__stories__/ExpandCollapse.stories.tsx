@@ -65,13 +65,13 @@ export const ControlledOpenState = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Flex direction="row" gap="large" align="start" style={{ width: "300px" }}>
+      <div style={{ width: "300px" }}>
         <ExpandCollapse title="Controlled open state" open={open} onClick={() => setOpen(prevState => !prevState)}>
           <Text type="text2" maxLines={2}>
             Insert here any component that you want
           </Text>
         </ExpandCollapse>
-      </Flex>
+      </div>
     );
   }
 };
