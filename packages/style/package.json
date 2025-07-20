@@ -18,6 +18,16 @@
   "author": "monday.com",
   "license": "MIT",
   "main": "dist/index.css",
+  "exports": {
+    ".": "./dist/index.css",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*",
+    "./stylelint-config/*": "./stylelint-config/*",
+    "./stylelint": {
+      "import": "./stylelint-config/index.js",
+      "default": "./stylelint-config/index.js"
+    }
+  },
   "files": [
     "src/",
     "dist/",
