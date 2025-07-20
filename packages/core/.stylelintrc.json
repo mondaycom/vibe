@@ -1,6 +1,6 @@
 {
   "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint"],
-  "plugins": ["stylelint-use-logical"],
+  "plugins": ["stylelint-use-logical", "stylelint-no-unsupported-browser-features"],
   "rules": {
     "no-descending-specificity": null,
     "monday-ui-style/use-defined-css-var-when-available": [
@@ -52,6 +52,34 @@
       {
         "severity": "warning",
         "except": ["width", "height", "min-width", "max-width", "min-height", "max-height"]
+      }
+    ],
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "ignore": [
+          "css-nesting",
+          "css3-cursors",
+          "css3-cursors-grab",
+          "css-touch-action",
+          "css-focus-visible",
+          "css-when-else",
+          "css-overflow",
+          "css-logical-props",
+          "css-text-indent",
+          "css-scrollbar",
+          "intrinsic-width",
+          "css-sticky",
+          "flexbox-gap",
+          "css-appearance",
+          "css-resize",
+          "css-gradients",
+          "background-clip-text",
+          "css-masks",
+          "css-clip-path",
+          "css-has",
+          "css-backdrop-filter"
+        ]
       }
     ]
   }
