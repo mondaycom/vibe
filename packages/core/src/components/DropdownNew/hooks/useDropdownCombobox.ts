@@ -90,6 +90,9 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
           return { ...actionAndChanges.changes, inputValue: "", isOpen: !closeMenuOnSelect };
+        case useCombobox.stateChangeTypes.InputBlur:
+          return { ...actionAndChanges.changes, inputValue: "" };
+
         default:
           return actionAndChanges.changes;
       }
