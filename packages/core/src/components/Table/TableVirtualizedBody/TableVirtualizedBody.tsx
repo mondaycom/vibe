@@ -75,9 +75,10 @@ const TableVirtualizedBody = forwardRef(
     }: TableVirtualizedBodyProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized } = useTable();
+    const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized, dataState } = useTable();
     const { resetHoveredRow } = useTableRowMenu();
     const virtualizedWithHeader = !!columns && !!headerRenderer;
+    const { isLoading } = dataState || {};
 
     const handleOuterScroll = useCallback(
       (e: Event) => {
@@ -147,6 +148,21 @@ const TableVirtualizedBody = forwardRef(
           : undefined,
       [virtualizedWithHeader, headerRenderer, columns]
     );
+
+    // When in loading state and we have a header renderer, render header separately
+    if (isLoading && virtualizedWithHeader) {
+      return (
+        <div
+          ref={ref}
+          id={id}
+          className={cx(styles.tableBody, styles.withHeader, className)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_VIRTUALIZED_BODY, id)}
+        >
+          {headerRenderer!(columns!)}
+          <TableBody />
+        </div>
+      );
+    }
 
     return (
       <TableBody
