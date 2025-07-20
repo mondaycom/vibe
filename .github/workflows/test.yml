@@ -47,8 +47,8 @@ jobs:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
         run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
 
-  testkit-tests:
-    name: Testkit Unit Tests
+  e2e:
+    name: E2E Tests
     if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -64,13 +64,8 @@ jobs:
       - uses: ./.github/actions/download-builds
       - name: Install playwright browsers
         run: npx playwright install --with-deps
-      - name: Run Unit Tests
-        env:
-          SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
-          CI: true
-          WORKERS: "50%"
-        shell: bash
-        run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
+      - name: Run e2e tests
+        run: yarn lerna run test:e2e $SINCE_FLAG --scope "@vibe/testkit"
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
