@@ -14,6 +14,7 @@ import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
 - [Why Migrate? ✨](#why-migrate-)
 - [Migration Steps 🚀](#migration-steps-)
 - [Breaking Changes 🚨](#breaking-changes-)
+- [Enhanced Option Data Structure 🎯](#enhanced-option-data-structure-)
 - [Type Safety Improvements 🛡️](#type-safety-improvements-)
 - [FAQ ❓](#faq-)
 - [Help 🙏](#help-)
@@ -35,7 +36,6 @@ The Dropdown component has been completely rewritten from scratch to provide bet
 - **Screen reader optimized** with clear announcements
 - **Single combobox role** to avoid confusion
 - **Improved focus management** and visual indicators
-- **WCAG 2.1 compliant** with full keyboard support
 
 ### Better Performance
 
@@ -64,7 +64,6 @@ The Dropdown component has been completely rewritten from scratch to provide bet
 - **Custom filtering** with `filterOption` prop
 - **Control selected options visibility** with `showSelectedOptions`
 - **Better tooltip integration** with `tooltipProps`
-- **Improved multi-select** with native chips display
 
 ## Migration Steps 🚀
 
@@ -118,7 +117,6 @@ These props are no longer available in the new implementation:
 - **`isVirtualized`** - Built-in performance optimization
 - **`asyncOptions`** - Use external data fetching with `options` prop
 - **`cacheOptions`** - Handle caching externally
-- **`defaultOptions`** - Use `options` prop with loading state
 - **`loadingMessage`** - Use `helperText` with loading indicator
 - **`onMenuScrollToBottom`** - Use `onScroll` instead
 - **`captureMenuScroll`** - Handled automatically
@@ -126,17 +124,15 @@ These props are no longer available in the new implementation:
 - **`insideOverflowWithTransformContainer`** - Handled automatically
 - **`insideLayerContext`** - Handled automatically
 - **`popupsContainerSelector`** - Handled automatically
-- **`withMandatoryDefaultOptions`** - Handle in your application logic
+- **`tooltipContent`** - Use `tooltipProps` instead for enhanced tooltip support
 
 ### Changed Props
 
 These props have different default values or behavior:
 
-- **`searchable`** - Now defaults to `false` (was `true`)
-- **`closeMenuOnSelect`** - Now defaults to `true` for single-select
+- **`searchable`** - **BREAKING CHANGE**: Now defaults to `false` (was `true`).
+- **`showSelectedOptions`** - **BREAKING CHANGE**: Defaults to `false`. In the old Dropdown, selected options were always visible in single select mode.
 - **`multi`** - Better type safety and native chip display
-- **`clearable`** - Now defaults to `true`
-- **`size`** - Same options: `small`, `medium`, `large`
 
 ### New Props
 
@@ -147,12 +143,156 @@ These props are new and provide enhanced functionality:
 - **`error`** - Built-in error state support
 - **`required`** - Built-in required field support
 - **`stickyGroupTitle`** - Sticky group headers
-- **`showSelectedOptions`** - Control selected options visibility
+- **`showSelectedOptions`** - Control selected options visibility (defaults to `false`)
 - **`filterOption`** - Custom filtering logic
-- **`tooltipProps`** - Better tooltip integration
+- **`tooltipProps`** - Enhanced tooltip integration (replaces `tooltipContent`)
 - **`inputAriaLabel`** - ARIA label for input
 - **`menuAriaLabel`** - ARIA label for menu
-- **`dir`** - Text direction support
+- **`dir`** - Text direction support instead of `rtl` prop
+
+### Tooltip Integration Changes
+
+The tooltip integration has been improved in the new Dropdown:
+
+<DiffCodeBlock
+  code={`- // Old Dropdown: Simple string tooltip on the trigger
+- <Dropdown
+-   options={options}
+-   tooltipContent="Simple tooltip text"
+- />
++ // New Dropdown: Full tooltip props support
++ <Dropdown
++ options={options}
++ tooltipProps={{
++     content: "Enhanced tooltip text",
++     position: "top",
++     hideDelay: 0
++ }}
++ />
++ // Option-level tooltips
++ const optionsWithTooltips = [
++ {
++     value: "option1",
++     label: "Option 1",
++     tooltipProps: {
++       content: "Description for this option"
++     }
++ }
++ ];`}
+/>
+
+### Selected Options Visibility Behavior
+
+**BREAKING CHANGE**: The new Dropdown changes how selected options are displayed in the dropdown list:
+
+<DiffCodeBlock
+  code={`// Old Dropdown: Selected options always visible in list
+- <Dropdown options={options} value={selectedOption} />
+-   // Selected option still appears in the list when opened
++ // New Dropdown: Selected options hidden by default
++ <Dropdown options={options} value={selectedOption} />
++ // Selected option is hidden from the list when opened
++
++ // To restore old behavior:
++ <Dropdown
++ options={options}
++ value={selectedOption}
++ showSelectedOptions
++ />`}
+/>
+
+### Search Functionality Changes
+
+**BREAKING CHANGE**: The new Dropdown changes the default search behavior:
+
+<DiffCodeBlock
+  code={`// Old Dropdown: Searchable by default
+- <Dropdown options={options} />
+-   // Search input was enabled by default
++ // New Dropdown: Not searchable by default
++ <Dropdown options={options} />
++ // No search input, simple select behavior
++
++ // To restore old search behavior:
++ <Dropdown
++ options={options}
++ searchable
++ />`}
+/>
+
+#### When to Enable Search
+
+Enable search for dropdowns with many options or when users need to filter:
+
+```tsx
+// Enable search for large option lists
+<Dropdown options={manyOptions} searchable placeholder="Search options..." />
+```
+
+## Enhanced Option Data Structure 🎯
+
+### Start and End Elements
+
+The new Dropdown supports rich option structures with start and end elements, allowing you to add icons, avatars, suffixes, and custom content to your options:
+
+<DiffCodeBlock
+  code={`- const options = [
+-   { value: 1, label: "Option 1" },
+-   { value: 2, label: "Option 2" }
+- ];
++ const options = [
++   {
++     value: 1, 
++     label: "Option 1",
++     startElement: { type: "icon", value: "email" },
++     endElement: { type: "suffix", value: "Beta" }
++   },
++   {
++     value: 2,
++     label: "Option 2", 
++     startElement: { type: "avatar", value: "user.jpg", square: true },
++     endElement: { type: "icon", value: "check" }
++   }
++ ];`}
+/>
+
+#### Available Element Types
+
+**Start Elements:**
+
+- **`avatar`** - Display user avatars: `{ type: "avatar", value: "image.jpg", square?: boolean }`
+- **`icon`** - Display icons: `{ type: "icon", value: "iconName" }`
+- **`indent`** - Add indentation: `{ type: "indent" }`
+- **`custom`** - Custom content: `{ type: "custom", render: () => <CustomComponent /> }`
+
+**End Elements:**
+
+- **`icon`** - Display icons: `{ type: "icon", value: "iconName" }`
+- **`suffix`** - Display text suffix: `{ type: "suffix", value: "Hint text" }`
+- **`custom`** - Custom content: `{ type: "custom", render: () => <CustomComponent /> }`
+
+#### Multi-Select Chip Integration
+
+Elements are automatically integrated with chips in multi-select mode:
+
+```tsx
+const optionsWithElements = [
+  {
+    value: "user1",
+    label: "John Doe",
+    startElement: { type: "avatar", value: "john.jpg" },
+    endElement: { type: "suffix", value: "Admin" },
+    chipColor: "primary" // Controls chip color in multi-select
+  }
+];
+
+<Dropdown
+  multi
+  options={optionsWithElements}
+  // Start elements become chip left icons/avatars
+  // Chip colors are controlled via chipColor property
+/>;
+```
 
 ## Type Safety Improvements 🛡️
 
@@ -218,6 +358,18 @@ A: Implement your own data fetching logic and pass the results to the `options` 
 
 **Q: Is the new Dropdown accessible?**
 A: Yes! The new Dropdown is built with accessibility as a core principle.
+
+**Q: How do I migrate tooltip functionality?**
+A: Replace `tooltipContent` with `tooltipProps` for dropdown-level tooltips. The new implementation also supports option-level tooltips via the `tooltipProps` property on individual options.
+
+**Q: Why are my selected options hidden from the dropdown list?**
+A: The new Dropdown defaults to `showSelectedOptions={false}` to improve UX. Set `showSelectedOptions={true}` to restore the old behavior.
+
+**Q: Why is my dropdown no longer searchable?**
+A: The new Dropdown defaults to `searchable={false}` since most dropdowns don't need search functionality. Add the `searchable` prop to enable search: `<Dropdown searchable options={options} />`
+
+**Q: How do I add icons or avatars to dropdown options?**
+A: Use the `startElement` and `endElement` properties on option objects. The new Dropdown supports icons, avatars, indentation, suffixes, and custom elements.
 
 </div>
 ## Help 🙏
