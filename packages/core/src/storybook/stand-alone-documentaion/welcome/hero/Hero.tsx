@@ -27,11 +27,17 @@ export default function Hero() {
 
         <EntranceAnimation delay={0.2}>
           <Flex gap="small">
-            <ResourceButton text="GitHub" icon={<GitHubIcon />} href="https://github.com/mondaycom/vibe" />
+            <ResourceButton
+              text="GitHub"
+              icon={<GitHubIcon />}
+              href="https://github.com/mondaycom/vibe"
+              tooltipContent="Become a contributor & join our GitHub community"
+            />
             <ResourceButton
               text="Figma"
               icon={<FigmaIcon />}
               href="https://www.figma.com/file/pTpO3Wobs5cQwRsabt21Nd/monday.com-UI-kit?node-id=14811%3A20455"
+              tooltipContent="Our Figma file is free to use"
             />
           </Flex>
         </EntranceAnimation>

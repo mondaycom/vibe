@@ -26,7 +26,7 @@
     object-fit: contain;
   }
 
-  @media screen and (max-width: 1676px) {
+  @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(4, 96px);
   }
 }

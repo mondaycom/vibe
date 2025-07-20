@@ -105,13 +105,13 @@ export default function FloatingObjects() {
   return (
     <div className={styles.floatingObjectsWrapper}>
       <div className={styles.floatingObjects}>
-        <FloatingObject top={0} left={20} distance={35} direction="toward" smoothing={50} scrollSpeed={-0.6}>
-          <HeroAbstractFluidShape />
+        <FloatingObject top={3} left={35} distance={35} direction="toward" smoothing={50} scrollSpeed={-0.6}>
+          <HeroCircleShapeTeal />
         </FloatingObject>
 
         <FloatingObject
-          top={0}
-          right={30}
+          top={-10}
+          right={25}
           distance={20}
           direction="toward"
           smoothing={10}
@@ -121,17 +121,17 @@ export default function FloatingObjects() {
           <HeroHeartShape />
         </FloatingObject>
 
-        <FloatingObject bottom={0} right={35} distance={50} direction="toward" smoothing={40} scrollSpeed={-0.8}>
+        <FloatingObject bottom={5} right={42} distance={50} direction="toward" smoothing={40} scrollSpeed={-0.8}>
           <HeroCloverShape />
         </FloatingObject>
 
-        <FloatingObject bottom={5} left={25} distance={20} direction="toward" smoothing={50} scrollSpeed={-0.6}>
+        <FloatingObject bottom={20} left={20} distance={20} direction="toward" smoothing={50} scrollSpeed={-0.6}>
           <HeroCircleShape />
         </FloatingObject>
 
         <FloatingObject
-          top={40}
-          left={12}
+          top={12}
+          left={0}
           distance={20}
           direction="toward"
           smoothing={60}
@@ -142,24 +142,24 @@ export default function FloatingObjects() {
         </FloatingObject>
 
         <FloatingObject
-          top={65}
-          right={15}
+          bottom={5}
+          right={5}
           distance={25}
           direction="toward"
           smoothing={30}
           scrollSpeed={-0.45}
-          rotation={45}
+          rotation={-45}
         >
           <HeroArrowCrossShape />
         </FloatingObject>
-
+        {/* 
         <FloatingObject top={50} right={0} distance={40} direction="toward" smoothing={70} scrollSpeed={-0.7}>
           <HeroCircleShapeTeal />
-        </FloatingObject>
+        </FloatingObject> */}
 
         <FloatingObject
-          top={30}
-          right={10}
+          top={40}
+          right={-5}
           distance={30}
           direction="toward"
           smoothing={25}
@@ -170,8 +170,8 @@ export default function FloatingObjects() {
         </FloatingObject>
 
         <FloatingObject
-          bottom={5}
-          left={5}
+          bottom={0}
+          left={0}
           distance={18}
           direction="toward"
           smoothing={35}
@@ -182,8 +182,8 @@ export default function FloatingObjects() {
         </FloatingObject>
 
         <FloatingObject
-          top={2}
-          right={3}
+          top={-8}
+          right={0}
           distance={20}
           direction="toward"
           smoothing={30}
@@ -194,13 +194,13 @@ export default function FloatingObjects() {
         </FloatingObject>
 
         <FloatingObject
-          top={10}
-          left={0}
+          top={-10}
+          left={8}
           distance={25}
           direction="toward"
           smoothing={10}
           scrollSpeed={-0.45}
-          rotation={15}
+          rotation={-15}
         >
           <HeroArrowCrossShape />
         </FloatingObject>

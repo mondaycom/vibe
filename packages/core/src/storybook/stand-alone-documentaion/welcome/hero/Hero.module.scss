@@ -6,7 +6,7 @@
   justify-content: center;
   min-height: 600px;
   height: 100vh;
-  padding-bottom: 80px;
+  padding-bottom: 150px;
 
   .content {
     width: 1300px;
@@ -30,11 +30,11 @@
     -webkit-font-smoothing: var(--font-smoothing-webkit);
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
 
-    @media (max-width: 1676px) {
+    @media (max-width: 1200px) {
       font-size: 56px;
     }
 
-    @media (max-width: 956px) {
+    @media (max-width: 1024px) {
       font-size: 40px;
     }
   }
@@ -48,11 +48,11 @@
     -webkit-font-smoothing: var(--font-smoothing-webkit);
     -moz-osx-font-smoothing: var(--font-smoothing-moz);
 
-    @media (max-width: 1676px) {
+    @media (max-width: 1200px) {
       font-size: 18px;
     }
 
-    @media (max-width: 956px) {
+    @media (max-width: 1024px) {
       font-size: 16px;
     }
   }

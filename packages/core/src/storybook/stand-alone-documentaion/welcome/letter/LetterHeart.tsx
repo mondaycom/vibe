@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import styles from "./LetterHeart.module.scss";
 
@@ -10,6 +10,7 @@ export default function LetterHeart({ isActive }: HeartAnimationProps) {
   const [isFilled, setIsFilled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isScrollAnimation, setIsScrollAnimation] = useState(false);
+  const wasScrolledRef = useRef(false);
 
   const dots = [
     { color: "#6E6EFF", angle: 26.36 },
@@ -43,11 +44,10 @@ export default function LetterHeart({ isActive }: HeartAnimationProps) {
 
   // Trigger animation when text animation completes
   useEffect(() => {
-    if (isActive) {
+    if (isActive && !wasScrolledRef.current) {
+      wasScrolledRef.current = true;
       setIsScrollAnimation(true);
       startAnimation();
-    } else {
-      resetAnimation();
     }
   }, [isActive]);
 
@@ -62,7 +62,6 @@ export default function LetterHeart({ isActive }: HeartAnimationProps) {
     if (isAnimating) {
       setIsAnimating(false);
       if (isScrollAnimation) {
-        setIsFilled(false);
         setIsScrollAnimation(false);
       }
     }
