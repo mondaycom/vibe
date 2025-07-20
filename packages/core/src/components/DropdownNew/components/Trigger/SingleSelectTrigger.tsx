@@ -47,20 +47,17 @@ const SingleSelectTrigger = () => {
               getStyle(styles, size)
             )}
           >
-            {valueRenderer ? (
-              valueRenderer(selectedItem)
-            ) : (
-              <BaseListItem
-                component="div"
-                size={size}
-                readOnly
-                item={{
-                  ...selectedItem,
-                  disabled,
-                  startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
-                }}
-              />
-            )}
+            <BaseListItem
+              component="div"
+              itemRenderer={valueRenderer}
+              size={size}
+              readOnly
+              item={{
+                ...selectedItem,
+                disabled,
+                startElement: selectedItem.startElement?.type === "indent" ? undefined : selectedItem.startElement
+              }}
+            />
           </div>
         )}
       </div>
