@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiSelect from "../hooks/useDropdownMultiSelect";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownMultiSelectController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownMultiControllerProps<Item>
 ) => {
   const {
     options,
@@ -38,6 +38,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getMenuProps,
     getItemProps,
     reset: hookReset,
+    toggleMenu,
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
@@ -49,8 +50,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     setMultiSelectedItemsState,
     isMenuOpenProp,
     autoFocus,
-    defaultValue as Item[],
-    value as Item[],
+    defaultValue,
+    value,
     onChange,
     onMenuOpen,
     onMenuClose,
@@ -94,7 +95,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     },
     addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem,
-    size
+    size,
+    toggleMenu
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

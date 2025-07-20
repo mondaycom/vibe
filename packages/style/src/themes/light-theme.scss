@@ -50,16 +50,16 @@
   --warning-color-selected: #fceba1;
   --warning-color-selected-hover: #f2d973;
 
-  --color-highlight_blue: #cce5ff;
-  --color-basic_blue: #0073ea;
-  --color-dark_blue: #0060b9;
+  --color-highlight_blue: #cce5ff; /* stylelint-disable-line custom-property-pattern */
+  --color-basic_blue: #0073ea; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_blue: #0060b9; /* stylelint-disable-line custom-property-pattern */
   --color-bazooka: #f65f7c;
-  --color-snow_white: #ffffff;
-  --color-riverstone_gray: #f6f7fb;
-  --color-ui_grey: #dcdfec;
-  --color-wolf_gray: #c3c6d4;
+  --color-snow_white: #ffffff; /* stylelint-disable-line custom-property-pattern */
+  --color-riverstone_gray: #f6f7fb; /* stylelint-disable-line custom-property-pattern */
+  --color-ui_grey: #dcdfec; /* stylelint-disable-line custom-property-pattern */
+  --color-wolf_gray: #c3c6d4; /* stylelint-disable-line custom-property-pattern */
   --color-asphalt: #676879;
-  --color-mud_black: #323338;
+  --color-mud_black: #323338; /* stylelint-disable-line custom-property-pattern */
   --color-black: #000000;
   --color-success: #00854d;
   --color-success-hover: #007038;
@@ -67,7 +67,7 @@
   --color-error: #d83a52;
   --color-error-hover: #b63546;
   --color-error-highlight: #f4c3cb;
-  --color-link_color: #1f76c2;
+  --color-link_color: #1f76c2; /* stylelint-disable-line custom-property-pattern */
   --color-surface: #292f4c;
   --grey-background-color: #f6f7fb;
   --text-color-on-brand: #ffffff;
@@ -77,9 +77,9 @@
   --box-shadow-medium: 0px 6px 20px rgba(0, 0, 0, 0.2);
   --box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);
 
-  --color-grass_green: #037f4c;
-  --color-grass_green-hover: #116846;
-  --color-grass_green-selected: #81bfa5;
+  --color-grass_green: #037f4c; /* stylelint-disable-line custom-property-pattern */
+  --color-grass_green-hover: #116846; /* stylelint-disable-line custom-property-pattern */
+  --color-grass_green-selected: #81bfa5; /* stylelint-disable-line custom-property-pattern */
   --color-done-green: #00c875;
   --color-done-green-hover: #0f9b63;
   --color-done-green-selected: #80e3ba;
@@ -90,13 +90,13 @@
   --color-saladish: #cab641;
   --color-saladish-hover: #9d8f3e;
   --color-saladish-selected: #e4daa0;
-  --color-egg_yolk: #ffcb00;
-  --color-egg_yolk-hover: #eaaa15;
-  --color-egg_yolk-selected: #ffe580;
-  --color-egg_yolk-rgb: 255, 213, 51;
-  --color-working_orange: #fdab3d;
-  --color-working_orange-hover: #c0873c;
-  --color-working_orange-selected: #fed59e;
+  --color-egg_yolk: #ffcb00; /* stylelint-disable-line custom-property-pattern */
+  --color-egg_yolk-hover: #eaaa15; /* stylelint-disable-line custom-property-pattern */
+  --color-egg_yolk-selected: #ffe580; /* stylelint-disable-line custom-property-pattern */
+  --color-egg_yolk-rgb: 255, 213, 51; /* stylelint-disable-line custom-property-pattern */
+  --color-working_orange: #fdab3d; /* stylelint-disable-line custom-property-pattern */
+  --color-working_orange-hover: #c0873c; /* stylelint-disable-line custom-property-pattern */
+  --color-working_orange-selected: #fed59e; /* stylelint-disable-line custom-property-pattern */
   --color-dark-orange: #ff6d3b;
   --color-dark-orange-hover: #c25531;
   --color-dark-orange-selected: #ffb196;
@@ -113,9 +113,9 @@
   --color-dark-red: #bb3354;
   --color-dark-red-hover: #92334c;
   --color-dark-red-selected: #dd99a9;
-  --color-sofia_pink: #e50073;
-  --color-sofia_pink-hover: #c20062;
-  --color-sofia_pink-selected: #ff8ac4;
+  --color-sofia_pink: #e50073; /* stylelint-disable-line custom-property-pattern */
+  --color-sofia_pink-hover: #c20062; /* stylelint-disable-line custom-property-pattern */
+  --color-sofia_pink-selected: #ff8ac4; /* stylelint-disable-line custom-property-pattern */
   --color-lipstick: #ff5ac4;
   --color-lipstick-hover: #c24e9a;
   --color-lipstick-selected: #fface1;
@@ -125,15 +125,15 @@
   --color-purple: #9d50dd;
   --color-purple-hover: #7d45b0;
   --color-purple-selected: #d0aeed;
-  --color-dark_purple: #784bd1;
-  --color-dark_purple-hover: #6344a3;
-  --color-dark_purple-selected: #bba5e8;
+  --color-dark_purple: #784bd1; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_purple-hover: #6344a3; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_purple-selected: #bba5e8; /* stylelint-disable-line custom-property-pattern */
   --color-berry: #7e3b8a;
   --color-berry-hover: #673971;
   --color-berry-selected: #be9dc4;
-  --color-dark_indigo: #401694;
-  --color-dark_indigo-hover: #3c1f78;
-  --color-dark_indigo-selected: #a08bc9;
+  --color-dark_indigo: #401694; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_indigo-hover: #3c1f78; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_indigo-selected: #a08bc9; /* stylelint-disable-line custom-property-pattern */
   --color-indigo: #5559df;
   --color-indigo-hover: #4b4ead;
   --color-indigo-selected: #aaacef;
@@ -161,9 +161,9 @@
   --color-explosive: #c4c4c4;
   --color-explosive-hover: #98999a;
   --color-explosive-selected: #e1e1e1;
-  --color-american_gray: #757575;
-  --color-american_gray-hover: #69696a;
-  --color-american_gray-selected: #bfbfbf;
+  --color-american_gray: #757575; /* stylelint-disable-line custom-property-pattern */
+  --color-american_gray-hover: #69696a; /* stylelint-disable-line custom-property-pattern */
+  --color-american_gray-selected: #bfbfbf; /* stylelint-disable-line custom-property-pattern */
   --color-blackish: #333333;
   --color-blackish-hover: #222222;
   --color-blackish-selected: #999999;
@@ -208,26 +208,26 @@
   Please stop using them and make efforts to replace theme with their Vibe corresponding keys.
 
   */
-  --color-dark_marble: #f1f1f1;
+  --color-dark_marble: #f1f1f1; /* stylelint-disable-line custom-property-pattern */
   --color-marble: #f7f7f7;
   --color-gainsboro: #e1e1e1;
-  --color-extra_light_gray: #edeef0;
+  --color-extra_light_gray: #edeef0; /* stylelint-disable-line custom-property-pattern */
   --color-glitter: #d9f0ff;
-  --color-ultra_light_gray: #ebebeb;
-  --color-very_light_gray: #a1a1a1;
-  --color-jaco_gray: #9699a6;
-  --color-storm_gray: #6b6d77;
+  --color-ultra_light_gray: #ebebeb; /* stylelint-disable-line custom-property-pattern */
+  --color-very_light_gray: #a1a1a1; /* stylelint-disable-line custom-property-pattern */
+  --color-jaco_gray: #9699a6; /* stylelint-disable-line custom-property-pattern */
+  --color-storm_gray: #6b6d77; /* stylelint-disable-line custom-property-pattern */
   --color-trolley-grey: #757575;
-  --color-basic_light_blue: #c7e6fa;
-  --color-light_blue: #61caf7;
+  --color-basic_light_blue: #c7e6fa; /* stylelint-disable-line custom-property-pattern */
+  --color-light_blue: #61caf7; /* stylelint-disable-line custom-property-pattern */
   --color-turquoise: #66ccff;
   --color-aqua: #00d1d1;
-  --color-live_blue: #009aff;
+  --color-live_blue: #009aff; /* stylelint-disable-line custom-property-pattern */
   --color-jeans: #597bfc;
-  --color-burned_eggplant: #181d37;
+  --color-burned_eggplant: #181d37; /* stylelint-disable-line custom-property-pattern */
   --color-light-pink: #ff5ac4;
   --color-dark-pink: #ff007f;
-  --color-dark_red: #bb3354;
+  --color-dark_red: #bb3354; /* stylelint-disable-line custom-property-pattern */
   --color-yellow: #ffcb00;
   --color-mustered: #cab641;
   --color-orange: #fdab3d;
@@ -237,15 +237,15 @@
   --color-grass-green: #037f4c;
   --color-amethyst: #9d50dd;
   --color-dark-purple: #784bd1;
-  --color-blue_links: #007eb5;
+  --color-blue_links: #007eb5; /* stylelint-disable-line custom-property-pattern */
   --color-blue-links: #007eb5;
   --color-private: #f65f7c;
   --color-public: #009aff;
-  --color-board_views_grey: #6e6f8f;
-  --color-board_views_grey_hover: #b2b3d0;
-  --color-board_views_blue: #1c1f3b;
-  --color-board_views_blue_secondary: #363a52;
-  --color-border_light_gray: #f5f6f8;
+  --color-board_views_grey: #6e6f8f; /* stylelint-disable-line custom-property-pattern */
+  --color-board_views_grey_hover: #b2b3d0; /* stylelint-disable-line custom-property-pattern */
+  --color-board_views_blue: #1c1f3b; /* stylelint-disable-line custom-property-pattern */
+  --color-board_views_blue_secondary: #363a52; /* stylelint-disable-line custom-property-pattern */
+  --color-border_light_gray: #f5f6f8; /* stylelint-disable-line custom-property-pattern */
   --color-brand-blue: #00a9ff;
   --color-brand-charcoal: #2b2c5c;
   --color-brand-gold: #ffcc00;
@@ -255,32 +255,32 @@
   --color-brand-malachite: #00cd6f;
   --color-brand-purple: #a358d0;
   --color-brand-red: #f74875;
-  --color-deadline_upcoming_indication: #5d6387;
-  --color-default_group_color: #579bfc;
-  --color-form_btn_hover: #0083d9;
-  --color-form_purple: #575c96;
+  --color-deadline_upcoming_indication: #5d6387; /* stylelint-disable-line custom-property-pattern */
+  --color-default_group_color: #579bfc; /* stylelint-disable-line custom-property-pattern */
+  --color-form_btn_hover: #0083d9; /* stylelint-disable-line custom-property-pattern */
+  --color-form_purple: #575c96; /* stylelint-disable-line custom-property-pattern */
   --color-highlight: #dff0ff;
-  --color-green_shadow: #00c875;
+  --color-green_shadow: #00c875; /* stylelint-disable-line custom-property-pattern */
   --color-green-shadow: #00c875;
-  --color-red_shadow: #df2f4a;
+  --color-red_shadow: #df2f4a; /* stylelint-disable-line custom-property-pattern */
   --color-red-shadow: #df2f4a;
-  --color-pulse_bg: #f0f0f0;
-  --color-pulse_text_color: #333333;
-  --color-placholder_gray: #d8d8d8;
-  --color-placeholder_light_gray: #efefef;
+  --color-pulse_bg: #f0f0f0; /* stylelint-disable-line custom-property-pattern */
+  --color-pulse_text_color: #333333; /* stylelint-disable-line custom-property-pattern */
+  --color-placholder_gray: #d8d8d8; /* stylelint-disable-line custom-property-pattern */
+  --color-placeholder_light_gray: #efefef; /* stylelint-disable-line custom-property-pattern */
   --color-excel-green: #207245;
   --color-media-blue: #2ea2e9;
   --color-pdf-red: #bb0706;
   --color-ppt-orange: #d64e2a;
   --color-word-blue: #2a5699;
   --color-zip-orange: #e4901c;
-  --color-like_red: #fb275d;
-  --color-scrollbar_gray: #b2b2b2;
-  --color-timeline_grid_blue: #454662;
-  --color-timeline_blue: #1c1f3b;
-  --color-highlight_blue-rgb: 204, 229, 255;
-  --color-snow_white-with-opacity: rgba(255, 255, 255, 0.4);
-  --color-wolf_gray-with-opacity: rgba(195, 198, 212, 0.1);
+  --color-like_red: #fb275d; /* stylelint-disable-line custom-property-pattern */
+  --color-scrollbar_gray: #b2b2b2; /* stylelint-disable-line custom-property-pattern */
+  --color-timeline_grid_blue: #454662; /* stylelint-disable-line custom-property-pattern */
+  --color-timeline_blue: #1c1f3b; /* stylelint-disable-line custom-property-pattern */
+  --color-highlight_blue-rgb: 204, 229, 255; /* stylelint-disable-line custom-property-pattern */
+  --color-snow_white-with-opacity: rgba(255, 255, 255, 0.4); /* stylelint-disable-line custom-property-pattern */
+  --color-wolf_gray-with-opacity: rgba(195, 198, 212, 0.1); /* stylelint-disable-line custom-property-pattern */
   --color-asphalt-with-opacity: rgba(103, 104, 121, 0.1);
   --primary-on-secondary-color: #0073ea;
   --primary-hover-on-secondary-color: #0060b9;

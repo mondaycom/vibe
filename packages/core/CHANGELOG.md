@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.55.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.2...@vibe/core@3.55.0) (2025-07-20)
+
+
+### Bug Fixes
+
+* fix @vibe/core/tokens import ts error ([#2948](https://github.com/mondaycom/vibe/issues/2948)) ([1f66197](https://github.com/mondaycom/vibe/commit/1f661978f5a4be098e7f20428b3af426954f89f3))
+
+
+### Features
+
+* **Dropdown:** New dropdown component ([#2896](https://github.com/mondaycom/vibe/issues/2896)) ([95b08c9](https://github.com/mondaycom/vibe/commit/95b08c9fc5dce0f105a2aeb2fd1c589fafc8a143))
+
+
+
+
+
 ## [3.54.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.1...@vibe/core@3.54.2) (2025-07-15)
 
 **Note:** Version bump only for package @vibe/core
