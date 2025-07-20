@@ -17,7 +17,7 @@
   margin-top: var(--spacing-small);
   &:focus,
   &:focus-visible,
-  &.focus-visible {
+  &.focus-visible { /* stylelint-disable-line selector-class-pattern */
     outline: none;
   }
 }
