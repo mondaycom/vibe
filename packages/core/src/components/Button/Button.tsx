@@ -1,5 +1,4 @@
 /* eslint-disable react/button-has-type */
-// Test change for script validation
 import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";

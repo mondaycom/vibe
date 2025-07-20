@@ -1,6 +1,5 @@
 /* eslint-disable */
 /* tslint:disable */
-// Test change for script validation
 import * as React from "react";
 export interface DashboardProps extends React.SVGAttributes<SVGElement> {
   size?: string | number;
