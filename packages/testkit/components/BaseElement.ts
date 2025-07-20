@@ -179,7 +179,7 @@ export class BaseElement {
    * Count the number of elements matching the locator.
    * @returns {Promise<number>} - The number of elements matching the locator.
    */
-  async countElements(): Promise<number> {
+  async count(): Promise<number> {
     return await test.step(`Count elements matching ${this.getElementReportName()}`, async () => {
       return await this.getLocator().count();
     });
@@ -233,7 +233,7 @@ export class BaseElement {
    * Remove focus from the element.
    * @returns {Promise<void>}
    */
-  async removeFocusFromElement(): Promise<void> {
+  async removeFocus(): Promise<void> {
     await test.step(`Remove focus from ${this.getElementReportName()}`, async () => {
       await this.getPage().locator("body").click();
     });
