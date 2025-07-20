@@ -1,8 +1,24 @@
 @import "../../../styles/typography";
 
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .title {
   @include smoothing-text;
   padding-block: 1px;
+  padding: var(--spacing-xs) var(--spacing-small);
+  flex: 1;
+}
+
+.infoIcon {
+  margin-right: var(--spacing-small);
+  color: var(--secondary-text-color);
+  flex-shrink: 0;
+  display: flex;
 }
 
 .titleCaption {
@@ -18,7 +34,7 @@
 
 .titleCaptionBottom,
 .titleCaptionTop {
-  padding-left: var(--spacing-small);
+  /* No additional padding needed as title element handles padding */
 }
 
 .titleCaptionBottom {
@@ -34,4 +50,9 @@
   font-size: 0;
   line-height: 0;
   margin: 0 var(--spacing-small);
+}
+
+.titleCaptionCenter .infoIcon {
+  margin-left: var(--spacing-xs);
+  margin-right: 0;
 }

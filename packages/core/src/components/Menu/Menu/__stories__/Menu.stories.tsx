@@ -167,3 +167,49 @@ export const MenuWith2DepthSubMenu = {
   name: "Menu with 2-depth sub menu",
   play: menuWithTwoDepthsSuite
 };
+
+export const MenuWithTitleInfo = {
+  render: () => (
+    <Flex>
+      <DialogContentContainer>
+        <Menu>
+          <MenuTitle caption="Menu bottom info" captionPosition="bottom" infoTooltipContent="Additional context" />
+          <MenuItem icon={Email} title="Send email" />
+          <MenuItem icon={Delete} title="Delete item" disabled />
+          <MenuItem icon={Settings} title="Settings" />
+          <MenuTitle caption="Menu top info" captionPosition="top" infoTooltipContent="More details" />
+          <MenuItem icon={Favorite} title="Add to favorites" />
+          <MenuItem icon={Invite} title="Share with team" />
+          <MenuDivider />
+          <MenuTitle caption="Menu center info" captionPosition="center" infoTooltipContent="More details" />
+          <MenuItem icon={Favorite} title="Add to favorites" />
+          <MenuItem icon={Invite} title="Share with team" />
+        </Menu>
+      </DialogContentContainer>
+    </Flex>
+  ),
+  name: "Menu with title info icons"
+};
+
+export const MenuWithTitleNoInfo = {
+  render: () => (
+    <Flex>
+      <DialogContentContainer>
+        <Menu>
+          <MenuTitle caption="Menu bottom info" captionPosition="bottom" />
+          <MenuItem icon={Email} title="Send email" />
+          <MenuItem icon={Delete} title="Delete item" disabled />
+          <MenuItem icon={Settings} title="Settings" />
+          <MenuTitle caption="Menu top info" captionPosition="top" />
+          <MenuItem icon={Favorite} title="Add to favorites" />
+          <MenuItem icon={Invite} title="Share with team" />
+          <MenuDivider />
+          <MenuTitle caption="Menu center info" captionPosition="center" />
+          <MenuItem icon={Favorite} title="Add to favorites" />
+          <MenuItem icon={Invite} title="Share with team" />
+        </Menu>
+      </DialogContentContainer>
+    </Flex>
+  ),
+  name: "Menu with title no info"
+};

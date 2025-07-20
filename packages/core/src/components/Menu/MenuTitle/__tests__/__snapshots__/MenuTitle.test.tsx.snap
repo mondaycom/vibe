@@ -2,28 +2,43 @@
 
 exports[`renders correctly with caption 1`] = `
 <div
-  className="typography secondary start singleLineEllipsis text text2Normal title"
-  data-testid="menu-title"
+  className="titleContainer"
 >
-  <label
-    className="titleCaption titleCaptionBottom"
-    data-testid="menu-title-caption"
+  <div
+    className="typography secondary start singleLineEllipsis text text2Normal title"
+    data-testid="menu-title"
   >
-    my title
-  </label>
+    <label
+      className="titleCaption titleCaptionBottom"
+      data-testid="menu-title-caption"
+    >
+      my title
+    </label>
+  </div>
+  
 </div>
 `;
 
 exports[`renders correctly with custom class name 1`] = `
 <div
-  className="typography secondary start singleLineEllipsis text text2Normal title dummy-class-name"
-  data-testid="menu-title"
-/>
+  className="titleContainer dummy-class-name"
+>
+  <div
+    className="typography secondary start singleLineEllipsis text text2Normal title"
+    data-testid="menu-title"
+  />
+  
+</div>
 `;
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="typography secondary start singleLineEllipsis text text2Normal title"
-  data-testid="menu-title"
-/>
+  className="titleContainer"
+>
+  <div
+    className="typography secondary start singleLineEllipsis text text2Normal title"
+    data-testid="menu-title"
+  />
+  
+</div>
 `;

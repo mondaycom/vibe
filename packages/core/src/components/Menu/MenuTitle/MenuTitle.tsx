@@ -8,6 +8,8 @@ import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./Menu
 import { MenuTitleCaptionPosition } from "./MenuTitle.type";
 import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import styles from "./MenuTitle.module.scss";
+import { Info } from "@vibe/icons";
+import Tooltip from "../../Tooltip/Tooltip";
 
 export interface MenuTitleProps extends VibeComponentProps {
   /**
@@ -18,12 +20,17 @@ export interface MenuTitleProps extends VibeComponentProps {
    * The position of the caption relative to the title.
    */
   captionPosition?: MenuTitleCaptionPosition;
+  /**
+   * The content of the info tooltip.
+   */
+  infoTooltipContent?: string;
 }
 
 const MenuTitle = ({
   className,
   caption = "",
   captionPosition = "bottom",
+  infoTooltipContent = "",
   id,
   "data-testid": dataTestId
 }: MenuTitleProps) => {
@@ -36,19 +43,31 @@ const MenuTitle = ({
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE_CAPTION, id)}
         >
           {caption}
+          {captionPosition === "center" && infoTooltipContent && (
+            <Tooltip content={infoTooltipContent}>
+              <Info className={styles.infoIcon} />
+            </Tooltip>
+          )}
         </label>
       );
     }
   };
   return (
-    <Text
-      color="secondary"
-      type="text2"
-      className={cx(styles.title, className)}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
-    >
-      {renderCaptionIfNeeded()}
-    </Text>
+    <div className={cx(styles.titleContainer, className)}>
+      <Text
+        color="secondary"
+        type="text2"
+        className={styles.title}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
+      >
+        {renderCaptionIfNeeded()}
+      </Text>
+      {infoTooltipContent && captionPosition !== "center" && (
+        <Tooltip content={infoTooltipContent}>
+          <Info className={styles.infoIcon} />
+        </Tooltip>
+      )}
+    </div>
   );
 };
 
