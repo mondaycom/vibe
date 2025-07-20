@@ -17,7 +17,7 @@ export const TeamMember = ({ image, name, title, linkedinUrl, className }: TeamM
     <a href={linkedinUrl} className={cx(styles.teamMember, className)} target="_blank" rel="noreferrer">
       <Flex direction="column" gap="large" align="start">
         <img src={image} alt={name} className={styles.image} />
-        <Flex className={styles.content} direction="column">
+        <Flex className={styles.content} direction="column" align="start">
           <Text type="text1" weight="medium" className={styles.name}>
             {name}
           </Text>

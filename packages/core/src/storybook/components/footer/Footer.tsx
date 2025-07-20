@@ -9,8 +9,10 @@ export default function Footer() {
     <div className={styles.footer}>
       <Flex align="start" className={styles.footerContent}>
         <div className={styles.footerTitles}>
-          <Title className={styles.title}>Vibe Feedback.</Title>
-          <p className={styles.subtitle}>We would love to hear your thoughts about Vibe!</p>
+          <Title className={styles.title}>We&apos;re listening.</Title>
+          <p className={styles.subtitle}>
+            We&apos;d love to hear your thoughts <br /> about Vibe!
+          </p>
         </div>
         <Flex gap="large" className={styles.footerCards} align="start" flex="1">
           <FooterCard

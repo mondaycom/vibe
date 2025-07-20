@@ -1,10 +1,10 @@
 .footerCard {
-  border-radius: 16px;
-  border: 1px solid var(--disabled-text-color);
-  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--ui-border-color);
+  padding: 32px 32px 24px 32px;
   cursor: pointer;
   display: flex;
-  height: 200px;
+  height: 170px;
   flex: 1;
   width: 100%;
   align-items: flex-start;
@@ -19,7 +19,8 @@
     .title {
       margin: 0;
       letter-spacing: normal;
-      font-size: 22px;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .description {
@@ -31,7 +32,7 @@
   }
   .link {
     align-self: flex-end;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 500;
   }
 

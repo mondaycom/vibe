@@ -40,6 +40,7 @@ import modes from "./modes";
 import Footer from "../src/storybook/components/footer/Footer";
 import StorybookTableOfContents from "../src/storybook/components/toc/TableOfContents";
 import { paintToConsole } from "./art";
+import FloatingObjects from "../src/storybook/stand-alone-documentaion/welcome/hero/FloatingObjects";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -62,8 +63,11 @@ const preview: Preview = {
         layout: "fullscreen"
       },
       container: ({ children, context }: { children: any; context: any }) => {
+        const isWelcomePage = typeof window !== "undefined" ? window.location.href.includes("id=welcome") : false;
+
         return (
           <>
+            {isWelcomePage && <FloatingObjects />}
             <DocsContainer context={context}>
               <Unstyled>{children}</Unstyled>
             </DocsContainer>

@@ -1,87 +1,51 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React from "react";
 import styles from "./Resources.module.scss";
-import Card from "./Card";
-import HeartIcon from "./icons/HeartIcon";
-import CircleIcon from "./icons/CircleIcon";
-import CirclesIcon from "./icons/CirclesIcon";
-import LineIcon from "./icons/LineIcon";
-import AsteriskIcon from "./icons/AsteriskIcon";
-import cx from "classnames";
+import ResourceCard from "./ResourceCard";
+import IconFoundations from "./icons/IconFoundations";
+import IconFoundationsColored from "./icons/IconFoundationsColored";
+import IconComponents from "./icons/IconComponents";
+import IconComponentsColored from "./icons/IconComponentsColored";
+import IconPatterns from "./icons/IconPatterns";
+import IconPatternsColored from "./icons/IconPatternsColored";
+import Section from "../Section";
+import EntranceAnimation from "../EntranceAnimation";
 
 export default function Resources() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [showLeftFade, setShowLeftFade] = useState(false);
-  const [showRightFade, setShowRightFade] = useState(false);
-
-  const updateFadeState = useCallback(() => {
-    const element = scrollRef.current;
-    if (!element) return;
-
-    const { scrollLeft, scrollWidth, clientWidth } = element;
-    const canScrollLeft = scrollLeft > 0;
-    const canScrollRight = scrollLeft < scrollWidth - clientWidth;
-    const hasOverflow = scrollWidth > clientWidth;
-
-    setShowLeftFade(hasOverflow && canScrollLeft);
-    setShowRightFade(hasOverflow && canScrollRight);
-  }, []);
-
-  useEffect(() => {
-    const element = scrollRef.current;
-    if (!element) return;
-
-    updateFadeState();
-
-    element.addEventListener("scroll", updateFadeState);
-
-    return () => {
-      element.removeEventListener("scroll", updateFadeState);
-    };
-  }, [updateFadeState]);
-
   return (
     <>
-      <p className={styles.text}>The materials monday.com experience is made of.</p>
-      <div
-        ref={scrollRef}
-        className={cx(styles.resourcesScroll, {
-          [styles.fadeLeft]: showLeftFade,
-          [styles.fadeRight]: showRightFade
-        })}
-      >
+      <EntranceAnimation>
+        <Section>Our Resources</Section>
+      </EntranceAnimation>
+
+      <EntranceAnimation>
+        <p className={styles.text}>
+          Explore monday.com’s open-source <br />
+          design and development tools.
+        </p>
         <div className={styles.resources}>
-          <Card
-            icon={<HeartIcon />}
+          <ResourceCard
+            icon={<IconFoundations />}
+            hoverIcon={<IconFoundationsColored />}
             title="Foundations"
-            description="Foundations inform the basis of any great user interface."
+            description="Colors, spacing, typography, and core design tokens."
             page="Foundations/Accessibility"
           />
-          <Card
-            icon={<CircleIcon />}
+          <ResourceCard
+            icon={<IconComponents />}
+            hoverIcon={<IconComponentsColored />}
             title="Components"
-            description="Components are reusable building blocks."
+            description="Reusable blocks for creating monday.com experiences."
             page="Components/Accordion"
           />
-          <Card
-            icon={<CirclesIcon />}
+          <ResourceCard
+            icon={<IconPatterns />}
+            hoverIcon={<IconPatternsColored />}
             title="Patterns"
-            description="A UI pattern is one step up from a component. "
-            page=""
-          />
-          <Card
-            icon={<LineIcon />}
-            title="Processes"
-            description="Processes outline the design workflows and methods"
-            page=""
-          />
-          <Card
-            icon={<AsteriskIcon />}
-            title="Other resources"
-            description="Internal tools and utils that streamline our daily workflows"
+            description="Best practices for solving common UX challenges."
             page=""
           />
         </div>
-      </div>
+      </EntranceAnimation>
     </>
   );
 }

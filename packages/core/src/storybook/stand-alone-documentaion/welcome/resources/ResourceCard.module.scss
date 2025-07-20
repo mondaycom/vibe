@@ -1,22 +1,24 @@
 .card {
-  width: 336px;
-  height: 214px;
+  min-width: 290px;
   border-radius: 22px;
   border: 1px solid var(--sb-layout-border-color);
-  padding: 36px 32px;
+  padding: 32px;
   color: var(--sb-primary-text-color);
-  flex-shrink: 0;
   text-decoration: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1 0 0;
+
+  .hoverIcon {
+    display: none;
+  }
 
   .title {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 700;
     margin: 12px 0;
     letter-spacing: 0;
-  }
-
-  .icon {
-    margin-bottom: 24px;
   }
 
   .description {
@@ -30,5 +32,12 @@
   &:hover {
     background: var(--sb-allgrey-background-color);
     mix-blend-mode: multiply;
+
+    .icon {
+      display: none;
+    }
+    .hoverIcon {
+      display: block;
+    }
   }
 }

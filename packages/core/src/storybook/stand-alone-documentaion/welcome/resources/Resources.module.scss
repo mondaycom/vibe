@@ -1,36 +1,16 @@
-.resourcesScroll {
-  overflow-x: auto;
-  margin-top: 42px;
-  margin-bottom: 160px;
-  mask-image: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &.fadeLeft:not(.fadeRight) {
-    mask-image: linear-gradient(to right, transparent 0px, black 120px, black 100%);
-  }
-
-  &.fadeRight:not(.fadeLeft) {
-    mask-image: linear-gradient(to right, black 0%, black calc(100% - 120px), transparent 100%);
-  }
-
-  &.fadeLeft.fadeRight {
-    mask-image: linear-gradient(to right, transparent 0px, black 120px, black calc(100% - 120px), transparent 100%);
-  }
-}
-
 .resources {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-width: max-content;
+  justify-content: stretch;
+  margin-top: 42px;
+  margin-bottom: 160px;
+  flex-flow: wrap;
 }
 
 .text {
   color: var(--sb-secondary-text-color);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.44px;
   line-height: 140%;

@@ -2,9 +2,13 @@
   color: var(--sb-primary-text-color);
   -webkit-font-smoothing: initial;
   font-family: var(--sb-title-font-family);
-  letter-spacing: -1.333px;
-  font-size: 28px;
-  line-height: 113%;
+  letter-spacing: -1px;
+  font-size: 32px;
+  line-height: 125%;
   font-weight: 500;
   margin-bottom: var(--sb-space-12);
+
+  @media (max-width: 956px) {
+    font-size: 24px;
+  }
 }
