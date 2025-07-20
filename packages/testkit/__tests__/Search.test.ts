@@ -87,7 +87,7 @@ test.describe("Testkit - Unit Tests - Search", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await search.countElements();
+    const count = await search.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

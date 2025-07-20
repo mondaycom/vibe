@@ -35,7 +35,7 @@ test.describe("Testkit - Unit Tests - Link", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await link.countElements();
+    const count = await link.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

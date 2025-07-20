@@ -39,7 +39,7 @@ test.describe("Testkit - Unit Tests - RadioButton", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await radioButton.countElements();
+    const count = await radioButton.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

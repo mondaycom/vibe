@@ -76,7 +76,7 @@ test.describe("Testkit - Unit Tests - ColorPicker", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await colorPicker.countElements();
+    const count = await colorPicker.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

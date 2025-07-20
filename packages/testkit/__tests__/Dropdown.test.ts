@@ -32,7 +32,7 @@ test.describe("Testkit - Unit Tests - Dropdown", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await dropdown.countElements();
+    const count = await dropdown.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

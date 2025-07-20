@@ -66,7 +66,7 @@ test.describe("Testkit - Unit Tests - MenuItem", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await menuItem.countElements();
+    const count = await menuItem.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

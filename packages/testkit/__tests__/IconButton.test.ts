@@ -60,7 +60,7 @@ test.describe("Testkit - Unit Tests - IconButton", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await iconButton.countElements();
+    const count = await iconButton.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

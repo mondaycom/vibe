@@ -35,7 +35,7 @@ test.describe("Testkit - Unit Tests - ExpandCollapse", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await expandCollapse.countElements();
+    const count = await expandCollapse.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

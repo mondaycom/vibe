@@ -57,7 +57,7 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await splitButton.countElements();
+    const count = await splitButton.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

@@ -66,7 +66,7 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await listItem.countElements();
+    const count = await listItem.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

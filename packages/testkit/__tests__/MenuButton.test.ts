@@ -70,7 +70,7 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await menuButton.countElements();
+    const count = await menuButton.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

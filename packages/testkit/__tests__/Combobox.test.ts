@@ -35,7 +35,7 @@ test.describe("Testkit - Unit Tests - Combobox", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await combobox.countElements();
+    const count = await combobox.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

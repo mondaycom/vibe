@@ -87,7 +87,7 @@ test.describe("Testkit - Unit Tests - TextField", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await textField.countElements();
+    const count = await textField.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

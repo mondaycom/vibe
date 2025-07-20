@@ -67,7 +67,7 @@ test.describe("Testkit - Unit Tests - Button", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await button.countElements();
+    const count = await button.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

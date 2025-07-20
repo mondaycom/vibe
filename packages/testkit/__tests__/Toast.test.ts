@@ -71,7 +71,7 @@ test.describe("Testkit - Unit Tests - Button Toast", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await toast.countElements();
+    const count = await toast.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
@@ -175,7 +175,7 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await toast.countElements();
+    const count = await toast.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
@@ -255,7 +255,7 @@ test.describe("Storybook - Unit Tests - Loading Toast", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await toast.countElements();
+    const count = await toast.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

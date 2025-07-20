@@ -42,7 +42,7 @@ test.describe("Testkit - Unit Tests - Menu", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await menu.countElements();
+    const count = await menu.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

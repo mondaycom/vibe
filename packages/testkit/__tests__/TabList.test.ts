@@ -70,7 +70,7 @@ test.describe("Testkit - Unit Tests - TabList", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await tabList.countElements();
+    const count = await tabList.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

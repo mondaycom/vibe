@@ -55,7 +55,7 @@ test.describe("Testkit - Unit Tests - Toggle", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await toggle.countElements();
+    const count = await toggle.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

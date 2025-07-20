@@ -58,7 +58,7 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await checkbox.countElements();
+    const count = await checkbox.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

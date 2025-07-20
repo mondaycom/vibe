@@ -35,7 +35,7 @@ test.describe("Testkit - Unit Tests - Loader", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await loader.countElements();
+    const count = await loader.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

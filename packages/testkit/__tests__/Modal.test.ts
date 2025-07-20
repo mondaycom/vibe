@@ -31,7 +31,7 @@ test.describe("Testkit - Unit Tests - Modal", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await modal.countElements();
+    const count = await modal.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 

@@ -54,7 +54,7 @@ test.describe("Testkit - Unit Tests - Text", () => {
   });
 
   test("should count elements correctly", async () => {
-    const count = await text.countElements();
+    const count = await text.count();
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
