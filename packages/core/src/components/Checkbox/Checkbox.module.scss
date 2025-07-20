@@ -98,10 +98,6 @@ $checkbox-size: 16px;
 .input:checked + .checkbox,
 .input:indeterminate + .checkbox {
   animation: checkboxGrowAnimation var(--motion-productive-short);
-}
-
-.input:checked + .checkbox,
-.input:indeterminate + .checkbox {
   background-color: var(--primary-color);
   border-color: transparent;
 }
@@ -137,12 +133,6 @@ $checkbox-size: 16px;
   background-color: var(--disabled-background-color);
 }
 
-.input:disabled + .checkbox,
-.input:disabled + .checkbox:hover {
-  background-color: var(--disabled-background-color);
-  border-color: var(--ui-border-color);
-}
-
 .input:disabled + .checkbox .icon,
 .input:disabled + .checkbox:hover .icon {
   color: var(--disabled-text-color);
@@ -151,6 +141,8 @@ $checkbox-size: 16px;
 .input:disabled + .checkbox,
 .input:disabled + .checkbox:hover {
   cursor: not-allowed;
+  background-color: var(--disabled-background-color);
+  border-color: var(--ui-border-color);
 }
 
 .input:disabled ~ .label {
