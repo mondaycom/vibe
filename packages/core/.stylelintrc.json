@@ -1,5 +1,6 @@
 {
   "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint"],
+  "plugins": ["stylelint-use-logical"],
   "rules": {
     "no-descending-specificity": null,
     "monday-ui-style/use-defined-css-var-when-available": [
@@ -44,6 +45,13 @@
       "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
       {
         "message": "Use kebab-case for CSS functions. Example: @function my-function instead of @function myFunction"
+      }
+    ],
+    "csstools/use-logical": [
+      "always",
+      {
+        "severity": "warning",
+        "except": ["width", "height", "min-width", "max-width", "min-height", "max-height"]
       }
     ]
   }
