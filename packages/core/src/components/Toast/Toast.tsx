@@ -90,6 +90,7 @@ const Toast = ({
   "data-testid": dataTestId
 }: ToastProps) => {
   const ref = useRef(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
   const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
@@ -179,11 +180,13 @@ const Toast = ({
   return (
     <CSSTransition
       in={open}
+      nodeRef={nodeRef}
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
       timeout={400}
       unmountOnExit
     >
       <Text
+        ref={nodeRef}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type="text2"
@@ -192,7 +195,6 @@ const Toast = ({
         className={classNames}
         role="alert"
         aria-live="polite"
-        ref={ref}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align="center" gap="large" className={styles.content}>
