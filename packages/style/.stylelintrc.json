@@ -7,6 +7,12 @@
         "message": "Selector should be in kebab-case (e.g. .my-selector)"
       }
     ],
+    "custom-property-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "CSS custom properties should use kebab-case (e.g. --primary-color)"
+      }
+    ],
     "scss/dollar-variable-pattern": [
       "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       {
@@ -19,6 +25,12 @@
         "message": "Mixin name should be in kebab-case (e.g. @mixin my-mixin)"
       }
     ],
+    "scss/at-function-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Function names should be kebab-case (e.g. my-function)"
+      }
+    ],
     "scss/comment-no-empty": true,
 
     "max-nesting-depth": [
@@ -29,40 +41,12 @@
     ],
 
     "declaration-no-important": true,
-    "property-no-vendor-prefix": true,
     "declaration-block-no-duplicate-properties": true,
-    "selector-max-id": 0,
-    "selector-max-compound-selectors": 3,
     "shorthand-property-no-redundant-values": true,
     "color-hex-case": "lower",
     "color-hex-length": "long",
     "number-leading-zero": "always",
+    "property-no-vendor-prefix": true,
     "at-rule-no-vendor-prefix": true
-  },
-  "overrides": [
-    {
-      "files": ["src/mixins/_common.scss", "src/internal-mixins/_utilities.scss"],
-      "rules": {
-        "declaration-no-important": null
-      }
-    },
-    {
-      "files": ["src/internal-mixins/_utilities.scss"],
-      "rules": {
-        "max-nesting-depth": null
-      }
-    },
-    {
-      "files": ["src/Themes/_hacker-theme.scss"],
-      "rules": {
-        "selector-class-pattern": null
-      }
-    },
-    {
-      "files": ["src/config/tokens/**/*.scss"],
-      "rules": {
-        "scss/dollar-variable-pattern": null
-      }
-    }
-  ]
+  }
 }
