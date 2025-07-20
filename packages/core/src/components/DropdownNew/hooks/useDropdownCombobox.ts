@@ -37,7 +37,6 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   );
 
   const flatOptions = useMemo(() => filteredOptions.flatMap(group => group.options), [filteredOptions]);
-
   const {
     isOpen,
     inputValue,
@@ -55,16 +54,13 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     isItemDisabled: item => Boolean(item.disabled),
-    initialInputValue: inputValueProp,
+    initialInputValue: inputValueProp || "",
     selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    onIsOpenChange: useCallback(
-      ({ isOpen }) => {
-        isOpen ? onMenuClose?.() : onMenuOpen?.();
-      },
-      [onMenuClose, onMenuOpen]
-    ),
+    onIsOpenChange: ({ isOpen }) => {
+      isOpen ? onMenuClose?.() : onMenuOpen?.();
+    },
 
     onInputValueChange: useCallback(
       ({ inputValue }) => {
@@ -94,6 +90,9 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
           return { ...actionAndChanges.changes, inputValue: "", isOpen: !closeMenuOnSelect };
+        case useCombobox.stateChangeTypes.InputBlur:
+          return { ...actionAndChanges.changes, inputValue: "" };
+
         default:
           return actionAndChanges.changes;
       }
