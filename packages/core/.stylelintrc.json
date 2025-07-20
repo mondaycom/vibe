@@ -14,6 +14,37 @@
         "ignorePseudoClasses": ["global", "local"]
       }
     ],
-    "scss/comment-no-empty": null
+    "scss/comment-no-empty": null,
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*([A-Z][a-z0-9]*)*|dark-app-theme|black-app-theme|hacker-app-theme|hacker_theme-app-theme)$",
+      {
+        "message": "Use camelCase for CSS class names in modules. Example: .myButton instead of .my-button"
+      }
+    ],
+    "selector-id-pattern": [
+      "^[a-z][a-zA-Z0-9]*$",
+      {
+        "message": "Use camelCase for CSS IDs. Example: #myElement instead of #my-element"
+      }
+    ],
+    "unit-disallowed-list": ["em", "rem"],
+    "scss/dollar-variable-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS custom properties. Example: --my-color instead of --myColor"
+      }
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS mixins. Example: @mixin my-mixin instead of @mixin myMixin"
+      }
+    ],
+    "scss/at-function-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS functions. Example: @function my-function instead of @function myFunction"
+      }
+    ]
   }
 }
