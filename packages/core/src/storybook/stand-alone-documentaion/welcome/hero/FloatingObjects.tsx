@@ -152,10 +152,6 @@ export default function FloatingObjects() {
         >
           <HeroArrowCrossShape />
         </FloatingObject>
-        {/* 
-        <FloatingObject top={50} right={0} distance={40} direction="toward" smoothing={70} scrollSpeed={-0.7}>
-          <HeroCircleShapeTeal />
-        </FloatingObject> */}
 
         <FloatingObject
           top={40}
