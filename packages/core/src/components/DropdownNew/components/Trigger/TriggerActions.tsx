@@ -2,14 +2,19 @@ import React from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
 import { IconButton } from "../../../IconButton";
 import { Flex } from "../../../Flex";
-import styles from "./Trigger.module.scss"; // Assuming styles for actionsWrapper are here
+import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { BaseListItemData } from "../../../BaseListItem";
+
+const sizeMap = {
+  large: "medium",
+  medium: "small",
+  small: "xs"
+} as const;
 
 const TriggerActions = () => {
   const {
     isOpen,
-    getToggleButtonProps,
     reset,
     contextOnClear,
     size,
@@ -18,10 +23,13 @@ const TriggerActions = () => {
     readOnly,
     multi,
     selectedItem,
-    selectedItems = []
+    selectedItems = [],
+    toggleMenu,
+    getMenuProps
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
+  const iconButtonSize = sizeMap[size] || "small";
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -37,17 +45,35 @@ const TriggerActions = () => {
   }
 
   return (
-    <Flex className={styles.actionsWrapper}>
-      {hasSelection && clearable && !disabled && (
-        <IconButton data-testid="dropdown-clear-button" icon={CloseSmall} onClick={handleClear} size={size} />
-      )}
-      <IconButton
-        icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-        {...getToggleButtonProps({ disabled })}
-        size={size}
-        disabled={disabled}
-      />
-    </Flex>
+    <div
+      onKeyDown={e => {
+        e.stopPropagation();
+      }}
+    >
+      <Flex className={styles.actionsWrapper}>
+        {hasSelection && clearable && !disabled && (
+          <IconButton
+            data-testid="dropdown-clear-button"
+            icon={CloseSmall}
+            onClick={handleClear}
+            size={iconButtonSize}
+            ariaLabeledBy={getMenuProps().id}
+          />
+        )}
+        <IconButton
+          icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
+          size={iconButtonSize}
+          disabled={disabled}
+          ariaControls={getMenuProps().id}
+          ariaExpanded={isOpen}
+          ariaLabeledBy={getMenuProps().id}
+          tabIndex={-1}
+          onClick={() => {
+            toggleMenu();
+          }}
+        />
+      </Flex>
+    </div>
   );
 };
 

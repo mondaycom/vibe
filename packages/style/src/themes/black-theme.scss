@@ -57,8 +57,8 @@
   --box-shadow-medium: 0px 6px 20px #000000;
   --box-shadow-large: 0px 15px 50px #000000;
 
-  --color-grass_green-hover: #116846;
-  --color-grass_green-selected: #0a482e;
+  --color-grass_green-hover: #116846; /* stylelint-disable-line custom-property-pattern */
+  --color-grass_green-selected: #0a482e; /* stylelint-disable-line custom-property-pattern */
   --color-done-green-hover: #0f9b63;
   --color-done-green-selected: #096c43;
   --color-done-green-selected-with-opacity: rgba(9, 108, 67, 0.6);
@@ -66,11 +66,11 @@
   --color-bright-green-selected: #56721b;
   --color-saladish-hover: #9d8f3e;
   --color-saladish-selected: #6d6329;
-  --color-egg_yolk-hover: #c29e11;
-  --color-egg_yolk-selected: #886e09;
-  --color-egg_yolk-rgb: 255, 213, 51;
-  --color-working_orange-hover: #c0873c;
-  --color-working_orange-selected: #875e27;
+  --color-egg_yolk-hover: #c29e11; /* stylelint-disable-line custom-property-pattern */
+  --color-egg_yolk-selected: #886e09; /* stylelint-disable-line custom-property-pattern */
+  --color-egg_yolk-rgb: 255, 213, 51; /* stylelint-disable-line custom-property-pattern */
+  --color-working_orange-hover: #c0873c; /* stylelint-disable-line custom-property-pattern */
+  --color-working_orange-selected: #875e27; /* stylelint-disable-line custom-property-pattern */
   --color-dark-orange-hover: #c25531;
   --color-dark-orange-selected: #883a1f;
   --color-peach-hover: #c2888a;
@@ -82,21 +82,21 @@
   --color-stuck-red-selected: #792a36;
   --color-dark-red-hover: #92334c;
   --color-dark-red-selected: #662232;
-  --color-sofia_pink-hover: #c21e71;
-  --color-sofia_pink-selected: #88134d;
+  --color-sofia_pink-hover: #c21e71; /* stylelint-disable-line custom-property-pattern */
+  --color-sofia_pink-selected: #88134d; /* stylelint-disable-line custom-property-pattern */
   --color-lipstick-hover: #c24e9a;
   --color-lipstick-selected: #88356a;
   --color-bubble-hover: #be80ba;
   --color-bubble-selected: #855981;
   --color-purple-hover: #8050ab;
   --color-purple-selected: #593776;
-  --color-dark_purple-hover: #6344a3;
-  --color-dark_purple-selected: #442e71;
+  --color-dark_purple-hover: #6344a3; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_purple-selected: #442e71; /* stylelint-disable-line custom-property-pattern */
   --color-berry-hover: #673971;
   --color-berry-selected: #47264d;
-  --color-dark_indigo: #6129ff;
-  --color-dark_indigo-hover: #4c18dc;
-  --color-dark_indigo-selected: #3c13ae;
+  --color-dark_indigo: #6129ff; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_indigo-hover: #4c18dc; /* stylelint-disable-line custom-property-pattern */
+  --color-dark_indigo-selected: #3c13ae; /* stylelint-disable-line custom-property-pattern */
   --color-indigo-hover: #4b4ead;
   --color-indigo-selected: #333578;
   --color-navy: #5684c5;
@@ -116,8 +116,8 @@
   --color-winter-selected: #555f67;
   --color-explosive-hover: #98999a;
   --color-explosive-selected: #6a6a6a;
-  --color-american_gray-hover: #69696a;
-  --color-american_gray-selected: #494949;
+  --color-american_gray-hover: #69696a; /* stylelint-disable-line custom-property-pattern */
+  --color-american_gray-selected: #494949; /* stylelint-disable-line custom-property-pattern */
   --color-blackish: #7a7a7a;
   --color-blackish-hover: #525252;
   --color-blackish-selected: #383838;

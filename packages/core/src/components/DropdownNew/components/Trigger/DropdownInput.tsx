@@ -9,7 +9,6 @@ import { Text } from "../../../Text";
 const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
   const {
     inputValue,
-    getInputProps,
     autoFocus,
     disabled,
     readOnly,
@@ -20,9 +19,11 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     inputAriaLabel,
     searchable,
     size,
-    getToggleButtonProps,
+    label,
+    isOpen,
     getDropdownProps,
-    isOpen
+    getLabelProps,
+    getInputProps
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
@@ -34,17 +35,20 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
       {searchable ? (
         <BaseInput
           {...getInputProps({
-            ...(inputAriaLabel && { "aria-label": inputAriaLabel }),
+            "aria-labelledby": label ? getLabelProps().id : undefined,
+            "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
             placeholder: hasSelection ? "" : placeholder,
             ...multipleSelectionDropdownProps
           })}
+          inputRole="combobox"
           value={inputValue || ""}
           autoFocus={autoFocus}
           size={inputSize || size}
           className={cx(styles.inputWrapper, {
             [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
-            [styles.multi]: multi && hasSelection
+            [styles.multi]: multi && hasSelection,
+            [styles.multiSelected]: multi && hasSelection && inputSize === "small"
           })}
           disabled={disabled}
           readOnly={readOnly}
@@ -54,8 +58,10 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
           {!hasSelection && placeholder && (
             <Text
               color="secondary"
-              className={styles.placeholderText}
-              {...getToggleButtonProps(multipleSelectionDropdownProps)}
+              className={cx(styles.placeholderText, {
+                [styles.disabled]: !!disabled
+              })}
+              type={size === "small" ? "text2" : "text1"}
             >
               {placeholder}
             </Text>
