@@ -39,10 +39,10 @@ $grid-auto-fit-cell-width-xl: 300px;
     grid-template-columns: repeat(
       auto-fit,
       minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)
-    ) !important;
-    gap: $grid-gap !important;
-    column-gap: $grid-column-gap !important;
-    row-gap: $grid-row-gap !important;
+    ) !important; /* stylelint-disable-line declaration-no-important */
+    gap: $grid-gap !important; /* stylelint-disable-line declaration-no-important */
+    column-gap: $grid-column-gap !important; /* stylelint-disable-line declaration-no-important */
+    row-gap: $grid-row-gap !important; /* stylelint-disable-line declaration-no-important */
   } @else {
     grid-template-columns: repeat(
       auto-fit,

@@ -67,4 +67,13 @@ export class Menu extends BaseElement {
       await menuItem?.click();
     });
   }
+
+  async selectSubItem(rootItem: string, subItem: string): Promise<void> {
+    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.elementReportName}`, async () => {
+      const rootMenuItem = await this.getItemByName(rootItem);
+      await rootMenuItem?.hover();
+      const secondaryMenu = new Menu(this.page, this.page.locator(`.secondary-menu-enter-done`), `Secondary Menu`);
+      await secondaryMenu.selectItem(subItem);
+    });
+  }
 }

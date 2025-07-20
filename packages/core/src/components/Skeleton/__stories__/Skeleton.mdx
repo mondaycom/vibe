@@ -7,7 +7,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipLoader } from "./Skeleton.stories.helpers";
 import * as SkeletonStories from "./Skeleton.stories";
-import "./Skeleton.stories.scss";
+import { Flex } from "../../Flex";
 
 <Meta of={SkeletonStories} />
 
@@ -50,7 +50,7 @@ Use shaes to mimic Avatars, images, buttons etc...
 
 Presents a classic menu or equivalent picker
 
-<Canvas of={SkeletonStories.Text} />
+<Canvas of={SkeletonStories.TextSkeleton} />
 
 ## Do’s and Don’ts
 
@@ -59,48 +59,48 @@ Presents a classic menu or equivalent picker
     {
       positive: {
         component: (
-          <div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
-              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-            </div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
-              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-            </div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
-              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-            </div>
-          </div>
+          <Flex gap="small" direction="column" align="start">
+            <Flex gap="small">
+              <Skeleton type="circle" />
+              <Skeleton type="text" size="small" />
+            </Flex>
+            <Flex gap="small">
+              <Skeleton type="circle" />
+              <Skeleton type="text" size="small" />
+            </Flex>
+            <Flex gap="small">
+              <Skeleton type="circle" />
+              <Skeleton type="text" size="small" />
+            </Flex>
+          </Flex>
         ),
         description: "Show only representation of ui."
       },
       negative: {
         component: (
-          <div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
+          <Flex gap="small" direction="column" align="start">
+            <Flex gap="small">
+              <Skeleton type="circle" />
               <div>
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                <Skeleton type="text" size="small" />
                 Small text
               </div>
-            </div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
+            </Flex>
+            <Flex gap="small">
+              <Skeleton type="circle" />
               <div>
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                <Skeleton type="text" size="small" />
                 Small text
               </div>
-            </div>
-            <div className="monday-storybook-skeleton_rules-row">
-              <Skeleton type={Skeleton.types.CIRCLE} />
+            </Flex>
+            <Flex gap="small">
+              <Skeleton type="circle" />
               <div>
-                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                <Skeleton type="text" size="small" />
                 Small text
               </div>
-            </div>
-          </div>
+            </Flex>
+          </Flex>
         ),
         description: "Show all the user interface exactly."
       }
