@@ -2,7 +2,12 @@
   "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint"],
   "rules": {
     "no-descending-specificity": null,
-    "monday-ui-style/use-defined-css-var-when-available": null,
+    "monday-ui-style/use-defined-css-var-when-available": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
