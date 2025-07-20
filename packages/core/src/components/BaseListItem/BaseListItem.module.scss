@@ -28,15 +28,15 @@
   }
 
   &.small {
-    padding: 6px var(--space-8);
+    padding: 6px var(--spacing-small);
   }
 
   &.medium {
-    padding: 9px var(--space-12);
+    padding: 9px 12px;
   }
 
   &.large {
-    padding: 13px var(--space-12);
+    padding: 13px 12px;
   }
 
   .avatar,
