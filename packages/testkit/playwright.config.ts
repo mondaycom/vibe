@@ -1,11 +1,6 @@
 import { defineConfig } from "@playwright/test";
 import path from "path";
 
-// Optimize worker count based on environment
-const getWorkerCount = () => {
-  return process.env.WORKERS && process.env.CI ? process.env.WORKERS : "50%";
-};
-
 // Optimize test timeout based on environment
 const getTestTimeout = () => {
   return process.env.CI ? 240 * 1000 : 180 * 1000; // 4 min in CI, 3 min locally
@@ -35,12 +30,6 @@ const getGlobalTimeout = () => {
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  // Run tests in parallel
-  fullyParallel: true,
-
-  // Number of workers to use
-  workers: getWorkerCount(),
-
   // Reporter to use
   reporter: [
     ["html", { open: "never", outputFolder: path.join(process.cwd(), "/reports") }],
