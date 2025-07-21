@@ -7,13 +7,6 @@ export const modifiers = [
     options: {
       mainAxis: false
     }
-  },
-  {
-    name: "flip",
-    options: {
-      // @ts-ignore
-      fallbackPlacements: []
-    }
   }
 ];
 
