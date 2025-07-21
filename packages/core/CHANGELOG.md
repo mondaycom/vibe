@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.55.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.1...@vibe/core@3.55.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** remove padding for closed dropdown ([#2999](https://github.com/mondaycom/vibe/issues/2999)) ([48a1186](https://github.com/mondaycom/vibe/commit/48a1186aefcd065d34ebf7290e94a2828024537a))
+
+
+
+
+
 ## [3.55.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.0...@vibe/core@3.55.1) (2025-07-21)
 
 
