@@ -9,8 +9,12 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import * as ToastStories from "./Toast.stories";
 import { TipAlertBanner } from "./Toast.stories.helpers";
-import doImage from "./assets/do.png";
-import dontImage from "./assets/dont.png";
+import do1 from "./assets/do1.png";
+import dont1 from "./assets/dont1.png";
+import do2 from "./assets/do2.png";
+import dont2 from "./assets/dont2.png";
+import do3 from "./assets/do3.png";
+import dont3 from "./assets/dont3.png";
 
 <Meta of={ToastStories} />
 
@@ -96,69 +100,31 @@ Use when something was deleted, a problem has occurred, etc.
   rules={[
     {
       positive: {
-        component: (
-          <Toast open className="monday-storybook-toast_wrapper" hideIcon type="positive">
-            Duplicating Board
-          </Toast>
-        ),
+        component: <img src={do1} width="100%" />,
         description: "Use only one toast on a screen at a time."
       },
       negative: {
-        component: (
-          <Flex direction="column" gap="small">
-            <Toast
-              type="negative"
-              open
-              hideIcon
-              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
-              actions={[{ type: "link", text: "Try again", href: "https://monday.com" }]}
-            >
-              Couldn’t load board items
-            </Toast>
-            <Toast
-              type="positive"
-              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
-              hideIcon
-              text="Duplicating Board"
-              open
-            >
-              Duplicating Board
-            </Toast>
-          </Flex>
-        ),
+        component: <img src={dont1} width="100%" />,
         description: <>Don’t place more than one toast on a screen at a time.</>
       }
     },
     {
       positive: {
-        component: (
-          <Toast
-            open
-            className="monday-storybook-toast_wrapper"
-            type="positive"
-            actions={[{ type: "button", content: "Undo" }]}
-          >
-            We successfully archived 1 item
-          </Toast>
-        ),
+        component: <img src={do2} width="100%" />,
         description: "Always offer an option to undo the action. Keep the toast for 60 seconds before auto-removing it."
       },
       negative: {
-        component: (
-          <Toast open className="monday-storybook-toast_wrapper" type="positive">
-            We successfully archived 1 item
-          </Toast>
-        ),
+        component: <img src={dont2} width="100%" />,
         description: "Don’t offer an action without letting the user undo it."
       }
     },
     {
       positive: {
-        component: <img src={doImage} width="100%" />,
+        component: <img src={do3} width="100%" />,
         description: "If the toast message has 2 steps, make sure both toasts have roughly the same width."
       },
       negative: {
-        component: <img src={dontImage} width="100%" />,
+        component: <img src={dont3} width="100%" />,
         description: "If the toast message has 2 steps, don’t use toasts with very different widths."
       }
     }

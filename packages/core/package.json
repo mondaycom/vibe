@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.54.1",
+  "version": "3.55.2",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -45,7 +45,11 @@
       "import": "./dist/src/components/next.js",
       "default": "./dist/src/components/next.js"
     },
-    "./tokens": "./dist/tokens/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens/tokens.d.ts",
+      "import": "./dist/tokens/tokens.css",
+      "default": "./dist/tokens/tokens.css"
+    },
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames/src/index.js",
       "default": "./dist/mocked_classnames/src/index.js"
@@ -61,6 +65,9 @@
       ],
       "next": [
         "./dist/components/next.d.ts"
+      ],
+      "tokens": [
+        "./dist/tokens/tokens.d.ts"
       ]
     }
   },
@@ -96,8 +103,7 @@
     "downshift": "^9.0.8",
     "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.24.0",
-    "prop-types": "^15.8.1",
+    "monday-ui-style": "0.24.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
     "react-inlinesvg": "^4.1.3",
