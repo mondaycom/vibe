@@ -90,8 +90,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
-    "stylelint:fix": "yarn stylelint -- --fix",
-    "size": "size-limit"
+    "stylelint:fix": "yarn stylelint -- --fix"
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
@@ -286,12 +285,5 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
-  ],
-  "size-limit": [
-    {
-      "path": "dist/src/index.js",
-      "limit": "369 KB",
-      "gzip": true
-    }
   ]
 }

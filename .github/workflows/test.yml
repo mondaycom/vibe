@@ -80,15 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: andresz1/size-limit-action@v1
         with:
-          fetch-depth: 0
-      - name: Run Setup
-        uses: ./.github/actions/setup
-        with:
-          npm_token: ${{ secrets.npm_token }}
-      - id: determine-since-flag
-        uses: ./.github/actions/determine-lerna-since-flag
-      - uses: ./.github/actions/download-builds
-      - name: Run bundle size check
-        continue-on-error: true
-        run: yarn lerna run --scope @vibe/core size
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_script: "build"
