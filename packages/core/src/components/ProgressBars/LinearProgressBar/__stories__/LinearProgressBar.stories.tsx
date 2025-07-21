@@ -104,7 +104,7 @@ export const ProgressBarAsACounter: Story = {
       <Flex justify="space-between" style={{ marginBottom: "var(--space-4)" }}>
         <Flex gap="xs">
           <Text>Items</Text>
-          <Icon icon={Info} />
+          <Icon icon={Info} style={{ color: "var(--icon-color)" }} />
         </Flex>
         <Text>142/200</Text>
       </Flex>
