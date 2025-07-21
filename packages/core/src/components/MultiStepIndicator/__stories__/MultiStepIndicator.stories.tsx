@@ -1,9 +1,9 @@
 import React from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Upgrade } from "@vibe/icons";
-import { Step } from "../MultiStep.types";
+import { Step, StepStatus } from "../MultiStep.types";
 
 export default {
   title: "Components/MultiStepIndicator",
@@ -210,113 +210,60 @@ export const FulfilledIcons = {
 
 export const TransitionAnimation = {
   render: () => {
-    const exampleSteps = useMemo<Record<string, Step>>(
-      () => ({
-        firstStep: {
+    const initialSteps = useMemo<Step[]>(
+      () => [
+        {
           key: "PENDING",
           status: "pending",
           titleText: "First step title",
           subtitleText: "First subtitle"
         },
-
-        secondStep: {
+        {
           key: "PENDING-2",
           status: "pending",
           titleText: "Second step title",
           subtitleText: "Second subtitle"
         },
-
-        thirdStep: {
+        {
           key: "PENDING-3",
           status: "pending",
           titleText: "Third step title",
           subtitleText: "Third subtitle"
         }
-      }),
+      ],
       []
     );
 
-    const [steps, setSteps] = useState<Step[]>([
-      {
-        ...exampleSteps.firstStep
-      },
-      {
-        ...exampleSteps.secondStep
-      },
-      {
-        ...exampleSteps.thirdStep
-      }
-    ]);
-
-    const clearSteps = useCallback(() => {
-      setSteps([
-        {
-          ...exampleSteps.firstStep
-        },
-        {
-          ...exampleSteps.secondStep
-        },
-        {
-          ...exampleSteps.thirdStep
-        }
-      ]);
-    }, [exampleSteps.firstStep, exampleSteps.secondStep, exampleSteps.thirdStep]);
-
-    const [numActions, setNumActions] = useState(0);
-
-    const getStepKeyForTransition = useCallback(() => {
-      if (numActions < 2) return "firstStep";
-      else if (numActions < 4) return "secondStep";
-      else return "thirdStep";
-    }, [numActions]);
-
-    const performIndicatorStateTransition = useCallback(() => {
-      if (numActions === steps.length * 2) {
-        clearSteps();
-        setNumActions(0);
-        return;
-      }
-
-      const stepKey = getStepKeyForTransition();
-
-      const copySteps = {
-        firstStep: {
-          ...steps[0]
-        },
-
-        secondStep: {
-          ...steps[1]
-        },
-
-        thirdStep: {
-          ...steps[2]
-        }
-      };
-
-      copySteps[stepKey].status = copySteps[stepKey].status === "pending" ? "active" : "fulfilled";
-
-      setSteps([
-        {
-          ...copySteps.firstStep
-        },
-        {
-          ...copySteps.secondStep
-        },
-        {
-          ...copySteps.thirdStep
-        }
-      ]);
-
-      setNumActions(numActions + 1);
-    }, [numActions, steps, getStepKeyForTransition, clearSteps]);
+    const [{ steps }, setState] = useState({ steps: initialSteps, actionCount: 0 });
 
     useEffect(() => {
-      const interval = setInterval(performIndicatorStateTransition, 2000);
+      const totalActions = initialSteps.length * 2;
+      const interval = setInterval(() => {
+        setState(prevState => {
+          const newActionCount = (prevState.actionCount + 1) % (totalActions + 1);
+
+          if (newActionCount === 0) {
+            return { steps: initialSteps, actionCount: 0 };
+          }
+
+          const stepIndex = Math.floor((newActionCount - 1) / 2);
+          const newStatus: StepStatus = (newActionCount - 1) % 2 === 0 ? "active" : "fulfilled";
+
+          const newSteps = prevState.steps.map((step, index) => {
+            if (index === stepIndex) {
+              return { ...step, status: newStatus };
+            }
+            return step;
+          });
+
+          return { steps: newSteps, actionCount: newActionCount };
+        });
+      }, 2000);
 
       return () => {
         clearInterval(interval);
       };
-    }, [performIndicatorStateTransition]);
+    }, [initialSteps]);
 
     return <MultiStepIndicator steps={steps} />;
   }
