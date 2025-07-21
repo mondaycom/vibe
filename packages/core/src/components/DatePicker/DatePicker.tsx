@@ -11,7 +11,7 @@ import {
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
-import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
+import { DAY_SIZE, WEEK_FIRST_DAY, DEFAULT_DATE_PICKER_PHRASES } from "./constants";
 import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
@@ -181,7 +181,7 @@ const DatePicker = forwardRef(
       setFocusedInput(focusedInput || FocusInput.startDate);
     }, []);
 
-    const mergedPhrases = { ...DayPickerRangeController.defaultProps.phrases, ...phrases };
+    const mergedPhrases = { ...DEFAULT_DATE_PICKER_PHRASES, ...phrases };
 
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
