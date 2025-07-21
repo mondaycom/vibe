@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.55.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.0...@vibe/core@3.55.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Table:** fix loading state handling in TableVirtualizedBody ([#2992](https://github.com/mondaycom/vibe/issues/2992)) ([8e2dff4](https://github.com/mondaycom/vibe/commit/8e2dff456b32227dbb8c38c348f7d4cacac6c195))
+
+
+
+
+
 # [3.55.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.2...@vibe/core@3.55.0) (2025-07-20)
 
 
