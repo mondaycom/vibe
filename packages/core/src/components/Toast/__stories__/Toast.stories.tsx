@@ -1,10 +1,9 @@
 import React from "react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
-import { ToastAction } from "../Toast.types";
 import Flex from "../../Flex/Flex";
 import { Decorator, Meta, StoryObj } from "@storybook/react";
 
