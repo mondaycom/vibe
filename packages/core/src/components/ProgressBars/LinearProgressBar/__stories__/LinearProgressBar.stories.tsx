@@ -4,9 +4,6 @@ import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Info } from "@vibe/icons";
 import Icon from "../../../Icon/Icon";
-import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
-import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
-import styles from "./LinearProgressBar.stories.module.scss";
 import Logo from "./assets/Logo.png";
 import { Flex } from "../../../Flex";
 import { Text } from "../../../Text";
@@ -122,15 +119,11 @@ export const ProgressBarAsLoadingIndicator: Story = {
         <Box style={{ flexShrink: 0, height: "100%" }}>
           <img src={Logo} alt="Frame 697.jpg" style={{ height: "100%" }} />
         </Box>
-        <Flex direction="column" align="stretch" gap="small" style={{ flex: 1 }}>
+        <Flex direction="column" align="stretch" justify="space-between" style={{ flex: 1, height: "100%" }}>
           <Text type="text1" weight="bold">
             Frame 697.jpg
           </Text>
-          <BreadcrumbsBar type="indication" className={styles.breadcrumbs}>
-            <BreadcrumbItem text="Activities" />
-            <BreadcrumbItem text="Activity 6" />
-          </BreadcrumbsBar>
-          <Flex justify="space-between" style={{ height: "100%" }}>
+          <Flex justify="space-between">
             <Text>2KB</Text>
             <Text>Saving...</Text>
           </Flex>
