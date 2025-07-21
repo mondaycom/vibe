@@ -6,8 +6,12 @@ import { Info } from "@vibe/icons";
 import Icon from "../../../Icon/Icon";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
-import "./LinearProgressBar.stories.scss";
-import Flex from "../../../Flex/Flex";
+import styles from "./LinearProgressBar.stories.module.scss";
+import Logo from "./assets/Logo.png";
+import { Flex } from "../../../Flex";
+import { Text } from "../../../Text";
+import { Meta, StoryObj } from "@storybook/react";
+import { Box } from "../../../Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: LinearProgressBar
@@ -18,20 +22,17 @@ export default {
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof LinearProgressBar>;
 
-const lineProgressBarTemplate = (args: LinearProgressBarProps) => {
-  return <LinearProgressBar className="linear-progress-bar_small-wrapper" {...args} />;
-};
+type Story = StoryObj<typeof LinearProgressBar>;
 
-export const Overview = {
-  render: lineProgressBarTemplate.bind({}),
-  name: "Overview",
+export const Overview: Story = {
+  render: (args: LinearProgressBarProps) => (
+    <div style={{ width: "400px" }}>
+      <LinearProgressBar value={20} size="large" {...args} />
+    </div>
+  ),
 
-  args: {
-    value: 20,
-    size: "large"
-  },
   parameters: {
     docs: {
       liveEdit: {
@@ -41,7 +42,7 @@ export const Overview = {
   }
 };
 
-export const Regular = {
+export const Regular: Story = {
   render: () => (
     <Flex direction="column" gap="large">
       <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
@@ -53,26 +54,18 @@ export const Regular = {
         Without label
       </Flex>
     </Flex>
-  ),
-
-  name: "Regular"
+  )
 };
 
-export const WithSecondaryValue = {
+export const WithSecondaryValue: Story = {
   render: () => (
-    <LinearProgressBar
-      className="linear-progress-bar_small-wrapper"
-      value={50}
-      indicateProgress
-      valueSecondary={65}
-      size="large"
-    />
-  ),
-
-  name: "With secondary value"
+    <div style={{ width: "400px" }}>
+      <LinearProgressBar value={50} indicateProgress valueSecondary={65} size="large" />
+    </div>
+  )
 };
 
-export const MultiProgressBar = {
+export const MultiProgressBar: Story = {
   render: () => {
     const multiValues = useMemo(
       () => [
@@ -93,31 +86,28 @@ export const MultiProgressBar = {
     );
 
     return (
-      <LinearProgressBar
-        className="linear-progress-bar_big-wrapper"
-        value={25}
-        size="large"
-        indicateProgress
-        multi
-        multiValues={multiValues}
-      />
+      <div style={{ width: "600px" }}>
+        <LinearProgressBar value={25} size="large" indicateProgress multi multiValues={multiValues} />
+      </div>
     );
   },
 
   name: "Multi progress bar"
 };
 
-export const ProgressBarAsACounter = {
+export const ProgressBarAsACounter: Story = {
   render: () => (
-    <div className="linear-progress-bar_box">
-      <h4>Loading files</h4>
-      <div className="linear-progress-bar_inline-wrapper">
-        <div className="linear-progress-bar_icon-wrapper">
-          Items
+    <div style={{ width: 200 }}>
+      <Text type="text1" weight="bold" style={{ marginBottom: "var(--space-48)" }}>
+        Loading files
+      </Text>
+      <Flex justify="space-between" style={{ marginBottom: "var(--space-4)" }}>
+        <Flex gap="xs">
+          <Text>Items</Text>
           <Icon icon={Info} />
-        </div>
-        <span>142/200</span>
-      </div>
+        </Flex>
+        <Text>142/200</Text>
+      </Flex>
       <LinearProgressBar value={71} size="large" barStyle="positive" />
     </div>
   ),
@@ -125,25 +115,29 @@ export const ProgressBarAsACounter = {
   name: "Progress bar as a counter"
 };
 
-export const ProgressBarAsLoadingIndicator = {
+export const ProgressBarAsLoadingIndicator: Story = {
   render: () => (
-    <div className="linear-progress-bar_box-wrapper">
-      <div className="linear-progress-bar_row">
-        <div className="linear-progress-bar_img" />
-        <div className="linear-progress-bar_aside">
-          <b>Frame 697.pg</b>
-          <BreadcrumbsBar type="indication" className="linear-progress-bar_breadcrumbs">
-            <BreadcrumbItem text="Hadas Test" />
+    <Box border padding="medium" style={{ width: 400 }}>
+      <Flex gap="small" style={{ marginBottom: "var(--space-8)", height: 80 }}>
+        <Box style={{ flexShrink: 0, height: "100%" }}>
+          <img src={Logo} alt="Frame 697.jpg" style={{ height: "100%" }} />
+        </Box>
+        <Flex direction="column" align="stretch" gap="small" style={{ flex: 1 }}>
+          <Text type="text1" weight="bold">
+            Frame 697.jpg
+          </Text>
+          <BreadcrumbsBar type="indication" className={styles.breadcrumbs}>
+            <BreadcrumbItem text="Activities" />
             <BreadcrumbItem text="Activity 6" />
           </BreadcrumbsBar>
-          <div className="linear-progress-bar_inline-wrapper">
-            <span>2KB</span>
-            <span>Saving...</span>
-          </div>
-        </div>
-      </div>
+          <Flex justify="space-between" style={{ height: "100%" }}>
+            <Text>2KB</Text>
+            <Text>Saving...</Text>
+          </Flex>
+        </Flex>
+      </Flex>
       <LinearProgressBar value={71} />
-    </div>
+    </Box>
   ),
 
   name: "Progress bar as loading indicator"

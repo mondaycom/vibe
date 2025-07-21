@@ -2,6 +2,8 @@ import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import LinearProgressBar from "../LinearProgressBar";
+import { Text } from "../../../Text";
+import { Flex } from "../../../Flex";
 
 export const TipMultiStepIndicator = () => (
   <Tip>
@@ -14,30 +16,44 @@ export const TipMultiStepIndicator = () => (
 );
 
 export const ComponentRulePositive = () => (
-  <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
-    <b>Items usage</b>
-    <div className="linear-progress-bar_inline-wrapper">
-      <span>Items</span>
-      <span>142/200</span>
-    </div>
-    <LinearProgressBar value={71} />
-  </DialogContentContainer>
+  <div style={{ width: 250 }}>
+    <DialogContentContainer style={{ padding: "var(--space-20)" }}>
+      <Text type="text1" weight="bold" style={{ marginBottom: "var(--space-4)" }}>
+        Items usage
+      </Text>
+      <Flex justify="space-between" style={{ marginBottom: "var(--space-4)" }}>
+        <Text>Items</Text>
+        <Text>142/200</Text>
+      </Flex>
+      <LinearProgressBar value={71} />
+    </DialogContentContainer>
+  </div>
 );
 
 export const ComponentRuleNegative = () => (
-  <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
-    <b>Storage</b>
-    <div className="linear-progress-bar_row-wrapper">
-      <div className="linear-progress-bar_title">Drive 1</div>
-      <LinearProgressBar className="linear-progress-bar_without-bg" value={88} />
-    </div>
-    <div className="linear-progress-bar_row-wrapper">
-      <div className="linear-progress-bar_title">Drive 2</div>
-      <LinearProgressBar className="linear-progress-bar_without-bg" value={46} />
-    </div>
-    <div className="linear-progress-bar_row-wrapper">
-      <div className="linear-progress-bar_title">Drive 3</div>
-      <LinearProgressBar className="linear-progress-bar_without-bg" value={72} />
-    </div>
-  </DialogContentContainer>
+  <div style={{ width: 250 }}>
+    <DialogContentContainer style={{ padding: "var(--space-20)" }}>
+      <Text type="text1" weight="bold" style={{ marginBottom: "var(--space-4)" }}>
+        Storage
+      </Text>
+      <Flex gap="medium">
+        <Text ellipsis={false} style={{ flexBasis: 80 }}>
+          Drive 1
+        </Text>
+        <LinearProgressBar value={88} />
+      </Flex>
+      <Flex gap="medium">
+        <Text ellipsis={false} style={{ flexBasis: 80 }}>
+          Drive 2
+        </Text>
+        <LinearProgressBar value={46} />
+      </Flex>
+      <Flex gap="medium">
+        <Text ellipsis={false} style={{ flexBasis: 80 }}>
+          Drive 3
+        </Text>
+        <LinearProgressBar value={72} />
+      </Flex>
+    </DialogContentContainer>
+  </div>
 );
