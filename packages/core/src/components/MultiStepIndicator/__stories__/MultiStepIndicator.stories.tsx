@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Upgrade } from "@vibe/icons";
-import { Step, StepStatus } from "../MultiStep.types";
+import { Step } from "../MultiStep.types";
 
 export default {
   title: "Components/MultiStepIndicator",
@@ -234,30 +234,30 @@ export const TransitionAnimation = {
       []
     );
 
-    const [{ steps }, setState] = useState({ steps: initialSteps, actionCount: 0 });
+    const [steps, setSteps] = useState<Step[]>(initialSteps);
 
     useEffect(() => {
-      const totalActions = initialSteps.length * 2;
+      const getNextStepsState = (currentSteps: Step[]): Step[] => {
+        const currentStepIndex = currentSteps.findIndex(step => step.status !== "fulfilled");
+
+        if (currentStepIndex === -1) {
+          return initialSteps;
+        }
+
+        const newSteps = [...currentSteps];
+        const stepToUpdate = newSteps[currentStepIndex];
+
+        if (stepToUpdate.status === "pending") {
+          newSteps[currentStepIndex] = { ...stepToUpdate, status: "active" };
+        } else {
+          newSteps[currentStepIndex] = { ...stepToUpdate, status: "fulfilled" };
+        }
+
+        return newSteps;
+      };
+
       const interval = setInterval(() => {
-        setState(prevState => {
-          const newActionCount = (prevState.actionCount + 1) % (totalActions + 1);
-
-          if (newActionCount === 0) {
-            return { steps: initialSteps, actionCount: 0 };
-          }
-
-          const stepIndex = Math.floor((newActionCount - 1) / 2);
-          const newStatus: StepStatus = (newActionCount - 1) % 2 === 0 ? "active" : "fulfilled";
-
-          const newSteps = prevState.steps.map((step, index) => {
-            if (index === stepIndex) {
-              return { ...step, status: newStatus };
-            }
-            return step;
-          });
-
-          return { steps: newSteps, actionCount: newActionCount };
-        });
+        setSteps(prevSteps => getNextStepsState(prevSteps));
       }, 2000);
 
       return () => {
