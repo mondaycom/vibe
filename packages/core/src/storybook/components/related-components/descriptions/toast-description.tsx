@@ -1,17 +1,25 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import ToastLineWrapper from "../../../../components/Toast/__stories__/ToastLineWrapper";
+import Toast from "../../../../components/Toast/Toast";
 
 export const ToastDescription = () => {
   const component = useMemo(() => {
-    const style = {
-      width: "100%",
-      display: "flex",
-      justifyContent: "center"
-    };
     return (
-      <div style={style}>
-        <ToastLineWrapper actions={[{ type: "button", content: "Button" }]}>Message</ToastLineWrapper>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          padding: "40px",
+          position: "static",
+          transform: "translate(0, 0)",
+          marginRight: "auto",
+          marginLeft: "auto"
+        }}
+      >
+        <Toast open actions={[{ type: "button", content: "Button" }]}>
+          Message
+        </Toast>
       </div>
     );
   }, []);

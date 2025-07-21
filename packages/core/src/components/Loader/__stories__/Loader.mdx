@@ -1,7 +1,7 @@
 import Loader from "../Loader";
 import { Meta } from "@storybook/blocks";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
-import { Flex } from "../..";
+import { Flex, Heading } from "../..";
 import {
   BUTTON,
   LINEAR_PROGRESS_BAR,
@@ -9,7 +9,6 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { TipSkeleton } from "./Loader.stories.helpers";
 import * as LoaderStories from "./Loader.stories";
-import "./Loader.stories.scss";
 
 <Meta of={LoaderStories} />
 
@@ -79,8 +78,8 @@ If there is a need for color customization, css `color` attribute of a parent co
     {
       positive: {
         component: (
-          <Flex direction="row">
-            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
+          <Flex direction="row" gap="medium">
+            <Heading>H1 heading component</Heading>
             <Loader size="small" hasBackground />
           </Flex>
         ),
@@ -88,8 +87,8 @@ If there is a need for color customization, css `color` attribute of a parent co
       },
       negative: {
         component: (
-          <Flex direction="row">
-            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
+          <Flex direction="row" gap="medium">
+            <Heading>H1 heading component</Heading>
             <Loader size="large" hasBackground />
           </Flex>
         ),

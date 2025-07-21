@@ -13,7 +13,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   defaultValue?: T[],
   value?: T[],
   inputValueProp?: string,
-  onChange?: (options: T[] | T) => void,
+  onChange?: (options: T[]) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -61,7 +61,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp,
+    initialInputValue: inputValueProp || "",
     onIsOpenChange: ({ isOpen }) => {
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
@@ -96,6 +96,8 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
           return { ...actionAndChanges.changes, inputValue: "", isOpen: true };
+        case useCombobox.stateChangeTypes.InputBlur:
+          return { ...actionAndChanges.changes, inputValue: "" };
         default:
           return actionAndChanges.changes;
       }
