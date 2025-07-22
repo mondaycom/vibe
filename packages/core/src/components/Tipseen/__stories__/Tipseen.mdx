@@ -13,21 +13,16 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import * as TipseenStories from "./Tipseen.stories";
 import { tipseenTemplate } from "./Tipseen.stories";
+import do1 from "./assets/do1.png";
+import do2 from "./assets/do2.png";
+import do3 from "./assets/do3.png";
+import dont1 from "./assets/dont1.png";
+import dont2 from "./assets/dont2.png";
+import dont3 from "./assets/dont3.png";
 
 <Meta of={TipseenStories} />
 
 # Tipseen
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
 
 Tipseen is a virtual unboxing experience that helps users get started with the system and discover new features.
 
@@ -92,127 +87,36 @@ In this case, the Tipseen position will be the right corner of the screen and wi
 ## Do’s and Don’ts
 
 <ComponentRules
-  className="monday-storybook-tipseen_rules"
   rules={[
     {
       positive: {
-        component: (
-          <div className="monday-storybook-tipseen_column-wrapper right">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              content={
-                <TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />
-              }
-            >
-              <div className="monday-storybook-tipseen_inline-container right" />{" "}
-            </Tipseen>
-          </div>
-        ),
+        component: <img src={do1} alt="do1" style={{ width: "100%" }} />,
         description:
           "When using a Tipseen wizard, allow the user to complete the process and close the Tipseen by leaving the last CTA enabled."
       },
       negative: {
-        component: (
-          <div className="monday-storybook-tipseen_column-wrapper right">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} />}
-            >
-              <div className="monday-storybook-tipseen_inline-container right" />{" "}
-            </Tipseen>
-          </div>
-        ),
+        component: <img src={dont1} alt="dont1" style={{ width: "100%" }} />,
         description: "Don’t finish the Tipseen wizard process with a disabled CTA."
       }
     },
     {
       positive: {
-        component: (
-          <div className="monday-storybook-tipseen_box">
-            <div className="monday-storybook-tipseen_column-item">
-              <Icon icon={Board} iconSize="24" />
-              <span>💫 Research tasks</span>
-            </div>
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
-            >
-              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
-                <Icon icon={Board} iconSize="24" />
-                <span>Sales Pipeline</span>
-              </div>
-            </Tipseen>
-            <div className="monday-storybook-tipseen_column-item">
-              <Icon icon={BoardPrivate} iconSize="24" />
-              <span>Marketing</span>
-            </div>
-          </div>
-        ),
+        component: <img src={do2} alt="do2" style={{ width: "100%" }} />,
         description:
           "Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
       },
       negative: {
-        component: (
-          <div className="monday-storybook-tipseen_column-wrapper">
-            <Tipseen
-              modifiers={modifiers}
-              position="top"
-              content={
-                <TipseenContent>
-                  You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.
-                </TipseenContent>
-              }
-            >
-              <div className="monday-storybook-tipseen_inline-container" />
-            </Tipseen>
-          </div>
-        ),
-        description: (
-          <>
-            Don’t use tipseen to provide additional information on a familiar UI. Use a{" "}
-            <StorybookLink page="Components/Tooltip">Tooltip</StorybookLink> or{" "}
-            <StorybookLink page="Components/AttentionBox">Attention box</StorybookLink> instead.
-          </>
-        )
+        component: <img src={dont2} alt="dont2" style={{ width: "100%" }} />,
+        description: "Don’t use tipseen to provide additional information on a familiar UI."
       }
     },
     {
       positive: {
-        component: (
-          <div className="monday-storybook-tipseen_box">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
-            >
-              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
-                <Icon icon={Board} iconSize="24" />
-                <span>Sales Pipeline</span>
-              </div>
-            </Tipseen>
-          </div>
-        ),
+        component: <img src={do3} alt="do3" style={{ width: "100%" }} />,
         description: "Add a pointer to indicate the specific component that the tipseen comes from."
       },
       negative: {
-        component: (
-          <div className="monday-storybook-tipseen_box">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              tip={false}
-              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
-            >
-              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
-                <Icon icon={Board} iconSize="24" />
-                <span>Sales Pipeline</span>
-              </div>
-            </Tipseen>
-          </div>
-        ),
+        component: <img src={dont3} alt="dont3" style={{ width: "100%" }} />,
         description: "Don’t use a tipseen without a pointer, unless it’s a general tipseen for an entire screen."
       }
     }
