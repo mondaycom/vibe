@@ -18,17 +18,6 @@ import Text from "../../Text/Text";
 
 # Attention Box
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 Attention box lets users know important information within content areas, as close as possible to the content it’s about. An optional smooth entrance animation can be used to enhance visibility.
 
 <Canvas of={AttentionBoxStories.Overview} />
@@ -78,11 +67,11 @@ There are five types of attention boxes: Primary, success, danger, warning and d
     {
       positive: {
         component: (
-          <div style={{width: "340px"}}>
-              <AttentionBox
-                title="Attention box title"
-                text="Studies show that 100% of people who celebrate birthdays, will eventually die."
-              />
+          <div style={{ width: "340px" }}>
+            <AttentionBox
+              title="Attention box title"
+              text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+            />
           </div>
         ),
         description: "Provide a short and brief title, and explanation related to the title."
@@ -96,7 +85,9 @@ There are five types of attention boxes: Primary, success, danger, warning and d
       positive: {
         component: (
           <div>
-            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Heading type="h2" weight="bold">
+              Inbox
+            </Heading>
             <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
             <AttentionBox compact icon={Info}>
               <Flex style={{ width: "400px" }} justify="space-between">
@@ -111,7 +102,9 @@ There are five types of attention boxes: Primary, success, danger, warning and d
       negative: {
         component: (
           <div>
-            <Heading type="h2" weight="bold">Inbox</Heading>
+            <Heading type="h2" weight="bold">
+              Inbox
+            </Heading>
             <Text style={{ margin: "0 0 10px" }}>Catch up on updates from all your boards.</Text>
             <AttentionBox compact icon={Info}>
               <Flex style={{ width: "400px" }} justify="space-between">

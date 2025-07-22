@@ -41,9 +41,6 @@
   .sbdocs .docs-story {
     border: var(--sb-layout-border-color);
   }
-  .sbdocs .docs-story > div:first-child {
-    background: var(--sb-secondary-background-color);
-  }
   .sbdocs .docs-story > div:nth-child(2) {
     /* prevent Show Code from rendering above full-screen components (such as Modal's overlay) */
     z-index: unset;
@@ -108,5 +105,39 @@
     border: 1px solid #ecf4f9;
     color: rgba(46, 52, 56, 0.9);
     background-color: #f7fafc;
+  }
+
+  /* Remove shadow from code blocks */
+  .docblock-source {
+    box-shadow: none !important;
+  }
+
+  /* Remove shadow from args table */
+  .docblock-argstable-body {
+    filter: none !important;
+  }
+
+  .sbdocs.sbdocs-wrapper {
+    padding: 80px 0 64px 0;
+  }
+
+  .sbdocs.sbdocs-content {
+    max-width: 1200px;
+    min-width: 640px;
+    margin: 0 120px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .sbdocs.sbdocs-content {
+      max-width: 900px;
+      margin: 0 80px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .sbdocs.sbdocs-content {
+      max-width: 900px;
+      margin: 0 120px;
+    }
   }
 </style>
