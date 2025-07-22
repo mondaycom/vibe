@@ -345,9 +345,6 @@
   .sbdocs .docs-story {
     border: var(--sb-layout-border-color);
   }
-  .sbdocs .docs-story > div:first-child {
-    background: var(--sb-secondary-background-color);
-  }
   .sbdocs .docs-story > div:nth-child(2) {
     /* prevent Show Code from rendering above full-screen components (such as Modal's overlay) */
     z-index: unset;
@@ -412,6 +409,40 @@
     border: 1px solid #ecf4f9;
     color: rgba(46, 52, 56, 0.9);
     background-color: #f7fafc;
+  }
+
+  /* Remove shadow from code blocks */
+  .docblock-source {
+    box-shadow: none !important;
+  }
+
+  /* Remove shadow from args table */
+  .docblock-argstable-body {
+    filter: none !important;
+  }
+
+  .sbdocs.sbdocs-wrapper {
+    padding: 80px 0 64px 0;
+  }
+
+  .sbdocs.sbdocs-content {
+    max-width: 1200px;
+    min-width: 640px;
+    margin: 0 120px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .sbdocs.sbdocs-content {
+      max-width: 900px;
+      margin: 0 80px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .sbdocs.sbdocs-content {
+      max-width: 900px;
+      margin: 0 120px;
+    }
   }</style><style>#storybook-root[hidden],
       #storybook-docs[hidden] {
         display: none !important;
@@ -442,8 +473,8 @@
             window['DOCS_OPTIONS'] = {"defaultName":"Docs","autodocs":false};</script><script type="module">import './sb-preview/runtime.js';
 
       
-      import './runtime~main.b82b21ad.iframe.bundle.js';
+      import './runtime~main.5f58f1a4.iframe.bundle.js';
       
-      import './7345.b6239635.iframe.bundle.js';
+      import './8800.8b985c3f.iframe.bundle.js';
       
-      import './main.bde18d81.iframe.bundle.js';</script></body></html>
+      import './main.d20c468a.iframe.bundle.js';</script></body></html>
