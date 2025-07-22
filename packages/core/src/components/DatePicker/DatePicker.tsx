@@ -8,10 +8,11 @@ import {
   DayPickerSingleDateController,
   type DayPickerPhrases
 } from "react-dates";
+import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
-import { DAY_SIZE, WEEK_FIRST_DAY, DEFAULT_DATE_PICKER_PHRASES } from "./constants";
+import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
@@ -181,7 +182,7 @@ const DatePicker = forwardRef(
       setFocusedInput(focusedInput || FocusInput.startDate);
     }, []);
 
-    const mergedPhrases = { ...DEFAULT_DATE_PICKER_PHRASES, ...phrases };
+    const mergedPhrases = { ...defaultPhrases, ...phrases };
 
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
