@@ -33,6 +33,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
   return (
     <DialogContentContainer
       className={cx({ [styles.menuVisible]: isOpen, [styles.menuHidden]: !isOpen }, menuWrapperClassName)}
+      style={!isOpen ? { padding: 0 } : undefined}
     >
       <BaseList<Item>
         size={size}

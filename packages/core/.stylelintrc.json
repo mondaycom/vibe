@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint"],
+  "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint-config"],
   "plugins": ["stylelint-use-logical", "stylelint-no-unsupported-browser-features"],
   "rules": {
     "no-descending-specificity": null,

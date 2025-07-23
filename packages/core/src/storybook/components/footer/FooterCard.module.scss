@@ -1,0 +1,43 @@
+.footerCard {
+  border-radius: 20px;
+  border: 1px solid var(--ui-border-color);
+  padding: 32px 32px 24px 32px;
+  cursor: pointer;
+  display: flex;
+  height: 170px;
+  flex: 1;
+  width: 100%;
+  align-items: flex-start;
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--sb-primary-text-color);
+
+  .content {
+    gap: 12px;
+
+    .title {
+      margin: 0;
+      letter-spacing: normal;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .description {
+      color: var(--sb-secondary-text-color);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
+  .link {
+    align-self: flex-end;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: var(--sb-allgrey-background-color);
+    mix-blend-mode: multiply;
+  }
+}
