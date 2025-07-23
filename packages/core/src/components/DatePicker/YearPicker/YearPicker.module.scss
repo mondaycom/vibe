@@ -7,11 +7,11 @@
   z-index: 10;
   pointer-events: none;
 
-  :global(.slide-down-appear) {
+  :global(.slide-down-appear) { /* stylelint-disable-line selector-class-pattern */
     opacity: 0;
   }
 
-  :global(.slide-down-appear-active) {
+  :global(.slide-down-appear-active) { /* stylelint-disable-line selector-class-pattern */
     transition: opacity 0.4s ease;
     opacity: 1;
   }
@@ -44,7 +44,7 @@
     }
   }
 
-  :global(.CalendarYear--blocked) {
+  :global(.CalendarYear--blocked) { /* stylelint-disable-line selector-class-pattern */
     color: var(--disabled-text-color);
     cursor: default;
   }

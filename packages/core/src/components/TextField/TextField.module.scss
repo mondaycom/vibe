@@ -141,9 +141,6 @@
   border-radius: var(--border-radius-small);
   opacity: 0;
   pointer-events: none;
-}
-
-.textField .inputWrapper .iconContainer {
   -webkit-appearance: none;
 }
 
@@ -183,6 +180,7 @@
   transition: color var(--motion-productive-short) var(--motion-timing-enter),
     transform var(--motion-productive-short) var(--motion-timing-enter);
   font-size: 14px;
+  font-family: var(--font-family);
 }
 
 .textField .inputWrapper.inputErrorValidation:hover .input {
@@ -275,10 +273,6 @@
   outline: none;
 }
 
-.textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
-  font-size: 16px;
-}
-
 .textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
   border-color: var(--primary-text-color);
 }
@@ -303,10 +297,6 @@
 .textField .inputWrapper.wrapperSizeLarge .iconContainer {
   height: 40px;
   width: 40px;
-}
-
-.textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
-  font-size: 16px;
 }
 
 .textField .inputWrapper:hover .input {
@@ -338,15 +328,13 @@
   color: var(--secondary-text-color);
 }
 
-.textField .inputWrapper .iconContainer .icon {
-  font-family: var(--font-family);
-}
-
 .textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
+  font-size: 16px;
   font-family: var(--font-family);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
+  font-size: 16px;
   font-family: var(--font-family);
 }
 

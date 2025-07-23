@@ -1,5 +1,5 @@
 {
-  "extends": "../../.stylelintrc.json",
+  "extends": "stylelint-config-recommended-scss",
   "rules": {
     "selector-class-pattern": [
       "^[a-z0-9]+(?:-[a-z0-9]+)*$",
