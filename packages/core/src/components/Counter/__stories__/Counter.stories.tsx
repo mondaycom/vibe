@@ -1,5 +1,4 @@
 import React from "react";
-import { useCallback, useEffect, useState } from "react";
 import Counter from "../Counter";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";
@@ -7,6 +6,8 @@ import { AddUpdate, Update, Notifications } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
+import { CounterProps } from "../Counter";
+import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Counter
@@ -19,7 +20,7 @@ export default {
 };
 
 export const Overview = {
-  render: () => <Counter count={5} />,
+  render: (args: CounterProps) => <Counter count={5} {...args} />,
   name: "Overview",
   parameters: {
     docs: {
@@ -35,15 +36,15 @@ export const Sizes = {
     <Flex gap={160}>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} size="xs" />
-        XS
+        <Text>XS</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} size="small" />
-        Small
+        <Text>Small</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} />
-        Large
+        <Text>Large</Text>
       </Flex>
     </Flex>
   )
@@ -54,19 +55,19 @@ export const Colors = {
     <Flex gap={160}>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} />
-        Primary
+        <Text>Primary</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="negative" />
-        Negative or notification
+        <Text>Negative or notification</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="dark" />
-        Dark
+        <Text>Dark</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="light" />
-        Light
+        <Text>Light</Text>
       </Flex>
     </Flex>
   )
@@ -77,19 +78,19 @@ export const Outline = {
     <Flex gap={160}>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} kind="line" />
-        Primary
+        <Text>Primary</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="negative" kind="line" />
-        Negative or notification
+        <Text>Negative or notification</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="dark" kind="line" />
-        Dark
+        <Text>Dark</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={5} color="light" kind="line" />
-        Light
+        <Text>Light</Text>
       </Flex>
     </Flex>
   )
@@ -100,15 +101,15 @@ export const Limits = {
     <Flex gap={160}>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={10} maxDigits={1} />
-        One digit limit
+        <Text>One digit limit</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={100} maxDigits={2} />
-        Two digits limit
+        <Text>Two digits limit</Text>
       </Flex>
       <Flex direction="column" gap="large" style={{ width: "100px" }} align="start">
         <Counter count={1000} />
-        Three digits limit
+        <Text>Three digits limit</Text>
       </Flex>
     </Flex>
   )
@@ -138,9 +139,9 @@ export const CounterOnInboxFilters = {
   render: () => (
     <Flex gap={28}>
       <Flex direction="column" gap="large" align="start">
-        <span className="a">UX Writing & microcopy Re...</span>
-        <span className="a"> Mobile Data- Iteration Plan...</span>
-        <span className="a">Q Plans.</span>
+        <Text>UX Writing & microcopy Re...</Text>
+        <Text>Mobile Data- Iteration Plan...</Text>
+        <Text>Q Plans.</Text>
       </Flex>
       <Flex direction="column" gap="large" align="start">
         <Counter count={195} color="dark" />
