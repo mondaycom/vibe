@@ -1,5 +1,5 @@
 {
-  "extends": ["../../.stylelintrc.json", "monday-ui-style/stylelint"],
+  "extends": ["../../.stylelintrc.json", "monday-ui-style/stylelint-config"],
   "rules": {
     "monday-ui-style/use-defined-css-var-when-available": null,
     "selector-pseudo-class-no-unknown": [
