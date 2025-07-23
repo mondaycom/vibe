@@ -9,6 +9,12 @@
         "severity": "warning"
       }
     ],
+    "monday-ui-style/use-new-spacing-tokens": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
