@@ -8,7 +8,6 @@ import Tab from "../../Tabs/Tab/Tab";
 import Link from "../../Link/Link.tsx";
 import IconButton from "../../IconButton/IconButton";
 import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
-import "./Tooltip.stories.scss";
 import * as TooltipStories from "./Tooltip.stories";
 import { TipOtherComponents, modifiers } from "./Tooltip.stories.helpers";
 import image from "./assets/tooltip-image.png";
@@ -89,7 +88,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
     {
       positive: {
         component: (
-          <TabList className="monday-storybook-tooltip_tabs">
+          <TabList>
             <Tab>Boards</Tab>
             <Tab>Items</Tab>
           </TabList>
@@ -98,7 +97,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
       },
       negative: {
         component: (
-          <TabList className="monday-storybook-tooltip_tabs">
+          <TabList>
             <Tooltip shouldShowOnMount content="Boards" position="bottom" modifiers={modifiers}>
               <Tab>Boards</Tab>
             </Tooltip>
@@ -118,12 +117,11 @@ Tooltip's arrow can appear from top, bottom, left or right.
             open
             content={
               <div>
-                I have a title, text, image and I can come{" "}
-                <Link text="with a link" inlineText className="monday-storybook-tooltip_link" />.
+                I have a title, text, image and I can come <Link text="with a link" inlineText color="onPrimary" />.
               </div>
             }
           >
-            <div className="monday-storybook-tooltip_position-bottom" />
+            <div style={{ position: "relative", top: "25%" }} />
           </Tooltip>
         ),
         description: "Add links inline and in the same color of the text."
@@ -141,7 +139,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
               </div>
             }
           >
-            <div className="monday-storybook-tooltip_position-bottom" />
+            <div style={{ position: "relative", top: "25%" }} />
           </Tooltip>
         ),
         description: "Don't add links on a separate line or in a different color from the text."
@@ -158,7 +156,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
             modifiers={modifiers}
             open
           >
-            <div className="monday-storybook-tooltip_position-left" />
+            <div style={{ position: "relative", left: "-25%" }} />
           </Tooltip>
         ),
         description: "Use this app to visualize data."
@@ -173,7 +171,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
             modifiers={modifiers}
             open
           >
-            <div className="monday-storybook-tooltip_position-left" />
+            <div style={{ position: "relative", left: "-25%" }} />
           </Tooltip>
         ),
         description: "Don't add an image just for aesthetic reasons, or if it doesn't help the user."
