@@ -10,7 +10,7 @@
       }
     ],
     "monday-ui-style/use-new-spacing-tokens": [
-      true,
+      null,
       {
         "severity": "warning"
       }
@@ -48,7 +48,7 @@
       }
     ],
     "csstools/use-logical": [
-      "always",
+      null,
       {
         "severity": "warning",
         "except": ["width", "height", "min-width", "max-width", "min-height", "max-height"]
