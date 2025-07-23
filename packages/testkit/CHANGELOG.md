@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.12.0...@vibe/testkit@1.13.0) (2025-07-23)
+
+
+### Features
+
+* **testkit:** refactoring testkit components ([#2984](https://github.com/mondaycom/vibe/issues/2984)) ([4e2759c](https://github.com/mondaycom/vibe/commit/4e2759cdec6530c98e0fc49caa1d16c61ade500d))
+* **testkit:** unit tests for testkit ([#2989](https://github.com/mondaycom/vibe/issues/2989)) ([86f19df](https://github.com/mondaycom/vibe/commit/86f19df2095a3679ef9b333f161b7d6aeb8c42b6))
+
+
+
+
+
 # [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.2...@vibe/testkit@1.12.0) (2025-07-13)
 
 
