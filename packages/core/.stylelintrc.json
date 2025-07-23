@@ -22,12 +22,6 @@
         "message": "Use camelCase for CSS class names in modules. Example: .myButton instead of .my-button"
       }
     ],
-    "selector-id-pattern": [
-      "^[a-z][a-zA-Z0-9]*$",
-      {
-        "message": "Use camelCase for CSS IDs. Example: #myElement instead of #my-element"
-      }
-    ],
     "unit-disallowed-list": ["em", "rem"],
     "scss/dollar-variable-pattern": [
       "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
