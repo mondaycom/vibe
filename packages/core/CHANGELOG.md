@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.56.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.6...@vibe/core@3.56.0) (2025-07-23)
+
+
+### Bug Fixes
+
+* **Dropdown:** stretch selected value ([#3007](https://github.com/mondaycom/vibe/issues/3007)) ([b5899df](https://github.com/mondaycom/vibe/commit/b5899dfe45f87f7fd258a396ef487383c87afe04))
+
+
+### Features
+
+* **stylelint:** add new stylelint rule for new spacing tokens system and update configuration ([#2991](https://github.com/mondaycom/vibe/issues/2991)) ([b4a07cb](https://github.com/mondaycom/vibe/commit/b4a07cbc30c9adcf081e8311d1be503adeeca1b4))
+
+
+
+
+
 ## [3.55.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.5...@vibe/core@3.55.6) (2025-07-23)
 
 **Note:** Version bump only for package @vibe/core

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.2...monday-ui-style@0.25.0) (2025-07-23)
+
+
+### Features
+
+* **stylelint:** add new stylelint rule for new spacing tokens system and update configuration ([#2991](https://github.com/mondaycom/vibe/issues/2991)) ([b4a07cb](https://github.com/mondaycom/vibe/commit/b4a07cbc30c9adcf081e8311d1be503adeeca1b4))
+
+
+
+
+
 ## [0.24.2](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.1...monday-ui-style@0.24.2) (2025-07-23)
 
 
