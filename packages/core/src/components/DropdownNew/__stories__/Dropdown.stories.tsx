@@ -340,7 +340,7 @@ export const DropdownWithGroups: Story = {
 
 export const DropdownItemWithElements: Story = {
   render: () => {
-    const options: BaseListItemData<Record<string, unknown>>[] = useMemo(
+    const startOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
       () => [
         {
           value: "icon",
@@ -364,7 +364,13 @@ export const DropdownItemWithElements: Story = {
           startElement: {
             type: "indent"
           }
-        },
+        }
+      ],
+      []
+    );
+
+    const endOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
+      () => [
         {
           value: "endIcon",
           label: "Label with end icon",
@@ -386,9 +392,14 @@ export const DropdownItemWithElements: Story = {
     );
 
     return (
-      <div style={{ width: "300px" }}>
-        <Dropdown placeholder={"Placeholder text here"} options={options} label="Label" required />
-      </div>
+      <Flex gap="large">
+        <div style={{ width: "300px" }}>
+          <Dropdown placeholder={"Placeholder text here"} options={startOptions} label="Start Elements" required />
+        </div>
+        <div style={{ width: "300px" }}>
+          <Dropdown placeholder={"Placeholder text here"} options={endOptions} label="End Elements" required />
+        </div>
+      </Flex>
     );
   }
 };
