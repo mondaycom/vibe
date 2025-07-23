@@ -1,6 +1,8 @@
 .multipleStoryElementsWrapper {
   display: flex;
   align-items: center;
+  box-shadow: none;
+
   & > * {
     margin-right: var(--sb-spacing-medium);
   }

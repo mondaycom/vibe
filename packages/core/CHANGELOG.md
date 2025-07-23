@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.55.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.3...@vibe/core@3.55.4) (2025-07-22)
+
+
+### Bug Fixes
+
+* **Dropdown:** apply padding conditionally for closed dropdown ([#3001](https://github.com/mondaycom/vibe/issues/3001)) ([62f2461](https://github.com/mondaycom/vibe/commit/62f24610c30da33b089d160bd9b7ed26a1405bc7))
+
+
+
+
+
+## [3.55.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.2...@vibe/core@3.55.3) (2025-07-22)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.1...@vibe/core@3.55.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** remove padding for closed dropdown ([#2999](https://github.com/mondaycom/vibe/issues/2999)) ([48a1186](https://github.com/mondaycom/vibe/commit/48a1186aefcd065d34ebf7290e94a2828024537a))
+
+
+
+
+
+## [3.55.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.0...@vibe/core@3.55.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Table:** fix loading state handling in TableVirtualizedBody ([#2992](https://github.com/mondaycom/vibe/issues/2992)) ([8e2dff4](https://github.com/mondaycom/vibe/commit/8e2dff456b32227dbb8c38c348f7d4cacac6c195))
+
+
+
+
+
 # [3.55.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.2...@vibe/core@3.55.0) (2025-07-20)
 
 

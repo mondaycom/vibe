@@ -1,1 +1,5 @@
+# Default codeowners for all files
 * @mondaycom/vibe
+
+# Testkit package - testing utilities and Playwright configuration
+packages/testkit/ @hanan-monday

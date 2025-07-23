@@ -9,6 +9,7 @@ import TableHeaderCell, { TableHeaderCellProps } from "../../TableHeaderCell/Tab
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
 import { mockUseTable, mockUseTableRowMenu } from "./tableTestUtils";
+import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBody";
 
 interface TableNode {
   role: string;
@@ -108,6 +109,47 @@ describe("Table", () => {
 
       const tableBodyElement = getByRole("rowgroup");
       expect(tableBodyElement.children.length).toBe(5);
+    });
+  });
+
+  describe("Virtualized table loading state", () => {
+    it("should render header when virtualized table has headerRenderer and is in loading state", () => {
+      const headerText = "Test Header Column";
+      const columns = [{ id: "test", title: headerText, loadingStateType: "long-text" as const }];
+
+      const HeaderRenderer = (columns: any[]) => (
+        <div role="rowgroup" data-testid="table-header">
+          {columns.map(col => (
+            <div key={col.id}>{col.title}</div>
+          ))}
+        </div>
+      );
+
+      const RowRenderer = (item: any) => <div role="row">{item.name}</div>;
+
+      const { getByTestId, getByText } = render(
+        <Table
+          columns={columns}
+          dataState={{ isLoading: true }}
+          errorState={<div>Error</div>}
+          emptyState={<div>Empty</div>}
+        >
+          <TableVirtualizedBody
+            items={[{ id: "1", name: "Test Item" }]}
+            rowRenderer={RowRenderer}
+            headerRenderer={HeaderRenderer}
+            columns={columns}
+          />
+        </Table>
+      );
+
+      // Header should be visible even when loading
+      expect(getByTestId("table-header")).toBeInTheDocument();
+      expect(getByText(headerText)).toBeInTheDocument();
+
+      // Should also render skeleton rows
+      const skeletonElements = document.querySelectorAll('[data-testid="skeleton"]');
+      expect(skeletonElements.length).toBeGreaterThan(0);
     });
   });
 

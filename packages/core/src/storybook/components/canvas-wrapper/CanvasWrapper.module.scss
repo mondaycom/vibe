@@ -8,7 +8,7 @@
   transition: max-height 0.1s ease-out, opacity 0.1s ease-out;
   overflow: auto;
   border-radius: 0 0 4px 4px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+  box-shadow: none;
   border: 1px solid #dde3e7;
   border-top: none;
 
@@ -27,4 +27,8 @@
 .canvas:has(+ [data-editor-open="true"]) {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.canvas {
+  box-shadow: none !important;
 }

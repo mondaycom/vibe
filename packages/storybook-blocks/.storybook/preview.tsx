@@ -2,8 +2,8 @@ import React from 'react';
 import { Preview } from '@storybook/react';
 import {
   AnchorListItem,
+  ComponentName,
   ComponentRules,
-  DocFooter,
   Frame,
   FunctionArgument,
   FunctionArguments,
@@ -18,7 +18,6 @@ import {
   UnstyledListItem,
   UsageGuidelines,
 } from '../src';
-import { ComponentNameDecorator } from '../storybook/components';
 import { DocsContainer, DocsPage, Unstyled } from '@storybook/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import '../src/styles/tokens/index.scss';
@@ -31,16 +30,13 @@ const preview: Preview = {
       },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
-          <Unstyled>
-            {children}
-            {<DocFooter feedbackFormLink="// TODO add feedbackFormLink" />}
-          </Unstyled>
+          <Unstyled>{children}</Unstyled>
         </DocsContainer>
       ),
       page: DocsPage,
       components: {
-        h1: ComponentNameDecorator,
-        ComponentName: ComponentNameDecorator,
+        h1: ComponentName,
+        ComponentName,
         h2: SectionName,
         h3: Title,
         li: AnchorListItem,
