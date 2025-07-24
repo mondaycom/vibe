@@ -5,7 +5,7 @@
 
   .groupTitle {
     color: var(--secondary-text-color);
-    padding: 8px 4px 8px 4px;
+    padding: var(--spacing-small) var(--spacing-xs);
     background-color: var(--secondary-background-color);
 
     &.sticky {
