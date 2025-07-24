@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.25.0...monday-ui-style@0.25.1) (2025-07-24)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
 # [0.25.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.2...monday-ui-style@0.25.0) (2025-07-23)
 
 
