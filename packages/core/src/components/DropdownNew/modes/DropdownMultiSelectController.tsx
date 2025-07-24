@@ -19,7 +19,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     onMenuClose,
     onOptionSelect,
     clearable = true,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     filterOption,
     dropdownRef,
     onClear,

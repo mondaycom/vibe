@@ -18,7 +18,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     filterOption,
     clearable = true,
     searchable = false,
