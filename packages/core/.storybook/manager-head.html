@@ -17,6 +17,17 @@
     font-size: 14px;
   }
 
+  /* Remove sidebar background */
+  body > div > div > div,
+  .container.sidebar-container {
+    background: none !important;
+  }
+
+  /* Sidebar alignment */
+  #storybook-explorer-menu .sidebar-item {
+    margin-left: -6px;
+  }
+
   /* Sections style */
   #storybook-explorer-menu .sidebar-item:not([data-parent-id]),
   #storybook-explorer-menu .sidebar-item:not([data-parent-id]) a,
@@ -27,8 +38,21 @@
     font-weight: 500;
   }
 
+  /* Sidebar sections spacing */
+  #storybook-explorer-tree > div > div {
+    margin-top: 32px;
+  }
+
+  .sidebar-header + label + div {
+    margin-left: 16px;
+  }
+
+  .sidebar-container .search-field {
+    border-radius: 20px;
+  }
+
   /* Sidebar spacings */
-  #storybook-explorer-menu #foundations {
+  #storybook-explorer-menu [data-item-id="foundations"] {
     margin-top: 24px;
   }
 
@@ -40,7 +64,6 @@
     line-height: 16px;
     font-weight: 500;
     color: var(--sb-secondary-text-color);
-    margin-left: 5px;
   }
   #storybook-explorer-menu [data-item-id]:focus {
     background: none;
@@ -54,6 +77,12 @@
   #storybook-explorer-menu button {
     padding-top: 6px;
     padding-bottom: 6px;
+    align-items: center;
+  }
+
+  /* Chevron alignment */
+  #storybook-explorer-menu .sidebar-item button[aria-expanded] > div {
+    margin-top: 0;
   }
 
   /* Icons color */
@@ -63,7 +92,6 @@
 
   /* Items hover style */
   #storybook-explorer-menu [data-item-id] {
-    margin: 0 8px;
     border-radius: 8px;
   }
 
@@ -77,35 +105,18 @@
     color: #000000;
   }
 
-  /* Removes node-type icons */
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > svg,
+  /* Removes sidebar icons */
+  #storybook-explorer-menu .sidebar-item[data-parent-id] > button > div > svg[type],
   #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > svg,
-  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > svg,
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > svg,
-  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > svg {
+  #storybook-explorer-menu
+    .sidebar-item:not([data-parent-id])
+    :not([data-nodetype="story"], [data-nodetype="document"])
+    svg[type] {
     display: none;
   }
 
-  /* Removed items arrow icon */
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > span,
-  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > span,
-  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > span,
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > span,
-  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > span:empty {
-    margin-left: 9px;
-    margin-right: 9px;
-  }
-
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > a > div > span,
-  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"]:hover > a > div > span,
-  #storybook-explorer-menu
-    .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover
-    > a
-    > div
-    > span,
-  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > div > span,
-  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover > div > span {
-    visibility: visible;
+  #storybook-explorer-menu .sidebar-item [aria-expanded] {
+    margin-left: 6px;
   }
 
   /* Fixes items spacings */
@@ -118,13 +129,6 @@
     margin-bottom: 16px !important;
   }
 
-  /* Search field */
-  .sidebar-container .search-field {
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-top: 22px !important;
-    margin-bottom: 32px;
-  }
   .sidebar-container .sidebar-header {
     margin-top: 2px !important;
     margin-left: 12px !important;
@@ -144,11 +148,6 @@
   div[role="main"] > div > div > div > div {
     border-bottom: 1px solid var(--sb-layout-border-color);
     box-shadow: none !important;
-  }
-
-  /* https://github.com/storybookjs/storybook/issues/25094 */
-  div[data-radix-scroll-area-viewport] > div {
-    display: block !important;
   }
 </style>
 

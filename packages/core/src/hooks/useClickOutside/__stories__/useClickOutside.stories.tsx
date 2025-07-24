@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useRef, useState } from "react";
 import useClickOutside from "..";
-import "../../__stories__/general-hooks-stories.scss";
+import Box from "../../../components/Box/Box";
 
 export default {
   title: "Hooks/useClickOutside"
@@ -24,9 +24,9 @@ export const Overview = {
     });
 
     return (
-      <div className="hooks-reference-element" ref={ref}>
+      <Box ref={ref} border rounded="small" padding="medium">
         Click outside {counter}
-      </div>
+      </Box>
     );
   },
 

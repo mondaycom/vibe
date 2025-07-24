@@ -1,15 +1,9 @@
 /* eslint-disable */
 /* tslint:disable */
+import PropTypes from "prop-types";
 import React from "react";
-const Desktop = ({ size = "20", ...props }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size || "20"}
-    height={size || "20"}
-    viewBox="0 0 20 20"
-    fill="none"
-    {...props}
-  >
+const Desktop = ({ size = "20", ...props }: { size: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 20 20" fill="none" {...props}>
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -28,6 +22,10 @@ const Desktop = ({ size = "20", ...props }) => (
     />
   </svg>
 );
+Desktop.displayName = "Desktop";
+Desktop.propTypes = {
+  size: PropTypes.string
+};
 export default Desktop;
 /* tslint:enable */
 /* eslint-enable */
