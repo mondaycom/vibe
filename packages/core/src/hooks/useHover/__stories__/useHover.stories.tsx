@@ -1,8 +1,6 @@
 import React from "react";
-import cx from "classnames";
 import useHover from "../useHover";
-import "../../__stories__/general-hooks-stories.scss";
-import styles from "./useHover.stories.module.scss";
+import Box from "../../../components/Box/Box";
 
 export default {
   title: "Hooks/useHover"
@@ -13,14 +11,15 @@ export const Overview = {
     const [hoverRef, isHovered] = useHover<HTMLDivElement>();
 
     return (
-      <div
+      <Box
+        border
+        rounded="small"
+        padding="medium"
         ref={hoverRef}
-        className={cx("hooks-reference-element", styles.container, {
-          [styles.isHovered]: isHovered
-        })}
+        backgroundColor={isHovered ? "greyBackgroundColor" : "primaryBackgroundColor"}
       >
         {isHovered ? "Boom!" : "Hover me"}
-      </div>
+      </Box>
     );
   },
 

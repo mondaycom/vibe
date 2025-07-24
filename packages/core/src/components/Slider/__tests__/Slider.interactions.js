@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/test";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 import { delay, drag, interactionSuite, waitForElementVisible } from "../../../tests/interactions-utils";
 const CHANGES_DELAY = 1;

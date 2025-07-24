@@ -5,7 +5,7 @@
  * @author paulirish / http://paulirish.com/
  * @url https://github.com/paulirish/memory-stats.js
  */
-const MemoryStats = function () {
+export default function MemoryStats() {
   let msMin = 100;
   let msMax = 0;
   const GRAPH_HEIGHT = 30;
@@ -122,7 +122,7 @@ const MemoryStats = function () {
       updateGraph(msGraph, GRAPH_HEIGHT - mbValue * (GRAPH_HEIGHT / redrawMBThreshold), color);
     },
   };
-};
+}
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = MemoryStats;
