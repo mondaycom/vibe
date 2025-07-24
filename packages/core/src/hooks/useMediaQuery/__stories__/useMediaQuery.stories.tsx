@@ -1,6 +1,5 @@
 import React from "react";
 import useMediaQuery from "..";
-import "../../__stories__/general-hooks-stories.scss";
 
 export default {
   title: "Hooks/useMediaQuery"

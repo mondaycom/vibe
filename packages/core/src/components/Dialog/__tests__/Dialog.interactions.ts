@@ -1,4 +1,3 @@
-import { resetFocus } from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 import { Screen } from "@testing-library/react";
 import {
@@ -35,7 +34,10 @@ export const closeTriggersInteractionSuite: ReturnType<typeof interactionSuite> 
     );
   },
   afterEach: async () => {
-    await resetFocus();
+    const activeElement = document.activeElement as HTMLElement;
+    if (activeElement && activeElement.blur && activeElement !== document.body) {
+      activeElement.blur();
+    }
   }
 });
 

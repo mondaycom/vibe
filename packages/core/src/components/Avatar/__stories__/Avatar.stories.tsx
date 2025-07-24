@@ -71,7 +71,7 @@ export const Overview = {
   name: "Overview",
   args: {
     size: "large",
-    src: window.location.origin + "/" + person1,
+    src: person1,
     type: "img",
     ariaLabel: "Julia Martinez"
   },
