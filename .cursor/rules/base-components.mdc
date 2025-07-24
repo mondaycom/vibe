@@ -46,7 +46,6 @@ This document outlines the usage patterns, accessibility requirements, and integ
 **What consumers must provide for optimal experience**:
 
 - Proper `menuAriaLabel` for screen readers
-- `getMenuProps` and `getItemProps` functions (typically from libraries like Downshift)
 - Keyboard navigation handling (via parent component)
 - Focus management integration
 
@@ -67,7 +66,6 @@ This document outlines the usage patterns, accessibility requirements, and integ
 
 - Proper `role` attribute (usually "option" or "menuitem")
 - Click handlers and keyboard event management
-- Appropriate `itemProps` for accessibility integration
 - Meaningful `tooltipProps` when needed
 
 ### InfoText
@@ -146,13 +144,6 @@ This document outlines the usage patterns, accessibility requirements, and integ
 
 ### BaseList Accessibility
 
-**MUST implement**:
-
-- `menuAriaLabel` for screen reader context
-- `getMenuProps` with proper ARIA attributes
-- `getItemProps` with selection and navigation support
-- `role="listbox"` on the ul element (via getMenuProps)
-
 **SHOULD implement**:
 
 - `aria-activedescendant` for keyboard navigation
@@ -183,7 +174,7 @@ const { getMenuProps, getItemProps } = useCombobox({
 
 - Proper `role` attribute ("option" for listbox, "menuitem" for menu)
 - `itemProps` with selection and navigation handlers
-- `aria-selected` state (handled by getItemProps)
+- `aria-selected` state
 
 **SHOULD implement**:
 
@@ -227,10 +218,13 @@ const FormField = ({ label, value, onChange, error, helperText, required, id }) 
 All base components support consistent visual states:
 
 - **Normal**: Default appearance
-- **Error**: Red border/text for validation errors
-- **Success**: Green border/text for successful validation
 - **Disabled**: Reduced opacity, no pointer events
 - **Readonly**: Subdued appearance, no user interaction
+
+The BaseInput base component support the following visual states:
+
+- **Error**: Red border/text for validation errors
+- **Success**: Green border/text for successful validation
 
 ### Size Variants
 
