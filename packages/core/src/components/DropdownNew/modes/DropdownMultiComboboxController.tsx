@@ -21,7 +21,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onMenuOpen,
     onOptionSelect,
     filterOption,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     clearable = true,
     searchable = true,
     multi = true,
