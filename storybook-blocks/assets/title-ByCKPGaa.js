@@ -1,1 +1,0 @@
-import{j as e}from"./jsx-runtime-B8889x5w.js";import{c as i}from"./index-De0AmtSO.js";const o="_title_pfw3l_1",r={title:o},l=({className:t,...s})=>e.jsx("h3",{className:i(r.title,t),...s});l.__docgenInfo={description:"",methods:[],displayName:"Title",props:{className:{required:!1,tsType:{name:"string"},description:""}}};export{l as T};
