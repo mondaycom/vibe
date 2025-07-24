@@ -1,0 +1,24 @@
+import{j as t}from"./jsx-runtime-DDzbWKUH.js";import{useMDXComponents as a}from"./index-CXa8ra7y.js";import{M as u}from"./index-DT-nlfSz.js";import{R as e}from"./index-Hemj67b4.js";import{D as c}from"./DialogContentContainer-BmCeWtAc.js";import{M as d}from"./useMenuItemKeyboardEvents-Cw7yAwIM.js";import{M as n}from"./MenuItem-DIL5X-F6.js";import{M as h,O as x,S as f,I as j,L as M,a as b,b as v,T as E}from"./MenuItem.stories-GflNdGgk.js";import"./iframe-3KrC_W3K.js";import"./index-DOAnvAa1.js";import"./index-D63y3F3s.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./index-BpvXyOxN.js";import"./useMergeRef-DQ4XPFxl.js";import"./useIsomorphicLayoutEffect-FdvxY73P.js";import"./ssr-utils-Do6V6AqB.js";import"./DialogConstants-DkeX1sw_.js";import"./test-ids-utils-9ISiqDto.js";import"./camelCase-B8c2Dc7Y.js";import"./_baseGetTag-ENn7h-yl.js";import"./isArray-Dxzbedgu.js";import"./isSymbol-DWIQbemu.js";import"./withStaticProps-DfSG2La2.js";import"./index-NFRdg0hY.js";import"./index-DLqmmtYJ.js";import"./index-8zVcErkr.js";import"./function-utils-6EQ2u6TA.js";import"./isObject-C3e4t58V.js";import"./useFullKeyboardListeners-CpRGyrUm.js";import"./noop-DX6rZLP_.js";import"./index-CXrJR90Q.js";import"./sizes-BOsbvv4u.js";import"./Tooltip-CEg_DCyQ.js";import"./index-8rJYV3Dp.js";import"./CSSTransition-usT7-fC7.js";import"./extends-B6xKY8K9.js";import"./eq-DPGIUuQ3.js";import"./Icon-BF1oN_oR.js";import"./Flex-pz2uwxlA.js";import"./Clickable-L_6z1d8K.js";import"./useClickableProps-BnhuEIMR.js";import"./useIsOverflowing-DshK7x5b.js";import"./debounce-D-uO1lYf.js";import"./toNumber-CBHRrcgy.js";import"./Label-DPFciAYA.js";import"./Text-CBUmQ7si.js";import"./TypographyConstants-tmKmXzLh.js";import"./colors-vars-map-DOupSotq.js";import"./Divider-CPEi52zL.js";import"./IconButton-DqT-Lx4F.js";import"./Button-t0_MS1N7.js";import"./Loader-DF-6VJjt.js";import"./AddSmall-WZFkNTzJ.js";import"./_tslib-Ct4JumdA.js";import"./DropdownChevronRight-DGHOJF1-.js";import"./createStoryMetaSettingsDecorator-Dxrg_MSB.js";import"./index-BA_MN9l1.js";import"./Invite-CWwo6O26.js";import"./Workspace-BIJf5qCK.js";import"./Calendar-BX7mDXzx.js";import"./Table-DKnXfo9h.js";import"./Check-B_icfwyn.js";import"./CloseSmall-CIab6kaf.js";import"./Settings-DOfpeGYp.js";import"./Drag-po37gvvh.js";import"./DropdownChevronDown-hX_A7Og1.js";import"./Wand-Cv7iNunW.js";import"./NewTab-CFmtLVc3.js";import"./Info-BB4o2YOm.js";import"./NavigationChevronRight-BM1UJa0v.js";import"./Remove-C7LZQ9Te.js";import"./ThumbsUp-DnZbk6gE.js";import"./Search-BxUBhs64.js";import"./SortDescending-B1UwxT6Q.js";import"./Upgrade-Jax58DJ-.js";import"./index-B-lxVbXh.js";import"./v4-CtRu48qb.js";const w=()=>e.createElement(c,null,e.createElement(d,null,e.createElement(n,{title:"Menu item 1",label:"New"}),e.createElement(n,{title:"Menu item 2"}),e.createElement(n,{title:"Menu item 3"}))),C=()=>e.createElement(c,null,e.createElement(d,null,e.createElement(n,{title:"Menu Item 1",label:"Long menu item label"}),e.createElement(n,{title:"Menu Item 2"}),e.createElement(n,{title:"Menu Item 3"})));function l(i){const o={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...a(),...i.components},{Canvas:r,ComponentRules:p,PropsTable:s}=o;return r||m("Canvas"),p||m("ComponentRules"),s||m("PropsTable"),t.jsxs(t.Fragment,{children:[t.jsx(u,{of:h}),`
+`,t.jsx(o.h1,{id:"menu-item",children:"Menu Item"}),`
+`,t.jsx(o.p,{children:"Use menu item for drawing one options that displayed inside a menu."}),`
+`,t.jsx(r,{of:x}),`
+`,t.jsx(o.h3,{id:"import",children:"Import"}),`
+`,t.jsx(o.pre,{children:t.jsx(o.code,{className:"language-js",children:`import { MenuItem } from "@vibe/core";
+`})}),`
+`,t.jsx(o.h2,{id:"props",children:"Props"}),`
+`,t.jsx(s,{}),`
+`,t.jsx(o.h2,{id:"variants",children:"Variants"}),`
+`,t.jsx(o.h3,{id:"states",children:"States"}),`
+`,t.jsx(r,{of:f}),`
+`,t.jsx(o.h3,{id:"icons",children:"Icons"}),`
+`,t.jsx(r,{of:j}),`
+`,t.jsx(o.h3,{id:"label",children:"Label"}),`
+`,t.jsx(r,{of:M}),`
+`,t.jsx(o.h3,{id:"submenu",children:"SubMenu"}),`
+`,t.jsx(r,{of:b}),`
+`,t.jsx(o.h3,{id:"overflow",children:"Overflow"}),`
+`,t.jsx(r,{of:v}),`
+`,t.jsx(o.h3,{id:"tooltips",children:"Tooltips"}),`
+`,t.jsx(r,{of:E}),`
+`,t.jsx(o.h2,{id:"dos-and-donts",children:"Do's and Don’ts"}),`
+`,t.jsx(p,{rules:[{positive:{component:w(),description:"Keep the label text in the menu item short and informative. Use 1 word only."},negative:{component:C(),description:"Dont use long text with more than 1 word, to ensure clarity and to avoid ellipsis."}}]})]})}function Qt(i={}){const{wrapper:o}={...a(),...i.components};return o?t.jsx(o,{...i,children:t.jsx(l,{...i})}):l(i)}function m(i,o){throw new Error("Expected component `"+i+"` to be defined: you likely forgot to import, pass, or provide it.")}export{Qt as default};
