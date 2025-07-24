@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.56.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.2...@vibe/core@3.56.3) (2025-07-24)
+
+
+### Bug Fixes
+
+* **Dropdown:** update default of showSelectedOptions to true ([#3011](https://github.com/mondaycom/vibe/issues/3011)) ([cb07d75](https://github.com/mondaycom/vibe/commit/cb07d75fde06760977c71cb3bebf44b32e4dbff3))
+
+
+
+
+
 ## [3.56.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.1...@vibe/core@3.56.2) (2025-07-24)
 
 **Note:** Version bump only for package @vibe/core
