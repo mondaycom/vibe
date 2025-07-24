@@ -7,6 +7,8 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import { Dropdown } from "../index";
 import * as DropdownStories from "./Dropdown.stories";
+import do1 from "./assets/do1.png";
+import dont1 from "./assets/dont1.png";
 
 <Meta of={DropdownStories} />
 
@@ -78,34 +80,12 @@ The Dropdown component supports multi select option that display as chips. The s
   rules={[
     {
       positive: {
-        component: (
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              placeholder="Placeholder text here"
-              options={[
-                { value: 1, label: "Option 1" },
-                { value: 2, label: "Option 2" },
-                { value: 3, label: "Option 3" }
-              ]}
-            />
-          </div>
-        ),
+        component: <img src={do1} alt="do1" style={{ width: "300px" }} />,
         description:
           "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
       },
       negative: {
-        component: (
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              placeholder="Placeholder text here"
-              options={[
-                { value: 1, label: "Option 1" },
-                { value: 2, label: "Option 2" },
-                { value: 3, label: "Option 3" }
-              ]}
-            />
-          </div>
-        ),
+        component: <img src={dont1} alt="dont1" style={{ width: "200px" }} />,
         description: (
           <>
             Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider
