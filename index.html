@@ -4,77 +4,55 @@
     <meta charset="utf-8" />
 
     <title>Vibe Design System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     
-    <style>
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
-      }
-    </style>
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
 
     <link href="./sb-manager/runtime.js" rel="modulepreload" />
 
     
-    <link href="./sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/links-0/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/links-1/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/a11y-1/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/a11y-2/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-controls-2/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-controls-3/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-actions-3/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-actions-4/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-viewport-4/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-viewport-5/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-toolbars-5/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-toolbars-6/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-measure-6/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-measure-7/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/essentials-outline-7/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-outline-8/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/themes-8/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/themes-9/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/playground-9/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/playground-10/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/chromatic-com-storybook-10/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/chromatic-com-storybook-11/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/storysource-11/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/storysource-12/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/docs-13/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/storybook-14/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/storybook-12/manager-bundle.js" rel="modulepreload" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500&display=swap" rel="stylesheet" />
 <meta property="og:description" content="Vibe design system by monday.com" />
 <meta property="og:title" content="Vibe Design System" />
@@ -94,17 +72,6 @@
     font-size: 14px;
   }
 
-  /* Remove sidebar background */
-  body > div > div > div,
-  .container.sidebar-container {
-    background: none !important;
-  }
-
-  /* Sidebar alignment */
-  #storybook-explorer-menu .sidebar-item {
-    margin-left: -6px;
-  }
-
   /* Sections style */
   #storybook-explorer-menu .sidebar-item:not([data-parent-id]),
   #storybook-explorer-menu .sidebar-item:not([data-parent-id]) a,
@@ -115,21 +82,8 @@
     font-weight: 500;
   }
 
-  /* Sidebar sections spacing */
-  #storybook-explorer-tree > div > div {
-    margin-top: 32px;
-  }
-
-  .sidebar-header + label + div {
-    margin-left: 16px;
-  }
-
-  .sidebar-container .search-field {
-    border-radius: 20px;
-  }
-
   /* Sidebar spacings */
-  #storybook-explorer-menu [data-item-id="foundations"] {
+  #storybook-explorer-menu #foundations {
     margin-top: 24px;
   }
 
@@ -141,6 +95,7 @@
     line-height: 16px;
     font-weight: 500;
     color: var(--sb-secondary-text-color);
+    margin-left: 5px;
   }
   #storybook-explorer-menu [data-item-id]:focus {
     background: none;
@@ -154,12 +109,6 @@
   #storybook-explorer-menu button {
     padding-top: 6px;
     padding-bottom: 6px;
-    align-items: center;
-  }
-
-  /* Chevron alignment */
-  #storybook-explorer-menu .sidebar-item button[aria-expanded] > div {
-    margin-top: 0;
   }
 
   /* Icons color */
@@ -169,6 +118,7 @@
 
   /* Items hover style */
   #storybook-explorer-menu [data-item-id] {
+    margin: 0 8px;
     border-radius: 8px;
   }
 
@@ -182,18 +132,35 @@
     color: #000000;
   }
 
-  /* Removes sidebar icons */
-  #storybook-explorer-menu .sidebar-item[data-parent-id] > button > div > svg[type],
+  /* Removes node-type icons */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > svg,
   #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > svg,
-  #storybook-explorer-menu
-    .sidebar-item:not([data-parent-id])
-    :not([data-nodetype="story"], [data-nodetype="document"])
-    svg[type] {
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > svg,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > svg,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > svg {
     display: none;
   }
 
-  #storybook-explorer-menu .sidebar-item [aria-expanded] {
-    margin-left: 6px;
+  /* Removed items arrow icon */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > a > div > span,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > a > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]) > div > span:empty {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > a > div > span,
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"]:hover > a > div > span,
+  #storybook-explorer-menu
+    .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover
+    > a
+    > div
+    > span,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]):hover > div > span,
+  #storybook-explorer-menu .sidebar-item:not([data-nodetype="story"], [data-nodetype="document"]):hover > div > span {
+    visibility: visible;
   }
 
   /* Fixes items spacings */
@@ -206,6 +173,13 @@
     margin-bottom: 16px !important;
   }
 
+  /* Search field */
+  .sidebar-container .search-field {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 22px !important;
+    margin-bottom: 32px;
+  }
   .sidebar-container .sidebar-header {
     margin-top: 2px !important;
     margin-left: 12px !important;
@@ -225,6 +199,11 @@
   div[role="main"] > div > div > div > div {
     border-bottom: 1px solid var(--sb-layout-border-color);
     box-shadow: none !important;
+  }
+
+  /* https://github.com/storybookjs/storybook/issues/25094 */
+  div[data-radix-scroll-area-viewport] > div {
+    display: block !important;
   }
 </style>
 
@@ -337,7 +316,7 @@
     </style>
 
     
-    <link href="./sb-addons/storybook-14/manager-bundle.css" rel="stylesheet" />
+    <link href="./sb-addons/storybook-12/manager-bundle.css" rel="stylesheet" />
     
   </head>
   <body>
@@ -348,9 +327,12 @@
       
         
           window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
   "argTypeTargetsV7": true,
   "legacyDecoratorFileOrder": false,
-  "disallowImplicitActionsInRenderV8": true
+  "disallowImplicitActionsInRenderV8": false
 };
         
       
@@ -365,7 +347,7 @@
         
           window['DOCS_OPTIONS'] = {
   "defaultName": "Docs",
-  "autodocs": "tag"
+  "autodocs": false
 };
         
       
@@ -377,72 +359,41 @@
       
         
       
-        
-          window['TAGS_OPTIONS'] = {
-  "dev-only": {
-    "excludeFromDocsStories": true
-  },
-  "docs-only": {
-    "excludeFromSidebar": true
-  },
-  "test-only": {
-    "excludeFromSidebar": true,
-    "excludeFromDocsStories": true
-  }
-};
-        
-      
-        
-          window['STORYBOOK_RENDERER'] = "react";
-        
-      
-        
-          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
-        
-      
-        
-          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
-        
-      
     </script>
     
 
     <script type="module">
-      import './sb-manager/globals-runtime.js';
-      
-      
-        import './sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js';
-      
-        import './sb-addons/links-1/manager-bundle.js';
-      
-        import './sb-addons/a11y-2/manager-bundle.js';
-      
-        import './sb-addons/essentials-controls-3/manager-bundle.js';
-      
-        import './sb-addons/essentials-actions-4/manager-bundle.js';
-      
-        import './sb-addons/essentials-viewport-5/manager-bundle.js';
-      
-        import './sb-addons/essentials-toolbars-6/manager-bundle.js';
-      
-        import './sb-addons/essentials-measure-7/manager-bundle.js';
-      
-        import './sb-addons/essentials-outline-8/manager-bundle.js';
-      
-        import './sb-addons/themes-9/manager-bundle.js';
-      
-        import './sb-addons/playground-10/manager-bundle.js';
-      
-        import './sb-addons/chromatic-com-storybook-11/manager-bundle.js';
-      
-        import './sb-addons/storysource-12/manager-bundle.js';
-      
-        import './sb-addons/docs-13/manager-bundle.js';
-      
-        import './sb-addons/storybook-14/manager-bundle.js';
-      
-      
       import './sb-manager/runtime.js';
+
+      
+      import './sb-addons/links-0/manager-bundle.js';
+      
+      import './sb-addons/a11y-1/manager-bundle.js';
+      
+      import './sb-addons/essentials-controls-2/manager-bundle.js';
+      
+      import './sb-addons/essentials-actions-3/manager-bundle.js';
+      
+      import './sb-addons/essentials-viewport-4/manager-bundle.js';
+      
+      import './sb-addons/essentials-toolbars-5/manager-bundle.js';
+      
+      import './sb-addons/essentials-measure-6/manager-bundle.js';
+      
+      import './sb-addons/essentials-outline-7/manager-bundle.js';
+      
+      import './sb-addons/themes-8/manager-bundle.js';
+      
+      import './sb-addons/playground-9/manager-bundle.js';
+      
+      import './sb-addons/chromatic-com-storybook-10/manager-bundle.js';
+      
+      import './sb-addons/storysource-11/manager-bundle.js';
+      
+      import './sb-addons/storybook-12/manager-bundle.js';
+      
     </script>
+
+    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
   </body>
 </html>
