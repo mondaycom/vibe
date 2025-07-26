@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ExpandCollapse from "../ExpandCollapse";
+import ExpandCollapse, { ExpandCollapseProps } from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Icon, Text } from "../../index";
 import Heading from "../../Heading/Heading";
@@ -26,10 +26,10 @@ export default {
 };
 
 export const Overview = {
-  render: () => {
+  render: (args: ExpandCollapseProps) => {
     return (
       <div style={{ width: "300px" }}>
-        <ExpandCollapse title="Expand collapse">
+        <ExpandCollapse title="Expand collapse" {...args}>
           <Text type="text2" maxLines={2}>
             Insert here any component that you want, here is a robot for you
           </Text>

@@ -8,6 +8,7 @@ import { Calendar, Chart, Table } from "@vibe/icons";
 import TextField from "../../TextField/TextField";
 import Box from "../../Box/Box";
 import Flex from "../../Flex/Flex";
+import { TabProps } from "../Tab/Tab";
 
 const ExampleTabContent = ({ children }: { children: string }) => (
   <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
@@ -27,8 +28,8 @@ export default {
 };
 
 export const Overview = {
-  render: () => (
-    <TabsContext>
+  render: (args: TabProps) => (
+    <TabsContext {...args}>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>

@@ -12,6 +12,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import { HideShowEvent } from "../DialogConstants";
+import { DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog
@@ -48,7 +49,7 @@ export default {
 };
 
 export const Overview = {
-  render: () => {
+  render: (args: DialogProps) => {
     return (
       <div style={{ padding: "80px var(--sb-spacing-small)" }}>
         <Dialog
@@ -82,6 +83,7 @@ export const Overview = {
               </Flex>
             </DialogContentContainer>
           }
+          {...args}
         >
           <IconButton icon={Info} active kind="secondary" />
         </Dialog>
