@@ -206,6 +206,25 @@ export class Steps extends BaseElement {
   }
 
   /**
+   * Get the current step index from the steps numbers header (for numbers type steps).
+   * @returns {Promise<number>} The current step index (0-based).
+   */
+  async getCurrentStepIndex(): Promise<number> {
+    let currentStepIndex = 0;
+    await test.step(`Get current step index from ${this.elementReportName}`, async () => {
+      const numbersText = await this.locator
+        .locator("span")
+        .filter({ hasText: /\d+\s*\\\s*\d+/ })
+        .innerText();
+      const match = numbersText.match(/(\d+)\s*\\\s*(\d+)/);
+      if (match) {
+        currentStepIndex = parseInt(match[1]) - 1; // Convert to 0-based index
+      }
+    });
+    return currentStepIndex;
+  }
+
+  /**
    * Wait for the steps to load.
    * @returns {Promise<void>}
    */
