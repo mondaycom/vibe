@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.13.0...@vibe/testkit@1.14.0) (2025-07-27)
+
+
+### Features
+
+* **testkit:** added deprecated base element functions ([#3013](https://github.com/mondaycom/vibe/issues/3013)) ([43fb64c](https://github.com/mondaycom/vibe/commit/43fb64c14fe130c0a199aff1c87fd83accd29d9d))
+
+
+
+
+
 # [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.12.0...@vibe/testkit@1.13.0) (2025-07-23)
 
 
