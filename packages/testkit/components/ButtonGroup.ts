@@ -49,7 +49,7 @@ export class ButtonGroup extends BaseElement {
    * @param {string} buttonName - The name of the button to click.
    * @returns {Promise<void>}
    */
-  async clickButtonByName(buttonName: string): Promise<void> {
+  async clickButton(buttonName: string): Promise<void> {
     await test.step(`Click button by name ${buttonName} for ${this.getElementReportName()}`, async () => {
       const button = await this.getButtonByName(buttonName);
       await button.click();

@@ -17,7 +17,7 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
   });
 
   test("should be able to click button by name", async () => {
-    await buttonGroup.clickButtonByName("Delta");
+    await buttonGroup.clickButton("Delta");
     expect(await buttonGroup.isButtonSelected("Delta")).toBe(true);
   });
 
@@ -31,18 +31,18 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
   });
 
   test("should handle button selection changes", async () => {
-    await buttonGroup.clickButtonByName("Beta");
+    await buttonGroup.clickButton("Beta");
     expect.soft(await buttonGroup.isButtonSelected("Beta")).toBe(true);
     expect.soft(await buttonGroup.getSelectedButtonName()).toBe("Beta");
-    await buttonGroup.clickButtonByName("Gamma");
+    await buttonGroup.clickButton("Gamma");
     expect.soft(await buttonGroup.isButtonSelected("Gamma")).toBe(true);
     expect(await buttonGroup.getSelectedButtonName()).toBe("Gamma");
   });
 
   test("should maintain single selection", async () => {
-    await buttonGroup.clickButtonByName("Beta");
+    await buttonGroup.clickButton("Beta");
     expect.soft(await buttonGroup.isButtonSelected("Beta")).toBe(true);
-    await buttonGroup.clickButtonByName("Gamma");
+    await buttonGroup.clickButton("Gamma");
     expect.soft(await buttonGroup.isButtonSelected("Gamma")).toBe(true);
     expect(await buttonGroup.isButtonSelected("Beta")).toBe(false);
   });
@@ -56,13 +56,13 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
   });
 
   test("should handle button clicks in sequence", async () => {
-    await buttonGroup.clickButtonByName("Beta");
+    await buttonGroup.clickButton("Beta");
     expect.soft(await buttonGroup.getSelectedButtonName()).toBe("Beta");
-    await buttonGroup.clickButtonByName("Gamma");
+    await buttonGroup.clickButton("Gamma");
     expect.soft(await buttonGroup.getSelectedButtonName()).toBe("Gamma");
-    await buttonGroup.clickButtonByName("Delta");
+    await buttonGroup.clickButton("Delta");
     expect.soft(await buttonGroup.getSelectedButtonName()).toBe("Delta");
-    await buttonGroup.clickButtonByName("Alpha");
+    await buttonGroup.clickButton("Alpha");
     expect(await buttonGroup.getSelectedButtonName()).toBe("Alpha");
   });
 

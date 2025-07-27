@@ -129,4 +129,14 @@ export class Toast extends BaseElement {
       return await this.button.getText();
     });
   }
+
+  /**
+   * Get the content of the toast.
+   * @returns {Promise<string>} The content of the toast.
+   */
+  async getContent(): Promise<string> {
+    return await test.step(`Get content for ${this.getElementReportName()}`, async () => {
+      return await this.getText();
+    });
+  }
 }
