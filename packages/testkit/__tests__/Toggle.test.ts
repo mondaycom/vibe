@@ -1,17 +1,17 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { Toggle } from "../components";
+import { BaseElement, Toggle } from "../components";
 import { toggleStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let toggle: Toggle;
-const toggleLocator = ".Toggle-module_wrapper";
+const toggleLocator = "input[data-testid='toggle']";
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Toggle", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(toggleStory);
     frame = page.frameLocator(frameLocator);
-    toggle = new Toggle(page, frame.locator(toggleLocator), "Toggle");
+    toggle = new Toggle(page, frame.locator(toggleLocator).locator(".."), "Toggle");
     await page.reload();
     await toggle.waitForElementToBeVisible();
   });
@@ -60,7 +60,11 @@ test.describe("Testkit - Unit Tests - Toggle", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await toggle.getAttributeValue("class");
-    expect(className).toContain("Toggle-module");
+    const attributeValue = await new BaseElement(
+      toggle.getPage(),
+      toggle.getLocator().locator("input"),
+      "Toggle"
+    ).getAttributeValue("type");
+    expect(attributeValue).toContain("checkbox");
   });
 });

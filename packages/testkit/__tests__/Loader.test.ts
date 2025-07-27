@@ -40,8 +40,8 @@ test.describe("Testkit - Unit Tests - Loader", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await loader.getAttributeValue("class");
-    expect(className).toContain("Loader-module");
+    const attributeValue = await loader.getAttributeValue("role");
+    expect(attributeValue).toContain("alert");
   });
 
   test("should handle waiting for visibility states", async () => {

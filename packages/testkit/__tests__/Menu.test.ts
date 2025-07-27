@@ -47,8 +47,8 @@ test.describe("Testkit - Unit Tests - Menu", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await menu.getAttributeValue("class");
-    expect(className).toContain("Menu-module");
+    const attributeValue = await menu.getAttributeValue("aria-label");
+    expect(attributeValue).toContain("Menu");
   });
 
   test("should check if menu items are enabled by default", async () => {

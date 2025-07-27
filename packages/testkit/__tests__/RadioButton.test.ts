@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { RadioButton } from "../components";
+import { BaseElement, RadioButton } from "../components";
 import { radioButtonStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -44,7 +44,11 @@ test.describe("Testkit - Unit Tests - RadioButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await radioButton.getAttributeValue("class");
-    expect(className).toContain("RadioButton-module");
+    const attributeValue = await new BaseElement(
+      radioButton.getPage(),
+      radioButton.getLocator().locator("input"),
+      "RadioButton"
+    ).getAttributeValue("type");
+    expect(attributeValue).toContain("radio");
   });
 });

@@ -40,8 +40,8 @@ test.describe("Testkit - Unit Tests - Link", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await link.getAttributeValue("class");
-    expect(className).toContain("Link-module");
+    const attributeValue = await link.getAttributeValue("target");
+    expect(attributeValue).toContain("_blank");
   });
 
   test("should click the link", async () => {

@@ -62,8 +62,8 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await splitButton.getAttributeValue("class");
-    expect(className).toContain("SplitButton-module");
+    const attributeValue = await splitButton.getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("SplitButton");
   });
 
   test("should handle waiting for visibility states", async () => {

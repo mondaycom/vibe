@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { Checkbox } from "../components";
+import { BaseElement, Checkbox } from "../components";
 import { checkboxStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -63,7 +63,11 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await checkbox.getAttributeValue("class");
-    expect(className).toContain("Checkbox-module");
+    const attributeValue = await new BaseElement(
+      checkbox.getPage(),
+      checkbox.getLocator().locator("div"),
+      "Checkbox"
+    ).getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("Checkbox");
   });
 });

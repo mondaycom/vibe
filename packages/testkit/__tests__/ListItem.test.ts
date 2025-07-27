@@ -71,8 +71,8 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await listItem.getAttributeValue("class");
-    expect(className).toContain("ListItem-module");
+    const attributeValue = await listItem.getAttributeValue("role");
+    expect(attributeValue).toContain("option");
   });
 
   test("should check if list item is enabled by default", async () => {

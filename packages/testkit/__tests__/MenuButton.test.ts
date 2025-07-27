@@ -75,7 +75,7 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await menuButton.getAttributeValue("class");
-    expect(className).toContain("MenuButton-module");
+    const attributeValue = await menuButton.getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("MenuButton");
   });
 });

@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { TabList } from "../components";
+import { BaseElement, TabList } from "../components";
 import { tabsStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -75,7 +75,11 @@ test.describe("Testkit - Unit Tests - TabList", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await tabList.getAttributeValue("class");
-    expect(className).toContain("TabList-module");
+    const attributeValue = await new BaseElement(
+      tabList.getPage(),
+      tabList.getLocator().locator("li").first(),
+      "TabList"
+    ).getAttributeValue("role");
+    expect(attributeValue).toContain("tab");
   });
 });

@@ -1,10 +1,10 @@
 import { test, expect, FrameLocator, Dialog } from "@playwright/test";
-import { Combobox } from "../components";
+import { BaseElement, Combobox } from "../components";
 import { comboboxStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let combobox: Combobox;
-const comboboxLocator = 'div[data-testid="combobox"]';
+const comboboxLocator = 'div[data-testid="dialog-content-container"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Combobox", () => {
@@ -40,8 +40,12 @@ test.describe("Testkit - Unit Tests - Combobox", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await combobox.getAttributeValue("class");
-    expect(className).toContain("Combobox-module");
+    const attributeValue = await new BaseElement(
+      combobox.getPage(),
+      combobox.getLocator().locator("div").first(),
+      "Combobox"
+    ).getAttributeValue("data-testid");
+    expect(attributeValue).toContain("combobox");
   });
 
   test("should be able to search for an option", async () => {

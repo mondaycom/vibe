@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { Search } from "../components";
+import { BaseElement, Search } from "../components";
 import { searchStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -92,8 +92,12 @@ test.describe("Testkit - Unit Tests - Search", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await search.getAttributeValue("class");
-    expect(className).toContain("Search-module");
+    const attributeValue = await new BaseElement(
+      search.getPage(),
+      search.getLocator().locator("input"),
+      "Search"
+    ).getAttributeValue("type");
+    expect(attributeValue).toContain("search");
   });
 
   test("should be able to clear search using the clear search button", async () => {
