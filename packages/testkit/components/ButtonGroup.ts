@@ -23,7 +23,7 @@ export class ButtonGroup extends BaseElement {
    */
   async getAllButtons(): Promise<Button[]> {
     return await test.step(`Get all buttons for ${this.getElementReportName()}`, async () => {
-      return (await this.getLocator().getLocator()("button").all()).map(
+      return (await this.getLocator().locator("button").all()).map(
         (button, index) => new Button(this.getPage(), button, `Button ${index + 1}`)
       );
     });
@@ -38,7 +38,7 @@ export class ButtonGroup extends BaseElement {
     return await test.step(`Get button by name ${buttonName} for ${this.getElementReportName()}`, async () => {
       return new Button(
         this.getPage(),
-        this.getLocator().getLocator()("button").filter({ hasText: buttonName }),
+        this.getLocator().locator("button").filter({ hasText: buttonName }),
         `Button: ${buttonName}`
       );
     });

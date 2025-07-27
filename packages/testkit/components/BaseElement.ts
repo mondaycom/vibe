@@ -27,7 +27,7 @@ export class BaseElement {
    * @returns {Page} - The page object.
    */
   getPage(): Page {
-    return this.getPage();
+    return this.page;
   }
 
   /**
@@ -43,7 +43,7 @@ export class BaseElement {
    * @returns {string} - The element report name.
    */
   getElementReportName(): string {
-    return this.getElementReportName();
+    return this.elementReportName;
   }
 
   /**

@@ -75,7 +75,7 @@ export class Menu extends BaseElement {
       await rootMenuItem.hover();
       const secondaryMenu = new Menu(
         this.getPage(),
-        this.getPage().getLocator()(`.secondary-menu-enter-done`),
+        this.getPage().locator(`.secondary-menu-enter-done`),
         `Secondary Menu`
       );
       await secondaryMenu.selectItem(subItem);

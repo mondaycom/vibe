@@ -21,7 +21,7 @@ export class TextArea extends BaseElement {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
     this.wrapper = new Button(page, locator, `${elementReportName} - Wrapper`);
-    this.input = new Text(page, locator.getLocator()("textarea"), `${elementReportName} - Input`);
+    this.input = new Text(page, locator.locator("textarea"), `${elementReportName} - Input`);
   }
 
   /**

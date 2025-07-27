@@ -24,7 +24,7 @@ export class ColorPicker extends BaseElement {
    */
   async getAllColorPickerItems(): Promise<ListItem[]> {
     return await test.step(`Get all color picker items for ${this.getElementReportName()}`, async () => {
-      return (await this.getLocator().getLocator()("li").all()).map(
+      return (await this.getLocator().locator("li").all()).map(
         (listItem, index) => new ListItem(this.getPage(), listItem, `Color Picker Item ${index + 1}`)
       );
     });

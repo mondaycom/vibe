@@ -19,8 +19,8 @@ export class Toggle extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.input = new TextField(page, locator.getLocator()("input"), `${elementReportName} - Input`);
-    this.button = new Button(page, locator.getLocator()("div"), `${elementReportName} - Button`);
+    this.input = new TextField(page, locator.locator("input"), `${elementReportName} - Input`);
+    this.button = new Button(page, locator.locator("div"), `${elementReportName} - Button`);
   }
 
   /**

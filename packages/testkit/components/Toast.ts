@@ -23,14 +23,10 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.closeButton = new IconButton(
-      page,
-      locator.getLocator()("button").last(),
-      `${elementReportName} - Close Button`
-    );
-    this.link = new Link(page, locator.getLocator()("a"), `${elementReportName} - Link`);
+    this.closeButton = new IconButton(page, locator.locator("button").last(), `${elementReportName} - Close Button`);
+    this.link = new Link(page, locator.locator("a"), `${elementReportName} - Link`);
     this.loader = new Loader(page, locator.getByRole("alert"), `${elementReportName} - Loader`);
-    this.button = new Button(page, locator.getLocator()("button").first(), `${elementReportName} - Button`);
+    this.button = new Button(page, locator.locator("button").first(), `${elementReportName} - Button`);
   }
 
   /**

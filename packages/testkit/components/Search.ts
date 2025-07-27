@@ -23,16 +23,16 @@ export class Search extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string, filterMenuType?: Menu) {
     super(page, locator, elementReportName);
-    this.input = new TextField(page, locator.getLocator()("[type='search']"), `${elementReportName} - Input`);
+    this.input = new TextField(page, locator.locator("[type='search']"), `${elementReportName} - Input`);
     this.clearSearchIconButton = new IconButton(
       page,
-      locator.getLocator()("[aria-label='Clear']"),
+      locator.locator("[aria-label='Clear']"),
       `${elementReportName} - Clear Search Icon Button`
     );
     if (filterMenuType) {
       this.filterButton = new MenuButton(
         this.getPage(),
-        this.getLocator().getLocator()("[aria-label='Filters']").nth(1),
+        this.getLocator().locator("[aria-label='Filters']").nth(1),
         "Filter Button",
         filterMenuType
       );

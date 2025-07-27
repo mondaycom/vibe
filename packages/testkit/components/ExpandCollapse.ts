@@ -21,10 +21,10 @@ export class ExpandCollapse extends BaseElement {
     super(page, locator, elementReportName);
     this.headerButton = new Button(
       page,
-      locator.getLocator()("button[aria-expanded]"),
+      locator.locator("button[aria-expanded]"),
       `${elementReportName} - Header Button`
     );
-    this.content = new BaseElement(page, locator.getLocator()("[role='region']"), `${elementReportName} - Content`);
+    this.content = new BaseElement(page, locator.locator("[role='region']"), `${elementReportName} - Content`);
   }
 
   /**
@@ -172,7 +172,7 @@ export class ExpandCollapse extends BaseElement {
       // Find and click the link
       const link = new Link(
         this.getPage(),
-        this.content.getLocator().getLocator()("a").filter({ hasText: linkText }),
+        this.content.getLocator().locator("a").filter({ hasText: linkText }),
         `link "${linkText}" in ${this.getElementReportName()} content`
       );
       await link.click();

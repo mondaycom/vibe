@@ -20,12 +20,12 @@ export class Steps extends BaseElement {
     super(page, locator, elementReportName);
     this.backButton = new Button(
       page,
-      this.getLocator().getLocator()("button").first(),
+      this.getLocator().locator("button").first(),
       `${elementReportName} - Back Button`
     );
     this.forwardButton = new Button(
       page,
-      this.getLocator().getLocator()("button").last(),
+      this.getLocator().locator("button").last(),
       `${elementReportName} - Forward Button`
     );
   }
@@ -39,7 +39,7 @@ export class Steps extends BaseElement {
     return await test.step(`Get step by index ${index} for ${this.getElementReportName()}`, async () => {
       return new Button(
         this.getPage(),
-        this.getLocator().getByRole("group").getLocator()("button").nth(index),
+        this.getLocator().getByRole("group").locator("button").nth(index),
         `${this.getElementReportName()} - Step ${index}`
       );
     });
@@ -51,7 +51,7 @@ export class Steps extends BaseElement {
    */
   async getStepDots(): Promise<Button[]> {
     return await test.step(`Get all steps for ${this.getElementReportName()}`, async () => {
-      const steps = await this.getLocator().getByRole("group").getLocator()("button").all();
+      const steps = await this.getLocator().getByRole("group").locator("button").all();
       return steps.map(
         (step, index) => new Button(this.getPage(), step, `${this.getElementReportName()} - Step ${index}`)
       );
@@ -197,10 +197,10 @@ export class Steps extends BaseElement {
   async getCurrentStepContent(): Promise<BaseElement> {
     return await test.step(`Get current step content for ${this.getElementReportName()}`, async () => {
       const locatorsToAvoid = this.getLocator()
-        .getLocator()('.header, [data-testid*="steps-forward-command"], [data-testid*="steps-backward-command"]')
+        .locator('.header, [data-testid*="steps-forward-command"], [data-testid*="steps-backward-command"]')
         .first();
 
-      const stepContent = this.getLocator().getLocator()("> *").filter({ hasNot: locatorsToAvoid });
+      const stepContent = this.getLocator().locator("> *").filter({ hasNot: locatorsToAvoid });
       return new BaseElement(this.getPage(), stepContent, `${this.getElementReportName()} - Step Content`);
     });
   }

@@ -20,10 +20,10 @@ export class Dropdown extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.inputField = new TextField(page, locator.getLocator()("input"), `${elementReportName} - Input Field`);
+    this.inputField = new TextField(page, locator.locator("input"), `${elementReportName} - Input Field`);
     this.clearSelectionIconButton = new IconButton(
       page,
-      locator.getLocator()(".clear-indicator"),
+      locator.locator(".clear-indicator"),
       `${elementReportName} - Clear Selection Icon Button`
     );
   }

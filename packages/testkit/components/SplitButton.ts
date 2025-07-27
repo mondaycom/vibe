@@ -20,14 +20,10 @@ export class SplitButton extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string, menu: Menu) {
     super(page, locator, elementReportName);
-    this.primaryButton = new Button(
-      page,
-      locator.getLocator()("button").first(),
-      `${elementReportName} - Primary Button`
-    );
+    this.primaryButton = new Button(page, locator.locator("button").first(), `${elementReportName} - Primary Button`);
     this.secondaryButton = new Button(
       page,
-      locator.getLocator()("button").last(),
+      locator.locator("button").last(),
       `${elementReportName} - Secondary Button`
     );
     this.menu = menu;
