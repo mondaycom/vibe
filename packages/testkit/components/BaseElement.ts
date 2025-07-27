@@ -282,4 +282,38 @@ export class BaseElement {
       return (await this.getAttributeValue("aria-selected")) === "true";
     });
   }
+
+  /**
+   * Wait for the element to be in a certain state.
+   * @param {Object} options - The options for the wait.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeVisible, waitForElementToBeHidden, waitForElementToBeDetached, waitForElementToBeAttached instead.
+   */
+  async waitFor(options = {}): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()}`, async () => {
+      await this.getLocator().waitFor(options);
+    });
+  }
+
+  /**
+   * Wait for the element to be visible.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeVisible instead.
+   */
+  async waitForVisible(): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()} to be visible`, async () => {
+      await this.getLocator().waitFor({ state: "visible" });
+    });
+  }
+
+  /**
+   * Wait for the element to be absent.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeDetached instead.
+   */
+  async waitForAbsence(): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()} to be absent`, async () => {
+      await this.getLocator().waitFor({ state: "detached" });
+    });
+  }
 }
