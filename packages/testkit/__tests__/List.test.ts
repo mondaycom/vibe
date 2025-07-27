@@ -17,11 +17,11 @@ test.describe("Testkit - Unit Tests - List", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(list.getLocator()).toBeEnabled();
+    await expect(list.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(list.getLocator()).toBeVisible();
+    await expect(list.locator).toBeVisible();
   });
 
   test("should click list item by name", async ({ page }) => {
@@ -70,7 +70,7 @@ test.describe("Testkit - Unit Tests - List", () => {
 
   test("should handle hover operations", async () => {
     await list.hover();
-    await expect(list.getLocator()).toBeEnabled();
+    await expect(list.locator).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {

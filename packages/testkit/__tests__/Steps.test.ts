@@ -62,11 +62,11 @@ test.describe("Testkit - Unit Tests - Steps", () => {
   });
 
   test("Steps should be enabled by default", async () => {
-    await expect(steps.getLocator()).toBeEnabled();
+    await expect(steps.locator).toBeEnabled();
   });
 
   test("Steps should be visible by default", async () => {
-    await expect(steps.getLocator()).toBeVisible();
+    await expect(steps.locator).toBeVisible();
   });
 
   test("should handle go to first and last step operations", async () => {
@@ -109,7 +109,7 @@ test.describe("Testkit - Unit Tests - Steps", () => {
 
   test("should wait for steps to load", async () => {
     await steps.waitForStepsToLoad();
-    await expect(steps.getLocator()).toBeVisible();
+    await expect(steps.locator).toBeVisible();
   });
 
   test("should get total steps count", async () => {
@@ -119,7 +119,7 @@ test.describe("Testkit - Unit Tests - Steps", () => {
 
   test("should get step by index", async () => {
     const step = await steps.getStepByIndex(1);
-    await expect(step.getLocator()).toBeVisible();
+    await expect(step.locator).toBeVisible();
   });
 
   test("should get step dots", async () => {

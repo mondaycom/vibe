@@ -54,11 +54,11 @@ test.describe("Testkit - Unit Tests - ColorPicker", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(colorPicker.getLocator()).toBeEnabled();
+    await expect(colorPicker.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(colorPicker.getLocator()).toBeVisible();
+    await expect(colorPicker.locator).toBeVisible();
   });
 
   test("should handle color selection sequence", async () => {

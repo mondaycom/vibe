@@ -35,7 +35,7 @@ export class SplitButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(itemName: string): Promise<void> {
-    await test.step(`Select item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Select item by name ${itemName} for ${this.elementReportName}`, async () => {
       await this.openMenu();
       await this.menu.selectItem(itemName);
     });
@@ -45,11 +45,11 @@ export class SplitButton extends BaseElement {
    * Open the secondary button menu.
    */
   async openMenu(): Promise<void> {
-    await test.step(`Open menu for ${this.getElementReportName()}`, async () => {
+    await test.step(`Open menu for ${this.elementReportName}`, async () => {
       if (!(await this.isMenuExpanded())) {
         await this.secondaryButton.click();
         // Wait for the menu to open
-        await this.getPage().waitForTimeout(100);
+        await this.page.waitForTimeout(100);
       }
     });
   }
@@ -58,11 +58,11 @@ export class SplitButton extends BaseElement {
    * Close the secondary button menu.
    */
   async closeMenu(): Promise<void> {
-    await test.step(`Close menu for ${this.getElementReportName()}`, async () => {
+    await test.step(`Close menu for ${this.elementReportName}`, async () => {
       if (await this.isMenuExpanded()) {
         await this.secondaryButton.click();
         // Wait for the menu to close
-        await this.getPage().waitForTimeout(100);
+        await this.page.waitForTimeout(100);
       }
     });
   }
@@ -71,7 +71,7 @@ export class SplitButton extends BaseElement {
    * Click the primary button.
    */
   async clickPrimaryButton(): Promise<void> {
-    await test.step(`Click primary button for ${this.getElementReportName()}`, async () => {
+    await test.step(`Click primary button for ${this.elementReportName}`, async () => {
       await this.primaryButton.click();
     });
   }
@@ -81,7 +81,7 @@ export class SplitButton extends BaseElement {
    * @returns {Promise<string>} The text of the primary button.
    */
   async getPrimaryButtonText(): Promise<string> {
-    return await test.step(`Get primary button text for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Get primary button text for ${this.elementReportName}`, async () => {
       return await this.primaryButton.getText();
     });
   }
@@ -91,7 +91,7 @@ export class SplitButton extends BaseElement {
    * @returns {Promise<boolean>} True if the secondary button menu is expanded, false otherwise.
    */
   async isMenuExpanded(): Promise<boolean> {
-    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Check if menu is expanded for ${this.elementReportName}`, async () => {
       return await this.secondaryButton.isExpanded();
     });
   }

@@ -79,11 +79,11 @@ test.describe("Testkit - Unit Tests - Search", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(search.getLocator()).toBeEnabled();
+    await expect(search.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(search.getLocator()).toBeVisible();
+    await expect(search.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

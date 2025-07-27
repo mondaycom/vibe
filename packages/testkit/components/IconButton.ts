@@ -26,7 +26,7 @@ export class IconButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(itemName: string): Promise<void> {
-    await test.step(`Click menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Click menu item by name ${itemName} for ${this.elementReportName}`, async () => {
       await this.click();
       if (this.menu) {
         await this.menu.selectItem(itemName);

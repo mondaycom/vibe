@@ -29,14 +29,14 @@ export class Modal extends BaseElement {
    * @returns {Promise<void>}
    */
   async closeModal(): Promise<void> {
-    await test.step(`Close modal for ${this.getElementReportName()}`, async () => {
+    await test.step(`Close modal for ${this.elementReportName}`, async () => {
       if (await this.closeModalButton.isVisible()) {
         await this.closeModalButton.click();
       } else {
-        await this.getPage().keyboard.press("Escape");
+        await this.page.keyboard.press("Escape");
       }
       // Wait for the modal to close
-      await this.getPage().waitForTimeout(200);
+      await this.page.waitForTimeout(200);
     });
   }
 }

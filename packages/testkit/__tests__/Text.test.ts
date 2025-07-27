@@ -17,16 +17,16 @@ test.describe("Testkit - Unit Tests - Text", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(text.getLocator()).toBeEnabled();
+    await expect(text.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await text.hover();
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 
   test("should have proper text content", async () => {
@@ -39,18 +39,18 @@ test.describe("Testkit - Unit Tests - Text", () => {
   test("should maintain enabled state after interactions", async () => {
     await text.hover();
     await text.click();
-    await expect(text.getLocator()).toBeEnabled();
+    await expect(text.locator).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await text.hover();
     await text.click();
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await text.scrollIntoView();
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {
@@ -65,11 +65,11 @@ test.describe("Testkit - Unit Tests - Text", () => {
 
   test("should handle waiting for visibility states", async () => {
     await text.waitForElementToBeVisible();
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 
   test("should handle waiting for element attachment", async () => {
     await text.waitForElementToBeAttached();
-    await expect(text.getLocator()).toBeVisible();
+    await expect(text.locator).toBeVisible();
   });
 });

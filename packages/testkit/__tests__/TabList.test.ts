@@ -45,11 +45,11 @@ test.describe("Testkit - Unit Tests - TabList", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(tabList.getLocator()).toBeEnabled();
+    await expect(tabList.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(tabList.getLocator()).toBeVisible();
+    await expect(tabList.locator).toBeVisible();
   });
 
   test("should get tab name by index", async () => {

@@ -32,7 +32,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async toggle(): Promise<void> {
-    await test.step(`Toggle ${this.getElementReportName()}`, async () => {
+    await test.step(`Toggle ${this.elementReportName}`, async () => {
       await this.headerButton.click();
     });
   }
@@ -42,7 +42,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async expand(): Promise<void> {
-    await test.step(`Expand ${this.getElementReportName()}`, async () => {
+    await test.step(`Expand ${this.elementReportName}`, async () => {
       if (await this.isCollapsed()) {
         await this.headerButton.click();
       }
@@ -54,7 +54,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async collapse(): Promise<void> {
-    await test.step(`Collapse ${this.getElementReportName()}`, async () => {
+    await test.step(`Collapse ${this.elementReportName}`, async () => {
       if (!(await this.isCollapsed())) {
         await this.headerButton.click();
       }
@@ -66,7 +66,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<boolean>} True if collapsed, false if expanded.
    */
   async isCollapsed(): Promise<boolean> {
-    return await test.step(`Check if ${this.getElementReportName()} is collapsed`, async () => {
+    return await test.step(`Check if ${this.elementReportName} is collapsed`, async () => {
       return !(await this.headerButton.isExpanded());
     });
   }
@@ -76,7 +76,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<string>} The header text content.
    */
   async getHeaderText(): Promise<string> {
-    return await test.step(`Get header text of ${this.getElementReportName()}`, async () => {
+    return await test.step(`Get header text of ${this.elementReportName}`, async () => {
       return await this.headerButton.getText();
     });
   }
@@ -86,7 +86,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<boolean>} True if content is visible, false otherwise.
    */
   async isContentVisible(): Promise<boolean> {
-    return await test.step(`Check if content of ${this.getElementReportName()} is visible`, async () => {
+    return await test.step(`Check if content of ${this.elementReportName} is visible`, async () => {
       return await this.content.isVisible();
     });
   }
@@ -96,7 +96,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {BaseElement} The content element wrapped in BaseElement.
    */
   getContentElement(): BaseElement {
-    return new BaseElement(this.getPage(), this.content.getLocator(), `content of ${this.getElementReportName()}`);
+    return new BaseElement(this.page, this.content.locator, `content of ${this.elementReportName}`);
   }
 
   /**
@@ -104,7 +104,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<string>} The content text.
    */
   async getContentText(): Promise<string> {
-    return await test.step(`Get content text of ${this.getElementReportName()}`, async () => {
+    return await test.step(`Get content text of ${this.elementReportName}`, async () => {
       await this.content.waitForElementToBeVisible();
       return await this.content.getText();
     });
@@ -116,7 +116,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickItemByText(itemText: string): Promise<void> {
-    await test.step(`Click item "${itemText}" in ${this.getElementReportName()} content`, async () => {
+    await test.step(`Click item "${itemText}" in ${this.elementReportName} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
@@ -125,9 +125,9 @@ export class ExpandCollapse extends BaseElement {
 
       // Find and click the item
       const item = new BaseElement(
-        this.getPage(),
-        this.content.getLocator().getByText(itemText, { exact: false }),
-        `item "${itemText}" in ${this.getElementReportName()} content`
+        this.page,
+        this.content.locator.getByText(itemText, { exact: false }),
+        `item "${itemText}" in ${this.elementReportName} content`
       );
       await item.click();
     });
@@ -139,7 +139,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickItemByExactText(itemText: string): Promise<void> {
-    await test.step(`Click item with exact text "${itemText}" in ${this.getElementReportName()} content`, async () => {
+    await test.step(`Click item with exact text "${itemText}" in ${this.elementReportName} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
@@ -148,9 +148,9 @@ export class ExpandCollapse extends BaseElement {
 
       // Find and click the item with exact text match
       const item = new BaseElement(
-        this.getPage(),
-        this.content.getLocator().getByText(itemText, { exact: true }),
-        `item with exact text "${itemText}" in ${this.getElementReportName()} content`
+        this.page,
+        this.content.locator.getByText(itemText, { exact: true }),
+        `item with exact text "${itemText}" in ${this.elementReportName} content`
       );
       await item.click();
     });
@@ -162,7 +162,7 @@ export class ExpandCollapse extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickLinkInContent(linkText: string): Promise<void> {
-    await test.step(`Click link "${linkText}" in ${this.getElementReportName()} content`, async () => {
+    await test.step(`Click link "${linkText}" in ${this.elementReportName} content`, async () => {
       // Ensure the component is expanded first
       await this.expand();
 
@@ -171,9 +171,9 @@ export class ExpandCollapse extends BaseElement {
 
       // Find and click the link
       const link = new Link(
-        this.getPage(),
-        this.content.getLocator().locator("a").filter({ hasText: linkText }),
-        `link "${linkText}" in ${this.getElementReportName()} content`
+        this.page,
+        this.content.locator.locator("a").filter({ hasText: linkText }),
+        `link "${linkText}" in ${this.elementReportName} content`
       );
       await link.click();
     });

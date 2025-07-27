@@ -17,46 +17,46 @@ test.describe("Testkit - Unit Tests - IconButton", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(iconButton.getLocator()).toBeEnabled();
+    await expect(iconButton.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should be clickable", async () => {
     await iconButton.click();
-    await expect(iconButton.getLocator()).toBeEnabled();
+    await expect(iconButton.locator).toBeEnabled();
   });
 
   test("should handle multiple clicks", async () => {
     await iconButton.click();
     await iconButton.click();
     await iconButton.click();
-    await expect.soft(iconButton.getLocator()).toBeEnabled();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect.soft(iconButton.locator).toBeEnabled();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await iconButton.hover();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should maintain enabled state after interactions", async () => {
     await iconButton.hover();
     await iconButton.click();
-    await expect(iconButton.getLocator()).toBeEnabled();
+    await expect(iconButton.locator).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await iconButton.hover();
     await iconButton.click();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await iconButton.scrollIntoView();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {
@@ -71,11 +71,11 @@ test.describe("Testkit - Unit Tests - IconButton", () => {
 
   test("should handle waiting for visibility states", async () => {
     await iconButton.waitForElementToBeVisible();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 
   test("should handle waiting for element attachment", async () => {
     await iconButton.waitForElementToBeAttached();
-    await expect(iconButton.getLocator()).toBeVisible();
+    await expect(iconButton.locator).toBeVisible();
   });
 });

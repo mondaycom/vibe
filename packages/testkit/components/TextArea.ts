@@ -30,11 +30,11 @@ export class TextArea extends BaseElement {
    * @returns {Promise<void>}
    */
   async setText(text: string): Promise<void> {
-    await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Set text: ${text} for ${this.elementReportName}`, async () => {
       await this.clearText();
       await this.wrapper.click();
       await this.input.waitForElementToBeVisible();
-      await this.input.getLocator().fill(text);
+      await this.input.locator.fill(text);
       await this.exitEditMode();
     });
   }
@@ -44,8 +44,8 @@ export class TextArea extends BaseElement {
    * @returns {Promise<void>}
    */
   async clearText(): Promise<void> {
-    await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
-      await this.input.getLocator().clear();
+    await test.step(`Clear text for ${this.elementReportName}`, async () => {
+      await this.input.locator.clear();
     });
   }
 
@@ -54,8 +54,8 @@ export class TextArea extends BaseElement {
    * @returns {Promise<string>} The text from the text area.
    */
   async getText(): Promise<string> {
-    return await test.step(`Get text for ${this.getElementReportName()}`, async () => {
-      return await this.input.getLocator().inputValue();
+    return await test.step(`Get text for ${this.elementReportName}`, async () => {
+      return await this.input.locator.inputValue();
     });
   }
 
@@ -64,8 +64,8 @@ export class TextArea extends BaseElement {
    * @returns {Promise<boolean>} True if the text area is empty.
    */
   async isEmpty(): Promise<boolean> {
-    return await test.step(`Check if text area is empty for ${this.getElementReportName()}`, async () => {
-      return (await this.input.getLocator().inputValue()) === "";
+    return await test.step(`Check if text area is empty for ${this.elementReportName}`, async () => {
+      return (await this.input.locator.inputValue()) === "";
     });
   }
 
@@ -75,7 +75,7 @@ export class TextArea extends BaseElement {
    */
   async exitEditMode(): Promise<void> {
     await test.step("Exit edit mode", async () => {
-      await pressKey(this.getPage(), "Escape");
+      await pressKey(this.page, "Escape");
     });
   }
 }

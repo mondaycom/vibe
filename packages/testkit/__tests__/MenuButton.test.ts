@@ -21,16 +21,16 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(menuButton.getLocator()).toBeEnabled();
+    await expect(menuButton.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(menuButton.getLocator()).toBeVisible();
+    await expect(menuButton.locator).toBeVisible();
   });
 
   test("should open menu when calling openMenu()", async () => {
     await menuButton.openMenu();
-    await expect(menuButton.getLocator()).toBeVisible();
+    await expect(menuButton.locator).toBeVisible();
   });
 
   test("should close menu when calling closeMenu()", async () => {
@@ -66,7 +66,7 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
 
   test("should handle hover operations", async () => {
     await menuButton.hover();
-    await expect(menuButton.getLocator()).toBeVisible();
+    await expect(menuButton.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

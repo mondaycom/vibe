@@ -17,28 +17,28 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(listItem.getLocator()).toBeVisible();
+    await expect(listItem.locator).toBeVisible();
   });
 
   test("should be clickable", async () => {
     await listItem.click();
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should handle multiple clicks", async () => {
     await listItem.click();
     await listItem.click();
     await listItem.click();
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await listItem.hover();
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should have proper text content", async () => {
@@ -51,18 +51,18 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
   test("should maintain enabled state after interactions", async () => {
     await listItem.hover();
     await listItem.click();
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await listItem.hover();
     await listItem.click();
-    await expect(listItem.getLocator()).toBeVisible();
+    await expect(listItem.locator).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await listItem.scrollIntoView();
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -76,6 +76,6 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
   });
 
   test("should check if list item is enabled by default", async () => {
-    await expect(listItem.getLocator()).toBeEnabled();
+    await expect(listItem.locator).toBeEnabled();
   });
 });

@@ -21,9 +21,9 @@ export class RadioButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async select(): Promise<void> {
-    await test.step(`Check radio button for ${this.getElementReportName()}`, async () => {
+    await test.step(`Check radio button for ${this.elementReportName}`, async () => {
       if (!(await this.isChecked())) {
-        await this.getLocator().check();
+        await this.locator.check();
       }
     });
   }
@@ -33,9 +33,9 @@ export class RadioButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async unselect(): Promise<void> {
-    await test.step(`Uncheck radio button for ${this.getElementReportName()}`, async () => {
+    await test.step(`Uncheck radio button for ${this.elementReportName}`, async () => {
       if (await this.isChecked()) {
-        await this.getLocator().uncheck();
+        await this.locator.uncheck();
       }
     });
   }
@@ -45,8 +45,8 @@ export class RadioButton extends BaseElement {
    * @returns {Promise<boolean>} True if the radio button is checked, false otherwise.
    */
   async isChecked(): Promise<boolean> {
-    return await test.step(`Check if radio button is checked for ${this.getElementReportName()}`, async () => {
-      return await this.getLocator().isChecked();
+    return await test.step(`Check if radio button is checked for ${this.elementReportName}`, async () => {
+      return await this.locator.isChecked();
     });
   }
 }

@@ -29,7 +29,7 @@ export class Toggle extends BaseElement {
    * @returns {Promise<void>}
    */
   async set(isToCheck: boolean): Promise<void> {
-    await test.step(`Set toggle to ${isToCheck} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Set toggle to ${isToCheck} for ${this.elementReportName}`, async () => {
       if ((await this.isOn()) !== isToCheck) {
         await this.button.click();
       }
@@ -41,7 +41,7 @@ export class Toggle extends BaseElement {
    * @returns {Promise<boolean>} True if the toggle is on, false otherwise.
    */
   async isOn(): Promise<boolean> {
-    return await test.step(`Check if toggle is on for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Check if toggle is on for ${this.elementReportName}`, async () => {
       return await this.input.isChecked();
     });
   }

@@ -47,11 +47,11 @@ test.describe("Testkit - Unit Tests - Toggle", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(toggle.getLocator()).toBeEnabled();
+    await expect(toggle.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(toggle.getLocator()).toBeVisible();
+    await expect(toggle.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

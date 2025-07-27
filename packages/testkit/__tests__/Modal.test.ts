@@ -18,16 +18,16 @@ test.describe("Testkit - Unit Tests - Modal", () => {
 
   test("Modal should be able to close modal", async () => {
     await modal.closeModal();
-    await expect(modal.getLocator()).toBeHidden();
+    await expect(modal.locator).toBeHidden();
   });
 
   test("should be visible by default", async () => {
-    await expect(modal.getLocator()).toBeVisible();
+    await expect(modal.locator).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await modal.hover();
-    await expect(modal.getLocator()).toBeVisible();
+    await expect(modal.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

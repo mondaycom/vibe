@@ -31,8 +31,8 @@ export class Search extends BaseElement {
     );
     if (filterMenuType) {
       this.filterButton = new MenuButton(
-        this.getPage(),
-        this.getLocator().locator("[aria-label='Filters']").nth(1),
+        this.page,
+        this.locator.locator("[aria-label='Filters']").nth(1),
         "Filter Button",
         filterMenuType
       );
@@ -45,7 +45,7 @@ export class Search extends BaseElement {
    * @returns {Promise<void>}
    */
   async setText(text: string): Promise<void> {
-    await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Set text: ${text} for ${this.elementReportName}`, async () => {
       await this.input.setText(text);
     });
   }
@@ -54,7 +54,7 @@ export class Search extends BaseElement {
    * Clear the text in the search field.
    */
   async clear(): Promise<void> {
-    await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
+    await test.step(`Clear text for ${this.elementReportName}`, async () => {
       await this.input.clearText();
     });
   }
@@ -64,7 +64,7 @@ export class Search extends BaseElement {
    * @returns {Promise<string>} The text from the search field.
    */
   async getText(): Promise<string> {
-    return await test.step(`Get text for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Get text for ${this.elementReportName}`, async () => {
       return await this.input.getText();
     });
   }
@@ -74,7 +74,7 @@ export class Search extends BaseElement {
    * @returns {Promise<string>}
    */
   async isEmpty(): Promise<boolean> {
-    return await test.step(`Check if search field is empty for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Check if search field is empty for ${this.elementReportName}`, async () => {
       return await this.input.isEmpty();
     });
   }
@@ -84,7 +84,7 @@ export class Search extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickClearSearchButton(): Promise<void> {
-    await test.step(`Clear search for ${this.getElementReportName()}`, async () => {
+    await test.step(`Clear search for ${this.elementReportName}`, async () => {
       await this.clearSearchIconButton.click();
     });
   }

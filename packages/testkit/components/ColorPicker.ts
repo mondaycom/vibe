@@ -23,9 +23,9 @@ export class ColorPicker extends BaseElement {
    * @returns {Promise<ListItem[]>} An array of color picker items.
    */
   async getAllColorPickerItems(): Promise<ListItem[]> {
-    return await test.step(`Get all color picker items for ${this.getElementReportName()}`, async () => {
-      return (await this.getLocator().locator("li").all()).map(
-        (listItem, index) => new ListItem(this.getPage(), listItem, `Color Picker Item ${index + 1}`)
+    return await test.step(`Get all color picker items for ${this.elementReportName}`, async () => {
+      return (await this.locator.locator("li").all()).map(
+        (listItem, index) => new ListItem(this.page, listItem, `Color Picker Item ${index + 1}`)
       );
     });
   }
@@ -36,8 +36,8 @@ export class ColorPicker extends BaseElement {
    * @returns {Promise<ListItem>} The color picker item.
    */
   async getColorPickerItemByColor(color: ColorPickerColor): Promise<ListItem> {
-    return await test.step(`Get color picker item by color ${color} for ${this.getElementReportName()}`, async () => {
-      return new ListItem(this.getPage(), this.getLocator().getByTestId(`color-picker-item_${color}`), color);
+    return await test.step(`Get color picker item by color ${color} for ${this.elementReportName}`, async () => {
+      return new ListItem(this.page, this.locator.getByTestId(`color-picker-item_${color}`), color);
     });
   }
 
@@ -47,7 +47,7 @@ export class ColorPicker extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectColor(color: ColorPickerColor): Promise<void> {
-    await test.step(`Select color ${color} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Select color ${color} for ${this.elementReportName}`, async () => {
       const colorItem = await this.getColorPickerItemByColor(color);
       await colorItem.click();
     });
@@ -59,7 +59,7 @@ export class ColorPicker extends BaseElement {
    * @returns {Promise<boolean>} True if the color is selected, false otherwise.
    */
   async isColorSelected(color: ColorPickerColor): Promise<boolean> {
-    return await test.step(`Check if color ${color} is selected for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Check if color ${color} is selected for ${this.elementReportName}`, async () => {
       const colorItem = await this.getColorPickerItemByColor(color);
       return (await colorItem.getAttributeValue("class")).includes("selectedColor");
     });
@@ -70,7 +70,7 @@ export class ColorPicker extends BaseElement {
    * @returns {Promise<string>} The selected color.
    */
   async getSelectedColor(): Promise<string> {
-    return await test.step(`Get selected color for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Get selected color for ${this.elementReportName}`, async () => {
       const listItems = await this.getAllColorPickerItems();
 
       // Find the selected color

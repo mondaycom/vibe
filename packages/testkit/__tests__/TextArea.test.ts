@@ -66,11 +66,11 @@ test.describe("Testkit - Unit Tests - TextArea", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(textArea.getLocator()).toBeEnabled();
+    await expect(textArea.locator).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(textArea.getLocator()).toBeVisible();
+    await expect(textArea.locator).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

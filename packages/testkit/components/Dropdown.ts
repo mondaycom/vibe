@@ -34,8 +34,8 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<ListItem>} The dropdown item.
    */
   async getDropdownItemByItem(item: string): Promise<ListItem> {
-    return await test.step(`Get dropdown item by item ${item} for ${this.getElementReportName()}`, async () => {
-      return new ListItem(this.getPage(), this.getLocator().getByRole("option", { name: item }), item);
+    return await test.step(`Get dropdown item by item ${item} for ${this.elementReportName}`, async () => {
+      return new ListItem(this.page, this.locator.getByRole("option", { name: item }), item);
     });
   }
 
@@ -44,7 +44,7 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<boolean>} True if the dropdown is open, false otherwise.
    */
   async isDropdownOpen(): Promise<boolean> {
-    return await test.step(`Check if dropdown is open for ${this.getElementReportName()}`, async () => {
+    return await test.step(`Check if dropdown is open for ${this.elementReportName}`, async () => {
       return await this.inputField.isExpanded();
     });
   }
@@ -54,11 +54,11 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async open(): Promise<void> {
-    await test.step(`Open dropdown for ${this.getElementReportName()}`, async () => {
+    await test.step(`Open dropdown for ${this.elementReportName}`, async () => {
       if (!(await this.isDropdownOpen())) {
         await this.click();
         // Wait for the dropdown to open
-        await this.getPage().waitForTimeout(200);
+        await this.page.waitForTimeout(200);
       }
     });
   }
@@ -68,11 +68,11 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async close(): Promise<void> {
-    await test.step(`Close dropdown for ${this.getElementReportName()}`, async () => {
+    await test.step(`Close dropdown for ${this.elementReportName}`, async () => {
       if (await this.isDropdownOpen()) {
         await this.click();
         // Wait for the dropdown to close
-        await this.getPage().waitForTimeout(200);
+        await this.page.waitForTimeout(200);
       }
     });
   }
@@ -83,7 +83,7 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(item: string): Promise<void> {
-    await test.step(`Select item ${item} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Select item ${item} for ${this.elementReportName}`, async () => {
       await this.open();
       await this.search(item);
       const listItem = await this.getDropdownItemByItem(item);
@@ -97,7 +97,7 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async search(item: string): Promise<void> {
-    await test.step(`Search for ${item} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Search for ${item} for ${this.elementReportName}`, async () => {
       await this.inputField.setText(item);
     });
   }
@@ -108,7 +108,7 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectMultipleItems(items: string[]): Promise<void> {
-    await test.step(`Select multiple items ${items} for ${this.getElementReportName()}`, async () => {
+    await test.step(`Select multiple items ${items} for ${this.elementReportName}`, async () => {
       await this.open();
       for (const item of items) {
         await this.selectItem(item);
@@ -121,7 +121,7 @@ export class Dropdown extends BaseElement {
    * @returns {Promise<void>}
    */
   async clearSelection(): Promise<void> {
-    await test.step(`Clear selection for ${this.getElementReportName()}`, async () => {
+    await test.step(`Clear selection for ${this.elementReportName}`, async () => {
       await this.clearSelectionIconButton.click();
     });
   }
