@@ -1,0 +1,187 @@
+import{j as e}from"./jsx-runtime-DDzbWKUH.js";import{I as n}from"./IconButton-DMo5-LIz.js";import{T as i}from"./Text-C76qTSxj.js";import{F as t}from"./Flex-Cp1baZ2x.js";import{B as X}from"./Button-dXlc__kx.js";import{I as y}from"./Icon-CDdqL_gb.js";import{A as q}from"./Avatar-C0LJQ4US.js";import{i as N,p as x,v as b}from"./index-BA_MN9l1.js";import{r as U}from"./createComponentTemplate-Y0VTmW_y.js";import{l as p,V as a,t as o}from"./Workspace-BIJf5qCK.js";import{r as g}from"./Wand-Cv7iNunW.js";import{t as v}from"./Drag-po37gvvh.js";import{a as h}from"./CloseSmall-CIab6kaf.js";import{B as P}from"./Box-Cj5xRWpL.js";import{D as G}from"./Divider-Dxm0fdi1.js";import{n as V}from"./link-ByEAMSgF.js";import{c as J}from"./createStoryMetaSettingsDecorator-Dxrg_MSB.js";const I=""+new URL("person-BWCqTmiy.png",import.meta.url).href,B=J({component:n,iconPropNamesArray:["icon"],actionPropsArray:["onClick"]}),Q=U(n),Y={title:"Components/IconButton",component:n,argTypes:B.argTypes,decorators:B.decorators},r={render:Q.bind({}),args:{ariaLabel:"Add",icon:N},parameters:{docs:{liveEdit:{isEnabled:!1}}}},s={render:()=>e.jsxs("div",{style:{display:"flex",justifyContent:"space-evenly",alignItems:"center",width:"100%"},children:[e.jsx(n,{icon:p,kind:"primary",ariaLabel:"My primary IconButton"}),e.jsx(n,{icon:p,kind:"secondary",ariaLabel:"My secondary IconButton"}),e.jsx(n,{icon:p,kind:"tertiary",ariaLabel:"My tertiary IconButton"})]}),parameters:{docs:{liveEdit:{scope:{Bolt:p}}}}},c={render:()=>e.jsxs("div",{style:{display:"flex",justifyContent:"space-evenly",alignItems:"center",width:"100%"},children:[e.jsx(n,{icon:a,kind:"secondary",size:"xxs",ariaLabel:"My xxs IconButton"},"xxs"),e.jsx(n,{icon:a,kind:"secondary",size:"xs",ariaLabel:"My xs IconButton"},"xs"),e.jsx(n,{icon:a,kind:"secondary",size:"small",ariaLabel:"My small IconButton"},"small"),e.jsx(n,{icon:a,kind:"secondary",size:"medium",ariaLabel:"My medium IconButton"},"medium"),e.jsx(n,{icon:a,kind:"secondary",size:"large",ariaLabel:"My large IconButton"},"large")]}),parameters:{docs:{liveEdit:{scope:{Robot:a}}}}},l={render:()=>e.jsxs("div",{style:{display:"flex",justifyContent:"space-evenly",alignItems:"center",width:"100%"},children:[e.jsx(n,{icon:o,kind:"primary",ariaLabel:"My small active IconButton",active:!0}),e.jsx(n,{icon:o,kind:"secondary",ariaLabel:"My active medium IconButton",active:!0}),e.jsx(n,{icon:o,kind:"tertiary",ariaLabel:"My active large IconButton",active:!0})]}),parameters:{docs:{liveEdit:{scope:{Doc:o}}}}},d={render:()=>e.jsxs("div",{style:{display:"flex",justifyContent:"space-evenly",alignItems:"center",width:"100%"},children:[e.jsx(n,{icon:o,kind:"primary",ariaLabel:"My small disabled IconButton",disabled:!0,disabledReason:"This function is not available"}),e.jsx(n,{icon:o,kind:"secondary",ariaLabel:"My disabled medium IconButton",disabled:!0,disabledReason:"This function is not available"}),e.jsx(n,{icon:o,kind:"tertiary",ariaLabel:"My disabled large IconButton",disabled:!0,disabledReason:"This function is not available"})]}),parameters:{docs:{liveEdit:{scope:{Doc:o}}}}},m={render:()=>e.jsx(P,{border:!0,rounded:"medium",style:{width:"50%"},children:e.jsxs(t,{direction:"column",align:"start",children:[e.jsxs(t,{gap:"small",style:{padding:"var(--sb-spacing-small)"},children:[e.jsx(y,{icon:v}),e.jsx(i,{type:"text1",children:"Widget name"}),e.jsx(n,{icon:g,ariaLabel:"Filter the widget by everything",size:"small"})]}),e.jsx(G,{withoutMargin:!0}),e.jsx("div",{style:{height:"200px",width:"100%",backgroundColor:"var(--sb-primary-background-hover-color)"}})]})}),parameters:{docs:{liveEdit:{scope:{Drag:v,Filter:g}}}},name:"Icon button as toolbar button"},u={render:()=>e.jsxs(t,{gap:"medium",style:{width:"100%"},children:[e.jsx(P,{border:!0,rounded:"small",paddingX:"large",style:{width:"100%"},children:e.jsxs(t,{justify:"start",gap:"large",style:{height:"94px"},children:[e.jsxs(t,{direction:"column",justify:"center",style:{color:"var(--sb-icon-color)"},children:[e.jsx(y,{icon:b,iconSize:40}),e.jsx(i,{type:"text1",id:"monday-recycle-bin-title",children:"Item"})]}),e.jsx(G,{direction:"vertical"}),e.jsx(q,{size:"large",src:I,type:"img"}),e.jsxs(t,{direction:"column",align:"start",ariaLabelledby:"monday-recycle-bin-title",style:{flexGrow:1},children:[e.jsxs(t,{gap:"xs",children:[e.jsx(V,{withoutSpacing:!0,href:"",children:"Hadas Farhi"}),e.jsx("span",{children:"deleted the item"}),e.jsx(i,{type:"text1",element:"span",weight:"medium",children:"Hello World"}),e.jsx("span",{children:"from the board"})]}),e.jsx(i,{type:"text1",element:"span",weight:"medium",children:"Tasks"}),e.jsxs(t,{gap:"xs",children:[e.jsx(y,{icon:x}),e.jsx(i,{weight:"medium",children:"13m"}),e.jsx(i,{children:"(Available for restore in the next 1M)"})]})]}),e.jsx(X,{children:"Restore"})]})}),e.jsx(n,{icon:h,size:"small",ariaLabel:"Remove from Recycle bin"})]}),parameters:{docs:{liveEdit:{scope:{person1:I,Item:b,Time:x,CloseSmall:h}}}},name:"Icon button as close button"};var j,f,k;r.parameters={...r.parameters,docs:{...(j=r.parameters)==null?void 0:j.docs,source:{originalSource:`{
+  render: iconButtonTemplate.bind({}),
+  args: {
+    ariaLabel: "Add",
+    icon: Add
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
+}`,...(k=(f=r.parameters)==null?void 0:f.docs)==null?void 0:k.source}}};var L,M,w;s.parameters={...s.parameters,docs:{...(L=s.parameters)==null?void 0:L.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%"
+  }}>
+      <IconButton icon={Bolt} kind="primary" ariaLabel="My primary IconButton" />
+      <IconButton icon={Bolt} kind="secondary" ariaLabel="My secondary IconButton" />
+      <IconButton icon={Bolt} kind="tertiary" ariaLabel="My tertiary IconButton" />
+    </div>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          Bolt
+        }
+      }
+    }
+  }
+}`,...(w=(M=s.parameters)==null?void 0:M.docs)==null?void 0:w.source}}};var T,F,S;c.parameters={...c.parameters,docs:{...(T=c.parameters)==null?void 0:T.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%"
+  }}>
+      <IconButton key="xxs" icon={Robot} kind="secondary" size="xxs" ariaLabel="My xxs IconButton" />
+      <IconButton key="xs" icon={Robot} kind="secondary" size="xs" ariaLabel="My xs IconButton" />
+      <IconButton key="small" icon={Robot} kind="secondary" size="small" ariaLabel="My small IconButton" />
+      <IconButton key="medium" icon={Robot} kind="secondary" size="medium" ariaLabel="My medium IconButton" />
+      <IconButton key="large" icon={Robot} kind="secondary" size="large" ariaLabel="My large IconButton" />
+    </div>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          Robot
+        }
+      }
+    }
+  }
+}`,...(S=(F=c.parameters)==null?void 0:F.docs)==null?void 0:S.source}}};var z,D,R;l.parameters={...l.parameters,docs:{...(z=l.parameters)==null?void 0:z.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%"
+  }}>
+      <IconButton icon={Doc} kind="primary" ariaLabel="My small active IconButton" active />
+      <IconButton icon={Doc} kind="secondary" ariaLabel="My active medium IconButton" active />
+      <IconButton icon={Doc} kind="tertiary" ariaLabel="My active large IconButton" active />
+    </div>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          Doc
+        }
+      }
+    }
+  }
+}`,...(R=(D=l.parameters)==null?void 0:D.docs)==null?void 0:R.source}}};var C,E,A;d.parameters={...d.parameters,docs:{...(C=d.parameters)==null?void 0:C.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%"
+  }}>
+      <IconButton icon={Doc} kind="primary" ariaLabel="My small disabled IconButton" disabled disabledReason="This function is not available" />
+      <IconButton icon={Doc} kind="secondary" ariaLabel="My disabled medium IconButton" disabled disabledReason="This function is not available" />
+      <IconButton icon={Doc} kind="tertiary" ariaLabel="My disabled large IconButton" disabled disabledReason="This function is not available" />
+    </div>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          Doc
+        }
+      }
+    }
+  }
+}`,...(A=(E=d.parameters)==null?void 0:E.docs)==null?void 0:A.source}}};var _,O,W;m.parameters={...m.parameters,docs:{...(_=m.parameters)==null?void 0:_.docs,source:{originalSource:`{
+  render: () => <Box border rounded="medium" style={{
+    width: "50%"
+  }}>
+      <Flex direction="column" align="start">
+        <Flex gap="small" style={{
+        padding: "var(--sb-spacing-small)"
+      }}>
+          <Icon icon={Drag} />
+          <Text type="text1">Widget name</Text>
+          <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size="small" />
+        </Flex>
+        <Divider withoutMargin />
+        <div style={{
+        height: "200px",
+        width: "100%",
+        backgroundColor: "var(--sb-primary-background-hover-color)"
+      }} />
+      </Flex>
+    </Box>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          Drag,
+          Filter
+        }
+      }
+    }
+  },
+  name: "Icon button as toolbar button"
+}`,...(W=(O=m.parameters)==null?void 0:O.docs)==null?void 0:W.source}}};var H,$,K;u.parameters={...u.parameters,docs:{...(H=u.parameters)==null?void 0:H.docs,source:{originalSource:`{
+  render: () => <Flex gap="medium" style={{
+    width: "100%"
+  }}>
+      <Box border rounded="small" paddingX="large" style={{
+      width: "100%"
+    }}>
+        <Flex justify="start" gap="large" style={{
+        height: "94px"
+      }}>
+          <Flex direction="column" justify="center" style={{
+          color: "var(--sb-icon-color)"
+        }}>
+            <Icon icon={Item} iconSize={40} />
+            <Text type="text1" id="monday-recycle-bin-title">
+              Item
+            </Text>
+          </Flex>
+          <Divider direction="vertical" />
+          <Avatar size="large" src={person1} type="img" />
+          <Flex direction="column" align="start" ariaLabelledby="monday-recycle-bin-title" style={{
+          flexGrow: 1
+        }}>
+            <Flex gap="xs">
+              <Link withoutSpacing href="">
+                Hadas Farhi
+              </Link>
+              <span>deleted the item</span>
+              <Text type="text1" element="span" weight="medium">
+                Hello World
+              </Text>
+              <span>from the board</span>
+            </Flex>
+            <Text type="text1" element="span" weight="medium">
+              Tasks
+            </Text>
+            <Flex gap="xs">
+              <Icon icon={Time} />
+              <Text weight="medium">13m</Text>
+              <Text>(Available for restore in the next 1M)</Text>
+            </Flex>
+          </Flex>
+          <Button>Restore</Button>
+        </Flex>
+      </Box>
+      <IconButton icon={CloseSmall} size="small" ariaLabel="Remove from Recycle bin" />
+    </Flex>,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: {
+          person1,
+          Item,
+          Time,
+          CloseSmall
+        }
+      }
+    }
+  },
+  name: "Icon button as close button"
+}`,...(K=($=u.parameters)==null?void 0:$.docs)==null?void 0:K.source}}};const Z=["Overview","Kinds","Sizes","Active","Disabled","IconButtonAsToolbarButton","IconButtonAsCloseButton"],ge=Object.freeze(Object.defineProperty({__proto__:null,Active:l,Disabled:d,IconButtonAsCloseButton:u,IconButtonAsToolbarButton:m,Kinds:s,Overview:r,Sizes:c,__namedExportsOrder:Z,default:Y},Symbol.toStringTag,{value:"Module"}));export{l as A,d as D,ge as I,s as K,r as O,c as S,m as a,u as b};
