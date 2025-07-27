@@ -27,6 +27,10 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   icon?: SubIcon;
   /**
+   * The size of the icon.
+   */
+  iconSize?: number;
+  /**
    * The type of icon.
    */
   iconType?: IconType;
@@ -166,6 +170,7 @@ const MenuItem = forwardRef(
       title = "",
       label = "",
       icon = "",
+      iconSize,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -231,6 +236,7 @@ const MenuItem = forwardRef(
               selected={selected}
               backgroundColor={iconBackgroundColor}
               wrapperClassName={iconWrapperClassName}
+              iconSize={iconSize}
             />
           )}
           <div ref={titleRef} className={styles.title}>

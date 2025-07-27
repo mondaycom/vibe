@@ -13,7 +13,8 @@ const MenuItemIcon = ({
   disabled,
   selected,
   backgroundColor,
-  wrapperClassName
+  wrapperClassName,
+  iconSize
 }: MenuItemIconProps) => (
   <Flex
     justify="center"
@@ -32,7 +33,7 @@ const MenuItemIcon = ({
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
-      iconSize={18}
+      iconSize={iconSize || 18}
     />
   </Flex>
 );

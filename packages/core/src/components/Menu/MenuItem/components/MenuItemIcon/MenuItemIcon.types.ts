@@ -32,4 +32,8 @@ export interface MenuItemIconProps {
    * Additional class name for styling the icon wrapper.
    */
   wrapperClassName?: string;
+  /**
+   * The size of the icon.
+   */
+  iconSize?: number;
 }
