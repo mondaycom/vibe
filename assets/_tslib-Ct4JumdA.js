@@ -1,0 +1,1 @@
+function o(t,n){var p={};for(var e in t)Object.prototype.hasOwnProperty.call(t,e)&&n.indexOf(e)<0&&(p[e]=t[e]);if(t!=null&&typeof Object.getOwnPropertySymbols=="function"){var r=0;for(e=Object.getOwnPropertySymbols(t);r<e.length;r++)n.indexOf(e[r])<0&&Object.prototype.propertyIsEnumerable.call(t,e[r])&&(p[e[r]]=t[e[r]])}return p}export{o as r};

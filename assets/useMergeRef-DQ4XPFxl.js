@@ -1,0 +1,1 @@
+import{r as o}from"./index-Hemj67b4.js";import{u}from"./useIsomorphicLayoutEffect-FdvxY73P.js";function f(...t){const e=o.useRef(null);return u(()=>{t.forEach(r=>{r&&(typeof r=="function"?r(e.current):r.current=e.current)})},[t]),e}export{f as u};
