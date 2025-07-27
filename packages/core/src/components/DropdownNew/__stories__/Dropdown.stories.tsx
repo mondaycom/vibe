@@ -508,3 +508,75 @@ export const DropdownInsidePopover: Story = {
   },
   name: "Dropdown inside popover"
 };
+
+export const DropdownWithCustomMenuRenderer: Story = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: "option1", label: "First Option", category: "Primary" },
+        { value: "option2", label: "Second Option", category: "Primary" },
+        { value: "option3", label: "Third Option", category: "Secondary" },
+        { value: "option4", label: "Fourth Option", category: "Secondary" },
+        { value: "option5", label: "Fifth Option", category: "Advanced" }
+      ],
+      []
+    );
+
+    // Custom menu renderer that adds custom styling and maintains all downshift capabilities
+    const customMenuRenderer = useCallback(
+      ({
+        children,
+        // filteredOptions,
+        // selectedItems,
+        getItemProps: _getItemProps
+      }: {
+        children: React.ReactNode;
+        filteredOptions: Array<{ options: any[] }>;
+        selectedItems: any[];
+        getItemProps: (options: any) => Record<string, unknown>;
+      }) => {
+        return (
+          <div
+            style={{
+              border: "2px dashed var(--primary-color)",
+              borderRadius: "8px",
+              backgroundColor: "var(--primary-background-color)",
+              padding: "8px",
+              maxHeight: "200px",
+              overflow: "auto"
+            }}
+          >
+            {children}
+          </div>
+        );
+      },
+      []
+    );
+
+    return (
+      <Flex gap="large">
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            placeholder="Single select with custom menu"
+            options={options}
+            label="Single Select"
+            menuRenderer={customMenuRenderer}
+            searchable
+          />
+        </div>
+
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            placeholder="Multi select with custom menu"
+            options={options}
+            label="Multi Select"
+            menuRenderer={customMenuRenderer}
+            multi
+            searchable
+          />
+        </div>
+      </Flex>
+    );
+  },
+  name: "Custom Menu Renderer"
+};
