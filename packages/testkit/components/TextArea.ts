@@ -31,7 +31,6 @@ export class TextArea extends BaseElement {
    */
   async setText(text: string): Promise<void> {
     await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
-      await this.clearText();
       await this.wrapper.click();
       await this.input.waitForElementToBeVisible();
       await this.input.getLocator().fill(text);
