@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.56.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.3...@vibe/core@3.56.4) (2025-07-27)
+
+
+### Bug Fixes
+
+* **BaseList:** update background color to use secondary background token ([#3012](https://github.com/mondaycom/vibe/issues/3012)) ([dd3f610](https://github.com/mondaycom/vibe/commit/dd3f6109c9be02eec9f995b0328bc058eb134807))
+
+
+
+
+
 ## [3.56.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.2...@vibe/core@3.56.3) (2025-07-24)
 
 
