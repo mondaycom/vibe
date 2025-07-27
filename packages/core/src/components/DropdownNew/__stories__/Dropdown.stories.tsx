@@ -534,11 +534,11 @@ export const DropdownWithVirtualization: Story = {
       const extractElements = (node: React.ReactNode) => {
         React.Children.forEach(node, child => {
           if (React.isValidElement(child)) {
-            if (child.props.children && typeof child.props.children !== "string") {
-              // If it has children, recurse into them
+            if (child.type === React.Fragment) {
+              // This is a Fragment containing group title + options, recurse into it
               extractElements(child.props.children);
-            } else {
-              // It's a leaf element (group header or option), add it to our list
+            } else if (child.type === "li" || child.props?.role === "option") {
+              // This is either a group title <li> or an option BaseListItem - add it in order
               allElements.push(child);
             }
           }
