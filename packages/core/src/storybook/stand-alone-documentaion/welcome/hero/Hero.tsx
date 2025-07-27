@@ -36,7 +36,7 @@ export default function Hero() {
             <ResourceButton
               text="Figma"
               icon={<FigmaIcon />}
-              href="https://www.figma.com/file/pTpO3Wobs5cQwRsabt21Nd/monday.com-UI-kit?node-id=14811%3A20455"
+              href="https://www.figma.com/community/file/940242815162888749"
               tooltipContent="Our Figma file is free to use"
             />
           </Flex>
