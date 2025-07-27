@@ -23,6 +23,30 @@ export class BaseElement {
   }
 
   /**
+   * Get the page object.
+   * @returns {Page} - The page object.
+   */
+  getPage(): Page {
+    return this.page;
+  }
+
+  /**
+   * Get the locator of the element.
+   * @returns {Locator} - The locator of the element.
+   */
+  getLocator(): Locator {
+    return this.locator;
+  }
+
+  /**
+   * Get the element report name.
+   * @returns {string} - The element report name.
+   */
+  getElementReportName(): string {
+    return this.elementReportName;
+  }
+
+  /**
    * Hover the element.
    * @returns {Promise<void>}
    */
@@ -290,6 +314,58 @@ export class BaseElement {
   async waitForAbsence(): Promise<void> {
     await test.step(`Wait for ${this.elementReportName} to be absent`, async () => {
       await this.locator.waitFor({ state: "detached" });
+    });
+  }
+
+  /**
+   * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
+   * @param {Locator} locator - The locator for the elements.
+   * @returns {Promise<void>}
+   * @deprecated
+   */
+  protected async waitForAndVerifyElements(locator: Locator): Promise<void> {
+    await test.step(`Wait for ${this.elementReportName} items to stabilize and verify existence`, async () => {
+      let previousCount = 0;
+      let stableCountTime = 0;
+      const stabilizationTimeMs = 500;
+
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const currentCount = await locator.count();
+
+        // Verify we have at least one element
+        if (currentCount === 0) {
+          await this.page.waitForTimeout(100);
+          continue;
+        }
+
+        // Check if all elements are visible
+        const elements = await locator.all();
+        const visibleStates = await Promise.all(elements.map(el => el.isVisible()));
+        const allVisible = visibleStates.every(state => state === true);
+
+        if (!allVisible) {
+          await this.page.waitForTimeout(100);
+          continue;
+        }
+
+        if (currentCount === previousCount) {
+          stableCountTime += 100;
+        } else {
+          stableCountTime = 0;
+        }
+
+        if (stableCountTime >= stabilizationTimeMs) {
+          break;
+        }
+
+        previousCount = currentCount;
+        await this.page.waitForTimeout(100);
+      }
+
+      if ((await locator.count()) === 0) {
+        throw new Error(`No ${this.elementReportName} elements found after stabilization`);
+      }
     });
   }
 }
