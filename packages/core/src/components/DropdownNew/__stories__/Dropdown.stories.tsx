@@ -1,13 +1,12 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, Flex, Modal, ModalContent } from "../../index";
+import { Flex } from "../../index";
 import { Dropdown } from "../../DropdownNew";
-import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import { Text } from "../../Text";
 import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
 import { BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
@@ -456,82 +455,145 @@ export const DropdownWithTooltips: Story = {
 
 export const DropdownWithVirtualization: Story = {
   render: () => {
-    const largeOptions = useMemo(
+    const flatOptions = useMemo(
+      () => [
+        {
+          options: Array.from({ length: 1000 }, (_, index) => ({
+            value: `option-${index + 1}`,
+            label: `Option ${index + 1}`
+          }))
+        }
+      ],
+      []
+    );
+
+    const groupedOptions = useMemo(
       () =>
-        Array.from({ length: 20 }, (_, groupIndex) => ({
+        Array.from({ length: 10 }, (_, groupIndex) => ({
           label: `Group ${groupIndex + 1}`,
           options: Array.from({ length: 100 }, (_, optionIndex) => ({
-            value: `${groupIndex * 2 + optionIndex + 1}`,
-            label: `Option ${groupIndex * 2 + optionIndex + 1}`
+            value: `group-${groupIndex + 1}-option-${optionIndex + 1}`,
+            label: `Group ${groupIndex + 1} - Option ${optionIndex + 1}`
           }))
         })),
       []
     );
 
     const virtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
-      // Helper function to extract individual options from grouped children
-      const flattenChildren = (children: React.ReactNode): React.ReactElement[] => {
-        const flattened: React.ReactElement[] = [];
+      const allElements: React.ReactElement[] = [];
 
-        React.Children.forEach(children, child => {
-          if (React.isValidElement(child) && child.props.children) {
-            React.Children.forEach(child.props.children, grandchild => {
-              if (React.isValidElement(grandchild) && (grandchild.props as any)?.role === "option") {
-                flattened.push(grandchild);
-              }
-            });
+      const extractElements = (node: React.ReactNode) => {
+        React.Children.forEach(node, child => {
+          if (React.isValidElement(child)) {
+            if (child.props.children && typeof child.props.children !== "string") {
+              // If it has children, recurse into them
+              extractElements(child.props.children);
+            } else {
+              // It's a leaf element, add it to our list
+              allElements.push(child);
+            }
           }
         });
-
-        return flattened;
       };
 
-      const individualOptions = flattenChildren(children);
-      const itemHeight = 48; // Height of each option
-      const containerHeight = 200; // Height of the scrollable container
+      extractElements(children);
 
-      // Row renderer for react-window
+      if (allElements.length === 0) {
+        return <div>No options available</div>;
+      }
+
+      const itemHeight = 40;
+      const containerHeight = 200;
+
+      // Row renderer that preserves original elements with all their downshift props
       const Row = useCallback(
         ({ index, style }: { index: number; style: React.CSSProperties }) => {
-          const option = individualOptions[index];
-
-          return (
-            <div id={`option-${index}`} style={style}>
-              {option}
-            </div>
-          );
+          const element = allElements[index];
+          return <div style={style}>{element}</div>;
         },
-        [individualOptions]
+        [allElements]
       );
 
       return (
-        <div>
-          {individualOptions.length > 0 ? (
-            <List
-              height={containerHeight}
-              width="100%"
-              itemCount={individualOptions.length}
-              itemSize={itemHeight}
-              overscanCount={5}
-            >
-              {Row}
-            </List>
-          ) : (
-            <div>No options available</div>
-          )}
-        </div>
+        <List
+          height={containerHeight}
+          width="100%"
+          itemCount={allElements.length}
+          itemSize={itemHeight}
+          overscanCount={5}
+        >
+          {Row}
+        </List>
+      );
+    }, []);
+
+    const groupedVirtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
+      // Extract all rendered elements that need to be virtualized (both group headers and options)
+      const allElements: React.ReactElement[] = [];
+
+      const extractElements = (node: React.ReactNode) => {
+        React.Children.forEach(node, child => {
+          if (React.isValidElement(child)) {
+            if (child.props.children && typeof child.props.children !== "string") {
+              // If it has children, recurse into them
+              extractElements(child.props.children);
+            } else {
+              // It's a leaf element (group header or option), add it to our list
+              allElements.push(child);
+            }
+          }
+        });
+      };
+
+      extractElements(children);
+
+      if (allElements.length === 0) {
+        return <div>No options available</div>;
+      }
+
+      const itemHeight = 40;
+      const containerHeight = 200;
+
+      // Row renderer that preserves original elements with all their downshift props
+      const Row = useCallback(
+        ({ index, style }: { index: number; style: React.CSSProperties }) => {
+          const element = allElements[index];
+          return <div style={style}>{element}</div>;
+        },
+        [allElements]
+      );
+
+      return (
+        <List
+          height={containerHeight}
+          width="100%"
+          itemCount={allElements.length}
+          itemSize={itemHeight}
+          overscanCount={5}
+        >
+          {Row}
+        </List>
       );
     }, []);
 
     return (
-      <Flex gap="large">
+      <Flex gap="large" align="start">
         <div style={{ width: "350px" }}>
           <Dropdown
-            placeholder="Search virtualized options"
-            options={largeOptions}
-            label="Virtualized"
-            stickyGroupTitle
+            placeholder="Search flat virtualized options"
+            options={flatOptions}
+            label="Flat Virtualized"
             menuRenderer={virtualizedMenuRenderer}
+            searchable
+            maxMenuHeight={250}
+          />
+        </div>
+        <div style={{ width: "350px" }}>
+          <Dropdown
+            placeholder="Search grouped virtualized options"
+            options={groupedOptions}
+            label="Grouped Virtualized"
+            menuRenderer={groupedVirtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
           />
