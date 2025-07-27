@@ -20,28 +20,28 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(splitButton.locator).toBeEnabled();
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(splitButton.locator).toBeVisible();
+    await expect(splitButton.getLocator()).toBeVisible();
   });
 
   test("should click primary button", async () => {
     await splitButton.clickPrimaryButton();
-    await expect(splitButton.locator).toBeEnabled();
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple primary button clicks", async () => {
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
     await splitButton.clickPrimaryButton();
-    await expect(splitButton.locator).toBeEnabled();
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await splitButton.hover();
-    await expect(splitButton.locator).toBeEnabled();
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should get primary button text", async () => {
@@ -53,7 +53,7 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
 
   test("should scroll into view when needed", async () => {
     await splitButton.scrollIntoView();
-    await expect(splitButton.locator).toBeEnabled();
+    await expect(splitButton.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -68,7 +68,7 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
 
   test("should handle waiting for visibility states", async () => {
     await splitButton.waitForElementToBeVisible();
-    await expect(splitButton.locator).toBeVisible();
+    await expect(splitButton.getLocator()).toBeVisible();
   });
 
   test("should open secondary button menu", async () => {

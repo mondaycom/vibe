@@ -27,11 +27,11 @@ test.describe("Testkit - Unit Tests - Combobox", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(combobox.locator).toBeEnabled();
+    await expect(combobox.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(combobox.locator).toBeVisible();
+    await expect(combobox.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

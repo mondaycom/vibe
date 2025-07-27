@@ -22,9 +22,9 @@ export class ButtonGroup extends BaseElement {
    * @returns {Promise<Button[]>} An array of buttons.
    */
   async getAllButtons(): Promise<Button[]> {
-    return await test.step(`Get all buttons for ${this.elementReportName}`, async () => {
-      return (await this.locator.locator("button").all()).map(
-        (button, index) => new Button(this.page, button, `Button ${index + 1}`)
+    return await test.step(`Get all buttons for ${this.getElementReportName()}`, async () => {
+      return (await this.getLocator().getLocator()("button").all()).map(
+        (button, index) => new Button(this.getPage(), button, `Button ${index + 1}`)
       );
     });
   }
@@ -35,10 +35,10 @@ export class ButtonGroup extends BaseElement {
    * @returns {Promise<Button>} The button object.
    */
   async getButtonByName(buttonName: string): Promise<Button> {
-    return await test.step(`Get button by name ${buttonName} for ${this.elementReportName}`, async () => {
+    return await test.step(`Get button by name ${buttonName} for ${this.getElementReportName()}`, async () => {
       return new Button(
-        this.page,
-        this.locator.locator("button").filter({ hasText: buttonName }),
+        this.getPage(),
+        this.getLocator().getLocator()("button").filter({ hasText: buttonName }),
         `Button: ${buttonName}`
       );
     });
@@ -50,7 +50,7 @@ export class ButtonGroup extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickButtonByName(buttonName: string): Promise<void> {
-    await test.step(`Click button by name ${buttonName} for ${this.elementReportName}`, async () => {
+    await test.step(`Click button by name ${buttonName} for ${this.getElementReportName()}`, async () => {
       const button = await this.getButtonByName(buttonName);
       await button.click();
     });
@@ -62,7 +62,7 @@ export class ButtonGroup extends BaseElement {
    * @returns {Promise<boolean>} True if the button is selected, false otherwise.
    */
   async isButtonSelected(buttonName: string): Promise<boolean> {
-    return await test.step(`Check if button ${buttonName} is selected for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if button ${buttonName} is selected for ${this.getElementReportName()}`, async () => {
       const button = await this.getButtonByName(buttonName);
       return (await button.getAttributeValue("class")).includes("selected");
     });
@@ -73,7 +73,7 @@ export class ButtonGroup extends BaseElement {
    * @returns {Promise<string>} The name of the selected button.
    */
   async getSelectedButtonName(): Promise<string> {
-    return await test.step(`Get selected button name for ${this.elementReportName}`, async () => {
+    return await test.step(`Get selected button name for ${this.getElementReportName()}`, async () => {
       const buttons = await this.getAllButtons();
 
       // Find the selected button

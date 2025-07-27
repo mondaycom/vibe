@@ -23,10 +23,14 @@ export class Toast extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.closeButton = new IconButton(page, locator.locator("button").last(), `${elementReportName} - Close Button`);
-    this.link = new Link(page, locator.locator("a"), `${elementReportName} - Link`);
+    this.closeButton = new IconButton(
+      page,
+      locator.getLocator()("button").last(),
+      `${elementReportName} - Close Button`
+    );
+    this.link = new Link(page, locator.getLocator()("a"), `${elementReportName} - Link`);
     this.loader = new Loader(page, locator.getByRole("alert"), `${elementReportName} - Loader`);
-    this.button = new Button(page, locator.locator("button").first(), `${elementReportName} - Button`);
+    this.button = new Button(page, locator.getLocator()("button").first(), `${elementReportName} - Button`);
   }
 
   /**
@@ -34,7 +38,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<void>}
    */
   async close(): Promise<void> {
-    await test.step(`Click close button for ${this.elementReportName}`, async () => {
+    await test.step(`Click close button for ${this.getElementReportName()}`, async () => {
       await this.closeButton.click();
     });
   }
@@ -44,7 +48,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<boolean>} True if the toast has a close button, false otherwise.
    */
   async hasCloseButton(): Promise<boolean> {
-    return await test.step(`Check if toast has close button for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if toast has close button for ${this.getElementReportName()}`, async () => {
       return await this.closeButton.isVisible();
     });
   }
@@ -54,7 +58,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<string | null>} The type of the toast.
    */
   async getType(): Promise<string | null> {
-    return await test.step(`Get toast type: ${this.elementReportName}`, async () => {
+    return await test.step(`Get toast type: ${this.getElementReportName()}`, async () => {
       const classList = await this.getAttributeValue("class");
 
       if (!classList) return null;
@@ -75,7 +79,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<boolean>} True if the toast is loading, false otherwise.
    */
   async isLoading(): Promise<boolean> {
-    return await test.step(`Check if toast is loading: ${this.elementReportName}`, async () => {
+    return await test.step(`Check if toast is loading: ${this.getElementReportName()}`, async () => {
       return await this.loader.isVisible();
     });
   }
@@ -85,7 +89,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<string>} The text of the link.
    */
   async getLinkText(): Promise<string> {
-    return await test.step(`Get link text for ${this.elementReportName}`, async () => {
+    return await test.step(`Get link text for ${this.getElementReportName()}`, async () => {
       return await this.link.getText();
     });
   }
@@ -95,7 +99,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<string>} The href of the link.
    */
   async getLinkHref(): Promise<string> {
-    return await test.step(`Get link href for ${this.elementReportName}`, async () => {
+    return await test.step(`Get link href for ${this.getElementReportName()}`, async () => {
       return await this.link.getLinkHref();
     });
   }
@@ -105,7 +109,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickLink(): Promise<void> {
-    return await test.step(`Click link for ${this.elementReportName}`, async () => {
+    return await test.step(`Click link for ${this.getElementReportName()}`, async () => {
       await this.link.click();
     });
   }
@@ -115,7 +119,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<void>}
    */
   async clickButton(): Promise<void> {
-    return await test.step(`Click button for ${this.elementReportName}`, async () => {
+    return await test.step(`Click button for ${this.getElementReportName()}`, async () => {
       await this.button.click();
     });
   }
@@ -125,7 +129,7 @@ export class Toast extends BaseElement {
    * @returns {Promise<string>} The text of the button.
    */
   async getButtonText(): Promise<string> {
-    return await test.step(`Get button text for ${this.elementReportName}`, async () => {
+    return await test.step(`Get button text for ${this.getElementReportName()}`, async () => {
       return await this.button.getText();
     });
   }

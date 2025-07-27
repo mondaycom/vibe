@@ -23,9 +23,9 @@ export class TextField extends BaseElement {
    * @returns {Promise<void>}
    */
   async setText(text: string): Promise<void> {
-    await test.step(`Set text: ${text} for ${this.elementReportName}`, async () => {
+    await test.step(`Set text: ${text} for ${this.getElementReportName()}`, async () => {
       await this.clearText();
-      await this.locator.fill(text);
+      await this.getLocator().fill(text);
     });
   }
 
@@ -33,8 +33,8 @@ export class TextField extends BaseElement {
    * Clear the text in the input element.
    */
   async clearText(): Promise<void> {
-    await test.step(`Clear text for ${this.elementReportName}`, async () => {
-      await this.locator.clear();
+    await test.step(`Clear text for ${this.getElementReportName()}`, async () => {
+      await this.getLocator().clear();
     });
   }
 
@@ -43,8 +43,8 @@ export class TextField extends BaseElement {
    * @returns {Promise<string>} The text from the input element.
    */
   async getText(): Promise<string> {
-    return await test.step(`Get text for ${this.elementReportName}`, async () => {
-      return await this.locator.inputValue();
+    return await test.step(`Get text for ${this.getElementReportName()}`, async () => {
+      return await this.getLocator().inputValue();
     });
   }
 
@@ -53,8 +53,8 @@ export class TextField extends BaseElement {
    * @returns {Promise<string>}
    */
   async isEmpty(): Promise<boolean> {
-    return await test.step(`Check if text field is empty for ${this.elementReportName}`, async () => {
-      return (await this.locator.inputValue()) === "";
+    return await test.step(`Check if text field is empty for ${this.getElementReportName()}`, async () => {
+      return (await this.getLocator().inputValue()) === "";
     });
   }
 
@@ -64,7 +64,7 @@ export class TextField extends BaseElement {
    */
   async exitEditMode(): Promise<void> {
     await test.step("Exit edit mode", async () => {
-      await pressKey(this.page, "Escape");
+      await pressKey(this.getPage(), "Escape");
     });
   }
 }

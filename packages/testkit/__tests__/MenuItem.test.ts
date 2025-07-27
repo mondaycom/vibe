@@ -17,28 +17,28 @@ test.describe("Testkit - Unit Tests - MenuItem", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(menuItem.locator).toBeVisible();
+    await expect(menuItem.getLocator()).toBeVisible();
   });
 
   test("should be clickable", async () => {
     await menuItem.click();
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should handle multiple clicks", async () => {
     await menuItem.click();
     await menuItem.click();
     await menuItem.click();
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should be hoverable", async () => {
     await menuItem.hover();
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should have proper text content", async () => {
@@ -51,18 +51,18 @@ test.describe("Testkit - Unit Tests - MenuItem", () => {
   test("should maintain enabled state after interactions", async () => {
     await menuItem.hover();
     await menuItem.click();
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should maintain visibility after interactions", async () => {
     await menuItem.hover();
     await menuItem.click();
-    await expect(menuItem.locator).toBeVisible();
+    await expect(menuItem.getLocator()).toBeVisible();
   });
 
   test("should scroll into view when needed", async () => {
     await menuItem.scrollIntoView();
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -76,6 +76,6 @@ test.describe("Testkit - Unit Tests - MenuItem", () => {
   });
 
   test("should check if menu item is enabled by default", async () => {
-    await expect(menuItem.locator).toBeEnabled();
+    await expect(menuItem.getLocator()).toBeEnabled();
   });
 });

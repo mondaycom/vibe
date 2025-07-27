@@ -22,9 +22,9 @@ export class Menu extends BaseElement {
    * @returns {Promise<MenuItem[]>} An array of menu items.
    */
   async getAllMenuItems(): Promise<MenuItem[]> {
-    return await test.step(`Get all menu items for ${this.elementReportName}`, async () => {
-      const items = await this.locator.getByRole("menuitem").all();
-      return items.map((item, index) => new MenuItem(this.page, item, `Menu item ${index}`));
+    return await test.step(`Get all menu items for ${this.getElementReportName()}`, async () => {
+      const items = await this.getLocator().getByRole("menuitem").all();
+      return items.map((item, index) => new MenuItem(this.getPage(), item, `Menu item ${index}`));
     });
   }
 
@@ -34,8 +34,8 @@ export class Menu extends BaseElement {
    * @returns {Promise<MenuItem>} The menu item with the specified name.
    */
   async getItemByName(itemName: string): Promise<MenuItem> {
-    return await test.step(`Get menu item by name ${itemName} for ${this.elementReportName}`, async () => {
-      return new MenuItem(this.page, this.locator.getByRole("menuitem", { name: itemName }), itemName);
+    return await test.step(`Get menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      return new MenuItem(this.getPage(), this.getLocator().getByRole("menuitem", { name: itemName }), itemName);
     });
   }
 
@@ -45,8 +45,8 @@ export class Menu extends BaseElement {
    * @returns {Promise<MenuItem>} The menu item with the specified index.
    */
   async getItemByIndex(index: number): Promise<MenuItem> {
-    return await test.step(`Get menu item by index ${index} for ${this.elementReportName}`, async () => {
-      return new MenuItem(this.page, this.locator.getByRole("menuitem").nth(index), `Menu item ${index}`);
+    return await test.step(`Get menu item by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new MenuItem(this.getPage(), this.getLocator().getByRole("menuitem").nth(index), `Menu item ${index}`);
     });
   }
 
@@ -56,7 +56,7 @@ export class Menu extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(itemName: string): Promise<void> {
-    await test.step(`Click menu item by name ${itemName} for ${this.elementReportName}`, async () => {
+    await test.step(`Click menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
       const menuItem = await this.getItemByName(itemName);
       await menuItem.hover();
       await menuItem.click();
@@ -70,10 +70,14 @@ export class Menu extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectSubItem(rootItem: string, subItem: string): Promise<void> {
-    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.elementReportName}`, async () => {
+    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.getElementReportName()}`, async () => {
       const rootMenuItem = await this.getItemByName(rootItem);
       await rootMenuItem.hover();
-      const secondaryMenu = new Menu(this.page, this.page.locator(`.secondary-menu-enter-done`), `Secondary Menu`);
+      const secondaryMenu = new Menu(
+        this.getPage(),
+        this.getPage().getLocator()(`.secondary-menu-enter-done`),
+        `Secondary Menu`
+      );
       await secondaryMenu.selectItem(subItem);
     });
   }
@@ -84,7 +88,7 @@ export class Menu extends BaseElement {
    * @returns {Promise<boolean>} True if the menu item is disabled, false otherwise.
    */
   async isMenuItemDisabled(itemName: string): Promise<boolean> {
-    return await test.step(`Check if menu item is disabled for ${itemName} for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if menu item is disabled for ${itemName} for ${this.getElementReportName()}`, async () => {
       const menuItem = await this.getItemByName(itemName);
       return (await menuItem.getComputedStyle("cursor")) === "not-allowed";
     });
@@ -96,7 +100,7 @@ export class Menu extends BaseElement {
    * @returns {Promise<string>} The name of the menu item with the specified index.
    */
   async getMenuItemNameByIndex(index: number): Promise<string> {
-    return await test.step(`Get menu item name by index ${index} for ${this.elementReportName}`, async () => {
+    return await test.step(`Get menu item name by index ${index} for ${this.getElementReportName()}`, async () => {
       const menuItem = await this.getItemByIndex(index);
       return await menuItem.getText();
     });

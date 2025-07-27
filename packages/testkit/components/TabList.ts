@@ -23,8 +23,8 @@ export class TabList extends BaseElement {
    * @returns {Promise<Tab>} The tab with the specified name.
    */
   async getTabByName(tabName: string): Promise<Tab> {
-    return await test.step(`Get tab by name ${tabName} for ${this.elementReportName}`, async () => {
-      return new Tab(this.page, this.locator.getByRole("tab", { name: tabName }), tabName);
+    return await test.step(`Get tab by name ${tabName} for ${this.getElementReportName()}`, async () => {
+      return new Tab(this.getPage(), this.getLocator().getByRole("tab", { name: tabName }), tabName);
     });
   }
 
@@ -33,9 +33,9 @@ export class TabList extends BaseElement {
    * @returns {Promise<Tab[]>} An array of tabs.
    */
   async getAllTabs(): Promise<Tab[]> {
-    return await test.step(`Get all tabs for ${this.elementReportName}`, async () => {
-      const tabs = await this.locator.getByRole("tab").all();
-      return tabs.map((tab, index) => new Tab(this.page, tab, `${this.elementReportName} - Tab ${index}`));
+    return await test.step(`Get all tabs for ${this.getElementReportName()}`, async () => {
+      const tabs = await this.getLocator().getByRole("tab").all();
+      return tabs.map((tab, index) => new Tab(this.getPage(), tab, `${this.getElementReportName()} - Tab ${index}`));
     });
   }
 
@@ -45,8 +45,12 @@ export class TabList extends BaseElement {
    * @returns {Promise<Tab>} The tab with the specified index.
    */
   async getTabByIndex(index: number): Promise<Tab> {
-    return await test.step(`Get tab by index ${index} for ${this.elementReportName}`, async () => {
-      return new Tab(this.page, this.locator.getByRole("tab").nth(index), `${this.elementReportName} - Tab ${index}`);
+    return await test.step(`Get tab by index ${index} for ${this.getElementReportName()}`, async () => {
+      return new Tab(
+        this.getPage(),
+        this.getLocator().getByRole("tab").nth(index),
+        `${this.getElementReportName()} - Tab ${index}`
+      );
     });
   }
 
@@ -56,7 +60,7 @@ export class TabList extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectTab(tabName: string): Promise<void> {
-    await test.step(`Select tab ${tabName} for ${this.elementReportName}`, async () => {
+    await test.step(`Select tab ${tabName} for ${this.getElementReportName()}`, async () => {
       const tab = await this.getTabByName(tabName);
       await tab.click();
     });
@@ -67,7 +71,7 @@ export class TabList extends BaseElement {
    * @returns {Promise<string>} The name of the selected tab.
    */
   async getSelectedTabName(): Promise<string> {
-    return await test.step(`Get selected tab name for ${this.elementReportName}`, async () => {
+    return await test.step(`Get selected tab name for ${this.getElementReportName()}`, async () => {
       const tabs = await this.getAllTabs();
       let selectedTab: Tab | null = null;
 
@@ -92,7 +96,7 @@ export class TabList extends BaseElement {
    * @returns {Promise<boolean>} True if the tab is selected.
    */
   async isTabSelected(tabName: string): Promise<boolean> {
-    return await test.step(`Check if tab ${tabName} is selected for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if tab ${tabName} is selected for ${this.getElementReportName()}`, async () => {
       const tab = await this.getTabByName(tabName);
       return await tab.isSelected();
     });
@@ -104,7 +108,7 @@ export class TabList extends BaseElement {
    * @returns {Promise<string>} The name of the tab with the specified index.
    */
   async getTabNameByIndex(index: number): Promise<string> {
-    return await test.step(`Get tab name by index ${index} for ${this.elementReportName}`, async () => {
+    return await test.step(`Get tab name by index ${index} for ${this.getElementReportName()}`, async () => {
       const tab = await this.getTabByIndex(index);
       return await tab.getText();
     });

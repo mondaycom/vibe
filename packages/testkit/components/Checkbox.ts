@@ -19,8 +19,8 @@ export class Checkbox extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.checkbox = new TextField(page, locator.locator("div"), `${elementReportName} - Checkbox`);
-    this.label = new Text(page, locator.locator("span"), `${elementReportName} - Label`);
+    this.checkbox = new TextField(page, locator.getLocator()("div"), `${elementReportName} - Checkbox`);
+    this.label = new Text(page, locator.getLocator()("span"), `${elementReportName} - Label`);
   }
 
   /**
@@ -28,9 +28,9 @@ export class Checkbox extends BaseElement {
    * @returns {Promise<void>}
    */
   async setChecked(): Promise<void> {
-    await test.step(`Check checkbox for ${this.elementReportName}`, async () => {
+    await test.step(`Check checkbox for ${this.getElementReportName()}`, async () => {
       if (!(await this.isChecked())) {
-        await this.checkbox.locator.check();
+        await this.checkbox.getLocator().check();
       }
     });
   }
@@ -40,9 +40,9 @@ export class Checkbox extends BaseElement {
    * @returns {Promise<void>}
    */
   async setUnchecked(): Promise<void> {
-    await test.step(`Uncheck checkbox for ${this.elementReportName}`, async () => {
+    await test.step(`Uncheck checkbox for ${this.getElementReportName()}`, async () => {
       if (await this.isChecked()) {
-        await this.checkbox.locator.uncheck();
+        await this.checkbox.getLocator().uncheck();
       }
     });
   }
@@ -52,8 +52,8 @@ export class Checkbox extends BaseElement {
    * @returns {Promise<boolean>} True if the checkbox is checked, false otherwise.
    */
   async isChecked(): Promise<boolean> {
-    return await test.step(`Check if checkbox is checked for ${this.elementReportName}`, async () => {
-      return await this.checkbox.locator.isChecked();
+    return await test.step(`Check if checkbox is checked for ${this.getElementReportName()}`, async () => {
+      return await this.checkbox.getLocator().isChecked();
     });
   }
 
@@ -62,7 +62,7 @@ export class Checkbox extends BaseElement {
    * @returns {Promise<string>} The label of the checkbox.
    */
   async getLabel(): Promise<string> {
-    return await test.step(`Get checkbox label for ${this.elementReportName}`, async () => {
+    return await test.step(`Get checkbox label for ${this.getElementReportName()}`, async () => {
       return await this.label.getText();
     });
   }

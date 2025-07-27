@@ -24,11 +24,11 @@ test.describe("Testkit - Unit Tests - Dropdown", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(dropdown.locator).toBeEnabled();
+    await expect(dropdown.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(dropdown.locator).toBeVisible();
+    await expect(dropdown.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

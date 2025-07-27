@@ -17,19 +17,19 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("Checkbox should be initially checked", async () => {
-    await expect(checkbox.locator).toBeChecked();
+    await expect(checkbox.getLocator()).toBeChecked();
   });
 
   test("Checkbox should be able to be unchecked", async () => {
     await checkbox.setUnchecked();
-    await expect(checkbox.locator).not.toBeChecked();
+    await expect(checkbox.getLocator()).not.toBeChecked();
   });
 
   test("Checkbox should be able to be checked after being unchecked", async () => {
     await checkbox.setUnchecked();
-    await expect.soft(checkbox.locator).not.toBeChecked();
+    await expect.soft(checkbox.getLocator()).not.toBeChecked();
     await checkbox.setChecked();
-    await expect(checkbox.locator).toBeChecked();
+    await expect(checkbox.getLocator()).toBeChecked();
   });
 
   test("Checkbox should return its label text", async () => {
@@ -40,21 +40,21 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("Checkbox should toggle correctly with multiple check/uncheck operations", async () => {
-    await expect.soft(checkbox.locator).toBeChecked();
+    await expect.soft(checkbox.getLocator()).toBeChecked();
     await checkbox.setUnchecked();
-    await expect.soft(checkbox.locator).not.toBeChecked();
+    await expect.soft(checkbox.getLocator()).not.toBeChecked();
     await checkbox.setChecked();
-    await expect.soft(checkbox.locator).toBeChecked();
+    await expect.soft(checkbox.getLocator()).toBeChecked();
     await checkbox.setUnchecked();
-    await expect(checkbox.locator).not.toBeChecked();
+    await expect(checkbox.getLocator()).not.toBeChecked();
   });
 
   test("Checkbox should be enabled by default", async () => {
-    await expect(checkbox.locator).toBeEnabled();
+    await expect(checkbox.getLocator()).toBeEnabled();
   });
 
   test("Checkbox should be visible by default", async () => {
-    await expect(checkbox.locator).toBeVisible();
+    await expect(checkbox.getLocator()).toBeVisible();
   });
 
   test("should count elements correctly", async () => {

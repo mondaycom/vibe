@@ -27,7 +27,7 @@ export class BaseElement {
    * @returns {Page} - The page object.
    */
   getPage(): Page {
-    return this.page;
+    return this.getPage();
   }
 
   /**
@@ -43,7 +43,7 @@ export class BaseElement {
    * @returns {string} - The element report name.
    */
   getElementReportName(): string {
-    return this.elementReportName;
+    return this.getElementReportName();
   }
 
   /**
@@ -51,8 +51,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async hover(): Promise<void> {
-    await test.step(`Hover ${this.elementReportName}`, async () => {
-      await this.locator.hover();
+    await test.step(`Hover ${this.getElementReportName()}`, async () => {
+      await this.getLocator().hover();
     });
   }
 
@@ -61,8 +61,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async click(): Promise<void> {
-    await test.step(`Click ${this.elementReportName}`, async () => {
-      await this.locator.click();
+    await test.step(`Click ${this.getElementReportName()}`, async () => {
+      await this.getLocator().click();
     });
   }
 
@@ -71,16 +71,16 @@ export class BaseElement {
    * @returns {Promise<string>} - The text of the element (empty string if only whitespace or empty, throws if all are null/undefined).
    */
   async getText(): Promise<string> {
-    return await test.step(`Get text of ${this.elementReportName}`, async () => {
+    return await test.step(`Get text of ${this.getElementReportName()}`, async () => {
       const texts = [
-        await this.locator.innerText(),
-        await this.locator.textContent(),
+        await this.getLocator().innerText(),
+        await this.getLocator().textContent(),
         await this.getAttributeValue("value")
       ];
 
       // If all are null/undefined, throw error
       if (texts.every(value => value == null || value === undefined)) {
-        throw new Error(`Could not retrieve text for ${this.elementReportName}: all texts are null/undefined`);
+        throw new Error(`Could not retrieve text for ${this.getElementReportName()}: all texts are null/undefined`);
       }
 
       // Trim all string values, keep null/undefined as is
@@ -110,8 +110,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async scrollIntoView(): Promise<void> {
-    await test.step(`Scroll ${this.elementReportName} into view`, async () => {
-      await this.locator.scrollIntoViewIfNeeded();
+    await test.step(`Scroll ${this.getElementReportName()} into view`, async () => {
+      await this.getLocator().scrollIntoViewIfNeeded();
     });
   }
 
@@ -122,8 +122,8 @@ export class BaseElement {
    * @returns {Promise<string | null>} - The value of the attribute.
    */
   async getAttributeValue(attributeName: string, timeout: number = this.DEFAULT_TIMEOUT): Promise<string> {
-    return await test.step(`Get attribute ${attributeName} of ${this.elementReportName}`, async () => {
-      const attributeValue = await this.locator.getAttribute(attributeName, { timeout });
+    return await test.step(`Get attribute ${attributeName} of ${this.getElementReportName()}`, async () => {
+      const attributeValue = await this.getLocator().getAttribute(attributeName, { timeout });
       if (attributeValue === null || attributeValue === undefined) {
         return "";
       }
@@ -137,8 +137,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async waitForElementToBeVisible(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be visible`, async () => {
-      await this.locator.waitFor({ state: "visible", timeout });
+    await test.step(`Wait for ${this.getElementReportName()} to be visible`, async () => {
+      await this.getLocator().waitFor({ state: "visible", timeout });
     });
   }
 
@@ -148,8 +148,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async waitForElementToBeHidden(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be hidden`, async () => {
-      await this.locator.waitFor({ state: "hidden", timeout });
+    await test.step(`Wait for ${this.getElementReportName()} to be hidden`, async () => {
+      await this.getLocator().waitFor({ state: "hidden", timeout });
     });
   }
 
@@ -159,8 +159,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async waitForElementToBeDetached(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be absent`, async () => {
-      await this.locator.waitFor({ state: "detached", timeout });
+    await test.step(`Wait for ${this.getElementReportName()} to be absent`, async () => {
+      await this.getLocator().waitFor({ state: "detached", timeout });
     });
   }
 
@@ -170,8 +170,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async waitForElementToBeAttached(timeout: number = this.DEFAULT_TIMEOUT): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be attached`, async () => {
-      await this.locator.waitFor({ state: "attached", timeout });
+    await test.step(`Wait for ${this.getElementReportName()} to be attached`, async () => {
+      await this.getLocator().waitFor({ state: "attached", timeout });
     });
   }
 
@@ -180,8 +180,8 @@ export class BaseElement {
    * @returns {Promise<number>} - The number of elements matching the locator.
    */
   async count(): Promise<number> {
-    return await test.step(`Count elements matching ${this.elementReportName}`, async () => {
-      return await this.locator.count();
+    return await test.step(`Count elements matching ${this.getElementReportName()}`, async () => {
+      return await this.getLocator().count();
     });
   }
 
@@ -191,8 +191,8 @@ export class BaseElement {
    * @returns {Promise<boolean>} - Returns true if the element is enabled, otherwise false.
    */
   async isEnabled(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is enabled`, async () => {
-      return await this.locator.isEnabled({ timeout });
+    return await test.step(`Check if ${this.getElementReportName()} is enabled`, async () => {
+      return await this.getLocator().isEnabled({ timeout });
     });
   }
 
@@ -202,8 +202,8 @@ export class BaseElement {
    * @returns {Promise<boolean>} - Returns true if the element is disabled, otherwise false.
    */
   async isDisabled(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is disabled`, async () => {
-      return await this.locator.isDisabled({ timeout });
+    return await test.step(`Check if ${this.getElementReportName()} is disabled`, async () => {
+      return await this.getLocator().isDisabled({ timeout });
     });
   }
 
@@ -213,8 +213,8 @@ export class BaseElement {
    * @returns {Promise<boolean>} - Returns true if the element is visible, otherwise false.
    */
   async isVisible(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is visible`, async () => {
-      return await this.locator.isVisible({ timeout });
+    return await test.step(`Check if ${this.getElementReportName()} is visible`, async () => {
+      return await this.getLocator().isVisible({ timeout });
     });
   }
 
@@ -224,8 +224,8 @@ export class BaseElement {
    * @returns {Promise<boolean>} - Returns true if the element is hidden, otherwise false.
    */
   async isHidden(timeout: number = this.DEFAULT_TIMEOUT): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is hidden`, async () => {
-      return await this.locator.isHidden({ timeout });
+    return await test.step(`Check if ${this.getElementReportName()} is hidden`, async () => {
+      return await this.getLocator().isHidden({ timeout });
     });
   }
 
@@ -234,8 +234,8 @@ export class BaseElement {
    * @returns {Promise<void>}
    */
   async removeFocus(): Promise<void> {
-    await test.step(`Remove focus from ${this.elementReportName}`, async () => {
-      await this.page.locator("body").click();
+    await test.step(`Remove focus from ${this.getElementReportName()}`, async () => {
+      await this.getPage().locator("body").click();
     });
   }
 
@@ -245,8 +245,8 @@ export class BaseElement {
    * @returns {Promise<string>} - The computed style of the element.
    */
   async getComputedStyle(property: string): Promise<string> {
-    return await test.step(`Get computed style of ${property} for ${this.elementReportName}`, async () => {
-      return await this.locator.evaluate(
+    return await test.step(`Get computed style of ${property} for ${this.getElementReportName()}`, async () => {
+      return await this.getLocator().evaluate(
         (el, property) => window.getComputedStyle(el).getPropertyValue(property),
         property
       );
@@ -258,7 +258,7 @@ export class BaseElement {
    * @returns {Promise<boolean>} True if the element is expanded, false otherwise.
    */
   async isExpanded(): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is expanded`, async () => {
+    return await test.step(`Check if ${this.getElementReportName()} is expanded`, async () => {
       return (await this.getAttributeValue("aria-expanded")) === "true";
     });
   }
@@ -268,7 +268,7 @@ export class BaseElement {
    * @returns {Promise<boolean>} True if the element is checked, false otherwise.
    */
   async isChecked(): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is checked`, async () => {
+    return await test.step(`Check if ${this.getElementReportName()} is checked`, async () => {
       return (await this.getAttributeValue("aria-checked")) === "true";
     });
   }
@@ -278,7 +278,7 @@ export class BaseElement {
    * @returns {Promise<boolean>} True if the element is selected, false otherwise.
    */
   async isSelected(): Promise<boolean> {
-    return await test.step(`Check if ${this.elementReportName} is selected`, async () => {
+    return await test.step(`Check if ${this.getElementReportName()} is selected`, async () => {
       return (await this.getAttributeValue("aria-selected")) === "true";
     });
   }
@@ -290,8 +290,8 @@ export class BaseElement {
    * @deprecated Use waitForElementToBeVisible, waitForElementToBeHidden, waitForElementToBeDetached, waitForElementToBeAttached instead.
    */
   async waitFor(options = {}): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName}`, async () => {
-      await this.locator.waitFor(options);
+    await test.step(`Wait for ${this.getElementReportName()}`, async () => {
+      await this.getLocator().waitFor(options);
     });
   }
 
@@ -301,8 +301,8 @@ export class BaseElement {
    * @deprecated Use waitForElementToBeVisible instead.
    */
   async waitForVisible(): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be visible`, async () => {
-      await this.locator.waitFor({ state: "visible" });
+    await test.step(`Wait for ${this.getElementReportName()} to be visible`, async () => {
+      await this.getLocator().waitFor({ state: "visible" });
     });
   }
 
@@ -312,8 +312,8 @@ export class BaseElement {
    * @deprecated Use waitForElementToBeDetached instead.
    */
   async waitForAbsence(): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} to be absent`, async () => {
-      await this.locator.waitFor({ state: "detached" });
+    await test.step(`Wait for ${this.getElementReportName()} to be absent`, async () => {
+      await this.getLocator().waitFor({ state: "detached" });
     });
   }
 
@@ -324,7 +324,7 @@ export class BaseElement {
    * @deprecated
    */
   protected async waitForAndVerifyElements(locator: Locator): Promise<void> {
-    await test.step(`Wait for ${this.elementReportName} items to stabilize and verify existence`, async () => {
+    await test.step(`Wait for ${this.getElementReportName()} items to stabilize and verify existence`, async () => {
       let previousCount = 0;
       let stableCountTime = 0;
       const stabilizationTimeMs = 500;
@@ -335,7 +335,7 @@ export class BaseElement {
 
         // Verify we have at least one element
         if (currentCount === 0) {
-          await this.page.waitForTimeout(100);
+          await this.getPage().waitForTimeout(100);
           continue;
         }
 
@@ -345,7 +345,7 @@ export class BaseElement {
         const allVisible = visibleStates.every(state => state === true);
 
         if (!allVisible) {
-          await this.page.waitForTimeout(100);
+          await this.getPage().waitForTimeout(100);
           continue;
         }
 
@@ -360,11 +360,11 @@ export class BaseElement {
         }
 
         previousCount = currentCount;
-        await this.page.waitForTimeout(100);
+        await this.getPage().waitForTimeout(100);
       }
 
       if ((await locator.count()) === 0) {
-        throw new Error(`No ${this.elementReportName} elements found after stabilization`);
+        throw new Error(`No ${this.getElementReportName()} elements found after stabilization`);
       }
     });
   }

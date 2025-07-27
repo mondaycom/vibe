@@ -26,7 +26,7 @@ export class MenuButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(itemName: string): Promise<void> {
-    await test.step(`Select menu item by name ${itemName} for ${this.elementReportName}`, async () => {
+    await test.step(`Select menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
       await this.openMenu();
       await this.menu.selectItem(itemName);
     });
@@ -37,11 +37,11 @@ export class MenuButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async openMenu(): Promise<void> {
-    await test.step(`Open menu for ${this.elementReportName}`, async () => {
+    await test.step(`Open menu for ${this.getElementReportName()}`, async () => {
       if (!(await this.isExpanded())) {
         await this.click();
         // Wait for the menu to open
-        await this.page.waitForTimeout(200);
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
@@ -51,11 +51,11 @@ export class MenuButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async closeMenu(): Promise<void> {
-    await test.step(`Close menu for ${this.elementReportName}`, async () => {
+    await test.step(`Close menu for ${this.getElementReportName()}`, async () => {
       if (await this.isExpanded()) {
         await this.click();
         // Wait for the menu to close
-        await this.page.waitForTimeout(200);
+        await this.getPage().waitForTimeout(200);
       }
     });
   }
@@ -65,7 +65,7 @@ export class MenuButton extends BaseElement {
    * @returns {Promise<boolean>} True if the secondary button menu is expanded, false otherwise.
    */
   async isMenuExpanded(): Promise<boolean> {
-    return await test.step(`Check if menu is expanded for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if menu is expanded for ${this.getElementReportName()}`, async () => {
       return await this.isExpanded();
     });
   }
@@ -77,7 +77,7 @@ export class MenuButton extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectSubItem(rootItem: string, subItem: string): Promise<void> {
-    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.elementReportName}`, async () => {
+    await test.step(`Select sub menu item ${subItem} in ${rootItem} in ${this.getElementReportName()}`, async () => {
       await this.menu.selectSubItem(rootItem, subItem);
     });
   }

@@ -17,25 +17,25 @@ test.describe("Testkit - Unit Tests - RadioButton", () => {
   });
 
   test("should be initially unchecked", async () => {
-    await expect(radioButton.locator).not.toBeChecked();
+    await expect(radioButton.getLocator()).not.toBeChecked();
   });
 
   test("should be able to be checked", async () => {
     await radioButton.select();
-    await expect(radioButton.locator).toBeChecked();
+    await expect(radioButton.getLocator()).toBeChecked();
   });
 
   test("should be enabled by default", async () => {
-    await expect(radioButton.locator).toBeEnabled();
+    await expect(radioButton.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(radioButton.locator).toBeVisible();
+    await expect(radioButton.getLocator()).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await radioButton.hover();
-    await expect(radioButton.locator).toBeEnabled();
+    await expect(radioButton.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {

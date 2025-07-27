@@ -48,11 +48,11 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(buttonGroup.locator).toBeEnabled();
+    await expect(buttonGroup.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(buttonGroup.locator).toBeVisible();
+    await expect(buttonGroup.getLocator()).toBeVisible();
   });
 
   test("should handle button clicks in sequence", async () => {

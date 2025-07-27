@@ -21,7 +21,7 @@ export class Link extends BaseElement {
    * @returns {Promise<string>} The href attribute of the link.
    */
   async getLinkHref(): Promise<string> {
-    return await test.step(`Get link href of ${this.elementReportName}`, async () => {
+    return await test.step(`Get link href of ${this.getElementReportName()}`, async () => {
       return await this.getAttributeValue("href");
     });
   }

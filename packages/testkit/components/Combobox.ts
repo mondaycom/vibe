@@ -27,8 +27,8 @@ export class Combobox extends BaseElement {
    * @returns {Promise<ListItem>} The combobox item.
    */
   async getComboboxItemByOption(option: string): Promise<ListItem> {
-    return await test.step(`Get combobox item by option ${option} for ${this.elementReportName}`, async () => {
-      return new ListItem(this.page, this.locator.getByText(option), option);
+    return await test.step(`Get combobox item by option ${option} for ${this.getElementReportName()}`, async () => {
+      return new ListItem(this.getPage(), this.getLocator().getByText(option), option);
     });
   }
 
@@ -38,7 +38,7 @@ export class Combobox extends BaseElement {
    * @returns {Promise<void>}
    */
   async selectItem(item: string): Promise<void> {
-    await test.step(`Select item ${item} for ${this.elementReportName}`, async () => {
+    await test.step(`Select item ${item} for ${this.getElementReportName()}`, async () => {
       await this.search(item);
       const comboBoxItem = await this.getComboboxItemByOption(item);
       await comboBoxItem.click();
@@ -51,7 +51,7 @@ export class Combobox extends BaseElement {
    * @returns {Promise<void>}
    */
   async search(option: string): Promise<void> {
-    await test.step(`Search for ${option} for ${this.elementReportName}`, async () => {
+    await test.step(`Search for ${option} for ${this.getElementReportName()}`, async () => {
       await this.searchField.setText(option);
     });
   }
@@ -61,7 +61,7 @@ export class Combobox extends BaseElement {
    * @returns {Promise<void>}
    */
   async clearSearch(): Promise<void> {
-    await test.step(`Clear search for ${this.elementReportName}`, async () => {
+    await test.step(`Clear search for ${this.getElementReportName()}`, async () => {
       await this.searchField.clickClearSearchButton();
     });
   }
@@ -71,7 +71,7 @@ export class Combobox extends BaseElement {
    * @returns {Promise<string>} The search input value.
    */
   async getSearchInputValue(): Promise<string> {
-    return await test.step(`Get search input value for ${this.elementReportName}`, async () => {
+    return await test.step(`Get search input value for ${this.getElementReportName()}`, async () => {
       return await this.searchField.getText();
     });
   }
@@ -82,7 +82,7 @@ export class Combobox extends BaseElement {
    * @returns {Promise<boolean>} True if the search result is visible, false otherwise.
    */
   async isSearchResultVisible(item: string): Promise<boolean> {
-    return await test.step(`Check if search result is visible for ${item} for ${this.elementReportName}`, async () => {
+    return await test.step(`Check if search result is visible for ${item} for ${this.getElementReportName()}`, async () => {
       return (await this.getComboboxItemByOption(item)).isVisible(2000);
     });
   }

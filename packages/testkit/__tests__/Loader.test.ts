@@ -17,21 +17,21 @@ test.describe("Testkit - Unit Tests - Loader", () => {
   });
 
   test("should be enabled by default", async () => {
-    await expect(loader.locator).toBeEnabled();
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should be visible by default", async () => {
-    await expect(loader.locator).toBeVisible();
+    await expect(loader.getLocator()).toBeVisible();
   });
 
   test("should be hoverable", async () => {
     await loader.hover();
-    await expect(loader.locator).toBeEnabled();
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should scroll into view when needed", async () => {
     await loader.scrollIntoView();
-    await expect(loader.locator).toBeEnabled();
+    await expect(loader.getLocator()).toBeEnabled();
   });
 
   test("should count elements correctly", async () => {
@@ -46,6 +46,6 @@ test.describe("Testkit - Unit Tests - Loader", () => {
 
   test("should handle waiting for visibility states", async () => {
     await loader.waitForElementToBeVisible();
-    await expect(loader.locator).toBeVisible();
+    await expect(loader.getLocator()).toBeVisible();
   });
 });
