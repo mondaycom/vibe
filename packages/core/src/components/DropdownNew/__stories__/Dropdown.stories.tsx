@@ -11,6 +11,7 @@ import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/
 import { Text } from "../../Text";
 import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
 import { BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
+import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -453,130 +454,90 @@ export const DropdownWithTooltips: Story = {
   }
 };
 
-export const DropdownInsidePopover: Story = {
+export const DropdownWithVirtualization: Story = {
   render: () => {
-    const options = useMemo(
+    const largeOptions = useMemo(
       () =>
-        Array.from({ length: 15 }, (_, i) => ({
-          value: `${i + 1}`,
-          label: `Option ${i + 1}`
+        Array.from({ length: 20 }, (_, groupIndex) => ({
+          label: `Group ${groupIndex + 1}`,
+          options: Array.from({ length: 100 }, (_, optionIndex) => ({
+            value: `${groupIndex * 2 + optionIndex + 1}`,
+            label: `Option ${groupIndex * 2 + optionIndex + 1}`
+          }))
         })),
       []
     );
 
-    const [show, setShow] = useState(false);
+    const virtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
+      // Helper function to extract individual options from grouped children
+      const flattenChildren = (children: React.ReactNode): React.ReactElement[] => {
+        const flattened: React.ReactElement[] = [];
 
-    const closeModal = useCallback(() => {
-      setShow(false);
-    }, [setShow]);
+        React.Children.forEach(children, child => {
+          if (React.isValidElement(child) && child.props.children) {
+            React.Children.forEach(child.props.children, grandchild => {
+              if (React.isValidElement(grandchild) && (grandchild.props as any)?.role === "option") {
+                flattened.push(grandchild);
+              }
+            });
+          }
+        });
 
-    const dialogStyle = {
-      width: "350px",
-      height: "200px",
-      overflow: "auto"
-    };
+        return flattened;
+      };
 
-    return (
-      <Flex gap="large">
-        <DialogContentContainer style={dialogStyle}>
-          <ModalExampleContent />
-          <Box marginTop="medium" marginBottom="xxl">
-            <div style={{ width: "300px" }}>
-              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} />
+      const individualOptions = flattenChildren(children);
+      const itemHeight = 48; // Height of each option
+      const containerHeight = 200; // Height of the scrollable container
+
+      // Row renderer for react-window
+      const Row = useCallback(
+        ({ index, style }: { index: number; style: React.CSSProperties }) => {
+          const option = individualOptions[index];
+
+          return (
+            <div id={`option-${index}`} style={style}>
+              {option}
             </div>
-          </Box>
-        </DialogContentContainer>
+          );
+        },
+        [individualOptions]
+      );
+
+      return (
         <div>
-          <Button onClick={() => setShow(true)}>Open Modal</Button>
-          <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-            <ModalContent>
-              <div style={{ width: "300px" }}>
-                <Dropdown placeholder="Dropdown" options={options} />
-              </div>
-            </ModalContent>
-          </Modal>
+          {individualOptions.length > 0 ? (
+            <List
+              height={containerHeight}
+              width="100%"
+              itemCount={individualOptions.length}
+              itemSize={itemHeight}
+              overscanCount={5}
+            >
+              {Row}
+            </List>
+          ) : (
+            <div>No options available</div>
+          )}
         </div>
-      </Flex>
-    );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { ModalExampleContent }
-      }
-    }
-  },
-  name: "Dropdown inside popover"
-};
-
-export const DropdownWithCustomMenuRenderer: Story = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: "option1", label: "First Option", category: "Primary" },
-        { value: "option2", label: "Second Option", category: "Primary" },
-        { value: "option3", label: "Third Option", category: "Secondary" },
-        { value: "option4", label: "Fourth Option", category: "Secondary" },
-        { value: "option5", label: "Fifth Option", category: "Advanced" }
-      ],
-      []
-    );
-
-    // Custom menu renderer that adds custom styling and maintains all downshift capabilities
-    const customMenuRenderer = useCallback(
-      ({
-        children,
-        // filteredOptions,
-        // selectedItems,
-        getItemProps: _getItemProps
-      }: {
-        children: React.ReactNode;
-        filteredOptions: Array<{ options: any[] }>;
-        selectedItems: any[];
-        getItemProps: (options: any) => Record<string, unknown>;
-      }) => {
-        return (
-          <div
-            style={{
-              border: "2px dashed var(--primary-color)",
-              borderRadius: "8px",
-              backgroundColor: "var(--primary-background-color)",
-              padding: "8px",
-              maxHeight: "200px",
-              overflow: "auto"
-            }}
-          >
-            {children}
-          </div>
-        );
-      },
-      []
-    );
+      );
+    }, []);
 
     return (
       <Flex gap="large">
-        <div style={{ width: "300px" }}>
+        <div style={{ width: "350px" }}>
           <Dropdown
-            placeholder="Single select with custom menu"
-            options={options}
-            label="Single Select"
-            menuRenderer={customMenuRenderer}
+            placeholder="Search virtualized options"
+            options={largeOptions}
+            label="Virtualized"
+            stickyGroupTitle
+            menuRenderer={virtualizedMenuRenderer}
             searchable
-          />
-        </div>
-
-        <div style={{ width: "300px" }}>
-          <Dropdown
-            placeholder="Multi select with custom menu"
-            options={options}
-            label="Multi Select"
-            menuRenderer={customMenuRenderer}
-            multi
-            searchable
+            maxMenuHeight={250}
           />
         </div>
       </Flex>
     );
   },
-  name: "Custom Menu Renderer"
+  name: "Virtualized Dropdown"
 };
