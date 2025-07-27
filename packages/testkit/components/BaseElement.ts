@@ -4,9 +4,9 @@ import { test, Page, Locator } from "@playwright/test";
  * Class representing a base element for Playwright tests.
  */
 export class BaseElement {
-  private page: Page;
-  private locator: Locator;
-  private elementReportName: string;
+  page: Page;
+  locator: Locator;
+  elementReportName: string;
 
   private readonly DEFAULT_TIMEOUT = 30000; // 30 seconds
 
@@ -280,6 +280,92 @@ export class BaseElement {
   async isSelected(): Promise<boolean> {
     return await test.step(`Check if ${this.getElementReportName()} is selected`, async () => {
       return (await this.getAttributeValue("aria-selected")) === "true";
+    });
+  }
+
+  /**
+   * Wait for the element to be in a certain state.
+   * @param {Object} options - The options for the wait.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeVisible, waitForElementToBeHidden, waitForElementToBeDetached, waitForElementToBeAttached instead.
+   */
+  async waitFor(options = {}): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()}`, async () => {
+      await this.getLocator().waitFor(options);
+    });
+  }
+
+  /**
+   * Wait for the element to be visible.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeVisible instead.
+   */
+  async waitForVisible(): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()} to be visible`, async () => {
+      await this.getLocator().waitFor({ state: "visible" });
+    });
+  }
+
+  /**
+   * Wait for the element to be absent.
+   * @returns {Promise<void>}
+   * @deprecated Use waitForElementToBeDetached instead.
+   */
+  async waitForAbsence(): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()} to be absent`, async () => {
+      await this.getLocator().waitFor({ state: "detached" });
+    });
+  }
+
+  /**
+   * Wait for the list elements to stabilize (i.e., the count of items remains constant for a specified duration).
+   * @param {Locator} locator - The locator for the elements.
+   * @returns {Promise<void>}
+   * @deprecated
+   */
+  protected async waitForAndVerifyElements(locator: Locator): Promise<void> {
+    await test.step(`Wait for ${this.getElementReportName()} items to stabilize and verify existence`, async () => {
+      let previousCount = 0;
+      let stableCountTime = 0;
+      const stabilizationTimeMs = 500;
+
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const currentCount = await locator.count();
+
+        // Verify we have at least one element
+        if (currentCount === 0) {
+          await this.getPage().waitForTimeout(100);
+          continue;
+        }
+
+        // Check if all elements are visible
+        const elements = await locator.all();
+        const visibleStates = await Promise.all(elements.map(el => el.isVisible()));
+        const allVisible = visibleStates.every(state => state === true);
+
+        if (!allVisible) {
+          await this.getPage().waitForTimeout(100);
+          continue;
+        }
+
+        if (currentCount === previousCount) {
+          stableCountTime += 100;
+        } else {
+          stableCountTime = 0;
+        }
+
+        if (stableCountTime >= stabilizationTimeMs) {
+          break;
+        }
+
+        previousCount = currentCount;
+        await this.getPage().waitForTimeout(100);
+      }
+
+      if ((await locator.count()) === 0) {
+        throw new Error(`No ${this.getElementReportName()} elements found after stabilization`);
+      }
     });
   }
 }
