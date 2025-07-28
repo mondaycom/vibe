@@ -530,7 +530,7 @@ export const DropdownWithVirtualization: Story = {
           <Dropdown
             placeholder="Search"
             options={flatOptions}
-            label="Flat"
+            label="Virtualized"
             menuRenderer={virtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
