@@ -79,8 +79,8 @@ test.describe("Testkit - Unit Tests - List", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await list.getAttributeValue("class");
-    expect(className).toContain("List-module");
+    const attributeValue = await list.getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("List");
   });
 
   test("should check if list items are enabled by default", async () => {

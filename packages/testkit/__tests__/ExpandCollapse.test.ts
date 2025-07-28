@@ -1,6 +1,7 @@
 import { test, expect, FrameLocator } from "@playwright/test";
 import { ExpandCollapse } from "../components/ExpandCollapse";
 import { expandCollapseStory } from "./utils/url-helper";
+import { BaseElement } from "../components";
 
 let frame: FrameLocator;
 let expandCollapse: ExpandCollapse;
@@ -40,8 +41,12 @@ test.describe("Testkit - Unit Tests - ExpandCollapse", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await expandCollapse.getAttributeValue("class");
-    expect(className).toContain("ExpandCollapse-stories-module");
+    const attributeValue = await new BaseElement(
+      expandCollapse.getPage(),
+      expandCollapse.getLocator().locator("button[aria-expanded]").locator("div"),
+      "ExpandCollapse"
+    ).getAttributeValue("data-testid");
+    expect(attributeValue).toContain("text");
   });
 
   test("should get header text", async () => {

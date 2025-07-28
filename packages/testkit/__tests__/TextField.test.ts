@@ -92,8 +92,8 @@ test.describe("Testkit - Unit Tests - TextField", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await textField.getAttributeValue("class");
-    expect(className).toContain("TextField-module");
+    const attributeValue = await textField.getAttributeValue("type");
+    expect(attributeValue).toContain("text");
   });
 
   test("should be able to check if text field is empty", async () => {

@@ -72,8 +72,8 @@ test.describe("Testkit - Unit Tests - Button", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await button.getAttributeValue("class");
-    expect(className).toContain("Button-module");
+    const attributeValue = await button.getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("Button");
   });
 
   test("should handle waiting for visibility states", async () => {

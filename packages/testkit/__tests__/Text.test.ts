@@ -58,11 +58,6 @@ test.describe("Testkit - Unit Tests - Text", () => {
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test("should handle attribute retrieval", async () => {
-    const className = await text.getAttributeValue("class");
-    expect(className).toContain("Text-module");
-  });
-
   test("should handle waiting for visibility states", async () => {
     await text.waitForElementToBeVisible();
     await expect(text.getLocator()).toBeVisible();

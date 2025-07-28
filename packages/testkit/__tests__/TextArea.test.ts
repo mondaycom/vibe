@@ -79,8 +79,8 @@ test.describe("Testkit - Unit Tests - TextArea", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await textArea.getAttributeValue("class");
-    expect(className).toContain("TextArea-module");
+    const attributeValue = await textArea.getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("TextArea");
   });
 
   test("should be able to clear text", async () => {

@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { Steps } from "../components";
+import { BaseElement, Steps } from "../components";
 import { stepsStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -103,8 +103,12 @@ test.describe("Testkit - Unit Tests - Steps", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await steps.getAttributeValue("class");
-    expect(className).toContain("Steps-module");
+    const attributeValue = await new BaseElement(
+      steps.getPage(),
+      steps.getLocator().locator("button").first(),
+      "Steps"
+    ).getAttributeValue("data-vibe");
+    expect(attributeValue).toContain("Button");
   });
 
   test("should wait for steps to load", async () => {

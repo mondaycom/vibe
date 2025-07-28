@@ -71,8 +71,8 @@ test.describe("Testkit - Unit Tests - MenuItem", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await menuItem.getAttributeValue("class");
-    expect(className).toContain("BaseMenuItem-module");
+    const attributeValue = await menuItem.getAttributeValue("aria-selected");
+    expect(attributeValue).toContain("false");
   });
 
   test("should check if menu item is enabled by default", async () => {

@@ -76,8 +76,8 @@ test.describe("Testkit - Unit Tests - Button Toast", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await toast.getAttributeValue("class");
-    expect(className).toContain("Toast-module");
+    const attributeValue = await toast.getAttributeValue("role");
+    expect(attributeValue).toContain("alert");
   });
 
   test("should handle waiting for visibility states", async () => {
@@ -95,7 +95,7 @@ test.describe("Testkit - Unit Tests - Button Toast", () => {
   });
 });
 
-test.describe("Storybook - Unit Tests - Link Toast", () => {
+test.describe("Testkit - Unit Tests - Link Toast", () => {
   let frame: FrameLocator;
   let toast: Toast;
 
@@ -180,8 +180,8 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await toast.getAttributeValue("class");
-    expect(className).toContain("Toast-module");
+    const attributeValue = await toast.getAttributeValue("role");
+    expect(attributeValue).toContain("alert");
   });
 
   test("should handle waiting for visibility states", async () => {
@@ -207,7 +207,7 @@ test.describe("Storybook - Unit Tests - Link Toast", () => {
   });
 });
 
-test.describe("Storybook - Unit Tests - Loading Toast", () => {
+test.describe("Testkit - Unit Tests - Loading Toast", () => {
   let frame: FrameLocator;
   let toast: Toast;
 
@@ -260,8 +260,8 @@ test.describe("Storybook - Unit Tests - Loading Toast", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await toast.getAttributeValue("class");
-    expect(className).toContain("Toast-module");
+    const attributeValue = await toast.getAttributeValue("role");
+    expect(attributeValue).toContain("alert");
   });
 
   test("should handle waiting for visibility states", async () => {

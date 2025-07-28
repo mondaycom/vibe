@@ -81,7 +81,7 @@ test.describe("Testkit - Unit Tests - ColorPicker", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await colorPicker.getAttributeValue("class");
-    expect(className).toContain("ColorPicker-module");
+    const ariaLabeledBy = await colorPicker.getAttributeValue("aria-labelledby");
+    expect(ariaLabeledBy).toContain("Color Picker Dialog");
   });
 });

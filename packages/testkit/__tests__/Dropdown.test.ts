@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { Dropdown } from "../components";
+import { BaseElement, Dropdown } from "../components";
 import { dropdownStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
@@ -37,7 +37,11 @@ test.describe("Testkit - Unit Tests - Dropdown", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await dropdown.getAttributeValue("class");
-    expect(className).toContain("Dropdown-module");
+    const attributeValue = await new BaseElement(
+      dropdown.getPage(),
+      dropdown.getLocator().locator("input"),
+      "Dropdown"
+    ).getAttributeValue("aria-label");
+    expect(attributeValue).toContain("Dropdown input");
   });
 });

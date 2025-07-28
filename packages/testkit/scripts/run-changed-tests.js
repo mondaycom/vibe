@@ -35,7 +35,7 @@ function getChangedFiles() {
 
     return uniqueChanges.filter(
       file =>
-        file.startsWith("packages/core/src/components/") &&
+        (file.startsWith("packages/core/src/components/") || file.startsWith("packages/testkit/components/")) &&
         (file.endsWith(".tsx") || file.endsWith(".ts")) &&
         !file.includes("__tests__") &&
         !file.includes(".stories.")
@@ -53,12 +53,22 @@ function mapComponentsToTests(changedFiles) {
   console.log("Checking for corresponding tests in testkit package:");
 
   changedFiles.forEach(file => {
-    // Extract component name from path like packages/core/src/components/Button/Button.tsx
-    const pathParts = file.split("/");
-    const componentIndex = pathParts.findIndex(part => part === "components");
+    let componentName;
 
-    if (componentIndex !== -1 && componentIndex + 1 < pathParts.length) {
-      const componentName = pathParts[componentIndex + 1];
+    if (file.startsWith("packages/core/src/components/")) {
+      // Extract component name from path like packages/core/src/components/Button/Button.tsx
+      const pathParts = file.split("/");
+      const componentIndex = pathParts.findIndex(part => part === "components");
+      if (componentIndex !== -1 && componentIndex + 1 < pathParts.length) {
+        componentName = pathParts[componentIndex + 1];
+      }
+    } else if (file.startsWith("packages/testkit/components/")) {
+      // Extract component name from path like packages/testkit/components/Text.ts
+      const fileName = path.basename(file);
+      componentName = fileName.replace(/\.(ts|tsx)$/, "");
+    }
+
+    if (componentName) {
       const testFile = path.join(testDir, `${componentName}.test.ts`);
 
       if (fs.existsSync(testFile)) {
@@ -91,7 +101,9 @@ function runTests(testFiles) {
 
 // Main execution
 const changedFiles = getChangedFiles();
-console.log(`Found ${changedFiles.length} changed component files in packages/core/src/components/`);
+console.log(
+  `Found ${changedFiles.length} changed component files in packages/core/src/components/ and packages/testkit/components/`
+);
 
 if (changedFiles.length > 0) {
   changedFiles.forEach(file => console.log(`  - ${file}`));
@@ -107,5 +119,7 @@ if (changedFiles.length > 0) {
 
   runTests(testFiles);
 } else {
-  console.log("No changed component files detected in packages/core/src/components/, skipping tests");
+  console.log(
+    "No changed component files detected in packages/core/src/components/ or packages/testkit/components/, skipping tests"
+  );
 }

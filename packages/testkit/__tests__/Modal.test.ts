@@ -36,7 +36,7 @@ test.describe("Testkit - Unit Tests - Modal", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const className = await modal.getAttributeValue("class");
-    expect(className).toContain("Modal-module");
+    const attributeValue = await modal.getAttributeValue("role");
+    expect(attributeValue).toContain("dialog");
   });
 });
