@@ -15,15 +15,4 @@ export class Text extends BaseElement {
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
   }
-
-  /**
-   * Set the text of the Text element.
-   * @param {string} text - The text to set.
-   * @returns {Promise<void>} A promise that resolves when the text is set.
-   */
-  async setText(text: string): Promise<void> {
-    return await test.step(`Set text for ${this.getElementReportName()}`, async () => {
-      await this.getLocator().fill(text);
-    });
-  }
 }
