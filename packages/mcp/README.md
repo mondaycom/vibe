@@ -59,7 +59,3 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
 #### Migration Tool
 
 - `v3-migration`: Evaluates your project for Vibe 2 to Vibe 3 migration needs according to the official migration guide. Conducts comprehensive project analysis, identifies breaking changes, and generates the necessary migration commands to resolve them.
-
-## Status
-
-**Experimental:** This package is under active development and its API may change.
