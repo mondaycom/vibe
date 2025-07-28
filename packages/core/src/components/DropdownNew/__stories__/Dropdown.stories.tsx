@@ -498,55 +498,7 @@ export const DropdownWithVirtualization: Story = {
 
       extractElements(children);
 
-      if (allElements.length === 0) {
-        return <div>No options available</div>;
-      }
-
-      const itemHeight = 40;
-      const containerHeight = 200;
-
-      // Row renderer that preserves original elements with all their downshift props
-      const Row = useCallback(
-        ({ index, style }: { index: number; style: React.CSSProperties }) => {
-          const element = allElements[index];
-          return <div style={style}>{element}</div>;
-        },
-        [allElements]
-      );
-
-      return (
-        <List
-          height={containerHeight}
-          width="100%"
-          itemCount={allElements.length}
-          itemSize={itemHeight}
-          overscanCount={5}
-        >
-          {Row}
-        </List>
-      );
-    }, []);
-
-    const groupedVirtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
-      // Extract all rendered elements that need to be virtualized (both group headers and options)
-      const allElements: React.ReactElement[] = [];
-
-      const extractElements = (node: React.ReactNode) => {
-        React.Children.forEach(node, child => {
-          if (React.isValidElement(child)) {
-            if (child.type === React.Fragment) {
-              // This is a Fragment containing group title + options, recurse into it
-              extractElements(child.props.children);
-            } else if (child.type === "li" || child.props?.role === "option") {
-              // This is either a group title <li> or an option BaseListItem - add it in order
-              allElements.push(child);
-            }
-          }
-        });
-      };
-
-      extractElements(children);
-
+      // Should capture BaseList's natural "No results" element with proper styling
       if (allElements.length === 0) {
         return <div>No options available</div>;
       }
@@ -593,7 +545,7 @@ export const DropdownWithVirtualization: Story = {
             placeholder="Search grouped virtualized options"
             options={groupedOptions}
             label="Grouped Virtualized"
-            menuRenderer={groupedVirtualizedMenuRenderer}
+            menuRenderer={virtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
           />
