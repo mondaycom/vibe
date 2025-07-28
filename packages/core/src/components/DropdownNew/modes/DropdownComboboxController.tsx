@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownCombobox from "../hooks/useDropdownCombobox";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownComboboxController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownSingleControllerProps<Item>
 ) => {
   const {
     options,
@@ -22,7 +22,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onMenuOpen,
     onOptionSelect,
     filterOption,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     clearable = true,
     searchable = true,
     multi = false,
@@ -31,13 +31,20 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onBlur,
     onKeyDown,
     onClear,
-    onOptionRemove,
+
     size = "medium",
     readOnly,
     disabled
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+
+  const handleOptionSelect = (item: Item | null) => {
+    onOptionSelect?.(item);
+    if (item) {
+      setIsFocused(false);
+    }
+  };
 
   const {
     isOpen,
@@ -50,20 +57,21 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     getInputProps: hookGetInputProps,
     reset: hookReset,
     filteredOptions,
-    selectedItem: hookSelectedItem
+    selectedItem: hookSelectedItem,
+    toggleMenu
   } = useDropdownCombobox<Item>(
     options,
     isMenuOpenProp,
     autoFocus,
     closeMenuOnSelect,
-    defaultValue as Item,
-    value as Item,
+    defaultValue,
+    value,
     inputValueProp,
     onChange,
     onInputChange,
     onMenuClose,
     onMenuOpen,
-    onOptionSelect,
+    handleOptionSelect,
     filterOption,
     showSelectedOptions
   );
@@ -105,9 +113,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
       hookReset();
       onClear?.();
     },
-    contextOnOptionRemove: (option: Item) => {
-      onOptionRemove?.(option);
-    },
+    contextOnOptionRemove: () => {},
     addSelectedItem: undefined,
     removeSelectedItem: undefined,
     isFocused,
@@ -115,7 +121,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     searchable,
     multi,
     closeMenuOnSelect,
-    size
+    size,
+    toggleMenu
   };
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
 };

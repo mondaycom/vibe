@@ -62,7 +62,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
       onChange?.(newSelectedItem || null);
     },
     onIsOpenChange: ({ isOpen }) => {
-      isOpen ? onMenuClose?.() : onMenuOpen?.();
+      isOpen ? onMenuOpen?.() : onMenuClose?.();
     }
   });
 

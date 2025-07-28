@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { DropdownControllerProps } from "../Dropdown.types";
+import { DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiCombobox from "../hooks/useDropdownMultiCombobox";
 import { BaseListItemData } from "../../BaseListItem";
 import { DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<string, unknown>>>(
-  props: DropdownControllerProps<Item>
+  props: DropdownMultiControllerProps<Item>
 ) => {
   const {
     options,
@@ -21,7 +21,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onMenuOpen,
     onOptionSelect,
     filterOption,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     clearable = true,
     searchable = true,
     multi = true,
@@ -49,6 +49,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     getItemProps,
     getInputProps: hookGetInputProps,
     reset: hookReset,
+    toggleMenu,
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
@@ -60,8 +61,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     setMultiSelectedItemsState,
     isMenuOpenProp,
     autoFocus,
-    defaultValue as Item[],
-    value as Item[],
+    defaultValue,
+    value,
     inputValueProp,
     onChange,
     onInputChange,
@@ -125,7 +126,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     multi,
     closeMenuOnSelect,
     size,
-    getDropdownProps
+    getDropdownProps,
+    toggleMenu
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

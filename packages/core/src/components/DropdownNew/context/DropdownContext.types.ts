@@ -37,6 +37,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
     | "inputAriaLabel"
     | "menuAriaLabel"
     | "closeMenuOnSelect"
+    | "menuWrapperClassName"
     | "onFocus"
     | "onBlur"
     | "onKeyDown"
@@ -47,6 +48,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
 
 export interface DropdownContextProps<Item extends BaseListItemData<Record<string, unknown>> = any>
   extends InheritedDropdownProps<Item> {
+  label?: string;
   isOpen: boolean;
   inputValue: string | null;
   highlightedIndex: number | null;
@@ -63,6 +65,7 @@ export interface DropdownContextProps<Item extends BaseListItemData<Record<strin
   getDropdownProps?: PropGetter;
 
   reset: () => void;
+  toggleMenu: () => void;
   contextOnClear: () => void;
   contextOnOptionRemove?: (option: Item) => void;
 

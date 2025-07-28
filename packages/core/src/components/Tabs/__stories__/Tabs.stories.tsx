@@ -8,6 +8,7 @@ import { Calendar, Chart, Table } from "@vibe/icons";
 import TextField from "../../TextField/TextField";
 import Box from "../../Box/Box";
 import Flex from "../../Flex/Flex";
+import { TabProps } from "../Tab/Tab";
 
 const ExampleTabContent = ({ children }: { children: string }) => (
   <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
@@ -26,8 +27,8 @@ export default {
   }
 };
 
-const tabsTemplate = ({ ...args }) => {
-  return (
+export const Overview = {
+  render: (args: TabProps) => (
     <TabsContext {...args}>
       <TabList>
         <Tab>First</Tab>
@@ -46,16 +47,8 @@ const tabsTemplate = ({ ...args }) => {
         </TabPanel>
       </TabPanels>
     </TabsContext>
-  );
-};
-
-export const Overview = {
-  render: tabsTemplate.bind({}),
+  ),
   name: "Overview",
-
-  args: {
-    tabPanelClassName: "monday-storybook-tabs_bg-color"
-  },
   parameters: {
     docs: {
       liveEdit: {

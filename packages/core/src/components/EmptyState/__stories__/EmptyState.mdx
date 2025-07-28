@@ -10,23 +10,15 @@ import supportingLinkDo from "./assets/supporting-link-do.png";
 import supportingLinkDont from "./assets/supporting-link-dont.png";
 import { StorybookLink } from "vibe-storybook-components";
 import styles from "./EmptyState.stories.module.scss";
-import { ALERT_BANNER, TIPSEEN, ATTENTION_BOX } from "../../../storybook/components/related-components/component-description-map";
+import {
+  ALERT_BANNER,
+  TIPSEEN,
+  ATTENTION_BOX
+} from "../../../storybook/components/related-components/component-description-map";
 
 <Meta of={EmptyStateStories} />
 
 # EmptyState
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Actions](#actions)
-- [Typography](#typography)
-- [Layout](#layout)
-- [Do's and don'ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-
-## Overview
 
 An empty state component is a user interface element that communicates to users that a particular section or feature contains no data or content at the moment. It often provides visual cues, prompts, or suggestions on what actions can be taken to fill the space.
 
@@ -96,7 +88,13 @@ Instead of link you can use a supporting action as a button. The supporting acti
     {
       componentContainerClassName: styles.largeComponentRule,
       positive: {
-        component: <img src={mainActionDo} alt="Empty state with clear guidance and helpful action" style={{ maxWidth: "100%" }} />,
+        component: (
+          <img
+            src={mainActionDo}
+            alt="Empty state with clear guidance and helpful action"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
         description: "Provide clear guidance and an action to help users resolve the empty state."
       },
       negative: {
@@ -107,7 +105,13 @@ Instead of link you can use a supporting action as a button. The supporting acti
     {
       componentContainerClassName: styles.largeComponentRule,
       positive: {
-        component: <img src={supportingDo} alt="Empty state with clear next steps and supporting information" style={{ maxWidth: "100%" }} />,
+        component: (
+          <img
+            src={supportingDo}
+            alt="Empty state with clear next steps and supporting information"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
         description: "Offer clear next steps with supporting information when needed."
       },
       negative: {
@@ -118,11 +122,19 @@ Instead of link you can use a supporting action as a button. The supporting acti
     {
       componentContainerClassName: styles.largeComponentRule,
       positive: {
-        component: <img src={supportingLinkDo} alt="Empty state with clear next steps and supporting information" style={{ maxWidth: "100%" }} />,
+        component: (
+          <img
+            src={supportingLinkDo}
+            alt="Empty state with clear next steps and supporting information"
+            style={{ maxWidth: "100%" }}
+          />
+        ),
         description: "Offer clear next steps with supporting information when needed."
       },
       negative: {
-        component: <img src={supportingLinkDont} alt="Empty state with minimal information" style={{ maxWidth: "100%" }} />,
+        component: (
+          <img src={supportingLinkDont} alt="Empty state with minimal information" style={{ maxWidth: "100%" }} />
+        ),
         description: "Don't provide minimal or unclear information about how to proceed."
       }
     }

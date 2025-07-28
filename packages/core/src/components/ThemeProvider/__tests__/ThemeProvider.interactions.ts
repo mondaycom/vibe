@@ -1,5 +1,5 @@
 import { Screen } from "@testing-library/react";
-import { userEvent } from "@storybook/testing-library";
+import { userEvent } from "@storybook/test";
 import { expect } from "@storybook/jest";
 import { interactionSuite } from "../../../tests/interactions-utils";
 import { addAppThemeSuffix, getBodySystemThemeClassName } from "../ThemeProviderUtils";

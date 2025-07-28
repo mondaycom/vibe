@@ -1,0 +1,26 @@
+.floatingObjectsWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floatingObjects {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  pointer-events: none;
+
+  @media (max-width: 1200px) {
+    width: 120%;
+  }
+}
+
+.object {
+  z-index: 3;
+  position: absolute;
+}

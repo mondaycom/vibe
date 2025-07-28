@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Source } from "@storybook/blocks";
+import { Source } from "@storybook/blocks7";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {

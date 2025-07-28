@@ -1,12 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import ExpandCollapse from "../ExpandCollapse";
+import ExpandCollapse, { ExpandCollapseProps } from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Flex, Icon, Text } from "../../index";
+import { Icon, Text } from "../../index";
 import Heading from "../../Heading/Heading";
 import { Robot } from "@vibe/icons";
-import styles from "./ExpandCollapse.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ExpandCollapse,
@@ -21,27 +19,26 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { styles }
+        scope: {}
       }
     }
   }
 };
 
-const expandCollapseTemplate = createComponentTemplate(ExpandCollapse);
-
 export const Overview = {
-  render: expandCollapseTemplate.bind({}),
-  name: "Overview",
-  args: {
-    title: "Expand collapse",
-    children: [
-      <Text type="text2" maxLines={2}>
-        Insert here any component that you want, here is a robot for you
-      </Text>,
-      <Icon iconType="svg" icon={Robot} iconSize={40} />
-    ],
-    className: styles.storybookExpandCollapse
+  render: (args: ExpandCollapseProps) => {
+    return (
+      <div style={{ width: "300px" }}>
+        <ExpandCollapse title="Expand collapse" {...args}>
+          <Text type="text2" maxLines={2}>
+            Insert here any component that you want, here is a robot for you
+          </Text>
+          <Icon iconType="svg" icon={Robot} iconSize={40} />
+        </ExpandCollapse>
+      </div>
+    );
   },
+  name: "Overview",
   parameters: {
     docs: {
       liveEdit: {
@@ -53,11 +50,13 @@ export const Overview = {
 
 export const OpenByDefault = {
   render: () => (
-    <ExpandCollapse title="Open by default" defaultOpenState className={styles.storybookExpandCollapse}>
-      <Text type="text2" maxLines={2}>
-        Insert here any component that you want
-      </Text>
-    </ExpandCollapse>
+    <div style={{ width: "300px" }}>
+      <ExpandCollapse title="Open by default" defaultOpenState>
+        <Text type="text2" maxLines={2}>
+          Insert here any component that you want
+        </Text>
+      </ExpandCollapse>
+    </div>
   )
 };
 
@@ -66,18 +65,13 @@ export const ControlledOpenState = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Flex direction="row" gap="large" align="start">
-        <ExpandCollapse
-          title="Controlled open state"
-          open={open}
-          onClick={() => setOpen(prevState => !prevState)}
-          className={styles.storybookExpandCollapse}
-        >
+      <div style={{ width: "300px" }}>
+        <ExpandCollapse title="Controlled open state" open={open} onClick={() => setOpen(prevState => !prevState)}>
           <Text type="text2" maxLines={2}>
             Insert here any component that you want
           </Text>
         </ExpandCollapse>
-      </Flex>
+      </div>
     );
   }
 };
@@ -89,24 +83,25 @@ export const CustomHeaderRenderer = {
     };
 
     return (
-      <ExpandCollapse
-        headerComponentRenderer={ExpandCollapseCustomHeadingComponent}
-        className={styles.storybookExpandCollapse}
-      >
-        <Text type="text2" maxLines={2}>
-          Insert here any component that you want
-        </Text>
-      </ExpandCollapse>
+      <div style={{ width: "300px" }}>
+        <ExpandCollapse headerComponentRenderer={ExpandCollapseCustomHeadingComponent}>
+          <Text type="text2" maxLines={2}>
+            Insert here any component that you want
+          </Text>
+        </ExpandCollapse>
+      </div>
     );
   }
 };
 
 export const WithoutBorders = {
   render: () => (
-    <ExpandCollapse hideBorder title="Without borders" className={styles.storybookExpandCollapse}>
-      <Text type="text2" maxLines={2}>
-        Insert here any component that you want
-      </Text>
-    </ExpandCollapse>
+    <div style={{ width: "300px" }}>
+      <ExpandCollapse hideBorder title="Without borders">
+        <Text type="text2" maxLines={2}>
+          Insert here any component that you want
+        </Text>
+      </ExpandCollapse>
+    </div>
   )
 };

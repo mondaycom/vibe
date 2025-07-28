@@ -1,7 +1,6 @@
 import React from "react";
 import useVibeMediaQuery from "..";
-import "../../__stories__/general-hooks-stories.scss";
-import styles from "./useVibeMediaQuery.module.scss";
+import Box from "../../../components/Box/Box";
 
 export default {
   title: "Hooks/useVibeMediaQuery"
@@ -10,7 +9,11 @@ export default {
 export const Overview = {
   render: () => {
     const currentSize = useVibeMediaQuery();
-    return <div className={`hooks-reference-element ${styles.container}`}>{currentSize}</div>;
+    return (
+      <Box border rounded="small" padding="medium">
+        {currentSize}
+      </Box>
+    );
   },
 
   name: "Overview"

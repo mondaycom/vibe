@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "lib": ["ESNext"],
@@ -15,6 +16,5 @@
     "sourceMap": true
   },
   "include": ["./**/*.ts"],
-  "exclude": [
-    "__tests__", "./playwright.config.ts", "node_modules", "dist"]
+  "exclude": ["__tests__", "./playwright.config.ts", "node_modules", "dist"]
 }
