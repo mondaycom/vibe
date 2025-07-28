@@ -485,20 +485,16 @@ export const DropdownWithVirtualization: Story = {
       const extractElements = (node: React.ReactNode) => {
         React.Children.forEach(node, child => {
           if (React.isValidElement(child)) {
-            if (child.props.children && typeof child.props.children !== "string") {
-              // If it has children, recurse into them
-              extractElements(child.props.children);
-            } else {
-              // It's a leaf element, add it to our list
+            if (child.type === "li" || child.props?.role) {
               allElements.push(child);
+            } else if (child.props?.children) {
+              extractElements(child.props.children);
             }
           }
         });
       };
-
       extractElements(children);
 
-      // Should capture BaseList's natural "No results" element with proper styling
       if (allElements.length === 0) {
         return <div>No options available</div>;
       }
