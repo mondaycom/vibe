@@ -404,7 +404,7 @@ export const DropdownItemWithElements: Story = {
   }
 };
 
-export const DropdownShowSelectedItems: Story = {
+export const DropdownHideSelectedItems: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -424,7 +424,7 @@ export const DropdownShowSelectedItems: Story = {
           label="Label"
           required
           multi
-          showSelectedOptions
+          showSelectedOptions={false}
         />
       </div>
     );
