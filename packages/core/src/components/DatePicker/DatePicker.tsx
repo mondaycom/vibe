@@ -8,6 +8,7 @@ import {
   DayPickerSingleDateController,
   type DayPickerPhrases
 } from "react-dates";
+/** @ts-expect-error this is exported, but not typed */
 import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
