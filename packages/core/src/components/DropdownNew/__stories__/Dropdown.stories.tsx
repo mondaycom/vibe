@@ -528,9 +528,9 @@ export const DropdownWithVirtualization: Story = {
       <Flex gap="large" align="start">
         <div style={{ width: "350px" }}>
           <Dropdown
-            placeholder="Search flat virtualized options"
+            placeholder="Search"
             options={flatOptions}
-            label="Flat Virtualized"
+            label="Flat"
             menuRenderer={virtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
@@ -538,7 +538,7 @@ export const DropdownWithVirtualization: Story = {
         </div>
         <div style={{ width: "350px" }}>
           <Dropdown
-            placeholder="Search grouped virtualized options"
+            placeholder="Search"
             options={groupedOptions}
             label="Grouped Virtualized"
             menuRenderer={virtualizedMenuRenderer}
