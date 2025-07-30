@@ -1,5 +1,4 @@
-import React, { ForwardRefExoticComponent, RefAttributes } from "react";
-
+import { FC, ForwardRefExoticComponent, RefAttributes } from "react";
 type Required<T> = {
   [P in keyof T]-?: T[P];
 };
@@ -10,6 +9,6 @@ export const withStaticProps = <Props, StaticProps, Ref = HTMLElement>(
 ) => Object.assign(component, staticProps);
 
 export const withStaticPropsWithoutForwardRef = <Props, StaticProps>(
-  component: React.FC<Props>,
+  component: FC<Props>,
   staticProps: Required<StaticProps>
 ) => Object.assign(component, staticProps);

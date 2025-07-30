@@ -1,5 +1,3 @@
-@import "~vibe-storybook-components/dist/mixins";
-
 .monday-storybook-checkbox {
   &_border {
     display: flex;
@@ -37,9 +35,6 @@
   &_list {
     display: flex;
     flex-direction: column;
-    span {
-      @include sb-content-text;
-    }
   }
 
   &_list-item {

@@ -8,17 +8,6 @@ import * as TextFieldStories from "./TextField.stories";
 
 # TextField
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 An input field includes a label and a text field users can type text into. They typically appear in forms and dialogs.
 
 <Canvas of={TextFieldStories.Overview} />
@@ -70,7 +59,7 @@ Use validation to give feedback to the user for a case where he has provided an 
     {
       positive: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -79,7 +68,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       },
       negative: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="What is your email address?" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -90,7 +79,7 @@ Use validation to give feedback to the user for a case where he has provided an 
     {
       positive: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -99,7 +88,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       },
       negative: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
             For example: email@monday.com
           </div>

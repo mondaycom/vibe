@@ -1,11 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Chips renders correctly renders correctly disabled chip 1`] = `
+exports[`Chips renders correctly > renders correctly disabled chip 1`] = `
 <div
   aria-label=""
   className="chips disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": undefined,
@@ -21,12 +23,40 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with color 1`] = `
+exports[`Chips renders correctly > renders correctly with a custom label 1`] = `
+<div
+  aria-label="This is mandatory"
+  className="chips noAnimation"
+  data-testid="chip"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    {
+      "backgroundColor": "var(--primary-selected-color)",
+    }
+  }
+>
+  <div
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    This is mandatory 
+    <span>
+      *
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Chips renders correctly > renders correctly with color 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--negative-color-selected)",
@@ -80,12 +110,14 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with empty props 1`] = `
+exports[`Chips renders correctly > renders correctly with empty props 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -139,12 +171,14 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with left avatar 1`] = `
+exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -170,7 +204,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
       <img
         className="contentImg contentImgLarge"
         data-testid="avatar-content"
-        src="person1.png"
+        src="/src/components/Avatar/__stories__/assets/person1.png"
       />
     </div>
   </div>
@@ -183,12 +217,14 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with left custom renderer 1`] = `
+exports[`Chips renders correctly > renders correctly with left custom renderer 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -249,12 +285,14 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with left icon 1`] = `
+exports[`Chips renders correctly > renders correctly with left icon 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -287,12 +325,14 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with right avatar 1`] = `
+exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -324,19 +364,21 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
       <img
         className="contentImg contentImgLarge"
         data-testid="avatar-content"
-        src="person1.png"
+        src="/src/components/Avatar/__stories__/assets/person1.png"
       />
     </div>
   </div>
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with right custom renderer 1`] = `
+exports[`Chips renders correctly > renders correctly with right custom renderer 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -397,36 +439,14 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with right custom renderer 2`] = `
-<div
-  aria-label="This is mandatory"
-  className="chips noAnimation"
-  data-testid="chip"
-  onClick={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
->
-  <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="text"
-  >
-    This is mandatory 
-    <span>
-      *
-    </span>
-  </div>
-</div>
-`;
-
-exports[`Chips renders correctly renders correctly with right icon 1`] = `
+exports[`Chips renders correctly > renders correctly with right icon 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -459,12 +479,14 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly with text 1`] = `
+exports[`Chips renders correctly > renders correctly with text 1`] = `
 <div
   aria-label="text"
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",
@@ -518,12 +540,14 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 </div>
 `;
 
-exports[`Chips renders correctly renders correctly without close button 1`] = `
+exports[`Chips renders correctly > renders correctly without close button 1`] = `
 <div
   aria-label=""
   className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     {
       "backgroundColor": "var(--primary-selected-color)",

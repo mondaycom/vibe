@@ -17,12 +17,26 @@ const MultiSelectTrigger = () => {
     multiline,
     disabled,
     readOnly,
-    size
+    size,
+    searchable,
+    getToggleButtonProps,
+    label,
+    getLabelProps,
+    ariaLabel
   } = useDropdownContext<BaseListItemData>();
 
   return (
     <Flex justify="space-between" align="center">
-      <div className={cx(styles.triggerWrapper, getStyle(styles, size))}>
+      <div
+        className={cx(styles.triggerWrapper, getStyle(styles, size))}
+        {...(!searchable
+          ? getToggleButtonProps({
+              "aria-haspopup": "dialog",
+              "aria-labelledby": label ? getLabelProps().id : undefined,
+              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id)
+            })
+          : {})}
+      >
         {selectedItems.length > 0 ? (
           <div className={styles.multiWrapper}>
             {!multiline ? (

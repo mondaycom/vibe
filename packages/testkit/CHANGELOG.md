@@ -3,6 +3,103 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.1...@vibe/testkit@1.14.2) (2025-07-28)
+
+
+### Bug Fixes
+
+* **testkit:** improvements + fix for unit tests ([#3018](https://github.com/mondaycom/vibe/issues/3018)) ([24e792b](https://github.com/mondaycom/vibe/commit/24e792b444d56aebb2d58aebea5a30297b25b1cf))
+
+
+
+
+
+## [1.14.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.0...@vibe/testkit@1.14.1) (2025-07-27)
+
+**Note:** Version bump only for package @vibe/testkit
+
+
+
+
+
+# [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.13.0...@vibe/testkit@1.14.0) (2025-07-27)
+
+
+### Features
+
+* **testkit:** added deprecated base element functions ([#3013](https://github.com/mondaycom/vibe/issues/3013)) ([43fb64c](https://github.com/mondaycom/vibe/commit/43fb64c14fe130c0a199aff1c87fd83accd29d9d))
+
+
+
+
+
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.12.0...@vibe/testkit@1.13.0) (2025-07-23)
+
+
+### Features
+
+* **testkit:** refactoring testkit components ([#2984](https://github.com/mondaycom/vibe/issues/2984)) ([4e2759c](https://github.com/mondaycom/vibe/commit/4e2759cdec6530c98e0fc49caa1d16c61ade500d))
+* **testkit:** unit tests for testkit ([#2989](https://github.com/mondaycom/vibe/issues/2989)) ([86f19df](https://github.com/mondaycom/vibe/commit/86f19df2095a3679ef9b333f161b7d6aeb8c42b6))
+
+
+
+
+
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.2...@vibe/testkit@1.12.0) (2025-07-13)
+
+
+### Features
+
+* **testkit:** Add expand collapse component ([#2960](https://github.com/mondaycom/vibe/issues/2960)) ([9c701b1](https://github.com/mondaycom/vibe/commit/9c701b1e9536d551b3b060a03182db7ca3fae68e))
+
+
+
+
+
+## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.1...@vibe/testkit@1.11.2) (2025-07-03)
+
+
+### Bug Fixes
+
+* update steps component to testkit ([#2936](https://github.com/mondaycom/vibe/issues/2936)) ([30923b1](https://github.com/mondaycom/vibe/commit/30923b1f2e3169856ea8bc2ef63b07ca077137fa))
+
+
+
+
+
+## [1.11.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.0...@vibe/testkit@1.11.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* getText function in testkit ([#2959](https://github.com/mondaycom/vibe/issues/2959)) ([57b9437](https://github.com/mondaycom/vibe/commit/57b9437836594e0b485931164f94448e1c813e78))
+
+
+
+
+
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.10.0...@vibe/testkit@1.11.0) (2025-06-19)
+
+
+### Features
+
+* **testkit:** common actions improvements ([#2930](https://github.com/mondaycom/vibe/issues/2930)) ([c0eb7be](https://github.com/mondaycom/vibe/commit/c0eb7be7aed6f78901e0011faefe0bb04e2d7cd9))
+
+
+
+
+
+# [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.2...@vibe/testkit@1.10.0) (2025-06-18)
+
+
+### Features
+
+* **Steps:** Add Steps component to testkit ([#2934](https://github.com/mondaycom/vibe/issues/2934)) ([0322f49](https://github.com/mondaycom/vibe/commit/0322f4944102921d54a64e922be4275bfcc42eba))
+
+
+
+
+
 ## [1.9.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.1...@vibe/testkit@1.9.2) (2025-05-21)
 
 

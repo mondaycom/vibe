@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseList from "../BaseList";
@@ -63,7 +64,7 @@ describe("BaseList", () => {
       expect(getByText("Option 1").parentNode).toHaveClass("selected");
     });
 
-    it("should apply the selected class to the selected item", () => {
+    it("should apply the selected class to multiple selected items", () => {
       const { getByText } = renderBaseList({
         options,
         selectedItems: [

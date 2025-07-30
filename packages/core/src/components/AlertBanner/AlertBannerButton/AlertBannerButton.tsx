@@ -18,8 +18,6 @@ const AlertBannerButton: FC<AlertBannerButtonProps> = ({
   "data-testid": dataTestId,
   ...buttonProps
 }) => {
-  const overrideButtonProps = { ...Button.defaultProps, ...buttonProps };
-
   const classNames = cx({
     [styles.marginLeft]: marginLeft,
     [styles.darkBackground]: isDarkBackground
@@ -31,7 +29,7 @@ const AlertBannerButton: FC<AlertBannerButtonProps> = ({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_BUTTON, id)}
       id={id}
     >
-      <Button {...overrideButtonProps} size="small" className={cx(styles.bannerButton)} color="on-primary-color" />
+      <Button {...buttonProps} size="small" className={cx(styles.bannerButton)} color="on-primary-color" />
     </div>
   );
 };

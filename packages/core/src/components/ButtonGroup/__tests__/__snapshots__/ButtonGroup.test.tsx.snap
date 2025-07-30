@@ -1,0 +1,265 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with full width 1`] = `
+<div
+  class="buttonGroup kindSecondary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled="false"
+    aria-label="Full width test"
+    class="buttonsContainer fullWidth"
+    role="group"
+  >
+    <div
+      class="fullWidth"
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText fullWidth startBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Alpha
+      </button>
+    </div>
+    <div
+      class="fullWidth"
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText selected fullWidth endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Beta
+      </button>
+    </div>
+    <div
+      class="fullWidth"
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText fullWidth endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Gamma
+      </button>
+    </div>
+    <div
+      class="fullWidth"
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText fullWidth endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Delta
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with tooltips on all options 1`] = `
+<div
+  class="buttonGroup kindSecondary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled="false"
+    aria-label="All tooltips test"
+    class="buttonsContainer"
+    role="group"
+  >
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Alpha
+      </button>
+    </span>
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Beta
+      </button>
+    </span>
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText selected endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Gamma
+      </button>
+    </span>
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Delta
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup with tooltips on some options 1`] = `
+<div
+  class="buttonGroup kindSecondary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled="false"
+    aria-label="Some tooltips test"
+    class="buttonsContainer"
+    role="group"
+  >
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Alpha
+    </button>
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Beta
+      </button>
+    </span>
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Gamma
+    </button>
+    <span
+      class=""
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button optionText selected endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton leftFlat preventClickAnimation"
+        data-testid="button"
+        data-vibe="Button"
+        type="button"
+      >
+        Delta
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ButtonGroup tests > snapshots > should render ButtonGroup without tooltips 1`] = `
+<div
+  class="buttonGroup kindSecondary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled="false"
+    aria-label="No tooltips test"
+    class="buttonsContainer"
+    role="group"
+  >
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText selected startBorder endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Alpha
+    </button>
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Beta
+    </button>
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Gamma
+    </button>
+    <button
+      aria-busy="false"
+      aria-disabled="false"
+      class="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      type="button"
+    >
+      Delta
+    </button>
+  </div>
+</div>
+`;

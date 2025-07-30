@@ -82,10 +82,10 @@ export const Overview: StoryObj<typeof avatarGroupTemplate> = {
   render: avatarGroupTemplate.bind({}),
   args: {
     persons: {
-      person1: window.location.origin + "/" + person1,
-      person2: window.location.origin + "/" + person2,
-      person3: window.location.origin + "/" + person3,
-      person4: window.location.origin + "/" + person4
+      person1: person1,
+      person2: person2,
+      person3: person3,
+      person4: person4
     }
   },
   argTypes: {

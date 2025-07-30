@@ -1,0 +1,14 @@
+.section {
+  color: var(--sb-primary-text-color);
+  -webkit-font-smoothing: initial;
+  font-family: var(--sb-title-font-family);
+  letter-spacing: -1px;
+  font-size: 32px;
+  line-height: 125%;
+  font-weight: 500;
+  margin-bottom: var(--sb-space-12);
+
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
+}

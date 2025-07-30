@@ -1,13 +1,14 @@
+import { vi, beforeEach, afterEach, describe, expect, MockInstance } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
 import useDisableScroll from "..";
 
 describe("useDisableScroll", () => {
-  let addEventListenerSpy: jest.SpyInstance;
-  let removeEventListenerSpy: jest.SpyInstance;
+  let addEventListenerSpy: MockInstance;
+  let removeEventListenerSpy: MockInstance;
 
   beforeEach(() => {
-    addEventListenerSpy = jest.spyOn(document.body, "addEventListener");
-    removeEventListenerSpy = jest.spyOn(document.body, "removeEventListener");
+    addEventListenerSpy = vi.spyOn(document.body, "addEventListener");
+    removeEventListenerSpy = vi.spyOn(document.body, "removeEventListener");
   });
 
   afterEach(() => {

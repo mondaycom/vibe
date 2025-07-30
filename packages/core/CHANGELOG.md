@@ -3,6 +3,237 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.56.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.4...@vibe/core@3.56.5) (2025-07-27)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.56.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.3...@vibe/core@3.56.4) (2025-07-27)
+
+
+### Bug Fixes
+
+* **BaseList:** update background color to use secondary background token ([#3012](https://github.com/mondaycom/vibe/issues/3012)) ([dd3f610](https://github.com/mondaycom/vibe/commit/dd3f6109c9be02eec9f995b0328bc058eb134807))
+
+
+
+
+
+## [3.56.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.2...@vibe/core@3.56.3) (2025-07-24)
+
+
+### Bug Fixes
+
+* **Dropdown:** update default of showSelectedOptions to true ([#3011](https://github.com/mondaycom/vibe/issues/3011)) ([cb07d75](https://github.com/mondaycom/vibe/commit/cb07d75fde06760977c71cb3bebf44b32e4dbff3))
+
+
+
+
+
+## [3.56.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.1...@vibe/core@3.56.2) (2025-07-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.56.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.0...@vibe/core@3.56.1) (2025-07-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.56.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.6...@vibe/core@3.56.0) (2025-07-23)
+
+
+### Bug Fixes
+
+* **Dropdown:** stretch selected value ([#3007](https://github.com/mondaycom/vibe/issues/3007)) ([b5899df](https://github.com/mondaycom/vibe/commit/b5899dfe45f87f7fd258a396ef487383c87afe04))
+
+
+### Features
+
+* **stylelint:** add new stylelint rule for new spacing tokens system and update configuration ([#2991](https://github.com/mondaycom/vibe/issues/2991)) ([b4a07cb](https://github.com/mondaycom/vibe/commit/b4a07cbc30c9adcf081e8311d1be503adeeca1b4))
+
+
+
+
+
+## [3.55.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.5...@vibe/core@3.55.6) (2025-07-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.4...@vibe/core@3.55.5) (2025-07-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.3...@vibe/core@3.55.4) (2025-07-22)
+
+
+### Bug Fixes
+
+* **Dropdown:** apply padding conditionally for closed dropdown ([#3001](https://github.com/mondaycom/vibe/issues/3001)) ([62f2461](https://github.com/mondaycom/vibe/commit/62f24610c30da33b089d160bd9b7ed26a1405bc7))
+
+
+
+
+
+## [3.55.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.2...@vibe/core@3.55.3) (2025-07-22)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.1...@vibe/core@3.55.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** remove padding for closed dropdown ([#2999](https://github.com/mondaycom/vibe/issues/2999)) ([48a1186](https://github.com/mondaycom/vibe/commit/48a1186aefcd065d34ebf7290e94a2828024537a))
+
+
+
+
+
+## [3.55.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.0...@vibe/core@3.55.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Table:** fix loading state handling in TableVirtualizedBody ([#2992](https://github.com/mondaycom/vibe/issues/2992)) ([8e2dff4](https://github.com/mondaycom/vibe/commit/8e2dff456b32227dbb8c38c348f7d4cacac6c195))
+
+
+
+
+
+# [3.55.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.2...@vibe/core@3.55.0) (2025-07-20)
+
+
+### Bug Fixes
+
+* fix @vibe/core/tokens import ts error ([#2948](https://github.com/mondaycom/vibe/issues/2948)) ([1f66197](https://github.com/mondaycom/vibe/commit/1f661978f5a4be098e7f20428b3af426954f89f3))
+
+
+### Features
+
+* **Dropdown:** New dropdown component ([#2896](https://github.com/mondaycom/vibe/issues/2896)) ([95b08c9](https://github.com/mondaycom/vibe/commit/95b08c9fc5dce0f105a2aeb2fd1c589fafc8a143))
+
+
+
+
+
+## [3.54.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.1...@vibe/core@3.54.2) (2025-07-15)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.54.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.0...@vibe/core@3.54.1) (2025-07-13)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.54.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.1...@vibe/core@3.54.0) (2025-07-09)
+
+
+### Features
+
+* **NumberField:** add a new NumberField component ([#2950](https://github.com/mondaycom/vibe/issues/2950)) ([e3693f7](https://github.com/mondaycom/vibe/commit/e3693f72d5bc73576515d8743800a3c6a8f3f07d))
+
+
+
+
+
+## [3.53.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.0...@vibe/core@3.53.1) (2025-07-03)
+
+
+### Bug Fixes
+
+* **icons:** update DropdownChevronDown and DropdownChevronUp ([#2965](https://github.com/mondaycom/vibe/issues/2965)) ([57d9704](https://github.com/mondaycom/vibe/commit/57d9704f04a643884a43bb3274228b3daa52412e))
+
+
+
+
+
+# [3.53.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.2...@vibe/core@3.53.0) (2025-07-01)
+
+
+### Features
+
+* **Dialog, Refable:** add support for customizable wrapper element type in Dialog and Refable components ([#2961](https://github.com/mondaycom/vibe/issues/2961)) ([b4d7729](https://github.com/mondaycom/vibe/commit/b4d7729c8bf482b93fdc6af5d6c41099605bd21a))
+* **FieldLabel:** add htmlFor prop and id support for improved accessibility ([#2958](https://github.com/mondaycom/vibe/issues/2958)) ([7d18194](https://github.com/mondaycom/vibe/commit/7d181949c72fe6293fa155dd0600720afb01b68d))
+
+
+
+
+
+## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
+
+
+### Bug Fixes
+
+* **ButtonGroup:** fix tooltips in fullWidth layout ([#2931](https://github.com/mondaycom/vibe/issues/2931)) ([6a37195](https://github.com/mondaycom/vibe/commit/6a37195ae83524de34dbd3edda6bd0089119a7a4))
+
+
+
+
+
+## [3.52.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.0...@vibe/core@3.52.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* **metadata:** include components withStaticPropsWithoutForwardRef ([#2929](https://github.com/mondaycom/vibe/issues/2929)) ([9e5d351](https://github.com/mondaycom/vibe/commit/9e5d3517f6b87ee2b9238f73f76c41d31496124e))
+
+
+
+
+
+# [3.52.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.3...@vibe/core@3.52.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* **Chips:** fix hover state ([#2924](https://github.com/mondaycom/vibe/issues/2924)) ([6eed661](https://github.com/mondaycom/vibe/commit/6eed66131e62ba7f1a5e7db608c0f86fb184271e))
+
+
+### Features
+
+* **tabs:** added stretchedUnderline prop ([#2923](https://github.com/mondaycom/vibe/issues/2923)) ([6f971ee](https://github.com/mondaycom/vibe/commit/6f971eec4d095919002eaea237e96c7132883c74))
+
+
+
+
+
+## [3.51.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.2...@vibe/core@3.51.3) (2025-06-01)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
 ## [3.51.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.1...@vibe/core@3.51.2) (2025-05-29)
 
 

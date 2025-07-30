@@ -1,7 +1,3 @@
-.itemWrapper {
-  --border-radius-multiplier: 1;
-}
-
 .itemWrapper.circle {
   --border-radius-multiplier: 99999;
 }
@@ -19,6 +15,7 @@
 }
 
 .itemWrapper {
+  --border-radius-multiplier: 1;
   margin: 4px;
   display: flex;
   list-style-type: none;

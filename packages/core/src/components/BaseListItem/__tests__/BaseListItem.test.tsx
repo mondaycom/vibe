@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseListItem from "../BaseListItem";
@@ -94,7 +95,8 @@ describe("BaseListItem", () => {
 
     it("should have role option", () => {
       const { getByRole } = renderBaseListItem({
-        item: { label, value: "item1" }
+        item: { label, value: "item1" },
+        role: "option"
       });
       expect(getByRole("option")).toBeInTheDocument();
     });
@@ -124,7 +126,7 @@ describe("with custom type", () => {
   });
 
   it("should pass custom type properties to itemRenderer", () => {
-    const mockRenderer = jest.fn((item: BaseListItemData<CustomItemType>) => {
+    const mockRenderer = vi.fn((item: BaseListItemData<CustomItemType>) => {
       const { id, customValue, label } = item;
       return <div data-testid="custom-rendered">{`${label} (${id}): ${customValue}`}</div>;
     });

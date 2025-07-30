@@ -1,0 +1,31 @@
+.spinButton {
+  &.large {
+    width: 28px;
+    height: 20px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &.medium {
+    width: 24px;
+    height: 16px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &.small {
+    width: 22px;
+    height: 14px;
+
+    .icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

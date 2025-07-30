@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.9.2",
+  "version": "1.14.2",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
@@ -25,7 +25,8 @@
     "directory": "packages/testkit"
   },
   "scripts": {
-    "test:e2e": "npx playwright test",
+    "test:all": "npx playwright test",
+    "test:changed": "node scripts/run-changed-tests.js",
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",

@@ -1,5 +1,5 @@
 @import "~monday-ui-style/dist/mixins";
 
-.hidden-switch {
+.hidden-switch { /* stylelint-disable-line selector-class-pattern */
   @include hidden-element();
 }

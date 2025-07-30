@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import ButtonGroup from "../ButtonGroup";
@@ -30,12 +31,12 @@ describe("ButtonGroup renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with TERTIARY kind ", () => {
+  it("with TERTIARY kind", () => {
     const tree = renderer.create(<ButtonGroup kind={ButtonGroup.kinds.TERTIARY} options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("when disabled", () => {
+  it("with groupAriaLabel", () => {
     const tree = renderer.create(<ButtonGroup groupAriaLabel="as" options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

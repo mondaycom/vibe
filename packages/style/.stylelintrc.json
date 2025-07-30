@@ -1,7 +1,52 @@
 {
   "extends": "stylelint-config-recommended-scss",
   "rules": {
-    "no-descending-specificity": null,
-    "no-duplicate-selectors": null
+    "selector-class-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Selector should be in kebab-case (e.g. .my-selector)"
+      }
+    ],
+    "custom-property-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "CSS custom properties should use kebab-case (e.g. --primary-color)"
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Variable name should be in kebab-case (e.g. $my-variable)"
+      }
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      {
+        "message": "Mixin name should be in kebab-case (e.g. @mixin my-mixin)"
+      }
+    ],
+    "scss/at-function-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Function names should be kebab-case (e.g. my-function)"
+      }
+    ],
+    "scss/comment-no-empty": true,
+
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": ["pseudo-classes"]
+      }
+    ],
+
+    "declaration-no-important": true,
+    "declaration-block-no-duplicate-properties": true,
+    "shorthand-property-no-redundant-values": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "number-leading-zero": "always",
+    "property-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true
   }
 }

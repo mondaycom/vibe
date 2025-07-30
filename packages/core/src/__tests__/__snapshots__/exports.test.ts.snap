@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`exports should export all components 1`] = `
+exports[`exports > should export all components 1`] = `
 [
   "Accordion",
   "AccordionItem",
@@ -71,6 +71,7 @@ exports[`exports should export all components 1`] = `
   "ModalFooterButtons",
   "ModalHeader",
   "MultiStepIndicator",
+  "NumberField",
   "RadioButton",
   "Search",
   "Skeleton",
@@ -114,8 +115,9 @@ exports[`exports should export all components 1`] = `
 ]
 `;
 
-exports[`exports should export next all components 1`] = `
+exports[`exports > should export next all components 1`] = `
 [
+  "Dropdown",
   "Modal",
   "ModalBasicLayout",
   "ModalContent",
