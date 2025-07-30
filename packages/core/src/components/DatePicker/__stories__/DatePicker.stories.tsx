@@ -95,3 +95,24 @@ export const NumberOfMonths = {
 
   name: "Number Of Months"
 };
+
+export const WithCustomPhrases = {
+  render: () => {
+    const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+
+    return (
+      <DialogContentContainer>
+        <DatePicker
+          data-testid="date-picker"
+          date={date}
+          onPickDate={(d: Moment) => setDate(d)}
+          phrases={{
+            chooseAvailableDate: ({ date }) => `This is the date you are about to choose: ${date}`
+          }}
+        />
+      </DialogContentContainer>
+    );
+  },
+
+  name: "With Custom Phrases"
+};
