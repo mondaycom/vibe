@@ -455,7 +455,7 @@ export const DropdownWithTooltips: Story = {
 
 export const DropdownWithVirtualization: Story = {
   render: () => {
-    const flatOptions = useMemo(
+    const options = useMemo(
       () => [
         {
           options: Array.from({ length: 1000 }, (_, index) => ({
@@ -480,22 +480,22 @@ export const DropdownWithVirtualization: Story = {
     );
 
     const virtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
-      const allElements: React.ReactElement[] = [];
+      const flattenedOptions: React.ReactElement[] = [];
 
-      const extractElements = (node: React.ReactNode) => {
-        React.Children.forEach(node, child => {
-          if (React.isValidElement(child)) {
-            if (child.type === "li" || child.props?.role) {
-              allElements.push(child);
-            } else if (child.props?.children) {
-              extractElements(child.props.children);
+      const flattenOptions = (reactNode: React.ReactNode) => {
+        React.Children.forEach(reactNode, childElement => {
+          if (React.isValidElement(childElement)) {
+            if (childElement.type === "li" || childElement.props?.role) {
+              flattenedOptions.push(childElement);
+            } else if (childElement.props?.children) {
+              flattenOptions(childElement.props.children);
             }
           }
         });
       };
-      extractElements(children);
+      flattenOptions(children);
 
-      if (allElements.length === 0) {
+      if (flattenedOptions.length === 0) {
         return <div>No options available</div>;
       }
 
@@ -503,23 +503,23 @@ export const DropdownWithVirtualization: Story = {
       const containerHeight = 200;
 
       // Row renderer that preserves original elements with all their downshift props
-      const Row = useCallback(
+      const VirtualizedRow = useCallback(
         ({ index, style }: { index: number; style: React.CSSProperties }) => {
-          const element = allElements[index];
-          return <div style={style}>{element}</div>;
+          const option = flattenedOptions[index];
+          return <div style={style}>{option}</div>;
         },
-        [allElements]
+        [flattenedOptions]
       );
 
       return (
         <List
           height={containerHeight}
           width="100%"
-          itemCount={allElements.length}
+          itemCount={flattenedOptions.length}
           itemSize={itemHeight}
           overscanCount={5}
         >
-          {Row}
+          {VirtualizedRow}
         </List>
       );
     }, []);
@@ -529,7 +529,7 @@ export const DropdownWithVirtualization: Story = {
         <div style={{ width: "350px" }}>
           <Dropdown
             placeholder="Search"
-            options={flatOptions}
+            options={options}
             label="Virtualized"
             menuRenderer={virtualizedMenuRenderer}
             searchable
