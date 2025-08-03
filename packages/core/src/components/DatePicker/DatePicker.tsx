@@ -96,7 +96,7 @@ const DatePicker = forwardRef(
       hideNavigationKeys = false,
       date,
       endDate,
-      onPickDate,
+      onPickDate = NOOP,
       enableOutsideDays = false,
       showWeekNumber = false,
       shouldBlockRange,
