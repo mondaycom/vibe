@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.57.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.5...@vibe/core@3.57.0) (2025-08-03)
+
+
+### Bug Fixes
+
+* add check for ResizeObserver support ([#3025](https://github.com/mondaycom/vibe/issues/3025)) ([a2d14fb](https://github.com/mondaycom/vibe/commit/a2d14fb7c87da8548b2e2d747e27140235e27438))
+* change progress bar transition duration ([#3022](https://github.com/mondaycom/vibe/issues/3022)) ([200cba7](https://github.com/mondaycom/vibe/commit/200cba788c2522855d6edb72b687900db2014c42))
+* **DatePicker:** add default value for onPickDate prop ([#3024](https://github.com/mondaycom/vibe/issues/3024)) ([fbd01c2](https://github.com/mondaycom/vibe/commit/fbd01c207f8bb69d84859bcee70d58a8e053bd38))
+
+
+### Features
+
+* **DatePicker:** be able to customize phrases for localization ([#2983](https://github.com/mondaycom/vibe/issues/2983)) ([e21c3b6](https://github.com/mondaycom/vibe/commit/e21c3b622ba85f782538ce63e2cd0a48d3744dcb))
+
+
+
+
+
 ## [3.56.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.4...@vibe/core@3.56.5) (2025-07-27)
 
 **Note:** Version bump only for package @vibe/core

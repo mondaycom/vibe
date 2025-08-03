@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.0...@vibe/mcp@0.3.1) (2025-08-03)
+
+**Note:** Version bump only for package @vibe/mcp
+
+
+
+
+
 # [0.3.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.2...@vibe/mcp@0.3.0) (2025-06-08)
 
 
