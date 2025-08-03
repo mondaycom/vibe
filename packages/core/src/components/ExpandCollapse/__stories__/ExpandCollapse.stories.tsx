@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ExpandCollapse, { ExpandCollapseProps } from "../ExpandCollapse";
+import ExpandCollapse, { type ExpandCollapseProps } from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Icon, Text } from "../../index";
 import Heading from "../../Heading/Heading";

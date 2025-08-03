@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
 import ModalBasicLayout from "../ModalBasicLayout";

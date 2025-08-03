@@ -1,5 +1,5 @@
-import { fireEvent, queries, userEvent, within } from "@storybook/test";
-import { BoundFunctions, Screen, SelectorMatcherOptions, waitFor } from "@testing-library/react";
+import { fireEvent, type queries, userEvent, within } from "@storybook/test";
+import { type BoundFunctions, type Screen, type SelectorMatcherOptions, waitFor } from "@testing-library/react";
 import { NavigationCommand as NavigationCommandType } from "./constants";
 import { expect } from "@storybook/jest";
 

@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Search from "../Search";
-import { SearchProps } from "../Search.types";
+import { type SearchProps } from "../Search.types";
 
 function renderSearch(props?: Partial<SearchProps>) {
   return render(<Search inputAriaLabel="search-input" {...props} />);

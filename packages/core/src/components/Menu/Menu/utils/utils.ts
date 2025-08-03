@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { MenuChild } from "../MenuConstants";
+import { type ReactElement } from "react";
+import { type MenuChild } from "../MenuConstants";
 
 export function isMenuChildSelectable(child: MenuChild): boolean {
   return !!child.type.isSelectable && !child.props.disabled;

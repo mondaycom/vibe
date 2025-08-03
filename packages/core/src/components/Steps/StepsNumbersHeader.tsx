@@ -1,9 +1,9 @@
 import cx from "classnames";
-import React, { FC, useMemo } from "react";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import React, { type FC, useMemo } from "react";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import Text from "../Text/Text";
 import styles from "./StepsNumbersHeader.module.scss";
-import { StepsColor } from "./Steps.types";
+import { type StepsColor } from "./Steps.types";
 
 export interface StepsNumbersHeaderProps extends VibeComponentProps {
   /**

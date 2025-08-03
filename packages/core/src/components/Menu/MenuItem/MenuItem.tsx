@@ -1,17 +1,17 @@
-import React, { AriaAttributes, ForwardedRef, ReactElement, forwardRef, useMemo, useRef } from "react";
-import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
+import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
+import Tooltip, { type TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
-import { IconType } from "../../Icon";
-import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../../types";
+import { type IconType } from "../../Icon";
+import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { TooltipPositions } from "../../Tooltip/Tooltip.types";
+import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
-import { SubmenuPosition } from "./MenuItem.types";
+import { type SubmenuPosition } from "./MenuItem.types";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**

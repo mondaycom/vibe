@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Steps, { StepsProps } from "../Steps";
+import Steps, { type StepsProps } from "../Steps";
 import { NEXT_TEXT, BACK_TEXT } from "../StepsConstants";
 
 vi.useFakeTimers();

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalBasicLayout.module.scss";
-import { ModalBasicLayoutProps } from "./ModalBasicLayout.types";
+import { type ModalBasicLayoutProps } from "./ModalBasicLayout.types";
 import Flex from "../../../Flex/Flex";
 import Divider from "../../../Divider/Divider";
 import ModalFooterShadow from "../ModalFooterShadow";

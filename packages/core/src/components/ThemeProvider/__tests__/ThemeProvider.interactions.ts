@@ -1,4 +1,4 @@
-import { Screen } from "@testing-library/react";
+import { type Screen } from "@testing-library/react";
 import { userEvent } from "@storybook/test";
 import { expect } from "@storybook/jest";
 import { interactionSuite } from "../../../tests/interactions-utils";

@@ -1,13 +1,13 @@
-import React, { ReactElement, useMemo } from "react";
+import React, { type ReactElement, useMemo } from "react";
 import cx from "classnames";
-import { AvatarProps } from "../Avatar/Avatar";
+import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSize, AvatarType } from "../Avatar/Avatar.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { avatarOnClick } from "./AvatarGroupHelper";
-import { TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./AvatarGroup.module.scss";
-import { AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
+import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 
 export interface AvatarGroupProps extends VibeComponentProps {
   /**

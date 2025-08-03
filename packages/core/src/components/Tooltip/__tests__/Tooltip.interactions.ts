@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { Screen } from "@testing-library/react";
+import { type Screen } from "@testing-library/react";
 import { userEvent, waitFor } from "@storybook/test";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 

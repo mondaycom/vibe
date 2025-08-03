@@ -1,6 +1,6 @@
-import { useCallback, useRef, RefObject } from "react";
+import { useCallback, useRef, type RefObject } from "react";
 import useEventListener from "../useEventListener";
-import { GenericEventCallback } from "../../types/events";
+import { type GenericEventCallback } from "../../types/events";
 import { isClient } from "../../utils/ssr-utils";
 
 export default function useClickOutside({

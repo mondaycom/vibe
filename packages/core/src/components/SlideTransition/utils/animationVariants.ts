@@ -1,4 +1,4 @@
-import { SlideDirection } from "../SlideTransition.types";
+import { type SlideDirection } from "../SlideTransition.types";
 
 export const slideAnimationVariants = {
   initial: (direction: SlideDirection) => ({

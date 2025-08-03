@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
@@ -14,10 +14,10 @@ import {
   ButtonType as ButtonTypeEnum,
   SMALL_BUTTON_ICON_SIZE
 } from "./ButtonConstants";
-import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
+import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";

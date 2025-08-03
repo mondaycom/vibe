@@ -1,5 +1,6 @@
-import React, { useMemo } from "react";
-import { StoryContext, Decorator } from "@storybook/react";
+import type React from "react";
+import { useMemo } from "react";
+import { type StoryContext, type Decorator } from "@storybook/react";
 
 const useApplyDecorators = (decorators: Decorator[], component: React.ReactElement, context: StoryContext) => {
   return useMemo(() => {

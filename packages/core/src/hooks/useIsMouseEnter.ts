@@ -1,4 +1,4 @@
-import { useCallback, useState, RefObject } from "react";
+import { useCallback, useState, type RefObject } from "react";
 import useEventListener from "./useEventListener";
 
 // TODO can be replaced with useIsMouseOver

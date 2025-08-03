@@ -6,7 +6,7 @@ import Flex from "../../../../Flex/Flex";
 import IconButton from "../../../../IconButton/IconButton";
 import { DropdownChevronRight } from "@vibe/icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";
-import { MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
+import { type MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 
 const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
   <Flex justify="center" className={styles.subMenuIconWrapper}>

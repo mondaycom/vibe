@@ -1,4 +1,4 @@
-import { vi, beforeEach, afterEach, beforeAll, afterAll, describe, it, expect, Mock } from "vitest";
+import { vi, beforeEach, afterEach, beforeAll, afterAll, describe, it, expect, type Mock } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import Checkbox from "../Checkbox";

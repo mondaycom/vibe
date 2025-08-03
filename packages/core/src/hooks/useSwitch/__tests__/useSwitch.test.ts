@@ -1,7 +1,7 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
-import { act, cleanup, renderHook, RenderResult } from "@testing-library/react-hooks";
-import useSwitch, { UseSwitchProps } from "../index";
-import { ChangeEvent } from "react";
+import { act, cleanup, renderHook, type RenderResult } from "@testing-library/react-hooks";
+import useSwitch, { type UseSwitchProps } from "../index";
+import { type ChangeEvent } from "react";
 
 describe("useSwitch", () => {
   afterEach(() => {

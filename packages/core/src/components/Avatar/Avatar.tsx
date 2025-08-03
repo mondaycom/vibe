@@ -2,17 +2,17 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { AriaRole, useCallback, useMemo } from "react";
+import React, { type AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
-import { ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
-import { AvatarSize, AvatarType } from "./Avatar.types";
-import AvatarBadge, { AvatarBadgeProps } from "./AvatarBadge";
+import { type AvatarSize, type AvatarType } from "./Avatar.types";
+import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { SubIcon, VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Avatar.module.scss";
 
 export interface AvatarProps extends VibeComponentProps {

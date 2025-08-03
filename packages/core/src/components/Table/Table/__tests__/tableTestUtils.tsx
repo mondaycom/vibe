@@ -1,9 +1,9 @@
 import React from "react";
 import { vi } from "vitest";
 import * as TableContextModule from "../../context/TableContext/TableContext";
-import { TableContext } from "../../context/TableContext/TableContext.types";
+import { type TableContext } from "../../context/TableContext/TableContext.types";
 import * as TableRowMenuContextModule from "../../context/TableRowMenuContext/TableRowMenuContext";
-import { TableRowMenuContext } from "../../context/TableRowMenuContext/TableRowMenuContext.types";
+import { type TableRowMenuContext } from "../../context/TableRowMenuContext/TableRowMenuContext.types";
 import { RowSizes } from "../TableConsts";
 
 export function mockUseTable() {

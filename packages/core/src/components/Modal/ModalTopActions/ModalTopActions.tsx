@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./ModalTopActions.module.scss";
-import { ModalTopActionsButtonColor, ModalTopActionsTheme, ModalTopActionsProps } from "./ModalTopActions.types";
+import {
+  type ModalTopActionsButtonColor,
+  type ModalTopActionsTheme,
+  type ModalTopActionsProps
+} from "./ModalTopActions.types";
 import IconButton from "../../IconButton/IconButton";
 import { CloseMedium } from "@vibe/icons";
 import { ComponentDefaultTestId } from "../../../tests/constants";

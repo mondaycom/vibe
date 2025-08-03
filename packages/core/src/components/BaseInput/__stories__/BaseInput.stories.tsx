@@ -1,7 +1,7 @@
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import BaseInput from "../BaseInput";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof BaseInput>;
 

@@ -1,8 +1,8 @@
 import React, { useMemo, useRef } from "react";
 import DialogContentContainer from "../../../../DialogContentContainer/DialogContentContainer";
 import usePopover from "../../../../../hooks/usePopover";
-import { MenuChild } from "../../../Menu/MenuConstants";
-import { MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
+import { type MenuChild } from "../../../Menu/MenuConstants";
+import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
 import { Placement } from "../../../../../hooks/popoverConstants";
 import useIsomorphicLayoutEffect from "../../../../../hooks/ssr/useIsomorphicLayoutEffect";
 

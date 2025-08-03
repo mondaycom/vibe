@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
+import ThemeProvider, { type ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";

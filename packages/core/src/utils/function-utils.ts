@@ -1,5 +1,5 @@
 import { isArray, isFunction } from "lodash-es";
-import { MutableRefObject } from "react";
+import { type MutableRefObject } from "react";
 
 export function chainRefFunctions(
   funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((element: HTMLElement) => void | boolean)>,

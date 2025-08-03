@@ -1,4 +1,4 @@
-import { UIEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import { type UIEventHandler, useCallback, useEffect, useRef, useState } from "react";
 
 const useLayoutScrolledContent = () => {
   const [isContentScrolled, setContentScrolled] = useState<boolean>(false);

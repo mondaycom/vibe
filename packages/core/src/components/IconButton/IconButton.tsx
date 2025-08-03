@@ -1,17 +1,17 @@
-import React, { AriaAttributes, forwardRef, Fragment, useMemo, useRef } from "react";
+import React, { type AriaAttributes, forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../hooks/useMergeRef";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import { AddSmall } from "@vibe/icons";
-import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { getWidthHeight, type Size } from "./services/IconButton-helpers";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ButtonColor, ButtonType } from "../Button";
+import { type ButtonColor, type ButtonType } from "../Button";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 

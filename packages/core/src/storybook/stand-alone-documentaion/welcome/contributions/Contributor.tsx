@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text, Tooltip } from "../../../../components";
 import styles from "./Contributor.module.scss";
-import { ElementContent } from "../../../../types";
+import { type ElementContent } from "../../../../types";
 
 export interface ContributorProps {
   name: string;

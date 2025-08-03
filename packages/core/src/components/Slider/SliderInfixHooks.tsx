@@ -1,9 +1,9 @@
-import React, { CSSProperties, ReactElement } from "react";
+import React, { type CSSProperties, type ReactElement } from "react";
 import Icon from "../../components/Icon/Icon";
-import { InfixKind } from "./Slider.types";
+import { type InfixKind } from "./Slider.types";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";
-import { IconType } from "../Icon";
+import { type IconType } from "../Icon";
 
 const defaultIconProps = {
   clickable: false,

@@ -1,4 +1,4 @@
-import { format, Options } from "prettier";
+import { format, type Options } from "prettier";
 import parserHtml from "prettier/parser-html";
 import parserTypeScript from "prettier/parser-typescript";
 

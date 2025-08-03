@@ -2,7 +2,7 @@ import React from "react";
 import ButtonGroup from "../ButtonGroup";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 

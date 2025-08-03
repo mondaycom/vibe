@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, useCallback } from "react";
+import React, { type FC, forwardRef, useCallback } from "react";
 import {
   isArrowDownEvent,
   isArrowLeftEvent,
@@ -16,7 +16,7 @@ import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderBase.module.scss";

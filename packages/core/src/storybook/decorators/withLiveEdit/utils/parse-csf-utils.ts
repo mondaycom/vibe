@@ -1,13 +1,13 @@
 import { transformFromAst } from "@babel/standalone";
 import { parse } from "@babel/parser";
 import {
-  File,
-  Program,
-  Expression,
-  Statement,
-  ObjectProperty,
-  FunctionExpression,
-  ArrowFunctionExpression,
+  type File,
+  type Program,
+  type Expression,
+  type Statement,
+  type ObjectProperty,
+  type FunctionExpression,
+  type ArrowFunctionExpression,
   isObjectExpression,
   isBlockStatement,
   isExpressionStatement,

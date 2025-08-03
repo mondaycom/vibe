@@ -1,4 +1,4 @@
-import React, { CSSProperties, MutableRefObject, useMemo } from "react";
+import React, { type CSSProperties, type MutableRefObject, useMemo } from "react";
 import cx from "classnames";
 import ComboboxOption from "../components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "../components/ComboboxCategory/ComboboxCategory";
@@ -7,12 +7,12 @@ import {
   COMBOBOX_DIVIDER_ITEM,
   COMBOBOX_CATEGORY_ITEM,
   COMBOBOX_OPTION_ITEM,
-  IComboboxCategory,
-  IComboboxOption,
-  IComboboxCategoryMap,
-  IComboboxItem,
-  IOptionItemRendererArgs,
-  IComboboxOptionEvents
+  type IComboboxCategory,
+  type IComboboxOption,
+  type IComboboxCategoryMap,
+  type IComboboxItem,
+  type IOptionItemRendererArgs,
+  type IComboboxOptionEvents
 } from "../components/ComboboxConstants";
 import useActiveDescendantListFocus from "../../../hooks/useActiveDescendantListFocus";
 import { getOptionsByCategories } from "../ComboboxService";

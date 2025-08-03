@@ -1,9 +1,9 @@
-import React, { ForwardedRef, forwardRef, useMemo } from "react";
+import React, { type ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
-import { LoaderColors, LoaderSize, LoaderSizes } from "./Loader.types";
+import { type LoaderColors, type LoaderSize, type LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 

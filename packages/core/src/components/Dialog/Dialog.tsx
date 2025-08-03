@@ -1,7 +1,7 @@
 import cx from "classnames";
-import React, { PureComponent, ReactElement } from "react";
+import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
-import { Manager, Modifier, Popper, Reference } from "react-popper";
+import { Manager, type Modifier, Popper, Reference } from "react-popper";
 import { isFunction } from "lodash-es";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import DialogContent from "./DialogContent/DialogContent";
@@ -12,11 +12,11 @@ import {
   HideShowEvent as DialogTriggerEventEnum,
   DialogPosition as DialogPositionEnum
 } from "./DialogConstants";
-import { VibeComponentProps } from "../../types";
-import * as PopperJS from "@popperjs/core";
+import { type VibeComponentProps } from "../../types";
+import type * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialog.types";
+import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";

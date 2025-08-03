@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import ModalHeader from "./LegacyModalHeader/LegacyModalHeader";
 import ModalContent from "./LegacyModalContent/LegacyModalContent";
 import ModalFooter from "./LegacyModalFooter/LegacyModalFooter";

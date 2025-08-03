@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
 import cx from "classnames";
 import { slideAnimationVariants, slideAnimationTransition } from "./utils/animationVariants";
-import { SlideTransitionProps } from "./SlideTransition.types";
+import { type SlideTransitionProps } from "./SlideTransition.types";
 import styles from "./SlideTransition.module.scss";
 
 const SlideTransition = forwardRef(

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Clickable from "./Clickable";
-import { VibeComponentProps } from "../../types";
-import { ClickableProps } from "./Clickable";
+import { type VibeComponentProps } from "../../types";
+import { type ClickableProps } from "./Clickable";
 
 export interface ClickableWrapperProps extends VibeComponentProps {
   /**

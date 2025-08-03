@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { type RefObject } from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
 import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";

@@ -2,7 +2,7 @@ import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import TextArea from "../TextArea";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Decorator, Meta, StoryObj } from "@storybook/react";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof TextArea>;
 

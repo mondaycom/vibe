@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from "react";
+import { type ReactElement, useCallback } from "react";
 import { isMenuChildSelectable } from "../utils/utils";
 
 export const useAdjacentSelectableMenuIndex = ({ children }: { children: ReactElement[] }) => {

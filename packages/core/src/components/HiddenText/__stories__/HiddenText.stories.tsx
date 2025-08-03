@@ -1,5 +1,5 @@
 import React from "react";
-import HiddenText, { HiddenTextProps } from "../HiddenText";
+import HiddenText, { type HiddenTextProps } from "../HiddenText";
 
 export default {
   title: "Accessibility/HiddenText",

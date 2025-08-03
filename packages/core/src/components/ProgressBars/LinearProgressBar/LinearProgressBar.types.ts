@@ -1,4 +1,4 @@
-import { SIZES } from "../../../constants";
+import { type SIZES } from "../../../constants";
 
 export type LinearProgressBarStyle = "primary" | "secondary" | "positive" | "negative" | "warning" | "none";
 

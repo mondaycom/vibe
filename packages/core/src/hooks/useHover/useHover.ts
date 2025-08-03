@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { type MutableRefObject, useEffect, useRef, useState } from "react";
 
 // Standard hook implementation https://usehooks.com/useHover/
 export default function useHover<T extends HTMLElement = HTMLElement>(): [MutableRefObject<T>, boolean] {

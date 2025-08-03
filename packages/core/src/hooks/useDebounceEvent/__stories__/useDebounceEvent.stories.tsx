@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useDebounceEvent, { UseDebounceResult } from "..";
+import useDebounceEvent, { type UseDebounceResult } from "..";
 
 export default {
   title: "Hooks/useDebounceEvent"

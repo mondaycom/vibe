@@ -6,7 +6,7 @@ import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 import Tooltip from "../../../Tooltip/Tooltip";
 
 interface DropdownBaseProps {

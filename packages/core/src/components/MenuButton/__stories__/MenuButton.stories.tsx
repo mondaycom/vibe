@@ -1,10 +1,10 @@
-import MenuButton, { MenuButtonProps } from "../MenuButton";
+import MenuButton, { type MenuButtonProps } from "../MenuButton";
 import { noop as NOOP } from "lodash-es";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";
 import React, { useRef } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof MenuButton>;
 

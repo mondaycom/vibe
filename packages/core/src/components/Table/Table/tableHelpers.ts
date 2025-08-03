@@ -1,7 +1,8 @@
-import React, { AriaAttributes } from "react";
-import { TableColumn, TableLoadingStateType } from "./Table";
+import { type AriaAttributes } from "react";
+import type React from "react";
+import { type TableColumn, type TableLoadingStateType } from "./Table";
 import { Sort } from "@vibe/icons";
-import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "@vibe/icons";
 import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 

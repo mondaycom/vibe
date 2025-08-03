@@ -3,9 +3,9 @@ import cx from "classnames";
 import styles from "./BaseListItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
-import { BaseListItemData, BaseListItemProps } from "./BaseListItem.types";
+import { type BaseListItemData, type BaseListItemProps } from "./BaseListItem.types";
 import { Tooltip } from "../Tooltip";
-import { TextType } from "../Text";
+import { type TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
 const BaseListItem = forwardRef(

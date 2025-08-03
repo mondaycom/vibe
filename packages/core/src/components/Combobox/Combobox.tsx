@@ -15,18 +15,18 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import {
-  IComboboxCategoryMap,
-  IComboboxItem,
-  IComboboxOption,
+  type IComboboxCategoryMap,
+  type IComboboxItem,
+  type IComboboxOption,
   COMBOBOX_LISTBOX_ID,
-  IComboboxCategory
+  type IComboboxCategory
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
-import { ComboboxSizes } from "./Combobox.types";
-import IconButton from "../IconButton/IconButton";
-import MenuButton from "../MenuButton/MenuButton";
+import { type ComboboxSizes } from "./Combobox.types";
+import type IconButton from "../IconButton/IconButton";
+import type MenuButton from "../MenuButton/MenuButton";
 
 export interface ComboboxProps extends VibeComponentProps {
   /**

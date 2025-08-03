@@ -8,7 +8,7 @@ import { Calendar, Chart, Table } from "@vibe/icons";
 import TextField from "../../TextField/TextField";
 import Box from "../../Box/Box";
 import Flex from "../../Flex/Flex";
-import { TabProps } from "../Tab/Tab";
+import { type TabProps } from "../Tab/Tab";
 
 const ExampleTabContent = ({ children }: { children: string }) => (
   <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>

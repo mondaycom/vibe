@@ -2,7 +2,7 @@ import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import IconButton, { IconButtonProps } from "../IconButton";
+import IconButton, { type IconButtonProps } from "../IconButton";
 
 vi.useFakeTimers();
 

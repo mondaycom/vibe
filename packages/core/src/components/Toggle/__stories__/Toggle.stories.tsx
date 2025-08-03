@@ -2,7 +2,7 @@ import React from "react";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Flex from "../../Flex/Flex";
 import Text from "../../Text/Text";
 

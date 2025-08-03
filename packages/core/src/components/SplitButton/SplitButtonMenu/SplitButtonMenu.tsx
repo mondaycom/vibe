@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import Menu, { MenuProps } from "../../Menu/Menu/Menu";
+import Menu, { type MenuProps } from "../../Menu/Menu/Menu";
 
 export type SplitButtonMenuProps = Omit<MenuProps, "focusItemIndexOnMount"> & { children: React.ReactNode };
 

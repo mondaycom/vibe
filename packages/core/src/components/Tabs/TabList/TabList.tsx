@@ -1,12 +1,21 @@
 import cx from "classnames";
 import { camelCase } from "lodash-es";
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  type FC,
+  forwardRef,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
-import { TabProps } from "../Tab/Tab";
+import { type TabProps } from "../Tab/Tab";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./TabList.module.scss";

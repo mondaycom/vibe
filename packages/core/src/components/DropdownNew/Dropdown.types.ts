@@ -1,8 +1,8 @@
-import React from "react";
-import { ListGroup } from "../BaseList";
-import { VibeComponentProps } from "../../types";
-import { BaseListItemData } from "../BaseListItem";
-import { TooltipProps } from "../Tooltip/Tooltip";
+import type React from "react";
+import { type ListGroup } from "../BaseList";
+import { type VibeComponentProps } from "../../types";
+import { type BaseListItemData } from "../BaseListItem";
+import { type TooltipProps } from "../Tooltip/Tooltip";
 
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 

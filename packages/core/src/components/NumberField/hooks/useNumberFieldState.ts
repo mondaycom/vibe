@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { NumberFieldProps } from "../NumberField.types";
+import { type NumberFieldProps } from "../NumberField.types";
 import { calculateSteppedValue } from "../utils/calcValue";
 
 export type UseNumberFieldStateProps = Pick<

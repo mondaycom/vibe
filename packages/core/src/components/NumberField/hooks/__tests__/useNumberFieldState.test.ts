@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { vi, describe, it, expect } from "vitest";
-import useNumberFieldState, { UseNumberFieldStateProps } from "../useNumberFieldState";
+import useNumberFieldState, { type UseNumberFieldStateProps } from "../useNumberFieldState";
 
 describe("useNumberFieldState", () => {
   const setup = (props: Partial<UseNumberFieldStateProps> = {}) => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { TextBig } from "@vibe/icons";
 import NumberField from "../NumberField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

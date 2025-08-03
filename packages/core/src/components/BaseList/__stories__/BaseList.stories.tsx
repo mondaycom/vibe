@@ -1,7 +1,7 @@
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import BaseList from "../BaseList";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { Email } from "@vibe/icons";
 import person1 from "./person1.png";
 type Story = StoryObj<typeof BaseList>;

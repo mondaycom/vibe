@@ -7,13 +7,18 @@ import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "./ColorPicker.types";
+import {
+  type ColorShapes,
+  type ColorPickerSizes,
+  type ColorPickerValue,
+  type ColorPickerArrayValueOnly
+} from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { VibeComponentProps, SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
-import { ColorStyle } from "../../types/Colors";
+import { type ColorStyle } from "../../types/Colors";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface ColorPickerProps extends VibeComponentProps {

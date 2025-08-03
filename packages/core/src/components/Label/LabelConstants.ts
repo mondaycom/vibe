@@ -1,6 +1,6 @@
-import { TextType } from "../Text/Text.types";
+import { type TextType } from "../Text/Text.types";
 import Text from "../Text/Text";
-import { LabelSizes } from "./Label.types";
+import { type LabelSizes } from "./Label.types";
 import { ContentColorByName } from "../../utils/colors-vars-map";
 
 /**

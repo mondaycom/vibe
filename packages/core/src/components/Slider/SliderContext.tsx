@@ -1,9 +1,14 @@
-import React, { createContext, ReactElement, useContext, useMemo, useState } from "react";
+import React, { createContext, type ReactElement, useContext, useMemo, useState } from "react";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
-import { SliderProps } from "./Slider";
-import { SliderContextActions, SliderContextInfix, SliderContextSelection, SliderContextUI } from "./SliderConstants";
-import { IconType } from "../Icon";
+import { type SliderProps } from "./Slider";
+import {
+  type SliderContextActions,
+  type SliderContextInfix,
+  type SliderContextSelection,
+  type SliderContextUI
+} from "./SliderConstants";
+import { type IconType } from "../Icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});

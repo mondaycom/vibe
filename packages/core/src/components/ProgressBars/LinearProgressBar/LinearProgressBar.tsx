@@ -7,10 +7,10 @@ import {
   ProgressBarStyle as ProgressBarStyleEnum,
   ProgressBarType as ProgressBarTypeEnum
 } from "./LinearProgressBarConstants";
-import { LinearProgressBarSize, LinearProgressBarStyle } from "./LinearProgressBar.types";
+import { type LinearProgressBarSize, type LinearProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { VibeComponentProps, withStaticProps } from "../../../types";
+import { type VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";

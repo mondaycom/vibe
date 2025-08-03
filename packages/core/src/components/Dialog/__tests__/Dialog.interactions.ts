@@ -1,12 +1,12 @@
 import { expect } from "@storybook/jest";
-import { Screen } from "@testing-library/react";
+import { type Screen } from "@testing-library/react";
 import {
   CONTEXT_MENU_DIALOG,
   CLICK_OUTSIDE_DIALOG,
   HIDE_TRIGGERS_CONTAINER,
   CLICK_OUTSIDE_DIALOG_BUTTON
 } from "./DialogDataTestIds";
-import { Canvas, getByTestId, interactionSuite } from "../../../tests/interactions-utils";
+import { type Canvas, getByTestId, interactionSuite } from "../../../tests/interactions-utils";
 import { userEvent, fireEvent, waitFor } from "@storybook/test";
 
 const isDialogHiddenAfterClickOutside = createTestIfDialogHiddenAfterTrigger(CLICK_OUTSIDE_DIALOG, () =>

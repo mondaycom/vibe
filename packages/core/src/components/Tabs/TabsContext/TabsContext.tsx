@@ -1,7 +1,7 @@
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import React, { type FC, forwardRef, type ReactElement, useCallback, useEffect, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export interface TabsContextProps extends VibeComponentProps {

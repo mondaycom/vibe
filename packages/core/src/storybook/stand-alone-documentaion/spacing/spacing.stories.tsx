@@ -1,5 +1,5 @@
 import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
-import { StoryObj, Meta } from "@storybook/react";
+import { type StoryObj, type Meta } from "@storybook/react";
 import { SpacingUsageExamples } from "./spacing-usage-examples/spacing-usage-examples";
 
 const meta: Meta = {

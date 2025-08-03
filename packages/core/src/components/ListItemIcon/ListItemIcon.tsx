@@ -4,11 +4,11 @@ import useMergeRef from "../../hooks/useMergeRef";
 import Icon from "../Icon/Icon";
 import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
-import { ListItemElement } from "../ListItem";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { type ListItemElement } from "../ListItem";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
-import { ListItemIconMargin } from "./ListItemIcon.types";
+import { type ListItemIconMargin } from "./ListItemIcon.types";
 
 export const LIST_ITEM_ICON_SIZE = 18;
 

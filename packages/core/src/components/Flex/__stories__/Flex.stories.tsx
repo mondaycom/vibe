@@ -1,5 +1,5 @@
 import React from "react";
-import Flex, { FlexProps } from "../Flex";
+import Flex, { type FlexProps } from "../Flex";
 import { Add, Filter, Person, Search, Sort } from "@vibe/icons";
 import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";

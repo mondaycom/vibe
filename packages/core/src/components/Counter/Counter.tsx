@@ -12,8 +12,8 @@ import {
   CounterSize as CounterSizeEnum,
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
-import { CounterColor, CounterSize, CounterType } from "./Counter.types";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LiveEditorAction.module.scss";
-import { LiveEditorActionProps } from "./LiveEditorAction.types";
+import { type LiveEditorActionProps } from "./LiveEditorAction.types";
 
 const LiveEditorAction = ({ onClick, disabled, children }: LiveEditorActionProps) => {
   return (

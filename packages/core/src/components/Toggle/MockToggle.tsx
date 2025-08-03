@@ -1,11 +1,11 @@
 import ToggleText from "./ToggleText";
 import cx from "classnames";
-import React, { FC } from "react";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import React, { type FC } from "react";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./MockToggle.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { ToggleSize } from "./Toggle.types";
+import { type ToggleSize } from "./Toggle.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface MockToggleProps extends VibeComponentProps {

@@ -1,12 +1,12 @@
 import { range } from "lodash-es";
-import React, { forwardRef, useMemo, useCallback, useRef, RefObject } from "react";
+import React, { forwardRef, useMemo, useCallback, useRef, type RefObject } from "react";
 import cx from "classnames";
 import { action } from "@storybook/addon-actions";
 import { Button, Flex } from "../..";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import "./useGridKeyboardNavigationContext.stories.scss";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
-import { VibeComponent } from "src/types";
+import { type VibeComponent } from "src/types";
 const ELEMENT_WIDTH_PX = 72;
 const PADDING_PX = 24;
 

@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import { InfoTextProps } from "./InfoText.types";
+import { type InfoTextProps } from "./InfoText.types";
 import Text from "../Text/Text";
 import styles from "./InfoText.module.scss";
 

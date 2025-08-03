@@ -8,7 +8,7 @@ import BaseInput from "../BaseInput/BaseInput";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
-import { SearchProps } from "./Search.types";
+import { type SearchProps } from "./Search.types";
 import Loader from "../Loader/Loader";
 import { ComponentVibeId } from "../../tests/constants";
 

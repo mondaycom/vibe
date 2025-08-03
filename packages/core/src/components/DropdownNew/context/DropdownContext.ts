@@ -1,8 +1,9 @@
-import React, { createContext, useContext } from "react";
-import { ListGroup } from "../../BaseList";
-import { BaseListItemData } from "../../BaseListItem";
-import { BaseDropdownProps, DropdownSizes } from "../Dropdown.types";
-import { DropdownContextProps } from "./DropdownContext.types";
+import type React from "react";
+import { createContext, useContext } from "react";
+import { type ListGroup } from "../../BaseList";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type BaseDropdownProps, type DropdownSizes } from "../Dropdown.types";
+import { type DropdownContextProps } from "./DropdownContext.types";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;

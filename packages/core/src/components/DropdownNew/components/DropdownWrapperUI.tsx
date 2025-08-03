@@ -1,8 +1,8 @@
 import React from "react";
 import { DropdownContext } from "../context/DropdownContext";
-import { DropdownContextProps } from "../context/DropdownContext.types";
+import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownPopup from "./DropdownPopup/DropdownPopup";
-import { BaseListItemData } from "../../BaseListItem";
+import { type BaseListItemData } from "../../BaseListItem";
 import DropdownBase from "./DropdownBase/DropdownBase";
 
 interface DropdownWrapperUIProps<Item extends BaseListItemData<Record<string, unknown>>> {

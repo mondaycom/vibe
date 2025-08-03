@@ -1,5 +1,5 @@
-import React from "react";
-import { ModalFooterBaseProps } from "../ModalFooterBase/ModalFooterBase.types";
+import type React from "react";
+import { type ModalFooterBaseProps } from "../ModalFooterBase/ModalFooterBase.types";
 
 export interface ModalFooterProps extends Omit<ModalFooterBaseProps, "renderAction"> {
   /**

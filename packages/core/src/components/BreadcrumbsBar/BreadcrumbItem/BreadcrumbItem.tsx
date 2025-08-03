@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbItem.module.scss";
 
 export interface BreadcrumbItemProps extends VibeComponentProps {

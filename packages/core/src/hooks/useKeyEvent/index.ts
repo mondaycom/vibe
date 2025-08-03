@@ -1,6 +1,6 @@
-import { RefObject, useCallback, useRef } from "react";
+import { type RefObject, useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
-import { GenericEventCallback } from "../../types/events";
+import { type GenericEventCallback } from "../../types/events";
 import { isClient } from "../../utils/ssr-utils";
 
 const CTRL_OR_META = "ctrlOrMetaKey";

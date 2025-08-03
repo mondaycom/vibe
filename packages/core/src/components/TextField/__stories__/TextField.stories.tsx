@@ -1,8 +1,8 @@
 import React from "react";
-import TextField, { TextFieldProps } from "../TextField";
+import TextField, { type TextFieldProps } from "../TextField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Check, CloseSmall, Email, Show, Duplicate } from "@vibe/icons";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Heading from "../../Heading/Heading";
 import { Flex } from "../../Flex";
 

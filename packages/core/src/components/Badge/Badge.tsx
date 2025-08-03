@@ -9,14 +9,14 @@ import {
   BadgeAnchor as BadgeAnchorEnum,
   BadgeType as BadgeTypeEnum
 } from "./BadgeConstants";
-import { BadgeAlignments, BadgeAnchor, BadgeType } from "./Badge.types";
-import Indicator, { IndicatorProps } from "./Indicator/Indicator";
-import Counter, { CounterProps } from "../Counter/Counter";
+import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
+import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
+import Counter, { type CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { IndicatorColor } from "./Indicator/IndicatorConstants";
-import { CounterColor } from "../Counter/CounterConstants";
+import { type IndicatorColor } from "./Indicator/IndicatorConstants";
+import { type CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   /**

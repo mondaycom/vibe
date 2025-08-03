@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, {
-  CSSProperties,
-  ForwardedRef,
+  type CSSProperties,
+  type ForwardedRef,
   forwardRef,
-  LegacyRef,
-  ReactElement,
+  type LegacyRef,
+  type ReactElement,
   useCallback,
   useEffect,
   useMemo,
@@ -13,11 +13,11 @@ import React, {
 } from "react";
 import { noop as NOOP } from "lodash-es";
 import {
-  ScrollDirection,
+  type ScrollDirection,
   VariableSizeList as List,
-  ListOnItemsRenderedProps,
-  ListChildComponentProps,
-  VariableSizeList
+  type ListOnItemsRenderedProps,
+  type ListChildComponentProps,
+  type VariableSizeList
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
@@ -32,9 +32,13 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { type VibeComponent, type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
-import { VirtualizedListItem, VirtualizedListLayout, VirtualizedListScrollDirection } from "./VirtualizedList.types";
+import {
+  type VirtualizedListItem,
+  type VirtualizedListLayout,
+  type VirtualizedListScrollDirection
+} from "./VirtualizedList.types";
 
 export interface VirtualizedListProps extends VibeComponentProps {
   /**

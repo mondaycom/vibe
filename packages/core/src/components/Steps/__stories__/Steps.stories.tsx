@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import Steps, { StepsProps } from "../Steps";
+import Steps, { type StepsProps } from "../Steps";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";

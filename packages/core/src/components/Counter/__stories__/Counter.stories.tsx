@@ -6,7 +6,7 @@ import { AddUpdate, Update, Notifications } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
-import { CounterProps } from "../Counter";
+import { type CounterProps } from "../Counter";
 import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({

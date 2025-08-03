@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import React, { FC, useContext } from "react";
-import Link, { LinkProps } from "../../Link/Link";
+import React, { type FC, useContext } from "react";
+import Link, { type LinkProps } from "../../Link/Link";
 import styles from "./AlertBannerLink.module.scss";
 import { AlertBannerContext } from "../AlertBannerContext";
 

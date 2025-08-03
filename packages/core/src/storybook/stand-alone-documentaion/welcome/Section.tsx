@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Section.module.scss";
 import cx from "classnames";
-import { motion, MotionProps } from "framer-motion";
+import { motion, type MotionProps } from "framer-motion";
 
 export default function Section({
   children,

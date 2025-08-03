@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import Tipseen, { TipseenProps } from "../Tipseen";
-import TipseenContent, { TipseenContentProps } from "../TipseenContent";
+import { type Meta, type StoryObj } from "@storybook/react";
+import Tipseen, { type TipseenProps } from "../Tipseen";
+import TipseenContent, { type TipseenContentProps } from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import TipseenMedia from "../TipseenMedia/TipseenMedia";

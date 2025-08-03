@@ -12,7 +12,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import { HideShowEvent } from "../DialogConstants";
-import { DialogProps } from "../Dialog";
+import { type DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog

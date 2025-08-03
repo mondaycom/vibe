@@ -1,7 +1,7 @@
-import { MutableRefObject, useCallback, useEffect, useMemo } from "react";
+import { type MutableRefObject, useCallback, useEffect, useMemo } from "react";
 import { noop } from "lodash-es";
 import useKeyEvent from "./useKeyEvent";
-import { KeyboardEventCallback } from "../types/events";
+import { type KeyboardEventCallback } from "../types/events";
 
 export enum NavDirections {
   UP = "up",

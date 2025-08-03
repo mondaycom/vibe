@@ -9,7 +9,7 @@ import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vi
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
 import Avatar from "../../Avatar/Avatar";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { Box } from "../../Box";
 import { Divider } from "../../Divider";
 

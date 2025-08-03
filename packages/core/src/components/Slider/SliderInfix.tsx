@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { InfixKind as InfixKindEnum } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./SliderInfix.module.scss";
-import { InfixKind } from "./Slider.types";
+import { type InfixKind } from "./Slider.types";
 
 export interface SliderInfixProps extends VibeComponentProps {
   /**

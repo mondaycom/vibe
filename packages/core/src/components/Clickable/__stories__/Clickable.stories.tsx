@@ -1,5 +1,5 @@
 import React from "react";
-import Clickable, { ClickableProps } from "../Clickable";
+import Clickable, { type ClickableProps } from "../Clickable";
 import Flex from "../../Flex/Flex";
 import { statesPlaySuite } from "../__tests__/Clickable.interactions";
 import Box from "../../Box/Box";

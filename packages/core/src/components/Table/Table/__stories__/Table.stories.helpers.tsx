@@ -2,7 +2,7 @@ import React from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Calendar, Doc, Status } from "@vibe/icons";
 import { LabelColor } from "../../../Label/LabelConstants";
-import { TableColumn } from "../Table";
+import { type TableColumn } from "../Table";
 
 export const doAndDontIconsRuleColumns = [
   {

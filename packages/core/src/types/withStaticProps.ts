@@ -1,4 +1,4 @@
-import { FC, ForwardRefExoticComponent, RefAttributes } from "react";
+import { type FC, type ForwardRefExoticComponent, type RefAttributes } from "react";
 type Required<T> = {
   [P in keyof T]-?: T[P];
 };

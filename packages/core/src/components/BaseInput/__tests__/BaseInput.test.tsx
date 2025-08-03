@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BaseInput from "../BaseInput";
-import { BaseInputProps } from "../BaseInput.types";
+import { type BaseInputProps } from "../BaseInput.types";
 
 function renderBaseInput(props?: Partial<BaseInputProps>) {
   return render(<BaseInput aria-label="base-input" {...props} />);

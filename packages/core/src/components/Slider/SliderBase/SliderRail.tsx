@@ -1,12 +1,12 @@
-import React, { ForwardedRef, forwardRef, ReactElement } from "react";
+import React, { type ForwardedRef, forwardRef, type ReactElement } from "react";
 import { NOOP } from "../../../utils/function-utils";
 import { useSliderUi } from "../SliderContext";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { VibeComponent } from "../../../types";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type VibeComponent } from "../../../types";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderRail.module.scss";
-import { SliderSize } from "../Slider.types";
+import { type SliderSize } from "../Slider.types";
 
 export interface SliderRailProps extends VibeComponentProps {
   /**

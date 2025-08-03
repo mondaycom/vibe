@@ -1,6 +1,6 @@
-import React, { AriaRole, forwardRef } from "react";
+import React, { type AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../types";
 import { ComponentVibeId } from "../../../tests/constants";
 
 export interface FontIconProps extends VibeComponentProps {

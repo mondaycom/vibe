@@ -1,5 +1,5 @@
 import React from "react";
-import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
+import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Info } from "@vibe/icons";
@@ -7,7 +7,7 @@ import Icon from "../../../Icon/Icon";
 import Logo from "./assets/Logo.png";
 import { Flex } from "../../../Flex";
 import { Text } from "../../../Text";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { Box } from "../../../Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({

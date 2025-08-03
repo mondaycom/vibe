@@ -1,15 +1,16 @@
 import {
-  ActionMeta,
-  FocusEventHandler,
-  InputActionMeta,
-  KeyboardEventHandler,
-  MenuProps,
-  OptionProps,
-  OptionTypeBase,
-  SingleValueProps
+  type ActionMeta,
+  type FocusEventHandler,
+  type InputActionMeta,
+  type KeyboardEventHandler,
+  type MenuProps,
+  type OptionProps,
+  type OptionTypeBase,
+  type SingleValueProps
 } from "react-select";
-import React, { UIEventHandler, WheelEventHandler } from "react";
-import { VibeComponentProps } from "../../types";
+import { type UIEventHandler, type WheelEventHandler } from "react";
+import type React from "react";
+import { type VibeComponentProps } from "../../types";
 
 export type DropdownOption = any;
 

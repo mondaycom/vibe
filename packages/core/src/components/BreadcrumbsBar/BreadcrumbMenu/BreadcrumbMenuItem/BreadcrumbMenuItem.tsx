@@ -1,5 +1,5 @@
-import React, { forwardRef, ForwardRefExoticComponent, RefAttributes } from "react";
-import { MenuItem, MenuItemProps } from "../../../Menu";
+import React, { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from "react";
+import { MenuItem, type MenuItemProps } from "../../../Menu";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 

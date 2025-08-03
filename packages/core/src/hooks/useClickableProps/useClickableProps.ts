@@ -1,9 +1,10 @@
 import { useKeyboardButtonPressedFunc } from "../useKeyboardButtonPressedFunc";
-import React, { useRef } from "react";
+import type React from "react";
+import { useRef } from "react";
 import useMergeRef from "../useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { ClickableProps } from "../../components/Clickable/Clickable";
+import { type ClickableProps } from "../../components/Clickable/Clickable";
 import { NOOP } from "../../utils/function-utils";
 
 /**

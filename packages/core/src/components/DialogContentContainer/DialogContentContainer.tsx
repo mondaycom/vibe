@@ -4,8 +4,8 @@ import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
-import { DialogSize, DialogType } from "../Dialog";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { type DialogSize, type DialogType } from "../Dialog";
+import { withStaticProps, type VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 

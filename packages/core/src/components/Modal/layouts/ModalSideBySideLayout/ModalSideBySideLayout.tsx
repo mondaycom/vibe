@@ -3,7 +3,7 @@ import cx from "classnames";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalSideBySideLayout.module.scss";
-import { ModalSideBySideLayoutProps } from "./ModalSideBySideLayout.types";
+import { type ModalSideBySideLayoutProps } from "./ModalSideBySideLayout.types";
 import ModalLayoutScrollableContent from "../ModalLayoutScrollableContent";
 import ModalFooterShadow from "../ModalFooterShadow";
 

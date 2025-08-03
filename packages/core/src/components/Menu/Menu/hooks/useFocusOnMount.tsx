@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { isMenuChildSelectable } from "../utils/utils";
 
 export interface UseFocusOnMountProps {

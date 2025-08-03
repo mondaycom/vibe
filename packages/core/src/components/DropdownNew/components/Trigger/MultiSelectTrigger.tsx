@@ -3,7 +3,7 @@ import { Flex } from "../../../Flex";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import DropdownInput from "./DropdownInput";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";

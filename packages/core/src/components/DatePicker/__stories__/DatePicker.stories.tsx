@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import moment, { Moment } from "moment";
-import DatePicker, { DatePickerProps } from "../DatePicker";
+import moment, { type Moment } from "moment";
+import DatePicker, { type DatePickerProps } from "../DatePicker";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { RangeDate } from "../types";
+import { type RangeDate } from "../types";
 
 // for Chromatic check to always have the same date UI
 const MOCK_INITIAL_DATE: RangeDate = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };

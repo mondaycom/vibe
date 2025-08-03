@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
-import { VibeComponentProps } from "../../types";
-import { BaseListItemData } from "../BaseListItem";
+import { type ReactNode } from "react";
+import type React from "react";
+import { type VibeComponentProps } from "../../types";
+import { type BaseListItemData } from "../BaseListItem";
 
 export interface BaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,

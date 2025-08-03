@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { SemanticColors } from "./semantic-colors/semantic-colors";
 import { BackgroundColors } from "./background-colors/background-colors";
 import TextColors from "./text-colors/text-colors";
