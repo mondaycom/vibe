@@ -58,3 +58,7 @@ export const Types = {
     </Flex>
   )
 };
+
+export const WithPlaceholder = {
+  render: () => <EditableHeading value="Clear heading to see placeholder" placeholder="Enter your heading here..." />
+};
