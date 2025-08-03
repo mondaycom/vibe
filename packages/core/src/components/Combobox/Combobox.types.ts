@@ -3,10 +3,10 @@ export type ComboboxOptionIconType = "default" | "renderer";
 export type ComboboxSizes = "small" | "medium" | "large";
 
 export {
-  IComboboxCategoryMap as ComboboxCategoryMap,
-  IComboboxCategory as ComboboxCategory,
-  IComboboxItem as ComboboxItem,
-  IComboboxOption as ComboboxOption,
-  IComboboxOptionEvents as ComboboxOptionEvents,
-  IOptionItemRendererArgs as ComboboxOptionItemRendererArgs
+  type IComboboxCategoryMap as ComboboxCategoryMap,
+  type IComboboxCategory as ComboboxCategory,
+  type IComboboxItem as ComboboxItem,
+  type IComboboxOption as ComboboxOption,
+  type IComboboxOptionEvents as ComboboxOptionEvents,
+  type IOptionItemRendererArgs as ComboboxOptionItemRendererArgs
 } from "./components/ComboboxConstants";
