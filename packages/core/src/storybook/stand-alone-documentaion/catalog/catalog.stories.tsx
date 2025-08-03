@@ -5,8 +5,7 @@ import { Meta, StoryObj } from "@storybook/react";
 type Story = StoryObj<typeof CatalogTemplate>;
 
 export default {
-  title: "Catalog",
-  tags: ["internal"]
+  title: "Catalog"
 } satisfies Meta<typeof CatalogTemplate>;
 
 export const Catalog: Story = {
@@ -19,5 +18,5 @@ export const Catalog: Story = {
       pauseAnimationAtEnd: true
     }
   },
-  tags: ["internal"]
+  tags: ["!dev"]
 };

@@ -11,9 +11,11 @@ export default meta;
 type Story = StoryObj;
 
 export const Sizes: Story = {
-  render: SpacingSizes
+  render: SpacingSizes,
+  tags: ["!dev"]
 };
 
 export const UsageExamples: Story = {
-  render: SpacingUsageExamples
+  render: SpacingUsageExamples,
+  tags: ["!dev"]
 };
