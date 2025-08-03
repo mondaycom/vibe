@@ -66,3 +66,7 @@ here's the second line`}
     />
   )
 };
+
+export const WithPlaceholder = {
+  render: () => <EditableText value="Clear text to see placeholder" placeholder="Enter your text here..." />
+};
