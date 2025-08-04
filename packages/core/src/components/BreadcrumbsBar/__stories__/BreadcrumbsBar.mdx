@@ -6,6 +6,8 @@ import Text from "../../Text/Text";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
+import do1 from "./assets/do1.png";
+import dont1 from "./assets/dont1.png";
 import {
   BUTTON_GROUP,
   MULTI_STEP_INDICATOR,
@@ -68,9 +70,7 @@ import { BreadcrumbsBar } from "@vibe/core";
 
 <Canvas of={BreadcrumbsBarStories.WithIcons} />
 
-### Overflow behavior
-
-Nested breadcrumb items under children item
+### With Breadcrumb Menu
 
 <Canvas of={BreadcrumbsBarStories.WithBreadcrumbMenu} />
 
@@ -78,6 +78,18 @@ Nested breadcrumb items under children item
 
 <ComponentRules
   rules={[
+    {
+      positive: {
+        component: <img src={do1} alt="do1" style={{ width: "250px" }} />,
+        description:
+          "Show the current step as the last item when using overflow behavior, and use only if content is overflowing and not as an aesthetic action."
+      },
+      negative: {
+        component: <img src={dont1} alt="dont1" style={{ width: "120px" }} />,
+        description:
+          "overflow on the last item causes disorientation. Moreover using overflow on individual items prevent the user of essential information unnecessarily.."
+      }
+    },
     {
       positive: {
         component: (
