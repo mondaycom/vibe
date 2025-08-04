@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.1...@vibe/mcp@0.4.0) (2025-08-04)
+
+
+### Features
+
+* **mcp:** add list-vibe-tokens tool for retrieving design tokens ([#3023](https://github.com/mondaycom/vibe/issues/3023)) ([1b3f2f1](https://github.com/mondaycom/vibe/commit/1b3f2f173affdca93870d394666da45f1f5836a0))
+
+
+
+
+
 ## [0.3.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.0...@vibe/mcp@0.3.1) (2025-08-03)
 
 **Note:** Version bump only for package @vibe/mcp
