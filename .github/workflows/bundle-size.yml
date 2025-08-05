@@ -49,13 +49,13 @@ jobs:
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
-          yarn lerna run size --scope=@vibe/core --json > base.json
+          yarn lerna run --scope=@vibe/core size --json > base.json
         continue-on-error: true
 
       - name: Run size-limit on PR
         run: |
           git checkout -
-          yarn lerna run size --scope=@vibe/core --json > pr.json
+          yarn lerna run --scope=@vibe/core size --json > pr.json
 
       - name: Compare sizes
         run: node scripts/compare-bundles.js
