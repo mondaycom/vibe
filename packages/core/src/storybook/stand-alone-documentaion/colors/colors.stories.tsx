@@ -6,29 +6,33 @@ import { BorderColors } from "./border-colors/border-colors";
 import { ContentColors } from "./content-colors/content-colors";
 
 const meta: Meta = {
-  title: "Foundations/Colors",
-  tags: ["internal"]
+  title: "Foundations/Colors"
 };
 export default meta;
 
 type Story = StoryObj;
 
 export const Semantic: Story = {
-  render: SemanticColors
+  render: SemanticColors,
+  tags: ["!dev"]
 };
 
 export const Background: Story = {
-  render: BackgroundColors
+  render: BackgroundColors,
+  tags: ["!dev"]
 };
 
 export const Text: Story = {
-  render: TextColors
+  render: TextColors,
+  tags: ["!dev"]
 };
 
 export const Border: Story = {
-  render: BorderColors
+  render: BorderColors,
+  tags: ["!dev"]
 };
 
 export const Content: Story = {
-  render: ContentColors
+  render: ContentColors,
+  tags: ["!dev"]
 };

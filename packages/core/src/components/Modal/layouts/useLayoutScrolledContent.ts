@@ -22,6 +22,10 @@ const useLayoutScrolledContent = () => {
   }, [checkScroll]);
 
   useEffect(() => {
+    if (!window.ResizeObserver) {
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 

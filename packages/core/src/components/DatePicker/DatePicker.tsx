@@ -9,7 +9,7 @@ import {
   type DayPickerPhrases
 } from "react-dates";
 /** @ts-expect-error this is exported, but not typed */
-import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases";
+import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases.js";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
@@ -96,7 +96,7 @@ const DatePicker = forwardRef(
       hideNavigationKeys = false,
       date,
       endDate,
-      onPickDate,
+      onPickDate = NOOP,
       enableOutsideDays = false,
       showWeekNumber = false,
       shouldBlockRange,

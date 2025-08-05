@@ -116,4 +116,22 @@ describe("DatePicker", () => {
     expect(newDay).toBeInTheDocument();
     expect(newDay.getAttribute("aria-label")).toContain(newYear.innerHTML);
   });
+
+  it("should not crash when onPickDate is not provided and a date is clicked", () => {
+    const { container } = render(<DatePicker />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
+  });
+
+  it("should not crash when onPickDate is not provided in range mode and a date is clicked", () => {
+    const { container } = render(<DatePicker range />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
+  });
 });
