@@ -25,6 +25,8 @@ export default function useFullKeyboardListeners({
   onSelectionKey = noop,
   onArrowNavigation = noop,
   onEscape = noop,
+  onHome = noop,
+  onEnd = noop,
   useDocumentEventListeners = false,
   focusOnMount = false
 }: {
@@ -32,6 +34,8 @@ export default function useFullKeyboardListeners({
   onSelectionKey: KeyboardEventCallback;
   onArrowNavigation: (type: NavDirections) => void;
   onEscape: KeyboardEventCallback;
+  onHome?: KeyboardEventCallback;
+  onEnd?: KeyboardEventCallback;
   useDocumentEventListeners?: boolean;
   focusOnMount: boolean;
 }) {
@@ -83,6 +87,18 @@ export default function useFullKeyboardListeners({
   useKeyEvent({
     keys: ESCAPE_KEYS,
     callback: onEscape,
+    ...listenerOptions
+  });
+
+  useKeyEvent({
+    keys: HOME_KEYS,
+    callback: onHome,
+    ...listenerOptions
+  });
+
+  useKeyEvent({
+    keys: END_KEYS,
+    callback: onEnd,
     ...listenerOptions
   });
 
