@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.58.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.1...@vibe/core@3.58.0) (2025-08-05)
+
+
+### Features
+
+* **Tabs:** add support for Home and End key navigation ([#3031](https://github.com/mondaycom/vibe/issues/3031)) ([3e80d9c](https://github.com/mondaycom/vibe/commit/3e80d9c454bf4112e50f072b46bf3719515f14ce))
+
+
+
+
+
 ## [3.57.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.0...@vibe/core@3.57.1) (2025-08-04)
 
 **Note:** Version bump only for package @vibe/core
