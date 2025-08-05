@@ -7,9 +7,19 @@ on:
       - "packages/core/package.json"
       - ".size-limit.js"
 
+permissions:
+  pull-requests: write
+
 jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
   bundle-size:
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - name: Checkout PR
@@ -26,8 +36,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build packages
-        run: yarn build:esm --scope=@vibe/core
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
+          path: packages/
 
       - name: Run size-limit on base commit
         run: |
@@ -35,15 +48,13 @@ jobs:
           echo "Base commit: $BASE"
           git checkout $BASE
           yarn install --frozen-lockfile
-          yarn build:esm --scope=@vibe/core
+          yarn build
           npx size-limit --json > base.json
         continue-on-error: true
 
       - name: Run size-limit on PR
         run: |
           git checkout -
-          yarn install --frozen-lockfile
-          yarn build:esm --scope=@vibe/core
           npx size-limit --json > pr.json
 
       - name: Compare sizes
