@@ -1,5 +1,6 @@
 module.exports = [
   {
-    path: "packages/core/src/components/*/index.{ts,tsx}"
+    path: "packages/core/src/components/*/index.{ts,tsx}",
+    webpack: false
   }
 ];
