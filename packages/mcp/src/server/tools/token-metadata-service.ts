@@ -1,5 +1,7 @@
-import * as fs from "fs";
-import * as path from "path";
+import { exec } from "child_process";
+import { promisify } from "util";
+
+const execAsync = promisify(exec);
 
 export interface TokenMetadata {
   name: string;
@@ -11,6 +13,7 @@ export interface TokenMetadata {
 
 export class TokenMetadataService {
   private static tokenCache: TokenMetadata[] | null = null;
+  private static readonly TOKENS_URL = "https://unpkg.com/monday-ui-style@latest/dist/index.css";
 
   /**
    * Get all design tokens from the style package
@@ -20,136 +23,139 @@ export class TokenMetadataService {
       return this.tokenCache;
     }
 
-    this.tokenCache = await this.parseAllTokenFiles();
-    return this.tokenCache;
-  }
-
-  /**
-   * Parse all SCSS files in the style package to extract tokens
-   */
-  private static async parseAllTokenFiles(): Promise<TokenMetadata[]> {
-    const allTokens: TokenMetadata[] = [];
-
     try {
-      const stylePackagePath = this.getStylePackagePath();
-      const srcPath = path.join(stylePackagePath, "src");
-
-      // Parse base token files
-      const tokenFiles = [
-        { file: "spacing.scss", category: "Spacing" },
-        { file: "typography.scss", category: "Typography" },
-        { file: "border-radius.scss", category: "Border Radius" },
-        { file: "borders.scss", category: "Borders" },
-        { file: "motion.scss", category: "Motion" }
-      ];
-
-      for (const { file, category } of tokenFiles) {
-        const filePath = path.join(srcPath, file);
-        if (fs.existsSync(filePath)) {
-          const tokens = await this.parseTokensFromFile(filePath, category);
-          allTokens.push(...tokens);
-        }
-      }
-
-      // Parse theme files for color tokens
-      const themesPath = path.join(srcPath, "themes");
-      if (fs.existsSync(themesPath)) {
-        const themeFiles = fs.readdirSync(themesPath).filter(file => file.endsWith(".scss"));
-
-        for (const themeFile of themeFiles) {
-          const filePath = path.join(themesPath, themeFile);
-          const themeName = path.basename(themeFile, ".scss");
-          const category = `Colors (${themeName
-            .replace("-theme", "")
-            .replace("-", " ")
-            .replace(/\b\w/g, l => l.toUpperCase())})`;
-
-          const tokens = await this.parseTokensFromFile(filePath, category);
-          allTokens.push(...tokens);
-        }
-      }
-
-      return allTokens;
+      console.error("[Vibe MCP] Fetching tokens from unpkg...");
+      const cssContent = await this.fetchWithRetry();
+      const tokens = this.parseTokensFromContent(cssContent);
+      console.error(`[Vibe MCP] Parsed ${tokens.length} tokens, caching for session`);
+      this.tokenCache = tokens;
+      return tokens;
     } catch (error) {
-      console.error("Error parsing token files:", error);
+      console.error("[Vibe MCP] Failed to fetch tokens:", error);
+      console.error("[Vibe MCP] Returning empty array as fallback");
       return [];
     }
   }
 
   /**
-   * Parse CSS custom properties from a single SCSS file
+   * Fetch CSS content from remote URL with retry logic
    */
-  private static async parseTokensFromFile(filePath: string, category: string): Promise<TokenMetadata[]> {
-    const tokens: TokenMetadata[] = [];
-
+  private static async fetchWithRetry(): Promise<string> {
+    // Try fetch first
     try {
-      const content = fs.readFileSync(filePath, "utf8");
-      const lines = content.split("\n");
+      const response = await fetch(this.TOKENS_URL);
 
-      // Regex to match CSS custom properties: --variable-name: value;
-      const tokenRegex = /^\s*--([a-zA-Z0-9-_]+):\s*([^;]+);?\s*$/;
-      const commentRegex = /^\s*\/\/\s*(.+)$/;
-
-      let currentComment = "";
-
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-
-        // Check for comments that might describe the next token
-        const commentMatch = line.match(commentRegex);
-        if (commentMatch) {
-          currentComment = commentMatch[1];
-          continue;
-        }
-
-        // Check for CSS custom property
-        const tokenMatch = line.match(tokenRegex);
-        if (tokenMatch) {
-          const [, name, value] = tokenMatch;
-
-          tokens.push({
-            name: `--${name}`,
-            value: value.trim(),
-            category,
-            description: currentComment || undefined,
-            file: path.relative(this.getStylePackagePath(), filePath)
-          });
-
-          // Clear comment after using it
-          currentComment = "";
-        } else if (line && !line.startsWith("//") && !line.includes("{") && !line.includes("}")) {
-          // Clear comment if we hit a non-empty, non-comment line that's not a token
-          currentComment = "";
-        }
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-    } catch (error) {
-      console.error(`Error parsing file ${filePath}:`, error);
+
+      return await response.text();
+    } catch (fetchError) {
+      console.error("[Vibe MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
+
+      // Fallback to curl for corporate networks
+      try {
+        const { stdout } = await execAsync(`curl -s -L "${this.TOKENS_URL}"`);
+        return stdout;
+      } catch (curlError) {
+        console.error("[Vibe MCP] Curl fallback also failed:", curlError);
+        throw fetchError; // Re-throw original fetch error
+      }
+    }
+  }
+
+  /**
+   * Parse CSS custom properties from CSS content
+   */
+  private static parseTokensFromContent(content: string): TokenMetadata[] {
+    const tokens: TokenMetadata[] = [];
+    const lines = content.split("\n");
+
+    // Regex to match CSS custom properties: --variable-name: value;
+    const tokenRegex = /^\s*--([a-zA-Z0-9-_]+):\s*([^;]+);?\s*$/;
+    const commentRegex = /^\s*\/\*\s*(.+?)\s*\*\/\s*$/;
+
+    let currentComment = "";
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Check for CSS comments that might describe the next token
+      const commentMatch = line.match(commentRegex);
+      if (commentMatch) {
+        currentComment = commentMatch[1];
+        continue;
+      }
+
+      // Check for CSS custom property
+      const tokenMatch = line.match(tokenRegex);
+      if (tokenMatch) {
+        const [, name, value] = tokenMatch;
+        const category = this.categorizeToken(name);
+
+        tokens.push({
+          name: `--${name}`,
+          value: value.trim(),
+          category,
+          description: currentComment || undefined,
+          file: "index.css"
+        });
+
+        // Clear comment after using it
+        currentComment = "";
+      } else if (line && !line.startsWith("/*") && !line.endsWith("*/") && !line.includes("{") && !line.includes("}")) {
+        // Clear comment if we hit a non-empty, non-comment line that's not a token
+        currentComment = "";
+      }
     }
 
     return tokens;
   }
 
   /**
-   * Get the path to the style package
+   * Categorize tokens based on their name patterns
    */
-  private static getStylePackagePath(): string {
-    // Navigate from the MCP package to the style package
-    const currentDir = process.cwd();
+  private static categorizeToken(tokenName: string): string {
+    // Remove the -- prefix and convert to lowercase for pattern matching
+    const name = tokenName.toLowerCase().replace(/^--/, "");
 
-    // Try different possible paths based on where the MCP server might be running
-    const possiblePaths = [
-      path.join(currentDir, "..", "style"), // Running from packages/mcp
-      path.join(currentDir, "packages", "style"), // Running from monorepo root
-      path.join(currentDir, "..", "..", "packages", "style") // Running from packages/mcp/dist
-    ];
-
-    for (const possiblePath of possiblePaths) {
-      if (fs.existsSync(path.join(possiblePath, "package.json"))) {
-        return possiblePath;
-      }
+    // Motion tokens - start with motion-
+    if (name.startsWith("motion-")) {
+      return "Motion";
     }
 
-    throw new Error("Could not find style package path");
+    // Spacing tokens - start with spacing- or space-
+    if (name.startsWith("spacing-") || name.startsWith("space-")) {
+      return "Spacing";
+    }
+
+    // Typography tokens - start with font- or letter-spacing-
+    if (name.startsWith("font-") || name.startsWith("letter-spacing-")) {
+      return "Typography";
+    }
+
+    // Border radius tokens
+    if (name.startsWith("border-radius-")) {
+      return "Border Radius";
+    }
+
+    // Shadow tokens
+    if (name.startsWith("box-shadow-")) {
+      return "Shadows";
+    }
+
+    // Color tokens - simplified to just check if "color" is included
+    if (name.includes("color")) {
+      return "Colors";
+    }
+
+    // Animation/transition related
+    if (name.includes("animation") || name.includes("transition") || name.includes("timing")) {
+      return "Motion";
+    }
+
+    // Default category
+    return "Otherww";
   }
 
   /**
