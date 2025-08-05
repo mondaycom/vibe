@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.4.0...@vibe/mcp@0.5.0) (2025-08-05)
+
+
+### Features
+
+* **mcp:** implement token fetching with retry logic and categorize tokens ([#3035](https://github.com/mondaycom/vibe/issues/3035)) ([d0cc2b8](https://github.com/mondaycom/vibe/commit/d0cc2b8af8d350f13e7a503b0bf6e6547078d7d4))
+
+
+
+
+
 # [0.4.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.1...@vibe/mcp@0.4.0) (2025-08-04)
 
 

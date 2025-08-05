@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.58.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.0...@vibe/core@3.58.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* **DatePicker:** fix import path for defaultPhrases ([#3034](https://github.com/mondaycom/vibe/issues/3034)) ([2797c34](https://github.com/mondaycom/vibe/commit/2797c34e9cfb387df43b5b664a013b9f75437d98))
+
+
+
+
+
 # [3.58.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.1...@vibe/core@3.58.0) (2025-08-05)
 
 
