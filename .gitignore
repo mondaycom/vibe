@@ -15,3 +15,8 @@ coverage
 .DS_Store
 packages/testkit/test-results
 packages/testkit/reports
+
+# Bundle size analysis files
+base.json
+pr.json
+bundle-sizes.md

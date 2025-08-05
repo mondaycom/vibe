@@ -1,0 +1,67 @@
+name: Bundle Size Comparison
+
+on:
+  pull_request:
+    paths:
+      - "packages/core/src/components/**"
+      - "packages/core/package.json"
+      - ".size-limit.js"
+
+jobs:
+  bundle-size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages
+        run: yarn build --scope=@vibe/core
+
+      - name: Run size-limit on base commit
+        run: |
+          BASE=$(git merge-base origin/master HEAD)
+          echo "Base commit: $BASE"
+          git checkout $BASE
+          yarn install --frozen-lockfile
+          yarn build:esm --scope=@vibe/core
+          npx size-limit --json > base.json
+        continue-on-error: true
+
+      - name: Run size-limit on PR
+        run: |
+          git checkout -
+          yarn install --frozen-lockfile
+          yarn build:esm --scope=@vibe/core
+          npx size-limit --json > pr.json
+
+      - name: Compare sizes
+        run: node scripts/compare-bundles.js
+
+      - name: Post comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: bundle-size
+          path: bundle-sizes.md
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bundle-analysis
+          path: |
+            base.json
+            pr.json
+            bundle-sizes.md
+          retention-days: 7
