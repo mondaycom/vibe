@@ -27,7 +27,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build packages
-        run: yarn build --scope=@vibe/core
+        run: yarn build:esm --scope=@vibe/core
 
       - name: Run size-limit on base commit
         run: |
