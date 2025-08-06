@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Install size-limit globally
+        run: npm install -g size-limit @size-limit/preset-big-lib
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
