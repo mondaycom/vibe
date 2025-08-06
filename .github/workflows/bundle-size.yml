@@ -45,6 +45,7 @@ jobs:
       - name: Run size-limit on PR
         run: |
           yarn install --frozen-lockfile
+          node scripts/generate-size-limit-config.js
           ./node_modules/.bin/size-limit --json > pr.json
 
       - name: Run size-limit on base commit

@@ -20,3 +20,4 @@ packages/testkit/reports
 base.json
 pr.json
 bundle-sizes.md
+.size-limit.js
