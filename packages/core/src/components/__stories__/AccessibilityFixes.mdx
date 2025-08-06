@@ -1,0 +1,30 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as AccessibilityFixesStories from "./AccessibilityFixes.stories";
+
+<Meta of={AccessibilityFixesStories} />
+
+# Accessibility Fixes
+
+## TextField
+
+Removed the hidden buttons from the dom when no icon is shown
+
+<Canvas of={AccessibilityFixesStories.TextFieldConditionalIcons} />
+
+## Checkbox
+
+The label is now associated with the input using the id prop, and does not wrap the input.
+
+<Canvas of={AccessibilityFixesStories.CheckboxJAWSCompatibility} />
+
+## MenuButton
+
+Remove the role="dialog" as the list role is sufficient
+
+<Canvas of={AccessibilityFixesStories.MenuButtonAccessibility} />
+
+## TextArea
+
+When there is a character limit aria-describedby is used to describe the character limit: "44 out of 2000"
+
+<Canvas of={AccessibilityFixesStories.TextAreaCharacterLimit} />
