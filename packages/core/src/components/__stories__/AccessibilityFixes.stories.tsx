@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import TextField from "../TextField/TextField";
 import Checkbox from "../Checkbox/Checkbox";
-import Dialog from "../Dialog/Dialog";
-import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import Button from "../Button/Button";
 import MenuButton from "../MenuButton/MenuButton";
 import TextArea from "../TextArea/TextArea";
 import Menu from "../Menu/Menu/Menu";
@@ -34,6 +31,7 @@ const TextFieldConditionalExample = () => {
         value={searchValue}
         onChange={value => setSearchValue(value)}
         iconName={searchValue ? CloseSmall : undefined}
+        iconsNames={{ primary: searchValue ? "Close" : undefined, secondary: searchValue ? "Close" : undefined }}
         clearOnIconClick
       />
     </div>
