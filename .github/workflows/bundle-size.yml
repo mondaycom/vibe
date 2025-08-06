@@ -49,15 +49,14 @@ jobs:
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
-          cd packages/core
-          yarn size-limit --json
+          yarn workspace @vibe/core size-limit --json
         continue-on-error: true
 
       - name: Run size-limit on PR
         run: |
           git checkout -
-          cd packages/core
-          yarn size-limit --json
+          yarn install --frozen-lockfile
+          yarn workspace @vibe/core size-limit --json
 
       - name: Compare sizes
         run: node scripts/compare-bundles.js
