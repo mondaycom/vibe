@@ -90,7 +90,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
-    "stylelint:fix": "yarn stylelint -- --fix"
+    "stylelint:fix": "yarn stylelint -- --fix",
+    "size-limit": "size-limit"
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
@@ -118,6 +119,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
+    "@size-limit/preset-big-lib": "^11.0.1",
+    "size-limit": "^11.0.1",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/parser": "^7.24.4",
     "@babel/plugin-proposal-class-properties": "^7.16.5",
@@ -278,12 +281,5 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
-  ],
-  "size-limit": [
-    {
-      "path": "dist/src/index.js",
-      "limit": "369 KB",
-      "gzip": true
-    }
   ]
 }

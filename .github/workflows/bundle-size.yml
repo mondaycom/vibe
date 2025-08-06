@@ -48,17 +48,16 @@ jobs:
           echo "Base commit: $BASE"
           git checkout $BASE
           yarn install --frozen-lockfile
-          yarn global add size-limit @size-limit/preset-big-lib
           yarn build
-          yarn workspace @vibe/core size-limit --json > base.json
+          npm install --save-dev size-limit @size-limit/preset-big-lib
+          cd packages/core && ../../node_modules/.bin/size-limit --json > ../../base.json
         continue-on-error: true
 
       - name: Run size-limit on PR
         run: |
           git checkout -
           yarn install --frozen-lockfile
-          yarn global add size-limit @size-limit/preset-big-lib
-          yarn workspace @vibe/core size-limit --json > pr.json
+          cd packages/core && ../../node_modules/.bin/size-limit --json > ../../pr.json
 
       - name: Compare sizes
         run: node scripts/compare-bundles.js
