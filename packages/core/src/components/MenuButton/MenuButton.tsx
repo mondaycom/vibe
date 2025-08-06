@@ -298,7 +298,7 @@ const MenuButton = forwardRef(
     const content = useMemo(() => {
       if (clonedChildren.length === 0) return null;
       return (
-        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
+        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER} role={null}>
           {clonedChildren}
         </DialogContentContainer>
       );
