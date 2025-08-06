@@ -50,14 +50,14 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
           cd packages/core
-          yarn size-limit --json > base.json
+          yarn size-limit --json
         continue-on-error: true
 
       - name: Run size-limit on PR
         run: |
           git checkout -
           cd packages/core
-          yarn size-limit --json > pr.json
+          yarn size-limit --json
 
       - name: Compare sizes
         run: node scripts/compare-bundles.js
