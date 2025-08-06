@@ -95,7 +95,6 @@ const Checkbox = forwardRef(
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
-    const iconContainerRef = useRef<HTMLDivElement>(null);
 
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;
@@ -130,13 +129,9 @@ const Checkbox = forwardRef(
     }, [ariaLabel, label]);
 
     return (
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      <label
+      <div
         className={cx(styles.wrapper, className)}
-        onMouseUp={onMouseUpCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
-        htmlFor={id}
-        onClickCapture={onClickCaptureLabel}
       >
         <input
           ref={mergedInputRef}
@@ -154,11 +149,14 @@ const Checkbox = forwardRef(
           checked={checked}
           tabIndex={tabIndex}
         />
-        <div
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+        <label
+          htmlFor={id}
           className={cx(styles.checkbox, checkboxClassName)}
-          ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
           data-vibe={ComponentVibeId.CHECKBOX}
+          onMouseUp={onMouseUpCallback}
+          onClickCapture={onClickCaptureLabel}
         >
           <Icon
             className={styles.icon}
@@ -168,18 +166,22 @@ const Checkbox = forwardRef(
             ariaHidden={true}
             iconSize="16"
           />
-        </div>
+        </label>
         {label === false ? null : (
-          <Text
-            element="span"
-            type="text2"
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+          <label
+            htmlFor={id}
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+            onMouseUp={onMouseUpCallback}
+            onClickCapture={onClickCaptureLabel}
           >
-            {label}
-          </Text>
+            <Text element="span" type="text2">
+              {label}
+            </Text>
+          </label>
         )}
-      </label>
+      </div>
     );
   }
 );
