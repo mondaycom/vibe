@@ -49,9 +49,13 @@ jobs:
 
       - name: Run size-limit on base commit
         run: |
+          PR_HEAD_SHA=$(git rev-parse HEAD)
+          trap "echo 'Checking out back to PR commit'; git checkout $PR_HEAD_SHA" EXIT
+
           BASE=$(git merge-base origin/master HEAD)
           echo "Base commit: $BASE"
           git checkout $BASE
+
           if [ -f .size-limit.js ]; then
             echo ".size-limit.js found on base commit. Running size-limit."
             yarn install --frozen-lockfile
