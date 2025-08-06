@@ -10,13 +10,17 @@ md += "|-----------|------|----|------|\n";
 
 const baseMap = new Map();
 base.forEach(entry => {
-  const componentName = entry.path.match(/components\/([^\/]+)\//)?.[1] || entry.path;
+  // Handle both 'path' (global config) and 'name' (package config) properties
+  const path = entry.path || entry.name;
+  const componentName = path.match(/components\/([^\/]+)\//)?.[1] || path;
   baseMap.set(componentName, entry);
 });
 
 const prMap = new Map();
 pr.forEach(entry => {
-  const componentName = entry.path.match(/components\/([^\/]+)\//)?.[1] || entry.path;
+  // Handle both 'path' (global config) and 'name' (package config) properties
+  const path = entry.path || entry.name;
+  const componentName = path.match(/components\/([^\/]+)\//)?.[1] || path;
   prMap.set(componentName, entry);
 });
 
