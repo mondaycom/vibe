@@ -1,4 +1,4 @@
-import { CounterColor } from "../Counter/Counter.types";
+import { type CounterColor } from "../Counter/Counter.types";
 
 export type AvatarGroupCounterVisualProps = {
   color?: Extract<CounterColor, "light" | "dark">;

@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import styles from "./Example.module.scss";
-import { ElementContent } from "../../../types";
+import { type ElementContent } from "../../../types";
 
 interface ComponentRuleProps {
   children: ElementContent;

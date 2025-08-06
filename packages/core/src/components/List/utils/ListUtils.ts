@@ -1,6 +1,6 @@
-import { MutableRefObject, useState } from "react";
-import { ListItemElement } from "../../ListItem/ListItem.types";
-import { ListElement } from "../List.types";
+import { type MutableRefObject, useState } from "react";
+import { type ListItemElement } from "../../ListItem/ListItem.types";
+import { type ListElement } from "../List.types";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
 
 let listIdCounter = 0;

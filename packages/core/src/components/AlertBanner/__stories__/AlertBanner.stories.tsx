@@ -1,11 +1,11 @@
 import React from "react";
-import AlertBanner, { AlertBannerProps } from "../AlertBanner";
+import AlertBanner, { type AlertBannerProps } from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Flex from "../../Flex/Flex";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,

@@ -1,5 +1,5 @@
 import useEventListener from "../useEventListener";
-import { RefObject, useCallback, useRef } from "react";
+import { type RefObject, useCallback, useRef } from "react";
 
 export default function useListenFocusTriggers({
   ref,

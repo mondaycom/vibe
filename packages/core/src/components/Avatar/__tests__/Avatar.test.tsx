@@ -2,7 +2,7 @@ import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
-import Avatar, { AvatarProps } from "../Avatar";
+import Avatar, { type AvatarProps } from "../Avatar";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const renderComponent = (props: AvatarProps) => {

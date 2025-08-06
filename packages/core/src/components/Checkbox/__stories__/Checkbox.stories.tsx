@@ -4,7 +4,7 @@ import Link from "../../Link/Link";
 import Checkbox from "../Checkbox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./Checkbox.stories.scss";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Checkbox>;
 

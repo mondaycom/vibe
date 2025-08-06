@@ -1,8 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import TipseenTitle from "./TipseenTitle";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
+import { type VibeComponentProps } from "../../types";
+import { type ElementContent } from "../../types/ElementContent";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./TipseenBasicContent.module.scss";

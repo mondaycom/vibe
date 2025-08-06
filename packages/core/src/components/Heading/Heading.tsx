@@ -1,9 +1,9 @@
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { withStaticProps } from "../../types";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "./HeadingConstants";
-import Typography, { TypographyProps } from "../Typography/Typography";
+import Typography, { type TypographyProps } from "../Typography/Typography";
 import {
   TypographyAlign as TypographyAlignEnum,
   TypographyColor as TypographyColorEnum
@@ -11,8 +11,8 @@ import {
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Heading.module.scss";
 import { TypographyContext } from "../Typography/utils/TypographyContext";
-import { HeadingType, HeadingWeight } from "./Heading.types";
-import { TypographyAlign, TypographyColor } from "../Typography";
+import { type HeadingType, type HeadingWeight } from "./Heading.types";
+import { type TypographyAlign, type TypographyColor } from "../Typography";
 
 const OVERFLOW_TOLERANCE_IN_PX = 4;
 

@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import CodeMirror, { Extension, ReactCodeMirrorRef, BasicSetupOptions } from "@uiw/react-codemirror";
+import CodeMirror, { type Extension, type ReactCodeMirrorRef, type BasicSetupOptions } from "@uiw/react-codemirror";
 
 interface EditorProps {
   code: string;

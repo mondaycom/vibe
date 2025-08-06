@@ -1,7 +1,7 @@
 import React from "react";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import EmptyState from "../EmptyState";
-import { EmptyStateProps } from "../EmptyState.types";
+import { type EmptyStateProps } from "../EmptyState.types";
 import emptyStateImage from "./assets/image.png";
 import { Download, Update } from "@vibe/icons";
 import Flex from "../../../components/Flex/Flex";

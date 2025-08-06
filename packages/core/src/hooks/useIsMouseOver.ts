@@ -1,6 +1,6 @@
-import { RefObject, useCallback, useState } from "react";
+import { type RefObject, useCallback, useState } from "react";
 import useEventListener from "./useEventListener";
-import { GeneralEventType } from "../types/events";
+import { type GeneralEventType } from "../types/events";
 
 export default function useIsMouseOver({ ref }: { ref: RefObject<HTMLElement> }): boolean {
   const [isHovered, setIsHover] = useState<boolean>(false);

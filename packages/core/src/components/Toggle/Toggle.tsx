@@ -1,12 +1,12 @@
-import React, { ChangeEvent, forwardRef } from "react";
+import React, { type ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { ToggleSize } from "./Toggle.types";
+import { type ToggleSize } from "./Toggle.types";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {

@@ -1,4 +1,4 @@
-import { vi, beforeEach, describe, it, expect, Mock } from "vitest";
+import { vi, beforeEach, describe, it, expect, type Mock } from "vitest";
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import ButtonGroup from "../ButtonGroup";

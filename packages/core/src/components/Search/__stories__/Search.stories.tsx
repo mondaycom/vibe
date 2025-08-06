@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
 import Flex from "../../Flex/Flex";
-import { Decorator, Meta, StoryObj } from "@storybook/react";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 import IconButton from "../../IconButton/IconButton";
 import { Filter as FilterIcon } from "@vibe/icons";
 

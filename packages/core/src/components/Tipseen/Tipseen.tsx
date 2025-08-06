@@ -1,7 +1,7 @@
-import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { AnimationType as AnimationTypeEnum, HideShowEvent as HideShowEventEnum } from "../Dialog/DialogConstants";
-import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import IconButton from "../../components/IconButton/IconButton";
@@ -12,17 +12,17 @@ import {
   TipseenCloseButtonTheme as TipseenCloseButtonThemeEnum,
   TipseenColor as TipseenColorEnum
 } from "./TipseenConstants";
-import { TipseenCloseButtonTheme, TipseenColor } from "./Tipseen.types";
-import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
-import { MoveBy } from "../../types/MoveBy";
-import { Modifier } from "react-popper";
+import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
+import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type MoveBy } from "../../types/MoveBy";
+import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { type TooltipPositions } from "../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
 
 export interface TipseenProps extends VibeComponentProps {

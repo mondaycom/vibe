@@ -2,9 +2,9 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
-import { DividerDirection } from "./Divider.types";
+import { type DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Divider.module.scss";
 
 export interface DividerProps extends VibeComponentProps {

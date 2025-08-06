@@ -1,14 +1,14 @@
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
-import Typography, { TypographyProps } from "../Typography/Typography";
+import Typography, { type TypographyProps } from "../Typography/Typography";
 import {
   TypographyAlign as TypographyAlignEnum,
   TypographyColor as TypographyColorEnum
 } from "../Typography/TypographyConstants";
-import { TextType, TextWeight } from "./Text.types";
+import { type TextType, type TextWeight } from "./Text.types";
 import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 

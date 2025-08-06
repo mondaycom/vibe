@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PortalTarget } from "./usePortalTarget.types";
+import { type PortalTarget } from "./usePortalTarget.types";
 
 const usePortalTarget = (portalTarget?: PortalTarget): Element | DocumentFragment => {
   const [resolvedTarget, setResolvedTarget] = useState<Element | DocumentFragment>(document.body);

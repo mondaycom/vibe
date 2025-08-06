@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Text from "../Text/Text";

@@ -1,15 +1,23 @@
-import React, { cloneElement, CSSProperties, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
+import React, {
+  cloneElement,
+  type CSSProperties,
+  forwardRef,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useRef
+} from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
-import { CSSTransitionProps } from "react-transition-group/CSSTransition";
+import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { keyCodes } from "../../../constants";
-import { DialogAnimationType, DialogTriggerEvent } from "../Dialog.types";
-import * as PopperJS from "@popperjs/core";
+import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
+import type * as PopperJS from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
 import useDisableScroll from "../../../hooks/useDisableScroll";

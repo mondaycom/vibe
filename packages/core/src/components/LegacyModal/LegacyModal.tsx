@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, useCallback, useMemo } from "react";
+import React, { cloneElement, type ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -18,7 +18,7 @@ import { withStaticPropsWithoutForwardRef } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./LegacyModal.module.scss";
-import { ModalWidth } from "./LegacyModal.types";
+import { type ModalWidth } from "./LegacyModal.types";
 import LayerProvider from "../LayerProvider/LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 

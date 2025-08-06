@@ -3,7 +3,7 @@ import cx from "classnames";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import { BaseList } from "../../../BaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 import styles from "./Menu.module.scss";
 
 const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {

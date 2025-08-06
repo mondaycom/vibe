@@ -13,10 +13,10 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { MultiStepSize, MultiStepType, StepStatus } from "../../MultiStep.types";
+import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
-import { SubIcon, VibeComponentProps } from "../../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../../types";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 

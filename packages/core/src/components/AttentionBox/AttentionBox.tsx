@@ -8,8 +8,13 @@ import IconButton from "../IconButton/IconButton";
 import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@vibe/icons";
 import { IconType as IconTypeEnum } from "../Icon/IconConstants";
 import { AttentionBoxType as AttentionBoxTypeEnum } from "./AttentionBoxConstants";
-import { AttentionBoxType } from "./AttentionBox.types";
-import { SubIcon, VibeComponentProps, ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
+import { type AttentionBoxType } from "./AttentionBox.types";
+import {
+  type SubIcon,
+  type VibeComponentProps,
+  type ElementContent,
+  withStaticPropsWithoutForwardRef
+} from "../../types";
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";

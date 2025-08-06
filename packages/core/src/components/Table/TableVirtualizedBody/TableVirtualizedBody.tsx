@@ -1,16 +1,16 @@
-import React, { ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
-import { VibeComponentProps } from "../../../types";
+import React, { type ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
+import { type VibeComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
-import { FixedSizeList as List, ListChildComponentProps, ScrollDirection } from "react-window";
+import { FixedSizeList as List, type ListChildComponentProps, type ScrollDirection } from "react-window";
 import { useTable } from "../context/TableContext/TableContext";
 import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
-import AutoSizer, { Size as AutoSizerSize } from "react-virtualized-auto-sizer";
+import AutoSizer, { type Size as AutoSizerSize } from "react-virtualized-auto-sizer";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
-import { TableColumn } from "../Table/Table";
+import { type TableColumn } from "../Table/Table";
 
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 

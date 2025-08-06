@@ -1,5 +1,5 @@
 import { toNumber } from "lodash-es";
-import { SIZES } from "./../../../constants/sizes";
+import { type SIZES } from "./../../../constants/sizes";
 import cx from "classnames";
 import styles from "./LinearProgressBar.module.scss";
 

@@ -1,8 +1,9 @@
-import React, { ReactNode, AriaRole } from "react";
-import { SubIcon, VibeComponentProps } from "../../types";
-import { TooltipProps } from "../Tooltip";
-import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
-import { ChipsProps } from "../Chips";
+import { type ReactNode, type AriaRole } from "react";
+import type React from "react";
+import { type SubIcon, type VibeComponentProps } from "../../types";
+import { type TooltipProps } from "../Tooltip";
+import { type BaseListDirection, type BaseListSizes } from "../BaseList/BaseList.types";
+import { type ChipsProps } from "../Chips";
 
 export interface BaseListItemProps<Item extends Record<string, unknown>>
   extends Omit<React.HTMLAttributes<HTMLElement>, "role">,

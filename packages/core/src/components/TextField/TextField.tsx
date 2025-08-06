@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, {
   ChangeEvent,
-  ChangeEventHandler,
+  type ChangeEventHandler,
   forwardRef,
   useCallback,
   useEffect,
@@ -21,14 +21,14 @@ import {
   TextFieldFeedbackState as TextFieldFeedbackStateEnum,
   TextFieldTextType as TextFieldTextTypeEnum
 } from "./TextFieldConstants";
-import { TextFieldType, TextFieldSize } from "./TextField.types";
+import { type TextFieldType, type TextFieldSize } from "./TextField.types";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "../Tooltip";
 import { HiddenText } from "../HiddenText";

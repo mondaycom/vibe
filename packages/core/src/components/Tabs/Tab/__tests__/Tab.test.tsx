@@ -2,7 +2,7 @@ import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, screen, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Tab, { TabProps } from "../Tab";
+import Tab, { type TabProps } from "../Tab";
 
 vi.useFakeTimers();
 

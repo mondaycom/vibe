@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import Skeleton, { SkeletonProps } from "../Skeleton";
+import Skeleton, { type SkeletonProps } from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Button from "../../Button/Button";

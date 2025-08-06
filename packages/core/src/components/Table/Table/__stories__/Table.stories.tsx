@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table, { TableColumn } from "../Table";
+import Table, { type TableColumn } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -23,7 +23,7 @@ import {
   virtualizedScrollTableColumns,
   virtualizedScrollTableData
 } from "./Table.stories.helpers";
-import { TableProps } from "../Table";
+import { type TableProps } from "../Table";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,

@@ -1,6 +1,6 @@
 import { expect } from "@storybook/jest";
 import {
-  Canvas,
+  type Canvas,
   clearText,
   clickElement,
   getByTestId,

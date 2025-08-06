@@ -1,4 +1,5 @@
-import React, { useCallback, useMemo } from "react";
+import type React from "react";
+import { useCallback, useMemo } from "react";
 import {
   ARROW_DOWN_KEYS,
   ARROW_UP_KEYS,

@@ -1,7 +1,11 @@
 import React, { useRef, forwardRef } from "react";
-import { BaseDropdownProps, DropdownMultiControllerProps, DropdownSingleControllerProps } from "./Dropdown.types";
+import {
+  type BaseDropdownProps,
+  type DropdownMultiControllerProps,
+  type DropdownSingleControllerProps
+} from "./Dropdown.types";
 import useMergeRef from "../../hooks/useMergeRef";
-import { BaseListItemData } from "../BaseListItem";
+import { type BaseListItemData } from "../BaseListItem";
 import DropdownComboboxController from "./modes/DropdownComboboxController";
 import DropdownMultiComboboxController from "./modes/DropdownMultiComboboxController";
 import DropdownSelectController from "./modes/DropdownSelectController";

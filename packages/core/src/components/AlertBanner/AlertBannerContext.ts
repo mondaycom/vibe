@@ -1,5 +1,5 @@
 import React from "react";
-import { TypographyColor } from "../Typography/Typography.types";
+import { type TypographyColor } from "../Typography/Typography.types";
 
 type AlertBannerContextType = {
   textColor: Extract<TypographyColor, "onPrimary" | "onInverted" | "fixedDark">;

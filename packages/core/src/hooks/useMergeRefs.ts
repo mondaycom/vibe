@@ -1,4 +1,4 @@
-import { LegacyRef, MutableRefObject, useMemo } from "react";
+import { type LegacyRef, type MutableRefObject, useMemo } from "react";
 
 /*
  * const Component = React.forwardRef((props, ref) => {

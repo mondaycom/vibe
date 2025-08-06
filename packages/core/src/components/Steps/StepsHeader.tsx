@@ -1,12 +1,12 @@
-import React, { FC, useMemo } from "react";
+import React, { type FC, useMemo } from "react";
 import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
-import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
-import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
+import { StepsGalleryHeader, type StepsGalleryHeaderProps } from "./StepsGalleryHeader";
+import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbersHeader";
 import { FINISH_TEXT } from "./StepsConstants";
-import { StepsType, StepsColor } from "./Steps.types";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import Button, { ButtonProps } from "../Button/Button";
+import { type StepsType, type StepsColor } from "./Steps.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import Button, { type ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {

@@ -1,5 +1,5 @@
-import { MutableRefObject } from "react";
-import { NavDirections } from "../../hooks/useFullKeyboardListeners";
+import { type MutableRefObject } from "react";
+import { type NavDirections } from "../../hooks/useFullKeyboardListeners";
 
 export type GridElementRef = MutableRefObject<HTMLElement> & { current?: HTMLElement & { disabled?: boolean } };
 export type DirectionMap = Map<GridElementRef, GridElementRef>;

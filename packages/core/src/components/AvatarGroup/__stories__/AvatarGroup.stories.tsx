@@ -1,11 +1,11 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3, person4 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
-import { AvatarGroupProps } from "../AvatarGroup";
+import { type AvatarGroupProps } from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";

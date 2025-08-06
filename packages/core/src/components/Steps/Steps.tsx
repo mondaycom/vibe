@@ -1,13 +1,13 @@
-import React, { forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
 import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
-import { StepsColor, StepsType } from "./Steps.types";
-import { ButtonProps } from "../Button";
+import { type StepsColor, type StepsType } from "./Steps.types";
+import { type ButtonProps } from "../Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { withStaticProps, type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
 
 export interface StepsProps extends VibeComponentProps {

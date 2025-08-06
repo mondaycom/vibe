@@ -1,6 +1,6 @@
 import React from "react";
-import { Chips, ChipsProps } from "../../../Chips";
-import { BaseListItemData } from "../../../BaseListItem";
+import { Chips, type ChipsProps } from "../../../Chips";
+import { type BaseListItemData } from "../../../BaseListItem";
 
 const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unknown>>): Partial<ChipsProps> => {
   const chipProps: Partial<ChipsProps> = {};

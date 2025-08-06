@@ -1,4 +1,4 @@
-import { NumberFieldProps } from "../NumberField.types";
+import { type NumberFieldProps } from "../NumberField.types";
 
 type CalculateSteppedValueProps = Pick<NumberFieldProps, "value" | "step" | "min" | "max" | "allowOutOfBounds"> & {
   direction: number;

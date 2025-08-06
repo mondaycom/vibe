@@ -3,7 +3,7 @@ import useWizard from "../useWizard";
 import { Button, Flex } from "../../../components";
 import Steps from "../../../components/Steps/Steps";
 import Heading from "../../../components/Heading/Heading";
-import { Decorator } from "@storybook/react";
+import { type Decorator } from "@storybook/react";
 import styles from "./useWizard.stories.module.scss";
 
 const withUseWizardDecorator: Decorator = Story => (

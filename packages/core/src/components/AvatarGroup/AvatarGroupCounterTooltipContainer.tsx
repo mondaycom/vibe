@@ -1,10 +1,10 @@
-import React, { ReactElement, RefObject, useCallback, useMemo, useRef, useState } from "react";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
-import { AvatarProps } from "../Avatar/Avatar";
+import React, { type ReactElement, type RefObject, useCallback, useMemo, useRef, useState } from "react";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/Avatar.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type AvatarType } from "../Avatar/Avatar.types";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {

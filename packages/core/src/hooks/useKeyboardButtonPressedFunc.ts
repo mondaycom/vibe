@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import type React from "react";
+import { useCallback } from "react";
 import { keyCodes } from "../constants";
 
 export function useKeyboardButtonPressedFunc(onClick: (event: React.KeyboardEvent) => void) {

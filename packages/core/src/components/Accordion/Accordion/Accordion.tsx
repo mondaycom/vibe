@@ -1,7 +1,7 @@
 import cx from "classnames";
-import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
 import { ComponentVibeId } from "../../../tests/constants";
 

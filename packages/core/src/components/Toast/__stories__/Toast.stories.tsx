@@ -5,7 +5,7 @@ import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
-import { Decorator, Meta, StoryObj } from "@storybook/react";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,

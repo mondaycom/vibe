@@ -1,7 +1,7 @@
-import React from "react";
-import MenuButton from "../../MenuButton/MenuButton";
-import IconButton from "../../IconButton/IconButton";
-import { ButtonColor } from "../../Button";
+import type React from "react";
+import type MenuButton from "../../MenuButton/MenuButton";
+import type IconButton from "../../IconButton/IconButton";
+import { type ButtonColor } from "../../Button";
 
 export type ModalTopActionsTheme = "light" | "dark";
 export type ModalTopActionsButtonColor = Extract<ButtonColor, "primary" | "fixed-light" | "fixed-dark">;

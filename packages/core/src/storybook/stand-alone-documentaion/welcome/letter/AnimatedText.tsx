@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { motion, type MotionValue, useTransform } from "framer-motion";
 
 const AnimatedChar = ({
   char,

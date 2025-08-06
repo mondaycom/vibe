@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { withDefaultConfig, Props } from "react-docgen-typescript";
-import { ExportDeclaration, Project, SourceFile } from "ts-morph";
+import { withDefaultConfig, type Props } from "react-docgen-typescript";
+import { type ExportDeclaration, Project, type SourceFile } from "ts-morph";
 import { fileURLToPath } from "url";
 import { cpus } from "os";
 

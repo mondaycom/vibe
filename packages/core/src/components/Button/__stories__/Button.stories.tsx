@@ -4,7 +4,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { Add, Calendar, Check, Remove } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Button from "../Button";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Button>;

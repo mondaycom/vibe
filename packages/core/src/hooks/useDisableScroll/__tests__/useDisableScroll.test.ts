@@ -1,4 +1,4 @@
-import { vi, beforeEach, afterEach, describe, expect, MockInstance } from "vitest";
+import { vi, beforeEach, afterEach, describe, expect, type MockInstance } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
 import useDisableScroll from "..";
 

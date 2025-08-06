@@ -1,6 +1,6 @@
 import React from "react";
-import BreadcrumbsBar, { BreadcrumbBarProps } from "../BreadcrumbsBar";
-import BreadcrumbItem, { BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
+import BreadcrumbsBar, { type BreadcrumbBarProps } from "../BreadcrumbsBar";
+import BreadcrumbItem, { type BreadcrumbItemProps } from "../BreadcrumbItem/BreadcrumbItem";
 import Avatar from "../../Avatar/Avatar";
 import { Board, Folder, Group, Workspace, Item } from "@vibe/icons";
 import person3 from "./assets/person3.png";

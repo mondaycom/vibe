@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Upgrade } from "@vibe/icons";
-import { Step } from "../MultiStep.types";
+import { type Step } from "../MultiStep.types";
 
 export default {
   title: "Components/MultiStepIndicator",

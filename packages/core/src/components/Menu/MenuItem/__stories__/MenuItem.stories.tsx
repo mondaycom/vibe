@@ -1,9 +1,9 @@
 import React from "react";
-import MenuItem, { MenuItemProps } from "../MenuItem";
+import MenuItem, { type MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<MenuItemProps>;
 

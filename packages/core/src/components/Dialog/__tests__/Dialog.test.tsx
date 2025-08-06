@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import Dialog, { DialogProps } from "../Dialog";
+import Dialog, { type DialogProps } from "../Dialog";
 
 function renderVisibleDialogOnMount(dialogProps: DialogProps) {
   renderDialogOnMount({ ...dialogProps, shouldShowOnMount: true });

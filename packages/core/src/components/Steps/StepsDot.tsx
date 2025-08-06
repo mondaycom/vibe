@@ -1,8 +1,8 @@
 import cx from "classnames";
 import { noop as NOOP, camelCase } from "lodash-es";
-import { StepsColor, StepsDotAriaCurrent } from "./Steps.types";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import React, { FC } from "react";
+import { type StepsColor, type StepsDotAriaCurrent } from "./Steps.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import React, { type FC } from "react";
 import styles from "./StepsDot.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 

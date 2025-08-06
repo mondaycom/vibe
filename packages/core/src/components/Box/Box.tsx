@@ -24,8 +24,16 @@ import {
   Shadow as ShadowEnum,
   SizePrefixMapping
 } from "./BoxConstants";
-import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
-import { VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import {
+  type BackgroundColor,
+  type BorderColor,
+  type BaseBoxSize,
+  type BoxSize,
+  type BoxTextColor,
+  type RoundedSize,
+  type Shadow
+} from "./Box.types";
+import { type VibeComponentProps, withStaticProps, type ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";

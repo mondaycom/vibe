@@ -1,12 +1,14 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
-import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
+import EditableTypography, {
+  type EditableTypographyImplementationProps
+} from "../EditableTypography/EditableTypography";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "../Text/TextConstants";
-import { TextType, TextWeight } from "../Text";
+import { type TextType, type TextWeight } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 

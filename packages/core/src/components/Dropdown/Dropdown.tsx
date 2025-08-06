@@ -1,8 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BaseSizes, SIZES_VALUES } from "../../constants";
+import { BaseSizes, type SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
-import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
+import Select, { type InputProps, components, createFilter, type ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
 import { noop as NOOP } from "lodash-es";
@@ -30,12 +30,12 @@ import Text from "../Text/Text";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {
-  DropdownOption,
-  DropdownState,
-  CustomMenuProps,
-  CustomOptionProps,
-  CustomSingleValueProps,
-  DropdownComponentProps
+  type DropdownOption,
+  type DropdownState,
+  type CustomMenuProps,
+  type CustomOptionProps,
+  type CustomSingleValueProps,
+  type DropdownComponentProps
 } from "./Dropdown.types";
 import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";

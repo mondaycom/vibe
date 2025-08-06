@@ -1,10 +1,19 @@
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
-import { ColorStyle as ColorStyleEnum, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import {
+  ColorStyle as ColorStyleEnum,
+  type CONTENT_COLORS_VALUES,
+  contentColors
+} from "../../../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "../../ColorPicker.types";
+import {
+  type ColorShapes,
+  type ColorPickerSizes,
+  type ColorPickerValue,
+  type ColorPickerArrayValueOnly
+} from "../../ColorPicker.types";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
   GridKeyboardNavigationContext,
@@ -12,9 +21,9 @@ import {
 } from "../../../GridKeyboardNavigationContext";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
-import { VibeComponentProps, SubIcon, withStaticProps } from "../../../../types";
+import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../../../types";
 import useMergeRef from "../../../../hooks/useMergeRef";
-import { ColorStyle } from "../../../../types";
+import { type ColorStyle } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   /**

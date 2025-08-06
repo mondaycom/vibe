@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import ModalHeader from "../ModalHeader";
 import { Text as TextIcon } from "@vibe/icons";
 import { useModal } from "../../context/ModalContext";
-import { ModalContextProps } from "../../context/ModalContext.types";
+import { type ModalContextProps } from "../../context/ModalContext.types";
 
 vi.mock("../../context/ModalContext", () => ({
   useModal: vi.fn()

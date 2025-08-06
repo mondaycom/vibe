@@ -1,4 +1,4 @@
-import { CSSProperties, useMemo, useRef } from "react";
+import { type CSSProperties, useMemo, useRef } from "react";
 import { isEqual, isEmpty } from "lodash-es";
 
 // remove empty values

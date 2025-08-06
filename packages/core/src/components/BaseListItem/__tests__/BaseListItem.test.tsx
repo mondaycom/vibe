@@ -2,7 +2,12 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseListItem from "../BaseListItem";
-import { BaseListItemProps, StartElement, EndElement, BaseListItemData } from "../BaseListItem.types";
+import {
+  type BaseListItemProps,
+  type StartElement,
+  type EndElement,
+  type BaseListItemData
+} from "../BaseListItem.types";
 
 const startElement: StartElement = {
   type: "avatar",

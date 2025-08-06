@@ -4,7 +4,7 @@ import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuItemSubMenu from "../MenuItemSubMenu";
 // import { MenuChild } from "../../../../Menu/MenuConstants";
-import { MenuProps } from "../../../../Menu/Menu";
+import { type MenuProps } from "../../../../Menu/Menu";
 
 const mockConsoleError = () => {
   const originalConsoleError = console.error;

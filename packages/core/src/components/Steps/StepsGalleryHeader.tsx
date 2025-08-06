@@ -1,10 +1,10 @@
-import React, { FC, useCallback, useMemo } from "react";
+import React, { type FC, useCallback, useMemo } from "react";
 import { range } from "lodash-es";
 import cx from "classnames";
 import { StepsDot } from "./StepsDot";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./StepsGalleryHeader.module.scss";
-import { StepsColor } from "./Steps.types";
+import { type StepsColor } from "./Steps.types";
 
 export interface StepsGalleryHeaderProps extends VibeComponentProps {
   /**

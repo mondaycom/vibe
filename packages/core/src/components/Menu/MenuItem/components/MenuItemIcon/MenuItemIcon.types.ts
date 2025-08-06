@@ -1,5 +1,5 @@
-import { SubIcon } from "../../../../../types";
-import { IconType } from "../../../../Icon";
+import { type SubIcon } from "../../../../../types";
+import { type IconType } from "../../../../Icon";
 
 export interface MenuItemIconProps {
   /**

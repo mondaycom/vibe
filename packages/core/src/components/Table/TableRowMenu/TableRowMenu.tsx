@@ -10,7 +10,7 @@ import { useTable } from "../context/TableContext/TableContext";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 import { useTableContainer } from "../context/TableContainerContext/TableContainerContext";
-import { TableMenuProps } from "./TableRowMenu.types";
+import { type TableMenuProps } from "./TableRowMenu.types";
 
 const TableRowMenu = forwardRef(
   (

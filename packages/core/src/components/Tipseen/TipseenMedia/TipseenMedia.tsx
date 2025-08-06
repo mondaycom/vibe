@@ -1,7 +1,7 @@
-import React, { forwardRef, PropsWithChildren, ReactNode, useContext, useMemo, useRef } from "react";
+import React, { forwardRef, type PropsWithChildren, type ReactNode, useContext, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TipseenMedia.module.scss";

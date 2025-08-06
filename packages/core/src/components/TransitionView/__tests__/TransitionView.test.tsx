@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import TransitionView from "../TransitionView";
 
 vi.mock("framer-motion", async () => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const actual = await vi.importActual<typeof import("framer-motion")>("framer-motion");
   return {
     ...actual,

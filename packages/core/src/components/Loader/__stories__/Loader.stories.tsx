@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import Loader, { LoaderProps } from "../Loader";
+import Loader, { type LoaderProps } from "../Loader";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, DialogContentContainer, Flex, Search, Text } from "../..";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader

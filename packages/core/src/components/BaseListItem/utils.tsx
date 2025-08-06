@@ -1,5 +1,5 @@
-import { EndElement, StartElement } from "./BaseListItem.types";
-import { TextType } from "../Text";
+import { type EndElement, type StartElement } from "./BaseListItem.types";
+import { type TextType } from "../Text";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import styles from "./BaseListItem.module.scss";

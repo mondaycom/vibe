@@ -1,5 +1,5 @@
-import React, { createContext, UIEventHandler, useCallback, useContext, useMemo, useRef } from "react";
-import { TableContext as ITableContext, TableProviderProps } from "./TableContext.types";
+import React, { createContext, type UIEventHandler, useCallback, useContext, useMemo, useRef } from "react";
+import { type TableContext as ITableContext, type TableProviderProps } from "./TableContext.types";
 
 const TableContext = createContext<ITableContext | undefined>(undefined);
 

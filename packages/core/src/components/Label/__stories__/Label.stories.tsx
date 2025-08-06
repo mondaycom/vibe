@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { useEffect, useState } from "react";
-import { Decorator, StoryObj } from "@storybook/react";
+import { type Decorator, type StoryObj } from "@storybook/react";
 import Flex from "../../Flex/Flex";
 import Box from "../../Box/Box";
 import Heading from "../../Heading/Heading";

@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
+import React, { type FunctionComponent, useCallback, type AriaRole, type Ref } from "react";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { useIsMounted } from "../../../hooks/ssr/useIsMounted";

@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import type React from "react";
+import { useCallback } from "react";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
-import { CloseMenuOption } from "../MenuConstants";
+import { type CloseMenuOption } from "../MenuConstants";
 import { keyCodes } from "../../../../constants";
 
 const KEYS = [keyCodes.ESCAPE, keyCodes.LEFT_ARROW, keyCodes.TAB];

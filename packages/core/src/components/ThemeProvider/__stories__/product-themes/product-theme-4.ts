@@ -1,4 +1,4 @@
-import { Theme } from "../../ThemeProviderConstants";
+import { type Theme } from "../../ThemeProviderConstants";
 
 export const productTheme4: Theme = {
   name: "product-theme-4",

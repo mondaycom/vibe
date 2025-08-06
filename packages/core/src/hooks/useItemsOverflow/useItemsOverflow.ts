@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useState, useRef } from "react";
+import { type RefObject, useCallback, useState, useRef } from "react";
 import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
 
 /**

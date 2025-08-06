@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuItemIcon from "../MenuItemIcon";
-import { MenuItemIconProps } from "../MenuItemIcon.types";
+import { type MenuItemIconProps } from "../MenuItemIcon.types";
 
 function renderMenuItemIcon(props: Partial<MenuItemIconProps> = {}) {
   return render(<MenuItemIcon icon="test-icon" label="Test Icon" {...props} />);

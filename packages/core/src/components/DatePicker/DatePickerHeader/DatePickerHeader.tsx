@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import moment from "moment";
-import { Moment } from "../types";
+import { type Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
 import Icon from "../../Icon/Icon";
 

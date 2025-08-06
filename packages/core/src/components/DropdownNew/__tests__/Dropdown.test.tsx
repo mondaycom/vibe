@@ -2,9 +2,9 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
-import { BaseDropdownProps } from "../Dropdown.types";
-import { BaseListItemData } from "../../BaseListItem";
-import { ListGroup } from "../../BaseList";
+import { type BaseDropdownProps } from "../Dropdown.types";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type ListGroup } from "../../BaseList";
 
 const defaultOptions = [
   {

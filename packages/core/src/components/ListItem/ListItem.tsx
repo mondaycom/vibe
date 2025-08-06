@@ -1,16 +1,24 @@
 import cx from "classnames";
-import React, { AriaAttributes, AriaRole, forwardRef, useCallback, useContext, useEffect, useRef } from "react";
+import React, {
+  type AriaAttributes,
+  type AriaRole,
+  forwardRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef
+} from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps, VibeComponentProps, ElementContent } from "../../types";
+import { withStaticProps, type VibeComponentProps, type ElementContent } from "../../types";
 import { useKeyEvent } from "../../hooks";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
-import { ListItemElement, ListItemSize } from "./ListItem.types";
+import { type ListItemElement, type ListItemSize } from "./ListItem.types";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {

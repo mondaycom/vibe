@@ -1,4 +1,4 @@
-import { CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
+import { type CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
 
 export type ColorShapes = "square" | "circle";
 

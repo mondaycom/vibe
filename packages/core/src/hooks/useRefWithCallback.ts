@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useRef } from "react";
+import { type MutableRefObject, useCallback, useRef } from "react";
 
 export default function useRefWithCallback(
   onMount: (element: HTMLElement) => void,

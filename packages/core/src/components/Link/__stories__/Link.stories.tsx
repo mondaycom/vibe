@@ -1,6 +1,6 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import Link, { LinkProps } from "../Link";
+import { type Meta, type StoryObj } from "@storybook/react";
+import Link, { type LinkProps } from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
 

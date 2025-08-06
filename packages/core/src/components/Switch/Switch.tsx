@@ -1,8 +1,8 @@
-import React, { ChangeEvent, forwardRef, ReactElement, useMemo } from "react";
+import React, { type ChangeEvent, forwardRef, type ReactElement, useMemo } from "react";
 import cx from "classnames";
 import useSwitch from "../../hooks/useSwitch";
-import { VibeComponentProps } from "../../types";
-import { MockToggleProps } from "../Toggle/MockToggle";
+import { type VibeComponentProps } from "../../types";
+import { type MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
 
 export interface SwitchProps extends VibeComponentProps {

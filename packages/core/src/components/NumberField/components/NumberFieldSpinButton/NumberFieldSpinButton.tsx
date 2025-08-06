@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
+import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
 import IconButton from "../../../IconButton/IconButton";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import Flex from "../../../Flex/Flex";

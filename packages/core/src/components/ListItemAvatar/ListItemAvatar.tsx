@@ -1,10 +1,10 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import Avatar from "../Avatar/Avatar";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
-import { ListItemElement } from "../ListItem";
+import { type ListItemElement } from "../ListItem";
 import styles from "./ListItemAvatar.module.scss";
 
 export interface ListItemAvatarProps extends VibeComponentProps {

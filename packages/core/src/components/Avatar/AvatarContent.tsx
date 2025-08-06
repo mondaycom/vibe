@@ -4,9 +4,9 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
-import { AvatarSize, AvatarType } from "./Avatar.types";
+import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import Icon from "../Icon/Icon";
-import { SubIcon, VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {

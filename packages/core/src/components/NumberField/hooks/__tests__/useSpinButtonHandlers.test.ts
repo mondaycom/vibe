@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { vi, describe, it, expect } from "vitest";
-import useSpinButtonHandlers, { UseSpinButtonHandlersProps } from "../useSpinButtonHandlers";
+import useSpinButtonHandlers, { type UseSpinButtonHandlersProps } from "../useSpinButtonHandlers";
 import { createRef } from "react";
 
 describe("useSpinButtonHandlers", () => {

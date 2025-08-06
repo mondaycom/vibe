@@ -1,4 +1,4 @@
-import { Decorator, StoryContext } from "@storybook/react";
+import { type Decorator, type StoryContext } from "@storybook/react";
 import React, { useMemo } from "react";
 import { githubDark } from "@uiw/codemirror-theme-github";
 import { langs } from "@uiw/codemirror-extensions-langs";

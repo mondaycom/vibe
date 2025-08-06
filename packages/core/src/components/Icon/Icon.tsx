@@ -1,13 +1,13 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { CSSProperties, forwardRef, Ref } from "react";
+import React, { type CSSProperties, forwardRef, type Ref } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { IconType as IconTypeEnum } from "./IconConstants";
-import { IconType } from "./Icon.types";
+import { type IconType } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface IconSubComponentProps {

@@ -4,7 +4,7 @@ import { IconButton } from "../../../IconButton";
 import { Flex } from "../../../Flex";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 
 const sizeMap = {
   large: "medium",

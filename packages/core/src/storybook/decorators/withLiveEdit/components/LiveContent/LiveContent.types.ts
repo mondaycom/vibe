@@ -1,4 +1,4 @@
-import { Decorator, StoryContext } from "@storybook/react";
+import { type Decorator, type StoryContext } from "@storybook/react";
 
 export interface LiveContentProps {
   code: string;

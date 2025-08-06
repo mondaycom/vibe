@@ -1,8 +1,8 @@
-import React, { ReactElement, ComponentProps, forwardRef } from "react";
+import React, { type ReactElement, type ComponentProps, forwardRef } from "react";
 import cx from "classnames";
-import { VibeComponentProps } from "../../../types";
-import TableRow, { TableRowProps } from "../TableRow/TableRow";
-import VirtualizedList from "../../VirtualizedList/VirtualizedList";
+import { type VibeComponentProps } from "../../../types";
+import TableRow, { type TableRowProps } from "../TableRow/TableRow";
+import type VirtualizedList from "../../VirtualizedList/VirtualizedList";
 import styles from "./TableBody.module.scss";
 import { useTable } from "../context/TableContext/TableContext";
 import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";

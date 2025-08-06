@@ -1,9 +1,9 @@
-import { vi, beforeEach, afterEach, describe, it, expect, MockInstance } from "vitest";
+import { vi, beforeEach, afterEach, describe, it, expect, type MockInstance } from "vitest";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import DatePicker from "../DatePicker";
-import moment, { Moment } from "moment";
-import { RangeDate } from "../types";
+import moment, { type Moment } from "moment";
+import { type RangeDate } from "../types";
 
 const DATE_FORMAT = "DD/MM/YYYY";
 

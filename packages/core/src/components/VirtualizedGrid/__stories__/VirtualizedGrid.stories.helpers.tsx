@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "../../Text";
-import { VirtualizedGridItemType } from "../VirtualizedGrid.types";
+import { type VirtualizedGridItemType } from "../VirtualizedGrid.types";
 
 export const generateItems = (height = 30, width: number, itemsCount: number): VirtualizedGridItemType[] => {
   const items: VirtualizedGridItemType[] = [];

@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useState } from "react";
+import { type RefObject, useCallback, useState } from "react";
 import useResizeObserver from "../useResizeObserver";
 
 function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, heightTolerance = 0, widthTolerance = 0) {

@@ -1,4 +1,4 @@
-import { vi, beforeEach, afterEach, describe, it, expect, Mock } from "vitest";
+import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import AlertBanner from "../AlertBanner";

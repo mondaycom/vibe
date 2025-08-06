@@ -1,4 +1,4 @@
-import { Theme } from "../ThemeProvider/ThemeProviderConstants";
+import { type Theme } from "../ThemeProvider/ThemeProviderConstants";
 
 export const defaultCustomStyles = (baseStyles: string) => baseStyles;
 

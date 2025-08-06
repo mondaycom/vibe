@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
@@ -8,8 +8,8 @@ import { Attach, Email } from "@vibe/icons";
 import { Flex } from "../../index";
 import { Dropdown } from "../../DropdownNew";
 import { Text } from "../../Text";
-import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
-import { BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
+import { type BaseListItemData } from "../../BaseListItem/BaseListItem.types";
+import { type BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;

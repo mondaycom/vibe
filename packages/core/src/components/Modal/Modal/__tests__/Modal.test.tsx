@@ -7,6 +7,7 @@ import ModalContent from "../../ModalContent/ModalContent";
 import ModalHeader from "../../ModalHeader/ModalHeader";
 
 vi.mock("framer-motion", async () => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const actual = await vi.importActual<typeof import("framer-motion")>("framer-motion");
   return {
     ...actual,

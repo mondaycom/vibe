@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import Text from "../../../../components/Text/Text";
 import styles from "./example-table.module.scss";
 

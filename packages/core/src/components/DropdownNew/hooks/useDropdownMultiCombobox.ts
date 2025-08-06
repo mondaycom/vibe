@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { useMultipleSelection, useCombobox } from "downshift";
-import { DropdownGroupOption } from "../Dropdown.types";
-import { BaseListItemData } from "../../BaseListItem";
+import { type DropdownGroupOption } from "../Dropdown.types";
+import { type BaseListItemData } from "../../BaseListItem";
 
 function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,

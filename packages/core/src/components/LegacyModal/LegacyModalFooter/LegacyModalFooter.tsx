@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from "react";
+import React, { type FC, type ReactElement } from "react";
 import cx from "classnames";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import styles from "./LegacyModalFooter.module.scss";
 
 export interface LegacyModalFooterProps extends VibeComponentProps {

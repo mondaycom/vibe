@@ -1,4 +1,4 @@
-import { ReactNode, UIEventHandler } from "react";
+import { type ReactNode, type UIEventHandler } from "react";
 
 export interface ModalLayoutScrollableContentProps {
   /**

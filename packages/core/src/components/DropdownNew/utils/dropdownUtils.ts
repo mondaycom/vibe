@@ -1,5 +1,5 @@
-import { BaseListItemData } from "../../BaseListItem";
-import { ListGroup } from "../../BaseList";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type ListGroup } from "../../BaseList";
 
 export function normalizeOptions<Item extends BaseListItemData>(
   options: ListGroup<Item>[] | BaseListItemData<Item>[],

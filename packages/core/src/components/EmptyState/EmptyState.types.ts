@@ -1,7 +1,7 @@
-import React from "react";
-import { LinkProps } from "../Link/Link";
-import { VibeComponentProps } from "src/types";
-import { ButtonProps, ButtonType } from "../Button";
+import type React from "react";
+import { type LinkProps } from "../Link/Link";
+import { type VibeComponentProps } from "src/types";
+import { type ButtonProps, type ButtonType } from "../Button";
 
 export type EmptyStateLayout = "default" | "compact";
 

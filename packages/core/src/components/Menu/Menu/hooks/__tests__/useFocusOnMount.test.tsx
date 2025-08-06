@@ -1,8 +1,8 @@
-import { vi, beforeEach, afterEach, describe, it, expect, MockedFunction } from "vitest";
+import { vi, beforeEach, afterEach, describe, it, expect, type MockedFunction } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
-import { useFocusOnMount, UseFocusOnMountProps } from "../useFocusOnMount";
+import { useFocusOnMount, type UseFocusOnMountProps } from "../useFocusOnMount";
 import { isMenuChildSelectable } from "../../utils/utils";
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../../tests/__tests__/test-utils";
 
 vi.mock("../../utils/utils", () => ({

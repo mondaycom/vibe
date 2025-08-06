@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { ModalFooterProps } from "./ModalFooter.types";
+import { type ModalFooterProps } from "./ModalFooter.types";
 import styles from "./ModalFooter.module.scss";
 import { getPropsForButton } from "../utils/getPropsForButton";
 

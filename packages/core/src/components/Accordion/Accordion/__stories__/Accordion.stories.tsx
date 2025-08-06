@@ -1,5 +1,5 @@
 import React from "react";
-import Accordion, { AccordionProps } from "../Accordion";
+import Accordion, { type AccordionProps } from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import Checkbox from "../../../Checkbox/Checkbox";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/Accordion.interactions";

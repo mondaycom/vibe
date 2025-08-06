@@ -1,13 +1,13 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
-import Tooltip, { TooltipProps } from "../../components/Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./TextWithHighlight.module.scss";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { type TooltipPositions } from "../Tooltip/Tooltip.types";
 
 const getTextPart = (
   text: string,
