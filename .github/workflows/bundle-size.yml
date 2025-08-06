@@ -42,6 +42,11 @@ jobs:
           name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
           path: packages/
 
+      - name: Run size-limit on PR
+        run: |
+          yarn install --frozen-lockfile
+          ./node_modules/.bin/size-limit --json > pr.json
+
       - name: Run size-limit on base commit
         run: |
           BASE=$(git merge-base origin/master HEAD)
@@ -49,15 +54,9 @@ jobs:
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
-          npm install --save-dev size-limit @size-limit/preset-big-lib
-          cd packages/core && ../../node_modules/.bin/size-limit --json > ../../base.json
+          yarn add --dev -W size-limit @size-limit/preset-big-lib
+          ./node_modules/.bin/size-limit --json > base.json
         continue-on-error: true
-
-      - name: Run size-limit on PR
-        run: |
-          git checkout -
-          yarn install --frozen-lockfile
-          cd packages/core && ../../node_modules/.bin/size-limit --json > ../../pr.json
 
       - name: Compare sizes
         run: node scripts/compare-bundles.js
