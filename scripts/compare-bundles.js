@@ -1,8 +1,21 @@
 const fs = require("fs");
 const bytes = require("bytes");
 
-const base = JSON.parse(fs.readFileSync("base.json", "utf8"));
-const pr = JSON.parse(fs.readFileSync("pr.json", "utf8"));
+function extractJson(content) {
+  const jsonMatch = content.match(/\[[\s\S]*?\]/);
+
+  if (!jsonMatch) {
+    throw new Error("No JSON array found in content");
+  }
+
+  return jsonMatch[0];
+}
+
+const baseContent = fs.readFileSync("base.json", "utf8");
+const prContent = fs.readFileSync("pr.json", "utf8");
+
+const base = JSON.parse(extractJson(baseContent));
+const pr = JSON.parse(extractJson(prContent));
 
 let md = "📦 **Bundle Size Comparison**\n\n";
 md += "| Component | Base | PR | Diff |\n";
