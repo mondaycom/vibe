@@ -12,8 +12,8 @@ function extractJson(content) {
   return jsonMatch[0];
 }
 
-const baseContent = fs.readFileSync("base.json", "utf8");
-const prContent = fs.readFileSync("pr.json", "utf8");
+const baseContent = fs.readFileSync("scripts/bundle-check/reports/base.json", "utf8");
+const prContent = fs.readFileSync("scripts/bundle-check/reports/pr.json", "utf8");
 
 const base = JSON.parse(extractJson(baseContent));
 const pr = JSON.parse(extractJson(prContent));
@@ -113,5 +113,5 @@ if (Math.abs(totalDiffBytes) > 5120) {
   md += `\n⚠️ **Significant size change detected!** Please review the changes carefully.\n`;
 }
 
-fs.writeFileSync("bundle-sizes.md", md);
+fs.writeFileSync("scripts/bundle-check/reports/bundle-sizes.md", md);
 console.log("Bundle size Analysis generated successfully!");

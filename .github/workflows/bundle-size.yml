@@ -5,7 +5,6 @@ on:
     paths:
       - "packages/core/src/components/**"
       - "packages/core/package.json"
-      - ".size-limit.js"
 
 permissions:
   pull-requests: write
@@ -22,8 +21,7 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkout PR
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -33,41 +31,35 @@ jobs:
           node-version: 20
           cache: "yarn"
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Run Setup
+        uses: ./.github/actions/setup
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
-          path: packages/
+        uses: ./.github/actions/download-builds
 
       - name: Run size-limit on PR
         run: |
           yarn install --frozen-lockfile
           node scripts/bundle-check/generate-size-limit-config.js
-          ./node_modules/.bin/size-limit --json > pr.json
+          mkdir -p scripts/bundle-check/reports
+          ./node_modules/.bin/size-limit --json > "scripts/bundle-check/reports/pr.json"
 
       - name: Run size-limit on base commit
         run: |
-          PR_HEAD_SHA=$(git rev-parse HEAD)
-          trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
-
           BASE=$(git merge-base origin/master HEAD)
           echo "Base commit: $BASE"
           git checkout $BASE
-
-          if [ -f .size-limit.js ]; then
-            echo ".size-limit.js found on base commit. Running size-limit."
-            yarn install --frozen-lockfile
-            yarn build
-            yarn add --dev -W size-limit @size-limit/preset-small-lib
-            ./node_modules/.bin/size-limit --json > base.json
-          else
-            echo ".size-limit.js not found on base commit. Creating empty base.json."
-            echo "[]" > base.json
-          fi
+          yarn install --frozen-lockfile
+          yarn build
+          yarn add --dev -W size-limit @size-limit/preset-small-lib
+          ./node_modules/.bin/size-limit --json > scripts/bundle-check/reports/base.json
         continue-on-error: true
+
+      - name: Checkout back to base branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.base_ref }}
 
       - name: Compare sizes
         run: node scripts/bundle-check/compare-bundles.js
@@ -76,7 +68,7 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: bundle-size
-          path: bundle-sizes.md
+          path: scripts/bundle-check/reports/bundle-sizes.md
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -84,7 +76,7 @@ jobs:
         with:
           name: bundle-analysis
           path: |
-            base.json
-            pr.json
-            bundle-sizes.md
+            scripts/bundle-check/reports/base.json
+            scripts/bundle-check/reports/pr.json
+            scripts/bundle-check/reports/bundle-sizes.md
           retention-days: 7
