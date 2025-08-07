@@ -61,7 +61,7 @@ jobs:
             echo ".size-limit.js found on base commit. Running size-limit."
             yarn install --frozen-lockfile
             yarn build
-            yarn add --dev -W size-limit @size-limit/preset-big-lib
+            yarn add --dev -W size-limit @size-limit/preset-small-lib
             ./node_modules/.bin/size-limit --json > base.json
           else
             echo ".size-limit.js not found on base commit. Creating empty base.json."

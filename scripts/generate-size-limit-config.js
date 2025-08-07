@@ -21,8 +21,7 @@ function generateSizeLimitConfig() {
     const relativePath = match[1];
     const fullPath = path.join("packages/core/dist/src/", relativePath).replace(/\\/g, "/");
     components.push({
-      path: fullPath,
-      webpack: false
+      path: fullPath
     });
   }
 
