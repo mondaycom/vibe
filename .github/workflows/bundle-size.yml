@@ -51,7 +51,7 @@ jobs:
       - name: Run size-limit on base commit
         run: |
           PR_HEAD_SHA=$(git rev-parse HEAD)
-          trap "echo 'Checking out back to PR commit'; git checkout $PR_HEAD_SHA" EXIT
+          trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
 
           BASE=$(git merge-base origin/master HEAD)
           echo "Base commit: $BASE"
