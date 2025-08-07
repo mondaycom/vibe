@@ -101,6 +101,7 @@ const Checkbox = forwardRef(
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
+    const iconContainerRef = useRef<HTMLDivElement>(null);
 
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;
@@ -219,6 +220,7 @@ const Checkbox = forwardRef(
         />
         <div
           className={cx(styles.checkbox, checkboxClassName)}
+          ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
           data-vibe={ComponentVibeId.CHECKBOX}
         >
