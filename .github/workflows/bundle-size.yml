@@ -1,4 +1,4 @@
-name: Bundle Size Comparison
+name: Bundle Size Analysis
 
 on:
   pull_request:
@@ -45,7 +45,7 @@ jobs:
       - name: Run size-limit on PR
         run: |
           yarn install --frozen-lockfile
-          node scripts/generate-size-limit-config.js
+          node scripts/bundle-check/generate-size-limit-config.js
           ./node_modules/.bin/size-limit --json > pr.json
 
       - name: Run size-limit on base commit
@@ -70,7 +70,7 @@ jobs:
         continue-on-error: true
 
       - name: Compare sizes
-        run: node scripts/compare-bundles.js
+        run: node scripts/bundle-check/compare-bundles.js
 
       - name: Post comment
         uses: marocchino/sticky-pull-request-comment@v2

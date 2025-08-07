@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const bytes = require("bytes");
 
 function extractJson(content) {
@@ -17,24 +18,18 @@ const prContent = fs.readFileSync("pr.json", "utf8");
 const base = JSON.parse(extractJson(baseContent));
 const pr = JSON.parse(extractJson(prContent));
 
-let md = "📦 **Bundle Size Comparison**\n\n";
+let md = "📦 **Bundle Size Analysis**\n\n";
 md += "| Component | Base | PR | Diff |\n";
 md += "|-----------|------|----|------|\n";
 
 const baseMap = new Map();
 base.forEach(entry => {
-  // Handle both 'path' (global config) and 'name' (package config) properties
-  const path = entry.path || entry.name;
-  const componentName = path.match(/components\/([^\/]+)\//)?.[1] || path;
-  baseMap.set(componentName, entry);
+  baseMap.set(entry.name, entry);
 });
 
 const prMap = new Map();
 pr.forEach(entry => {
-  // Handle both 'path' (global config) and 'name' (package config) properties
-  const path = entry.path || entry.name;
-  const componentName = path.match(/components\/([^\/]+)\//)?.[1] || path;
-  prMap.set(componentName, entry);
+  prMap.set(entry.name, entry);
 });
 
 const allComponents = new Set([...baseMap.keys(), ...prMap.keys()]);
@@ -45,14 +40,16 @@ Array.from(allComponents)
     const baseEntry = baseMap.get(componentName);
     const prEntry = prMap.get(componentName);
 
+    const displayName = path.basename(componentName, path.extname(componentName));
+
     if (!baseEntry && prEntry) {
       // New component
       const prSize = bytes(prEntry.size);
-      md += `| \`${componentName}\` | - | ${prSize} | **+${prSize}** 🆕 |\n`;
+      md += `| \`${displayName}\` | - | ${prSize} | **+${prSize}** 🆕 |\n`;
     } else if (baseEntry && !prEntry) {
       // Removed component
       const baseSize = bytes(baseEntry.size);
-      md += `| \`${componentName}\` | ${baseSize} | - | **-${baseSize}** ❌ |\n`;
+      md += `| \`${displayName}\` | ${baseSize} | - | **-${baseSize}** ❌ |\n`;
     } else if (baseEntry && prEntry) {
       // Existing component
       const baseSize = bytes(baseEntry.size);
@@ -76,7 +73,7 @@ Array.from(allComponents)
         diffText = `**${diffText}**`;
       }
 
-      md += `| \`${componentName}\` | ${baseSize} | ${prSize} | ${diffText} ${emoji} |\n`;
+      md += `| \`${displayName}\` | ${baseSize} | ${prSize} | ${diffText} ${emoji} |\n`;
     }
   });
 
@@ -96,4 +93,4 @@ if (Math.abs(totalDiffBytes) > 5120) {
 }
 
 fs.writeFileSync("bundle-sizes.md", md);
-console.log("Bundle size comparison generated successfully!");
+console.log("Bundle size Analysis generated successfully!");
