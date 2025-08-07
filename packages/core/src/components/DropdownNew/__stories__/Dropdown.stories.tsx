@@ -35,7 +35,8 @@ const meta: Meta<typeof Dropdown> = {
   title: "Components/Dropdown [Alpha]",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  tags: ["!dev"]
 };
 
 export default meta;
