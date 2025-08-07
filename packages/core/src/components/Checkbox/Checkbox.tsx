@@ -68,6 +68,11 @@ export interface CheckBoxProps extends VibeComponentProps {
    * The tab order of the checkbox.
    */
   tabIndex?: number;
+  /**
+   * If true, uses separate labels with htmlFor/id association instead of wrapping the input.
+   * If using this the id prop is required for it to function correctly.
+   */
+  separateLabel?: boolean;
 }
 
 const Checkbox = forwardRef(
@@ -89,6 +94,7 @@ const Checkbox = forwardRef(
       value = "",
       name = "",
       id,
+      separateLabel = false,
       "data-testid": dataTestId
     }: CheckBoxProps,
     ref: React.ForwardedRef<HTMLInputElement>
@@ -128,10 +134,72 @@ const Checkbox = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
+    if (separateLabel) {
+      return (
+        <div
+          className={cx(styles.wrapper, className)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
+        >
+          <input
+            ref={mergedInputRef}
+            id={id}
+            className={styles.input}
+            value={value}
+            name={name}
+            type="checkbox"
+            autoFocus={autoFocus}
+            onChange={onChange}
+            defaultChecked={overrideDefaultChecked}
+            disabled={disabled}
+            aria-label={finalAriaLabel}
+            aria-labelledby={ariaLabelledBy}
+            checked={checked}
+            tabIndex={tabIndex}
+          />
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+          <label
+            htmlFor={id}
+            className={cx(styles.checkbox, checkboxClassName)}
+            data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+            data-vibe={ComponentVibeId.CHECKBOX}
+            onMouseUp={onMouseUpCallback}
+            onClickCapture={onClickCaptureLabel}
+          >
+            <Icon
+              className={styles.icon}
+              iconType="svg"
+              icon={indeterminate ? Remove : Check}
+              ignoreFocusStyle
+              ariaHidden={true}
+              iconSize="16"
+            />
+          </label>
+          {label === false ? null : (
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+            <label
+              htmlFor={id}
+              className={cx(styles.label, labelClassName)}
+              data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+              onMouseUp={onMouseUpCallback}
+              onClickCapture={onClickCaptureLabel}
+            >
+              <Text element="span" type="text2">
+                {label}
+              </Text>
+            </label>
+          )}
+        </div>
+      );
+    }
+
     return (
-      <div
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+      <label
         className={cx(styles.wrapper, className)}
+        onMouseUp={onMouseUpCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
+        htmlFor={id}
+        onClickCapture={onClickCaptureLabel}
       >
         <input
           ref={mergedInputRef}
@@ -149,14 +217,10 @@ const Checkbox = forwardRef(
           checked={checked}
           tabIndex={tabIndex}
         />
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-        <label
-          htmlFor={id}
+        <div
           className={cx(styles.checkbox, checkboxClassName)}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
           data-vibe={ComponentVibeId.CHECKBOX}
-          onMouseUp={onMouseUpCallback}
-          onClickCapture={onClickCaptureLabel}
         >
           <Icon
             className={styles.icon}
@@ -166,22 +230,18 @@ const Checkbox = forwardRef(
             ariaHidden={true}
             iconSize="16"
           />
-        </label>
+        </div>
         {label === false ? null : (
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-          <label
-            htmlFor={id}
+          <Text
+            element="span"
+            type="text2"
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
-            onMouseUp={onMouseUpCallback}
-            onClickCapture={onClickCaptureLabel}
           >
-            <Text element="span" type="text2">
-              {label}
-            </Text>
-          </label>
+            {label}
+          </Text>
         )}
-      </div>
+      </label>
     );
   }
 );
