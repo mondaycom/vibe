@@ -34,6 +34,11 @@ export interface DialogContentContainerProps extends VibeComponentProps {
    * Custom styles applied to the dialog container.
    */
   style?: React.CSSProperties;
+  /**
+   * The ARIA role applied to the dialog container.
+   * Defaults to "dialog" when not provided. Pass `null` to remove the role attribute entirely.
+   */
+  role?: string | null;
 }
 
 const DialogContentContainer = forwardRef(
@@ -47,6 +52,7 @@ const DialogContentContainer = forwardRef(
       size = "small",
       children,
       style,
+      role,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id),
       ...props
     }: DialogContentContainerProps,
@@ -55,9 +61,11 @@ const DialogContentContainer = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
+    const roleValue = role === null ? undefined : role || "dialog";
+
     return (
       <div
-        role="dialog"
+        role={roleValue}
         data-testid={dataTestId}
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}

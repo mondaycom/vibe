@@ -36,28 +36,6 @@ exports[`TextField renders correctly > when disabled 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -128,28 +106,6 @@ exports[`TextField renders correctly > when loading 1`] = `
           </div>
         </div>
       </div>
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -190,28 +146,6 @@ exports[`TextField renders correctly > when readonly 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -254,28 +188,6 @@ exports[`TextField renders correctly > when required 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -316,28 +228,6 @@ exports[`TextField renders correctly > with another type 1`] = `
         role=""
         type="password"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -380,28 +270,6 @@ exports[`TextField renders correctly > with className 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -442,28 +310,6 @@ exports[`TextField renders correctly > with date type 1`] = `
         role=""
         type="date"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -506,28 +352,6 @@ exports[`TextField renders correctly > with date-time type 1`] = `
         type="datetime-local"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -568,28 +392,6 @@ exports[`TextField renders correctly > with email type 1`] = `
         role=""
         type="email"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -652,17 +454,6 @@ exports[`TextField renders correctly > with icon 1`] = `
           role="img"
         />
       </div>
-      <div
-        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -703,30 +494,6 @@ exports[`TextField renders correctly > with iconsNames 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        aria-label="primary-label"
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        aria-label="secondary-label"
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -769,28 +536,6 @@ exports[`TextField renders correctly > with id 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_testId"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -831,28 +576,6 @@ exports[`TextField renders correctly > with labelIconName 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -895,28 +618,6 @@ exports[`TextField renders correctly > with large size 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -957,28 +658,6 @@ exports[`TextField renders correctly > with placeholder 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>
@@ -1021,28 +700,6 @@ exports[`TextField renders correctly > with role 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -1083,17 +740,6 @@ exports[`TextField renders correctly > with secondaryIconName 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
       <div
         className="clickable iconContainer iconContainerHasIcon disableTextSelection"
@@ -1156,28 +802,6 @@ exports[`TextField renders correctly > with showCharCount 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
     <div
       className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
@@ -1237,28 +861,6 @@ exports[`TextField renders correctly > with tel type 1`] = `
         type="tel"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -1300,28 +902,6 @@ exports[`TextField renders correctly > with url type 1`] = `
         type="url"
         value=""
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -1362,28 +942,6 @@ exports[`TextField renders correctly > with validation 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
     <div
@@ -1436,28 +994,6 @@ exports[`TextField renders correctly > with value 1`] = `
         type="text"
         value="value"
       />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
     </div>
   </div>
 </div>
@@ -1498,28 +1034,6 @@ exports[`TextField renders correctly > with wrapperClassName 1`] = `
         role=""
         type="text"
         value=""
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="clickable"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
-      />
-      <div
-        className="clickable iconContainer iconContainerActive disableTextSelection"
-        data-testid="text-field-secondary-button_input"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="button"
-        tabIndex={-1}
       />
     </div>
   </div>

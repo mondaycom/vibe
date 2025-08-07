@@ -106,7 +106,7 @@ const TextArea = forwardRef(
                   {characterCount}
                   {typeof maxLength === "number" && `/${maxLength}`}
                 </Text>
-                <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
+                <HiddenText id={allowExceedingMaxLengthTextId} text={`${characterCount} out of ${maxLength}`} />
               </>
             )}
           </Flex>
