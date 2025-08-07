@@ -6410,13 +6410,6 @@ JSONStream@^1.3.5:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
-a11y-dialog@^7.5.2:
-  version "7.5.3"
-  resolved "https://registry.npmjs.org/a11y-dialog/-/a11y-dialog-7.5.3.tgz#ceed4b3832d60b0123e29878d13a0ec5c2e7bcab"
-  integrity sha512-ssx2j2FIgxhycE+liCKRam/S7F2TJyDJd8FwaoDS3vq5+yVTSg4dJAQPJr1abJLOlNmsjl5iAGE0VIp0x7gikg==
-  dependencies:
-    focusable-selectors "^0.4.0"
-
 abab@^2.0.3, abab@^2.0.5, abab@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/abab/-/abab-2.0.6.tgz#41b80f2c871d19686216b82309231cfd3cb3d291"
@@ -10531,11 +10524,6 @@ focus-lock@^1.3.5:
   integrity sha512-QFaHbhv9WPUeLYBDe/PAuLKJ4Dd9OPvKs9xZBr3yLXnUrDNaVXKu2baDBXe3naPY30hgHYSsf2JW4jzas2mDEQ==
   dependencies:
     tslib "^2.0.3"
-
-focusable-selectors@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/focusable-selectors/-/focusable-selectors-0.4.0.tgz#c93092bfe65c7cf7ef52aed82fb6f8df31072459"
-  integrity sha512-tc/236hUU3xemsRLu1RKhRQ5UWHjRM9iJTli1zdac43h7b1biRSgG0mILM0qrcsKaGCHcOPJ6NKbk12ouKHLpw==
 
 follow-redirects@^1.15.6:
   version "1.15.6"

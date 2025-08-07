@@ -1,6 +1,12 @@
 import React from "react";
-import A11yDialogLib from "a11y-dialog";
 import { A11yDialogType } from "./ModalHelper";
+
+class A11yDialogLib {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  constructor(node: Element) {}
+
+  destroy() {}
+}
 
 const useA11yDialogInstance = (): [A11yDialogType, (node: Element) => void] => {
   const [instance, setInstance] = React.useState(null);
