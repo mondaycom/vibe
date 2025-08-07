@@ -1,9 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Checkbox renders correctly > when autoFocus 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -16,12 +18,10 @@ exports[`Checkbox renders correctly > when autoFocus 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -40,25 +40,20 @@ exports[`Checkbox renders correctly > when autoFocus 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > when checked 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -70,12 +65,10 @@ exports[`Checkbox renders correctly > when checked 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -94,25 +87,20 @@ exports[`Checkbox renders correctly > when checked 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > when default checked 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -124,12 +112,10 @@ exports[`Checkbox renders correctly > when default checked 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -148,25 +134,20 @@ exports[`Checkbox renders correctly > when default checked 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > when disabled 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -178,12 +159,10 @@ exports[`Checkbox renders correctly > when disabled 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -202,25 +181,20 @@ exports[`Checkbox renders correctly > when disabled 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > when interminate 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -232,12 +206,10 @@ exports[`Checkbox renders correctly > when interminate 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -256,25 +228,20 @@ exports[`Checkbox renders correctly > when interminate 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -287,12 +254,10 @@ exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -311,25 +276,20 @@ exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > with empty props 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -341,12 +301,10 @@ exports[`Checkbox renders correctly > with empty props 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -365,25 +323,20 @@ exports[`Checkbox renders correctly > with empty props 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > with name 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -395,12 +348,10 @@ exports[`Checkbox renders correctly > with name 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -419,25 +370,20 @@ exports[`Checkbox renders correctly > with name 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > with props 1`] = `
-<div
+<label
   className="wrapper dummy-class-name"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label="Option 1"
@@ -449,12 +395,10 @@ exports[`Checkbox renders correctly > with props 1`] = `
     type="checkbox"
     value="option1"
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -473,27 +417,22 @@ exports[`Checkbox renders correctly > with props 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    >
-      Option 1
-    </span>
-  </label>
-</div>
+    Option 1
+  </span>
+</label>
 `;
 
 exports[`Checkbox renders correctly > with value 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -505,12 +444,10 @@ exports[`Checkbox renders correctly > with value 1`] = `
     type="checkbox"
     value="checkboxValue"
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -529,25 +466,20 @@ exports[`Checkbox renders correctly > with value 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-  <label
-    className="label"
+  </div>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal"
-      data-testid="text"
-    />
-  </label>
-</div>
+  />
+</label>
 `;
 
 exports[`Checkbox renders correctly > without label 1`] = `
-<div
+<label
   className="wrapper"
   data-testid="checkbox"
+  onClickCapture={[Function]}
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
@@ -559,12 +491,10 @@ exports[`Checkbox renders correctly > without label 1`] = `
     type="checkbox"
     value=""
   />
-  <label
+  <div
     className="checkbox"
     data-testid="checkbox-checkbox"
     data-vibe="Checkbox"
-    onClickCapture={[Function]}
-    onMouseUp={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -583,6 +513,6 @@ exports[`Checkbox renders correctly > without label 1`] = `
         fillRule="evenodd"
       />
     </svg>
-  </label>
-</div>
+  </div>
+</label>
 `;
