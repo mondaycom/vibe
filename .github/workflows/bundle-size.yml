@@ -58,9 +58,8 @@ jobs:
       - name: Checkout back to base branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.base.sha }}
-
       - name: Compare sizes
         run: node scripts/bundle-check/compare-bundles.js
 
