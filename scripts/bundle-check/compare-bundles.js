@@ -19,8 +19,7 @@ const base = JSON.parse(extractJson(baseContent));
 const pr = JSON.parse(extractJson(prContent));
 
 let md = "📦 **Bundle Size Analysis**\n\n";
-md += "| Component | Base | PR | Diff |\n";
-md += "|-----------|------|----|------|\n";
+const tableHeader = "| Component | Base | PR | Diff |\n|-----------|------|----|------|\n";
 
 const baseMap = new Map();
 base.forEach(entry => {
@@ -34,6 +33,9 @@ pr.forEach(entry => {
 
 const allComponents = new Set([...baseMap.keys(), ...prMap.keys()]);
 
+const changedRows = [];
+const unchangedRows = [];
+
 Array.from(allComponents)
   .sort()
   .forEach(componentName => {
@@ -45,11 +47,11 @@ Array.from(allComponents)
     if (!baseEntry && prEntry) {
       // New component
       const prSize = bytes(prEntry.size);
-      md += `| \`${displayName}\` | - | ${prSize} | **+${prSize}** 🆕 |\n`;
+      changedRows.push(`| \`${displayName}\` | - | ${prSize} | **+${prSize}** 🆕 |`);
     } else if (baseEntry && !prEntry) {
       // Removed component
       const baseSize = bytes(baseEntry.size);
-      md += `| \`${displayName}\` | ${baseSize} | - | **-${baseSize}** ❌ |\n`;
+      changedRows.push(`| \`${displayName}\` | ${baseSize} | - | **-${baseSize}** ❌ |`);
     } else if (baseEntry && prEntry) {
       // Existing component
       const baseSize = bytes(baseEntry.size);
@@ -68,14 +70,33 @@ Array.from(allComponents)
         diffText = `-${diffFormatted}`;
       }
 
+      const row = `| \`${displayName}\` | ${baseSize} | ${prSize} | ${diffText} ${emoji} |`;
+
       // Highlight significant changes (>1KB)
       if (Math.abs(diffBytes) > 1024) {
-        diffText = `**${diffText}**`;
+        changedRows.push(row.replace(`| ${diffText} `, `| **${diffText}** `));
+      } else if (diffBytes !== 0) {
+        changedRows.push(row);
+      } else {
+        unchangedRows.push(row);
       }
-
-      md += `| \`${displayName}\` | ${baseSize} | ${prSize} | ${diffText} ${emoji} |\n`;
     }
   });
+
+if (changedRows.length > 0) {
+  md += "### Changed Components\n";
+  md += tableHeader;
+  md += changedRows.join("\n") + "\n";
+} else {
+  md += "✅ No bundle size changes detected.\n";
+}
+
+if (unchangedRows.length > 0) {
+  md += "\n<details><summary>Unchanged Components</summary>\n\n";
+  md += tableHeader;
+  md += unchangedRows.join("\n") + "\n";
+  md += "\n</details>\n";
+}
 
 const totalBaseSize = base.reduce((sum, entry) => sum + entry.size, 0);
 const totalPrSize = pr.reduce((sum, entry) => sum + entry.size, 0);
