@@ -247,26 +247,10 @@ export const OnColorStates: Story = {
 export const AdjacentButtons: Story = {
   render: () => (
     <div>
-      <Button
-        id="decrease-zoom-button"
-        kind="secondary"
-        size="small"
-        ariaLabel="Decrease zoom level"
-        rightFlat
-        ariaControls="zoom-level"
-        ariaExpanded={false}
-      >
+      <Button id="decrease-zoom-button" kind="secondary" size="small" ariaLabel="Decrease zoom level" rightFlat>
         <Remove />
       </Button>
-      <Button
-        id="increase-zoom-button"
-        kind="secondary"
-        size="small"
-        ariaLabel="Increase zoom level"
-        leftFlat
-        ariaControls="zoom-level"
-        ariaExpanded={false}
-      >
+      <Button id="increase-zoom-button" kind="secondary" size="small" ariaLabel="Increase zoom level" leftFlat>
         <Add />
       </Button>
     </div>
