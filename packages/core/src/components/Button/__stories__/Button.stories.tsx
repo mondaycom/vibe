@@ -142,22 +142,10 @@ export const LoadingState: Story = {
     const onClick = useCallback(() => {
       setLoading(true);
     }, [setLoading]);
-    const descriptionId = "button-loading-description";
     return (
-      <div>
-        <span id={descriptionId} style={{ display: "block", marginBottom: 8 }}>
-          Clicking the button will show a loading state
-        </span>
-        <Button
-          id="loading-state-button"
-          ariaLabel="Start loading"
-          loading={loading}
-          onClick={onClick}
-          aria-describedby={descriptionId}
-        >
-          Click here for loading
-        </Button>
-      </div>
+      <Button id="loading-state-button" ariaLabel="Start loading" loading={loading} onClick={onClick}>
+        Click here for loading
+      </Button>
     );
   },
   name: "Loading state"
