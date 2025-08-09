@@ -16,9 +16,9 @@ export default {
 export const Overview = {
   render: (args: SkeletonProps) => (
     <Flex direction="column" gap="small">
-      <Skeleton {...args} />
-      <Skeleton {...args} />
-      <Skeleton {...args} />
+      <Skeleton id="overview-skeleton-1" {...args} />
+      <Skeleton id="overview-skeleton-2" {...args} />
+      <Skeleton id="overview-skeleton-3" {...args} />
     </Flex>
   ),
   args: {
@@ -38,15 +38,15 @@ export const Shapes = {
   render: () => (
     <Flex align="end" gap="large">
       <Flex direction="column" align="stretch" gap="large">
-        <Skeleton type="circle" />
+        <Skeleton id="shapes-circle" type="circle" />
         <Text type="text1">Circle</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
-        <Skeleton />
+        <Skeleton id="shapes-square" />
         <Text type="text1">Square</Text>
       </Flex>
       <Flex direction="column" align="stretch" gap="large">
-        <Skeleton width={112} height={46} />
+        <Skeleton id="shapes-rectangle" width={112} height={46} />
         <Text type="text1">Rectangle</Text>
       </Flex>
     </Flex>

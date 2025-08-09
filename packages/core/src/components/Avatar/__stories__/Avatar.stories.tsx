@@ -70,6 +70,7 @@ export const Overview = {
   render: avatarTemplate.bind({}),
   name: "Overview",
   args: {
+    id: "overview-avatar",
     size: "large",
     src: person1,
     type: "img",
@@ -87,10 +88,10 @@ export const Overview = {
 export const Size = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="xs" src={person1} type="img" ariaLabel="Julia Martinez" />
-      <Avatar size="small" src={person1} type="img" ariaLabel="Julia Martinez" />
-      <Avatar size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
-      <Avatar size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar id="size-xs" size="xs" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar id="size-small" size="small" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar id="size-medium" size="medium" src={person1} type="img" ariaLabel="Julia Martinez" />
+      <Avatar id="size-large" size="large" src={person1} type="img" ariaLabel="Julia Martinez" />
     </Flex>
   )
 };
@@ -98,10 +99,10 @@ export const Size = {
 export const Disable = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="xs" src={person1} type="img" disabled />
-      <Avatar size="small" src={person1} type="img" disabled />
-      <Avatar size="medium" src={person1} type="img" disabled />
-      <Avatar size="large" src={person1} type="img" disabled />
+      <Avatar id="disabled-xs" size="xs" src={person1} type="img" ariaLabel="Julia Martinez" disabled />
+      <Avatar id="disabled-small" size="small" src={person1} type="img" ariaLabel="Julia Martinez" disabled />
+      <Avatar id="disabled-medium" size="medium" src={person1} type="img" ariaLabel="Julia Martinez" disabled />
+      <Avatar id="disabled-large" size="large" src={person1} type="img" ariaLabel="Julia Martinez" disabled />
     </Flex>
   )
 };
@@ -109,10 +110,10 @@ export const Disable = {
 export const AvatarWithText = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="xs" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
-      <Avatar size="small" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
-      <Avatar size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
-      <Avatar size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
+      <Avatar id="text-xs" size="xs" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
+      <Avatar id="text-small" size="small" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
+      <Avatar id="text-medium" size="medium" type="text" text="RM" backgroundColor="lipstick" ariaLabel="Ron Meir" />
+      <Avatar id="text-large" size="large" type="text" text="RM" backgroundColor="done-green" ariaLabel="Ron Meir" />
     </Flex>
   )
 };
@@ -120,10 +121,34 @@ export const AvatarWithText = {
 export const SquareAvatar = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="xs" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
-      <Avatar size="small" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
-      <Avatar size="medium" type="icon" icon={WhatsNew} backgroundColor="aquamarine" square ariaLabel="Present" />
-      <Avatar size="large" type="text" text="RM" backgroundColor="working_orange" square ariaLabel="Ron Meir" />
+      <Avatar id="square-xs" size="xs" type="text" text="R" backgroundColor="bright-blue" square ariaLabel="Ron" />
+      <Avatar
+        id="square-small"
+        size="small"
+        type="text"
+        text="R"
+        backgroundColor="bright-blue"
+        square
+        ariaLabel="Ron"
+      />
+      <Avatar
+        id="square-medium"
+        size="medium"
+        type="icon"
+        icon={WhatsNew}
+        backgroundColor="aquamarine"
+        square
+        ariaLabel="Present"
+      />
+      <Avatar
+        id="square-large"
+        size="large"
+        type="text"
+        text="RM"
+        backgroundColor="working_orange"
+        square
+        ariaLabel="Ron Meir"
+      />
     </Flex>
   )
 };
@@ -131,8 +156,22 @@ export const SquareAvatar = {
 export const AvatarWithRightBadge = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: guest }} ariaLabel="Julia Martinez" />
-      <Avatar size="large" type="img" src={person1} bottomRightBadgeProps={{ src: owner }} ariaLabel="Julia Martinez" />
+      <Avatar
+        id="right-badge-guest"
+        size="large"
+        type="img"
+        src={person1}
+        bottomRightBadgeProps={{ src: guest }}
+        ariaLabel="Julia Martinez with guest badge"
+      />
+      <Avatar
+        id="right-badge-owner"
+        size="large"
+        type="img"
+        src={person1}
+        bottomRightBadgeProps={{ src: owner }}
+        ariaLabel="Julia Martinez with owner badge"
+      />
     </Flex>
   ),
   parameters: {
@@ -147,8 +186,22 @@ export const AvatarWithRightBadge = {
 export const AvatarWithLeftBadge = {
   render: () => (
     <Flex gap="medium">
-      <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: home }} ariaLabel="Julia Martinez" />
-      <Avatar size="large" type="img" src={person1} bottomLeftBadgeProps={{ src: minus }} ariaLabel="Julia Martinez" />
+      <Avatar
+        id="left-badge-home"
+        size="large"
+        type="img"
+        src={person1}
+        bottomLeftBadgeProps={{ src: home }}
+        ariaLabel="Julia Martinez with home badge"
+      />
+      <Avatar
+        id="left-badge-minus"
+        size="large"
+        type="img"
+        src={person1}
+        bottomLeftBadgeProps={{ src: minus }}
+        ariaLabel="Julia Martinez with minus badge"
+      />
     </Flex>
   ),
   parameters: {
@@ -164,10 +217,11 @@ export const AvatarWithTooltip = {
   render: () => (
     <Flex direction="row" gap="large" align="start">
       <StoryDescription description="Aria label tooltip" vertical align={StoryDescription.align.START}>
-        <Avatar size="large" type="img" src={person1} ariaLabel={"Julia Martinez"} />
+        <Avatar id="tooltip-aria" size="large" type="img" src={person1} ariaLabel={"Julia Martinez"} />
       </StoryDescription>
       <StoryDescription description="Text tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
+          id="tooltip-text"
           size="large"
           type="img"
           src={person1}
@@ -179,6 +233,7 @@ export const AvatarWithTooltip = {
       </StoryDescription>
       <StoryDescription description="JSX tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
+          id="tooltip-jsx"
           size="large"
           type="img"
           src={person1}
@@ -211,8 +266,15 @@ export const ClickableAvatar = {
     return (
       <Flex>
         <Flex direction="column" gap="medium">
-          <Avatar size="large" type="img" src={person1} ariaLabel="Julia Martinez" onClick={incrementCount} />
-          <Counter count={count} />
+          <Avatar
+            id="clickable-avatar"
+            size="large"
+            type="img"
+            src={person1}
+            ariaLabel="Julia Martinez (clickable)"
+            onClick={incrementCount}
+          />
+          <Counter id="avatar-click-counter" count={count} />
         </Flex>
       </Flex>
     );
@@ -221,10 +283,10 @@ export const ClickableAvatar = {
 
 export const MultipleAvatars = {
   render: () => (
-    <AvatarGroup max={2} size="large">
-      <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-      <Avatar type="img" src={person2} ariaLabel="Marco DiAngelo" />
-      <Avatar type="img" src={person3} ariaLabel="Liam Caldwell" />
+    <AvatarGroup id="multiple-avatars-group" max={2} size="large">
+      <Avatar id="multiple-avatar-1" type="img" src={person1} ariaLabel="Julia Martinez" />
+      <Avatar id="multiple-avatar-2" type="img" src={person2} ariaLabel="Marco DiAngelo" />
+      <Avatar id="multiple-avatar-3" type="img" src={person3} ariaLabel="Liam Caldwell" />
     </AvatarGroup>
   ),
   parameters: {

@@ -41,6 +41,8 @@ const textAreaTemplate = createComponentTemplate(TextArea);
 export const Overview: Story = {
   render: textAreaTemplate.bind({}),
   args: {
+    id: "overview-textarea",
+    "aria-label": "Overview text area",
     label: "Text area label",
     helpText: "Helper text"
   },
@@ -57,8 +59,8 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <TextArea size="large" label="Large text area" />
-      <TextArea size="small" label="Small text area" />
+      <TextArea id="sizes-large" aria-label="Large text area" size="large" label="Large text area" />
+      <TextArea id="sizes-small" aria-label="Small text area" size="small" label="Small text area" />
     </>
   ),
   decorators: [withGrid]
@@ -67,16 +69,26 @@ export const Sizes: Story = {
 export const States: Story = {
   render: () => (
     <>
-      <TextArea size="small" label="Success state" success />
-      <TextArea size="small" label="Error state" error />
-      <TextArea size="small" label="Disabled state" disabled />
-      <TextArea size="small" label="Read only state" readOnly />
+      <TextArea id="states-success" aria-label="Success text area" size="small" label="Success state" success />
+      <TextArea id="states-error" aria-label="Error text area" size="small" label="Error state" error />
+      <TextArea id="states-disabled" aria-label="Disabled text area" size="small" label="Disabled state" disabled />
+      <TextArea id="states-readonly" aria-label="Read only text area" size="small" label="Read only state" readOnly />
     </>
   ),
   decorators: [withGrid]
 };
 
 export const Validation: Story = {
-  render: () => <TextArea size="small" label="Text area label" error required helpText="Validation text" />,
+  render: () => (
+    <TextArea
+      id="validation-textarea"
+      aria-label="Text area with validation"
+      size="small"
+      label="Text area label"
+      error
+      required
+      helpText="Validation text"
+    />
+  ),
   decorators: [withFixedWidth]
 };

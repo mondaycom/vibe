@@ -123,6 +123,7 @@ export const Overview = {
 
     return (
       <Table
+        id="overview-table"
         {...args}
         errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
         emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
@@ -191,6 +192,7 @@ export const Sizes = {
     return (
       <>
         <Table
+          id="sizes-small-table"
           style={{ width: "auto" }}
           size="small"
           errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
