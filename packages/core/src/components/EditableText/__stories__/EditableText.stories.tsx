@@ -22,7 +22,6 @@ const EditableTextTemplate = createComponentTemplate(EditableText);
 export const Overview = {
   render: EditableTextTemplate.bind({}),
   args: {
-    id: "overview-editable-text",
     ariaLabel: "Editable text",
     value: "This text is an editable text"
   },
@@ -41,21 +40,18 @@ export const Types = {
     <Flex direction="column" gap="large" align="start">
       <Flex gap="large">
         <EditableText
-          id="text1-normal"
           ariaLabel="Text1 normal editable text"
           type="text1"
           weight="normal"
           value="Text1 Normal"
         />
         <EditableText
-          id="text1-medium"
           ariaLabel="Text1 medium editable text"
           type="text1"
           weight="medium"
           value="Text1 Medium"
         />
         <EditableText
-          id="text1-bold"
           ariaLabel="Text1 bold editable text"
           type="text1"
           weight="bold"
@@ -64,21 +60,18 @@ export const Types = {
       </Flex>
       <Flex gap="large">
         <EditableText
-          id="text2-normal"
           ariaLabel="Text2 normal editable text"
           type="text2"
           weight="normal"
           value="Text2 Normal"
         />
         <EditableText
-          id="text2-medium"
           ariaLabel="Text2 medium editable text"
           type="text2"
           weight="medium"
           value="Text2 Medium"
         />
         <EditableText
-          id="text2-bold"
           ariaLabel="Text2 bold editable text"
           type="text2"
           weight="bold"
@@ -87,14 +80,12 @@ export const Types = {
       </Flex>
       <Flex gap="large">
         <EditableText
-          id="text3-normal"
           ariaLabel="Text3 normal editable text"
           type="text3"
           weight="normal"
           value="Text3 Normal"
         />
         <EditableText
-          id="text3-medium"
           ariaLabel="Text3 medium editable text"
           type="text3"
           weight="medium"
@@ -108,7 +99,6 @@ export const Types = {
 export const Multiline = {
   render: () => (
     <EditableText
-      id="multiline-editable-text"
       ariaLabel="Multiline editable text"
       type="text1"
       weight="normal"
@@ -122,7 +112,6 @@ here's the second line`}
 export const WithPlaceholder = {
   render: () => (
     <EditableText
-      id="placeholder-editable-text"
       ariaLabel="Editable text with placeholder"
       value="Clear text to see placeholder"
       placeholder="Enter your text here..."

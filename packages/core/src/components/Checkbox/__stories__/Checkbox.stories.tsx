@@ -26,7 +26,6 @@ export const Overview: Story = {
   args: {
     label: "Option",
     defaultChecked: true,
-    id: "checkbox-1",
     ariaLabel: "Checkbox option"
   },
   parameters: {
@@ -41,16 +40,15 @@ export const Overview: Story = {
 export const States: Story = {
   render: () => (
     <>
-      <Checkbox label="Regular" id="checkbox-2" ariaLabel="Regular checkbox" />
-      <Checkbox label="Selected" checked id="checkbox-3" ariaLabel="Selected checkbox" />
-      <Checkbox label="Indeterminate" indeterminate id="checkbox-4" ariaLabel="Indeterminate checkbox" />
-      <Checkbox label="Disabled" disabled id="checkbox-5" ariaLabel="Disabled checkbox" />
-      <Checkbox label="Disabled checked" disabled checked id="checkbox-6" ariaLabel="Disabled checked checkbox" />
+      <Checkbox label="Regular" ariaLabel="Regular checkbox" />
+      <Checkbox label="Selected" checked ariaLabel="Selected checkbox" />
+      <Checkbox label="Indeterminate" indeterminate ariaLabel="Indeterminate checkbox" />
+      <Checkbox label="Disabled" disabled ariaLabel="Disabled checkbox" />
+      <Checkbox label="Disabled checked" disabled checked ariaLabel="Disabled checked checkbox" />
       <Checkbox
         label="Disabled indeterminate"
         disabled
         indeterminate
-        id="checkbox-7"
         ariaLabel="Disabled indeterminate checkbox"
       />
     </>
@@ -60,7 +58,6 @@ export const States: Story = {
 export const SingleCheckbox: Story = {
   render: () => (
     <Checkbox
-      id="single-checkbox"
       ariaLabel="Agree to terms and privacy policy"
       checked
       label={
