@@ -25,7 +25,8 @@ export const Overview: Story = {
   render: checkboxTemplate.bind({}),
   args: {
     label: "Option",
-    defaultChecked: true
+    defaultChecked: true,
+    id: "checkbox-1"
   },
   parameters: {
     docs: {
@@ -39,12 +40,12 @@ export const Overview: Story = {
 export const States: Story = {
   render: () => (
     <>
-      <Checkbox label="Regular" />
-      <Checkbox label="Selected" checked />
-      <Checkbox label="Indeterminate" indeterminate />
-      <Checkbox label="Disabled" disabled />
-      <Checkbox label="Disabled checked" disabled checked />
-      <Checkbox label="Disabled indeterminate" disabled indeterminate />
+      <Checkbox label="Regular" id="checkbox-2" />
+      <Checkbox label="Selected" checked id="checkbox-3" />
+      <Checkbox label="Indeterminate" indeterminate id="checkbox-4" />
+      <Checkbox label="Disabled" disabled id="checkbox-5" />
+      <Checkbox label="Disabled checked" disabled checked id="checkbox-6" />
+      <Checkbox label="Disabled indeterminate" disabled indeterminate id="checkbox-7" />
     </>
   )
 };

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.58.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.1...@vibe/core@3.58.2) (2025-08-07)
+
+
+### Bug Fixes
+
+* A11y-fixes for MenuButton, TextArea, TextField and Checkbox ([#3036](https://github.com/mondaycom/vibe/issues/3036)) ([803c244](https://github.com/mondaycom/vibe/commit/803c244881871cddd1c9afd525eb5c9e72e8ff00))
+
+
+
+
+
 ## [3.58.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.0...@vibe/core@3.58.1) (2025-08-05)
 
 
