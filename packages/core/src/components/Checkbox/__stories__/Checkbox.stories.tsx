@@ -45,11 +45,7 @@ export const States: Story = {
       <Checkbox label="Indeterminate" indeterminate ariaLabel="Indeterminate checkbox" />
       <Checkbox label="Disabled" disabled ariaLabel="Disabled checkbox" />
       <Checkbox label="Disabled checked" disabled checked ariaLabel="Disabled checked checkbox" />
-      <Checkbox
-        label="Disabled indeterminate"
-        disabled
-        indeterminate
-        ariaLabel="Disabled indeterminate checkbox"
+      <Checkbox label="Disabled indeterminate" disabled indeterminate ariaLabel="Disabled indeterminate checkbox"
       />
     </>
   )
