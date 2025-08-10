@@ -71,7 +71,7 @@ here's the second line`}
 
 export const WithPlaceholder = {
   render: () => (
-    <EditableText 
+    <EditableText
       ariaLabel="Editable text with placeholder"
       value="Clear text to see placeholder"
       placeholder="Enter your text here..."
