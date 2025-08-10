@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.3](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.2...@vibe/testkit@1.14.3) (2025-08-10)
+
+
+### Bug Fixes
+
+* pin playwright version ([#3038](https://github.com/mondaycom/vibe/issues/3038)) ([e48c55a](https://github.com/mondaycom/vibe/commit/e48c55a5804665fc53fa78440163a9cec2853aeb))
+
+
+
+
+
 ## [1.14.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.1...@vibe/testkit@1.14.2) (2025-07-28)
 
 
