@@ -91,9 +91,12 @@ const Label = forwardRef<HTMLElement, LabelProps>(
 
     const backgroundColorStyle = useMemo(() => {
       if (contentColors.includes(color as ContentColor)) {
+        if (kind === "line") {
+          return { color: `var(--color-${color})` };
+        }
         return { backgroundColor: `var(--color-${color})` };
       }
-    }, [color]);
+    }, [color, kind]);
 
     const onClickCallback = useCallback(
       (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
