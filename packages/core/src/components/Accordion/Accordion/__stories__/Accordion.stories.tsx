@@ -7,32 +7,32 @@ import Flex from "../../../Flex/Flex";
 
 const accordionTemplate = (args: AccordionProps) => {
   return (
-    <Accordion defaultIndex={[1]} {...args}>
-      <AccordionItem title="Notifications">
+    <Accordion id="overview-accordion" defaultIndex={[1]} {...args}>
+      <AccordionItem id="overview-notifications" title="Notifications">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Setting">
+      <AccordionItem id="overview-setting" title="Setting">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Info">
+      <AccordionItem id="overview-info" title="Info">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Profile">
+      <AccordionItem id="overview-profile" title="Profile">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Permissions">
+      <AccordionItem id="overview-permissions" title="Permissions">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Security">
+      <AccordionItem id="overview-security" title="Security">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Connectivity">
+      <AccordionItem id="overview-connectivity" title="Connectivity">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Integration">
+      <AccordionItem id="overview-integration" title="Integration">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Assets">
+      <AccordionItem id="overview-assets" title="Assets">
         <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
@@ -81,20 +81,20 @@ export const Overview = {
 
 export const MultiActive = {
   render: () => (
-    <Accordion allowMultiple defaultIndex={[1, 3]}>
-      <AccordionItem title="Notifications">
+    <Accordion id="multi-active-accordion" allowMultiple defaultIndex={[1, 3]}>
+      <AccordionItem id="multi-notifications" title="Notifications">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Setting">
+      <AccordionItem id="multi-setting" title="Setting">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Connectivity">
+      <AccordionItem id="multi-connectivity" title="Connectivity">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Integration">
+      <AccordionItem id="multi-integration" title="Integration">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Assets">
+      <AccordionItem id="multi-assets" title="Assets">
         <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
@@ -106,20 +106,20 @@ export const MultiActive = {
 
 export const SingleActive = {
   render: () => (
-    <Accordion defaultIndex={[1]}>
-      <AccordionItem title="Notifications">
+    <Accordion id="single-active-accordion" defaultIndex={[1]}>
+      <AccordionItem id="single-notifications" title="Notifications">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Setting">
+      <AccordionItem id="single-setting" title="Setting">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Connectivity">
+      <AccordionItem id="single-connectivity" title="Connectivity">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Integration">
+      <AccordionItem id="single-integration" title="Integration">
         <div style={{ height: 150 }} />
       </AccordionItem>
-      <AccordionItem title="Assets">
+      <AccordionItem id="single-assets" title="Assets">
         <div style={{ height: 150 }} />
       </AccordionItem>
     </Accordion>
@@ -131,14 +131,14 @@ export const SingleActive = {
 
 export const PreferencesAccordion = {
   render: () => (
-    <Accordion defaultIndex={[0]}>
-      <AccordionItem title="In monday">
+    <Accordion id="preferences-accordion" defaultIndex={[0]}>
+      <AccordionItem id="preferences-monday" title="In monday">
         <Flex direction="column" gap={20} align="start">
-          <Checkbox label="Likes my update" checked />
-          <Checkbox label="Replies to my update" />
-          <Checkbox label="Replies or likes a conversation I'm a part of" checked />
-          <Checkbox label="Subscribes me to a Board/Item/Team" checked />
-          <Checkbox label="Writes an update on an items I'm subscribed to" checked />
+          <Checkbox id="pref-likes" label="Likes my update" checked />
+          <Checkbox id="pref-replies" label="Replies to my update" />
+          <Checkbox id="pref-conversation" label="Replies or likes a conversation I'm a part of" checked />
+          <Checkbox id="pref-subscribes" label="Subscribes me to a Board/Item/Team" checked />
+          <Checkbox id="pref-updates" label="Writes an update on an items I'm subscribed to" checked />
         </Flex>
       </AccordionItem>
     </Accordion>

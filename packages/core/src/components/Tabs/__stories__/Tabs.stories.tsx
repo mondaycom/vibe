@@ -29,20 +29,20 @@ export default {
 
 export const Overview = {
   render: (args: TabProps) => (
-    <TabsContext {...args}>
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
+    <TabsContext id="overview-tabs" {...args}>
+      <TabList id="overview-tab-list">
+        <Tab id="overview-tab-first">First</Tab>
+        <Tab id="overview-tab-second">Second</Tab>
+        <Tab id="overview-tab-third">Third</Tab>
       </TabList>
-      <TabPanels>
-        <TabPanel>
+      <TabPanels id="overview-tab-panels">
+        <TabPanel id="overview-panel-first">
           <ExampleTabContent>First slide</ExampleTabContent>
         </TabPanel>
-        <TabPanel>
+        <TabPanel id="overview-panel-second">
           <ExampleTabContent>Second slide</ExampleTabContent>
         </TabPanel>
-        <TabPanel>
+        <TabPanel id="overview-panel-third">
           <ExampleTabContent>Third slide</ExampleTabContent>
         </TabPanel>
       </TabPanels>
@@ -60,24 +60,26 @@ export const Overview = {
 
 export const Default = {
   render: () => (
-    <TabsContext>
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
-        <Tab disabled>Disabled</Tab>
+    <TabsContext id="default-tabs">
+      <TabList id="default-tab-list">
+        <Tab id="default-tab-first">First</Tab>
+        <Tab id="default-tab-second">Second</Tab>
+        <Tab id="default-tab-third">Third</Tab>
+        <Tab id="default-tab-disabled" disabled>
+          Disabled
+        </Tab>
       </TabList>
-      <TabPanels>
-        <TabPanel>
+      <TabPanels id="default-tab-panels">
+        <TabPanel id="default-panel-first">
           <ExampleTabContent>First slide</ExampleTabContent>
         </TabPanel>
-        <TabPanel>
+        <TabPanel id="default-panel-second">
           <ExampleTabContent>Second slide</ExampleTabContent>
         </TabPanel>
-        <TabPanel>
+        <TabPanel id="default-panel-third">
           <ExampleTabContent>Third slide</ExampleTabContent>
         </TabPanel>
-        <TabPanel>
+        <TabPanel id="default-panel-fourth">
           <ExampleTabContent>Fourth slide</ExampleTabContent>
         </TabPanel>
       </TabPanels>

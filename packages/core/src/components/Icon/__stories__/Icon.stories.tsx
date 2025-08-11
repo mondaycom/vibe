@@ -26,8 +26,8 @@ export default {
 export const Overview = {
   render: iconTemplate.bind({}),
   name: "Overview",
-
   args: {
+    id: "overview-icon",
     icon: Bolt
   },
   parameters: {
@@ -40,7 +40,7 @@ export const Overview = {
 };
 
 export const VibeIcon = {
-  render: () => <Icon iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
+  render: () => <Icon id="vibe-icon" iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -51,12 +51,13 @@ export const VibeIcon = {
 };
 
 export const FontIcon = {
-  render: () => <Icon iconType="font" iconLabel="my font awesome start icon" icon="fa fa-star" />
+  render: () => <Icon id="font-icon" iconType="font" iconLabel="my font awesome start icon" icon="fa fa-star" />
 };
 
 export const CustomSvg = {
   render: () => (
     <Icon
+      id="custom-svg-icon"
       iconType="src"
       icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
       iconLabel="my src awesome icon"
@@ -72,10 +73,9 @@ export const Color = {
         color: "var(--sb-color-sofia_pink)"
       }}
     >
-      <Icon iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
+      <Icon id="colored-icon" iconType="svg" icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
     </div>
   ),
-
   parameters: {
     docs: {
       liveEdit: {

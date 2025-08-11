@@ -31,7 +31,13 @@ const DatePickerTemplate = (args: DatePickerProps) => {
   const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
   return (
     <DialogContentContainer>
-      <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} {...args} />
+      <DatePicker
+        id="overview-date-picker"
+        data-testid="date-picker"
+        date={date}
+        onPickDate={(d: Moment) => setDate(d)}
+        {...args}
+      />
     </DialogContentContainer>
   );
 };
@@ -54,7 +60,12 @@ export const SingleDay = {
 
     return (
       <DialogContentContainer>
-        <DatePicker data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
+        <DatePicker
+          id="single-day-picker"
+          data-testid="date-picker"
+          date={date}
+          onPickDate={(d: Moment) => setDate(d)}
+        />
       </DialogContentContainer>
     );
   },
@@ -69,6 +80,7 @@ export const DateRange = {
     return (
       <DialogContentContainer>
         <DatePicker
+          id="date-range-picker"
           date={date.startDate}
           endDate={date.endDate}
           range
@@ -88,7 +100,13 @@ export const NumberOfMonths = {
 
     return (
       <DialogContentContainer>
-        <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={(d: Moment) => setDate(d)} />
+        <DatePicker
+          id="multi-month-picker"
+          numberOfMonths={2}
+          data-testid="date-picker"
+          date={date}
+          onPickDate={(d: Moment) => setDate(d)}
+        />
       </DialogContentContainer>
     );
   },
@@ -103,6 +121,7 @@ export const WithCustomPhrases = {
     return (
       <DialogContentContainer>
         <DatePicker
+          id="custom-phrases-picker"
           data-testid="date-picker"
           date={date}
           onPickDate={(d: Moment) => setDate(d)}

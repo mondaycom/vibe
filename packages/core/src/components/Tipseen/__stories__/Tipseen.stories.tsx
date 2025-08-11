@@ -52,8 +52,8 @@ const tipseenTemplate = ({ title, children, position, ...otherArgs }: TipseenPro
 export const Overview: StoryObj<typeof Tipseen> = {
   render: tipseenTemplate.bind({}),
   name: "Overview",
-
   args: {
+    id: "overview-tipseen",
     title: "Title",
     children: <div>Message for the user will appear here, to give more information about the feature.</div>,
     position: "right"
@@ -72,6 +72,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
     return (
       <Flex direction="column">
         <Tipseen
+          id="colors-tipseen-1"
           // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={[
@@ -84,7 +85,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
           ]}
           position="right"
           content={
-            <TipseenContent title="This is a title">
+            <TipseenContent id="colors-content-1" title="This is a title">
               Message for the user will appear here, to give more information about the feature.
             </TipseenContent>
           }
@@ -92,6 +93,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
           <div style={{ height: "180px" }} />
         </Tipseen>
         <Tipseen
+          id="colors-tipseen-2"
           // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={[
@@ -105,7 +107,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
           position="right"
           color="primary"
           content={
-            <TipseenContent title="This is a title">
+            <TipseenContent id="colors-content-2" title="This is a title">
               Message for the user will appear here, to give more information about the feature.
             </TipseenContent>
           }
@@ -115,7 +117,6 @@ export const Colors: StoryObj<typeof Tipseen> = {
       </Flex>
     );
   },
-
   name: "Colors"
 };
 

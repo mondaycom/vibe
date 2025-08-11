@@ -16,6 +16,7 @@ export default {
 export const Overview = {
   render: radioButtonTemplate.bind({}),
   args: {
+    id: "overview-radio",
     text: "Selection"
   },
   parameters: {
@@ -30,10 +31,10 @@ export const Overview = {
 export const States = {
   render: () => (
     <Flex gap="medium">
-      <RadioButton text="Regular" />
-      <RadioButton text="Selected" checked />
-      <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
-      <RadioButton text="Disabled" checked disabled />
+      <RadioButton id="states-regular" text="Regular" />
+      <RadioButton id="states-selected" text="Selected" checked />
+      <RadioButton id="states-disabled" text="Disabled" disabled disabledReason="Disabled reason" />
+      <RadioButton id="states-disabled-checked" text="Disabled" checked disabled />
     </Flex>
   )
 };
@@ -41,10 +42,10 @@ export const States = {
 export const RadioButtonInItemsList = {
   render: () => (
     <Flex direction="column" gap="medium" align="start">
-      <div>Inbox view options</div>
-      <RadioButton text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
-      <RadioButton text="I was mentioned" name="radio-buttons-group-4" />
-      <RadioButton text="All updates" name="radio-buttons-group-4" />
+      <div id="inbox-view-label">Inbox view options</div>
+      <RadioButton id="inbox-updates" text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
+      <RadioButton id="was-mentioned" text="I was mentioned" name="radio-buttons-group-4" />
+      <RadioButton id="all-updates" text="All updates" name="radio-buttons-group-4" />
     </Flex>
   ),
   play: clickRadioButtonPlaySuite,
@@ -61,13 +62,31 @@ export const ControlledRadioButtons = {
 
     return (
       <Flex direction="column" gap="medium" align="start">
-        <div>Controlled radio buttons</div>
-        <Button kind="secondary" onClick={onClickCB}>{`Select next radio button (Radio ${
+        <div id="controlled-radio-label">Controlled radio buttons</div>
+        <Button id="select-next-button" kind="secondary" onClick={onClickCB}>{`Select next radio button (Radio ${
           ((selectedIndex + 1) % 3) + 1
         }) `}</Button>
-        <RadioButton text="Radio 1" name="radio-buttons-group-5" checked={selectedIndex === 0} onSelect={onChange} />
-        <RadioButton text="Radio 2" name="radio-buttons-group-5" checked={selectedIndex === 1} onSelect={onChange} />
-        <RadioButton text="Radio 3" name="radio-buttons-group-5" checked={selectedIndex === 2} onSelect={onChange} />
+        <RadioButton
+          id="radio-1"
+          text="Radio 1"
+          name="radio-buttons-group-5"
+          checked={selectedIndex === 0}
+          onSelect={onChange}
+        />
+        <RadioButton
+          id="radio-2"
+          text="Radio 2"
+          name="radio-buttons-group-5"
+          checked={selectedIndex === 1}
+          onSelect={onChange}
+        />
+        <RadioButton
+          id="radio-3"
+          text="Radio 3"
+          name="radio-buttons-group-5"
+          checked={selectedIndex === 2}
+          onSelect={onChange}
+        />
       </Flex>
     );
   },

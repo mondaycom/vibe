@@ -60,6 +60,8 @@ const dropdownTemplate = (props: BaseDropdownProps<any>) => {
 export const Overview: Story = {
   render: dropdownTemplate.bind({}),
   args: {
+    id: "overview-dropdown",
+    ariaLabel: "Overview dropdown",
     placeholder: "Placeholder text here"
   },
   parameters: {
@@ -84,13 +86,31 @@ export const Sizes: Story = {
     return (
       <>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="large" />
+          <Dropdown
+            id="sizes-large"
+            ariaLabel="Large dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="large"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="medium" />
+          <Dropdown
+            id="sizes-medium"
+            ariaLabel="Medium dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="medium"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="small" />
+          <Dropdown
+            id="sizes-small"
+            ariaLabel="Small dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="small"
+          />
         </div>
       </>
     );
@@ -102,18 +122,18 @@ export const States: Story = {
     <Flex direction="row" gap="medium">
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Default" />
+          <Dropdown id="states-default" ariaLabel="Default dropdown" options={[]} placeholder="Default" />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Disabled" disabled />
+          <Dropdown id="states-disabled" ariaLabel="Disabled dropdown" options={[]} placeholder="Disabled" disabled />
         </div>
       </Flex>
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Error" error />
+          <Dropdown id="states-error" ariaLabel="Error dropdown" options={[]} placeholder="Error" error />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Readonly" readOnly />
+          <Dropdown id="states-readonly" ariaLabel="Readonly dropdown" options={[]} placeholder="Readonly" readOnly />
         </div>
       </Flex>
     </Flex>

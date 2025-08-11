@@ -26,6 +26,8 @@ export const Overview: Story = {
   render: buttonGroupTemplate.bind({}),
 
   args: {
+    id: "overview-button-group",
+    groupAriaLabel: "Overview button group",
     options: [
       {
         value: 1,
@@ -59,7 +61,8 @@ export const Overview: Story = {
 export const Default: Story = {
   render: () => (
     <ButtonGroup
-      groupAriaLabel="button group aria label"
+      id="default-button-group"
+      groupAriaLabel="Default button group"
       value={1}
       options={[
         {
@@ -86,7 +89,8 @@ export const Default: Story = {
 export const Tertiary: Story = {
   render: () => (
     <ButtonGroup
-      groupAriaLabel="button group aria label"
+      id="tertiary-button-group"
+      groupAriaLabel="Tertiary button group"
       value={1}
       kind={ButtonGroup.kinds.TERTIARY}
       options={[
@@ -114,8 +118,9 @@ export const Tertiary: Story = {
 export const Disabled: Story = {
   render: () => (
     <ButtonGroup
+      id="disabled-button-group"
       disabled
-      groupAriaLabel="button group aria label"
+      groupAriaLabel="Disabled button group"
       options={[
         {
           value: 1,
@@ -141,7 +146,8 @@ export const Disabled: Story = {
 export const DisabledSingeButton: Story = {
   render: () => (
     <ButtonGroup
-      groupAriaLabel="button group aria label"
+      id="disabled-single-button-group"
+      groupAriaLabel="Button group with disabled option"
       options={[
         {
           value: 1,
@@ -173,7 +179,8 @@ export const Size: Story = {
       <Flex direction="column" gap={16} align="start">
         <Text type={Text.types.TEXT1}>Medium</Text>
         <ButtonGroup
-          groupAriaLabel="button group aria label"
+          id="size-medium-button-group"
+          groupAriaLabel="Medium size button group"
           size={ButtonGroup.sizes.MEDIUM}
           value={1}
           options={[
@@ -187,7 +194,8 @@ export const Size: Story = {
       <Flex direction="column" gap={16} align="start">
         <Text type={Text.types.TEXT1}>Small</Text>
         <ButtonGroup
-          groupAriaLabel="button group aria label"
+          id="size-small-button-group"
+          groupAriaLabel="Small size button group"
           size={ButtonGroup.sizes.SMALL}
           value={1}
           options={[
@@ -207,7 +215,8 @@ export const ButtonGroupInSettings: Story = {
     <Flex direction="column" gap={16} align="start">
       <Text type={Text.types.TEXT1}>Function</Text>
       <ButtonGroup
-        groupAriaLabel="button group aria label"
+        id="settings-button-group"
+        groupAriaLabel="Function selection button group"
         size={ButtonGroup.sizes.SMALL}
         value={1}
         options={[
@@ -237,7 +246,8 @@ export const ButtonGroupInSettings: Story = {
 export const ButtonGroupAsToggle: Story = {
   render: () => (
     <ButtonGroup
-      groupAriaLabel="button group aria label"
+      id="toggle-button-group"
+      groupAriaLabel="View toggle button group"
       value={1}
       options={[
         {
@@ -258,7 +268,8 @@ export const FullWidthButtonGroup: Story = {
   render: () => (
     <div style={{ width: "100%" }}>
       <ButtonGroup
-        groupAriaLabel="Full Width Button Group"
+        id="full-width-button-group"
+        groupAriaLabel="Full width button group"
         fullWidth
         value={1}
         options={[
