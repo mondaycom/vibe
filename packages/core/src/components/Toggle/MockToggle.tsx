@@ -18,6 +18,10 @@ export interface MockToggleProps extends VibeComponentProps {
    */
   checked?: boolean;
   /**
+   * If true, removes the horizontal spacing around the toggle.
+   */
+  noSpacing?: boolean;
+  /**
    * The text displayed when the toggle is in the "off" state.
    */
   offOverrideText?: string;
@@ -42,6 +46,7 @@ export interface MockToggleProps extends VibeComponentProps {
 export const MockToggle: FC<MockToggleProps> = ({
   areLabelsHidden,
   checked,
+  noSpacing,
   offOverrideText,
   onOverrideText,
   className,
@@ -55,7 +60,8 @@ export const MockToggle: FC<MockToggleProps> = ({
       className={cx(styles.toggle, getStyle(styles, size), className, {
         [cx(styles.selected, selectedClassName)]: checked,
         [styles.notSelected]: !checked,
-        [styles.disabled]: disabled
+        [styles.disabled]: disabled,
+        [styles.noSpacing]: noSpacing
       })}
       aria-hidden="true"
       data-testid={getTestId(ComponentDefaultTestId.TOGGLE)}
