@@ -2,7 +2,6 @@ import cx from "classnames";
 import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, type Modifier, Popper, Reference } from "react-popper";
-import { isFunction } from "lodash-es";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import DialogContent from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -13,13 +12,18 @@ import {
   DialogPosition as DialogPositionEnum
 } from "./DialogConstants";
 import { type VibeComponentProps } from "../../types";
-import type * as PopperJS from "@popperjs/core";
+import type { Placement } from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
+
+function isFunction(value: any) {
+  const protoOf = Object.getPrototypeOf;
+  return typeof value === "function" && protoOf(protoOf(value)) !== null;
+}
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -584,7 +588,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
         {isClient() &&
           createPortal(
             <Popper
-              placement={position as unknown as PopperJS.Placement}
+              placement={position as unknown as Placement}
               modifiers={[
                 {
                   name: "offset",
