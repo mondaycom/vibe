@@ -1,0 +1,72 @@
+name: Bundle Size Analysis
+
+on:
+  pull_request:
+    paths:
+      - "packages/core/src/components/**"
+      - "packages/core/package.json"
+
+permissions:
+  pull-requests: write
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  bundle-size:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Setup
+        uses: ./.github/actions/setup
+
+      - name: Download build artifacts
+        uses: ./.github/actions/download-builds
+
+      - name: Run size-limit on PR
+        run: |
+          node scripts/bundle-check/generate-size-limit-config.js
+          mkdir -p scripts/bundle-check/reports
+          ./node_modules/.bin/size-limit --json > "scripts/bundle-check/reports/pr.json"
+
+      - name: Run size-limit on base commit
+        run: |
+          PR_HEAD_SHA=$(git rev-parse HEAD)
+          trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
+
+          BASE=$(git merge-base origin/master HEAD)
+          echo "Base commit: $BASE"
+          git checkout $BASE
+          yarn install --frozen-lockfile
+          yarn build
+          yarn add --dev -W size-limit @size-limit/preset-small-lib
+          ./node_modules/.bin/size-limit --json > scripts/bundle-check/reports/base.json
+        continue-on-error: true
+
+      - name: Compare sizes
+        run: node scripts/bundle-check/compare-bundles.js
+
+      - name: Post comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: bundle-size
+          path: scripts/bundle-check/reports/bundle-sizes.md
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bundle-analysis
+          path: |
+            scripts/bundle-check/reports/base.json
+            scripts/bundle-check/reports/pr.json
+            scripts/bundle-check/reports/bundle-sizes.md
+          retention-days: 7

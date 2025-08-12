@@ -15,3 +15,5 @@ coverage
 .DS_Store
 packages/testkit/test-results
 packages/testkit/reports
+scripts/bundle-check/reports
+.size-limit.js
