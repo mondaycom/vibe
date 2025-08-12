@@ -25,12 +25,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "yarn"
-
       - name: Run Setup
         uses: ./.github/actions/setup
 
@@ -39,7 +33,6 @@ jobs:
 
       - name: Run size-limit on PR
         run: |
-          yarn install --frozen-lockfile
           node scripts/bundle-check/generate-size-limit-config.js
           mkdir -p scripts/bundle-check/reports
           ./node_modules/.bin/size-limit --json > "scripts/bundle-check/reports/pr.json"
