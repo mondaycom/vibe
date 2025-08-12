@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.58.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.3...@vibe/core@3.58.4) (2025-08-12)
+
+
+### Bug Fixes
+
+* **Counter:** fix usage of CSSTransition#addEndListener with nodeRef ([#3047](https://github.com/mondaycom/vibe/issues/3047)) ([a73b8e9](https://github.com/mondaycom/vibe/commit/a73b8e972144051449b1f47a2c7ee1b5e2d560d1))
+
+
+
+
+
 ## [3.58.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.2...@vibe/core@3.58.3) (2025-08-12)
 
 
