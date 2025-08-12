@@ -75,8 +75,10 @@ Array.from(allComponents)
       // Highlight significant changes (>5KB) and ignore changes under 5KB
       if (Math.abs(diffBytes) > 5120) {
         changedRows.push(row.replace(`| ${diffText} `, `| **${diffText}** `));
-      } else if (Math.abs(diffBytes) <= 5120) {
-        // Treat changes under 5KB as unchanged
+        // Treat changes under 1KB as unchanged
+      } else if (Math.abs(diffBytes) >= 1024) {
+        changedRows.push(row);
+      } else {
         unchangedRows.push(row);
       }
     }
