@@ -1,0 +1,15 @@
+.icon {
+  position: relative;
+}
+
+.icon:before {
+  text-decoration: none !important;
+}
+
+.noFocusStyle:focus {
+  outline: none;
+}
+
+.clickable {
+  cursor: pointer;
+}

@@ -1,0 +1,173 @@
+@import "~monday-ui-style/dist/mixins";
+
+.contentWrapper {
+  outline: 0;
+
+  &.top,
+  &.right,
+  &.left,
+  &.bottom {
+    padding: var(--spacing-xs);
+  }
+  &.bottomStart,
+  &.topStart,
+  &.bottomEnd,
+  &.topEnd {
+    padding-block: var(--spacing-xs);
+  }
+  &.bottomStart,
+  &.topStart {
+    padding-inline-end: var(--spacing-xs);
+  }
+  &.bottomEnd,
+  &.topEnd {
+    padding-inline-start: var(--spacing-xs);
+  }
+  &.leftStart,
+  &.rightStart,
+  &.leftEnd,
+  &.rightEnd {
+    padding-inline: var(--spacing-xs);
+  }
+  &.leftStart,
+  &.rightStart {
+    padding-block-end: var(--spacing-xs);
+  }
+  &.leftEnd,
+  &.rightEnd {
+    padding-block-start: var(--spacing-xs);
+  }
+}
+
+.contentWrapper[data-popper-reference-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.contentComponent:focus {
+  outline: none;
+}
+
+.contentComponent.hasTooltip {
+  padding: 6px;
+}
+
+// Animations
+
+$translate-minus-px: calc(var(--spacing-medium) * -1);
+
+.opacitySlideAppear {
+  opacity: 0;
+
+  &.top {
+    transform: translateY(var(--spacing-medium));
+  }
+
+  &.right {
+    transform: translateX($translate-minus-px);
+  }
+
+  &.bottom {
+    transform: translateY($translate-minus-px);
+  }
+
+  &.left {
+    transform: translateX(var(--spacing-medium));
+  }
+}
+
+.opacitySlideAppearActive {
+  transition: opacity 0.2s ease, transform 0.2s ease-out;
+  opacity: 1;
+  pointer-events: none;
+
+  &.top,
+  &.bottom {
+    transform: translateY(0);
+  }
+
+  &.right,
+  &.left {
+    transform: translateX(0);
+  }
+}
+
+.expandAppear,
+.expandExit {
+  transition: transform 0.1s $expand-animation-timing;
+  &.top,
+  &.topStart,
+  &.topEnd {
+    transform-origin: bottom center;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: bottom left;
+    }
+    &.edgeTop {
+      transform-origin: bottom right;
+    }
+  }
+
+  &.right,
+  &.rightStart,
+  &.rightEnd {
+    transform-origin: left;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top left;
+    }
+    &.edgeTop {
+      transform-origin: bottom left;
+    }
+  }
+
+  &.bottom,
+  &.bottomStart,
+  &.bottomEnd {
+    transform-origin: top;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top left;
+    }
+    &.edgeTop {
+      transform-origin: top right;
+    }
+  }
+
+  &.left,
+  &.leftStart,
+  &.leftEnd {
+    transform-origin: right;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top right;
+    }
+    &.edgeTop {
+      transform-origin: bottom right;
+    }
+  }
+}
+
+.expandExit {
+  transition: transform 0.1s $expand-animation-timing;
+}
+
+.expandAppearActive {
+  transition: transform 0.1s $expand-animation-timing;
+  pointer-events: none;
+
+  &.top,
+  &.topStart,
+  &.topEnd,
+  &.bottom,
+  &.bottomStart,
+  &.bottomEnd,
+  &.right,
+  &.rightStart,
+  &.rightEnd,
+  &.left,
+  &.leftStart,
+  &.leftEnd {
+    transform: scale(1);
+  }
+}
