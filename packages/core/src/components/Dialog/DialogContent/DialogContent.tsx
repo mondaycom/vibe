@@ -17,7 +17,7 @@ import useKeyEvent from "../../../hooks/useKeyEvent";
 import { type VibeComponentProps } from "../../../types";
 import { keyCodes } from "../../../constants";
 import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
-import type * as PopperJS from "@popperjs/core";
+import { type Placement } from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
 import useDisableScroll from "../../../hooks/useDisableScroll";
@@ -33,7 +33,7 @@ export interface DialogContentProps extends VibeComponentProps {
   /**
    * The placement of the dialog relative to the reference element.
    */
-  position?: PopperJS.Placement;
+  position?: Placement;
   /**
    * Class name applied to the dialog wrapper.
    */

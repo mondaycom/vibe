@@ -20,11 +20,6 @@ import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
-function isFunction(value: any) {
-  const protoOf = Object.getPrototypeOf;
-  return typeof value === "function" && protoOf(protoOf(value)) !== null;
-}
-
 export interface DialogProps extends VibeComponentProps {
   /**
    * Class name applied to the reference wrapper element.
@@ -557,7 +552,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.DIALOG, id);
 
     const animationTypeCalculated = preventAnimationOnMount || preventAnimation ? undefined : animationType;
-    const contentRendered = isFunction(content) ? content() : content;
+    const contentRendered = typeof content === "function" ? content() : content;
 
     if (!contentRendered) {
       return children;
