@@ -71,8 +71,8 @@ export class TokenMetadataService {
     const tokens: TokenMetadata[] = [];
     const lines = content.split("\n");
 
-    // Regex to match CSS custom properties: --variable-name: value;
-    const tokenRegex = /^\s*--([a-zA-Z0-9-_]+):\s*([^;]+);?\s*$/;
+    // Regex to match CSS custom properties: --variable-name: value; (with optional inline comments)
+    const tokenRegex = /^\s*--([a-zA-Z0-9-_]+):\s*([^;]+);?\s*(?:\/\*.*?\*\/)?\s*$/;
     const commentRegex = /^\s*\/\*\s*(.+?)\s*\*\/\s*$/;
 
     let currentComment = "";
