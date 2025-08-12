@@ -72,12 +72,11 @@ Array.from(allComponents)
 
       const row = `| \`${displayName}\` | ${baseSize} | ${prSize} | ${diffText} ${emoji} |`;
 
-      // Highlight significant changes (>1KB)
-      if (Math.abs(diffBytes) > 1024) {
+      // Highlight significant changes (>5KB) and ignore changes under 5KB
+      if (Math.abs(diffBytes) > 5120) {
         changedRows.push(row.replace(`| ${diffText} `, `| **${diffText}** `));
-      } else if (diffBytes !== 0) {
-        changedRows.push(row);
-      } else {
+      } else if (Math.abs(diffBytes) <= 5120) {
+        // Treat changes under 5KB as unchanged
         unchangedRows.push(row);
       }
     }
