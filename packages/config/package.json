@@ -14,10 +14,23 @@
   "author": "monday.com",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./rollup.config": "./rollup.config.mjs",
+    "./eslint.config": "./eslint.config.cjs",
+    "./tsconfig": "./tsconfig.json"
+  },
   "devDependencies": {
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "postcss-import": "^15.1.0",
+    "autoprefixer": "^10.4.0",
+    "js-sha256": "^0.9.0",
+    "ejs": "^3.1.10",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
@@ -33,7 +46,12 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-vitest": "^0.4.1"
+    "eslint-plugin-vitest": "^0.4.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-import-css": "^3.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1"
   },
   "sideEffects": false
 }
