@@ -25,9 +25,25 @@ Model Context Protocol is an open standard that enables AI assistants to securel
 
 ### Component Discovery
 
-#### `get-vibe-component-metadata`
+- [`get-vibe-component-metadata`](#get-vibe-component-metadata) - Get comprehensive metadata for any Vibe component
+- [`list-vibe-public-components`](#list-vibe-public-components) - Browse all available public components in the Vibe ecosystem
 
-Get comprehensive metadata for any Vibe component, including props, types, and more.
+### Code Examples
+
+- [`get-vibe-component-examples`](#get-vibe-component-examples) - Access React implementation examples and best practices
+
+### Design System Resources
+
+- [`list-vibe-icons`](#list-vibe-icons) - Explore the complete Vibe icon library with smart filtering
+- [`list-vibe-tokens`](#list-vibe-tokens) - Access design tokens for consistent styling
+
+### Migration Assistant
+
+- [`v3-migration`](#v3-migration) - Advanced project analysis for Vibe 2 → Vibe 3 migration
+
+## Tool Reference
+
+#### `get-vibe-component-metadata`
 
 **Use cases:**
 
@@ -37,8 +53,6 @@ Get comprehensive metadata for any Vibe component, including props, types, and m
 
 #### `list-vibe-public-components`
 
-Browse all available public components in the Vibe ecosystem.
-
 **Use cases:**
 
 - Explore available components
@@ -46,11 +60,7 @@ Browse all available public components in the Vibe ecosystem.
 - Discover new component releases
 - Component ecosystem overview
 
-### Code Examples
-
 #### `get-vibe-component-examples`
-
-Access React implementation examples and best practices for Vibe components.
 
 **Perfect for:**
 
@@ -59,11 +69,7 @@ Access React implementation examples and best practices for Vibe components.
 - Copy-paste ready code snippets
 - Implementation guidance
 
-### Design System Resources
-
 #### `list-vibe-icons`
-
-Explore the complete Vibe icon library with smart filtering and search capabilities.
 
 **Features:**
 
@@ -75,8 +81,6 @@ Explore the complete Vibe icon library with smart filtering and search capabilit
 
 #### `list-vibe-tokens`
 
-Access design tokens from the `monday-ui-style` package for consistent styling using Vibe's tokens.
-
 **Includes:**
 
 - Color tokens (all themes)
@@ -84,13 +88,9 @@ Access design tokens from the `monday-ui-style` package for consistent styling u
 - Border radius values
 - Motion and timing tokens
 
-### Migration Assistant
-
 #### `v3-migration`
 
-Advanced project analysis for Vibe 2 → Vibe 3 migration.
-
-This intelligent tool analyzes your entire project and provides:
+This tool analyzes your entire project and provides:
 
 - **Comprehensive project scanning** - Identifies all Vibe component usage
 - **Breaking change detection** - Highlights components that need updates
@@ -116,7 +116,7 @@ Or manually add to your `~/.cursor/mcp.json`:
   "mcpServers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["-y", "@vibe/mcp"]
     }
   }
 }`}
@@ -132,7 +132,7 @@ Or manually add to your `~/.cursor/mcp.json`:
   "servers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["-y", "@vibe/mcp"]
     }
   }
 }`}
