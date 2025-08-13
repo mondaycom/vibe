@@ -7,7 +7,7 @@ import Search from "../../Search/Search";
 import * as allIcons from "@vibe/icons";
 import Flex from "../../Flex/Flex";
 import iconsMetaData from "@vibe/icons/meta";
-import { type SubIcon } from "src/types";
+import { type SubIcon } from "../types";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,

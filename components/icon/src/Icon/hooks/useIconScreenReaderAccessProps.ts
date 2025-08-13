@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { getClickableIconScreenReaderAccessProps } from "@vibe/shared";
 
-function getIconScreenReaderAccessProps({
+export function getIconScreenReaderAccessProps({
   isClickable,
   isDecorationOnly,
   isKeyboardAccessible,

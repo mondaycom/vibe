@@ -1,9 +1,6 @@
 import { describe, it, expect } from "vitest";
-import {
-  getIconScreenReaderAccessProps,
-  getClickableScreenReaderAccessProps,
-  getClickableIconScreenReaderAccessProps
-} from "../../../helpers/screenReaderAccessHelper";
+import { getClickableScreenReaderAccessProps, getClickableIconScreenReaderAccessProps } from "@vibe/shared";
+import { getIconScreenReaderAccessProps } from "../hooks/useIconScreenReaderAccessProps";
 
 describe("getIconScreenReaderAccessProps", () => {
   it("should return correct props for clickable icon with label", () => {
