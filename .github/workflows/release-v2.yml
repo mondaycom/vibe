@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Send Slack notification
         uses: rtCamp/action-slack-notify@v2
+        continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
           SLACK_USERNAME: "GitHub Actions"
