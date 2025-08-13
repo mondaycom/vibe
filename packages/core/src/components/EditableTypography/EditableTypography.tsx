@@ -113,7 +113,7 @@ const EditableTypography = forwardRef(
 
     const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
-    const [onIMEComposing, setOnIMEComposing] = useState(false);
+    const [isIMEComposing, setIsIMEComposing] = useState(false);
 
     const prevValue = usePrevious(value);
 
@@ -165,11 +165,11 @@ const EditableTypography = forwardRef(
     }
 
     function handleIMECompositionStart() {
-      setOnIMEComposing(true);
+      setIsIMEComposing(true);
     }
 
     function handleIMECompositionEnd() {
-      setOnIMEComposing(false);
+      setIsIMEComposing(false);
     }
 
     function handleBlur() {
@@ -177,7 +177,7 @@ const EditableTypography = forwardRef(
     }
 
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
-      if (onIMEComposing) {
+      if (isIMEComposing) {
         return;
       }
 
