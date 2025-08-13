@@ -110,7 +110,7 @@ const preview: Preview = {
           "Welcome",
           "Getting Started",
           "Catalog",
-          "MCP",
+          "MCP [New]",
           "Playground",
           "Changelog",
           "Migration Guide",
