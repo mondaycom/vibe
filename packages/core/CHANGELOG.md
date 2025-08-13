@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.59.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.4...@vibe/core@3.59.0) (2025-08-13)
+
+
+### Features
+
+* **Toggle:** add noSpacing prop to remove horizontal spacing ([#3048](https://github.com/mondaycom/vibe/issues/3048)) ([e0c6732](https://github.com/mondaycom/vibe/commit/e0c6732bbdda1268f453efe375caeba054a15a1e))
+
+
+
+
+
 ## [3.58.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.3...@vibe/core@3.58.4) (2025-08-12)
 
 
