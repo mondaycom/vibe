@@ -4,7 +4,8 @@
   padding: 0 var(--sb-spacing-small);
   text-transform: capitalize;
 
-  &.alpha, &.beta {
+  &.alpha,
+  &.beta {
     color: var(--sb-brand-color);
     border-color: var(--sb-brand-color);
   }
@@ -17,10 +18,5 @@
   &.deprecated {
     color: var(--sb-negative-color);
     border-color: var(--sb-negative-color);
-  }
-
-  [data-selected='true'] & {
-    color: var(--sb-text-color-on-primary);
-    border-color: var(--sb-text-color-on-primary);
   }
 }
