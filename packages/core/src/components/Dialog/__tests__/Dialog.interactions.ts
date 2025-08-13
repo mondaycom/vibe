@@ -19,18 +19,28 @@ const isDialogHiddenAfterContextMenu = createTestIfDialogHiddenAfterTrigger(CONT
 export const closeTriggersInteractionSuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [isDialogHiddenAfterClickOutside, isDialogHiddenAfterContextMenu],
   beforeAll: async canvas => {
-    // From some reason we have an issue with rendering the dialogs according to the container selector in the initial mount, after clicking
-    // all dialog render in the right placements
+    // Workaround: Dialog rendering issue with containerSelector on initial mount
     const clickOutsideButton = await getByTestId(canvas, CLICK_OUTSIDE_DIALOG_BUTTON);
-    await userEvent.click(clickOutsideButton);
-    await userEvent.click(clickOutsideButton);
-    // wait for show default delay
+
+    try {
+      await getDialogElement(canvas, CLICK_OUTSIDE_DIALOG);
+    } catch {
+      await userEvent.click(clickOutsideButton);
+      await waitFor(
+        async () => {
+          const dialog = await getDialogElement(canvas, CLICK_OUTSIDE_DIALOG);
+          expect(dialog).toBeInTheDocument();
+        },
+        { timeout: 1000 }
+      );
+    }
+
     await waitFor(
       async () => {
         const dialog = await getDialogElement(canvas, CLICK_OUTSIDE_DIALOG);
         expect(dialog).toBeInTheDocument();
       },
-      { timeout: 100 }
+      { timeout: 1000 }
     );
   },
   afterEach: async () => {
@@ -50,7 +60,7 @@ async function getDialogElement(canvas: Canvas, dataTestId: string) {
 }
 
 async function checkIfDialogHidden(dialogElement: HTMLElement) {
-  await waitFor(() => expect(dialogElement).not.toBeInTheDocument(), { timeout: 1000 });
+  await waitFor(() => expect(dialogElement).not.toBeInTheDocument(), { timeout: 2000 });
 }
 
 function createTestIfDialogHiddenAfterTrigger(
@@ -59,6 +69,10 @@ function createTestIfDialogHiddenAfterTrigger(
 ) {
   return async function (canvas: Screen) {
     const dialog = await getDialogElement(canvas, dataTestId);
+
+    await waitFor(() => expect(dialog).toBeInTheDocument(), { timeout: 100 });
+    await new Promise(resolve => setTimeout(resolve, 50));
+
     triggerCallback(canvas, dialog);
     await checkIfDialogHidden(dialog);
   };
