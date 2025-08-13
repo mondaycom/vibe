@@ -112,6 +112,7 @@
     "@uiw/codemirror-extensions-langs": "^4.21.25",
     "@uiw/codemirror-theme-github": "^4.21.25",
     "@uiw/react-codemirror": "^4.21.25",
+    "@vibe/config": "3.0.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
@@ -191,5 +192,10 @@
     "*.css",
     "*.scss.js",
     "*.css.js"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": [
+      "../../node_modules/@vibe/config/.eslintrc.cjs"
+    ]
+  }
 }

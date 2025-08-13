@@ -1,19 +1,8 @@
 {
+  "extends": "@vibe/config/tsconfig.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "declaration": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "rootDir": "src",
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["esnext", "dom"],
-    "target": "es6",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"]
 }

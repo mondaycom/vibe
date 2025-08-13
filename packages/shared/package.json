@@ -34,24 +34,9 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
+    "@vibe/config": "3.0.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
-    "eslint": "^8.23.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-lodash": "^7.4.0",
-    "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-only-warn": "^1.0.3",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-vitest": "^0.4.1",
     "prettier": "^2.5.1",
     "react": "16.14.0",
     "typescript": "^4.7.3",
@@ -67,5 +52,10 @@
     "@testing-library/react": "^16.3.0",
     "lodash-es": "^4.17.21"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "eslintConfig": {
+    "extends": [
+      "../../node_modules/@vibe/config/.eslintrc.cjs"
+    ]
+  }
 }

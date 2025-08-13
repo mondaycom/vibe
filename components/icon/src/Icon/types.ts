@@ -1,4 +1,4 @@
-import { CSSProperties, Ref } from "react";
+import { type CSSProperties, type Ref } from "react";
 
 export interface IconSubComponentProps {
   /**

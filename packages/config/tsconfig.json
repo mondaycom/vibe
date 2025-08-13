@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "module": "ESNext",
+    "declaration": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
     "target": "es6",
     "moduleResolution": "node",
@@ -8,5 +15,6 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "baseUrl": "."
-  }
+  },
+  "include": ["src/**/*"]
 }
