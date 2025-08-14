@@ -37,8 +37,8 @@ import { AttentionBox } from "@vibe/core/next";
 <UsageGuidelines
   guidelines={[
     "Use AttentionBox to surface inline alerts and important messages within workflow contexts.",
-    "Choose the appropriate variant (primary, success, danger, warning, dark) to match the message semantics.",
-    "Enable compact mode for space-constrained layouts, and enable multiline only when wrapping is needed.",
+    "Choose the appropriate variant (primary, positive, negative, warning, neutral) to match the message semantics.",
+    "Enable compact mode for space-constrained layouts with single-line text display.",
     "Provide a clear title in default mode and include actionable elements like links or buttons for follow-up."
   ]}
 />
@@ -49,7 +49,7 @@ import { AttentionBox } from "@vibe/core/next";
 
 ### Types
 
-There are five types of attention boxes: Primary, success, danger, warning and dark (neutral).
+There are five types of attention boxes: Primary, positive, negative, warning and neutral.
 
 <Canvas of={AttentionBoxStories.Types} />
 

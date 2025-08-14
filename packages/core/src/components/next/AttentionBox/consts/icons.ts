@@ -4,8 +4,8 @@ import { SubIcon } from "../../../../types";
 
 export const ATTENTION_BOX_DEFAULT_ICONS: Record<AttentionBoxType, SubIcon> = {
   primary: Info,
-  success: Check,
-  danger: Alert,
+  positive: Check,
+  negative: Alert,
   warning: Warning,
-  dark: Favorite
+  neutral: Favorite
 };

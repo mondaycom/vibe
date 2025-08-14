@@ -61,23 +61,23 @@ export const Types: Story = {
       />
       <Flex align="start" direction="column" gap="xs">
         <Text type="text1" weight="bold">
-          Success
+          Positive
         </Text>
         <Text ellipsis={false}>Illustrates successful state</Text>
       </Flex>
       <AttentionBox
-        type="success"
+        type="positive"
         title="You're doing great"
         text="Your changes were saved successfully. You can continue working without needing to revisit this section."
       />
       <Flex align="start" direction="column" gap="xs">
         <Text type="text1" weight="bold">
-          Danger
+          Negative
         </Text>
         <Text ellipsis={false}>Illustrates error or destructive information</Text>
       </Flex>
       <AttentionBox
-        type="danger"
+        type="negative"
         title="Account low on free space"
         text="Your account is out of free space, free some space to prevent data loss."
       />
@@ -94,13 +94,13 @@ export const Types: Story = {
       />
       <Flex align="start" direction="column" gap="xs">
         <Text type="text1" weight="bold">
-          Dark
+          Neutral
         </Text>
-        <Text ellipsis={false}>Displays a dark-themed attention box for neutral or custom contexts</Text>
+        <Text ellipsis={false}>Displays a neutral-themed attention box for general contexts</Text>
       </Flex>
       <AttentionBox
-        type="dark"
-        title="Note in dark mode for emphasis"
+        type="neutral"
+        title="Note for emphasis"
         text="Use this style when you want to have a more subtle visual emphasis."
       />
     </div>
@@ -220,7 +220,7 @@ export const NaturalAttentionBox: Story = {
       <AttentionBox
         compact
         text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
-        type="dark"
+        type="neutral"
         icon={Info}
       />
     </Flex>

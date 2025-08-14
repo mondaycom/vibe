@@ -4,7 +4,7 @@ import { IconType } from "../../Icon/Icon.types";
 import { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
 import { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
 
-export type AttentionBoxType = "primary" | "success" | "danger" | "warning" | "dark";
+export type AttentionBoxType = "primary" | "positive" | "negative" | "warning" | "neutral";
 
 // Mutually exclusive icon props
 export type AttentionBoxIconProps = { icon?: SubIcon; hideIcon?: never } | { icon?: never; hideIcon?: boolean };

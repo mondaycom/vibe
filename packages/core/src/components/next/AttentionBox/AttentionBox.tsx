@@ -31,7 +31,7 @@ const AttentionBox = forwardRef(
     }: AttentionBoxProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const role: AttentionBoxRole = type === "danger" ? "alert" : "status";
+    const role: AttentionBoxRole = type === "negative" ? "alert" : "status";
     const displayIcon = resolveAttentionBoxIcon(icon, hideIcon, type);
     const isLinkInline = !!action || (link && "inlineText" in link && link.inlineText);
     const content = children || text;

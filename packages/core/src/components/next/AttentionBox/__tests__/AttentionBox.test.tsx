@@ -26,22 +26,22 @@ describe("AttentionBox", () => {
     });
 
     it("renders all variant types with correct class styling", () => {
-      const variants: AttentionBoxType[] = ["primary", "success", "danger", "warning", "dark"];
+      const variants: AttentionBoxType[] = ["primary", "positive", "negative", "warning", "neutral"];
 
       variants.forEach(variant => {
         const { unmount } = render(<AttentionBox type={variant} text="Test" />);
-        const container = screen.getByRole(variant === "danger" ? "alert" : "status");
+        const container = screen.getByRole(variant === "negative" ? "alert" : "status");
         expect(container).toHaveClass(`${variant}`);
         unmount();
       });
     });
 
-    it("renders danger variant with alert role", () => {
-      render(<AttentionBox type="danger" text="Error message" />);
+    it("renders negative variant with alert role", () => {
+      render(<AttentionBox type="negative" text="Error message" />);
       expect(screen.getByRole("alert")).toBeInTheDocument();
     });
 
-    it("renders non-danger variants with status role", () => {
+    it("renders non-negative variants with status role", () => {
       render(<AttentionBox type="primary" text="Info message" />);
       expect(screen.getByRole("status")).toBeInTheDocument();
     });
