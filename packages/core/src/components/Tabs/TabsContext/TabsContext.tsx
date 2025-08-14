@@ -62,7 +62,11 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
           }
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
-            return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection });
+            return React.cloneElement(child, {
+              activeTabId: activeTabIdState,
+              animationDirection,
+              baseId: id
+            });
           }
           return child;
         })}

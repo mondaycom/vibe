@@ -45,6 +45,14 @@ export interface TabListProps extends VibeComponentProps {
    * The child elements representing tabs.
    */
   children?: ReactElement<TabProps>[];
+  /**
+   * Accessible label for the tab list. Either provide this or aria-labelledby.
+   */
+  "aria-label"?: string;
+  /**
+   * ID of element that labels the tab list. Either provide this or aria-label.
+   */
+  "aria-labelledby"?: string;
 }
 
 const TabList: FC<TabListProps> = forwardRef(
@@ -58,16 +66,20 @@ const TabList: FC<TabListProps> = forwardRef(
       size,
       stretchedUnderline = false,
       children,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const tabRefs = useRef<Record<number, HTMLElement | null>>({});
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
 
     const prevActiveTabIdProp = usePrevious(activeTabId);
+    const prevActiveTabState = usePrevious(activeTabState);
 
     useEffect(() => {
       // Update active tab if changed from props
@@ -75,6 +87,13 @@ const TabList: FC<TabListProps> = forwardRef(
         setActiveTabState(activeTabId);
       }
     }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
+
+    // Focus management: when activeTabState changes, focus the active tab
+    useEffect(() => {
+      if (prevActiveTabState !== activeTabState && tabRefs.current[activeTabState]) {
+        tabRefs.current[activeTabState]?.focus();
+      }
+    }, [activeTabState, prevActiveTabState]);
 
     const disabledTabIds = useMemo(() => {
       const disabledIds = new Set<number>();
@@ -120,18 +139,32 @@ const TabList: FC<TabListProps> = forwardRef(
 
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
+        const isActive = activeTabState === index;
+        const tabId = `${id || "tab-list"}-tab-${index}`;
+        const panelId = `${id || "tab-list"}-panel-${index}`;
+
+        // Determine which tab should be focusable (tabIndex="0")
+        // Priority: 1) Currently focused tab during keyboard navigation 2) Active tab as fallback
+        const shouldBeFocusable = focusIndex !== undefined && focusIndex >= 0 ? focusIndex === index : isActive;
+
         return React.cloneElement(child, {
           value: index,
-          active: activeTabState === index,
+          active: isActive,
           focus: focusIndex === index,
           onClick: onSelectionAction,
           stretchedUnderline,
           className: cx(styles.tabListTabWrapper, child.props.className),
-          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
-        });
+          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
+          tabIndex: shouldBeFocusable ? 0 : -1,
+          "aria-controls": panelId,
+          id: child.props.id || tabId,
+          ref: (element: HTMLElement | null) => {
+            tabRefs.current[index] = element;
+          }
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement> });
       });
       return childrenToRender;
-    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline]);
+    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, id]);
 
     return (
       <div
@@ -142,7 +175,13 @@ const TabList: FC<TabListProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
-        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
+        <ul
+          ref={ulRef}
+          className={cx(styles.tabsList, [getStyle(styles, size)])}
+          role="tablist"
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledby}
+        >
           {tabsToRender}
         </ul>
       </div>
