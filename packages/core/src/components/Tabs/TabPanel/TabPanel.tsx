@@ -14,24 +14,36 @@ export interface TabPanelProps extends VibeComponentProps {
    * The index of the tab panel.
    */
   index?: number;
+  /**
+   * ID of the tab that controls this panel.
+   */
+  "aria-labelledby"?: string;
+  /**
+   * Whether the panel is currently hidden.
+   */
+  hidden?: boolean;
 }
 
-const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index, "data-testid": dataTestId }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRef(ref, componentRef);
+const TabPanel: FC<TabPanelProps> = forwardRef(
+  ({ className, id, children, index, "data-testid": dataTestId, "aria-labelledby": ariaLabelledby, hidden }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRef(ref, componentRef);
 
-  return (
-    <div
-      key={`${id}_${index}`}
-      ref={mergedRef}
-      className={cx(styles.tabPanelWrapper, className)}
-      id={id}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
-      role="tabpanel"
-    >
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        key={`${id}_${index}`}
+        ref={mergedRef}
+        className={cx(styles.tabPanelWrapper, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
+        role="tabpanel"
+        aria-labelledby={ariaLabelledby}
+        hidden={hidden}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 export default TabPanel;

@@ -23,11 +23,23 @@ export interface TabPanelsProps extends VibeComponentProps {
    * The child elements representing tab panels.
    */
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
+  /**
+   * Base ID for generating tab and panel IDs for accessibility relationships.
+   */
+  baseId?: string;
 }
 
 const TabPanels = forwardRef(
   (
-    { className, id, activeTabId = 0, animationDirection = "rtl", children, "data-testid": dataTestId }: TabPanelsProps,
+    {
+      className,
+      id,
+      activeTabId = 0,
+      animationDirection = "rtl",
+      children,
+      "data-testid": dataTestId,
+      baseId
+    }: TabPanelsProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
@@ -35,9 +47,11 @@ const TabPanels = forwardRef(
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;
-        if (!isActiveTab) return null;
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
+        const tabId = `${baseId || id || "tab-list"}-tab-${index}`;
+        const panelId = `${baseId || id || "tab-list"}-panel-${index}`;
+
         return React.cloneElement(child, {
           index,
           ...child.props,
@@ -46,10 +60,13 @@ const TabPanels = forwardRef(
             [getStyle(styles, activeClass)],
             [getStyle(styles, camelCase(animationClass))],
             child.props.className
-          )
+          ),
+          id: child.props.id || panelId,
+          "aria-labelledby": tabId,
+          hidden: !isActiveTab
         });
-      }).filter(Boolean);
-    }, [children, activeTabId, animationDirection]);
+      });
+    }, [children, activeTabId, animationDirection, baseId, id]);
 
     return (
       <div
