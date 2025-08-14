@@ -247,7 +247,7 @@
     "sass": "^1.51.0",
     "snapshot-diff": "^0.9.0",
     "storybook": "^8.6.14",
-    "storybook-addon-playground": "^1.9.2",
+    "storybook-addon-playground": "^2.0.1",
     "stylelint": "^14.2.0",
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-no-unsupported-browser-features": "7.0.0",
