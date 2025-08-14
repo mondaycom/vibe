@@ -15,7 +15,6 @@ export type AttentionBoxRole = "alert" | "status";
 export interface AttentionBoxLayoutSharedProps
   extends Pick<AttentionBoxProps, "icon" | "iconType" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
   content: React.ReactNode;
-  isLinkInline: boolean;
 }
 
 // Action/Link constraint types - if action exists, link cannot have inlineText

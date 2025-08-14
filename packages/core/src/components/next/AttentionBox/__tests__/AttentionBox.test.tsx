@@ -118,68 +118,28 @@ describe("AttentionBox", () => {
       expect(link).toHaveAttribute("href", "/test");
     });
 
-    it("renders link as inline when inlineText is true in default mode", () => {
-      render(<AttentionBox text="Test text" link={{ href: "/test", text: "Test Link", inlineText: true }} />);
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).toHaveClass("inlineText");
-    });
-
-    it("renders link as block when inlineText is false in default mode", () => {
-      render(<AttentionBox text="Test text" link={{ href: "/test", text: "Test Link", inlineText: false }} />);
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).not.toHaveClass("inlineText");
-    });
-
-    it("renders link as inline when inlineText is true in compact mode", () => {
-      render(<AttentionBox compact text="Test text" link={{ href: "/test", text: "Test Link", inlineText: true }} />);
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).toHaveClass("inlineText");
-    });
-
-    it("renders link as block when inlineText is false in compact mode", () => {
-      render(<AttentionBox compact text="Test text" link={{ href: "/test", text: "Test Link", inlineText: false }} />);
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).not.toHaveClass("inlineText");
-    });
-
-    it("forces link to be inline when action exists in default mode", () => {
-      const onClick = vi.fn();
-      render(
-        <AttentionBox
-          text="Test text"
-          link={{ href: "/test", text: "Test Link" }}
-          action={{ text: "Action", onClick }}
-        />
-      );
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).toHaveClass("inlineText");
-    });
-
-    it("forces link to be inline when action and link exists in compact mode", () => {
-      const onClick = vi.fn();
-      render(
-        <AttentionBox
-          compact
-          text="Test text"
-          link={{ href: "/test", text: "Test Link" }}
-          action={{ text: "Action", onClick }}
-        />
-      );
-
-      const link = screen.getByRole("link", { name: "Test Link" });
-      expect(link).toHaveClass("inlineText");
-    });
-
-    it("defaults to block link when no inlineText prop is provided", () => {
+    it("renders link as block level element", () => {
       render(<AttentionBox text="Test text" link={{ href: "/test", text: "Test Link" }} />);
 
       const link = screen.getByRole("link", { name: "Test Link" });
+      expect(link).toBeInTheDocument();
       expect(link).not.toHaveClass("inlineText");
+    });
+
+    it("renders link in action section when action also exists", () => {
+      const onClick = vi.fn();
+      render(
+        <AttentionBox
+          text="Test text"
+          link={{ href: "/test", text: "Test Link" }}
+          action={{ text: "Action", onClick }}
+        />
+      );
+
+      const link = screen.getByRole("link", { name: "Test Link" });
+      const actionButton = screen.getByRole("button", { name: "Action" });
+      expect(link).toBeInTheDocument();
+      expect(actionButton).toBeInTheDocument();
     });
   });
 

@@ -33,7 +33,6 @@ const AttentionBox = forwardRef(
   ) => {
     const role: AttentionBoxRole = type === "negative" ? "alert" : "status";
     const displayIcon = resolveAttentionBoxIcon(icon, hideIcon, type);
-    const isLinkInline = !!action || (link && "inlineText" in link && link.inlineText);
     const content = children || text;
 
     const baseClasses = cx(
@@ -54,8 +53,7 @@ const AttentionBox = forwardRef(
       icon: displayIcon,
       iconType,
       // custom props
-      content,
-      isLinkInline
+      content
     };
 
     return (

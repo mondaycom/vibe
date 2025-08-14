@@ -10,17 +10,8 @@ describe("AttentionBoxContent", () => {
       expect(screen.getByText("Test content")).toBeInTheDocument();
     });
 
-    it("renders content with inline link", () => {
-      render(<AttentionBoxContent content="Test content" link={{ href: "/test", text: "Test Link" }} isLinkInline />);
-
-      expect(screen.getByText("Test content")).toBeInTheDocument();
-      expect(screen.getByRole("link", { name: "Test Link" })).toBeInTheDocument();
-    });
-
-    it("renders content without link when link exists but isLinkInline is false", () => {
-      render(
-        <AttentionBoxContent content="Test content" link={{ href: "/test", text: "Test Link" }} isLinkInline={false} />
-      );
+    it("renders content only without links", () => {
+      render(<AttentionBoxContent content="Test content" />);
 
       expect(screen.getByText("Test content")).toBeInTheDocument();
       expect(screen.queryByRole("link")).not.toBeInTheDocument();

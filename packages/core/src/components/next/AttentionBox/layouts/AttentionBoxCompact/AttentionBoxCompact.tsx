@@ -6,7 +6,7 @@ import AttentionBoxCloseButton from "../../components/AttentionBoxCloseButton/At
 import AttentionBoxLeadingIcon from "../../components/AttentionBoxLeadingIcon/AttentionBoxLeadingIcon";
 import AttentionBoxContent from "../../components/AttentionBoxContent/AttentionBoxContent";
 import styles from "./AttentionBoxCompact.module.scss";
-import { AttentionBoxLayoutSharedProps, AttentionBoxProps } from "../../AttentionBox.types";
+import type { AttentionBoxLayoutSharedProps } from "../../AttentionBox.types";
 
 export type AttentionBoxCompactProps = AttentionBoxLayoutSharedProps & Pick<AttentionBoxProps, "multiline">;
 
@@ -18,20 +18,10 @@ const AttentionBoxCompact = ({
   closeButtonAriaLabel = "Close",
   action,
   link,
-  content,
-  isLinkInline
+  content
 }: AttentionBoxCompactProps) => {
-  const contentElement = useMemo(
-    () => (
-      <AttentionBoxContent
-        content={content}
-        link={isLinkInline ? link : undefined}
-        isLinkInline={isLinkInline}
-        multiline={multiline}
-      />
-    ),
-    [content, isLinkInline, link, multiline]
-  );
+  const hasIcon = !!icon;
+  const hasActions = !!(action || link);
 
   return (
     <Flex align={multiline ? "start" : "center"} gap="large" className={styles.container}>
@@ -40,7 +30,8 @@ const AttentionBoxCompact = ({
         {multiline ? <div>{contentElement}</div> : contentElement}
       </Flex>
       {action && <AttentionBoxButton {...action} />}
-      {link && !isLinkInline && <AttentionBoxLink {...link} inlineText={false} />}
+        </>
+      )}
       <AttentionBoxCloseButton onClose={onClose} closeButtonAriaLabel={closeButtonAriaLabel} />
     </Flex>
   );

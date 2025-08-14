@@ -19,8 +19,7 @@ const AttentionBoxDefault = ({
   closeButtonAriaLabel = "Close",
   action,
   link,
-  content,
-  isLinkInline
+  content
 }: AttentionBoxDefaultProps) => {
   return (
     <Flex align="start" direction="column" gap="xs" className={styles.content}>
