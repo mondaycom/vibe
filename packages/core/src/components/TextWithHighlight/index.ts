@@ -1,1 +1,1 @@
-export { default as TextWithHighlight, TextWithHighlightProps } from "./TextWithHighlight";
+export { default as TextWithHighlight, type TextWithHighlightProps } from "./TextWithHighlight";

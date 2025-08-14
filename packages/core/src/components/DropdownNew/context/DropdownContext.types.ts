@@ -1,7 +1,7 @@
-import { ListGroup } from "../../BaseList";
-import { BaseListItemData } from "../../BaseListItem";
-import { BaseDropdownProps } from "../Dropdown.types";
-import { TooltipProps } from "../../Tooltip/Tooltip";
+import { type ListGroup } from "../../BaseList";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type BaseDropdownProps } from "../Dropdown.types";
+import { type TooltipProps } from "../../Tooltip/Tooltip";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;

@@ -3,7 +3,7 @@ import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
 import { CloseSmall } from "@vibe/icons";
 import Icon from "../../Icon/Icon";
-import { SubIcon, ElementContent, VibeComponentProps } from "../../../types";
+import { type SubIcon, type ElementContent, type VibeComponentProps } from "../../../types";
 import { NOOP } from "../../../utils/function-utils";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";

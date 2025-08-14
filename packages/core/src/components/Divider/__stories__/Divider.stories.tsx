@@ -1,5 +1,5 @@
 import React from "react";
-import Divider, { DividerProps } from "../Divider";
+import Divider, { type DividerProps } from "../Divider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 
 const metaSettings = createStoryMetaSettingsDecorator({

@@ -1,4 +1,4 @@
-import { SIZES } from "../../constants/sizes";
+import { type SIZES } from "../../constants/sizes";
 
 /**
  * @deprecated

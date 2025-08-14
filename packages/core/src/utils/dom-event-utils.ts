@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 const ENTER_KEY_CODE = 13;
 const ESCAPE_KEY_CODE = 27;

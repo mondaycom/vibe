@@ -3,6 +3,21 @@ name: Release v2 version
 on: workflow_dispatch
 
 jobs:
+  notify-release-start:
+    name: Notify Slack - Release Started
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
+          SLACK_USERNAME: "GitHub Actions"
+          SLACK_TITLE: "V2 Release Started"
+          SLACK_MESSAGE: "A new Vibe v2 release has been started by ${{ github.actor }}"
+          SLACK_FOOTER: "Your friendly neighborhood Vibe bot"
+          SLACK_ICON: "https://vibe.monday.com/logo.svg"
+
   release:
     if: github.ref_name == 'version2'
     runs-on: ubuntu-latest

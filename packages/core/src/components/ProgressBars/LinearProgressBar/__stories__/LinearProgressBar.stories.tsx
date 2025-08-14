@@ -1,5 +1,5 @@
 import React from "react";
-import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
+import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Info } from "@vibe/icons";
@@ -7,7 +7,7 @@ import Icon from "../../../Icon/Icon";
 import Logo from "./assets/Logo.png";
 import { Flex } from "../../../Flex";
 import { Text } from "../../../Text";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { Box } from "../../../Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -26,7 +26,13 @@ type Story = StoryObj<typeof LinearProgressBar>;
 export const Overview: Story = {
   render: (args: LinearProgressBarProps) => (
     <div style={{ width: "400px" }}>
-      <LinearProgressBar value={20} size="large" {...args} />
+      <LinearProgressBar
+        value={20}
+        size="large"
+        id="overview-linear-progress-bar"
+        ariaLabel="Overview linear progress bar"
+        {...args}
+      />
     </div>
   ),
 
@@ -43,11 +49,17 @@ export const Regular: Story = {
   render: () => (
     <Flex direction="column" gap="large">
       <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
-        <LinearProgressBar indicateProgress value={30} size="large" />
+        <LinearProgressBar
+          id="regular-linear-progress-bar"
+          ariaLabel="Regular linear progress bar"
+          indicateProgress
+          value={30}
+          size="large"
+        />
         With label
       </Flex>
       <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
-        <LinearProgressBar value={30} size="large" />
+        <LinearProgressBar id="regular-linear-progress-bar-without-label" value={30} size="large" />
         Without label
       </Flex>
     </Flex>
@@ -57,7 +69,14 @@ export const Regular: Story = {
 export const WithSecondaryValue: Story = {
   render: () => (
     <div style={{ width: "400px" }}>
-      <LinearProgressBar value={50} indicateProgress valueSecondary={65} size="large" />
+      <LinearProgressBar
+        id="with-secondary-value-linear-progress-bar"
+        ariaLabel="With secondary value linear progress bar"
+        value={50}
+        indicateProgress
+        valueSecondary={65}
+        size="large"
+      />
     </div>
   )
 };
@@ -84,7 +103,15 @@ export const MultiProgressBar: Story = {
 
     return (
       <div style={{ width: "600px" }}>
-        <LinearProgressBar value={25} size="large" indicateProgress multi multiValues={multiValues} />
+        <LinearProgressBar
+          id="multi-progress-bar"
+          ariaLabel="Multi progress bar"
+          value={25}
+          size="large"
+          indicateProgress
+          multi
+          multiValues={multiValues}
+        />
       </div>
     );
   },
@@ -105,7 +132,13 @@ export const ProgressBarAsACounter: Story = {
         </Flex>
         <Text>142/200</Text>
       </Flex>
-      <LinearProgressBar value={71} size="large" barStyle="positive" />
+      <LinearProgressBar
+        id="progress-bar-as-a-counter"
+        ariaLabel="Progress bar as a counter"
+        value={71}
+        size="large"
+        barStyle="positive"
+      />
     </div>
   ),
 
@@ -129,7 +162,11 @@ export const ProgressBarAsLoadingIndicator: Story = {
           </Flex>
         </Flex>
       </Flex>
-      <LinearProgressBar value={71} />
+      <LinearProgressBar
+        id="progress-bar-as-loading-indicator"
+        ariaLabel="Progress bar as loading indicator"
+        value={71}
+      />
     </Box>
   ),
 

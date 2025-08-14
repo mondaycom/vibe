@@ -3,12 +3,12 @@ import cx from "classnames";
 import Flex from "../../components/Flex/Flex";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
-import { EmptyStateProps } from "./EmptyState.types";
+import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { Button, ButtonProps } from "../Button";
-import { Link, LinkProps } from "../Link";
+import { Button, type ButtonProps } from "../Button";
+import { Link, type LinkProps } from "../Link";
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {

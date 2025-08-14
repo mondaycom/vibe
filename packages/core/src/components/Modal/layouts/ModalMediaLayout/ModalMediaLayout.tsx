@@ -3,7 +3,7 @@ import cx from "classnames";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalMediaLayout.module.scss";
-import { ModalMediaLayoutProps } from "./ModalMediaLayout.types";
+import { type ModalMediaLayoutProps } from "./ModalMediaLayout.types";
 import Flex from "../../../Flex/Flex";
 
 const ModalMediaLayout = forwardRef(

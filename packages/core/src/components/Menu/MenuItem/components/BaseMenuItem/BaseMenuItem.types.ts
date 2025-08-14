@@ -1,7 +1,7 @@
-import { MenuItemProps } from "../../MenuItem";
-import { MenuChild } from "../../../Menu/MenuConstants";
-import React from "react";
-import { VibeComponentProps } from "../../../../../types";
+import { type MenuItemProps } from "../../MenuItem";
+import { type MenuChild } from "../../../Menu/MenuConstants";
+import type React from "react";
+import { type VibeComponentProps } from "../../../../../types";
 
 export type LossMenuItemProps = Omit<
   MenuItemProps,

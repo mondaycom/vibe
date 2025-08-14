@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { TextBig } from "@vibe/icons";
 import NumberField from "../NumberField";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -25,7 +25,7 @@ export const Overview: Story = {
     const [value, setValue] = useState(args.value || 0);
     return (
       <div style={{ width: 300 }}>
-        <NumberField {...args} value={value} onChange={newValue => setValue(newValue)} />
+        <NumberField id="overview-number-field" {...args} value={value} onChange={newValue => setValue(newValue)} />
       </div>
     );
   },

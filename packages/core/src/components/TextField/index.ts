@@ -1,3 +1,3 @@
-export { default as TextField, TextFieldProps } from "./TextField";
+export { default as TextField, type TextFieldProps } from "./TextField";
 
 export * from "./TextField.types";

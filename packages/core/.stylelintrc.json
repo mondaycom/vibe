@@ -1,12 +1,86 @@
 {
-  "extends": "../../.stylelintrc.json",
+  "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint-config"],
+  "plugins": ["stylelint-use-logical", "stylelint-no-unsupported-browser-features"],
   "rules": {
+    "no-descending-specificity": null,
+    "monday-ui-style/use-defined-css-var-when-available": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "monday-ui-style/use-new-spacing-tokens": [
+      null,
+      {
+        "severity": "warning"
+      }
+    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
         "ignorePseudoClasses": ["global", "local"]
       }
     ],
-    "scss/comment-no-empty": null
+    "scss/comment-no-empty": null,
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*([A-Z][a-z0-9]*)*|dark-app-theme|black-app-theme|hacker-app-theme|hacker_theme-app-theme)$",
+      {
+        "message": "Use camelCase for CSS class names in modules. Example: .myButton instead of .my-button"
+      }
+    ],
+    "unit-disallowed-list": ["em", "rem"],
+    "scss/dollar-variable-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS custom properties. Example: --my-color instead of --myColor"
+      }
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS mixins. Example: @mixin my-mixin instead of @mixin myMixin"
+      }
+    ],
+    "scss/at-function-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Use kebab-case for CSS functions. Example: @function my-function instead of @function myFunction"
+      }
+    ],
+    "csstools/use-logical": [
+      null,
+      {
+        "severity": "warning",
+        "except": ["width", "height", "min-width", "max-width", "min-height", "max-height"]
+      }
+    ],
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "ignore": [
+          "css-nesting",
+          "css3-cursors",
+          "css3-cursors-grab",
+          "css-touch-action",
+          "css-focus-visible",
+          "css-when-else",
+          "css-overflow",
+          "css-logical-props",
+          "css-text-indent",
+          "css-scrollbar",
+          "intrinsic-width",
+          "css-sticky",
+          "flexbox-gap",
+          "css-appearance",
+          "css-resize",
+          "css-gradients",
+          "background-clip-text",
+          "css-masks",
+          "css-clip-path",
+          "css-has",
+          "css-backdrop-filter"
+        ]
+      }
+    ]
   }
 }

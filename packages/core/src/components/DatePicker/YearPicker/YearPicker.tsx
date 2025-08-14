@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import classnames from "classnames";
 import { YEAR_FORMAT } from "../constants";
 import DateNavigationItemComponent from "../DateNavigationItem/DateNavigationItem";
-import { Moment, Direction } from "../types";
+import { type Moment, Direction } from "../types";
 import styles from "./YearPicker.module.scss";
 import { calcNewYearsPage } from "../date-picker-utils";
 import YearsList from "./YearsList";

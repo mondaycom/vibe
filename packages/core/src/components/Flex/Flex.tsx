@@ -8,8 +8,8 @@ import {
   FlexGap as FlexGapEnum,
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
-import { FlexDirection, FlexJustify, FlexAlign, FlexGap, FlexShorthand } from "./Flex.types";
-import { ElementContent, withStaticProps, VibeComponentProps } from "../../types";
+import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
+import { type ElementContent, withStaticProps, type VibeComponentProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
 import { camelCase } from "lodash-es";

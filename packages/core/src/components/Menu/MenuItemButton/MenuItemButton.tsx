@@ -3,14 +3,19 @@ import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { ButtonType } from "../../Button";
+import { type ButtonType } from "../../Button";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { SubIcon, VibeComponentProps, ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
+import {
+  type SubIcon,
+  type VibeComponentProps,
+  type ElementContent,
+  withStaticPropsWithoutForwardRef
+} from "../../../types";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
-import { TooltipPositions } from "../../Tooltip";
+import { type TooltipPositions } from "../../Tooltip";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 
 export interface MenuItemButtonProps extends VibeComponentProps {

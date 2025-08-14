@@ -1,9 +1,9 @@
-import { vi, beforeEach, afterEach, describe, it, expect, MockInstance } from "vitest";
+import { vi, beforeEach, afterEach, describe, it, expect, type MockInstance } from "vitest";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import DatePicker from "../DatePicker";
-import moment, { Moment } from "moment";
-import { RangeDate } from "../types";
+import moment, { type Moment } from "moment";
+import { type RangeDate } from "../types";
 
 const DATE_FORMAT = "DD/MM/YYYY";
 
@@ -115,5 +115,23 @@ describe("DatePicker", () => {
     const newDay = await waitFor(() => container.querySelector(".CalendarDay_1"));
     expect(newDay).toBeInTheDocument();
     expect(newDay.getAttribute("aria-label")).toContain(newYear.innerHTML);
+  });
+
+  it("should not crash when onPickDate is not provided and a date is clicked", () => {
+    const { container } = render(<DatePicker />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
+  });
+
+  it("should not crash when onPickDate is not provided in range mode and a date is clicked", () => {
+    const { container } = render(<DatePicker range />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
   });
 });

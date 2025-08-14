@@ -4,7 +4,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 // Libraries import
-import React, { ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 // Constants import
 import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
@@ -14,10 +14,10 @@ import {
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition,
-  SplitButtonSecondaryContentPositionType
+  type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticPropsWithoutForwardRef } from "../../types";
-import { AnimationType, DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
+import { AnimationType, type DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -25,12 +25,12 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
-import Button, { ButtonProps } from "../Button/Button";
-import Dialog, { DialogEvent } from "../Dialog/Dialog";
+import Button, { type ButtonProps } from "../Button/Button";
+import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
-import { DialogSize, DialogTriggerEvent } from "../Dialog";
+import { type DialogSize, type DialogTriggerEvent } from "../Dialog";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {

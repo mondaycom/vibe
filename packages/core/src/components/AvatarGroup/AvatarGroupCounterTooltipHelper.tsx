@@ -1,13 +1,13 @@
-import React, { CSSProperties, RefObject, useCallback } from "react";
+import React, { type CSSProperties, type RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
-import Avatar, { AvatarProps } from "../Avatar/Avatar";
+import Avatar, { type AvatarProps } from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
-import { AvatarType } from "../Avatar";
-import { ElementContent } from "../../types";
+import { type AvatarType } from "../Avatar";
+import { type ElementContent } from "../../types";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE, AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 import { keyCodes } from "../../constants";
 

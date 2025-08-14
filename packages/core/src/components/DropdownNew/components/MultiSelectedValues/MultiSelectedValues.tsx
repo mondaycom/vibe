@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, createRef } from "react";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 import { Chips } from "../../../Chips";
 import { Flex } from "../../../Flex";
 import { DialogContentContainer } from "../../../DialogContentContainer";

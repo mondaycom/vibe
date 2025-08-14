@@ -1,4 +1,4 @@
-import { ModalFooterActionProps } from "../ModalFooterBase/ModalFooterBase.types";
+import { type ModalFooterActionProps } from "../ModalFooterBase/ModalFooterBase.types";
 import cx from "classnames";
 
 export function getPropsForButton(button?: ModalFooterActionProps, buttonClassName?: string) {

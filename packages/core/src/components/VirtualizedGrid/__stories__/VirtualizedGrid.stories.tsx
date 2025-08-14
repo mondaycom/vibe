@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import VirtualizedGrid, { VirtualizedGridProps } from "../VirtualizedGrid";
+import VirtualizedGrid, { type VirtualizedGridProps } from "../VirtualizedGrid";
 import Button from "../../Button/Button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 import Flex from "../../Flex/Flex";

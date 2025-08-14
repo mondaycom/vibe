@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { useEffect, useState } from "react";
-import { Decorator, StoryObj } from "@storybook/react";
+import { type Decorator, type StoryObj } from "@storybook/react";
 import Flex from "../../Flex/Flex";
 import Box from "../../Box/Box";
 import Heading from "../../Heading/Heading";
@@ -45,6 +45,7 @@ export const Overview = {
   render: labelTemplate.bind({}),
   name: "Overview",
   args: {
+    id: "overview-label",
     text: "New"
   },
   parameters: {
@@ -60,11 +61,11 @@ export const Kinds = {
   render: () => (
     <Flex style={{ marginLeft: "30px", marginTop: "10px", gap: "184px" }}>
       <Flex direction="column" align="start" gap="large">
-        <Label text="New" />
+        <Label id="kinds-fill" text="New" />
         <Text>Fill</Text>
       </Flex>
       <Flex direction="column" align="start" gap="large">
-        <Label text="New" kind="line" />
+        <Label id="kinds-outline" text="New" kind="line" />
         <Text>Outline</Text>
       </Flex>
     </Flex>
@@ -75,8 +76,8 @@ export const Kinds = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Label text="New" />
-      <Label text="New" size="small" />
+      <Label id="sizes-medium" text="New" />
+      <Label id="sizes-small" text="New" size="small" />
     </>
   ),
   decorators: [withGrid],
@@ -86,14 +87,14 @@ export const Sizes: Story = {
 export const Colors = {
   render: () => (
     <>
-      <Label text="New" />
-      <Label text="New" color="negative" />
-      <Label text="New" color="positive" />
-      <Label text="New" color="dark" />
-      <Label text="New" kind="line" />
-      <Label text="New" color="negative" kind="line" />
-      <Label text="New" color="positive" kind="line" />
-      <Label text="New" color="dark" kind="line" />
+      <Label id="colors-default-fill" text="New" />
+      <Label id="colors-negative-fill" text="New" color="negative" />
+      <Label id="colors-positive-fill" text="New" color="positive" />
+      <Label id="colors-dark-fill" text="New" color="dark" />
+      <Label id="colors-default-line" text="New" kind="line" />
+      <Label id="colors-negative-line" text="New" color="negative" kind="line" />
+      <Label id="colors-positive-line" text="New" color="positive" kind="line" />
+      <Label id="colors-dark-line" text="New" color="dark" kind="line" />
     </>
   ),
   decorators: [withGrid],
@@ -103,13 +104,12 @@ export const Colors = {
 export const Clickable = {
   render: () => (
     <>
-      <Label text="New" onClick={NOOP} />
-      <Label text="New" kind="line" onClick={NOOP} />
+      <Label id="clickable-fill" aria-label="Clickable new feature label" text="New" onClick={NOOP} />
+      <Label id="clickable-line" aria-label="Clickable new feature label" text="New" kind="line" onClick={NOOP} />
     </>
   ),
   decorators: [withGrid],
   name: "Clickable",
-
   parameters: {
     docs: {
       liveEdit: {
@@ -124,8 +124,10 @@ export const SecondaryLabel = {
     <Flex direction="column" gap="large">
       <Box style={{ width: "300px" }}>
         <Flex align="center" gap="small">
-          <Heading type="h3">Gannt</Heading>
-          <Label text="New" kind="line" />
+          <Heading id="gantt-heading" type="h3">
+            Gannt
+          </Heading>
+          <Label id="gantt-label" text="New" kind="line" />
         </Flex>
         <Text element="p" type="text1">
           Plan, track and present your projects visually using the Gannt chart
@@ -133,10 +135,10 @@ export const SecondaryLabel = {
       </Box>
       <Box style={{ width: "300px", marginTop: "8px" }}>
         <Flex align="center" gap="small">
-          <Heading type="h3" style={{ display: "inline" }}>
+          <Heading id="apps-heading" type="h3" style={{ display: "inline" }}>
             Apps
           </Heading>
-          <Label text="New" kind="line" />
+          <Label id="apps-label" text="New" kind="line" />
         </Flex>
         <Text element="p" type="text1" style={{ marginTop: "8px" }}>
           Enhance your dashboard with widgets built on the monday apps framework
@@ -144,7 +146,6 @@ export const SecondaryLabel = {
       </Box>
     </Flex>
   ),
-
   name: "Secondary label"
 };
 
@@ -160,8 +161,14 @@ export const Celebration = {
 
     return (
       <>
-        <Label text="New" kind="line" celebrationAnimation={animate} />
-        <Button size="small" kind="tertiary" onClick={() => setAnimate(true)}>
+        <Label id="celebration-label" text="New" kind="line" celebrationAnimation={animate} />
+        <Button
+          id="celebration-button"
+          ariaLabel="Trigger celebration animation"
+          size="small"
+          kind="tertiary"
+          onClick={() => setAnimate(true)}
+        >
           Click to celebrate
         </Button>
       </>

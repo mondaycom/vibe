@@ -1,11 +1,10 @@
 import React from "react";
-import Tooltip, { TooltipProps } from "../Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip";
 import { Hide, Menu, Subitems } from "@vibe/icons";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./Tooltip.stories.helpers";
-import "./Tooltip.stories.scss";
 import image from "./assets/tooltip-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 
@@ -21,24 +20,35 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tooltipTemplate = (args: TooltipProps) => {
-  return (
-    <div className="monday-storybook-tooltip_overview">
+export const Overview = {
+  render: (args: TooltipProps) => (
+    <div style={{ padding: "40px 0 0 50px" }}>
       <Tooltip
-        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-        // Therefore, there is no need to move this prop in your implementations.
-        modifiers={modifiers}
+        id="overview-tooltip"
         {...args}
         open
+        // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={[
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          },
+          {
+            name: "flip",
+            options: {
+              // @ts-ignore
+              fallbackPlacements: []
+            }
+          }
+        ]}
       >
-        <div />
+        <div id="overview-tooltip-trigger" />
       </Tooltip>
     </div>
-  );
-};
-
-export const Overview = {
-  render: tooltipTemplate.bind({}),
+  ),
   name: "Overview",
   args: {
     shouldShowOnMount: true,
@@ -52,64 +62,121 @@ export const Overview = {
 };
 
 export const TooltipWithTitle = () => (
-  <div className="monday-storybook-tooltip_title">
+  <div style={{ padding: "30px 0" }}>
     <Tooltip
+      id="tooltip-with-title"
       content="Hidden columns"
       title="Tooltip title"
       shouldShowOnMount
       position="right"
-      modifiers={modifiers}
+      // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
+      // Therefore, there is no need to move this prop in your implementations.
+      modifiers={[
+        {
+          name: "preventOverflow",
+          options: {
+            mainAxis: false
+          }
+        },
+        {
+          name: "flip",
+          options: {
+            // @ts-ignore
+            fallbackPlacements: []
+          }
+        }
+      ]}
       open
     >
-      <div />
+      <div id="tooltip-with-title-trigger" />
     </Tooltip>
   </div>
 );
 
 export const TooltipWithImage = () => (
-  <div className="monday-storybook-tooltip_image">
+  <div style={{ padding: "120px 0" }}>
     <Tooltip
+      id="tooltip-with-image"
       content="Max width tooltip with a long text example"
       title="Tooltip title"
       shouldShowOnMount
       image={image}
       position="right"
       modifiers={modifiers}
-      className="monday-storybook-tooltip_image__tooltip"
+      style={{ minHeight: "135px" }}
       open
     >
-      <div />
+      <div id="tooltip-with-image-trigger" />
     </Tooltip>
   </div>
 );
 
 export const Positions = {
   render: () => {
+    // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
+    // Therefore, there is no need to move this prop in your implementations.
+    const modifiers = [
+      {
+        name: "preventOverflow",
+        options: {
+          mainAxis: false
+        }
+      },
+      {
+        name: "flip",
+        options: {
+          // @ts-ignore
+          fallbackPlacements: []
+        }
+      }
+    ];
+
     return (
-      <div className="monday-storybook-tooltip_positions">
-        <div>
+      <Flex gap={16}>
+        <div style={{ padding: "0 64px 68px 0", margin: "0 32px" }}>
           {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
          Therefore, there is no need to move this prop in your implementations. */}
-          <Tooltip modifiers={modifiers} content="Top" shouldShowOnMount position="bottom" open>
+          <Tooltip
+            id="position-top-tooltip"
+            modifiers={modifiers}
+            content="Top"
+            shouldShowOnMount
+            position="bottom"
+            open
+          >
             <div />
           </Tooltip>
         </div>
-        <div>
-          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount open>
+        <div style={{ padding: "50px 0 0 0", margin: "0 32px" }}>
+          <Tooltip id="position-bottom-tooltip" modifiers={modifiers} content="Bottom" shouldShowOnMount open>
             <div />
           </Tooltip>
         </div>
-        <div>
-          <Tooltip modifiers={modifiers} content="Left" position="right" shouldShowOnMount open>
+        <div style={{ padding: "0 32px 8px 32px", margin: "0 32px" }}>
+          <Tooltip
+            id="position-left-tooltip"
+            modifiers={modifiers}
+            content="Left"
+            position="right"
+            shouldShowOnMount
+            open
+          >
             <div />
           </Tooltip>
         </div>
-        <div>
-          <Tooltip modifiers={modifiers} content="Right" position="left" shouldShowOnMount open>
+        <div style={{ padding: "0 64px 8px 64px", margin: "0 64px" }}>
+          <Tooltip
+            id="position-right-tooltip"
+            modifiers={modifiers}
+            content="Right"
+            position="left"
+            shouldShowOnMount
+            open
+          >
             <div />
           </Tooltip>
         </div>
-      </div>
+      </Flex>
     );
   },
   name: "Positions",
@@ -121,14 +188,14 @@ export const Positions = {
 };
 
 export const IconTooltip = () => (
-  <Tooltip content="Hidden columns">
-    <IconButton kind="secondary" size="small" icon={Hide} />
+  <Tooltip id="icon-tooltip" content="Hidden columns">
+    <IconButton id="icon-tooltip-trigger" ariaLabel="Hide columns" kind="secondary" size="small" icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
-  <Tooltip content="Item name: Bottom sheets">
-    <Button kind="secondary" size="small" leftIcon={Subitems}>
+  <Tooltip id="definition-tooltip" content="Item name: Bottom sheets">
+    <Button id="definition-tooltip-trigger" ariaLabel="View subitems" kind="secondary" size="small" leftIcon={Subitems}>
       Subitem
     </Button>
   </Tooltip>
@@ -136,14 +203,14 @@ export const DefinitionTooltip = () => (
 
 export const ImmediateTooltips = () => (
   <Flex gap="small">
-    <Tooltip immediateShowDelay={0} content="I'm a tooltip">
-      <IconButton icon={Menu} kind="secondary" size="small" />
+    <Tooltip id="immediate-tooltip-1" immediateShowDelay={0} content="I'm a tooltip">
+      <IconButton id="immediate-trigger-1" ariaLabel="Menu button 1" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
-    <Tooltip immediateShowDelay={0} content="I'm a tooltip">
-      <IconButton icon={Menu} kind="secondary" size="small" />
+    <Tooltip id="immediate-tooltip-2" immediateShowDelay={0} content="I'm a tooltip">
+      <IconButton id="immediate-trigger-2" ariaLabel="Menu button 2" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
-    <Tooltip content="I'm a tooltip">
-      <IconButton icon={Menu} kind="secondary" size="small" />
+    <Tooltip id="immediate-tooltip-3" content="I'm a tooltip">
+      <IconButton id="immediate-trigger-3" ariaLabel="Menu button 3" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
   </Flex>
 );

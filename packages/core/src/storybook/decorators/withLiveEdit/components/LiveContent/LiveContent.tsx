@@ -6,7 +6,7 @@ import {
 } from "../../../../stand-alone-documentaion/playground/playground-helpers";
 import LivePreview from "../../../../components/live-preview/LivePreview";
 import useApplyDecorators from "../../hooks/useApplyDecorators";
-import { LiveContentProps } from "./LiveContent.types";
+import { type LiveContentProps } from "./LiveContent.types";
 import styles from "./LiveContent.module.scss";
 
 const LiveContent = ({ code, scope, decorators, context }: LiveContentProps) => {

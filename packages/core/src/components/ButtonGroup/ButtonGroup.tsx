@@ -5,17 +5,17 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
-import { ButtonValue } from "./ButtonGroupConstants";
+import { type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { SIZES } from "../../constants";
-import { ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
-import { ButtonType, ButtonSize } from "../Button";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
-import { MoveBy } from "../../types/MoveBy";
+import { type SIZES } from "../../constants";
+import { type ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
+import { type ButtonType, type ButtonSize } from "../Button";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { TooltipPositions } from "../Tooltip";
+import { type TooltipPositions } from "../Tooltip";
 
 type ButtonGroupOption = {
   icon?: SubIcon;

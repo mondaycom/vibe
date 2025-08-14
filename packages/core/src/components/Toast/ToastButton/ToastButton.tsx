@@ -1,5 +1,5 @@
-import Button, { ButtonProps } from "../../Button/Button";
-import React, { FC } from "react";
+import Button, { type ButtonProps } from "../../Button/Button";
+import React, { type FC } from "react";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 

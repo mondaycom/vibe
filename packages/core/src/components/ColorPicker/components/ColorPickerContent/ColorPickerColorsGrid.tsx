@@ -1,12 +1,12 @@
 import React, { forwardRef, useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
-import { ColorPickerArrayValueOnly, ColorPickerValueOnly } from "../../ColorPicker.types";
-import { ColorShapes, ColorPickerSizes } from "../../ColorPicker.types";
-import { SubIcon, VibeComponentProps } from "../../../../types";
+import { type CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
+import { type ColorPickerArrayValueOnly, type ColorPickerValueOnly } from "../../ColorPicker.types";
+import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
+import { type SubIcon, type VibeComponentProps } from "../../../../types";
 import styles from "./ColorPickerColorsGrid.module.scss";
-import { ColorStyle } from "../../../../types";
+import { type ColorStyle } from "../../../../types";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {

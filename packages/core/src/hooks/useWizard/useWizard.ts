@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { UseWizardProps, UseWizardReturnValue, WizardDirection } from "./useWizard.types";
+import { type UseWizardProps, type UseWizardReturnValue, type WizardDirection } from "./useWizard.types";
 
 function useWizard({ initialStep = 0, stepCount, onStepChange, onFinish }: UseWizardProps): UseWizardReturnValue {
   const lastStep = stepCount - 1;

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { BaseInput } from "../../../BaseInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { BaseListItemData } from "../../../BaseListItem";
+import { type BaseListItemData } from "../../../BaseListItem";
 import { Text } from "../../../Text";
 
 const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {

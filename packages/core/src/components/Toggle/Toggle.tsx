@@ -1,12 +1,12 @@
-import React, { ChangeEvent, forwardRef } from "react";
+import React, { type ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { ToggleSize } from "./Toggle.types";
+import { type ToggleSize } from "./Toggle.types";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {
@@ -42,6 +42,10 @@ export interface ToggleProps extends VibeComponentProps {
    * If true, hides the on/off labels.
    */
   areLabelsHidden?: boolean;
+  /**
+   * If true, removes the horizontal spacing around the toggle.
+   */
+  noSpacing?: boolean;
   /**
    * The text displayed when the toggle is in the "on" position.
    */
@@ -79,6 +83,7 @@ const Toggle = forwardRef(
       ariaLabel,
       ariaControls,
       areLabelsHidden = false,
+      noSpacing,
       onOverrideText = "On",
       offOverrideText = "Off",
       size = "medium",
@@ -108,6 +113,7 @@ const Toggle = forwardRef(
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}
+          noSpacing={noSpacing}
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
           disabled={disabled}

@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { BaseListItem, BaseListItemData } from "../../../BaseListItem";
+import { BaseListItem, type BaseListItemData } from "../../../BaseListItem";
 import DropdownInput from "./DropdownInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";

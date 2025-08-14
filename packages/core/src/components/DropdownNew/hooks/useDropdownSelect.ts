@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { useSelect } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { BaseListItemData } from "../../BaseListItem";
-import { DropdownGroupOption } from "../Dropdown.types";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,

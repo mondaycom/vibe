@@ -1,5 +1,5 @@
-import { VibeComponentProps } from "../../../../types";
-import React from "react";
+import { type VibeComponentProps } from "../../../../types";
+import type React from "react";
 
 export interface ModalSideBySideLayoutProps extends VibeComponentProps {
   /**

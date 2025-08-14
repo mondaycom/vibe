@@ -3,7 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { Upgrade } from "@vibe/icons";
 import MultiStepIndicator from "../MultiStepIndicator";
-import { Step } from "../MultiStep.types";
+import { type Step } from "../MultiStep.types";
 
 const exampleSteps: Step[] = [
   {

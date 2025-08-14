@@ -5,7 +5,7 @@ import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
-import { Decorator, Meta, StoryObj } from "@storybook/react";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
@@ -40,8 +40,8 @@ const toastTemplate = createComponentTemplate(Toast);
 export const Overview: StoryObj<typeof Toast> = {
   render: toastTemplate.bind({}),
   name: "Overview",
-
   args: {
+    id: "overview-toast",
     children: "General message toast",
     open: true,
     actions: [
@@ -64,12 +64,11 @@ export const Overview: StoryObj<typeof Toast> = {
 export const DefaultWithButton = {
   render: () => {
     return (
-      <Toast open actions={[{ type: "button", content: "Button" }]}>
+      <Toast id="default-with-button" open actions={[{ type: "button", content: "Button" }]}>
         General message toast
       </Toast>
     );
   },
-
   name: "Default with button",
   parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
@@ -77,24 +76,22 @@ export const DefaultWithButton = {
 export const ToastWithLink = {
   render: () => {
     return (
-      <Toast open actions={[{ type: "link", text: "Link to action", href: "https://monday.com" }]}>
+      <Toast id="toast-with-link" open actions={[{ type: "link", text: "Link to action", href: "https://monday.com" }]}>
         General message toast
       </Toast>
     );
   },
-
   name: "Toast with link"
 };
 
 export const ToastWithLoading = {
   render: () => {
     return (
-      <Toast open loading>
+      <Toast id="toast-loading" open loading>
         General message toast
       </Toast>
     );
   },
-
   name: "Toast with loading",
   parameters: { chromatic: { pauseAnimationAtEnd: true } }
 };
@@ -102,36 +99,33 @@ export const ToastWithLoading = {
 export const SuccessMessage = {
   render: () => {
     return (
-      <Toast open type="positive" actions={[{ type: "button", content: "Undo 5" }]}>
+      <Toast id="success-message" open type="positive" actions={[{ type: "button", content: "Undo 5" }]}>
         Positive message toast
       </Toast>
     );
   },
-
   name: "Success message"
 };
 
 export const ErrorMessage = {
   render: () => {
     return (
-      <Toast open actions={[{ type: "button", content: "Button" }]} type="negative">
+      <Toast id="error-message" open actions={[{ type: "button", content: "Button" }]} type="negative">
         Negative message toast
       </Toast>
     );
   },
-
   name: "Error message"
 };
 
 export const WarningMessage = {
   render: () => {
     return (
-      <Toast open actions={[{ type: "button", content: "Button" }]} type="warning">
+      <Toast id="warning-message" open actions={[{ type: "button", content: "Button" }]} type="warning">
         Warning message toast
       </Toast>
     );
   },
-
   name: "Warning message",
   parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
@@ -139,12 +133,11 @@ export const WarningMessage = {
 export const DarkMessage = {
   render: () => {
     return (
-      <Toast open actions={[{ type: "button", content: "Button" }]} type="dark">
+      <Toast id="dark-message" open actions={[{ type: "button", content: "Button" }]} type="dark">
         Dark message toast
       </Toast>
     );
   },
-
   name: "Dark message",
   parameters: { chromatic: { pauseAnimationAtEnd: false } }
 };
@@ -152,7 +145,7 @@ export const DarkMessage = {
 export const FeedbackLoop = {
   render: () => {
     return (
-      <Toast open type="positive" actions={[{ type: "button", content: "Undo" }]}>
+      <Toast id="feedback-loop" open type="positive" actions={[{ type: "button", content: "Undo" }]}>
         We successfully deleted 1 item
       </Toast>
     );
@@ -186,13 +179,24 @@ export const Animation = {
 
     return (
       <Flex gap="medium">
-        <Button onClick={onSuccessClick} kind={Button.kinds.SECONDARY}>
+        <Button
+          id="animation-success-button"
+          ariaLabel="Trigger success toast"
+          onClick={onSuccessClick}
+          kind={Button.kinds.SECONDARY}
+        >
           Success action
         </Button>
-        <Button onClick={onFailureClick} kind={Button.kinds.SECONDARY}>
+        <Button
+          id="animation-failure-button"
+          ariaLabel="Trigger failure toast"
+          onClick={onFailureClick}
+          kind={Button.kinds.SECONDARY}
+        >
           Failure action
         </Button>
         <Toast
+          id="animation-success-toast"
           open={successToastOpen}
           type={isDeleting ? "normal" : "positive"}
           actions={isDeleting ? [] : [{ type: "button", content: "Undo" }]}
@@ -203,6 +207,7 @@ export const Animation = {
           {isDeleting ? "Deleting 1 selected item..." : "We successfully deleted 1 item"}
         </Toast>
         <Toast
+          id="animation-failure-toast"
           open={failureToastOpen}
           type={isDeleting ? "normal" : "negative"}
           onClose={() => setFailureToastOpen(false)}

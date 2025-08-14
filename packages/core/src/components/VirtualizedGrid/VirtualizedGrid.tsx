@@ -1,11 +1,11 @@
-import React, { CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { type CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import {
-  GridChildComponentProps,
-  GridOnScrollProps,
-  ScrollDirection,
+  type GridChildComponentProps,
+  type GridOnScrollProps,
+  type ScrollDirection,
   VariableSizeGrid as Grid,
-  GridOnItemsRenderedProps
+  type GridOnItemsRenderedProps
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
@@ -16,11 +16,11 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { type VibeComponent, type VibeComponentProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
-import { VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
+import { type VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 
 export interface VirtualizedGridProps extends VibeComponentProps {
   /**

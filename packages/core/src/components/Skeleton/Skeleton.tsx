@@ -9,9 +9,9 @@ import {
   TextSkeletonSize as TextSkeletonSizeEnum
 } from "./SkeletonConstants";
 
-import { SkeletonType, SkeletonSizeType } from "./Skelton.types";
+import { type SkeletonType, type SkeletonSizeType } from "./Skelton.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {

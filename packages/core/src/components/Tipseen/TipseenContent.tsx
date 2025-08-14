@@ -1,16 +1,16 @@
-import React, { FC, useContext, useMemo } from "react";
+import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
 import Button from "../../components/Button/Button";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
+import { type VibeComponentProps } from "../../types";
+import { type ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
-import { SubIcon } from "../../types";
+import { type SubIcon } from "../../types";
 
 export interface TipseenContentProps extends VibeComponentProps {
   /**

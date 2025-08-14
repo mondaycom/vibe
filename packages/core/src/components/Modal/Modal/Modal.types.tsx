@@ -1,7 +1,7 @@
-import { VibeComponentProps } from "../../../types";
-import React from "react";
-import { ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
-import { PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
+import { type VibeComponentProps } from "../../../types";
+import type React from "react";
+import { type ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
+import { type PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
 
 export type ModalSize = "small" | "medium" | "large" | "full-view";
 

@@ -46,6 +46,7 @@
     pointer-events: none;
     inset: 0;
     padding-inline-start: var(--spacing-xs);
+    width: 100%;
 
     &.small {
       padding-inline-start: var(--spacing-small);

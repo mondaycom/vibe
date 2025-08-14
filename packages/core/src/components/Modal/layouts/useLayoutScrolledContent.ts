@@ -1,4 +1,4 @@
-import { UIEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import { type UIEventHandler, useCallback, useEffect, useRef, useState } from "react";
 
 const useLayoutScrolledContent = () => {
   const [isContentScrolled, setContentScrolled] = useState<boolean>(false);
@@ -22,6 +22,10 @@ const useLayoutScrolledContent = () => {
   }, [checkScroll]);
 
   useEffect(() => {
+    if (!window.ResizeObserver) {
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 

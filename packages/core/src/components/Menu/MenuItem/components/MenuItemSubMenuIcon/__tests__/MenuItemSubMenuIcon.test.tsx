@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuItemSubMenuIcon from "../MenuItemSubMenuIcon";
-import { MenuItemSubMenuIconProps } from "../MenuItemSubMenuIcon.types";
+import { type MenuItemSubMenuIconProps } from "../MenuItemSubMenuIcon.types";
 
 function renderMenuItemSubMenuIcon(props: Partial<MenuItemSubMenuIconProps> & { ref?: React.Ref<HTMLDivElement> }) {
   return render(<MenuItemSubMenuIcon {...props} />);

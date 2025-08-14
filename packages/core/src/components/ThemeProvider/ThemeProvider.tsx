@@ -1,7 +1,7 @@
 import cx from "classnames";
-import React, { ReactElement, useEffect, useMemo, useState } from "react";
-import { SystemTheme as SystemThemeEnum, Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
-import { SystemTheme } from "./ThemeProvider.types";
+import React, { type ReactElement, useEffect, useMemo, useState } from "react";
+import { SystemTheme as SystemThemeEnum, type Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
+import { type SystemTheme } from "./ThemeProvider.types";
 import {
   addSystemThemeClassNameToBody,
   generateRandomAlphaString,

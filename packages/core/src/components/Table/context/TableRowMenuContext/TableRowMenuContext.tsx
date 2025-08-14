@@ -1,5 +1,8 @@
 import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { TableRowMenuContext as ITableRowMenuContext, TableRowMenuProviderProps } from "./TableRowMenuContext.types";
+import {
+  type TableRowMenuContext as ITableRowMenuContext,
+  type TableRowMenuProviderProps
+} from "./TableRowMenuContext.types";
 
 const TableRowMenuContext = createContext<ITableRowMenuContext | undefined>(undefined);
 

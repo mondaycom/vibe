@@ -1,16 +1,16 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import React, { useCallback, useMemo } from "react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, Flex, Modal, ModalContent } from "../../index";
+import { Flex } from "../../index";
 import { Dropdown } from "../../DropdownNew";
-import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import { Text } from "../../Text";
-import { BaseListItemData } from "../../BaseListItem/BaseListItem.types";
-import { BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
+import { type BaseListItemData } from "../../BaseListItem/BaseListItem.types";
+import { type BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
+import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -60,6 +60,8 @@ const dropdownTemplate = (props: BaseDropdownProps<any>) => {
 export const Overview: Story = {
   render: dropdownTemplate.bind({}),
   args: {
+    id: "overview-dropdown",
+    ariaLabel: "Overview dropdown",
     placeholder: "Placeholder text here"
   },
   parameters: {
@@ -84,13 +86,31 @@ export const Sizes: Story = {
     return (
       <>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="large" />
+          <Dropdown
+            id="sizes-large"
+            ariaLabel="Large dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="large"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="medium" />
+          <Dropdown
+            id="sizes-medium"
+            ariaLabel="Medium dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="medium"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={options} placeholder="Placeholder text here" size="small" />
+          <Dropdown
+            id="sizes-small"
+            ariaLabel="Small dropdown"
+            options={options}
+            placeholder="Placeholder text here"
+            size="small"
+          />
         </div>
       </>
     );
@@ -102,18 +122,18 @@ export const States: Story = {
     <Flex direction="row" gap="medium">
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Default" />
+          <Dropdown id="states-default" ariaLabel="Default dropdown" options={[]} placeholder="Default" />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Disabled" disabled />
+          <Dropdown id="states-disabled" ariaLabel="Disabled dropdown" options={[]} placeholder="Disabled" disabled />
         </div>
       </Flex>
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Error" error />
+          <Dropdown id="states-error" ariaLabel="Error dropdown" options={[]} placeholder="Error" error />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown options={[]} placeholder="Readonly" readOnly />
+          <Dropdown id="states-readonly" ariaLabel="Readonly dropdown" options={[]} placeholder="Readonly" readOnly />
         </div>
       </Flex>
     </Flex>
@@ -340,7 +360,7 @@ export const DropdownWithGroups: Story = {
 
 export const DropdownItemWithElements: Story = {
   render: () => {
-    const options: BaseListItemData<Record<string, unknown>>[] = useMemo(
+    const startOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
       () => [
         {
           value: "icon",
@@ -364,7 +384,13 @@ export const DropdownItemWithElements: Story = {
           startElement: {
             type: "indent"
           }
-        },
+        }
+      ],
+      []
+    );
+
+    const endOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
+      () => [
         {
           value: "endIcon",
           label: "Label with end icon",
@@ -386,14 +412,19 @@ export const DropdownItemWithElements: Story = {
     );
 
     return (
-      <div style={{ width: "300px" }}>
-        <Dropdown placeholder={"Placeholder text here"} options={options} label="Label" required />
-      </div>
+      <Flex gap="large">
+        <div style={{ width: "300px" }}>
+          <Dropdown placeholder={"Placeholder text here"} options={startOptions} label="Start Elements" required />
+        </div>
+        <div style={{ width: "300px" }}>
+          <Dropdown placeholder={"Placeholder text here"} options={endOptions} label="End Elements" required />
+        </div>
+      </Flex>
     );
   }
 };
 
-export const DropdownShowSelectedItems: Story = {
+export const DropdownHideSelectedItems: Story = {
   render: () => {
     const options = useMemo(
       () =>
@@ -413,7 +444,7 @@ export const DropdownShowSelectedItems: Story = {
           label="Label"
           required
           multi
-          showSelectedOptions
+          showSelectedOptions={false}
         />
       </div>
     );
@@ -442,58 +473,101 @@ export const DropdownWithTooltips: Story = {
   }
 };
 
-export const DropdownInsidePopover: Story = {
+export const DropdownWithVirtualization: Story = {
   render: () => {
     const options = useMemo(
+      () => [
+        {
+          options: Array.from({ length: 1000 }, (_, index) => ({
+            value: `option-${index + 1}`,
+            label: `Option ${index + 1}`
+          }))
+        }
+      ],
+      []
+    );
+
+    const groupedOptions = useMemo(
       () =>
-        Array.from({ length: 15 }, (_, i) => ({
-          value: `${i + 1}`,
-          label: `Option ${i + 1}`
+        Array.from({ length: 10 }, (_, groupIndex) => ({
+          label: `Group ${groupIndex + 1}`,
+          options: Array.from({ length: 100 }, (_, optionIndex) => ({
+            value: `group-${groupIndex + 1}-option-${optionIndex + 1}`,
+            label: `Group ${groupIndex + 1} - Option ${optionIndex + 1}`
+          }))
         })),
       []
     );
 
-    const [show, setShow] = useState(false);
+    const virtualizedMenuRenderer = useCallback(({ children }: { children: React.ReactNode }) => {
+      const flattenedOptions: React.ReactElement[] = [];
 
-    const closeModal = useCallback(() => {
-      setShow(false);
-    }, [setShow]);
+      const flattenOptions = (reactNode: React.ReactNode) => {
+        React.Children.forEach(reactNode, childElement => {
+          if (React.isValidElement(childElement)) {
+            if (childElement.type === "li" || childElement.props?.role) {
+              flattenedOptions.push(childElement);
+            } else if (childElement.props?.children) {
+              flattenOptions(childElement.props.children);
+            }
+          }
+        });
+      };
+      flattenOptions(children);
 
-    const dialogStyle = {
-      width: "350px",
-      height: "200px",
-      overflow: "auto"
-    };
+      if (flattenedOptions.length === 0) {
+        return <div>No options available</div>;
+      }
+
+      const itemHeight = 40;
+      const containerHeight = 200;
+
+      // Row renderer that preserves original elements with all their downshift props
+      const VirtualizedRow = useCallback(
+        ({ index, style }: { index: number; style: React.CSSProperties }) => {
+          const option = flattenedOptions[index];
+          return <div style={style}>{option}</div>;
+        },
+        [flattenedOptions]
+      );
+
+      return (
+        <List
+          height={containerHeight}
+          width="100%"
+          itemCount={flattenedOptions.length}
+          itemSize={itemHeight}
+          overscanCount={5}
+        >
+          {VirtualizedRow}
+        </List>
+      );
+    }, []);
 
     return (
-      <Flex gap="large">
-        <DialogContentContainer style={dialogStyle}>
-          <ModalExampleContent />
-          <Box marginTop="medium" marginBottom="xxl">
-            <div style={{ width: "300px" }}>
-              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} />
-            </div>
-          </Box>
-        </DialogContentContainer>
-        <div>
-          <Button onClick={() => setShow(true)}>Open Modal</Button>
-          <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
-            <ModalContent>
-              <div style={{ width: "300px" }}>
-                <Dropdown placeholder="Dropdown" options={options} />
-              </div>
-            </ModalContent>
-          </Modal>
+      <Flex gap="large" align="start">
+        <div style={{ width: "350px" }}>
+          <Dropdown
+            placeholder="Search"
+            options={options}
+            label="Virtualized"
+            menuRenderer={virtualizedMenuRenderer}
+            searchable
+            maxMenuHeight={250}
+          />
+        </div>
+        <div style={{ width: "350px" }}>
+          <Dropdown
+            placeholder="Search"
+            options={groupedOptions}
+            label="Grouped Virtualized"
+            menuRenderer={virtualizedMenuRenderer}
+            searchable
+            maxMenuHeight={250}
+          />
         </div>
       </Flex>
     );
   },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { ModalExampleContent }
-      }
-    }
-  },
-  name: "Dropdown inside popover"
+  name: "Virtualized Dropdown"
 };

@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo } from "react";
+import type React from "react";
+import { useEffect, useMemo } from "react";
 import { useLastNavigationDirection } from "../Menu/hooks/useLastNavigationDirection";
 
 export const useFocusGridItemByActiveStatus = ({

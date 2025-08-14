@@ -3,7 +3,7 @@ import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite,
 import { DialogContentContainer, Flex, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "../../..";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
 import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
-import { MenuProps } from "../../..";
+import { type MenuProps } from "../../..";
 
 export default {
   title: "Components/Menu/Menu",

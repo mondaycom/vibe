@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useEffect } from "react";
+import type React from "react";
+import { useState, useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
-import { A11yDialogType } from "./ModalHelper";
+import { type A11yDialogType } from "./ModalHelper";
 import { keyCodes } from "../../constants";
 
 const KEYS = [keyCodes.ESCAPE];

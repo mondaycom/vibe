@@ -1,11 +1,11 @@
 import React from "react";
-import AlertBanner, { AlertBannerProps } from "../AlertBanner";
+import AlertBanner, { type AlertBannerProps } from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import Flex from "../../Flex/Flex";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
@@ -42,6 +42,10 @@ export default {
 
 export const Overview = {
   render: alertBannerTemplate.bind({}),
+  args: {
+    id: "overview-alert-banner",
+    ariaLabel: "Overview alert banner"
+  },
   name: "Overview"
 };
 
@@ -50,23 +54,23 @@ type Story = StoryObj<typeof AlertBanner>;
 export const Types: Story = {
   render: () => (
     <Flex direction="column" gap={16}>
-      <AlertBanner>
+      <AlertBanner id="type-primary" ariaLabel="Primary alert banner">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="positive">
+      <AlertBanner id="type-positive" ariaLabel="Success alert banner" backgroundColor="positive">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="negative">
+      <AlertBanner id="type-negative" ariaLabel="Error alert banner" backgroundColor="negative">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="warning">
+      <AlertBanner id="type-warning" ariaLabel="Warning alert banner" backgroundColor="warning">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="dark">
+      <AlertBanner id="type-dark" ariaLabel="Dark alert banner" backgroundColor="dark">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
@@ -77,7 +81,7 @@ export const Types: Story = {
 
 export const AlertBannerWithButton: Story = {
   render: () => (
-    <AlertBanner>
+    <AlertBanner id="with-button" ariaLabel="Alert banner with action button">
       <AlertBannerText text="Lorem ipsum dolor sit amet" />
       <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
     </AlertBanner>
@@ -87,7 +91,7 @@ export const AlertBannerWithButton: Story = {
 
 export const AlertBannerWithLink: Story = {
   render: () => (
-    <AlertBanner>
+    <AlertBanner id="with-link" ariaLabel="Alert banner with link">
       <AlertBannerText text="Alert banner message" />
       <AlertBannerLink text="this is a CTA" href="https://monday.com" />
     </AlertBanner>
@@ -97,7 +101,7 @@ export const AlertBannerWithLink: Story = {
 
 export const AlertBannerAsAnAnnouncement: Story = {
   render: () => (
-    <AlertBanner backgroundColor="dark">
+    <AlertBanner id="announcement" ariaLabel="Event announcement" backgroundColor="dark">
       <AlertBannerText text="Join us at Elevate 2022" />
       <AlertBannerLink text="RSVP now" href="https://monday.com" />
     </AlertBanner>
@@ -107,7 +111,12 @@ export const AlertBannerAsAnAnnouncement: Story = {
 
 export const AlertBannerAsAnOpportunityToUpgrade: Story = {
   render: () => (
-    <AlertBanner>
+    <AlertBanner
+      id="upgrade-opportunity"
+      ariaLabel="Trial upgrade opportunity"
+      onClose={() => {}}
+      closeButtonAriaLabel="Close upgrade banner"
+    >
       <AlertBannerText text="7 days left on your monday CRM trial" />
       <AlertBannerLink text="Upgrade now" href="https://monday.com" />
     </AlertBanner>
@@ -117,7 +126,7 @@ export const AlertBannerAsAnOpportunityToUpgrade: Story = {
 
 export const OverflowText: Story = {
   render: () => (
-    <AlertBanner>
+    <AlertBanner id="overflow-text" ariaLabel="Long text alert banner">
       <AlertBannerText text="This is a really long alert..." />
       <AlertBannerLink text="Call to action" href="https://monday.com" />
     </AlertBanner>

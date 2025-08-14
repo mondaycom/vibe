@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import { AnimatePresence } from "framer-motion";
-import { TransitionViewProps } from "./TransitionView.types";
+import { type TransitionViewProps } from "./TransitionView.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./TransitionView.module.scss";

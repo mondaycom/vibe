@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table, { TableColumn } from "../Table";
+import Table, { type TableColumn } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -23,6 +23,7 @@ import {
   virtualizedScrollTableColumns,
   virtualizedScrollTableData
 } from "./Table.stories.helpers";
+import { type TableProps } from "../Table";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
@@ -52,7 +53,7 @@ export default {
 };
 
 export const Overview = {
-  render: () => {
+  render: (args: TableProps) => {
     const columns: TableColumn[] = [
       {
         id: "sentOn",
@@ -122,6 +123,8 @@ export const Overview = {
 
     return (
       <Table
+        id="overview-table"
+        {...args}
         errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
         emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
         columns={columns}
@@ -189,6 +192,7 @@ export const Sizes = {
     return (
       <>
         <Table
+          id="sizes-small-table"
           style={{ width: "auto" }}
           size="small"
           errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}

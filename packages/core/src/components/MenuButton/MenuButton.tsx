@@ -2,13 +2,13 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { isForwardRef } from "react-is";
-import Dialog, { DialogEvent } from "../Dialog/Dialog";
+import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
@@ -18,15 +18,20 @@ import {
   HideShowEvent as DialogTriggerEventEnum,
   DialogSize as DialogSizeEnum
 } from "../Dialog/DialogConstants";
-import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButton.types";
-import { DialogOffset, DialogPosition, DialogSize, DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
+import {
+  type DialogOffset,
+  type DialogPosition,
+  type DialogSize,
+  type DialogTriggerEvent
+} from "../Dialog/Dialog.types";
 import { NOOP } from "../../utils/function-utils";
 import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { MenuChild } from "../Menu/Menu/MenuConstants";
+import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { TooltipPositions } from "../Tooltip";
+import { type TooltipPositions } from "../Tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
@@ -298,7 +303,7 @@ const MenuButton = forwardRef(
     const content = useMemo(() => {
       if (clonedChildren.length === 0) return null;
       return (
-        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
+        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER} role={null}>
           {clonedChildren}
         </DialogContentContainer>
       );

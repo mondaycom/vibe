@@ -1,13 +1,15 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
 import Heading from "../Heading/Heading";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
-import { HeadingType, HeadingWeight } from "../Heading";
+import { type HeadingType, type HeadingWeight } from "../Heading";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
-import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
+import EditableTypography, {
+  type EditableTypographyImplementationProps
+} from "../EditableTypography/EditableTypography";
 
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**

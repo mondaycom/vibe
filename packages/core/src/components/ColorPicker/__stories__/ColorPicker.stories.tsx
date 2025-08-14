@@ -21,12 +21,16 @@ const colorPickerTemplate = createComponentTemplate(ColorPicker);
 
 export const Overview = {
   render: colorPickerTemplate.bind({}),
+  args: {
+    id: "overview-color-picker"
+  },
   name: "Overview"
 };
 
 export const WithIndicator = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "indicator-color-picker",
     ColorIndicatorIcon: TextColorIndicator
   },
   name: "With Indicator"
@@ -35,6 +39,7 @@ export const WithIndicator = {
 export const TextIndication = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "text-indication-color-picker",
     ColorIndicatorIcon: TextColorIndicator,
     value: "peach",
     shouldRenderIndicatorWithoutBackground: true
@@ -45,6 +50,7 @@ export const TextIndication = {
 export const Selected = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "selected-color-picker",
     ColorIndicatorIcon: TextColorIndicator,
     colorStyle: "selected"
   },
@@ -54,6 +60,7 @@ export const Selected = {
 export const NoColor = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "no-color-picker",
     noColorText: "Clear color"
   },
   name: "No color",
@@ -63,6 +70,7 @@ export const NoColor = {
 export const SelectedIcon = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "multiselect-color-picker",
     isMultiselect: true,
     SelectedIndicatorIcon: Check,
     value: "peach"
@@ -74,6 +82,7 @@ export const SelectedIcon = {
 export const Shapes = {
   render: colorPickerTemplate.bind({}),
   args: {
+    id: "shapes-color-picker",
     colorShape: "circle"
   },
   name: "Shapes"

@@ -1,22 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
-import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
-import { Modifier } from "react-popper";
+import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
+import { type Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
-import { DialogAnimationType, DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
 import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum } from "../Dialog/DialogConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
-import { ElementContent } from "../../types/ElementContent";
-import { MoveBy } from "../../types/MoveBy";
+import { type ElementContent } from "../../types/ElementContent";
+import { type MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { SubIcon } from "../../types";
+import { type SubIcon } from "../../types";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
-import { TooltipPositions, TooltipTheme } from "./Tooltip.types";
+import { type TooltipPositions, type TooltipTheme } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 

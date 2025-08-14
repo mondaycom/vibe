@@ -1,5 +1,5 @@
-import { vi, beforeEach, afterEach, describe, it, expect, Mock } from "vitest";
-import React, { forwardRef, useRef, useEffect, RefObject, createRef } from "react";
+import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
+import React, { forwardRef, useRef, useEffect, type RefObject, createRef } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
 import useMergeRefs from "../useMergeRefs";
 

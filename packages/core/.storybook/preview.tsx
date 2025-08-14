@@ -4,11 +4,10 @@ import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {
-  AnchorListItem,
   AlphaWarning,
   DeprecatedWarning,
+  ComponentName,
   ComponentRules,
-  DocFooter,
   Frame,
   FunctionArgument,
   FunctionArguments,
@@ -26,7 +25,7 @@ import {
 } from "vibe-storybook-components";
 import CanvasWrapper from "../src/storybook/components/canvas-wrapper/CanvasWrapper";
 import withGlobalStyle from "../src/storybook/decorators/withGlobalStyle/withGlobalStyle";
-import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
+import { PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
@@ -38,6 +37,10 @@ import {
 import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 import modes from "./modes";
+import Footer from "../src/storybook/components/footer/Footer";
+import StorybookTableOfContents from "../src/storybook/components/toc/TableOfContents";
+import { paintToConsole } from "./art";
+import FloatingObjects from "../src/storybook/stand-alone-documentaion/welcome/hero/FloatingObjects";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -59,21 +62,27 @@ const preview: Preview = {
       canvas: {
         layout: "fullscreen"
       },
-      container: ({ children, context }: { children: any; context: any }) => (
-        <DocsContainer context={context}>
-          <Unstyled>
-            {children}
-            {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
-          </Unstyled>
-        </DocsContainer>
-      ),
+      container: ({ children, context }: { children: any; context: any }) => {
+        const isWelcomePage = typeof window !== "undefined" ? window.location.href.includes("id=welcome") : false;
+
+        return (
+          <>
+            {isWelcomePage && <FloatingObjects />}
+            <DocsContainer context={context}>
+              <Unstyled>{children}</Unstyled>
+            </DocsContainer>
+            <Footer />
+            <StorybookTableOfContents />
+          </>
+        );
+      },
       page: DocsPage,
       components: {
         Canvas: CanvasWrapper,
         Controls: PropsTable,
         PropsTable,
-        h1: ComponentNameDecorator,
-        ComponentName: ComponentNameDecorator,
+        h1: ComponentName,
+        ComponentName,
         h2: SectionName,
         h3: Title,
         p: Paragraph,
@@ -101,6 +110,7 @@ const preview: Preview = {
           "Welcome",
           "Getting Started",
           "Catalog",
+          "MCP [New]",
           "Playground",
           "Changelog",
           "Migration Guide",
@@ -157,5 +167,7 @@ const preview: Preview = {
 
   loaders: isChromatic() && document.fonts ? [fontLoader] : []
 };
+
+paintToConsole();
 
 export default preview;

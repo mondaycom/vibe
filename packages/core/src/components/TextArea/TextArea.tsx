@@ -3,7 +3,7 @@ import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./TextArea.module.scss";
-import { TextAreaProps, TextAreaSize } from "./TextArea.types";
+import { type TextAreaProps, type TextAreaSize } from "./TextArea.types";
 import Text from "../Text/Text";
 import { Flex } from "../Flex";
 import { HiddenText } from "../HiddenText";
@@ -106,7 +106,7 @@ const TextArea = forwardRef(
                   {characterCount}
                   {typeof maxLength === "number" && `/${maxLength}`}
                 </Text>
-                <HiddenText id={allowExceedingMaxLengthTextId} text={`Maximum of ${maxLength} characters`} />
+                <HiddenText id={allowExceedingMaxLengthTextId} text={`${characterCount} out of ${maxLength}`} />
               </>
             )}
           </Flex>

@@ -1,7 +1,7 @@
-import React from "react";
-import { CloseMenuOption, MenuChild } from "../../../Menu/MenuConstants";
-import { SubmenuPosition } from "../../MenuItem.types";
-import { MenuItemProps } from "../../MenuItem";
+import type React from "react";
+import { type CloseMenuOption, type MenuChild } from "../../../Menu/MenuConstants";
+import { type SubmenuPosition } from "../../MenuItem.types";
+import { type MenuItemProps } from "../../MenuItem";
 
 export interface MenuItemSubMenuProps extends Pick<MenuItemProps, "autoAdjustOnSubMenuContentResize"> {
   /**

@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, {
-  AriaAttributes,
-  AriaRole,
-  CSSProperties,
+  type AriaAttributes,
+  type AriaRole,
+  type CSSProperties,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useCallback,
   useEffect,
   useMemo,
@@ -15,11 +15,11 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { withStaticProps, VibeComponentProps } from "../../types";
-import { ListItemProps } from "../ListItem/ListItem";
-import { ListTitleProps } from "../ListTitle/ListTitle";
+import { withStaticProps, type VibeComponentProps } from "../../types";
+import { type ListItemProps } from "../ListItem/ListItem";
+import { type ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
-import { ListElement } from "./List.types";
+import { type ListElement } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
 import {

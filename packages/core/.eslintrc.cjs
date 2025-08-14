@@ -109,7 +109,8 @@ module.exports = {
         "no-unused-vars": "off",
         "react/require-default-props": "off",
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
-        "@typescript-eslint/no-empty-function": "off"
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/consistent-type-imports": ["error", { fixStyle: "inline-type-imports" }]
       }
     },
     {

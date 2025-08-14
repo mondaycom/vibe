@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Toast, { ToastProps } from "../Toast";
+import Toast, { type ToastProps } from "../Toast";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const renderComponent = (props: ToastProps) => {

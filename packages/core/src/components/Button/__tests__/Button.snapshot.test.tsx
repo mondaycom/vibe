@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { noop as NOOP } from "lodash-es";
 import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
-import { ButtonSize } from "../Button.types";
+import { type ButtonSize } from "../Button.types";
 
 vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
   default: () => <div data-testid="custom-icon-mock" />

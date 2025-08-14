@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 @mixin focus-style-inset($focus-radius: 4px, $shadow-depth: 3px) {
   &:focus-visible,
   &.focus-visible {

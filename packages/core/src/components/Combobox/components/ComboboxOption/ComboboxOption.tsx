@@ -1,17 +1,17 @@
 import cx from "classnames";
-import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
-import { SubIcon, withStaticPropsWithoutForwardRef } from "../../../../types";
+import { type SubIcon, withStaticPropsWithoutForwardRef } from "../../../../types";
 import {
   ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
-  IComboboxOption,
-  IComboboxOptionEvents
+  type IComboboxOption,
+  type IComboboxOptionEvents
 } from "../ComboboxConstants";
-import { ComboboxOptionIconType } from "../../Combobox.types";
+import { type ComboboxOptionIconType } from "../../Combobox.types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 

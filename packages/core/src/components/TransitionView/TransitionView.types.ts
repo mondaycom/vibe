@@ -1,6 +1,6 @@
-import React from "react";
-import { VibeComponentProps } from "../../types";
-import { SlideDirection } from "../SlideTransition/SlideTransition.types";
+import type React from "react";
+import { type VibeComponentProps } from "../../types";
+import { type SlideDirection } from "../SlideTransition/SlideTransition.types";
 
 export interface TransitionViewProps extends VibeComponentProps {
   /**

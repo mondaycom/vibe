@@ -6,14 +6,14 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } 
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
-import { LabelColor, LabelKind, ContentColor } from "./Label.types";
+import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { LabelSizes } from "./Label.types";
+import { type LabelSizes } from "./Label.types";
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -91,9 +91,12 @@ const Label = forwardRef<HTMLElement, LabelProps>(
 
     const backgroundColorStyle = useMemo(() => {
       if (contentColors.includes(color as ContentColor)) {
+        if (kind === "line") {
+          return { color: `var(--color-${color})` };
+        }
         return { backgroundColor: `var(--color-${color})` };
       }
-    }, [color]);
+    }, [color, kind]);
 
     const onClickCallback = useCallback(
       (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {

@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import Loader, { LoaderProps } from "../Loader";
+import Loader, { type LoaderProps } from "../Loader";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, DialogContentContainer, Flex, Search, Text } from "../..";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader
@@ -18,7 +18,7 @@ export default {
 type Story = StoryObj<typeof Loader>;
 
 export const Overview: Story = {
-  render: (args: LoaderProps) => <Loader size="medium" {...args} />,
+  render: (args: LoaderProps) => <Loader id="overview-loader" size="medium" {...args} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -35,29 +35,28 @@ export const SizeVariants: Story = {
         <Text type="text1" weight="medium">
           Xs
         </Text>
-        <Loader size="xs" />
+        <Loader id="loader-xs" size="xs" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
           Small
         </Text>
-        <Loader size="small" />
+        <Loader id="loader-small" size="small" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
           Medium
         </Text>
-        <Loader size="medium" />
+        <Loader id="loader-medium" size="medium" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
           Large
         </Text>
-        <Loader size="large" />
+        <Loader id="loader-large" size="large" />
       </Flex>
     </Flex>
   ),
-
   name: "Size variants"
 };
 
@@ -68,19 +67,19 @@ export const ColorVariants: Story = {
         <Text type="text1" weight="medium">
           Primary
         </Text>
-        <Loader size="medium" color="primary" />
+        <Loader id="loader-primary" size="medium" color="primary" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
           Secondary
         </Text>
-        <Loader size="medium" color="secondary" />
+        <Loader id="loader-secondary" size="medium" color="secondary" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
           Dark
         </Text>
-        <Loader size="medium" color="dark" />
+        <Loader id="loader-dark" size="medium" color="dark" />
       </Flex>
       <Flex direction="column" gap="small">
         <Text type="text1" weight="medium">
@@ -88,16 +87,16 @@ export const ColorVariants: Story = {
         </Text>
         <Flex direction="row">
           <div style={{ background: "var(--sb-primary-text-color)", padding: "var(--space-4)" }}>
-            <Loader size="medium" color="onPrimary" />
+            <Loader id="loader-on-primary" size="medium" color="onPrimary" />
           </div>
           <div style={{ background: "var(--sb-negative-color)", padding: "var(--space-4)" }}>
-            <Loader size="medium" color="onPrimary" />
+            <Loader id="loader-on-negative" size="medium" color="onPrimary" />
           </div>
           <div style={{ background: "var(--sb-positive-color)", padding: "var(--space-4)" }}>
-            <Loader size="medium" color="onPrimary" />
+            <Loader id="loader-on-positive" size="medium" color="onPrimary" />
           </div>
           <div style={{ background: "var(--sb-primary-color)", padding: "var(--space-4)" }}>
-            <Loader size="medium" color="onPrimary" />
+            <Loader id="loader-on-primary-color" size="medium" color="onPrimary" />
           </div>
         </Flex>
       </Flex>
@@ -114,7 +113,7 @@ export const CustomColors: Story = {
         color: "var(--color-dark-red)"
       }}
     >
-      <Loader size="medium" />
+      <Loader id="loader-custom-color" size="medium" />
     </div>
   ),
 
@@ -129,7 +128,7 @@ export const VisualVariants: Story = {
           Casual
         </Text>
         <div>
-          <Loader size="medium" />
+          <Loader id="loader-casual" size="medium" />
         </div>
       </Flex>
       <Flex direction="column" gap="small">
@@ -137,7 +136,7 @@ export const VisualVariants: Story = {
           With background
         </Text>
         <div>
-          <Loader size="medium" hasBackground />
+          <Loader id="loader-with-background" size="medium" hasBackground />
         </div>
       </Flex>
     </Flex>

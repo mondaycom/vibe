@@ -1,5 +1,10 @@
 import { NavDirections } from "../../hooks/useFullKeyboardListeners";
-import { DirectionMap, DirectionMaps, GridElementRef, Position } from "./GridKeyboardNavigationContextConstants";
+import {
+  type DirectionMap,
+  type DirectionMaps,
+  type GridElementRef,
+  type Position
+} from "./GridKeyboardNavigationContextConstants";
 
 function throwIfCausingCircularDependency(directionMaps: DirectionMaps, newPosition: Position) {
   const { topElement, bottomElement, leftElement, rightElement } = newPosition;

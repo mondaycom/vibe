@@ -2,7 +2,7 @@ import React from "react";
 import { MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import cx from "classnames";
 import styles from "./withGlobalStyle.module.scss";
-import { Decorator } from "@storybook/react";
+import { type Decorator } from "@storybook/react";
 
 const WithGlobalStyle: Decorator = (Story, { className, viewMode }) => {
   return (

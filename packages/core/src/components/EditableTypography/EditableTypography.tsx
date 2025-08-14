@@ -1,14 +1,14 @@
-import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
+import React, { type ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { TooltipProps } from "../Tooltip";
+import { type TooltipProps } from "../Tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { TextType, TextWeight } from "../Text";
-import { HeadingType, HeadingWeight } from "../Heading";
+import { type TextType, type TextWeight } from "../Text";
+import { type HeadingType, type HeadingWeight } from "../Heading";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {

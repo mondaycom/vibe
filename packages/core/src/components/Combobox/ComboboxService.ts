@@ -1,4 +1,4 @@
-import { IComboboxCategoryMap, IComboboxOption } from "./components/ComboboxConstants";
+import { type IComboboxCategoryMap, type IComboboxOption } from "./components/ComboboxConstants";
 
 type OptionsByCategories = {
   [key: string]: Array<IComboboxOption>;

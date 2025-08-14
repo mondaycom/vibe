@@ -1,0 +1,204 @@
+import { Meta, Source } from "@storybook/blocks";
+import { Link, Tip, Frame, UsageGuidelines } from "vibe-storybook-components";
+import { Text, Heading } from "../../../components";
+import vibeXMcp from "./assets/vibe-x-mcp.png";
+
+<Meta title="MCP [New]" />
+
+# MCP Server
+
+The Vibe MCP server enables AI assistants to interact intelligently with the Vibe Design System. Whether you're building components, migrating code, or exploring design tokens, MCP provides the context your AI needs to help you work more efficiently.
+
+<div style={{ width: "100%", display: "flex" }}>
+  <img
+    src={vibeXMcp}
+    alt="Vibe x MCP Integration"
+    style={{ maxWidth: 800, width: "100%", borderRadius: "var(--border-radius-medium)", marginInline: "auto" }}
+  />
+</div>
+
+## Overview
+
+Model Context Protocol is an open standard that enables AI assistants to securely connect to external data sources and tools. The Vibe MCP server provides powerful tools that give AI assistants comprehensive access to the Vibe ecosystem.
+
+## Available Tools
+
+### Component Discovery
+
+- [`get-vibe-component-metadata`](#get-vibe-component-metadata) - Get comprehensive metadata for any Vibe component
+- [`list-vibe-public-components`](#list-vibe-public-components) - Browse all available public components in the Vibe ecosystem
+
+### Code Examples
+
+- [`get-vibe-component-examples`](#get-vibe-component-examples) - Access React implementation examples and best practices
+
+### Design System Resources
+
+- [`list-vibe-icons`](#list-vibe-icons) - Explore the complete Vibe icon library with smart filtering
+- [`list-vibe-tokens`](#list-vibe-tokens) - Access design tokens for consistent styling
+
+### Migration Assistant
+
+- [`v3-migration`](#v3-migration) - Advanced project analysis for Vibe 2 → Vibe 3 migration
+
+## Tool Reference
+
+#### `get-vibe-component-metadata`
+
+**Use cases:**
+
+- Understand component APIs
+- Discover available props
+- Check component compatibility
+
+#### `list-vibe-public-components`
+
+**Use cases:**
+
+- Explore available components
+- Find alternatives to custom solutions
+- Discover new component releases
+- Component ecosystem overview
+
+#### `get-vibe-component-examples`
+
+**Perfect for:**
+
+- Learning component patterns
+- Understanding proper usage
+- Copy-paste ready code snippets
+- Implementation guidance
+
+#### `list-vibe-icons`
+
+**Features:**
+
+- 270+ available icons
+- Category filtering (Basic, Platform, View)
+- Text search across names and tags
+- Usage examples included
+- React component imports
+
+#### `list-vibe-tokens`
+
+**Includes:**
+
+- Color tokens (all themes)
+- Spacing and layout tokens
+- Border radius values
+- Motion and timing tokens
+
+#### `v3-migration`
+
+This tool analyzes your entire project and provides:
+
+- **Comprehensive project scanning** - Identifies all Vibe component usage
+- **Breaking change detection** - Highlights components that need updates
+- **Migration command generation** - Provides ready-to-run codemod commands
+- **Detailed migration report** - Complete analysis with recommendations
+
+<Tip title="Migration Made Easy">
+  The migration tool follows the official Vibe 3 migration guide and generates precise codemod commands to automate most
+  of the migration process.
+</Tip>
+
+## Installation
+
+### For Cursor Users
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=vibe&config=eyJjb21tYW5kIjoibnB4IC15IEB2aWJlL21jcCJ9)
+
+Or manually add to your `~/.cursor/mcp.json`:
+
+<Source
+  language="json"
+  code={`{
+  "mcpServers": {
+    "vibe": {
+      "command": "npx",
+      "args": ["-y", "@vibe/mcp"]
+    }
+  }
+}`}
+/>
+
+### For VSCode Users
+
+[Click this link](vscode://mcp-server/add?config=%7B%22name%22%3A%22vibe%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40vibe%2Fmcp%22%5D%7D) to auto-configure, or manually add to your `.vscode/mcp.json`:
+
+<Source
+  language="json"
+  code={`{
+  "servers": {
+    "vibe": {
+      "command": "npx",
+      "args": ["-y", "@vibe/mcp"]
+    }
+  }
+}`}
+/>
+
+## Usage Examples
+
+### Component Development
+
+Ask your AI assistant: _"I need a button that shows a loading state"_
+
+The MCP will:
+
+1. Find Button component metadata
+2. Show loading prop usage examples
+3. Provide accessibility guidelines
+
+### Icon Discovery
+
+Ask your AI assistant: _"Find icons related to calendar or scheduling"_
+
+The MCP will:
+
+1. Search icon library with "calendar" query
+2. Return matching icons with usage examples
+3. Include import statements and props
+
+### Design Token Usage
+
+Ask your AI assistant: _"What spacing tokens are available for margins?"_
+
+The MCP will:
+
+1. Filter tokens by "spacing" category
+2. Show all margin-related design tokens
+3. Provide CSS custom property usage
+
+### Migration Planning
+
+Ask your AI assistant: _"Help me migrate this React project from Vibe 2 to Vibe 3"_
+
+The MCP will:
+
+1. Analyze entire project structure
+2. Identify deprecated component usage
+3. Generate specific migration commands
+4. Provide step-by-step recommendations
+
+## Benefits
+
+<UsageGuidelines
+  guidelines={[
+    "Faster development - Skip documentation lookup with instant access to component APIs",
+    "Accurate guidance - Get precise, up-to-date information directly from the source",
+    "Seamless migration - Automate complex migration tasks with intelligent analysis",
+    "Design consistency - Ensure proper design token usage across your application"
+  ]}
+/>
+
+## Contributing
+
+The [Vibe MCP server repository](https://github.com/mondaycom/vibe/tree/main/packages/mcp) is open source and welcomes contributions!
+
+**Ways to contribute:**
+
+- Report bugs or issues
+- Suggest new tools or features
+- Improve documentation
+- Submit pull requests for new features

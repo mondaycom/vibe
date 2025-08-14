@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Upgrade } from "@vibe/icons";
-import { Step } from "../MultiStep.types";
+import { type Step } from "../MultiStep.types";
 
 export default {
   title: "Components/MultiStepIndicator",
@@ -17,6 +17,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
+    id: "overview-multi-step",
     steps: [
       {
         key: "FULFILLED",
@@ -76,9 +77,9 @@ export const Placements = {
     return (
       <div>
         Vertical
-        <MultiStepIndicator textPlacement="vertical" steps={steps} />
+        <MultiStepIndicator id="placements-vertical" textPlacement="vertical" steps={steps} />
         Horizontal
-        <MultiStepIndicator steps={steps} />
+        <MultiStepIndicator id="placements-horizontal" steps={steps} />
       </div>
     );
   }
@@ -113,13 +114,13 @@ export const Types = {
     return (
       <div>
         Primary
-        <MultiStepIndicator steps={steps} type="primary" />
+        <MultiStepIndicator id="types-primary" steps={steps} type="primary" />
         Success
-        <MultiStepIndicator steps={steps} type="success" />
+        <MultiStepIndicator id="types-success" steps={steps} type="success" />
         Danger
-        <MultiStepIndicator steps={steps} type="danger" />
+        <MultiStepIndicator id="types-danger" steps={steps} type="danger" />
         Dark
-        <MultiStepIndicator steps={steps} type="dark" />
+        <MultiStepIndicator id="types-dark" aria-label="Dark type multi-step indicator" steps={steps} type="dark" />
       </div>
     );
   }
@@ -154,9 +155,9 @@ export const Sizes = {
     return (
       <div>
         Regular
-        <MultiStepIndicator steps={steps} size="regular" />
+        <MultiStepIndicator id="sizes-regular" steps={steps} size="regular" />
         Compact
-        <MultiStepIndicator steps={steps} size="compact" />
+        <MultiStepIndicator id="sizes-compact" steps={steps} size="compact" />
       </div>
     );
   }
@@ -191,11 +192,11 @@ export const FulfilledIcons = {
     return (
       <div>
         Default (check)
-        <MultiStepIndicator steps={steps} />
+        <MultiStepIndicator id="icons-default" steps={steps} />
         Number instead of icon
-        <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
+        <MultiStepIndicator id="icons-numbers" steps={steps} isFulfilledStepDisplayNumber={true} />
         Custom
-        <MultiStepIndicator steps={steps} fulfilledStepIcon={Upgrade} />
+        <MultiStepIndicator id="icons-custom" steps={steps} fulfilledStepIcon={Upgrade} />
       </div>
     );
   },
@@ -265,7 +266,7 @@ export const TransitionAnimation = {
       };
     }, [initialSteps]);
 
-    return <MultiStepIndicator steps={steps} />;
+    return <MultiStepIndicator id="transition-animation" steps={steps} />;
   }
 };
 
@@ -295,6 +296,6 @@ export const MultiStepWizard = {
       []
     );
 
-    return <MultiStepIndicator steps={steps} textPlacement="vertical" />;
+    return <MultiStepIndicator id="multi-step-wizard" steps={steps} textPlacement="vertical" />;
   }
 };

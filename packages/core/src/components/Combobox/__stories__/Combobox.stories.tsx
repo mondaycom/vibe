@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
-import Combobox, { ComboboxProps } from "../Combobox";
+import Combobox, { type ComboboxProps } from "../Combobox";
 import person1 from "../../Avatar/__stories__/assets/person1.png";
 import person2 from "../../Avatar/__stories__/assets/person2.png";
 import person3 from "../../Avatar/__stories__/assets/person3.png";

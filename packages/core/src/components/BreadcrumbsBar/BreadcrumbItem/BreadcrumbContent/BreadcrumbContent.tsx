@@ -1,6 +1,6 @@
-import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
+import React, { type ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
-import { SubIcon, VibeComponentProps } from "../../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../../types";
 import cx from "classnames";
 import styles from "./BreadcrumbContent.module.scss";
 

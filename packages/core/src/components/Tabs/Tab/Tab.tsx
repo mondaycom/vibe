@@ -1,15 +1,15 @@
 import cx from "classnames";
-import React, { FC, forwardRef, ReactElement, useRef } from "react";
+import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon from "../../Icon/Icon";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { IconType } from "../../Icon";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { SubIcon } from "../../../types/SubIcon";
-import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
+import { type SubIcon } from "../../../types/SubIcon";
+import Tooltip, { type TooltipProps } from "../../Tooltip/Tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
 

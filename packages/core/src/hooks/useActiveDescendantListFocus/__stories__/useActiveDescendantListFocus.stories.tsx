@@ -6,7 +6,7 @@ import Flex from "../../../components/Flex/Flex";
 import Search from "../../../components/Search/Search";
 import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
 import useActiveDescendantListFocus from "../index";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import styles from "./useActiveDescendantListFocus.module.scss";
 
 type Story = StoryObj<typeof useActiveDescendantListFocus>;

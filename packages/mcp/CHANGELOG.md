@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.0...@vibe/mcp@0.5.1) (2025-08-12)
+
+
+### Bug Fixes
+
+* **TokenMetadataService:** fix missing colors in token tool ([#3046](https://github.com/mondaycom/vibe/issues/3046)) ([32dab41](https://github.com/mondaycom/vibe/commit/32dab41e1645bbc1e7c00853a32dad59f1bafb91))
+
+
+
+
+
+# [0.5.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.4.0...@vibe/mcp@0.5.0) (2025-08-05)
+
+
+### Features
+
+* **mcp:** implement token fetching with retry logic and categorize tokens ([#3035](https://github.com/mondaycom/vibe/issues/3035)) ([d0cc2b8](https://github.com/mondaycom/vibe/commit/d0cc2b8af8d350f13e7a503b0bf6e6547078d7d4))
+
+
+
+
+
+# [0.4.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.1...@vibe/mcp@0.4.0) (2025-08-04)
+
+
+### Features
+
+* **mcp:** add list-vibe-tokens tool for retrieving design tokens ([#3023](https://github.com/mondaycom/vibe/issues/3023)) ([1b3f2f1](https://github.com/mondaycom/vibe/commit/1b3f2f173affdca93870d394666da45f1f5836a0))
+
+
+
+
+
+## [0.3.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.0...@vibe/mcp@0.3.1) (2025-08-03)
+
+**Note:** Version bump only for package @vibe/mcp
+
+
+
+
+
 # [0.3.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.2...@vibe/mcp@0.3.0) (2025-06-08)
 
 

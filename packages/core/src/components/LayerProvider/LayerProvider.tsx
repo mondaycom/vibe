@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, RefObject } from "react";
+import React, { type FC, type ReactNode, type RefObject } from "react";
 import LayerContext from "./LayerContext";
 
 export interface LayerProviderType {

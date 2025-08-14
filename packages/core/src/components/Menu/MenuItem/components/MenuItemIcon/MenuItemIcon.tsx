@@ -3,7 +3,7 @@ import Icon from "../../../../Icon/Icon";
 import Flex from "../../../../Flex/Flex";
 import cx from "classnames";
 import styles from "./MenuItemIcon.module.scss";
-import { MenuItemIconProps } from "./MenuItemIcon.types";
+import { type MenuItemIconProps } from "./MenuItemIcon.types";
 
 const MenuItemIcon = ({
   icon,

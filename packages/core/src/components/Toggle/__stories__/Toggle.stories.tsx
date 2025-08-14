@@ -2,7 +2,7 @@ import React from "react";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Flex from "../../Flex/Flex";
 import Text from "../../Text/Text";
 
@@ -24,6 +24,10 @@ const toggleTemplate = createComponentTemplate(Toggle);
 
 export const Overview: Story = {
   render: toggleTemplate.bind({}),
+  args: {
+    id: "overview-toggle",
+    ariaLabel: "Toggle option"
+  },
   parameters: {
     docs: {
       liveEdit: {
@@ -36,8 +40,8 @@ export const Overview: Story = {
 export const States: Story = {
   render: () => (
     <Flex direction="column" gap="medium">
-      <Toggle isDefaultSelected={false} />
-      <Toggle />
+      <Toggle id="states-off" ariaLabel="Toggle off state" isDefaultSelected={false} />
+      <Toggle id="states-on" ariaLabel="Toggle on state" />
     </Flex>
   ),
   parameters: {
@@ -52,8 +56,8 @@ export const States: Story = {
 export const Size: Story = {
   render: () => (
     <Flex gap="large">
-      <Toggle size="medium" />
-      <Toggle size="small" />
+      <Toggle id="size-medium" ariaLabel="Medium toggle" size="medium" />
+      <Toggle id="size-small" ariaLabel="Small toggle" size="small" />
     </Flex>
   ),
   parameters: {
@@ -68,8 +72,8 @@ export const Size: Story = {
 export const Disabled: Story = {
   render: () => (
     <Flex direction="column" gap="large">
-      <Toggle isDefaultSelected={false} disabled />
-      <Toggle disabled />
+      <Toggle id="disabled-off" ariaLabel="Disabled toggle off" isDefaultSelected={false} disabled />
+      <Toggle id="disabled-on" ariaLabel="Disabled toggle on" disabled />
     </Flex>
   ),
   parameters: {
@@ -84,8 +88,8 @@ export const Disabled: Story = {
 export const TurnOnOffAnAutomation: Story = {
   render: () => (
     <Flex gap="medium">
-      <Text>Board automations</Text>
-      <Toggle />
+      <Text id="automation-label">Board automations</Text>
+      <Toggle id="automation-toggle" ariaLabel="Toggle board automations" />
     </Flex>
   ),
   name: "Turn on/ off an automation"

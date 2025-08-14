@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
 import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";

@@ -1,19 +1,27 @@
-import React, { forwardRef, ReactElement, UIEventHandler, useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  forwardRef,
+  type ReactElement,
+  type UIEventHandler,
+  useCallback,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../../types";
-import { TableHeaderProps } from "../TableHeader/TableHeader";
-import { TableBodyProps } from "../TableBody/TableBody";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../../types";
+import { type TableHeaderProps } from "../TableHeader/TableHeader";
+import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights, RowSizes as RowSizesEnum } from "./TableConsts";
-import { RowSizes } from "./Table.types";
+import { type RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { TableProviderValue } from "../context/TableContext/TableContext.types";
-import { TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
+import { type TableProviderValue } from "../context/TableContext/TableContext.types";
+import { type TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 

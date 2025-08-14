@@ -1,4 +1,4 @@
-import { Modifier } from "react-popper";
+import { type Modifier } from "react-popper";
 
 export const createObserveReferenceResizeModifier = (isEnabled = false): Modifier<"observeReferenceResize"> => ({
   name: "observeReferenceResize",

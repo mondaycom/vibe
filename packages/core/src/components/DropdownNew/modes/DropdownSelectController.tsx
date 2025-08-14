@@ -1,8 +1,8 @@
 import React from "react";
-import { DropdownSingleControllerProps } from "../Dropdown.types";
+import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownSelect from "../hooks/useDropdownSelect";
-import { BaseListItemData } from "../../BaseListItem";
-import { DropdownContextProps } from "../context/DropdownContext.types";
+import { type BaseListItemData } from "../../BaseListItem";
+import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
 const DropdownSelectController = <Item extends BaseListItemData<Record<string, unknown>>>(
@@ -18,7 +18,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
-    showSelectedOptions = false,
+    showSelectedOptions = true,
     filterOption,
     clearable = true,
     searchable = false,

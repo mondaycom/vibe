@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
-import { NumberFieldProps } from "./NumberField.types";
+import { type NumberFieldProps } from "./NumberField.types";
 import useNumberFieldState from "./hooks/useNumberFieldState";
 import useSpinButtonHandlers from "./hooks/useSpinButtonHandlers";
 import BaseInput from "../BaseInput/BaseInput";

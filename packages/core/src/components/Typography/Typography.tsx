@@ -1,13 +1,13 @@
-import React, { forwardRef, useRef, HTMLAttributes, useContext } from "react";
+import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { ElementContent } from "../../types";
-import { TypographyAlign, TypographyColor } from "./Typography.types";
+import { type ElementContent } from "../../types";
+import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import { TypographyContext } from "./utils/TypographyContext";
 import styles from "./Typography.module.scss";
 

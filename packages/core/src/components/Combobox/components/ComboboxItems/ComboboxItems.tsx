@@ -1,14 +1,14 @@
-import React, { CSSProperties, forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
+import React, { type CSSProperties, forwardRef, type RefObject, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import { comboboxItemRenderer } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
 import {
   COMBOBOX_CATEGORY_ITEM,
   COMBOBOX_OPTION_ITEM,
-  IComboboxCategoryMap,
-  IComboboxItem,
-  IComboboxOption,
-  IComboboxOptionEvents
+  type IComboboxCategoryMap,
+  type IComboboxItem,
+  type IComboboxOption,
+  type IComboboxOptionEvents
 } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 

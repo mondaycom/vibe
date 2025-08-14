@@ -1,6 +1,6 @@
 import React from "react";
 import { Tip } from "vibe-storybook-components";
-import { VirtualizedListItem } from "../VirtualizedList.types";
+import { type VirtualizedListItem } from "../VirtualizedList.types";
 
 export const generateItems = (defaultItemSize = 30, itemsCount: number, layout: string) => {
   const items: VirtualizedListItem[] = [];

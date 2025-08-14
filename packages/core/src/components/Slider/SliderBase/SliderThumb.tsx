@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { type FC, useEffect, useRef } from "react";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { SliderColor, SliderSize } from "../Slider.types";
+import { type SliderColor, type SliderSize } from "../Slider.types";
 import { camelCase } from "lodash-es";
 
 export interface SliderThumbProps extends VibeComponentProps {

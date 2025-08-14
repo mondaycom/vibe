@@ -1,6 +1,6 @@
-import { AriaRole, InputHTMLAttributes, ReactNode } from "react";
-import { VibeComponentProps } from "../../types";
-import { BASE_SIZES } from "../../constants";
+import { type AriaRole, type InputHTMLAttributes, type ReactNode } from "react";
+import { type VibeComponentProps } from "../../types";
+import { type BASE_SIZES } from "../../constants";
 
 export type InputSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
 type BaseInputNativeInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "role">;

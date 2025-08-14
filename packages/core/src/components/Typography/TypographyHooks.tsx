@@ -1,7 +1,7 @@
-import { MutableRefObject, useMemo } from "react";
-import { ElementContent } from "../../types";
+import { type MutableRefObject, useMemo } from "react";
+import { type ElementContent } from "../../types";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
-import { TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
 
 export function useEllipsisClass(ellipsis: boolean, maxLines = 1) {

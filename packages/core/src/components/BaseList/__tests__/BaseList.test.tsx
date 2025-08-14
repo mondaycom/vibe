@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseList from "../BaseList";
-import { BaseListProps } from "../BaseList.types";
+import { type BaseListProps } from "../BaseList.types";
 
 function renderBaseList(props?: Partial<BaseListProps<any>>) {
   const defaultProps: BaseListProps<any> = {

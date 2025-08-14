@@ -7,7 +7,7 @@
 .toggleInput {
   // When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it
   &:focus-visible,
-  &.focus-visible {
+  &.focus-visible { /* stylelint-disable-line selector-class-pattern */
     & ~ div {
       @include focus-style-css();
     }

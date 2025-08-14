@@ -5,7 +5,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
 import Flex from "../../Flex/Flex";
-import { Decorator, Meta, StoryObj } from "@storybook/react";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 import IconButton from "../../IconButton/IconButton";
 import { Filter as FilterIcon } from "@vibe/icons";
 
@@ -33,7 +33,11 @@ const withFixedWidth: Decorator = Story => (
 
 export const Overview: Story = {
   render: searchTemplate.bind({}),
-  args: { placeholder: "Placeholder text here" },
+  args: {
+    id: "overview-search",
+    inputAriaLabel: "Search input",
+    placeholder: "Placeholder text here"
+  },
   decorators: [withFixedWidth],
   parameters: {
     docs: {
@@ -47,9 +51,9 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Search placeholder="Small" size="small" />
-      <Search placeholder="Medium" size="medium" />
-      <Search placeholder="Large" size="large" />
+      <Search id="sizes-small" inputAriaLabel="Small search input" placeholder="Small" size="small" />
+      <Search id="sizes-medium" inputAriaLabel="Medium search input" placeholder="Medium" size="medium" />
+      <Search id="sizes-large" inputAriaLabel="Large search input" placeholder="Large" size="large" />
     </>
   ),
   decorators: [
@@ -72,8 +76,10 @@ export const Sizes: Story = {
 export const WithAdditionalAction: Story = {
   render: () => (
     <Search
+      id="search-with-action"
+      inputAriaLabel="Search with filter action"
       placeholder="Search with icon"
-      renderAction={<IconButton icon={FilterIcon} ariaLabel="Filter results" size="small" />}
+      renderAction={<IconButton id="filter-action-button" icon={FilterIcon} ariaLabel="Filter results" size="small" />}
     />
   ),
   decorators: [withFixedWidth],
@@ -110,7 +116,16 @@ const options = [
 ];
 
 export const FilterInCombobox: Story = {
-  render: () => <Combobox placeholder="Placeholder text here" options={options} size="small" optionLineHeight={28} />,
+  render: () => (
+    <Combobox
+      id="filter-combobox"
+      searchInputAriaLabel="Filter options"
+      placeholder="Placeholder text here"
+      options={options}
+      size="small"
+      optionLineHeight={28}
+    />
+  ),
   decorators: [
     Story => (
       <DialogContentContainer>

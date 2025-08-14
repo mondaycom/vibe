@@ -6,6 +6,8 @@ import Text from "../../Text/Text";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
+import do1 from "./assets/do1.png";
+import dont1 from "./assets/dont1.png";
 import {
   BUTTON_GROUP,
   MULTI_STEP_INDICATOR,
@@ -18,17 +20,6 @@ import styles from "./BreadcrumbsBar.stories.module.scss";
 <Meta of={BreadcrumbsBarStories} />
 
 # BreadcrumbsBar
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
 
 Breadcrumbs allow users to keep track and maintain awareness of their location as they navigate through pages, folders, files, etc.
 
@@ -76,6 +67,18 @@ import { BreadcrumbsBar } from "@vibe/core";
 
 <ComponentRules
   rules={[
+    {
+      positive: {
+        component: <img src={do1} alt="do1" style={{ width: "250px" }} />,
+        description:
+          "Show the current step as the last item when using overflow behavior, and use only if content is overflowing and not as an aesthetic action."
+      },
+      negative: {
+        component: <img src={dont1} alt="dont1" style={{ width: "120px" }} />,
+        description:
+          "overflow on the last item causes disorientation. Moreover using overflow on individual items prevent the user of essential information unnecessarily.."
+      }
+    },
     {
       positive: {
         component: (

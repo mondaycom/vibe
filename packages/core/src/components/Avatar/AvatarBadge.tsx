@@ -5,10 +5,10 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
-import { AvatarSize } from "./Avatar.types";
+import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
 import Icon from "../Icon/Icon";
-import { VibeComponentProps, SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, type SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   /**

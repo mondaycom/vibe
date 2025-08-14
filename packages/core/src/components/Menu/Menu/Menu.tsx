@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { SIZES } from "../../../constants";
-import React, { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
 import useClickOutside from "../../../hooks/useClickOutside";
@@ -12,8 +12,8 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { ElementContent, VibeComponentProps, withStaticProps } from "../../../types";
-import { CloseMenuOption, MenuChild } from "./MenuConstants";
+import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../../types";
+import { type CloseMenuOption, type MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";

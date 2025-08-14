@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback, useMemo, useRef } from "react";
+import { type FocusEvent, useCallback, useMemo, useRef } from "react";
 
 type Result = {
   focusWithinProps?: {

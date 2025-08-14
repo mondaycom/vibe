@@ -1,1 +1,1 @@
-export { default as HiddenText, HiddenTextProps } from "./HiddenText";
+export { default as HiddenText, type HiddenTextProps } from "./HiddenText";

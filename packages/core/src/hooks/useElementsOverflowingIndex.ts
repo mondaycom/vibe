@@ -1,4 +1,4 @@
-import { ReactNode, RefObject, useCallback, useEffect, useState } from "react";
+import { type ReactNode, type RefObject, useCallback, useEffect, useState } from "react";
 import { last } from "lodash-es";
 import useResizeObserver from "./useResizeObserver";
 

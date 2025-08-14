@@ -1,6 +1,6 @@
-import { MutableRefObject, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { type MutableRefObject, type ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import useFullKeyboardListeners, { NavDirections } from "../../hooks/useFullKeyboardListeners";
+import useFullKeyboardListeners, { type NavDirections } from "../../hooks/useFullKeyboardListeners";
 import useEventListener from "../../hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
@@ -88,6 +88,27 @@ export default function useGridKeyboardNavigation({
     }
   };
 
+  const onHomeNavigation = useCallback(() => {
+    setIsUsingKeyboardNav(true);
+    const firstEnabledIndex = disabledIndexes.includes(0)
+      ? disabledIndexes.length < itemsCount
+        ? Array.from({ length: itemsCount }, (_, i) => i).find(i => !disabledIndexes.includes(i)) ?? 0
+        : 0
+      : 0;
+    setActiveIndex(firstEnabledIndex);
+  }, [disabledIndexes, itemsCount]);
+
+  const onEndNavigation = useCallback(() => {
+    setIsUsingKeyboardNav(true);
+    const lastEnabledIndex = disabledIndexes.includes(itemsCount - 1)
+      ? disabledIndexes.length < itemsCount
+        ? Array.from({ length: itemsCount }, (_, i) => itemsCount - 1 - i).find(i => !disabledIndexes.includes(i)) ??
+          itemsCount - 1
+        : itemsCount - 1
+      : itemsCount - 1;
+    setActiveIndex(lastEnabledIndex);
+  }, [disabledIndexes, itemsCount]);
+
   useEffect(() => {
     if (!skippedInitialActiveIndexChange.current) {
       skippedInitialActiveIndexChange.current = true;
@@ -167,6 +188,8 @@ export default function useGridKeyboardNavigation({
     onSelectionKey: onKeyboardSelection,
     onArrowNavigation,
     onEscape: blurTargetElement,
+    onHome: onHomeNavigation,
+    onEnd: onEndNavigation,
     focusOnMount
   });
 

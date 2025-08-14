@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../BaseListItem/BaseListItem";
 import styles from "./BaseList.module.scss";
-import { BaseListProps } from "./BaseList.types";
+import { type BaseListProps } from "./BaseList.types";
 import { Flex } from "../Flex";
-import { TextType } from "../Text";
+import { type TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 import { Divider } from "../Divider";

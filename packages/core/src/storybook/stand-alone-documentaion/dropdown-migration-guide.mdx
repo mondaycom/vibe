@@ -2,7 +2,7 @@ import { Meta } from "@storybook/blocks";
 import { Link, Tip } from "vibe-storybook-components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { DiffCodeBlock } from "../../storybook/components/DiffCodeBlock";
+import { DiffCodeBlock } from "./migration-guide/DiffCodeBlock";
 
 <Meta title="Components/Dropdown [Alpha]/Migration Guide" />
 
@@ -131,7 +131,7 @@ These props are no longer available in the new implementation:
 These props have different default values or behavior:
 
 - **`searchable`** - **BREAKING CHANGE**: Now defaults to `false` (was `true`).
-- **`showSelectedOptions`** - **BREAKING CHANGE**: Defaults to `false`. In the old Dropdown, selected options were always visible in single select mode.
+- **`showSelectedOptions`** - **BREAKING CHANGE**: Defaults to `true`. In the old Dropdown, selected options were always hidden in multi select mode.
 - **`multi`** - Better type safety and native chip display
 
 ### New Props
@@ -143,7 +143,7 @@ These props are new and provide enhanced functionality:
 - **`error`** - Built-in error state support
 - **`required`** - Built-in required field support
 - **`stickyGroupTitle`** - Sticky group headers
-- **`showSelectedOptions`** - Control selected options visibility (defaults to `false`)
+- **`showSelectedOptions`** - Control selected options visibility (defaults to `true`)
 - **`filterOption`** - Custom filtering logic
 - **`tooltipProps`** - Enhanced tooltip integration (replaces `tooltipContent`)
 - **`inputAriaLabel`** - ARIA label for input
@@ -361,9 +361,6 @@ A: Yes! The new Dropdown is built with accessibility as a core principle.
 
 **Q: How do I migrate tooltip functionality?**
 A: Replace `tooltipContent` with `tooltipProps` for dropdown-level tooltips. The new implementation also supports option-level tooltips via the `tooltipProps` property on individual options.
-
-**Q: Why are my selected options hidden from the dropdown list?**
-A: The new Dropdown defaults to `showSelectedOptions={false}` to improve UX. Set `showSelectedOptions={true}` to restore the old behavior.
 
 **Q: Why is my dropdown no longer searchable?**
 A: The new Dropdown defaults to `searchable={false}` since most dropdowns don't need search functionality. Add the `searchable` prop to enable search: `<Dropdown searchable options={options} />`

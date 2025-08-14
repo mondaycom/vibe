@@ -1,7 +1,7 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import Clickable, { ClickableProps } from "../Clickable";
+import Clickable, { type ClickableProps } from "../Clickable";
 import userEvent from "@testing-library/user-event";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";

@@ -3,9 +3,9 @@ import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { TableLoadingStateType } from "../Table/Table";
+import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
 import { camelCase } from "lodash-es";
 

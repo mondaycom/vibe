@@ -5,13 +5,13 @@ import cx from "classnames";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY } from "../../MenuItemConstants";
 import MenuItemSubMenuIcon from "../MenuItemSubMenuIcon/MenuItemSubMenuIcon";
 import MenuItemSubMenu from "../MenuItemSubMenu/MenuItemSubMenu";
-import { CloseMenuOption } from "../../../Menu/MenuConstants";
+import { type CloseMenuOption } from "../../../Menu/MenuConstants";
 import useMenuItemMouseEvents from "../../hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../../hooks/useMenuItemKeyboardEvents";
 import useMergeRef from "../../../../../hooks/useMergeRef";
 import useIsMouseEnter from "../../../../../hooks/useIsMouseEnter";
 import styles from "./BaseMenuItem.module.scss";
-import { BaseMenuItemProps } from "./BaseMenuItem.types";
+import { type BaseMenuItemProps } from "./BaseMenuItem.types";
 
 const BaseMenuItem = forwardRef(
   (

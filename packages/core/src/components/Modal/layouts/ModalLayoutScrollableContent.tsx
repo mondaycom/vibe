@@ -1,7 +1,7 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React, { type ForwardedRef, forwardRef } from "react";
 import cx from "classnames";
 import styles from "./ModalLayoutScrollableContent.module.scss";
-import { ModalLayoutScrollableContentProps } from "./ModalLayoutScrollableContent.types";
+import { type ModalLayoutScrollableContentProps } from "./ModalLayoutScrollableContent.types";
 
 const ModalLayoutScrollableContent = forwardRef(
   ({ onScroll, className, children }: ModalLayoutScrollableContentProps, ref: ForwardedRef<HTMLDivElement>) => {

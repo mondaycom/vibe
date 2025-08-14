@@ -5,8 +5,8 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Text from "../../Text/Text";
 import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
-import { MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {

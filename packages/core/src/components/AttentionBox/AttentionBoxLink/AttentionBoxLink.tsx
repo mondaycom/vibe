@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AttentionBoxLink.module.scss";
-import Link, { LinkProps } from "../../Link/Link";
+import Link, { type LinkProps } from "../../Link/Link";
 import cx from "classnames";
 
 /**

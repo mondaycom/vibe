@@ -1,6 +1,6 @@
 import { expect } from "@storybook/jest";
-import { Screen } from "@testing-library/react";
-import { userEvent, waitFor } from "@storybook/testing-library";
+import { type Screen } from "@testing-library/react";
+import { userEvent, waitFor } from "@storybook/test";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export async function testHoverTooltipTrigger(

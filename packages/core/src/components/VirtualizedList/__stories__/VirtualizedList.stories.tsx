@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import VirtualizedList from "../VirtualizedList";
 import { generateItems } from "./VirtualizedList.stories.helpers";
-import { Flex, VirtualizedListItem } from "../..";
+import { Flex, type VirtualizedListItem } from "../..";
 import Heading from "../../Heading/Heading";
 
 export default {

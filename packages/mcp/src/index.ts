@@ -6,6 +6,7 @@ import { getVibeComponentMetadataTool } from "./server/tools/get-vibe-component-
 import { listVibePublicComponentsTool } from "./server/tools/list-vibe-public-components.js";
 import { getVibeComponentExamples } from "./server/tools/get-vibe-component-examples.js";
 import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
+import { listVibeTokensTool } from "./server/tools/list-vibe-tokens.js";
 import { v3MigrationTool } from "./server/tools/v3-migration.js";
 
 async function main() {
@@ -14,6 +15,7 @@ async function main() {
   addServerTool(listVibePublicComponentsTool);
   addServerTool(getVibeComponentExamples);
   addServerTool(listVibeIconsTool);
+  addServerTool(listVibeTokensTool);
   addServerTool(v3MigrationTool);
   await server.connect(transport);
 }

@@ -3,6 +3,195 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.59.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.4...@vibe/core@3.59.0) (2025-08-13)
+
+
+### Features
+
+* **Toggle:** add noSpacing prop to remove horizontal spacing ([#3048](https://github.com/mondaycom/vibe/issues/3048)) ([e0c6732](https://github.com/mondaycom/vibe/commit/e0c6732bbdda1268f453efe375caeba054a15a1e))
+
+
+
+
+
+## [3.58.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.3...@vibe/core@3.58.4) (2025-08-12)
+
+
+### Bug Fixes
+
+* **Counter:** fix usage of CSSTransition#addEndListener with nodeRef ([#3047](https://github.com/mondaycom/vibe/issues/3047)) ([a73b8e9](https://github.com/mondaycom/vibe/commit/a73b8e972144051449b1f47a2c7ee1b5e2d560d1))
+
+
+
+
+
+## [3.58.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.2...@vibe/core@3.58.3) (2025-08-12)
+
+
+### Bug Fixes
+
+* **Label:** fix line kind when using content colors ([#3041](https://github.com/mondaycom/vibe/issues/3041)) ([1eb0893](https://github.com/mondaycom/vibe/commit/1eb08938f8bb609fd4238a80bcf033a3551db5f4))
+
+
+
+
+
+## [3.58.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.1...@vibe/core@3.58.2) (2025-08-07)
+
+
+### Bug Fixes
+
+* A11y-fixes for MenuButton, TextArea, TextField and Checkbox ([#3036](https://github.com/mondaycom/vibe/issues/3036)) ([803c244](https://github.com/mondaycom/vibe/commit/803c244881871cddd1c9afd525eb5c9e72e8ff00))
+
+
+
+
+
+## [3.58.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.0...@vibe/core@3.58.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* **DatePicker:** fix import path for defaultPhrases ([#3034](https://github.com/mondaycom/vibe/issues/3034)) ([2797c34](https://github.com/mondaycom/vibe/commit/2797c34e9cfb387df43b5b664a013b9f75437d98))
+
+
+
+
+
+# [3.58.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.1...@vibe/core@3.58.0) (2025-08-05)
+
+
+### Features
+
+* **Tabs:** add support for Home and End key navigation ([#3031](https://github.com/mondaycom/vibe/issues/3031)) ([3e80d9c](https://github.com/mondaycom/vibe/commit/3e80d9c454bf4112e50f072b46bf3719515f14ce))
+
+
+
+
+
+## [3.57.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.0...@vibe/core@3.57.1) (2025-08-04)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.57.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.5...@vibe/core@3.57.0) (2025-08-03)
+
+
+### Bug Fixes
+
+* add check for ResizeObserver support ([#3025](https://github.com/mondaycom/vibe/issues/3025)) ([a2d14fb](https://github.com/mondaycom/vibe/commit/a2d14fb7c87da8548b2e2d747e27140235e27438))
+* change progress bar transition duration ([#3022](https://github.com/mondaycom/vibe/issues/3022)) ([200cba7](https://github.com/mondaycom/vibe/commit/200cba788c2522855d6edb72b687900db2014c42))
+* **DatePicker:** add default value for onPickDate prop ([#3024](https://github.com/mondaycom/vibe/issues/3024)) ([fbd01c2](https://github.com/mondaycom/vibe/commit/fbd01c207f8bb69d84859bcee70d58a8e053bd38))
+
+
+### Features
+
+* **DatePicker:** be able to customize phrases for localization ([#2983](https://github.com/mondaycom/vibe/issues/2983)) ([e21c3b6](https://github.com/mondaycom/vibe/commit/e21c3b622ba85f782538ce63e2cd0a48d3744dcb))
+
+
+
+
+
+## [3.56.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.4...@vibe/core@3.56.5) (2025-07-27)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.56.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.3...@vibe/core@3.56.4) (2025-07-27)
+
+
+### Bug Fixes
+
+* **BaseList:** update background color to use secondary background token ([#3012](https://github.com/mondaycom/vibe/issues/3012)) ([dd3f610](https://github.com/mondaycom/vibe/commit/dd3f6109c9be02eec9f995b0328bc058eb134807))
+
+
+
+
+
+## [3.56.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.2...@vibe/core@3.56.3) (2025-07-24)
+
+
+### Bug Fixes
+
+* **Dropdown:** update default of showSelectedOptions to true ([#3011](https://github.com/mondaycom/vibe/issues/3011)) ([cb07d75](https://github.com/mondaycom/vibe/commit/cb07d75fde06760977c71cb3bebf44b32e4dbff3))
+
+
+
+
+
+## [3.56.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.1...@vibe/core@3.56.2) (2025-07-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.56.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.0...@vibe/core@3.56.1) (2025-07-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.56.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.6...@vibe/core@3.56.0) (2025-07-23)
+
+
+### Bug Fixes
+
+* **Dropdown:** stretch selected value ([#3007](https://github.com/mondaycom/vibe/issues/3007)) ([b5899df](https://github.com/mondaycom/vibe/commit/b5899dfe45f87f7fd258a396ef487383c87afe04))
+
+
+### Features
+
+* **stylelint:** add new stylelint rule for new spacing tokens system and update configuration ([#2991](https://github.com/mondaycom/vibe/issues/2991)) ([b4a07cb](https://github.com/mondaycom/vibe/commit/b4a07cbc30c9adcf081e8311d1be503adeeca1b4))
+
+
+
+
+
+## [3.55.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.5...@vibe/core@3.55.6) (2025-07-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.4...@vibe/core@3.55.5) (2025-07-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.55.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.3...@vibe/core@3.55.4) (2025-07-22)
+
+
+### Bug Fixes
+
+* **Dropdown:** apply padding conditionally for closed dropdown ([#3001](https://github.com/mondaycom/vibe/issues/3001)) ([62f2461](https://github.com/mondaycom/vibe/commit/62f24610c30da33b089d160bd9b7ed26a1405bc7))
+
+
+
+
+
+## [3.55.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.2...@vibe/core@3.55.3) (2025-07-22)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
 ## [3.55.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.1...@vibe/core@3.55.2) (2025-07-21)
 
 

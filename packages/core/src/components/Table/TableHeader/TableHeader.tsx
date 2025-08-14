@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./TableHeader.module.scss";
-import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";

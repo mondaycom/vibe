@@ -12,6 +12,7 @@ import {
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import { HideShowEvent } from "../DialogConstants";
+import { type DialogProps } from "../Dialog";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog
@@ -48,10 +49,12 @@ export default {
 };
 
 export const Overview = {
-  render: () => {
+  render: (args: DialogProps) => {
     return (
       <div style={{ padding: "80px var(--sb-spacing-small)" }}>
         <Dialog
+          id="overview-dialog"
+          aria-label="Overview dialog"
           modifiers={[
             {
               name: "preventOverflow",
@@ -82,8 +85,15 @@ export const Overview = {
               </Flex>
             </DialogContentContainer>
           }
+          {...args}
         >
-          <IconButton icon={Info} active kind="secondary" />
+          <IconButton
+            id="overview-dialog-trigger"
+            ariaLabel="Open information dialog"
+            icon={Info}
+            active
+            kind="secondary"
+          />
         </Dialog>
       </div>
     );
@@ -129,6 +139,8 @@ export const Positions = {
       return (
         <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
           <Dialog
+            id="positions-top-dialog"
+            aria-label="Top positioned dialog"
             modifiers={modifiers}
             open={checkedTop}
             position="top"
@@ -153,11 +165,19 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind="secondary" onClick={onChangeTop} active={checkedTop}>
+            <Button
+              id="positions-top-button"
+              ariaLabel="Toggle top dialog"
+              kind="secondary"
+              onClick={onChangeTop}
+              active={checkedTop}
+            >
               Top
             </Button>
           </Dialog>
           <Dialog
+            id="positions-bottom-dialog"
+            aria-label="Bottom positioned dialog"
             modifiers={modifiers}
             position="bottom"
             showTrigger={[]}
@@ -182,11 +202,19 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind="secondary" onClick={onChangeBottom} active={checkedBottom}>
+            <Button
+              id="positions-bottom-button"
+              ariaLabel="Toggle bottom dialog"
+              kind="secondary"
+              onClick={onChangeBottom}
+              active={checkedBottom}
+            >
               Bottom
             </Button>
           </Dialog>
           <Dialog
+            id="positions-right-dialog"
+            aria-label="Right positioned dialog"
             modifiers={modifiers}
             showTrigger={[]}
             hideTrigger={[]}
@@ -211,11 +239,19 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind="secondary" onClick={onChangeRight} active={checkedRight}>
+            <Button
+              id="positions-right-button"
+              ariaLabel="Toggle right dialog"
+              kind="secondary"
+              onClick={onChangeRight}
+              active={checkedRight}
+            >
               Right
             </Button>
           </Dialog>
           <Dialog
+            id="positions-left-dialog"
+            aria-label="Left positioned dialog"
             modifiers={modifiers}
             position="left"
             showTrigger={[]}
@@ -240,7 +276,13 @@ export const Positions = {
               </DialogContentContainer>
             }
           >
-            <Button kind="secondary" onClick={onChangeLeft} active={checkedLeft}>
+            <Button
+              id="positions-left-button"
+              ariaLabel="Toggle left dialog"
+              kind="secondary"
+              onClick={onChangeLeft}
+              active={checkedLeft}
+            >
               Left
             </Button>
           </Dialog>

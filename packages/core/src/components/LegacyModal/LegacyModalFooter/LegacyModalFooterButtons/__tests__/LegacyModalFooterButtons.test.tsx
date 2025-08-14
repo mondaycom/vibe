@@ -2,7 +2,7 @@ import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
 import ModalFooterButtons, {
-  LegacyModalFooterButtonsProps as ModalFooterButtonsProps
+  type LegacyModalFooterButtonsProps as ModalFooterButtonsProps
 } from "../LegacyModalFooterButtons";
 
 const PRIMARY_BUTTON_TEXT = "Confirm";
