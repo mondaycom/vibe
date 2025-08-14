@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.0...@vibe/mcp@0.5.1) (2025-08-12)
+
+
+### Bug Fixes
+
+* **TokenMetadataService:** fix missing colors in token tool ([#3046](https://github.com/mondaycom/vibe/issues/3046)) ([32dab41](https://github.com/mondaycom/vibe/commit/32dab41e1645bbc1e7c00853a32dad59f1bafb91))
+
+
+
+
+
 # [0.5.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.4.0...@vibe/mcp@0.5.0) (2025-08-05)
 
 

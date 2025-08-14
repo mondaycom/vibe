@@ -181,6 +181,7 @@ const TableVirtualizedBody = forwardRef(
           <AutoSizer>
             {({ height, width }: AutoSizerSize) => (
               <List
+                className={styles.tableBodyItems}
                 itemSize={RowHeights[size]}
                 height={height}
                 itemCount={virtualizedWithHeader ? items.length + 1 : items.length}

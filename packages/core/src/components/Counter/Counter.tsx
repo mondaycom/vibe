@@ -154,10 +154,8 @@ const Counter = ({
                 exit: styles.fadeExit,
                 exitActive: styles.fadeExitActive
               }}
-              // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
-              // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
-              addEndListener={(node: HTMLElement, done: () => void) => {
-                node.addEventListener("transitionend", done, false);
+              addEndListener={done => {
+                nodeRef.current?.addEventListener("transitionend", done, false);
               }}
             >
               <span
