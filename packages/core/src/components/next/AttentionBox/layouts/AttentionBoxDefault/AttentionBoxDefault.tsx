@@ -7,7 +7,7 @@ import AttentionBoxCloseButton from "../../components/AttentionBoxCloseButton/At
 import AttentionBoxLeadingIcon from "../../components/AttentionBoxLeadingIcon/AttentionBoxLeadingIcon";
 import AttentionBoxContent from "../../components/AttentionBoxContent/AttentionBoxContent";
 import styles from "./AttentionBoxDefault.module.scss";
-import { AttentionBoxLayoutSharedProps, AttentionBoxProps } from "../../AttentionBox.types";
+import type { AttentionBoxLayoutSharedProps, AttentionBoxProps } from "../../AttentionBox.types";
 
 export type AttentionBoxDefaultProps = AttentionBoxLayoutSharedProps & Pick<AttentionBoxProps, "title">;
 

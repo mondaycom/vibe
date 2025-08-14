@@ -1,6 +1,6 @@
 import { Info, Check, Alert, Warning, Favorite } from "@vibe/icons";
-import { AttentionBoxType } from "../AttentionBox.types";
-import { SubIcon } from "../../../../types";
+import type { AttentionBoxType } from "../AttentionBox.types";
+import type { SubIcon } from "../../../../types";
 
 export const ATTENTION_BOX_DEFAULT_ICONS: Record<AttentionBoxType, SubIcon> = {
   primary: Info,
