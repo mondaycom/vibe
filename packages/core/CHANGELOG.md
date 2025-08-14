@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.60.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.59.0...@vibe/core@3.60.0) (2025-08-14)
+
+
+### Features
+
+* **Table:** use custom scrollbar ([#3032](https://github.com/mondaycom/vibe/issues/3032)) ([60962e6](https://github.com/mondaycom/vibe/commit/60962e68c94a80c184617132236fdf5969b86e34))
+
+
+
+
+
 # [3.59.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.4...@vibe/core@3.59.0) (2025-08-13)
 
 
