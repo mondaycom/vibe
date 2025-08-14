@@ -1,4 +1,7 @@
+@import "~monday-ui-style/dist/mixins";
+
 .table {
+  @include scroller(6px, 6px);
   --sticky-cell-hover-background: linear-gradient(
       to right,
       var(--primary-background-hover-color),
