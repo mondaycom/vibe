@@ -68,6 +68,14 @@ export default {
       },
       define: {
         "process.env.NODE_ENV": JSON.stringify("development")
+      },
+      optimizeDeps: {
+        include: ["storybook-addon-playground"]
+      },
+      build: {
+        commonjsOptions: {
+          exclude: ["storybook-addon-playground"]
+        }
       }
     });
   }

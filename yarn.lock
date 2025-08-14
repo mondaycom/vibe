@@ -4588,15 +4588,6 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^7.6.4":
-  version "7.6.17"
-  resolved "https://registry.npmjs.org/@storybook/addon-links/-/addon-links-7.6.17.tgz#5a678ff09c1b5056b67cb345c115cfcd343ffe86"
-  integrity sha512-iFUwKObRn0EKI0zMETsil2p9a/81rCuSMEWECsi+khkCAs1FUnD2cT6Ag5ydcNcBXsdtdfDJdtXQrkw+TSoStQ==
-  dependencies:
-    "@storybook/csf" "^0.1.2"
-    "@storybook/global" "^5.0.0"
-    ts-dedent "^2.0.0"
-
 "@storybook/addon-links@^8.6.14":
   version "8.6.14"
   resolved "https://registry.npmjs.org/@storybook/addon-links/-/addon-links-8.6.14.tgz#d7d30b5f96dd6b5b93046dec5a37d2e9b0ae44d0"
@@ -4714,7 +4705,7 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/components@7.6.20", "@storybook/components@^7.6.4":
+"@storybook/components@7.6.20":
   version "7.6.20"
   resolved "https://registry.npmjs.org/@storybook/components/-/components-7.6.20.tgz#09d044923142d2e087a1c4a43dec6731a42d2871"
   integrity sha512-0d8u4m558R+W5V+rseF/+e9JnMciADLXTpsILrG+TBhwECk0MctIWW18bkqkujdCm8kDZr5U2iM/5kS1Noy7Ug==
@@ -4730,7 +4721,7 @@
     use-resize-observer "^9.1.0"
     util-deprecate "^1.0.2"
 
-"@storybook/components@8.6.14":
+"@storybook/components@8.6.14", "@storybook/components@^8.6.14":
   version "8.6.14"
   resolved "https://registry.npmjs.org/@storybook/components/-/components-8.6.14.tgz#3cfc5e120f3dc38990fc37b34a22eff1e3f4bdfb"
   integrity sha512-HNR2mC5I4Z5ek8kTrVZlIY/B8gJGs5b3XdZPBPBopTIN6U/YHXiDyOjY3JlaS4fSG1fVhp/Qp1TpMn1w/9m1pw==
@@ -4764,7 +4755,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/core-events@7.6.20", "@storybook/core-events@^7.6.4":
+"@storybook/core-events@7.6.20":
   version "7.6.20"
   resolved "https://registry.npmjs.org/@storybook/core-events/-/core-events-7.6.20.tgz#6648d661d1c96841a4c2a710a35759b01b6a06a1"
   integrity sha512-tlVDuVbDiNkvPDFAu+0ou3xBBYbx9zUURQz4G9fAq0ScgBOs/bpzcRrFb4mLpemUViBAd47tfZKdH4MAX45KVQ==
@@ -18345,17 +18336,18 @@ store2@^2.14.2:
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
-storybook-addon-playground@^1.9.2:
-  version "1.10.0"
-  resolved "https://registry.npmjs.org/storybook-addon-playground/-/storybook-addon-playground-1.10.0.tgz#a7c8da337284c2723e38299b7e77d3d6d968cacb"
-  integrity sha512-ZvFhVC40vB17GIf8faAGH2y0m9eqrFgwcPPsfRM7G9cRZpcRM/BGAu4Hjhh/zJ82vZkSmit1CC3lJzMoPyLLig==
+storybook-addon-playground@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-playground/-/storybook-addon-playground-2.0.1.tgz#4ceb076d513e8b7a6e1b73ebcb1f307498d86504"
+  integrity sha512-oQayEpN3itEtclJWEhT3AwNL7oVduphF9RR/QOVnh2mpMFrNjJoCJWYmVX3jHqr6sy7x4fxDElHdrh10bZ17vQ==
   dependencies:
-    "@storybook/addon-links" "^7.6.4"
-    "@storybook/components" "^7.6.4"
-    "@storybook/core-events" "^7.6.4"
+    "@storybook/addon-links" "^8.6.14"
+    "@storybook/components" "^8.6.14"
     "@uiw/codemirror-extensions-langs" "^4.23.0"
     "@uiw/codemirror-theme-github" "^4.23.0"
     "@uiw/react-codemirror" "^4.23.0"
+    "@vibe/core" "^3.59.0"
+    "@vibe/icons" "^1.9.0"
     classnames "^2.5.1"
     lz-string "^1.5.0"
     prettier "^2.8.8"
