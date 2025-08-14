@@ -4762,11 +4762,6 @@
   dependencies:
     ts-dedent "^2.0.0"
 
-"@storybook/core-events@^8.6.14":
-  version "8.6.14"
-  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-8.6.14.tgz#ba2be7b0644655d17db143b2be5f45199e617af4"
-  integrity sha512-RrJ95u3HuIE4Nk8VmZP0tc/u0vYoE2v9fYlMw6K2GUSExzKDITs3voy6WMIY7Q3qbQun8XUXVlmqkuFzTEy/pA==
-
 "@storybook/core@8.6.14":
   version "8.6.14"
   resolved "https://registry.npmjs.org/@storybook/core/-/core-8.6.14.tgz#335b067709fd649512b6553b31ad48c8c56f7ed9"
@@ -18341,17 +18336,18 @@ store2@^2.14.2:
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
-storybook-addon-playground@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-playground/-/storybook-addon-playground-2.0.0.tgz#bcac8a287bf41ea581e8b22f41fa3099c115338e"
-  integrity sha512-ZtcvGGzgUojYUh6YrKYv/iggbveedqy7cgZOmiZiQU/agMwwdB3aj7vN+DLJfKURipubgfNFfeHu0RrupezxLA==
+storybook-addon-playground@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-playground/-/storybook-addon-playground-2.0.1.tgz#4ceb076d513e8b7a6e1b73ebcb1f307498d86504"
+  integrity sha512-oQayEpN3itEtclJWEhT3AwNL7oVduphF9RR/QOVnh2mpMFrNjJoCJWYmVX3jHqr6sy7x4fxDElHdrh10bZ17vQ==
   dependencies:
     "@storybook/addon-links" "^8.6.14"
     "@storybook/components" "^8.6.14"
-    "@storybook/core-events" "^8.6.14"
     "@uiw/codemirror-extensions-langs" "^4.23.0"
     "@uiw/codemirror-theme-github" "^4.23.0"
     "@uiw/react-codemirror" "^4.23.0"
+    "@vibe/core" "^3.59.0"
+    "@vibe/icons" "^1.9.0"
     classnames "^2.5.1"
     lz-string "^1.5.0"
     prettier "^2.8.8"
