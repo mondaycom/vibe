@@ -4,7 +4,7 @@ import { vi, describe, it, expect, beforeEach } from "vitest";
 import { Robot } from "@vibe/icons";
 import AttentionBox from "../AttentionBox";
 import userEvent from "@testing-library/user-event";
-import { AttentionBoxType } from "../AttentionBox.types";
+import type { AttentionBoxType } from "../AttentionBox.types";
 
 describe("AttentionBox", () => {
   beforeEach(() => {

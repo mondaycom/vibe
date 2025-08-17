@@ -1,11 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
 import AttentionBoxDefault from "../AttentionBoxDefault";
-import { AttentionBoxDefaultProps } from "../AttentionBoxDefault";
+import type { AttentionBoxDefaultProps } from "../AttentionBoxDefault";
 
 const renderWithProps = (props: Partial<AttentionBoxDefaultProps> = {}) => {
-  return render(<AttentionBoxDefault content="Test content" isLinkInline={false} {...props} />);
+  return render(<AttentionBoxDefault content="Test content" {...props} />);
 };
 
 describe("AttentionBoxDefault", () => {
@@ -32,16 +33,9 @@ describe("AttentionBoxDefault", () => {
 
     it("renders action section with block link when link exists and no action", () => {
       const link = { href: "/test", text: "Test Link" };
-      renderWithProps({ link, isLinkInline: false });
+      renderWithProps({ link });
 
       expect(screen.getByRole("link", { name: "Test Link" })).toBeInTheDocument();
-    });
-
-    it("does not render action section when no action and link is inline", () => {
-      const link = { href: "/test", text: "Test Link" };
-      const { container } = renderWithProps({ link, isLinkInline: true });
-
-      expect(container.querySelector('[class*="actionSection"]')).not.toBeInTheDocument();
     });
 
     it("does not render action section when no action and no link", () => {

@@ -1,5 +1,5 @@
-import { SubIcon } from "../../../../types";
-import { AttentionBoxType } from "../AttentionBox.types";
+import type { SubIcon } from "../../../../types";
+import type { AttentionBoxType } from "../AttentionBox.types";
 import { ATTENTION_BOX_DEFAULT_ICONS } from "../consts/icons";
 
 export const resolveAttentionBoxIcon = (

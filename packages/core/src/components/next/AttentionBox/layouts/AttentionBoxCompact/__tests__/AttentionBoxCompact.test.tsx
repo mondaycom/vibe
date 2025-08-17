@@ -1,10 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
-import AttentionBoxCompact, { AttentionBoxCompactProps } from "../AttentionBoxCompact";
+import { describe, expect, it, vi } from "vitest";
+
+import AttentionBoxCompact from "../AttentionBoxCompact";
+import type { AttentionBoxCompactProps } from "../AttentionBoxCompact";
 
 const renderWithProps = (props: Partial<AttentionBoxCompactProps> = {}) => {
-  return render(<AttentionBoxCompact content="Test content" isLinkInline={false} {...props} />);
+  return render(<AttentionBoxCompact content="Test content" {...props} />);
 };
 
 describe("AttentionBoxCompact", () => {
@@ -15,16 +17,9 @@ describe("AttentionBoxCompact", () => {
     expect(screen.getByRole("button", { name: "Action" })).toBeInTheDocument();
   });
 
-  it("renders block link when link exists and is not inline", () => {
+  it("renders link button when link is provided", () => {
     const link = { href: "/test", text: "Test Link" };
-    renderWithProps({ link, isLinkInline: false });
-
-    expect(screen.getByRole("link", { name: "Test Link" })).toBeInTheDocument();
-  });
-
-  it("renders block link when link is inline", () => {
-    const link = { href: "/test", text: "Test Link" };
-    renderWithProps({ link, isLinkInline: true });
+    renderWithProps({ link });
 
     expect(screen.getByRole("link", { name: "Test Link" })).toBeInTheDocument();
   });
@@ -32,7 +27,7 @@ describe("AttentionBoxCompact", () => {
   it("renders link and action when both exist", () => {
     const action = { text: "Action", onClick: vi.fn() };
     const link = { href: "/test", text: "Test Link" };
-    renderWithProps({ action, link, isLinkInline: false });
+    renderWithProps({ action, link });
 
     expect(screen.getByRole("button", { name: "Action" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Test Link" })).toBeInTheDocument();

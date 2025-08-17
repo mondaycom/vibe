@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Button, { ButtonProps } from "../../../../Button/Button";
+import Button, { type ButtonProps } from "../../../../Button/Button";
 
 export interface AttentionBoxButtonProps extends Omit<ButtonProps, "size" | "kind" | "color" | "children"> {
   text: string;

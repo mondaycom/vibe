@@ -1,8 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import { Icon } from "../../../../Icon";
-import { SubIcon } from "../../../../../types";
-import { IconType } from "../../../../Icon/Icon.types";
+import type { SubIcon } from "../../../../../types";
+import type { IconType } from "../../../../Icon/Icon.types";
 import styles from "./AttentionBoxLeadingIcon.module.scss";
 
 export interface AttentionBoxLeadingIconProps {
