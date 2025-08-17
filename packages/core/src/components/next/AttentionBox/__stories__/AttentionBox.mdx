@@ -59,18 +59,18 @@ Displays a compact, single-line Attention Box. Its width automatically adjusts t
 
 <Canvas of={AttentionBoxStories.CompactSingleLine} />
 
-### Compact Multiline
+### Compact Mode
 
-The Compact Attention Box supports multi-line text wrapping, allowing for clearer messaging in limited space and improved accessibility.
-You may include a <b>single action</b> - either a <b>link</b> or a <b>button</b> - to guide user attention more effectively. Only one action is supported to maintain visual simplicity and clarity.
+The Compact Attention Box displays content in a single line with ellipsis for overflow text.
+You may include actions - both <b>link</b> and <b>button</b> can be used together in the actions section.
 
-<Canvas of={AttentionBoxStories.CompactMultiline} />
+<Canvas of={AttentionBoxStories.CompactMode} />
 
-### Action and Inline Link
+### Action and Link
 
-To include an additional link, use an inline text link within the message content.
+Links and actions appear side by side in the actions section.
 
-<Canvas of={AttentionBoxStories.ActionAndInlineLink} />
+<Canvas of={AttentionBoxStories.ActionAndLink} />
 
 ### Dismissible
 
@@ -186,25 +186,23 @@ Shows the attention box rendered without entry animation.
           <div style={{ width: "70%", marginRight: 0 }}>
             <AttentionBox
               compact
-              multiline
-              text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+              text="This is a compact message with ellipsis for long text content that doesn't fit."
               link={{ href: "#", text: "Learn more" }}
             />
           </div>
         ),
-        description: "Use multiline compact variant with text wrapping."
+        description: "Use compact mode with ellipsis for overflow text."
       },
       negative: {
         component: (
           <div style={{ width: "70%", marginRight: 0 }}>
             <AttentionBox
-              compact
-              text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+              text="This is a longer message that can wrap across multiple lines to demonstrate full readability."
               link={{ href: "#", text: "Learn more" }}
             />
           </div>
         ),
-        description: "Don't force single-line compact mode for long messages that require full readability."
+        description: "Don't use compact mode for long messages that require full readability. Use regular mode instead."
       }
     }
   ]}

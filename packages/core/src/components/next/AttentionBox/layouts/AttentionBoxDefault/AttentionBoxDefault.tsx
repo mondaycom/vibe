@@ -1,11 +1,11 @@
 import React from "react";
+import cx from "classnames";
 import { Text } from "../../../../Text";
 import { Flex } from "../../../../Flex";
 import AttentionBoxButton from "../../components/AttentionBoxButton/AttentionBoxButton";
 import AttentionBoxLink from "../../components/AttentionBoxLink/AttentionBoxLink";
 import AttentionBoxCloseButton from "../../components/AttentionBoxCloseButton/AttentionBoxCloseButton";
 import AttentionBoxLeadingIcon from "../../components/AttentionBoxLeadingIcon/AttentionBoxLeadingIcon";
-import AttentionBoxContent from "../../components/AttentionBoxContent/AttentionBoxContent";
 import styles from "./AttentionBoxDefault.module.scss";
 import type { AttentionBoxLayoutSharedProps, AttentionBoxProps } from "../../AttentionBox.types";
 
@@ -21,34 +21,44 @@ const AttentionBoxDefault = ({
   link,
   content
 }: AttentionBoxDefaultProps) => {
+  const hasActions = action || link;
+
   return (
-    <Flex align="start" direction="column" gap="xs" className={styles.content}>
-      <Flex className={styles.titleSection}>
-        <Flex gap="xs" flex="1" className={styles.titleLeft}>
-          <AttentionBoxLeadingIcon icon={icon} iconType={iconType} />
-          {title && (
-            <Text type="text1" weight="medium">
-              {title}
-            </Text>
-          )}
-        </Flex>
-        <AttentionBoxCloseButton onClose={onClose} closeButtonAriaLabel={closeButtonAriaLabel} />
-      </Flex>
+    <div
+      className={cx(styles.container, {
+        [styles.hasIcon]: !!icon,
+        [styles.hasTitle]: !!title,
+        [styles.hasActions]: hasActions,
+        [styles.hasCloseButton]: !!onClose
+      })}
+    >
+      {icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.icon} />}
 
-      {content && (
-        <div className={styles.textContainer}>
-          <AttentionBoxContent multiline content={content} link={link} isLinkInline={isLinkInline} />
-        </div>
+      {title && (
+        <Text type="text1" weight="medium" className={styles.title}>
+          {title}
+        </Text>
       )}
 
-      {action ? (
-        <Flex justify="end" className={styles.actionSection}>
-          <AttentionBoxButton {...action} />
-        </Flex>
-      ) : (
-        link && !isLinkInline && <AttentionBoxLink {...link} inlineText={false} />
+      {!!onClose && (
+        <AttentionBoxCloseButton
+          onClose={onClose}
+          closeButtonAriaLabel={closeButtonAriaLabel}
+          className={styles.closeButton}
+        />
       )}
-    </Flex>
+
+      <Text type="text2" className={styles.text} ellipsis={false} element="p">
+        {content}
+      </Text>
+
+      {hasActions && (
+        <Flex gap="medium" className={styles.actions}>
+          {link && <AttentionBoxLink {...link} inlineText={false} />}
+          {action && <AttentionBoxButton {...action} />}
+        </Flex>
+      )}
+    </div>
   );
 };
 

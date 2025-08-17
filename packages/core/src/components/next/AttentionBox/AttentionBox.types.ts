@@ -1,46 +1,60 @@
-import { ReactNode } from "react";
-import { VibeComponentProps, SubIcon } from "../../../types";
-import { IconType } from "../../Icon/Icon.types";
-import { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
-import { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
+import type { ReactNode, MouseEvent } from "react";
+import type { VibeComponentProps, SubIcon } from "../../../types";
+import type { IconType } from "../../Icon/Icon.types";
+import type { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
+import type { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
 
 export type AttentionBoxType = "primary" | "positive" | "negative" | "warning" | "neutral";
 
 // Mutually exclusive icon props
 export type AttentionBoxIconProps = { icon?: SubIcon; hideIcon?: never } | { icon?: never; hideIcon?: boolean };
 
-export type AttentionBoxRole = "alert" | "status";
+// Mutually exclusive content props
+export type AttentionBoxContentProps =
+  | {
+      /**
+       * The main text content
+       */
+      text: string;
+      children?: never;
+    }
+  | {
+      /**
+       * Custom children to override the default text content
+       */
+      children: ReactNode;
+      text?: never;
+    };
 
 // Shared props for both compact and default layouts
 export interface AttentionBoxLayoutSharedProps
   extends Pick<AttentionBoxProps, "icon" | "iconType" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
-// Action/Link constraint types - if action exists, link cannot have inlineText
-export type AttentionBoxActionLinkProps =
+// Mutually exclusive title props
+export type AttentionBoxCompactTitleProps =
   | {
-      action?: AttentionBoxButtonProps;
-      link?: Omit<AttentionBoxLinkProps, "inlineText">;
+      compact?: false;
+      /**
+       * The title of the attention box
+       */
+      title?: string;
     }
   | {
-      action?: never;
-      link?: AttentionBoxLinkProps;
+      /**
+       * When true, the attention box will be displayed in compact mode of one-liner
+       */
+      compact: true;
+      title?: never;
     };
 
-// Compact/Multiline logic - multiline allowed only if compact is true
-export type AttentionBoxCompactMultilineProps =
-  | { compact?: false; multiline?: never }
-  | { compact: true; multiline?: boolean };
-
-// Compact/Title logic - title not allowed when compact is true
-export type AttentionBoxCompactTitleProps = { compact?: false; title?: string } | { compact: true; title?: never };
+export type AttentionBoxRole = "alert" | "status";
 
 export type AttentionBoxProps = VibeComponentProps &
   AttentionBoxIconProps &
-  AttentionBoxCompactMultilineProps &
-  AttentionBoxCompactTitleProps &
-  AttentionBoxActionLinkProps & {
+  AttentionBoxContentProps &
+  AttentionBoxCompactTitleProps & {
     /**
      * The variant type of the attention box
      */
@@ -50,17 +64,9 @@ export type AttentionBoxProps = VibeComponentProps &
      */
     iconType?: IconType;
     /**
-     * The main text content
-     */
-    text?: string;
-    /**
-     * Custom children to override the default text content
-     */
-    children?: ReactNode;
-    /**
      * Callback when the close button is clicked
      */
-    onClose?: (event: React.MouseEvent) => void;
+    onClose?: (event: MouseEvent<HTMLButtonElement>) => void;
     /**
      * Custom aria label for the close button
      */
@@ -69,4 +75,12 @@ export type AttentionBoxProps = VibeComponentProps &
      * Whether to animate the entrance
      */
     animate?: boolean;
+    /**
+     * Action button configuration
+     */
+    action?: AttentionBoxButtonProps;
+    /**
+     * Link configuration
+     */
+    link?: Omit<AttentionBoxLinkProps, "inlineText">;
   };

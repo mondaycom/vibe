@@ -12,7 +12,6 @@ const AttentionBox = forwardRef(
   (
     {
       compact = false,
-      multiline = false,
       title,
       animate = true,
       icon,
@@ -64,11 +63,7 @@ const AttentionBox = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
       >
-        {compact ? (
-          <AttentionBoxCompact multiline={multiline} {...sharedProps} />
-        ) : (
-          <AttentionBoxDefault title={title} {...sharedProps} />
-        )}
+        {compact ? <AttentionBoxCompact {...sharedProps} /> : <AttentionBoxDefault title={title} {...sharedProps} />}
       </aside>
     );
   }

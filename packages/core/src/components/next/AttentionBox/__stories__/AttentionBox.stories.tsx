@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Info, Invite } from "@vibe/icons";
 import { Button } from "../../../Button";
 import { AttentionBox } from "..";
-import { AttentionBoxProps } from "../AttentionBox.types";
+import type { AttentionBoxProps } from "../AttentionBox.types";
 import { Flex } from "../../../Flex";
 import { Heading } from "../../../Heading";
 import { Text } from "../../../Text";
@@ -115,7 +115,7 @@ export const CompactSingleLine: Story = {
   )
 };
 
-export const CompactMultiline: Story = {
+export const CompactMode: Story = {
   render: () => (
     <div
       style={{
@@ -129,18 +129,13 @@ export const CompactMultiline: Story = {
       <Text type="text1" weight="bold">
         No CTA
       </Text>
-      <AttentionBox
-        compact
-        multiline
-        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
-      />
+      <AttentionBox compact text="This is a compact message with ellipsis for overflow text content." />
       <Text type="text1" weight="bold">
         With Link CTA
       </Text>
       <AttentionBox
         compact
-        multiline
-        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+        text="This is a compact message with ellipsis for overflow text content."
         link={{ href: "#", text: "Read more" }}
       />
       <Text type="text1" weight="bold">
@@ -148,20 +143,18 @@ export const CompactMultiline: Story = {
       </Text>
       <AttentionBox
         compact
-        multiline
-        text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode."
+        text="This is a compact message with ellipsis for overflow text content."
         action={{ text: "Button", onClick: () => {} }}
       />
     </div>
   )
 };
 
-export const ActionAndInlineLink: Story = {
+export const ActionAndLink: Story = {
   render: () => (
     <AttentionBox
       compact
-      multiline
-      text="This is a longer compact message that wraps across multiple lines to demonstrate multiline support in compact mode. It provides additional context to the user before prompting them to take further action."
+      text="This is a compact message with both link and button actions displayed side by side."
       action={{ text: "Button", onClick: () => {} }}
       link={{ href: "#", text: "Read more" }}
       onClose={() => {}}
@@ -190,7 +183,7 @@ export const Dismissible: Story = {
       <AttentionBox
         compact
         text="You need to update your profile information."
-        link={{ href: "#", text: "Profile Settings", inlineText: true }}
+        link={{ href: "#", text: "Profile Settings" }}
         onClose={() => setVisible(false)}
       />
     ) : (
@@ -256,7 +249,7 @@ export const AttentionBoxInsideADialogCombobox: Story = {
                 <Icon iconSize="32" icon={Invite} />
                 <Text>Invite new board member by email</Text>
               </Flex>
-              <AttentionBox text="Hold ⌘ to select more than one person or team" compact multiline onClose={() => {}} />
+              <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={() => {}} />
             </Flex>
           </Flex>
         </Box>
@@ -270,6 +263,91 @@ export const AttentionBoxInsideADialogCombobox: Story = {
       }
     }
   }
+};
+
+export const TextOnly: Story = {
+  render: () => (
+    <AttentionBox text="This is an attention box with only text content, no title. This demonstrates how the component looks when used for simple notifications or messages that don't require a heading." />
+  )
+};
+
+export const TextOnlyWithClose: Story = {
+  render: () => (
+    <AttentionBox
+      text="This is an attention box with only text content, no title. This demonstrates how the component looks when used for simple notifications or messages that don't require a heading."
+      onClose={() => {}}
+    />
+  )
+};
+
+export const WithLink: Story = {
+  render: () => (
+    <AttentionBox
+      title="Review Required"
+      text="Your changes need approval before they can be published to the live environment."
+      link={{ href: "#", text: "View Changes" }}
+    />
+  )
+};
+
+export const WithAction: Story = {
+  render: () => (
+    <AttentionBox
+      title="Update Available"
+      text="A new version of the application is available with bug fixes and improvements."
+      action={{ text: "Update Now", onClick: () => alert("Update clicked") }}
+    />
+  )
+};
+
+export const WithLinkAndAction: Story = {
+  render: () => (
+    <AttentionBox
+      title="Action Required"
+      text="Your subscription expires soon. Review your account details or renew to continue accessing premium features."
+      link={{ href: "#", text: "Account Settings" }}
+      action={{ text: "Renew Now", onClick: () => alert("Renew clicked") }}
+    />
+  )
+};
+
+export const WithLinkAndActionAndClose: Story = {
+  render: () => (
+    <AttentionBox
+      title="Action Required"
+      text="Your subscription expires soon. Review your account details or renew to continue accessing premium features."
+      link={{ href: "#", text: "Account Settings" }}
+      action={{ text: "Renew Now", onClick: () => alert("Renew clicked") }}
+      onClose={() => {}}
+    />
+  )
+};
+
+export const NoIcon: Story = {
+  render: () => (
+    <AttentionBox
+      hideIcon
+      title="Clean Design"
+      text="This attention box appears without an icon for a minimalist look. This can be useful when you want to reduce visual clutter while still providing important information."
+    />
+  )
+};
+
+export const NoIconWithClose: Story = {
+  render: () => (
+    <AttentionBox
+      hideIcon
+      title="Clean Design"
+      text="This attention box appears without an icon for a minimalist look. This can be useful when you want to reduce visual clutter while still providing important information."
+      onClose={() => {}}
+    />
+  )
+};
+
+export const CompactNoIcon: Story = {
+  render: () => (
+    <AttentionBox compact hideIcon text="Compact attention box without icon for maximum space efficiency." />
+  )
 };
 
 export const Animation: Story = {
@@ -330,7 +408,7 @@ export const Animation: Story = {
               <AttentionBox
                 compact
                 icon={Info}
-                text="Here’s something you might want to know. This message gives you helpful context without requiring immediate action."
+                text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
                 onClose={reset}
               />
             )}

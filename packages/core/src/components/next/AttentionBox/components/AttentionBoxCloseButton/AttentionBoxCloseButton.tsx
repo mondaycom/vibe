@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import { IconButton } from "../../../../IconButton";
 import { CloseSmall } from "@vibe/icons";
 import styles from "./AttentionBoxCloseButton.module.scss";
@@ -6,13 +7,14 @@ import styles from "./AttentionBoxCloseButton.module.scss";
 export interface AttentionBoxCloseButtonProps {
   onClose?: (event: React.MouseEvent) => void;
   closeButtonAriaLabel?: string;
+  className?: string;
 }
 
-const AttentionBoxCloseButton = ({ onClose, closeButtonAriaLabel = "Close" }: AttentionBoxCloseButtonProps) => {
-  if (!onClose) {
-    return null;
-  }
-
+const AttentionBoxCloseButton = ({
+  onClose,
+  closeButtonAriaLabel = "Close",
+  className
+}: AttentionBoxCloseButtonProps) => {
   return (
     <IconButton
       icon={CloseSmall}
@@ -21,7 +23,7 @@ const AttentionBoxCloseButton = ({ onClose, closeButtonAriaLabel = "Close" }: At
       onClick={onClose}
       ariaLabel={closeButtonAriaLabel}
       hideTooltip
-      className={styles.closeButton}
+      className={cx(styles.closeButton, className)}
     />
   );
 };
