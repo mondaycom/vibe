@@ -29,7 +29,7 @@ const AttentionBoxCompact = ({
           {content}
         </Text>
       </Flex>
-      {hasActions && (
+      {(hasActions || !!onClose) && (
         <Flex className={styles.actionsGroup}>
           {link && <AttentionBoxLink {...link} inlineText={false} />}
           {action && <AttentionBoxButton {...action} />}
