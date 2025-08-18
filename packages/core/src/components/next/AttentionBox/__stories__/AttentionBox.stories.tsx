@@ -367,7 +367,7 @@ export const Animation: Story = {
       if (stage === "content") {
         setTimeout(() => {
           setStage("attention");
-        }, 200);
+        }, 500);
       }
     }, [stage]);
 
