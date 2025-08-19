@@ -9,14 +9,20 @@ jobs:
     continue-on-error: true
     steps:
       - name: Send Slack notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
-          SLACK_USERNAME: "GitHub Actions"
-          SLACK_TITLE: "V2 Release Started"
-          SLACK_MESSAGE: "A new Vibe v2 release has been started by ${{ github.actor }}"
-          SLACK_FOOTER: "Your friendly neighborhood Vibe bot"
-          SLACK_ICON: "https://vibe.monday.com/logo.svg"
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
+          method: "POST"
+          contentType: "application/json"
+          data: |
+            {
+              "event": "v2_release_started",
+              "actor": "${{ github.actor }}",
+              "commit_id": "${{ github.sha }}",
+              "workflow": "${{ github.workflow }}",
+              "run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+            }
 
   release:
     if: github.ref_name == 'version2'
