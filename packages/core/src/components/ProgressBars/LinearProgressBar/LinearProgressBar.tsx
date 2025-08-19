@@ -11,7 +11,7 @@ import { type LinearProgressBarSize, type LinearProgressBarStyle } from "./Linea
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
 
@@ -176,6 +176,7 @@ const LinearProgressBar = forwardRef(
         ref={ref}
         id={id}
         data-testsid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
+        data-vibe={ComponentVibeId.LINEAR_PROGRESS_BAR}
       >
         <div className={styles.container}>
           {renderBaseBars}

@@ -8,6 +8,7 @@ import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { type BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /**
@@ -34,6 +35,7 @@ const BreadcrumbsBar = ({
     className={cx(styles.breadcrumbsBar, className)}
     id={id}
     data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMBS_BAR, id)}
+    data-vibe={ComponentVibeId.BREADCRUMBS_BAR}
   >
     <ol>
       {children &&

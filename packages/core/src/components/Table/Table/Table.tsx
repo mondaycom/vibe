@@ -13,7 +13,7 @@ import { type TableHeaderProps } from "../TableHeader/TableHeader";
 import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { RowHeights, RowSizes as RowSizesEnum } from "./TableConsts";
 import { type RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
@@ -198,6 +198,7 @@ const Table = forwardRef(
               className
             )}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE, id)}
+            data-vibe={ComponentVibeId.TABLE}
             role="table"
             style={calculatedStyle}
             onScroll={onScroll}
