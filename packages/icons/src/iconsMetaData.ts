@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "RemoveRound",
+      file: "RemoveRound.svg",
+      description: "Collapses text to hide details",
+      tags: "Remove, Collapse, Text, Reveal, Icon, Action"
+  },
+
+  {
       name: "ScheduledSend",
       file: "ScheduledSend.svg",
       description: "Used for sending scheduled messages",

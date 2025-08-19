@@ -204,6 +204,7 @@ export {default as Recurring} from './Recurring';
 export {default as RecycleBin} from './RecycleBin';
 export {default as Redo} from './Redo';
 export {default as Remove} from './Remove';
+export {default as RemoveRound} from './RemoveRound';
 export {default as Reply} from './Reply';
 export {default as ReplyAll} from './ReplyAll';
 export {default as Retry} from './Retry';
