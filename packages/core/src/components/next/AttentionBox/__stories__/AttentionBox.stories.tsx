@@ -367,7 +367,7 @@ export const Animation: Story = {
       if (stage === "content") {
         setTimeout(() => {
           setStage("attention");
-        }, 500);
+        }, 750);
       }
     }, [stage]);
 
@@ -376,7 +376,7 @@ export const Animation: Story = {
     }, []);
 
     return (
-      <Flex align="start" direction="column" gap="medium" style={{ width: "100%", minHeight: 260 }}>
+      <Flex align="start" direction="column" gap="medium" style={{ width: "100%", maxWidth: 720, minHeight: 260 }}>
         {/* Button Stage */}
         {stage === "button" && (
           <Button onClick={onClick} kind="secondary">
@@ -387,15 +387,14 @@ export const Animation: Story = {
         {/* Skeleton Stage */}
         {stage === "skeleton" && (
           <Flex align="start" direction="column" gap="medium" style={{ width: "100%" }}>
-            <Skeleton type="text" size="h2" fullWidth />
+            <Skeleton type="text" size="h2" width={300} />
             <Flex align="start" gap="medium" style={{ width: "100%" }}>
               <Skeleton width={150} height={150} />
               <Flex direction="column" align="stretch" gap="small" style={{ width: "100%" }}>
-                <Skeleton type="text" size="h1" fullWidth />
-                <Skeleton type="text" size="small" fullWidth />
-                <Skeleton type="text" size="small" fullWidth />
-                <Skeleton type="text" size="small" fullWidth />
-                <Skeleton type="text" size="small" width={200} />
+                <Skeleton type="text" size="h5" fullWidth />
+                <Skeleton type="text" size="h5" fullWidth />
+                <Skeleton type="text" size="h5" fullWidth />
+                <Skeleton type="text" size="h5" width={200} />
               </Flex>
             </Flex>
           </Flex>
