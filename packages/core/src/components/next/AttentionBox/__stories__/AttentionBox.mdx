@@ -2,31 +2,31 @@ import { Meta } from "@storybook/blocks";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
 import {
   ALERT_BANNER,
-  TOAST,
+  TIPSEEN,
   TOOLTIP
 } from "../../../../storybook/components/related-components/component-description-map";
 import * as AttentionBoxStories from "./AttentionBox.stories";
 import AttentionBox from "../AttentionBox";
-import { TipCheckYourself } from "./AttentionBox.stories.helpers.tsx";
 import { Box } from "../../../Box";
 import { Heading } from "../../../Heading";
 import { Text } from "../../../Text";
+import { Link } from "../../../Link";
 
 <Meta of={AttentionBoxStories} />
 
 # AttentionBox
 
-The Attention Box component communicates important, contextually relevant information as close as possible to the content it’s about. It alerts, informs, or guides users about crucial actions, warnings, or system states inline with user workflows.
+Attention box lets users know important information within content areas, as close as possible to the content it’s about. An optional smooth entrance animation can be used to enhance visibility.
+
+## Overview
+
+<Canvas of={AttentionBoxStories.Overview} />
 
 ## Import path
 
 ```tsx
 import { AttentionBox } from "@vibe/core/next";
 ```
-
-## Overview
-
-<Canvas of={AttentionBoxStories.Overview} />
 
 ## Props
 
@@ -36,41 +36,37 @@ import { AttentionBox } from "@vibe/core/next";
 
 <UsageGuidelines
   guidelines={[
-    "Use AttentionBox to surface inline alerts and important messages within workflow contexts.",
-    "Choose the appropriate variant (primary, positive, negative, warning, neutral) to match the message semantics.",
-    "Enable compact mode for space-constrained layouts with single-line text display.",
-    "Provide a clear title in default mode and include actionable elements like links or buttons for follow-up."
+    "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
+    "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
+    "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
   ]}
 />
-
-<TipCheckYourself />
 
 ## Variants
 
 ### Types
 
-There are five types of attention boxes: Primary, positive, negative, warning and neutral.
+There are five types of attention boxes: primary, neutral, positive, warning and negative.
 
-<Canvas of={AttentionBoxStories.Types} />
+<Canvas of={AttentionBoxStories.Types} />{" "}
 
-### Compact Single Line
+### Default
 
-Displays a compact, single-line Attention Box. Its width automatically adjusts to match the width of its parent element.
+The default Attention Box presents content in multiple lines, with or without title. It can include a link, a button, or both. If the text exceeds the available space it display an ellipsis and tooltip, when necessary.
 
-<Canvas of={AttentionBoxStories.CompactSingleLine} />
+<Canvas of={AttentionBoxStories.Default} />
 
-### Compact Mode
+### Compact
 
-The Compact Attention Box displays content in a single line with ellipsis for overflow text.
-You may include actions - both <b>link</b> and <b>button</b> can be used together in the actions section.
+The compact Attention Box presents content in a single line. It can include a link, a button, or both. If the text exceeds the available space it display an ellipsis and tooltip, when necessary.
 
-<Canvas of={AttentionBoxStories.CompactMode} />
+<Canvas of={AttentionBoxStories.Compact} />
 
-### Action and Link
+### Link and Button
 
-Links and actions appear side by side in the actions section.
+Both compact and default Attention Box can present CTA. They can include a link, a button, both, or be displayed without any CTA if none is needed.
 
-<Canvas of={AttentionBoxStories.ActionAndLink} />
+<Canvas of={AttentionBoxStories.LinkAndButton} />
 
 ### Dismissible
 
@@ -78,11 +74,11 @@ The Attention Box may be configured to be dismissible or not, depending on the u
 
 <Canvas of={AttentionBoxStories.Dismissible} />
 
-### No Animation
+### Icon
 
-Shows the attention box rendered without entry animation.
+Attention Box can include an icon to reinforce its purpose. Each type has a default icon, which you may replace or remove as needed.
 
-<Canvas of={AttentionBoxStories.NoAnimation} />
+<Canvas of={AttentionBoxStories.IconStory} />
 
 ## Do's and Don'ts
 
@@ -94,11 +90,12 @@ Shows the attention box rendered without entry animation.
           <Box style={{ width: "90%", marginRight: 0 }}>
             <AttentionBox
               title="Birthday/death rate"
-              text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+              text="Studies show that 100% of people who celebrate birthdays will eventually die."
+              onClose={() => {}}
             />
           </Box>
         ),
-        description: "Provide a short and brief title, and explanation related to the title."
+        description: "Provide a brief title, and explanation related to the title."
       },
       negative: {
         component: (
@@ -106,7 +103,7 @@ Shows the attention box rendered without entry animation.
             <AttentionBox title="Birthday/death rate" />
           </div>
         ),
-        description: "Don’t use only a title to explain something."
+        description: "Don't use only a title to explain something."
       }
     },
     {
@@ -123,7 +120,7 @@ Shows the attention box rendered without entry animation.
               compact
               hideIcon
               text="Get your monday.com notifications"
-              link={{ href: "#", text: "Learn more" }}
+              action={{ text: "Subscribe", onClick: () => {} }}
             />
           </Box>
         ),
@@ -143,15 +140,14 @@ Shows the attention box rendered without entry animation.
               compact
               hideIcon
               text="7 days left on your free trial"
-              link={{ href: "#", text: "Learn more" }}
+              link={{ href: "#", text: "Upgrade" }}
             />
           </Box>
         ),
         description: (
           <>
-            Don't use when a message applies at a system level, does not apply to a specific piece of content, or needs
-            to alert all users. On those cases, use{" "}
-            <StorybookLink page="Components/AlertBanner">Alert Banner.</StorybookLink>
+            Don’t use when not to a specific piece of content. If the message applies at a system level, use{" "}
+            <StorybookLink page="Components/AlertBanner">Alert Banner</StorybookLink> instead.
           </>
         )
       }
@@ -159,50 +155,29 @@ Shows the attention box rendered without entry animation.
     {
       positive: {
         component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              compact
-              type="warning"
-              text="Low memory."
-              link={{ href: "#", text: "Learn more", inlineText: true }}
-            />
+          <div style={{ width: "90%", marginRight: 0 }}>
+            <AttentionBox compact text="Need guidance?" link={{ href: "#", text: "View docs" }} />
           </div>
         ),
-        description: "Include a clear, concise title in default mode to immediately convey the message context."
+        description: "If link is needed, keep it aligned to the right."
       },
       negative: {
         component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox compact type="warning" text="Low memory." link={{ href: "#", text: "Learn more" }} />
+          <div style={{ width: "90%", marginRight: 0 }}>
+            <AttentionBox compact>
+              <Text>
+                Need guidance?{" "}
+                <Link
+                  href="#"
+                  text="View docs"
+                  inlineText
+                  style={{ color: "var(--primary-color-text)", textDecoration: "underline" }}
+                />
+              </Text>
+            </AttentionBox>
           </div>
         ),
-        description:
-          "Avoid using an action-style link when the content is minimal. Use an inline text link instead for better clarity and visual balance."
-      }
-    },
-    {
-      positive: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              compact
-              text="This is a compact message with ellipsis for long text content that doesn't fit."
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </div>
-        ),
-        description: "Use compact mode with ellipsis for overflow text."
-      },
-      negative: {
-        component: (
-          <div style={{ width: "70%", marginRight: 0 }}>
-            <AttentionBox
-              text="This is a longer message that can wrap across multiple lines to demonstrate full readability."
-              link={{ href: "#", text: "Learn more" }}
-            />
-          </div>
-        ),
-        description: "Don't use compact mode for long messages that require full readability. Use regular mode instead."
+        description: "Don’t use the link as an inline action."
       }
     }
   ]}
@@ -210,11 +185,11 @@ Shows the attention box rendered without entry animation.
 
 ## Use cases and examples
 
-### Natural Attention box
+### Attention box within layouts
 
-Provides additional information about an action or section.
+The width of the Attention Box adapts to its content and layout, expanding to fill the container or area it belongs to.
 
-<Canvas of={AttentionBoxStories.NaturalAttentionBox} />
+<Canvas of={AttentionBoxStories.AttentionBoxWithLayouts} />
 
 ### Attention box inside a dialog/combobox
 
@@ -222,12 +197,12 @@ Provides contextual and related information.
 
 <Canvas of={AttentionBoxStories.AttentionBoxInsideADialogCombobox} />
 
-### Animation
+### Entry animation
 
-The Attention box component consist of enter animation prop to increase user attention. Is highly recommended to use a delay before the attention box entry motion once the page is fully loaded.
+The Attention box component consist of enter animation prop to increase user attention. It is highly recommended to use a delay before the attention box entry motion, once the page is fully loaded.
 
-<Canvas of={AttentionBoxStories.Animation} />
+<Canvas of={AttentionBoxStories.EntryAnimation} />
 
 ## Related components
 
-<RelatedComponents componentsNames={[ALERT_BANNER, TOAST, TOOLTIP]} />
+<RelatedComponents componentsNames={[ALERT_BANNER, TIPSEEN, TOOLTIP]} />

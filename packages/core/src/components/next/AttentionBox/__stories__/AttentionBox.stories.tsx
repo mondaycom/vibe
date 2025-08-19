@@ -24,10 +24,23 @@ export default {
 } satisfies Meta<typeof AttentionBox>;
 
 export const Overview: Story = {
-  render: (args: AttentionBoxProps) => <AttentionBox {...args} />,
+  render: (args: AttentionBoxProps) => (
+    <div style={{ maxWidth: 600 }}>
+      <AttentionBox {...args} />
+    </div>
+  ),
   args: {
     title: "Attention box title",
-    text: "Will cause your team to lose access to the account until using the correct SSO source."
+    text: "This action will cause your team to lose access to the account until you use the correct SSO source.",
+    action: {
+      text: "Button",
+      onClick: () => alert("Button clicked")
+    },
+    link: {
+      href: "#",
+      text: "Read more"
+    },
+    onClose: () => alert("Close clicked")
   },
   parameters: {
     docs: {
@@ -43,167 +56,147 @@ export const Types: Story = {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "240px 1fr",
+        gridTemplateColumns: "240px 600px",
         columnGap: "var(--space-16)",
         rowGap: "var(--space-24)",
-        alignItems: "start"
+        alignItems: "center"
       }}
     >
-      <Flex align="start" direction="column" gap="xs">
-        <Text type="text1" weight="bold">
-          Primary
-        </Text>
-        <Text ellipsis={false}>Default variant</Text>
-      </Flex>
+      <Text type="text1" weight="bold">
+        Primary
+      </Text>
       <AttentionBox
-        title="Heads up!"
-        text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
+        title="Heads up"
+        text="This message gives you helpful context without requiring immediate action."
+        onClose={() => {}}
       />
-      <Flex align="start" direction="column" gap="xs">
-        <Text type="text1" weight="bold">
-          Positive
-        </Text>
-        <Text ellipsis={false}>Illustrates successful state</Text>
-      </Flex>
+      <Text type="text1" weight="bold">
+        Neutral
+      </Text>
+      <AttentionBox
+        type="neutral"
+        title="General note"
+        text="Use this style for more subtle visual emphasis, or for or neutral custom contexts."
+        onClose={() => {}}
+      />
+      <Text type="text1" weight="bold">
+        Positive
+      </Text>
       <AttentionBox
         type="positive"
         title="You're doing great"
-        text="Your changes were saved successfully. You can continue working without needing to revisit this section."
+        text="Indicates success , the user can keep working without interruptions."
+        onClose={() => {}}
       />
-      <Flex align="start" direction="column" gap="xs">
-        <Text type="text1" weight="bold">
-          Negative
-        </Text>
-        <Text ellipsis={false}>Illustrates error or destructive information</Text>
-      </Flex>
+      <Text type="text1" weight="bold">
+        Warning
+      </Text>
+      <AttentionBox
+        type="warning"
+        title="Caution"
+        text="Shows important warnings the user should review before moving forward."
+        onClose={() => {}}
+      />
+      <Text type="text1" weight="bold">
+        Negative
+      </Text>
       <AttentionBox
         type="negative"
         title="Account low on free space"
-        text="Your account is out of free space, free some space to prevent data loss."
-      />
-      <Flex align="start" direction="column" gap="xs">
-        <Text type="text1" weight="bold">
-          Warning
-        </Text>
-        <Text ellipsis={false}>Indicates cautionary messages</Text>
-      </Flex>
-      <AttentionBox
-        type="warning"
-        title="Caution!"
-        text="Make sure to review before continuing. Some actions may be irreversible or affect other areas."
-      />
-      <Flex align="start" direction="column" gap="xs">
-        <Text type="text1" weight="bold">
-          Neutral
-        </Text>
-        <Text ellipsis={false}>Displays a neutral-themed attention box for general contexts</Text>
-      </Flex>
-      <AttentionBox
-        type="neutral"
-        title="Note for emphasis"
-        text="Use this style when you want to have a more subtle visual emphasis."
+        text="Highlights errors or limitations the user should be aware of."
+        onClose={() => {}}
       />
     </div>
   )
 };
 
-export const CompactSingleLine: Story = {
+export const Default: Story = {
   render: () => (
-    <div style={{ width: 330 }}>
-      <AttentionBox compact text="Compact attention message." onClose={() => {}} />
-    </div>
-  )
-};
-
-export const CompactMode: Story = {
-  render: () => (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "160px 1fr",
-        columnGap: "var(--space-16)",
-        rowGap: "var(--space-24)",
-        alignItems: "start"
-      }}
-    >
-      <Text type="text1" weight="bold">
-        No CTA
-      </Text>
-      <AttentionBox compact text="This is a compact message with ellipsis for overflow text content." />
-      <Text type="text1" weight="bold">
-        With Link CTA
-      </Text>
+    <Flex gap="large" align="start">
       <AttentionBox
-        compact
-        text="This is a compact message with ellipsis for overflow text content."
-        link={{ href: "#", text: "Read more" }}
-      />
-      <Text type="text1" weight="bold">
-        With Button CTA
-      </Text>
-      <AttentionBox
-        compact
-        text="This is a compact message with ellipsis for overflow text content."
+        title="Heads up"
+        text="This message gives you helpful context without requiring immediate action."
         action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
+      />
+      <AttentionBox
+        text="This message gives you helpful context without requiring immediate action."
+        action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
+      />
+    </Flex>
+  )
+};
+
+export const Compact: Story = {
+  render: () => (
+    <div style={{ maxWidth: 600 }}>
+      <AttentionBox
+        compact
+        text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
+        action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
       />
     </div>
   )
 };
 
-export const ActionAndLink: Story = {
+export const LinkAndButton: Story = {
   render: () => (
-    <AttentionBox
-      compact
-      text="This is a compact message with both link and button actions displayed side by side."
-      action={{ text: "Button", onClick: () => {} }}
-      link={{ href: "#", text: "Read more" }}
-      onClose={() => {}}
-    />
+    <div style={{ maxWidth: 600 }}>
+      <AttentionBox
+        title="Heads up"
+        text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
+        action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
+      />
+    </div>
   )
 };
-// export const WithActionAndLink: Story = {
-//   render: () => (
-//     <div style={{ width: 315 }}>
-//       <AttentionBox
-//         onClose={() => {}}
-//         type="primary"
-//         title="Action Required"
-//         text="You need to update your profile information."
-//         link={{ href: "/profile", text: "Profile Settings" }}
-//         action={{ text: "Update", onClick: () => alert("Update clicked") }}
-//       />
-//     </div>
-//   )
-// };
 
 export const Dismissible: Story = {
   render: () => {
     const [visible, setVisible] = useState(true);
     return visible ? (
-      <AttentionBox
-        compact
-        text="You need to update your profile information."
-        link={{ href: "#", text: "Profile Settings" }}
-        onClose={() => setVisible(false)}
-      />
+      <div style={{ maxWidth: 600 }}>
+        <AttentionBox
+          compact
+          text="This message gives you helpful context without requiring immediate action."
+          onClose={() => setVisible(false)}
+        />
+      </div>
     ) : (
       <Button onClick={() => setVisible(true)}>Show AttentionBox</Button>
     );
   }
 };
 
-export const NoAnimation: Story = {
+export const IconStory: Story = {
   render: () => (
-    <AttentionBox
-      animate={false}
-      title="Static Box"
-      text="This box did not animate on entry. It appeared immediately without any transition or motion effect, allowing the content to display instantly. This can be useful in cases where animation might be distracting or unnecessary."
-      onClose={() => {}}
-    />
-  )
+    <Flex gap="large" align="start">
+      <AttentionBox
+        hideIcon
+        text="This message gives you helpful context without requiring immediate action."
+        action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
+      />
+      <AttentionBox
+        text="This message gives you helpful context without requiring immediate action."
+        action={{ text: "Button", onClick: () => {} }}
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
+      />
+    </Flex>
+  ),
+  name: "Icon"
 };
 
-export const NaturalAttentionBox: Story = {
+export const AttentionBoxWithLayouts: Story = {
   render: () => (
     <Flex direction="column" align="start" gap="small" style={{ width: "100%" }}>
       <Heading type="h3" weight="bold">
@@ -212,9 +205,10 @@ export const NaturalAttentionBox: Story = {
       <Text>Copy boards and dashboards to another account</Text>
       <AttentionBox
         compact
-        text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
         type="neutral"
-        icon={Info}
+        text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
+        link={{ href: "#", text: "Read more" }}
+        onClose={() => {}}
       />
     </Flex>
   ),
@@ -265,92 +259,7 @@ export const AttentionBoxInsideADialogCombobox: Story = {
   }
 };
 
-export const TextOnly: Story = {
-  render: () => (
-    <AttentionBox text="This is an attention box with only text content, no title. This demonstrates how the component looks when used for simple notifications or messages that don't require a heading." />
-  )
-};
-
-export const TextOnlyWithClose: Story = {
-  render: () => (
-    <AttentionBox
-      text="This is an attention box with only text content, no title. This demonstrates how the component looks when used for simple notifications or messages that don't require a heading."
-      onClose={() => {}}
-    />
-  )
-};
-
-export const WithLink: Story = {
-  render: () => (
-    <AttentionBox
-      title="Review Required"
-      text="Your changes need approval before they can be published to the live environment."
-      link={{ href: "#", text: "View Changes" }}
-    />
-  )
-};
-
-export const WithAction: Story = {
-  render: () => (
-    <AttentionBox
-      title="Update Available"
-      text="A new version of the application is available with bug fixes and improvements."
-      action={{ text: "Update Now", onClick: () => alert("Update clicked") }}
-    />
-  )
-};
-
-export const WithLinkAndAction: Story = {
-  render: () => (
-    <AttentionBox
-      title="Action Required"
-      text="Your subscription expires soon. Review your account details or renew to continue accessing premium features."
-      link={{ href: "#", text: "Account Settings" }}
-      action={{ text: "Renew Now", onClick: () => alert("Renew clicked") }}
-    />
-  )
-};
-
-export const WithLinkAndActionAndClose: Story = {
-  render: () => (
-    <AttentionBox
-      title="Action Required"
-      text="Your subscription expires soon. Review your account details or renew to continue accessing premium features."
-      link={{ href: "#", text: "Account Settings" }}
-      action={{ text: "Renew Now", onClick: () => alert("Renew clicked") }}
-      onClose={() => {}}
-    />
-  )
-};
-
-export const NoIcon: Story = {
-  render: () => (
-    <AttentionBox
-      hideIcon
-      title="Clean Design"
-      text="This attention box appears without an icon for a minimalist look. This can be useful when you want to reduce visual clutter while still providing important information."
-    />
-  )
-};
-
-export const NoIconWithClose: Story = {
-  render: () => (
-    <AttentionBox
-      hideIcon
-      title="Clean Design"
-      text="This attention box appears without an icon for a minimalist look. This can be useful when you want to reduce visual clutter while still providing important information."
-      onClose={() => {}}
-    />
-  )
-};
-
-export const CompactNoIcon: Story = {
-  render: () => (
-    <AttentionBox compact hideIcon text="Compact attention box without icon for maximum space efficiency." />
-  )
-};
-
-export const Animation: Story = {
+export const EntryAnimation: Story = {
   render: () => {
     type Stage = "button" | "skeleton" | "content" | "attention";
     const [stage, setStage] = useState<Stage>("button");
@@ -406,8 +315,7 @@ export const Animation: Story = {
             {stage === "attention" && (
               <AttentionBox
                 compact
-                icon={Info}
-                text="Here's something you might want to know. This message gives you helpful context without requiring immediate action."
+                text="This action will cause your team to lose access to the account until you will use the correct SSO."
                 onClose={reset}
               />
             )}
