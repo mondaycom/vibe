@@ -4,6 +4,7 @@ exports[`Counter renders correctly > with ariaLabeledBy 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby="aria label"
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -25,6 +26,7 @@ exports[`Counter renders correctly > with className 1`] = `
   aria-label=" 0"
   aria-labelledby=""
   className="className"
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -45,6 +47,7 @@ exports[`Counter renders correctly > with count above limit 1`] = `
 <span
   aria-label=" 999+"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -65,6 +68,7 @@ exports[`Counter renders correctly > with count above limit and max digits 1`] =
 <span
   aria-label=" 1050"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -85,6 +89,7 @@ exports[`Counter renders correctly > with count below the limit 1`] = `
 <span
   aria-label=" 1"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -105,6 +110,7 @@ exports[`Counter renders correctly > with counterClassName 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -125,6 +131,7 @@ exports[`Counter renders correctly > with line kind 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -145,6 +152,7 @@ exports[`Counter renders correctly > with negative color 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -165,6 +173,7 @@ exports[`Counter renders correctly > with small size 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div
@@ -185,6 +194,7 @@ exports[`Counter renders correctly > with the prefix 1`] = `
 <span
   aria-label=" 13"
   aria-labelledby=""
+  data-vibe="Counter"
   onMouseDown={[Function]}
 >
   <div

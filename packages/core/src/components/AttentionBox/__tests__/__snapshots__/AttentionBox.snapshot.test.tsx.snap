@@ -4,6 +4,7 @@ exports[`AttentionBox renders correctly > renders correctly 1`] = `
 <aside
   className="attentionBox typePrimary dummy-class-name"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -60,6 +61,7 @@ exports[`AttentionBox renders correctly > renders correctly className 1`] = `
 <aside
   className="attentionBox typePrimary test-classNmae"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -116,6 +118,7 @@ exports[`AttentionBox renders correctly > renders correctly dark type 1`] = `
 <aside
   className="attentionBox typeDark"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -172,6 +175,7 @@ exports[`AttentionBox renders correctly > renders correctly when compact 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -228,6 +232,7 @@ exports[`AttentionBox renders correctly > renders correctly with empty props 1`]
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -250,6 +255,7 @@ exports[`AttentionBox renders correctly > renders correctly with empty title pro
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   
@@ -275,6 +281,7 @@ exports[`AttentionBox renders correctly > renders correctly with no icon 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -314,6 +321,7 @@ exports[`AttentionBox renders correctly > renders correctly with onClose 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -412,6 +420,7 @@ exports[`AttentionBox renders correctly > renders correctly with renderer 1`] = 
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
@@ -441,6 +450,7 @@ exports[`AttentionBox renders correctly > renders with icon font type 1`] = `
 <aside
   className="attentionBox typePrimary"
   data-testid="attention-box"
+  data-vibe="AttentionBox"
   role="alert"
 >
   <div
