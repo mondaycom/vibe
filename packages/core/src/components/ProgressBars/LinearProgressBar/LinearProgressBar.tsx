@@ -175,7 +175,7 @@ const LinearProgressBar = forwardRef(
         className={wrapperClassName}
         ref={ref}
         id={id}
-        data-testsid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
         data-vibe={ComponentVibeId.LINEAR_PROGRESS_BAR}
       >
         <div className={styles.container}>
