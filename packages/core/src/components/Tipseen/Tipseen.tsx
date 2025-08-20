@@ -108,6 +108,10 @@ export interface TipseenProps extends VibeComponentProps {
    */
   onClose?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   /**
+   * Callback fired when the Tipseen is shown.
+   */
+  onShow?: () => void;
+  /**
    * The content displayed inside the Tipseen.
    */
   content: ElementContent;
@@ -141,6 +145,7 @@ const Tipseen = forwardRef(
       hideCloseButton,
       closeButtonTheme = "light",
       onClose,
+      onShow,
       closeAriaLabel,
       children = null,
       content,
@@ -249,6 +254,7 @@ const Tipseen = forwardRef(
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           forceRenderWithoutChildren={floating}
+          onTooltipShow={onShow}
         >
           {children}
         </Tooltip>
