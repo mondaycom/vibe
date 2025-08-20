@@ -88,6 +88,15 @@ This document outlines the naming conventions to be followed when developing wit
   - Example: `type UserProfile = { /* ... */ };`.
   - Example: `interface ComponentProps { /* ... */ }`.
 
+### Vibe Standard Types
+
+When working with Vibe components, always use the established standard types for common prop patterns:
+
+- **Icon Props**: Always use `SubIcon` type for any prop that accept icons.
+  - Example: `icon?: SubIcon;` instead of generic types like `ReactNode` or custom icon types.
+- **Component Props**: Extend `VibeComponentProps` for component props (to get `className`, `id`, `data-testid`).
+- **Consistent Typing**: Always check existing similar components to see what Vibe standard types they use before creating custom types.
+
 ### CSS Class Names
 
 - CSS class names within `.module.scss` files MUST use `camelCase`.
