@@ -69,6 +69,10 @@ export interface LinkProps extends VibeComponentProps {
   inlineText?: boolean;
   /** The link's color style */
   color?: LinkColor;
+  /**
+   * Inline style object applied to the link element.
+   */
+  style?: React.CSSProperties;
 }
 
 const Link = forwardRef(
@@ -91,6 +95,7 @@ const Link = forwardRef(
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
+      style,
       "data-testid": dataTestId
     }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>
@@ -116,6 +121,7 @@ const Link = forwardRef(
         ref={ref}
         onClick={onClickWrapper}
         target={target}
+        style={style}
         className={cx(styles.link, className, getStyle(styles, camelCase("color-" + color)), {
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
