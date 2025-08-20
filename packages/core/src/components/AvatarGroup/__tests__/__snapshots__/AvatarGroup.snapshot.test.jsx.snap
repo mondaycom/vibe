@@ -3,10 +3,12 @@
 exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -66,6 +68,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -90,10 +93,12 @@ exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
 exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabel default-tooltip 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -162,6 +167,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabe
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -186,10 +192,12 @@ exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabe
 exports[`AvatarGroup renders correctly > renders correctly with counter default-tooltip 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -257,6 +265,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter default-
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -281,10 +290,12 @@ exports[`AvatarGroup renders correctly > renders correctly with counter default-
 exports[`AvatarGroup renders correctly > renders correctly with custom counter tooltip 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -344,6 +355,7 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter t
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -368,10 +380,12 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter t
 exports[`AvatarGroup renders correctly > renders correctly with custom counter value 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -407,6 +421,7 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter v
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -445,10 +460,12 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter v
 exports[`AvatarGroup renders correctly > renders correctly with dummy class name 1`] = `
 <div
   className="avatarGroupContainer dummy-class-name"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -487,10 +504,12 @@ exports[`AvatarGroup renders correctly > renders correctly with dummy class name
 exports[`AvatarGroup renders correctly > renders correctly with large size 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -550,6 +569,7 @@ exports[`AvatarGroup renders correctly > renders correctly with large size 1`] =
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -574,10 +594,12 @@ exports[`AvatarGroup renders correctly > renders correctly with large size 1`] =
 exports[`AvatarGroup renders correctly > renders correctly with xs size 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar xs avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -637,6 +659,7 @@ exports[`AvatarGroup renders correctly > renders correctly with xs size 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -661,10 +684,12 @@ exports[`AvatarGroup renders correctly > renders correctly with xs size 1`] = `
 exports[`AvatarGroup renders correctly > renders correctly without counter 1`] = `
 <div
   className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
 >
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -700,6 +725,7 @@ exports[`AvatarGroup renders correctly > renders correctly without counter 1`] =
   <div
     className="avatar large avatarContainer"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div

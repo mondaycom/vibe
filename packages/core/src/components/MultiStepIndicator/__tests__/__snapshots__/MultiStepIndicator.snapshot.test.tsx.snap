@@ -77,6 +77,7 @@ exports[`MultiStepIndicator renders correctly > with className 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
@@ -134,6 +135,7 @@ exports[`MultiStepIndicator renders correctly > with className 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
@@ -268,6 +270,7 @@ exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1
   <div
     className="divider divider test horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
@@ -325,6 +328,7 @@ exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1
   <div
     className="divider divider test horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
@@ -466,6 +470,7 @@ exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
@@ -523,6 +528,7 @@ exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
@@ -641,6 +647,7 @@ exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumbe
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
@@ -698,6 +705,7 @@ exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumbe
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
@@ -827,6 +835,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
   <div
     className="divider divider compact horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeCompact clickable disableTextSelection"
@@ -879,6 +888,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
   <div
     className="divider divider compact horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeCompact clickable disableTextSelection"
@@ -980,6 +990,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact textPlacement 
       <div
         className="divider divider divider horizontal"
         data-testid="divider"
+        data-vibe="Divider"
       />
     </div>
     <div
@@ -1037,6 +1048,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact textPlacement 
       <div
         className="divider divider divider horizontal"
         data-testid="divider"
+        data-vibe="Divider"
       />
     </div>
     <div
@@ -1199,6 +1211,7 @@ exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] 
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular test clickable disableTextSelection"
@@ -1256,6 +1269,7 @@ exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] 
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular test clickable disableTextSelection"
@@ -1390,6 +1404,7 @@ exports[`MultiStepIndicator renders correctly > with steps 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
@@ -1447,6 +1462,7 @@ exports[`MultiStepIndicator renders correctly > with steps 1`] = `
   <div
     className="divider divider horizontal"
     data-testid="divider"
+    data-vibe="Divider"
   />
   <li
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
@@ -1553,6 +1569,7 @@ exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] 
       <div
         className="divider divider divider horizontal"
         data-testid="divider"
+        data-vibe="Divider"
       />
     </div>
     <div
@@ -1610,6 +1627,7 @@ exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] 
       <div
         className="divider divider divider horizontal"
         data-testid="divider"
+        data-vibe="Divider"
       />
     </div>
     <div

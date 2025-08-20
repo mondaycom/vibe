@@ -3,7 +3,7 @@ import cx from "classnames";
 import { camelCase } from "lodash-es";
 import useMergeRef from "../../hooks/useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import {
   BadgeAlignments as BadgeAlignmentsEnum,
   BadgeAnchor as BadgeAnchorEnum,
@@ -74,7 +74,7 @@ const Badge = forwardRef(
     const color = badgeProps.color || type === "indicator" ? "notification" : "negative";
 
     return (
-      <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id}>
+      <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id} data-vibe={ComponentVibeId.BADGE}>
         {children}
         <div className={badgeClassNames} data-testid={dataTestId || getTestId(ComponentDefaultTestId.BADGE, id)}>
           {type === "indicator" ? (

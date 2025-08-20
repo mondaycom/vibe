@@ -27,6 +27,7 @@ import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
 import type IconButton from "../IconButton/IconButton";
 import type MenuButton from "../MenuButton/MenuButton";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ComboboxProps extends VibeComponentProps {
   /**
@@ -367,6 +368,7 @@ const Combobox = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
         ellipsis={false}
+        data-vibe={ComponentVibeId.COMBOBOX}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search

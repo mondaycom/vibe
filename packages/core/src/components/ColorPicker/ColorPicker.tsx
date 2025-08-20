@@ -135,6 +135,7 @@ const ColorPicker = forwardRef(
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}
+        data-vibe={ComponentVibeId.COLOR_PICKER}
       >
         <ColorPickerContent
           onValueChange={onChange}
@@ -156,7 +157,6 @@ const ColorPicker = forwardRef(
           showColorNameTooltip={showColorNameTooltip}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
-          data-vibe={ComponentVibeId.COLOR_PICKER}
         />
       </DialogContentContainer>
     );

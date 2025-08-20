@@ -3,6 +3,7 @@
 exports[`ExpandCollapse > renders correctly with empty props 1`] = `
 <div
   data-testid="expand-collapse"
+  data-vibe="ExpandCollapse"
   id=""
 >
   <div

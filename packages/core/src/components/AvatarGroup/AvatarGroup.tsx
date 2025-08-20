@@ -8,6 +8,7 @@ import { avatarOnClick } from "./AvatarGroupHelper";
 import { type TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./AvatarGroup.module.scss";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface AvatarGroupProps extends VibeComponentProps {
   /**
@@ -87,7 +88,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id} data-vibe={ComponentVibeId.AVATAR_GROUP}>
       {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
