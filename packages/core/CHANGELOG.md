@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.61.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.60.0...@vibe/core@3.61.0) (2025-08-20)
+
+
+### Features
+
+* IME support for EditableHeading, EditableText ([#3052](https://github.com/mondaycom/vibe/issues/3052)) ([7074f42](https://github.com/mondaycom/vibe/commit/7074f42e983e377ee1f1f0aa6b88178920fe08fb))
+* **Link:** add `style` prop for inline styling ([#3063](https://github.com/mondaycom/vibe/issues/3063)) ([48df2c5](https://github.com/mondaycom/vibe/commit/48df2c5afd3a647718e3c7025b29fe5da3724c5c))
+* **Tipseen:** add onShow event ([#3064](https://github.com/mondaycom/vibe/issues/3064)) ([d5954e7](https://github.com/mondaycom/vibe/commit/d5954e75cb79e37f65dbb02e88ad2415683792e9))
+
+
+### Reverts
+
+* "feat(Tipseen): add onShow event" ([#3065](https://github.com/mondaycom/vibe/issues/3065)) ([2df6c8b](https://github.com/mondaycom/vibe/commit/2df6c8b70c21fbcc1c55aee052b6c9eecdcde306))
+
+
+
+
+
 # [3.60.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.59.0...@vibe/core@3.60.0) (2025-08-14)
 
 
