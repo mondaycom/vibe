@@ -14,17 +14,17 @@
   "author": "monday.com",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/Icon/index.js",
+  "types": "dist/Icon/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/Icon/index.d.ts",
+      "import": "./dist/Icon/index.js",
+      "default": "./dist/Icon/index.js"
     }
   },
   "scripts": {
