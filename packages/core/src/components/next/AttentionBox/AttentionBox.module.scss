@@ -1,0 +1,45 @@
+@keyframes attentionBoxAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attention {
+  width: 100%;
+  border-radius: var(--border-radius-medium);
+  padding: var(--space-12) var(--space-16);
+  position: relative;
+  overflow: hidden;
+
+  &.animate {
+    animation: attentionBoxAnimation 200ms var(--motion-timing-transition);
+  }
+
+  &.primary {
+    background-color: var(--primary-selected-color);
+  }
+
+  &.positive {
+    background-color: var(--positive-color-selected);
+  }
+
+  &.negative {
+    background-color: var(--negative-color-selected);
+  }
+
+  &.warning {
+    background-color: var(--warning-color-selected);
+  }
+
+  &.neutral {
+    background-color: var(--allgrey-background-color);
+  }
+}
