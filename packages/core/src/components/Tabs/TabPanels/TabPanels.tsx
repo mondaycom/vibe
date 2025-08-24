@@ -9,6 +9,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
+import { getPanelId, getTabIdFromPanel } from "../utils/idUtils";
 
 export interface TabPanelsProps extends VibeComponentProps {
   /**
@@ -38,12 +39,8 @@ const TabPanels = forwardRef(
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
 
-        // Use existing panel ID if provided, otherwise generate fallback based on component id or a shared default
-        const actualPanelId = child.props.id || `${id || "tab-list"}-panel-${index}`;
-
-        // Generate corresponding tab ID by replacing "-panel-" with "-tab-" in panel ID
-        // This should match the logic in TabList
-        const correspondingTabId = actualPanelId.replace(/-panel-/, "-tab-");
+        const actualPanelId = getPanelId(child.props.id, id, index);
+        const correspondingTabId = getTabIdFromPanel(actualPanelId, id, index);
 
         return React.cloneElement(child, {
           index,

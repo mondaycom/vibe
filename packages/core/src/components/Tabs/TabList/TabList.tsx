@@ -19,6 +19,7 @@ import { type TabProps } from "../Tab/Tab";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./TabList.module.scss";
+import { getPanelId, getTabId } from "../utils/idUtils";
 
 export interface TabListProps extends VibeComponentProps {
   /**
@@ -138,9 +139,8 @@ const TabList: FC<TabListProps> = forwardRef(
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
         const isActive = activeTabState === index;
-        const actualTabId = child.props.id || `${id || "tab-list"}-tab-${index}`;
-        // Generate panel ID using the same base logic (without relying on string replacement)
-        const panelId = `${id || "tab-list"}-panel-${index}`;
+        const actualTabId = getTabId(child.props.id, id, index);
+        const panelId = getPanelId(undefined, id, index);
         const labelId = `label-${actualTabId}`;
 
         const shouldBeFocusable = focusIndex !== undefined && focusIndex >= 0 ? focusIndex === index : isActive;
