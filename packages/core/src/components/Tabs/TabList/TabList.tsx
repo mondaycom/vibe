@@ -80,7 +80,11 @@ const TabList: FC<TabListProps> = forwardRef(
 
     // Focus management: when activeTabState changes, focus the active tab
     useEffect(() => {
-      if (prevActiveTabState !== activeTabState && tabRefs.current[activeTabState]) {
+      if (
+        prevActiveTabState !== undefined &&
+        prevActiveTabState !== activeTabState &&
+        tabRefs.current[activeTabState]
+      ) {
         tabRefs.current[activeTabState]?.focus();
       }
     }, [activeTabState, prevActiveTabState]);
