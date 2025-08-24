@@ -18,6 +18,7 @@ import {
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface AttentionBoxProps extends VibeComponentProps {
   // TODO: [breaking] remove prop
@@ -102,6 +103,7 @@ const AttentionBox = ({
       })}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
+      data-vibe={ComponentVibeId.ATTENTION_BOX}
     >
       {title && (
         <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">

@@ -4,6 +4,7 @@ exports[`Combobox renders correctly > when disabled 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -63,6 +64,7 @@ exports[`Combobox renders correctly > with another noResultsMessage 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -122,6 +124,7 @@ exports[`Combobox renders correctly > with autoFocus 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -181,6 +184,7 @@ exports[`Combobox renders correctly > with className 1`] = `
 <div
   className="typography primary start text text2Normal combobox test sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -240,6 +244,7 @@ exports[`Combobox renders correctly > with custom search icon 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -299,6 +304,7 @@ exports[`Combobox renders correctly > with divider 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -410,6 +416,7 @@ exports[`Combobox renders correctly > with divider 1`] = `
           <div
             className="divider divider horizontal"
             data-testid="divider"
+            data-vibe="Divider"
           />
         </div>
       </div>
@@ -462,6 +469,7 @@ exports[`Combobox renders correctly > with divider and colored categories 1`] = 
 <div
   className="typography primary start text text2Normal combobox sizeMedium"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -578,6 +586,7 @@ exports[`Combobox renders correctly > with divider and colored categories 1`] = 
           <div
             className="divider divider horizontal"
             data-testid="divider"
+            data-vibe="Divider"
           />
         </div>
       </div>
@@ -635,6 +644,7 @@ exports[`Combobox renders correctly > with empty props 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -694,6 +704,7 @@ exports[`Combobox renders correctly > with id 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox_test"
+  data-vibe="Combobox"
   id="test"
 >
   <div
@@ -753,6 +764,7 @@ exports[`Combobox renders correctly > with loading 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -840,6 +852,7 @@ exports[`Combobox renders correctly > with optionClassName 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -899,6 +912,7 @@ exports[`Combobox renders correctly > with optionLineHeight 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -958,6 +972,7 @@ exports[`Combobox renders correctly > with optionRenderer 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -1076,6 +1091,7 @@ exports[`Combobox renders correctly > with optionsListHeight 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -1135,6 +1151,7 @@ exports[`Combobox renders correctly > with placeholder 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div
@@ -1194,6 +1211,7 @@ exports[`Combobox renders correctly > with size 1`] = `
 <div
   className="typography primary start text text2Normal combobox sizeLarge empty"
   data-testid="combobox"
+  data-vibe="Combobox"
   id=""
 >
   <div

@@ -9,7 +9,7 @@ import { NOOP } from "../../utils/function-utils";
 import { type AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { type AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { type AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
@@ -108,6 +108,7 @@ const AlertBanner = forwardRef(
         aria-label={ariaLabel || "banner"}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
+        data-vibe={ComponentVibeId.ALERT_BANNER}
       >
         <AlertBannerContext.Provider value={{ textColor }}>
           <div className={cx(styles.content)}>

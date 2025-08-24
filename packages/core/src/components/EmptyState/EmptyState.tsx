@@ -9,6 +9,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Button, type ButtonProps } from "../Button";
 import { Link, type LinkProps } from "../Link";
+import { ComponentVibeId } from "../../tests/constants";
+
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {
@@ -35,6 +37,7 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
         className={cx(styles.emptyState, getStyle(styles, layout), className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EMPTY_STATE, id)}
+        data-vibe={ComponentVibeId.EMPTY_STATE}
         ref={ref}
       >
         {!!visual && visual}

@@ -6,6 +6,7 @@ import { type DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Divider.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface DividerProps extends VibeComponentProps {
   /**
@@ -29,6 +30,7 @@ const Divider = ({
     <div
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
+      data-vibe={ComponentVibeId.DIVIDER}
       className={cx(styles.divider, className, getStyle(styles, direction), {
         [styles.withoutMargin]: withoutMargin
       })}

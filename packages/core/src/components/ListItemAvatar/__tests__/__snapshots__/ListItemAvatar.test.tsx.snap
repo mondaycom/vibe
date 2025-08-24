@@ -8,6 +8,7 @@ exports[`renders correctly with empty props 1`] = `
   <div
     className="avatar small avatar"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div
@@ -37,6 +38,7 @@ exports[`renders correctly with picture 1`] = `
   <div
     className="avatar small avatar"
     data-testid="avatar"
+    data-vibe="Avatar"
     style={{}}
   >
     <div

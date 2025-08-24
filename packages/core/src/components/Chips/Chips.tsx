@@ -17,6 +17,7 @@ import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticP
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 const CHIPS_AVATAR_SIZE = 18;
 
@@ -256,7 +257,7 @@ const Chips = forwardRef(
     const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
-      <div {...wrapperProps}>
+      <div {...wrapperProps} data-vibe={ComponentVibeId.CHIPS}>
         {leftAvatar ? (
           <Avatar
             withoutBorder

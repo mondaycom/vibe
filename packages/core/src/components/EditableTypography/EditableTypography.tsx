@@ -168,6 +168,10 @@ const EditableTypography = forwardRef(
     }
 
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) {
+      if (event.nativeEvent.isComposing) {
+        return;
+      }
+
       if (event.key === keyCodes.ENTER) {
         if (multiline && event.shiftKey) {
           return;

@@ -15,6 +15,7 @@ import {
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Counter.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface CounterProps extends VibeComponentProps {
   /**
@@ -139,6 +140,7 @@ const Counter = ({
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
+      data-vibe={ComponentVibeId.COUNTER}
     >
       <div className={classNames} aria-label={countText} ref={ref}>
         {noAnimation ? (

@@ -5,6 +5,7 @@ exports[`SplitButtonMenu > renders correctly 1`] = `
   aria-label="Menu"
   className="menu medium"
   data-testid="menu_menu"
+  data-vibe="Menu"
   id="menu"
   onBlur={[Function]}
   onFocus={[Function]}

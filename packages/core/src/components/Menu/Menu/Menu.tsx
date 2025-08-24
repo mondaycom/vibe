@@ -16,7 +16,7 @@ import { type ElementContent, type VibeComponentProps, withStaticProps } from ".
 import { type CloseMenuOption, type MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { useFocusOnMount } from "./hooks/useFocusOnMount";
 import { useMenuId } from "./hooks/useMenuId";
 import { generateMenuItemId } from "./utils/utils";
@@ -222,6 +222,7 @@ const Menu = forwardRef(
         onBlur={focusWithinProps?.onBlur}
         id={overrideId}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU, id)}
+        data-vibe={ComponentVibeId.MENU}
         className={cx(styles.menu, getStyle(styles, size), className)}
         ref={mergedRef}
         tabIndex={tabIndex}

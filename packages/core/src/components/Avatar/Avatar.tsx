@@ -14,6 +14,7 @@ import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Avatar.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface AvatarProps extends VibeComponentProps {
   /**
@@ -220,6 +221,7 @@ const Avatar = ({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR, id)}
       className={cx(styles.avatar, styles[size], className)}
       style={sizeStyle}
+      data-vibe={ComponentVibeId.AVATAR}
     >
       <ClickableWrapper
         isClickable={!!onClick}
