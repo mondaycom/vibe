@@ -46,7 +46,6 @@ export interface TabListProps extends VibeComponentProps {
    */
   children?: ReactElement<TabProps>[];
 }
-
 const TabList: FC<TabListProps> = forwardRef(
   (
     {
@@ -64,17 +63,27 @@ const TabList: FC<TabListProps> = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const tabRefs = useRef<Record<number, HTMLElement | null>>({});
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
 
     const prevActiveTabIdProp = usePrevious(activeTabId);
+    const prevActiveTabState = usePrevious(activeTabState);
 
     useEffect(() => {
       // Update active tab if changed from props
+
       if (activeTabId !== prevActiveTabIdProp && activeTabId !== activeTabState) {
         setActiveTabState(activeTabId);
       }
     }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
+
+    // Focus management: when activeTabState changes, focus the active tab
+    useEffect(() => {
+      if (prevActiveTabState !== activeTabState && tabRefs.current[activeTabState]) {
+        tabRefs.current[activeTabState]?.focus();
+      }
+    }, [activeTabState, prevActiveTabState]);
 
     const disabledTabIds = useMemo(() => {
       const disabledIds = new Set<number>();
@@ -85,7 +94,6 @@ const TabList: FC<TabListProps> = forwardRef(
       });
       return disabledIds;
     }, [children]);
-
     const onTabSelect = useCallback(
       (tabId: number) => {
         if (disabledTabIds.has(tabId)) return;
@@ -94,7 +102,6 @@ const TabList: FC<TabListProps> = forwardRef(
       },
       [onTabChange, disabledTabIds]
     );
-
     const onTabClick = useCallback(
       (value: HTMLElement | void, tabId: number) => {
         const tabCallbackFunc = children[tabId].props?.onClick;
@@ -104,7 +111,6 @@ const TabList: FC<TabListProps> = forwardRef(
       },
       [children, disabledTabIds, onTabSelect]
     );
-
     const getItemByIndex = useCallback((index: number): ReactElement<TabProps> => children[index], [children]);
     const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
     const ulRef = useRef();
@@ -118,20 +124,36 @@ const TabList: FC<TabListProps> = forwardRef(
       circularNavigation: true
     });
 
+    // Focus management: when focusIndex changes during keyboard navigation, focus the focused tab
+    const prevFocusIndex = usePrevious(focusIndex);
+    useEffect(() => {
+      if (focusIndex !== undefined && focusIndex >= 0 && prevFocusIndex !== focusIndex && tabRefs.current[focusIndex]) {
+        tabRefs.current[focusIndex]?.focus();
+      }
+    }, [focusIndex, prevFocusIndex]);
+
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
+        const isActive = activeTabState === index;
+
+        const shouldBeFocusable = focusIndex !== undefined && focusIndex >= 0 ? focusIndex === index : isActive;
+
         return React.cloneElement(child, {
           value: index,
-          active: activeTabState === index,
+          active: isActive,
           focus: focusIndex === index,
           onClick: onSelectionAction,
           stretchedUnderline,
           className: cx(styles.tabListTabWrapper, child.props.className),
-          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
-        });
+          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
+          tabIndex: shouldBeFocusable ? 0 : -1,
+          ref: (element: HTMLElement | null) => {
+            tabRefs.current[index] = element;
+          }
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string });
       });
       return childrenToRender;
-    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline]);
+    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, id]);
 
     return (
       <div
@@ -142,14 +164,13 @@ const TabList: FC<TabListProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
-        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
+        <ul ref={ulRef} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
       </div>
     );
   }
 );
-
 Object.assign(TabList, {
   isTabList: true
 });
