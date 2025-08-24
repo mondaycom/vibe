@@ -39,8 +39,8 @@ const TabPanels = forwardRef(
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
 
-        const actualPanelId = getPanelId(child.props.id, id, index);
-        const correspondingTabId = getTabIdFromPanel(actualPanelId, id, index);
+        const actualPanelId = getPanelId(child.props.id);
+        const correspondingTabId = getTabIdFromPanel(actualPanelId);
 
         return React.cloneElement(child, {
           index,

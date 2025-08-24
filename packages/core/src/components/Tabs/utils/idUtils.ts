@@ -1,25 +1,25 @@
-export function getBaseId(containerId?: string): string {
-  return containerId || "tab-list";
+export function getBaseId(containerId?: string): string | undefined {
+  return containerId;
 }
 
-export function getTabId(childId: string | undefined, containerId: string | undefined, index: number): string {
-  return childId || `${getBaseId(containerId)}-tab-${index}`;
+export function getTabId(childId: string | undefined): string | undefined {
+  return childId;
 }
 
-export function getPanelId(childId: string | undefined, containerId: string | undefined, index: number): string {
-  return childId || `${getBaseId(containerId)}-panel-${index}`;
+export function getPanelId(childId: string | undefined): string | undefined {
+  return childId;
 }
 
-export function getPanelIdFromTab(tabId: string, containerId: string | undefined, index: number): string {
-  if (/-tab-/.test(tabId)) {
+export function getPanelIdFromTab(tabId: string | undefined): string | undefined {
+  if (tabId && /-tab-/.test(tabId)) {
     return tabId.replace(/-tab-/, "-panel-");
   }
-  return `${getBaseId(containerId)}-panel-${index}`;
+  return undefined;
 }
 
-export function getTabIdFromPanel(panelId: string, containerId: string | undefined, index: number): string {
-  if (/-panel-/.test(panelId)) {
+export function getTabIdFromPanel(panelId: string | undefined): string | undefined {
+  if (panelId && /-panel-/.test(panelId)) {
     return panelId.replace(/-panel-/, "-tab-");
   }
-  return `${getBaseId(containerId)}-tab-${index}`;
+  return undefined;
 }
