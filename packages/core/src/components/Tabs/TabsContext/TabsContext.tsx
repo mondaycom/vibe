@@ -64,8 +64,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
             return React.cloneElement(child, {
               activeTabId: activeTabIdState,
-              animationDirection,
-              baseId: id
+              animationDirection
             });
           }
           return child;

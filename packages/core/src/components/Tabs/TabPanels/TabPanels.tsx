@@ -23,23 +23,11 @@ export interface TabPanelsProps extends VibeComponentProps {
    * The child elements representing tab panels.
    */
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
-  /**
-   * Base ID for generating tab and panel IDs for accessibility relationships.
-   */
-  baseId?: string;
 }
 
 const TabPanels = forwardRef(
   (
-    {
-      className,
-      id,
-      activeTabId = 0,
-      animationDirection = "rtl",
-      children,
-      "data-testid": dataTestId,
-      baseId
-    }: TabPanelsProps,
+    { className, id, activeTabId = 0, animationDirection = "rtl", children, "data-testid": dataTestId }: TabPanelsProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
@@ -50,8 +38,8 @@ const TabPanels = forwardRef(
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
 
-        // Use existing panel ID if provided, otherwise generate fallback
-        const actualPanelId = child.props.id || `${baseId || id || "tab-list"}-panel-${index}`;
+        // Use existing panel ID if provided, otherwise generate fallback based on component id or a shared default
+        const actualPanelId = child.props.id || `${id || "tab-list"}-panel-${index}`;
 
         // Generate corresponding tab ID by replacing "-panel-" with "-tab-" in panel ID
         // This should match the logic in TabList
@@ -67,11 +55,10 @@ const TabPanels = forwardRef(
             child.props.className
           ),
           id: actualPanelId,
-          "aria-labelledby": correspondingTabId,
-          hidden: !isActiveTab
+          "aria-labelledby": correspondingTabId
         });
       });
-    }, [children, activeTabId, animationDirection, baseId, id]);
+    }, [children, activeTabId, animationDirection, id]);
 
     return (
       <div
