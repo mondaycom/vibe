@@ -45,14 +45,6 @@ export interface TabListProps extends VibeComponentProps {
    * The child elements representing tabs.
    */
   children?: ReactElement<TabProps>[];
-  /**
-   * Accessible label for the tab list. Either provide this or aria-labelledby.
-   */
-  "aria-label"?: string;
-  /**
-   * ID of element that labels the tab list. Either provide this or aria-label.
-   */
-  "aria-labelledby"?: string;
 }
 
 const TabList: FC<TabListProps> = forwardRef(
@@ -66,9 +58,7 @@ const TabList: FC<TabListProps> = forwardRef(
       size,
       stretchedUnderline = false,
       children,
-      "data-testid": dataTestId,
-      "aria-label": ariaLabel,
-      "aria-labelledby": ariaLabelledby
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -189,13 +179,7 @@ const TabList: FC<TabListProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
-        <ul
-          ref={ulRef}
-          className={cx(styles.tabsList, [getStyle(styles, size)])}
-          role="tablist"
-          aria-label={ariaLabel}
-          aria-labelledby={ariaLabelledby}
-        >
+        <ul ref={ulRef} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
       </div>
