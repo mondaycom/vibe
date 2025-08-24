@@ -138,15 +138,11 @@ const TabList: FC<TabListProps> = forwardRef(
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
         const isActive = activeTabState === index;
-        // Use the actual tab ID from props, or generate one based on index as fallback
         const actualTabId = child.props.id || `${id || "tab-list"}-tab-${index}`;
-        // Generate panel ID by replacing "-tab-" with "-panel-" in tab ID
-        const panelId = actualTabId.replace(/-tab-/, "-panel-");
-        // Generate label ID for the inner content div
+        // Generate panel ID using the same base logic (without relying on string replacement)
+        const panelId = `${id || "tab-list"}-panel-${index}`;
         const labelId = `label-${actualTabId}`;
 
-        // Determine which tab should be focusable (tabIndex="0")
-        // Priority: 1) Currently focused tab during keyboard navigation 2) Active tab as fallback
         const shouldBeFocusable = focusIndex !== undefined && focusIndex >= 0 ? focusIndex === index : isActive;
 
         return React.cloneElement(child, {
@@ -161,7 +157,7 @@ const TabList: FC<TabListProps> = forwardRef(
           "aria-controls": panelId,
           "aria-labelledby": labelId,
           id: actualTabId,
-          tabInnerLabelId: labelId, // Pass this to Tab component for inner div ID
+          tabInnerLabelId: labelId,
           ref: (element: HTMLElement | null) => {
             tabRefs.current[index] = element;
           }
