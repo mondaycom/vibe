@@ -10,6 +10,13 @@ export function getPanelId(childId: string | undefined, containerId: string | un
   return childId || `${getBaseId(containerId)}-panel-${index}`;
 }
 
+export function getPanelIdFromTab(tabId: string, containerId: string | undefined, index: number): string {
+  if (/-tab-/.test(tabId)) {
+    return tabId.replace(/-tab-/, "-panel-");
+  }
+  return `${getBaseId(containerId)}-panel-${index}`;
+}
+
 export function getTabIdFromPanel(panelId: string, containerId: string | undefined, index: number): string {
   if (/-panel-/.test(panelId)) {
     return panelId.replace(/-panel-/, "-tab-");
