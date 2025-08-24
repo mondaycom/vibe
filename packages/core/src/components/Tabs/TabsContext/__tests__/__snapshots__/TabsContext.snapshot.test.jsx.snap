@@ -11,36 +11,45 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
+        aria-controls="tab-list-panel-0"
         aria-disabled={false}
+        aria-labelledby="label-tab-list-tab-0"
         aria-selected={false}
         className="tabWrapper tabListTabWrapper"
-        data-testid="tab"
+        data-testid="tab_tab-list-tab-0"
         data-vibe="Tab"
+        id="tab-list-tab-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={-1}
       >
         <div
           className="tabInner tabListTabInner"
+          id="label-tab-list-tab-0"
         >
           First
         </div>
       </li>
       <li
+        aria-controls="tab-list-panel-1"
         aria-disabled={false}
+        aria-labelledby="label-tab-list-tab-1"
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
-        data-testid="tab"
+        data-testid="tab_tab-list-tab-1"
         data-vibe="Tab"
+        id="tab-list-tab-1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
+          id="label-tab-list-tab-1"
         >
           Second
         </div>
@@ -52,8 +61,19 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
     data-testid="tab-panels"
   >
     <div
+      aria-labelledby="tab-list-tab-0"
+      className="tabPanelWrapper tabPanel non-active"
+      data-testid="tab-panel_tab-list-panel-0"
+      id="tab-list-panel-0"
+      role="tabpanel"
+    >
+      First slide
+    </div>
+    <div
+      aria-labelledby="tab-list-tab-1"
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
-      data-testid="tab-panel"
+      data-testid="tab-panel_tab-list-panel-1"
+      id="tab-list-panel-1"
       role="tabpanel"
     >
       Second slide
@@ -74,20 +94,24 @@ exports[`TabsContext renders correctly > with className 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
+        aria-controls="tab-list-panel-0"
         aria-disabled={false}
+        aria-labelledby="label-tab-list-tab-0"
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
-        data-testid="tab"
+        data-testid="tab_tab-list-tab-0"
         data-vibe="Tab"
+        id="tab-list-tab-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
+          id="label-tab-list-tab-0"
         >
           First
         </div>
@@ -99,8 +123,10 @@ exports[`TabsContext renders correctly > with className 1`] = `
     data-testid="tab-panels"
   >
     <div
+      aria-labelledby="tab-list-tab-0"
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
-      data-testid="tab-panel"
+      data-testid="tab-panel_tab-list-panel-0"
+      id="tab-list-panel-0"
       role="tabpanel"
     >
       First slide
@@ -120,20 +146,24 @@ exports[`TabsContext renders correctly > with empty props 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
+        aria-controls="tab-list-panel-0"
         aria-disabled={false}
+        aria-labelledby="label-tab-list-tab-0"
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
-        data-testid="tab"
+        data-testid="tab_tab-list-tab-0"
         data-vibe="Tab"
+        id="tab-list-tab-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
+          id="label-tab-list-tab-0"
         >
           First
         </div>
@@ -145,8 +175,10 @@ exports[`TabsContext renders correctly > with empty props 1`] = `
     data-testid="tab-panels"
   >
     <div
+      aria-labelledby="tab-list-tab-0"
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
-      data-testid="tab-panel"
+      data-testid="tab-panel_tab-list-panel-0"
+      id="tab-list-panel-0"
       role="tabpanel"
     >
       First slide
@@ -167,20 +199,24 @@ exports[`TabsContext renders correctly > with id 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
+        aria-controls="tab-list-panel-0"
         aria-disabled={false}
+        aria-labelledby="label-tab-list-tab-0"
         aria-selected={true}
         className="tabWrapper tabListTabWrapper active"
-        data-testid="tab"
+        data-testid="tab_tab-list-tab-0"
         data-vibe="Tab"
+        id="tab-list-tab-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
+          id="label-tab-list-tab-0"
         >
           First
         </div>
@@ -192,8 +228,10 @@ exports[`TabsContext renders correctly > with id 1`] = `
     data-testid="tab-panels"
   >
     <div
+      aria-labelledby="tab-list-tab-0"
       className="tabPanelWrapper tabPanel active animationDirectionRtl"
-      data-testid="tab-panel"
+      data-testid="tab-panel_tab-list-panel-0"
+      id="tab-list-panel-0"
       role="tabpanel"
     >
       First slide

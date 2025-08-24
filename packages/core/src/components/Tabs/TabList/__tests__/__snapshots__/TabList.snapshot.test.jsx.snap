@@ -8,36 +8,45 @@ exports[`TabList renders correctly > with activeTabId 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
     </li>
     <li
+      aria-controls="tab-list-panel-1"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-1"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-1"
       data-vibe="Tab"
+      id="tab-list-tab-1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-1"
       >
         Second
       </div>
@@ -54,20 +63,24 @@ exports[`TabList renders correctly > with children 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
@@ -84,20 +97,24 @@ exports[`TabList renders correctly > with className 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
@@ -115,20 +132,24 @@ exports[`TabList renders correctly > with id 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="test-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-test-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_test-tab-0"
       data-vibe="Tab"
+      id="test-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-test-tab-0"
       >
         First
       </div>
@@ -145,36 +166,45 @@ exports[`TabList renders correctly > with size 1`] = `
   <ul
     className="tabsList lg"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
     </li>
     <li
+      aria-controls="tab-list-panel-1"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-1"
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-1"
       data-vibe="Tab"
+      id="tab-list-tab-1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-1"
       >
         Second
       </div>
@@ -191,36 +221,45 @@ exports[`TabList renders correctly > with stretchedUnderline 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active stretchedUnderline"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
     </li>
     <li
+      aria-controls="tab-list-panel-1"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-1"
       aria-selected={false}
       className="tabWrapper tabListTabWrapper stretchedUnderline"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-1"
       data-vibe="Tab"
+      id="tab-list-tab-1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-1"
       >
         Second
       </div>
@@ -237,36 +276,45 @@ exports[`TabList renders correctly > with tabType 1`] = `
   <ul
     className="tabsList"
     role="tablist"
-    tabIndex={0}
   >
     <li
+      aria-controls="tab-list-panel-0"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-0"
       aria-selected={true}
       className="tabWrapper tabListTabWrapper active"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-0"
       data-vibe="Tab"
+      id="tab-list-tab-0"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-0"
       >
         First
       </div>
     </li>
     <li
+      aria-controls="tab-list-panel-1"
       aria-disabled={false}
+      aria-labelledby="label-tab-list-tab-1"
       aria-selected={false}
       className="tabWrapper tabListTabWrapper"
-      data-testid="tab"
+      data-testid="tab_tab-list-tab-1"
       data-vibe="Tab"
+      id="tab-list-tab-1"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <div
         className="tabInner tabListTabInner"
+        id="label-tab-list-tab-1"
       >
         Second
       </div>

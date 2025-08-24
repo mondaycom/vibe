@@ -14,7 +14,7 @@ export default function useEventListener({
 }): void {
   useEffect(() => {
     const refElement = ref && ref.current;
-    if (!refElement || typeof refElement.addEventListener !== "function") return;
+    if (!refElement) return;
     const listenerOptions = { capture };
 
     refElement.addEventListener(eventName, callback, listenerOptions);
