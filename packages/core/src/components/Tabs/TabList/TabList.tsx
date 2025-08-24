@@ -137,11 +137,23 @@ const TabList: FC<TabListProps> = forwardRef(
       circularNavigation: true
     });
 
+    // Focus management: when focusIndex changes during keyboard navigation, focus the focused tab
+    const prevFocusIndex = usePrevious(focusIndex);
+    useEffect(() => {
+      if (focusIndex !== undefined && focusIndex >= 0 && prevFocusIndex !== focusIndex && tabRefs.current[focusIndex]) {
+        tabRefs.current[focusIndex]?.focus();
+      }
+    }, [focusIndex, prevFocusIndex]);
+
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
         const isActive = activeTabState === index;
-        const tabId = `${id || "tab-list"}-tab-${index}`;
-        const panelId = `${id || "tab-list"}-panel-${index}`;
+        // Use the actual tab ID from props, or generate one based on index as fallback
+        const actualTabId = child.props.id || `${id || "tab-list"}-tab-${index}`;
+        // Generate panel ID by replacing "-tab-" with "-panel-" in tab ID
+        const panelId = actualTabId.replace(/-tab-/, "-panel-");
+        // Generate label ID for the inner content div
+        const labelId = `label-${actualTabId}`;
 
         // Determine which tab should be focusable (tabIndex="0")
         // Priority: 1) Currently focused tab during keyboard navigation 2) Active tab as fallback
@@ -157,11 +169,13 @@ const TabList: FC<TabListProps> = forwardRef(
           tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
           tabIndex: shouldBeFocusable ? 0 : -1,
           "aria-controls": panelId,
-          id: child.props.id || tabId,
+          "aria-labelledby": labelId,
+          id: actualTabId,
+          tabInnerLabelId: labelId, // Pass this to Tab component for inner div ID
           ref: (element: HTMLElement | null) => {
             tabRefs.current[index] = element;
           }
-        } as Partial<TabProps> & { ref: React.Ref<HTMLElement> });
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string });
       });
       return childrenToRender;
     }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, id]);

@@ -70,6 +70,10 @@ export interface TabProps extends VibeComponentProps {
    * ID of the associated tab panel for accessibility.
    */
   "aria-controls"?: string;
+  /**
+   * ID for the inner label element.
+   */
+  tabInnerLabelId?: string;
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -91,7 +95,8 @@ const Tab: FC<TabProps> = forwardRef(
       children,
       "data-testid": dataTestId,
       tabIndex,
-      "aria-controls": ariaControls
+      "aria-controls": ariaControls,
+      tabInnerLabelId
     }: TabProps,
     ref
   ) => {
@@ -144,13 +149,16 @@ const Tab: FC<TabProps> = forwardRef(
           aria-selected={active}
           aria-disabled={disabled}
           aria-controls={ariaControls}
+          aria-labelledby={tabInnerLabelId}
           tabIndex={tabIndex}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
           onClick={() => !disabled && onClick(value)}
           onKeyDown={handleKeyDown}
         >
-          <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
+          <div className={cx(styles.tabInner, tabInnerClassName)} id={tabInnerLabelId}>
+            {renderIconAndChildren()}
+          </div>
         </li>
       </Tooltip>
     );

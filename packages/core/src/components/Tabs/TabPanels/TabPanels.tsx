@@ -49,8 +49,13 @@ const TabPanels = forwardRef(
         const isActiveTab = activeTabId === index;
         const activeClass = isActiveTab ? "active" : "non-active";
         const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
-        const tabId = `${baseId || id || "tab-list"}-tab-${index}`;
-        const panelId = `${baseId || id || "tab-list"}-panel-${index}`;
+
+        // Use existing panel ID if provided, otherwise generate fallback
+        const actualPanelId = child.props.id || `${baseId || id || "tab-list"}-panel-${index}`;
+
+        // Generate corresponding tab ID by replacing "-panel-" with "-tab-" in panel ID
+        // This should match the logic in TabList
+        const correspondingTabId = actualPanelId.replace(/-panel-/, "-tab-");
 
         return React.cloneElement(child, {
           index,
@@ -61,8 +66,8 @@ const TabPanels = forwardRef(
             [getStyle(styles, camelCase(animationClass))],
             child.props.className
           ),
-          id: child.props.id || panelId,
-          "aria-labelledby": tabId,
+          id: actualPanelId,
+          "aria-labelledby": correspondingTabId,
           hidden: !isActiveTab
         });
       });
