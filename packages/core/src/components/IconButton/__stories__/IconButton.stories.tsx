@@ -7,7 +7,7 @@ import Button from "../../Button/Button";
 import person1 from "./assets/person1.png";
 import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Avatar from "../../Avatar/Avatar";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { Box } from "../../Box";

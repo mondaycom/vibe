@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "@vibe/icons";
 
-vi.mock("../../Icon/Icon", () => ({
+vi.mock("@vibe/icon", () => ({
   default: ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>
 }));
 vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({

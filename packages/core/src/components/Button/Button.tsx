@@ -5,7 +5,7 @@ import cx from "classnames";
 import { SIZES } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
-import Icon from "../../components/Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import Loader from "../../components/Loader/Loader";
 import {
   BUTTON_ICON_SIZE,
@@ -17,7 +17,7 @@ import {
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";

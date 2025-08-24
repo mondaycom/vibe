@@ -3,7 +3,7 @@ import React from "react";
 import { Sound } from "@vibe/icons";
 import { renderSliderForSnapshots } from "./sliderTestUtils.jsx";
 
-vi.mock("../../Icon/Icon", () => ({
+vi.mock("@vibe/icon", () => ({
   default: ({ icon, ...rest }) => {
     return <div data-testid="mock-icon">{JSON.stringify({ ...rest, icon: icon && icon.displayName })}</div>;
   }

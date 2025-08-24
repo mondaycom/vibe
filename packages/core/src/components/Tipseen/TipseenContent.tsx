@@ -10,7 +10,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
-import { type SubIcon } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 
 export interface TipseenContentProps extends VibeComponentProps {
   /**

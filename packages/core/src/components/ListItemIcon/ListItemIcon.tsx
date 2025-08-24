@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import Icon from "../Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 import { type ListItemIconMargin } from "./ListItemIcon.types";

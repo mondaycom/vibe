@@ -1,5 +1,6 @@
 import type React from "react";
-import { type SubIcon, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 import { type InputSize } from "../BaseInput";
 import type IconButton from "../IconButton/IconButton";
 import type MenuButton from "../MenuButton/MenuButton";

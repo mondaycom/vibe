@@ -8,7 +8,7 @@ import {
   ComponentVibeId,
   useMergeRef
 } from "@vibe/shared";
-import { IconType as IconTypeEnum } from "./constants";
+import { IconTypeEnum } from "./constants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";

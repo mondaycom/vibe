@@ -28,7 +28,7 @@ export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
 export * from "./Heading";
 export * from "./HiddenText";
-export * from "./Icon";
+export * from "@vibe/icon";
 export * from "./IconButton";
 export * from "./Label";
 export * from "./LayerProvider";

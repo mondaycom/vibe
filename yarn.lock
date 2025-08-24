@@ -6225,6 +6225,11 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
+"@vibe/icons@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.npmjs.org/@vibe/icons/-/icons-1.10.0.tgz#da01a5a030caf0fcf1310b307b3b9cd94acfa3bd"
+  integrity sha512-stPUR1ftN8sMgRtO0IzInqgfWEi2PDhI2OBLyyZpWQS+cKCWE+hNKAHGy/wAGIJ54GNdWTPLKml+GP2vOxX2aQ==
+
 "@vitejs/plugin-react@^4.3.1":
   version "4.5.2"
   resolved "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.5.2.tgz#8b98a8fbcefff4aa4c946966fbec560dc66d2bd9"

@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import { isNil, noop as NOOP } from "lodash-es";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";

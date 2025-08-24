@@ -12,7 +12,7 @@ import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({

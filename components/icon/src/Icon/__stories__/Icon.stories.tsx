@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Icon from "../Icon";
 import { Bolt } from "@vibe/icons";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "@vibe/shared";
 import { createComponentTemplate } from "vibe-storybook-components";
-import Search from "../../Search/Search";
+// import Search from "../../Search/Search";
 import * as allIcons from "@vibe/icons";
-import Flex from "../../Flex/Flex";
+// import Flex from "../../Flex/Flex";
 import iconsMetaData from "@vibe/icons/meta";
 import { type SubIcon } from "../types";
 
@@ -95,7 +95,7 @@ export const IconsListStory = {
     const [query, setQuery] = useState("");
     return (
       <section style={{ width: "100%" }}>
-        <Search value={query} onChange={setQuery} placeholder="Search for icons" />
+        {/* <Search value={query} onChange={setQuery} placeholder="Search for icons" /> */}
         <div
           style={{
             display: "grid",
@@ -113,10 +113,10 @@ export const IconsListStory = {
               const Component = allIcons[fileName as keyof typeof allIcons] as SubIcon;
               return (
                 <>
-                  <Flex style={{ color: "var(--sb-icon-color)" }} gap="small">
-                    <Icon icon={Component} iconSize={26} />
-                    <span>{icon.name}</span>
-                  </Flex>
+                  {/* <Flex style={{ color: "var(--sb-icon-color)" }} gap="small"> */}
+                  <Icon icon={Component} iconSize={26} />
+                  <span>{icon.name}</span>
+                  {/* </Flex> */}
                 </>
               );
             })}

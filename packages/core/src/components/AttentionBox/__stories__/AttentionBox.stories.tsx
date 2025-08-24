@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import Icon from "@vibe/icon";
+import { Icon } from "@vibe/icon";
 import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";

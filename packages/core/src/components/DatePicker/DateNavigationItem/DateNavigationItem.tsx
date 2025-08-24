@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import { MoveArrowLeft, MoveArrowRight } from "@vibe/icons";
 import styles from "./DateNavigationItem.module.scss";
 

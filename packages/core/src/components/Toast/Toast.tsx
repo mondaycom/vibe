@@ -3,7 +3,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { type IconSubComponentProps } from "../Icon/Icon";
+import { type IconSubComponentProps } from "@vibe/icon";
 import Text from "../Text/Text";
 import Loader from "../Loader/Loader";
 import Flex from "../Flex/Flex";

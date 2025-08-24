@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
-import Icon from "../../../../components/Icon/Icon";
+import { Icon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
@@ -16,7 +16,8 @@ import Clickable from "../../../../components/Clickable/Clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
-import { type SubIcon, type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 

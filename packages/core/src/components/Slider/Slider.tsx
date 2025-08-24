@@ -6,7 +6,7 @@ import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { type IconType } from "../Icon";
+import { type IconType } from "@vibe/icon";
 import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";
