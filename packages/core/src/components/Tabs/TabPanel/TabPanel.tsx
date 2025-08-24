@@ -18,14 +18,10 @@ export interface TabPanelProps extends VibeComponentProps {
    * ID of the tab that controls this panel.
    */
   "aria-labelledby"?: string;
-  /**
-   * Whether the panel is currently hidden.
-   */
-  hidden?: boolean;
 }
 
 const TabPanel: FC<TabPanelProps> = forwardRef(
-  ({ className, id, children, index, "data-testid": dataTestId, "aria-labelledby": ariaLabelledby, hidden }, ref) => {
+  ({ className, id, children, index, "data-testid": dataTestId, "aria-labelledby": ariaLabelledby }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -38,7 +34,6 @@ const TabPanel: FC<TabPanelProps> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
         role="tabpanel"
         aria-labelledby={ariaLabelledby}
-        hidden={hidden}
       >
         {children}
       </div>
