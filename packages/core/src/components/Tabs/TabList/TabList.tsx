@@ -42,6 +42,10 @@ export interface TabListProps extends VibeComponentProps {
    */
   stretchedUnderline?: boolean;
   /**
+   * Array of corresponding TabPanel ids for aria-controls relationship.
+   */
+  tabPanelIds?: string[];
+  /**
    * The child elements representing tabs.
    */
   children?: ReactElement<TabProps>[];
@@ -56,6 +60,7 @@ const TabList: FC<TabListProps> = forwardRef(
       tabType = "Compact",
       size,
       stretchedUnderline = false,
+      tabPanelIds = [],
       children,
       "data-testid": dataTestId
     },
@@ -151,13 +156,14 @@ const TabList: FC<TabListProps> = forwardRef(
           className: cx(styles.tabListTabWrapper, child.props.className),
           tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
           tabIndex: shouldBeFocusable ? 0 : -1,
+          ariaControls: tabPanelIds[index],
           ref: (element: HTMLElement | null) => {
             tabRefs.current[index] = element;
           }
-        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string });
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string; ariaControls?: string });
       });
       return childrenToRender;
-    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, id]);
+    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, tabPanelIds, id]);
 
     return (
       <div
