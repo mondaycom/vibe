@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.61.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.0...@vibe/core@3.61.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* tabs screen reader ([#3066](https://github.com/mondaycom/vibe/issues/3066)) ([9e39770](https://github.com/mondaycom/vibe/commit/9e39770629d925892694982686967db90e59b004))
+
+
+
+
+
 # [3.61.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.60.0...@vibe/core@3.61.0) (2025-08-20)
 
 
