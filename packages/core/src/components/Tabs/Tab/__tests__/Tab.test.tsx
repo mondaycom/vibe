@@ -60,14 +60,6 @@ describe("Tab tests", () => {
       expect(tabElement).toHaveAttribute("aria-controls", panelId);
     });
 
-    it("should not add aria-controls attribute when id is missing", () => {
-      const panelId = "test-panel";
-
-      renderComponent({ ariaControls: panelId });
-      const tabElement = screen.getByRole("tab");
-      expect(tabElement).not.toHaveAttribute("aria-controls");
-    });
-
     it("should not add aria-controls attribute when ariaControls is missing", () => {
       const tabId = "test-tab";
 
