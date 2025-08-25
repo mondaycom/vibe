@@ -25,7 +25,7 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
-import Button, { type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";

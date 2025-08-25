@@ -2,11 +2,9 @@
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
-import { SIZES } from "../../constants";
-import useMergeRef from "../../hooks/useMergeRef";
-import { NOOP } from "../../utils/function-utils";
+import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
-import Loader from "../../components/Loader/Loader";
+import { Loader } from "@vibe/loader";
 import {
   BUTTON_ICON_SIZE,
   ButtonColor as ButtonColorEnum,
@@ -16,10 +14,14 @@ import {
 } from "./ButtonConstants";
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import { getTestId } from "../../tests/test-ids-utils";
-import { type VibeComponentProps, withStaticProps } from "../../types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import {
+  getTestId,
+  type VibeComponentProps,
+  withStaticProps,
+  ComponentDefaultTestId,
+  ComponentVibeId
+} from "@vibe/shared";
+import { getStyle } from "@vibe/shared";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 

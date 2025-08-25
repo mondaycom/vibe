@@ -3,7 +3,7 @@ import { type VibeComponentProps } from "../../../../types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import Flex from "../../../Flex/Flex";
-import Button from "../../../Button/Button";
+import { Button } from "@vibe/button";
 import LegacyModalFooter from "../LegacyModalFooter";
 
 export interface LegacyModalFooterButtonsProps extends VibeComponentProps {

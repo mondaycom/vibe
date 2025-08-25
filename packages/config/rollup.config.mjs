@@ -15,7 +15,8 @@ const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = process.cwd();
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
-const injectStyle = fs.readFileSync(path.join(import.meta.dirname, "./scripts/styleInject.ejs"), "utf8");
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const injectStyle = fs.readFileSync(path.join(__dirname, "./scripts/styleInject.ejs"), "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
@@ -62,7 +63,10 @@ export default {
     format: "esm"
   },
   input: path.join(SRC_PATH, "index.ts"),
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [
+    /node_modules\/(?!monday-ui-style)(.*)/,
+    /@vibe\/.*/ // Externalize all @vibe packages
+  ],
   plugins: [
     commonjs(),
     nodeResolve({

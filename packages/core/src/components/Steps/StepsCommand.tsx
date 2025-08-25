@@ -2,7 +2,7 @@ import React, { type FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { NavigationChevronRight, NavigationChevronLeft } from "@vibe/icons";
 import { Icon } from "@vibe/icon";
-import Button, { type ButtonProps } from "../../components/Button/Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import { NOOP } from "../../utils/function-utils";
 import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
 import { type StepsColor } from "./Steps.types";

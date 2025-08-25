@@ -5,7 +5,7 @@ import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } fro
 import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
 import Text from "../Text/Text";
-import Loader from "../Loader/Loader";
+import { Loader } from "@vibe/loader";
 import Flex from "../Flex/Flex";
 import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";

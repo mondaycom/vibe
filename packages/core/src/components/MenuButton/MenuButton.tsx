@@ -7,7 +7,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "@vibe/button";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,

@@ -3,7 +3,7 @@ import { createComponentTemplate, Link } from "vibe-storybook-components";
 import IconButton from "../IconButton";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import person1 from "./assets/person1.png";
 import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

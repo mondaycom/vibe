@@ -10,7 +10,7 @@ import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../../Text/Text";
 import { Heading } from "../../Heading";
 

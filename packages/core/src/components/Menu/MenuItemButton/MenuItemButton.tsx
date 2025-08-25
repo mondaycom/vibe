@@ -1,9 +1,8 @@
 import cx from "classnames";
 import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import Button from "../../Button/Button";
+import { Button, type ButtonType } from "@vibe/button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { type ButtonType } from "../../Button";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";

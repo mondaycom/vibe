@@ -2,15 +2,13 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } 
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type SubIcon } from "@vibe/icon";
 import { type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { type SIZES } from "../../constants";
-import { type ButtonType as ButtonTypeEnum } from "../Button/ButtonConstants";
-import { type ButtonType, type ButtonSize } from "../Button";
+import { Button, type ButtonTypeEnum, type ButtonType, type ButtonSize } from "@vibe/button";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";

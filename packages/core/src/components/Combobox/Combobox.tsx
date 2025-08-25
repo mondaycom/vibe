@@ -7,7 +7,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
-import Button from "../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../Text/Text";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";

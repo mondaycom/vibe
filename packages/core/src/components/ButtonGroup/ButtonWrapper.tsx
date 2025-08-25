@@ -1,6 +1,6 @@
 import React from "react";
 import { isNil } from "lodash-es";
-import Button, { type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import Tooltip from "../Tooltip/Tooltip";
 import { type MoveBy } from "../../types/MoveBy";
 import { type TooltipPositions } from "../Tooltip/Tooltip.types";

@@ -6,6 +6,17 @@ import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
 import { type ButtonSize } from "../Button.types";
 
+// Mock react-inlinesvg
+vi.mock("react-inlinesvg", () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  default: ({ src, ...props }: any) =>
+    React.createElement("div", {
+      "data-testid": "mock-svg",
+      "data-src": src,
+      ...props
+    })
+}));
+
 vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
   default: () => <div data-testid="custom-icon-mock" />
 }));

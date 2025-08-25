@@ -9,7 +9,7 @@ import useDebounceEvent from "../../hooks/useDebounceEvent";
 import IconButton from "../IconButton/IconButton";
 import { Icon } from "@vibe/icon";
 import { type SearchProps } from "./Search.types";
-import Loader from "../Loader/Loader";
+import { Loader } from "@vibe/loader";
 import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(

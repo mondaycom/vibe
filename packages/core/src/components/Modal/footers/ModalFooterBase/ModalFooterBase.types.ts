@@ -1,4 +1,4 @@
-import { type ButtonProps } from "../../../Button";
+import { type ButtonProps } from "@vibe/button";
 import type React from "react";
 import { type VibeComponentProps } from "../../../../types";
 import { type TooltipProps } from "../../../Tooltip";

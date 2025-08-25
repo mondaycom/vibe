@@ -2,7 +2,7 @@ import React from "react";
 import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Add, Calendar, Check, Remove } from "@vibe/icons";
-import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
+import { createStoryMetaSettingsDecorator } from "@vibe/storybook-config";
 import Button from "../Button";
 import { type Meta, type StoryObj } from "@storybook/react";
 import Text from "../../Text/Text";

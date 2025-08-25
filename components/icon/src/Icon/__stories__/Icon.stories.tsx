@@ -92,7 +92,7 @@ export const IconsListStory = {
       tags: string;
       file: string;
     }
-    const [query, setQuery] = useState("");
+    const [query] = useState("");
     return (
       <section style={{ width: "100%" }}>
         {/* <Search value={query} onChange={setQuery} placeholder="Search for icons" /> */}

@@ -1,6 +1,5 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/typography";
-@import "../../styles/states";
+
 $disabled-on-primary-color-opacity: 0.5;
 
 .button {
@@ -543,7 +542,6 @@ $disabled-on-primary-color-opacity: 0.5;
   opacity: $disabled-on-primary-color-opacity;
   color: var(--fixed-dark-color);
 }
-
 
 .kindTertiary.colorOnInvertedBackground {
   color: var(--text-color-on-inverted);

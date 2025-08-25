@@ -9,9 +9,7 @@ import { getWidthHeight, type Size } from "./services/IconButton-helpers";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { type ButtonColor, type ButtonType } from "../Button";
+import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE, Button, type ButtonColor, type ButtonType } from "@vibe/button";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 

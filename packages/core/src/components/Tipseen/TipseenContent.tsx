@@ -1,6 +1,5 @@
 import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
-import Button from "../../components/Button/Button";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
 import { type VibeComponentProps } from "../../types";
@@ -9,7 +8,7 @@ import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
-import { ButtonColor } from "../Button/ButtonConstants";
+import { Button } from "@vibe/button";
 import { type SubIcon } from "@vibe/icon";
 
 export interface TipseenContentProps extends VibeComponentProps {
@@ -70,7 +69,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
 }) => {
   const color = useContext(TipseenContext);
   const buttonColor = useMemo(() => {
-    return color === TipseenColor.INVERTED ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+    return color === TipseenColor.INVERTED ? "inverted" : "primary";
   }, [color]);
 
   return (
