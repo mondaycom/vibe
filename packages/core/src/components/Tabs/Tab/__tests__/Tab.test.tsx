@@ -49,4 +49,37 @@ describe("Tab tests", () => {
       vi.advanceTimersByTime(1000);
     });
   });
+
+  describe("aria-controls", () => {
+    it("should add aria-controls attribute when id and ariaControls are provided", () => {
+      const tabId = "test-tab";
+      const panelId = "test-panel";
+
+      renderComponent({ id: tabId, ariaControls: panelId });
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).toHaveAttribute("aria-controls", panelId);
+    });
+
+    it("should not add aria-controls attribute when id is missing", () => {
+      const panelId = "test-panel";
+
+      renderComponent({ ariaControls: panelId });
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).not.toHaveAttribute("aria-controls");
+    });
+
+    it("should not add aria-controls attribute when ariaControls is missing", () => {
+      const tabId = "test-tab";
+
+      renderComponent({ id: tabId });
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).not.toHaveAttribute("aria-controls");
+    });
+
+    it("should not add aria-controls attribute when both id and ariaControls are missing", () => {
+      renderComponent();
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).not.toHaveAttribute("aria-controls");
+    });
+  });
 });

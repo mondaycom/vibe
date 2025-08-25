@@ -66,6 +66,10 @@ export interface TabProps extends VibeComponentProps {
    * Tab index for focus management.
    */
   tabIndex?: number;
+  /**
+   * The id of the associated TabPanel for aria-controls attribute.
+   */
+  ariaControls?: string;
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -86,7 +90,8 @@ const Tab: FC<TabProps> = forwardRef(
       iconSide = "left",
       children,
       "data-testid": dataTestId,
-      tabIndex
+      tabIndex,
+      ariaControls
     }: TabProps,
     ref
   ) => {
@@ -138,6 +143,7 @@ const Tab: FC<TabProps> = forwardRef(
           role="tab"
           aria-selected={active}
           aria-disabled={disabled}
+          aria-controls={id && ariaControls ? ariaControls : undefined}
           tabIndex={tabIndex}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
