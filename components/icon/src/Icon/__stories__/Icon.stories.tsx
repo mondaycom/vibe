@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Icon from "../Icon";
 import { Bolt } from "@vibe/icons";
-import { createStoryMetaSettingsDecorator } from "@vibe/shared";
+import { createStoryMetaSettingsDecorator } from "@vibe/storybook-config";
 import { createComponentTemplate } from "vibe-storybook-components";
 // import Search from "../../Search/Search";
 import * as allIcons from "@vibe/icons";

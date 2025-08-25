@@ -1,5 +1,4 @@
-import { vi } from "vitest";
-
+// @ts-nocheck
 let rafSpy: ReturnType<typeof vi.spyOn>;
 
 export const mockRequestAnimationFrame = () => {
