@@ -71,9 +71,9 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
           setIsFocused(true);
           onFocus?.(event);
         },
-        onBlur: () => {
+        onBlur: (event: React.FocusEvent<HTMLDivElement>) => {
           setIsFocused(false);
-          onBlur?.();
+          onBlur?.(event);
         }
       });
     },

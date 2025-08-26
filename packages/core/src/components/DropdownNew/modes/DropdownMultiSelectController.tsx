@@ -80,9 +80,9 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
           setIsFocused(true);
           onFocus?.(event);
         },
-        onBlur: () => {
+        onBlur: (event: React.FocusEvent<HTMLDivElement>) => {
           setIsFocused(false);
-          onBlur?.();
+          onBlur?.(event);
         }
       });
     },
