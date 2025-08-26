@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownSelect from "../hooks/useDropdownSelect";
 import { type BaseListItemData } from "../../BaseListItem";
@@ -25,8 +25,12 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     multi = false,
     dropdownRef,
     onClear,
+    onFocus,
+    onBlur,
     size = "medium"
   } = props;
+
+  const [isFocused, setIsFocused] = useState(false);
 
   const {
     isOpen,
@@ -59,10 +63,18 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     highlightedIndex,
     selectedItem: hookSelectedItem,
     filteredOptions,
-    getToggleButtonProps: (toggleOptions?: any) => {
+    getToggleButtonProps: (toggleOptions?: Record<string, any>) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
-        disabled: props.readOnly || props.disabled
+        disabled: props.readOnly || props.disabled,
+        onFocus: (event: React.FocusEvent<HTMLDivElement>) => {
+          setIsFocused(true);
+          onFocus?.(event);
+        },
+        onBlur: () => {
+          setIsFocused(false);
+          onBlur?.();
+        }
       });
     },
     getLabelProps,
@@ -84,7 +96,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     autoFocus,
     onClear,
     size,
-    toggleMenu
+    toggleMenu,
+    isFocused
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

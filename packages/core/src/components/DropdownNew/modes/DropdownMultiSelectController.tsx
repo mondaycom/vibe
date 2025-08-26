@@ -24,11 +24,14 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     dropdownRef,
     onClear,
     onOptionRemove,
+    onFocus,
+    onBlur,
     size = "medium"
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
   const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>(initialMultiSelectedItems);
+  const [isFocused, setIsFocused] = useState(false);
 
   const {
     isOpen,
@@ -69,10 +72,18 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     selectedItems: hookSelectedItems || [],
     filteredOptions,
     clearable,
-    getToggleButtonProps: (toggleOptions?: any) => {
+    getToggleButtonProps: (toggleOptions?: Record<string, any>) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
-        disabled: props.readOnly || props.disabled
+        disabled: props.readOnly || props.disabled,
+        onFocus: (event: React.FocusEvent<HTMLDivElement>) => {
+          setIsFocused(true);
+          onFocus?.(event);
+        },
+        onBlur: () => {
+          setIsFocused(false);
+          onBlur?.();
+        }
       });
     },
     getLabelProps,
@@ -96,7 +107,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem,
     size,
-    toggleMenu
+    toggleMenu,
+    isFocused
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

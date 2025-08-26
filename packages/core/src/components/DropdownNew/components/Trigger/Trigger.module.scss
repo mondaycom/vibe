@@ -5,17 +5,18 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  outline: none;
 
   &.small {
-    min-height: 32px;
+    min-height: 30px;
   }
 
   &.medium {
-    min-height: 40px;
+    min-height: 38px;
   }
 
   &.large {
-    min-height: 48px;
+    min-height: 46px;
   }
 
   .inputWrapper {
