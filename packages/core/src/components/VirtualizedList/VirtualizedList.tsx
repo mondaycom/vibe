@@ -11,7 +11,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import {
   type ScrollDirection,
   VariableSizeList as List,

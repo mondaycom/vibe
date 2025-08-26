@@ -8,7 +8,7 @@ import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.t
 import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface LinkProps extends VibeComponentProps {

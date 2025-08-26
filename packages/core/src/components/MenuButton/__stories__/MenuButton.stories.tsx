@@ -1,5 +1,5 @@
 import MenuButton, { type MenuButtonProps } from "../MenuButton";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";

@@ -9,7 +9,7 @@ import styles from "./Modal.module.scss";
 import { type ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { ModalProvider } from "../context/ModalContext";
 import { type ModalProviderValue } from "../context/ModalContext.types";
 import { keyCodes } from "../../../constants";

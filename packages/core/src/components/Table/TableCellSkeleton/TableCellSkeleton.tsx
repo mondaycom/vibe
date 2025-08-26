@@ -7,7 +7,7 @@ import { type VibeComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export interface TableCellSkeletonProps extends VibeComponentProps {
   /**

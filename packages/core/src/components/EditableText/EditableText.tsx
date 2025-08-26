@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";

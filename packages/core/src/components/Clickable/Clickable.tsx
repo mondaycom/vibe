@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type AriaRole, forwardRef } from "react";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import { type VibeComponentProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";

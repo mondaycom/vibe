@@ -1,7 +1,7 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
 import { type ButtonSize } from "../Button.types";

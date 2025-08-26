@@ -1,5 +1,5 @@
 import { useMemo, useCallback } from "react";
-import { throttle } from "lodash-es";
+import { throttle } from "es-toolkit/compat";
 
 export default function useThrottledCallback(
   callback: (...args: Array<unknown>) => void,

@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { SIZES } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";

@@ -1,6 +1,6 @@
 import React, { type ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
 import { type VibeComponentProps } from "../../types";

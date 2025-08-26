@@ -8,7 +8,7 @@ import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type SliderColor, type SliderSize } from "../Slider.types";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**

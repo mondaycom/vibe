@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, type Modifier, Popper, Reference } from "react-popper";
-import { isFunction } from "lodash-es";
+import { isFunction } from "es-toolkit/compat";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import DialogContent from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
