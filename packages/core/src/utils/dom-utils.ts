@@ -13,7 +13,7 @@ export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array
   return !!domElement.parentElement.closest(selector);
 }
 
-export const getScrollableParent = _memoize(
+const _getScrollableParent = _memoize(
   (node: HTMLElement): HTMLElement => {
     if (!node) {
       return null;
@@ -28,6 +28,8 @@ export const getScrollableParent = _memoize(
   },
   (node: HTMLElement) => node.outerHTML
 );
+
+export const getScrollableParent: (node: HTMLElement) => HTMLElement = _getScrollableParent;
 
 const isNodeVerticallyScrollable = (node: HTMLElement): boolean => {
   return ["auto", "scroll"].includes(getComputedStyle(node).getPropertyValue("overflow-y"));
