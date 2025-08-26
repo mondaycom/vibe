@@ -27,6 +27,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     readOnly,
     error,
     isFocused,
+    isOpen,
     helperText,
     dir,
     tooltipProps
@@ -39,7 +40,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
         [styles.disabled]: disabled,
         [styles.readOnly]: readOnly,
         [styles.error]: error,
-        [styles.active]: isFocused
+        [styles.active]: isFocused || isOpen
       })}
       id={id}
       aria-label={ariaLabel}
