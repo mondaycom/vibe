@@ -18,7 +18,8 @@
     "./package.json": "./package.json",
     "./rollup.config": "./rollup.config.mjs",
     "./eslint.config": "./eslint.config.cjs",
-    "./tsconfig": "./tsconfig.json"
+    "./tsconfig": "./tsconfig.json",
+    "./vitest.config": "./vitest.config.mjs"
   },
   "devDependencies": {
     "typescript": "^4.7.3"
