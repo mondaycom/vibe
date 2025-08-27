@@ -5,7 +5,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type SubIcon } from "@vibe/icon";
-import { ButtonType as ButtonTypeEnum, type ButtonValue } from "./ButtonGroupConstants";
+import { type ButtonType as ButtonTypeEnum, type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { type SIZES } from "../../constants";
 import { Button, type ButtonType, type ButtonSize } from "@vibe/button";
