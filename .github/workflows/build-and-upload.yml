@@ -41,7 +41,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ./packages/*/dist/
-            ./components/*/dist/
+          path: "./*/dist/"
           if-no-files-found: ignore
