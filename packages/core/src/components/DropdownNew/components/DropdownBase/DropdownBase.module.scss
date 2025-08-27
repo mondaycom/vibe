@@ -14,7 +14,8 @@
     --border-color: var(--primary-text-color);
   }
 
-  &.active {
+  &.active,
+  &:focus {
     --border-color: var(--primary-color);
   }
 

@@ -8,6 +8,7 @@ import { type VibeComponentProps, type ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 import { type ExpandCollapseIconPosition } from "./ExpandCollapse.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ExpandCollapseProps extends VibeComponentProps {
   /**
@@ -123,6 +124,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         className={className}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
+        data-vibe={ComponentVibeId.EXPAND_COLLAPSE}
       >
         <div
           className={cx(

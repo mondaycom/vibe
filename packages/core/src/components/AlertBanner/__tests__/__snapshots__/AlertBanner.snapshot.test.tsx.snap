@@ -5,6 +5,7 @@ exports[`AlertBanner > should render correctly with background color 1`] = `
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner positive"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -60,6 +61,7 @@ exports[`AlertBanner > should render correctly with hidden close button 1`] = `
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -76,6 +78,7 @@ exports[`AlertBanner > should render correctly with props 1`] = `
   aria-label="lorem-banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -148,6 +151,7 @@ exports[`AlertBanner > should render correctly without props 1`] = `
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -203,6 +207,7 @@ exports[`AlertBanner > should render with correctly with multiple elements 1`] =
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -237,6 +242,7 @@ exports[`AlertBanner > should render with correctly with multiple elements 1`] =
           aria-labelledby=""
           className="link colorPrimary"
           data-testid="link"
+          data-vibe="Link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -342,6 +348,7 @@ exports[`AlertBanner > should render with correctly with text and button 1`] = `
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -438,6 +445,7 @@ exports[`AlertBanner > should render with correctly with text and link 1`] = `
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -472,6 +480,7 @@ exports[`AlertBanner > should render with correctly with text and link 1`] = `
           aria-labelledby=""
           className="link colorPrimary"
           data-testid="link"
+          data-vibe="Link"
           href="https://monday.com"
           id=""
           onClick={[Function]}

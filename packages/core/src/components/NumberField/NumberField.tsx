@@ -11,6 +11,7 @@ import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFiel
 import styles from "./NumberField.module.scss";
 import Flex from "../Flex/Flex";
 import useMergeRef from "../../hooks/useMergeRef";
+import { ComponentVibeId } from "../../tests/constants";
 
 const NumberField = forwardRef(
   (
@@ -101,7 +102,13 @@ const NumberField = forwardRef(
     }, [label, id]);
 
     return (
-      <Flex direction="column" align="stretch" gap="xs" className={cx(styles.numberField, className)}>
+      <Flex
+        direction="column"
+        align="stretch"
+        gap="xs"
+        className={cx(styles.numberField, className)}
+        data-vibe={ComponentVibeId.NUMBER_FIELD}
+      >
         <FieldLabel id={labelId} className={styles.label} labelText={label} required={required} labelFor={id} />
         <BaseInput
           {...inputProps}

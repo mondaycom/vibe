@@ -14,6 +14,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { type LabelSizes } from "./Label.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -129,6 +130,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
           {...(isClickable && clickableProps)}
           className={cx({ [styles.clickableWrapper]: isClickable }, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
+          data-vibe={ComponentVibeId.LABEL}
           ref={mergedRef}
         >
           <Text

@@ -10,6 +10,7 @@ import { camelCase } from "lodash-es";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
@@ -31,6 +32,7 @@ const EditableHeading = forwardRef(
       <EditableTypography
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+        data-vibe={ComponentVibeId.EDITABLE_HEADING}
         component={Heading}
         typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
         type={type}

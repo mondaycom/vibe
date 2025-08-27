@@ -4,7 +4,7 @@ import FieldLabel from "../../../FieldLabel/FieldLabel";
 import Text from "../../../Text/Text";
 import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../BaseListItem";
 import Tooltip from "../../../Tooltip/Tooltip";
@@ -27,6 +27,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     readOnly,
     error,
     isFocused,
+    isOpen,
     helperText,
     dir,
     tooltipProps
@@ -39,11 +40,12 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
         [styles.disabled]: disabled,
         [styles.readOnly]: readOnly,
         [styles.error]: error,
-        [styles.active]: isFocused
+        [styles.active]: isFocused || isOpen
       })}
       id={id}
       aria-label={ariaLabel}
       data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+      data-vibe={ComponentVibeId.DROPDOWN}
     >
       {children}
     </div>

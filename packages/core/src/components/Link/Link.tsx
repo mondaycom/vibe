@@ -9,6 +9,7 @@ import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface LinkProps extends VibeComponentProps {
   /**
@@ -69,6 +70,10 @@ export interface LinkProps extends VibeComponentProps {
   inlineText?: boolean;
   /** The link's color style */
   color?: LinkColor;
+  /**
+   * Inline style object applied to the link element.
+   */
+  style?: React.CSSProperties;
 }
 
 const Link = forwardRef(
@@ -91,6 +96,7 @@ const Link = forwardRef(
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
+      style,
       "data-testid": dataTestId
     }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>
@@ -110,12 +116,14 @@ const Link = forwardRef(
     return (
       <a
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINK, id)}
+        data-vibe={ComponentVibeId.LINK}
         id={id}
         href={href}
         rel={rel}
         ref={ref}
         onClick={onClickWrapper}
         target={target}
+        style={style}
         className={cx(styles.link, className, getStyle(styles, camelCase("color-" + color)), {
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText

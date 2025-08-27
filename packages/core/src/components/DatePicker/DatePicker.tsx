@@ -17,7 +17,7 @@ import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, type Moment, type RangeDate } from "./types";
 import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 // Make sure to update when upgrading react-dates
@@ -196,6 +196,7 @@ const DatePicker = forwardRef(
           [styles.rangePickerMode]: range,
           [styles.monthYearSelection]: isMonthYearSelection
         })}
+        data-vibe={ComponentVibeId.DATE_PICKER}
       >
         {range ? (
           <DayPickerRangeController

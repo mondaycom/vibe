@@ -9,6 +9,7 @@ import { type ButtonProps } from "@vibe/button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { withStaticProps, type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface StepsProps extends VibeComponentProps {
   /**
@@ -91,6 +92,7 @@ const Steps = forwardRef(
         className={cx(styles.steps, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS, id)}
+        data-vibe={ComponentVibeId.STEPS}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader

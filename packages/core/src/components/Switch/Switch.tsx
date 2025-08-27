@@ -4,6 +4,7 @@ import useSwitch from "../../hooks/useSwitch";
 import { type VibeComponentProps } from "../../types";
 import { type MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface SwitchProps extends VibeComponentProps {
   /**
@@ -99,7 +100,7 @@ const Switch = forwardRef(
     );
 
     return (
-      <label htmlFor={id} className={wrapperClassName}>
+      <label htmlFor={id} className={wrapperClassName} data-vibe={ComponentVibeId.TOGGLE}>
         <input
           ref={ref}
           id={id}

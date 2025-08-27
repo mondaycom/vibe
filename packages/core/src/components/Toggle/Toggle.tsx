@@ -43,6 +43,10 @@ export interface ToggleProps extends VibeComponentProps {
    */
   areLabelsHidden?: boolean;
   /**
+   * If true, removes the horizontal spacing around the toggle.
+   */
+  noSpacing?: boolean;
+  /**
    * The text displayed when the toggle is in the "on" position.
    */
   onOverrideText?: string;
@@ -79,6 +83,7 @@ const Toggle = forwardRef(
       ariaLabel,
       ariaControls,
       areLabelsHidden = false,
+      noSpacing,
       onOverrideText = "On",
       offOverrideText = "Off",
       size = "medium",
@@ -108,6 +113,7 @@ const Toggle = forwardRef(
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}
+          noSpacing={noSpacing}
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
           disabled={disabled}
