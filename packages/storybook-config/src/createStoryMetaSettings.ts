@@ -1,8 +1,8 @@
-import { useCallback, useMemo, useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { AllowedIcons, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
-import { ArgTypes } from '@storybook/types';
-import { Decorator } from '@storybook/react';
+import { useCallback, useMemo, useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { type ArgTypes } from "@storybook/types";
+import { type Decorator } from "@storybook/react";
+import { AllowedIcons, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from "./types";
 
 function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: unknown }) {
   let returnValue;
@@ -37,7 +37,7 @@ function createMappedActionToInputPropDecorator(actionName: string, linkedToProp
         setPropValue(newPropValue);
         createAction(newPropValue);
       },
-      [setPropValue, createAction],
+      [setPropValue, createAction]
     );
 
     context.args[actionName] = injectedCallback;
@@ -54,19 +54,19 @@ export function createStoryMetaSettings({
   actionPropsArray,
   iconsMetaData,
   allIconsComponents,
-  ignoreControlsPropNamesArray,
+  ignoreControlsPropNamesArray
 }: StoryMetaSettingsArgs): StoryMetaSettingsResult {
   const argTypes: ArgTypes = {};
   const decorators: Decorator[] = [];
   const allowedIcons = iconsMetaData?.reduce(
     (acc: AllowedIcons, icon: IconMetaData) => {
-      const Component = allIconsComponents[icon.file.split('.')[0]];
+      const Component = allIconsComponents[icon.file.split(".")[0]];
       acc.options.push(icon.name);
       acc.mapping[icon.name] = Component;
 
       return acc;
     },
-    { options: [], mapping: {} },
+    { options: [], mapping: {} }
   );
 
   // set enum allowed values inside argsTypes object
@@ -91,9 +91,9 @@ export function createStoryMetaSettings({
           type: {
             summary: parseStringForEnums(componentName, enumName, enums),
             // For not displaying box for enumns in controls of js not converted components
-            detail: null,
-          },
-        },
+            detail: null
+          }
+        }
       };
     }
   });
@@ -104,13 +104,13 @@ export function createStoryMetaSettings({
       options: allowedIcons?.options,
       mapping: allowedIcons?.mapping,
       control: {
-        type: 'select',
-      },
+        type: "select"
+      }
     };
   });
 
   actionPropsArray?.forEach(actionProp => {
-    if (typeof actionProp === 'string') {
+    if (typeof actionProp === "string") {
       argTypes[actionProp] = { action: actionProp, control: false };
     } else if (actionProp?.name && actionProp.linkedToPropValue) {
       // we assume that actionPropsArray is static. If it changes, things may break, since internally we call React.useState for the story decorator.
@@ -123,8 +123,8 @@ export function createStoryMetaSettings({
   if (componentProps) {
     Object.keys(componentProps)?.forEach(propName => {
       const prop = componentProps[propName];
-      if (prop?.type?.name === 'ElementContent') {
-        argTypes[propName] = { control: { type: 'text' } };
+      if (prop?.type?.name === "ElementContent") {
+        argTypes[propName] = { control: { type: "text" } };
       }
     });
   }

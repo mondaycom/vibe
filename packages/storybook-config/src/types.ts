@@ -1,5 +1,5 @@
-import { ArgTypes } from '@storybook/types';
-import { Decorator } from '@storybook/react';
+import { type ArgTypes } from "@storybook/types";
+import { type Decorator } from "@storybook/react";
 
 export type EnumPropNames = {
   propName: string;

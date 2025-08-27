@@ -50,14 +50,19 @@
   "dependencies": {
     "@storybook/jest": "^0.2.3",
     "@storybook/test": "^8.6.14",
+    "@storybook/addon-actions": "^8.6.14",
     "@testing-library/react": "^12.1.2",
+    "@vibe/icons": "^1.10.0",
     "lodash-es": "^4.17.21",
-    "@vibe/icons": "^1.10.0"
+    "vibe-storybook-components": "1.0.2"
   },
   "sideEffects": false,
   "eslintConfig": {
     "extends": [
       "../../node_modules/@vibe/config/.eslintrc.cjs"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/consistent-type-imports": "off"
+    }
   }
 }

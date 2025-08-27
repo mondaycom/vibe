@@ -2,7 +2,7 @@ import { isArray, isFunction } from "lodash-es";
 import { type MutableRefObject } from "react";
 
 export function chainRefFunctions(
-  funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((element: HTMLElement) => void | boolean)>,
+  funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((_: HTMLElement) => void | boolean)>,
   allowBreak = false
 ) {
   return (args: HTMLElement) => {
@@ -26,7 +26,7 @@ export function chainRefFunctions(
   };
 }
 
-export function chainFunctions(funcs: Array<(args: any) => void | boolean>, allowBreak = false) {
+export function chainFunctions(funcs: Array<(_: any) => void | boolean>, allowBreak = false) {
   return (args: any) => {
     for (let i = 0; i < funcs.length; i++) {
       const func = funcs[i];

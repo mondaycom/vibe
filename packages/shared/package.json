@@ -57,6 +57,9 @@
   "eslintConfig": {
     "extends": [
       "../../node_modules/@vibe/config/.eslintrc.cjs"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
   }
 }

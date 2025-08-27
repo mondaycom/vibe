@@ -40,12 +40,14 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@vibe/config": "3.0.0",
+    "@testing-library/react": "^12.1.2",
     "@vibe/button": "3.0.0",
-    "typescript": "^4.7.3",
-    "vibe-storybook-components": "1.0.2",
+    "@vibe/config": "3.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-test-renderer": "16",
+    "typescript": "^4.7.3",
+    "vibe-storybook-components": "1.0.2",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
