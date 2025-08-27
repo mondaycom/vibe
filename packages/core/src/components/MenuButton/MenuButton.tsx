@@ -7,7 +7,6 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "@vibe/button";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
@@ -330,11 +329,11 @@ const MenuButton = forwardRef(
       switch (size) {
         case "xxs":
         case "xs":
-          return SMALL_BUTTON_ICON_SIZE;
+          return 16;
         case "small":
         case "medium":
         case "large":
-          return BUTTON_ICON_SIZE;
+          return 20;
         default:
           return 24;
       }

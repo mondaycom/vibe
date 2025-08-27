@@ -30,10 +30,6 @@ export const BUTTON_KIND_CLASS_NAMES = {
   PRIMARY: ""
 };
 
-export const SMALL_BUTTON_ICON_SIZE = 16;
-
-export const BUTTON_ICON_SIZE = 20;
-
 /**
  * @deprecated
  */

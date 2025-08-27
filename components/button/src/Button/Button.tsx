@@ -6,11 +6,9 @@ import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
 import {
-  BUTTON_ICON_SIZE,
   ButtonColor as ButtonColorEnum,
   ButtonInputType as ButtonInputTypeEnum,
-  ButtonType as ButtonTypeEnum,
-  SMALL_BUTTON_ICON_SIZE
+  ButtonType as ButtonTypeEnum
 } from "./ButtonConstants";
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
@@ -306,9 +304,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         switch (size) {
           case "xxs":
           case "xs":
-            return SMALL_BUTTON_ICON_SIZE;
+            return 16;
           default:
-            return BUTTON_ICON_SIZE;
+            return 20;
         }
       },
       [size]

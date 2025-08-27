@@ -4,7 +4,6 @@ import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
 import IconButton from "../../../IconButton/IconButton";
 import { Feedback as FeedbackIcon } from "@vibe/icons";
-import { ButtonColor } from "../../../Button/ButtonConstants";
 import { camelCase } from "lodash-es";
 
 describe("ModalTopActions", () => {
@@ -44,7 +43,7 @@ describe("ModalTopActions", () => {
     const renderAction = vi.fn(color => <IconButton data-testid="extra-action" icon={FeedbackIcon} color={color} />);
     render(<ModalTopActions theme="dark" renderAction={renderAction} />);
 
-    expect(renderAction).toHaveBeenCalledWith(ButtonColor.FIXED_DARK);
+    expect(renderAction).toHaveBeenCalledWith("fixed-dark");
   });
 
   it("renders the action button using the renderAction prop directly", () => {
@@ -58,16 +57,16 @@ describe("ModalTopActions", () => {
 
   it("applies the correct color when 'dark' is passed", () => {
     const { getByLabelText } = render(<ModalTopActions theme="dark" closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + ButtonColor.FIXED_DARK));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "fixed-dark"));
   });
 
   it("applies the correct color when 'light' is passed", () => {
     const { getByLabelText } = render(<ModalTopActions theme="light" closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + ButtonColor.FIXED_LIGHT));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "fixed-light"));
   });
 
   it("applies the default color when no color is passed", () => {
     const { getByLabelText } = render(<ModalTopActions closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + ButtonColor.PRIMARY));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "primary"));
   });
 });

@@ -69,7 +69,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
 }) => {
   const color = useContext(TipseenContext);
   const buttonColor = useMemo(() => {
-    return color === TipseenColor.INVERTED ? "inverted" : "primary";
+    return color === TipseenColor.INVERTED ? "on-inverted-background" : "on-primary-color";
   }, [color]);
 
   return (

@@ -1,7 +1,7 @@
 /**
  * @deprecated
  */
-export enum IconTypeEnum {
+enum IconTypeEnum {
   SVG = "svg",
   ICON_FONT = "font",
   SRC = "src"
