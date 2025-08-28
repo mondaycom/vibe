@@ -21,7 +21,8 @@ import {
 } from "../../../GridKeyboardNavigationContext";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
-import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../../../types";
+import { type VibeComponentProps, withStaticProps } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 import useMergeRef from "../../../../hooks/useMergeRef";
 import { type ColorStyle } from "../../../../types";
 

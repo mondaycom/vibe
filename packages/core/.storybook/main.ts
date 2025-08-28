@@ -37,7 +37,12 @@ const getAddons = () => {
 };
 
 export default {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+    { directory: "../../../components/", files: "**/*.mdx" },
+    { directory: "../../../components/", files: "**/*.stories.@(js|jsx|ts|tsx)" }
+  ],
   addons: getAddons(),
   framework: {
     name: "@storybook/react-vite",

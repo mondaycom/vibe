@@ -4,7 +4,8 @@ import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerIte
 import { type CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { type ColorPickerArrayValueOnly, type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
-import { type SubIcon, type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./ColorPickerColorsGrid.module.scss";
 import { type ColorStyle } from "../../../../types";
 

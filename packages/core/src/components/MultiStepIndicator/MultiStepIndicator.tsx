@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo } from "react";
 import { Check } from "@vibe/icons";
+import { type SubIcon } from "@vibe/icon";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
@@ -13,7 +14,7 @@ import {
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {

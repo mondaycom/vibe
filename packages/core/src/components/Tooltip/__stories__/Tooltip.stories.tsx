@@ -1,7 +1,7 @@
 import React from "react";
 import Tooltip, { type TooltipProps } from "../Tooltip";
 import { Hide, Menu, Subitems } from "@vibe/icons";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./Tooltip.stories.helpers";
