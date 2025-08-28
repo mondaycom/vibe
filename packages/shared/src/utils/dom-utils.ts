@@ -1,4 +1,4 @@
-import { memoize as _memoize } from "es-toolkit/compat";
+import { memoize } from "es-toolkit/compat";
 
 export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array<string> | string) {
   if (!classOrClassesName) return false;
@@ -13,7 +13,7 @@ export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array
   return !!domElement.parentElement.closest(selector);
 }
 
-export const getScrollableParent = _memoize(
+export const getScrollableParent: (node: HTMLElement) => HTMLElement = memoize(
   (node: HTMLElement): HTMLElement => {
     if (!node) {
       return null;
