@@ -6,7 +6,7 @@ import styles from "./EditableHeading.module.scss";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
 import { type HeadingType, type HeadingWeight } from "../Heading";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";

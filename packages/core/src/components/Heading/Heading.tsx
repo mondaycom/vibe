@@ -1,6 +1,6 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { withStaticProps } from "../../types";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "./HeadingConstants";
 import Typography, { type TypographyProps } from "../Typography/Typography";

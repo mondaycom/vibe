@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import React, {
   type FC,
   forwardRef,

@@ -1,6 +1,6 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
 import Typography, { type TypographyProps } from "../Typography/Typography";

@@ -1,5 +1,5 @@
 import React from "react";
-import { isNil } from "lodash-es";
+import { isNil } from "es-toolkit/compat";
 import Button, { type ButtonProps } from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
 import { type MoveBy } from "../../types/MoveBy";

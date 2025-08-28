@@ -49,7 +49,6 @@ const commonRules = {
   "jsx-a11y/no-noninteractive-tabindex": "error",
   "react/jsx-boolean-value": "off",
   "arrow-parens": "off",
-  "lodash/import-scope": [2, "member"],
   "implicit-arrow-linebreak": "off",
   "import/no-extraneous-dependencies": [
     "error",
@@ -68,7 +67,7 @@ const commonRules = {
     }
   ]
 };
-const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "vitest"];
+const commonPlugins = ["import", "react", "jsx-a11y", "json", "markdown", "vitest"];
 const commonExtends = [
   "plugin:react/recommended",
   "plugin:react-hooks/recommended",
