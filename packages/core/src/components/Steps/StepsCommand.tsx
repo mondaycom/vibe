@@ -9,7 +9,7 @@ import { type StepsColor } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../..//helpers/typesciptCssModulesHelper";
 
 export interface StepsCommandProps extends VibeComponentProps {

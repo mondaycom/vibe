@@ -36,8 +36,7 @@
   "dependencies": {
     "@vibe/shared": "3.0.0",
     "@vibe/storybook-config": "3.0.0",
-    "classnames": "^2.5.1",
-    "lodash-es": "^4.17.21"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",

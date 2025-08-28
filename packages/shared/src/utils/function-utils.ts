@@ -1,4 +1,4 @@
-import { isArray, isFunction } from "lodash-es";
+import { isArray, isFunction } from "es-toolkit/compat";
 import { type MutableRefObject } from "react";
 
 export function chainRefFunctions(

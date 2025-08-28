@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit/compat";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { Icon, type IconType, type SubIcon } from "@vibe/icon";

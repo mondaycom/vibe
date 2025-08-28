@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";

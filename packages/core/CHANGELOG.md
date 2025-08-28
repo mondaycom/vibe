@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.62.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.1...@vibe/core@3.62.0) (2025-08-27)
+
+
+### Bug Fixes
+
+* **Dropdown:**  fix size and focus ([#3071](https://github.com/mondaycom/vibe/issues/3071)) ([72425ad](https://github.com/mondaycom/vibe/commit/72425ad7549a67940f7cfb71051e83f6de14eb18))
+* **DropdownBase:** update active state to include isOpen condition ([#3070](https://github.com/mondaycom/vibe/issues/3070)) ([05eba9f](https://github.com/mondaycom/vibe/commit/05eba9f38140d5fbcc1b6ffa9281c47d03776d8e))
+* **dropdown:** border ([#3075](https://github.com/mondaycom/vibe/issues/3075)) ([81d904f](https://github.com/mondaycom/vibe/commit/81d904fe9fcd5a1007c59d1b0716b8bb10f9761d))
+* **Dropdown:** padding on trigger actions ([#3073](https://github.com/mondaycom/vibe/issues/3073)) ([56dfdf8](https://github.com/mondaycom/vibe/commit/56dfdf8bbfd1236ffb59a4ef5cd8f12d55b7c153))
+
+
+### Features
+
+* **Tabs:** add ariaControls ([#3068](https://github.com/mondaycom/vibe/issues/3068)) ([1f1c084](https://github.com/mondaycom/vibe/commit/1f1c084e2eaab94533375b7e58daa38b72826813))
+
+
+
+
+
 ## [3.61.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.0...@vibe/core@3.61.1) (2025-08-25)
 
 

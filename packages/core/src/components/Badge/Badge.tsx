@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";

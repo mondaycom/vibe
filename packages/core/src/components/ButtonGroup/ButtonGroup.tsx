@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import usePrevious from "../../hooks/usePrevious";

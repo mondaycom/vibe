@@ -1,4 +1,4 @@
-import { difference as _difference, intersection as _intersection } from "lodash-es";
+import { difference as _difference, intersection as _intersection } from "es-toolkit/compat";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
 import {

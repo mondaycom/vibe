@@ -7,7 +7,6 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', 'mdx'],
   moduleNameMapper: {
     '\\.module\\.scss$': 'identity-obj-proxy',
-    '^lodash-es(.*)': '<rootDir>/node_modules/lodash$1',
     '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
   },
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/build'],

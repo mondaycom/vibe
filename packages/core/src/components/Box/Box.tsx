@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {

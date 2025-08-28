@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
 import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";

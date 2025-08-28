@@ -1,10 +1,10 @@
+import { camelCase } from "es-toolkit";
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
 import IconButton from "../../../IconButton/IconButton";
 import { Feedback as FeedbackIcon } from "@vibe/icons";
-import { camelCase } from "lodash-es";
 
 describe("ModalTopActions", () => {
   const closeButtonAriaLabel = "Close modal";

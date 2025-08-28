@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { TabPanelsAnimationDirection as TabPanelsAnimationDirectionEnum } from "./TabPanelsConstants";

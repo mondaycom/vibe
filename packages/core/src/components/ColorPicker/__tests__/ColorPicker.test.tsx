@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, screen } from "@testing-library/react";
-import { difference as _difference } from "lodash-es";
+import { difference as _difference } from "es-toolkit/compat";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
 import ColorPickerColorsGrid from "../components/ColorPickerContent/ColorPickerColorsGrid";

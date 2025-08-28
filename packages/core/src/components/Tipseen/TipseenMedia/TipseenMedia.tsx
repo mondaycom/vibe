@@ -7,7 +7,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TipseenMedia.module.scss";
 import { TipseenContext } from "../Tipseen";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps> {
   /**

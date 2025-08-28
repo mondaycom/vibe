@@ -8,7 +8,7 @@ import React, {
   useRef
 } from "react";
 import cx from "classnames";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { CSSTransition } from "react-transition-group";
 import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
