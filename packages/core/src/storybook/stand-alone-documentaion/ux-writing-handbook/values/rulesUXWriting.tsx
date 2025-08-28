@@ -1,5 +1,5 @@
 import React from "react";
-import { bottomLine, getFull, userPointOfView, oneCTA, specificCta, cutTheFluff } from "../assets";
+import { bottomLine, getFull, userPointOfView, oneCta, specificCta, cutTheFluff } from "../assets";
 import { Value } from "./values";
 import "./valuesUXWriting.scss";
 
@@ -23,7 +23,7 @@ export const RulesUXWriting = () => (
       description="Focus on what the user wants to do and what they stand to gain, not on your own perspective."
     />
     <Value
-      imgSrc={oneCTA}
+      imgSrc={oneCta}
       title="One CTA"
       description="Present only one CTA at a time. It makes decisions easier and faster."
     />

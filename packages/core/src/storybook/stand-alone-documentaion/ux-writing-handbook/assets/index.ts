@@ -2,7 +2,7 @@ import gradual from "./gradual.png";
 import bottomLine from "./bottomLine.png";
 import getFull from "./getFull.png";
 import userPointOfView from "./userPointOfView.png";
-import oneCTA from "./oneCTA.png";
+import oneCta from "./oneCta.png";
 import specificCta from "./specificCta.png";
 import cutTheFluff from "./cutTheFluff.png";
 import stayConsistent from "./stayConsistent.png";
@@ -17,7 +17,7 @@ export {
   getFull,
   gradual,
   userPointOfView,
-  oneCTA,
+  oneCta,
   specificCta,
   cutTheFluff,
   stayConsistent,
