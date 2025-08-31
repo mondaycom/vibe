@@ -5,7 +5,7 @@ import ModalTopActions from "../ModalTopActions";
 import IconButton from "../../../IconButton/IconButton";
 import { Feedback as FeedbackIcon } from "@vibe/icons";
 import { ButtonColor } from "../../../Button/ButtonConstants";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 describe("ModalTopActions", () => {
   const closeButtonAriaLabel = "Close modal";

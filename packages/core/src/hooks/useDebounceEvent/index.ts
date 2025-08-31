@@ -8,7 +8,7 @@ import {
   type Dispatch,
   type SetStateAction
 } from "react";
-import { noop, debounce } from "lodash-es";
+import { noop, debounce } from "es-toolkit/compat";
 
 export type UseDebounceResult = {
   inputValue: string;

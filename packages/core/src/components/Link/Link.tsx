@@ -8,7 +8,8 @@ import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.t
 import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface LinkProps extends VibeComponentProps {
   /**
@@ -115,6 +116,7 @@ const Link = forwardRef(
     return (
       <a
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINK, id)}
+        data-vibe={ComponentVibeId.LINK}
         id={id}
         href={href}
         rel={rel}

@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { useMemo } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import Icon from "../Icon/Icon";
@@ -18,6 +18,7 @@ import {
 import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 /**
  * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
@@ -108,6 +109,7 @@ const AttentionBox = ({
       })}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
+      data-vibe={ComponentVibeId.ATTENTION_BOX}
     >
       {title && (
         <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">

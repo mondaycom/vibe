@@ -13,7 +13,7 @@ import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
 import { type SliderColor, type SliderLabelColor, type SliderLabelPosition, type SliderSize } from "./Slider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export type SliderProps = {
   /**

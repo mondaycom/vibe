@@ -7,6 +7,7 @@ import { type VibeComponentProps } from "../../types";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface RadioButtonProps extends VibeComponentProps {
   /**
@@ -127,6 +128,7 @@ const RadioButton = forwardRef(
       <Tooltip content={tooltipContent}>
         <label
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
+          data-vibe={ComponentVibeId.RADIO_BUTTON}
           className={cx(styles.radioButton, className, {
             [styles.disabled]: disabled,
             disabled: disabled

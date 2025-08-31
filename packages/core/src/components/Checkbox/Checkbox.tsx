@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
-import { isNil, noop as NOOP } from "lodash-es";
+import { isNil, noop as NOOP } from "es-toolkit/compat";
 import Icon from "../Icon/Icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
@@ -140,6 +140,7 @@ const Checkbox = forwardRef(
         <div
           className={cx(styles.wrapper, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
+          data-vibe={ComponentVibeId.CHECKBOX}
         >
           <input
             ref={mergedInputRef}
@@ -162,7 +163,6 @@ const Checkbox = forwardRef(
             htmlFor={id}
             className={cx(styles.checkbox, checkboxClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
-            data-vibe={ComponentVibeId.CHECKBOX}
             onMouseUp={onMouseUpCallback}
             onClickCapture={onClickCaptureLabel}
           >
@@ -201,6 +201,7 @@ const Checkbox = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
+        data-vibe={ComponentVibeId.CHECKBOX}
       >
         <input
           ref={mergedInputRef}
@@ -222,7 +223,6 @@ const Checkbox = forwardRef(
           className={cx(styles.checkbox, checkboxClassName)}
           ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
-          data-vibe={ComponentVibeId.CHECKBOX}
         >
           <Icon
             className={styles.icon}

@@ -3,7 +3,8 @@
 exports[`LinearProgressBar renders correctly > with barStyle 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -28,7 +29,8 @@ exports[`LinearProgressBar renders correctly > with barStyle 1`] = `
 exports[`LinearProgressBar renders correctly > with empty props 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -39,7 +41,8 @@ exports[`LinearProgressBar renders correctly > with empty props 1`] = `
 exports[`LinearProgressBar renders correctly > with full width progress bar 1`] = `
 <div
   className="wrapper small fullWidth"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -64,7 +67,8 @@ exports[`LinearProgressBar renders correctly > with full width progress bar 1`] 
 exports[`LinearProgressBar renders correctly > with indicateProgress 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -95,7 +99,8 @@ exports[`LinearProgressBar renders correctly > with indicateProgress 1`] = `
 exports[`LinearProgressBar renders correctly > with min 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -120,7 +125,8 @@ exports[`LinearProgressBar renders correctly > with min 1`] = `
 exports[`LinearProgressBar renders correctly > with multi and multiValues 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -177,7 +183,8 @@ exports[`LinearProgressBar renders correctly > with multi and multiValues 1`] = 
 exports[`LinearProgressBar renders correctly > with size 1`] = `
 <div
   className="wrapper large"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -202,7 +209,8 @@ exports[`LinearProgressBar renders correctly > with size 1`] = `
 exports[`LinearProgressBar renders correctly > with value 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"
@@ -227,7 +235,8 @@ exports[`LinearProgressBar renders correctly > with value 1`] = `
 exports[`LinearProgressBar renders correctly > with valueSecondary 1`] = `
 <div
   className="wrapper small"
-  data-testsid="linear-progress-bar"
+  data-testid="linear-progress-bar"
+  data-vibe="LinearProgressBar"
 >
   <div
     className="container"

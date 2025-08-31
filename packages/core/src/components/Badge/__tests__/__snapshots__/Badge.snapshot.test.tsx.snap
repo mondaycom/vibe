@@ -3,6 +3,7 @@
 exports[`Badge > renders at different position 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div
@@ -20,6 +21,7 @@ exports[`Badge > renders at different position 1`] = `
 exports[`Badge > renders out of horizontal bounds 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div
@@ -37,6 +39,7 @@ exports[`Badge > renders out of horizontal bounds 1`] = `
 exports[`Badge > renders with Counter and counter props 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div
@@ -46,6 +49,7 @@ exports[`Badge > renders with Counter and counter props 1`] = `
     <span
       aria-label=" 5"
       aria-labelledby=""
+      data-vibe="Counter"
       onMouseDown={[Function]}
     >
       <div
@@ -67,6 +71,7 @@ exports[`Badge > renders with Counter and counter props 1`] = `
 exports[`Badge > renders with different color 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div
@@ -84,6 +89,7 @@ exports[`Badge > renders with different color 1`] = `
 exports[`Badge > renders with margins from component's bounds 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div
@@ -101,6 +107,7 @@ exports[`Badge > renders with margins from component's bounds 1`] = `
 exports[`Badge > renders with no props with default badge Indicator 1`] = `
 <div
   className="badgeWrapper"
+  data-vibe="Badge"
 >
   Child
   <div

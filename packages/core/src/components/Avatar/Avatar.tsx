@@ -1,9 +1,9 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type AriaRole, useCallback, useMemo } from "react";
-import { isNil } from "lodash-es";
+import { isNil } from "es-toolkit/compat";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
@@ -14,6 +14,7 @@ import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Avatar.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface AvatarProps extends VibeComponentProps {
   /**
@@ -220,6 +221,7 @@ const Avatar = ({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR, id)}
       className={cx(styles.avatar, styles[size], className)}
       style={sizeStyle}
+      data-vibe={ComponentVibeId.AVATAR}
     >
       <ClickableWrapper
         isClickable={!!onClick}

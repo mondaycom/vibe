@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.62.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.1...@vibe/core@3.62.0) (2025-08-27)
+
+
+### Bug Fixes
+
+* **Dropdown:**  fix size and focus ([#3071](https://github.com/mondaycom/vibe/issues/3071)) ([72425ad](https://github.com/mondaycom/vibe/commit/72425ad7549a67940f7cfb71051e83f6de14eb18))
+* **DropdownBase:** update active state to include isOpen condition ([#3070](https://github.com/mondaycom/vibe/issues/3070)) ([05eba9f](https://github.com/mondaycom/vibe/commit/05eba9f38140d5fbcc1b6ffa9281c47d03776d8e))
+* **dropdown:** border ([#3075](https://github.com/mondaycom/vibe/issues/3075)) ([81d904f](https://github.com/mondaycom/vibe/commit/81d904fe9fcd5a1007c59d1b0716b8bb10f9761d))
+* **Dropdown:** padding on trigger actions ([#3073](https://github.com/mondaycom/vibe/issues/3073)) ([56dfdf8](https://github.com/mondaycom/vibe/commit/56dfdf8bbfd1236ffb59a4ef5cd8f12d55b7c153))
+
+
+### Features
+
+* **Tabs:** add ariaControls ([#3068](https://github.com/mondaycom/vibe/issues/3068)) ([1f1c084](https://github.com/mondaycom/vibe/commit/1f1c084e2eaab94533375b7e58daa38b72826813))
+
+
+
+
+
+## [3.61.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.0...@vibe/core@3.61.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* tabs screen reader ([#3066](https://github.com/mondaycom/vibe/issues/3066)) ([9e39770](https://github.com/mondaycom/vibe/commit/9e39770629d925892694982686967db90e59b004))
+
+
+
+
+
+# [3.61.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.60.0...@vibe/core@3.61.0) (2025-08-20)
+
+
+### Features
+
+* IME support for EditableHeading, EditableText ([#3052](https://github.com/mondaycom/vibe/issues/3052)) ([7074f42](https://github.com/mondaycom/vibe/commit/7074f42e983e377ee1f1f0aa6b88178920fe08fb))
+* **Link:** add `style` prop for inline styling ([#3063](https://github.com/mondaycom/vibe/issues/3063)) ([48df2c5](https://github.com/mondaycom/vibe/commit/48df2c5afd3a647718e3c7025b29fe5da3724c5c))
+* **Tipseen:** add onShow event ([#3064](https://github.com/mondaycom/vibe/issues/3064)) ([d5954e7](https://github.com/mondaycom/vibe/commit/d5954e75cb79e37f65dbb02e88ad2415683792e9))
+
+
+### Reverts
+
+* "feat(Tipseen): add onShow event" ([#3065](https://github.com/mondaycom/vibe/issues/3065)) ([2df6c8b](https://github.com/mondaycom/vibe/commit/2df6c8b70c21fbcc1c55aee052b6c9eecdcde306))
+
+
+
+
+
 # [3.60.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.59.0...@vibe/core@3.60.0) (2025-08-14)
 
 

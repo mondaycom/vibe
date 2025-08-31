@@ -6,10 +6,11 @@ import styles from "./EditableHeading.module.scss";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
 import { type HeadingType, type HeadingWeight } from "../Heading";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
@@ -31,6 +32,7 @@ const EditableHeading = forwardRef(
       <EditableTypography
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+        data-vibe={ComponentVibeId.EDITABLE_HEADING}
         component={Heading}
         typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
         type={type}

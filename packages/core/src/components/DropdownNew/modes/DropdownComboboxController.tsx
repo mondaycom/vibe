@@ -99,7 +99,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
         },
         onBlur: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(false);
-          onBlur?.();
+          onBlur?.(event);
           inputOptions?.onBlur?.(event);
         },
         onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {

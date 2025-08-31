@@ -95,7 +95,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
         },
         onBlur: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(false);
-          onBlur?.();
+          onBlur?.(event);
           inputOptions?.onBlur?.(event);
         },
         onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {

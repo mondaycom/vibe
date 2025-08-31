@@ -1,7 +1,6 @@
-import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
-import { isFunction, noop as NOOP } from "lodash-es";
+import { isFunction, noop as NOOP, camelCase } from "es-toolkit/compat";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -27,6 +26,7 @@ import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
 import type IconButton from "../IconButton/IconButton";
 import type MenuButton from "../MenuButton/MenuButton";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ComboboxProps extends VibeComponentProps {
   /**
@@ -367,6 +367,7 @@ const Combobox = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
         ellipsis={false}
+        data-vibe={ComponentVibeId.COMBOBOX}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search

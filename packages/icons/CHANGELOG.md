@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.9.0...@vibe/icons@1.10.0) (2025-08-20)
+
+
+### Features
+
+* **icons:** add RemoveRound icon ([#3061](https://github.com/mondaycom/vibe/issues/3061)) ([d886fc0](https://github.com/mondaycom/vibe/commit/d886fc0e772056879bcdc927ad5f035b7a8bbae1))
+
+
+
+
+
 # [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.8.0...@vibe/icons@1.9.0) (2025-07-03)
 
 

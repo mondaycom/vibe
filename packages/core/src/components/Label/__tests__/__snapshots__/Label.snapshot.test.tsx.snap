@@ -4,6 +4,7 @@ exports[`Label renders correctly > fill > dark 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorDark"
@@ -26,6 +27,7 @@ exports[`Label renders correctly > fill > negative 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorNegative"
@@ -48,6 +50,7 @@ exports[`Label renders correctly > fill > positive 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPositive"
@@ -70,6 +73,7 @@ exports[`Label renders correctly > fill > primary 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
@@ -92,6 +96,7 @@ exports[`Label renders correctly > line > dark 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorDark"
@@ -114,6 +119,7 @@ exports[`Label renders correctly > line > negative 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorNegative"
@@ -136,6 +142,7 @@ exports[`Label renders correctly > line > positive 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPositive"
@@ -158,6 +165,7 @@ exports[`Label renders correctly > line > primary 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
@@ -180,6 +188,7 @@ exports[`Label renders correctly > line > with className 1`] = `
 <span
   className="test"
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
@@ -202,6 +211,7 @@ exports[`Label renders correctly > line > with leg 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withLeg"
@@ -237,6 +247,7 @@ exports[`Label renders correctly > line > without animation 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
@@ -259,6 +270,7 @@ exports[`Label renders correctly > with empty props 1`] = `
 <span
   className=""
   data-testid="label"
+  data-vibe="Label"
 >
   <span
     className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
