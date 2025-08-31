@@ -53,6 +53,31 @@ const MyComponent = React.forwardRef(
 );
 ```
 
+#### Dismissible Component Props Pattern
+
+**If your component can be dismissed/closed**, follow this established pattern to avoid redundant props:
+
+- **Use `onClose` prop as both handler and boolean indicator** - don't add separate `dismissible` or `closable` props
+- **Conditional rendering based on `onClose` presence**: `{onClose && <CloseButton onClick={onClose} />}`
+
+**Implementation Example**:
+
+```typescript
+const MyComponent = ({ onClose, closeButtonAriaLabel = "Close", ...otherProps }: MyComponentProps) => {
+  return (
+    <div>
+      {/* ...Component content */}
+      {onClose && <IconButton ariaLabel={closeButtonAriaLabel} icon={CloseIcon} onClick={onClose} />}
+    </div>
+  );
+};
+```
+
+**Why This Pattern**:
+
+- **Simplifies API**: No need for separate boolean props like `dismissible={true}`
+- **Clear Intent**: If user wants dismissible behavior, they pass `onClose`
+
 ### 3. State and Hooks
 
 - **`useState`**: Use `useState` for simple local state.
