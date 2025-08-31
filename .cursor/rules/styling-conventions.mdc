@@ -85,5 +85,6 @@ This document outlines the rules and best practices for writing styles using SCS
 ## 7. Anti-Patterns and Considerations
 
 - **No Theme-Specific Styles in Component SCSS:** Avoid embedding theme-specific rules (e.g., using `:global(.dark-app-theme) &`) directly within a component's `.module.scss` file. This is considered an anti-pattern as components should be theme-agnostic by default, adapting to themes via design tokens.
+- **Never Use !important:** The use of `!important` in CSS is strictly prohibited. Instead of using `!important`, resolve specificity issues other way.
 - **Responsiveness:** Do not implement responsive styles (e.g., using media queries, container queries) unless explicitly requested by the user or task.
 - **Focus on Maintainability:** Write styles that are maintainable. Avoid overly specific selectors that might break easily with small markup changes.
