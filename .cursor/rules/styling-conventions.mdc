@@ -35,6 +35,8 @@ This document outlines the rules and best practices for writing styles using SCS
     }
     ```
 
+- **Always Use Logical CSS Properties:** Use logical CSS properties instead of physical properties to ensure proper RTL support and internationalization. Logical properties are direction-agnostic and automatically adapt to different writing modes.
+
 - **Chrome 85+ Compatibility:** All styling **must** be compatible with Chrome version 85 and newer. Avoid using CSS features not supported by this baseline.
 - **Handling Newer CSS APIs:**
 
