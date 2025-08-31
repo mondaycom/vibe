@@ -101,6 +101,7 @@ Research the exact APIs of Vibe components you'll integrate with:
 **Reference**:
 
 - [accessibility-guidelines](mdc:.cursor/rules/accessibility-guidelines.mdc) for comprehensive accessibility testing requirements and patterns.
+- [file-structures](mdc:.cursor/rules/file-structures.mdc) for detailed test organization patterns.
 
 ### 7. Stories (`__stories__/ComponentName.stories.tsx`)
 
@@ -113,7 +114,7 @@ Research the exact APIs of Vibe components you'll integrate with:
 ### Development Validation
 
 1. **TypeScript Check**
-2. **Test Suite**: `yarn test src/components/ComponentName/`
+2. **Test Suite**: `yarn test src/components/ComponentName/` (will recursively run all tests in subdirectories)
 3. **Lint and Format**: `yarn prettier --write src/components/ComponentName/` then `yarn lint src/components/ComponentName/ --fix`
 
 ### Integration Verification

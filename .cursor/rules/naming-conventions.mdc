@@ -37,14 +37,19 @@ This document outlines the naming conventions to be followed when developing wit
 
 ### Sub-directories (within a component folder)
 
-- **Tests**: Test files SHOULD be placed in a `__tests__` subdirectory.
-  - Test files themselves typically follow the pattern `ComponentName.test.tsx`.
+- **Tests**: Test files SHOULD be co-located with the code they test in respective `__tests__` subdirectories.
+  - **Main Component Tests**: Place in `ComponentName/__tests__/ComponentName.test.tsx`
+  - **Subcomponent Tests**: Place in `ComponentName/components/SubComponent/__tests__/SubComponent.test.tsx`
+  - **Hook Tests**: Place in `ComponentName/hooks/__tests__/useHookName.test.ts`
+  - **Utility Tests**: Place in `ComponentName/utils/__tests__/utilityName.test.ts`
+  - **Context Tests**: Place in `ComponentName/context/__tests__/ComponentNameContext.test.ts`
+  - **DO NOT** centralize all tests in the component root `__tests__` directory.
 - **Stories**: Storybook files SHOULD be placed in a `__stories__` subdirectory.
   - Story files typically follow the pattern `ComponentName.stories.tsx`.
   - Refer to the storybook-stories.mdc file in the monorepo for Storybook specific conventions.
 - **Helper/Utility Files**: Utility functions or helper components specific to a single component can be placed in a `helper` or `utils` subdirectory, or directly within the component folder if small and highly specific.
   - File names SHOULD be `camelCase.ts` for utils/helpers or `PascalCase.ts` if they export React components.
-- **Custom Hooks**: Component-specific custom hooks SHOULD be placed in a `__hooks__` subdirectory.
+- **Custom Hooks**: Component-specific custom hooks SHOULD be placed in a `hooks` subdirectory.
   - Hook files SHOULD follow the pattern `useHookName.ts` and use camelCase.
   - If there's only one hook that's tightly coupled to the component, it can be placed directly in the component folder as `useHookName.ts`.
 
