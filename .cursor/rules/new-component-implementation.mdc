@@ -57,6 +57,34 @@ Research the exact APIs of Vibe components you'll integrate with:
 - Import from established Vibe components
 - Follow existing test ID patterns from [constants.ts](mdc:packages/core/src/tests/constants.ts)
 - Use CSS Modules for styling
+- **MANDATORY**: Add `[data-vibe]` attribute for component identification
+
+#### Essential `[data-vibe]` Attribute Implementation
+
+**CRITICAL**: Every new component MUST include the `[data-vibe]` attribute on its root element for component identification in the DOM.
+
+**Import Pattern**:
+
+```tsx
+import { ComponentVibeId } from "../../tests/constants";
+```
+
+**Usage Pattern**:
+Add to the root element's props:
+
+```tsx
+data-vibe={ComponentVibeId.ATTENTION_BOX}
+```
+
+**Implementation Examples**:
+
+**Enum Naming Pattern**:
+The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
+
+- `Button` → `ComponentVibeId.BUTTON`
+- `AttentionBox` → `ComponentVibeId.ATTENTION_BOX`
+- `MenuButton` → `ComponentVibeId.MENU_BUTTON`
+- `LinearProgressBar` → `ComponentVibeId.LINEAR_PROGRESS_BAR`
 
 **References**:
 
@@ -84,7 +112,22 @@ Research the exact APIs of Vibe components you'll integrate with:
 
 - Update [components/index.ts](mdc:packages/core/src/components/index.ts) in alphabetical order
 - Add test IDs to [constants.ts](mdc:packages/core/src/tests/constants.ts) enum
-- Add to `ComponentVibeId` enum if needed
+- **MANDATORY**: Add your component to the `ComponentVibeId` enum in [constants.ts](mdc:packages/core/src/tests/constants.ts)
+
+#### Adding ComponentVibeId Enum Value
+
+**CRITICAL**: Every new component MUST have a corresponding entry in the `ComponentVibeId` enum.
+
+**Steps**:
+
+1. Find the `ComponentVibeId` enum
+2. Add your component in alphabetical order using SCREAMING_SNAKE_CASE format
+
+**Naming Convention**: Use the exact component name as the enum value, but the key should be in SCREAMING_SNAKE_CASE:
+
+- `Button` → `BUTTON = "Button"`
+- `MenuButton` → `MENU_BUTTON = "MenuButton"`  
+- `LinearProgressBar` → `LINEAR_PROGRESS_BAR = "LinearProgressBar"`
 
 **References**:
 
@@ -157,5 +200,6 @@ Research the exact APIs of Vibe components you'll integrate with:
 3. **Test Assumptions**: Test actual behavior (disabled buttons may use `aria-disabled` vs `disabled`)
 4. **Missing Integration**: Forgetting to add exports to main index files or test constants
 5. **Design Token Guessing**: Check existing SCSS files for available CSS custom properties
+6. **Missing `[data-vibe]` Attribute**: Forgetting to add the mandatory `[data-vibe]` attribute or missing the corresponding `ComponentVibeId` enum entry
 
 This workflow ensures consistent, high-quality component implementation that integrates seamlessly with the Vibe design system.
