@@ -51,9 +51,15 @@ Each component within `packages/core/src/components/` should follow a consistent
 - **`context/`**: If a component uses React Context, the context definition, provider, and consumer hook should be placed in this subdirectory (e.g., `ComponentName/context/ComponentNameContext.ts`).
   - **Should contain a `__tests__/` subdirectory** if context tests are needed.
   - Structure: `ComponentName/context/__tests__/ComponentNameContext.test.ts`
+- **`consts/`**: Component-specific constant values that are not intended for reuse elsewhere.
+  - **DO NOT** place constants files at the root of the component directory.
+  - **Use meaningful file names** that describe the purpose, not generic names like `MyComponentConstants.ts` or `consts.ts`.
+  - Examples: `ComponentName/consts/variants.ts`, `ComponentName/consts/validate-colors.ts`, `ComponentName/consts/sizes.ts`
+  - **Should contain a `__tests__/` subdirectory** if constants tests are needed.
+  - Structure: `ComponentName/consts/__tests__/sizes.test.ts`
 
 ### General Guidelines
 
-- **Simpler Components**: For simpler components, not all subdirectories (`hooks/`, `utils/`, `components/`, `context/`) are necessary. Files like `ComponentName.tsx`, `ComponentName.types.ts`, `ComponentName.module.scss`, `index.ts`, and directories for tests (`__tests__/`) and stories (`__stories__/`) are sufficient in most of the cases.
-- **Reusability**: If a hook or utility is reusable across multiple components (not potentially reusable, but actually reused in more than one component), it should be placed in the top-level `packages/core/src/hooks/` or `packages/core/src/utils/` directories, respectively.
+- **Simpler Components**: For simpler components, not all subdirectories (`hooks/`, `utils/`, `components/`, `context/`, `consts/`) are necessary. Files like `ComponentName.tsx`, `ComponentName.types.ts`, `ComponentName.module.scss`, `index.ts`, and directories for tests (`__tests__/`) and stories (`__stories__/`) are sufficient in most of the cases.
+- **Reusability**: If a hook, utility, or constant is reusable across multiple components (not potentially reusable, but actually reused in more than one component), it should be placed in the top-level `packages/core/src/hooks/`, `packages/core/src/utils/`, or `packages/core/src/constants/` directories, respectively.
 - **Exports**: The `index.ts` file in each component directory should be the primary point of export for that component and its related parts. The main `packages/core/src/index.ts` should then re-export these components.

@@ -93,14 +93,26 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 - [react-context](mdc:.cursor/rules/react-context.mdc) if your component needs to use or provide React Context
 - [naming-conventions](mdc:.cursor/rules/naming-conventions.mdc) for component and prop naming patterns
 
-### 3. Styles (`ComponentName.module.scss`)
+### 3. Component Constants (Optional: `consts/` directory)
+
+**If your component needs constant values**, organize them properly:
+
+- **MANDATORY**: Place constants files inside a `consts/` folder, never at the component root
+- **MANDATORY**: Use meaningful file names that describe purpose, not generic names like `MyComponentConstants.ts` or `consts.ts`
+- **Examples of good names**: `variants.ts`, `validate-colors.ts`, `events.ts`, `sizes.ts`
+
+**Reusability Rule**: If constants are used across multiple components, place them in the top-level `packages/core/src/constants/` directory instead.
+
+**Reference**: [file-structures](mdc:.cursor/rules/file-structures.mdc) for detailed constants organization patterns.
+
+### 4. Styles (`ComponentName.module.scss`)
 
 - NEVER Import anything inside the module scss file
 - Use established design tokens and spacing variables
 
 **Reference**: [styling-conventions](mdc:.cursor/rules/styling-conventions.mdc) for comprehensive CSS Modules guidelines, design token usage, and styling best practices.
 
-### 4. Index Exports (`index.ts`)
+### 5. Index Exports (`index.ts`)
 
 - On the same root directory of the component (e.g., `packages/core/src/components/MyComponent/index.ts`)
 - Export both component and types
@@ -108,7 +120,7 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 
 **Reference**: [file-structures](mdc:.cursor/rules/file-structures.mdc) for export patterns and file organization conventions.
 
-### 5. Add to Global Exports
+### 6. Add to Global Exports
 
 - Update [components/index.ts](mdc:packages/core/src/components/index.ts) in alphabetical order
 - Add test IDs to [constants.ts](mdc:packages/core/src/tests/constants.ts) enum
@@ -134,7 +146,7 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 - [file-structures](mdc:.cursor/rules/file-structures.mdc) for global export patterns
 - [monorepo-structure](mdc:.cursor/rules/monorepo-structure.mdc) for understanding where and how to add global exports
 
-### 6. Tests (`__tests__/ComponentName.test.tsx`)
+### 7. Tests (`__tests__/ComponentName.test.tsx`)
 
 - Follow testing patterns from similar components
 - Test actual component behavior, not assumptions
@@ -146,7 +158,7 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 - [accessibility-guidelines](mdc:.cursor/rules/accessibility-guidelines.mdc) for comprehensive accessibility testing requirements and patterns.
 - [file-structures](mdc:.cursor/rules/file-structures.mdc) for detailed test organization patterns.
 
-### 7. Stories (`__stories__/ComponentName.stories.tsx`)
+### 8. Stories (`__stories__/ComponentName.stories.tsx`)
 
 - Create comprehensive examples covering all variants
 
