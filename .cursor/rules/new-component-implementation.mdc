@@ -131,6 +131,13 @@ Research the exact APIs of Vibe components you'll integrate with:
 - **Study Patterns**: Look at how similar components handle similar problems
 - **Understand Context**: Review existing test patterns and story structures
 
+### Modern Prop Patterns
+
+- **Use String Literals**: Define prop values as string literals instead of static properties
+  - ✅ Prefer: `<MyComponent size="large" variant="primary" />`
+  - ❌ Avoid: `<MyComponent size={MyComponent.sizes.LARGE} variant={MyComponent.variants.PRIMARY} />`
+- **Backward Compatibility**: While legacy static properties may exist in the codebase, new components should not include them
+
 ### Systematic Progression
 
 - **Follow Order**: Complete each phase before moving to next

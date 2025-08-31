@@ -74,6 +74,11 @@ This document outlines the naming conventions to be followed when developing wit
     - Common, unambiguous adjective props like `loading`, `active`, `open`, `checked`, or `required` are also acceptable.
     - However, if the HTML attribute is `disabled`, using `disabled` is acceptable for consistency.
 
+#### Prop Values
+
+- **String Literals**: Component prop values should use string literals rather than static properties
+  - Example: `<Button size="small" />` instead of `<Button size={Button.sizes.SMALL} />`
+
 ### Variable and Function Names
 
 - Local variables and function names SHOULD use `camelCase`.

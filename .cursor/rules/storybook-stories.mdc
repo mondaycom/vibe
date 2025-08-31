@@ -102,6 +102,24 @@ export const ComplexExample: Story = {
   - They can choose to use some of the `args` from the controls (e.g., for base styling or less critical props) or completely ignore/override them with hardcoded values to ensure the story accurately depicts the intended specific state.
 - Keep render functions as simple as possible, focusing on the component being storied.
 
+#### Prop Value Best Practices
+
+When writing stories, always use string literal prop values instead of static properties:
+
+```typescript
+// ✅ Preferred approach
+export const PrimaryButton: Story = {
+  render: () => <Button kind="primary" size="small">Click me</Button>
+};
+
+// ❌ Avoid (legacy pattern) 
+export const PrimaryButton: Story = {
+  render: () => <Button kind={Button.kinds.PRIMARY} size={Button.sizes.SMALL}>Click me</Button>
+};
+```
+
+This approach provides better IntelliSense, type safety, and follows modern Vibe conventions.
+
 Example of an `Overview` story's render function:
 
 ```typescript
