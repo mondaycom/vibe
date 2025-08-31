@@ -1,4 +1,4 @@
-import { range } from "lodash-es";
+import { range } from "es-toolkit/compat";
 import React, { forwardRef, useMemo, useCallback, useRef, type RefObject } from "react";
 import cx from "classnames";
 import { action } from "@storybook/addon-actions";

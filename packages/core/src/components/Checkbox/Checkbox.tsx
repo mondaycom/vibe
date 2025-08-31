@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
-import { isNil, noop as NOOP } from "lodash-es";
+import { isNil, noop as NOOP } from "es-toolkit/compat";
 import Icon from "../Icon/Icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";

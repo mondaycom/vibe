@@ -1,7 +1,6 @@
-import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
-import { isFunction, noop as NOOP } from "lodash-es";
+import { isFunction, noop as NOOP, camelCase } from "es-toolkit/compat";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";

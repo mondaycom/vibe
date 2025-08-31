@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { capitalize } from "lodash-es";
+import { capitalize } from "es-toolkit/compat";
 import { useMemo } from "react";
 import styles from "./shadow-example.module.scss";
 

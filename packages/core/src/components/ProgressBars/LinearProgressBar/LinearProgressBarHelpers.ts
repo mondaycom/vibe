@@ -1,4 +1,4 @@
-import { toNumber } from "lodash-es";
+import { toNumber } from "es-toolkit/compat";
 import { type SIZES } from "./../../../constants/sizes";
 import cx from "classnames";
 import styles from "./LinearProgressBar.module.scss";

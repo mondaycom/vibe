@@ -12,7 +12,7 @@ import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, typ
 import { type ElementContent, withStaticProps, type VibeComponentProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export interface FlexProps extends VibeComponentProps {
   /**

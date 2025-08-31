@@ -1,4 +1,4 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";

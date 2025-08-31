@@ -181,7 +181,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   /**
    * Callback fired when the dropdown loses focus.
    */
-  onBlur?: () => void;
+  onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
   /**
    * Callback fired when the clear button is clicked.
    */

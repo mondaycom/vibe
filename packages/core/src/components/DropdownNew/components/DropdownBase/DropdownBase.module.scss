@@ -6,7 +6,7 @@
   --background-color: var(--secondary-background-color);
 
   border-radius: var(--border-radius-small);
-  border: 1px solid var(--border-color);
+  box-shadow: inset 0 0 0 1px var(--border-color);
   background: var(--background-color);
   cursor: pointer;
 
@@ -14,7 +14,8 @@
     --border-color: var(--primary-text-color);
   }
 
-  &.active {
+  &.active,
+  &:focus {
     --border-color: var(--primary-color);
   }
 

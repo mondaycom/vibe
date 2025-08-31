@@ -1,7 +1,7 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import { range } from "lodash-es";
+import { range } from "es-toolkit/compat";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
 import userEvent from "@testing-library/user-event";
 

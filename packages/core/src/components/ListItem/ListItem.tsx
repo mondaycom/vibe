@@ -8,7 +8,7 @@ import React, {
   useEffect,
   useRef
 } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { SIZES, SELECTION_KEYS } from "../../constants";

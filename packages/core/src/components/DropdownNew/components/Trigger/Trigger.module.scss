@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  outline: none;
 
   &.small {
     min-height: 32px;
@@ -89,5 +90,5 @@
 }
 
 .actionsWrapper {
-  padding: var(--spacing-xs);
+  padding: 0 var(--spacing-xs);
 }

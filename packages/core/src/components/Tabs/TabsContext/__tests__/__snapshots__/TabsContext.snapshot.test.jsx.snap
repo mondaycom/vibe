@@ -11,7 +11,6 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
         aria-disabled={false}
@@ -22,6 +21,7 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={-1}
       >
         <div
           className="tabInner tabListTabInner"
@@ -38,6 +38,7 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
@@ -74,7 +75,6 @@ exports[`TabsContext renders correctly > with className 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
         aria-disabled={false}
@@ -85,6 +85,7 @@ exports[`TabsContext renders correctly > with className 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
@@ -120,7 +121,6 @@ exports[`TabsContext renders correctly > with empty props 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
         aria-disabled={false}
@@ -131,6 +131,7 @@ exports[`TabsContext renders correctly > with empty props 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
@@ -167,7 +168,6 @@ exports[`TabsContext renders correctly > with id 1`] = `
     <ul
       className="tabsList"
       role="tablist"
-      tabIndex={0}
     >
       <li
         aria-disabled={false}
@@ -178,6 +178,7 @@ exports[`TabsContext renders correctly > with id 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
+        tabIndex={0}
       >
         <div
           className="tabInner tabListTabInner"
