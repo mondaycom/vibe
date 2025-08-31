@@ -102,7 +102,7 @@ export const Types: Story = {
       </Text>
       <AttentionBox
         type="negative"
-        title="Account low on free space"
+        title="Low on free space"
         text="Highlights errors or limitations the user should be aware of."
         onClose={() => {}}
       />
