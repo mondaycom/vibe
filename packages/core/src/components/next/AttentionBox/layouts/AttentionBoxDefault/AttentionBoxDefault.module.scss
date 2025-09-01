@@ -70,9 +70,12 @@
     }
 
     .text {
-      margin-block-start: 1px;
       grid-row: 1;
       grid-column-end: -2;
+    }
+
+    .closeButton {
+      margin-block-start: -1px; // temporary fix until line height is adjusted in typography
     }
 
     .actions {
