@@ -37,14 +37,19 @@ This document outlines the naming conventions to be followed when developing wit
 
 ### Sub-directories (within a component folder)
 
-- **Tests**: Test files SHOULD be placed in a `__tests__` subdirectory.
-  - Test files themselves typically follow the pattern `ComponentName.test.tsx`.
+- **Tests**: Test files SHOULD be co-located with the code they test in respective `__tests__` subdirectories.
+  - **Main Component Tests**: Place in `ComponentName/__tests__/ComponentName.test.tsx`
+  - **Subcomponent Tests**: Place in `ComponentName/components/SubComponent/__tests__/SubComponent.test.tsx`
+  - **Hook Tests**: Place in `ComponentName/hooks/__tests__/useHookName.test.ts`
+  - **Utility Tests**: Place in `ComponentName/utils/__tests__/utilityName.test.ts`
+  - **Context Tests**: Place in `ComponentName/context/__tests__/ComponentNameContext.test.ts`
+  - **DO NOT** centralize all tests in the component root `__tests__` directory.
 - **Stories**: Storybook files SHOULD be placed in a `__stories__` subdirectory.
   - Story files typically follow the pattern `ComponentName.stories.tsx`.
   - Refer to the storybook-stories.mdc file in the monorepo for Storybook specific conventions.
 - **Helper/Utility Files**: Utility functions or helper components specific to a single component can be placed in a `helper` or `utils` subdirectory, or directly within the component folder if small and highly specific.
   - File names SHOULD be `camelCase.ts` for utils/helpers or `PascalCase.ts` if they export React components.
-- **Custom Hooks**: Component-specific custom hooks SHOULD be placed in a `__hooks__` subdirectory.
+- **Custom Hooks**: Component-specific custom hooks SHOULD be placed in a `hooks` subdirectory.
   - Hook files SHOULD follow the pattern `useHookName.ts` and use camelCase.
   - If there's only one hook that's tightly coupled to the component, it can be placed directly in the component folder as `useHookName.ts`.
 
@@ -69,6 +74,11 @@ This document outlines the naming conventions to be followed when developing wit
     - Common, unambiguous adjective props like `loading`, `active`, `open`, `checked`, or `required` are also acceptable.
     - However, if the HTML attribute is `disabled`, using `disabled` is acceptable for consistency.
 
+#### Prop Values
+
+- **String Literals**: Component prop values should use string literals rather than static properties
+  - Example: `<Button size="small" />` instead of `<Button size={Button.sizes.SMALL} />`
+
 ### Variable and Function Names
 
 - Local variables and function names SHOULD use `camelCase`.
@@ -87,6 +97,15 @@ This document outlines the naming conventions to be followed when developing wit
 - TypeScript type aliases and interface names MUST use `PascalCase`.
   - Example: `type UserProfile = { /* ... */ };`.
   - Example: `interface ComponentProps { /* ... */ }`.
+
+### Vibe Standard Types
+
+When working with Vibe components, always use the established standard types for common prop patterns:
+
+- **Icon Props**: Always use `SubIcon` type for any prop that accept icons.
+  - Example: `icon?: SubIcon;` instead of generic types like `ReactNode` or custom icon types.
+- **Component Props**: Extend `VibeComponentProps` for component props (to get `className`, `id`, `data-testid`).
+- **Consistent Typing**: Always check existing similar components to see what Vibe standard types they use before creating custom types.
 
 ### CSS Class Names
 

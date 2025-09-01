@@ -240,7 +240,19 @@ Components use CSS custom properties for theming:
 
 ## Common Patterns and Best Practices
 
-### 1. Always Provide Labels
+### 1. Use className Prop for Styling Base Components
+
+When styling base components from other components, always use their `className` prop instead of targeting them with CSS selectors like `[data-vibe]` or `[data-testid]`, element selectors, or other attribute selectors. This maintains clear component boundaries and prevents styling conflicts.
+
+```typescript
+// ✅ Good - Use className prop
+<BaseInput className={styles.myCustomInput} />
+
+// ❌ Bad - Don't target with element or attribute selectors
+// In CSS: button { ... } or [data-testid] { ... }
+```
+
+### 2. Always Provide Labels
 
 ```typescript
 // ✅ Good
