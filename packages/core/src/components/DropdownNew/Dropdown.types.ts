@@ -34,7 +34,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   /**
    * Callback fired when the selected values change in multi-select mode.
    */
-  onChange?: (options: BaseListItemData<Item>[]) => void;
+  onChange?: (options: BaseListItemData<Item>[], event: React.SyntheticEvent) => void;
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -65,7 +65,7 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
   /**
    * Callback fired when the selected value changes in single-select mode.
    */
-  onChange?: (option: BaseListItemData<Item>) => void;
+  onChange?: (option: BaseListItemData<Item>, event: React.SyntheticEvent) => void;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {

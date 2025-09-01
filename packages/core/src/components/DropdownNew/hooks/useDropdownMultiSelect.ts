@@ -12,7 +12,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   autoFocus?: boolean,
   defaultValue?: T[],
   value?: T[],
-  onChange?: (options: T[]) => void,
+  onChange?: (options: T[], event?: React.SyntheticEvent) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
@@ -32,7 +32,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
       if (value === undefined) {
         setSelectedItems(newSelected || []);
       }
-      onChange?.(newSelected || []);
+      onChange?.(newSelected || [], undefined);
     }
   });
 
@@ -86,7 +86,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
       setSelectedItems([]);
     }
     downshiftReset();
-    onChange?.([]);
+    onChange?.([], undefined);
   }, [value, setSelectedItems, downshiftReset, onChange]);
 
   const getInputProps = () => ({});

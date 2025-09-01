@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownSelect from "../hooks/useDropdownSelect";
 import { type BaseListItemData } from "../../BaseListItem";
@@ -31,6 +31,13 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const currentEventRef = useRef<React.SyntheticEvent | undefined>(undefined);
+
+  // Wrapper for onChange that includes the current event
+  const onChangeWithEvent = (option: Item | null) => {
+    onChange?.(option, currentEventRef.current);
+    currentEventRef.current = undefined; // Clear after use
+  };
 
   const {
     isOpen,
@@ -49,7 +56,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     isMenuOpenProp,
     defaultValue,
     value,
-    onChange,
+    onChangeWithEvent,
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
@@ -63,7 +70,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     highlightedIndex,
     selectedItem: hookSelectedItem,
     filteredOptions,
-    getToggleButtonProps: (toggleOptions?: Record<string, any>) => {
+    getToggleButtonProps: (toggleOptions?: Record<string, unknown>) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
         disabled: props.readOnly || props.disabled,
@@ -79,13 +86,28 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     },
     getLabelProps,
     getMenuProps,
-    getItemProps,
+    getItemProps: (itemOptions: { item: Item; index: number }) => {
+      const originalProps = getItemProps(itemOptions);
+      return {
+        ...originalProps,
+        onClick: (event: React.MouseEvent) => {
+          // Capture the event for the onChange callback
+          currentEventRef.current = event;
+          // Call the original onClick which will trigger the onChange through the hook
+          if (originalProps.onClick) {
+            originalProps.onClick(event);
+          }
+        }
+      };
+    },
     reset: hookReset,
     inputValue: null,
     selectedItems: [],
     addSelectedItem: undefined,
     removeSelectedItem: undefined,
-    contextOnClear: () => {
+    contextOnClear: (event?: React.SyntheticEvent) => {
+      // Capture the event for the onChange callback that will be triggered by hookReset
+      currentEventRef.current = event;
       hookReset();
       onClear?.();
     },

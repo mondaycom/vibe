@@ -10,7 +10,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   isMenuOpen?: boolean,
   defaultValue?: T,
   value?: T,
-  onChange?: (option: T | T[] | null) => void,
+  onChange?: (option: T | T[] | null, event?: React.SyntheticEvent) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
@@ -59,7 +59,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
       if (newSelectedItem) {
         onOptionSelect?.(newSelectedItem);
       }
-      onChange?.(newSelectedItem || null);
+      onChange?.(newSelectedItem || null, undefined);
     },
     onIsOpenChange: ({ isOpen }) => {
       isOpen ? onMenuOpen?.() : onMenuClose?.();
@@ -71,7 +71,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
       setCurrentSelectedItem(null);
     }
     downshiftReset();
-    onChange?.(null);
+    onChange?.(null, undefined);
   };
 
   const getInputProps = () => ({});

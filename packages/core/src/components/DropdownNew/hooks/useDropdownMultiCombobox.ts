@@ -13,7 +13,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   defaultValue?: T[],
   value?: T[],
   inputValueProp?: string,
-  onChange?: (options: T[]) => void,
+  onChange?: (options: T[], event?: React.SyntheticEvent) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -38,7 +38,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
       if (value === undefined) {
         setSelectedItems(selectedItems || []);
       }
-      onChange?.(selectedItems || []);
+      onChange?.(selectedItems || [], undefined);
     }
   });
 

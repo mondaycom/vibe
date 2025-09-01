@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { type DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiSelect from "../hooks/useDropdownMultiSelect";
 import { type BaseListItemData } from "../../BaseListItem";
@@ -32,6 +32,13 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
   const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>(initialMultiSelectedItems);
   const [isFocused, setIsFocused] = useState(false);
+  const currentEventRef = useRef<React.SyntheticEvent | undefined>(undefined);
+
+  // Wrapper for onChange that includes the current event
+  const onChangeWithEvent = (options: Item[]) => {
+    onChange?.(options, currentEventRef.current);
+    currentEventRef.current = undefined; // Clear after use
+  };
 
   const {
     isOpen,
@@ -55,7 +62,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     autoFocus,
     defaultValue,
     value,
-    onChange,
+    onChangeWithEvent,
     onMenuOpen,
     onMenuClose,
     onOptionSelect,
@@ -72,7 +79,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     selectedItems: hookSelectedItems || [],
     filteredOptions,
     clearable,
-    getToggleButtonProps: (toggleOptions?: Record<string, any>) => {
+    getToggleButtonProps: (toggleOptions?: Record<string, unknown>) => {
       return getToggleButtonProps({
         ...(toggleOptions || {}),
         disabled: props.readOnly || props.disabled,
@@ -88,17 +95,34 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     },
     getLabelProps,
     getMenuProps,
-    getItemProps,
+    getItemProps: (itemOptions: { item: Item; index: number }) => {
+      const originalProps = getItemProps(itemOptions);
+      return {
+        ...originalProps,
+        onClick: (event: React.MouseEvent) => {
+          // Capture the event for the onChange callback
+          currentEventRef.current = event;
+          // Call the original onClick which will trigger the onChange through the hook
+          if (originalProps.onClick) {
+            originalProps.onClick(event);
+          }
+        }
+      };
+    },
     reset: hookReset,
     getDropdownProps,
-    contextOnClear: () => {
+    contextOnClear: (event?: React.SyntheticEvent) => {
+      // Capture the event for the onChange callback that will be triggered by hookReset
+      currentEventRef.current = event;
       hookReset();
       if (value === undefined) {
         setMultiSelectedItemsState([]);
       }
       onClear?.();
     },
-    contextOnOptionRemove: (option: Item) => {
+    contextOnOptionRemove: (option: Item, event?: React.SyntheticEvent) => {
+      // Capture the event for the onChange callback
+      currentEventRef.current = event;
       if (hookRemoveSelectedItem) {
         hookRemoveSelectedItem(option);
       }

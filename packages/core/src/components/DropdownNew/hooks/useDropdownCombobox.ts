@@ -12,7 +12,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   defaultValue?: T,
   value?: T,
   inputValueProp?: string,
-  onChange?: (option: T | T[] | null) => void,
+  onChange?: (option: T | T[] | null, event?: React.SyntheticEvent) => void,
   onInputChange?: (value: string) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
@@ -76,10 +76,10 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         }
         if (selectedItem) {
           onOptionSelect?.(selectedItem);
-          onChange?.(selectedItem);
+          onChange?.(selectedItem, undefined);
           filterOptions("");
         } else {
-          onChange?.(null);
+          onChange?.(null, undefined);
           filterOptions("");
         }
       },
