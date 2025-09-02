@@ -59,6 +59,10 @@ export interface ModalProps extends VibeComponentProps {
    */
   onFocusAttempt?: (nextFocusedElement?: HTMLElement) => boolean | HTMLElement;
   /**
+   * Whether to return focus to the element that triggered the modal.
+   */
+  returnFocus?: boolean | { preventScroll?: boolean } | ((returnTo: Element) => boolean | { preventScroll?: boolean });
+  /**
    * Additional action to render in the header area.
    */
   renderHeaderAction?: ModalTopActionsProps["renderAction"];

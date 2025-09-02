@@ -39,6 +39,7 @@ const Modal = forwardRef(
       onClose = () => {},
       autoFocus = true,
       onFocusAttempt,
+      returnFocus = true,
       anchorElementRef,
       alertModal,
       container = document.body,
@@ -135,7 +136,11 @@ const Modal = forwardRef(
           <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
+                <FocusLockComponent
+                  returnFocus={returnFocus}
+                  autoFocus={autoFocus}
+                  whiteList={handleFocusLockWhiteList}
+                >
                   <div ref={containerRef} className={styles.container} style={zIndexStyle}>
                     <motion.div
                       variants={modalAnimationOverlayVariants}
