@@ -36,6 +36,21 @@ import { RadioButton } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is recommended for all instances to ensure proper label association.",
+    "Always provide a `text` prop to ensure the radio button's purpose is clear to all users.",
+    "Use the same `name` prop for all radio buttons in a group to ensure proper keyboard navigation and screen reader grouping.",
+    "Use `disabled` prop appropriately to indicate when radio buttons are not available for interaction.",
+    "Use `disabledReason` prop to provide an explanation for disabled radio buttons, shown in a tooltip.",
+    "Use `autoFocus` prop when a radio button should receive initial focus for keyboard navigation.",
+    "Use `childrenTabIndex` prop to control the tab order when radio buttons have interactive children.",
+    "Use `retainChildClick` prop to control whether clicking on children triggers radio button selection."
+  ]}
+/>
+
 <TipDropdown />
 
 ## Variants
