@@ -42,6 +42,22 @@ import { Button } from "@vibe/core";
 
 <TipIconButton />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is recommended for all instances to ensure proper label association.",
+    "Always provide descriptive text content for buttons, or use `ariaLabel` prop when buttons contain only icons.",
+    "Use `ariaLabel` prop when you need to provide a custom accessible name for icon-only buttons.",
+    "Use `ariaLabeledBy` prop when an external element provides the accessible name for the button.",
+    "Use `ariaHasPopup` prop when the button triggers a popup menu or dialog.",
+    "Use `ariaExpanded` prop to indicate when a popup triggered by the button is open or closed.",
+    "Use `ariaControls` prop to link the button to the element it controls.",
+    "Use `aria-describedby` prop when additional descriptive text is needed for the button.",
+    "Use `aria-pressed` prop for toggle buttons to indicate their current pressed state."
+  ]}
+/>
+
 ## Variants
 
 ### Button kinds
