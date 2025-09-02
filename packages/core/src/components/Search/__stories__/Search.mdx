@@ -49,6 +49,20 @@ import { Search } from "@vibe/core";
   <span> component.</span>
 </Tip>
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is highly recommended for all instances to ensure proper label association.",
+    "Use `inputAriaLabel` prop when you need to provide a custom accessible name for the search input.",
+    "Use `searchResultsContainerId` prop to link the search input to its results container for screen reader navigation.",
+    "Use `currentAriaResultId` prop to indicate the currently active/focused search result.",
+    "Use `ariaExpanded` prop to indicate when search results dropdown is open or closed.",
+    "Use `ariaHasPopup` prop to specify the type of popup (e.g., 'listbox', 'menu') for search results.",
+    "Use `clearIconLabel` prop to provide a custom accessible name for the clear button."
+  ]}
+/>
+
 ## Variants
 
 ### Sizes
