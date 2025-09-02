@@ -36,6 +36,21 @@ import { TextArea } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is highly recommended for all instances to ensure the best accessibility.",
+    "Always provide a visible `label` to ensure the textarea's purpose is clear to all users.",
+    "When using `label` or `helpText`, you must also provide an `id`. This is crucial, as it allows screen readers to correctly associate the textarea with its label and description.",
+    "For required fields, use the `required` prop to ensure proper screen reader announcements and native browser validation.",
+    "Provide descriptive error messages using the `error` prop with `helpText` to help users understand and correct validation issues.",
+    "Character counting with `showCharCount` automatically provides accessibility labels for screen readers.",
+    "Use the `aria-label` prop when a visible label is not desired but accessibility support is still needed.",
+    "The component automatically handles `aria-invalid` and `aria-describedby` attributes for proper error and help text association."
+  ]}
+/>
+
 ## Variants
 
 ### Sizes
