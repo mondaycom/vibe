@@ -58,7 +58,7 @@ import { Checkbox } from "@vibe/core";
   guidelines={[
     "Using an `id` is highly recommended for all instances to ensure proper label association.",
     "Always provide a visible `label` prop to ensure the checkbox's purpose is clear to all users.",
-    "When using `separateLabel` mode, the `id` prop is required for proper label association.",
+    "It is recommended to use `separateLabel` mode for better screen reader support as it provides clearer, more explicit label-input associations. When using this mode, the `id` prop is required for proper label association.",
     "Use `ariaLabel` prop when you need to provide a custom accessible name.",
     "Use `ariaLabelledBy` prop when the checkbox is described by external elements.",
     "Use `indeterminate` prop for mixed selection states (e.g., when some but not all sub-items are selected).",
