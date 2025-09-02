@@ -52,6 +52,21 @@ import { Checkbox } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    "Using an `id` is highly recommended for all instances to ensure proper label association.",
+    "Always provide a visible `label` prop to ensure the checkbox's purpose is clear to all users.",
+    "When using `separateLabel` mode, the `id` prop is required for proper label association.",
+    "Use `ariaLabel` prop when you need to provide a custom accessible name.",
+    "Use `ariaLabelledBy` prop when the checkbox is described by external elements.",
+    "Use `indeterminate` prop for mixed selection states (e.g., when some but not all sub-items are selected).",
+    "Use `tabIndex` prop for custom keyboard navigation order.",
+    "Use `autoFocus` prop when the checkbox should receive initial focus for keyboard navigation."
+  ]}
+/>
+
 <TipAmIUsingTheRightComponent />
 
 ## Variants
