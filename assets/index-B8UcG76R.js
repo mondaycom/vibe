@@ -1,0 +1,1 @@
+import{r as u}from"./index-Hemj67b4.js";import{n as s}from"./noop-PBsGcYX_.js";function m({time:e=0,callback:o,ignoreZeroTime:n=!1}){const t=e===0&&n,r=u.useRef(null),c=u.useCallback(()=>{r.current&&clearTimeout(r.current)},[r]);return u.useEffect(()=>{if(!t)return r.current=setTimeout(o,e),()=>{clearTimeout(r.current)}},[o,e,r,t]),t?[s]:[c]}export{m as u};
