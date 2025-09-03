@@ -12,7 +12,6 @@ const components = fs.readdirSync(componentsFolder).reduce((acc: Record<string, 
   return acc;
 }, {});
 
-console.log(components);
 const getAddons = () => {
   const addons = [
     "@storybook/addon-links",
@@ -64,7 +63,10 @@ export default {
   },
   typescript: {
     check: true,
-    reactDocgen: "react-docgen-typescript"
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      tsconfigPath: path.resolve(__dirname, "../tsconfig.storybook.json")
+    }
   },
   staticDirs: ["./static"],
   async viteFinal(config, { configType }) {

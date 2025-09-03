@@ -7,9 +7,6 @@
     "jsx": "react",
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "baseUrl": ".",
-    "paths": {
-      "@vibe/*": ["../../components/*/src/index.ts", "../*/src/index.ts"]
-    }
+    "baseUrl": "."
   }
 }

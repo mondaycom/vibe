@@ -1,6 +1,6 @@
 export const TRANSPARENT_COLOR = "rgba(0, 0, 0, 0)";
 
-export function getParentBackgroundColorNotTransparent(element, defaultColor) {
+export function getParentBackgroundColorNotTransparent(element: HTMLElement, defaultColor: string): string {
   const parentElement = element.parentElement;
   if (element === element.parentElement) {
     if (!element) {
