@@ -63,6 +63,10 @@ export interface ModalProps extends VibeComponentProps {
    */
   returnFocus?: boolean | { preventScroll?: boolean } | ((returnTo: Element) => boolean | { preventScroll?: boolean });
   /**
+   * Whether to disable the focus lock.
+   */
+  disableFocusLock?: boolean;
+  /**
    * Additional action to render in the header area.
    */
   renderHeaderAction?: ModalTopActionsProps["renderAction"];

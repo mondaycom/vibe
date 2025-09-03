@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { RemoveScroll } from "react-remove-scroll";
+import FocusLock from "react-focus-lock";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
@@ -23,6 +24,9 @@ import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import { LayerProvider } from "../../LayerProvider";
 import useMergeRef from "../../../hooks/useMergeRef";
 
+// @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
+const FocusLockComponent = (FocusLock.default || FocusLock) as typeof FocusLock;
+
 const Modal = forwardRef(
   (
     {
@@ -35,8 +39,8 @@ const Modal = forwardRef(
       onClose = () => {},
       autoFocus = true,
       onFocusAttempt,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       returnFocus = true,
+      disableFocusLock,
       anchorElementRef,
       alertModal,
       container = document.body,
@@ -109,7 +113,6 @@ const Modal = forwardRef(
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleFocusLockWhiteList = useCallback(
       (nextFocusedElement?: HTMLElement) => {
         if (!onFocusAttempt) return true;
@@ -134,51 +137,58 @@ const Modal = forwardRef(
           <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <div ref={containerRef} className={styles.container} style={zIndexStyle}>
-                  <motion.div
-                    variants={modalAnimationOverlayVariants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-                    className={styles.overlay}
-                    onClick={onBackdropClick}
-                    aria-hidden
-                  />
-                  <RemoveScroll forwardProps ref={modalMergedRef}>
+                <FocusLockComponent
+                  disabled={disableFocusLock}
+                  returnFocus={returnFocus}
+                  autoFocus={autoFocus}
+                  whiteList={handleFocusLockWhiteList}
+                >
+                  <div ref={containerRef} className={styles.container} style={zIndexStyle}>
                     <motion.div
-                      variants={modalAnimationVariants}
-                      initial="exit"
+                      variants={modalAnimationOverlayVariants}
+                      initial="initial"
                       animate="enter"
                       exit="exit"
-                      custom={anchorElementRef}
-                      className={cx(
-                        styles.modal,
-                        getStyle(styles, camelCase("size-" + size)),
-                        { [styles.withHeaderAction]: !!renderHeaderAction },
-                        className
-                      )}
-                      id={id}
-                      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-                      data-vibe={ComponentVibeId.MODAL}
-                      role="dialog"
-                      aria-modal
-                      aria-labelledby={ariaLabelledby || titleId}
-                      aria-describedby={ariaDescribedby || descriptionId}
-                      style={style}
-                      onKeyDown={onModalKeyDown}
-                      tabIndex={-1}
-                    >
-                      {children}
-                      <ModalTopActions
-                        renderAction={renderHeaderAction}
-                        theme={closeButtonTheme}
-                        closeButtonAriaLabel={closeButtonAriaLabel}
-                        onClose={onClose}
-                      />
-                    </motion.div>
-                  </RemoveScroll>
-                </div>,
+                      data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                      className={styles.overlay}
+                      onClick={onBackdropClick}
+                      aria-hidden
+                    />
+                    <RemoveScroll forwardProps ref={modalMergedRef}>
+                      <motion.div
+                        variants={modalAnimationVariants}
+                        initial="exit"
+                        animate="enter"
+                        exit="exit"
+                        custom={anchorElementRef}
+                        className={cx(
+                          styles.modal,
+                          getStyle(styles, camelCase("size-" + size)),
+                          { [styles.withHeaderAction]: !!renderHeaderAction },
+                          className
+                        )}
+                        id={id}
+                        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+                        data-vibe={ComponentVibeId.MODAL}
+                        role="dialog"
+                        aria-modal
+                        aria-labelledby={ariaLabelledby || titleId}
+                        aria-describedby={ariaDescribedby || descriptionId}
+                        style={style}
+                        onKeyDown={onModalKeyDown}
+                        tabIndex={-1}
+                      >
+                        {children}
+                        <ModalTopActions
+                          renderAction={renderHeaderAction}
+                          theme={closeButtonTheme}
+                          closeButtonAriaLabel={closeButtonAriaLabel}
+                          onClose={onClose}
+                        />
+                      </motion.div>
+                    </RemoveScroll>
+                  </div>
+                </FocusLockComponent>,
                 portalTargetElement
               )}
             </ModalProvider>
