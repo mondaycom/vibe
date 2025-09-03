@@ -104,8 +104,9 @@ export interface ChipsProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /**
    * The label of the chip for accessibility.
+   * Pass null to explicitly prevent aria-label from being rendered.
    */
-  ariaLabel?: string;
+  ariaLabel?: string | null;
   /**
    * If true, disables all click behaviors.
    */
@@ -161,7 +162,7 @@ const Chips = forwardRef(
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
-    const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
+    const overrideAriaLabel = ariaLabel === null ? undefined : ariaLabel || (typeof label === "string" && label) || "";
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
@@ -242,7 +243,7 @@ const Chips = forwardRef(
         }
       : {
           className: overrideClassName,
-          "aria-label": overrideAriaLabel,
+          ...(overrideAriaLabel !== undefined && { "aria-label": overrideAriaLabel }),
           style: backgroundColorStyle,
           ref: mergedRef,
           onClick: onClickCallback,
