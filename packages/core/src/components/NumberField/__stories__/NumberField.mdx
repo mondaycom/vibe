@@ -45,10 +45,21 @@ import { NumberField } from "@vibe/core";
 
 <UsageGuidelines
   guidelines={[
-    "Using an `id` is highly recommended for all instances to ensure the best accessibility.",
-    "Always provide a visible `label` or an `aria-label` to ensure the input's purpose is clear to all users.",
-    "When using `label` or `infoText`, you must also provide an `id`. This is crucial, as it allows screen readers to correctly associate the input with its label and description.",
-    "Providing an `id` also automatically links the Increment and Decrement buttons to the input via the `aria-controls` attribute, further improving the experience for users of assistive technologies."
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure the best accessibility.
+    </>,
+    <>
+      Always provide a visible <code>label</code> or an <code>aria-label</code> to ensure the input's purpose is clear
+      to all users.
+    </>,
+    <>
+      When using <code>label</code> or <code>infoText</code>, you must also provide an <code>id</code>. This is crucial,
+      as it allows screen readers to correctly associate the input with its label and description.
+    </>,
+    <>
+      Providing an <code>id</code> also automatically links the Increment and Decrement buttons to the input via the{" "}
+      <code>aria-controls</code> attribute, further improving the experience for users of assistive technologies.
+    </>
   ]}
 />
 

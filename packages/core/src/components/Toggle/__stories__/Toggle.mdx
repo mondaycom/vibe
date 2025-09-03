@@ -44,6 +44,28 @@ import { Toggle } from "@vibe/core";
 
 <TipOtherComponents />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
+    </>,
+    <>
+      Use <code>ariaLabel</code> prop when you need to provide additional context for screen readers.
+    </>,
+    <>
+      Use <code>ariaLabelledBy</code> prop when an external element provides the accessible name for the toggle.
+    </>,
+    <>
+      Use <code>ariaControls</code> prop when the toggle controls other elements on the page.
+    </>,
+    <>
+      Use <code>disabled</code> prop appropriately to indicate when toggles are not available for interaction.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### States

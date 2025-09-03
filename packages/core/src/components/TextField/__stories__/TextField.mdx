@@ -32,6 +32,43 @@ import { TextField } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure the best accessibility.
+    </>,
+    <>
+      Always provide a visible <code>title</code> or an <code>inputAriaLabel</code> to ensure the input's purpose is
+      clear to all users.
+    </>,
+    <>
+      When using <code>title</code> or validation text, you must also provide an <code>id</code>. This is crucial, as it
+      allows screen readers to correctly associate the input with its label and description.
+    </>,
+    <>
+      For required fields, use the <code>required</code> prop to ensure proper screen reader announcements and native
+      browser validation.
+    </>,
+    <>
+      Provide descriptive error messages using <code>validation</code> prop with status 'error' to help users understand
+      and correct validation issues.
+    </>,
+    <>
+      When using icons, provide meaningful labels through <code>iconsNames.primary</code> and{" "}
+      <code>iconsNames.secondary</code> props for screen reader users.
+    </>,
+    <>
+      For search inputs, use <code>type='search'</code> and provide <code>searchResultsContainerId</code> to properly
+      associate with search results.
+    </>,
+    <>
+      Character counting with <code>showCharCount</code> automatically provides accessibility labels for screen readers.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Sizes
