@@ -37,6 +37,25 @@ import { Combobox } from "@vibe/core";
 
 <TipOtherComponents />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
+    </>,
+    <>
+      Use <code>searchInputAriaLabel</code> prop when you need to provide a custom accessible name for the search input.
+    </>,
+    <>
+      Use <code>disabled</code> prop appropriately to indicate when the combobox is not available for interaction.
+    </>,
+    <>
+      Use <code>autoFocus</code> prop when the combobox should receive initial focus for keyboard navigation.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Default
