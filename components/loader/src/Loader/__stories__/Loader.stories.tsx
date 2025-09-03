@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Loader, { type LoaderProps } from "../Loader";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Button, DialogContentContainer, Flex, Search, Text } from "../..";
+import { createStoryMetaSettingsDecorator } from "@vibe/storybook-config";
+import { Button } from "@vibe/button";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -28,64 +28,50 @@ export const Overview: Story = {
   }
 };
 
+// TODO: replace with Flex component
 export const SizeVariants: Story = {
   render: () => (
-    <Flex align="start" gap={60}>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Xs
-        </Text>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Xs
         <Loader id="loader-xs" size="xs" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Small
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Small
         <Loader id="loader-small" size="small" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Medium
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Medium
         <Loader id="loader-medium" size="medium" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Large
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Large
         <Loader id="loader-large" size="large" />
-      </Flex>
-    </Flex>
+      </div>
+    </div>
   ),
   name: "Size variants"
 };
 
+// TODO: replace with Flex component
 export const ColorVariants: Story = {
   render: () => (
-    <Flex direction="row" gap={60}>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Primary
-        </Text>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Primary
         <Loader id="loader-primary" size="medium" color="primary" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Secondary
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Secondary
         <Loader id="loader-secondary" size="medium" color="secondary" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Dark
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Dark
         <Loader id="loader-dark" size="medium" color="dark" />
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          OnPrimary
-        </Text>
-        <Flex direction="row">
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        OnPrimary
+        <div style={{ display: "flex", flexDirection: "row", gap: "var(--space-24)" }}>
           <div style={{ background: "var(--sb-primary-text-color)", padding: "var(--space-4)" }}>
             <Loader id="loader-on-primary" size="medium" color="onPrimary" />
           </div>
@@ -98,9 +84,9 @@ export const ColorVariants: Story = {
           <div style={{ background: "var(--sb-primary-color)", padding: "var(--space-4)" }}>
             <Loader id="loader-on-primary-color" size="medium" color="onPrimary" />
           </div>
-        </Flex>
-      </Flex>
-    </Flex>
+        </div>
+      </div>
+    </div>
   ),
 
   name: "Color variants"
@@ -120,45 +106,48 @@ export const CustomColors: Story = {
   name: "Custom colors"
 };
 
+// TODO: replace with Flex component
 export const VisualVariants: Story = {
   render: () => (
-    <Flex direction="row" gap="large">
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          Casual
-        </Text>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        Casual
         <div>
           <Loader id="loader-casual" size="medium" />
         </div>
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1" weight="medium">
-          With background
-        </Text>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+        With background
         <div>
           <Loader id="loader-with-background" size="medium" hasBackground />
         </div>
-      </Flex>
-    </Flex>
+      </div>
+    </div>
   ),
 
   name: "Visual variants"
 };
 
-export const LoaderInTextField: Story = {
-  render: () => (
-    <DialogContentContainer>
-      <Search loading placeholder="Board name" />
-    </DialogContentContainer>
-  ),
-  parameters: {
-    chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  },
+// TODO: use story again
 
-  name: "Loader in text field"
-};
+// ### Loader in text field
+
+// Use loader in search field while filtering results.
+
+// <Canvas of={LoaderStories.LoaderInTextField} /> */}
+
+// export const LoaderInTextField: Story = {
+//   render: () => {
+//     return <Search loading placeholder="Board name" />;
+//   },
+//   parameters: {
+//     chromatic: {
+//       pauseAnimationAtEnd: true
+//     }
+//   },
+
+//   name: "Loader in text field"
+// };
 
 export const LoaderInButton: Story = {
   render: () => {

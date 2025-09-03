@@ -1,7 +1,18 @@
 import path from "path";
 import type { StorybookConfig } from "@storybook/react-vite";
 import remarkGfm from "remark-gfm";
+import fs from "fs";
 
+const componentsFolder = path.resolve(__dirname, "../../../components");
+const components = fs.readdirSync(componentsFolder).reduce((acc: Record<string, string>, component) => {
+  const componentFolderPath = path.resolve(componentsFolder, component);
+  if (fs.statSync(componentFolderPath).isDirectory()) {
+    acc[`@vibe/${component}`] = path.join(componentFolderPath, "src/index.ts");
+  }
+  return acc;
+}, {});
+
+console.log(components);
 const getAddons = () => {
   const addons = [
     "@storybook/addon-links",
@@ -40,8 +51,8 @@ export default {
   stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    { directory: "../../../components/", files: "**/*.mdx" },
-    { directory: "../../../components/", files: "**/*.stories.@(js|jsx|ts|tsx)" }
+    "../../../components/**/*.mdx",
+    "../../../components/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: getAddons(),
   framework: {
@@ -68,7 +79,9 @@ export default {
           "~monday-ui-style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
           "~monday-ui-style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
           "~monday-ui-style": path.resolve(__dirname, "../../style"),
-          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks")
+          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks"),
+          "@vibe/shared": path.resolve(__dirname, "../../shared/src/index.ts"),
+          ...components
         }
       },
       define: {

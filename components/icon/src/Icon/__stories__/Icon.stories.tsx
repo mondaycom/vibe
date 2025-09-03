@@ -3,9 +3,7 @@ import Icon from "../Icon";
 import { Bolt } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "@vibe/storybook-config";
 import { createComponentTemplate } from "vibe-storybook-components";
-// import Search from "../../Search/Search";
 import * as allIcons from "@vibe/icons";
-// import Flex from "../../Flex/Flex";
 import iconsMetaData from "@vibe/icons/meta";
 import { type SubIcon } from "../types";
 
@@ -95,6 +93,7 @@ export const IconsListStory = {
     const [query] = useState("");
     return (
       <section style={{ width: "100%" }}>
+        {/* TODO: use Search component again */}
         {/* <Search value={query} onChange={setQuery} placeholder="Search for icons" /> */}
         <div
           style={{
@@ -113,10 +112,18 @@ export const IconsListStory = {
               const Component = allIcons[fileName as keyof typeof allIcons] as SubIcon;
               return (
                 <>
-                  {/* <Flex style={{ color: "var(--sb-icon-color)" }} gap="small"> */}
-                  <Icon icon={Component} iconSize={26} />
-                  <span>{icon.name}</span>
-                  {/* </Flex> */}
+                  {/* TODO: replace with Flex component */}
+                  <div
+                    style={{
+                      color: "var(--sb-icon-color)",
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "var(--space-8)"
+                    }}
+                  >
+                    <Icon icon={Component} iconSize={26} />
+                    <span>{icon.name}</span>
+                  </div>
                 </>
               );
             })}
