@@ -24,7 +24,9 @@
     "clean": "rm -rf dist",
     "build": "tsc && yarn run generate-boilerplate",
     "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js",
-    "generate-boilerplate": "node scripts/extract-code-samples.js"
+    "generate-boilerplate": "yarn run extract-code-examples && yarn run extract-accessibility",
+    "extract-code-examples": "node scripts/extract-code-samples.js",
+    "extract-accessibility": "node scripts/extract-accessibility.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",

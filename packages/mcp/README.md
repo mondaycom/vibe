@@ -53,6 +53,7 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
 - `get-vibe-component-metadata`: Returns metadata for a specific Vibe component (or all components if no name is provided).
 - `list-vibe-public-components`: Get a list of all public @vibe/core & @vibe/core/next components names.
 - `get-vibe-component-examples`: Get React usage examples for Vibe components. Returns implementation examples and patterns for specific components or all components if none specified.
+- `get-vibe-component-accessibility`: Get accessibility requirements and guidelines for Vibe components. Returns structured accessibility information extracted from component documentation.
 
 #### Icon Tool
 
