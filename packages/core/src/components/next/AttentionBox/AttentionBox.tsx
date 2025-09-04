@@ -27,7 +27,7 @@ const AttentionBox = forwardRef(
       className,
       "data-testid": dataTestId
     }: AttentionBoxProps,
-    ref: React.ForwardedRef<HTMLElement>
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const role: AttentionBoxRole = type === "negative" ? "alert" : "status";
     const displayIcon = resolveAttentionBoxIcon(icon, type);
@@ -53,7 +53,7 @@ const AttentionBox = forwardRef(
     };
 
     return (
-      <aside
+      <div
         ref={ref}
         className={baseClasses}
         role={role}
@@ -65,7 +65,7 @@ const AttentionBox = forwardRef(
         ) : (
           <AttentionBoxDefault title={title} {...layoutSharedProps} />
         )}
-      </aside>
+      </div>
     );
   }
 );
