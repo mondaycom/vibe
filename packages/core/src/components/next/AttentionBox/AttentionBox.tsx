@@ -42,7 +42,7 @@ const AttentionBox = forwardRef(
       className
     );
 
-    const sharedProps = {
+    const layoutSharedProps = {
       onClose,
       closeButtonAriaLabel,
       action,
@@ -62,7 +62,11 @@ const AttentionBox = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
       >
-        {compact ? <AttentionBoxCompact {...sharedProps} /> : <AttentionBoxDefault title={title} {...sharedProps} />}
+        {compact ? (
+          <AttentionBoxCompact {...layoutSharedProps} />
+        ) : (
+          <AttentionBoxDefault title={title} {...layoutSharedProps} />
+        )}
       </aside>
     );
   }
