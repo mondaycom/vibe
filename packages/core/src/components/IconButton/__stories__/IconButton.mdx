@@ -42,6 +42,61 @@ import { IconButton } from "@vibe/core";
 
 <TipCheckYourself />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the IconButton to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      Always provide an accessible name using either <code>ariaLabel</code> prop or <code>tooltipContent</code> prop.
+      The component automatically uses <code>tooltipContent</code> as the accessible name if no <code>ariaLabel</code>{" "}
+      is provided.
+    </>,
+    <>
+      Use <code>ariaLabel</code> prop when you need a different accessible name than the tooltip text, or when the icon
+      button doesn't have a tooltip.
+    </>,
+    <>
+      Use <code>ariaLabeledBy</code> prop when an external element provides the accessible name for the icon button.
+      Pass the <code>id</code> of that external element.
+    </>,
+    <>
+      Use <code>ariaHasPopup</code> prop when the icon button opens a menu, dialog, or popup.
+    </>,
+    <>
+      Use <code>ariaExpanded</code> prop to indicate when a popup or menu opened by the icon button is currently open (
+      <code>true</code>) or closed (<code>false</code>).
+    </>,
+    <>
+      Use <code>ariaControls</code> prop to link the icon button to the element it controls. Pass the <code>id</code> of
+      the controlled element.
+    </>,
+    <>
+      Use <code>aria-describedby</code> prop to link the icon button to additional descriptive text. Pass the{" "}
+      <code>id</code> of the descriptive element.
+    </>,
+    <>
+      Use <code>aria-pressed</code> prop for toggle icon buttons to indicate their current pressed state (
+      <code>true</code>, <code>false</code>, or <code>mixed</code>).
+    </>,
+    <>
+      Use <code>aria-hidden</code> prop appropriately to hide the icon button from screen readers when necessary, but
+      use sparingly as it removes the button from the accessibility tree entirely.
+    </>,
+    <>
+      Use <code>tabIndex</code> prop to control the icon button's position in the keyboard navigation order. The default
+      value allows normal tab navigation.
+    </>,
+    <>
+      Provide <code>disabledReason</code> prop when disabling an icon button to give users context about why the button
+      is unavailable. This will be displayed in the tooltip.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Kinds
@@ -51,7 +106,6 @@ There can be more than one button in a screen, but to create the hierarchy of ac
 <Canvas of={IconButtonStories.Kinds} />
 
 <TipMenuButton />
-
 ### Sizes
 
 <Canvas of={IconButtonStories.Sizes} />
