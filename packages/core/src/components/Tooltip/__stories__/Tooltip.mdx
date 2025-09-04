@@ -43,6 +43,28 @@ import { Tooltip } from "@vibe/core";
 
 <TipOtherComponents />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Tooltip to enable proper accessibility associations and unique identification.
+    </>,
+    <>
+      Ensure tooltip content is descriptive and provides meaningful information. Avoid using tooltips to repeat
+      information that's already visible in the UI.
+    </>,
+    <>
+      Use <code>hideWhenReferenceHidden</code> prop to ensure tooltips disappear when their reference elements are
+      hidden or removed from the DOM.
+    </>,
+    <>
+      For tooltips with interactive content (links, buttons), ensure all interactive elements are keyboard accessible
+      and follow proper focus management.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Tooltip with title
