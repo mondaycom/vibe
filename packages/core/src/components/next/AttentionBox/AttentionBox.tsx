@@ -47,10 +47,8 @@ const AttentionBox = forwardRef(
       closeButtonAriaLabel,
       action,
       link,
-      // overridden props
       icon: displayIcon,
       iconType,
-      // custom props
       content
     };
 
