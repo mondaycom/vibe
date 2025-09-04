@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import classes from "./Switch.module.scss";
-import { isNil } from "es-toolkit/compat";
+import { isNil } from "es-toolkit";
 
 // TODO should be migrated to TS? Not used rn
 export function useHiddenSwitch({

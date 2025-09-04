@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { noop as NOOP, camelCase } from "es-toolkit/compat";
+import { noop as NOOP, camelCase } from "es-toolkit";
 import { type StepsColor, type StepsDotAriaCurrent } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import React, { type FC } from "react";
