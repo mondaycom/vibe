@@ -1,6 +1,6 @@
 {
   "name": "@vibe/mcp",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Vibe's MCP server to interact with the Vibe ecosystem",
   "repository": {
     "type": "git",

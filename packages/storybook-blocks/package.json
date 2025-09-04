@@ -1,6 +1,6 @@
 {
   "name": "vibe-storybook-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Collection of Vibe's Storybook components",
   "repository": {
     "type": "git",
