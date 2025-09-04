@@ -43,6 +43,29 @@ import { Tabs, TabPanel, TabPanels, TabList, Tab, TabsContext } from "@vibe/core
 
 <TipButtonGroup />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the <code>TabList</code> and individual <code>Tab</code> components to enable
+      proper accessibility associations and unique identification.
+    </>,
+    <>
+      Ensure each <code>Tab</code> has clear, descriptive text content or appropriate icon with accessible name to
+      indicate what content will be displayed when selected.
+    </>,
+    <>
+      Use the <code>tabPanelIds</code> prop in <code>TabList</code> to establish proper relationships between tabs and
+      their corresponding tab panels. Pass an array of <code>TabPanel</code> IDs in the same order as the tabs.
+    </>,
+    <>
+      Provide unique <code>id</code> props for each <code>TabPanel</code> to enable the <code>aria-controls</code>
+      relationships established by the tabs.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Default - compact tabs
