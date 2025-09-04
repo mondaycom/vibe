@@ -1,5 +1,5 @@
 ---
-description: "Provides comprehensive guidelines for writing CSS Modules specifically for UI components within the `@vibe/core` library (under `packages/core/src/components/`). This rule covers file naming conventions (e.g., `ComponentName.module.scss`), CSS nesting, mandatory browser compatibility, strategies for adopting newer CSS APIs with fallbacks, the exclusive use of design tokens from `monday-ui-style` (via CSS custom properties like `var(--primary-text-color)`), discouraging mixin usage from `monday-ui-style`, typography best practices (using `Text`/`Heading` components instead of direct font tokens), `camelCase` class naming, and common anti-patterns like avoiding theme-specific styles directly in component SCSS. Activate this rule when working with `.module.scss` files in `packages/core/src/components/` or when styling Vibe core components."
+description: "Provides comprehensive guidelines for writing CSS Modules specifically for UI components within the `@vibe/core` library (under `packages/core/src/components/`). This rule covers file naming conventions (e.g., `ComponentName.module.scss`), CSS nesting, mandatory browser compatibility, strategies for adopting newer CSS APIs with fallbacks, the exclusive use of design tokens from `monday-ui-style` (via CSS custom properties like `var(--primary-text-color)`), discouraging mixin usage from `monday-ui-style`, typography best practices (using `Text`/`Heading` components instead of direct font tokens), `camelCase` class naming, and common anti-patterns like avoiding theme-specific styles directly in component SCSS, never using `:global`, and never using `!important`. Activate this rule when working with `.module.scss` files in `packages/core/src/components/` or when styling Vibe core components."
 globs:
   - "packages/core/src/components/**/*.module.scss"
 alwaysApply: false
@@ -34,6 +34,8 @@ This document outlines the rules and best practices for writing styles using SCS
       }
     }
     ```
+
+- **Always Use Logical CSS Properties:** Use logical CSS properties instead of physical properties to ensure proper RTL support and internationalization. Logical properties are direction-agnostic and automatically adapt to different writing modes.
 
 - **Chrome 85+ Compatibility:** All styling **must** be compatible with Chrome version 85 and newer. Avoid using CSS features not supported by this baseline.
 - **Handling Newer CSS APIs:**
@@ -85,5 +87,8 @@ This document outlines the rules and best practices for writing styles using SCS
 ## 7. Anti-Patterns and Considerations
 
 - **No Theme-Specific Styles in Component SCSS:** Avoid embedding theme-specific rules (e.g., using `:global(.dark-app-theme) &`) directly within a component's `.module.scss` file. This is considered an anti-pattern as components should be theme-agnostic by default, adapting to themes via design tokens.
+- **Never Use :global:** The use of `:global()` in SCSS Modules is strictly prohibited. SCSS Modules are designed to provide scoped styles, and using `:global()` defeats this purpose and can lead to unintended side effects and style conflicts.
+- **Never Use !important:** The use of `!important` in CSS is strictly prohibited. Instead of using `!important`, resolve specificity issues other way.
+- **ALWAYS Use className Prop for Components:** When styling internal reusable components/base components, always use their `className` prop instead of targeting them in the scss file with other selectors such as `[data-vibe]`, element selectors like `button`, or other attribute selectors. This maintains clear component boundaries and prevents unintended styling conflicts.
 - **Responsiveness:** Do not implement responsive styles (e.g., using media queries, container queries) unless explicitly requested by the user or task.
 - **Focus on Maintainability:** Write styles that are maintainable. Avoid overly specific selectors that might break easily with small markup changes.

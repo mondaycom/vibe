@@ -40,6 +40,25 @@ import { Link } from "@vibe/core";
 
 <TipButton />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>ariaLabelDescription</code> prop when the link text alone doesn't provide enough context for screen
+      readers to understand the link's purpose.
+    </>,
+    <>
+      Use <code>ariaDescribedby</code> prop to link the link to additional descriptive text that provides more context
+      about the link's destination or action.
+    </>,
+    <>
+      Use <code>ariaLabeledBy</code> prop when an external element provides the accessible name for the link. Pass the{" "}
+      <code>id</code> of that external element.
+    </>
+  ]}
+/>
+
 **Link's color on Primary**
 
 - The link on Primary surface should be `text-color-on-primary` with underline.

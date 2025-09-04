@@ -13,6 +13,7 @@ alwaysApply: false
 2. **TypeScript**: All components must be written in TypeScript.
 3. **`forwardRef`**: Prefer using `React.forwardRef` for all components that might need to expose their underlying DOM element or instance to parent components. The `ref` should be typed directly on the function's second argument.
 4. **Props Typing and Destructuring**: Props must be destructured in the component function's first argument, and this argument must be explicitly typed with the component's props type.
+5. **No Static Properties**: Never use the `withStaticProps` utility or assign static properties to components. Components should remain without attached static properties. This means avoiding patterns like `MyComponent.colors = {...}`, `MyComponent.sizes = {...}`, and even avoiding `MyComponent.displayName = "..."`.
 
 ## File Structure (within the `.tsx` file)
 
@@ -51,6 +52,31 @@ const MyComponent = React.forwardRef(
   }
 );
 ```
+
+#### Dismissible Component Props Pattern
+
+**If your component can be dismissed/closed**, follow this established pattern to avoid redundant props:
+
+- **Use `onClose` prop as both handler and boolean indicator** - don't add separate `dismissible` or `closable` props
+- **Conditional rendering based on `onClose` presence**: `{onClose && <CloseButton onClick={onClose} />}`
+
+**Implementation Example**:
+
+```typescript
+const MyComponent = ({ onClose, closeButtonAriaLabel = "Close", ...otherProps }: MyComponentProps) => {
+  return (
+    <div>
+      {/* ...Component content */}
+      {onClose && <IconButton ariaLabel={closeButtonAriaLabel} icon={CloseIcon} onClick={onClose} />}
+    </div>
+  );
+};
+```
+
+**Why This Pattern**:
+
+- **Simplifies API**: No need for separate boolean props like `dismissible={true}`
+- **Clear Intent**: If user wants dismissible behavior, they pass `onClose`
 
 ### 3. State and Hooks
 

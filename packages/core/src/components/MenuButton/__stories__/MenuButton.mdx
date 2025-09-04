@@ -33,6 +33,23 @@ import { MenuButton } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the MenuButton to enable proper accessibility associations.
+    </>,
+    <>
+      Use descriptive <code>ariaLabel</code> values for MenuButtons that clearly indicate the menu's purpose.
+    </>,
+    <>
+      Use <code>ariaControls</code> prop to link the MenuButton to its menu content. Pass the <code>id</code> of the
+      menu element to establish the relationship between the button and its controlled menu.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Sizes

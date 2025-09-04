@@ -57,6 +57,34 @@ Research the exact APIs of Vibe components you'll integrate with:
 - Import from established Vibe components
 - Follow existing test ID patterns from [constants.ts](mdc:packages/core/src/tests/constants.ts)
 - Use CSS Modules for styling
+- **MANDATORY**: Add `[data-vibe]` attribute for component identification
+
+#### Essential `[data-vibe]` Attribute Implementation
+
+**CRITICAL**: Every new component MUST include the `[data-vibe]` attribute on its root element for component identification in the DOM.
+
+**Import Pattern**:
+
+```tsx
+import { ComponentVibeId } from "../../tests/constants";
+```
+
+**Usage Pattern**:
+Add to the root element's props:
+
+```tsx
+data-vibe={ComponentVibeId.ATTENTION_BOX}
+```
+
+**Implementation Examples**:
+
+**Enum Naming Pattern**:
+The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
+
+- `Button` → `ComponentVibeId.BUTTON`
+- `AttentionBox` → `ComponentVibeId.ATTENTION_BOX`
+- `MenuButton` → `ComponentVibeId.MENU_BUTTON`
+- `LinearProgressBar` → `ComponentVibeId.LINEAR_PROGRESS_BAR`
 
 **References**:
 
@@ -65,14 +93,26 @@ Research the exact APIs of Vibe components you'll integrate with:
 - [react-context](mdc:.cursor/rules/react-context.mdc) if your component needs to use or provide React Context
 - [naming-conventions](mdc:.cursor/rules/naming-conventions.mdc) for component and prop naming patterns
 
-### 3. Styles (`ComponentName.module.scss`)
+### 3. Component Constants (Optional: `consts/` directory)
+
+**If your component needs constant values**, organize them properly:
+
+- **MANDATORY**: Place constants files inside a `consts/` folder, never at the component root
+- **MANDATORY**: Use meaningful file names that describe purpose, not generic names like `MyComponentConstants.ts` or `consts.ts`
+- **Examples of good names**: `variants.ts`, `validate-colors.ts`, `events.ts`, `sizes.ts`
+
+**Reusability Rule**: If constants are used across multiple components, place them in the top-level `packages/core/src/constants/` directory instead.
+
+**Reference**: [file-structures](mdc:.cursor/rules/file-structures.mdc) for detailed constants organization patterns.
+
+### 4. Styles (`ComponentName.module.scss`)
 
 - NEVER Import anything inside the module scss file
 - Use established design tokens and spacing variables
 
 **Reference**: [styling-conventions](mdc:.cursor/rules/styling-conventions.mdc) for comprehensive CSS Modules guidelines, design token usage, and styling best practices.
 
-### 4. Index Exports (`index.ts`)
+### 5. Index Exports (`index.ts`)
 
 - On the same root directory of the component (e.g., `packages/core/src/components/MyComponent/index.ts`)
 - Export both component and types
@@ -80,18 +120,33 @@ Research the exact APIs of Vibe components you'll integrate with:
 
 **Reference**: [file-structures](mdc:.cursor/rules/file-structures.mdc) for export patterns and file organization conventions.
 
-### 5. Add to Global Exports
+### 6. Add to Global Exports
 
 - Update [components/index.ts](mdc:packages/core/src/components/index.ts) in alphabetical order
 - Add test IDs to [constants.ts](mdc:packages/core/src/tests/constants.ts) enum
-- Add to `ComponentVibeId` enum if needed
+- **MANDATORY**: Add your component to the `ComponentVibeId` enum in [constants.ts](mdc:packages/core/src/tests/constants.ts)
+
+#### Adding ComponentVibeId Enum Value
+
+**CRITICAL**: Every new component MUST have a corresponding entry in the `ComponentVibeId` enum.
+
+**Steps**:
+
+1. Find the `ComponentVibeId` enum
+2. Add your component in alphabetical order using SCREAMING_SNAKE_CASE format
+
+**Naming Convention**: Use the exact component name as the enum value, but the key should be in SCREAMING_SNAKE_CASE:
+
+- `Button` → `BUTTON = "Button"`
+- `MenuButton` → `MENU_BUTTON = "MenuButton"`  
+- `LinearProgressBar` → `LINEAR_PROGRESS_BAR = "LinearProgressBar"`
 
 **References**:
 
 - [file-structures](mdc:.cursor/rules/file-structures.mdc) for global export patterns
 - [monorepo-structure](mdc:.cursor/rules/monorepo-structure.mdc) for understanding where and how to add global exports
 
-### 6. Tests (`__tests__/ComponentName.test.tsx`)
+### 7. Tests (`__tests__/ComponentName.test.tsx`)
 
 - Follow testing patterns from similar components
 - Test actual component behavior, not assumptions
@@ -101,8 +156,9 @@ Research the exact APIs of Vibe components you'll integrate with:
 **Reference**:
 
 - [accessibility-guidelines](mdc:.cursor/rules/accessibility-guidelines.mdc) for comprehensive accessibility testing requirements and patterns.
+- [file-structures](mdc:.cursor/rules/file-structures.mdc) for detailed test organization patterns.
 
-### 7. Stories (`__stories__/ComponentName.stories.tsx`)
+### 8. Stories (`__stories__/ComponentName.stories.tsx`)
 
 - Create comprehensive examples covering all variants
 
@@ -113,7 +169,7 @@ Research the exact APIs of Vibe components you'll integrate with:
 ### Development Validation
 
 1. **TypeScript Check**
-2. **Test Suite**: `yarn test src/components/ComponentName/`
+2. **Test Suite**: `yarn test src/components/ComponentName/` (will recursively run all tests in subdirectories)
 3. **Lint and Format**: `yarn prettier --write src/components/ComponentName/` then `yarn lint src/components/ComponentName/ --fix`
 
 ### Integration Verification
@@ -129,6 +185,13 @@ Research the exact APIs of Vibe components you'll integrate with:
 - **Don't Guess APIs**: Always check actual component implementations
 - **Study Patterns**: Look at how similar components handle similar problems
 - **Understand Context**: Review existing test patterns and story structures
+
+### Modern Prop Patterns
+
+- **Use String Literals**: Define prop values as string literals instead of static properties
+  - ✅ Prefer: `<MyComponent size="large" variant="primary" />`
+  - ❌ Avoid: `<MyComponent size={MyComponent.sizes.LARGE} variant={MyComponent.variants.PRIMARY} />`
+- **Backward Compatibility**: While legacy static properties may exist in the codebase, new components should not include them
 
 ### Systematic Progression
 
@@ -149,5 +212,6 @@ Research the exact APIs of Vibe components you'll integrate with:
 3. **Test Assumptions**: Test actual behavior (disabled buttons may use `aria-disabled` vs `disabled`)
 4. **Missing Integration**: Forgetting to add exports to main index files or test constants
 5. **Design Token Guessing**: Check existing SCSS files for available CSS custom properties
+6. **Missing `[data-vibe]` Attribute**: Forgetting to add the mandatory `[data-vibe]` attribute or missing the corresponding `ComponentVibeId` enum entry
 
 This workflow ensures consistent, high-quality component implementation that integrates seamlessly with the Vibe design system.

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.63.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.62.0...@vibe/core@3.63.0) (2025-09-04)
+
+
+### Bug Fixes
+
+* **Chips:** warning color missing hover state ([#3080](https://github.com/mondaycom/vibe/issues/3080)) ([f21b62b](https://github.com/mondaycom/vibe/commit/f21b62b0da4e85530288cf955e74402f9343b78e))
+
+
+### Features
+
+* add getVibeComponentAccessibility tool to retrieve a11y requirements ([#3084](https://github.com/mondaycom/vibe/issues/3084)) ([45314fb](https://github.com/mondaycom/vibe/commit/45314fba533f7ef920b6e325c29de6afe6a7bf22))
+
+
+### Performance Improvements
+
+* replace lodash-es with es-toolkit compat ([#3072](https://github.com/mondaycom/vibe/issues/3072)) ([14dd2bb](https://github.com/mondaycom/vibe/commit/14dd2bb14112a07ce3e649937e281a20516ecb71))
+
+
+
+
+
 # [3.62.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.1...@vibe/core@3.62.0) (2025-08-27)
 
 
