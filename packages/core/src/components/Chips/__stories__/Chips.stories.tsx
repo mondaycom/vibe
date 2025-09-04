@@ -1,5 +1,5 @@
 import React from "react";
-import { chunk as _chunk } from "es-toolkit/compat";
+import { chunk as _chunk } from "es-toolkit";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
 import Text from "../../Text/Text";

@@ -8,7 +8,8 @@ import {
   type Dispatch,
   type SetStateAction
 } from "react";
-import { noop, debounce } from "es-toolkit/compat";
+import { debounce } from "es-toolkit/compat";
+import { noop } from "es-toolkit";
 
 export type UseDebounceResult = {
   inputValue: string;

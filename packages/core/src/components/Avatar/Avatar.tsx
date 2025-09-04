@@ -3,7 +3,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type AriaRole, useCallback, useMemo } from "react";
-import { isNil } from "es-toolkit/compat";
+import { isNil } from "es-toolkit";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";

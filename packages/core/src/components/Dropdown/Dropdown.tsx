@@ -5,7 +5,7 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, u
 import Select, { type InputProps, components, createFilter, type ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
-import { noop as NOOP } from "es-toolkit/compat";
+import { noop as NOOP } from "es-toolkit";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";

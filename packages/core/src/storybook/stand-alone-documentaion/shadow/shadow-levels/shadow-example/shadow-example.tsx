@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { capitalize } from "es-toolkit/compat";
+import { capitalize } from "es-toolkit";
 import { useMemo } from "react";
 import styles from "./shadow-example.module.scss";
 
