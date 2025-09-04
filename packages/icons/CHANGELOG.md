@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.10.0...@vibe/icons@1.11.0) (2025-09-04)
+
+
+### Features
+
+* **icons:** add EnterArrow icon ([#3087](https://github.com/mondaycom/vibe/issues/3087)) ([add070a](https://github.com/mondaycom/vibe/commit/add070a533ad272f00ceda76c449920d74fa9839))
+
+
+
+
+
 # [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.9.0...@vibe/icons@1.10.0) (2025-08-20)
 
 
