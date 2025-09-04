@@ -1,4 +1,4 @@
-import { isTypedArray, isFunction } from "es-toolkit";
+import { isFunction } from "es-toolkit";
 import { type MutableRefObject } from "react";
 
 export function chainRefFunctions(
