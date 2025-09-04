@@ -44,6 +44,36 @@ import { Avatar } from "@vibe/core";
 
 <TipMultipleAvatarsTogether />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Avatar to enable proper accessibility associations and unique identification.
+    </>,
+    <>
+      Always provide an <code>ariaLabel</code> prop to describe the person or entity represented by the avatar (e.g.,
+      "John Smith", "Design Team", "Guest User"). This label is automatically used as tooltip content.
+    </>,
+    <>
+      Use the <code>role</code> prop when the avatar represents something other than a person (e.g.,{" "}
+      <code>role="img"</code> for team avatars, <code>role="button"</code> for clickable workspace avatars).
+    </>,
+    <>
+      For clickable avatars, ensure the <code>ariaLabel</code> describes the action that will occur when clicked (e.g.,
+      "Open John Smith's profile", "View Design Team details").
+    </>,
+    <>
+      Use <code>ariaHidden</code> prop appropriately when the avatar is purely decorative and provides no meaningful
+      information to screen readers.
+    </>,
+    <>
+      For avatars with badges (status indicators), ensure the <code>ariaLabel</code> includes relevant status
+      information (e.g., "John Smith (Away)", "Design Team (3 members online)").
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Size
