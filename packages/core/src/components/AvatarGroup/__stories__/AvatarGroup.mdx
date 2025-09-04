@@ -36,6 +36,25 @@ import { AvatarGroup } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the AvatarGroup to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      Use the <code>counterAriaLabel</code> prop to provide a descriptive accessible name for the counter (e.g., "3
+      additional team members", "5 more participants", "2 hidden collaborators").
+    </>,
+    <>
+      Ensure each <code>Avatar</code> in the group has a meaningful <code>ariaLabel</code> prop that describes the
+      person or entity (e.g., "John Smith", "Sarah Johnson", "Design Team").
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Size
