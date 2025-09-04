@@ -1,5 +1,7 @@
 import { type CSSProperties, useMemo, useRef } from "react";
-import { isEqual, isEmpty } from "es-toolkit/compat";
+import { isEqual } from "es-toolkit";
+
+const isEmpty = (obj: any) => obj && Object.keys(obj).length === 0;
 
 // remove empty values
 function removeEmpty(obj: CSSProperties) {

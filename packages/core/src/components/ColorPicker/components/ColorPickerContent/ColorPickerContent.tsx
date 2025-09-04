@@ -1,4 +1,4 @@
-import { difference as _difference, intersection as _intersection } from "es-toolkit/compat";
+import { difference as _difference, intersection as _intersection } from "es-toolkit";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
 import {
