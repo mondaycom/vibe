@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { debounce } from "es-toolkit/compat";
+import { debounce } from "es-toolkit";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { type InfixKind } from "./Slider.types";

@@ -1,4 +1,4 @@
-import { memoize as _memoize } from "es-toolkit/compat";
+import { memoize as _memoize } from "es-toolkit";
 
 export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array<string> | string) {
   if (!classOrClassesName) return false;

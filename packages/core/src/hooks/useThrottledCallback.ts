@@ -1,5 +1,5 @@
 import { useMemo, useCallback } from "react";
-import { throttle } from "es-toolkit/compat";
+import { throttle } from "es-toolkit";
 
 export default function useThrottledCallback(
   callback: (...args: Array<unknown>) => void,
