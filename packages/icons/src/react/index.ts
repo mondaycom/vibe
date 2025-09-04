@@ -91,6 +91,7 @@ export {default as Email} from './Email';
 export {default as Embed} from './Embed';
 export {default as Emoji} from './Emoji';
 export {default as Enter} from './Enter';
+export {default as EnterArrow} from './EnterArrow';
 export {default as Erase} from './Erase';
 export {default as Event} from './Event';
 export {default as Expand} from './Expand';
