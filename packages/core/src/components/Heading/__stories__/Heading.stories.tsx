@@ -8,7 +8,7 @@ import { headingOverflowSuite } from "../__tests__/Heading.interactions";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import { Custom } from "@vibe/icons";
 import Box from "../../Box/Box";
 

@@ -6,7 +6,7 @@ import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbers
 import { FINISH_TEXT } from "./StepsConstants";
 import { type StepsType, type StepsColor } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
-import Button, { type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
