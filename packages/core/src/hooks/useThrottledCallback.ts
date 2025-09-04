@@ -7,7 +7,8 @@ export default function useThrottledCallback(
   dependencies: Array<unknown>
 ) {
   const throttledFunction = useMemo(() => {
-    return throttle(callback, wait, { trailing });
+    const edges: ("leading" | "trailing")[] = trailing ? ["leading", "trailing"] : ["leading"];
+    return throttle(callback, wait, { edges });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wait, trailing, ...dependencies]);
 
