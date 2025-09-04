@@ -14,7 +14,7 @@ alwaysApply: false
 
 Before writing any code, examine 2-3 existing components that share similar functionality or patterns. For example:
 
-- For informational components: [AttentionBox.tsx](mdc:packages/core/src/components/AttentionBox/AttentionBox.tsx), [AlertBanner.tsx](mdc:packages/core/src/components/AlertBanner/AlertBanner.tsx)
+- For informational components: [AttentionBox.tsx](mdc:packages/core/src/components/next/AttentionBox/AttentionBox.tsx), [AlertBanner.tsx](mdc:packages/core/src/components/AlertBanner/AlertBanner.tsx)
 - For action-oriented components: [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx), [SplitButton.tsx](mdc:packages/core/src/components/SplitButton/SplitButton.tsx)
 - For layout components: [Flex.tsx](mdc:packages/core/src/components/Flex/Flex.tsx), [Box.tsx](mdc:packages/core/src/components/Box/Box.tsx)
 

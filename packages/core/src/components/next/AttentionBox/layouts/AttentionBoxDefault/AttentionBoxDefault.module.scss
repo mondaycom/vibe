@@ -1,0 +1,85 @@
+.container {
+  --grid-columns: auto 1fr auto;
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+  grid-template-columns: var(--grid-columns);
+
+  .icon {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .title {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .text,
+  .actions {
+    grid-column: 2 / -1;
+  }
+
+  .text {
+    grid-row: 2;
+    min-width: 0;
+    margin-inline-end: var(--space-8);
+  }
+
+  .closeButton {
+    grid-row: 1;
+    grid-column: 3;
+    align-self: start;
+  }
+
+  .actions {
+    grid-row: 3;
+    margin-block-start: var(--space-8);
+  }
+
+  &:not(.hasIcon) {
+    --grid-columns: 1fr auto;
+
+    &:not(.hasCloseButton) {
+      --grid-columns: 1fr;
+    }
+
+    .title {
+      grid-column: 1;
+    }
+
+    .text,
+    .actions {
+      grid-column: 1 / -1;
+    }
+
+    .closeButton {
+      grid-column: 2;
+    }
+  }
+
+  &:not(.hasCloseButton) {
+    --grid-columns: auto 1fr;
+  }
+
+  &:not(.hasTitle) {
+    .icon {
+      align-self: start;
+    }
+
+    .text {
+      grid-row: 1;
+      grid-column-end: -2;
+    }
+
+    .closeButton {
+      margin-block-start: -1px; // temporary fix until line height is adjusted in typography
+    }
+
+    .actions {
+      grid-row: 2;
+    }
+  }
+}
