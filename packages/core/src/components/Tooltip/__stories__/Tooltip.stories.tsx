@@ -27,6 +27,7 @@ export const Overview = {
         id="overview-tooltip"
         {...args}
         open
+        hideWhenReferenceHidden
         // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
         // Therefore, there is no need to move this prop in your implementations.
         modifiers={[
@@ -69,6 +70,7 @@ export const TooltipWithTitle = () => (
       title="Tooltip title"
       shouldShowOnMount
       position="right"
+      hideWhenReferenceHidden
       // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={[
@@ -102,6 +104,7 @@ export const TooltipWithImage = () => (
       shouldShowOnMount
       image={image}
       position="right"
+      hideWhenReferenceHidden
       modifiers={modifiers}
       style={{ minHeight: "135px" }}
       open
@@ -138,6 +141,7 @@ export const Positions = {
          Therefore, there is no need to move this prop in your implementations. */}
           <Tooltip
             id="position-top-tooltip"
+            hideWhenReferenceHidden
             modifiers={modifiers}
             content="Top"
             shouldShowOnMount
@@ -148,13 +152,21 @@ export const Positions = {
           </Tooltip>
         </div>
         <div style={{ padding: "50px 0 0 0", margin: "0 32px" }}>
-          <Tooltip id="position-bottom-tooltip" modifiers={modifiers} content="Bottom" shouldShowOnMount open>
+          <Tooltip
+            id="position-bottom-tooltip"
+            hideWhenReferenceHidden
+            modifiers={modifiers}
+            content="Bottom"
+            shouldShowOnMount
+            open
+          >
             <div />
           </Tooltip>
         </div>
         <div style={{ padding: "0 32px 8px 32px", margin: "0 32px" }}>
           <Tooltip
             id="position-left-tooltip"
+            hideWhenReferenceHidden
             modifiers={modifiers}
             content="Left"
             position="right"
@@ -167,6 +179,7 @@ export const Positions = {
         <div style={{ padding: "0 64px 8px 64px", margin: "0 64px" }}>
           <Tooltip
             id="position-right-tooltip"
+            hideWhenReferenceHidden
             modifiers={modifiers}
             content="Right"
             position="left"
@@ -188,13 +201,13 @@ export const Positions = {
 };
 
 export const IconTooltip = () => (
-  <Tooltip id="icon-tooltip" content="Hidden columns">
+  <Tooltip id="icon-tooltip" hideWhenReferenceHidden content="Hidden columns">
     <IconButton id="icon-tooltip-trigger" ariaLabel="Hide columns" kind="secondary" size="small" icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
-  <Tooltip id="definition-tooltip" content="Item name: Bottom sheets">
+  <Tooltip id="definition-tooltip" hideWhenReferenceHidden content="Item name: Bottom sheets">
     <Button id="definition-tooltip-trigger" ariaLabel="View subitems" kind="secondary" size="small" leftIcon={Subitems}>
       Subitem
     </Button>
@@ -203,13 +216,13 @@ export const DefinitionTooltip = () => (
 
 export const ImmediateTooltips = () => (
   <Flex gap="small">
-    <Tooltip id="immediate-tooltip-1" immediateShowDelay={0} content="I'm a tooltip">
+    <Tooltip id="immediate-tooltip-1" hideWhenReferenceHidden immediateShowDelay={0} content="I'm a tooltip">
       <IconButton id="immediate-trigger-1" ariaLabel="Menu button 1" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
-    <Tooltip id="immediate-tooltip-2" immediateShowDelay={0} content="I'm a tooltip">
+    <Tooltip id="immediate-tooltip-2" hideWhenReferenceHidden immediateShowDelay={0} content="I'm a tooltip">
       <IconButton id="immediate-trigger-2" ariaLabel="Menu button 2" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
-    <Tooltip id="immediate-tooltip-3" content="I'm a tooltip">
+    <Tooltip id="immediate-tooltip-3" hideWhenReferenceHidden content="I'm a tooltip">
       <IconButton id="immediate-trigger-3" ariaLabel="Menu button 3" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
   </Flex>
