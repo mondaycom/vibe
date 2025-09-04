@@ -46,6 +46,30 @@ import { ButtonGroup } from "@vibe/core";
 
 <TipCheckYourself />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the ButtonGroup to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      Always provide a <code>groupAriaLabel</code> prop to describe the purpose of the button group. This provides
+      context for screen readers about what the group represents (e.g., "View options", "Sort options", "Display
+      settings").
+    </>,
+    <>
+      For individual buttons, ensure each option has clear, descriptive <code>text</code> content, or provide
+      <code>ariaLabel</code> in the options array for icon-only buttons.
+    </>,
+    <>
+      Use <code>ariaLabel</code> in the options array when you need a different accessible name than the visible button
+      text, or for icon-only buttons (e.g., <code>ariaLabel: "Grid view"</code>).
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Default
