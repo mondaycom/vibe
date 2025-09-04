@@ -24,7 +24,7 @@ const AttentionBoxCompact = ({
   return (
     <Flex align="center" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
-        {!!icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.leadingIcon} />}
+        {icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.leadingIcon} />}
         <Text type="text2" element="p" ellipsis>
           {content}
         </Text>
