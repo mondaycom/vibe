@@ -1,0 +1,103 @@
+import { Meta } from "@storybook/blocks";
+import { Frame, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
+import { RulesUXWriting } from "./values/rulesUXWriting";
+import { ValuesUXWriting } from "./values/valuesUXWriting";
+import { tone } from "./assets";
+import styles from "./ux-writing-handbook.stories.module.scss";
+
+<Meta title="Foundations/UX Writing Handbook" />
+
+# UX Writing Handbook
+
+- [Principles](#principles)
+- [Personality](#personality)
+- [Voice](#voice)
+- [Tone](#tone)
+- [Values & Golden Rules](#values--golden-rules)
+
+## Principles
+
+Our mission is to give everyone the power to build and improve how their organization runs.<br/>
+With monday.com, anyone can easily create or customize software that suits their needs.
+
+### Clarity
+
+<ul>
+  <li>
+    Simple language - use language that’s easy to understand. Look for plain-language alternatives to technical terms
+    and jargon, and give explanations when there are no alternatives.
+  </li>
+  <li>Concision - keep messages short and direct, and eliminate any unnecessary information.</li>
+</ul>
+
+### Consistency
+
+<ul>
+  <li>Terminology - use approved and consistent terminology whenever you communicate with users.</li>
+  <li>
+    Formatting - use a consistent format for similar messages (error notifications, for example) across all features and
+    products.
+  </li>
+</ul>
+
+### Accessibility
+
+<ul>
+  <li>
+    Inclusive language - write respectfully for diverse audiences. Use gender-neutral terms and avoid exclusive
+    language.
+  </li>
+  <li>Readability - write short sentences with familiar terms to keep your content readable.</li>
+</ul>
+
+## Personality
+
+If monday.com was a person, it would be the ultimate assistant.
+
+### Expert and reliable
+
+We’re an approachable partner with deep knowledge. We know what we’re doing, and we communicate with reassuring confidence. We own our mistakes and show how we’ll fix them.
+
+### Proactive and supportive
+
+We go out of our way to help users, so they can trust us completely. We anticipate their needs and provide thoughtful solutions before they even ask.
+
+## Voice
+
+Our voice is the consistent piece of how we communicate with users. It’s the style and emotional approach we always use while writing.
+
+### Empathetic and conversational
+
+Our voice is “human to human”. We speak with users honestly and directly to develop an emotional connection with them.
+
+### Positive and professional
+
+We use affirmative language to motivate users. We encourage them to get the most out of monday.com, and we support them in doing their best work.
+
+## Tone
+
+While our voice is consistent, our tone exists on a spectrum. It’s emotionally nuanced, and it adapts to different situations.
+
+### Light and engaging
+
+We gravitate toward a light and engaging tone for experiences where our message is simple and we have an opportunity to delight users, like new feature announcements or empty states.
+
+### Professional and reliable
+
+We use a professional and reliable tone for experiences where our top priority is to reassure users that they’re in good hands, like system errors or anything involving payment.
+
+<Frame noBorder noGutter>
+  <img src={tone} alt="tone" className={styles.image} />
+</Frame>
+
+## Values & Golden Rules
+
+If our voice and tone are how we write, then our values are why we write in that way. At the most practical level, our golden rules help us write consistently every time.
+
+### UX writing values
+
+<ValuesUXWriting />
+
+### Golden rules of UX writing
+
+<RulesUXWriting />
