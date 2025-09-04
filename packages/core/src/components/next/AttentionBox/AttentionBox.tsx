@@ -16,7 +16,6 @@ const AttentionBox = forwardRef(
       animate = true,
       icon,
       iconType = "svg",
-      hideIcon = false,
       type = "primary",
       children,
       text,
@@ -31,7 +30,7 @@ const AttentionBox = forwardRef(
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const role: AttentionBoxRole = type === "negative" ? "alert" : "status";
-    const displayIcon = resolveAttentionBoxIcon(icon, hideIcon, type);
+    const displayIcon = resolveAttentionBoxIcon(icon, type);
     const content = children || text;
 
     const baseClasses = cx(

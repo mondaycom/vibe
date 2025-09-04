@@ -179,7 +179,7 @@ export const IconStory: Story = {
   render: () => (
     <Flex gap="large" align="start">
       <AttentionBox
-        hideIcon
+        icon={false}
         text="This message gives you helpful context without requiring immediate action."
         action={{ text: "Button", onClick: () => {} }}
         link={{ href: "#", text: "Read more" }}

@@ -58,8 +58,8 @@ describe("AttentionBox", () => {
       expect(screen.getByTestId("icon")).toBeInTheDocument();
     });
 
-    it("hides icon when hideIcon is true", () => {
-      render(<AttentionBox text="Test" hideIcon />);
+    it("hides icon when icon is false", () => {
+      render(<AttentionBox text="Test" icon={false} />);
       expect(screen.queryByTestId("icon")).not.toBeInTheDocument();
     });
   });

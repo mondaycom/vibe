@@ -6,9 +6,6 @@ import type { AttentionBoxLinkProps } from "./components/AttentionBoxLink/Attent
 
 export type AttentionBoxType = "primary" | "positive" | "negative" | "warning" | "neutral";
 
-// Mutually exclusive icon props
-export type AttentionBoxIconProps = { icon?: SubIcon; hideIcon?: never } | { icon?: never; hideIcon?: boolean };
-
 // Mutually exclusive content props
 export type AttentionBoxContentProps =
   | {
@@ -52,7 +49,6 @@ export type AttentionBoxCompactTitleProps =
 export type AttentionBoxRole = "alert" | "status";
 
 export type AttentionBoxProps = VibeComponentProps &
-  AttentionBoxIconProps &
   AttentionBoxContentProps &
   AttentionBoxCompactTitleProps & {
     /**
@@ -63,6 +59,10 @@ export type AttentionBoxProps = VibeComponentProps &
      * The type of the icon
      */
     iconType?: IconType;
+    /**
+     * The icon to display. Pass `false` to hide the icon entirely, or omit to use the default icon for the type.
+     */
+    icon?: SubIcon | false;
     /**
      * Callback when the close button is clicked
      */
