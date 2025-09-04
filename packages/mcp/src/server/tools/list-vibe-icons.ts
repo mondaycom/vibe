@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { getErrorMessage, MCPTool } from "../index.js";
 import { IconMetadataService } from "./icon-metadata-service.js";
+import { sessionManager, eventTracker, generateSessionId } from "../../mcpcat-config.js";
 
 const SearchIconsParamsSchema = z.object({
   query: z.string().optional().describe("Text to search for in icon names, descriptions, or tags"),
@@ -16,8 +17,15 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
   inputSchema: SearchIconsParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchIconsParamsSchema>): Promise<any> => {
     const { query, category, limit, includeUsageExamples = false } = input;
+    const sessionId = generateSessionId();
+    const startTime = new Date();
+    const userIntent = `Search icons${query ? ` with query: ${query}` : ''}${category ? ` in category: ${category}` : ''}`;
 
     try {
+      if (eventTracker) {
+        eventTracker.trackToolCall(sessionId, "list-vibe-icons", input, startTime);
+      }
+
       const allIcons = await IconMetadataService.getIconMetadata();
       let filteredIcons = allIcons;
 
@@ -82,10 +90,26 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
         icons: formattedResults
       };
 
+      if (eventTracker) {
+        eventTracker.trackToolResponse(sessionId, "list-vibe-icons", result, Date.now() - startTime.getTime(), true);
+      }
+
+      if (sessionManager) {
+        sessionManager.recordToolCall(sessionId, {
+          toolName: "list-vibe-icons",
+          timestamp: startTime,
+          duration: Date.now() - startTime.getTime(),
+          success: true,
+          arguments: input,
+          response: result,
+          userIntent
+        });
+      }
+
       return {
         content: [
           {
-            type: "text",
+            type: "text" as const,
             text: JSON.stringify(result, null, 2)
           }
         ]
@@ -93,8 +117,24 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
     } catch (e) {
       const errorMessage = getErrorMessage(e) || `Failed to list vibe icons`;
 
+      if (eventTracker) {
+        eventTracker.trackToolResponse(sessionId, "list-vibe-icons", null, Date.now() - startTime.getTime(), false, errorMessage);
+      }
+
+      if (sessionManager) {
+        sessionManager.recordToolCall(sessionId, {
+          toolName: "list-vibe-icons",
+          timestamp: startTime,
+          duration: Date.now() - startTime.getTime(),
+          success: false,
+          error: errorMessage,
+          arguments: input,
+          userIntent
+        });
+      }
+
       return {
-        content: [{ type: "text", text: `Error in list-vibe-icons: ${errorMessage}` }],
+        content: [{ type: "text" as const, text: `Error in list-vibe-icons: ${errorMessage}` }],
         isError: true
       };
     }

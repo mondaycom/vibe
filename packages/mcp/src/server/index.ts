@@ -19,7 +19,7 @@ export interface MCPTool<T extends ZodRawShape> {
   name: string;
   description: string;
   inputSchema: T;
-  execute: (input: z.infer<ZodObject<T>>) => ExecuteResult;
+  execute: (input: any) => ExecuteResult;
 }
 
 export const addServerTool = (tool: MCPTool<any>) => {
