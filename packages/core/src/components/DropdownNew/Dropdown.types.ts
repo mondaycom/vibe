@@ -227,6 +227,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The class name to be applied to the menu wrapper.
    */
   menuWrapperClassName?: string;
+  /**
+   * If true, displays a loading indicator in the dropdown controls.
+   */
+  loading?: boolean;
 } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
