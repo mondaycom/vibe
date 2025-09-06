@@ -42,6 +42,14 @@ Model Context Protocol is an open standard that enables AI assistants to securel
 
 - [`v3-migration`](#v3-migration) - Advanced project analysis for Vibe 2 → Vibe 3 migration
 
+### Analytics & Monitoring
+
+- [`get-session-analytics`](#get-session-analytics) - Session analytics following MCPcat concepts
+- [`get-project-analytics`](#get-project-analytics) - Project analytics and system health monitoring
+- [`get-user-identification-info`](#get-user-identification-info) - User identification methods and options
+- [`demonstrate-user-identification`](#demonstrate-user-identification) - User identification examples and demonstrations
+- [`get-mcpcat-system-info`](#get-mcpcat-system-info) - MCPcat system information and "How it works" concepts
+
 ## Tool Reference
 
 #### `get-vibe-component-metadata`
@@ -97,6 +105,55 @@ This tool analyzes your entire project and provides:
 - **Breaking change detection** - Highlights components that need updates
 - **Migration command generation** - Provides ready-to-run codemod commands
 - **Detailed migration report** - Complete analysis with recommendations
+
+#### `get-session-analytics`
+
+Get comprehensive session analytics following [MCPcat session concepts](https://docs.mcpcat.io/concepts/sessions):
+
+- **Session Lifecycle Tracking** - Monitor session creation, activity, and termination
+- **User Engagement Metrics** - Track session duration and tool usage patterns
+- **Client Information** - Identify which AI clients are connecting
+- **Performance Insights** - Average session duration and tool call frequency
+- **Active Session Monitoring** - Real-time view of current user sessions
+
+#### `get-project-analytics`
+
+Get project-level analytics following [MCPcat project concepts](https://docs.mcpcat.io/concepts/projects):
+
+- **Project Health Metrics** - System uptime, memory usage, and performance
+- **Tool Usage Statistics** - Which tools are most frequently used
+- **Session Aggregation** - Total sessions and average engagement
+- **Environment Monitoring** - Platform and Node.js version tracking
+- **Event Processing Status** - Analytics pipeline health and throughput
+
+#### `get-user-identification-info`
+
+Get comprehensive information about user identification methods available in MCPcat:
+
+- **Identification Methods Overview** - OAuth, client-based, session-based, and anonymous options
+- **Availability Assessment** - Which methods work without setup vs require configuration
+- **Privacy Levels** - Understanding privacy implications of each approach
+- **Current Session Analysis** - Real-time view of active client types and identification patterns
+
+#### `demonstrate-user-identification`
+
+Interactive demonstration of user identification approaches:
+
+- **Current Implementation Details** - How the system currently identifies users
+- **Method Examples** - Sample user IDs for different client types (Claude Desktop, Cursor, etc.)
+- **Configuration Options** - How to enable anonymous mode or complete opt-out
+- **Best Practices** - Privacy-conscious approaches to user identification
+
+#### `get-mcpcat-system-info`
+
+Comprehensive overview of MCPcat analytics system following the "How it works" documentation:
+
+- **Core Concepts Overview** - Session tracking, user intent capture, request tracing
+- **Current System Status** - Active sessions, event processing state, privacy mode
+- **Session Lifecycle Details** - Creation, activity tracking, timeout management
+- **User Intent Capture** - Context parameter injection and AI assistant integration
+- **Request Tracing Information** - Protocol interception and event types
+- **Asynchronous Processing** - Event queuing, batching, and zero-performance impact
 
 <Tip title="Migration Made Easy">
   The migration tool follows the official Vibe 3 migration guide and generates precise codemod commands to automate most
@@ -192,6 +249,92 @@ The MCP will:
     "Design consistency - Ensure proper design token usage across your application"
   ]}
 />
+
+## Telemetry & Privacy
+
+The Vibe MCP server includes telemetry powered by [MCPcat](https://mcpcat.io) following their [privacy best practices](https://docs.mcpcat.io/essentials/privacy-&-security). This telemetry:
+
+- **Tracks tool usage patterns** - Helps identify which tools are most valuable
+- **Measures performance** - Tracks execution times and success rates
+- **Anonymous Mode** - Collect analytics without user identification
+- **Works in telemetry-only mode** - No account required for basic analytics
+
+### Privacy Protections
+
+Following MCPcat's recommendations, this implementation includes:
+
+- **Automatic Data Redaction**: Email addresses, credit card numbers, API keys, passwords, and IP addresses are automatically redacted
+- **Client-Side Protection**: Sensitive data never leaves your environment
+- **Server-Side Validation**: MCPcat uses Microsoft Presidio for additional PII detection
+- **Anonymous Mode**: Override user identification when privacy is preferred
+
+### User Identification Methods
+
+Following [MCPcat's user identification documentation](https://docs.mcpcat.io/identifying-users), this MCP server supports multiple identification approaches:
+
+#### OAuth/API Key Integration
+For servers with authentication systems:
+```javascript
+// Extract from request parameters
+const token = request.params?.arguments?.token;
+const apiKey = request.params?.arguments?.apiKey;
+```
+
+#### Client-Based Identification (Default)
+Works without any setup - automatically identifies users based on:
+- MCP client information (name, version, platform)
+- Client capabilities and metadata
+- User agent strings when available
+
+#### Session-Based Consistency
+Provides consistent user IDs across tool calls:
+- Hash-based identification from client characteristics
+- Session pattern recognition
+- Deterministic but privacy-preserving user IDs
+
+#### Anonymous Mode
+For privacy-conscious deployments:
+```bash
+export ANONYMIZE_SESSIONS=true
+```
+
+### Opting Out
+
+Following [MCPcat's privacy best practices](https://docs.mcpcat.io/essentials/privacy-&-security#disabling-telemetry), you can control telemetry using these environment variables:
+
+```bash
+# Privacy controls
+export DISABLE_USER_ANALYTICS=true      # Disable all analytics
+export ANONYMIZE_SESSIONS=true         # Anonymous mode
+
+# Optional: Your project ID from mcpcat.io
+export MCPCAT_PROJECT_ID=proj_32Eb5TYmIAuxKeKCpkEnQTMSOKP
+
+# Optional: Customize project details
+export MCPCAT_PROJECT_NAME="My Vibe MCP Server"
+export MCPCAT_PROJECT_DESCRIPTION="Custom Vibe MCP Server"
+```
+
+When telemetry is disabled, the MCP server will function normally but won't send any usage data to MCPcat.
+
+## How Analytics Work
+
+The server tracks usage patterns to help you understand how it's being used:
+
+### Sessions
+- Each AI client interaction creates a session
+- Tracks engagement and tool usage patterns
+- Sessions expire after 30 minutes of inactivity
+
+### Projects
+- Groups analytics by different deployments
+- Supports different environments (dev/staging/production)
+- Customizable project names and descriptions
+
+### Events
+- Records tool calls and responses
+- Batches data for efficient processing
+- Protects privacy with automatic data redaction
 
 ## Contributing
 

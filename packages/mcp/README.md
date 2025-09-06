@@ -66,3 +66,78 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
 #### Migration Tool
 
 - `v3-migration`: Evaluates your project for Vibe 2 to Vibe 3 migration needs according to the official migration guide. Conducts comprehensive project analysis, identifies breaking changes, and generates the necessary migration commands to resolve them.
+
+#### Analytics Tools
+
+The MCP server includes analytics tools that help you understand how the system is being used:
+
+- `get-session-analytics`: View session usage patterns and active user interactions
+- `get-project-analytics`: Monitor overall system performance and tool usage statistics
+- `get-user-identification-info`: Learn about user identification methods available
+- `demonstrate-user-identification`: See examples of how users are identified
+- `get-mcpcat-system-info`: Get comprehensive information about the analytics system
+
+### How Analytics Work
+
+The MCP server uses MCPcat to provide insights into usage patterns while respecting your privacy:
+
+- **Sessions**: Each AI client interaction creates a session to track engagement
+- **Projects**: Group analytics by different deployments or environments
+- **Events**: Records tool usage and performance data for analysis
+- **Privacy**: All data is processed with built-in privacy protections
+
+## MCPcat Analytics
+
+This MCP server integrates with [MCPcat](https://mcpcat.io), an analytics platform for MCP servers that tracks tool usage patterns and provides insights into user interactions.
+
+### Configuration
+
+MCPcat is automatically initialized when the server starts. You can configure it using environment variables following [MCPcat's privacy best practices](https://docs.mcpcat.io/essentials/privacy-&-security#disabling-telemetry):
+
+```bash
+# Optional: Set your project ID from mcpcat.io dashboard
+export MCPCAT_PROJECT_ID=proj_32Eb5TYmIAuxKeKCpkEnQTMSOKP
+
+# Optional: Customize project details
+export MCPCAT_PROJECT_NAME="My Vibe MCP Server"
+export MCPCAT_PROJECT_DESCRIPTION="Custom Vibe MCP Server"
+
+# Privacy controls (recommended)
+export DISABLE_USER_ANALYTICS=false  # Set to true to disable all analytics
+export ANONYMIZE_SESSIONS=false     # Set to true for anonymous analytics
+```
+
+### Features
+
+- **Usage Insights**: See which tools are most popular and how they're used
+- **Performance Monitoring**: Track response times and success rates
+- **Privacy Controls**: Full control over data collection and privacy
+- **Anonymous Mode**: Collect usage data without identifying users
+
+### Privacy & Security
+
+Your privacy is important. This implementation includes:
+
+- **Data Protection**: Sensitive information is automatically redacted before any transmission
+- **Local Processing**: All data processing happens on your machine
+- **User Control**: You have full control over what data is collected
+- **Anonymous Mode**: Option to collect usage data without identifying users
+- **Easy Opt-out**: Simple environment variables to disable all analytics
+
+### User Privacy Options
+
+You can control how user data is handled:
+
+- **Anonymous Mode**: Collect usage statistics without identifying users
+- **Complete Opt-out**: Disable all analytics collection
+- **Client Information**: Basic client details (name, platform) are used for insights
+
+```bash
+# Disable all analytics
+export DISABLE_USER_ANALYTICS=true
+
+# Use anonymous mode (no user identification)
+export ANONYMIZE_SESSIONS=true
+```
+
+For more information about MCPcat and its privacy practices, visit [mcpcat.io](https://mcpcat.io).
