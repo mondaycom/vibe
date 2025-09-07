@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.64.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.1...@vibe/core@3.64.0) (2025-09-07)
+
+
+### Features
+
+* **AttentionBox:** implement new AttentionBox component for better DX and improved UI ([#2969](https://github.com/mondaycom/vibe/issues/2969)) ([ad3e2e1](https://github.com/mondaycom/vibe/commit/ad3e2e15f16d89e3a3a53ed677f789115e76c057))
+* **Dropdown:** add loading state ([#3090](https://github.com/mondaycom/vibe/issues/3090)) ([6101b24](https://github.com/mondaycom/vibe/commit/6101b24014d8364e56769d1bcc81d015be6f569e))
+
+
+
+
+
 ## [3.63.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.0...@vibe/core@3.63.1) (2025-09-04)
 
 **Note:** Version bump only for package @vibe/core
