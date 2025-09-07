@@ -1,7 +1,25 @@
 import { type CSSProperties, useMemo, useRef } from "react";
 import { isEqual } from "es-toolkit";
 
-const isEmpty = (obj: any) => obj && Object.keys(obj).length === 0;
+const isEmpty = (value?: unknown): boolean => {
+  if (value == null) {
+    return true;
+  }
+
+  if (typeof value === "string" || Array.isArray(value) || (typeof value === "object" && "length" in value)) {
+    return value.length === 0;
+  }
+
+  if (value instanceof Map || value instanceof Set) {
+    return value.size === 0;
+  }
+
+  if (typeof value === "object") {
+    return Object.keys(value).length === 0;
+  }
+
+  return true;
+};
 
 // remove empty values
 function removeEmpty(obj: CSSProperties) {
