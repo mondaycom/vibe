@@ -15,12 +15,20 @@ import { Box } from "../../../Box";
 import { Skeleton } from "../../../Skeleton";
 import person from "./assets/person.png";
 import contentImage from "./assets/content-image.png";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 
 type Story = StoryObj<typeof AttentionBox>;
 
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: AttentionBox,
+  actionPropsArray: ["onClose"]
+});
+
 export default {
   title: "Components/AttentionBox [New]",
-  component: AttentionBox
+  component: AttentionBox,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof AttentionBox>;
 
 export const Overview: Story = {
@@ -34,13 +42,13 @@ export const Overview: Story = {
     text: "This action will cause your team to lose access to the account until you use the correct SSO source.",
     action: {
       text: "Button",
-      onClick: () => alert("Button clicked")
+      onClick: () => {}
     },
     link: {
       href: "#",
       text: "Read more"
     },
-    onClose: () => alert("Close clicked")
+    onClose: () => {}
   },
   parameters: {
     docs: {
