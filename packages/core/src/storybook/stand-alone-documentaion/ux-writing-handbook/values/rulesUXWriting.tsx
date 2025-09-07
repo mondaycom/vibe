@@ -1,12 +1,10 @@
 import React from "react";
 import { bottomLine, getFull, userPointOfView, oneCta, specificCta, cutTheFluff } from "../assets";
 import { Value } from "./values";
-import "./valuesUXWriting.scss";
-
-const BASE_CLASS = "monday-storybook-principles";
+import styles from "./valuesUXWriting.module.scss";
 
 export const RulesUXWriting = () => (
-  <div className={BASE_CLASS}>
+  <div className={styles.principles}>
     <Value
       imgSrc={bottomLine}
       title="Bottom line first"

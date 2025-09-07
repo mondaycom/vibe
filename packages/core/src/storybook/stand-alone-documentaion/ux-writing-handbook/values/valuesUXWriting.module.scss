@@ -1,0 +1,14 @@
+.principles {
+  margin: var(--sb-spacing-between-sections) auto;
+  max-width: 830px;
+
+  /* Grid layout replacing the mixin */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: var(--sb-spacing-large);
+  row-gap: var(--sb-spacing-xxxl);
+
+  * img {
+    width: 100%;
+  }
+}

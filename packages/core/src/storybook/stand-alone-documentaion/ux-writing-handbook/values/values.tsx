@@ -1,8 +1,6 @@
 import React from "react";
 import { InformationBox } from "vibe-storybook-components";
-import "./values.scss";
-
-const VALUES_VISUAL_ELEMENT = `monday-storybook-values`;
+import styles from "./values.module.scss";
 
 interface ValueProps {
   imgSrc: string;
@@ -11,7 +9,7 @@ interface ValueProps {
 }
 
 export const Value = ({ imgSrc, title, description }: ValueProps) => {
-  const valueElement = <img className={`${VALUES_VISUAL_ELEMENT}_visual-element`} src={imgSrc} alt="" />;
+  const valueElement = <img className={styles.visualElement} src={imgSrc} alt="" />;
   return <InformationBox component={valueElement} title={title} description={description} />;
 };
 

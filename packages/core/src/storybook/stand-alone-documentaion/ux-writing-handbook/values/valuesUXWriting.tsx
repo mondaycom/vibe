@@ -1,12 +1,10 @@
 import React from "react";
 import { weWorkFor, stayConsistent, stressFree, thePen, writeFor, gradual } from "../assets";
 import { Value } from "./values";
-import "./valuesUXWriting.scss";
-
-const BASE_CLASS = "monday-storybook-principles";
+import styles from "./valuesUXWriting.module.scss";
 
 export const ValuesUXWriting = () => (
-  <div className={BASE_CLASS}>
+  <div className={styles.principles}>
     <Value
       imgSrc={weWorkFor}
       title="We work for the users"
