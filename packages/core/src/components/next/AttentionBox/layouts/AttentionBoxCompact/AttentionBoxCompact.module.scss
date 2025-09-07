@@ -1,0 +1,15 @@
+.container {
+  gap: var(--space-32);
+}
+
+.mainContentGroup {
+  min-width: 0;
+}
+
+.leadingIcon {
+  align-self: flex-start;
+}
+
+.actionsGroup {
+  gap: var(--space-12);
+}
