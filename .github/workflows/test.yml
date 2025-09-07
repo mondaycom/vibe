@@ -58,15 +58,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Fix container permissions
-        run: |
-          # Fix git ownership issues in container
-          git config --global --add safe.directory /__w/vibe/vibe
-          git config --global --add safe.directory '*'
-          # Fix Docker config permission warning
-          mkdir -p /root/.docker
-          echo '{}' > /root/.docker/config.json
-          chmod 600 /root/.docker/config.json
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
@@ -79,8 +70,6 @@ jobs:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
           CI: true
           WORKERS: "50%"
-          # Playwright runs as root in container, set HOME to avoid permission issues
-          HOME: /root
         shell: bash
         run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
       - uses: actions/upload-artifact@v4
