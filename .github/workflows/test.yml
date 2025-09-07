@@ -62,7 +62,9 @@ jobs:
       - id: determine-since-flag
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
-      - name: Install playwright browsers
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Unit Tests
         env:
@@ -72,7 +74,7 @@ jobs:
         shell: bash
         run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
       - uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: ${{ !cancelled() }}
         with:
           name: test-results
           path: |
