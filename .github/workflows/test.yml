@@ -51,6 +51,9 @@ jobs:
     name: Testkit Unit Tests
     if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.1-jammy
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
         with:
@@ -62,43 +65,13 @@ jobs:
       - id: determine-since-flag
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
-      - name: Get installed Playwright version
-        id: playwright-version
-        run: echo "version=$(npm list @playwright/test --depth=0 --json | jq -r '.dependencies."@playwright/test".version')" >> $GITHUB_OUTPUT
-      - name: Cache playwright browsers
-        uses: actions/cache@v4
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
-      - name: Configure APT for reliability
-        run: |
-          sudo tee -a /etc/apt/apt.conf.d/99-ci-reliability > /dev/null <<EOF
-          APT::Acquire::Retries "3";
-          APT::Acquire::http::Timeout "30";
-          APT::Acquire::https::Timeout "30";
-          APT::Acquire::ftp::Timeout "30";
-          APT::Get::Assume-Yes "true";
-          EOF
-      - name: Install playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        env:
-          PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT: 120000
-          NEEDRESTART_MODE: a
-          DEBIAN_FRONTEND: noninteractive
-        run: npx playwright install --with-deps
-      - name: Install playwright browsers (cache hit - only deps)
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        env:
-          NEEDRESTART_MODE: a
-          DEBIAN_FRONTEND: noninteractive
-        run: npx playwright install-deps
       - name: Run Unit Tests
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
           CI: true
           WORKERS: "50%"
+          # Playwright runs as root in container, set HOME to avoid permission issues
+          HOME: /root
         shell: bash
         run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
       - uses: actions/upload-artifact@v4
