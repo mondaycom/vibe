@@ -41,6 +41,7 @@ import Footer from "../src/storybook/components/footer/Footer";
 import StorybookTableOfContents from "../src/storybook/components/toc/TableOfContents";
 import { paintToConsole } from "./art";
 import FloatingObjects from "../src/storybook/stand-alone-documentaion/welcome/hero/FloatingObjects";
+import MondayVibeBanner from "../src/storybook/stand-alone-documentaion/welcome/banner/MondayVibeBanner";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -67,6 +68,7 @@ const preview: Preview = {
 
         return (
           <>
+            {isWelcomePage && <MondayVibeBanner />}
             {isWelcomePage && <FloatingObjects />}
             <DocsContainer context={context}>
               <Unstyled>{children}</Unstyled>
