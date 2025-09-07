@@ -1,0 +1,11 @@
+import{j as e}from"./jsx-runtime-DDzbWKUH.js";import{useMDXComponents as c}from"./index-CXa8ra7y.js";import{M as h,C as p}from"./index-dE0vnNb5.js";import{U as a,O as d}from"./useHover.stories-DTCiEFcj.js";import{r as u}from"./usage-guidelines-CjZwxEOd.js";import{a as i}from"./link-Dw3-1D-q.js";import"./index-Hemj67b4.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-CI6kyxsg.js";import"./index-CcurGEUM.js";import"./index-D63y3F3s.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./useHover-Bg7Q2h9V.js";import"./Box-D9cKzrT2.js";import"./index-BpvXyOxN.js";import"./useMergeRef-DQ4XPFxl.js";import"./useIsomorphicLayoutEffect-FdvxY73P.js";import"./ssr-utils-Do6V6AqB.js";import"./test-ids-utils-CSfXomCJ.js";import"./camelCase-CO1PkVrH.js";import"./withStaticProps-DfSG2La2.js";import"./withStaticProps-DibdfTK_.js";function s(r){const t={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...c(),...r.components},{FunctionArgument:o,FunctionArguments:n}=t;return o||m("FunctionArgument"),n||m("FunctionArguments"),e.jsxs(e.Fragment,{children:[e.jsx(h,{of:a}),`
+`,e.jsx(t.h1,{id:"usehover",children:"useHover"}),`
+`,e.jsxs(t.p,{children:["Detect whether the mouse is hovering an element by returning its ",e.jsx("code",{children:"isHovered"})," state."]}),`
+`,e.jsx(p,{of:d}),`
+`,e.jsx(t.h3,{id:"import",children:"Import"}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`import { useHover } from "@vibe/core";
+`})}),`
+`,e.jsx(t.h2,{id:"usage",children:"Usage"}),`
+`,e.jsx(u,{guidelines:["Use this hook to get element hovered state","Please assign the returned ref as the reference of the element"]}),`
+`,e.jsx(t.h2,{id:"returns",children:"Returns"}),`
+`,e.jsxs(n,{children:[e.jsx(o,{name:"ref",type:"React.MutableRefObject",description:e.jsxs(e.Fragment,{children:["A React",e.jsx(i,{size:i.sizes.MEDIUM,href:"https://react.dev/reference/react/useRef",children:"ref"}),"object to assign to the element which hover state needs to be tracked."]})}),e.jsx(o,{name:"isHovered",type:"boolean",description:"Whether the element is hovered or not."})]})]})}function I(r={}){const{wrapper:t}={...c(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(s,{...r})}):s(r)}function m(r,t){throw new Error("Expected component `"+r+"` to be defined: you likely forgot to import, pass, or provide it.")}export{I as default};
