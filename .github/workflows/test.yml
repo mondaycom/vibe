@@ -72,6 +72,15 @@ jobs:
           path: |
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
+      - name: Configure APT for reliability
+        run: |
+          sudo tee -a /etc/apt/apt.conf.d/99-ci-reliability > /dev/null <<EOF
+          APT::Acquire::Retries "3";
+          APT::Acquire::http::Timeout "30";
+          APT::Acquire::https::Timeout "30";
+          APT::Acquire::ftp::Timeout "30";
+          APT::Get::Assume-Yes "true";
+          EOF
       - name: Install playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         env:
