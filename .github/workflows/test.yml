@@ -51,9 +51,6 @@ jobs:
     name: Testkit Unit Tests
     if: ${{ inputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.49.1-jammy
-      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
         with:
@@ -65,6 +62,8 @@ jobs:
       - id: determine-since-flag
         uses: ./.github/actions/determine-lerna-since-flag
       - uses: ./.github/actions/download-builds
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
       - name: Run Unit Tests
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
