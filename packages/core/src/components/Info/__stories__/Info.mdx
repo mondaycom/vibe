@@ -1,0 +1,211 @@
+import { Meta } from "@storybook/blocks";
+import {
+  TOOLTIP,
+  TIPSEEN
+} from "../../../storybook/components/related-components/component-description-map";
+import * as InfoStories from "./Info.stories";
+import Info from "../Info";
+import { Box } from "../../Box";
+import { Text } from "../../Text";
+import { Flex } from "../../Flex";
+
+<Meta of={InfoStories} />
+
+# Info
+
+Info is a small interactive component that displays additional contextual information in a dialog when clicked. It uses an info icon button to trigger a popover containing a title, body text, and optional link.
+
+## Import path
+
+```tsx
+import { Info } from "@vibe/core";
+```
+
+## Overview
+
+<Canvas of={InfoStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use Info when you need to provide supplemental information that doesn't fit in tooltips due to length or complexity.",
+    "Info dialogs should contain helpful context without requiring immediate action from the user.",
+    "Position the Info component close to the content it relates to for clear association.",
+    "Include a link when users might need to access more detailed information or take action."
+  ]}
+/>
+
+## Variants
+
+### Content Types
+
+Info components can display different combinations of content based on what information you need to convey.
+
+#### Title Only
+
+Use when you need to provide a brief clarification or label.
+
+<Canvas of={InfoStories.WithTitleOnly} />
+
+#### Body Only
+
+Use for simple explanations that don't need a title.
+
+<Canvas of={InfoStories.WithBodyOnly} />
+
+#### Link Only
+
+Use when you want to provide a direct pathway to more information.
+
+<Canvas of={InfoStories.WithLinkOnly} />
+
+### Content Combinations
+
+You can combine different content types to create more comprehensive information dialogs.
+
+#### Title and Body
+
+<Canvas of={InfoStories.WithTitleAndBody} />
+
+#### Title and Link
+
+<Canvas of={InfoStories.WithTitleAndLink} />
+
+#### Body and Link
+
+<Canvas of={InfoStories.WithBodyAndLink} />
+
+### Positioning
+
+Info dialogs can be positioned relative to the info button in various ways to best fit your layout.
+
+<Canvas of={InfoStories.Positions} />
+
+### External Links
+
+Info can contain links that open in new tabs or windows for external resources.
+
+<Canvas of={InfoStories.WithCustomLink} />
+
+### Disabled State
+
+Info can be disabled when the information is not relevant in the current context.
+
+<Canvas of={InfoStories.Disabled} />
+
+### In Context
+
+Info components work well when placed inline with other content to provide contextual help.
+
+<Canvas of={InfoStories.InContext} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Box>
+            <Flex gap="small" align="center">
+              <Text>Processing status</Text>
+              <Info
+                title="What does this mean?"
+                body="Your data is being validated and transformed according to your specifications. This process ensures data quality and consistency."
+                ariaLabel="Information about processing status"
+              />
+            </Flex>
+          </Box>
+        ),
+        description: "Provide clear, helpful context that enhances user understanding without cluttering the interface."
+      },
+      negative: {
+        component: (
+          <Box>
+            <Flex gap="small" align="center">
+              <Text>Click here</Text>
+              <Info
+                title="Click here"
+                body="Click the text to the left"
+                ariaLabel="Redundant information"
+              />
+            </Flex>
+          </Box>
+        ),
+        description: "Don't repeat information that's already visible or provide obvious instructions."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Box>
+            <Flex gap="small" align="center">
+              <Text>Data retention period</Text>
+              <Info
+                title="Data retention policy"
+                body="Your data is automatically deleted after 90 days of inactivity. You can extend this period in your account settings."
+                link={{ text: "Manage retention settings", href: "#" }}
+                ariaLabel="Information about data retention"
+              />
+            </Flex>
+          </Box>
+        ),
+        description: "Use Info to explain policies, processes, or concepts that users might need clarification about."
+      },
+      negative: {
+        component: (
+          <Box>
+            <Info
+              title="Error!"
+              body="Something went wrong. Please try again."
+              ariaLabel="Error information"
+            />
+          </Box>
+        ),
+        description: "Don't use Info for error messages or critical alerts that require immediate attention. Use appropriate alert components instead."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Box>
+            <Text>Advanced settings</Text>
+            <Box marginTop="small">
+              <Flex gap="small" align="center">
+                <Text>Cache timeout (seconds)</Text>
+                <Info
+                  body="Controls how long data is cached before being refreshed. Lower values ensure fresher data but may impact performance."
+                  ariaLabel="Information about cache timeout"
+                />
+              </Flex>
+            </Box>
+          </Box>
+        ),
+        description: "Position Info close to the content it explains to create clear associations for users."
+      },
+      negative: {
+        component: (
+          <Box>
+            <Flex justify="space-between" align="center">
+              <Text>Cache timeout (seconds)</Text>
+              <Info
+                body="This explains the cache timeout setting that appears on the left side of this container."
+                ariaLabel="Distant information"
+              />
+            </Flex>
+          </Box>
+        ),
+        description: "Don't place Info components far from the content they relate to, as this creates confusion about what the information applies to."
+      }
+    }
+  ]}
+/>
+
+## Related Components
+
+<RelatedComponents componentsNames={[TOOLTIP, TIPSEEN]} />
