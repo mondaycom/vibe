@@ -32,6 +32,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onKeyDown,
     onClear,
     onOptionRemove,
+    loading = false,
     size = "medium"
   } = props;
 
@@ -127,7 +128,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     closeMenuOnSelect,
     size,
     getDropdownProps,
-    toggleMenu
+    toggleMenu,
+    loading
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;

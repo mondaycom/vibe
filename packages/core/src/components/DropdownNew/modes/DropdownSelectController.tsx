@@ -27,6 +27,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onClear,
     onFocus,
     onBlur,
+    loading = false,
     size = "medium"
   } = props;
 
@@ -97,7 +98,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onClear,
     size,
     toggleMenu,
-    isFocused
+    isFocused,
+    loading
   };
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
