@@ -58,6 +58,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Fix container permissions
+        run: |
+          # Fix git ownership issues in container
+          git config --global --add safe.directory /__w/vibe/vibe
+          git config --global --add safe.directory '*'
+          # Fix Docker config permission warning
+          mkdir -p /root/.docker
+          echo '{}' > /root/.docker/config.json
+          chmod 600 /root/.docker/config.json
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
