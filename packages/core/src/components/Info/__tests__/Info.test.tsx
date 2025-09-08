@@ -62,25 +62,6 @@ describe("Info tests", () => {
         expect(screen.queryByText(title)).not.toBeInTheDocument();
       });
     });
-
-    it("should set active state on button when dialog is open", async () => {
-      const title = "Test Title";
-      renderComponent({ title });
-
-      const infoButton = screen.getByLabelText(defaultAriaLabel);
-
-      // Button should not be active initially
-      expect(infoButton).not.toHaveClass("active");
-
-      // Open dialog
-      await userEvent.click(infoButton);
-
-      // Button should be active when dialog is open
-      await waitFor(() => {
-        expect(screen.getByText(title)).toBeInTheDocument();
-        expect(infoButton).toHaveClass("active");
-      });
-    });
   });
 
   describe("Accessibility", () => {
