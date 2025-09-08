@@ -47,6 +47,28 @@ import { BreadcrumbsBar } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>type="navigation"</code> prop when breadcrumbs are clickable for navigation. This automatically
+      enables keyboard navigation and proper button/link semantics.
+    </>,
+    <>
+      For clickable breadcrumbs, ensure all items have descriptive <code>text</code> props that clearly indicate what
+      section or page they represent.
+    </>,
+    <>
+      When using icons in breadcrumbs, ensure they are purely decorative and don't replace the descriptive text, as
+      screen readers will announce the text content.
+    </>,
+    <>
+      Use the <code>isCurrent</code> prop on BreadcrumbItem to mark the current page. This ensures screen readers
+      understand the user's current location in the navigation hierarchy.
+    </>
+  ]}
+/>
 <TipCheckYourself />
 
 ## Variants
