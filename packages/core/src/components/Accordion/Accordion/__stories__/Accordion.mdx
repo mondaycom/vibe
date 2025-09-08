@@ -51,20 +51,8 @@ import { Accordion, AccordionItem } from "@vibe/core";
       and their controlled content regions.
     </>,
     <>
-      AccordionItem automatically receives <code>aria-expanded</code> and <code>aria-controls</code> attributes. The
-      button is automatically linked to its content region using these attributes.
-    </>,
-    <>
-      When expanded, AccordionItem content receives <code>role="region"</code> to identify it as a landmark for screen
-      readers.
-    </>,
-    <>
       Use descriptive <code>title</code> props for AccordionItem headers that clearly indicate what content will be
       revealed when expanded.
-    </>,
-    <>
-      Use <code>allowMultiple</code> prop appropriately. Set to <code>true</code> when users may need to reference
-      multiple sections simultaneously, or <code>false</code> when sections are mutually exclusive.
     </>,
     <>
       Use the <code>defaultIndex</code> prop to set initial expanded states appropriately. Avoid auto-expanding too many
