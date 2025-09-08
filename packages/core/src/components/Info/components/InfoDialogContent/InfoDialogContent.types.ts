@@ -2,6 +2,10 @@ import { type InfoLinkProps } from "../InfoLink/InfoLink";
 
 export interface InfoDialogContentProps {
   /**
+   * An HTML id attribute for the dialog content container.
+   */
+  id: string;
+  /**
    * The title text displayed at the top of the info dialog.
    */
   title?: string;

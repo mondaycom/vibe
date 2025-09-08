@@ -50,7 +50,7 @@ const Info = forwardRef(
         hideTrigger={["click", "clickoutside", "esckey"]}
         onDialogDidShow={handleDialogShow}
         onDialogDidHide={handleDialogHide}
-        content={<InfoDialogContent title={title} body={body} link={link} className={dialogClassName} />}
+        content={<InfoDialogContent id={dialogId} title={title} body={body} link={link} className={dialogClassName} />}
       >
         <IconButton
           ref={ref}

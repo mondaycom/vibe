@@ -5,13 +5,13 @@ import InfoLink from "../InfoLink/InfoLink";
 import { type InfoDialogContentProps } from "./InfoDialogContent.types";
 import styles from "./InfoDialogContent.module.scss";
 
-const InfoDialogContent = ({ title, body, link, className }: InfoDialogContentProps) => {
+const InfoDialogContent = ({ id, title, body, link, className }: InfoDialogContentProps) => {
   if (!title && !body && !link) {
     return null;
   }
 
   return (
-    <DialogContentContainer type="popover" size="medium" className={cx(styles.dialogContent, className)}>
+    <DialogContentContainer id={id} type="popover" size="medium" className={cx(styles.dialogContent, className)}>
       <Flex align="start" direction="column" className={styles.contentWrapper}>
         {title && (
           <Text type="text2" weight="bold">
