@@ -1,0 +1,1 @@
+import{j as s}from"./jsx-runtime-lwGtIXvq.js";import{c as t}from"./index-BpvXyOxN.js";var r={frame:"frame-module_frame__0mDDi",noBorder:"frame-module_noBorder__KZ24s",noGutter:"frame-module_noGutter__Y1s2j"};const f=({children:e,className:o,noGutter:m=!1,noBorder:a=!1})=>s.jsx("div",{className:t(r.frame,o,{[r.noGutter]:m,[r.noBorder]:a}),children:e});export{f as s};

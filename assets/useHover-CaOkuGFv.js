@@ -1,0 +1,1 @@
+import{r}from"./index-CTZeEbLr.js";function v(){const[u,s]=r.useState(!1),t=r.useRef(null),o=()=>s(!0),n=()=>s(!1);return r.useEffect(()=>{const e=t.current;if(e)return e.addEventListener("mouseover",o),e.addEventListener("mouseout",n),()=>{e.removeEventListener("mouseover",o),e.removeEventListener("mouseout",n)}},[t.current]),[t,u]}export{v as u};
