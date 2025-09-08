@@ -1,8 +1,3 @@
-export const BANNER_EVENTS = {
-  MONDAY_VIBE_BANNER_VIEWED: "monday_vibe_vibe_ds_banner_viewed",
-  MONDAY_VIBE_BANNER_BUTTON_CLICKED: "monday_vibe_vibe_ds_banner_button_clicked"
-} as const;
-
 export const trackEvent = ({ name, data }: { name: string; data: Record<string, unknown> }): void => {
   if (process.env.NODE_ENV === "development") {
     console.log("[BigBrain Event]", { name, data });
@@ -22,16 +17,9 @@ export const trackEvent = ({ name, data }: { name: string; data: Record<string, 
   }).catch(() => {});
 };
 
-export function trackBannerViewed(): void {
-  trackEvent({
-    name: BANNER_EVENTS.MONDAY_VIBE_BANNER_VIEWED,
-    data: {}
-  });
-}
-
 export function trackBannerButtonClicked(): void {
   trackEvent({
-    name: BANNER_EVENTS.MONDAY_VIBE_BANNER_BUTTON_CLICKED,
+    name: "ai_app_design_system_redirect",
     data: {}
   });
 }
