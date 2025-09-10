@@ -3,7 +3,7 @@ import ColorDescription from '../color-description';
 
 const meta: Meta<typeof ColorDescription> = {
   component: ColorDescription,
-  title: 'Components/ColorDescription',
+  title: 'Storybook Blocks/ColorDescription',
 };
 export default meta;
 

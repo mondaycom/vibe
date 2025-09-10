@@ -3,7 +3,7 @@ import ComponentName from '../component-name';
 
 const meta: Meta<typeof ComponentName> = {
   component: ComponentName,
-  title: 'Components/ComponentName',
+  title: 'Storybook Blocks/ComponentName',
 };
 export default meta;
 

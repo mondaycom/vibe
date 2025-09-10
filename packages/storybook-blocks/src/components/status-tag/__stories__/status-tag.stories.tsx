@@ -4,7 +4,7 @@ import Flex from '../../../helpers/components/Flex/Flex';
 
 const meta: Meta<typeof StatusTag> = {
   component: StatusTag,
-  title: 'Components/StatusTag',
+  title: 'Storybook Blocks/StatusTag',
 };
 export default meta;
 

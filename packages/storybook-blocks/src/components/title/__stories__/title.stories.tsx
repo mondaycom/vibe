@@ -3,7 +3,7 @@ import Title from '../title';
 
 const meta: Meta<typeof Title> = {
   component: Title,
-  title: 'Components/Title',
+  title: 'Storybook Blocks/Title',
 };
 export default meta;
 
