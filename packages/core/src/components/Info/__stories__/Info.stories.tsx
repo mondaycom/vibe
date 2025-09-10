@@ -113,20 +113,3 @@ export const Disabled: Story = {
     />
   )
 };
-
-export const InContext: Story = {
-  render: () => (
-    <Box border padding="medium" rounded="medium">
-      <Flex gap="small" align="center">
-        <Text>Data processing status</Text>
-        <Info
-          id="context-info"
-          aria-label="Information about data processing"
-          title="Processing details"
-          body="Your data is currently being processed. This includes validation, transformation, and indexing steps. The process typically takes 5-10 minutes."
-          link={{ text: "View processing logs", href: "#" }}
-        />
-      </Flex>
-    </Box>
-  )
-};
