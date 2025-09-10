@@ -12,7 +12,7 @@ interface BaseInfoProps {
   /**
    * The main body text content displayed in the info dialog.
    */
-  body?: string;
+  body: string;
   /**
    * Link configuration for the info dialog.
    */
