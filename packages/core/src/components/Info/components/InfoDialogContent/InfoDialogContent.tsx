@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import { DialogContentContainer, Text, Flex } from "../../../";
+import { DialogContentContainer } from "../../../DialogContentContainer";
+import { Text } from "../../../Text";
+import { Flex } from "../../../Flex";
 import InfoLink from "../InfoLink/InfoLink";
 import { type InfoDialogContentProps } from "./InfoDialogContent.types";
 import styles from "./InfoDialogContent.module.scss";
