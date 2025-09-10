@@ -9,187 +9,74 @@ import { Box } from "../../Box";
 type Story = StoryObj<typeof Info>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Info
+  component: Info,
+  enumPropNamesArray: ["position"],
+  actionPropsArray: ["onDialogShow", "onDialogHide"]
 });
 
 export default {
   title: "Components/Info",
   component: Info,
   argTypes: {
-    ...metaSettings.argTypes,
-    position: {
-      control: {
-        type: "select"
-      },
-      options: [
-        "left",
-        "left-start",
-        "left-end",
-        "right",
-        "right-start",
-        "right-end",
-        "top",
-        "top-start",
-        "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end"
-      ]
-    }
+    ...metaSettings.argTypes
   },
-  decorators: [
-    ...metaSettings.decorators,
-    Story => (
-      <Box padding="large">
-        <Story />
-      </Box>
-    )
-  ]
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof Info>;
 
 export const Overview: Story = {
-  render: args => (
-    <Info
-      id="overview-info"
-      aria-label="Overview information"
-      title="Placement: Bottom start"
-      body="Message will appear here, to give more context related information. This is meant for detailed supplemental information, where tooltips do not suffice."
-      link={{ text: "Learn more about content", href: "#" }}
-      {...args}
-    />
-  )
+  render: args => <Info {...args} />,
+  args: {
+    id: "overview-info",
+    body: "Message will appear here, to give more context related information. This is meant for detailed supplemental information, where tooltips do not suffice. This is not the place for critical information for task-completion but rather paragraph-like text serving as supplemental info.",
+    link: { text: "Learn more about content", href: "#" },
+    title: "Placement: Bottom start",
+    "aria-label": "Overview information"
+  }
 };
 
-export const WithTitleOnly: Story = {
-  render: () => <Info id="title-only-info" aria-label="Information about title" title="This is a title" />
-};
-
-export const WithBodyOnly: Story = {
+export const Directions: Story = {
   render: () => (
-    <Info
-      id="body-only-info"
-      aria-label="Additional information"
-      body="This message provides additional context without a title. It's useful for simple explanations."
-    />
-  )
-};
-
-export const WithLinkOnly: Story = {
-  render: () => (
-    <Info
-      id="link-only-info"
-      aria-label="Learn more information"
-      link={{ text: "Learn more", href: "https://example.com" }}
-    />
-  )
-};
-
-export const WithTitleAndBody: Story = {
-  render: () => (
-    <Info
-      id="title-body-info"
-      aria-label="Information about data processing"
-      title="Data processing"
-      body="Your data is being processed and will be available shortly. This may take a few minutes depending on the size of your dataset."
-    />
-  )
-};
-
-export const WithTitleAndLink: Story = {
-  render: () => (
-    <Info
-      id="title-link-info"
-      aria-label="Information about feature availability"
-      title="Feature unavailable"
-      link={{ text: "Contact support", href: "#" }}
-    />
-  )
-};
-
-export const WithBodyAndLink: Story = {
-  render: () => (
-    <Info
-      id="body-link-info"
-      aria-label="Information about permissions"
-      body="This feature requires additional permissions to access your data."
-      link={{ text: "Learn about permissions", href: "#" }}
-    />
-  )
-};
-
-export const Positions: Story = {
-  render: () => (
-    <Box padding="large" style={{ padding: "var(--space-48)" }}>
-      <Flex gap={48} justify="center" align="center" style={{ minHeight: "400px" }}>
-        <Flex direction="column" gap="large" align="center">
-          <Text weight="bold">Top positions</Text>
-          <Flex gap="medium">
-            <Info
-              id="top-start-info"
-              aria-label="Top start info"
-              title="Top start"
-              body="Positioned at top-start"
-              position="top-start"
-            />
-            <Info
-              id="top-center-info"
-              aria-label="Top center info"
-              title="Top center"
-              body="Positioned at top"
-              position="top"
-            />
-            <Info
-              id="top-end-info"
-              aria-label="Top end info"
-              title="Top end"
-              body="Positioned at top-end"
-              position="top-end"
-            />
-          </Flex>
+    <Flex justify="center" align="center" style={{ minHeight: "400px", width: "100%" }}>
+      <Box
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "1fr 1fr",
+          gap: "var(--space-48)",
+          alignItems: "center",
+          justifyItems: "center"
+        }}
+      >
+        <Flex direction="column" gap="medium" align="center">
+          <Text id="bottom-direction" align="center" type="text1" weight="medium" ellipsis={false}>
+            Bottom
+          </Text>
+          <Info
+            aria-labelledby="bottom-direction"
+            body="This dialog's direction is from the bottom"
+            position="bottom"
+          />
         </Flex>
-
-        <Flex direction="column" gap="large" align="center">
-          <Text weight="bold">Side positions</Text>
-          <Flex gap="medium">
-            <Info id="left-info" aria-label="Left info" title="Left" body="Positioned to the left" position="left" />
-            <Info
-              id="right-info"
-              aria-label="Right info"
-              title="Right"
-              body="Positioned to the right"
-              position="right"
-            />
-          </Flex>
+        <Flex direction="column" gap="medium" align="center">
+          <Text id="left-direction" align="center" type="text1" weight="medium" ellipsis={false}>
+            Left
+          </Text>
+          <Info aria-labelledby="left-direction" body="This dialog's direction is from the left" position="left" />
         </Flex>
-
-        <Flex direction="column" gap="large" align="center">
-          <Text weight="bold">Bottom positions</Text>
-          <Flex gap="medium">
-            <Info
-              id="bottom-start-info"
-              aria-label="Bottom start info"
-              title="Bottom start"
-              body="Positioned at bottom-start"
-              position="bottom-start"
-            />
-            <Info
-              id="bottom-center-info"
-              aria-label="Bottom center info"
-              title="Bottom center"
-              body="Positioned at bottom"
-              position="bottom"
-            />
-            <Info
-              id="bottom-end-info"
-              aria-label="Bottom end info"
-              title="Bottom end"
-              body="Positioned at bottom-end"
-              position="bottom-end"
-            />
-          </Flex>
+        <Flex direction="column" gap="medium" align="center">
+          <Text id="right-direction" align="center" type="text1" weight="medium" ellipsis={false}>
+            Right
+          </Text>
+          <Info aria-labelledby="right-direction" body="This dialog's direction is from the right" position="right" />
         </Flex>
-      </Flex>
-    </Box>
+        <Flex direction="column" gap="medium" align="center">
+          <Text id="top-direction" align="center" type="text1" weight="medium" ellipsis={false}>
+            Top
+          </Text>
+          <Info aria-labelledby="top-direction" body="This dialog's direction is from the top" position="top" />
+        </Flex>
+      </Box>
+    </Flex>
   )
 };
 
