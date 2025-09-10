@@ -31,6 +31,11 @@ export const Overview: Story = {
     link: { text: "Learn more about content", href: "#" },
     title: "Placement: Bottom start",
     "aria-label": "Overview information"
+  },
+  parameters: {
+    docs: {
+      liveEdit: { isEnabled: false }
+    }
   }
 };
 
