@@ -19,7 +19,8 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
   filterOption?: (option: T, inputValue: string) => boolean,
-  showSelectedOptions?: boolean
+  showSelectedOptions?: boolean,
+  id?: string
 ) {
   // Use controlled value if provided, otherwise use internal state
   const currentSelectedItems = value !== undefined ? value : selectedItems;
@@ -62,6 +63,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     initialInputValue: inputValueProp || "",
+    id,
     onIsOpenChange: ({ isOpen }) => {
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
