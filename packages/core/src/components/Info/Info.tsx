@@ -1,10 +1,12 @@
-import React, { forwardRef, useCallback, useState } from "react";
+import React, { forwardRef, useCallback, useRef, useState } from "react";
 import { Info as InfoIcon } from "@vibe/icons";
 import { IconButton, Dialog } from "../../";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
+import useMergeRef from "../../hooks/useMergeRef";
+import { type DialogEvent } from "../Dialog/Dialog";
 
 const Info = forwardRef(
   (
@@ -26,6 +28,11 @@ const Info = forwardRef(
     }: InfoProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
+    const iconButtonRef = useRef<HTMLButtonElement>(null);
+    const mergedRef = useMergeRef(ref, iconButtonRef);
+    const dialogRef = useRef<Dialog>(null);
+    const dialogContentRef = useRef<HTMLDivElement>(null);
+
     const [isOpen, setIsOpen] = useState(false);
 
     const dialogId = id ? `${id}-dialog` : undefined;
@@ -33,15 +40,25 @@ const Info = forwardRef(
     const handleDialogShow = useCallback(() => {
       setIsOpen(true);
       onDialogShow?.();
+      requestAnimationFrame(() => {
+        dialogContentRef.current?.focus();
+      });
     }, [onDialogShow]);
 
-    const handleDialogHide = useCallback(() => {
-      setIsOpen(false);
-      onDialogHide?.();
-    }, [onDialogHide]);
+    const handleDialogHide = useCallback(
+      (e: DialogEvent) => {
+        setIsOpen(false);
+        onDialogHide?.();
+        if ((e as React.KeyboardEvent).key === "Escape") {
+          iconButtonRef.current?.focus();
+        }
+      },
+      [onDialogHide]
+    );
 
     return (
       <Dialog
+        ref={dialogRef}
         id={dialogId}
         disable={disabled}
         position={position}
@@ -50,10 +67,20 @@ const Info = forwardRef(
         hideTrigger={["click", "clickoutside", "esckey"]}
         onDialogDidShow={handleDialogShow}
         onDialogDidHide={handleDialogHide}
-        content={<InfoDialogContent id={dialogId} title={title} body={body} link={link} className={dialogClassName} />}
+        content={
+          <InfoDialogContent
+            ref={dialogContentRef}
+            id={dialogId}
+            title={title}
+            body={body}
+            link={link}
+            className={dialogClassName}
+          />
+        }
+        hideWhenReferenceHidden
       >
         <IconButton
-          ref={ref}
+          ref={mergedRef}
           id={id}
           className={className}
           icon={InfoIcon}
