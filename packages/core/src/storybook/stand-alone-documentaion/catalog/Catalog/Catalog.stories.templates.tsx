@@ -6,7 +6,7 @@ import Search from "../../../../components/Search/Search";
 import { CatalogEmptyState } from "../EmptyState/Catalog.stories.EmptyState";
 import Flex from "../../../../components/Flex/Flex";
 
-const RELATED_COMPONENT_NAMES = Array.from(DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP.keys())
+const RELATED_COMPONENT_NAMES: string[] = Array.from(DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP.keys())
   .map(name => name.toLowerCase())
   .sort();
 
