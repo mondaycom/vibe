@@ -48,7 +48,10 @@ export default {
   },
   typescript: {
     check: true,
-    reactDocgen: "react-docgen-typescript"
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      include: [path.resolve(__dirname, "../src/**/*"), path.resolve(__dirname, "../../*/src/**/*")]
+    }
   },
   staticDirs: ["./static"],
   async viteFinal(config, { configType }) {
