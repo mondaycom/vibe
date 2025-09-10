@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./TableHeader.module.scss";
 import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";

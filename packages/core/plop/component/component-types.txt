@@ -1,4 +1,4 @@
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 export interface {{properCase componentName}}Props extends VibeComponentProps {
   /**

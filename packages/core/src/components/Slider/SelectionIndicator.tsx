@@ -3,7 +3,7 @@ import { debounce } from "es-toolkit";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { type InfixKind } from "./Slider.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./SelectionIndicator.module.scss";
 
 const VALUE_UPDATE_DELAY = 300;

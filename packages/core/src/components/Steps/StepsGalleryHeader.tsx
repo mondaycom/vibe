@@ -2,7 +2,7 @@ import React, { type FC, useCallback, useMemo } from "react";
 import { range } from "es-toolkit";
 import cx from "classnames";
 import { StepsDot } from "./StepsDot";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./StepsGalleryHeader.module.scss";
 import { type StepsColor } from "./Steps.types";
 

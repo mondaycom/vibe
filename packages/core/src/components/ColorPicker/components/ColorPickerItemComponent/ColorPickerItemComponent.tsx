@@ -11,7 +11,8 @@ import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { type SubIcon, type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type SubIcon, type ElementContent, type ColorStyle } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {

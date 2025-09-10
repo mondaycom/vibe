@@ -17,7 +17,8 @@ import {
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";

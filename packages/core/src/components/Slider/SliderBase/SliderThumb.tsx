@@ -3,7 +3,7 @@ import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";

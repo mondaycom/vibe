@@ -3,7 +3,8 @@ import { InfixKind as InfixKindEnum } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./SliderInfix.module.scss";
 import { type InfixKind } from "./Slider.types";
 

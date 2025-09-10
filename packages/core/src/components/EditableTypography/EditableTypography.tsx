@@ -1,7 +1,7 @@
 import React, { type ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";

@@ -3,7 +3,7 @@ import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";

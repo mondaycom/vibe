@@ -15,7 +15,8 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,

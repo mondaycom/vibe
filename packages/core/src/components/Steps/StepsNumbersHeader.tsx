@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type FC, useMemo } from "react";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import Text from "../Text/Text";
 import styles from "./StepsNumbersHeader.module.scss";
 import { type StepsColor } from "./Steps.types";

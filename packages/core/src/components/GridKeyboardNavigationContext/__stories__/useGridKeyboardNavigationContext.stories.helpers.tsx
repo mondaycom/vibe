@@ -6,7 +6,7 @@ import { Button, Flex } from "../..";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import "./useGridKeyboardNavigationContext.stories.scss";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
-import { type VibeComponent } from "src/types";
+import { type VibeComponent } from "@vibe/shared";
 const ELEMENT_WIDTH_PX = 72;
 const PADDING_PX = 24;
 

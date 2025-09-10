@@ -1,5 +1,5 @@
 import { type ModalFooterBaseProps } from "../ModalFooterBase/ModalFooterBase.types";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 export interface ModalFooterWizardProps
   extends Required<Pick<ModalFooterBaseProps, "primaryButton" | "secondaryButton">>,

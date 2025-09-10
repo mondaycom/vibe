@@ -7,7 +7,8 @@ import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./Step
 import { type StepsColor, type StepsType } from "./Steps.types";
 import { type ButtonProps } from "../Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, type VibeComponentProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./Steps.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

@@ -1,5 +1,5 @@
 import React, { type ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
 import { FixedSizeList as List, type ListChildComponentProps, type ScrollDirection } from "react-window";

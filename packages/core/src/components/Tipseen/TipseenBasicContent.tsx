@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import TipseenTitle from "./TipseenTitle";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type ElementContent } from "../../types/ElementContent";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";

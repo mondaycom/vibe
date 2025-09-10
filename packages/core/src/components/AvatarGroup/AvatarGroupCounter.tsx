@@ -6,7 +6,7 @@ import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";

@@ -1,7 +1,8 @@
 import React, { forwardRef } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
-import { type VibeComponentProps, type SubIcon } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
+import { type SubIcon } from "../../../../types";
 import { NOOP } from "../../../../utils/function-utils";
 import styles from "./ColorPickerClearButton.module.scss";
 

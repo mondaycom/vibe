@@ -2,7 +2,7 @@ import React, { type ReactElement, useMemo } from "react";
 import cx from "classnames";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { type TooltipProps } from "../Tooltip/Tooltip";

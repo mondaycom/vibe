@@ -7,7 +7,8 @@ import { type IconType } from "./Icon.types";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
+import { type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface IconSubComponentProps {

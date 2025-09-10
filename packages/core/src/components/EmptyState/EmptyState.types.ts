@@ -1,6 +1,6 @@
 import type React from "react";
 import { type LinkProps } from "../Link/Link";
-import { type VibeComponentProps } from "src/types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type ButtonProps, type ButtonType } from "../Button";
 
 export type EmptyStateLayout = "default" | "compact";

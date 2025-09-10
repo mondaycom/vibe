@@ -1,6 +1,6 @@
 import React, { type CSSProperties, type ReactElement, type Ref, useMemo } from "react";
 import { VirtualizedList, type VirtualizedListItem } from "../VirtualizedList";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type AvatarType } from "../Avatar/Avatar.types";
 import { type AvatarProps } from "../Avatar/Avatar";
 import { type ElementContent } from "../../types";

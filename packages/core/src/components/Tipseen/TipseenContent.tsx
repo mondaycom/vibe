@@ -3,7 +3,7 @@ import cx from "classnames";
 import Button from "../../components/Button/Button";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";

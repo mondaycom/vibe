@@ -10,7 +10,8 @@ import {
 import { type LinearProgressBarSize, type LinearProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { withStaticProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";

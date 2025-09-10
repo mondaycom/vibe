@@ -16,7 +16,8 @@ import Clickable from "../../../../components/Clickable/Clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
-import { type SubIcon, type VibeComponentProps } from "../../../../types";
+import { type SubIcon } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 

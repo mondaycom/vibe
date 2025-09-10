@@ -3,7 +3,7 @@ import cx from "classnames";
 import ListItem, { type ListItemProps } from "../../../components/ListItem/ListItem";
 import ListTitle, { type ListTitleProps } from "../../ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
 import styles from "./VirtualizedListItems.module.scss";
 

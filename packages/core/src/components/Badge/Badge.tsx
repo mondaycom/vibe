@@ -16,7 +16,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type IndicatorColor } from "./Indicator/IndicatorConstants";
 import { type CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   /**

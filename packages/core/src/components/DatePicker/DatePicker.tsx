@@ -15,7 +15,7 @@ import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, type Moment, type RangeDate } from "./types";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";

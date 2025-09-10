@@ -10,7 +10,7 @@ import {
 } from "react-select";
 import { type UIEventHandler, type WheelEventHandler } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 export type DropdownOption = any;
 

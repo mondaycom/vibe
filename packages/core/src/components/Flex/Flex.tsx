@@ -9,7 +9,8 @@ import {
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
 import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
-import { type ElementContent, withStaticProps, type VibeComponentProps } from "../../types";
+import { type ElementContent, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
 import { camelCase } from "es-toolkit";

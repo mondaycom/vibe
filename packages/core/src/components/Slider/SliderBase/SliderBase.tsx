@@ -16,7 +16,7 @@ import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderBase.module.scss";

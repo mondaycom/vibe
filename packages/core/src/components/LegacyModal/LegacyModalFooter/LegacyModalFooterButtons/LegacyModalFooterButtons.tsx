@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import Flex from "../../../Flex/Flex";

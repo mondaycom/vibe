@@ -14,7 +14,7 @@ import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { keyCodes } from "../../../constants";
 import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
 import type * as PopperJS from "@popperjs/core";

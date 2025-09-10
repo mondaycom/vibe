@@ -1,5 +1,5 @@
 import { type AriaRole, type InputHTMLAttributes, type ReactNode } from "react";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type BASE_SIZES } from "../../constants";
 
 export type InputSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
