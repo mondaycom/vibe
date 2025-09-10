@@ -95,7 +95,12 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: "", isOpen: true };
+          return {
+            ...actionAndChanges.changes,
+            inputValue: "",
+            isOpen: true,
+            highlightedIndex: (actionAndChanges.changes.selectedItem?.index as number) ?? 0
+          };
         case useCombobox.stateChangeTypes.InputBlur:
           return { ...actionAndChanges.changes, inputValue: "" };
         default:

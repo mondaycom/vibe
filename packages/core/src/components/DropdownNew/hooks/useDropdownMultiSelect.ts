@@ -67,11 +67,9 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     stateReducer: (state, actionAndChanges) => {
       const { type, changes } = actionAndChanges;
       switch (type) {
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
         case useSelect.stateChangeTypes.ItemClick:
-          return {
-            ...changes,
-            isOpen: true
-          };
+          return { ...changes, isOpen: true, highlightedIndex: (changes.selectedItem?.index as number) ?? 0 };
         default:
           return changes;
       }
