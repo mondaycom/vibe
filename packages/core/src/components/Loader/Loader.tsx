@@ -3,7 +3,8 @@ import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
 import { type LoaderColors, type LoaderSize, type LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 

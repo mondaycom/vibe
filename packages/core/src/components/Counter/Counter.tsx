@@ -13,7 +13,8 @@ import {
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./Counter.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

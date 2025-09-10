@@ -1,7 +1,7 @@
 import React, { type FC, type ReactElement } from "react";
 import cx from "classnames";
 import Text from "../../Text/Text";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./LegacyModalContent.module.scss";

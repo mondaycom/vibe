@@ -6,7 +6,8 @@ import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import Icon from "../Icon/Icon";
-import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {

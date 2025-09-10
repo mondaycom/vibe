@@ -6,7 +6,7 @@ import Button, { type ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
 import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
 import { type StepsColor } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
 import { camelCase } from "es-toolkit";

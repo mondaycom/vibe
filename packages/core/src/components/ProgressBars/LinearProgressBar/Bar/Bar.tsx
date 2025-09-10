@@ -4,7 +4,7 @@ import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type LinearProgressBarStyle } from "../LinearProgressBar.types";
 import styles from "./Bar.module.scss";
 

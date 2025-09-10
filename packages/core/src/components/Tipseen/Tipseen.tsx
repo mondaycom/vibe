@@ -13,7 +13,8 @@ import {
   TipseenColor as TipseenColorEnum
 } from "./TipseenConstants";
 import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type MoveBy } from "../../types/MoveBy";
 import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";

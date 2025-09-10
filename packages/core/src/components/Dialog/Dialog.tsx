@@ -12,7 +12,7 @@ import {
   HideShowEvent as DialogTriggerEventEnum,
   DialogPosition as DialogPositionEnum
 } from "./DialogConstants";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import type * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";

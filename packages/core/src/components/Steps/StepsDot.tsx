@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { noop as NOOP, camelCase } from "es-toolkit";
 import { type StepsColor, type StepsDotAriaCurrent } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import React, { type FC } from "react";
 import styles from "./StepsDot.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

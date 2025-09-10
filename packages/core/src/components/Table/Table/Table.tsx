@@ -8,7 +8,8 @@ import React, {
   useState
 } from "react";
 import cx from "classnames";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../../types";
+import { type SubIcon, withStaticProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type TableHeaderProps } from "../TableHeader/TableHeader";
 import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";

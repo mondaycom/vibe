@@ -2,7 +2,8 @@ import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./FormattedNumber.module.scss";
 

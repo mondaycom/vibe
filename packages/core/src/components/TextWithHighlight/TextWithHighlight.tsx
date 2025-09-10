@@ -5,7 +5,7 @@ import Tooltip, { type TooltipProps } from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./TextWithHighlight.module.scss";
 import { type TooltipPositions } from "../Tooltip/Tooltip.types";
 

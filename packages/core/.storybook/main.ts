@@ -71,7 +71,8 @@ export default {
           "~monday-ui-style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
           "~monday-ui-style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
           "~monday-ui-style": path.resolve(__dirname, "../../style"),
-          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks")
+          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks"),
+          "@vibe/shared": path.resolve(__dirname, "../../shared/src/index.ts")
         }
       },
       define: {

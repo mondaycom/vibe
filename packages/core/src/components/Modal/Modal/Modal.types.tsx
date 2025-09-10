@@ -1,4 +1,4 @@
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import type React from "react";
 import { type ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
 import { type PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";

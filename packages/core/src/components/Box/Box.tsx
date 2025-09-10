@@ -33,7 +33,8 @@ import {
   type RoundedSize,
   type Shadow
 } from "./Box.types";
-import { type VibeComponentProps, withStaticProps, type ElementContent } from "../../types";
+import { withStaticProps, type ElementContent } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./Box.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";

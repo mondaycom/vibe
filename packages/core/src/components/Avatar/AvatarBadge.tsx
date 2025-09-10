@@ -8,7 +8,8 @@ import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
 import Icon from "../Icon/Icon";
-import { type VibeComponentProps, type SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
+import { type SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   /**

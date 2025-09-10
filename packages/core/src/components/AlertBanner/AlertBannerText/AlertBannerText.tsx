@@ -3,7 +3,7 @@ import cx from "classnames";
 import React, { type FC, useRef } from "react";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 
 import styles from "./AlertBannerText.module.scss";
 

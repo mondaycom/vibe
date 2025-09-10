@@ -4,7 +4,7 @@ import Flex from "../Flex/Flex";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type AvatarType } from "../Avatar/Avatar.types";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 

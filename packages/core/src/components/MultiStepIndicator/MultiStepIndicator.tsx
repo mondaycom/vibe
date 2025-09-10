@@ -13,7 +13,8 @@ import {
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {

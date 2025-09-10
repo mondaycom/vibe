@@ -7,7 +7,7 @@ import { type Modifier } from "react-popper";
 import Dialog from "../Dialog/Dialog";
 import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
 import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum } from "../Dialog/DialogConstants";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import { type ElementContent } from "../../types/ElementContent";
 import { type MoveBy } from "../../types/MoveBy";

@@ -1,5 +1,6 @@
 import type { ReactNode, MouseEvent } from "react";
-import type { VibeComponentProps, SubIcon } from "../../../types";
+import type { SubIcon } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import type { IconType } from "../../Icon/Icon.types";
 import type { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
 import type { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";

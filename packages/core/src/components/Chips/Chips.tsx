@@ -12,7 +12,8 @@ import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
-import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";

@@ -1,7 +1,8 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import Avatar from "../Avatar/Avatar";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";

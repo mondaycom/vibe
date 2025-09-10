@@ -7,7 +7,8 @@ import { type TabPanelsAnimationDirection } from "./TabPanels.types";
 import { type TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { withStaticProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {

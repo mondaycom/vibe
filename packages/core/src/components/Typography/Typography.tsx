@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { type ElementContent } from "../../types";

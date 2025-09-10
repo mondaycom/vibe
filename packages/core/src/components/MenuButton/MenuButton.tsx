@@ -8,7 +8,8 @@ import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum

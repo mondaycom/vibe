@@ -1,6 +1,6 @@
 import { type ButtonProps } from "../../../Button";
 import type React from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type TooltipProps } from "../../../Tooltip";
 
 export interface ModalFooterActionProps extends Omit<ButtonProps, "children" | "kind" | "size"> {

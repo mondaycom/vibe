@@ -5,7 +5,7 @@ import { StepsGalleryHeader, type StepsGalleryHeaderProps } from "./StepsGallery
 import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbersHeader";
 import { FINISH_TEXT } from "./StepsConstants";
 import { type StepsType, type StepsColor } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import Button, { type ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
 
